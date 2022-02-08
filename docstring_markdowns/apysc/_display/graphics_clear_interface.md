@@ -3232,10 +3232,6 @@ Unbind all mouse up events.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### clear method docstring
 
 Clear all graphics and reset fill and line settings.<hr>

@@ -232,10 +232,6 @@ Implement self+=value.
 
 Implement self*=value.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -330,10 +326,6 @@ Delete self[key].
 
 x.__getitem__(y) <==> x[y]
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -409,10 +401,6 @@ Delete self[key].
 ### __getitem__ method docstring
 
 x.__getitem__(y) <==> x[y]
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 

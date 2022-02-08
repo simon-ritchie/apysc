@@ -98,10 +98,6 @@ Implement self+=value.
 
 Implement self*=value.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -187,7 +183,3 @@ module(name[, doc]) Create a module object. The name must be a string; the optio
 ### __dir__ method docstring
 
 __dir__() -> list specialized dir() implementation
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.

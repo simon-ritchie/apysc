@@ -67,10 +67,6 @@ Return self+value.
 
 Formats self with strftime.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __radd__ method docstring
 
 Return value+self.

@@ -12,10 +12,6 @@ Deep copy operation on arbitrary Python objects. See the module's __doc__ string
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_copy_expression method docstring
 
 Append copy expression.<hr>
@@ -56,17 +52,9 @@ Get a previous variable name.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ## VariableNameInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 

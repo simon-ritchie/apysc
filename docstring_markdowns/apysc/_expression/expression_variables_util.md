@@ -123,10 +123,6 @@ tuple() -> empty tuple tuple(iterable) -> tuple initialized from iterable's item
 
 Return self[key].
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -162,10 +158,6 @@ T.index(value, [start, [stop]]) -> integer -- return first index of value. Raise
 ## VariableNameInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 

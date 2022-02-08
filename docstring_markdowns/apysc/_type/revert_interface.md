@@ -76,10 +76,6 @@ Helper class that provides a standard way to create an ABC using inheritance.
 
 Metaclass for defining Abstract Base Classes (ABCs). Use this metaclass to create an ABC. An ABC can be subclassed directly, and then acts as a mix-in class. You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super()).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ## Dict class docstring
 
 
@@ -103,10 +99,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 ### __getitem__ method docstring
 
 x.__getitem__(y) <==> x[y]
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -208,10 +200,6 @@ Implement self+=value.
 
 Implement self*=value.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -295,10 +283,6 @@ L.sort(key=None, reverse=False) -> None -- stable sort *IN PLACE*
 ### ABCMeta method docstring
 
 Metaclass for defining Abstract Base Classes (ABCs). Use this metaclass to create an ABC. An ABC can be subclassed directly, and then acts as a mix-in class. You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super()).
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _delete_snapshot_exists_val method docstring
 
@@ -450,10 +434,6 @@ tuple() -> empty tuple tuple(iterable) -> tuple initialized from iterable's item
 
 Return self[key].
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -495,10 +475,6 @@ A special construct usable to annotate class objects. For example, suppose we ha
 ### GenericMeta method docstring
 
 Metaclass for generic types. This is a metaclass for typing.Generic and generic ABCs defined in typing module. User defined subclasses of GenericMeta can override __new__ and invoke super().__new__. Note that GenericMeta.__new__ has strict rules on what is allowed in its bases argument: * plain Generic is disallowed in bases; * Generic[...] should appear in bases at most once; * if Generic[...] is present, then it should list all type variables that appear in other bases. In addition, type of all generic bases is erased, e.g., C[int] is stripped to plain C.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### object method docstring
 

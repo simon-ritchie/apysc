@@ -8,10 +8,6 @@ Class implementation for the animation_reverse interface.
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>
@@ -64,10 +60,6 @@ Suppose you call this interface multiple times and animations reach the beginnin
 ## VariableNameInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 

@@ -14,10 +14,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 
 Metaclass for Callable (internal).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### object method docstring
 
 The most base type
@@ -49,10 +45,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 ### __getitem__ method docstring
 
 x.__getitem__(y) <==> x[y]
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -121,10 +113,6 @@ D.values() -> an object providing a view on D's values
 ## DoubleClickInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_mouse_event_binding_expression method docstring
 
@@ -285,10 +273,6 @@ Delete self[key].
 ### __getitem__ method docstring
 
 x.__getitem__(y) <==> x[y]
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -545,10 +529,6 @@ Stop event propagation. Refenreces ---------- <br> ・Event class prevent_defaul
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_mouse_event_binding_expression method docstring
 
 Append a mouse event binding expression.<hr>
@@ -620,10 +600,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 ### CallableMeta method docstring
 
 Metaclass for Callable (internal).
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### object method docstring
 

@@ -27,10 +27,6 @@ Get a previous variable name.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>

@@ -2,7 +2,8 @@ import os
 import shutil
 from random import randint
 from types import ModuleType
-from typing import Callable, Dict
+from typing import Callable
+from typing import Dict
 from typing import List
 from typing import Type
 

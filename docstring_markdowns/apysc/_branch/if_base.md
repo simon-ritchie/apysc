@@ -18,10 +18,6 @@ Helper class that provides a standard way to create an ABC using inheritance.
 
 Metaclass for defining Abstract Base Classes (ABCs). Use this metaclass to create an ABC. An ABC can be subclassed directly, and then acts as a mix-in class. You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super()).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ## Boolean class docstring
 
 Boolean class for the apysc library.
@@ -659,10 +655,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 
 x.__getitem__(y) <==> x[y]
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -819,10 +811,6 @@ Method to be used by with statement. This method will decrement indentation numb
 - `*args`: list
   - Any positional arguments.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ## Type class docstring
 
 A special construct usable to annotate class objects. For example, suppose we have the following classes:: class User: ... # Abstract base for User classes class BasicUser(User): ... class ProUser(User): ... class TeamUser(User): ... And a function that takes a class argument that's a subclass of User and returns an instance of the corresponding class:: U = TypeVar('U', bound=User) def new_user(user_class: Type[U]) -> U: user = user_class() # (Here we could write the user object to a database) return user joe = new_user(BasicUser) At this point the type checker knows that joe has type BasicUser.
@@ -832,10 +820,6 @@ A special construct usable to annotate class objects. For example, suppose we ha
 ### GenericMeta method docstring
 
 Metaclass for generic types. This is a metaclass for typing.Generic and generic ABCs defined in typing module. User defined subclasses of GenericMeta can override __new__ and invoke super().__new__. Note that GenericMeta.__new__ has strict rules on what is allowed in its bases argument: * plain Generic is disallowed in bases; * Generic[...] should appear in bases at most once; * if Generic[...] is present, then it should list all type variables that appear in other bases. In addition, type of all generic bases is erased, e.g., C[int] is stripped to plain C.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### object method docstring
 

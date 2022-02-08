@@ -84,10 +84,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 
 Metaclass for Callable (internal).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### object method docstring
 
 The most base type
@@ -119,10 +115,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 ### __getitem__ method docstring
 
 x.__getitem__(y) <==> x[y]
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -257,7 +249,3 @@ Creates a customized copy of the Signature. Pass 'parameters' and/or 'return_ann
 Marker object for Signature.empty and Parameter.empty.
 
 Marker object for Signature.empty and Parameter.empty.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.

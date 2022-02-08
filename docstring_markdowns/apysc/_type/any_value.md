@@ -1373,10 +1373,6 @@ Unbind (remove) custom event listener settings.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_copy_expression method docstring
 
 Append copy expression.<hr>
@@ -1416,10 +1412,6 @@ Get a previous variable name.<hr>
 ## CustomEventInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_custom_event_binding_expression method docstring
 
@@ -1694,10 +1686,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 
 x.__getitem__(y) <==> x[y]
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -1769,10 +1757,6 @@ D.values() -> an object providing a view on D's values
 ### ABCMeta method docstring
 
 Metaclass for defining Abstract Base Classes (ABCs). Use this metaclass to create an ABC. An ABC can be subclassed directly, and then acts as a mix-in class. You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super()).
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _delete_snapshot_exists_val method docstring
 
@@ -1901,10 +1885,6 @@ Get a boolean value whether snapshot value exists or not.<hr>
 ## VariableNameInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 

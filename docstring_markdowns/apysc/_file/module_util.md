@@ -122,10 +122,6 @@ Implement self+=value.
 
 Implement self*=value.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -212,10 +208,6 @@ module(name[, doc]) Create a module object. The name must be a string; the optio
 
 __dir__() -> list specialized dir() implementation
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ## datetime class docstring
 
 datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]]) The year, month and day arguments are required. tzinfo may be None, or an instance of a tzinfo subclass. The remaining arguments may be ints.
@@ -229,10 +221,6 @@ Return self+value.
 ### __format__ method docstring
 
 Formats self with strftime.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __radd__ method docstring
 

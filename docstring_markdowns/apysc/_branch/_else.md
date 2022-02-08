@@ -28,10 +28,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 
 x.__getitem__(y) <==> x[y]
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).

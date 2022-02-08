@@ -49,10 +49,6 @@ Implement self+=value.
 
 Implement self*=value.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -139,10 +135,6 @@ module(name[, doc]) Create a module object. The name must be a string; the optio
 
 __dir__() -> list specialized dir() implementation
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ## Tuple class docstring
 
 Tuple type; Tuple[X, Y] is the cross-product type of X and Y. Example: Tuple[T1, T2] is a tuple of two elements corresponding to type variables T1 and T2. Tuple[int, float, str] is a tuple of an int, a float and a string. To specify a variable-length tuple of homogeneous type, use Tuple[T, ...].
@@ -168,10 +160,6 @@ tuple() -> empty tuple tuple(iterable) -> tuple initialized from iterable's item
 ### __getitem__ method docstring
 
 Return self[key].
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 

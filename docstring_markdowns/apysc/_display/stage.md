@@ -63,10 +63,6 @@ Get current stage's global variable name.<hr>
 
 Metaclass for defining Abstract Base Classes (ABCs). Use this metaclass to create an ABC. An ABC can be subclassed directly, and then acts as a mix-in class. You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super()).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_contains_expression method docstring
 
 Append contains method expression.<hr>
@@ -373,10 +369,6 @@ None
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_custom_event_binding_expression method docstring
 
 Append a custom event binding expression.<hr>
@@ -633,10 +625,6 @@ Unbind (remove) custom event listener settings.<hr>
 ### ABCMeta method docstring
 
 Metaclass for defining Abstract Base Classes (ABCs). Use this metaclass to create an ABC. An ABC can be subclassed directly, and then acts as a mix-in class. You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super()).
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_applying_new_attr_val_exp method docstring
 
@@ -1138,10 +1126,6 @@ Get an animation elapsed milisecond.<hr>
 Class implementation for inheritance of each mouse event interfaces.
 
 Class implementation for inheritance of each mouse event interfaces.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_mouse_event_binding_expression method docstring
 
@@ -3878,10 +3862,6 @@ tuple() -> empty tuple tuple(iterable) -> tuple initialized from iterable's item
 
 Return self[key].
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -3918,10 +3898,6 @@ T.index(value, [start, [stop]]) -> integer -- return first index of value. Raise
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>
@@ -3938,10 +3914,6 @@ Get a previous variable name.<hr>
 ### ABCMeta method docstring
 
 Metaclass for defining Abstract Base Classes (ABCs). Use this metaclass to create an ABC. An ABC can be subclassed directly, and then acts as a mix-in class. You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super()).
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_applying_new_attr_val_exp method docstring
 
@@ -4442,10 +4414,6 @@ To start this animation, you need to call the `start` method of the returned ins
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### with_traceback method docstring
 
 Exception.with_traceback(tb) -- set self.__traceback__ to tb and return self.
@@ -4463,10 +4431,6 @@ Return self+value.
 ### __format__ method docstring
 
 Formats self with strftime.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __radd__ method docstring
 

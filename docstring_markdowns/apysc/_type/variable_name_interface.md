@@ -40,10 +40,6 @@ Implement self+=value.
 
 Implement self*=value.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -123,10 +119,6 @@ L.sort(key=None, reverse=False) -> None -- stable sort *IN PLACE*
 ## VariableNameInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 

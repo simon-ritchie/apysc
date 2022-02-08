@@ -148,10 +148,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 
 Metaclass for Callable (internal).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### object method docstring
 
 The most base type
@@ -273,10 +269,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 
 x.__getitem__(y) <==> x[y]
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -360,10 +352,6 @@ Method to be used by with statement. This method will decrement indentation numb
 - `*args`: list
   - Any positional arguments.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ## Tuple class docstring
 
 Tuple type; Tuple[X, Y] is the cross-product type of X and Y. Example: Tuple[T1, T2] is a tuple of two elements corresponding to type variables T1 and T2. Tuple[int, float, str] is a tuple of an int, a float and a string. To specify a variable-length tuple of homogeneous type, use Tuple[T, ...].
@@ -389,10 +377,6 @@ tuple() -> empty tuple tuple(iterable) -> tuple initialized from iterable's item
 ### __getitem__ method docstring
 
 Return self[key].
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -435,10 +419,6 @@ A special construct usable to annotate class objects. For example, suppose we ha
 ### GenericMeta method docstring
 
 Metaclass for generic types. This is a metaclass for typing.Generic and generic ABCs defined in typing module. User defined subclasses of GenericMeta can override __new__ and invoke super().__new__. Note that GenericMeta.__new__ has strict rules on what is allowed in its bases argument: * plain Generic is disallowed in bases; * Generic[...] should appear in bases at most once; * if Generic[...] is present, then it should list all type variables that appear in other bases. In addition, type of all generic bases is erased, e.g., C[int] is stripped to plain C.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### object method docstring
 

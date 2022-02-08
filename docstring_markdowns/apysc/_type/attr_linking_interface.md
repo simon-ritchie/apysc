@@ -8,10 +8,6 @@ Class implementation for the attribute linking interface. This interface is used
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_applying_new_attr_val_exp method docstring
 
 Append the expression of applying new attribute value to each stacked value.<hr>
@@ -697,10 +693,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 ### __getitem__ method docstring
 
 x.__getitem__(y) <==> x[y]
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -1816,10 +1808,6 @@ Implement self+=value.
 ### __imul__ method docstring
 
 Implement self*=value.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -3734,10 +3722,6 @@ S.__format__(format_spec) -> str Return a formatted version of S as described by
 ### __getitem__ method docstring
 
 Return self[key].
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 

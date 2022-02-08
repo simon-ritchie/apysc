@@ -8,10 +8,6 @@ Class implementation for line thickness interface.
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>
@@ -319,10 +315,6 @@ Get an animation elapsed milisecond.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_applying_new_attr_val_exp method docstring
 
 Append the expression of applying new attribute value to each stacked value.<hr>
@@ -395,10 +387,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 ### __getitem__ method docstring
 
 x.__getitem__(y) <==> x[y]
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -1487,10 +1475,6 @@ Unbind (remove) custom event listener settings.<hr>
 
 Metaclass for defining Abstract Base Classes (ABCs). Use this metaclass to create an ABC. An ABC can be subclassed directly, and then acts as a mix-in class. You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super()).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_applying_new_attr_val_exp method docstring
 
 Append the expression of applying new attribute value to each stacked value.<hr>
@@ -1995,10 +1979,6 @@ Get an animation elapsed milisecond.<hr>
 ### ABCMeta method docstring
 
 Metaclass for defining Abstract Base Classes (ABCs). Use this metaclass to create an ABC. An ABC can be subclassed directly, and then acts as a mix-in class. You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super()).
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _delete_snapshot_exists_val method docstring
 

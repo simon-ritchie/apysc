@@ -8,10 +8,6 @@ Class implementation for inheritance of each mouse event interfaces.
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_mouse_event_binding_expression method docstring
 
 Append a mouse event binding expression.<hr>
@@ -172,10 +168,6 @@ Unbind all click events.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_mouse_event_binding_expression method docstring
 
 Append a mouse event binding expression.<hr>
@@ -323,10 +315,6 @@ Unbind all double click events.<hr>
 ## MouseDownInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_mouse_event_binding_expression method docstring
 
@@ -489,10 +477,6 @@ Unbind all mouse down events.<hr>
 Class implementation for inheritance of each mouse event interfaces.
 
 Class implementation for inheritance of each mouse event interfaces.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_mouse_event_binding_expression method docstring
 
@@ -1298,10 +1282,6 @@ Unbind all mouse up events.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_mouse_event_binding_expression method docstring
 
 Append a mouse event binding expression.<hr>
@@ -1470,10 +1450,6 @@ Unbind all mouse move events.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_mouse_event_binding_expression method docstring
 
 Append a mouse event binding expression.<hr>
@@ -1634,10 +1610,6 @@ Unbind all mouse out events.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _append_mouse_event_binding_expression method docstring
 
 Append a mouse event binding expression.<hr>
@@ -1797,10 +1769,6 @@ Unbind all mouseover events.<hr>
 ## MouseUpInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_mouse_event_binding_expression method docstring
 

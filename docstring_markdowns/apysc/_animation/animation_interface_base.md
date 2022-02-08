@@ -8,10 +8,6 @@ Base class for each animation interface.
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>
@@ -62,10 +58,6 @@ Finish all animations (set the animation last value to each attribute).<hr>
 Base class for each animation interface.
 
 Base class for each animation interface.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 
@@ -316,10 +308,6 @@ Get an animation elapsed milisecond.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>
@@ -368,10 +356,6 @@ Stop the all animations.<hr>
 ## AnimationPlayInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 
@@ -428,10 +412,6 @@ Restart the all paused animations.<hr>
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>
@@ -480,10 +460,6 @@ Stop the all animations and reset.<hr>
 ## AnimationReverseInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 
@@ -537,10 +513,6 @@ Suppose you call this interface multiple times and animations reach the beginnin
 ## AnimationTimeInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 

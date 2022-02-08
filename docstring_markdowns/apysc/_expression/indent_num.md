@@ -54,10 +54,6 @@ Method to be used by with statement. This method will decrement indentation numb
 - `*args`: list
   - Any positional arguments.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ## List class docstring
 
 
@@ -93,10 +89,6 @@ Implement self+=value.
 ### __imul__ method docstring
 
 Implement self*=value.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -199,10 +191,6 @@ tuple() -> empty tuple tuple(iterable) -> tuple initialized from iterable's item
 ### __getitem__ method docstring
 
 Return self[key].
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 

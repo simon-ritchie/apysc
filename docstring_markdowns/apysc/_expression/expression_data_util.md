@@ -442,10 +442,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 
 Metaclass for Callable (internal).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### object method docstring
 
 The most base type
@@ -499,10 +495,6 @@ Implement self+=value.
 ### __imul__ method docstring
 
 Implement self*=value.
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -616,10 +608,6 @@ tuple() -> empty tuple tuple(iterable) -> tuple initialized from iterable's item
 
 Return self[key].
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -669,10 +657,6 @@ Constructor. This only exists to give a better error message in case someone tri
 ## _LimitClauseCantUseError class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### with_traceback method docstring
 

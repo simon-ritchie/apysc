@@ -196,10 +196,6 @@ Implement self+=value.
 
 Implement self*=value.
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -301,10 +297,6 @@ tuple() -> empty tuple tuple(iterable) -> tuple initialized from iterable's item
 ### __getitem__ method docstring
 
 Return self[key].
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 

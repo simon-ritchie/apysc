@@ -55,10 +55,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 
 Metaclass for Callable (internal).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### object method docstring
 
 The most base type
@@ -161,10 +157,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 ### CallableMeta method docstring
 
 Metaclass for Callable (internal).
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### object method docstring
 

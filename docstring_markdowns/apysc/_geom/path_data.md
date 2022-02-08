@@ -1847,10 +1847,6 @@ Path data class for the svg's `vertical line` (V).<hr>
 ...     ])
 ```
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ## PathHorizontal class docstring
 
 Path data class for the svg's `horizontal line` (H).

@@ -8,10 +8,6 @@ Class implementation for the animation_time interface.
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>
@@ -1076,10 +1072,6 @@ Unbind (remove) custom event listener settings.<hr>
 ## VariableNameInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 

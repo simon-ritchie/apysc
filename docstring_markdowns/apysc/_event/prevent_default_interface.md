@@ -8,10 +8,6 @@ Class implementation for the prevent_default interface.
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>
@@ -46,10 +42,6 @@ Prevent event's default behavior. Refenreces ---------- <br> ・Event class prev
 ## VariableNameInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _get_previous_variable_name method docstring
 

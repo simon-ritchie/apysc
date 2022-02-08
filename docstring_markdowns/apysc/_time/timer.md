@@ -627,10 +627,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 
 Metaclass for Callable (internal).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### object method docstring
 
 The most base type
@@ -642,10 +638,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 ## CustomEventInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_custom_event_binding_expression method docstring
 
@@ -936,10 +928,6 @@ Delete self[key].
 ### __getitem__ method docstring
 
 x.__getitem__(y) <==> x[y]
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -4466,10 +4454,6 @@ Constructor. This only exists to give a better error message in case someone tri
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _get_previous_variable_name method docstring
 
 Get a previous variable name.<hr>
@@ -4488,10 +4472,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 ### CallableMeta method docstring
 
 Metaclass for Callable (internal).
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### object method docstring
 

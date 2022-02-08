@@ -184,7 +184,7 @@ def _get_methods_from_class(*, class_: Type) -> List[Callable]:
             continue
         builtin_docstring: str = excluding_target_builtin_methods_dict.get(
             method.__name__, '')
-        if method.__doc__ == builtin_docstring:
+        if method.__doc__ == builtin_docstring or method.__name__ == 'type':
             continue
         methods.append(method)
     return methods

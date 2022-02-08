@@ -8,10 +8,6 @@ Class implementation for the custom event interface.
 
 
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### _initialize_blank_object_if_not_initialized method docstring
 
 Initialize a blank object value if it hasn't been initialized yet.
@@ -26,10 +22,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 
 Metaclass for Callable (internal).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### object method docstring
 
 The most base type
@@ -41,10 +33,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 ## CustomEventInterface class docstring
 
 
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### _append_custom_event_binding_expression method docstring
 
@@ -329,10 +317,6 @@ dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from 
 
 x.__getitem__(y) <==> x[y]
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -530,10 +514,6 @@ Delete self[key].
 
 x.__getitem__(y) <==> x[y]
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### __iter__ method docstring
 
 Implement iter(self).
@@ -615,10 +595,6 @@ S.__format__(format_spec) -> str Return a formatted version of S as described by
 ### __getitem__ method docstring
 
 Return self[key].
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 
@@ -834,10 +810,6 @@ Callable type; Callable[[int], str] is a function of (int) -> str. The subscript
 
 Metaclass for Callable (internal).
 
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
-
 ### object method docstring
 
 The most base type
@@ -871,10 +843,6 @@ S.__format__(format_spec) -> str Return a formatted version of S as described by
 ### __getitem__ method docstring
 
 Return self[key].
-
-### __init__ method docstring
-
-Initialize self. See help(type(self)) for accurate signature.
 
 ### __iter__ method docstring
 

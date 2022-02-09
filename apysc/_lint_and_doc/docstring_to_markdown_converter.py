@@ -10,7 +10,8 @@ from typing import Dict
 from typing import List
 from typing import Optional
 from typing import Tuple
-from typing import Type
+from typing import Type, Match
+import re
 
 
 def convert_recursively(*, dir_path: str) -> List[str]:
@@ -70,11 +71,8 @@ def _save_markdown(*, module_path: str) -> str:
         Saved markdown file path.
     """
     from apysc._file import file_util
-    from apysc._file import module_util
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=module_path)
     markdown: str = _convert_module_docstring_to_markdown(
-        module=module)
+        module_path=module_path)
     markdown_file_path: str = module_path.replace('.py', '.md', 1)
     if markdown_file_path.startswith('./'):
         markdown_file_path = markdown_file_path.replace('./', '', 1)
@@ -86,20 +84,24 @@ def _save_markdown(*, module_path: str) -> str:
 
 
 def _convert_module_docstring_to_markdown(
-        *, module: ModuleType) -> str:
+        *, module_path: str) -> str:
     """
     Convert a specified module's docstring to a markdown string.
 
     Parameters
     ----------
-    module : ModuleType
-        Target module.
+    module_path : str
+        Target Python module path.
 
     Returns
     -------
     markdown : str
         Converted markdown string.
     """
+    from apysc._file import module_util, file_util
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=module_path)
+    module_str: str = file_util.read_txt(file_path=module_path)
     markdown: str = f'# {module.__name__} docstrings'
     markdown = _append_module_docstring_to_markdown(
         markdown=markdown,
@@ -108,12 +110,16 @@ def _convert_module_docstring_to_markdown(
     toplevel_functions: List[Callable] = _get_module_toplevel_functions(
         module=module)
     for toplevel_function in toplevel_functions:
+        if f'def {toplevel_function.__name__}(' not in module_str:
+            continue
         markdown = _append_toplevel_function_docstring_to_markdown(
             markdown=markdown, toplevel_function=toplevel_function)
 
     toplevel_classes: List[Type] = _get_toplevel_classes(
         module=module)
     for toplevel_class in toplevel_classes:
+        if f'class {toplevel_class.__name__}' not in module_str:
+            continue
         markdown = _append_toplevel_class_docstring_to_markdown(
             markdown=markdown, toplevel_class=toplevel_class)
 

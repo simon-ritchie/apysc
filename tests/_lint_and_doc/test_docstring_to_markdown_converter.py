@@ -2,7 +2,7 @@ import os
 import shutil
 from random import randint
 from types import ModuleType
-from typing import Callable
+from typing import Callable, Optional
 from typing import Dict
 from typing import List
 from typing import Type
@@ -32,6 +32,8 @@ References
 """
 
 import os
+from multiprocessing import Process
+from multiprocessing import cpu_count
 
 
 def sample_func_1(a: int, b: bool) -> str:
@@ -239,8 +241,11 @@ def test__get_toplevel_classes() -> None:
         module_path=_TEST_MODULE_PATH)
     toplevel_classes: List[Type] = docstring_to_markdown_converter.\
         _get_toplevel_classes(module=module)
-    assert len(toplevel_classes) == 1
-    assert toplevel_classes[0].__name__ == '_SampleClass'
+    assert len(toplevel_classes) == 2
+    names: List[str] = [
+        toplevel_class.__name__ for toplevel_class
+        in toplevel_classes]
+    assert sorted(names) == sorted(['Process', '_SampleClass'])
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -250,8 +255,16 @@ def test__get_methods_from_class() -> None:
         module_path=_TEST_MODULE_PATH)
     toplevel_classes: List[Type] = docstring_to_markdown_converter.\
         _get_toplevel_classes(module=module)
+    target_class: Optional[Type] = None
+    for toplevel_class in toplevel_classes:
+        if toplevel_class.__name__ == '_SampleClass':
+            target_class = toplevel_class
+            break
+    if target_class is None:
+        raise AssertionError(
+            f'Returned values are invalid: {toplevel_classes}')
     methods: List[Callable] = docstring_to_markdown_converter.\
-        _get_methods_from_class(class_=toplevel_classes[0])
+        _get_methods_from_class(class_=target_class)
     assert len(methods) >= 2
     for method in methods:
         assert callable(method)
@@ -269,10 +282,18 @@ def test__append_toplevel_class_docstring_to_markdown() -> None:
         module_path=_TEST_MODULE_PATH)
     toplevel_classes: List[Type] = docstring_to_markdown_converter.\
         _get_toplevel_classes(module=module)
+    target_class: Optional[Type] = None
+    for toplevel_class in toplevel_classes:
+        if toplevel_class.__name__ == '_SampleClass':
+            target_class = toplevel_class
+            break
+    if target_class is None:
+        raise AssertionError(
+            f'Returned values are invalid: {toplevel_classes}')
     markdown: str = docstring_to_markdown_converter.\
         _append_toplevel_class_docstring_to_markdown(
             markdown='# Test docstring\n\nLorem ipsum dolor.',
-            toplevel_class=toplevel_classes[0])
+            toplevel_class=target_class)
     expected_strs: List[str] = [
         '# Test docstring\n\nLorem ipsum dolor.\n\n',
         '## _SampleClass class docstring\n\n'
@@ -288,10 +309,9 @@ def test__append_toplevel_class_docstring_to_markdown() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__convert_module_docstring_to_markdown() -> None:
     _save_test_module()
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=_TEST_MODULE_PATH)
     markdown: str = docstring_to_markdown_converter.\
-        _convert_module_docstring_to_markdown(module=module)
+        _convert_module_docstring_to_markdown(
+            module_path=_TEST_MODULE_PATH)
     expected_strs: List[str] = [
         '# tmp.test_docstring_to_markdown_converter.test_module_1 docstrings',
         '## Module summary',
@@ -302,6 +322,13 @@ def test__convert_module_docstring_to_markdown() -> None:
     ]
     for expected_str in expected_strs:
         assert expected_str in markdown
+
+    unexpected_strs: List[str] = [
+        'Process',
+        'cpu_count',
+    ]
+    for unexpected_str in unexpected_strs:
+        assert unexpected_str not in markdown
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

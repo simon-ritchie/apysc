@@ -2,9 +2,10 @@ import os
 import shutil
 from random import randint
 from types import ModuleType
-from typing import Callable, Optional
+from typing import Callable
 from typing import Dict
 from typing import List
+from typing import Optional
 from typing import Type
 
 from retrying import retry

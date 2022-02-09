@@ -10,8 +10,7 @@ from typing import Dict
 from typing import List
 from typing import Optional
 from typing import Tuple
-from typing import Type, Match
-import re
+from typing import Type
 
 
 def convert_recursively(*, dir_path: str) -> List[str]:
@@ -98,7 +97,8 @@ def _convert_module_docstring_to_markdown(
     markdown : str
         Converted markdown string.
     """
-    from apysc._file import module_util, file_util
+    from apysc._file import file_util
+    from apysc._file import module_util
     module: ModuleType = module_util.read_target_path_module(
         module_path=module_path)
     module_str: str = file_util.read_txt(file_path=module_path)

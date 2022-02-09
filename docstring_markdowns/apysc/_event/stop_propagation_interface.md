@@ -8,15 +8,6 @@ Class implementation for the stop_propagation interface.
 
 
 
-### _get_previous_variable_name method docstring
-
-Get a previous variable name.<hr>
-
-**[Returns]**
-
-- `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.
-
 ### stop_propagation method docstring
 
 Stop event propagation. Refenreces ---------- <br> ・Event class prevent_default and stop_propagation interfaces document <br> ・https://simon-ritchie.github.io/apysc/event_prevent_default_and_stop_propagation.html # noqa<hr>
@@ -36,16 +27,3 @@ Stop event propagation. Refenreces ---------- <br> ・Event class prevent_defaul
 >>> _ = sprite.click(on_click)
 >>> _ = rectangle.click(on_click)
 ```
-
-## VariableNameInterface class docstring
-
-
-
-### _get_previous_variable_name method docstring
-
-Get a previous variable name.<hr>
-
-**[Returns]**
-
-- `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.

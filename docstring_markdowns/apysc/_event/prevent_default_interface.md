@@ -8,15 +8,6 @@ Class implementation for the prevent_default interface.
 
 
 
-### _get_previous_variable_name method docstring
-
-Get a previous variable name.<hr>
-
-**[Returns]**
-
-- `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.
-
 ### prevent_default method docstring
 
 Prevent event's default behavior. Refenreces ---------- <br> ・Event class prevent_default and stop_propagation interfaces document <br> ・https://simon-ritchie.github.io/apysc/event_prevent_default_and_stop_propagation.html # noqa<hr>
@@ -38,16 +29,3 @@ Prevent event's default behavior. Refenreces ---------- <br> ・Event class prev
 ...     x=50, y=50, width=50, height=50)
 >>> _ = rectangle.click(on_click)
 ```
-
-## VariableNameInterface class docstring
-
-
-
-### _get_previous_variable_name method docstring
-
-Get a previous variable name.<hr>
-
-**[Returns]**
-
-- `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.

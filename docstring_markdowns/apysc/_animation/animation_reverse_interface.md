@@ -8,15 +8,6 @@ Class implementation for the animation_reverse interface.
 
 
 
-### _get_previous_variable_name method docstring
-
-Get a previous variable name.<hr>
-
-**[Returns]**
-
-- `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.
-
 ### animation_reverse method docstring
 
 Reverse the all running animations.<hr>
@@ -56,16 +47,3 @@ Suppose you call this interface multiple times and animations reach the beginnin
 **[References]**
 
 - [animation_reverse interface document](https://simon-ritchie.github.io/apysc/animation_reverse.html)
-
-## VariableNameInterface class docstring
-
-
-
-### _get_previous_variable_name method docstring
-
-Get a previous variable name.<hr>
-
-**[Returns]**
-
-- `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.

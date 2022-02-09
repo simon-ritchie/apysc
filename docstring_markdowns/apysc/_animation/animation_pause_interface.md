@@ -8,15 +8,6 @@ Class implementation for the animation_pause interface.
 
 
 
-### _get_previous_variable_name method docstring
-
-Get a previous variable name.<hr>
-
-**[Returns]**
-
-- `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.
-
 ### animation_pause method docstring
 
 Stop the all animations.<hr>
@@ -52,16 +43,3 @@ Stop the all animations.<hr>
 **[References]**
 
 - [animation_pause and animation_play interfaces document](https://simon-ritchie.github.io/apysc/animation_pause_and_play.html)
-
-## VariableNameInterface class docstring
-
-
-
-### _get_previous_variable_name method docstring
-
-Get a previous variable name.<hr>
-
-**[Returns]**
-
-- `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.

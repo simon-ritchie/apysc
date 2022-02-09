@@ -25,16 +25,3 @@ Validate specified instance type is VariableNameInterface.<hr>
 **[Raises]**
 
 - TypeError: If specified instance type isn't VariableNameInterface.
-
-## VariableNameInterface class docstring
-
-
-
-### _get_previous_variable_name method docstring
-
-Get a previous variable name.<hr>
-
-**[Returns]**
-
-- `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.

@@ -31,17 +31,3 @@ Enum class for the easing setting.<hr>
 **[References]**
 
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-### EnumMeta method docstring
-
-Metaclass for Enum
-
-## Enum class docstring
-
-Generic enumeration. Derive from this class to define new enumerations.
-
-Generic enumeration. Derive from this class to define new enumerations.
-
-### EnumMeta method docstring
-
-Metaclass for Enum

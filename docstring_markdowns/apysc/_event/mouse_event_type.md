@@ -7,5 +7,3 @@ Definitions of the mouse event type.
 ## MouseEventType class docstring
 
 Mouse event type definitions.
-
-Mouse event type definitions.

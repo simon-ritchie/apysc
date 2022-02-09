@@ -6,8 +6,6 @@ Class implementation for the animation event.
 
 ## AnimationEvent class docstring
 
-Animation event class.
-
 Animation event class.<hr>
 
 **[Examples]**

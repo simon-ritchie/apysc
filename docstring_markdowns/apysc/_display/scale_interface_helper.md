@@ -45,5 +45,3 @@ Get a scale updating expression string from a specified coordinate.<hr>
 ## CoordinateType class docstring
 
 An enumeration.
-
-An enumeration.

@@ -6,8 +6,6 @@ Path data class implementation for the svg's `close path` (Z).
 
 ## PathClose class docstring
 
-Path data class for the svg's `close path` (Z).
-
 Path data class for the svg's `close path` (Z).<hr>
 
 **[Examples]**

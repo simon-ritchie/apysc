@@ -6,8 +6,6 @@ Implementations of Polyline class.
 
 ## Polyline class docstring
 
-The polyline vector graphics class.
-
 The polyline vector graphics class.<hr>
 
 **[Examples]**

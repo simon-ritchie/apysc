@@ -6,8 +6,6 @@ Class implementation for array.
 
 ## Array class docstring
 
-Array class for the apysc library.
-
 Array class for the apysc library.<hr>
 
 **[Examples]**

@@ -6,8 +6,6 @@ Else branch instruction implementation.
 
 ## Else class docstring
 
-A class to append else branch instruction expression.
-
 A class to append else branch instruction expression.<hr>
 
 **[Notes]**

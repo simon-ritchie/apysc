@@ -4,10 +4,6 @@
 
 Interface class implementation for the second control y path data.
 
-## PathControlY2Interface class docstring
-
-
-
 ### _append_control_y2_linking_setting method docstring
 
 Append a control_y2 attribute linking setting.

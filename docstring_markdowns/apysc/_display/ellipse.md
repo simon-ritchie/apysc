@@ -6,8 +6,6 @@ Implementation of the Ellipse class.
 
 ## Ellipse class docstring
 
-The ellipse vector graphics class.
-
 The ellipse vector graphics class.<hr>
 
 **[Examples]**

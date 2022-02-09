@@ -4,10 +4,6 @@
 
 Class implementation for dictionary.
 
-## Dict class docstring
-
-
-
 ### __delitem__ method docstring
 
 Delete self[key].
@@ -29,8 +25,6 @@ Set self[key] to value.
 D.get(k[,d]) -> D[k] if k in D, else d. d defaults to None.
 
 ## Dictionary class docstring
-
-Dictionary class for the apysc library.
 
 Dictionary class for the apysc library.<hr>
 

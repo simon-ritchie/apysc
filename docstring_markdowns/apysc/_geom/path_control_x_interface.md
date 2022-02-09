@@ -4,10 +4,6 @@
 
 Interface class implementation for the control x path data.
 
-## PathControlXInterface class docstring
-
-
-
 ### _append_control_x_linking_setting method docstring
 
 Append a control_x attribute linking setting.

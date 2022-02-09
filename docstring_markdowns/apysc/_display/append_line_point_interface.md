@@ -4,10 +4,6 @@
 
 Class implementation for append line point interface.
 
-## AppendLinePointInterface class docstring
-
-
-
 ### append_line_point method docstring
 
 Append line point at the end.<hr>

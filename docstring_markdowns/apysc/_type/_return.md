@@ -6,8 +6,6 @@ The class implementation for the return expression.
 
 ## Return class docstring
 
-Class for the return expression.
-
 Class for the return expression.<hr>
 
 **[References]**

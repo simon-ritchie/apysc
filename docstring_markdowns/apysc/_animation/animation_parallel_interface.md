@@ -6,8 +6,6 @@ Class implementation for the parallel animation interface.
 
 ## AnimationParallel class docstring
 
-The parallel animation setting class.
-
 The parallel animation setting class.<hr>
 
 **[Examples]**
@@ -41,10 +39,6 @@ The parallel animation setting class.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationParallelInterface class docstring
-
-
 
 ### animation_parallel method docstring
 

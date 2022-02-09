@@ -4,10 +4,6 @@
 
 Class implementation for radius value interface.
 
-## RadiusInterface class docstring
-
-
-
 ### _append_radius_update_expression method docstring
 
 Append radius value updating expression.

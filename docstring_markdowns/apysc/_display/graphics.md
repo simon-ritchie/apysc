@@ -6,8 +6,6 @@ Implementations for Graphics class.
 
 ## Graphics class docstring
 
-Create a object that has each vector graphics interface.
-
 Create a object that has each vector graphics interface.<hr>
 
 **[Examples]**

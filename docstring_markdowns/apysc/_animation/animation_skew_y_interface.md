@@ -6,8 +6,6 @@ Class implementation for the animation_skew_y interface.
 
 ## AnimationSkewY class docstring
 
-The animation class for a skew-y.
-
 The animation class for a skew-y.<hr>
 
 **[Examples]**
@@ -37,10 +35,6 @@ The animation class for a skew-y.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationSkewYInterface class docstring
-
-
 
 ### _animation_skew_y method docstring
 

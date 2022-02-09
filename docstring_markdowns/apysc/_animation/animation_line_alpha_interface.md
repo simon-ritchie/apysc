@@ -6,8 +6,6 @@ Class implementation for the animation_line_alpha interface.
 
 ## AnimationLineAlpha class docstring
 
-The animation class for a line alpha.
-
 The animation class for a line alpha.<hr>
 
 **[Examples]**
@@ -40,10 +38,6 @@ The animation class for a line alpha.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationLineAlphaInterface class docstring
-
-
 
 ### animation_line_alpha method docstring
 

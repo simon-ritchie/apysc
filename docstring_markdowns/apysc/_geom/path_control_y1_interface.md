@@ -4,10 +4,6 @@
 
 Interface class implementation for the first control y path data.
 
-## PathControlY1Interface class docstring
-
-
-
 ### _append_control_y1_linking_setting method docstring
 
 Append a control_y1 attribute linking setting.

@@ -6,8 +6,6 @@ Path data class implementation for the svg's `line to` (L).
 
 ## PathLineTo class docstring
 
-Path data class for the svg's `line to` (L).
-
 Path data class for the svg's `line to` (L).<hr>
 
 **[Examples]**

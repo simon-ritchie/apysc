@@ -4,10 +4,6 @@
 
 Class implementation for the flip_y interface.
 
-## FlipYInterface class docstring
-
-
-
 ### _append_flip_y_attr_linking_setting method docstring
 
 Append a flip-y attribute linking setting.

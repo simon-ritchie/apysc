@@ -6,8 +6,6 @@ Class implementation for the animation_line_color interface.
 
 ## AnimationLineColor class docstring
 
-The animation class for a line color.
-
 The animation class for a line color.<hr>
 
 **[Examples]**
@@ -40,10 +38,6 @@ The animation class for a line color.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationLineColorInterface class docstring
-
-
 
 ### animation_line_color method docstring
 

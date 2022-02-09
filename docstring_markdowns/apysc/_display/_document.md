@@ -8,8 +8,6 @@ Document (overall window) class implementation.
 
 Document (overall HTML document) class.
 
-Document (overall HTML document) class.
-
 ### __init__ method docstring
 
 Document (overall HTML document) class.

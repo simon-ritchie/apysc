@@ -6,8 +6,6 @@ Path data class implementation for the svg's `vertical line` (V).
 
 ## PathVertical class docstring
 
-Path data class for the svg's `vertical line` (V).
-
 Path data class for the svg's `vertical line` (V).<hr>
 
 **[Examples]**

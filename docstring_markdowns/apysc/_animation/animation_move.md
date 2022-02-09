@@ -6,8 +6,6 @@ Class implementation for the move animation value.
 
 ## AnimationMove class docstring
 
-The animation class for moving x and y coordinates.
-
 The animation class for moving x and y coordinates.<hr>
 
 **[Examples]**

@@ -8,8 +8,6 @@ Class implementation for the JavaScript expression string.
 
 The class for the JavaScript expression string.
 
-The class for the JavaScript expression string.
-
 ### __init__ method docstring
 
 The class for the JavaScript expression string.<hr>

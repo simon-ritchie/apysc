@@ -6,8 +6,6 @@ Implementations of the Line class.
 
 ## Line class docstring
 
-The line vector graphics class.
-
 The line vector graphics class.<hr>
 
 **[Examples]**

@@ -6,8 +6,6 @@ Class implementation for line dash dot setting interface.
 
 ## LineDashDotSetting class docstring
 
-Dash dot (1-dot chain) setting for a line.
-
 Dash dot (1-dot chain) setting for a line.<hr>
 
 **[Examples]**
@@ -54,10 +52,6 @@ Revert values if snapshot exists.<hr>
 
 - `snapshot_name`: str
   - Target snapshot name.
-
-## LineDashDotSettingInterface class docstring
-
-
 
 ### _append_line_dash_dot_setting_update_expression method docstring
 

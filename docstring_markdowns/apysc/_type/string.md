@@ -6,8 +6,6 @@ Class implementation for string.
 
 ## String class docstring
 
-String class for apysc library.
-
 String class for apysc library.<hr>
 
 **[Examples]**

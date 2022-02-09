@@ -6,8 +6,6 @@ Implementations for Sprite class.
 
 ## Sprite class docstring
 
-Basic display object that can be a parent.
-
 Basic display object that can be a parent.<hr>
 
 **[Examples]**

@@ -4,10 +4,6 @@
 
 Class implementation for the animation_reset interface.
 
-## AnimationResetInterface class docstring
-
-
-
 ### animation_reset method docstring
 
 Stop the all animations and reset.<hr>

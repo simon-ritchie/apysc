@@ -4,10 +4,6 @@
 
 Class implementation for visible interface.
 
-## VisibleInterface class docstring
-
-
-
 ### _append_visible_attr_linking_setting method docstring
 
 Append a visible attribute linking setting.

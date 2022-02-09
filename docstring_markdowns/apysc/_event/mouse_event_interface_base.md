@@ -6,8 +6,6 @@ Class implementation for each mouse event interface's base class.
 
 ## MouseEvent class docstring
 
-Mouse event class.
-
 Mouse event class.<hr>
 
 **[Examples]**
@@ -32,10 +30,6 @@ Mouse event class.<hr>
 **[References]**
 
 - [Basic mouse event interfaces](https://simon-ritchie.github.io/apysc/mouse_event_basic.html)
-
-## MouseEventInterfaceBase class docstring
-
-
 
 ### _append_mouse_event_binding_expression method docstring
 

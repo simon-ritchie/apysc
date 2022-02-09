@@ -6,8 +6,6 @@ Class implementation for the animation_fill_alpha interface.
 
 ## AnimationFillAlpha class docstring
 
-The animation class for a fill alpha (opacity).
-
 The animation class for a fill alpha (opacity).<hr>
 
 **[Examples]**
@@ -37,10 +35,6 @@ The animation class for a fill alpha (opacity).<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationFillAlphaInterface class docstring
-
-
 
 ### animation_fill_alpha method docstring
 

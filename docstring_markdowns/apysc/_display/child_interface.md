@@ -22,10 +22,6 @@ Append expression of remove_child (removeElement).<hr>
 - `child`: DisplayObject
   - Child object to remove.
 
-## ChildInterface class docstring
-
-
-
 ### _append_contains_expression method docstring
 
 Append contains method expression.<hr>

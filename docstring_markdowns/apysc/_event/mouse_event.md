@@ -6,8 +6,6 @@ Class implementation for the mouse event.
 
 ## MouseEvent class docstring
 
-Mouse event class.
-
 Mouse event class.<hr>
 
 **[Examples]**

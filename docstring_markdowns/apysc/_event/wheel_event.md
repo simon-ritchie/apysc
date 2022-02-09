@@ -8,8 +8,6 @@ Class implementation for mouse wheel event.
 
 Mouse wheel event class.
 
-Mouse wheel event class.
-
 ### __init__ method docstring
 
 Mouse wheel event class.<hr>

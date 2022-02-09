@@ -6,8 +6,6 @@ Implementations of the Path class.
 
 ## Path class docstring
 
-The path vector graphics class.
-
 The path vector graphics class.<hr>
 
 **[Examples]**

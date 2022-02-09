@@ -6,8 +6,6 @@ Implementations of the Rectangle class.
 
 ## Rectangle class docstring
 
-The rectangle vector graphics class.
-
 The rectangle vector graphics class.<hr>
 
 **[Examples]**

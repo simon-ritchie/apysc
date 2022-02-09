@@ -7,5 +7,3 @@ Line joints enum definitions.
 ## LineJoints class docstring
 
 Line joints style type definitions.
-
-Line joints style type definitions.

@@ -6,8 +6,6 @@ Path data class implementation for the svg's `2D bezier curve` (Q).
 
 ## PathBezier2D class docstring
 
-Path data class for the svg's `2D bezier curve` (Q).
-
 Path data class for the svg's `2D bezier curve` (Q).<hr>
 
 **[Examples]**

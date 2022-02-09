@@ -4,10 +4,6 @@
 
 Class implementation for ellipse the width interface.
 
-## EllipseWidthInterface class docstring
-
-
-
 ### _append_ellipse_width_attr_linking_setting method docstring
 
 Append a ellipse-height attribute linking setting.

@@ -6,8 +6,6 @@ Class implementation for the width animation value.
 
 ## AnimationWidth class docstring
 
-The animation class for a width.
-
 The animation class for a width.<hr>
 
 **[Examples]**

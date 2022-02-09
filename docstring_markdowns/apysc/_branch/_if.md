@@ -6,8 +6,6 @@ If branch instruction implementations.
 
 ## If class docstring
 
-A class to append if branch instruction expression.
-
 A class to append if branch instruction expression.<hr>
 
 **[Examples]**

@@ -39,8 +39,6 @@ Reset current indent number.
 
 Class implementation for increment and decrement indentation number. Basically use this class at with statement.
 
-Class implementation for increment and decrement indentation number. Basically use this class at with statement.
-
 ### __enter__ method docstring
 
 Method to be used by with statement. This method will increment indentation number.

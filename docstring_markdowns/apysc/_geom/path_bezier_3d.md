@@ -6,8 +6,6 @@ Path data class implementation for the svg's `3D besier curve` (C).
 
 ## PathBezier3D class docstring
 
-Path data class for the svg's `3D bezier curve` (C).
-
 Path data class for the svg's `3D bezier curve` (C).<hr>
 
 **[Examples]**

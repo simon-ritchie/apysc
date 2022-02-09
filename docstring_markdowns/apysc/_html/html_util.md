@@ -133,10 +133,6 @@ Wrap an expression string by script start and end tag.<hr>
 - `expression`: str
   - Wrapped expression string.
 
-## ScriptLineUtil class docstring
-
-
-
 ### __init__ method docstring
 
 The class for HTML's script line utility.<hr>

@@ -6,8 +6,6 @@ Class implementation for the ellipse-width animation value.
 
 ## AnimationWidthForEllipse class docstring
 
-The animation class for a ellipse-width.
-
 The animation class for a ellipse-width.<hr>
 
 **[Examples]**

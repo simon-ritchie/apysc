@@ -6,8 +6,6 @@ Class implementation for the timer.
 
 ## Timer class docstring
 
-Timer class to handle function calling at regular intervals.
-
 Timer class to handle function calling at regular intervals.<hr>
 
 **[Examples]**

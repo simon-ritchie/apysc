@@ -4,10 +4,6 @@
 
 Class implementation for mouse out interface.
 
-## MouseOutInterface class docstring
-
-
-
 ### _initialize_mouse_out_handlers_if_not_initialized method docstring
 
 Initialize _mouse_out_handlers attribute if it is not initialized yet.

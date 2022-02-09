@@ -6,8 +6,6 @@ Class implementation for the scale-x animation value.
 
 ## AnimationScaleXFromCenter class docstring
 
-The animation class for a scale-x.
-
 The animation class for a scale-x.<hr>
 
 **[Examples]**

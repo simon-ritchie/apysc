@@ -4,10 +4,6 @@
 
 Class implementation for witdth interface.
 
-## WidthInterface class docstring
-
-
-
 ### _append_width_attr_linking_setting method docstring
 
 Append a width attribute linking setting.

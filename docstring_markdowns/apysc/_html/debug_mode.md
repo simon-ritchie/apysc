@@ -140,8 +140,6 @@ Unset the debug mode for the HTML and JavaScript debugging.<hr>
 
 ## DebugInfo class docstring
 
-Save a debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class is used at the `with` statement.
-
 Save a debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class is used at the `with` statement.<hr>
 
 **[Notes]**

@@ -6,8 +6,6 @@ Class implementation of floating point number.
 
 ## Number class docstring
 
-Floating point number class for the apysc library.
-
 Floating point number class for the apysc library.<hr>
 
 **[Notes]**

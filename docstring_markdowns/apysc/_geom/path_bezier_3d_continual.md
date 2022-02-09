@@ -6,8 +6,6 @@ Path data class implementation for the svg's `continual 3D bezier curve` (S).
 
 ## PathBezier3DContinual class docstring
 
-Path data class for the svg's `continual 3D bezier curve` (S).
-
 Path data class for the svg's `continual 3D bezier curve` (S).<hr>
 
 **[Examples]**

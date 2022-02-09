@@ -4,10 +4,6 @@
 
 Class implementation for the center x-coordinate interface.
 
-## CxInterface class docstring
-
-
-
 ### _append_cx_attr_linking_setting method docstring
 
 Append a cx attribute linking setting.

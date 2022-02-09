@@ -6,8 +6,6 @@ Round dot setting class implementation for line.
 
 ## LineRoundDotSetting class docstring
 
-Round dot setting class for a line.
-
 Round dot setting class for a line.<hr>
 
 **[Examples]**

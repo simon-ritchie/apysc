@@ -7,5 +7,3 @@ Line caps enum definitions.
 ## LineCaps class docstring
 
 Line caps style type definitions.
-
-Line caps style type definitions.

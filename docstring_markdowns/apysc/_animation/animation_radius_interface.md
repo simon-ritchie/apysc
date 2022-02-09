@@ -6,8 +6,6 @@ Class implementation for the animation_radius interface.
 
 ## AnimationRadius class docstring
 
-The animation class for a radius.
-
 The animation class for a radius.<hr>
 
 **[Examples]**
@@ -38,10 +36,6 @@ The animation class for a radius.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationRadiusInterface class docstring
-
-
 
 ### animation_radius method docstring
 

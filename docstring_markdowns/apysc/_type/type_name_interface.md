@@ -3,6 +3,3 @@
 ## Module summary
 
 Class implementation for type name interface.
-
-## TypeNameInterface class docstring
-

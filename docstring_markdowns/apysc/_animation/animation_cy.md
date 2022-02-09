@@ -6,8 +6,6 @@ Class implementation for the center-y animation value.
 
 ## AnimationCy class docstring
 
-The animation class for a center-y coordinate.
-
 The animation class for a center-y coordinate.<hr>
 
 **[Examples]**

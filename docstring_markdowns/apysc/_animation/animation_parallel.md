@@ -6,8 +6,6 @@ Class implementation for the parallel animation value.
 
 ## AnimationParallel class docstring
 
-The parallel animation setting class.
-
 The parallel animation setting class.<hr>
 
 **[Examples]**

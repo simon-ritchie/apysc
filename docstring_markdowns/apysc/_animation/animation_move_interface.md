@@ -6,8 +6,6 @@ Class implementations for the animation_move interface.
 
 ## AnimationMove class docstring
 
-The animation class for moving x and y coordinates.
-
 The animation class for moving x and y coordinates.<hr>
 
 **[Examples]**
@@ -38,10 +36,6 @@ The animation class for moving x and y coordinates.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationMoveInterface class docstring
-
-
 
 ### animation_move method docstring
 

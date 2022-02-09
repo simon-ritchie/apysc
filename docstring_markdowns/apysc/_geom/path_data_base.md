@@ -8,8 +8,6 @@ Base class implementation for the path data.
 
 Base class for the path data.
 
-Base class for the path data.
-
 ### __init__ method docstring
 
 Base class for the path data.<hr>

@@ -6,8 +6,6 @@ Class implementation for the animation_scale_x_from_center interface.
 
 ## AnimationScaleXFromCenter class docstring
 
-The animation class for a scale-x.
-
 The animation class for a scale-x.<hr>
 
 **[Examples]**
@@ -39,10 +37,6 @@ The animation class for a scale-x.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationScaleXFromCenterInterface class docstring
-
-
 
 ### animation_scale_x_from_center method docstring
 

@@ -6,8 +6,6 @@ Class implementation for the timer event.
 
 ## TimerEvent class docstring
 
-Timer event class.
-
 Timer event class.<hr>
 
 **[Examples]**

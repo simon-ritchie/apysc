@@ -4,10 +4,6 @@
 
 Class implementation for mouse down interface.
 
-## MouseDownInterface class docstring
-
-
-
 ### _initialize_mouse_down_handlers_if_not_initialized method docstring
 
 Initialize _mouse_down_handlers attribute if it is not initialized yet.

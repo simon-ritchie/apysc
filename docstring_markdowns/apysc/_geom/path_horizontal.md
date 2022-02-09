@@ -6,8 +6,6 @@ Path data class implementation for the svg's `horizontal line` (H).
 
 ## PathHorizontal class docstring
 
-Path data class for the svg's `horizontal line` (H).
-
 Path data class for the svg's `horizontal line` (H).<hr>
 
 **[Examples]**

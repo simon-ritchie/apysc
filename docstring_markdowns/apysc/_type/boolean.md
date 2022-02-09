@@ -6,8 +6,6 @@ Class implementation for boolean.
 
 ## Boolean class docstring
 
-Boolean class for the apysc library.
-
 Boolean class for the apysc library.<hr>
 
 **[Notes]**

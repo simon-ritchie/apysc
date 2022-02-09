@@ -7,5 +7,3 @@ Base class for each animation interface.
 ## AnimationInterfaceBase class docstring
 
 Base class for each animation interface.
-
-Base class for each animation interface.

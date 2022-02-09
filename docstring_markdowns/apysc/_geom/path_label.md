@@ -7,5 +7,3 @@ Class implementation for the path labels enum.
 ## PathLabel class docstring
 
 Enum class for the path labels
-
-Enum class for the path labels

@@ -4,10 +4,6 @@
 
 Class implementation for graphics clear method related interface.
 
-## GraphicsClearInterface class docstring
-
-
-
 ### clear method docstring
 
 Clear all graphics and reset fill and line settings.<hr>

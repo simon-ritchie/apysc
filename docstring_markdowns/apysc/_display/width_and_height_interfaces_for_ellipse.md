@@ -8,10 +8,6 @@ Class implementation of the width and height Interfaces for the ellipse.<hr>
 
 Subclass that inherit the normal WidthInterface and HeightInterface can't use this interface.
 
-## WidthAndHeightInterfacesForEllipse class docstring
-
-
-
 ### _append_ellipse_width_and_height_update_expression method docstring
 
 Append an ellipse width and height updating expression.

@@ -6,8 +6,6 @@ Class implementation for the animation_x interface (using center-x coordinate in
 
 ## AnimationCx class docstring
 
-The animation class for a center-x coordinate.
-
 The animation class for a center-x coordinate.<hr>
 
 **[Examples]**
@@ -38,10 +36,6 @@ The animation class for a center-x coordinate.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationCxInterface class docstring
-
-
 
 ### animation_x method docstring
 

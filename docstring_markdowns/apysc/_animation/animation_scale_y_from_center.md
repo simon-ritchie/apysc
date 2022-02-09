@@ -6,8 +6,6 @@ Class implementation for the scale-y animation value.
 
 ## AnimationScaleYFromCenter class docstring
 
-The animation class for a scale-y.
-
 The animation class for a scale-y.<hr>
 
 **[Examples]**

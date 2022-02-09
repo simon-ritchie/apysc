@@ -4,10 +4,6 @@
 
 Class implementation for the custom event interface.
 
-## CustomEventInterface class docstring
-
-
-
 ### _append_custom_event_binding_expression method docstring
 
 Append a custom event binding expression.<hr>

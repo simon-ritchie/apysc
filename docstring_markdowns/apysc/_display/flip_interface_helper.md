@@ -29,5 +29,3 @@ Make a flipping value updating expression.<hr>
 ## Axis class docstring
 
 An enumeration.
-
-An enumeration.

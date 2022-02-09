@@ -6,8 +6,6 @@
 
 ## Point2D class docstring
 
-2-dimensional geometry point class.
-
 2-dimensional geometry point class.<hr>
 
 **[Examples]**

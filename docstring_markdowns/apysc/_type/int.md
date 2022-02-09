@@ -6,8 +6,6 @@ Class implementation of integer.
 
 ## Int class docstring
 
-Integer class for the apysc library.
-
 Integer class for the apysc library.<hr>
 
 **[Examples]**

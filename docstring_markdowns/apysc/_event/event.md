@@ -6,8 +6,6 @@ Class Implementation for basic event.
 
 ## Event class docstring
 
-Basic event class.
-
 Basic event class.<hr>
 
 **[Examples]**

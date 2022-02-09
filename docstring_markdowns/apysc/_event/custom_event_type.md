@@ -7,5 +7,3 @@ Definitions of the custom event type.
 ## CustomEventType class docstring
 
 An enumeration.
-
-An enumeration.

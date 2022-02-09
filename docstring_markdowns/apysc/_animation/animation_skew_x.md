@@ -6,8 +6,6 @@ Class implementation for the skew-x animation value.
 
 ## AnimationSkewX class docstring
 
-The animation class for a skew-x.
-
 The animation class for a skew-x.<hr>
 
 **[Examples]**

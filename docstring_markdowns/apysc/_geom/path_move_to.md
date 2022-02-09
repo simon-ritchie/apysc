@@ -6,8 +6,6 @@ Path data class implementation for the svg's `move to` (M).
 
 ## PathMoveTo class docstring
 
-Path data class for the svg's `move to` (M).
-
 Path data class for the svg's `move to` (M).<hr>
 
 **[Examples]**

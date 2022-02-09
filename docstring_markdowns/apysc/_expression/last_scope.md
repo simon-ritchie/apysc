@@ -29,5 +29,3 @@ Set last scope value.<hr>
 ## LastScope class docstring
 
 An enumeration.
-
-An enumeration.

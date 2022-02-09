@@ -6,8 +6,6 @@ Dash dot (1-dot chain) setting for line.
 
 ## LineDashDotSetting class docstring
 
-Dash dot (1-dot chain) setting for a line.
-
 Dash dot (1-dot chain) setting for a line.<hr>
 
 **[Examples]**

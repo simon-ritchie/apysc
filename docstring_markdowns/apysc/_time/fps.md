@@ -6,8 +6,6 @@ Definition of the FPS enum.
 
 ## FPS class docstring
 
-Definition of the FPS enum.
-
 Definition of the FPS enum.<hr>
 
 **[Examples]**
@@ -24,10 +22,6 @@ Definition of the FPS enum.<hr>
 **[References]**
 
 - [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
-
-## FPSDefinition class docstring
-
-
 
 ### __init__ method docstring
 

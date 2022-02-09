@@ -6,8 +6,6 @@ Dash setting class implementation for line.
 
 ## LineDashSetting class docstring
 
-Dash setting class for a line.
-
 Dash setting class for a line.<hr>
 
 **[Examples]**

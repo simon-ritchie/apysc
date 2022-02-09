@@ -6,8 +6,6 @@ Class implementation for the animation_height (for ellipse) interface.
 
 ## AnimationHeightForEllipse class docstring
 
-The animation class for a ellipse-height.
-
 The animation class for a ellipse-height.<hr>
 
 **[Examples]**
@@ -38,10 +36,6 @@ The animation class for a ellipse-height.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationHeightForEllipseInterface class docstring
-
-
 
 ### animation_height method docstring
 

@@ -6,8 +6,6 @@ Path data class implementation for the svg's `continual 2D bezier curve` (T).
 
 ## PathBezier2DContinual class docstring
 
-Path data class for the svg's `continual 2D bezier curve` (T).
-
 Path data class for the svg's `continual 2D bezier curve` (T).<hr>
 
 **[Examples]**

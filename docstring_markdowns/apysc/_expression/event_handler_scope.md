@@ -70,8 +70,6 @@ Remove the suffix number from a specified handler name.<hr>
 
 Class for a handler scope. This is used at a with statement.
 
-Class for a handler scope. This is used at a with statement.
-
 ### __enter__ method docstring
 
 Enter and set an event handler scope setting.
@@ -97,8 +95,6 @@ Class for a handler scope. This is used at a with statement.<hr>
   - Instance will be binded the target handler.
 
 ## TemporaryNotHandlerScope class docstring
-
-Class temporarily sets up a scope that is not a handler. This is used at a with statement.
 
 Class temporarily sets up a scope that is not a handler. This is used at a with statement.
 

@@ -6,8 +6,6 @@ Class implementation for the animation_rotation_around_point interface.
 
 ## AnimationRotationAroundPoint class docstring
 
-The animation class for a rotation around the given point.
-
 The animation class for a rotation around the given point.<hr>
 
 **[Examples]**
@@ -41,10 +39,6 @@ The animation class for a rotation around the given point.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationRotationAroundPointInterface class docstring
-
-
 
 ### animation_rotation_around_point method docstring
 

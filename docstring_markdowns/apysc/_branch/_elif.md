@@ -6,8 +6,6 @@ Elif (else if) branch instruction implementations.
 
 ## Elif class docstring
 
-A class to append elif branch instruction expression.
-
 A class to append elif branch instruction expression.<hr>
 
 **[Notes]**

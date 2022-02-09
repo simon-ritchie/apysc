@@ -57,8 +57,6 @@ Get current stage's global variable name.<hr>
 
 ## Stage class docstring
 
-The Stage (overall viewport) class.
-
 The Stage (overall viewport) class.<hr>
 
 **[Examples]**
@@ -160,6 +158,3 @@ Make a stage's style string.<hr>
 ### _save_stage_elem_id method docstring
 
 Save the stage element id.
-
-## _StageNotCreatedError class docstring
-

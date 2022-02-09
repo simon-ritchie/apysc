@@ -6,8 +6,6 @@ Class implementation for the animation_rotation_aroound_center interface.
 
 ## AnimationRotationAroundCenter class docstring
 
-The animation class for a rotation around the center point.
-
 The animation class for a rotation around the center point.<hr>
 
 **[Examples]**
@@ -39,10 +37,6 @@ The animation class for a rotation around the center point.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationRotationAroundCenterInterface class docstring
-
-
 
 ### animation_rotation_around_center method docstring
 

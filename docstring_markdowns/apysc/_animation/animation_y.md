@@ -6,8 +6,6 @@ Class implementation for the y animation value.
 
 ## AnimationY class docstring
 
-The animation class for a y-coordinate.
-
 The animation class for a y-coordinate.<hr>
 
 **[Examples]**

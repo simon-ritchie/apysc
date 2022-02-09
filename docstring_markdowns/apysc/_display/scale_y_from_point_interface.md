@@ -4,10 +4,6 @@
 
 Class implementation for the scale_y_from_point interfaces.
 
-## ScaleYFromPointInterface class docstring
-
-
-
 ### _append_scale_y_from_point_update_expression method docstring
 
 Append the scale-y from the specified y-coordinate updating expression.<hr>

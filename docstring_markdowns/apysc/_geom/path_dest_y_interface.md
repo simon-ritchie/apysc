@@ -4,10 +4,6 @@
 
 Interface class implementation for the destination y path data.
 
-## PathDestYInterface class docstring
-
-
-
 ### _append_dest_y_linking_setting method docstring
 
 Append a dest_y linking setting.

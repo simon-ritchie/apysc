@@ -6,8 +6,6 @@ Class implementation for the center-x animation value.
 
 ## AnimationCx class docstring
 
-The animation class for a center-x coordinate.
-
 The animation class for a center-x coordinate.<hr>
 
 **[Examples]**

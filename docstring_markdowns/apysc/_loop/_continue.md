@@ -6,8 +6,6 @@ Class implementation for the continue.
 
 ## Continue class docstring
 
-The loop continue expression class.
-
 The loop continue expression class.<hr>
 
 **[Notes]**

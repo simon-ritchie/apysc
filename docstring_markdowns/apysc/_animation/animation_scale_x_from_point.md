@@ -6,8 +6,6 @@ Class implementation for the scale-x from the given point animation value.
 
 ## AnimationScaleXFromPoint class docstring
 
-The animation class for a scale-x from the given point.
-
 The animation class for a scale-x from the given point.<hr>
 
 **[Examples]**

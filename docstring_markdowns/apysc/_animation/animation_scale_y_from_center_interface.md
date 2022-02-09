@@ -6,8 +6,6 @@ Class implementation for the animation_scale_y_from_center interface.
 
 ## AnimationScaleYFromCenter class docstring
 
-The animation class for a scale-y.
-
 The animation class for a scale-y.<hr>
 
 **[Examples]**
@@ -39,10 +37,6 @@ The animation class for a scale-y.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationScaleYFromCenterInterface class docstring
-
-
 
 ### animation_scale_y_from_center method docstring
 

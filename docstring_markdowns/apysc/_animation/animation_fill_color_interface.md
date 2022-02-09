@@ -6,8 +6,6 @@ Class implementation for the animation_fill_color interface.
 
 ## AnimationFillColor class docstring
 
-The animation class for a fill color.
-
 The animation class for a fill color.<hr>
 
 **[Examples]**
@@ -38,10 +36,6 @@ The animation class for a fill color.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationFillColorInterface class docstring
-
-
 
 ### animation_fill_color method docstring
 

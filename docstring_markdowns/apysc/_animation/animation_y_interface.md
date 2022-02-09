@@ -6,8 +6,6 @@ Class implementation for the animation_y interface.
 
 ## AnimationY class docstring
 
-The animation class for a y-coordinate.
-
 The animation class for a y-coordinate.<hr>
 
 **[Examples]**
@@ -38,10 +36,6 @@ The animation class for a y-coordinate.<hr>
 - [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
-## AnimationYInterface class docstring
-
-
 
 ### animation_y method docstring
 

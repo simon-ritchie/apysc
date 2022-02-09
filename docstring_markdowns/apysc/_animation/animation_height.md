@@ -6,8 +6,6 @@ Class implementation for the height animation value.
 
 ## AnimationHeight class docstring
 
-The animation class for a height.
-
 The animation class for a height.<hr>
 
 **[Examples]**

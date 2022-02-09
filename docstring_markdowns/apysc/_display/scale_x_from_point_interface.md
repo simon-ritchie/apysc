@@ -4,10 +4,6 @@
 
 Class implementation for the scale_x_from_point interfaces.
 
-## ScaleXFromPointInterface class docstring
-
-
-
 ### _append_scale_x_from_point_update_expression method docstring
 
 Append the scale-x from the specified x-coordinate updating expression.<hr>

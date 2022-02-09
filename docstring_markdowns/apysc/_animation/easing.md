@@ -6,8 +6,6 @@ Enum class implementation for the easing setting.
 
 ## Easing class docstring
 
-Enum class for the easing setting.
-
 Enum class for the easing setting.<hr>
 
 **[Examples]**

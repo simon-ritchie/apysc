@@ -6,8 +6,6 @@ Implementations of Circle class.
 
 ## Circle class docstring
 
-The circle vector graphics class.
-
 The circle vector graphics class.<hr>
 
 **[Examples]**

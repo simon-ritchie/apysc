@@ -6,8 +6,6 @@ Implementations of Polygon class.
 
 ## Polygon class docstring
 
-The polygon vector graphics class.
-
 The polygon vector graphics class.<hr>
 
 **[Examples]**

@@ -4,10 +4,6 @@
 
 Base class implementation for the animation.
 
-## AnimationBase class docstring
-
-
-
 ### __init__ method docstring
 
 Base class for each animation setting.<hr>

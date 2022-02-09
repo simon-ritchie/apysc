@@ -4,10 +4,6 @@
 
 Class implementation for the animation_finish interface.
 
-## AnimationFinishInterface class docstring
-
-
-
 ### animation_finish method docstring
 
 Finish all animations (set the animation last value to each attribute).<hr>

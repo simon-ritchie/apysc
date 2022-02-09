@@ -760,8 +760,6 @@ Reset converted a markdown's docstring section.<hr>
 
 Example value type.
 
-Example value type.
-
 ### __eq__ method docstring
 
 The method for equality comparison.<hr>
@@ -790,8 +788,6 @@ Example value type.<hr>
   - Expected output string.
 
 ## Parameter class docstring
-
-Parameter value type.
 
 Parameter value type.
 
@@ -828,8 +824,6 @@ Parameter or return value's base class.<hr>
 
 Raise value type.
 
-Raise value type.
-
 ### __eq__ method docstring
 
 The method for equality comparison.<hr>
@@ -858,8 +852,6 @@ Raise value type.<hr>
   - Error condition description.
 
 ## Reference class docstring
-
-Reference value type.
 
 Reference value type.
 
@@ -894,8 +886,6 @@ Reference value type.<hr>
 
 Return value type.
 
-Return value type.
-
 ### __eq__ method docstring
 
 The method for equality comparison.<hr>
@@ -924,18 +914,6 @@ Parameter or return value's base class.<hr>
   - Parameter or return value type name.
 - `description`: str
   - Parameter or return value description.
-
-## _DocstringCallableNotExistsError class docstring
-
-
-
-## _DocstringPathNotFoundError class docstring
-
-
-
-## _ParamOrRtnBase class docstring
-
-
 
 ### __eq__ method docstring
 
@@ -967,7 +945,5 @@ Parameter or return value's base class.<hr>
   - Parameter or return value description.
 
 ## _SectionPattern class docstring
-
-An enumeration.
 
 An enumeration.

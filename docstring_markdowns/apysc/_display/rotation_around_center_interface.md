@@ -4,10 +4,6 @@
 
 Class implementation for the rotation_around_center_interface interface.
 
-## RotationAroundCenterInterface class docstring
-
-
-
 ### _append_rotation_around_center_attr_linking_setting method docstring
 
 Append a rotation around center attribute linking setting.

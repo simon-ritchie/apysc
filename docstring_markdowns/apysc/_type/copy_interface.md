@@ -4,10 +4,6 @@
 
 Class implementation for copy interface.
 
-## CopyInterface class docstring
-
-
-
 ### _append_copy_expression method docstring
 
 Append copy expression.<hr>

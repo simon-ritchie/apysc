@@ -6,8 +6,6 @@ Class implementation for the fill alpha animation value.
 
 ## AnimationFillAlpha class docstring
 
-The animation class for a fill alpha (opacity).
-
 The animation class for a fill alpha (opacity).<hr>
 
 **[Examples]**

@@ -4,10 +4,6 @@
 
 Class implementation for the css interface.
 
-## CssInterface class docstring
-
-
-
 ### _append_get_css_expresion method docstring
 
 Append a css getter expression string.<hr>

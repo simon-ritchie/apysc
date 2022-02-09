@@ -69,6 +69,3 @@ Get a handler name.<hr>
 
 - `handler_name`: str
   - Handler name (method path + class name (if handler is method) + function or method name) + instance's variable name.
-
-## HandlerData class docstring
-

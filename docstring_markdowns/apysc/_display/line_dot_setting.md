@@ -6,8 +6,6 @@ Dot setting class implementation for line.
 
 ## LineDotSetting class docstring
 
-Dot setting class for a line.
-
 Dot setting class for a line.<hr>
 
 **[Examples]**

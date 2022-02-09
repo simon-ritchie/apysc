@@ -6,8 +6,6 @@ Class implementation for the scale-y from the given point animation value.
 
 ## AnimationScaleYFromPoint class docstring
 
-The animation class for a scale-y from the given point.
-
 The animation class for a scale-y from the given point.<hr>
 
 **[Examples]**

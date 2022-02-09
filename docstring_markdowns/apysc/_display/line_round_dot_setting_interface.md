@@ -6,8 +6,6 @@ Class implementation for line round dot setting interface.
 
 ## LineRoundDotSetting class docstring
 
-Round dot setting class for a line.
-
 Round dot setting class for a line.<hr>
 
 **[Examples]**
@@ -51,10 +49,6 @@ Revert values if snapshot exists.<hr>
 
 - `snapshot_name`: str
   - Target snapshot name.
-
-## LineRoundDotSettingInterface class docstring
-
-
 
 ### _append_line_round_dot_setting_update_expression method docstring
 

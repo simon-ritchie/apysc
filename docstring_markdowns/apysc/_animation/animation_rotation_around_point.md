@@ -6,8 +6,6 @@ Class implementation for the rotation around the given point animation value.
 
 ## AnimationRotationAroundPoint class docstring
 
-The animation class for a rotation around the given point.
-
 The animation class for a rotation around the given point.<hr>
 
 **[Examples]**

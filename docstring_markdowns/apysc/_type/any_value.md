@@ -6,8 +6,6 @@ Class implementation of any value.
 
 ## AnyValue class docstring
 
-Class implementation of any value (value that can't determine type).
-
 Class implementation of any value (value that can't determine type).<hr>
 
 **[Examples]**

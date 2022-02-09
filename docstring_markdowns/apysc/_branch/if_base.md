@@ -4,10 +4,6 @@
 
 Abstract base class implementation for if, elif, and else.
 
-## IfBase class docstring
-
-
-
 ### __enter__ method docstring
 
 Method to be called when begining of with statement.<hr>

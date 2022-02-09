@@ -4,10 +4,6 @@
 
 Class implementation for double click interface.
 
-## DoubleClickInterface class docstring
-
-
-
 ### _initialize_dblclick_handlers_if_not_initialized method docstring
 
 Initialize _dblclick_handlers attribute if it is not initialized yet.

@@ -6,8 +6,6 @@ Class implementation for the fill color animation value.
 
 ## AnimationFillColor class docstring
 
-The animation class for a fill color.
-
 The animation class for a fill color.<hr>
 
 **[Examples]**

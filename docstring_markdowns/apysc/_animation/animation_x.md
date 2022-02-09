@@ -6,8 +6,6 @@ Class implementation for the x animation value.
 
 ## AnimationX class docstring
 
-The animation class for a x-coordinate.
-
 The animation class for a x-coordinate.<hr>
 
 **[Examples]**

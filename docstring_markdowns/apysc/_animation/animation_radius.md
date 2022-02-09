@@ -6,8 +6,6 @@ Class implementation for the radius animation value.
 
 ## AnimationRadius class docstring
 
-The animation class for a radius.
-
 The animation class for a radius.<hr>
 
 **[Examples]**

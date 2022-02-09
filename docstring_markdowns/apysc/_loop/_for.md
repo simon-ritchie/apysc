@@ -6,8 +6,6 @@ For loop class implementation.
 
 ## For class docstring
 
-A class to append for the (loop) expression.
-
 A class to append for the (loop) expression.<hr>
 
 **[Examples]**

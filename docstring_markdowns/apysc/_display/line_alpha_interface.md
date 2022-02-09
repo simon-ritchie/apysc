@@ -4,10 +4,6 @@
 
 Class implementation for line alpha interface.
 
-## LineAlphaInterface class docstring
-
-
-
 ### _append_line_alpha_attr_linking_setting method docstring
 
 Append a line alpha attribute linking setting.

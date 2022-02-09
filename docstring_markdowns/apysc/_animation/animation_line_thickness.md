@@ -6,8 +6,6 @@ Class implementation for the line thickness animation value.
 
 ## AnimationLineThickness class docstring
 
-The animation class for a line thickness.
-
 The animation class for a line thickness.<hr>
 
 **[Examples]**

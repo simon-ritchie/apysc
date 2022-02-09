@@ -6,8 +6,6 @@ Class implementation for the line color animation value.
 
 ## AnimationLineColor class docstring
 
-The animation class for a line color.
-
 The animation class for a line color.<hr>
 
 **[Examples]**

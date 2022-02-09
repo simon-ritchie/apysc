@@ -6,8 +6,6 @@ Class implementation for the rotation around the center point animation value.
 
 ## AnimationRotationAroundCenter class docstring
 
-The animation class for a rotation around the center point.
-
 The animation class for a rotation around the center point.<hr>
 
 **[Examples]**

@@ -4,10 +4,6 @@
 
 Class implementation for the x-coordinate interface.
 
-## XInterface class docstring
-
-
-
 ### _append_x_attr_linking_setting method docstring
 
 Append a x attribute linking setting.

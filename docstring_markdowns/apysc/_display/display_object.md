@@ -6,8 +6,6 @@ Implementations for DisplayObject class.
 
 ## DisplayObject class docstring
 
-Display object (base) class for the common interfaces.
-
 Display object (base) class for the common interfaces.<hr>
 
 **[References]**

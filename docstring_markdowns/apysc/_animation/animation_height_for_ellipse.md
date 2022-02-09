@@ -6,8 +6,6 @@ Class implementation for the ellipse-height animation value.
 
 ## AnimationHeightForEllipse class docstring
 
-The animation class for a ellipse-height.
-
 The animation class for a ellipse-height.<hr>
 
 **[Examples]**

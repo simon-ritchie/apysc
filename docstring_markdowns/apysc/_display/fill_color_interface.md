@@ -4,10 +4,6 @@
 
 Class implementation for fill color interface.
 
-## FillColorInterface class docstring
-
-
-
 ### _append_fill_color_update_expression method docstring
 
 Append fill color updating expression.

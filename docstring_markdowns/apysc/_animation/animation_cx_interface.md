@@ -45,7 +45,7 @@ Set the center-x coordinate animation setting.<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: Int or int
   - Destination of the center-x coordinate.
 - `duration`: int or Int, default 3000
   - Milliseconds before an animation ends.

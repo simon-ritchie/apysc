@@ -203,7 +203,7 @@ def test__append_toplevel_function_docstring_to_markdown() -> None:
             toplevel_function=toplevel_functions[0])
     expected_strs: List[str] = [
         '# Test docstring\n\nLorem ipsum dolor.\n\n',
-        f'## {toplevel_functions[0].__name__} function docstring',
+        f'## `{toplevel_functions[0].__name__}` function docstring',
         '**[Parameters]**',
     ]
     for expected_str in expected_strs:
@@ -298,10 +298,10 @@ def test__append_toplevel_class_docstring_to_markdown() -> None:
             module_str=_MODULE_STR)
     expected_strs: List[str] = [
         '# Test docstring\n\nLorem ipsum dolor.\n\n',
-        '## _SampleClass class docstring\n\n'
+        '## `_SampleClass` class docstring\n\n'
         'Cupidatat non proident',
-        '## __init__ method docstring\n\n',
-        '## sample_method_1 method docstring\n\n',
+        '## `__init__` method docstring\n\n',
+        '## `sample_method_1` method docstring\n\n',
         '**[Parameters]**',
     ]
     for expected_str in expected_strs:
@@ -317,12 +317,13 @@ def test__convert_module_docstring_to_markdown() -> None:
         _convert_module_docstring_to_markdown(
             module_path=_TEST_MODULE_PATH)
     expected_strs: List[str] = [
-        '# tmp.test_docstring_to_markdown_converter.test_module_1 docstrings',
+        '# `tmp.test_docstring_to_markdown_converter.'
+        'test_module_1` docstrings',
         '## Module summary',
-        '## sample_func_1 function docstring',
-        '## _SampleClass class docstring',
-        '### __init__ method docstring',
-        '### sample_method_1 method docstring',
+        '## `sample_func_1` function docstring',
+        '## `_SampleClass` class docstring',
+        '### `__init__` method docstring',
+        '### `sample_method_1` method docstring',
     ]
     for expected_str in expected_strs:
         assert expected_str in markdown
@@ -347,7 +348,8 @@ def test__save_markdown() -> None:
     assert os.path.isfile(markdown_file_path)
     markdown: str = file_util.read_txt(file_path=markdown_file_path)
     expected: str = (
-        '# tmp.test_docstring_to_markdown_converter.test_module_1 docstrings'
+        '# `tmp.test_docstring_to_markdown_converter.test_module_1` '
+        'docstrings'
     )
     assert expected in markdown
 

@@ -102,7 +102,7 @@ def _convert_module_docstring_to_markdown(
     module: ModuleType = module_util.read_target_path_module(
         module_path=module_path)
     module_str: str = file_util.read_txt(file_path=module_path)
-    markdown: str = f'# {module.__name__} docstrings'
+    markdown: str = f'# `{module.__name__}` docstrings'
     markdown = _append_module_docstring_to_markdown(
         markdown=markdown,
         docstring=module.__doc__)
@@ -149,7 +149,7 @@ def _append_toplevel_class_docstring_to_markdown(
         Result markdown string.
     """
     if toplevel_class.__doc__ is not None:
-        markdown += f'\n\n## {toplevel_class.__name__} class docstring'
+        markdown += f'\n\n## `{toplevel_class.__name__}` class docstring'
         markdown = _append_each_section_to_markdown(
             markdown=markdown, docstring=toplevel_class.__doc__)
 
@@ -160,7 +160,7 @@ def _append_toplevel_class_docstring_to_markdown(
             continue
         if f'    def {method.__name__}(' not in module_str:
             continue
-        markdown += f'\n\n### {method.__name__} method docstring'
+        markdown += f'\n\n### `{method.__name__}` method docstring'
         markdown = _append_each_section_to_markdown(
             markdown=markdown, docstring=method.__doc__)
 
@@ -265,7 +265,7 @@ def _append_toplevel_function_docstring_to_markdown(
         return markdown
     if markdown != '':
         markdown += '\n\n'
-    markdown += f'## {toplevel_function.__name__} function docstring'
+    markdown += f'## `{toplevel_function.__name__}` function docstring'
     markdown = _append_each_section_to_markdown(
         markdown=markdown,
         docstring=toplevel_function.__doc__,

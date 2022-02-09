@@ -39,6 +39,8 @@ The animation class for a scale-y from the given point.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationScaleYFromPointInterface` class docstring
+
 ### `animation_scale_y_from_point` method docstring
 
 Set the scale-y from the given point animation setting.<hr>

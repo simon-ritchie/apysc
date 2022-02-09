@@ -4,6 +4,8 @@
 
 Class implementation for the animation_play interface.
 
+## `AnimationPlayInterface` class docstring
+
 ### `animation_play` method docstring
 
 Restart the all paused animations.<hr>

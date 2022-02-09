@@ -4,6 +4,8 @@
 
 Class implementation for the skew x interface.
 
+## `SkewXInterface` class docstring
+
 ### `_append_skew_x_attr_linking_setting` method docstring
 
 Append a skew-x attribute linking setting.

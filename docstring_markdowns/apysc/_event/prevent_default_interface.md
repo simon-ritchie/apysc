@@ -4,6 +4,8 @@
 
 Class implementation for the prevent_default interface.
 
+## `PreventDefaultInterface` class docstring
+
 ### `prevent_default` method docstring
 
 Prevent event's default behavior. Refenreces ---------- <br> ・Event class prevent_default and stop_propagation interfaces document <br> ・https://simon-ritchie.github.io/apysc/event_prevent_default_and_stop_propagation.html # noqa<hr>

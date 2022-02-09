@@ -4,6 +4,8 @@
 
 Class implementation for line color interface.
 
+## `LineColorInterface` class docstring
+
 ### `_append_line_color_update_expression` method docstring
 
 Append line color updating expression.

@@ -4,6 +4,8 @@
 
 Class implementation for line thickness interface.
 
+## `LineThicknessInterface` class docstring
+
 ### `_append_line_thickness_attr_linking_setting` method docstring
 
 Append a line thickness attribute linking setting.

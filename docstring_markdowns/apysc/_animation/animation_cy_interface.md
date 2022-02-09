@@ -37,6 +37,8 @@ The animation class for a center-y coordinate.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationCyInterface` class docstring
+
 ### `animation_y` method docstring
 
 Set the center-y coordinate animation setting.<hr>

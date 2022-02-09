@@ -37,6 +37,8 @@ The animation class for a center-x coordinate.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationCxInterface` class docstring
+
 ### `animation_x` method docstring
 
 Set the center-x coordinate animation setting.<hr>

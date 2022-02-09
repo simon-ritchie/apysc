@@ -4,6 +4,8 @@
 
 Class implementation for line style related interface.
 
+## `LineStyleInterface` class docstring
+
 ### `_initialize_line_alpha_if_not_initialized` method docstring
 
 Initialize _line_alpha attribute if it is not initialized yet.

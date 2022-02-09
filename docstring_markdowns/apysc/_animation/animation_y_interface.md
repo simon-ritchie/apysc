@@ -37,6 +37,8 @@ The animation class for a y-coordinate.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationYInterface` class docstring
+
 ### `animation_y` method docstring
 
 Set the y-coordinate animation setting.<hr>

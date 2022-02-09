@@ -4,6 +4,8 @@
 
 Class implementation for the flip_x interface.
 
+## `FlipXInterface` class docstring
+
 ### `_append_flip_x_attr_linking_setting` method docstring
 
 Append a flip-x attribute linking setting.

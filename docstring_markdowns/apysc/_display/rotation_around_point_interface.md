@@ -4,6 +4,8 @@
 
 Class implementation for the rotation_around_point interface.
 
+## `RotationAroundPointInterface` class docstring
+
 ### `_append_rotation_around_point_update_expression` method docstring
 
 Append a rotation value around the given coordinates updating expression.<hr>

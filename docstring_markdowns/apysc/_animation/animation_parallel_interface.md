@@ -40,6 +40,8 @@ The parallel animation setting class.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationParallelInterface` class docstring
+
 ### `animation_parallel` method docstring
 
 Set the parallel animation setting.<hr>

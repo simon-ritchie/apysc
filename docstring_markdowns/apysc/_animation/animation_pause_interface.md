@@ -4,6 +4,8 @@
 
 Class implementation for the animation_pause interface.
 
+## `AnimationPauseInterface` class docstring
+
 ### `animation_pause` method docstring
 
 Stop the all animations.<hr>

@@ -4,6 +4,8 @@
 
 Class implementation for height interface.
 
+## `HeightInterface` class docstring
+
 ### `_append_height_attr_linking_setting` method docstring
 
 Append a height attribute linking setting.

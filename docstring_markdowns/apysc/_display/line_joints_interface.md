@@ -8,6 +8,8 @@ Class implementation for line joints interface.
 
 Line joints style type definitions.
 
+## `LineJointsInterface` class docstring
+
 ### `_append_line_joints_update_expression` method docstring
 
 Append line cap updating expression.

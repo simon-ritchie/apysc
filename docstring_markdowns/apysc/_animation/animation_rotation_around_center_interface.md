@@ -38,6 +38,8 @@ The animation class for a rotation around the center point.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationRotationAroundCenterInterface` class docstring
+
 ### `animation_rotation_around_center` method docstring
 
 Set the rotation around the center animation setting.<hr>

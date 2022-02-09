@@ -4,6 +4,8 @@
 
 Interface class implementation for the x path data.
 
+## `PathXInterface` class docstring
+
 ### `_append_x_linking_setting` method docstring
 
 Append a x attribute linking setting.

@@ -23,6 +23,8 @@ Definition of the FPS enum.<hr>
 
 - [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
 
+## `FPSDefinition` class docstring
+
 ### `__init__` method docstring
 
 FPS definition class.<hr>

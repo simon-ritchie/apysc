@@ -4,6 +4,8 @@
 
 Class implementation for the skew y interface.
 
+## `SkewYInterface` class docstring
+
 ### `_append_skew_y_attr_linking_setting` method docstring
 
 Append a skew-y attribute linking setting.

@@ -4,6 +4,8 @@
 
 Class implementation for graphic base class.
 
+## `GraphicsBase` class docstring
+
 ### `__init__` method docstring
 
 Vector graphic base class.<hr>

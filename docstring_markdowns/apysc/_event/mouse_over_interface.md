@@ -4,6 +4,8 @@
 
 Class implementation for mouse over interface.
 
+## `MouseOverInterface` class docstring
+
 ### `_initialize_mouse_over_handlers_if_not_initialized` method docstring
 
 Initialize _mouse_over_handlers attribute if it is not initialized yet.

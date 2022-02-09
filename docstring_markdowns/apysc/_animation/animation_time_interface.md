@@ -4,6 +4,8 @@
 
 Class implementation for the animation_time interface.
 
+## `AnimationTimeInterface` class docstring
+
 ### `animation_time` method docstring
 
 Get an animation elapsed milisecond.<hr>

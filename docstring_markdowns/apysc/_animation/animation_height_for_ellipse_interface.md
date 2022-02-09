@@ -37,6 +37,8 @@ The animation class for a ellipse-height.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationHeightForEllipseInterface` class docstring
+
 ### `animation_height` method docstring
 
 Set the ellipse-height animation setting.<hr>

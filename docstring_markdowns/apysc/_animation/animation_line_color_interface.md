@@ -39,6 +39,8 @@ The animation class for a line color.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationLineColorInterface` class docstring
+
 ### `animation_line_color` method docstring
 
 Set the line color animation setting.<hr>

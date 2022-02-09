@@ -4,6 +4,8 @@
 
 Class implementation for the scale_x_from_center interface.
 
+## `ScaleXFromCenterInterface` class docstring
+
 ### `_append_scale_x_from_center_attr_linking_setting` method docstring
 
 Append a scale-x attribute linking setting.

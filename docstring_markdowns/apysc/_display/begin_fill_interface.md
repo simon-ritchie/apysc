@@ -4,6 +4,8 @@
 
 Class implementation for begin_fill method related interface.
 
+## `BeginFillInterface` class docstring
+
 ### `_initialize_fill_alpha_if_not_initialized` method docstring
 
 Initialize fill_alpha attribute if it hasn't been initialized yet.

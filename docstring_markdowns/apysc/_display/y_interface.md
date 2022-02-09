@@ -4,6 +4,8 @@
 
 Class implementation for the y-coordinate interface.
 
+## `YInterface` class docstring
+
 ### `_append_y_attr_linking_setting` method docstring
 
 Append a y attribute linking setting.

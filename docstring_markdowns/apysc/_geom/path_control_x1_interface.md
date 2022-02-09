@@ -4,6 +4,8 @@
 
 Interface class implementation for the first control x path data.
 
+## `PathControlX1Interface` class docstring
+
 ### `_append_control_x1_linking_setting` method docstring
 
 Append a control_x1 attribute to the linking setting.

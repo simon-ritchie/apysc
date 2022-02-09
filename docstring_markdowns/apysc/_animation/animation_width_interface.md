@@ -37,6 +37,8 @@ The animation class for a width.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationWidthInterface` class docstring
+
 ### `animation_width` method docstring
 
 Set the width animation setting.<hr>

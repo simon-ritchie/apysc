@@ -179,3 +179,5 @@ Save target modules' current hash.<hr>
 ## `HashType` class docstring
 
 An enumeration.
+
+## `_IsModuleUpdatedArgs` class docstring

@@ -4,6 +4,8 @@
 
 Class implementation for line cap interface.
 
+## `LineCapInterface` class docstring
+
 ### `_append_line_cap_update_expression` method docstring
 
 Append line cap updating expression.

@@ -4,6 +4,8 @@
 
 Class implementation for dictionary.
 
+## `Dict` class docstring
+
 ### `__delitem__` method docstring
 
 Delete self[key].

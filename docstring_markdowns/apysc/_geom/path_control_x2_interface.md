@@ -4,6 +4,8 @@
 
 Interface class implementation for the second control x path data.
 
+## `PathControlX2Interface` class docstring
+
 ### `_append_control_x2_linking_setting` method docstring
 
 Append a control_x2 attribute linking setting.

@@ -4,6 +4,8 @@
 
 Class implementation for the animation_reverse interface.
 
+## `AnimationReverseInterface` class docstring
+
 ### `animation_reverse` method docstring
 
 Reverse the all running animations.<hr>

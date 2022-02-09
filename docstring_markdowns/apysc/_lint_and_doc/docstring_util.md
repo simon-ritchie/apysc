@@ -915,6 +915,12 @@ Parameter or return value's base class.<hr>
 - `description`: str
   - Parameter or return value description.
 
+## `_DocstringCallableNotExistsError` class docstring
+
+## `_DocstringPathNotFoundError` class docstring
+
+## `_ParamOrRtnBase` class docstring
+
 ### `__eq__` method docstring
 
 The method for equality comparison.<hr>

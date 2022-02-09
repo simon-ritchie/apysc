@@ -4,6 +4,8 @@
 
 Class implementation for fill alpha interface.
 
+## `FillAlphaInterface` class docstring
+
 ### `_append_fill_alpha_attr_linking_setting` method docstring
 
 Append a scale-y attribute linking setting.

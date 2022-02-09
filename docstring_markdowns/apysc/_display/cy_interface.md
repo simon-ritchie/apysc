@@ -4,6 +4,8 @@
 
 Class implementation for the center y-coordinate interface.
 
+## `CyInterface` class docstring
+
 ### `_append_cy_attr_linking_setting` method docstring
 
 Append a cy attribute linking setting.

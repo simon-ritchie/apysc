@@ -37,6 +37,8 @@ The animation class for a skew-x.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationSkewXInterface` class docstring
+
 ### `animation_skew_x` method docstring
 
 Set the skew-x animation setting.<hr>

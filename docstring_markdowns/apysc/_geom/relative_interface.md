@@ -4,6 +4,8 @@
 
 Interface class implementation for the relative value.
 
+## `RelativeInterface` class docstring
+
 ### `_initialize_relative_if_not_initialized` method docstring
 
 Initialize the _relative attribute if it hasn't been initialized yet.

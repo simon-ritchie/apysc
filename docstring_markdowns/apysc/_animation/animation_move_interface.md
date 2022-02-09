@@ -37,6 +37,8 @@ The animation class for moving x and y coordinates.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationMoveInterface` class docstring
+
 ### `animation_move` method docstring
 
 Set the x and y coordinates animation settings.<hr>

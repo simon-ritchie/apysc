@@ -435,3 +435,5 @@ Initialize the sqlite tables if they have not been initialized yet.<hr>
 ## `TableName` class docstring
 
 An enumeration.
+
+## `_LimitClauseCantUseError` class docstring

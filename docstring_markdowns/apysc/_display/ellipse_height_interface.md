@@ -4,6 +4,8 @@
 
 Class implementation for the ellipse height interface.
 
+## `EllipseHeightInterface` class docstring
+
 ### `_append_ellipse_height_attr_linking_setting` method docstring
 
 Append a ellipse-height attribute linking setting.

@@ -4,6 +4,8 @@
 
 Class implementation for 2-dimensional points interface.
 
+## `Points2DInterface` class docstring
+
 ### `_append_points_update_expression` method docstring
 
 Append points updating expression.<hr>

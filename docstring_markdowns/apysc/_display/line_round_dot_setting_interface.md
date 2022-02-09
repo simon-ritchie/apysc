@@ -50,6 +50,8 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
+## `LineRoundDotSettingInterface` class docstring
+
 ### `_append_line_round_dot_setting_update_expression` method docstring
 
 Append line round dot setting updating expression.

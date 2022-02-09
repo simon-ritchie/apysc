@@ -4,6 +4,8 @@
 
 Class implementation for number value interface.
 
+## `NumberValueInterface` class docstring
+
 ### `__add__` method docstring
 
 Method for addition.<hr>

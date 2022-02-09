@@ -36,6 +36,8 @@ The animation class for a fill alpha (opacity).<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationFillAlphaInterface` class docstring
+
 ### `animation_fill_alpha` method docstring
 
 Set the fill alpha (opacity) animation setting.<hr>

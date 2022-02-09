@@ -158,3 +158,5 @@ Make a stage's style string.<hr>
 ### `_save_stage_elem_id` method docstring
 
 Save the stage element id.
+
+## `_StageNotCreatedError` class docstring

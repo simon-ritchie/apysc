@@ -4,6 +4,8 @@
 
 Class implementation for the attribute linking interface. This interface is used for updating an old property value to achieve consistency in the handler functions.
 
+## `AttrLinkingInterface` class docstring
+
 ### `_append_applying_new_attr_val_exp` method docstring
 
 Append the expression of applying new attribute value to each stacked value.<hr>

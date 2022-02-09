@@ -4,6 +4,8 @@
 
 Class implementation for the scale_y_from_center interface.
 
+## `ScaleYFromCenterInterface` class docstring
+
 ### `_append_scale_y_from_center_attr_linking_setting` method docstring
 
 Append a scale-y attribute linking setting.

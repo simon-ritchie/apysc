@@ -38,6 +38,8 @@ The animation class for a scale-y.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
+## `AnimationScaleYFromCenterInterface` class docstring
+
 ### `animation_scale_y_from_center` method docstring
 
 Set the scale-y from the center point animation setting.<hr>

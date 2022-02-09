@@ -31,6 +31,8 @@ Mouse event class.<hr>
 
 - [Basic mouse event interfaces](https://simon-ritchie.github.io/apysc/mouse_event_basic.html)
 
+## `MouseEventInterfaceBase` class docstring
+
 ### `_append_mouse_event_binding_expression` method docstring
 
 Append a mouse event binding expression.<hr>

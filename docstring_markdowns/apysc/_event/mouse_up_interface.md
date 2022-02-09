@@ -4,6 +4,8 @@
 
 Class implementation for mouse up interface.
 
+## `MouseUpInterface` class docstring
+
 ### `_initialize_mouse_up_handlers_if_not_initialized` method docstring
 
 Initialize _mouse_up_handlers attribute if it is not initialized yet.

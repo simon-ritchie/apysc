@@ -4,6 +4,8 @@
 
 Base class implementation for each lines.
 
+## `LineBase` class docstring
+
 ### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).

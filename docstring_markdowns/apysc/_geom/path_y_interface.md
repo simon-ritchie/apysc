@@ -4,6 +4,8 @@
 
 Interface class implementation for the y path data.
 
+## `PathYInterface` class docstring
+
 ### `_append_y_linking_setting` method docstring
 
 Append a y attribute linking setting.

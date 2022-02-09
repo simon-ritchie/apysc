@@ -4,6 +4,8 @@
 
 Implementation of VariableNameInterface class.
 
+## `VariableNameInterface` class docstring
+
 ### `_get_previous_variable_name` method docstring
 
 Get a previous variable name.<hr>

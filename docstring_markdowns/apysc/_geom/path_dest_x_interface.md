@@ -4,6 +4,8 @@
 
 Interface class implementation for the destination x path data.
 
+## `PathDestXInterface` class docstring
+
 ### `_append_dest_x_linking_setting` method docstring
 
 Append a dest_x attribute linking setting.

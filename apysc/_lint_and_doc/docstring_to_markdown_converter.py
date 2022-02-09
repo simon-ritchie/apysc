@@ -148,8 +148,8 @@ def _append_toplevel_class_docstring_to_markdown(
     markdown : str
         Result markdown string.
     """
+    markdown += f'\n\n## `{toplevel_class.__name__}` class docstring'
     if toplevel_class.__doc__ is not None:
-        markdown += f'\n\n## `{toplevel_class.__name__}` class docstring'
         markdown = _append_each_section_to_markdown(
             markdown=markdown, docstring=toplevel_class.__doc__)
 

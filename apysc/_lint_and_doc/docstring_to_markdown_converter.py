@@ -149,12 +149,8 @@ def _append_toplevel_class_docstring_to_markdown(
         Result markdown string.
     """
     from apysc._lint_and_doc import docstring_util
-    if markdown != '':
-        markdown += '\n\n'
-    markdown += f'## {toplevel_class.__name__} class docstring\n\n'
     if toplevel_class.__doc__ is not None:
-        markdown += docstring_util.extract_summary_from_docstring(
-            docstring=toplevel_class.__doc__)
+        markdown += f'\n\n## {toplevel_class.__name__} class docstring'
         markdown = _append_each_section_to_markdown(
             markdown=markdown, docstring=toplevel_class.__doc__)
 

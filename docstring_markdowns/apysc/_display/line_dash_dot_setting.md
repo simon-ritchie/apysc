@@ -1,10 +1,10 @@
-# apysc._display.line_dash_dot_setting docstrings
+# `apysc._display.line_dash_dot_setting` docstrings
 
 ## Module summary
 
 Dash dot (1-dot chain) setting for line.
 
-## LineDashDotSetting class docstring
+## `LineDashDotSetting` class docstring
 
 Dash dot (1-dot chain) setting for a line.<hr>
 
@@ -35,7 +35,7 @@ Int(3)
 
 - [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/graphics_line_style.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Dash dot (1-dot chain) setting for a line.<hr>
 

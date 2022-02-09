@@ -1,10 +1,10 @@
-# apysc._display.path docstrings
+# `apysc._display.path` docstrings
 
 ## Module summary
 
 Implementations of the Path class.
 
-## Path class docstring
+## `Path` class docstring
 
 The path vector graphics class.<hr>
 
@@ -24,7 +24,7 @@ The path vector graphics class.<hr>
 ...     ])
 ```
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Create a path vector graphics.<hr>
 
@@ -53,7 +53,7 @@ Create a path vector graphics.<hr>
 ...     ])
 ```
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -62,6 +62,6 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Path('<variable_name>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append a constructor expression.

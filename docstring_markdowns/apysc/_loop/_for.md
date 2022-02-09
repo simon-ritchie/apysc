@@ -1,10 +1,10 @@
-# apysc._loop._for docstrings
+# `apysc._loop._for` docstrings
 
 ## Module summary
 
 For loop class implementation.
 
-## For class docstring
+## `For` class docstring
 
 A class to append for the (loop) expression.<hr>
 
@@ -23,7 +23,7 @@ A class to append for the (loop) expression.<hr>
 
 - [For document](https://simon-ritchie.github.io/apysc/for.html)
 
-### __enter__ method docstring
+### `__enter__` method docstring
 
 Method to be called when begining of with statement.<hr>
 
@@ -32,11 +32,11 @@ Method to be called when begining of with statement.<hr>
 - `i_or_key`: Int or String
   - Loop index or dictionary key.
 
-### __exit__ method docstring
+### `__exit__` method docstring
 
 Method to be called when end of with statement.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 A class to append for the (loop) expression.<hr>
 
@@ -66,7 +66,7 @@ A class to append for the (loop) expression.<hr>
 
 - [For document](https://simon-ritchie.github.io/apysc/for.html)
 
-### _append_arr_enter_expression method docstring
+### `_append_arr_enter_expression` method docstring
 
 Append for loop start expression (for Array value).<hr>
 
@@ -75,7 +75,7 @@ Append for loop start expression (for Array value).<hr>
 - `i`: Int
   - Loop index value.
 
-### _append_dict_enter_expression method docstring
+### `_append_dict_enter_expression` method docstring
 
 Append for loop start expression (for Dictionary value).<hr>
 
@@ -84,7 +84,7 @@ Append for loop start expression (for Dictionary value).<hr>
 - `key`: String
   - Loop (dictionary) key value.
 
-### _validate_arr_or_dict_val_type method docstring
+### `_validate_arr_or_dict_val_type` method docstring
 
 Validate loop value type is Array of Dictionary.<hr>
 

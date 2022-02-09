@@ -1,10 +1,10 @@
-# apysc._type.type_util docstrings
+# `apysc._type.type_util` docstrings
 
 ## Module summary
 
 Type related common implementations. Mainly following interface is defined: <br>・is_number <br> ・Get a boolean value whether specified value is Number value. <br>・is_float_or_number <br> ・Get a boolean value whether specified value is float or Nuber value. <br>・is_bool <br> ・Get a boolean value whether specified value is bool or Boolean value. <br>・is_same_class_instance <br> ・Get a boolean value whether specified class and instance's class are same or not. <br>・is_immutable_type <br> ・Get a boolean value whether specified value is immutable type or not.
 
-## is_bool function docstring
+## `is_bool` function docstring
 
 Get a boolean value whether specified value is bool or Boolean value.<hr>
 
@@ -20,7 +20,7 @@ Get a boolean value whether specified value is bool or Boolean value.<hr>
 - `result`: bool
   - If bool or Boolean value is specified, True will be returned.
 
-## is_float_or_number function docstring
+## `is_float_or_number` function docstring
 
 Get a boolean value whether specified value is float or Nuber value.<hr>
 
@@ -36,7 +36,7 @@ Get a boolean value whether specified value is float or Nuber value.<hr>
 - `result`: bool
   - If float or Number value is specified, True will be returned.
 
-## is_immutable_type function docstring
+## `is_immutable_type` function docstring
 
 Get a boolean value whether specified value is immutable type or not.<hr>
 
@@ -58,7 +58,7 @@ Get a boolean value whether specified value is immutable type or not.<hr>
 
 apysc's value types, such as the `Int`, are checked as immutable since these js types are immutable.
 
-## is_number function docstring
+## `is_number` function docstring
 
 Get a boolean value whether specified value is Number value.<hr>
 
@@ -74,7 +74,7 @@ Get a boolean value whether specified value is Number value.<hr>
 - `result`: bool
   - If Number value is specified, True will be returned.
 
-## is_same_class_instance function docstring
+## `is_same_class_instance` function docstring
 
 Get a boolean value whether specified class and instance's class are same or not.<hr>
 

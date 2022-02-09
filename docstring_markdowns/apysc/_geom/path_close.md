@@ -1,10 +1,10 @@
-# apysc._geom.path_close docstrings
+# `apysc._geom.path_close` docstrings
 
 ## Module summary
 
 Path data class implementation for the svg's `close path` (Z).
 
-## PathClose class docstring
+## `PathClose` class docstring
 
 Path data class for the svg's `close path` (Z).<hr>
 
@@ -24,7 +24,7 @@ Path data class for the svg's `close path` (Z).<hr>
 ...     ])
 ```
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Path data class for the svg's `close path` (Z).<hr>
 
@@ -44,7 +44,7 @@ Path data class for the svg's `close path` (Z).<hr>
 ...     ])
 ```
 
-### _get_svg_str method docstring
+### `_get_svg_str` method docstring
 
 Get a path's SVG string created with the current setting.<hr>
 

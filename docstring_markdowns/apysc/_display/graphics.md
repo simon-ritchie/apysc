@@ -1,10 +1,10 @@
-# apysc._display.graphics docstrings
+# `apysc._display.graphics` docstrings
 
 ## Module summary
 
 Implementations for Graphics class.
 
-## Graphics class docstring
+## `Graphics` class docstring
 
 Create a object that has each vector graphics interface.<hr>
 
@@ -32,7 +32,7 @@ Int(100)
 
 - [Graphics document](https://simon-ritchie.github.io/apysc/graphics.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Create a object that has each vector graphics interface.<hr>
 
@@ -49,7 +49,7 @@ Create a object that has each vector graphics interface.<hr>
 
 - [Graphics document](https://simon-ritchie.github.io/apysc/graphics.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -58,11 +58,11 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Graphics('<variable_name>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append constructor expression.
 
-### _reset_each_line_settings method docstring
+### `_reset_each_line_settings` method docstring
 
 Reset each line settings (e.g., LineDotSetting, LineDashSetting, and so on).<hr>
 
@@ -70,7 +70,7 @@ Reset each line settings (e.g., LineDotSetting, LineDashSetting, and so on).<hr>
 
 expression will not be appended.
 
-### draw_circle method docstring
+### `draw_circle` method docstring
 
 Draw a circle vector graphics.<hr>
 
@@ -120,7 +120,7 @@ String('#00aaff')
 
 - [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/graphics_draw_circle.html)
 
-### draw_dash_dotted_line method docstring
+### `draw_dash_dotted_line` method docstring
 
 Draw a dash dotted (1-dot chain) line vector graphics.<hr>
 
@@ -179,7 +179,7 @@ Int(3)
 
 - [Graphics draw_dash_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html)
 
-### draw_dashed_line method docstring
+### `draw_dashed_line` method docstring
 
 Draw a dashed line vector graphics.<hr>
 
@@ -237,7 +237,7 @@ Int(2)
 
 - [Graphics draw_dashed_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dashed_line.html)
 
-### draw_dotted_line method docstring
+### `draw_dotted_line` method docstring
 
 Draw a dotted line vector graphics.<hr>
 
@@ -292,7 +292,7 @@ Int(5)
 
 - [Graphics draw_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dotted_line.html)
 
-### draw_ellipse method docstring
+### `draw_ellipse` method docstring
 
 Draw a ellipse vector graphics.<hr>
 
@@ -347,7 +347,7 @@ String('#00aaff')
 
 - [Graphics draw_ellipse interface](https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html)
 
-### draw_line method docstring
+### `draw_line` method docstring
 
 Draw a normal line vector graphics.<hr>
 
@@ -397,7 +397,7 @@ Int(5)
 
 - [Graphics draw_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_line.html)
 
-### draw_path method docstring
+### `draw_path` method docstring
 
 Draw a path vector graphics.<hr>
 
@@ -431,7 +431,7 @@ Draw a path vector graphics.<hr>
 ...     ])
 ```
 
-### draw_polygon method docstring
+### `draw_polygon` method docstring
 
 Draw a polygon vector graphic. This interface is similar to the Polyline class (created by `move_to` or `line_to`). But unlike that, this interface connects the last point and the start point.<hr>
 
@@ -472,7 +472,7 @@ String('#00aaff')
 
 - [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html)
 
-### draw_rect method docstring
+### `draw_rect` method docstring
 
 Draw a rectangle vector graphics.<hr>
 
@@ -521,7 +521,7 @@ String('#00aaff')
 
 - [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/graphics_draw_rect.html)
 
-### draw_round_dotted_line method docstring
+### `draw_round_dotted_line` method docstring
 
 Draw a round dotted line vector graphics.<hr>
 
@@ -579,7 +579,7 @@ Int(3)
 
 - [Graphics draw_round_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html)
 
-### draw_round_rect method docstring
+### `draw_round_rect` method docstring
 
 Draw a rounded rectangle vector graphics.<hr>
 
@@ -630,7 +630,7 @@ Int(15)
 
 - [Graphics draw_round_rect interface document](https://simon-ritchie.github.io/apysc/graphics_draw_round_rect.html)
 
-### line_to method docstring
+### `line_to` method docstring
 
 Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr>
 
@@ -676,7 +676,7 @@ Int(5)
 
 - [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html)
 
-### move_to method docstring
+### `move_to` method docstring
 
 Move a line position to a specified point.<hr>
 

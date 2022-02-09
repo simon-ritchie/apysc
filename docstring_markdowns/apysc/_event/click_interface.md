@@ -1,14 +1,14 @@
-# apysc._event.click_interface docstrings
+# `apysc._event.click_interface` docstrings
 
 ## Module summary
 
 Class implementation for click interface.
 
-### _initialize_click_handlers_if_not_initialized method docstring
+### `_initialize_click_handlers_if_not_initialized` method docstring
 
 Initialize _click_handlers attribute if it hasn't been initialized yet.
 
-### click method docstring
+### `click` method docstring
 
 Add a click event listener setting.<hr>
 
@@ -51,7 +51,7 @@ Add a click event listener setting.<hr>
 - [Click interface document](https://simon-ritchie.github.io/apysc/click.html)
 - [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### unbind_click method docstring
+### `unbind_click` method docstring
 
 Unbind specified handler's click event.<hr>
 
@@ -85,7 +85,7 @@ Unbind specified handler's click event.<hr>
 
 - [Click interface document](https://simon-ritchie.github.io/apysc/click.html)
 
-### unbind_click_all method docstring
+### `unbind_click_all` method docstring
 
 Unbind all click events.<hr>
 

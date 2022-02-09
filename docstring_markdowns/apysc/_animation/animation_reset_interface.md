@@ -1,10 +1,10 @@
-# apysc._animation.animation_reset_interface docstrings
+# `apysc._animation.animation_reset_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_reset interface.
 
-### animation_reset method docstring
+### `animation_reset` method docstring
 
 Stop the all animations and reset.<hr>
 

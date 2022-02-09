@@ -1,10 +1,10 @@
-# apysc._animation.animation_line_thickness_interface docstrings
+# `apysc._animation.animation_line_thickness_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_line_thickness interface.
 
-## AnimationLineThickness class docstring
+## `AnimationLineThickness` class docstring
 
 The animation class for a line thickness.<hr>
 
@@ -40,7 +40,7 @@ The animation class for a line thickness.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_line_thickness method docstring
+### `animation_line_thickness` method docstring
 
 Set the line thickness animation setting.<hr>
 

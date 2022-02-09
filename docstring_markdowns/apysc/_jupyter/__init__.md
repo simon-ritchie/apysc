@@ -1,1 +1,1 @@
-# apysc._jupyter.__init__ docstrings
+# `apysc._jupyter.__init__` docstrings

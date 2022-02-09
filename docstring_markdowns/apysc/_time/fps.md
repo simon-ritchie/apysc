@@ -1,10 +1,10 @@
-# apysc._time.fps docstrings
+# `apysc._time.fps` docstrings
 
 ## Module summary
 
 Definition of the FPS enum.
 
-## FPS class docstring
+## `FPS` class docstring
 
 Definition of the FPS enum.<hr>
 
@@ -23,7 +23,7 @@ Definition of the FPS enum.<hr>
 
 - [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 FPS definition class.<hr>
 

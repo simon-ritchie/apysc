@@ -1,10 +1,10 @@
-# apysc._validation.bool_validation docstrings
+# `apysc._validation.bool_validation` docstrings
 
 ## Module summary
 
 Boolean value's validation implementations.
 
-## validate_bool function docstring
+## `validate_bool` function docstring
 
 Validate specified value is bool or Boolean type.<hr>
 

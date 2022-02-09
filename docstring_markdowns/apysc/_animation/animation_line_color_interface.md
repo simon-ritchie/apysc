@@ -1,10 +1,10 @@
-# apysc._animation.animation_line_color_interface docstrings
+# `apysc._animation.animation_line_color_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_line_color interface.
 
-## AnimationLineColor class docstring
+## `AnimationLineColor` class docstring
 
 The animation class for a line color.<hr>
 
@@ -39,7 +39,7 @@ The animation class for a line color.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_line_color method docstring
+### `animation_line_color` method docstring
 
 Set the line color animation setting.<hr>
 

@@ -1,4 +1,4 @@
-# apysc._html.html_const docstrings
+# `apysc._html.html_const` docstrings
 
 ## Module summary
 

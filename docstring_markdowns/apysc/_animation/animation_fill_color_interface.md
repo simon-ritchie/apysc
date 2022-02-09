@@ -1,10 +1,10 @@
-# apysc._animation.animation_fill_color_interface docstrings
+# `apysc._animation.animation_fill_color_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_fill_color interface.
 
-## AnimationFillColor class docstring
+## `AnimationFillColor` class docstring
 
 The animation class for a fill color.<hr>
 
@@ -37,7 +37,7 @@ The animation class for a fill color.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_fill_color method docstring
+### `animation_fill_color` method docstring
 
 Set the fill color animation setting.<hr>
 

@@ -1,10 +1,10 @@
-# apysc._display.circle docstrings
+# `apysc._display.circle` docstrings
 
 ## Module summary
 
 Implementations of Circle class.
 
-## Circle class docstring
+## `Circle` class docstring
 
 The circle vector graphics class.<hr>
 
@@ -36,7 +36,7 @@ String('#00aaff')
 
 - [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/graphics_draw_circle.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Create a circle vector graphics.<hr>
 
@@ -81,7 +81,7 @@ String('#00aaff')
 
 - [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/graphics_draw_circle.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -90,11 +90,11 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Circle('<variable_name>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append a construcor expression.
 
-### _set_center_coordinates method docstring
+### `_set_center_coordinates` method docstring
 
 Set a center x-coordinate and a center y-coordinate.<hr>
 

@@ -1,10 +1,10 @@
-# apysc._event.animation_event docstrings
+# `apysc._event.animation_event` docstrings
 
 ## Module summary
 
 Class implementation for the animation event.
 
-## AnimationEvent class docstring
+## `AnimationEvent` class docstring
 
 Animation event class.<hr>
 
@@ -25,7 +25,7 @@ Animation event class.<hr>
 ...     x=100).animation_complete(on_animation_complete)
 ```
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Animation event class.<hr>
 

@@ -1,10 +1,10 @@
-# apysc._lint_and_doc.docstring_util docstrings
+# `apysc._lint_and_doc.docstring_util` docstrings
 
 ## Module summary
 
 Utility implementations for docstrings.
 
-## _append_br_tag_and_replace_symbol_if_first_char_is_hyphen function docstring
+## `_append_br_tag_and_replace_symbol_if_first_char_is_hyphen` function docstring
 
 Append a break tag and replace the hypen symbol if the first character is the hypen symbol.<hr>
 
@@ -20,7 +20,7 @@ Append a break tag and replace the hypen symbol if the first character is the hy
 - `line`: str
   - Replaced docstring line.
 
-## _convert_docstring_path_comment_to_markdown_format function docstring
+## `_convert_docstring_path_comment_to_markdown_format` function docstring
 
 Convert a specified docstring path comment to a markdown format text.<hr>
 
@@ -38,7 +38,7 @@ Convert a specified docstring path comment to a markdown format text.<hr>
 - `markdown_format_docstring`: str
   - Converted text.
 
-## _convert_docstring_to_markdown function docstring
+## `_convert_docstring_to_markdown` function docstring
 
 Convert a specified docstring to a markdown format text.<hr>
 
@@ -60,7 +60,7 @@ Convert a specified docstring to a markdown format text.<hr>
 - `markdown`: str
   - Converted markdown text.
 
-## _extract_docstring_path_specification_comment_from_line function docstring
+## `_extract_docstring_path_specification_comment_from_line` function docstring
 
 Extract a docstring path specification comment from a specified markdown line text.<hr>
 
@@ -78,7 +78,7 @@ Extract a docstring path specification comment from a specified markdown line te
 - `docstring_path_specification_comment`: str
   - Extracted comment string.
 
-## _extract_package_path_and_callable_name_from_path function docstring
+## `_extract_package_path_and_callable_name_from_path` function docstring
 
 Extract a module or class package path and callable name from a specified path comment.<hr>
 
@@ -96,7 +96,7 @@ Extract a module or class package path and callable name from a specified path c
 - `callable_name`: str
   - Extracted callable name.
 
-## _extract_path_from_docstring_comment function docstring
+## `_extract_path_from_docstring_comment` function docstring
 
 Extract a path string from a specified docstring path comment.<hr>
 
@@ -112,7 +112,7 @@ Extract a path string from a specified docstring path comment.<hr>
 - `path`: str
   - Extracted path string.
 
-## _get_base_indent_num_if_not_set function docstring
+## `_get_base_indent_num_if_not_set` function docstring
 
 Get a base indent number from line if it is not set.<hr>
 
@@ -130,7 +130,7 @@ Get a base indent number from line if it is not set.<hr>
 - `base_indent_num`: int
   - If the base_indent_num argument is zero, this function returns the current line indent number. Otherwise, it returns the same value of the base_indent_num argument.
 
-## _get_callable_from_package_path_and_callable_name function docstring
+## `_get_callable_from_package_path_and_callable_name` function docstring
 
 Get a callable object from a specified package path and callable name.<hr>
 
@@ -155,7 +155,7 @@ Get a callable object from a specified package path and callable name.<hr>
 - _DocstringPathNotFoundError: If a specified package path's module or class does not exist.
 - _DocstringCallableNotExistsError: If a target module or class does not have a specified name function or method.
 
-## _get_docstring_path_comment_matches function docstring
+## `_get_docstring_path_comment_matches` function docstring
 
 Get matched docstring path specification comments.<hr>
 
@@ -171,7 +171,7 @@ Get matched docstring path specification comments.<hr>
 - `matches`: list of str
   - Matched comments.
 
-## _get_indent_num_from_line function docstring
+## `_get_indent_num_from_line` function docstring
 
 Get an indent number from a specified docstring line.<hr>
 
@@ -187,7 +187,7 @@ Get an indent number from a specified docstring line.<hr>
 - `indent_num`: int
   - Indent number of a specified docstring line.
 
-## _get_params_or_rtns_section_pattern_by_type function docstring
+## `_get_params_or_rtns_section_pattern_by_type` function docstring
 
 Get the parameters or returns section pattern of a specified type.<hr>
 
@@ -209,7 +209,7 @@ Get the parameters or returns section pattern of a specified type.<hr>
 
 - ValueError: If an invalid target type is provided.
 
-## _get_value_name_and_type_from_line function docstring
+## `_get_value_name_and_type_from_line` function docstring
 
 Get a parameter or return value and type from a specified line.<hr>
 
@@ -227,7 +227,7 @@ Get a parameter or return value and type from a specified line.<hr>
 - `type_name`: str
   - Target parameter or return value type name.
 
-## _is_example_output_line function docstring
+## `_is_example_output_line` function docstring
 
 Get a boolean indicating whether a specified line is example section's output line or not.<hr>
 
@@ -243,7 +243,7 @@ Get a boolean indicating whether a specified line is example section's output li
 - `result`: bool
   - This function return True if a specified line is example section's output line.
 
-## _is_hyphens_line function docstring
+## `_is_hyphens_line` function docstring
 
 Get a boolean indicating whether a specified line is a hyphens line or not.<hr>
 
@@ -259,7 +259,7 @@ Get a boolean indicating whether a specified line is a hyphens line or not.<hr>
 - `result`: bool
   - If a specified line is a hyphens line, this function returns True.
 
-## _is_section_line function docstring
+## `_is_section_line` function docstring
 
 Get a boolean indicating whether a specified docstring line is a section line or not.<hr>
 
@@ -275,7 +275,7 @@ Get a boolean indicating whether a specified docstring line is a section line or
 - `result`: bool
   - If a specified docstring line is section line, this function returns True.
 
-## _is_skip_target_line function docstring
+## `_is_skip_target_line` function docstring
 
 Get a boolean indicating whether a specified line is skipping target or not.<hr>
 
@@ -293,7 +293,7 @@ Get a boolean indicating whether a specified line is skipping target or not.<hr>
 - `result`: bool
   - A boolean indicating whether a specified line is skipping target or not.
 
-## _is_target_section_pattern_line function docstring
+## `_is_target_section_pattern_line` function docstring
 
 Get a boolean indicating whether a specified line is matching with a target section pattern or not.<hr>
 
@@ -311,7 +311,7 @@ Get a boolean indicating whether a specified line is matching with a target sect
 - `result`: bool
   - If a specified line is the parameters section, this function returns True.
 
-## _make_example_and_append_to_list function docstring
+## `_make_example_and_append_to_list` function docstring
 
 Make an example value and append it ot a specified list.<hr>
 
@@ -330,7 +330,7 @@ Make an example value and append it ot a specified list.<hr>
 
 This function clears a list of input code block lines.
 
-## _make_prm_or_rtn_description_and_append_to_list function docstring
+## `_make_prm_or_rtn_description_and_append_to_list` function docstring
 
 Make a parameter or return value description from a list of lines and append parameter or return value to a specified list.<hr>
 
@@ -353,7 +353,7 @@ Make a parameter or return value description from a list of lines and append par
 
 This function clears a list of description lines.
 
-## _make_raise_description_and_append_to_list function docstring
+## `_make_raise_description_and_append_to_list` function docstring
 
 Make a raise value description from a list of lines and append raise value to a specified list.<hr>
 
@@ -372,7 +372,7 @@ Make a raise value description from a list of lines and append raise value to a 
 
 This function clears a list of description lines.
 
-## _make_reference_and_append_to_list function docstring
+## `_make_reference_and_append_to_list` function docstring
 
 Make a reference value and append it to a specified list.<hr>
 
@@ -385,7 +385,7 @@ Make a reference value and append it to a specified list.<hr>
 - `url`: str
   - Target reference page URL.
 
-## _remove_blank_lines_from_list function docstring
+## `_remove_blank_lines_from_list` function docstring
 
 Remove blank lines from a list of lines.<hr>
 
@@ -401,7 +401,7 @@ Remove blank lines from a list of lines.<hr>
 - `result_lines`: list of str
   - A lines list which removed blank lines.
 
-## _remove_line_breaks_and_unnecessary_spaces function docstring
+## `_remove_line_breaks_and_unnecessary_spaces` function docstring
 
 Remove line breaks to a single space and unnecessary spaces (e.g., double spaces and leading and trailing spaces).<hr>
 
@@ -417,7 +417,7 @@ Remove line breaks to a single space and unnecessary spaces (e.g., double spaces
 - `text`: str
   - Converted text.
 
-## _remove_noqa function docstring
+## `_remove_noqa` function docstring
 
 Remove a noqa comment from a specified string.<hr>
 
@@ -433,7 +433,7 @@ Remove a noqa comment from a specified string.<hr>
 - `string`: str
   - Result string.
 
-## _remove_replaced_docstring_section_from_md_txt function docstring
+## `_remove_replaced_docstring_section_from_md_txt` function docstring
 
 Remove replaced docstring from a specified markdown text.<hr>
 
@@ -451,7 +451,7 @@ Remove replaced docstring from a specified markdown text.<hr>
 - `md_txt`: str
   - Result markdown text.
 
-## _remove_unnecessary_markdown_list_from_line function docstring
+## `_remove_unnecessary_markdown_list_from_line` function docstring
 
 Remove unnecessary markdown list string from a line.<hr>
 
@@ -467,7 +467,7 @@ Remove unnecessary markdown list string from a line.<hr>
 - `line`: str
   - Result docstring line.
 
-## _slice_references_by_md_file_path function docstring
+## `_slice_references_by_md_file_path` function docstring
 
 Slice a specified references list to exclude a same URL's document file.<hr>
 
@@ -485,7 +485,7 @@ Slice a specified references list to exclude a same URL's document file.<hr>
 - `sliced_references`: list of Reference
   - Sliced list.
 
-## append_examples_to_markdown function docstring
+## `append_examples_to_markdown` function docstring
 
 Append examples to a specified markdown string.<hr>
 
@@ -503,7 +503,7 @@ Append examples to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## append_notes_to_markdown function docstring
+## `append_notes_to_markdown` function docstring
 
 Append a notes string to a specified markdown string.<hr>
 
@@ -521,7 +521,7 @@ Append a notes string to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## append_params_or_rtns_to_markdown function docstring
+## `append_params_or_rtns_to_markdown` function docstring
 
 Append parameters or returns to a specified markdown string.<hr>
 
@@ -539,7 +539,7 @@ Append parameters or returns to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## append_raises_to_markdown function docstring
+## `append_raises_to_markdown` function docstring
 
 Append raises to a specified markdown string.<hr>
 
@@ -557,7 +557,7 @@ Append raises to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## append_references_to_markdown function docstring
+## `append_references_to_markdown` function docstring
 
 Append references to a specified markdown string.<hr>
 
@@ -575,7 +575,7 @@ Append references to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## append_summary_to_markdown function docstring
+## `append_summary_to_markdown` function docstring
 
 Append a interface summary string to a specified markdown string.<hr>
 
@@ -595,7 +595,7 @@ Append a interface summary string to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## extract_example_values_from_docstring function docstring
+## `extract_example_values_from_docstring` function docstring
 
 Extract example values from a docstring.<hr>
 
@@ -611,7 +611,7 @@ Extract example values from a docstring.<hr>
 - `example_values`: list of Example
   - Extracted example values.
 
-## extract_notes_from_docstring function docstring
+## `extract_notes_from_docstring` function docstring
 
 Extract a notes value from a docstring.<hr>
 
@@ -627,7 +627,7 @@ Extract a notes value from a docstring.<hr>
 - `notes`: str
   - Extract notes text value.
 
-## extract_param_or_rtn_values_from_docstring function docstring
+## `extract_param_or_rtn_values_from_docstring` function docstring
 
 Extract parameter or return values from a docstring.<hr>
 
@@ -645,7 +645,7 @@ Extract parameter or return values from a docstring.<hr>
 - `param_or_rtn_values`: list of Parameter or Return
   - Extracted parameter or return values.
 
-## extract_raise_values_from_docstring function docstring
+## `extract_raise_values_from_docstring` function docstring
 
 Extract raise values from a docstring.<hr>
 
@@ -661,7 +661,7 @@ Extract raise values from a docstring.<hr>
 - `raise_values`: list of Raise
   - Extracted raise values.
 
-## extract_reference_values_from_docstring function docstring
+## `extract_reference_values_from_docstring` function docstring
 
 Extract reference values from a docstring.<hr>
 
@@ -677,7 +677,7 @@ Extract reference values from a docstring.<hr>
 - `reference_values`: list of Reference
   - Extracted reference values.
 
-## extract_summary_from_docstring function docstring
+## `extract_summary_from_docstring` function docstring
 
 Extract a summary text from a docstring.<hr>
 
@@ -699,7 +699,7 @@ Extract a summary text from a docstring.<hr>
 
 This function converts line break to a space.
 
-## get_docstring_src_module_paths function docstring
+## `get_docstring_src_module_paths` function docstring
 
 Get docstring source module paths from a specified markdown file path.<hr>
 
@@ -715,7 +715,7 @@ Get docstring source module paths from a specified markdown file path.<hr>
 - `module_paths`: list of str
   - Extracted docstring source module paths.
 
-## remove_trailing_hr_tag function docstring
+## `remove_trailing_hr_tag` function docstring
 
 Remove a trailing `<hr>` tag from a specified markdown string.<hr>
 
@@ -731,7 +731,7 @@ Remove a trailing `<hr>` tag from a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## replace_docstring_path_specification function docstring
+## `replace_docstring_path_specification` function docstring
 
 Replace a docstring path specification in a specified markdown document by a converted docstring text.<hr>
 
@@ -740,7 +740,7 @@ Replace a docstring path specification in a specified markdown document by a con
 - `md_file_path`: str
   - Target markdown file path.
 
-## reset_replaced_docstring_section function docstring
+## `reset_replaced_docstring_section` function docstring
 
 Reset converted a markdown's docstring section.<hr>
 
@@ -756,11 +756,11 @@ Reset converted a markdown's docstring section.<hr>
 - `is_executed`: bool
   - Replacing is executed or not.
 
-## Example class docstring
+## `Example` class docstring
 
 Example value type.
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 The method for equality comparison.<hr>
 
@@ -776,7 +776,7 @@ The method for equality comparison.<hr>
 - `result`: bool
   - If each attribute is equal to the other, this method returns True.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Example value type.<hr>
 
@@ -787,11 +787,11 @@ Example value type.<hr>
 - `expected_output`: str, default ''
   - Expected output string.
 
-## Parameter class docstring
+## `Parameter` class docstring
 
 Parameter value type.
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 The method for equality comparison.<hr>
 
@@ -807,7 +807,7 @@ The method for equality comparison.<hr>
 - `result`: bool
   - If each attribute is equal to the other, this method returns True.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Parameter or return value's base class.<hr>
 
@@ -820,11 +820,11 @@ Parameter or return value's base class.<hr>
 - `description`: str
   - Parameter or return value description.
 
-## Raise class docstring
+## `Raise` class docstring
 
 Raise value type.
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 The method for equality comparison.<hr>
 
@@ -840,7 +840,7 @@ The method for equality comparison.<hr>
 - `result`: bool
   - If each attribute is equal to the other, this method returns True.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Raise value type.<hr>
 
@@ -851,11 +851,11 @@ Raise value type.<hr>
 - `description`: str
   - Error condition description.
 
-## Reference class docstring
+## `Reference` class docstring
 
 Reference value type.
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 The method for equality comparison.<hr>
 
@@ -871,7 +871,7 @@ The method for equality comparison.<hr>
 - `result`: bool
   - If each attribute is equal to the other, this method returns True.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Reference value type.<hr>
 
@@ -882,11 +882,11 @@ Reference value type.<hr>
 - `url`: str
   - Target reference page URL.
 
-## Return class docstring
+## `Return` class docstring
 
 Return value type.
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 The method for equality comparison.<hr>
 
@@ -902,7 +902,7 @@ The method for equality comparison.<hr>
 - `result`: bool
   - If each attribute is equal to the other, this method returns True.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Parameter or return value's base class.<hr>
 
@@ -915,7 +915,7 @@ Parameter or return value's base class.<hr>
 - `description`: str
   - Parameter or return value description.
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 The method for equality comparison.<hr>
 
@@ -931,7 +931,7 @@ The method for equality comparison.<hr>
 - `result`: bool
   - If each attribute is equal to the other, this method returns True.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Parameter or return value's base class.<hr>
 
@@ -944,6 +944,6 @@ Parameter or return value's base class.<hr>
 - `description`: str
   - Parameter or return value description.
 
-## _SectionPattern class docstring
+## `_SectionPattern` class docstring
 
 An enumeration.

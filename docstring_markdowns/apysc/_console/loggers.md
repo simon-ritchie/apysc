@@ -1,10 +1,10 @@
-# apysc._console.loggers docstrings
+# `apysc._console.loggers` docstrings
 
 ## Module summary
 
 Definitions and interface for loggers.
 
-## get_info_logger function docstring
+## `get_info_logger` function docstring
 
 Get information logger.<hr>
 

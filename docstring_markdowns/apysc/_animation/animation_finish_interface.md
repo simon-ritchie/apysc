@@ -1,10 +1,10 @@
-# apysc._animation.animation_finish_interface docstrings
+# `apysc._animation.animation_finish_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_finish interface.
 
-### animation_finish method docstring
+### `animation_finish` method docstring
 
 Finish all animations (set the animation last value to each attribute).<hr>
 

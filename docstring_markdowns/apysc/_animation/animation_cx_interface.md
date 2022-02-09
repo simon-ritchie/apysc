@@ -1,10 +1,10 @@
-# apysc._animation.animation_cx_interface docstrings
+# `apysc._animation.animation_cx_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_x interface (using center-x coordinate internally).
 
-## AnimationCx class docstring
+## `AnimationCx` class docstring
 
 The animation class for a center-x coordinate.<hr>
 
@@ -37,7 +37,7 @@ The animation class for a center-x coordinate.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_x method docstring
+### `animation_x` method docstring
 
 Set the center-x coordinate animation setting.<hr>
 

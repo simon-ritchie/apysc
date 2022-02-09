@@ -1,18 +1,18 @@
-# apysc._display.radius_interface docstrings
+# `apysc._display.radius_interface` docstrings
 
 ## Module summary
 
 Class implementation for radius value interface.
 
-### _append_radius_update_expression method docstring
+### `_append_radius_update_expression` method docstring
 
 Append radius value updating expression.
 
-### _append_raidus_attr_linking_setting method docstring
+### `_append_raidus_attr_linking_setting` method docstring
 
 Append a radius attribute linking setting.
 
-### _get_converted_radius_int method docstring
+### `_get_converted_radius_int` method docstring
 
 Get a radius converted Int instance.<hr>
 
@@ -28,11 +28,11 @@ Get a radius converted Int instance.<hr>
 - `radius`: Int
   - Type converted radius value.
 
-### _initialize_radius_if_not_initialized method docstring
+### `_initialize_radius_if_not_initialized` method docstring
 
 Initialize _radius attribute if it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>
 
@@ -41,7 +41,7 @@ Make value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert value if snapshot exists.<hr>
 

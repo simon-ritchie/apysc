@@ -1,10 +1,10 @@
-# apysc._display.scale_interface_helper docstrings
+# `apysc._display.scale_interface_helper` docstrings
 
 ## Module summary
 
 Helper module for the scale interfaces.
 
-## get_coordinate_key_for_expression function docstring
+## `get_coordinate_key_for_expression` function docstring
 
 Get a key string for the expression from the x or y coordinate.<hr>
 
@@ -20,7 +20,7 @@ Get a key string for the expression from the x or y coordinate.<hr>
 - `key_exp_str`: ExpressionString
   - Key expression string.
 
-## get_scale_updating_expression function docstring
+## `get_scale_updating_expression` function docstring
 
 Get a scale updating expression string from a specified coordinate.<hr>
 
@@ -42,6 +42,6 @@ Get a scale updating expression string from a specified coordinate.<hr>
 - `expression`: str
   - A scale updating expression string.
 
-## CoordinateType class docstring
+## `CoordinateType` class docstring
 
 An enumeration.

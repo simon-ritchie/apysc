@@ -1,10 +1,10 @@
-# apysc._console._trace docstrings
+# `apysc._console._trace` docstrings
 
 ## Module summary
 
 `trace` (console.log expression) interface implementations
 
-## trace function docstring
+## `trace` function docstring
 
 Display arguments information to console. This function will save js `console.log` expression.<hr>
 

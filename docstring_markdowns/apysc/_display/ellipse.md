@@ -1,10 +1,10 @@
-# apysc._display.ellipse docstrings
+# `apysc._display.ellipse` docstrings
 
 ## Module summary
 
 Implementation of the Ellipse class.
 
-## Ellipse class docstring
+## `Ellipse` class docstring
 
 The ellipse vector graphics class.<hr>
 
@@ -39,7 +39,7 @@ String('#00aaff')
 
 - [Graphics draw_ellipse interface](https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Create a ellipse vector graphics.<hr>
 
@@ -89,7 +89,7 @@ String('#00aaff')
 
 - [Graphics draw_ellipse interface](https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -98,6 +98,6 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Ellipse('<variable_name>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append a constructor expression.

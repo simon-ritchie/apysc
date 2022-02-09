@@ -1,22 +1,22 @@
-# apysc._display.line_alpha_interface docstrings
+# `apysc._display.line_alpha_interface` docstrings
 
 ## Module summary
 
 Class implementation for line alpha interface.
 
-### _append_line_alpha_attr_linking_setting method docstring
+### `_append_line_alpha_attr_linking_setting` method docstring
 
 Append a line alpha attribute linking setting.
 
-### _append_line_alpha_update_expression method docstring
+### `_append_line_alpha_update_expression` method docstring
 
 Append line alpha updating expression.
 
-### _initialize_line_alpha_if_not_initialized method docstring
+### `_initialize_line_alpha_if_not_initialized` method docstring
 
 Initialize _line_alpha attribute if it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>
 
@@ -25,7 +25,7 @@ Make value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert value if snapshot exists.<hr>
 
@@ -34,7 +34,7 @@ Revert value if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _update_line_alpha_and_skip_appending_exp method docstring
+### `_update_line_alpha_and_skip_appending_exp` method docstring
 
 Update line alpha and skip appending expression.<hr>
 

@@ -1,10 +1,10 @@
-# apysc._display.line_dot_setting docstrings
+# `apysc._display.line_dot_setting` docstrings
 
 ## Module summary
 
 Dot setting class implementation for line.
 
-## LineDotSetting class docstring
+## `LineDotSetting` class docstring
 
 Dot setting class for a line.<hr>
 
@@ -28,7 +28,7 @@ Int(5)
 
 - [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/graphics_line_style.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Dot setting class for a line.<hr>
 

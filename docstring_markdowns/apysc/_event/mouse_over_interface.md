@@ -1,14 +1,14 @@
-# apysc._event.mouse_over_interface docstrings
+# `apysc._event.mouse_over_interface` docstrings
 
 ## Module summary
 
 Class implementation for mouse over interface.
 
-### _initialize_mouse_over_handlers_if_not_initialized method docstring
+### `_initialize_mouse_over_handlers_if_not_initialized` method docstring
 
 Initialize _mouse_over_handlers attribute if it is not initialized yet.
 
-### mouseover method docstring
+### `mouseover` method docstring
 
 Add mouse over event listener setting.<hr>
 
@@ -51,7 +51,7 @@ Add mouse over event listener setting.<hr>
 - [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html)
 - [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### unbind_mouseover method docstring
+### `unbind_mouseover` method docstring
 
 Unbind a specified handler's mouseover event.<hr>
 
@@ -85,7 +85,7 @@ Unbind a specified handler's mouseover event.<hr>
 
 - [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html)
 
-### unbind_mouseover_all method docstring
+### `unbind_mouseover_all` method docstring
 
 Unbind all mouseover events.<hr>
 

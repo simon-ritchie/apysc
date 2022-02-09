@@ -1,14 +1,14 @@
-# apysc._event.wheel_event docstrings
+# `apysc._event.wheel_event` docstrings
 
 ## Module summary
 
 Class implementation for mouse wheel event.
 
-## WheelEvent class docstring
+## `WheelEvent` class docstring
 
 Mouse wheel event class.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Mouse wheel event class.<hr>
 
@@ -23,7 +23,7 @@ Mouse wheel event class.<hr>
 
 Not supported each SVG elements' mouse wheel event currently, only supported document (overall screen) mouse wheel.
 
-### _append_delta_x_getter_expression method docstring
+### `_append_delta_x_getter_expression` method docstring
 
 Append delta_x getter property's expression.<hr>
 
@@ -32,7 +32,7 @@ Append delta_x getter property's expression.<hr>
 - `delta_x`: Int
   - Target delta x value.
 
-### _append_delta_y_getter_expression method docstring
+### `_append_delta_y_getter_expression` method docstring
 
 Append delta_y getter property's expression.<hr>
 

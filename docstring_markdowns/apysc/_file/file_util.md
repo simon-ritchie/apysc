@@ -1,10 +1,10 @@
-# apysc._file.file_util docstrings
+# `apysc._file.file_util` docstrings
 
 ## Module summary
 
 Files' common utilities implementation. Mainly following interfaces are defined: <br>・empty_directory <br> ・Empty specified directory. <br>・read_txt <br> ・Read specified file's text. <br>・save_plain_txt <br> ・Save plain text string to file. <br>・append_plain_txt <br> ・Append plain text string to file. <br>・remove_file_if_exists <br> ・Remove specified file if exists. <br>・get_abs_directory_path_from_file_path <br> ・Get an absolute directory path of specified file. <br>・get_abs_module_dir_path <br> ・Get a specified module's abosulute directory path. <br>・get_specified_ext_file_paths_recursively <br> ・Get specified extension file paths recursively. <br>・count_files_recursively <br> ・Count the existing files number in a specified directory.
 
-## append_plain_txt function docstring
+## `append_plain_txt` function docstring
 
 Append plain text string to file.<hr>
 
@@ -15,7 +15,7 @@ Append plain text string to file.<hr>
 - `file_path`: str
   - Destination file path.
 
-## count_files_recursively function docstring
+## `count_files_recursively` function docstring
 
 Count the existing files number in a specified directory recursively.<hr>
 
@@ -31,7 +31,7 @@ Count the existing files number in a specified directory recursively.<hr>
 - `count`: int
   - Existing files count.
 
-## empty_directory function docstring
+## `empty_directory` function docstring
 
 Empty specified directory.<hr>
 
@@ -40,7 +40,7 @@ Empty specified directory.<hr>
 - `directory_path`: str
   - Directory path to empty. This folder itself will not be removed.
 
-## get_abs_directory_path_from_file_path function docstring
+## `get_abs_directory_path_from_file_path` function docstring
 
 Get an absolute directory path of specified file.<hr>
 
@@ -56,7 +56,7 @@ Get an absolute directory path of specified file.<hr>
 - `dir_path`: str
   - An absolute directory path.
 
-## get_abs_module_dir_path function docstring
+## `get_abs_module_dir_path` function docstring
 
 Get a specified module's abosulute directory path.<hr>
 
@@ -72,7 +72,7 @@ Get a specified module's abosulute directory path.<hr>
 - `abs_module_dir_path`: str
   - Specified module's abosulute directory path.
 
-## get_specified_ext_file_paths_recursively function docstring
+## `get_specified_ext_file_paths_recursively` function docstring
 
 Get specified extension file paths recursively.<hr>
 
@@ -92,7 +92,7 @@ Get specified extension file paths recursively.<hr>
 - `file_paths`: list of str
   - File paths that end with target extension.
 
-## read_txt function docstring
+## `read_txt` function docstring
 
 Read specified file's text.<hr>
 
@@ -108,7 +108,7 @@ Read specified file's text.<hr>
 - `txt`: str
   - Target file's text.
 
-## remove_file_if_exists function docstring
+## `remove_file_if_exists` function docstring
 
 Remove specified file if exists.<hr>
 
@@ -117,7 +117,7 @@ Remove specified file if exists.<hr>
 - `file_path`: str
   - File path to remove.
 
-## save_plain_txt function docstring
+## `save_plain_txt` function docstring
 
 Save plain text string to file.<hr>
 

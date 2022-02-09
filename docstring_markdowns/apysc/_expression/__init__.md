@@ -1,1 +1,1 @@
-# apysc._expression.__init__ docstrings
+# `apysc._expression.__init__` docstrings

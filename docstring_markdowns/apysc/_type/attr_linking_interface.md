@@ -1,10 +1,10 @@
-# apysc._type.attr_linking_interface docstrings
+# `apysc._type.attr_linking_interface` docstrings
 
 ## Module summary
 
 Class implementation for the attribute linking interface. This interface is used for updating an old property value to achieve consistency in the handler functions.
 
-### _append_applying_new_attr_val_exp method docstring
+### `_append_applying_new_attr_val_exp` method docstring
 
 Append the expression of applying new attribute value to each stacked value.<hr>
 
@@ -15,7 +15,7 @@ Append the expression of applying new attribute value to each stacked value.<hr>
 - `attr_name`: str
   - Target attribute name.
 
-### _append_attr_to_linking_stack method docstring
+### `_append_attr_to_linking_stack` method docstring
 
 Append an attribute to the linking attribute stack.<hr>
 
@@ -26,7 +26,7 @@ Append an attribute to the linking attribute stack.<hr>
 - `attr_name`: str
   - Target attribute name.
 
-### _initialize_attr_linking_stack method docstring
+### `_initialize_attr_linking_stack` method docstring
 
 Initialize the _attr_linking_stack attribute if it hasn't been initialized yet.<hr>
 
@@ -35,7 +35,7 @@ Initialize the _attr_linking_stack attribute if it hasn't been initialized yet.<
 - `attr_name`: str
   - Target attribute name.
 
-### _is_target_attr_already_linked method docstring
+### `_is_target_attr_already_linked` method docstring
 
 Get a boolean value whether a specified attribute has already been appended to the linking attribute stack.<hr>
 

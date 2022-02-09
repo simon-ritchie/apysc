@@ -1,10 +1,10 @@
-# apysc._time.timer docstrings
+# `apysc._time.timer` docstrings
 
 ## Module summary
 
 Class implementation for the timer.
 
-## Timer class docstring
+## `Timer` class docstring
 
 Timer class to handle function calling at regular intervals.<hr>
 
@@ -43,7 +43,7 @@ Timer class to handle function calling at regular intervals.<hr>
 - [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
 - [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/timer_repeat_count.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Timer class to handle function calling at regular intervals.<hr>
 
@@ -91,11 +91,11 @@ Timer class to handle function calling at regular intervals.<hr>
 - [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/timer_repeat_count.html)
 - [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### _append_count_branch_expression method docstring
+### `_append_count_branch_expression` method docstring
 
 Append the timer stopping expression by the counting.
 
-### _convert_delay_to_number method docstring
+### `_convert_delay_to_number` method docstring
 
 Convert each type of delay value to a `Number` value.<hr>
 
@@ -111,7 +111,7 @@ Convert each type of delay value to a `Number` value.<hr>
 - `delay`: Number
   - Converted delay value.
 
-### _get_stop_expression method docstring
+### `_get_stop_expression` method docstring
 
 Get a stop interface expression string.<hr>
 
@@ -127,7 +127,7 @@ Get a stop interface expression string.<hr>
 - `expression`: str
   - Stop interface expression string.
 
-### _wrap_handler method docstring
+### `_wrap_handler` method docstring
 
 Wrap a handler to update a current count value when it is called.<hr>
 
@@ -143,7 +143,7 @@ Wrap a handler to update a current count value when it is called.<hr>
 - `wrapped`: _Handler
   - Wrapped handler.
 
-### reset method docstring
+### `reset` method docstring
 
 Reset the timer count and stop this timer.<hr>
 
@@ -176,7 +176,7 @@ Reset the timer count and stop this timer.<hr>
 
 - [Timer class reset interface document](https://simon-ritchie.github.io/apysc/timer_reset.html)
 
-### start method docstring
+### `start` method docstring
 
 Start this timer.<hr>
 
@@ -196,7 +196,7 @@ Start this timer.<hr>
 
 - [Timer class start and stop interfaces](https://simon-ritchie.github.io/apysc/timer_start_and_stop.html)
 
-### stop method docstring
+### `stop` method docstring
 
 Stop this timer.<hr>
 
@@ -229,7 +229,7 @@ Stop this timer.<hr>
 
 - [Timer class start and stop interfaces document](https://simon-ritchie.github.io/apysc/timer_start_and_stop.html)
 
-### timer_complete method docstring
+### `timer_complete` method docstring
 
 Add a timer complete event listener setting.<hr>
 

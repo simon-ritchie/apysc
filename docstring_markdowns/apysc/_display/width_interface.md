@@ -1,22 +1,22 @@
-# apysc._display.width_interface docstrings
+# `apysc._display.width_interface` docstrings
 
 ## Module summary
 
 Class implementation for witdth interface.
 
-### _append_width_attr_linking_setting method docstring
+### `_append_width_attr_linking_setting` method docstring
 
 Append a width attribute linking setting.
 
-### _append_width_update_expression method docstring
+### `_append_width_update_expression` method docstring
 
 Append width updating expression.
 
-### _initialize_width_if_not_initialized method docstring
+### `_initialize_width_if_not_initialized` method docstring
 
 Initialize _width attribute if it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>
 
@@ -25,7 +25,7 @@ Make value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert value if snapshot exists.<hr>
 
@@ -34,7 +34,7 @@ Revert value if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _update_width_and_skip_appending_exp method docstring
+### `_update_width_and_skip_appending_exp` method docstring
 
 Update width value and skip appending expression.<hr>
 

@@ -1,10 +1,10 @@
-# apysc._display.polyline docstrings
+# `apysc._display.polyline` docstrings
 
 ## Module summary
 
 Implementations of Polyline class.
 
-## Polyline class docstring
+## `Polyline` class docstring
 
 The polyline vector graphics class.<hr>
 
@@ -30,7 +30,7 @@ Int(5)
 
 - [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Create a polyline vector graphic.<hr>
 
@@ -65,7 +65,7 @@ Int(5)
 
 - [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -74,6 +74,6 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Polyline('<variable_name>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append constructor expression.

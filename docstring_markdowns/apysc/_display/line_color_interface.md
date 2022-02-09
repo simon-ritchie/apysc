@@ -1,18 +1,18 @@
-# apysc._display.line_color_interface docstrings
+# `apysc._display.line_color_interface` docstrings
 
 ## Module summary
 
 Class implementation for line color interface.
 
-### _append_line_color_update_expression method docstring
+### `_append_line_color_update_expression` method docstring
 
 Append line color updating expression.
 
-### _initialize_line_color_if_not_initialized method docstring
+### `_initialize_line_color_if_not_initialized` method docstring
 
 Initialize line_color attribute if that value is not initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>
 
@@ -21,7 +21,7 @@ Make value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert value if snapshot exists.<hr>
 
@@ -30,7 +30,7 @@ Revert value if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _set_initial_line_color_if_not_blank method docstring
+### `_set_initial_line_color_if_not_blank` method docstring
 
 Set initial line color value if specified value is not blank string.<hr>
 
@@ -39,7 +39,7 @@ Set initial line color value if specified value is not blank string.<hr>
 - `line_color`: str or String
   - Line color (hexadecimal string, e.g., '#00aaff').
 
-### _update_line_color_and_skip_appending_exp method docstring
+### `_update_line_color_and_skip_appending_exp` method docstring
 
 Update line color and skip appending expression.<hr>
 

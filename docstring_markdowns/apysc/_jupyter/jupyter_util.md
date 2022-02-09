@@ -1,10 +1,10 @@
-# apysc._jupyter.jupyter_util docstrings
+# `apysc._jupyter.jupyter_util` docstrings
 
 ## Module summary
 
 The module that is implemented each Jupyter interface and definition. Mainly the following interfaces are defined: <br>・display_on_jupyter Save the overall HTML and display it on the Jupyter. <br>・display_on_colaboratory Save the overall HTML and display it on the Google Colaboratory.
 
-## _save_overall_html function docstring
+## `_save_overall_html` function docstring
 
 Save the overall HTML file.<hr>
 
@@ -15,7 +15,7 @@ Save the overall HTML file.<hr>
 - `minify`: bool, default True
   - Boolean value whether minify a HTML or not.
 
-## display_on_colaboratory function docstring
+## `display_on_colaboratory` function docstring
 
 Save the overall HTML and display it on the Google Colaboratory.<hr>
 
@@ -32,7 +32,7 @@ Save the overall HTML and display it on the Google Colaboratory.<hr>
 
 - [display_on_colaboratory interface document](https://simon-ritchie.github.io/apysc/display_on_colaboratory.html)
 
-## display_on_jupyter function docstring
+## `display_on_jupyter` function docstring
 
 Save the overall HTML and display it on the Jupyter.<hr>
 

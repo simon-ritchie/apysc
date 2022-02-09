@@ -1,1 +1,1 @@
-# apysc._lint_and_doc.__init__ docstrings
+# `apysc._lint_and_doc.__init__` docstrings

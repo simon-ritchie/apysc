@@ -1,10 +1,10 @@
-# apysc._event.timer_event docstrings
+# `apysc._event.timer_event` docstrings
 
 ## Module summary
 
 Class implementation for the timer event.
 
-## TimerEvent class docstring
+## `TimerEvent` class docstring
 
 Timer event class.<hr>
 
@@ -38,7 +38,7 @@ Timer event class.<hr>
 
 - [TimerEvent class document](https://simon-ritchie.github.io/apysc/timer_event.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Timer event class.<hr>
 

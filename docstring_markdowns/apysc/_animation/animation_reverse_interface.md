@@ -1,10 +1,10 @@
-# apysc._animation.animation_reverse_interface docstrings
+# `apysc._animation.animation_reverse_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_reverse interface.
 
-### animation_reverse method docstring
+### `animation_reverse` method docstring
 
 Reverse the all running animations.<hr>
 

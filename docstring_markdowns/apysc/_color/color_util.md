@@ -1,10 +1,10 @@
-# apysc._color.color_util docstrings
+# `apysc._color.color_util` docstrings
 
 ## Module summary
 
 Color related implementations.
 
-## _append_complement_hex_color_expression function docstring
+## `_append_complement_hex_color_expression` function docstring
 
 Append complement_hex_color function's expression.<hr>
 
@@ -13,7 +13,7 @@ Append complement_hex_color function's expression.<hr>
 - `hex_color_code`: String
   - Complemented hex color code string.
 
-## _fill_one_digit_hex_color_code function docstring
+## `_fill_one_digit_hex_color_code` function docstring
 
 Fill 1 digit hexadecimal color code until it becomes 6 digits.<hr>
 
@@ -29,7 +29,7 @@ Fill 1 digit hexadecimal color code until it becomes 6 digits.<hr>
 - `filled_color_code`: str
   - Result color code. e.g., '00000a', '000000'
 
-## _fill_three_digit_hex_color_code function docstring
+## `_fill_three_digit_hex_color_code` function docstring
 
 Fill 3 digits hexadecimal color code until it becomes 6 digits.<hr>
 
@@ -45,7 +45,7 @@ Fill 3 digits hexadecimal color code until it becomes 6 digits.<hr>
 - `filled_color_code`: str
   - Result color code. e.g., 'aaaaaa', 'ffffff'
 
-## complement_hex_color function docstring
+## `complement_hex_color` function docstring
 
 Complement hex color for convenience, for instance, add # prefix or three digits to six digits, upper case to lower case etc.<hr>
 

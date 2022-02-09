@@ -1,10 +1,10 @@
-# apysc._display.line_dash_setting_interface docstrings
+# `apysc._display.line_dash_setting_interface` docstrings
 
 ## Module summary
 
 Class implementation for line dash setting interface.
 
-## LineDashSetting class docstring
+## `LineDashSetting` class docstring
 
 Dash setting class for a line.<hr>
 
@@ -32,7 +32,7 @@ Int(2)
 
 - [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/graphics_line_style.html)
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapthot.<hr>
 
@@ -41,7 +41,7 @@ Make values' snapthot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 
@@ -50,15 +50,15 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _append_line_dash_setting_update_expression method docstring
+### `_append_line_dash_setting_update_expression` method docstring
 
 Append line dash setting updating expression.
 
-### _initialize_line_dash_setting_if_not_initialized method docstring
+### `_initialize_line_dash_setting_if_not_initialized` method docstring
 
 Initialize _line_dash_setting attribute if it is not initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>
 
@@ -67,7 +67,7 @@ Make value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert value if snapshot exists.<hr>
 
@@ -76,7 +76,7 @@ Revert value if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _update_line_dash_setting_and_skip_appending_exp method docstring
+### `_update_line_dash_setting_and_skip_appending_exp` method docstring
 
 Update line dash setting and skip appending expression.<hr>
 

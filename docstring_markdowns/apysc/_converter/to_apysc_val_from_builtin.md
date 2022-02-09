@@ -1,10 +1,10 @@
-# apysc._converter.to_apysc_val_from_builtin docstrings
+# `apysc._converter.to_apysc_val_from_builtin` docstrings
 
 ## Module summary
 
 Each interface to get an apysc value from a Python built-in one.
 
-## get_copied_boolean_from_builtin_val function docstring
+## `get_copied_boolean_from_builtin_val` function docstring
 
 Get a copied Boolean value from a Python built-in bool.<hr>
 
@@ -20,7 +20,7 @@ Get a copied Boolean value from a Python built-in bool.<hr>
 - `copied`: Boolean
   - Copied Boolean value.
 
-## get_copied_int_from_builtin_val function docstring
+## `get_copied_int_from_builtin_val` function docstring
 
 Get a copied Int value from a Python built-in int.<hr>
 
@@ -36,7 +36,7 @@ Get a copied Int value from a Python built-in int.<hr>
 - `copied`: Int
   - Copied Int value.
 
-## get_copied_number_from_builtin_val function docstring
+## `get_copied_number_from_builtin_val` function docstring
 
 Get a copied number value from a Python built-in float.<hr>
 
@@ -52,7 +52,7 @@ Get a copied number value from a Python built-in float.<hr>
 - `num`: Number
   - Copied Number value.
 
-## get_copied_string_from_builtin_val function docstring
+## `get_copied_string_from_builtin_val` function docstring
 
 Get a copied String value from a Python built-in str.<hr>
 

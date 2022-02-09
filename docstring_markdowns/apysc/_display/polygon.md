@@ -1,10 +1,10 @@
-# apysc._display.polygon docstrings
+# `apysc._display.polygon` docstrings
 
 ## Module summary
 
 Implementations of Polygon class.
 
-## Polygon class docstring
+## `Polygon` class docstring
 
 The polygon vector graphics class.<hr>
 
@@ -31,7 +31,7 @@ String('#00aaff')
 
 - [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Create a polygon vector graphic. This is similar to Polyline class, but unlike that, end point and start point will be connected.<hr>
 
@@ -67,7 +67,7 @@ String('#00aaff')
 
 - [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -76,6 +76,6 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Polygon('<variable_name>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append constructor expression.

@@ -1,10 +1,10 @@
-# apysc._animation.animation_rotation_around_point_interface docstrings
+# `apysc._animation.animation_rotation_around_point_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_rotation_around_point interface.
 
-## AnimationRotationAroundPoint class docstring
+## `AnimationRotationAroundPoint` class docstring
 
 The animation class for a rotation around the given point.<hr>
 
@@ -40,7 +40,7 @@ The animation class for a rotation around the given point.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_rotation_around_point method docstring
+### `animation_rotation_around_point` method docstring
 
 Set the rotation around the given point animation setting.<hr>
 

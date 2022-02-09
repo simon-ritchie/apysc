@@ -1,10 +1,10 @@
-# apysc._animation.animation_rotation_around_center docstrings
+# `apysc._animation.animation_rotation_around_center` docstrings
 
 ## Module summary
 
 Class implementation for the rotation around the center point animation value.
 
-## AnimationRotationAroundCenter class docstring
+## `AnimationRotationAroundCenter` class docstring
 
 The animation class for a rotation around the center point.<hr>
 
@@ -38,7 +38,7 @@ The animation class for a rotation around the center point.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 The animation class for a rotation around the center point.<hr>
 
@@ -61,7 +61,7 @@ The animation class for a rotation around the center point.<hr>
 
 - TypeError: If a specified target is not a RotationAroundCenterInterface instance.
 
-### _get_animation_func_expression method docstring
+### `_get_animation_func_expression` method docstring
 
 Get a animation function expression.<hr>
 
@@ -70,7 +70,7 @@ Get a animation function expression.<hr>
 - `expression`: str
   - Animation function expression.
 
-### _get_complete_event_in_handler_head_expression method docstring
+### `_get_complete_event_in_handler_head_expression` method docstring
 
 Get an expression to be inserted into the complete event handler's head.<hr>
 

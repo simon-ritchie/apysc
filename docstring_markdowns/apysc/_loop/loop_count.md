@@ -1,10 +1,10 @@
-# apysc._loop.loop_count docstrings
+# `apysc._loop.loop_count` docstrings
 
 ## Module summary
 
 Implementations for the count of the current loop number (the For or the other loop class nested number).
 
-## _save_loop_count function docstring
+## `_save_loop_count` function docstring
 
 Save a loop count value.<hr>
 
@@ -13,11 +13,11 @@ Save a loop count value.<hr>
 - `loop_count`: int
   - A loop count value.
 
-## decrement_current_loop_count function docstring
+## `decrement_current_loop_count` function docstring
 
 Decrement the current loop count number.
 
-## get_current_loop_count function docstring
+## `get_current_loop_count` function docstring
 
 Get the current loop count number.<hr>
 
@@ -26,6 +26,6 @@ Get the current loop count number.<hr>
 - `loop_count`: int
   - Current loop count.
 
-## increment_current_loop_count function docstring
+## `increment_current_loop_count` function docstring
 
 Increment the current loop count number.

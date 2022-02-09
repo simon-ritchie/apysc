@@ -1,10 +1,10 @@
-# apysc._display.rotation_around_point_interface docstrings
+# `apysc._display.rotation_around_point_interface` docstrings
 
 ## Module summary
 
 Class implementation for the rotation_around_point interface.
 
-### _append_rotation_around_point_update_expression method docstring
+### `_append_rotation_around_point_update_expression` method docstring
 
 Append a rotation value around the given coordinates updating expression.<hr>
 
@@ -17,7 +17,7 @@ Append a rotation value around the given coordinates updating expression.<hr>
 - `y`: Int
   - Y-coordinate.
 
-### _get_rotation_around_point_updating_expression method docstring
+### `_get_rotation_around_point_updating_expression` method docstring
 
 Get a rotation value around the given coordinates updating expression string.<hr>
 
@@ -37,11 +37,11 @@ Get a rotation value around the given coordinates updating expression string.<hr
 - `expression`: str
   - A rotation value around the given coordinates updating expression string.
 
-### _initialize_rotation_around_point_if_not_initialized method docstring
+### `_initialize_rotation_around_point_if_not_initialized` method docstring
 
 Initialize the `_rotation_around_point` attribute if it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make a value's snapshot.<hr>
 
@@ -50,7 +50,7 @@ Make a value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert a value if snapshot exists.<hr>
 
@@ -59,7 +59,7 @@ Revert a value if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### get_rotation_around_point method docstring
+### `get_rotation_around_point` method docstring
 
 Get a rotation value around the given coordinates.<hr>
 
@@ -102,7 +102,7 @@ Int(45)
 
 - [GraphicsBase rotate_around_point interfaces document](https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_point.html)
 
-### set_rotation_around_point method docstring
+### `set_rotation_around_point` method docstring
 
 Update a rotation value around the given coordinates.<hr>
 

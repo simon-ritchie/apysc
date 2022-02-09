@@ -1,10 +1,10 @@
-# apysc._type.any_value docstrings
+# `apysc._type.any_value` docstrings
 
 ## Module summary
 
 Class implementation of any value.
 
-## AnyValue class docstring
+## `AnyValue` class docstring
 
 Class implementation of any value (value that can't determine type).<hr>
 
@@ -21,7 +21,7 @@ Class implementation of any value (value that can't determine type).<hr>
 20
 ```
 
-### __add__ method docstring
+### `__add__` method docstring
 
 Method for addition.<hr>
 
@@ -37,7 +37,7 @@ Method for addition.<hr>
 - `result`: AnyValue
   - Addition result value.
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 Equal comparison method.<hr>
 
@@ -53,7 +53,7 @@ Equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result. This will always be False on Python since correct comparison is not possible.
 
-### __floordiv__ method docstring
+### `__floordiv__` method docstring
 
 Method for floor division.<hr>
 
@@ -69,7 +69,7 @@ Method for floor division.<hr>
 - `result`: AnyValue
   - Floor division result value.
 
-### __ge__ method docstring
+### `__ge__` method docstring
 
 Greater than equal comparison method.<hr>
 
@@ -85,7 +85,7 @@ Greater than equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result. This will always be False on Python since correct comparison is not possible.
 
-### __gt__ method docstring
+### `__gt__` method docstring
 
 Greater than comparison method.<hr>
 
@@ -101,7 +101,7 @@ Greater than comparison method.<hr>
 - `result`: Boolean
   - Comparison result. This will always be False on Python since correct comparison is not possible.
 
-### __iadd__ method docstring
+### `__iadd__` method docstring
 
 Method for incremental addition.<hr>
 
@@ -117,7 +117,7 @@ Method for incremental addition.<hr>
 - `result`: AnyValue
   - Incremental addition result value.
 
-### __imul__ method docstring
+### `__imul__` method docstring
 
 Method for incremental multiplication.<hr>
 
@@ -133,7 +133,7 @@ Method for incremental multiplication.<hr>
 - `result`: AnyValue
   - Incremental multiplication result value.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Class implementation of any value (value that can't determine type).<hr>
 
@@ -153,7 +153,7 @@ Class implementation of any value (value that can't determine type).<hr>
 10
 ```
 
-### __isub__ method docstring
+### `__isub__` method docstring
 
 Method for incremental subtraction.<hr>
 
@@ -169,7 +169,7 @@ Method for incremental subtraction.<hr>
 - `result`: AnyValue
   - Incremental subtraction result value.
 
-### __itruediv__ method docstring
+### `__itruediv__` method docstring
 
 Method for incremental true division.<hr>
 
@@ -185,7 +185,7 @@ Method for incremental true division.<hr>
 - `result`: AnyValue
   - Incremental division result value.
 
-### __le__ method docstring
+### `__le__` method docstring
 
 Less than equal comparison method.<hr>
 
@@ -201,7 +201,7 @@ Less than equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result. This will always be False on Python since correct comparison is not possible.
 
-### __lt__ method docstring
+### `__lt__` method docstring
 
 Less than comparison method.<hr>
 
@@ -217,7 +217,7 @@ Less than comparison method.<hr>
 - `result`: Boolean
   - Comparison result. This will always be False on Python since correct comparison is not possible.
 
-### __mul__ method docstring
+### `__mul__` method docstring
 
 Method for multiplication.<hr>
 
@@ -233,7 +233,7 @@ Method for multiplication.<hr>
 - `result`: AnyValue
   - Subtraction result value.
 
-### __ne__ method docstring
+### `__ne__` method docstring
 
 Not equal comparison method.<hr>
 
@@ -249,7 +249,7 @@ Not equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result. This will always be False on Python since correct comparison is not possible.
 
-### __sub__ method docstring
+### `__sub__` method docstring
 
 Method for subtraction.<hr>
 
@@ -265,7 +265,7 @@ Method for subtraction.<hr>
 - `result`: AnyValue
   - Subtraction result value.
 
-### __truediv__ method docstring
+### `__truediv__` method docstring
 
 Method for true division.<hr>
 
@@ -281,7 +281,7 @@ Method for true division.<hr>
 - `result`: AnyValue
   - True division result value.
 
-### _append_arithmetic_operation_expression method docstring
+### `_append_arithmetic_operation_expression` method docstring
 
 Append arithmetic operation (e.g., addition) expression.<hr>
 
@@ -299,7 +299,7 @@ Append arithmetic operation (e.g., addition) expression.<hr>
 - `result`: AnyValue
   - Calculated result value.
 
-### _append_comparison_expression method docstring
+### `_append_comparison_expression` method docstring
 
 Append comparison operation expression.<hr>
 
@@ -317,11 +317,11 @@ Append comparison operation expression.<hr>
 - `result`: Boolean
   - Comparison result. This will always be False on Python since correct comparison is not possible.
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append constructor expression.
 
-### _append_incremental_arithmetic_operation_expression method docstring
+### `_append_incremental_arithmetic_operation_expression` method docstring
 
 Append incremental arithmetic operation (e.g., incremental addition) expression.<hr>
 
@@ -332,7 +332,7 @@ Append incremental arithmetic operation (e.g., incremental addition) expression.
 - `operator`: str
   - JavaScript arithmetic operator, like '+=', '*=', and so on.
 
-### _append_value_setter_expression method docstring
+### `_append_value_setter_expression` method docstring
 
 Append value's setter expression.<hr>
 
@@ -341,7 +341,7 @@ Append value's setter expression.<hr>
 - `value`: *
   - Any value to set.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>
 
@@ -350,7 +350,7 @@ Make value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert value if snapshot exists.<hr>
 

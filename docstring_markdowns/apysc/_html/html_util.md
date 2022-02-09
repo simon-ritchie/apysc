@@ -1,10 +1,10 @@
-# apysc._html.html_util docstrings
+# `apysc._html.html_util` docstrings
 
 ## Module summary
 
 HTML related implementations. Mainly following interfaces are defined: <br>・remove_first_selector_symbol_char : Remove first selector symbol (`.` or `#`) from string. <br>・append_html_to_str : Add html string to another string with line break and specified number's indentation. <br>・append_indent_to_each_script_line : Append indentation spaces to each script lines of specified html. <br>・ScriptLineUtil : The class for HTML's script line utility. <br>・is_script_start_tag_line : Get a boolean whether the specified line contains script start tag (`<script ...>`). <br>・is_script_end_tag_line : Get a boolean whether the specified line contains script end tag (`</script>`). <br>・wrap_expression_by_script_tag : Wrap an expression string by script start and end tag.
 
-## _append_remove_first_selector_symbol_char_expression function docstring
+## `_append_remove_first_selector_symbol_char_expression` function docstring
 
 Append remove_first_selector_symbol_char function's expression.<hr>
 
@@ -13,7 +13,7 @@ Append remove_first_selector_symbol_char function's expression.<hr>
 - `str_val`: String
   - First character removed string instance.
 
-## append_html_to_str function docstring
+## `append_html_to_str` function docstring
 
 Add html string to another string with line break and specified number's indentation.<hr>
 
@@ -33,7 +33,7 @@ Add html string to another string with line break and specified number's indenta
 - `result`: str
   - HTML appended string.
 
-## append_indent_to_each_script_line function docstring
+## `append_indent_to_each_script_line` function docstring
 
 Append indentation spaces to each script lines of specified html. e.g., if the html is following string, then only `console.log` line will be added indentation. <html> <script type="text/javascript"> console.log('Hello!'); </script> </html><hr>
 
@@ -51,7 +51,7 @@ Append indentation spaces to each script lines of specified html. e.g., if the h
 - `result_html`: str
   - Indentation added html string.
 
-## is_script_end_tag_line function docstring
+## `is_script_end_tag_line` function docstring
 
 Get a boolean whether the specified line contains script end tag (`</script>`).<hr>
 
@@ -73,7 +73,7 @@ Get a boolean whether the specified line contains script end tag (`</script>`).<
 
 External js script tag will not be target. e.g., `<script type="text/javascript" src="any_script.js"></script>`
 
-## is_script_start_tag_line function docstring
+## `is_script_start_tag_line` function docstring
 
 Get a boolean whether the specified line contains script start tag (`<script ...>`).<hr>
 
@@ -95,7 +95,7 @@ Get a boolean whether the specified line contains script start tag (`<script ...
 
 External js script tag will not be target. e.g., `<script type="text/javascript" src="any_script.js"></script>`
 
-## remove_first_selector_symbol_char function docstring
+## `remove_first_selector_symbol_char` function docstring
 
 Remove first selector symbol (`.` or `#`) from string.<hr>
 
@@ -117,7 +117,7 @@ Remove first selector symbol (`.` or `#`) from string.<hr>
 
 - TypeError: If other than str or String type value is passed.
 
-## wrap_expression_by_script_tag function docstring
+## `wrap_expression_by_script_tag` function docstring
 
 Wrap an expression string by script start and end tag.<hr>
 
@@ -133,7 +133,7 @@ Wrap an expression string by script start and end tag.<hr>
 - `expression`: str
   - Wrapped expression string.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 The class for HTML's script line utility.<hr>
 
@@ -142,11 +142,11 @@ The class for HTML's script line utility.<hr>
 - `html`: str
   - Target HTML string.
 
-### _set_script_line_ranges method docstring
+### `_set_script_line_ranges` method docstring
 
 Set each script start and end line numbers.
 
-### is_script_line method docstring
+### `is_script_line` method docstring
 
 Get a boolean value whether specified line number is script line or not.<hr>
 

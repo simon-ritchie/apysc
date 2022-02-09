@@ -1,10 +1,10 @@
-# apysc._type.int docstrings
+# `apysc._type.int` docstrings
 
 ## Module summary
 
 Class implementation of integer.
 
-## Int class docstring
+## `Int` class docstring
 
 Integer class for the apysc library.<hr>
 
@@ -42,7 +42,7 @@ Int(10)
 - [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html)
 - [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Integer class for apysc library.<hr>
 
@@ -87,7 +87,7 @@ Int(10)
 - [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html)
 - [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a representation string of this instance.<hr>
 
@@ -96,7 +96,7 @@ Get a representation string of this instance.<hr>
 - `repr_str`: str
   - Representation string of this instance.
 
-### _append_cast_expression method docstring
+### `_append_cast_expression` method docstring
 
 Append integer cast (parseInt) expression.<hr>
 
@@ -105,7 +105,7 @@ Append integer cast (parseInt) expression.<hr>
 - `is_number_specified`: bool
   - Boolean value whether a specified value is Number instance or not.
 
-### _set_value_and_skip_expression_appending method docstring
+### `_set_value_and_skip_expression_appending` method docstring
 
 Update value attribute and skip expression appending.<hr>
 

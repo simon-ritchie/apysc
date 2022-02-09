@@ -1,10 +1,10 @@
-# apysc._display.append_line_point_interface docstrings
+# `apysc._display.append_line_point_interface` docstrings
 
 ## Module summary
 
 Class implementation for append line point interface.
 
-### append_line_point method docstring
+### `append_line_point` method docstring
 
 Append line point at the end.<hr>
 

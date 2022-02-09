@@ -1,10 +1,10 @@
-# apysc._html.debug_mode docstrings
+# `apysc._html.debug_mode` docstrings
 
 ## Module summary
 
 Debugging mode setting interface implementations for the HTML and JavaScript.
 
-## _get_callable_count function docstring
+## `_get_callable_count` function docstring
 
 Get a specified callable count number.<hr>
 
@@ -24,7 +24,7 @@ Get a specified callable count number.<hr>
 - `callable_count`: int
   - Target count number.
 
-## _get_callable_path_name function docstring
+## `_get_callable_path_name` function docstring
 
 Get a specified callable count data path name.<hr>
 
@@ -44,7 +44,7 @@ Get a specified callable count data path name.<hr>
 - `path_name`: str
   - Target path name.
 
-## _get_callable_str function docstring
+## `_get_callable_str` function docstring
 
 Get a callable string (label).<hr>
 
@@ -60,7 +60,7 @@ Get a callable string (label).<hr>
 - `callable_str`: str
   - A callable string (label).
 
-## _increment_callable_count function docstring
+## `_increment_callable_count` function docstring
 
 Increment a specified callable count number.<hr>
 
@@ -73,7 +73,7 @@ Increment a specified callable count number.<hr>
 - `class_`: Type or None, optional
   - Target class type. If the target callable_ variable is not a method, this argument will be ignored.
 
-## is_debug_mode function docstring
+## `is_debug_mode` function docstring
 
 Get a boolean value whether the current debug mode is enabled or not.<hr>
 
@@ -99,7 +99,7 @@ True
 False
 ```
 
-## set_debug_mode function docstring
+## `set_debug_mode` function docstring
 
 Set the debug mode for the HTML and JavaScript debugging. This interface applies the following setting if calling this function: <br> ・Disabling HTML minify setting. <br> ・Changing to append per each interface JavaScript divider string.<hr>
 
@@ -118,7 +118,7 @@ Set the debug mode for the HTML and JavaScript debugging. This interface applies
 
 - [set_debug_mode interface document](https://simon-ritchie.github.io/apysc/set_debug_mode.html)
 
-## unset_debug_mode function docstring
+## `unset_debug_mode` function docstring
 
 Unset the debug mode for the HTML and JavaScript debugging.<hr>
 
@@ -138,7 +138,7 @@ Unset the debug mode for the HTML and JavaScript debugging.<hr>
 
 - [unset_debug_mode interface document](https://simon-ritchie.github.io/apysc/unset_debug_mode.html)
 
-## DebugInfo class docstring
+## `DebugInfo` class docstring
 
 Save a debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class is used at the `with` statement.<hr>
 
@@ -164,11 +164,11 @@ If the debug mode setting is not enabled, saving will be skipped.<hr>
 
 - [DebugInfo class document](https://simon-ritchie.github.io/apysc/debug_info.html)
 
-### __enter__ method docstring
+### `__enter__` method docstring
 
 The method will be called at the start of the with block.
 
-### __exit__ method docstring
+### `__exit__` method docstring
 
 The method will be called at the end of the with block.<hr>
 
@@ -177,7 +177,7 @@ The method will be called at the end of the with block.<hr>
 - `*args`: list
   - Positional arguments.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Save debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class needs to use the `with` statement when instantiating.<hr>
 
@@ -216,7 +216,7 @@ If the debug mode setting is not enabled, this interface skips the saving.<hr>
 
 - [DebugInfo class document](https://simon-ritchie.github.io/apysc/debug_info.html)
 
-### _get_class_info method docstring
+### `_get_class_info` method docstring
 
 Get a class information string.<hr>
 

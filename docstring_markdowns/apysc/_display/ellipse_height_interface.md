@@ -1,22 +1,22 @@
-# apysc._display.ellipse_height_interface docstrings
+# `apysc._display.ellipse_height_interface` docstrings
 
 ## Module summary
 
 Class implementation for the ellipse height interface.
 
-### _append_ellipse_height_attr_linking_setting method docstring
+### `_append_ellipse_height_attr_linking_setting` method docstring
 
 Append a ellipse-height attribute linking setting.
 
-### _append_ellipse_height_update_expression method docstring
+### `_append_ellipse_height_update_expression` method docstring
 
 Append ellipse height updating expression.
 
-### _initialize_ellipse_height_if_not_initialized method docstring
+### `_initialize_ellipse_height_if_not_initialized` method docstring
 
 Initialize _ellipse_height attribute if it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make the value's snapshot.<hr>
 
@@ -25,7 +25,7 @@ Make the value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert the value if the snapshot exists.<hr>
 

@@ -1,1 +1,1 @@
-# apysc.__init__ docstrings
+# `apysc.__init__` docstrings

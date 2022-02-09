@@ -1,10 +1,10 @@
-# apysc._animation.animation_height_for_ellipse_interface docstrings
+# `apysc._animation.animation_height_for_ellipse_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_height (for ellipse) interface.
 
-## AnimationHeightForEllipse class docstring
+## `AnimationHeightForEllipse` class docstring
 
 The animation class for a ellipse-height.<hr>
 
@@ -37,7 +37,7 @@ The animation class for a ellipse-height.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_height method docstring
+### `animation_height` method docstring
 
 Set the ellipse-height animation setting.<hr>
 

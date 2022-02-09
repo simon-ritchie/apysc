@@ -1,10 +1,10 @@
-# apysc._branch._if docstrings
+# `apysc._branch._if` docstrings
 
 ## Module summary
 
 If branch instruction implementations.
 
-## If class docstring
+## `If` class docstring
 
 A class to append if branch instruction expression.<hr>
 
@@ -25,7 +25,7 @@ A class to append if branch instruction expression.<hr>
 - [If document](https://simon-ritchie.github.io/apysc/if.html)
 - [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 A class to append if branch instruction expression.<hr>
 
@@ -57,10 +57,10 @@ A class to append if branch instruction expression.<hr>
 - [If document](https://simon-ritchie.github.io/apysc/if.html)
 - [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html)
 
-### _append_enter_expression method docstring
+### `_append_enter_expression` method docstring
 
 Append if branch instruction start expression.
 
-### _set_last_scope method docstring
+### `_set_last_scope` method docstring
 
 Set expression last scope value.

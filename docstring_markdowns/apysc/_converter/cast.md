@@ -1,10 +1,10 @@
-# apysc._converter.cast docstrings
+# `apysc._converter.cast` docstrings
 
 ## Module summary
 
 Implementation of common cast conversion. Mainly following interfaces are defined. <br>・to_int_from_float Convert float value to int. <br>・to_float_from_int Convert int value to float. <br>・to_bool_from_int Convert int value to bool.
 
-## to_bool_from_int function docstring
+## `to_bool_from_int` function docstring
 
 Convert int value to bool.<hr>
 
@@ -26,7 +26,7 @@ Convert int value to bool.<hr>
 
 - ValueError: If argument value isn't zero or one.
 
-## to_float_from_int function docstring
+## `to_float_from_int` function docstring
 
 Convert int value to float.<hr>
 
@@ -42,7 +42,7 @@ Convert int value to float.<hr>
 - `float_val`: float or Number
   - Converted float value.
 
-## to_int_from_float function docstring
+## `to_int_from_float` function docstring
 
 Convert float value to int.<hr>
 

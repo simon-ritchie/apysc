@@ -1,9 +1,9 @@
-# apysc._event.mouse_event_type docstrings
+# `apysc._event.mouse_event_type` docstrings
 
 ## Module summary
 
 Definitions of the mouse event type.
 
-## MouseEventType class docstring
+## `MouseEventType` class docstring
 
 Mouse event type definitions.

@@ -1,1 +1,1 @@
-# apysc._jslib.__init__ docstrings
+# `apysc._jslib.__init__` docstrings

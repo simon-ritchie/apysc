@@ -1,4 +1,4 @@
-# apysc._type.type_name_interface docstrings
+# `apysc._type.type_name_interface` docstrings
 
 ## Module summary
 

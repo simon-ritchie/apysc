@@ -1,30 +1,30 @@
-# apysc._type.dictionary docstrings
+# `apysc._type.dictionary` docstrings
 
 ## Module summary
 
 Class implementation for dictionary.
 
-### __delitem__ method docstring
+### `__delitem__` method docstring
 
 Delete self[key].
 
-### __getitem__ method docstring
+### `__getitem__` method docstring
 
 x.__getitem__(y) <==> x[y]
 
-### __len__ method docstring
+### `__len__` method docstring
 
 Return len(self).
 
-### __setitem__ method docstring
+### `__setitem__` method docstring
 
 Set self[key] to value.
 
-### get method docstring
+### `get` method docstring
 
 D.get(k[,d]) -> D[k] if k in D, else d. d defaults to None.
 
-## Dictionary class docstring
+## `Dictionary` class docstring
 
 Dictionary class for the apysc library.<hr>
 
@@ -58,7 +58,7 @@ Int(2)
 - [Dictionary document](https://simon-ritchie.github.io/apysc/dictionary.html)
 - [Dictionary class generic type settings document](https://simon-ritchie.github.io/apysc/dictionary_generic.html)
 
-### __delitem__ method docstring
+### `__delitem__` method docstring
 
 Delete specified key's value from dictionary.<hr>
 
@@ -67,7 +67,7 @@ Delete specified key's value from dictionary.<hr>
 - `key`: _K
   - Dictionary key to delete.
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 Equal comparison method.<hr>
 
@@ -83,7 +83,7 @@ Equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result.
 
-### __getitem__ method docstring
+### `__getitem__` method docstring
 
 Get a specified key's single value.<hr>
 
@@ -99,7 +99,7 @@ Get a specified key's single value.<hr>
 - `value`: *
   - Specified key's value.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Dictionary class for the apysc library.<hr>
 
@@ -133,11 +133,11 @@ Dictionary({'a': 10})
 - [Dictionary document](https://simon-ritchie.github.io/apysc/dictionary.html)
 - [Dictionary class generic type settings document](https://simon-ritchie.github.io/apysc/dictionary_generic.html)
 
-### __len__ method docstring
+### `__len__` method docstring
 
 This method is disabled and can't use from Dictionary instance.
 
-### __ne__ method docstring
+### `__ne__` method docstring
 
 Noe equal comparison method.<hr>
 
@@ -153,7 +153,7 @@ Noe equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result.
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a representation string of this instance.<hr>
 
@@ -162,7 +162,7 @@ Get a representation string of this instance.<hr>
 - `repr_str`: str
   - Representation string of this instance.
 
-### __setitem__ method docstring
+### `__setitem__` method docstring
 
 Set value to a specified key position.<hr>
 
@@ -173,7 +173,7 @@ Set value to a specified key position.<hr>
 - `value`: *
   - Any value to set.
 
-### __str__ method docstring
+### `__str__` method docstring
 
 String conversion method.<hr>
 
@@ -182,11 +182,11 @@ String conversion method.<hr>
 - `string`: str
   - Converted value string.
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append constructor expression.
 
-### _append_delitem_expression method docstring
+### `_append_delitem_expression` method docstring
 
 Append __delitem__ method expression.<hr>
 
@@ -195,7 +195,7 @@ Append __delitem__ method expression.<hr>
 - `key`: _K
   - Dictionary key to delete.
 
-### _append_eq_expression method docstring
+### `_append_eq_expression` method docstring
 
 Append an __eq__ expression.<hr>
 
@@ -206,7 +206,7 @@ Append an __eq__ expression.<hr>
 - `other`: Dictionary
   - Dictionary other value to compare.
 
-### _append_get_expression method docstring
+### `_append_get_expression` method docstring
 
 Append the `get` method expression.<hr>
 
@@ -219,7 +219,7 @@ Append the `get` method expression.<hr>
 - `default`: Any
   - Any default value. Basically apysc types (e.g., Int, Number, String, and so on) are necessary.
 
-### _append_getitem_expression method docstring
+### `_append_getitem_expression` method docstring
 
 Append __getitem__ expression.<hr>
 
@@ -230,7 +230,7 @@ Append __getitem__ expression.<hr>
 - `value`: *
   - Specified key's value.
 
-### _append_length_expression method docstring
+### `_append_length_expression` method docstring
 
 Append length method expression.<hr>
 
@@ -239,7 +239,7 @@ Append length method expression.<hr>
 - `length`: Int
   - Created length Int variable.
 
-### _append_ne_expression method docstring
+### `_append_ne_expression` method docstring
 
 Append a __ne__ expression.<hr>
 
@@ -250,7 +250,7 @@ Append a __ne__ expression.<hr>
 - `other`: Dictionary
   - Dictionary other value to compare.
 
-### _append_setitem_expression method docstring
+### `_append_setitem_expression` method docstring
 
 Append __setitem__ method expression.<hr>
 
@@ -261,7 +261,7 @@ Append __setitem__ method expression.<hr>
 - `value`: *
   - Any value to set.
 
-### _append_value_setter_expression method docstring
+### `_append_value_setter_expression` method docstring
 
 Append value's setter expression.<hr>
 
@@ -270,7 +270,7 @@ Append value's setter expression.<hr>
 - `value`: dict or Dictionary.
   - Dictionary value to set.
 
-### _get_builtin_type_key method docstring
+### `_get_builtin_type_key` method docstring
 
 Get a built-in type's key (str, int, or float) from a specified key.<hr>
 
@@ -286,7 +286,7 @@ Get a built-in type's key (str, int, or float) from a specified key.<hr>
 - `key`: str or int or float
   - Built-in type's key.
 
-### _get_dict_value method docstring
+### `_get_dict_value` method docstring
 
 Get a dict value from specified value.<hr>
 
@@ -302,7 +302,7 @@ Get a dict value from specified value.<hr>
 - `dict_val`: dict
   - Converted dict value.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapthot.<hr>
 
@@ -311,7 +311,7 @@ Make values' snapthot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 
@@ -320,7 +320,7 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _validate_acceptable_value_type method docstring
+### `_validate_acceptable_value_type` method docstring
 
 Validate that specified value is acceptable type or not.<hr>
 
@@ -335,7 +335,7 @@ Validate that specified value is acceptable type or not.<hr>
 
 - TypeError: If specified value's type is not dict or Dictionary.
 
-### _validate_key_type_is_str_or_numeric method docstring
+### `_validate_key_type_is_str_or_numeric` method docstring
 
 Validate whether key value type is acceptable (str or int or flaot) or not.<hr>
 
@@ -350,7 +350,7 @@ Validate whether key value type is acceptable (str or int or flaot) or not.<hr>
 
 - ValueError: If key type is not str, String, int, Int, float, or Number.
 
-### get method docstring
+### `get` method docstring
 
 Get a specified key dictionary value. If this dictionary hasn't a specified key, this interface returns a default value.<hr>
 

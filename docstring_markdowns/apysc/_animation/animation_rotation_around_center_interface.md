@@ -1,10 +1,10 @@
-# apysc._animation.animation_rotation_around_center_interface docstrings
+# `apysc._animation.animation_rotation_around_center_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_rotation_aroound_center interface.
 
-## AnimationRotationAroundCenter class docstring
+## `AnimationRotationAroundCenter` class docstring
 
 The animation class for a rotation around the center point.<hr>
 
@@ -38,7 +38,7 @@ The animation class for a rotation around the center point.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_rotation_around_center method docstring
+### `animation_rotation_around_center` method docstring
 
 Set the rotation around the center animation setting.<hr>
 

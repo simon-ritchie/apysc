@@ -1,10 +1,10 @@
-# apysc._display.line_round_dot_setting docstrings
+# `apysc._display.line_round_dot_setting` docstrings
 
 ## Module summary
 
 Round dot setting class implementation for line.
 
-## LineRoundDotSetting class docstring
+## `LineRoundDotSetting` class docstring
 
 Round dot setting class for a line.<hr>
 
@@ -32,7 +32,7 @@ Int(5)
 
 - [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/graphics_line_style.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Round dot setting class for line.<hr>
 

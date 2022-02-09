@@ -1,10 +1,10 @@
-# apysc._validation.parent_validation docstrings
+# `apysc._validation.parent_validation` docstrings
 
 ## Module summary
 
 Parent related validation interfaces.
 
-## validate_parent_contains_child function docstring
+## `validate_parent_contains_child` function docstring
 
 Validate parent contains specified child.<hr>
 
@@ -21,7 +21,7 @@ Validate parent contains specified child.<hr>
 
 - ValueError: If parent not contains specified child. If parent is None, check will be skipped.
 
-## validate_parent_instance function docstring
+## `validate_parent_instance` function docstring
 
 Validate specified parent is `ChildInterface` instance.<hr>
 

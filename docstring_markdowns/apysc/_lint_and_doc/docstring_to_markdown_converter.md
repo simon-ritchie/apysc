@@ -1,10 +1,10 @@
-# apysc._lint_and_doc.docstring_to_markdown_converter docstrings
+# `apysc._lint_and_doc.docstring_to_markdown_converter` docstrings
 
 ## Module summary
 
 The script to convert and sync each docstring to markdown files.
 
-## _append_each_section_to_markdown function docstring
+## `_append_each_section_to_markdown` function docstring
 
 Append each docstring section to a specified markdown string.<hr>
 
@@ -22,7 +22,7 @@ Append each docstring section to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## _append_module_docstring_to_markdown function docstring
+## `_append_module_docstring_to_markdown` function docstring
 
 Append a module description docstring to a specified markdown string.<hr>
 
@@ -40,7 +40,7 @@ Append a module description docstring to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## _append_toplevel_class_docstring_to_markdown function docstring
+## `_append_toplevel_class_docstring_to_markdown` function docstring
 
 Append a top-level class docstring to a specified markdown string.<hr>
 
@@ -60,7 +60,7 @@ Append a top-level class docstring to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## _append_toplevel_function_docstring_to_markdown function docstring
+## `_append_toplevel_function_docstring_to_markdown` function docstring
 
 Append a top-level function docstring to a specified markdown string.<hr>
 
@@ -78,7 +78,7 @@ Append a top-level function docstring to a specified markdown string.<hr>
 - `markdown`: str
   - Result markdown string.
 
-## _convert_module_docstring_to_markdown function docstring
+## `_convert_module_docstring_to_markdown` function docstring
 
 Convert a specified module's docstring to a markdown string.<hr>
 
@@ -94,7 +94,7 @@ Convert a specified module's docstring to a markdown string.<hr>
 - `markdown`: str
   - Converted markdown string.
 
-## _get_excluding_target_builtin_methods function docstring
+## `_get_excluding_target_builtin_methods` function docstring
 
 Get a excluding target builtin methods' docstring values dict.<hr>
 
@@ -103,7 +103,7 @@ Get a excluding target builtin methods' docstring values dict.<hr>
 - `excluding_target_builtin_methods_dict`: dict
   - A dictionary which has builtin method name's keys and docstring values.
 
-## _get_methods_from_class function docstring
+## `_get_methods_from_class` function docstring
 
 Get methods from a specified class.<hr>
 
@@ -119,7 +119,7 @@ Get methods from a specified class.<hr>
 - `methods`: list of Callable
   - Extracted methods.
 
-## _get_module_toplevel_functions function docstring
+## `_get_module_toplevel_functions` function docstring
 
 Get top-level functions from a specified module.<hr>
 
@@ -135,7 +135,7 @@ Get top-level functions from a specified module.<hr>
 - `toplevel_functions`: list of Callable
   - Top-level functions.
 
-## _get_toplevel_classes function docstring
+## `_get_toplevel_classes` function docstring
 
 Get top-level classes from a specified module.<hr>
 
@@ -151,7 +151,7 @@ Get top-level classes from a specified module.<hr>
 - `toplevel_classes`: list of Type
   - Top-level classes.
 
-## _save_markdown function docstring
+## `_save_markdown` function docstring
 
 Save a specified module's markdown file.<hr>
 
@@ -167,7 +167,7 @@ Save a specified module's markdown file.<hr>
 - `markdown_file_path`: str
   - Saved markdown file path.
 
-## convert_recursively function docstring
+## `convert_recursively` function docstring
 
 Convert each docstring in the specified directory to markdown files recursively.<hr>
 

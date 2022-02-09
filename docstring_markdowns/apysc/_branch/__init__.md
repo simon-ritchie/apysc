@@ -1,1 +1,1 @@
-# apysc._branch.__init__ docstrings
+# `apysc._branch.__init__` docstrings

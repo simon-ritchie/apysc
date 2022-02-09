@@ -1,1 +1,1 @@
-# apysc._time.__init__ docstrings
+# `apysc._time.__init__` docstrings

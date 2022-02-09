@@ -1,14 +1,14 @@
-# apysc._event.mouse_down_interface docstrings
+# `apysc._event.mouse_down_interface` docstrings
 
 ## Module summary
 
 Class implementation for mouse down interface.
 
-### _initialize_mouse_down_handlers_if_not_initialized method docstring
+### `_initialize_mouse_down_handlers_if_not_initialized` method docstring
 
 Initialize _mouse_down_handlers attribute if it is not initialized yet.
 
-### mousedown method docstring
+### `mousedown` method docstring
 
 Add mouse down event listener setting.<hr>
 
@@ -51,7 +51,7 @@ Add mouse down event listener setting.<hr>
 - [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html)
 - [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### unbind_mousedown method docstring
+### `unbind_mousedown` method docstring
 
 Unbind a specified handler's mouse down event.<hr>
 
@@ -85,7 +85,7 @@ Unbind a specified handler's mouse down event.<hr>
 
 - [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html)
 
-### unbind_mousedown_all method docstring
+### `unbind_mousedown_all` method docstring
 
 Unbind all mouse down events.<hr>
 

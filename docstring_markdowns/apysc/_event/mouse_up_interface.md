@@ -1,14 +1,14 @@
-# apysc._event.mouse_up_interface docstrings
+# `apysc._event.mouse_up_interface` docstrings
 
 ## Module summary
 
 Class implementation for mouse up interface.
 
-### _initialize_mouse_up_handlers_if_not_initialized method docstring
+### `_initialize_mouse_up_handlers_if_not_initialized` method docstring
 
 Initialize _mouse_up_handlers attribute if it is not initialized yet.
 
-### mouseup method docstring
+### `mouseup` method docstring
 
 Add mouse up event listener setting.<hr>
 
@@ -51,7 +51,7 @@ Add mouse up event listener setting.<hr>
 - [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html)
 - [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### unbind_mouseup method docstring
+### `unbind_mouseup` method docstring
 
 Unbind a specified handler's mouse-up event.<hr>
 
@@ -85,7 +85,7 @@ Unbind a specified handler's mouse-up event.<hr>
 
 - [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html)
 
-### unbind_mouseup_all method docstring
+### `unbind_mouseup_all` method docstring
 
 Unbind all mouse up events.<hr>
 

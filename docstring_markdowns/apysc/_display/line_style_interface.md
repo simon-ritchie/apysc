@@ -1,46 +1,46 @@
-# apysc._display.line_style_interface docstrings
+# `apysc._display.line_style_interface` docstrings
 
 ## Module summary
 
 Class implementation for line style related interface.
 
-### _initialize_line_alpha_if_not_initialized method docstring
+### `_initialize_line_alpha_if_not_initialized` method docstring
 
 Initialize _line_alpha attribute if it is not initialized yet.
 
-### _initialize_line_cap_if_not_initialized method docstring
+### `_initialize_line_cap_if_not_initialized` method docstring
 
 Initialize _line_cap attribute if it hasn't been initialized yet.
 
-### _initialize_line_color_if_not_initialized method docstring
+### `_initialize_line_color_if_not_initialized` method docstring
 
 Initialize _line_color attribute it it is not initialized yet.
 
-### _initialize_line_dash_dot_setting_if_not_initialized method docstring
+### `_initialize_line_dash_dot_setting_if_not_initialized` method docstring
 
 Initialize _line_dash_dot_setting attribute if it is not initialized yet.
 
-### _initialize_line_dash_setting_if_not_initialized method docstring
+### `_initialize_line_dash_setting_if_not_initialized` method docstring
 
 Initialize _line_dash_setting attribute if it is not initialized yet.
 
-### _initialize_line_dot_setting_if_not_initialized method docstring
+### `_initialize_line_dot_setting_if_not_initialized` method docstring
 
 Initialize _line_dot_setting attribute if it is not initialized yet.
 
-### _initialize_line_joints_if_not_initialized method docstring
+### `_initialize_line_joints_if_not_initialized` method docstring
 
 Initialize _line_joints attribute if it hasn't been initialized yet.
 
-### _initialize_line_round_dot_setting_if_not_initialized method docstring
+### `_initialize_line_round_dot_setting_if_not_initialized` method docstring
 
 Initialize _line_round_dot_setting attribute if it is not initialized yet.
 
-### _initialize_line_thickness_if_not_initialized method docstring
+### `_initialize_line_thickness_if_not_initialized` method docstring
 
 Initialize _line_thickness attribute if it is not initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapshot.<hr>
 
@@ -49,7 +49,7 @@ Make values' snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 
@@ -58,7 +58,7 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _set_line_cap method docstring
+### `_set_line_cap` method docstring
 
 Set line cap setting to attribute.<hr>
 
@@ -67,7 +67,7 @@ Set line cap setting to attribute.<hr>
 - `cap`: LineCaps or None, default None
   - Line cap (edge style) setting.
 
-### _set_line_joints method docstring
+### `_set_line_joints` method docstring
 
 Set line joints setting to attribute.<hr>
 
@@ -76,7 +76,7 @@ Set line joints setting to attribute.<hr>
 - `joints`: LineJoints or None, default None
   - Line vertices (joints) style setting.
 
-### line_style method docstring
+### `line_style` method docstring
 
 Set line style values.<hr>
 

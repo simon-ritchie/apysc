@@ -1,14 +1,14 @@
-# apysc._event.mouse_move_interface docstrings
+# `apysc._event.mouse_move_interface` docstrings
 
 ## Module summary
 
 Class implementation for mouse move interface.
 
-### _initialize_mouse_move_handlers_if_not_initialized method docstring
+### `_initialize_mouse_move_handlers_if_not_initialized` method docstring
 
 Initialize _mouse_move_handlers attribute if it is not initialized yet.
 
-### mousemove method docstring
+### `mousemove` method docstring
 
 Add mouse move event listener setting.<hr>
 
@@ -51,7 +51,7 @@ Add mouse move event listener setting.<hr>
 - [Mousemove interface document](https://simon-ritchie.github.io/apysc/mousemove.html)
 - [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### unbind_mousemove method docstring
+### `unbind_mousemove` method docstring
 
 Unbind a specified handler's mouse move event.<hr>
 
@@ -89,7 +89,7 @@ Unbind a specified handler's mouse move event.<hr>
 
 - [Mousemove interface document](https://simon-ritchie.github.io/apysc/mousemove.html)
 
-### unbind_mousemove_all method docstring
+### `unbind_mousemove_all` method docstring
 
 Unbind all mouse move events.<hr>
 

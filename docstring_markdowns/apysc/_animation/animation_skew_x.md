@@ -1,10 +1,10 @@
-# apysc._animation.animation_skew_x docstrings
+# `apysc._animation.animation_skew_x` docstrings
 
 ## Module summary
 
 Class implementation for the skew-x animation value.
 
-## AnimationSkewX class docstring
+## `AnimationSkewX` class docstring
 
 The animation class for a skew-x.<hr>
 
@@ -37,7 +37,7 @@ The animation class for a skew-x.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 The animation class for a skew-x.<hr>
 
@@ -60,7 +60,7 @@ The animation class for a skew-x.<hr>
 
 - TypeError: If a specified target is not a SkewXInterface instance.
 
-### _get_animation_func_expression method docstring
+### `_get_animation_func_expression` method docstring
 
 Get a animation function expression.<hr>
 
@@ -69,7 +69,7 @@ Get a animation function expression.<hr>
 - `expression`: str
   - Animation function expression.
 
-### _get_complete_event_in_handler_head_expression method docstring
+### `_get_complete_event_in_handler_head_expression` method docstring
 
 Get an expression to be inserted into the complete event handler's head.<hr>
 

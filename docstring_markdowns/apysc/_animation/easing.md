@@ -1,10 +1,10 @@
-# apysc._animation.easing docstrings
+# `apysc._animation.easing` docstrings
 
 ## Module summary
 
 Enum class implementation for the easing setting.
 
-## Easing class docstring
+## `Easing` class docstring
 
 Enum class for the easing setting.<hr>
 

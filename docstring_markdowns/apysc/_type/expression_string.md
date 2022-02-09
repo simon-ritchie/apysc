@@ -1,14 +1,14 @@
-# apysc._type.expression_string docstrings
+# `apysc._type.expression_string` docstrings
 
 ## Module summary
 
 Class implementation for the JavaScript expression string.
 
-## ExpressionString class docstring
+## `ExpressionString` class docstring
 
 The class for the JavaScript expression string.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 The class for the JavaScript expression string.<hr>
 
@@ -17,7 +17,7 @@ The class for the JavaScript expression string.<hr>
 - `value`: str
   - String to set.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make a value's snapshot.<hr>
 
@@ -26,7 +26,7 @@ Make a value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert a value if snapshot exists.<hr>
 

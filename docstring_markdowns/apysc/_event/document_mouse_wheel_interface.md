@@ -1,4 +1,4 @@
-# apysc._event.document_mouse_wheel_interface docstrings
+# `apysc._event.document_mouse_wheel_interface` docstrings
 
 ## Module summary
 
@@ -8,7 +8,7 @@ Implementation of mouse wheel event interfaces.<hr>
 
 Not supported each SVG elements' mouse wheel event currently, only supported document (overall screen) mouse wheel.
 
-## bind_wheel_event_to_document function docstring
+## `bind_wheel_event_to_document` function docstring
 
 Bind wheel event to document (overall window).<hr>
 
@@ -32,11 +32,11 @@ Bind wheel event to document (overall window).<hr>
 
 - [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-## unbind_wheel_event_all_from_document function docstring
+## `unbind_wheel_event_all_from_document` function docstring
 
 Unbind all wheel event from document (overall window).
 
-## unbind_wheel_event_from_document function docstring
+## `unbind_wheel_event_from_document` function docstring
 
 Unbind specified handler's wheel event from document (overall window).<hr>
 

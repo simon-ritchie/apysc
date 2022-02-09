@@ -1,10 +1,10 @@
-# apysc._display.graphics_expression docstrings
+# `apysc._display.graphics_expression` docstrings
 
 ## Module summary
 
 Graphics class related expression implementations.
 
-## append_fill_expression function docstring
+## `append_fill_expression` function docstring
 
 Append fill expression to specified expression's string.<hr>
 
@@ -24,7 +24,7 @@ Append fill expression to specified expression's string.<hr>
 - `expression`: str
   - After appended expression string.
 
-## append_fill_opacity_expression function docstring
+## `append_fill_opacity_expression` function docstring
 
 Append fill opacity expression to specified expression's string.<hr>
 
@@ -44,7 +44,7 @@ Append fill opacity expression to specified expression's string.<hr>
 - `expression`: str
   - After appended expression string.
 
-## append_stroke_expression function docstring
+## `append_stroke_expression` function docstring
 
 Append stroke expression to specified expression's string.<hr>
 
@@ -64,7 +64,7 @@ Append stroke expression to specified expression's string.<hr>
 - `expression`: str
   - After appended expression string.
 
-## append_stroke_linecap_expression function docstring
+## `append_stroke_linecap_expression` function docstring
 
 Append stroke linecap expression to specified expression's string.<hr>
 
@@ -84,7 +84,7 @@ Append stroke linecap expression to specified expression's string.<hr>
 - `expression`: str
   - After appended expression string.
 
-## append_stroke_linejoin_expression function docstring
+## `append_stroke_linejoin_expression` function docstring
 
 Append stroke linejoin expression to specified expression's string.<hr>
 
@@ -104,7 +104,7 @@ Append stroke linejoin expression to specified expression's string.<hr>
 - `expression`: str
   - After appended expression string.
 
-## append_stroke_opacity_expression function docstring
+## `append_stroke_opacity_expression` function docstring
 
 Append stroke opacity expression to specified expression's string.<hr>
 
@@ -124,7 +124,7 @@ Append stroke opacity expression to specified expression's string.<hr>
 - `expression`: str
   - After appended expression string.
 
-## append_stroke_width_expression function docstring
+## `append_stroke_width_expression` function docstring
 
 Append stroke width expression to specified expression's string.<hr>
 
@@ -144,7 +144,7 @@ Append stroke width expression to specified expression's string.<hr>
 - `expression`: str
   - After appended expression string.
 
-## append_x_expression function docstring
+## `append_x_expression` function docstring
 
 Append x position expression to specified expression's string.<hr>
 
@@ -164,7 +164,7 @@ Append x position expression to specified expression's string.<hr>
 - `expression`: str
   - After appended expression string.
 
-## append_y_expression function docstring
+## `append_y_expression` function docstring
 
 Append y position expression to specified expression's string.<hr>
 

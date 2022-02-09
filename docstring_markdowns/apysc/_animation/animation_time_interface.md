@@ -1,10 +1,10 @@
-# apysc._animation.animation_time_interface docstrings
+# `apysc._animation.animation_time_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_time interface.
 
-### animation_time method docstring
+### `animation_time` method docstring
 
 Get an animation elapsed milisecond.<hr>
 

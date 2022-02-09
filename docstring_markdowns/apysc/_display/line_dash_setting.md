@@ -1,10 +1,10 @@
-# apysc._display.line_dash_setting docstrings
+# `apysc._display.line_dash_setting` docstrings
 
 ## Module summary
 
 Dash setting class implementation for line.
 
-## LineDashSetting class docstring
+## `LineDashSetting` class docstring
 
 Dash setting class for a line.<hr>
 
@@ -32,7 +32,7 @@ Int(2)
 
 - [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/graphics_line_style.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Dash setting class for a line.<hr>
 

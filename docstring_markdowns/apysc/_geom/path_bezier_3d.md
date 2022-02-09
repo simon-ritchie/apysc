@@ -1,10 +1,10 @@
-# apysc._geom.path_bezier_3d docstrings
+# `apysc._geom.path_bezier_3d` docstrings
 
 ## Module summary
 
 Path data class implementation for the svg's `3D besier curve` (C).
 
-## PathBezier3D class docstring
+## `PathBezier3D` class docstring
 
 Path data class for the svg's `3D bezier curve` (C).<hr>
 
@@ -28,7 +28,7 @@ Path data class for the svg's `3D bezier curve` (C).<hr>
 ...     ])
 ```
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 Equal comparison method.<hr>
 
@@ -44,7 +44,7 @@ Equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Path data class for the svg's `3D bezier curve` (C).<hr>
 
@@ -87,7 +87,7 @@ Path data class for the svg's `3D bezier curve` (C).<hr>
 ...     ])
 ```
 
-### __ne__ method docstring
+### `__ne__` method docstring
 
 Not equal comparison method.<hr>
 
@@ -103,7 +103,7 @@ Not equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result.
 
-### _get_svg_str method docstring
+### `_get_svg_str` method docstring
 
 Get a path's SVG string created with the current setting.<hr>
 
@@ -112,7 +112,7 @@ Get a path's SVG string created with the current setting.<hr>
 - `svg_str`: str
   - A path's SVG string created with the current setting.
 
-### update_path_data method docstring
+### `update_path_data` method docstring
 
 Update the path's data settings.<hr>
 

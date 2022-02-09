@@ -1,1 +1,1 @@
-# apysc._event.__init__ docstrings
+# `apysc._event.__init__` docstrings

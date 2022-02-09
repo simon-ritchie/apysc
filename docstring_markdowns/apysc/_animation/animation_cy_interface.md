@@ -1,10 +1,10 @@
-# apysc._animation.animation_cy_interface docstrings
+# `apysc._animation.animation_cy_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_y interface (using center-y coordinate internally).
 
-## AnimationCy class docstring
+## `AnimationCy` class docstring
 
 The animation class for a center-y coordinate.<hr>
 
@@ -37,7 +37,7 @@ The animation class for a center-y coordinate.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_y method docstring
+### `animation_y` method docstring
 
 Set the center-y coordinate animation setting.<hr>
 

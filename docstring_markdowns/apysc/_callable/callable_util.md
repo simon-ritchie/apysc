@@ -1,10 +1,10 @@
-# apysc._callable.callable_util docstrings
+# `apysc._callable.callable_util` docstrings
 
 ## Module summary
 
 Common callable utility implementations.
 
-## get_arg_name_at function docstring
+## `get_arg_name_at` function docstring
 
 Get specified index argument name from function.<hr>
 
@@ -22,7 +22,7 @@ Get specified index argument name from function.<hr>
 - `arg_name`: str
   - Target index's argument name.
 
-## get_func_default_vals function docstring
+## `get_func_default_vals` function docstring
 
 Get specified function's arguments default values.<hr>
 
@@ -38,7 +38,7 @@ Get specified function's arguments default values.<hr>
 - `default_vals`: dict
   - Dictionary that has a argument name at key and default value at value. If argument has no default value, then `empty` object will be set.
 
-## get_method_class_name function docstring
+## `get_method_class_name` function docstring
 
 Get a specified method's class name.<hr>
 
@@ -54,7 +54,7 @@ Get a specified method's class name.<hr>
 - `class_name`: str
   - Target method's class name. If specified argument is not a method (e.g., function), then blank string will be returned.
 
-## get_name_and_arg_value_dict_from_args function docstring
+## `get_name_and_arg_value_dict_from_args` function docstring
 
 Get dictionary that has an argument name at key and specified argument values at value.<hr>
 

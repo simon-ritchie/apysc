@@ -1,10 +1,10 @@
-# apysc._display.css_interface docstrings
+# `apysc._display.css_interface` docstrings
 
 ## Module summary
 
 Class implementation for the css interface.
 
-### _append_get_css_expresion method docstring
+### `_append_get_css_expresion` method docstring
 
 Append a css getter expression string.<hr>
 
@@ -15,7 +15,7 @@ Append a css getter expression string.<hr>
 - `css`: String
   - CSS value.
 
-### _append_set_css_expression method docstring
+### `_append_set_css_expression` method docstring
 
 Append a css setter expression string.<hr>
 
@@ -26,11 +26,11 @@ Append a css setter expression string.<hr>
 - `value`: str or String
   - A CSS value string (e.g., 'none').
 
-### _initialize_css_if_not_initialized method docstring
+### `_initialize_css_if_not_initialized` method docstring
 
 Initialize the _css attribute if it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapshot.<hr>
 
@@ -39,7 +39,7 @@ Make values' snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 
@@ -48,7 +48,7 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### get_css method docstring
+### `get_css` method docstring
 
 Get a CSS value string.<hr>
 
@@ -84,7 +84,7 @@ String('none')
 
 - [Display object get_css and set_css interfaces document](https://simon-ritchie.github.io/apysc/display_object_get_and_set_css.html)
 
-### set_css method docstring
+### `set_css` method docstring
 
 Set a specified value string to the CSS.<hr>
 

@@ -1,1 +1,1 @@
-# apysc._html.__init__ docstrings
+# `apysc._html.__init__` docstrings

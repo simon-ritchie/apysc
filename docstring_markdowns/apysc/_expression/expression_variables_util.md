@@ -1,10 +1,10 @@
-# apysc._expression.expression_variables_util docstrings
+# `apysc._expression.expression_variables_util` docstrings
 
 ## Module summary
 
 Implementations to manipulate expression variable name related interface. Mainly following interfaces are defined: <br>・get_next_variable_name: Get next variable name of specified type name. <br>・append_substitution_expression: Append substitution expression between two variables.
 
-## _get_next_variable_num function docstring
+## `_get_next_variable_num` function docstring
 
 Get a next variable number.<hr>
 
@@ -20,7 +20,7 @@ Get a next variable number.<hr>
 - `next_variable_num`: int
   - Next variable number (start from 1).
 
-## _make_variable_name function docstring
+## `_make_variable_name` function docstring
 
 Make variable name from type name and variable num.<hr>
 
@@ -38,7 +38,7 @@ Make variable name from type name and variable num.<hr>
 - `variable_name`: str
   - Variable name that concatenated type name and variable number.
 
-## _save_next_variable_name_count function docstring
+## `_save_next_variable_name_count` function docstring
 
 Save a next variable name count value.<hr>
 
@@ -47,7 +47,7 @@ Save a next variable name count value.<hr>
 - `type_name`: str
   - Any type name, e.g., `sp`.
 
-## append_substitution_expression function docstring
+## `append_substitution_expression` function docstring
 
 Append a substitution expression between two variables.<hr>
 
@@ -58,7 +58,7 @@ Append a substitution expression between two variables.<hr>
 - `right_value`: VariableNameInterface
   - Any right value.
 
-## append_substitution_expression_with_names function docstring
+## `append_substitution_expression_with_names` function docstring
 
 Append a substitution expression between two variable names.<hr>
 
@@ -75,7 +75,7 @@ Append a substitution expression between two variable names.<hr>
 
 If the left or the right variable names are blank, then expression appending will be skipped.
 
-## get_next_variable_name function docstring
+## `get_next_variable_name` function docstring
 
 Get next variable name of specified type name.<hr>
 

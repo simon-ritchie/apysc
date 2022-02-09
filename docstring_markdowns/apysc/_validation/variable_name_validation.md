@@ -1,10 +1,10 @@
-# apysc._validation.variable_name_validation docstrings
+# `apysc._validation.variable_name_validation` docstrings
 
 ## Module summary
 
 Variable name related Validation interfaces.
 
-## validate_variable_name_interface_type function docstring
+## `validate_variable_name_interface_type` function docstring
 
 Validate specified instance type is VariableNameInterface.<hr>
 

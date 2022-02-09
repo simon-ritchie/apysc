@@ -1,10 +1,10 @@
-# apysc._event.custom_event_interface docstrings
+# `apysc._event.custom_event_interface` docstrings
 
 ## Module summary
 
 Class implementation for the custom event interface.
 
-### _append_custom_event_binding_expression method docstring
+### `_append_custom_event_binding_expression` method docstring
 
 Append a custom event binding expression.<hr>
 
@@ -15,7 +15,7 @@ Append a custom event binding expression.<hr>
 - `name`: str
   - Handler's name.
 
-### _append_custom_event_unbinding_expression method docstring
+### `_append_custom_event_unbinding_expression` method docstring
 
 Add a custom event unbinding expression.<hr>
 
@@ -26,7 +26,7 @@ Add a custom event unbinding expression.<hr>
 - `name`: str
   - Handler's name.
 
-### _get_custom_event_type_str method docstring
+### `_get_custom_event_type_str` method docstring
 
 Get a custom event type string from a type value.<hr>
 
@@ -42,7 +42,7 @@ Get a custom event type string from a type value.<hr>
 - `custom_event_type_str`: str
   - A custom event type string.
 
-### _initialize_custom_event_handlers_if_not_initialized method docstring
+### `_initialize_custom_event_handlers_if_not_initialized` method docstring
 
 Initialize the _custom_event_handlers data if it hasn't been initialized yet.<hr>
 
@@ -51,7 +51,7 @@ Initialize the _custom_event_handlers data if it hasn't been initialized yet.<hr
 - `custom_event_type_str`: str
   - Target custom event type string.
 
-### _set_custom_event_handler_data method docstring
+### `_set_custom_event_handler_data` method docstring
 
 Set a handler's data to the dictionary.<hr>
 
@@ -64,7 +64,7 @@ Set a handler's data to the dictionary.<hr>
 - `options`: dict or None
   - Optional arguments dictionary to be passed to a handler.
 
-### _unset_custom_event_handler_data method docstring
+### `_unset_custom_event_handler_data` method docstring
 
 Unset a handler's data from the dictionary.<hr>
 
@@ -75,7 +75,7 @@ Unset a handler's data from the dictionary.<hr>
 - `custom_event_type_str`: str
   - Target custom event type string.
 
-### bind_custom_event method docstring
+### `bind_custom_event` method docstring
 
 Add a custom event listener setting.<hr>
 
@@ -130,7 +130,7 @@ Add a custom event listener setting.<hr>
 - [Bind and trigger the custom event document](https://simon-ritchie.github.io/apysc/bind_and_trigger_custom_event.html)
 - [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### trigger_custom_event method docstring
+### `trigger_custom_event` method docstring
 
 Add a custom event trigger setting.<hr>
 
@@ -169,7 +169,7 @@ Add a custom event trigger setting.<hr>
 
 - [Bind and trigger the custom event document](https://simon-ritchie.github.io/apysc/bind_and_trigger_custom_event.html)
 
-### unbind_custom_event method docstring
+### `unbind_custom_event` method docstring
 
 Unbind (remove) a custom event listener setting.<hr>
 
@@ -214,7 +214,7 @@ Unbind (remove) a custom event listener setting.<hr>
 ...     custom_event_type='my_custom_event')
 ```
 
-### unbind_custom_event_all method docstring
+### `unbind_custom_event_all` method docstring
 
 Unbind (remove) custom event listener settings.<hr>
 

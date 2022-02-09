@@ -1,10 +1,10 @@
-# apysc._string.string_util docstrings
+# `apysc._string.string_util` docstrings
 
 ## Module summary
 
 Common string utilities. Mainly following interfaces and defined. <br>・escape_str Escape special characters (e.g. line breaks of ` `). <br>・escape_double_quotation Escape double quotations. <br>・wrap_by_double_quotation_if_value_is_string Wrap specified by double quotation if value is a string. <br>・substitute_file_by_pattern Substitute text file by regular expression pattern. <br>・replace_double_spaces_to_single_space Replace double spaces to a single space.
 
-## escape_double_quotation function docstring
+## `escape_double_quotation` function docstring
 
 Escape double quotations.<hr>
 
@@ -20,7 +20,7 @@ Escape double quotations.<hr>
 - `string`: str
   - Escaped string.
 
-## escape_str function docstring
+## `escape_str` function docstring
 
 Escape special characters (e.g. line breaks of ` `).<hr>
 
@@ -36,7 +36,7 @@ Escape special characters (e.g. line breaks of ` `).<hr>
 - `string`: str
   - Escaped string.
 
-## replace_double_spaces_to_single_space function docstring
+## `replace_double_spaces_to_single_space` function docstring
 
 Replace double spaces to a single space.<hr>
 
@@ -52,7 +52,7 @@ Replace double spaces to a single space.<hr>
 - `string`: str
   - Replaced string.
 
-## substitute_file_by_pattern function docstring
+## `substitute_file_by_pattern` function docstring
 
 Substitute text file by regular expression pattern.<hr>
 
@@ -67,7 +67,7 @@ Substitute text file by regular expression pattern.<hr>
 - `flags`: Any
   - Regular expression flags.
 
-## wrap_by_double_quotation_if_value_is_string function docstring
+## `wrap_by_double_quotation_if_value_is_string` function docstring
 
 Wrap specified by double quotation if value is a string.<hr>
 

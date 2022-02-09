@@ -1,10 +1,10 @@
-# apysc._display.display_object docstrings
+# `apysc._display.display_object` docstrings
 
 ## Module summary
 
 Implementations for DisplayObject class.
 
-## DisplayObject class docstring
+## `DisplayObject` class docstring
 
 Display object (base) class for the common interfaces.<hr>
 
@@ -12,7 +12,7 @@ Display object (base) class for the common interfaces.<hr>
 
 - [DisplayObject document](https://simon-ritchie.github.io/apysc/display_object.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Display object (base) class for the common interfaces.<hr>
 
@@ -27,6 +27,6 @@ Display object (base) class for the common interfaces.<hr>
 
 - [DisplayObject document](https://simon-ritchie.github.io/apysc/display_object.html)
 
-### _set_overflow_visible_setting method docstring
+### `_set_overflow_visible_setting` method docstring
 
 Set the `visible` value to the `overflow` CSS property.

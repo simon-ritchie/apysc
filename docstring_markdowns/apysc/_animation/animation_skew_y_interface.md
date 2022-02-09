@@ -1,10 +1,10 @@
-# apysc._animation.animation_skew_y_interface docstrings
+# `apysc._animation.animation_skew_y_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_skew_y interface.
 
-## AnimationSkewY class docstring
+## `AnimationSkewY` class docstring
 
 The animation class for a skew-y.<hr>
 
@@ -36,7 +36,7 @@ The animation class for a skew-y.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### _animation_skew_y method docstring
+### `_animation_skew_y` method docstring
 
 **Important notes** Currently this interface does not work correctly. For more details please see: https://github.com/svgdotjs/svg.js/issues/1222 Set the skew-y animation animation.<hr>
 

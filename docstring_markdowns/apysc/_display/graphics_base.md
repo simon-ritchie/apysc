@@ -1,10 +1,10 @@
-# apysc._display.graphics_base docstrings
+# `apysc._display.graphics_base` docstrings
 
 ## Module summary
 
 Class implementation for graphic base class.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Vector graphic base class.<hr>
 

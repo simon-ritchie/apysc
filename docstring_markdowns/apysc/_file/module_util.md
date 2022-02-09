@@ -1,10 +1,10 @@
-# apysc._file.module_util docstrings
+# `apysc._file.module_util` docstrings
 
 ## Module summary
 
 Module related common utilities. Mainly following interfaces are defined: <br>・get_module_paths_recursively <br> ・Get all module paths under the specified directory. <br>・save_tmp_module <br> ・Save a temporary Python module. <br>・save_tmp_module_and_run_script <br> ・Save a temporary Python module and run that script. <br>・read_target_path_module <br> ・Read a module of the specified module path. <br>・read_module_or_class_from_package_path <br> ・Read a specified package path module or class.
 
-## get_module_paths_recursively function docstring
+## `get_module_paths_recursively` function docstring
 
 Get all module paths under the specified directory.<hr>
 
@@ -22,7 +22,7 @@ Get all module paths under the specified directory.<hr>
 - `module_paths`: list of str
   - Python module paths. `__init__.py` modules will not be included.
 
-## read_module_or_class_from_package_path function docstring
+## `read_module_or_class_from_package_path` function docstring
 
 Read a specified package path module or class.<hr>
 
@@ -38,7 +38,7 @@ Read a specified package path module or class.<hr>
 - `module_or_class`: ModuleType or Type
   - Read module or class.
 
-## read_target_path_module function docstring
+## `read_target_path_module` function docstring
 
 Read a module of the specified module path.<hr>
 
@@ -54,7 +54,7 @@ Read a module of the specified module path.<hr>
 - `module`: ModuleType
   - Read module.
 
-## save_tmp_module function docstring
+## `save_tmp_module` function docstring
 
 Save a temporary Python module.<hr>
 
@@ -70,7 +70,7 @@ Save a temporary Python module.<hr>
 - `saved_module_path`: str
   - Saved temporary module path.
 
-## save_tmp_module_and_run_script function docstring
+## `save_tmp_module_and_run_script` function docstring
 
 Save a temporary Python module and run that script.<hr>
 

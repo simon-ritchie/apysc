@@ -1,10 +1,10 @@
-# apysc._validation.geom_validation docstrings
+# `apysc._validation.geom_validation` docstrings
 
 ## Module summary
 
 Validation helper interfaces for geometry related values.
 
-## validate_point_2d_type function docstring
+## `validate_point_2d_type` function docstring
 
 Validate specified value's type is Point2D.<hr>
 

@@ -1,10 +1,10 @@
-# apysc._display.stage docstrings
+# `apysc._display.stage` docstrings
 
 ## Module summary
 
 Stage (canvas) implementation.
 
-## _save_stage_id_to_db function docstring
+## `_save_stage_id_to_db` function docstring
 
 Save a stage's memory address (id) to the database.<hr>
 
@@ -13,7 +13,7 @@ Save a stage's memory address (id) to the database.<hr>
 - `stage`: Stage
   - Target stage.
 
-## get_stage function docstring
+## `get_stage` function docstring
 
 Get a already instantiated stage instance.<hr>
 
@@ -28,7 +28,7 @@ Get a already instantiated stage instance.<hr>
 
 - _StageNotCreatedError: If a stage is not instantiated yet.
 
-## get_stage_elem_id function docstring
+## `get_stage_elem_id` function docstring
 
 Get current stage's element id.<hr>
 
@@ -37,7 +37,7 @@ Get current stage's element id.<hr>
 - `stage_elem_id`: str
   - Current stage's element id. If stage is not instantiated yet, blank string will be set.
 
-## get_stage_elem_str function docstring
+## `get_stage_elem_str` function docstring
 
 Get current stage's jQuery element string.<hr>
 
@@ -46,7 +46,7 @@ Get current stage's jQuery element string.<hr>
 - `stage_elem_str`: str
   - Stage's jQuery element string (e.g., '$("#<stage_elem_id>")').
 
-## get_stage_variable_name function docstring
+## `get_stage_variable_name` function docstring
 
 Get current stage's global variable name.<hr>
 
@@ -55,7 +55,7 @@ Get current stage's global variable name.<hr>
 - `stage_variable_name`: str
   - Current stage's js global variable name. If stage is not instantiated yet, blank string will be set.
 
-## Stage class docstring
+## `Stage` class docstring
 
 The Stage (overall viewport) class.<hr>
 
@@ -74,7 +74,7 @@ The Stage (overall viewport) class.<hr>
 
 - [Stage document](https://simon-ritchie.github.io/apysc/stage.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Create Stage (overall viewport) instance.<hr>
 
@@ -108,7 +108,7 @@ Create Stage (overall viewport) instance.<hr>
 
 - [Stage document](https://simon-ritchie.github.io/apysc/stage.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -117,11 +117,11 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and elem id will be set (e.g., `Stage('<stage_elem_id>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append stage constructor expression.
 
-### _create_stage_elem_id_if_none method docstring
+### `_create_stage_elem_id_if_none` method docstring
 
 Create random stage element id if specified id is None.<hr>
 
@@ -137,7 +137,7 @@ Create random stage element id if specified id is None.<hr>
 - `result_id`: str
   - If specified id is not None, then unchanged argument value will be returned. Otherwise, random integer string will be returned.
 
-### _make_constructor_expression method docstring
+### `_make_constructor_expression` method docstring
 
 Make a stage constructor expression string.<hr>
 
@@ -146,7 +146,7 @@ Make a stage constructor expression string.<hr>
 - `expression`: str
   - Result expression.
 
-### _make_style_str method docstring
+### `_make_style_str` method docstring
 
 Make a stage's style string.<hr>
 
@@ -155,6 +155,6 @@ Make a stage's style string.<hr>
 - `style`: str
   - Result style string (width, height, etc).
 
-### _save_stage_elem_id method docstring
+### `_save_stage_elem_id` method docstring
 
 Save the stage element id.

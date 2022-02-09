@@ -1,10 +1,10 @@
-# apysc._display.rectangle docstrings
+# `apysc._display.rectangle` docstrings
 
 ## Module summary
 
 Implementations of the Rectangle class.
 
-## Rectangle class docstring
+## `Rectangle` class docstring
 
 The rectangle vector graphics class.<hr>
 
@@ -39,7 +39,7 @@ String('#00aaff')
 
 - [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/graphics_draw_rect.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Create a rectangle vector graphics.<hr>
 
@@ -89,7 +89,7 @@ String('#00aaff')
 
 - [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/graphics_draw_rect.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -98,11 +98,11 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Rectangle('<variable_name>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append constructor expression.
 
-### _make_rect_attrs_expression method docstring
+### `_make_rect_attrs_expression` method docstring
 
 Make rectangle attributes expression string.<hr>
 

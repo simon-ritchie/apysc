@@ -1,1 +1,1 @@
-# apysc._color.__init__ docstrings
+# `apysc._color.__init__` docstrings

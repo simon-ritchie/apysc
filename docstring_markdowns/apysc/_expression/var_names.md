@@ -1,4 +1,4 @@
-# apysc._expression.var_names docstrings
+# `apysc._expression.var_names` docstrings
 
 ## Module summary
 

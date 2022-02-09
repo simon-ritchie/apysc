@@ -1,10 +1,10 @@
-# apysc._type.revert_interface docstrings
+# `apysc._type.revert_interface` docstrings
 
 ## Module summary
 
 Class implementation for revert interface.
 
-## make_snapshots_of_each_scope_vars function docstring
+## `make_snapshots_of_each_scope_vars` function docstring
 
 Make snapshots of each scope's variables.<hr>
 
@@ -22,7 +22,7 @@ Make snapshots of each scope's variables.<hr>
 - `snapshot_name`: str
   - Snapshot name to be used.
 
-## make_variables_snapshots function docstring
+## `make_variables_snapshots` function docstring
 
 Make snapshots of specified variables.<hr>
 
@@ -38,7 +38,7 @@ Make snapshots of specified variables.<hr>
 - `snapshot_name`: str
   - Snapshot name to be used.
 
-## revert_each_scope_vars function docstring
+## `revert_each_scope_vars` function docstring
 
 Revert each scope's variables.<hr>
 
@@ -51,7 +51,7 @@ Revert each scope's variables.<hr>
 - `globals_`: dict
   - Global scope's variables.
 
-## revert_variables function docstring
+## `revert_variables` function docstring
 
 Revert each variables.<hr>
 
@@ -62,7 +62,7 @@ Revert each variables.<hr>
 - `variables`: list
   - Each vairables to revert.
 
-### _delete_snapshot_exists_val method docstring
+### `_delete_snapshot_exists_val` method docstring
 
 Delete boolean value whether snapshot value exists or not.<hr>
 
@@ -71,7 +71,7 @@ Delete boolean value whether snapshot value exists or not.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _get_next_snapshot_name method docstring
+### `_get_next_snapshot_name` method docstring
 
 Get a next snapshot name.<hr>
 
@@ -80,11 +80,11 @@ Get a next snapshot name.<hr>
 - `snapshot_name`: str
   - Next snapshot name.
 
-### _initialize_ss_exists_val_if_not_initialized method docstring
+### `_initialize_ss_exists_val_if_not_initialized` method docstring
 
 Initialize _snapshot_exists_ value it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>
 
@@ -93,7 +93,7 @@ Make value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 
@@ -102,7 +102,7 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _run_all_make_snapshot_methods method docstring
+### `_run_all_make_snapshot_methods` method docstring
 
 Run all _make_snapshot methods. If instance is multiple inheritance one, and each has RevertInterface, then each _make_snapshot methods will be called.<hr>
 
@@ -111,7 +111,7 @@ Run all _make_snapshot methods. If instance is multiple inheritance one, and eac
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _run_all_revert_methods method docstring
+### `_run_all_revert_methods` method docstring
 
 Run all _revert methods. If instance is multiple inheritance one, and each has RevertInterface, then each _revert methods will be called.<hr>
 
@@ -120,7 +120,7 @@ Run all _revert methods. If instance is multiple inheritance one, and each has R
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _run_base_cls_make_snapshot_methods_recursively method docstring
+### `_run_base_cls_make_snapshot_methods_recursively` method docstring
 
 Run base classes make_snapshot methods recursively.<hr>
 
@@ -131,7 +131,7 @@ Run base classes make_snapshot methods recursively.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _run_base_cls_revert_methods_recursively method docstring
+### `_run_base_cls_revert_methods_recursively` method docstring
 
 Run base classes revert methods recursively.<hr>
 
@@ -142,7 +142,7 @@ Run base classes revert methods recursively.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _set_single_snapshot_val_to_dict method docstring
+### `_set_single_snapshot_val_to_dict` method docstring
 
 Set a single snapshot value to the specified name dictionary.<hr>
 
@@ -161,7 +161,7 @@ Set a single snapshot value to the specified name dictionary.<hr>
 
 If a snapshot value of the same name already exists, the process will be stopped.
 
-### _set_snapshot_exists_val method docstring
+### `_set_snapshot_exists_val` method docstring
 
 Set boolean value whether snapshot value exists or not.<hr>
 
@@ -170,7 +170,7 @@ Set boolean value whether snapshot value exists or not.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _snapshot_exists method docstring
+### `_snapshot_exists` method docstring
 
 Get a boolean value whether snapshot value exists or not.<hr>
 

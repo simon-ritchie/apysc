@@ -1,10 +1,10 @@
-# apysc._display.sprite docstrings
+# `apysc._display.sprite` docstrings
 
 ## Module summary
 
 Implementations for Sprite class.
 
-## Sprite class docstring
+## `Sprite` class docstring
 
 Basic display object that can be a parent.<hr>
 
@@ -42,7 +42,7 @@ Int(50)
 
 - [Sprite document](https://simon-ritchie.github.io/apysc/sprite.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Basic display object that can be parent.<hr>
 
@@ -87,7 +87,7 @@ Int(50)
 
 - [Sprite document](https://simon-ritchie.github.io/apysc/sprite.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -96,7 +96,7 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Sprite('<variable_name>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append Sprite constructor expression.<hr>
 
@@ -111,7 +111,7 @@ Append Sprite constructor expression.<hr>
 
 Expression not to be added if instance is Sprite subclass.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapshot.<hr>
 
@@ -120,7 +120,7 @@ Make values' snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 

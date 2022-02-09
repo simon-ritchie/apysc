@@ -1,10 +1,10 @@
-# apysc._console.assertion docstrings
+# `apysc._console.assertion` docstrings
 
 ## Module summary
 
 Each js assertion (console.assert) interface implementations. Mainly following interfaces are defined: <br>・assert_equal JavaScript assertion interface for equal condition. <br>・assert_not_equal JavaScript assertion interface for not equal condition. <br>・assert_true JavaScript assertion interface for true condition. <br>・assert_false JavaScript assertion interface for false condition. <br>・assert_arrays_equal JavaScript assertion interface for Array values equal condition. <br>・assert_arrays_not_equal JavaScript assertion interface for Array values not equal condition. <br>・assert_dicts_equal JavaScript assertion interface for Dictionary values equal condition. <br>・assert_dicts_not_equal JavaScript assertion interface for Dictionary values not equal condition. <br>・assert_defined JavaScript assertion interface for defined (not undefined) value condition. <br>・assert_undefined JavaScript assertion interface for undefined value condition.
 
-## _add_equal_if_type_strict_setting_is_true function docstring
+## `_add_equal_if_type_strict_setting_is_true` function docstring
 
 Add single equal character to expression if type_string setting is True.<hr>
 
@@ -22,7 +22,7 @@ Add single equal character to expression if type_string setting is True.<hr>
 - `expression`: str
   - If type_string setting is true, then single equal character will be added to tail.
 
-## _get_left_and_right_strs function docstring
+## `_get_left_and_right_strs` function docstring
 
 Get left and right value strings from specified values.<hr>
 
@@ -42,7 +42,7 @@ Get left and right value strings from specified values.<hr>
 - `right_str`: str
   - Right-side value's string. If value is string, this will be wrapped by double quotation.
 
-## _make_arrays_or_dicts_comparison_expression function docstring
+## `_make_arrays_or_dicts_comparison_expression` function docstring
 
 Make arrays or dicts comparison (assert_arrays_equal, assert_arrays_not_equal, assert_dicts_equal, or assert_dicts_not_equal) expression string.<hr>
 
@@ -64,7 +64,7 @@ Make arrays or dicts comparison (assert_arrays_equal, assert_arrays_not_equal, a
 - `expression`: str
   - Result expression string.
 
-## _trace_arrays_or_dicts_assertion_info function docstring
+## `_trace_arrays_or_dicts_assertion_info` function docstring
 
 Append arrays or dicts value's information trace expression.<hr>
 
@@ -77,7 +77,7 @@ Append arrays or dicts value's information trace expression.<hr>
 - `right`: *
   - Right-side value to compare.
 
-## _trace_info function docstring
+## `_trace_info` function docstring
 
 Append trace expression of specified values.<hr>
 
@@ -90,7 +90,7 @@ Append trace expression of specified values.<hr>
 - `right`: *
   - Right-side value to compare.
 
-## _value_type_is_array function docstring
+## `_value_type_is_array` function docstring
 
 Get a boolean value whether the specified value is Array type or not.<hr>
 
@@ -106,7 +106,7 @@ Get a boolean value whether the specified value is Array type or not.<hr>
 - `result`: bool
   - If the value type is Array, True will be returned.
 
-## _value_type_is_dict function docstring
+## `_value_type_is_dict` function docstring
 
 Get a boolean value whether the specified value is Dictionary type or not.<hr>
 
@@ -122,7 +122,7 @@ Get a boolean value whether the specified value is Dictionary type or not.<hr>
 - `result`: bool
   - If the value type is Dictionary, True will be returned.
 
-## assert_arrays_equal function docstring
+## `assert_arrays_equal` function docstring
 
 JavaScript assertion interface for Array values equal condition.<hr>
 
@@ -156,7 +156,7 @@ This interface is used instead of assert_equal for Array class comparison (JavaS
 
 - [assert_arrays_equal and assert_arrays_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_arrays_equal_and_arrays_not_equal.html)
 
-## assert_arrays_not_equal function docstring
+## `assert_arrays_not_equal` function docstring
 
 JavaScript assertion interface for Array values not equal condition.<hr>
 
@@ -190,7 +190,7 @@ This interface is used instead of assert_not_equal for Array class comparison (J
 
 - [assert_arrays_equal and assert_arrays_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_arrays_equal_and_arrays_not_equal.html)
 
-## assert_defined function docstring
+## `assert_defined` function docstring
 
 JavaScript assertion interface for defined (not undefined) value condition.<hr>
 
@@ -217,7 +217,7 @@ JavaScript assertion interface for defined (not undefined) value condition.<hr>
 
 - [assert_defined and assert_undefined interfaces document](https://simon-ritchie.github.io/apysc/assert_defined_and_undefined.html)
 
-## assert_dicts_equal function docstring
+## `assert_dicts_equal` function docstring
 
 JavaScript assertion interface for Dictionary values equal condition.<hr>
 
@@ -251,7 +251,7 @@ This interface is used instead of assert_equal for Dictionary class comparison (
 
 - [assert_dicts_equal and assert_dicts_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_dicts_equal_and_dicts_not_equal.html)
 
-## assert_dicts_not_equal function docstring
+## `assert_dicts_not_equal` function docstring
 
 JavaScript assertion interface for Dictionary values not equal condition.<hr>
 
@@ -285,7 +285,7 @@ This interface is used instead of assert_not_equal for Dictionary class comparis
 
 - [assert_dicts_equal and assert_dicts_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_dicts_equal_and_dicts_not_equal.html)
 
-## assert_equal function docstring
+## `assert_equal` function docstring
 
 JavaScript assertion interface for equal condition.<hr>
 
@@ -319,7 +319,7 @@ JavaScript assertion interface for equal condition.<hr>
 
 - [assert_equal and assert_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_equal_and_not_equal.html)
 
-## assert_false function docstring
+## `assert_false` function docstring
 
 JavaScript assertion interface for false condition.<hr>
 
@@ -349,7 +349,7 @@ JavaScript assertion interface for false condition.<hr>
 
 - [assert_true and assert_false interfaces document](https://simon-ritchie.github.io/apysc/assert_true_and_false.html)
 
-## assert_not_equal function docstring
+## `assert_not_equal` function docstring
 
 JavaScript assertion interface for not equal condition.<hr>
 
@@ -383,7 +383,7 @@ JavaScript assertion interface for not equal condition.<hr>
 
 - [assert_equal and assert_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_equal_and_not_equal.html)
 
-## assert_true function docstring
+## `assert_true` function docstring
 
 JavaScript assertion interface for true condition.<hr>
 
@@ -413,7 +413,7 @@ JavaScript assertion interface for true condition.<hr>
 
 - [assert_true and assert_false interfaces document](https://simon-ritchie.github.io/apysc/assert_true_and_false.html)
 
-## assert_undefined function docstring
+## `assert_undefined` function docstring
 
 JavaScript assertion interface for undefined value condition.<hr>
 

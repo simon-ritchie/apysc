@@ -1,1 +1,1 @@
-# apysc._animation.__init__ docstrings
+# `apysc._animation.__init__` docstrings

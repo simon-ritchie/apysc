@@ -1,10 +1,10 @@
-# apysc._display.flip_interface_helper docstrings
+# `apysc._display.flip_interface_helper` docstrings
 
 ## Module summary
 
 The helper module for the flip interfaces.
 
-## make_flip_update_expression function docstring
+## `make_flip_update_expression` function docstring
 
 Make a flipping value updating expression.<hr>
 
@@ -26,6 +26,6 @@ Make a flipping value updating expression.<hr>
 - `expression`: str
   - Made expression string.
 
-## Axis class docstring
+## `Axis` class docstring
 
 An enumeration.

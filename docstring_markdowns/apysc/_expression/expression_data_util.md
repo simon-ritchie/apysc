@@ -1,10 +1,10 @@
-# apysc._expression.expression_data_util docstrings
+# `apysc._expression.expression_data_util` docstrings
 
 ## Module summary
 
 The implementation of manipulating HTL and js expression files. Mainly following interfaces are defined: <br>・empty_expression : Empty the current js expression data. <br>・append_js_expression : Append js expression. <br>・get_current_expression : Get current expression string. <br>・get_current_event_handler_scope_expression : Get a current event handler scope's expression string. <br>・exec_query : Execute a SQLite sql query.
 
-## _check_connection function docstring
+## `_check_connection` function docstring
 
 The decorator function to check a SQLite connection when a specified function calling, and if failed, create a new connection and recall a function.<hr>
 
@@ -20,7 +20,7 @@ The decorator function to check a SQLite connection when a specified function ca
 - `new_func`: Callable
   - Decorated function.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -38,7 +38,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -56,7 +56,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -74,7 +74,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -92,7 +92,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -110,7 +110,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -128,7 +128,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -146,7 +146,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -164,7 +164,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -182,7 +182,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -200,7 +200,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -218,7 +218,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -236,7 +236,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -254,7 +254,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -272,7 +272,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## _get_current_expression function docstring
+## `_get_current_expression` function docstring
 
 Get a current expression string from a specified table.<hr>
 
@@ -288,7 +288,7 @@ Get a current expression string from a specified table.<hr>
 - `current_expression`: str
   - Current expression string.
 
-## _get_expression_table_name function docstring
+## `_get_expression_table_name` function docstring
 
 Get a expression table name. This value will be switched whether current scope is event handler's one or not.<hr>
 
@@ -297,7 +297,7 @@ Get a expression table name. This value will be switched whether current scope i
 - `table_name`: str
   - Target expression table name.
 
-## _make_create_table_query function docstring
+## `_make_create_table_query` function docstring
 
 Make a create table sql query.<hr>
 
@@ -315,7 +315,7 @@ Make a create table sql query.<hr>
 - `query`: str
   - A create table sql query.
 
-## new_func function docstring
+## `new_func` function docstring
 
 Function for the decoration.<hr>
 
@@ -333,7 +333,7 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
-## _validate_limit_clause function docstring
+## `_validate_limit_clause` function docstring
 
 Validate whether a LIMIT clause is used in a UPDATE or DELETE sql.<hr>
 
@@ -348,7 +348,7 @@ Validate whether a LIMIT clause is used in a UPDATE or DELETE sql.<hr>
 
 - _LimitClauseCantUseError: If the LIMIT clause used in a DELETE or UPDATE sql.
 
-## append_js_expression function docstring
+## `append_js_expression` function docstring
 
 Append js expression.<hr>
 
@@ -372,11 +372,11 @@ Append js expression.<hr>
 
 - [append_js_expression interface document](https://simon-ritchie.github.io/apysc/append_js_expression.html)
 
-## empty_expression function docstring
+## `empty_expression` function docstring
 
 Empty the current js expression data.
 
-## exec_query function docstring
+## `exec_query` function docstring
 
 Execute a SQLite sql query.<hr>
 
@@ -393,7 +393,7 @@ Execute a SQLite sql query.<hr>
 
 - _LimitClauseCantUseError: If the LIMIT clause used in a DELETE or UPDATE sql.
 
-## get_current_event_handler_scope_expression function docstring
+## `get_current_event_handler_scope_expression` function docstring
 
 Get a current event handler scope's expression string.<hr>
 
@@ -408,7 +408,7 @@ Get a current event handler scope's expression string.<hr>
 
 If it is necessary to get normal scope's expression, then use get_current_expression function instead.
 
-## get_current_expression function docstring
+## `get_current_expression` function docstring
 
 Get a current expression's string.<hr>
 
@@ -423,7 +423,7 @@ Get a current expression's string.<hr>
 
 If it is necessary to get event handler scope's expression, then use get_current_event_handler_scope_expression function instead.
 
-## initialize_sqlite_tables_if_not_initialized function docstring
+## `initialize_sqlite_tables_if_not_initialized` function docstring
 
 Initialize the sqlite tables if they have not been initialized yet.<hr>
 
@@ -432,6 +432,6 @@ Initialize the sqlite tables if they have not been initialized yet.<hr>
 - `initialized`: bool
   - If initialized, returns True.
 
-## TableName class docstring
+## `TableName` class docstring
 
 An enumeration.

@@ -1,10 +1,10 @@
-# apysc._validation.string_validation docstrings
+# `apysc._validation.string_validation` docstrings
 
 ## Module summary
 
 String's validation implementations.
 
-## validate_not_empty_string function docstring
+## `validate_not_empty_string` function docstring
 
 Validate specified string is not empty.<hr>
 
@@ -19,7 +19,7 @@ Validate specified string is not empty.<hr>
 
 - ValueError: <br> ・If empty string ('' or "") is specified. <br> ・If specified value is not str type.
 
-## validate_string_type function docstring
+## `validate_string_type` function docstring
 
 Validate specified string's type is str.<hr>
 

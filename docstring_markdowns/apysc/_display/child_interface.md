@@ -1,10 +1,10 @@
-# apysc._display.child_interface docstrings
+# `apysc._display.child_interface` docstrings
 
 ## Module summary
 
 Class implementation for child related interface.
 
-## append_expression_of_add_child function docstring
+## `append_expression_of_add_child` function docstring
 
 Append expression of add_child (add).<hr>
 
@@ -13,7 +13,7 @@ Append expression of add_child (add).<hr>
 - `child`: DisplayObject
   - Child object to add.
 
-## append_expression_of_remove_child function docstring
+## `append_expression_of_remove_child` function docstring
 
 Append expression of remove_child (removeElement).<hr>
 
@@ -22,7 +22,7 @@ Append expression of remove_child (removeElement).<hr>
 - `child`: DisplayObject
   - Child object to remove.
 
-### _append_contains_expression method docstring
+### `_append_contains_expression` method docstring
 
 Append contains method expression.<hr>
 
@@ -33,7 +33,7 @@ Append contains method expression.<hr>
 - `child`: DisplayObject
   - Child instance to check.
 
-### _append_get_child_at_expression method docstring
+### `_append_get_child_at_expression` method docstring
 
 Append get_child_at method expression.<hr>
 
@@ -44,7 +44,7 @@ Append get_child_at method expression.<hr>
 - `index`: int or Int
   - Child's index (start from 0).
 
-### _append_num_children_expression method docstring
+### `_append_num_children_expression` method docstring
 
 Append num_children method expression.<hr>
 
@@ -53,11 +53,11 @@ Append num_children method expression.<hr>
 - `num_children`: Int
   - Current children number.
 
-### _initialize_children_if_not_initialized method docstring
+### `_initialize_children_if_not_initialized` method docstring
 
 Initialize _children attribute if it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapshot.<hr>
 
@@ -66,7 +66,7 @@ Make values' snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 
@@ -75,7 +75,7 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### add_child method docstring
+### `add_child` method docstring
 
 Add display object child to this instance.<hr>
 
@@ -105,7 +105,7 @@ Add display object child to this instance.<hr>
 
 - [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html)
 
-### contains method docstring
+### `contains` method docstring
 
 Get a boolean whether this instance contains a specified child.<hr>
 
@@ -146,7 +146,7 @@ Boolean(False)
 
 - [contains interface document](https://simon-ritchie.github.io/apysc/contains.html)
 
-### get_child_at method docstring
+### `get_child_at` method docstring
 
 Get child at a specified index.<hr>
 
@@ -187,7 +187,7 @@ True
 
 - [get_child_at interface document](https://simon-ritchie.github.io/apysc/get_child_at.html)
 
-### remove_child method docstring
+### `remove_child` method docstring
 
 Remove display object child from this instance.<hr>
 

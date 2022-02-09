@@ -1,10 +1,10 @@
-# apysc._expression.js_functions docstrings
+# `apysc._expression.js_functions` docstrings
 
 ## Module summary
 
 Definition of js function expressions (e.g., common helper function).
 
-## get_js_functions function docstring
+## `get_js_functions` function docstring
 
 Get js function expressions that defined in this module.<hr>
 

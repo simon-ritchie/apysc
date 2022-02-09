@@ -1,10 +1,10 @@
-# apysc._animation.animation_fill_alpha_interface docstrings
+# `apysc._animation.animation_fill_alpha_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_fill_alpha interface.
 
-## AnimationFillAlpha class docstring
+## `AnimationFillAlpha` class docstring
 
 The animation class for a fill alpha (opacity).<hr>
 
@@ -36,7 +36,7 @@ The animation class for a fill alpha (opacity).<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_fill_alpha method docstring
+### `animation_fill_alpha` method docstring
 
 Set the fill alpha (opacity) animation setting.<hr>
 

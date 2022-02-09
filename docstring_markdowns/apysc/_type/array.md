@@ -1,10 +1,10 @@
-# apysc._type.array docstrings
+# `apysc._type.array` docstrings
 
 ## Module summary
 
 Class implementation for array.
 
-## Array class docstring
+## `Array` class docstring
 
 Array class for the apysc library.<hr>
 
@@ -48,7 +48,7 @@ Array([1, 2, 3, 4, 5, 6])
 - [Array document](https://simon-ritchie.github.io/apysc/array.html)
 - [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/array_comparison.html)
 
-### __bool__ method docstring
+### `__bool__` method docstring
 
 Get a boolean value whether this array is empty or not.<hr>
 
@@ -57,7 +57,7 @@ Get a boolean value whether this array is empty or not.<hr>
 - `result`: bool
   - If this array is empty, True will be returned.
 
-### __delitem__ method docstring
+### `__delitem__` method docstring
 
 Delete specified index value from this array.<hr>
 
@@ -72,7 +72,7 @@ Delete specified index value from this array.<hr>
 
 - ValueError: If specified index type is not int and Int.
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 Equal comparison method.<hr>
 
@@ -88,7 +88,7 @@ Equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result.
 
-### __getitem__ method docstring
+### `__getitem__` method docstring
 
 Get a specified index single value.<hr>
 
@@ -110,7 +110,7 @@ Get a specified index single value.<hr>
 
 - ValueError: If specified index type is not int and Int.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Array class for the apysc library.<hr>
 
@@ -151,11 +151,11 @@ Array([0, 1, 2])
 - [Array document](https://simon-ritchie.github.io/apysc/array.html)
 - [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/array_comparison.html)
 
-### __len__ method docstring
+### `__len__` method docstring
 
 This method is disabled and can't use from Array instance.
 
-### __ne__ method docstring
+### `__ne__` method docstring
 
 Not equal comparison method.<hr>
 
@@ -171,7 +171,7 @@ Not equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result.
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a representation string of this instance.<hr>
 
@@ -180,7 +180,7 @@ Get a representation string of this instance.<hr>
 - `repr_str`: str
   - Representation string of this instance.
 
-### __setitem__ method docstring
+### `__setitem__` method docstring
 
 Set value to a specified index.<hr>
 
@@ -197,7 +197,7 @@ Set value to a specified index.<hr>
 
 - ValueError: If specified index type is not int and Int.
 
-### __str__ method docstring
+### `__str__` method docstring
 
 String conversion method.<hr>
 
@@ -206,7 +206,7 @@ String conversion method.<hr>
 - `string`: str
   - Converted value string.
 
-### _append_concat_expression method docstring
+### `_append_concat_expression` method docstring
 
 Append concat method expression.<hr>
 
@@ -217,11 +217,11 @@ Append concat method expression.<hr>
 - `other_arr`: list or tuple or Array
   - Other array-like value to concatenate.
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append constructor expression.
 
-### _append_eq_expression method docstring
+### `_append_eq_expression` method docstring
 
 Append an __eq__ expression.<hr>
 
@@ -232,7 +232,7 @@ Append an __eq__ expression.<hr>
 - `other`: Array
   - Array other value to compare.
 
-### _append_extend_expression method docstring
+### `_append_extend_expression` method docstring
 
 Append extend method expression.<hr>
 
@@ -241,7 +241,7 @@ Append extend method expression.<hr>
 - `other_arr`: list or tuple or Array
   - Other array-like value to concatenate.
 
-### _append_getitem_expression method docstring
+### `_append_getitem_expression` method docstring
 
 Append __getitem__ expression.<hr>
 
@@ -252,7 +252,7 @@ Append __getitem__ expression.<hr>
 - `value`: *
   - Specified index's value.
 
-### _append_index_of_expression method docstring
+### `_append_index_of_expression` method docstring
 
 Append index_of method expression.<hr>
 
@@ -263,7 +263,7 @@ Append index_of method expression.<hr>
 - `value`: *
   - Any value to search.
 
-### _append_insert_expression method docstring
+### `_append_insert_expression` method docstring
 
 Append insert method expression.<hr>
 
@@ -274,7 +274,7 @@ Append insert method expression.<hr>
 - `value`: *
   - Any value to append.
 
-### _append_join_expression method docstring
+### `_append_join_expression` method docstring
 
 Append join method expression.<hr>
 
@@ -285,7 +285,7 @@ Append join method expression.<hr>
 - `sep`: String or str
   - Separator string.
 
-### _append_length_expression method docstring
+### `_append_length_expression` method docstring
 
 Append length method expression.<hr>
 
@@ -294,7 +294,7 @@ Append length method expression.<hr>
 - `length`: Int
   - Created length Int variable.
 
-### _append_ne_expression method docstring
+### `_append_ne_expression` method docstring
 
 Append a __ne__ expression.<hr>
 
@@ -305,7 +305,7 @@ Append a __ne__ expression.<hr>
 - `other`: Array
   - Array other value to compare.
 
-### _append_pop_expression method docstring
+### `_append_pop_expression` method docstring
 
 Append pop method expression.<hr>
 
@@ -314,7 +314,7 @@ Append pop method expression.<hr>
 - `value`: *
   - Removed value.
 
-### _append_push_and_append_expression method docstring
+### `_append_push_and_append_expression` method docstring
 
 Append push and append method expression.<hr>
 
@@ -323,7 +323,7 @@ Append push and append method expression.<hr>
 - `value`: *
   - Any value to append.
 
-### _append_remove_at_expression method docstring
+### `_append_remove_at_expression` method docstring
 
 Append remove_at method expression.<hr>
 
@@ -332,7 +332,7 @@ Append remove_at method expression.<hr>
 - `index`: Int or int
   - Index to remove value.
 
-### _append_remove_expression method docstring
+### `_append_remove_expression` method docstring
 
 Append remove method expression.<hr>
 
@@ -341,11 +341,11 @@ Append remove method expression.<hr>
 - `value`: Any
   - Value to remove.
 
-### _append_reverse_expression method docstring
+### `_append_reverse_expression` method docstring
 
 Append reverse method expression.
 
-### _append_setitem_expression method docstring
+### `_append_setitem_expression` method docstring
 
 Append __setitem__ method expression.<hr>
 
@@ -356,7 +356,7 @@ Append __setitem__ method expression.<hr>
 - `value`: *
   - Any value to set.
 
-### _append_slice_expression method docstring
+### `_append_slice_expression` method docstring
 
 Append slice method expression.<hr>
 
@@ -369,11 +369,11 @@ Append slice method expression.<hr>
 - `end`: Int or int or None
   - Slicing end index.
 
-### _append_sort_expression method docstring
+### `_append_sort_expression` method docstring
 
 Append sort method expression.
 
-### _append_value_setter_expression method docstring
+### `_append_value_setter_expression` method docstring
 
 Append value's setter expression.<hr>
 
@@ -382,7 +382,7 @@ Append value's setter expression.<hr>
 - `value`: list or tuple or Array
   - Iterable value (list, tuple, or Array) to set.
 
-### _convert_other_val_to_array method docstring
+### `_convert_other_val_to_array` method docstring
 
 If comparison's other value is list value, then convert it to Array instance.<hr>
 
@@ -398,7 +398,7 @@ If comparison's other value is list value, then convert it to Array instance.<hr
 - `converted_val`: *
   - Converted value. If other value is list, then this will be Array type. Otherwise this will be returned directly (not to be converted).
 
-### _convert_range_to_list method docstring
+### `_convert_range_to_list` method docstring
 
 Convert argument value to list that if specified value is range type.<hr>
 
@@ -414,7 +414,7 @@ Convert argument value to list that if specified value is range type.<hr>
 - `value`: list or tuple or Array
   - Converted value.
 
-### _get_builtin_int_from_index method docstring
+### `_get_builtin_int_from_index` method docstring
 
 Get Python builtin integer from index value.<hr>
 
@@ -430,7 +430,7 @@ Get Python builtin integer from index value.<hr>
 - `builtin_int_index`: int
   - Python builtin integer index value.
 
-### _get_list_value method docstring
+### `_get_list_value` method docstring
 
 Get a list value from specified list, tuple, or Array value.<hr>
 
@@ -446,7 +446,7 @@ Get a list value from specified list, tuple, or Array value.<hr>
 - `list_val`: list
   - Converted list value.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapshot.<hr>
 
@@ -455,7 +455,7 @@ Make values' snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 
@@ -464,7 +464,7 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _validate_acceptable_value_type method docstring
+### `_validate_acceptable_value_type` method docstring
 
 Validate that specified value is acceptable type or not.<hr>
 
@@ -479,7 +479,7 @@ Validate that specified value is acceptable type or not.<hr>
 
 - ValueError: If specified value's type is not list, tuple, or Array.
 
-### _validate_index_type_is_int method docstring
+### `_validate_index_type_is_int` method docstring
 
 Validate whether index value type is int (or Int) or not.<hr>
 
@@ -494,7 +494,7 @@ Validate whether index value type is int (or Int) or not.<hr>
 
 - ValueError: If index type is not int or Int type.
 
-### append method docstring
+### `append` method docstring
 
 Add any value to the end of this array. This method behaves the same `push` method.<hr>
 
@@ -521,7 +521,7 @@ Array([1, 2, 3, 4])
 
 - [Array class append and push interfaces document](https://simon-ritchie.github.io/apysc/array_append_and_push.html)
 
-### concat method docstring
+### `concat` method docstring
 
 Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr>
 
@@ -555,7 +555,7 @@ Array([1, 2, 3, 4, 5, 6])
 
 - [Array class extend and concat interfaces document](https://simon-ritchie.github.io/apysc/array_extend_and_concat.html)
 
-### extend method docstring
+### `extend` method docstring
 
 Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr>
 
@@ -582,7 +582,7 @@ Array([1, 2, 3, 4, 5, 6])
 
 - [Array class extend and concat interfaces document](https://simon-ritchie.github.io/apysc/array_extend_and_concat.html)
 
-### index_of method docstring
+### `index_of` method docstring
 
 Search specified value's index and return it.<hr>
 
@@ -615,7 +615,7 @@ Int(1)
 
 - [Array class index_of interface document](https://simon-ritchie.github.io/apysc/array_index_of.html)
 
-### insert method docstring
+### `insert` method docstring
 
 Insert value to this array at a specified index. This interface behaves the same `insert_at` method.<hr>
 
@@ -644,7 +644,7 @@ Array([1, 2, 3])
 
 - [Array class insert and insert_at interfaces document](https://simon-ritchie.github.io/apysc/array_insert_and_insert_at.html)
 
-### insert_at method docstring
+### `insert_at` method docstring
 
 Insert value to this array at a specified index. This interface behaves the same `insert` method.<hr>
 
@@ -673,7 +673,7 @@ Array([1, 2, 3])
 
 - [Array class insert and insert_at interfaces document](https://simon-ritchie.github.io/apysc/array_insert_and_insert_at.html)
 
-### join method docstring
+### `join` method docstring
 
 Join this array value with a specified separator string.<hr>
 
@@ -706,7 +706,7 @@ String('1, 2, 3')
 
 - [Array class join interface document](https://simon-ritchie.github.io/apysc/array_join.html)
 
-### pop method docstring
+### `pop` method docstring
 
 Remove this array's last value and return it.<hr>
 
@@ -736,7 +736,7 @@ Array([1, 2])
 
 - [Array class pop interface document](https://simon-ritchie.github.io/apysc/array_pop.html)
 
-### push method docstring
+### `push` method docstring
 
 Add any value to the end of this array. This behaves same as append method.<hr>
 
@@ -763,7 +763,7 @@ Array([1, 2, 3, 4])
 
 - [Array class append and push interfaces document](https://simon-ritchie.github.io/apysc/array_append_and_push.html)
 
-### remove method docstring
+### `remove` method docstring
 
 Remove specified value from this array.<hr>
 
@@ -790,7 +790,7 @@ Array([1, 5])
 
 - [Array class remove and remove_at interfaces document](https://simon-ritchie.github.io/apysc/array_remove_and_remove_at.html)
 
-### remove_at method docstring
+### `remove_at` method docstring
 
 Remove specified index value from this array.<hr>
 
@@ -817,7 +817,7 @@ Array([1, 3])
 
 - [Array class remove and remove_at interfaces document](https://simon-ritchie.github.io/apysc/array_remove_and_remove_at.html)
 
-### reverse method docstring
+### `reverse` method docstring
 
 Reverse this array in place.<hr>
 
@@ -837,7 +837,7 @@ Array([3, 2, 1])
 
 - [Array class reverse interface document](https://simon-ritchie.github.io/apysc/array_reverse.html)
 
-### slice method docstring
+### `slice` method docstring
 
 Slice this array by specified start and end indexes.<hr>
 
@@ -878,7 +878,7 @@ Array([1, 2])
 
 - [Array class slice interface document](https://simon-ritchie.github.io/apysc/array_slice.html)
 
-### sort method docstring
+### `sort` method docstring
 
 Sort this array in place.<hr>
 

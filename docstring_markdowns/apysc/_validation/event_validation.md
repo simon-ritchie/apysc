@@ -1,10 +1,10 @@
-# apysc._validation.event_validation docstrings
+# `apysc._validation.event_validation` docstrings
 
 ## Module summary
 
 Event validation implementation. Mainly following interfaces are defined. <br>・validate_event Validate specified instance is Event.
 
-## validate_event function docstring
+## `validate_event` function docstring
 
 Validate whether specified instance is Event or not.<hr>
 
@@ -26,7 +26,7 @@ Validate whether specified instance is Event or not.<hr>
 
 - ValueError: If specified instance is not Event instance.
 
-## validate_event_type function docstring
+## `validate_event_type` function docstring
 
 Validate whether specified value is MouseEventType one or not.<hr>
 

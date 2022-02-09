@@ -1,10 +1,10 @@
-# apysc._event.stop_propagation_interface docstrings
+# `apysc._event.stop_propagation_interface` docstrings
 
 ## Module summary
 
 Class implementation for the stop_propagation interface.
 
-### stop_propagation method docstring
+### `stop_propagation` method docstring
 
 Stop event propagation. Refenreces ---------- <br> ・Event class prevent_default and stop_propagation interfaces document <br> ・https://simon-ritchie.github.io/apysc/event_prevent_default_and_stop_propagation.html # noqa<hr>
 

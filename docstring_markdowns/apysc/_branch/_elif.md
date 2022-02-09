@@ -1,10 +1,10 @@
-# apysc._branch._elif docstrings
+# `apysc._branch._elif` docstrings
 
 ## Module summary
 
 Elif (else if) branch instruction implementations.
 
-## Elif class docstring
+## `Elif` class docstring
 
 A class to append elif branch instruction expression.<hr>
 
@@ -34,7 +34,7 @@ A class to append elif branch instruction expression.<hr>
 - [Elif document](https://simon-ritchie.github.io/apysc/elif.html)
 - [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 A class to append elif branch instruction expression.<hr>
 
@@ -58,7 +58,7 @@ A class to append elif branch instruction expression.<hr>
 - [Elif document](https://simon-ritchie.github.io/apysc/elif.html)
 - [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html)
 
-### _append_enter_expression method docstring
+### `_append_enter_expression` method docstring
 
 Append else if branch instruction start expression.<hr>
 
@@ -66,6 +66,6 @@ Append else if branch instruction start expression.<hr>
 
 - ValueError: If the last scope is not If or Elif.
 
-### _set_last_scope method docstring
+### `_set_last_scope` method docstring
 
 Set expression last scope value.

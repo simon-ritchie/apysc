@@ -1,10 +1,10 @@
-# apysc._type._return docstrings
+# `apysc._type._return` docstrings
 
 ## Module summary
 
 The class implementation for the return expression.
 
-## Return class docstring
+## `Return` class docstring
 
 Class for the return expression.<hr>
 
@@ -12,7 +12,7 @@ Class for the return expression.<hr>
 
 - [Return document](https://simon-ritchie.github.io/apysc/return.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Class for the return expression.<hr>
 
@@ -36,6 +36,6 @@ This class can be instantiated only in an event handler scope.<hr>
 
 - [Return document](https://simon-ritchie.github.io/apysc/return.html)
 
-### _validate_current_scope_is_event_handler method docstring
+### `_validate_current_scope_is_event_handler` method docstring
 
 Validate whether the current scope is an event handler scope or not.

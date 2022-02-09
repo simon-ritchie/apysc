@@ -1,10 +1,10 @@
-# apysc._animation.animation_play_interface docstrings
+# `apysc._animation.animation_play_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_play interface.
 
-### animation_play method docstring
+### `animation_play` method docstring
 
 Restart the all paused animations.<hr>
 

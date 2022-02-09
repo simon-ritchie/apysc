@@ -1,10 +1,10 @@
-# apysc._type.variable_name_interface docstrings
+# `apysc._type.variable_name_interface` docstrings
 
 ## Module summary
 
 Implementation of VariableNameInterface class.
 
-### _get_previous_variable_name method docstring
+### `_get_previous_variable_name` method docstring
 
 Get a previous variable name.<hr>
 

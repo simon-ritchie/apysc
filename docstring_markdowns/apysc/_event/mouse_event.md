@@ -1,10 +1,10 @@
-# apysc._event.mouse_event docstrings
+# `apysc._event.mouse_event` docstrings
 
 ## Module summary
 
 Class implementation for the mouse event.
 
-## MouseEvent class docstring
+## `MouseEvent` class docstring
 
 Mouse event class.<hr>
 
@@ -31,7 +31,7 @@ Mouse event class.<hr>
 
 - [Basic mouse event interfaces](https://simon-ritchie.github.io/apysc/mouse_event_basic.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Mouse event class.<hr>
 
@@ -60,7 +60,7 @@ Mouse event class.<hr>
 
 - [Basic mouse event interfaces](https://simon-ritchie.github.io/apysc/mouse_event_basic.html)
 
-### _append_local_x_getter_expression method docstring
+### `_append_local_x_getter_expression` method docstring
 
 Append local_x getter property expression.<hr>
 
@@ -69,7 +69,7 @@ Append local_x getter property expression.<hr>
 - `x`: Int
   - Target x-coordinate value.
 
-### _append_local_y_getter_expression method docstring
+### `_append_local_y_getter_expression` method docstring
 
 Append local_y getter property expression.<hr>
 
@@ -78,7 +78,7 @@ Append local_y getter property expression.<hr>
 - `y`: Int
   - Target y-coordinate value.
 
-### _append_stage_x_getter_expression method docstring
+### `_append_stage_x_getter_expression` method docstring
 
 Append stage_x getter property expression.<hr>
 
@@ -87,7 +87,7 @@ Append stage_x getter property expression.<hr>
 - `x`: Int
   - Target x-coordinate value.
 
-### _append_stage_y_getter_expression method docstring
+### `_append_stage_y_getter_expression` method docstring
 
 Append stage_y getter property expression.<hr>
 

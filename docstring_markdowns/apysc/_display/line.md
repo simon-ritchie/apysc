@@ -1,10 +1,10 @@
-# apysc._display.line docstrings
+# `apysc._display.line` docstrings
 
 ## Module summary
 
 Implementations of the Line class.
 
-## Line class docstring
+## `Line` class docstring
 
 The line vector graphics class.<hr>
 
@@ -34,7 +34,7 @@ Int(5)
 - [Graphics draw_round_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html)
 - [Graphics draw_dash_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Create a line vector graphics.<hr>
 
@@ -75,7 +75,7 @@ Int(5)
 - [Graphics draw_round_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html)
 - [Graphics draw_dash_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -84,11 +84,11 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Line('<variable_name>')`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append a constructor expression.
 
-### _make_points_expression method docstring
+### `_make_points_expression` method docstring
 
 Make line start and end expression str.<hr>
 

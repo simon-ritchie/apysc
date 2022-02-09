@@ -1,1 +1,1 @@
-# apysc._geom.__init__ docstrings
+# `apysc._geom.__init__` docstrings

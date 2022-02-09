@@ -1,10 +1,10 @@
-# apysc._display.graphics_clear_interface docstrings
+# `apysc._display.graphics_clear_interface` docstrings
 
 ## Module summary
 
 Class implementation for graphics clear method related interface.
 
-### clear method docstring
+### `clear` method docstring
 
 Clear all graphics and reset fill and line settings.<hr>
 

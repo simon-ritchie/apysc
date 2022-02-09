@@ -1,10 +1,10 @@
-# apysc._event.handler docstrings
+# `apysc._event.handler` docstrings
 
 ## Module summary
 
 Class implementation for handler.
 
-## _append_in_handler_head_expression function docstring
+## `_append_in_handler_head_expression` function docstring
 
 Append an in-handler head expression if it is not blank.<hr>
 
@@ -13,7 +13,7 @@ Append an in-handler head expression if it is not blank.<hr>
 - `in_handler_head_expression`: str
   - Optional expression to be added at the handler function's head position if it is not blank.
 
-## append_handler_expression function docstring
+## `append_handler_expression` function docstring
 
 Append a handler's expression.<hr>
 
@@ -28,7 +28,7 @@ Append a handler's expression.<hr>
 - `in_handler_head_expression`: str, default ''
   - Optional expression to be added at the handler function's head position.
 
-## append_unbinding_all_expression function docstring
+## `append_unbinding_all_expression` function docstring
 
 Append all events unbinding expression.<hr>
 
@@ -39,7 +39,7 @@ Append all events unbinding expression.<hr>
 - `mouse_event_type`: MouseEventType
   - Event type to unbind.
 
-## append_unbinding_expression function docstring
+## `append_unbinding_expression` function docstring
 
 Append event unbinding expression.<hr>
 
@@ -52,7 +52,7 @@ Append event unbinding expression.<hr>
 - `mouse_event_type`: MouseEventType
   - Event type to unbind.
 
-## get_handler_name function docstring
+## `get_handler_name` function docstring
 
 Get a handler name.<hr>
 

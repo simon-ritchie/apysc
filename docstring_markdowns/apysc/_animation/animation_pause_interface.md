@@ -1,10 +1,10 @@
-# apysc._animation.animation_pause_interface docstrings
+# `apysc._animation.animation_pause_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_pause interface.
 
-### animation_pause method docstring
+### `animation_pause` method docstring
 
 Stop the all animations.<hr>
 

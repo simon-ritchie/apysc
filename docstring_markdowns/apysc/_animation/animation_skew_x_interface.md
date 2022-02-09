@@ -1,10 +1,10 @@
-# apysc._animation.animation_skew_x_interface docstrings
+# `apysc._animation.animation_skew_x_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_skew_x interface.
 
-## AnimationSkewX class docstring
+## `AnimationSkewX` class docstring
 
 The animation class for a skew-x.<hr>
 
@@ -37,7 +37,7 @@ The animation class for a skew-x.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_skew_x method docstring
+### `animation_skew_x` method docstring
 
 Set the skew-x animation setting.<hr>
 

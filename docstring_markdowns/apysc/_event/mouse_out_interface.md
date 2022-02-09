@@ -1,14 +1,14 @@
-# apysc._event.mouse_out_interface docstrings
+# `apysc._event.mouse_out_interface` docstrings
 
 ## Module summary
 
 Class implementation for mouse out interface.
 
-### _initialize_mouse_out_handlers_if_not_initialized method docstring
+### `_initialize_mouse_out_handlers_if_not_initialized` method docstring
 
 Initialize _mouse_out_handlers attribute if it is not initialized yet.
 
-### mouseout method docstring
+### `mouseout` method docstring
 
 Add mouse out event listener setting.<hr>
 
@@ -51,7 +51,7 @@ Add mouse out event listener setting.<hr>
 - [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html)
 - [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### unbind_mouseout method docstring
+### `unbind_mouseout` method docstring
 
 Unbind a specified handler's mouse out event.<hr>
 
@@ -85,7 +85,7 @@ Unbind a specified handler's mouse out event.<hr>
 
 - [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html)
 
-### unbind_mouseout_all method docstring
+### `unbind_mouseout_all` method docstring
 
 Unbind all mouse out events.<hr>
 

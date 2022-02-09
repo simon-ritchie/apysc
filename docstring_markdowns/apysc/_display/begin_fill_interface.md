@@ -1,18 +1,18 @@
-# apysc._display.begin_fill_interface docstrings
+# `apysc._display.begin_fill_interface` docstrings
 
 ## Module summary
 
 Class implementation for begin_fill method related interface.
 
-### _initialize_fill_alpha_if_not_initialized method docstring
+### `_initialize_fill_alpha_if_not_initialized` method docstring
 
 Initialize fill_alpha attribute if it hasn't been initialized yet.
 
-### _initialize_fill_color_if_not_initialized method docstring
+### `_initialize_fill_color_if_not_initialized` method docstring
 
 Initialize fill_color attribute if it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapshot.<hr>
 
@@ -21,7 +21,7 @@ Make values' snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 
@@ -30,7 +30,7 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### begin_fill method docstring
+### `begin_fill` method docstring
 
 Set single color value for fill.<hr>
 

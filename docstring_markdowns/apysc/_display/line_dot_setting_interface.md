@@ -1,10 +1,10 @@
-# apysc._display.line_dot_setting_interface docstrings
+# `apysc._display.line_dot_setting_interface` docstrings
 
 ## Module summary
 
 Class implementation for line dot setting interface.
 
-## LineDotSetting class docstring
+## `LineDotSetting` class docstring
 
 Dot setting class for a line.<hr>
 
@@ -28,7 +28,7 @@ Int(5)
 
 - [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/graphics_line_style.html)
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapthot.<hr>
 
@@ -37,7 +37,7 @@ Make values' snapthot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshot exists.<hr>
 
@@ -46,15 +46,15 @@ Revert values if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _append_line_dot_setting_update_expression method docstring
+### `_append_line_dot_setting_update_expression` method docstring
 
 Append line dot setting updating expression.
 
-### _initialize_line_dot_setting_if_not_initialized method docstring
+### `_initialize_line_dot_setting_if_not_initialized` method docstring
 
 Initialize _line_dot_setting attribute if it is not initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>
 
@@ -63,7 +63,7 @@ Make value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert value if snapshot exists.<hr>
 
@@ -72,7 +72,7 @@ Revert value if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _update_line_dot_setting_and_skip_appending_exp method docstring
+### `_update_line_dot_setting_and_skip_appending_exp` method docstring
 
 Update line dot setting and skip appending expression.<hr>
 

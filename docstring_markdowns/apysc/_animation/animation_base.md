@@ -1,10 +1,10 @@
-# apysc._animation.animation_base docstrings
+# `apysc._animation.animation_base` docstrings
 
 ## Module summary
 
 Base class implementation for the animation.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Base class for each animation setting.<hr>
 
@@ -13,7 +13,7 @@ Base class for each animation setting.<hr>
 - `variable_name`: str
   - Variable name.
 
-### _get_animation_basic_expression method docstring
+### `_get_animation_basic_expression` method docstring
 
 Get an animation basic expression string.<hr>
 
@@ -22,7 +22,7 @@ Get an animation basic expression string.<hr>
 - `expression`: str
   - An animation basic expression string.
 
-### _get_animation_complete_handler_expression method docstring
+### `_get_animation_complete_handler_expression` method docstring
 
 Get a expression of the animation complete handlers setting.<hr>
 
@@ -37,15 +37,15 @@ Get a expression of the animation complete handlers setting.<hr>
 
 If multiple handlers are registered, then multiple lines expression will be returned.
 
-### _get_animation_func_expression method docstring
+### `_get_animation_func_expression` method docstring
 
 Get a animation function expression.
 
-### _get_complete_event_in_handler_head_expression method docstring
+### `_get_complete_event_in_handler_head_expression` method docstring
 
 Get an expression to be inserted into the complete event handler's head.
 
-### _set_basic_animation_settings method docstring
+### `_set_basic_animation_settings` method docstring
 
 Set the basic animation settings.<hr>
 
@@ -60,7 +60,7 @@ Set the basic animation settings.<hr>
 - `easing`: Easing, default Easing.LINEAR
   - Easing setting. If None, Linear calculation is used.
 
-### _validate_animation_not_started method docstring
+### `_validate_animation_not_started` method docstring
 
 Validate whether an animation hasn't already been started.<hr>
 
@@ -68,7 +68,7 @@ Validate whether an animation hasn't already been started.<hr>
 
 - Exception: If an animation has already been started.
 
-### animation_complete method docstring
+### `animation_complete` method docstring
 
 Add a animation complete event listener setting.<hr>
 
@@ -123,7 +123,7 @@ This interface can only use before an animation starts<hr>
 - [AnimationBase class animation_complete interface document](https://simon-ritchie.github.io/apysc/animation_complete.html)
 - [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### start method docstring
+### `start` method docstring
 
 Start an animation with current settings.<hr>
 

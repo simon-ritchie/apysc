@@ -1,10 +1,10 @@
-# apysc._html.exporter docstrings
+# `apysc._html.exporter` docstrings
 
 ## Module summary
 
 Expression exporting interface implementation.
 
-## _append_common_js_functions function docstring
+## `_append_common_js_functions` function docstring
 
 Append common JavaScript functions (e.g., helper function) to a expression string.<hr>
 
@@ -20,7 +20,7 @@ Append common JavaScript functions (e.g., helper function) to a expression strin
 - `expression`: str
   - Expression string that common functions are appended.
 
-## _append_entry_point_function_call function docstring
+## `_append_entry_point_function_call` function docstring
 
 Append entry point function call script to html string.<hr>
 
@@ -36,7 +36,7 @@ Append entry point function call script to html string.<hr>
 - `html_str`: str
   - After appended html string.
 
-## _append_event_handler_expressions function docstring
+## `_append_event_handler_expressions` function docstring
 
 Append event handler's expressions to a specified string.<hr>
 
@@ -52,7 +52,7 @@ Append event handler's expressions to a specified string.<hr>
 - `expression`: str
   - Result expression string.
 
-## _append_expression_to_html_str function docstring
+## `_append_expression_to_html_str` function docstring
 
 Append expression strings to a specified HTML string.<hr>
 
@@ -70,7 +70,7 @@ Append expression strings to a specified HTML string.<hr>
 - `html_str`: str
   - HTML string after appended expressions.
 
-## _append_head_to_html_str function docstring
+## `_append_head_to_html_str` function docstring
 
 Append head tag section to specified html string.<hr>
 
@@ -90,7 +90,7 @@ Append head tag section to specified html string.<hr>
 - `html_str`: str
   - HTML string after appended.
 
-## _append_jslib_str_to_html function docstring
+## `_append_jslib_str_to_html` function docstring
 
 Append JavaScript libraries script string to HTML.<hr>
 
@@ -112,7 +112,7 @@ Append JavaScript libraries script string to HTML.<hr>
 - `html_str`: str
   - Result HTML string.
 
-## _append_stage_global_variable_to_html function docstring
+## `_append_stage_global_variable_to_html` function docstring
 
 Append stage's global variable to html string.<hr>
 
@@ -128,7 +128,7 @@ Append stage's global variable to html string.<hr>
 - `html_str`: str
   - After appended HTML string.
 
-## _display_debug_mode_ignoring_minify_setting_info function docstring
+## `_display_debug_mode_ignoring_minify_setting_info` function docstring
 
 Display an information of ignoring minify setting if the debug mode is enabled.<hr>
 
@@ -146,7 +146,7 @@ Display an information of ignoring minify setting if the debug mode is enabled.<
 - `msg`: str
   - Displayed message.
 
-## _display_info function docstring
+## `_display_info` function docstring
 
 Display an info log message.<hr>
 
@@ -164,7 +164,7 @@ Display an info log message.<hr>
 - `msg`: str
   - Displayed message.
 
-## _export_js_libs function docstring
+## `_export_js_libs` function docstring
 
 Export JavaScript libraries to a specified directory.<hr>
 
@@ -182,7 +182,7 @@ Export JavaScript libraries to a specified directory.<hr>
 - `saved_js_file_paths`: str
   - Saved JavaScript file paths.
 
-## _get_var_name_from_line function docstring
+## `_get_var_name_from_line` function docstring
 
 Get a js variable name from specified line string.<hr>
 
@@ -198,7 +198,7 @@ Get a js variable name from specified line string.<hr>
 - `var_name`: str
   - Result variable name. If line contains `var <any_name> = ...;` pattern, then `any_name` will be returned. Or if there is no var expression, blank string will be returned.
 
-## _minify_html function docstring
+## `_minify_html` function docstring
 
 Minify HTML and js string.<hr>
 
@@ -222,7 +222,7 @@ Minify HTML and js string.<hr>
 
 If the debug mode setting is enabled, minifying will be skipped.
 
-## _remove_blank_lines function docstring
+## `_remove_blank_lines` function docstring
 
 Remove blank (break or spaces only) lines from expression string.<hr>
 
@@ -238,7 +238,7 @@ Remove blank (break or spaces only) lines from expression string.<hr>
 - `expression`: str
   - Expression string that removed blank lines.
 
-## _remove_unused_js_vars function docstring
+## `_remove_unused_js_vars` function docstring
 
 Remove unused js variables from expression string.<hr>
 
@@ -254,7 +254,7 @@ Remove unused js variables from expression string.<hr>
 - `expression`: str
   - After removing expression string.
 
-## _save_html function docstring
+## `_save_html` function docstring
 
 Save HTML string to file.<hr>
 
@@ -267,7 +267,7 @@ Save HTML string to file.<hr>
 - `file_name`: str
   - HTML file name. e.g., 'index.html'
 
-## _target_js_variable_is_used function docstring
+## `_target_js_variable_is_used` function docstring
 
 Get a boolean value whether target variable is used in js expression or not.<hr>
 
@@ -285,7 +285,7 @@ Get a boolean value whether target variable is used in js expression or not.<hr>
 - `result`: bool
   - If target variable is used in js expression, True will be returned.
 
-## get_entry_point_func_name function docstring
+## `get_entry_point_func_name` function docstring
 
 Get an entry point function name.<hr>
 
@@ -294,7 +294,7 @@ Get an entry point function name.<hr>
 - `entry_point_func_name`: str
   - An entry point function name.
 
-## save_overall_html function docstring
+## `save_overall_html` function docstring
 
 Save the overall HTML and js files under the specified directory path.<hr>
 

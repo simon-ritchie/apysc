@@ -1,14 +1,14 @@
-# apysc._event.double_click_interface docstrings
+# `apysc._event.double_click_interface` docstrings
 
 ## Module summary
 
 Class implementation for double click interface.
 
-### _initialize_dblclick_handlers_if_not_initialized method docstring
+### `_initialize_dblclick_handlers_if_not_initialized` method docstring
 
 Initialize _dblclick_handlers attribute if it is not initialized yet.
 
-### dblclick method docstring
+### `dblclick` method docstring
 
 Add double click event listener setting.<hr>
 
@@ -51,7 +51,7 @@ Add double click event listener setting.<hr>
 - [Double click interface document](https://simon-ritchie.github.io/apysc/dblclick.html)
 - [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
-### unbind_dblclick method docstring
+### `unbind_dblclick` method docstring
 
 Unbind a specified handler's double click event.<hr>
 
@@ -79,7 +79,7 @@ Unbind a specified handler's double click event.<hr>
 >>> _ = rectangle.dblclick(on_double_click)
 ```
 
-### unbind_dblclick_all method docstring
+### `unbind_dblclick_all` method docstring
 
 Unbind all double click events.<hr>
 

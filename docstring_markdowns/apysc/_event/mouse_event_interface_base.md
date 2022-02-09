@@ -1,10 +1,10 @@
-# apysc._event.mouse_event_interface_base docstrings
+# `apysc._event.mouse_event_interface_base` docstrings
 
 ## Module summary
 
 Class implementation for each mouse event interface's base class.
 
-## MouseEvent class docstring
+## `MouseEvent` class docstring
 
 Mouse event class.<hr>
 
@@ -31,7 +31,7 @@ Mouse event class.<hr>
 
 - [Basic mouse event interfaces](https://simon-ritchie.github.io/apysc/mouse_event_basic.html)
 
-### _append_mouse_event_binding_expression method docstring
+### `_append_mouse_event_binding_expression` method docstring
 
 Append a mouse event binding expression.<hr>
 
@@ -42,7 +42,7 @@ Append a mouse event binding expression.<hr>
 - `mouse_event_type`: MouseEventType
   - Event type to bind.
 
-### _set_mouse_event_handler_data method docstring
+### `_set_mouse_event_handler_data` method docstring
 
 Set a handler's data to the given dictionary.<hr>
 
@@ -55,7 +55,7 @@ Set a handler's data to the given dictionary.<hr>
 - `options`: dict or None
   - Optional arguments dictionary to be passed to handler.
 
-### _unbind_all_mouse_events method docstring
+### `_unbind_all_mouse_events` method docstring
 
 Unbind specified all mouse event type's event.<hr>
 
@@ -66,7 +66,7 @@ Unbind specified all mouse event type's event.<hr>
 - `handlers_dict`: dict
   - Dictionary that has handler's data.
 
-### _unbind_mouse_event method docstring
+### `_unbind_mouse_event` method docstring
 
 Unbind specified handler's mouse event.<hr>
 

@@ -1,10 +1,10 @@
-# apysc._event.event docstrings
+# `apysc._event.event` docstrings
 
 ## Module summary
 
 Class Implementation for basic event.
 
-## Event class docstring
+## `Event` class docstring
 
 Basic event class.<hr>
 
@@ -30,7 +30,7 @@ Basic event class.<hr>
 ...     custom_event_type='my_custom_event')
 ```
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Basic event class.<hr>
 
@@ -65,7 +65,7 @@ Basic event class.<hr>
 ...     custom_event_type='my_custom_event')
 ```
 
-### _validate_type_name_and_self_type method docstring
+### `_validate_type_name_and_self_type` method docstring
 
 Validate type_name argument is None when self instance is not Event subclass, and the opposite pattern is true as well.<hr>
 

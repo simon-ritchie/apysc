@@ -1,10 +1,10 @@
-# apysc._validation.color_validation docstrings
+# `apysc._validation.color_validation` docstrings
 
 ## Module summary
 
 Validations related to color.
 
-## validate_alpha_range function docstring
+## `validate_alpha_range` function docstring
 
 Validate specified alpha (opacity) value's range.<hr>
 
@@ -19,7 +19,7 @@ Validate specified alpha (opacity) value's range.<hr>
 
 - ValueError: If specified opacity is out of 0.0 to 1.0 range.
 
-## validate_hex_color_code_format function docstring
+## `validate_hex_color_code_format` function docstring
 
 Validate a specified hexadecimal color code's format.<hr>
 

@@ -1,10 +1,10 @@
-# apysc._geom.point2d docstrings
+# `apysc._geom.point2d` docstrings
 
 ## Module summary
 
 2-dimensional geometry point class implementation.
 
-## Point2D class docstring
+## `Point2D` class docstring
 
 2-dimensional geometry point class.<hr>
 
@@ -29,7 +29,7 @@ Int(0)
 Int(0)
 ```
 
-### __eq__ method docstring
+### `__eq__` method docstring
 
 Equal comparison method.<hr>
 
@@ -45,7 +45,7 @@ Equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result.
 
-### __init__ method docstring
+### `__init__` method docstring
 
 2-dimensional geometry point.<hr>
 
@@ -73,7 +73,7 @@ Equal comparison method.<hr>
 ...     ])
 ```
 
-### __ne__ method docstring
+### `__ne__` method docstring
 
 Not equal comparison method.<hr>
 
@@ -89,7 +89,7 @@ Not equal comparison method.<hr>
 - `result`: Boolean
   - Comparison result.
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>
 
@@ -98,11 +98,11 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and coordinates values are set (e.g., `Point2D(Int(50), Int(100))`).
 
-### _append_constructor_expression method docstring
+### `_append_constructor_expression` method docstring
 
 Append constructor expression.
 
-### _append_x_getter_expression method docstring
+### `_append_x_getter_expression` method docstring
 
 Append x property getter expression.<hr>
 
@@ -111,7 +111,7 @@ Append x property getter expression.<hr>
 - `x`: Int
   - Target x value.
 
-### _append_x_setter_expression method docstring
+### `_append_x_setter_expression` method docstring
 
 Append x property setter expression.<hr>
 
@@ -120,7 +120,7 @@ Append x property setter expression.<hr>
 - `value`: Int
   - X-coordinate to set.
 
-### _append_y_getter_expression method docstring
+### `_append_y_getter_expression` method docstring
 
 Append y property getter expression.<hr>
 
@@ -129,7 +129,7 @@ Append y property getter expression.<hr>
 - `y`: Int
   - Target y value.
 
-### _append_y_setter_expression method docstring
+### `_append_y_setter_expression` method docstring
 
 Append y property setter expression.<hr>
 
@@ -138,7 +138,7 @@ Append y property setter expression.<hr>
 - `value`: Int
   - Y-coordinate to set.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make values' snapshots.<hr>
 
@@ -147,7 +147,7 @@ Make values' snapshots.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert values if snapshots exist.<hr>
 

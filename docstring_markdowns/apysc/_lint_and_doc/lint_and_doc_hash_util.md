@@ -1,10 +1,10 @@
-# apysc._lint_and_doc.lint_and_doc_hash_util docstrings
+# `apysc._lint_and_doc.lint_and_doc_hash_util` docstrings
 
 ## Module summary
 
 The utilities module for each lint and doc's hash file (used to check whether the files are updated or not). Mainly following interfaces are defined: <br>・get_hash_dir_path <br> ・Get a specified type's hash directory path. <br>・get_target_module_hash_file_path <br> ・Get a specified module's hash file path. <br>・read_target_module_hash <br> ・Read a specified module's hashed string. <br>・read_saved_hash <br> ・Read an already-saved module's hashed string. <br>・save_target_module_hash <br> ・Save a target module's current hash. <br>・save_target_modules_hash <br> ・Save target modules' current hash. <br>・is_module_updated <br> ・Get a boolean value whether a specified module has been updated. <br>・remove_not_updated_module_paths <br> ・Remove not updated modules from specified module paths.
 
-## _create_args_list_for_multiprocessing function docstring
+## `_create_args_list_for_multiprocessing` function docstring
 
 Create an arguments list for the multiprocessing.<hr>
 
@@ -22,7 +22,7 @@ Create an arguments list for the multiprocessing.<hr>
 - `args_list`: list of _IsModuleUpdatedArgs
   - Created arguments list for the multiprocessing.
 
-## _is_module_updated_func_for_multiprocessing function docstring
+## `_is_module_updated_func_for_multiprocessing` function docstring
 
 Wrapper function of the `is_module_updated` function for the multiprocessing.<hr>
 
@@ -38,7 +38,7 @@ Wrapper function of the `is_module_updated` function for the multiprocessing.<hr
 - `result`: bool
   - If a specified module has been updated then True will be returned.
 
-## get_hash_dir_path function docstring
+## `get_hash_dir_path` function docstring
 
 Get a specified type's hash directory path.<hr>
 
@@ -60,7 +60,7 @@ Get a specified type's hash directory path.<hr>
 
 Returned directory path will create automatically if it does not exist.
 
-## get_target_module_hash_file_path function docstring
+## `get_target_module_hash_file_path` function docstring
 
 Get a specified module's hash file path.<hr>
 
@@ -84,7 +84,7 @@ Get a specified module's hash file path.<hr>
 
 Returned file's directory path will create automatically if it does not exist.
 
-## is_module_updated function docstring
+## `is_module_updated` function docstring
 
 Get a boolean value whether a specified module has been updated.<hr>
 
@@ -102,7 +102,7 @@ Get a boolean value whether a specified module has been updated.<hr>
 - `result`: bool
   - If a specified module has been updated then True will be returned.
 
-## read_saved_hash function docstring
+## `read_saved_hash` function docstring
 
 Read an already-saved module's hashed string.<hr>
 
@@ -120,7 +120,7 @@ Read an already-saved module's hashed string.<hr>
 - `saved_hash`: str
   - An already-saved module's hash string. If there is no saved hash file then a blank string will be returned.
 
-## read_target_module_hash function docstring
+## `read_target_module_hash` function docstring
 
 Read a specified module's hashed string.<hr>
 
@@ -136,7 +136,7 @@ Read a specified module's hashed string.<hr>
 - `hashed_string`: str
   - Hashed module string. If there is no module at the specified path, then a blank string will be returned.
 
-## remove_not_updated_module_paths function docstring
+## `remove_not_updated_module_paths` function docstring
 
 Remove not updated modules from specified module paths.<hr>
 
@@ -154,7 +154,7 @@ Remove not updated modules from specified module paths.<hr>
 - `sliced_module_paths`: list of str
   - After the slicing module paths.
 
-## save_target_module_hash function docstring
+## `save_target_module_hash` function docstring
 
 Save a target module's current hash.<hr>
 
@@ -165,7 +165,7 @@ Save a target module's current hash.<hr>
 - `hash_type`: HashType
   - Target hash type.
 
-## save_target_modules_hash function docstring
+## `save_target_modules_hash` function docstring
 
 Save target modules' current hash.<hr>
 
@@ -176,6 +176,6 @@ Save target modules' current hash.<hr>
 - `hash_type`: HashType
   - Target hash type.
 
-## HashType class docstring
+## `HashType` class docstring
 
 An enumeration.

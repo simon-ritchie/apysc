@@ -1,10 +1,10 @@
-# apysc._type.value_util docstrings
+# `apysc._type.value_util` docstrings
 
 ## Module summary
 
 Each types common value utilities. Mainly following interfaces are defined: <br>・get_value_str_for_expression Get a value string for expression. <br>・get_copy Get a copy of specified instance if it is instance of CopyInterface.
 
-## _get_value_str_from_dict function docstring
+## `_get_value_str_from_dict` function docstring
 
 Get a value string from dictionary object.<hr>
 
@@ -20,7 +20,7 @@ Get a value string from dictionary object.<hr>
 - `value_str`: str
   - Converted string, e.g., '{"any_key": 10, "other_key": any_variable}'
 
-## _get_value_str_from_iterable function docstring
+## `_get_value_str_from_iterable` function docstring
 
 Get a value string from iterable object.<hr>
 
@@ -36,7 +36,7 @@ Get a value string from iterable object.<hr>
 - `value_str`: str
   - Converted string, e.g., '[10, "Hello!", true, any_variable]'.
 
-## _validate_dict_key_type function docstring
+## `_validate_dict_key_type` function docstring
 
 Validate whether a dictionary key type is str or int.<hr>
 
@@ -51,7 +51,7 @@ Validate whether a dictionary key type is str or int.<hr>
 
 - TypeError: If key type isn't str or int.
 
-## get_copy function docstring
+## `get_copy` function docstring
 
 Get a copy of specified instance if it is instance of CopyInterface.<hr>
 
@@ -67,7 +67,7 @@ Get a copy of specified instance if it is instance of CopyInterface.<hr>
 - `copied`: *
   - Copied value. If value is not instance of CopyInterface, then argument value will be returned directly.
 
-## get_value_str_for_expression function docstring
+## `get_value_str_for_expression` function docstring
 
 Get a value string for expression.<hr>
 

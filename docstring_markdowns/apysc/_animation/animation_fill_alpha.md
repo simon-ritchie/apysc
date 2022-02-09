@@ -1,10 +1,10 @@
-# apysc._animation.animation_fill_alpha docstrings
+# `apysc._animation.animation_fill_alpha` docstrings
 
 ## Module summary
 
 Class implementation for the fill alpha animation value.
 
-## AnimationFillAlpha class docstring
+## `AnimationFillAlpha` class docstring
 
 The animation class for a fill alpha (opacity).<hr>
 
@@ -36,7 +36,7 @@ The animation class for a fill alpha (opacity).<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 The animation class for a fill alpha (opacity).<hr>
 
@@ -53,7 +53,7 @@ The animation class for a fill alpha (opacity).<hr>
 - `easing`: Easing, default Easing.LINEAR
   - Easing setting.
 
-### _get_animation_func_expression method docstring
+### `_get_animation_func_expression` method docstring
 
 Get a animation function expression.<hr>
 
@@ -62,7 +62,7 @@ Get a animation function expression.<hr>
 - `expression`: str
   - Animation function expression.
 
-### _get_complete_event_in_handler_head_expression method docstring
+### `_get_complete_event_in_handler_head_expression` method docstring
 
 Get an expression to be inserted into the complete event handler's head.<hr>
 

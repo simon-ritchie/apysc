@@ -1,10 +1,10 @@
-# apysc._loop._continue docstrings
+# `apysc._loop._continue` docstrings
 
 ## Module summary
 
 Class implementation for the continue.
 
-## Continue class docstring
+## `Continue` class docstring
 
 The loop continue expression class.<hr>
 
@@ -28,7 +28,7 @@ This class can be instantiated in the with loop statement, for example, after th
 
 - [Continue document](https://simon-ritchie.github.io/apysc/continue.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 The loop continue expression class.<hr>
 

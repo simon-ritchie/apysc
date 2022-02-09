@@ -1,10 +1,10 @@
-# apysc._display.scale_y_from_point_interface docstrings
+# `apysc._display.scale_y_from_point_interface` docstrings
 
 ## Module summary
 
 Class implementation for the scale_y_from_point interfaces.
 
-### _append_scale_y_from_point_update_expression method docstring
+### `_append_scale_y_from_point_update_expression` method docstring
 
 Append the scale-y from the specified y-coordinate updating expression.<hr>
 
@@ -13,11 +13,11 @@ Append the scale-y from the specified y-coordinate updating expression.<hr>
 - `y`: Int
   - Y-coordinate.
 
-### _initialize_scale_y_from_point_if_not_initialized method docstring
+### `_initialize_scale_y_from_point_if_not_initialized` method docstring
 
 Initialize the `_scale_y_from_point` attribute if it hasn't been initialized yet.
 
-### _make_snapshot method docstring
+### `_make_snapshot` method docstring
 
 Make a value's snapshot.<hr>
 
@@ -26,7 +26,7 @@ Make a value's snapshot.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### _revert method docstring
+### `_revert` method docstring
 
 Revert a value if snapshot exists.<hr>
 
@@ -35,7 +35,7 @@ Revert a value if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### get_scale_y_from_point method docstring
+### `get_scale_y_from_point` method docstring
 
 Get a scale-y value from the given y-coordinate.<hr>
 
@@ -74,7 +74,7 @@ Number(1.5)
 
 - [GraphicsBase scale_from_point interfaces document](https://simon-ritchie.github.io/apysc/graphics_base_scale_from_point.html)
 
-### set_scale_y_from_point method docstring
+### `set_scale_y_from_point` method docstring
 
 Update a scale-y value from the given y-coordinate.<hr>
 

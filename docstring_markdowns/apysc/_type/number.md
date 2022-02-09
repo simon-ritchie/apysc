@@ -1,10 +1,10 @@
-# apysc._type.number docstrings
+# `apysc._type.number` docstrings
 
 ## Module summary
 
 Class implementation of floating point number.
 
-## Number class docstring
+## `Number` class docstring
 
 Floating point number class for the apysc library.<hr>
 
@@ -42,7 +42,7 @@ Number(20.8)
 - [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html)
 - [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html)
 
-### __init__ method docstring
+### `__init__` method docstring
 
 Floating point number class for apysc library.<hr>
 
@@ -87,7 +87,7 @@ Number(20.8)
 - [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html)
 - [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html)
 
-### __repr__ method docstring
+### `__repr__` method docstring
 
 Get a representation string of this instance.<hr>
 
@@ -96,7 +96,7 @@ Get a representation string of this instance.<hr>
 - `repr_str`: str
   - Representation string of this instance.
 
-### _set_value_and_skip_expression_appending method docstring
+### `_set_value_and_skip_expression_appending` method docstring
 
 Update value attribute and skip expression appending.<hr>
 

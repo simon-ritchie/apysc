@@ -1,10 +1,10 @@
-# apysc._animation.animation_width_interface docstrings
+# `apysc._animation.animation_width_interface` docstrings
 
 ## Module summary
 
 Class implementation for the animation_width interface.
 
-## AnimationWidth class docstring
+## `AnimationWidth` class docstring
 
 The animation class for a width.<hr>
 
@@ -37,7 +37,7 @@ The animation class for a width.<hr>
 - [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 - [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
 
-### animation_width method docstring
+### `animation_width` method docstring
 
 Set the width animation setting.<hr>
 

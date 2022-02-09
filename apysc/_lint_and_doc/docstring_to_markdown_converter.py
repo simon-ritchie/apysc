@@ -121,13 +121,15 @@ def _convert_module_docstring_to_markdown(
         if f'class {toplevel_class.__name__}' not in module_str:
             continue
         markdown = _append_toplevel_class_docstring_to_markdown(
-            markdown=markdown, toplevel_class=toplevel_class)
+            markdown=markdown, toplevel_class=toplevel_class,
+            module_str=module_str)
 
     return markdown
 
 
 def _append_toplevel_class_docstring_to_markdown(
-        *, markdown: str, toplevel_class: Type) -> str:
+        *, markdown: str, toplevel_class: Type,
+        module_str: str) -> str:
     """
     Append a top-level class docstring to a specified
     markdown string.
@@ -138,6 +140,8 @@ def _append_toplevel_class_docstring_to_markdown(
         Target markdown string.
     toplevel_class : Type
         Target top-level class.
+    module_str : str
+        Target Python module's string.
 
     Returns
     -------
@@ -158,6 +162,8 @@ def _append_toplevel_class_docstring_to_markdown(
         class_=toplevel_class)
     for method in methods:
         if method.__doc__ is None:
+            continue
+        if f'    def {method.__name__}(' not in module_str:
             continue
         markdown += f'\n\n### {method.__name__} method docstring'
         markdown = _append_each_section_to_markdown(

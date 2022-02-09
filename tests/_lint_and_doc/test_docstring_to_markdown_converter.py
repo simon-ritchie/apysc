@@ -88,7 +88,7 @@ def sample_func_1(a: int, b: bool) -> str:
     ...
 
 
-class _SampleClass:
+class _SampleClass(Process):
     """Cupidatat non proident, sunt in culpa qui officia
     deserunt mollit anim id est laborum.
     """
@@ -293,7 +293,8 @@ def test__append_toplevel_class_docstring_to_markdown() -> None:
     markdown: str = docstring_to_markdown_converter.\
         _append_toplevel_class_docstring_to_markdown(
             markdown='# Test docstring\n\nLorem ipsum dolor.',
-            toplevel_class=target_class)
+            toplevel_class=target_class,
+            module_str=_MODULE_STR)
     expected_strs: List[str] = [
         '# Test docstring\n\nLorem ipsum dolor.\n\n',
         '## _SampleClass class docstring\n\n'
@@ -304,6 +305,8 @@ def test__append_toplevel_class_docstring_to_markdown() -> None:
     ]
     for expected_str in expected_strs:
         assert expected_str in markdown
+
+    assert '## close method docstring' not in markdown
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

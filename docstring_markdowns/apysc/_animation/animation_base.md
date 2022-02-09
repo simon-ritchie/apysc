@@ -26,7 +26,7 @@ Get an animation basic expression string.<hr>
 
 ### `_get_animation_complete_handler_expression` method docstring
 
-Get a expression of the animation complete handlers setting.<hr>
+Get an expression of the animation complete handlers setting.<hr>
 
 **[Returns]**
 
@@ -37,11 +37,11 @@ Get a expression of the animation complete handlers setting.<hr>
 
 **[Notes]**
 
-If multiple handlers are registered, then multiple lines expression will be returned.
+If multiple handlers are registered, then this method returns multiple lines expression.
 
 ### `_get_animation_func_expression` method docstring
 
-Get a animation function expression.
+Get an animation function expression.
 
 ### `_get_complete_event_in_handler_head_expression` method docstring
 
@@ -64,15 +64,15 @@ Set the basic animation settings.<hr>
 
 ### `_validate_animation_not_started` method docstring
 
-Validate whether an animation hasn't already been started.<hr>
+Validate whether an animation has not already started.<hr>
 
 **[Raises]**
 
-- Exception: If an animation has already been started.
+- Exception: If an animation has already started.
 
 ### `animation_complete` method docstring
 
-Add a animation complete event listener setting.<hr>
+Add an animation complete event listener setting.<hr>
 
 **[Parameters]**
 

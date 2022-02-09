@@ -49,7 +49,7 @@ class AnimationBase(
     @abstractmethod
     def _get_animation_func_expression(self) -> str:
         """
-        Get a animation function expression.
+        Get an animation function expression.
         """
 
     def _set_basic_animation_settings(
@@ -143,7 +143,7 @@ class AnimationBase(
 
     def _get_animation_complete_handler_expression(self) -> str:
         """
-        Get a expression of the animation complete handlers setting.
+        Get an expression of the animation complete handlers setting.
 
         Returns
         -------
@@ -153,8 +153,8 @@ class AnimationBase(
 
         Notes
         -----
-        If multiple handlers are registered, then multiple lines
-        expression will be returned.
+        If multiple handlers are registered, then this method
+        returns multiple lines expression.
         """
         from apysc._event.custom_event_type import CustomEventType
         event_type: str = CustomEventType.ANIMATION_COMPLETE.value
@@ -171,7 +171,7 @@ class AnimationBase(
             self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> 'AnimationBase':
         """
-        Add a animation complete event listener setting.
+        Add an animation complete event listener setting.
 
         Notes
         -----
@@ -247,12 +247,12 @@ class AnimationBase(
 
     def _validate_animation_not_started(self) -> None:
         """
-        Validate whether an animation hasn't already been started.
+        Validate whether an animation has not already started.
 
         Raises
         ------
         Exception
-            If an animation has already been started.
+            If an animation has already started.
         """
         if not self._started._value:
             return

@@ -4,8 +4,9 @@ markdown files.
 
 import inspect
 import os
+import re
 from types import ModuleType
-from typing import Callable
+from typing import Callable, Match
 from typing import Dict
 from typing import List
 from typing import Optional
@@ -118,7 +119,12 @@ def _convert_module_docstring_to_markdown(
     toplevel_classes: List[Type] = _get_toplevel_classes(
         module=module)
     for toplevel_class in toplevel_classes:
-        if f'class {toplevel_class.__name__}' not in module_str:
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'class {toplevel_class.__name__}[:\(]'
+            ),
+            string=module_str)
+        if match is None:
             continue
         markdown = _append_toplevel_class_docstring_to_markdown(
             markdown=markdown, toplevel_class=toplevel_class,

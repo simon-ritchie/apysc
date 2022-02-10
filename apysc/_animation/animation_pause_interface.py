@@ -8,7 +8,7 @@ class AnimationPauseInterface(VariableNameInterface):
 
     def animation_pause(self) -> None:
         """
-        Stop the all animations.
+        Stop all animations.
 
         References
         ----------

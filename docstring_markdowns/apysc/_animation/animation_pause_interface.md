@@ -8,7 +8,7 @@ Class implementation for the animation_pause interface.
 
 ### `animation_pause` method docstring
 
-Stop the all animations.<hr>
+Stop all animations.<hr>
 
 **[Examples]**
 

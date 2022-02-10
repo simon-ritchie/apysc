@@ -46,11 +46,11 @@ The animation class for a rotation around the center point.<hr>
 
 - `target`: SkewXInterface
   - A target instance of the animation target (e.g., `Rectangle` instance).
-- `rotation_around_center`: int or Int
+- `rotation_around_center`: Int or int
   - The final rotation around the center point of the animation.
-- `duration`: int or Int, default 3000
+- `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
-- `delay`: int or Int, default 0
+- `delay`: Int or int, default 0
   - Milliseconds before an animation starts.
 - `easing`: Easing, default Easing.LINEAR
   - Easing setting.
@@ -77,4 +77,4 @@ Get an expression to be inserted into the complete event handler's head.<hr>
 **[Returns]**
 
 - `expression`: str
-  - An expression to be inserted into the complete event handler's head.
+  - An expression to insert into the complete event handler's head.

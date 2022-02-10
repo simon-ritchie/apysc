@@ -74,9 +74,9 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
             (e.g., `Rectangle` instance).
         scale_y_from_center : float or Number
             The final scale-y of the animation.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.
@@ -145,7 +145,7 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.scale_y_from_center_interface import \

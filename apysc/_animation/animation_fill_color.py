@@ -18,7 +18,7 @@ StrOrString = TypeVar('StrOrString', str, String)
 
 class AnimationFillColor(AnimationBase[_T], Generic[_T]):
     """
-    The animation class for the fill-color.
+    The animation class for the fill-color
 
     References
     ----------
@@ -64,7 +64,7 @@ class AnimationFillColor(AnimationBase[_T], Generic[_T]):
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
-        The animation class for a fill color.
+        The animation class for the fill-color
 
         Parameters
         ----------
@@ -124,7 +124,7 @@ class AnimationFillColor(AnimationBase[_T], Generic[_T]):
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.fill_color_interface import FillColorInterface

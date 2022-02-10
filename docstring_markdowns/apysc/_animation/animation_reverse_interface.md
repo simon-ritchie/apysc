@@ -8,7 +8,7 @@ Class implementation for the animation_reverse interface.
 
 ### `animation_reverse` method docstring
 
-Reverse the all running animations.<hr>
+Reverse all running animations.<hr>
 
 **[Notes]**
 

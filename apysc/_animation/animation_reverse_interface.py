@@ -8,7 +8,7 @@ class AnimationReverseInterface(VariableNameInterface):
 
     def animation_reverse(self) -> None:
         """
-        Reverse the all running animations.
+        Reverse all running animations.
 
         Notes
         -----

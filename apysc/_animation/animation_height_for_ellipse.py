@@ -15,7 +15,7 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 
 class AnimationHeightForEllipse(AnimationBase[_T], Generic[_T]):
     """
-    The animation class for a ellipse-height.
+    The animation class for the ellipse-height.
 
     References
     ----------
@@ -61,18 +61,18 @@ class AnimationHeightForEllipse(AnimationBase[_T], Generic[_T]):
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
-        The animation class for a ellipse-height.
+        The animation class for the ellipse-height.
 
         Parameters
         ----------
         target : VariableNameInterface
             A target instance of the animation target
             (e.g., `Ellipse` instance).
-        height : int or Int
+        height : Int or int
             The final ellipse-height of the animation.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.
@@ -119,7 +119,7 @@ class AnimationHeightForEllipse(AnimationBase[_T], Generic[_T]):
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.width_and_height_interfaces_for_ellipse import \

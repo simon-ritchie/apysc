@@ -6,7 +6,7 @@ Class implementation for the ellipse-height animation value.
 
 ## `AnimationHeightForEllipse` class docstring
 
-The animation class for a ellipse-height.<hr>
+The animation class for the ellipse-height.<hr>
 
 **[Examples]**
 
@@ -39,17 +39,17 @@ The animation class for a ellipse-height.<hr>
 
 ### `__init__` method docstring
 
-The animation class for a ellipse-height.<hr>
+The animation class for the ellipse-height.<hr>
 
 **[Parameters]**
 
 - `target`: VariableNameInterface
   - A target instance of the animation target (e.g., `Ellipse` instance).
-- `height`: int or Int
+- `height`: Int or int
   - The final ellipse-height of the animation.
-- `duration`: int or Int, default 3000
+- `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
-- `delay`: int or Int, default 0
+- `delay`: Int or int, default 0
   - Milliseconds before an animation starts.
 - `easing`: Easing, default Easing.LINEAR
   - Easing setting.
@@ -70,4 +70,4 @@ Get an expression to be inserted into the complete event handler's head.<hr>
 **[Returns]**
 
 - `expression`: str
-  - An expression to be inserted into the complete event handler's head.
+  - An expression to insert into the complete event handler's head.

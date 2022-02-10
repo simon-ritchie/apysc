@@ -34,11 +34,11 @@ class AnimationScaleXFromPointInterface(AnimationInterfaceBase):
         ----------
         scale_x_from_point : float or Number
             The final scale-x from the given point of the animation.
-        x : int or Int
+        x : Int or int
             X-coordinate.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.

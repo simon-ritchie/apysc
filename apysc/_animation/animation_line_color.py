@@ -18,7 +18,7 @@ StrOrString = TypeVar('StrOrString', str, String)
 
 class AnimationLineColor(AnimationBase[_T], Generic[_T]):
     """
-    The animation class for a line color.
+    The animation class for the line color.
 
     References
     ----------
@@ -66,7 +66,7 @@ class AnimationLineColor(AnimationBase[_T], Generic[_T]):
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
-        The animation class for a line color
+        The animation class for the line color.
 
         Parameters
         ----------
@@ -126,7 +126,7 @@ class AnimationLineColor(AnimationBase[_T], Generic[_T]):
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.line_color_interface import LineColorInterface

@@ -16,7 +16,7 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 
 class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
     """
-    The animation class for a line alpha.
+    The animation class for the line alpha.
 
     References
     ----------
@@ -64,7 +64,7 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
-        The animation class for a line alpha.
+        The animation class for the line alpha.
 
         Parameters
         ----------
@@ -73,9 +73,9 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
             (e.g., `Rectangle` instance).
         alpha : float or Number
             The final line alpha of the animation.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.
@@ -122,7 +122,7 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.line_alpha_interface import LineAlphaInterface

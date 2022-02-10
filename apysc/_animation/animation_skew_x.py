@@ -70,11 +70,11 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
         target : SkewXInterface
             A target instance of the animation target
             (e.g., `Rectangle` instance).
-        skew_x : int or Int
+        skew_x : Int or int
             The final skew-x of the animation.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.
@@ -128,13 +128,13 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
-        Get an expression to be inserted into the complete event
+        Get an expression to insert into the complete event
         handler's head.
 
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.skew_x_interface import SkewXInterface

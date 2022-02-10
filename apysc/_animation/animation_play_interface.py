@@ -8,7 +8,7 @@ class AnimationPlayInterface(VariableNameInterface):
 
     def animation_play(self) -> None:
         """
-        Restart the all paused animations.
+        Restart all paused animations.
 
         References
         ----------

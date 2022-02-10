@@ -8,7 +8,7 @@ Class implementation for the animation_play interface.
 
 ### `animation_play` method docstring
 
-Restart the all paused animations.<hr>
+Restart all paused animations.<hr>
 
 **[Examples]**
 

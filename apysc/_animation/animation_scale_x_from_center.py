@@ -145,7 +145,7 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.scale_x_from_center_interface import \

@@ -21,11 +21,11 @@ class AnimationSkewYInterface(AnimationInterfaceBase):
             easing: Easing = Easing.LINEAR) -> AnimationSkewY:
         """
         **Important notes**
-        Currently this interface does not work correctly.
-        For more details please see:
+        Currently, this interface does not work correctly.
+        For more details, please see:
         https://github.com/svgdotjs/svg.js/issues/1222
 
-        Set the skew-y animation animation.
+        Set the skew-y animation.
 
         Notes
         -----
@@ -34,11 +34,11 @@ class AnimationSkewYInterface(AnimationInterfaceBase):
 
         Parameters
         ----------
-        skew_y : int or Int
+        skew_y : Int or int
             The final skew-y of the animation.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.

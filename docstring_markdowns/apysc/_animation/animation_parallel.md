@@ -79,7 +79,7 @@ Get an expression to be inserted into the complete event handler's head.<hr>
 **[Returns]**
 
 - `expression`: str
-  - An expression to be inserted into the complete event handler's head.
+  - An expression to insert into the complete event handler's head.
 
 ### `_make_animation_attr_exp` method docstring
 
@@ -99,15 +99,15 @@ Make an animation attribute expression string.<hr>
 
 ### `_validate_animation_targets_are_unified` method docstring
 
-Validate whether the specified animation's targets are unified.<hr>
+Validate whether the specified animation's targets are the same.<hr>
 
 **[Raises]**
 
-- ValueError: If the specified animation targets are not unified.
+- ValueError: If the specified animation targets are not the same.
 
 ### `_validate_animations_delay_are_default_vals` method docstring
 
-Validate whether the animations delay settings are default values (not changed).<hr>
+Validate whether the animation's delay settings are default values (not changed).<hr>
 
 **[Raises]**
 
@@ -115,7 +115,7 @@ Validate whether the animations delay settings are default values (not changed).
 
 ### `_validate_animations_duration_are_default_vals` method docstring
 
-Validate whether the animations duration settings are default values (not changed).<hr>
+Validate whether the animation's duration settings are default values (not changed).<hr>
 
 **[Raises]**
 

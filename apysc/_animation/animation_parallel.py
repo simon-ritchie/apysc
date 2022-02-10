@@ -139,8 +139,8 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
 
     def _validate_animations_delay_are_default_vals(self) -> None:
         """
-        Validate whether the animations delay settings are
-        default values (not changed).
+        Validate whether the animation's delay settings
+        are default values (not changed).
 
         Raises
         ------
@@ -162,8 +162,8 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
 
     def _validate_animations_duration_are_default_vals(self) -> None:
         """
-        Validate whether the animations duration settings are
-        default values (not changed).
+        Validate whether the animation's duration settings
+        are default values (not changed).
 
         Raises
         ------
@@ -185,12 +185,13 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
 
     def _validate_animation_targets_are_unified(self) -> None:
         """
-        Validate whether the specified animation's targets are unified.
+        Validate whether the specified animation's targets are
+        the same.
 
         Raises
         ------
         ValueError
-            If the specified animation targets are not unified.
+            If the specified animation targets are not the same.
         """
         for animation in self._animations:
             if animation._target == self._target:
@@ -268,7 +269,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         expression: str = ''

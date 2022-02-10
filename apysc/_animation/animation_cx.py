@@ -116,7 +116,7 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.cx_interface import CxInterface

@@ -44,11 +44,11 @@ The animation class for a skew-y.<hr>
 
 - `target`: SkewXInterface
   - A target instance of the animation target (e.g., `Rectangle` instance).
-- `skew_y`: int or Int
+- `skew_y`: Int or int
   - The final skew-y of the animation.
-- `duration`: int or Int, default 3000
+- `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
-- `delay`: int or Int, default 0
+- `delay`: Int or int, default 0
   - Milliseconds before an animation starts.
 - `easing`: Easing, default Easing.LINEAR
   - Easing setting.
@@ -70,9 +70,9 @@ Get a animation function expression.<hr>
 
 ### `_get_complete_event_in_handler_head_expression` method docstring
 
-Get an expression to be inserted into the complete event handler's head.<hr>
+Get an expression to insert into the complete event handler's head.<hr>
 
 **[Returns]**
 
 - `expression`: str
-  - An expression to be inserted into the complete event handler's head.
+  - An expression to insert into the complete event handler's head.

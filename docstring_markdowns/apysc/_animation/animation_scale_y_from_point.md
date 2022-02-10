@@ -49,11 +49,11 @@ The animation class for a scale-y from the given point.<hr>
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `scale_y_from_point`: float or Number
   - The final scale-y from the given point of the animation.
-- `y`: int or Int
+- `y`: Int or int
   - Y-coordinate.
-- `duration`: int or Int, default 3000
+- `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
-- `delay`: int or Int, default 0
+- `delay`: Int or int, default 0
   - Milliseconds before an animation starts.
 - `easing`: Easing, default Easing.LINEAR
   - Easing setting.
@@ -75,9 +75,9 @@ Get a animation function expression.<hr>
 
 ### `_get_complete_event_in_handler_head_expression` method docstring
 
-Get an expression to be inserted into the complete event handler's head.<hr>
+Get an expression to insert into the heading of the complete event handler.<hr>
 
 **[Returns]**
 
 - `expression`: str
-  - An expression to be inserted into the complete event handler's head.
+  - An expression to insert into the heading of the complete event handler.

@@ -78,11 +78,11 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
             (e.g., `Rectangle` instance).
         scale_y_from_point : float or Number
             The final scale-y from the given point of the animation.
-        y : int or Int
+        y : Int or int
             Y-coordinate.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.
@@ -148,14 +148,14 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
-        Get an expression to be inserted into the complete event
-        handler's head.
+        Get an expression to insert into the heading of the complete
+        event handler.
 
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
-            handler's head.
+            An expression to insert into the heading of the complete
+            event handler.
         """
         from apysc._display import scale_interface_helper
         from apysc._display.scale_y_from_point_interface import \

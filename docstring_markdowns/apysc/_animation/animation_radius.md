@@ -45,11 +45,11 @@ The animation class for a radius.<hr>
 
 - `target`: VariableNameInterface
   - A target instance of the animation target (e.g., `Circle` instance).
-- `radius`: int or Int
+- `radius`: Int or int
   - The final radius of the animation.
-- `duration`: int or Int, default 3000
+- `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
-- `delay`: int or Int, default 0
+- `delay`: Int or int, default 0
   - Milliseconds before an animation starts.
 - `easing`: Easing, default Easing.LINEAR
   - Easing setting.
@@ -70,4 +70,4 @@ Get an expression to be inserted into the complete event handler's head.<hr>
 **[Returns]**
 
 - `expression`: str
-  - An expression to be inserted into the complete event handler's head.
+  - An expression to insert into the complete event handler's head.

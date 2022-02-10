@@ -8,7 +8,7 @@ Class implementation for the animation_reset interface.
 
 ### `animation_reset` method docstring
 
-Stop the all animations and reset.<hr>
+Stop all animations and reset.<hr>
 
 **[Examples]**
 

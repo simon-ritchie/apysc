@@ -8,7 +8,7 @@ class AnimationResetInterface(VariableNameInterface):
 
     def animation_reset(self) -> None:
         """
-        Stop the all animations and reset.
+        Stop all animations and reset.
 
         References
         ----------

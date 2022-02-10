@@ -68,11 +68,11 @@ class AnimationCy(AnimationBase[_T], Generic[_T]):
         target : VariableNameInterface
             A target instance of the animation target
             (e.g., `Circle` instance).
-        y : int or Int
+        y : Int or int
             Destination of the y-coordinate.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.
@@ -110,14 +110,14 @@ class AnimationCy(AnimationBase[_T], Generic[_T]):
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
-        Get an expression to be inserted into the complete event
-        handler's head.
+        Get an expression to insert into the heading of a complete
+        event handler.
 
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
-            handler's head.
+            An expression to insert into the heading of a complete
+            event handler.
         """
         from apysc._display.cy_interface import CyInterface
         expression: str = ''

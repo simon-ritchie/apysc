@@ -34,11 +34,11 @@ class AnimationScaleYFromPointInterface(AnimationInterfaceBase):
         ----------
         scale_y_from_point : float or Number
             The final scale-y from the given point of the animation.
-        y : int or Int
+        y : Int or int
             Y-coordinate.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.

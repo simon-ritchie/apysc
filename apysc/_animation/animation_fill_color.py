@@ -18,7 +18,7 @@ StrOrString = TypeVar('StrOrString', str, String)
 
 class AnimationFillColor(AnimationBase[_T], Generic[_T]):
     """
-    The animation class for a fill color.
+    The animation class for the fill-color.
 
     References
     ----------

@@ -4,40 +4,6 @@
 
 Class implementation for the animation_rotation_aroound_center interface.
 
-## `AnimationRotationAroundCenter` class docstring
-
-The animation class for a rotation around the center point.<hr>
-
-**[Examples]**
-
-```py
->>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
->>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> animation: ap.AnimationRotationAroundCenter
->>> animation = rectangle.animation_rotation_around_center(
-...     rotation_around_center=90,
-...     duration=1500,
-...     easing=ap.Easing.EASE_OUT_QUINT,
-... )
->>> _ = animation.start()
-```
-
-<hr>
-
-**[References]**
-
-- [animation_rotation_around_center interface document](https://simon-ritchie.github.io/apysc/animation_rotation_around_center.html)
-- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)
-- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/animation_delay.html)
-- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)
-- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
-- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
-- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
 ## `AnimationRotationAroundCenterInterface` class docstring
 
 ### `animation_rotation_around_center` method docstring

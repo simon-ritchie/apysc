@@ -45,11 +45,11 @@ The animation class for a center-x coordinate.<hr>
 
 - `target`: VariableNameInterface
   - A target instance of the animation target (e.g., `Circle` instance).
-- `x`: int or Int
+- `x`: Int or int
   - Destination of the center x-coordinate.
-- `duration`: int or Int, default 3000
+- `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
-- `delay`: int or Int, default 0
+- `delay`: Int or int, default 0
   - Milliseconds before an animation starts.
 - `easing`: Easing, default Easing.LINEAR
   - Easing setting.

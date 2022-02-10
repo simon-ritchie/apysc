@@ -4,10 +4,6 @@
 
 Class implementation for line joints interface.
 
-## `LineJoints` class docstring
-
-Line joints style type definitions.
-
 ## `LineJointsInterface` class docstring
 
 ### `_append_line_joints_update_expression` method docstring

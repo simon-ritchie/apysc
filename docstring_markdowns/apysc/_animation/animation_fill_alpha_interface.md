@@ -4,38 +4,6 @@
 
 Class implementation for the animation_fill_alpha interface.
 
-## `AnimationFillAlpha` class docstring
-
-The animation class for a fill alpha (opacity).<hr>
-
-**[Examples]**
-
-```py
->>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
->>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> animation: ap.AnimationFillAlpha = rectangle.animation_fill_alpha(
-...     alpha=0.5,
-...     duration=1500,
-...     easing=ap.Easing.EASE_OUT_QUINT,
-... )
->>> _ = animation.start()
-```
-
-<hr>
-
-**[References]**
-
-- [animation_fill_alpha interface document](https://simon-ritchie.github.io/apysc/animation_fill_alpha.html)
-- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)
-- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)
-- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
-- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
-- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
 ## `AnimationFillAlphaInterface` class docstring
 
 ### `animation_fill_alpha` method docstring

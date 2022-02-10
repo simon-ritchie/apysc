@@ -6,9 +6,10 @@ import inspect
 import os
 import re
 from types import ModuleType
-from typing import Callable, Match
+from typing import Callable
 from typing import Dict
 from typing import List
+from typing import Match
 from typing import Optional
 from typing import Tuple
 from typing import Type

@@ -4,42 +4,6 @@
 
 Class implementation for the parallel animation interface.
 
-## `AnimationParallel` class docstring
-
-The parallel animation setting class.<hr>
-
-**[Examples]**
-
-```py
->>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
->>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> animation: ap.AnimationParallel = rectangle.animation_parallel(
-...     animations=[
-...         rectangle.animation_x(x=100),
-...         rectangle.animation_fill_color(fill_color='#f0a'),
-...         rectangle.animation_fill_alpha(alpha=0.5),
-...     ],
-...     duration=1500,
-...     easing=ap.Easing.EASE_OUT_QUINT,
-... )
->>> _ = animation.start()
-```
-
-<hr>
-
-**[References]**
-
-- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)
-- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/animation_delay.html)
-- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)
-- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
-- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
-- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
-
 ## `AnimationParallelInterface` class docstring
 
 ### `animation_parallel` method docstring

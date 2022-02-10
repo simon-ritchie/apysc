@@ -4,28 +4,6 @@
 
 Class implementation for dictionary.
 
-## `Dict` class docstring
-
-### `__delitem__` method docstring
-
-Delete self[key].
-
-### `__getitem__` method docstring
-
-x.__getitem__(y) <==> x[y]
-
-### `__len__` method docstring
-
-Return len(self).
-
-### `__setitem__` method docstring
-
-Set self[key] to value.
-
-### `get` method docstring
-
-D.get(k[,d]) -> D[k] if k in D, else d. d defaults to None.
-
 ## `Dictionary` class docstring
 
 Dictionary class for the apysc library.<hr>

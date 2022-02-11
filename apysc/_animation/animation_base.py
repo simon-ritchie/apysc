@@ -15,6 +15,7 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 _O = TypeVar('_O')
@@ -30,6 +31,8 @@ class AnimationBase(
     _easing: Easing
     _started: Boolean
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationBase')
     def __init__(self, *, variable_name: str) -> None:
         """
         Base class for each animation setting.
@@ -39,12 +42,8 @@ class AnimationBase(
         variable_name : str
             Variable name.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationBase):
-            self.variable_name = variable_name
-            self._started = Boolean(False)
+        self.variable_name = variable_name
+        self._started = Boolean(False)
 
     @abstractmethod
     def _get_animation_func_expression(self) -> str:
@@ -52,6 +51,8 @@ class AnimationBase(
         Get an animation function expression.
         """
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationBase')
     def _set_basic_animation_settings(
             self,
             *,
@@ -74,18 +75,13 @@ class AnimationBase(
         easing : Easing, default Easing.LINEAR
             Easing setting. If None, Linear calculation is used.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._set_basic_animation_settings,
-                locals_=locals(),
-                module_name=__name__, class_=AnimationBase):
-            from apysc._converter import to_apysc_val_from_builtin
-            self._target = target
-            self._duration = to_apysc_val_from_builtin.\
-                get_copied_int_from_builtin_val(integer=duration)
-            self._delay = to_apysc_val_from_builtin.\
-                get_copied_int_from_builtin_val(integer=delay)
-            self._easing = easing
+        from apysc._converter import to_apysc_val_from_builtin
+        self._target = target
+        self._duration = to_apysc_val_from_builtin.\
+            get_copied_int_from_builtin_val(integer=duration)
+        self._delay = to_apysc_val_from_builtin.\
+            get_copied_int_from_builtin_val(integer=delay)
+        self._easing = easing
 
     def _get_animation_basic_expression(self) -> str:
         """
@@ -106,6 +102,8 @@ class AnimationBase(
         expression += self._get_animation_complete_handler_expression()
         return expression
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationBase')
     def start(self) -> 'AnimationBase':
         """
         Start an animation with current settings.
@@ -131,14 +129,11 @@ class AnimationBase(
         >>> _ = rectangle.animation_x(x=100).start()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.start, locals_=locals(),
-                module_name=__name__, class_=AnimationBase):
-            expression: str = self._get_animation_basic_expression()
-            animation_expresssion: str = self._get_animation_func_expression()
-            expression += animation_expresssion
-            ap.append_js_expression(expression=expression)
-            self._started.value = True
+        expression: str = self._get_animation_basic_expression()
+        animation_expresssion: str = self._get_animation_func_expression()
+        expression += animation_expresssion
+        ap.append_js_expression(expression=expression)
+        self._started.value = True
         return self
 
     def _get_animation_complete_handler_expression(self) -> str:
@@ -167,6 +162,8 @@ class AnimationBase(
             expression += f'\n  .after({handler_name})'
         return expression
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationBase')
     def animation_complete(
             self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> 'AnimationBase':
@@ -219,24 +216,21 @@ class AnimationBase(
         ... ).animation_complete(on_animation_complete).start()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.animation_complete, locals_=locals(),
-                module_name=__name__, class_=AnimationBase):
-            from apysc._event.custom_event_type import CustomEventType
-            from apysc._validation.handler_options_validation import \
-                validate_options_type
-            self._validate_animation_not_started()
-            validate_options_type(options=options)
-            e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
-            in_handler_head_expression: str = \
-                self._get_complete_event_in_handler_head_expression()
-            self.bind_custom_event(
-                custom_event_type=CustomEventType.ANIMATION_COMPLETE,
-                handler=handler,
-                e=e,
-                options=options,
-                in_handler_head_expression=in_handler_head_expression)
-            return self
+        from apysc._event.custom_event_type import CustomEventType
+        from apysc._validation.handler_options_validation import \
+            validate_options_type
+        self._validate_animation_not_started()
+        validate_options_type(options=options)
+        e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
+        in_handler_head_expression: str = \
+            self._get_complete_event_in_handler_head_expression()
+        self.bind_custom_event(
+            custom_event_type=CustomEventType.ANIMATION_COMPLETE,
+            handler=handler,
+            e=e,
+            options=options,
+            in_handler_head_expression=in_handler_head_expression)
+        return self
 
     @abstractmethod
     def _get_complete_event_in_handler_head_expression(self) -> str:

@@ -11,6 +11,7 @@ from apysc._color import color_util
 from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 StrOrString = TypeVar('StrOrString', str, String)
@@ -55,6 +56,8 @@ class AnimationFillColor(AnimationBase[_T], Generic[_T]):
 
     _fill_color: String
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationFillColor')
     def __init__(
             self,
             *,

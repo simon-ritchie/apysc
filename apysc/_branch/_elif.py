@@ -11,7 +11,7 @@ from apysc._type.boolean import Boolean
 
 class Elif(IfBase):
     """
-    A class to append elif branch instruction expression.
+    A class to append the `else if` branch instruction expression.
 
     References
     ----------
@@ -24,7 +24,7 @@ class Elif(IfBase):
     -----
     - Currently the apysc can not initialize condition value
         in the constructor. For example, the following raises
-        exception:
+        an exception:
     - You can only use this class immediately after the
         `If` or `Elif` statement.
 
@@ -49,7 +49,7 @@ class Elif(IfBase):
             locals_: Optional[Dict[str, Any]] = None,
             globals_: Optional[Dict[str, Any]] = None) -> None:
         """
-        A class to append elif branch instruction expression.
+        A class to append the `else if` branch instruction expression.
 
         Notes
         -----
@@ -111,7 +111,7 @@ class Elif(IfBase):
 
     def _append_enter_expression(self) -> None:
         """
-        Append else if branch instruction start expression.
+        Append else if branch instruction starting expression.
 
         Raises
         ------

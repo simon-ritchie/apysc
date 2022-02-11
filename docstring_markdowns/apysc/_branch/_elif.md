@@ -6,11 +6,11 @@ Elif (else if) branch instruction implementations.
 
 ## `Elif` class docstring
 
-A class to append elif branch instruction expression.<hr>
+A class to append the `else if` branch instruction expression.<hr>
 
 **[Notes]**
 
- ・Currently the apysc can not initialize condition value in the constructor. For example, the following raises exception: <br> ・You can only use this class immediately after the `If` or `Elif` statement.<hr>
+ ・Currently the apysc can not initialize condition value in the constructor. For example, the following raises an exception: <br> ・You can only use this class immediately after the `If` or `Elif` statement.<hr>
 
 **[Examples]**
 
@@ -36,7 +36,7 @@ A class to append elif branch instruction expression.<hr>
 
 ### `__init__` method docstring
 
-A class to append elif branch instruction expression.<hr>
+A class to append the `else if` branch instruction expression.<hr>
 
 **[Parameters]**
 
@@ -60,7 +60,7 @@ A class to append elif branch instruction expression.<hr>
 
 ### `_append_enter_expression` method docstring
 
-Append else if branch instruction start expression.<hr>
+Append else if branch instruction starting expression.<hr>
 
 **[Raises]**
 

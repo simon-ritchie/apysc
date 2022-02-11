@@ -2,13 +2,13 @@
 
 ## Module summary
 
-Abstract base class implementation for if, elif, and else.
+This module is for the abstract base class implementation for if, else if, and else.
 
 ## `IfBase` class docstring
 
 ### `__enter__` method docstring
 
-Method to be called when begining of with statement.<hr>
+Method to be called when beginning of the with statement.<hr>
 
 **[Returns]**
 
@@ -17,7 +17,7 @@ Method to be called when begining of with statement.<hr>
 
 ### `__exit__` method docstring
 
-Method to be called when end of with statement.<hr>
+Method to be called when ending of the with statement.<hr>
 
 **[Parameters]**
 
@@ -37,9 +37,9 @@ A class to append if (else if and else) branch instruction expression.<hr>
 - `condition`: Boolean or None
   - Boolean value to be used for judgment.
 - `locals_`: dict or None, default None
-  - Current scope's local variables. Set locals() value to this argument. If specified, all local scope VariableNameInterface variables (like Int, Sprite) will be reverted ad the end of If scope. This setting is useful when you don't want to update each variable by the implementation of the If scope.
+  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of the `If` or the other branch scope. This setting is useful when you don't want to update each variable by implementing the `If` or the other scope.
 - `globals_`: dict or None, default None
-  - Current scope's global variables. Set golobals() value to this argument. This works the same way as the locals_ argument.
+  - Current scope's global variables. Set the globals() value to this argument. This setting works the same way as the `locals_` argument.
 
 <hr>
 
@@ -56,7 +56,7 @@ Append branch instruction start expression.
 
 ### `_append_exit_expression` method docstring
 
-Append if branch instruction end expression.
+Append if branch instruction ending expression.
 
 ### `_last_scope_is_if_or_elif` method docstring
 
@@ -65,7 +65,7 @@ Get a boolean value whether the last scope is If or Elif.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If last scope is If or Else, then True will be returned.
+  - If the last scope is If or Else, this interface returns True.
 
 ### `_set_last_scope` method docstring
 

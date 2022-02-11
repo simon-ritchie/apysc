@@ -1,4 +1,5 @@
-"""Abstract base class implementation for if, elif, and else.
+"""This module is for the abstract base class implementation
+for if, else if, and else.
 """
 
 from abc import ABC
@@ -35,16 +36,17 @@ class IfBase(ABC):
         condition : Boolean or None
             Boolean value to be used for judgment.
         locals_ : dict or None, default None
-            Current scope's local variables. Set locals() value to
-            this argument. If specified, all local scope
-            VariableNameInterface variables (like Int, Sprite) will be
-            reverted ad the end of If scope. This setting is useful
-            when you don't want to update each variable by the
-            implementation of the If scope.
+            Current scope's local variables. Set locals() value
+            to this argument. If specified, this interface
+            reverts all local scope VariableNameInterface
+            variables (like Int, Sprite) at the end of the
+            `If` or the other branch scope. This setting is
+            useful when you don't want to update each variable
+            by implementing the `If` or the other scope.
         globals_ : dict or None, default None
-            Current scope's global variables. Set golobals() value
-            to this argument. This works the same way as the locals_
-            argument.
+            Current scope's global variables. Set the globals()
+            value to this argument. This setting works the same
+            way as the `locals_` argument.
 
         References
         ----------
@@ -68,7 +70,7 @@ class IfBase(ABC):
 
     def __enter__(self) -> Any:
         """
-        Method to be called when begining of with statement.
+        Method to be called when beginning of the with statement.
 
         Returns
         -------
@@ -94,7 +96,7 @@ class IfBase(ABC):
             exc_value: Any,
             traceback: Any) -> None:
         """
-        Method to be called when end of with statement.
+        Method to be called when ending of the with statement.
 
         Parameters
         ----------
@@ -115,7 +117,7 @@ class IfBase(ABC):
 
     def _append_exit_expression(self) -> None:
         """
-        Append if branch instruction end expression.
+        Append if branch instruction ending expression.
         """
         import apysc as ap
         ap.append_js_expression(expression='}')
@@ -133,7 +135,8 @@ class IfBase(ABC):
         Returns
         -------
         result : bool
-            If last scope is If or Else, then True will be returned.
+            If the last scope is If or Else, this interface
+            returns True.
         """
         from apysc._expression import last_scope
         from apysc._expression.last_scope import LastScope

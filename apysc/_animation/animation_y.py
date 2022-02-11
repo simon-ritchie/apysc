@@ -110,13 +110,13 @@ class AnimationY(AnimationBase[_T], Generic[_T]):
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
-        Get an expression to be inserted into the complete event
+        Get an expression to insert into the complete event
         handler's head.
 
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.y_interface import YInterface

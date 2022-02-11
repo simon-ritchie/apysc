@@ -65,9 +65,9 @@ Get a animation function expression.<hr>
 
 ### `_get_complete_event_in_handler_head_expression` method docstring
 
-Get an expression to be inserted into the complete event handler's head.<hr>
+Get an expression to insert into the complete event handler's head.<hr>
 
 **[Returns]**
 
 - `expression`: str
-  - An expression to be inserted into the complete event handler's head.
+  - An expression to insert into the complete event handler's head.

@@ -9,7 +9,7 @@ class AnimationTimeInterface(VariableNameInterface):
 
     def animation_time(self) -> Number:
         """
-        Get an animation elapsed milisecond.
+        Get an animation elapsed millisecond.
 
         Returns
         -------

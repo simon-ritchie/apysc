@@ -8,7 +8,7 @@ Class implementation for the animation_time interface.
 
 ### `animation_time` method docstring
 
-Get an animation elapsed milisecond.<hr>
+Get an animation elapsed millisecond.<hr>
 
 **[Returns]**
 

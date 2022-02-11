@@ -38,17 +38,17 @@ String('#00aaff')
 
 ### `__init__` method docstring
 
-Create a circle vector graphics.<hr>
+Create a circle vector graphic.<hr>
 
 **[Parameters]**
 
 - `parent`: Graphics
-  - Graphics instance to link this graphics.
-- `x`: int or Int
+  - Graphics instance to link this graphic.
+- `x`: Int or int
   - X-coordinate of the circle center.
-- `y`: int or Int
+- `y`: Int or int
   - Y-coordinate of the circle center.
-- `radius`: int or Int
+- `radius`: Int or int
   - Circle radius.
 
 <hr>
@@ -92,7 +92,7 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 
 ### `_append_constructor_expression` method docstring
 
-Append a construcor expression.
+Append a constructor expression.
 
 ### `_set_center_coordinates` method docstring
 
@@ -100,7 +100,7 @@ Set a center x-coordinate and a center y-coordinate.<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: Int or int
   - X-coordinate of the circle center.
-- `y`: int or Int
+- `y`: Int or int
   - Y-coordinate of the circle center.

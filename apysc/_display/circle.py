@@ -50,17 +50,17 @@ class Circle(  # type: ignore
             y: Union[int, Int],
             radius: Union[int, Int]) -> None:
         """
-        Create a circle vector graphics.
+        Create a circle vector graphic.
 
         Parameters
         ----------
         parent : Graphics
-            Graphics instance to link this graphics.
-        x : int or Int
+            Graphics instance to link this graphic.
+        x : Int or int
             X-coordinate of the circle center.
-        y : int or Int
+        y : Int or int
             Y-coordinate of the circle center.
-        radius : int or Int
+        radius : Int or int
             Circle radius.
 
         References
@@ -123,9 +123,9 @@ class Circle(  # type: ignore
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X-coordinate of the circle center.
-        y : int or Int
+        y : Int or int
             Y-coordinate of the circle center.
         """
         import apysc as ap
@@ -139,7 +139,7 @@ class Circle(  # type: ignore
 
     def _append_constructor_expression(self) -> None:
         """
-        Append a construcor expression.
+        Append a constructor expression.
         """
         import apysc as ap
         with ap.DebugInfo(

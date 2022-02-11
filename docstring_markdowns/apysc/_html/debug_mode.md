@@ -91,6 +91,22 @@ Set a debug information setting to a target callable object (decorator function)
 - `wrapped`: Callable
   - Wrapped callable object.
 
+<hr>
+
+**[Notes]**
+
+Currently this interface raise a mypy error under the some mypy setting. Please set `type: ignore` comment if encountered its mypy error.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> @ap.add_debug_info_setting(  # type: ignore
+...     module_name=__name__)
+... def sample_method(a: int) -> None:
+...     ...
+```
+
 ## `is_debug_mode` function docstring
 
 Get a boolean value whether the current debug mode is enabled or not.<hr>

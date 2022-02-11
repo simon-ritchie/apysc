@@ -2,6 +2,7 @@
 and JavaScript.
 """
 
+import functools
 import inspect
 from typing import Any
 from typing import Callable
@@ -541,6 +542,7 @@ class _DebugInfo:
         ap.append_js_expression(expression=expression)
 
 
+# pyright: reportInvalidTypeVarUse=false
 _F = TypeVar('_F', bound=Callable)
 
 
@@ -595,6 +597,7 @@ def add_debug_info_setting(
             Wrapped callable object.
         """
 
+        @functools.wraps(func)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             """
             Wrapping function for a decorator setting.

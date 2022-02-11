@@ -231,7 +231,7 @@ def test__get_callable_path_name() -> None:
 def test_add_debug_info_setting() -> None:
     expression_data_util.empty_expression()
 
-    @debug_mode.add_debug_info_setting(
+    @debug_mode.add_debug_info_setting(  # type: ignore
         module_name=__name__, class_name='TestClass')
     def _test_func(a: int, b: ap.Int, c: int, d: ap.Int) -> int:
         ap.append_js_expression('// Lorem ipsum dolor sit amet.')

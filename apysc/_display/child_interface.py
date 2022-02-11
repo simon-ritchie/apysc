@@ -1,4 +1,4 @@
-"""Class implementation for child related interface.
+"""Class implementation for the child-related interface.
 """
 
 from typing import TYPE_CHECKING
@@ -63,7 +63,8 @@ class ChildInterface(RevertInterface):
 
     def _initialize_children_if_not_initialized(self) -> None:
         """
-        Initialize _children attribute if it hasn't been initialized yet.
+        Initialize _children attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_children'):
             return

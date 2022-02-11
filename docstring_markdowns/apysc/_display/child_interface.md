@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementation for child related interface.
+Class implementation for the child-related interface.
 
 ## `append_expression_of_add_child` function docstring
 
@@ -57,7 +57,7 @@ Append num_children method expression.<hr>
 
 ### `_initialize_children_if_not_initialized` method docstring
 
-Initialize _children attribute if it hasn't been initialized yet.
+Initialize _children attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

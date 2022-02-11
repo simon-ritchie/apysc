@@ -107,6 +107,14 @@ class TestDebugInfo:
             callable_=self.test___init__,
             locals_=locals(),
             module_name=__name__,
+            class_='TestDebugInfo',
+        )
+        assert class_info == '\n// class: TestDebugInfo'
+
+        debug_info = ap.DebugInfo(
+            callable_=self.test___init__,
+            locals_=locals(),
+            module_name=__name__,
         )
         class_info = debug_info._get_class_info()
         assert class_info == ''
@@ -206,6 +214,22 @@ def test__get_callable_path_name() -> None:
 
     path_name = debug_mode._get_callable_path_name(
         callable_=TestDebugInfo.test___init__,
+        module_name=__name__,
+        class_='TestDebugInfo')
+    assert path_name == \
+        'tests__html_test_debug_mode_TestDebugInfo_test___init__'
+
+    path_name = debug_mode._get_callable_path_name(
+        callable_=TestDebugInfo.test___init__,
         module_name=__name__)
     assert path_name == \
         'tests__html_test_debug_mode_test___init__'
+
+
+def test_add_debug_info_setting() -> None:
+
+    @debug_mode.add_debug_info_setting(module_name=__name__)
+    def _test_func(a: int, b: int) -> int:
+        return a + b
+
+    print(_test_func(a=10, b=20))

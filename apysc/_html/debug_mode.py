@@ -9,7 +9,7 @@ from typing import Dict
 from typing import Optional
 from typing import Tuple
 from typing import Type
-from typing import Union
+from typing import Union, TypeVar
 
 from apysc._expression.indent_num import Indent
 
@@ -144,8 +144,10 @@ def _get_callable_path_name(
     module_path: str = module_name.replace('.', '_')
     if class_ is None:
         class_name: str = ''
-    else:
+    elif inspect.isclass(class_):
         class_name = f'_{class_.__name__}'
+    else:
+        class_name = f'_{class_}'
     callable_str: str = _get_callable_str(callable_=callable_)
     path_name: str = f'{module_path}{class_name}_{callable_str}'
     return path_name
@@ -258,7 +260,7 @@ class DebugInfo:
     _callable: Union[Callable, str]
     _locals: Dict[str, Any]
     _module_name: str
-    _class: Optional[Type]
+    _class: Optional[Union[Type, str]]
     _DIVIDER: str = '/' * 70
     _callable_count: int
     _indent: Indent
@@ -268,7 +270,7 @@ class DebugInfo:
             locals_: Dict[str, Any],
             module_name: str,
             *,
-            class_: Optional[Type] = None) -> None:
+            class_: Optional[Union[Type, str]] = None) -> None:
         """
         Save debug information (append callable interface
         name comment and arguments information) to the
@@ -289,9 +291,10 @@ class DebugInfo:
             function's value.
         module_name : str
             Module name. This value requires the `__name__` value.
-        class_ : Type or None, optional
-            Target class type. If the target callable_ variable
-            is not a method, this interface ignores this argument.
+        class_ : Type or str None, optional
+            Target class type or type name. If the target
+            callable_ variable is not a method, this
+            interface ignores this argument.
 
         References
         ----------
@@ -329,8 +332,10 @@ class DebugInfo:
         """
         if self._class is None:
             class_info: str = ''
-        else:
+        elif inspect.isclass(self._class):
             class_info = f'\n// class: {self._class.__name__}'
+        else:
+            class_info = f'\n// class: {self._class}'
         return class_info
 
     def __enter__(self) -> None:
@@ -391,3 +396,21 @@ class DebugInfo:
         )
         self._indent.__exit__()
         ap.append_js_expression(expression=expression)
+
+
+_F = TypeVar('_F', bound=Callable)
+
+
+def add_debug_info_setting(
+        module_name: str, *,
+        class_name: Optional[str] = None) -> _F:
+
+    def wrapped_1(func: _F) -> _F:
+
+        def wrapped_2(*args, **kwargs) -> Any:
+            result: Any = func(*args, **kwargs)
+            return result
+
+        return wrapped_2  # type: ignore
+
+    return wrapped_1  # type: ignore

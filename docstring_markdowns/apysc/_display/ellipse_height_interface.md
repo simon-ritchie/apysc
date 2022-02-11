@@ -8,7 +8,7 @@ Class implementation for the ellipse height interface.
 
 ### `_append_ellipse_height_attr_linking_setting` method docstring
 
-Append a ellipse-height attribute linking setting.
+Append ellipse-height attribute linking settings.
 
 ### `_append_ellipse_height_update_expression` method docstring
 
@@ -16,7 +16,7 @@ Append ellipse height updating expression.
 
 ### `_initialize_ellipse_height_if_not_initialized` method docstring
 
-Initialize _ellipse_height attribute if it hasn't been initialized yet.
+Initialize _ellipse_height attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

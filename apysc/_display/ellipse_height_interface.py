@@ -16,8 +16,8 @@ class EllipseHeightInterface(
 
     def _initialize_ellipse_height_if_not_initialized(self) -> None:
         """
-        Initialize _ellipse_height attribute if it hasn't
-        been initialized yet.
+        Initialize _ellipse_height attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_ellipse_height'):
             return
@@ -27,7 +27,7 @@ class EllipseHeightInterface(
 
     def _append_ellipse_height_attr_linking_setting(self) -> None:
         """
-        Append a ellipse-height attribute linking setting.
+        Append ellipse-height attribute linking settings.
         """
         import apysc as ap
         with ap.DebugInfo(

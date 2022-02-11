@@ -7,9 +7,9 @@ from typing import Union
 
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._html.debug_mode import add_debug_info_setting
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 
@@ -85,7 +85,6 @@ class AnimationSkewY(AnimationBase[_T], Generic[_T]):
         TypeError
             If a specified target is not a SkewYInterface instance.
         """
-        import apysc as ap
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._display.skew_y_interface import SkewYInterface
         from apysc._expression import expression_variables_util

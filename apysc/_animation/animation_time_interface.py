@@ -1,9 +1,9 @@
 """Class implementation for the animation_time interface.
 """
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._html.debug_mode import add_debug_info_setting
 
 
 class AnimationTimeInterface(VariableNameInterface):

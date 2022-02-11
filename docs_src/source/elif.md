@@ -91,7 +91,7 @@ with Elif(condition, ....):
 
 **[Interface signature]** `__init__(self, condition:Union[apysc._type.boolean.Boolean, NoneType], *, locals_:Union[Dict[str, Any], NoneType]=None, globals_:Union[Dict[str, Any], NoneType]=None) -> None`<hr>
 
-**[Interface summary]** A class to append elif branch instruction expression.<hr>
+**[Interface summary]** A class to append the `else if` branch instruction expression.<hr>
 
 **[Parameters]**
 

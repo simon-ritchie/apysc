@@ -543,7 +543,7 @@ def _make_arrays_or_dicts_comparison_expression(
     Returns
     -------
     expression : str
-        Result expression string.
+        A result expression string.
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -571,7 +571,8 @@ def _make_arrays_or_dicts_comparison_expression(
 def _trace_arrays_or_dicts_assertion_info(
         *, interface_label: str, left: Any, right: Any) -> None:
     """
-    Append arrays or dicts value's information trace expression.
+    Append arrays or dictionaries values' information
+    trace expression.
 
     Parameters
     ----------
@@ -622,7 +623,7 @@ def _value_type_is_array(*, value: Any) -> bool:
     Returns
     -------
     result : bool
-        If the value type is Array, True will be returned.
+        If the value type is Array, this interface returns True.
     """
     import apysc as ap
     if isinstance(value, ap.Array):
@@ -643,7 +644,7 @@ def _value_type_is_dict(*, value: Any) -> bool:
     Returns
     -------
     result : bool
-        If the value type is Dictionary, True will be returned.
+        If the value type is Dictionary, this interface returns True.
     """
     from apysc._type.dictionary_structure import DictionaryStructure
     if isinstance(value, DictionaryStructure):
@@ -667,8 +668,8 @@ def _add_equal_if_type_strict_setting_is_true(
     Returns
     -------
     expression : str
-        If type_string setting is true, then single equal character
-        will be added to tail.
+        If the type_strict setting is True value,
+        this interface appends a single equal character to tail.
     """
     if not type_strict:
         return expression
@@ -691,11 +692,13 @@ def _get_left_and_right_strs(
     Returns
     -------
     left_str : str
-        Left-side value's string. If value is string, this will be
-        wrapped by double quotation.
+        Left-side value's string. If a value is a string,
+        this interface wraps this left-side value by
+        double quotation.
     right_str : str
-        Right-side value's string. If value is string, this will be
-        wrapped by double quotation.
+        Right-side value's string. If a value is a string,
+        this interface wraps this right-side value by
+        double quotation.
     """
     from apysc._type import value_util
     left_str: str = value_util.get_value_str_for_expression(

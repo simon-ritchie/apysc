@@ -20,7 +20,7 @@ Add single equal character to expression if type_string setting is True.<hr>
 **[Returns]**
 
 - `expression`: str
-  - If type_string setting is true, then single equal character will be added to tail.
+  - If the type_strict setting is True value, this interface appends a single equal character to tail.
 
 ## `_get_left_and_right_strs` function docstring
 
@@ -38,9 +38,9 @@ Get left and right value strings from specified values.<hr>
 **[Returns]**
 
 - `left_str`: str
-  - Left-side value's string. If value is string, this will be wrapped by double quotation.
+  - Left-side value's string. If a value is a string, this interface wraps this left-side value by double quotation.
 - `right_str`: str
-  - Right-side value's string. If value is string, this will be wrapped by double quotation.
+  - Right-side value's string. If a value is a string, this interface wraps this right-side value by double quotation.
 
 ## `_make_arrays_or_dicts_comparison_expression` function docstring
 
@@ -62,11 +62,11 @@ Make arrays or dicts comparison (assert_arrays_equal, assert_arrays_not_equal, a
 **[Returns]**
 
 - `expression`: str
-  - Result expression string.
+  - A result expression string.
 
 ## `_trace_arrays_or_dicts_assertion_info` function docstring
 
-Append arrays or dicts value's information trace expression.<hr>
+Append arrays or dictionaries values' information trace expression.<hr>
 
 **[Parameters]**
 
@@ -104,7 +104,7 @@ Get a boolean value whether the specified value is Array type or not.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If the value type is Array, True will be returned.
+  - If the value type is Array, this interface returns True.
 
 ## `_value_type_is_dict` function docstring
 
@@ -120,7 +120,7 @@ Get a boolean value whether the specified value is Dictionary type or not.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If the value type is Dictionary, True will be returned.
+  - If the value type is Dictionary, this interface returns True.
 
 ## `assert_arrays_equal` function docstring
 

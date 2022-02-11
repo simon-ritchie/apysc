@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Color related implementations.
+Color-related implementations.
 
 ## `_append_complement_hex_color_expression` function docstring
 
@@ -47,7 +47,7 @@ Fill 3 digits hexadecimal color code until it becomes 6 digits.<hr>
 
 ## `complement_hex_color` function docstring
 
-Complement hex color for convenience, for instance, add # prefix or three digits to six digits, upper case to lower case etc.<hr>
+Complement hex color for convenience; for instance, add # prefix or three digits to become six digits, upper case to lower case.<hr>
 
 **[Parameters]**
 

@@ -1,4 +1,4 @@
-"""Color related implementations.
+"""Color-related implementations.
 """
 
 from typing import Any
@@ -12,8 +12,9 @@ StrOrString = TypeVar('StrOrString', str, String)
 def complement_hex_color(
         *, hex_color_code: StrOrString) -> StrOrString:
     """
-    Complement hex color for convenience, for instance, add # prefix or
-    three digits to six digits, upper case to lower case etc.
+    Complement hex color for convenience; for instance,
+    add # prefix or three digits to become six digits,
+    upper case to lower case.
 
     Parameters
     ----------

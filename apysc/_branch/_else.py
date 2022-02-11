@@ -6,6 +6,7 @@ from typing import Dict
 from typing import Optional
 
 from apysc._branch.if_base import IfBase
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class Else(IfBase):
@@ -34,6 +35,8 @@ class Else(IfBase):
     ...     ap.trace('Value is less than 11.')
     """
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Else')
     def __init__(
             self,
             *,
@@ -77,14 +80,10 @@ class Else(IfBase):
         >>> with ap.Else():
         ...     ap.trace('Value is less than 11.')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=Else):
-            super().__init__(
-                condition=None,
-                locals_=locals_,
-                globals_=globals_)
+        super().__init__(
+            condition=None,
+            locals_=locals_,
+            globals_=globals_)
 
     def _append_enter_expression(self) -> None:
         """

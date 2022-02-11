@@ -7,6 +7,7 @@ from typing import Optional
 
 from apysc._branch.if_base import IfBase
 from apysc._type.boolean import Boolean
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class If(IfBase):
@@ -29,6 +30,8 @@ class If(IfBase):
     ...     ap.trace('Int value is greater than equal 10!')
     """
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='If')
     def __init__(
             self,
             condition: Optional[Boolean],
@@ -69,12 +72,8 @@ class If(IfBase):
         >>> with ap.If(condition):
         ...     ap.trace('Int value is greater than equal 10!')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=If):
-            super(If, self).__init__(
-                condition=condition, locals_=locals_, globals_=globals_)
+        super(If, self).__init__(
+            condition=condition, locals_=locals_, globals_=globals_)
 
     def _append_enter_expression(self) -> None:
         """

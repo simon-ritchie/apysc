@@ -16,7 +16,8 @@ class CxInterface(
 
     def _initialize_cx_if_not_initialized(self) -> None:
         """
-        Initialize _cx attribute if it hasn't been initialized yet.
+        Initialize _cx attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_cx'):
             return
@@ -26,7 +27,7 @@ class CxInterface(
 
     def _append_cx_attr_linking_setting(self) -> None:
         """
-        Append a cx attribute linking setting.
+        Append cx attribute linking settings.
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -134,7 +135,7 @@ class CxInterface(
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

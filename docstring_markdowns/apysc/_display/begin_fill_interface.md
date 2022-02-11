@@ -2,17 +2,17 @@
 
 ## Module summary
 
-Class implementation for begin_fill method related interface.
+Class implementation for begin_fill method-related interface.
 
 ## `BeginFillInterface` class docstring
 
 ### `_initialize_fill_alpha_if_not_initialized` method docstring
 
-Initialize fill_alpha attribute if it hasn't been initialized yet.
+Initialize the fill_alpha attribute if this interface does not initialize it yet.
 
 ### `_initialize_fill_color_if_not_initialized` method docstring
 
-Initialize fill_color attribute if it hasn't been initialized yet.
+Initialize the fill_color attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

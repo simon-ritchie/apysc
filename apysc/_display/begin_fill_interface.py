@@ -1,4 +1,4 @@
-"""Class implementation for begin_fill method related interface.
+"""Class implementation for begin_fill method-related interface.
 
 See Also
 --------
@@ -108,7 +108,8 @@ class BeginFillInterface(RevertInterface):
 
     def _initialize_fill_color_if_not_initialized(self) -> None:
         """
-        Initialize fill_color attribute if it hasn't been initialized yet.
+        Initialize the fill_color attribute if this interface
+        does not initialize it yet.
         """
         if hasattr(self, '_fill_color'):
             return
@@ -147,7 +148,8 @@ class BeginFillInterface(RevertInterface):
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """
-        Initialize fill_alpha attribute if it hasn't been initialized yet.
+        Initialize the fill_alpha attribute if this interface
+        does not initialize it yet.
         """
         if hasattr(self, '_fill_alpha'):
             return

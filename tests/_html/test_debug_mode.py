@@ -8,6 +8,7 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._html import debug_mode
+from apysc._html.debug_mode import _DebugInfo
 from tests.testing_helper import assert_attrs
 
 
@@ -247,3 +248,105 @@ def test_add_debug_info_setting() -> None:
     assert "// Keyword arguments: {'c': 30, 'd': Int(40)}" in expression
     assert '// Lorem ipsum dolor sit amet.' in expression
     assert 'class: TestClass' in expression
+
+
+class Test_DebugInfo:
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        debug_info: _DebugInfo = _DebugInfo(
+            callable_=self.test___init__,
+            args=[10, 20],
+            kwargs={'c': 30},
+            module_name=__name__,
+            class_name='Test_DebugInfo')
+        assert_attrs(
+            expected_attrs={
+                '_callable': self.test___init__,
+                '_module_name': __name__,
+                '_args': [10, 20],
+                '_kwargs': {'c': 30},
+                '_class_name': 'Test_DebugInfo',
+            },
+            any_obj=debug_info,
+        )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___enter__(self) -> None:
+        import os
+        os_var = os  # noqa
+        ap.Stage()
+        with _DebugInfo(
+                callable_=self.test___init__, args=[10],
+                kwargs={'a': 10},
+                module_name=__name__,
+                class_name='Test_DebugInfo'):
+            pass
+        expression: str = expression_data_util.get_current_expression()
+        assert f'\n// [{self.test___init__.__name__}' not in expression
+
+        ap.set_debug_mode()
+        __any_val__: str = 'Hello'
+        blank_str: str = ''  # noqa
+        with_break_str: str = 'a\nb'  # noqa
+        int_val: ap.Int = ap.Int(10)
+        with _DebugInfo(
+                callable_=self.test___init__, args=[10],
+                kwargs={'a': 10},
+                module_name=__name__,
+                class_name='Test_DebugInfo'):
+            pass
+        expression = expression_data_util.get_current_expression()
+        assert f'\n// [{self.test___init__.__name__}' in expression
+        assert f'\n// module name: {__name__}' in expression
+        assert '\n// class: Test_DebugInfo' in expression
+        assert '\n// Positional arguments: [10]' in expression
+        assert "\n// Keyword arguments: {'a': 10}" in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_class_info(self) -> None:
+        debug_info: _DebugInfo = _DebugInfo(
+            callable_=self.test___init__,
+            args=[],
+            kwargs={},
+            module_name=__name__,
+            class_name='Test_DebugInfo')
+        class_info: str = debug_info._get_class_info()
+        assert class_info == '\n// class: Test_DebugInfo'
+
+        debug_info = _DebugInfo(
+            callable_=self.test___init__,
+            args=[],
+            kwargs={},
+            module_name=__name__)
+        class_info = debug_info._get_class_info()
+        assert class_info == ''
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___exit__(self) -> None:
+        ap.Stage()
+        with _DebugInfo(
+                callable_=self.test___init__, args=[], kwargs={},
+                module_name=__name__, class_name='Test_DebugInfo'):
+            pass
+        expression: str = expression_data_util.get_current_expression()
+        callable_name: str = self.test___init__.__name__
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'// \[{callable_name} .+?\] ended\.'
+            ),
+            string=expression, flags=re.MULTILINE | re.DOTALL)
+        assert match is None
+
+        ap.set_debug_mode()
+        with _DebugInfo(
+                callable_=self.test___init__, args=[], kwargs={},
+                module_name=__name__, class_name='Test_DebugInfo'):
+            pass
+        expression = expression_data_util.get_current_expression()
+        match = re.search(
+            pattern=(
+                rf'// \[{callable_name} .+?\] ended\.'
+            ),
+            string=expression, flags=re.MULTILINE | re.DOTALL)
+        assert match is not None

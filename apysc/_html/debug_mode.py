@@ -417,9 +417,9 @@ class _DebugInfo:
 
     _callable: Union[Callable, str]
     _module_name: str
-    _class_name: Optional[str]
     _args: List[Any]
     _kwargs: Dict[str, Any]
+    _class_name: Optional[str]
     _DIVIDER: str = '/' * 70
     _callable_count: int
     _indent: Indent

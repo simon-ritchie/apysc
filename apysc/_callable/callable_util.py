@@ -1,4 +1,4 @@
-"""Common callable utility implementations.
+"""Typical callable utility implementations.
 """
 
 import inspect
@@ -23,9 +23,9 @@ def get_func_default_vals(*, func: Callable) -> Dict[str, Any]:
     Returns
     -------
     default_vals : dict
-        Dictionary that has a argument name at key and default value
-        at value. If argument has no default value, then `empty` object
-        will be set.
+        Dictionary with an argument name at key and
+        default value at value. This interface sets the
+        `empty` object if an argument has no default value.
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -72,8 +72,8 @@ def get_arg_name_at(*, func: Callable, index: int) -> str:
 def get_name_and_arg_value_dict_from_args(
         *, func: Callable, args: list, kwargs: dict) -> Dict[str, Any]:
     """
-    Get dictionary that has an argument name at key and specified
-    argument values at value.
+    Get a dictionary with an argument name at key and
+    specified argument values at value.
 
     Parameters
     ----------
@@ -114,9 +114,9 @@ def get_method_class_name(*, method: Callable) -> str:
     Returns
     -------
     class_name : str
-        Target method's class name. If specified argument is
-        not a method (e.g., function), then blank string will be
-        returned.
+        Target method's class name. This interface
+        returns a blank string if a specified argument
+        is not a method (e.g., function).
     """
     import apysc as ap
     with ap.DebugInfo(

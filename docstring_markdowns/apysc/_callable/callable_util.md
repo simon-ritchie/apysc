@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Common callable utility implementations.
+Typical callable utility implementations.
 
 ## `get_arg_name_at` function docstring
 
@@ -36,7 +36,7 @@ Get specified function's arguments default values.<hr>
 **[Returns]**
 
 - `default_vals`: dict
-  - Dictionary that has a argument name at key and default value at value. If argument has no default value, then `empty` object will be set.
+  - Dictionary with an argument name at key and default value at value. This interface sets the `empty` object if an argument has no default value.
 
 ## `get_method_class_name` function docstring
 
@@ -52,11 +52,11 @@ Get a specified method's class name.<hr>
 **[Returns]**
 
 - `class_name`: str
-  - Target method's class name. If specified argument is not a method (e.g., function), then blank string will be returned.
+  - Target method's class name. This interface returns a blank string if a specified argument is not a method (e.g., function).
 
 ## `get_name_and_arg_value_dict_from_args` function docstring
 
-Get dictionary that has an argument name at key and specified argument values at value.<hr>
+Get a dictionary with an argument name at key and specified argument values at value.<hr>
 
 **[Parameters]**
 

@@ -2,10 +2,13 @@
 """
 
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class AnimationFinishInterface(VariableNameInterface):
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationFinishInterface')
     def animation_finish(self) -> None:
         """
         Finish all animations (set the animation last value to
@@ -41,10 +44,7 @@ class AnimationFinishInterface(VariableNameInterface):
         >>> ap.Timer(on_timer, delay=750, options=options).start()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.animation_finish, locals_=locals(),
-                module_name=__name__, class_=AnimationFinishInterface):
-            expression: str = (
-                f'{self.variable_name}.timeline().finish();'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}.timeline().finish();'
+        )
+        ap.append_js_expression(expression=expression)

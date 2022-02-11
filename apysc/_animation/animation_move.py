@@ -8,6 +8,7 @@ from typing import Union
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)
@@ -53,6 +54,8 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
     _x: Int
     _y: Int
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationMove')
     def __init__(
             self,
             *,
@@ -81,25 +84,21 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
         easing : Easing, default Easing.LINEAR
             Easing setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationMove):
-            from apysc._converter import to_apysc_val_from_builtin
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.ANIMATION_MOVE)
-            self._x = to_apysc_val_from_builtin.\
-                get_copied_int_from_builtin_val(integer=x)
-            self._y = to_apysc_val_from_builtin.\
-                get_copied_int_from_builtin_val(integer=y)
-            self._set_basic_animation_settings(
-                target=target,
-                duration=duration,
-                delay=delay,
-                easing=easing)
-            super(AnimationMove, self).__init__(variable_name=variable_name)
+        from apysc._converter import to_apysc_val_from_builtin
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(type_name=var_names.ANIMATION_MOVE)
+        self._x = to_apysc_val_from_builtin.\
+            get_copied_int_from_builtin_val(integer=x)
+        self._y = to_apysc_val_from_builtin.\
+            get_copied_int_from_builtin_val(integer=y)
+        self._set_basic_animation_settings(
+            target=target,
+            duration=duration,
+            delay=delay,
+            easing=easing)
+        super(AnimationMove, self).__init__(variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """

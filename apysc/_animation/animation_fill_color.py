@@ -83,27 +83,23 @@ class AnimationFillColor(AnimationBase[_T], Generic[_T]):
         easing : Easing, default Easing.LINEAR
             Easing setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationFillColor):
-            from apysc._converter import to_apysc_val_from_builtin
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(
-                    type_name=var_names.ANIMATION_FILL_COLOR)
-            fill_color = color_util.complement_hex_color(
-                hex_color_code=fill_color)
-            self._fill_color = to_apysc_val_from_builtin.\
-                get_copied_string_from_builtin_val(string=fill_color)
-            self._set_basic_animation_settings(
-                target=target,
-                duration=duration,
-                delay=delay,
-                easing=easing)
-            super(AnimationFillColor, self).__init__(
-                variable_name=variable_name)
+        from apysc._converter import to_apysc_val_from_builtin
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(
+                type_name=var_names.ANIMATION_FILL_COLOR)
+        fill_color = color_util.complement_hex_color(
+            hex_color_code=fill_color)
+        self._fill_color = to_apysc_val_from_builtin.\
+            get_copied_string_from_builtin_val(string=fill_color)
+        self._set_basic_animation_settings(
+            target=target,
+            duration=duration,
+            delay=delay,
+            easing=easing)
+        super(AnimationFillColor, self).__init__(
+            variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """

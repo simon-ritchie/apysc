@@ -2,11 +2,12 @@ import os
 import shutil
 from random import randint
 from types import ModuleType
-from typing import Callable
+from typing import Callable, Match
 from typing import Dict
 from typing import List
 from typing import Optional
 from typing import Type
+import re
 
 from retrying import retry
 
@@ -118,7 +119,10 @@ class _SampleClass(Process):
         ...
 '''
 
-_TEST_MODULE_DIR_PATH: str = './tmp/test_docstring_to_markdown_converter/'
+_RANDOM_INT: int = randint(0, 1000000000)
+_TEST_MODULE_DIR_PATH: str = (
+    f'./tmp/test_docstring_to_markdown_converter_{_RANDOM_INT}/'
+)
 _TEST_MODULE_PATH: str = os.path.join(
     _TEST_MODULE_DIR_PATH, 'test_module_1.py'
 )
@@ -317,7 +321,7 @@ def test__convert_module_docstring_to_markdown() -> None:
         _convert_module_docstring_to_markdown(
             module_path=_TEST_MODULE_PATH)
     expected_strs: List[str] = [
-        '# `tmp.test_docstring_to_markdown_converter.'
+        f'# `tmp.test_docstring_to_markdown_converter_{_RANDOM_INT}.'
         'test_module_1` docstrings',
         '## Module summary',
         '## `sample_func_1` function docstring',
@@ -342,16 +346,22 @@ def test__save_markdown() -> None:
     markdown_file_path: str = docstring_to_markdown_converter._save_markdown(
         module_path=_TEST_MODULE_PATH,
     )
-    assert markdown_file_path == (
-        './docstring_markdowns/tmp/test_docstring_to_markdown_converter'
-        '/test_module_1.md')
+    match: Optional[Match] = re.match(
+        pattern=(
+            r'./docstring_markdowns/tmp/test_docstring_to_markdown_converter'
+            r'.*?/test_module_1.md'
+        ),
+        string=markdown_file_path)
+    assert match is not None
     assert os.path.isfile(markdown_file_path)
     markdown: str = file_util.read_txt(file_path=markdown_file_path)
-    expected: str = (
-        '# `tmp.test_docstring_to_markdown_converter.test_module_1` '
-        'docstrings'
-    )
-    assert expected in markdown
+    match = re.search(
+        pattern=(
+            r'# `tmp\.test_docstring_to_markdown_converter.*?'
+            r'\.test_module_1` docstrings'
+        ),
+        string=markdown)
+    assert match is not None
 
     shutil.rmtree('./docstring_markdowns/tmp/', ignore_errors=True)
 

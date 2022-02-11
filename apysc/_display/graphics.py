@@ -23,6 +23,7 @@ from apysc._geom.point2d import Point2D
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class Graphics(
@@ -114,6 +115,8 @@ class Graphics(
             )
             ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_rect(
             self, x: Union[int, Int],
             y: Union[int, Int],
@@ -160,14 +163,10 @@ class Graphics(
         >>> rectangle.fill_color
         String('#00aaff')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_rect, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            rectangle: Rectangle = Rectangle(
-                parent=self, x=x, y=y, width=width, height=height)
-            self.add_child(child=rectangle)
-            return rectangle
+        rectangle: Rectangle = Rectangle(
+            parent=self, x=x, y=y, width=width, height=height)
+        self.add_child(child=rectangle)
+        return rectangle
 
     def draw_round_rect(
             self, x: Union[int, Int],

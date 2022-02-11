@@ -6,7 +6,7 @@ Class implementation for the x animation value.
 
 ## `AnimationX` class docstring
 
-The animation class for a x-coordinate.<hr>
+The animation class for the x-coordinate.<hr>
 
 **[Examples]**
 
@@ -39,7 +39,7 @@ The animation class for a x-coordinate.<hr>
 
 ### `__init__` method docstring
 
-The animation class for a x-coordinate.<hr>
+The animation class for the x-coordinate.<hr>
 
 **[Parameters]**
 
@@ -70,4 +70,4 @@ Get an expression to be inserted into the complete event handler's head.<hr>
 **[Returns]**
 
 - `expression`: str
-  - An expression to be inserted into the complete event handler's head.
+  - An expression to insert into the complete event handler's head.

@@ -15,7 +15,7 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 
 class AnimationX(AnimationBase[_T], Generic[_T]):
     """
-    The animation class for a x-coordinate.
+    The animation class for the x-coordinate.
 
     References
     ----------
@@ -61,7 +61,7 @@ class AnimationX(AnimationBase[_T], Generic[_T]):
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
-        The animation class for a x-coordinate.
+        The animation class for the x-coordinate.
 
         Parameters
         ----------
@@ -116,7 +116,7 @@ class AnimationX(AnimationBase[_T], Generic[_T]):
         Returns
         -------
         expression : str
-            An expression to be inserted into the complete event
+            An expression to insert into the complete event
             handler's head.
         """
         from apysc._display.x_interface import XInterface

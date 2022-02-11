@@ -16,7 +16,8 @@ class CyInterface(
 
     def _initialize_cy_if_not_initialized(self) -> None:
         """
-        Initialize _cy attribute if it hasn't been initialized yet.
+        Initialize _cy attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_cy'):
             return
@@ -26,7 +27,7 @@ class CyInterface(
 
     def _append_cy_attr_linking_setting(self) -> None:
         """
-        Append a cy attribute linking setting.
+        Append cy attribute linking settings.
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -137,7 +138,7 @@ class CyInterface(
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

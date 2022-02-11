@@ -6,7 +6,7 @@
 
 ## `trace` function docstring
 
-Display arguments information to console. This function will save js `console.log` expression.<hr>
+Display arguments information to console. This function saves a JavaScript `console.log` expression.<hr>
 
 **[Parameters]**
 

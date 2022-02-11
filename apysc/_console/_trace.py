@@ -7,8 +7,8 @@ from typing import List
 
 def trace(*args: Any) -> None:
     """
-    Display arguments information to console. This function will
-    save js `console.log` expression.
+    Display arguments information to console.
+    This function saves a JavaScript `console.log` expression.
 
     Parameters
     ----------

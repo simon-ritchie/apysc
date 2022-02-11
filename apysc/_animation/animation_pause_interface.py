@@ -2,10 +2,13 @@
 """
 
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class AnimationPauseInterface(VariableNameInterface):
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationPauseInterface')
     def animation_pause(self) -> None:
         """
         Stop all animations.
@@ -40,10 +43,7 @@ class AnimationPauseInterface(VariableNameInterface):
         >>> ap.Timer(on_timer, delay=750, options=options).start()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.animation_pause, locals_=locals(),
-                module_name=__name__, class_=AnimationPauseInterface):
-            expression: str = (
-                f'{self.variable_name}.timeline().pause();'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}.timeline().pause();'
+        )
+        ap.append_js_expression(expression=expression)

@@ -2,10 +2,13 @@
 """
 
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class AnimationPlayInterface(VariableNameInterface):
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationPlayInterface')
     def animation_play(self) -> None:
         """
         Restart all paused animations.
@@ -46,10 +49,7 @@ class AnimationPlayInterface(VariableNameInterface):
         >>> ap.Timer(on_timer_2, delay=1000, options=options).start()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.animation_play, locals_=locals(),
-                module_name=__name__, class_=AnimationPlayInterface):
-            expression: str = (
-                f'{self.variable_name}.timeline().play();'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}.timeline().play();'
+        )
+        ap.append_js_expression(expression=expression)

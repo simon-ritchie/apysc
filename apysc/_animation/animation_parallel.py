@@ -13,6 +13,7 @@ from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 
@@ -58,6 +59,8 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
 
     _animations: List[AnimationBase]
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationParallel')
     def __init__(
             self,
             *,
@@ -91,28 +94,24 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
         easing : Easing, default Easing.LINEAR
             Easing setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationParallel):
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.ANIMATION_PARALLEL)
-            self._animations = animations
-            self._set_basic_animation_settings(
-                target=target,
-                duration=duration,
-                delay=delay,
-                easing=easing)
-            super(
-                AnimationParallel,
-                self).__init__(
-                variable_name=variable_name)
-            self._validate_animation_targets_are_unified()
-            self._validate_animations_duration_are_default_vals()
-            self._validate_animations_delay_are_default_vals()
-            self._validate_animations_easing_are_default_vals()
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(type_name=var_names.ANIMATION_PARALLEL)
+        self._animations = animations
+        self._set_basic_animation_settings(
+            target=target,
+            duration=duration,
+            delay=delay,
+            easing=easing)
+        super(
+            AnimationParallel,
+            self).__init__(
+            variable_name=variable_name)
+        self._validate_animation_targets_are_unified()
+        self._validate_animations_duration_are_default_vals()
+        self._validate_animations_delay_are_default_vals()
+        self._validate_animations_easing_are_default_vals()
 
     def _validate_animations_easing_are_default_vals(self) -> None:
         """

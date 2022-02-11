@@ -10,6 +10,7 @@ from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 
@@ -56,6 +57,8 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
     _before_rotation_around_center: Int
     _rotation_around_center_diff: Int
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationRotationAroundCenter')
     def __init__(
             self,
             *,
@@ -87,41 +90,37 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
             If a specified target is not a RotationAroundCenterInterface
             instance.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationRotationAroundCenter):
-            from apysc._converter import to_apysc_val_from_builtin
-            from apysc._display.rotation_around_center_interface import \
-                RotationAroundCenterInterface
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(
-                    type_name=var_names.ANIMATION_ROTATION_AROUND_CENTER)
-            target_: VariableNameInterface = target
-            if isinstance(target_, RotationAroundCenterInterface):
-                target_.\
-                    _initialize_rotation_around_center_if_not_initialized()
-                self._before_rotation_around_center = \
-                    target_._rotation_around_center
-            else:
-                raise TypeError(
-                    'Specified `target` argument is not a '
-                    'RotationAroundCenterInterface instance: '
-                    f'{type(target_)}')
-            self._rotation_around_center = to_apysc_val_from_builtin.\
-                get_copied_int_from_builtin_val(
-                    integer=rotation_around_center)
-            self._rotation_around_center_diff = self._rotation_around_center \
-                - self._before_rotation_around_center
-            self._set_basic_animation_settings(
-                target=target,
-                duration=duration,
-                delay=delay,
-                easing=easing)
-            super(AnimationRotationAroundCenter, self).__init__(
-                variable_name=variable_name)
+        from apysc._converter import to_apysc_val_from_builtin
+        from apysc._display.rotation_around_center_interface import \
+            RotationAroundCenterInterface
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(
+                type_name=var_names.ANIMATION_ROTATION_AROUND_CENTER)
+        target_: VariableNameInterface = target
+        if isinstance(target_, RotationAroundCenterInterface):
+            target_.\
+                _initialize_rotation_around_center_if_not_initialized()
+            self._before_rotation_around_center = \
+                target_._rotation_around_center
+        else:
+            raise TypeError(
+                'Specified `target` argument is not a '
+                'RotationAroundCenterInterface instance: '
+                f'{type(target_)}')
+        self._rotation_around_center = to_apysc_val_from_builtin.\
+            get_copied_int_from_builtin_val(
+                integer=rotation_around_center)
+        self._rotation_around_center_diff = self._rotation_around_center \
+            - self._before_rotation_around_center
+        self._set_basic_animation_settings(
+            target=target,
+            duration=duration,
+            delay=delay,
+            easing=easing)
+        super(AnimationRotationAroundCenter, self).__init__(
+            variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """

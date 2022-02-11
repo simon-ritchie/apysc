@@ -564,6 +564,20 @@ def add_debug_info_setting(
     -------
     wrapped : Callable
         Wrapped callable object.
+
+    Notes
+    -----
+    Currently this interface raise a mypy error under the
+    some mypy setting. Please set `type: ignore` comment
+    if encountered its mypy error.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> @ap.add_debug_info_setting(  # type: ignore
+    ...     module_name=__name__)
+    ... def sample_method(a: int) -> None:
+    ...     ...
     """
 
     def wrapped(func: _F) -> _F:

@@ -39,8 +39,8 @@ class DisplayObject(
         Parameters
         ----------
         variable_name : str
-            Variable name of this instance. This will be used to
-            js expression.
+            Variable name of this instance. A js expression
+            uses this setting.
 
         References
         ----------

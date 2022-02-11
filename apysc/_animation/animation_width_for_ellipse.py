@@ -9,6 +9,7 @@ from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 
@@ -52,6 +53,8 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
 
     _width: Int
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationWidthForEllipse')
     def __init__(
             self,
             *,
@@ -77,25 +80,21 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
         easing : Easing, default Easing.LINEAR
             Easing setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationWidthForEllipse):
-            from apysc._converter import to_apysc_val_from_builtin
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(
-                    type_name=var_names.ANIMATION_WIDTH_FOR_ELLIPSE)
-            self._width = to_apysc_val_from_builtin.\
-                get_copied_int_from_builtin_val(integer=width)
-            self._set_basic_animation_settings(
-                target=target,
-                duration=duration,
-                delay=delay,
-                easing=easing)
-            super(AnimationWidthForEllipse, self).__init__(
-                variable_name=variable_name)
+        from apysc._converter import to_apysc_val_from_builtin
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(
+                type_name=var_names.ANIMATION_WIDTH_FOR_ELLIPSE)
+        self._width = to_apysc_val_from_builtin.\
+            get_copied_int_from_builtin_val(integer=width)
+        self._set_basic_animation_settings(
+            target=target,
+            duration=duration,
+            delay=delay,
+            easing=easing)
+        super(AnimationWidthForEllipse, self).__init__(
+            variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """

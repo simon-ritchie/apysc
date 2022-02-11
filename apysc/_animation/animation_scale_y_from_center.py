@@ -10,6 +10,7 @@ from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 
@@ -56,6 +57,8 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
     _before_scale_y_from_center: Number
     _scale_y_from_center_diff_ratio: Number
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationScaleYFromCenter')
     def __init__(
             self,
             *,
@@ -88,40 +91,37 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
             instance.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationScaleYFromCenter):
-            from apysc._converter import to_apysc_val_from_builtin
-            from apysc._display.scale_y_from_center_interface import \
-                ScaleYFromCenterInterface
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(
-                    type_name=var_names.ANIMATION_SCALE_Y_FROM_CENTER)
-            target_: VariableNameInterface = target
-            if isinstance(target_, ScaleYFromCenterInterface):
-                target_._initialize_scale_y_from_center_if_not_initialized()
-                self._before_scale_y_from_center = \
-                    target_._scale_y_from_center
-            else:
-                raise TypeError(
-                    'Specified `target` argument is not a '
-                    f'ScaleYFromCenterInterface instance: {type(target_)}')
-            self._scale_y_from_center = to_apysc_val_from_builtin.\
-                get_copied_number_from_builtin_val(
-                    float_or_num=scale_y_from_center)
-            one: ap.Number = ap.Number(1.0)
-            self._scale_y_from_center_diff_ratio = (
-                one / self._before_scale_y_from_center
-                * self._scale_y_from_center)
-            self._set_basic_animation_settings(
-                target=target,
-                duration=duration,
-                delay=delay,
-                easing=easing)
-            super(AnimationScaleYFromCenter, self).__init__(
-                variable_name=variable_name)
+        from apysc._converter import to_apysc_val_from_builtin
+        from apysc._display.scale_y_from_center_interface import \
+            ScaleYFromCenterInterface
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(
+                type_name=var_names.ANIMATION_SCALE_Y_FROM_CENTER)
+        target_: VariableNameInterface = target
+        if isinstance(target_, ScaleYFromCenterInterface):
+            target_._initialize_scale_y_from_center_if_not_initialized()
+            self._before_scale_y_from_center = \
+                target_._scale_y_from_center
+        else:
+            raise TypeError(
+                'Specified `target` argument is not a '
+                f'ScaleYFromCenterInterface instance: {type(target_)}')
+        self._scale_y_from_center = to_apysc_val_from_builtin.\
+            get_copied_number_from_builtin_val(
+                float_or_num=scale_y_from_center)
+        one: ap.Number = ap.Number(1.0)
+        self._scale_y_from_center_diff_ratio = (
+            one / self._before_scale_y_from_center
+            * self._scale_y_from_center)
+        self._set_basic_animation_settings(
+            target=target,
+            duration=duration,
+            delay=delay,
+            easing=easing)
+        super(AnimationScaleYFromCenter, self).__init__(
+            variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """

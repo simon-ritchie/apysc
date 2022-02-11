@@ -11,6 +11,7 @@ from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 
@@ -59,6 +60,8 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
     _before_scale_y_from_point: Number
     _scale_y_from_point_diff_ratio: Number
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationScaleYFromPoint')
     def __init__(
             self,
             *,
@@ -94,42 +97,39 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
             instance.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationScaleYFromPoint):
-            from apysc._converter import to_apysc_val_from_builtin
-            from apysc._display.scale_y_from_point_interface import \
-                ScaleYFromPointInterface
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(
-                    type_name=var_names.ANIMATION_SCALE_Y_FROM_POINT)
-            self._y = to_apysc_val_from_builtin.\
-                get_copied_int_from_builtin_val(integer=y)
-            target_: VariableNameInterface = target
-            if isinstance(target_, ScaleYFromPointInterface):
-                target_._initialize_scale_y_from_point_if_not_initialized()
-                self._before_scale_y_from_point = target_.\
-                    get_scale_y_from_point(y=self._y)
-            else:
-                raise TypeError(
-                    'Specified `target` argument is not a '
-                    f'ScaleYFromPointInterface: {type(target_)}')
-            self._scale_y_from_point = to_apysc_val_from_builtin.\
-                get_copied_number_from_builtin_val(
-                    float_or_num=scale_y_from_point)
-            one: ap.Number = ap.Number(1.0)
-            self._scale_y_from_point_diff_ratio = (
-                one / self._before_scale_y_from_point
-                * self._scale_y_from_point)
-            self._set_basic_animation_settings(
-                target=target,
-                duration=duration,
-                delay=delay,
-                easing=easing)
-            super(AnimationScaleYFromPoint, self).__init__(
-                variable_name=variable_name)
+        from apysc._converter import to_apysc_val_from_builtin
+        from apysc._display.scale_y_from_point_interface import \
+            ScaleYFromPointInterface
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(
+                type_name=var_names.ANIMATION_SCALE_Y_FROM_POINT)
+        self._y = to_apysc_val_from_builtin.\
+            get_copied_int_from_builtin_val(integer=y)
+        target_: VariableNameInterface = target
+        if isinstance(target_, ScaleYFromPointInterface):
+            target_._initialize_scale_y_from_point_if_not_initialized()
+            self._before_scale_y_from_point = target_.\
+                get_scale_y_from_point(y=self._y)
+        else:
+            raise TypeError(
+                'Specified `target` argument is not a '
+                f'ScaleYFromPointInterface: {type(target_)}')
+        self._scale_y_from_point = to_apysc_val_from_builtin.\
+            get_copied_number_from_builtin_val(
+                float_or_num=scale_y_from_point)
+        one: ap.Number = ap.Number(1.0)
+        self._scale_y_from_point_diff_ratio = (
+            one / self._before_scale_y_from_point
+            * self._scale_y_from_point)
+        self._set_basic_animation_settings(
+            target=target,
+            duration=duration,
+            delay=delay,
+            easing=easing)
+        super(AnimationScaleYFromPoint, self).__init__(
+            variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """

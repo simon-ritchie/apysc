@@ -3,10 +3,13 @@
 
 from apysc._type.number import Number
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class AnimationTimeInterface(VariableNameInterface):
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationTimeInterface')
     def animation_time(self) -> Number:
         """
         Get an animation elapsed millisecond.
@@ -49,13 +52,10 @@ class AnimationTimeInterface(VariableNameInterface):
         ...     options=options).start()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.animation_time, locals_=locals(),
-                module_name=__name__, class_=AnimationTimeInterface):
-            elapsed_time: Number = Number(0.0)
-            expression: str = (
-                f'{elapsed_time.variable_name} = '
-                f'{self.variable_name}.timeline().time();'
-            )
-            ap.append_js_expression(expression=expression)
-            return elapsed_time
+        elapsed_time: Number = Number(0.0)
+        expression: str = (
+            f'{elapsed_time.variable_name} = '
+            f'{self.variable_name}.timeline().time();'
+        )
+        ap.append_js_expression(expression=expression)
+        return elapsed_time

@@ -9,6 +9,7 @@ from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 
@@ -54,6 +55,8 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
     _before_skew_x: Int
     _skew_x_diff: Int
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='AnimationSkewX')
     def __init__(
             self,
             *,
@@ -84,33 +87,29 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
         TypeError
             If a specified target is not a SkewXInterface instance.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationSkewX):
-            from apysc._converter import to_apysc_val_from_builtin
-            from apysc._display.skew_x_interface import SkewXInterface
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.ANIMATION_SKEW_X)
-            target_: VariableNameInterface = target
-            if isinstance(target_, SkewXInterface):
-                target_._initialize_skew_x_if_not_initialized()
-                self._before_skew_x = target_._skew_x
-            else:
-                raise TypeError(
-                    'Specified `target` argument is not a SkewXInterface '
-                    f'instance: {type(target_)}')
-            self._skew_x = to_apysc_val_from_builtin.\
-                get_copied_int_from_builtin_val(integer=skew_x)
-            self._skew_x_diff = self._skew_x - self._before_skew_x
-            self._set_basic_animation_settings(
-                target=target,
-                duration=duration,
-                delay=delay,
-                easing=easing)
-            super(AnimationSkewX, self).__init__(variable_name=variable_name)
+        from apysc._converter import to_apysc_val_from_builtin
+        from apysc._display.skew_x_interface import SkewXInterface
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(type_name=var_names.ANIMATION_SKEW_X)
+        target_: VariableNameInterface = target
+        if isinstance(target_, SkewXInterface):
+            target_._initialize_skew_x_if_not_initialized()
+            self._before_skew_x = target_._skew_x
+        else:
+            raise TypeError(
+                'Specified `target` argument is not a SkewXInterface '
+                f'instance: {type(target_)}')
+        self._skew_x = to_apysc_val_from_builtin.\
+            get_copied_int_from_builtin_val(integer=skew_x)
+        self._skew_x_diff = self._skew_x - self._before_skew_x
+        self._set_basic_animation_settings(
+            target=target,
+            duration=duration,
+            delay=delay,
+            easing=easing)
+        super(AnimationSkewX, self).__init__(variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """

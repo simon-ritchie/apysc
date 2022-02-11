@@ -8,9 +8,7 @@ Class implementation for the animation_skew_y interface.
 
 ### `_animation_skew_y` method docstring
 
-**Important notes** Currently, this interface does not work correctly. For more details, please see: https://github.com/svgdotjs/svg.js/issues/1222
-
-Set the skew-y animation.<hr>
+**Important notes** Currently, this interface does not work correctly. For more details, please see: https://github.com/svgdotjs/svg.js/issues/1222 Set the skew-y animation.<hr>
 
 **[Parameters]**
 

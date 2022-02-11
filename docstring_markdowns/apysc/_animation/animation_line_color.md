@@ -41,7 +41,7 @@ The animation class for the line color.<hr>
 
 ### `__init__` method docstring
 
-The animation class for a line color<hr>
+The animation class for the line color.<hr>
 
 **[Parameters]**
 

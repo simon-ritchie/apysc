@@ -6,7 +6,7 @@ Class implementation for the fill color animation value.
 
 ## `AnimationFillColor` class docstring
 
-The animation class for the fill-color.<hr>
+The animation class for the fill-color<hr>
 
 **[Examples]**
 
@@ -39,7 +39,7 @@ The animation class for the fill-color.<hr>
 
 ### `__init__` method docstring
 
-The animation class for the fill-color.<hr>
+The animation class for the fill-color<hr>
 
 **[Parameters]**
 

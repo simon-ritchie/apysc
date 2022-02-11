@@ -132,7 +132,7 @@ ap.save_overall_html(
 
 **[Interface signature]** `animation_reverse(self) -> None`<hr>
 
-**[Interface summary]** Reverse the all running animations.<hr>
+**[Interface summary]** Reverse all running animations.<hr>
 
 **[Notes]**
 

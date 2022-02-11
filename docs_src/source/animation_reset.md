@@ -79,7 +79,7 @@ ap.save_overall_html(
 
 **[Interface signature]** `animation_reset(self) -> None`<hr>
 
-**[Interface summary]** Stop the all animations and reset.<hr>
+**[Interface summary]** Stop all animations and reset.<hr>
 
 **[Examples]**
 

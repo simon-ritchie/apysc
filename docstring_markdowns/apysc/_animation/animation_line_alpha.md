@@ -6,7 +6,7 @@ Class implementation for the line alpha value.
 
 ## `AnimationLineAlpha` class docstring
 
-The animation class for a line alpha.<hr>
+The animation class for the line alpha.<hr>
 
 **[Examples]**
 

@@ -226,10 +226,24 @@ def test__get_callable_path_name() -> None:
         'tests__html_test_debug_mode_test___init__'
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_add_debug_info_setting() -> None:
+    expression_data_util.empty_expression()
 
-    @debug_mode.add_debug_info_setting(module_name=__name__)
-    def _test_func(a: int, b: int) -> int:
-        return a + b
+    @debug_mode.add_debug_info_setting(
+        module_name=__name__, class_name='TestClass')
+    def _test_func(a: int, b: ap.Int, c: int, d: ap.Int) -> int:
+        ap.append_js_expression('// Lorem ipsum dolor sit amet.')
+        return int(b + d + a + c)
 
-    print(_test_func(a=10, b=20))
+    ap.set_debug_mode()
+    result: int = _test_func(10, ap.Int(20), c=30, d=ap.Int(40))
+    ap.unset_debug_mode()
+    expression: str = expression_data_util.get_current_expression()
+    assert result == 100
+    assert '// [_test_func 1] started.' in expression
+    assert '// module name: tests._html.test_debug_mode' in expression
+    assert '// Positional arguments: [10, Int(20)]' in expression
+    assert "// Keyword arguments: {'c': 30, 'd': Int(40)}" in expression
+    assert '// Lorem ipsum dolor sit amet.' in expression
+    assert 'class: TestClass' in expression

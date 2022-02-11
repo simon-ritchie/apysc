@@ -59,7 +59,7 @@ A class to append if branch instruction expression.<hr>
 
 ### `_append_enter_expression` method docstring
 
-Append if branch instruction start expression.
+Append if branch instruction starting expression.
 
 ### `_set_last_scope` method docstring
 

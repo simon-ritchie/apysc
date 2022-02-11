@@ -78,7 +78,7 @@ class If(IfBase):
 
     def _append_enter_expression(self) -> None:
         """
-        Append if branch instruction start expression.
+        Append if branch instruction starting expression.
         """
         import apysc as ap
         if self._condition is None:

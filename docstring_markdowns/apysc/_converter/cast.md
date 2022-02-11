@@ -10,7 +10,7 @@ Convert int value to bool.<hr>
 
 **[Parameters]**
 
-- `integer`: int or Int
+- `integer`: Int or int
   - Integer value to convert.
 
 <hr>
@@ -24,7 +24,7 @@ Convert int value to bool.<hr>
 
 **[Raises]**
 
-- ValueError: If argument value isn't zero or one.
+- ValueError: If an argument value isn't zero or one.
 
 ## `to_float_from_int` function docstring
 
@@ -33,7 +33,7 @@ Convert int value to float.<hr>
 **[Parameters]**
 
 - `int_or_float`: int or float or Int or Number
-  - Target integer value. If float is specified, conversion will be skipped.
+  - A Target integer value. If a float is specified, this interface skips the conversion.
 
 <hr>
 
@@ -49,11 +49,11 @@ Convert float value to int.<hr>
 **[Parameters]**
 
 - `int_or_float`: int or float or Int or Number
-  - Target float value. If integer is specified, conversion will be skipped.
+  - Target float value. If an integer is specified, this interface skips the conversion.
 
 <hr>
 
 **[Returns]**
 
-- `int_val`: int or Int
+- `int_val`: Int or int
   - Converted integer value.

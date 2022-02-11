@@ -26,12 +26,12 @@ def to_int_from_float(
     Parameters
     ----------
     int_or_float : int or float or Int or Number
-        Target float value. If integer is specified, conversion
-        will be skipped.
+        Target float value. If an integer is specified,
+        this interface skips the conversion.
 
     Returns
     -------
-    int_val : int or Int
+    int_val : Int or int
         Converted integer value.
     """
     import apysc as ap
@@ -53,8 +53,8 @@ def to_float_from_int(
     Parameters
     ----------
     int_or_float : int or float or Int or Number
-        Target integer value. If float is specified, conversion will
-        be skipped.
+        A Target integer value. If a float is specified,
+        this interface skips the conversion.
 
     Returns
     -------
@@ -78,7 +78,7 @@ def to_bool_from_int(*, integer: Union[int, Int]) -> bool:
 
     Parameters
     ----------
-    integer : int or Int
+    integer : Int or int
         Integer value to convert.
 
     Returns
@@ -89,7 +89,7 @@ def to_bool_from_int(*, integer: Union[int, Int]) -> bool:
     Raises
     ------
     ValueError
-        If argument value isn't zero or one.
+        If an argument value isn't zero or one.
     """
     import apysc as ap
     with ap.DebugInfo(

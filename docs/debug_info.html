@@ -325,7 +325,7 @@
 <section id="debuginfo-constructor-api">
 <h2>DebugInfo constructor API<a class="headerlink" href="#debuginfo-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._html.debug_mode.DebugInfo.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">callable_:Union[Callable,</span> <span class="pre">str],</span> <span class="pre">locals_:Dict[str,</span> <span class="pre">Any],</span> <span class="pre">module_name:str,</span> <span class="pre">*,</span> <span class="pre">class_:Union[Type,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">callable_:Union[Callable,</span> <span class="pre">str],</span> <span class="pre">locals_:Dict[str,</span> <span class="pre">Any],</span> <span class="pre">module_name:str,</span> <span class="pre">*,</span> <span class="pre">class_:Union[Type,</span> <span class="pre">str,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Save debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class needs to use the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement when instantiating.<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
@@ -344,9 +344,9 @@
 <li><p>Module name. This value requires the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> value.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">class_</span></code>: Type or None, optional</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">class_</span></code>: Type or str None, optional</p>
 <ul>
-<li><p>Target class type. If the target callable_ variable is not a method, this interface ignores this argument.</p></li>
+<li><p>Target class type or type name. If the target callable_ variable is not a method, this interface ignores this argument.</p></li>
 </ul>
 </li>
 </ul>

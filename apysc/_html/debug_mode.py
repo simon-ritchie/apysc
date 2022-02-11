@@ -3,13 +3,15 @@ and JavaScript.
 """
 
 import inspect
-from typing import Any, List
+from typing import Any
 from typing import Callable
 from typing import Dict
+from typing import List
 from typing import Optional
 from typing import Tuple
 from typing import Type
-from typing import Union, TypeVar
+from typing import TypeVar
+from typing import Union
 
 from apysc._expression.indent_num import Indent
 
@@ -145,7 +147,8 @@ def _get_callable_path_name(
     if class_ is None:
         class_name: str = ''
     elif inspect.isclass(class_):
-        class_name = f'_{class_.__name__}'
+        class_name_: str = getattr(class_, '__name__')
+        class_name = f'_{class_name_}'
     else:
         class_name = f'_{class_}'
     callable_str: str = _get_callable_str(callable_=callable_)
@@ -333,7 +336,8 @@ class DebugInfo:
         if self._class is None:
             class_info: str = ''
         elif inspect.isclass(self._class):
-            class_info = f'\n// class: {self._class.__name__}'
+            class_name: str = getattr(self._class, '__name__')
+            class_info = f'\n// class: {class_name}'
         else:
             class_info = f'\n// class: {self._class}'
         return class_info
@@ -491,7 +495,6 @@ class _DebugInfo:
         The method will be called at the start of the with block.
         """
         import apysc as ap
-        from apysc._type.variable_name_interface import VariableNameInterface
         if not ap.is_debug_mode():
             return
         class_info: str = self._get_class_info()

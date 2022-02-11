@@ -273,8 +273,6 @@ class Test_DebugInfo:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
-        import os
-        os_var = os  # noqa
         ap.Stage()
         with _DebugInfo(
                 callable_=self.test___init__, args=[10],
@@ -286,10 +284,6 @@ class Test_DebugInfo:
         assert f'\n// [{self.test___init__.__name__}' not in expression
 
         ap.set_debug_mode()
-        __any_val__: str = 'Hello'
-        blank_str: str = ''  # noqa
-        with_break_str: str = 'a\nb'  # noqa
-        int_val: ap.Int = ap.Int(10)
         with _DebugInfo(
                 callable_=self.test___init__, args=[10],
                 kwargs={'a': 10},

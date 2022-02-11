@@ -293,7 +293,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, callable_:Union[Callable, str], locals_:Dict[str, Any], module_name:str, *, class_:Union[Type, NoneType]=None) -> None`<hr>
+**[Interface signature]** `__init__(self, callable_:Union[Callable, str], locals_:Dict[str, Any], module_name:str, *, class_:Union[Type, str, NoneType]=None) -> None`<hr>
 
 **[Interface summary]** Save debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class needs to use the `with` statement when instantiating.<hr>
 
@@ -305,8 +305,8 @@ ap.save_overall_html(
   - Local variables. This value requires a `locals()` function's value.
 - `module_name`: str
   - Module name. This value requires the `__name__` value.
-- `class_`: Type or None, optional
-  - Target class type. If the target callable_ variable is not a method, this interface ignores this argument.
+- `class_`: Type or str None, optional
+  - Target class type or type name. If the target callable_ variable is not a method, this interface ignores this argument.
 
 <hr>
 

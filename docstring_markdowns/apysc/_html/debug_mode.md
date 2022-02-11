@@ -14,8 +14,8 @@ Get a specified callable count number.<hr>
   - Target function or method or property or dunder method name.
 - `module_name`: str
   - Module name. This value will be set the `__name__` value.
-- `class_`: Type or None, optional
-  - Target class type. If the target callable_ variable is not a method, this argument will be ignored.
+- `class_`: Type or str or None, optional
+  - Target class type or type name. If the target callable_ variable is not a method, this argument will be ignored.
 
 <hr>
 
@@ -34,8 +34,8 @@ Get a specified callable count data path name.<hr>
   - Target function or method or property or dunder method name.
 - `module_name`: str
   - Module name. This value will be set the `__name__` value.
-- `class_`: Type or None, optional
-  - Target class type. If the target callable_ variable is not a method, this argument will be ignored.
+- `class_`: Type or str or None, optional
+  - Target class type or type name. If the target callable_ variable is not a method, this argument will be ignored.
 
 <hr>
 
@@ -70,8 +70,26 @@ Increment a specified callable count number.<hr>
   - Target function or method or property or dunder method name.
 - `module_name`: str
   - Module name. This value will be set the `__name__` value.
-- `class_`: Type or None, optional
-  - Target class type. If the target callable_ variable is not a method, this argument will be ignored.
+- `class_`: Type or str or None, optional
+  - Target class type or type name. If the target callable_ variable is not a method, this argument will be ignored.
+
+## `add_debug_info_setting` function docstring
+
+Set a debug information setting to a target callable object (decorator function).<hr>
+
+**[Parameters]**
+
+- `module_name`: str
+  - A target module name.
+- `class_name`: str or None, default None
+  - Target class name. If a target callable is function, this interface requires None of this argument.
+
+<hr>
+
+**[Returns]**
+
+- `wrapped`: Callable
+  - Wrapped callable object.
 
 ## `is_debug_mode` function docstring
 
@@ -189,8 +207,8 @@ Save debug information (append callable interface name comment and arguments inf
   - Local variables. This value requires a `locals()` function's value.
 - `module_name`: str
   - Module name. This value requires the `__name__` value.
-- `class_`: Type or None, optional
-  - Target class type. If the target callable_ variable is not a method, this interface ignores this argument.
+- `class_`: Type or str None, optional
+  - Target class type or type name. If the target callable_ variable is not a method, this interface ignores this argument.
 
 <hr>
 
@@ -215,6 +233,63 @@ If the debug mode setting is not enabled, this interface skips the saving.<hr>
 **[References]**
 
 - [DebugInfo class document](https://simon-ritchie.github.io/apysc/debug_info.html)
+
+### `_get_class_info` method docstring
+
+Get a class information string.<hr>
+
+**[Returns]**
+
+- `class_info`: str
+  - Target class information string.
+
+## `_DebugInfo` class docstring
+
+Save a debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class is used at the `with` statement.<hr>
+
+**[Notes]**
+
+If the debug mode setting is not enabled, saving will be skipped.<hr>
+
+**[References]**
+
+- [DebugInfo class document](https://simon-ritchie.github.io/apysc/debug_info.html)
+
+### `__enter__` method docstring
+
+The method will be called at the start of the with block.
+
+### `__exit__` method docstring
+
+The method will be called at the end of the with block.<hr>
+
+**[Parameters]**
+
+- `*args`: list
+  - Positional arguments.
+
+### `__init__` method docstring
+
+Save debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class needs to use the `with` statement when instantiating.<hr>
+
+**[Parameters]**
+
+- `callable_`: Callable or str
+  - Target function or method or property or dunder method name.
+- `args`: list
+  - Function positional arguments.
+- `kwargs`: dict
+  - Function keyword arguments.
+- `module_name`: str
+  - Module name. This value requires the `__name__` value.
+- `class_name`: str or None, optional
+  - Target class type name. If the target callable_ variable is not a method, this interface ignores this argument.
+
+<hr>
+
+**[Notes]**
+
+If the debug mode setting is not enabled, this interface skips the saving.
 
 ### `_get_class_info` method docstring
 

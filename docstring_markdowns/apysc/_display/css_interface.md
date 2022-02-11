@@ -2,13 +2,13 @@
 
 ## Module summary
 
-Class implementation for the css interface.
+Class implementation for the CSS interface.
 
 ## `CssInterface` class docstring
 
 ### `_append_get_css_expresion` method docstring
 
-Append a css getter expression string.<hr>
+Append a CSS getter expression string.<hr>
 
 **[Parameters]**
 
@@ -19,7 +19,7 @@ Append a css getter expression string.<hr>
 
 ### `_append_set_css_expression` method docstring
 
-Append a css setter expression string.<hr>
+Append a CSS setter expression string.<hr>
 
 **[Parameters]**
 
@@ -30,7 +30,7 @@ Append a css setter expression string.<hr>
 
 ### `_initialize_css_if_not_initialized` method docstring
 
-Initialize the _css attribute if it hasn't been initialized yet.
+Initialize the _css attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

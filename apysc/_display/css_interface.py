@@ -1,4 +1,4 @@
-"""Class implementation for the css interface.
+"""Class implementation for the CSS interface.
 """
 
 from typing import Dict
@@ -15,7 +15,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_css_if_not_initialized(self) -> None:
         """
-        Initialize the _css attribute if it hasn't been initialized yet.
+        Initialize the _css attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_css'):
             return
@@ -68,7 +69,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
     def _append_get_css_expresion(
             self, *, name: Union[str, String], css: String) -> None:
         """
-        Append a css getter expression string.
+        Append a CSS getter expression string.
 
         Parameters
         ----------
@@ -138,7 +139,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             self, *, name: Union[str, String],
             value: Union[str, String]) -> None:
         """
-        Append a css setter expression string.
+        Append a CSS setter expression string.
 
         Parameters
         ----------

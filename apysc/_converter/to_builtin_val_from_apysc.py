@@ -4,8 +4,11 @@
 from typing import Union
 
 from apysc._type.string import String
+from apysc._html.debug_mode import add_debug_info_setting
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def get_builtin_str_from_apysc_val(*, string: Union[str, String]) -> str:
     """
     Get a Python built-in string from an apysc one.
@@ -20,11 +23,7 @@ def get_builtin_str_from_apysc_val(*, string: Union[str, String]) -> str:
     builtin_val : str
         A Python built-in string.
     """
-    import apysc as ap
-    with ap.DebugInfo(
-            callable_=get_builtin_str_from_apysc_val, locals_=locals(),
-            module_name=__name__):
-        if isinstance(string, str):
-            return string
-        builtin_val: str = string._value
-        return builtin_val
+    if isinstance(string, str):
+        return string
+    builtin_val: str = string._value
+    return builtin_val

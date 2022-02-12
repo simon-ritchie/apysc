@@ -16,8 +16,11 @@ from typing import Union
 
 from apysc._type.int import Int
 from apysc._type.number_value_interface import NumberValueInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def to_int_from_float(
         *, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
     """
@@ -35,16 +38,15 @@ def to_int_from_float(
         Converted integer value.
     """
     import apysc as ap
-    with ap.DebugInfo(
-            callable_=to_int_from_float, locals_=locals(),
-            module_name=__name__):
-        if isinstance(int_or_float, ap.Number):
-            return ap.Int(int_or_float)
-        if not isinstance(int_or_float, float):
-            return int_or_float
-        return int(int_or_float)
+    if isinstance(int_or_float, ap.Number):
+        return ap.Int(int_or_float)
+    if not isinstance(int_or_float, float):
+        return int_or_float
+    return int(int_or_float)
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def to_float_from_int(
         *, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
     """
@@ -62,16 +64,15 @@ def to_float_from_int(
         Converted float value.
     """
     import apysc as ap
-    with ap.DebugInfo(
-            callable_=to_float_from_int, locals_=locals(),
-            module_name=__name__):
-        if isinstance(int_or_float, ap.Int):
-            return ap.Number(int_or_float)
-        if not isinstance(int_or_float, int):
-            return int_or_float
-        return float(int_or_float)
+    if isinstance(int_or_float, ap.Int):
+        return ap.Number(int_or_float)
+    if not isinstance(int_or_float, int):
+        return int_or_float
+    return float(int_or_float)
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def to_bool_from_int(*, integer: Union[int, Int]) -> bool:
     """
     Convert int value to bool.
@@ -91,12 +92,8 @@ def to_bool_from_int(*, integer: Union[int, Int]) -> bool:
     ValueError
         If an argument value isn't zero or one.
     """
-    import apysc as ap
-    with ap.DebugInfo(
-            callable_=to_bool_from_int, locals_=locals(),
-            module_name=__name__):
-        from apysc._validation import number_validation
-        number_validation.validate_int_is_zero_or_one(integer=integer)
-        if integer == 0:
-            return False
-        return True
+    from apysc._validation import number_validation
+    number_validation.validate_int_is_zero_or_one(integer=integer)
+    if integer == 0:
+        return False
+    return True

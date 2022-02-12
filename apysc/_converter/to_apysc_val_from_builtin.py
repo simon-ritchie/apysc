@@ -7,8 +7,11 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._html.debug_mode import add_debug_info_setting
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def get_copied_int_from_builtin_val(
         *, integer: Union[int, Int]) -> Int:
     """
@@ -25,16 +28,15 @@ def get_copied_int_from_builtin_val(
         Copied Int value.
     """
     import apysc as ap
-    with ap.DebugInfo(
-            callable_=get_copied_int_from_builtin_val, locals_=locals(),
-            module_name=__name__):
-        if isinstance(integer, int):
-            copied: ap.Int = ap.Int(integer)
-        else:
-            copied = integer._copy()
-        return copied
+    if isinstance(integer, int):
+        copied: ap.Int = ap.Int(integer)
+    else:
+        copied = integer._copy()
+    return copied
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def get_copied_number_from_builtin_val(
         *, float_or_num: Union[float, Number]) -> Number:
     """
@@ -51,16 +53,15 @@ def get_copied_number_from_builtin_val(
         Copied Number value.
     """
     import apysc as ap
-    with ap.DebugInfo(
-            callable_=get_copied_number_from_builtin_val, locals_=locals(),
-            module_name=__name__):
-        if isinstance(float_or_num, float):
-            copied: ap.Number = ap.Number(float_or_num)
-        else:
-            copied = float_or_num._copy()
-        return copied
+    if isinstance(float_or_num, float):
+        copied: ap.Number = ap.Number(float_or_num)
+    else:
+        copied = float_or_num._copy()
+    return copied
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def get_copied_string_from_builtin_val(
         *, string: Union[str, String]) -> String:
     """
@@ -77,16 +78,15 @@ def get_copied_string_from_builtin_val(
         Copied String value.
     """
     import apysc as ap
-    with ap.DebugInfo(
-            callable_=get_copied_string_from_builtin_val, locals_=locals(),
-            module_name=__name__):
-        if isinstance(string, str):
-            copied: ap.String = ap.String(string)
-        else:
-            copied = string._copy()
-        return copied
+    if isinstance(string, str):
+        copied: ap.String = ap.String(string)
+    else:
+        copied = string._copy()
+    return copied
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def get_copied_boolean_from_builtin_val(
         *, bool_val: Union[bool, Boolean]) -> Boolean:
     """
@@ -103,11 +103,8 @@ def get_copied_boolean_from_builtin_val(
         Copied Boolean value.
     """
     import apysc as ap
-    with ap.DebugInfo(
-            callable_=get_copied_boolean_from_builtin_val, locals_=locals(),
-            module_name=__name__):
-        if isinstance(bool_val, bool):
-            copied: ap.Boolean = ap.Boolean(bool_val)
-        else:
-            copied = bool_val._copy()
-        return copied
+    if isinstance(bool_val, bool):
+        copied: ap.Boolean = ap.Boolean(bool_val)
+    else:
+        copied = bool_val._copy()
+    return copied

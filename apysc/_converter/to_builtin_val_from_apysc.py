@@ -3,8 +3,8 @@
 
 from typing import Union
 
-from apysc._type.string import String
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.string import String
 
 
 @add_debug_info_setting(  # type: ignore

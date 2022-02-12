@@ -8,11 +8,11 @@ from typing import List
 from typing import Union
 
 from apysc._display.display_object import DisplayObject
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._html.debug_mode import add_debug_info_setting
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage
@@ -51,7 +51,6 @@ class ChildInterface(RevertInterface):
         >>> sprite_2: ap.Sprite = ap.Sprite()
         >>> sprite_2.add_child(rectangle)
         """
-        import apysc as ap
         from apysc._validation import display_validation
         self._initialize_children_if_not_initialized()
         display_validation.validate_display_object(display_object=child)

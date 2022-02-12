@@ -4,10 +4,10 @@
 from typing import Dict
 
 from apysc._animation.animation_cx_interface import AnimationCxInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._html.debug_mode import add_debug_info_setting
 
 
 class CxInterface(
@@ -32,7 +32,6 @@ class CxInterface(
         """
         Append cx attribute linking settings.
         """
-        import apysc as ap
         self._append_applying_new_attr_val_exp(
             new_attr=self._cx, attr_name='cx')
         self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')

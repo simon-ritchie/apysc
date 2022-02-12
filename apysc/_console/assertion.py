@@ -539,7 +539,6 @@ def _make_arrays_or_dicts_comparison_expression(
     expression : str
         A result expression string.
     """
-    import apysc as ap
     from apysc._string import string_util
     from apysc._type import value_util
     left_exp_str: str = value_util.get_value_str_for_expression(

@@ -6,8 +6,8 @@ from typing import Dict
 from typing import Optional
 
 from apysc._branch.if_base import IfBase
-from apysc._type.boolean import Boolean
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.boolean import Boolean
 
 
 class If(IfBase):

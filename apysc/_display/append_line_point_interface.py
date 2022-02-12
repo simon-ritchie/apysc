@@ -4,8 +4,8 @@
 from typing import Union
 
 from apysc._display.points_2d_interface import Points2DInterface
-from apysc._type.int import Int
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.int import Int
 
 
 class AppendLinePointInterface(Points2DInterface):

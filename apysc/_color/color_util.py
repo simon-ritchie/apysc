@@ -4,8 +4,8 @@
 from typing import Any
 from typing import TypeVar
 
-from apysc._type.string import String
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.string import String
 
 StrOrString = TypeVar('StrOrString', str, String)
 

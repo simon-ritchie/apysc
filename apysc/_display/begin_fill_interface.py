@@ -114,7 +114,9 @@ class BeginFillInterface(RevertInterface):
             return
         self._fill_color = String('')
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='BeginFillInterface')
     def fill_alpha(self) -> Number:
         """
         Get current fill color opacity.
@@ -136,16 +138,11 @@ class BeginFillInterface(RevertInterface):
         >>> rectangle.fill_alpha
         Number(0.5)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='fill_alpha', args=[], kwargs={},
-                module_name=__name__,
-                class_name=BeginFillInterface.__name__):
-            import apysc as ap
-            from apysc._type import value_util
-            self._initialize_fill_alpha_if_not_initialized()
-            fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
-            return fill_alpha
+        import apysc as ap
+        from apysc._type import value_util
+        self._initialize_fill_alpha_if_not_initialized()
+        fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
+        return fill_alpha
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """

@@ -36,7 +36,9 @@ class CxInterface(
             new_attr=self._cx, attr_name='cx')
         self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='CxInterface')
     def x(self) -> Int:
         """
         Get a center x-coordinate.
@@ -63,16 +65,11 @@ class CxInterface(
         >>> circle.x
         Int(120)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='x', args=[], kwargs={},
-                module_name=__name__,
-                class_name=CxInterface.__name__):
-            import apysc as ap
-            from apysc._type import value_util
-            self._initialize_cx_if_not_initialized()
-            x: ap.Int = value_util.get_copy(value=self._cx)
-            return x
+        import apysc as ap
+        from apysc._type import value_util
+        self._initialize_cx_if_not_initialized()
+        x: ap.Int = value_util.get_copy(value=self._cx)
+        return x
 
     @x.setter
     def x(self, value: Int) -> None:

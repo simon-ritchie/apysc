@@ -172,7 +172,9 @@ class ChildInterface(RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='ChildInterface')
     def num_children(self) -> Int:
         """
         Get a current children's number.
@@ -200,16 +202,11 @@ class ChildInterface(RevertInterface):
         >>> sprite.graphics.num_children
         Int(2)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='num_children', args=[], kwargs={},
-                module_name=__name__,
-                class_name=ChildInterface.__name__):
-            import apysc as ap
-            self._initialize_children_if_not_initialized()
-            num_children: ap.Int = ap.Int(value=self._children.length)
-            self._append_num_children_expression(num_children=num_children)
-            return num_children
+        import apysc as ap
+        self._initialize_children_if_not_initialized()
+        num_children: ap.Int = ap.Int(value=self._children.length)
+        self._append_num_children_expression(num_children=num_children)
+        return num_children
 
     def _append_num_children_expression(
             self, *, num_children: Int) -> None:

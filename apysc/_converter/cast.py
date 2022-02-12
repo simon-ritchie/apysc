@@ -19,7 +19,7 @@ from apysc._type.int import Int
 from apysc._type.number_value_interface import NumberValueInterface
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def to_int_from_float(
         *, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
@@ -45,7 +45,7 @@ def to_int_from_float(
     return int(int_or_float)
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def to_float_from_int(
         *, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
@@ -71,7 +71,7 @@ def to_float_from_int(
     return float(int_or_float)
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def to_bool_from_int(*, integer: Union[int, Int]) -> bool:
     """

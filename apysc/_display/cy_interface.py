@@ -26,7 +26,7 @@ class CyInterface(
 
         self._append_cy_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CyInterface')
     def _append_cy_attr_linking_setting(self) -> None:
         """
@@ -37,7 +37,7 @@ class CyInterface(
         self._append_attr_to_linking_stack(attr=self._cy, attr_name='cy')
 
     @property  # type: ignore
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CyInterface')
     def y(self) -> Int:
         """
@@ -102,7 +102,7 @@ class CyInterface(
 
             self._append_cy_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CyInterface')
     def _append_cy_update_expression(self) -> None:
         """

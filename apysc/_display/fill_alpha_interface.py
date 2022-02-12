@@ -27,7 +27,7 @@ class FillAlphaInterface(
 
         self._append_fill_alpha_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FillAlphaInterface')
     def _append_fill_alpha_attr_linking_setting(self) -> None:
         """
@@ -39,7 +39,7 @@ class FillAlphaInterface(
             attr=self._fill_alpha, attr_name='fill_alpha')
 
     @property  # type: ignore
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FillAlphaInterface')
     def fill_alpha(self) -> Number:
         """
@@ -104,7 +104,7 @@ class FillAlphaInterface(
 
             self._append_fill_alpha_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FillAlphaInterface')
     def _append_fill_alpha_update_expression(self) -> None:
         """

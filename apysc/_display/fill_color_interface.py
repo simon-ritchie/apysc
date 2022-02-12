@@ -18,7 +18,7 @@ class FillColorInterface(
     _fill_color: String
 
     @property  # type: ignore
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FillColorInterface')
     def fill_color(self) -> String:
         """
@@ -81,7 +81,7 @@ class FillColorInterface(
             self._append_attr_to_linking_stack(
                 attr=self._fill_color, attr_name='fill_color')
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FillColorInterface')
     def _append_fill_color_update_expression(self) -> None:
         """

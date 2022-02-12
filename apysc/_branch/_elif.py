@@ -43,7 +43,7 @@ class Elif(IfBase):
     ...     pass
     """
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Elif')
     def __init__(
             self,

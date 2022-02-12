@@ -10,7 +10,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def get_copied_int_from_builtin_val(
         *, integer: Union[int, Int]) -> Int:
@@ -35,7 +35,7 @@ def get_copied_int_from_builtin_val(
     return copied
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def get_copied_number_from_builtin_val(
         *, float_or_num: Union[float, Number]) -> Number:
@@ -60,7 +60,7 @@ def get_copied_number_from_builtin_val(
     return copied
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def get_copied_string_from_builtin_val(
         *, string: Union[str, String]) -> String:
@@ -85,7 +85,7 @@ def get_copied_string_from_builtin_val(
     return copied
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def get_copied_boolean_from_builtin_val(
         *, bool_val: Union[bool, Boolean]) -> Boolean:

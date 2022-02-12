@@ -26,7 +26,7 @@ class CxInterface(
 
         self._append_cx_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CxInterface')
     def _append_cx_attr_linking_setting(self) -> None:
         """
@@ -37,7 +37,7 @@ class CxInterface(
         self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')
 
     @property  # type: ignore
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CxInterface')
     def x(self) -> Int:
         """

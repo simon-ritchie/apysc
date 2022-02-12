@@ -7,7 +7,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.string import String
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def get_builtin_str_from_apysc_val(*, string: Union[str, String]) -> str:
     """

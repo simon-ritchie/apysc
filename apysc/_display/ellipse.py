@@ -48,7 +48,7 @@ class Ellipse(  # type: ignore
     String('#00aaff')
     """
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Ellipse')
     def __init__(
             self,
@@ -126,7 +126,7 @@ class Ellipse(  # type: ignore
         self._append_width_attr_linking_setting()
         self._append_height_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Ellipse')
     def _append_constructor_expression(self) -> None:
         """

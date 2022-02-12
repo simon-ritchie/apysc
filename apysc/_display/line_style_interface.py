@@ -37,7 +37,7 @@ class LineStyleInterface(RevertInterface):
     _line_round_dot_setting: Optional[LineRoundDotSetting]
     _line_dash_dot_setting: Optional[LineDashDotSetting]
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineStyleInterface')
     def line_style(
             self, color: StrOrString,
@@ -150,7 +150,7 @@ class LineStyleInterface(RevertInterface):
         display_validation.validate_multiple_line_settings_isnt_set(
             any_instance=self)
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineStyleInterface')
     def _set_line_joints(self, *, joints: Optional[LineJoints]) -> None:
         """

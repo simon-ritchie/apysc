@@ -33,7 +33,7 @@ class GraphicsClearInterface:
     _line_round_dot_setting: Optional[LineRoundDotSetting]
     _line_dash_dot_setting: Optional[LineDashDotSetting]
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='GraphicsClearInterface')
     def clear(self) -> None:
         """

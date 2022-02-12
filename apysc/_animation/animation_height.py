@@ -53,7 +53,7 @@ class AnimationHeight(AnimationBase[_T], Generic[_T]):
 
     _height: Int
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='AnimationHeight')
     def __init__(
             self,

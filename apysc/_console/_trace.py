@@ -7,7 +7,7 @@ from typing import List
 from apysc._html.debug_mode import add_debug_info_setting
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def trace(*args: Any) -> None:
     """

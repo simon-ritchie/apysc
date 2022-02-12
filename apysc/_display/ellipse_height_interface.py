@@ -26,7 +26,7 @@ class EllipseHeightInterface(
 
         self._append_ellipse_height_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='EllipseHeightInterface')
     def _append_ellipse_height_attr_linking_setting(self) -> None:
         """
@@ -38,7 +38,7 @@ class EllipseHeightInterface(
             attr=self._ellipse_height, attr_name='ellipse_height')
 
     @property  # type: ignore
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='EllipseHeightInterface')
     def ellipse_height(self) -> Int:
         """
@@ -93,7 +93,7 @@ class EllipseHeightInterface(
 
             self._append_ellipse_height_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='EllipseHeightInterface')
     def _append_ellipse_height_update_expression(self) -> None:
         """

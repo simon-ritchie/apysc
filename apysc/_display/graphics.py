@@ -57,7 +57,7 @@ class Graphics(
 
     _current_line: Optional['_polyline.Polyline'] = None
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def __init__(
             self, *, parent: 'sprite.Sprite',
@@ -99,7 +99,7 @@ class Graphics(
         self.parent_sprite.add_child(self)
         self._set_overflow_visible_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def _append_constructor_expression(self) -> None:
         """
@@ -112,7 +112,7 @@ class Graphics(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_rect(
             self, x: Union[int, Int],
@@ -165,7 +165,7 @@ class Graphics(
         self.add_child(child=rectangle)
         return rectangle
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_round_rect(
             self, x: Union[int, Int],
@@ -229,7 +229,7 @@ class Graphics(
         self.add_child(child=rectangle)
         return rectangle
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_circle(
             self,
@@ -283,7 +283,7 @@ class Graphics(
         self.add_child(child=circle)
         return circle
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_ellipse(
             self,
@@ -343,7 +343,7 @@ class Graphics(
         self.add_child(child=ellipse)
         return ellipse
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def line_to(
             self, x: Union[int, Int],
@@ -397,7 +397,7 @@ class Graphics(
             self._current_line.append_line_point(x=x, y=y)
         return self._current_line
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def move_to(
             self,
@@ -459,7 +459,7 @@ class Graphics(
         self._line_round_dot_setting = None
         self._line_dash_dot_setting = None
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_line(
             self,
@@ -521,7 +521,7 @@ class Graphics(
         self.add_child(child=line)
         return line
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_dotted_line(
             self,
@@ -591,7 +591,7 @@ class Graphics(
         self.add_child(child=line)
         return line
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_dashed_line(
             self,
@@ -666,7 +666,7 @@ class Graphics(
         self.add_child(child=line)
         return line
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_round_dotted_line(
             self,
@@ -741,7 +741,7 @@ class Graphics(
         self.add_child(child=line)
         return line
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_dash_dotted_line(
             self,
@@ -819,7 +819,7 @@ class Graphics(
         self.add_child(child=line)
         return line
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_polygon(
             self,
@@ -868,7 +868,7 @@ class Graphics(
         self.add_child(polygon)
         return polygon
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_path(
             self, path_data_list: List[PathDataBase]) -> '_path.Path':

@@ -33,7 +33,7 @@ class DisplayObject(
 
     stage: 'Stage'
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='DisplayObject')
     def __init__(self, *, variable_name: str) -> None:
         """
@@ -57,7 +57,7 @@ class DisplayObject(
         self._variable_name = variable_name
         string_validation.validate_not_empty_string(string=variable_name)
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='DisplayObject')
     def _set_overflow_visible_setting(self) -> None:
         """

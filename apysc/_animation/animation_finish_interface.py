@@ -7,7 +7,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class AnimationFinishInterface(VariableNameInterface):
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='AnimationFinishInterface')
     def animation_finish(self) -> None:
         """

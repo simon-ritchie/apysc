@@ -34,7 +34,7 @@ class LineRoundDotSetting(Dictionary[str, Int]):
     Int(5)
     """
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineRoundDotSetting')
     def __init__(
             self, round_size: Union[int, Int],

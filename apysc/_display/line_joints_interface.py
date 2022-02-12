@@ -95,7 +95,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         else:
             self._line_joints = String(value.value)
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineJointsInterface')
     def _append_line_joints_update_expression(self) -> None:
         """

@@ -59,7 +59,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
 
     _animations: List[AnimationBase]
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='AnimationParallel')
     def __init__(
             self,

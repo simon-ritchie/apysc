@@ -26,7 +26,7 @@ class FlipYInterface(
 
         self._append_flip_y_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FlipYInterface')
     def _append_flip_y_attr_linking_setting(self) -> None:
         """
@@ -38,7 +38,7 @@ class FlipYInterface(
             attr=self._flip_y, attr_name='flip_y')
 
     @property  # type: ignore
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FlipYInterface')
     def flip_y(self) -> Boolean:
         """
@@ -103,7 +103,7 @@ class FlipYInterface(
 
             self._append_flip_y_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FlipYInterface')
     def _append_flip_y_update_expression(
             self, *, before_value: Boolean) -> None:

@@ -35,7 +35,7 @@ class Else(IfBase):
     ...     ap.trace('Value is less than 11.')
     """
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Else')
     def __init__(
             self,

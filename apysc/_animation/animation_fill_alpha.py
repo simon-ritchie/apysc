@@ -52,7 +52,7 @@ class AnimationFillAlpha(AnimationBase[_T], Generic[_T]):
 
     _fill_alpha: Number
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='AnimationFillAlpha')
     def __init__(
             self,

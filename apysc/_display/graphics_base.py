@@ -34,7 +34,7 @@ class GraphicsBase(
 
     _variable_name: str
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='GraphicsBase')
     def __init__(
             self,

@@ -27,7 +27,7 @@ class HeightInterface(
 
         self._append_height_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='HeightInterface')
     def _append_height_attr_linking_setting(self) -> None:
         """
@@ -39,7 +39,7 @@ class HeightInterface(
             attr=self._height, attr_name='height')
 
     @property  # type: ignore
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='HeightInterface')
     def height(self) -> Int:
         """
@@ -89,7 +89,7 @@ class HeightInterface(
 
             self._append_height_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='HeightInterface')
     def _append_height_update_expression(self) -> None:
         """

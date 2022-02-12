@@ -23,7 +23,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             return
         self._css = {}
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CssInterface')
     def get_css(self, name: Union[str, String]) -> String:
         """
@@ -66,7 +66,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         self._append_get_css_expresion(name=name, css=css)
         return css
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CssInterface')
     def _append_get_css_expresion(
             self, *, name: Union[str, String], css: String) -> None:
@@ -92,7 +92,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CssInterface')
     def set_css(
             self, name: Union[str, String],
@@ -133,7 +133,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         self._css[name_] = value_
         self._append_set_css_expression(name=name, value=value)
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CssInterface')
     def _append_set_css_expression(
             self, *, name: Union[str, String],

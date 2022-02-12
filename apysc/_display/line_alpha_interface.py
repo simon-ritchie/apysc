@@ -27,7 +27,7 @@ class LineAlphaInterface(
 
         self._append_line_alpha_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineAlphaInterface')
     def _append_line_alpha_attr_linking_setting(self) -> None:
         """
@@ -39,7 +39,7 @@ class LineAlphaInterface(
             attr=self._line_alpha, attr_name='line_alpha')
 
     @property  # type: ignore
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineAlphaInterface')
     def line_alpha(self) -> Number:
         """
@@ -98,7 +98,7 @@ class LineAlphaInterface(
 
             self._append_line_alpha_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineAlphaInterface')
     def _append_line_alpha_update_expression(self) -> None:
         """

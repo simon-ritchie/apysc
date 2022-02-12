@@ -86,7 +86,7 @@ class LineColorInterface(
             self._append_attr_to_linking_stack(
                 attr=self._line_color, attr_name='line_color')
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineColorInterface')
     def _append_line_color_update_expression(self) -> None:
         """

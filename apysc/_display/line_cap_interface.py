@@ -72,7 +72,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             self._update_line_cap_and_skip_appending_exp(value=value)
             self._append_line_cap_update_expression()
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineCapInterface')
     def _append_line_cap_update_expression(self) -> None:
         """

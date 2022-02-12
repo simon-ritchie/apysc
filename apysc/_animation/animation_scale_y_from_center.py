@@ -57,7 +57,7 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
     _before_scale_y_from_center: Number
     _scale_y_from_center_diff_ratio: Number
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='AnimationScaleYFromCenter')
     def __init__(
             self,

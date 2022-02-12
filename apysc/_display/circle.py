@@ -43,7 +43,7 @@ class Circle(  # type: ignore
     String('#00aaff')
     """
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Circle')
     def __init__(
             self,
@@ -112,7 +112,7 @@ class Circle(  # type: ignore
         self._append_attr_to_linking_stack(
             attr=self._radius, attr_name='radius')
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Circle')
     def _set_center_coordinates(
             self,
@@ -134,7 +134,7 @@ class Circle(  # type: ignore
         self.x = get_copied_int_from_builtin_val(integer=x)
         self.y = get_copied_int_from_builtin_val(integer=y)
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Circle')
     def _append_constructor_expression(self) -> None:
         """

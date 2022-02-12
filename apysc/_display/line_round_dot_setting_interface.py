@@ -113,7 +113,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
                 '\nAcceptable ones are: LineRoundDotSetting or None.')
         self._line_round_dot_setting = value
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineRoundDotSettingInterface')
     def _append_line_round_dot_setting_update_expression(self) -> None:
         """

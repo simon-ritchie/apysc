@@ -6,7 +6,7 @@ from apysc._display.graphics_base import GraphicsBase
 from apysc._html.debug_mode import add_debug_info_setting
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def append_fill_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
@@ -38,7 +38,7 @@ def append_fill_expression(
     return expression
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def append_fill_opacity_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
@@ -67,7 +67,7 @@ def append_fill_opacity_expression(
     return expression
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def append_x_expression(
         *, graphic: GraphicsBase, expression: str, indent_num: int) -> str:
@@ -96,7 +96,7 @@ def append_x_expression(
     return expression
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def append_y_expression(
         *, graphic: GraphicsBase, expression: str, indent_num: int) -> str:
@@ -125,7 +125,7 @@ def append_y_expression(
     return expression
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def append_stroke_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
@@ -156,7 +156,7 @@ def append_stroke_expression(
     return expression
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def append_stroke_width_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
@@ -186,7 +186,7 @@ def append_stroke_width_expression(
     return expression
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def append_stroke_opacity_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
@@ -215,7 +215,7 @@ def append_stroke_opacity_expression(
     return expression
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def append_stroke_linecap_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
@@ -247,7 +247,7 @@ def append_stroke_linecap_expression(
     return expression
 
 
-@add_debug_info_setting(  # type: ignore
+@add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def append_stroke_linejoin_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:

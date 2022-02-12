@@ -37,7 +37,7 @@ class LineDashDotSetting(Dictionary[str, Int]):
     Int(3)
     """
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineDashDotSetting')
     def __init__(
             self, dot_size: Union[int, Int],

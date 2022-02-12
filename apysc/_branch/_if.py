@@ -30,7 +30,7 @@ class If(IfBase):
     ...     ap.trace('Int value is greater than equal 10!')
     """
 
-    @add_debug_info_setting(  # type: ignore
+    @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='If')
     def __init__(
             self,

@@ -37,8 +37,6 @@ class CxInterface(
         self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')
 
     @property
-    @add_debug_info_setting(  # type: ignore
-        module_name=__name__, class_name='CxInterface')
     def x(self) -> Int:
         """
         Get a center x-coordinate.
@@ -65,15 +63,18 @@ class CxInterface(
         >>> circle.x
         Int(120)
         """
-        import apysc as ap
-        from apysc._type import value_util
-        self._initialize_cx_if_not_initialized()
-        x: ap.Int = value_util.get_copy(value=self._cx)
-        return x
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='x', args=[], kwargs={},
+                module_name=__name__,
+                class_name=CxInterface.__name__):
+            import apysc as ap
+            from apysc._type import value_util
+            self._initialize_cx_if_not_initialized()
+            x: ap.Int = value_util.get_copy(value=self._cx)
+            return x
 
     @x.setter
-    @add_debug_info_setting(  # type: ignore
-        module_name=__name__, class_name='CxInterface')
     def x(self, value: Int) -> None:
         """
         Update a center x-coordinate.
@@ -88,16 +89,21 @@ class CxInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
-        import apysc as ap
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=value)
-        if not isinstance(value, ap.Int):
-            value = ap.Int(value)
-        self._cx = value
-        self._cx._append_incremental_calc_substitution_expression()
-        self._append_cx_update_expression()
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='x', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=CxInterface.__name__):
+            import apysc as ap
+            from apysc._validation import number_validation
+            number_validation.validate_integer(integer=value)
+            if not isinstance(value, ap.Int):
+                value = ap.Int(value)
+            self._cx = value
+            self._cx._append_incremental_calc_substitution_expression()
+            self._append_cx_update_expression()
 
-        self._append_cx_attr_linking_setting()
+            self._append_cx_attr_linking_setting()
 
     def _append_cx_update_expression(self) -> None:
         """

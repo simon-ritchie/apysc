@@ -76,8 +76,6 @@ class BeginFillInterface(RevertInterface):
             self._fill_alpha.value = alpha
 
     @property
-    @add_debug_info_setting(  # type: ignore
-        module_name=__name__, class_name='BeginFillInterface')
     def fill_color(self) -> String:
         """
         Get current fill color.
@@ -99,11 +97,16 @@ class BeginFillInterface(RevertInterface):
         >>> rectangle.fill_color
         String('#00aaff')
         """
-        import apysc as ap
-        from apysc._type import value_util
-        self._initialize_fill_color_if_not_initialized()
-        fill_color: ap.String = value_util.get_copy(value=self._fill_color)
-        return fill_color
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='fill_color', args=[], kwargs={},
+                module_name=__name__,
+                class_name=BeginFillInterface.__name__):
+            import apysc as ap
+            from apysc._type import value_util
+            self._initialize_fill_color_if_not_initialized()
+            fill_color: ap.String = value_util.get_copy(value=self._fill_color)
+            return fill_color
 
     def _initialize_fill_color_if_not_initialized(self) -> None:
         """
@@ -115,8 +118,6 @@ class BeginFillInterface(RevertInterface):
         self._fill_color = String('')
 
     @property
-    @add_debug_info_setting(  # type: ignore
-        module_name=__name__, class_name='BeginFillInterface')
     def fill_alpha(self) -> Number:
         """
         Get current fill color opacity.
@@ -138,11 +139,16 @@ class BeginFillInterface(RevertInterface):
         >>> rectangle.fill_alpha
         Number(0.5)
         """
-        import apysc as ap
-        from apysc._type import value_util
-        self._initialize_fill_alpha_if_not_initialized()
-        fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
-        return fill_alpha
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='fill_alpha', args=[], kwargs={},
+                module_name=__name__,
+                class_name=BeginFillInterface.__name__):
+            import apysc as ap
+            from apysc._type import value_util
+            self._initialize_fill_alpha_if_not_initialized()
+            fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
+            return fill_alpha
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """

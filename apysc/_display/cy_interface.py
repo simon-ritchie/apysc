@@ -37,8 +37,6 @@ class CyInterface(
         self._append_attr_to_linking_stack(attr=self._cy, attr_name='cy')
 
     @property
-    @add_debug_info_setting(  # type: ignore
-        module_name=__name__, class_name='CyInterface')
     def y(self) -> Int:
         """
         Get a center y-coordinate.
@@ -65,15 +63,18 @@ class CyInterface(
         >>> circle.y
         Int(120)
         """
-        import apysc as ap
-        from apysc._type import value_util
-        self._initialize_cy_if_not_initialized()
-        y: ap.Int = value_util.get_copy(value=self._cy)
-        return y
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='y', args=[], kwargs={},
+                module_name=__name__,
+                class_name=CyInterface.__name__):
+            import apysc as ap
+            from apysc._type import value_util
+            self._initialize_cy_if_not_initialized()
+            y: ap.Int = value_util.get_copy(value=self._cy)
+            return y
 
     @y.setter
-    @add_debug_info_setting(  # type: ignore
-        module_name=__name__, class_name='CyInterface')
     def y(self, value: Int) -> None:
         """
         Update a center y-coordinate.
@@ -88,16 +89,21 @@ class CyInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
-        import apysc as ap
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=value)
-        if not isinstance(value, ap.Int):
-            value = ap.Int(value)
-        self._cy = value
-        self._cy._append_incremental_calc_substitution_expression()
-        self._append_cy_update_expression()
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='y', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=CyInterface.__name__):
+            import apysc as ap
+            from apysc._validation import number_validation
+            number_validation.validate_integer(integer=value)
+            if not isinstance(value, ap.Int):
+                value = ap.Int(value)
+            self._cy = value
+            self._cy._append_incremental_calc_substitution_expression()
+            self._append_cy_update_expression()
 
-        self._append_cy_attr_linking_setting()
+            self._append_cy_attr_linking_setting()
 
     @add_debug_info_setting(  # type: ignore
         module_name=__name__, class_name='CyInterface')

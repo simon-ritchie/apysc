@@ -12,6 +12,7 @@ from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
+from apysc._html.debug_mode import add_debug_info_setting
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage
@@ -32,6 +33,8 @@ class DisplayObject(
 
     stage: 'Stage'
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='DisplayObject')
     def __init__(self, *, variable_name: str) -> None:
         """
         Display object (base) class for the common interfaces.
@@ -48,21 +51,16 @@ class DisplayObject(
             - https://simon-ritchie.github.io/apysc/display_object.html
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=DisplayObject):
-            from apysc._validation import string_validation
-            stage: ap.Stage = ap.get_stage()
-            self.stage: ap.Stage = stage
-            self._variable_name = variable_name
-            string_validation.validate_not_empty_string(string=variable_name)
+        from apysc._validation import string_validation
+        stage: ap.Stage = ap.get_stage()
+        self.stage: ap.Stage = stage
+        self._variable_name = variable_name
+        string_validation.validate_not_empty_string(string=variable_name)
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='DisplayObject')
     def _set_overflow_visible_setting(self) -> None:
         """
         Set the `visible` value to the `overflow` CSS property.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._set_overflow_visible_setting, locals_=locals(),
-                module_name=__name__, class_=DisplayObject):
-            self.set_css(name='overflow', value='visible')
+        self.set_css(name='overflow', value='visible')

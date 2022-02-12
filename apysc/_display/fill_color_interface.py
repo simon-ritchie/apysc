@@ -9,6 +9,7 @@ from apysc._animation.animation_fill_color_interface import \
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class FillColorInterface(
@@ -44,10 +45,12 @@ class FillColorInterface(
         >>> rectangle.fill_color
         String('#ff00aa')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='fill_color', locals_=locals(),
-                module_name=__name__, class_=FillColorInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='fill_color', args=[], kwargs={},
+                module_name=__name__,
+                class_name=FillColorInterface.__name__):
+            import apysc as ap
             from apysc._type import value_util
             self._initialize_fill_color_if_not_initialized()
             fill_color: ap.String = value_util.get_copy(value=self._fill_color)
@@ -68,10 +71,11 @@ class FillColorInterface(
         - Graphics fill_color interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='fill_color', locals_=locals(),
-                module_name=__name__, class_=FillColorInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='fill_color', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=FillColorInterface.__name__):
             self._update_fill_color_and_skip_appending_exp(value=value)
             self._append_fill_color_update_expression()
 
@@ -80,19 +84,17 @@ class FillColorInterface(
             self._append_attr_to_linking_stack(
                 attr=self._fill_color, attr_name='fill_color')
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='FillColorInterface')
     def _append_fill_color_update_expression(self) -> None:
         """
         Append fill color updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_fill_color_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=FillColorInterface):
-            expression: str = (
-                f'{self.variable_name}.fill("{self.fill_color}");'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}.fill("{self.fill_color}");'
+        )
+        ap.append_js_expression(expression=expression)
 
     def _set_initial_fill_color_if_not_blank(
             self, *, fill_color: Union[str, String]) -> None:

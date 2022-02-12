@@ -9,6 +9,7 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.revert_interface import RevertInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class FillAlphaInterface(
@@ -26,19 +27,16 @@ class FillAlphaInterface(
 
         self._append_fill_alpha_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='FillAlphaInterface')
     def _append_fill_alpha_attr_linking_setting(self) -> None:
         """
         Append a scale-y attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_fill_alpha_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=FillAlphaInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._fill_alpha, attr_name='fill_alpha')
-            self._append_attr_to_linking_stack(
-                attr=self._fill_alpha, attr_name='fill_alpha')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._fill_alpha, attr_name='fill_alpha')
+        self._append_attr_to_linking_stack(
+            attr=self._fill_alpha, attr_name='fill_alpha')
 
     @property
     def fill_alpha(self) -> Number:
@@ -67,10 +65,12 @@ class FillAlphaInterface(
         >>> rectangle.fill_alpha
         Number(0.5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='fill_alpha', locals_=locals(),
-                module_name=__name__, class_=FillAlphaInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='fill_alpha', args=[], kwargs={},
+                module_name=__name__,
+                class_name=FillAlphaInterface.__name__):
+            import apysc as ap
             from apysc._type import value_util
             self._initialize_fill_alpha_if_not_initialized()
             fill_alpha: ap.Number = value_util.get_copy(
@@ -93,10 +93,12 @@ class FillAlphaInterface(
         - Graphics fill_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_alpha.html
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='fill_alpha', locals_=locals(),
-                module_name=__name__, class_=FillAlphaInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='fill_alpha', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=FillAlphaInterface.__name__):
+            import apysc as ap
             if not isinstance(value, NumberValueInterface):
                 value = ap.Number(value=value)
             self._update_fill_alpha_and_skip_appending_exp(value=value)
@@ -105,22 +107,20 @@ class FillAlphaInterface(
 
             self._append_fill_alpha_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='FillAlphaInterface')
     def _append_fill_alpha_update_expression(self) -> None:
         """
         Append fill alpha updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_fill_alpha_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=FillAlphaInterface):
-            from apysc._type import value_util
-            value_str: str = value_util.get_value_str_for_expression(
-                value=self._fill_alpha)
-            expression: str = (
-                f'{self.variable_name}.fill({{opacity: {value_str}}});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        value_str: str = value_util.get_value_str_for_expression(
+            value=self._fill_alpha)
+        expression: str = (
+            f'{self.variable_name}.fill({{opacity: {value_str}}});'
+        )
+        ap.append_js_expression(expression=expression)
 
     def _update_fill_alpha_and_skip_appending_exp(
             self, *, value: Number) -> None:

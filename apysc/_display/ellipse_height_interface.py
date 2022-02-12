@@ -6,6 +6,7 @@ from typing import Dict
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
@@ -25,19 +26,16 @@ class EllipseHeightInterface(
 
         self._append_ellipse_height_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='EllipseHeightInterface')
     def _append_ellipse_height_attr_linking_setting(self) -> None:
         """
         Append ellipse-height attribute linking settings.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_ellipse_height_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=EllipseHeightInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._ellipse_height, attr_name='ellipse_height')
-            self._append_attr_to_linking_stack(
-                attr=self._ellipse_height, attr_name='ellipse_height')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._ellipse_height, attr_name='ellipse_height')
+        self._append_attr_to_linking_stack(
+            attr=self._ellipse_height, attr_name='ellipse_height')
 
     @property
     def ellipse_height(self) -> Int:
@@ -62,10 +60,11 @@ class EllipseHeightInterface(
         >>> rectangle.ellipse_height
         Int(15)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='ellipse_height', locals_=locals(),
-                module_name=__name__, class_=EllipseHeightInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='ellipse_height', args=[], kwargs={},
+                module_name=__name__,
+                class_name=EllipseHeightInterface.__name__):
             from apysc._type import value_util
             self._initialize_ellipse_height_if_not_initialized()
             return value_util.get_copy(value=self._ellipse_height)
@@ -80,10 +79,12 @@ class EllipseHeightInterface(
         value : int or Int
             Ellipse height value.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='ellipse_height', locals_=locals(),
-                module_name=__name__, class_=EllipseHeightInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='ellipse_height', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=EllipseHeightInterface.__name__):
+            import apysc as ap
             from apysc._validation import number_validation
             number_validation.validate_integer(integer=value)
             if isinstance(value, int):
@@ -95,30 +96,28 @@ class EllipseHeightInterface(
 
             self._append_ellipse_height_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='EllipseHeightInterface')
     def _append_ellipse_height_update_expression(self) -> None:
         """
         Append ellipse height updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_ellipse_height_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=EllipseHeightInterface):
-            from apysc._type import value_util
-            self._initialize_ellipse_height_if_not_initialized()
-            if hasattr(self, '_ellipse_width'):
-                width_value_str: str = value_util.get_value_str_for_expression(
-                    value=getattr(self, '_ellipse_width'))
-            else:
-                width_value_str = value_util.get_value_str_for_expression(
-                    value=0)
-            height_value_str: str = value_util.get_value_str_for_expression(
-                value=self._ellipse_height)
-            expression: str = (
-                f'{self.variable_name}.radius({width_value_str}, '
-                f'{height_value_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        self._initialize_ellipse_height_if_not_initialized()
+        if hasattr(self, '_ellipse_width'):
+            width_value_str: str = value_util.get_value_str_for_expression(
+                value=getattr(self, '_ellipse_width'))
+        else:
+            width_value_str = value_util.get_value_str_for_expression(
+                value=0)
+        height_value_str: str = value_util.get_value_str_for_expression(
+            value=self._ellipse_height)
+        expression: str = (
+            f'{self.variable_name}.radius({width_value_str}, '
+            f'{height_value_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
     _ellipse_height_snapshots: Dict[str, int]
 

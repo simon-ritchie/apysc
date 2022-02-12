@@ -5,6 +5,7 @@ from typing import Union
 
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineDashDotSetting(Dictionary[str, Int]):
@@ -36,6 +37,8 @@ class LineDashDotSetting(Dictionary[str, Int]):
     Int(3)
     """
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineDashDotSetting')
     def __init__(
             self, dot_size: Union[int, Int],
             dash_size: Union[int, Int],
@@ -76,26 +79,22 @@ class LineDashDotSetting(Dictionary[str, Int]):
         >>> line.line_dash_dot_setting.space_size
         Int(3)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=LineDashDotSetting):
-            from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val
-            from apysc._validation import number_validation
-            number_validation.validate_nums_are_int_and_gt_zero(
-                nums=[dot_size, dash_size, space_size])
-            dot_size_: Int = get_copied_int_from_builtin_val(
-                integer=dot_size)
-            dash_size_: Int = get_copied_int_from_builtin_val(
-                integer=dash_size)
-            space_size_: Int = get_copied_int_from_builtin_val(
-                integer=space_size)
-            super(LineDashDotSetting, self).__init__({
-                'dot_size': dot_size_,
-                'dash_size': dash_size_,
-                'space_size': space_size_,
-            })
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
+        from apysc._validation import number_validation
+        number_validation.validate_nums_are_int_and_gt_zero(
+            nums=[dot_size, dash_size, space_size])
+        dot_size_: Int = get_copied_int_from_builtin_val(
+            integer=dot_size)
+        dash_size_: Int = get_copied_int_from_builtin_val(
+            integer=dash_size)
+        space_size_: Int = get_copied_int_from_builtin_val(
+            integer=space_size)
+        super(LineDashDotSetting, self).__init__({
+            'dot_size': dot_size_,
+            'dash_size': dash_size_,
+            'space_size': space_size_,
+        })
 
     @property
     def dot_size(self) -> Int:
@@ -120,10 +119,11 @@ class LineDashDotSetting(Dictionary[str, Int]):
         >>> line.line_dash_dot_setting.dot_size
         Int(2)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='dot_size', locals_=locals(),
-                module_name=__name__, class_=LineDashDotSetting):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='dot_size', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineDashDotSetting.__name__):
             return self['dot_size']
 
     @property
@@ -149,10 +149,11 @@ class LineDashDotSetting(Dictionary[str, Int]):
         >>> line.line_dash_dot_setting.dash_size
         Int(5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='dash_size', locals_=locals(),
-                module_name=__name__, class_=LineDashDotSetting):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='dash_size', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineDashDotSetting.__name__):
             return self['dash_size']
 
     @property
@@ -178,8 +179,9 @@ class LineDashDotSetting(Dictionary[str, Int]):
         >>> line.line_dash_dot_setting.space_size
         Int(3)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='space_size', locals_=locals(),
-                module_name=__name__, class_=LineDashDotSetting):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='space_size', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineDashDotSetting.__name__):
             return self['space_size']

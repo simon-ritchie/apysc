@@ -9,6 +9,7 @@ from apysc._animation.animation_line_color_interface import \
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineColorInterface(
@@ -44,10 +45,12 @@ class LineColorInterface(
         >>> line.line_color
         String('#00aaff')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_color', locals_=locals(),
-                module_name=__name__, class_=LineColorInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_color', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineColorInterface.__name__):
+            import apysc as ap
             from apysc._type import value_util
             self._initialize_line_color_if_not_initialized()
             line_color: ap.String = value_util.get_copy(
@@ -69,10 +72,12 @@ class LineColorInterface(
         - Graphics line_color interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_color.html
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_color', locals_=locals(),
-                module_name=__name__, class_=LineColorInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_color', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineColorInterface.__name__):
+            import apysc as ap
             self._initialize_line_color_if_not_initialized()
             self._update_line_color_and_skip_appending_exp(value=value)
             self._append_line_color_update_expression()
@@ -82,22 +87,20 @@ class LineColorInterface(
             self._append_attr_to_linking_stack(
                 attr=self._line_color, attr_name='line_color')
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineColorInterface')
     def _append_line_color_update_expression(self) -> None:
         """
         Append line color updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_line_color_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=LineColorInterface):
-            from apysc._type import value_util
-            line_color_str: str = value_util.get_value_str_for_expression(
-                value=self._line_color)
-            expression: str = (
-                f'{self.variable_name}.stroke({line_color_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        line_color_str: str = value_util.get_value_str_for_expression(
+            value=self._line_color)
+        expression: str = (
+            f'{self.variable_name}.stroke({line_color_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
     def _set_initial_line_color_if_not_blank(
             self, *, line_color: Union[str, String]) -> None:

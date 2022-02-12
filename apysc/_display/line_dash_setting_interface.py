@@ -7,6 +7,7 @@ from typing import Optional
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineDashSettingInterface(VariableNameInterface, RevertInterface):
@@ -53,10 +54,11 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         >>> line.line_dash_setting.space_size
         Int(2)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_dash_setting', locals_=locals(),
-                module_name=__name__, class_=LineDashSettingInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_dash_setting', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineDashSettingInterface.__name__):
             self._initialize_line_dash_setting_if_not_initialized()
             return self._line_dash_setting
 
@@ -75,10 +77,11 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         - Graphics line_dash_setting interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_dash_setting.html  # noqa
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_dash_setting', locals_=locals(),
-                module_name=__name__, class_=LineDashSettingInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_dash_setting', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=LineDashSettingInterface.__name__):
             from apysc._validation import display_validation
             self._update_line_dash_setting_and_skip_appending_exp(value=value)
             self._append_line_dash_setting_update_expression()
@@ -102,29 +105,27 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
                 '\nAcceptable ones are: LineDashSetting or None.')
         self._line_dash_setting = value
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineDashSettingInterface')
     def _append_line_dash_setting_update_expression(self) -> None:
         """
         Append line dash setting updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_line_dash_setting_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=LineDashSettingInterface):
-            if self._line_dash_setting is None:
-                setting_str: str = '""'
-            else:
-                setting_str = (
-                    'String('
-                    f'{self._line_dash_setting.dash_size.variable_name})'
-                    ' + " " + '
-                    'String('
-                    f'{self._line_dash_setting.space_size.variable_name})'
-                )
-            expression: str = (
-                f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
+        if self._line_dash_setting is None:
+            setting_str: str = '""'
+        else:
+            setting_str = (
+                'String('
+                f'{self._line_dash_setting.dash_size.variable_name})'
+                ' + " " + '
+                'String('
+                f'{self._line_dash_setting.space_size.variable_name})'
             )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
     _line_dash_setting_snapshots: Dict[str, Optional[LineDashSetting]]
 

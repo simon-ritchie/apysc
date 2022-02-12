@@ -8,6 +8,7 @@ from apysc._display.line_joints import LineJoints
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineJointsInterface(VariableNameInterface, RevertInterface):
@@ -46,10 +47,11 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         >>> line.line_joints
         String('round')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_joints', locals_=locals(),
-                module_name=__name__, class_=LineJointsInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_joints', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineJointsInterface.__name__):
             self._initialize_line_joints_if_not_initialized()
             return self._line_joints._copy()
 
@@ -63,10 +65,11 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         value : String or LineJoints
             Line joints style setting to set.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_joints', locals_=locals(),
-                module_name=__name__, class_=LineJointsInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_joints', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=LineJointsInterface.__name__):
             self._update_line_joints_and_skip_appending_exp(value=value)
             self._append_line_joints_update_expression()
 
@@ -92,23 +95,21 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         else:
             self._line_joints = String(value.value)
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineJointsInterface')
     def _append_line_joints_update_expression(self) -> None:
         """
         Append line cap updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_line_joints_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=LineJointsInterface):
-            from apysc._type import value_util
-            joints_name: str = value_util.get_value_str_for_expression(
-                value=self._line_joints)
-            expression: str = (
-                f'{self.variable_name}.attr'
-                f'({{"stroke-linejoin": {joints_name}}});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        joints_name: str = value_util.get_value_str_for_expression(
+            value=self._line_joints)
+        expression: str = (
+            f'{self.variable_name}.attr'
+            f'({{"stroke-linejoin": {joints_name}}});'
+        )
+        ap.append_js_expression(expression=expression)
 
     _line_joints_snapshots: Dict[str, str]
 

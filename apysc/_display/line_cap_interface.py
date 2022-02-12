@@ -8,6 +8,7 @@ from apysc._display.line_caps import LineCaps
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineCapInterface(VariableNameInterface, RevertInterface):
@@ -45,10 +46,11 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         >>> line.line_cap
         String('round')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_cap', locals_=locals(),
-                module_name=__name__, class_=LineCapInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_cap', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineCapInterface.__name__):
             self._initialize_line_cap_if_not_initialized()
             return self._line_cap._copy()
 
@@ -62,29 +64,28 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         value : String or LineCaps
             Line cap style setting to set.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_cap', locals_=locals(),
-                module_name=__name__, class_=LineCapInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_cap', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=LineCapInterface.__name__):
             self._update_line_cap_and_skip_appending_exp(value=value)
             self._append_line_cap_update_expression()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineCapInterface')
     def _append_line_cap_update_expression(self) -> None:
         """
         Append line cap updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_line_cap_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=LineCapInterface):
-            from apysc._type import value_util
-            cap_name: str = value_util.get_value_str_for_expression(
-                value=self._line_cap)
-            expression: str = (
-                f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        cap_name: str = value_util.get_value_str_for_expression(
+            value=self._line_cap)
+        expression: str = (
+            f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
+        )
+        ap.append_js_expression(expression=expression)
 
     def _update_line_cap_and_skip_appending_exp(
             self, *, value: Union[String, LineCaps]) -> None:

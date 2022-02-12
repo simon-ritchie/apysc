@@ -5,6 +5,7 @@ from typing import Union
 
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineDashSetting(Dictionary[str, Int]):
@@ -33,6 +34,8 @@ class LineDashSetting(Dictionary[str, Int]):
     Int(2)
     """
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineDashSetting')
     def __init__(
             self, dash_size: Union[int, Int],
             space_size: Union[int, Int]) -> None:
@@ -68,22 +71,19 @@ class LineDashSetting(Dictionary[str, Int]):
         Int(2)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=LineDashSetting):
-            from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val
-            from apysc._validation import number_validation
-            number_validation.validate_nums_are_int_and_gt_zero(
-                nums=[dash_size, space_size])
-            dash_size_: ap.Int = get_copied_int_from_builtin_val(
-                integer=dash_size)
-            space_size_: ap.Int = get_copied_int_from_builtin_val(
-                integer=space_size)
-            super(LineDashSetting, self).__init__({
-                'dash_size': dash_size_,
-                'space_size': space_size_,
-            })
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
+        from apysc._validation import number_validation
+        number_validation.validate_nums_are_int_and_gt_zero(
+            nums=[dash_size, space_size])
+        dash_size_: ap.Int = get_copied_int_from_builtin_val(
+            integer=dash_size)
+        space_size_: ap.Int = get_copied_int_from_builtin_val(
+            integer=space_size)
+        super(LineDashSetting, self).__init__({
+            'dash_size': dash_size_,
+            'space_size': space_size_,
+        })
 
     @property
     def dash_size(self) -> Int:
@@ -108,10 +108,11 @@ class LineDashSetting(Dictionary[str, Int]):
         >>> line.line_dash_setting.dash_size
         Int(5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='dash_size', locals_=locals(),
-                module_name=__name__, class_=LineDashSetting):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='dash_size', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineDashSetting.__name__):
             return self['dash_size']
 
     @property
@@ -137,8 +138,9 @@ class LineDashSetting(Dictionary[str, Int]):
         >>> line.line_dash_setting.space_size
         Int(2)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='space_size', locals_=locals(),
-                module_name=__name__, class_=LineDashSetting):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='space_size', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineDashSetting.__name__):
             return self['space_size']

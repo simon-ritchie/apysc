@@ -7,6 +7,7 @@ from typing import Optional
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
@@ -56,10 +57,11 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         >>> line.line_dash_dot_setting.space_size
         Int(3)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_dash_dot_setting', locals_=locals(),
-                module_name=__name__, class_=LineDashDotSettingInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_dash_dot_setting', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineDashDotSettingInterface.__name__):
             self._initialize_line_dash_dot_setting_if_not_initialized()
             return self._line_dash_dot_setting
 
@@ -79,10 +81,11 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         - Graphics line_dash_dot_setting interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_dash_dot_setting.html  # noqa
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_dash_dot_setting', locals_=locals(),
-                module_name=__name__, class_=LineDashDotSettingInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_dash_dot_setting', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineDashDotSettingInterface.__name__):
             from apysc._validation import display_validation
             self._update_line_dash_dot_setting_and_skip_appending_exp(
                 value=value)
@@ -108,35 +111,32 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
                 '\nAcceptable ones are: LineDashDotSetting or None.')
         self._line_dash_dot_setting = value
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineDashDotSettingInterface')
     def _append_line_dash_dot_setting_update_expression(self) -> None:
         """
         Append line dash dot setting updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_line_dash_dot_setting_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=LineDashDotSetting):
-            import apysc as ap
-            if self._line_dash_dot_setting is None:
-                setting_str: str = '""'
-            else:
-                dot_size_name: str = \
-                    self._line_dash_dot_setting.dot_size.variable_name
-                dash_size_name: str = \
-                    self._line_dash_dot_setting.dash_size.variable_name
-                space_size_name: str = \
-                    self._line_dash_dot_setting.space_size.variable_name
-                setting_str = (
-                    f'String({dot_size_name}) + " " + '
-                    f'String({space_size_name}) + " " + '
-                    f'String({dash_size_name}) + " " + '
-                    f'String({space_size_name})'
-                )
-            expression: str = (
-                f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
+        if self._line_dash_dot_setting is None:
+            setting_str: str = '""'
+        else:
+            dot_size_name: str = \
+                self._line_dash_dot_setting.dot_size.variable_name
+            dash_size_name: str = \
+                self._line_dash_dot_setting.dash_size.variable_name
+            space_size_name: str = \
+                self._line_dash_dot_setting.space_size.variable_name
+            setting_str = (
+                f'String({dot_size_name}) + " " + '
+                f'String({space_size_name}) + " " + '
+                f'String({dash_size_name}) + " " + '
+                f'String({space_size_name})'
             )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
     _line_dash_dot_setting_snapshots: Dict[str, Optional[LineDashDotSetting]]
 

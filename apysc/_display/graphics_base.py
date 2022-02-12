@@ -22,6 +22,7 @@ from apysc._display.scale_y_from_point_interface import \
 from apysc._display.skew_x_interface import SkewXInterface
 from apysc._display.skew_y_interface import SkewYInterface
 from apysc._type.int import Int
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class GraphicsBase(
@@ -33,6 +34,8 @@ class GraphicsBase(
 
     _variable_name: str
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='GraphicsBase')
     def __init__(
             self,
             *,
@@ -56,24 +59,21 @@ class GraphicsBase(
             js expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=GraphicsBase):
-            from apysc._display.graphics import Graphics
-            from apysc._validation import display_validation
-            from apysc._validation import number_validation
-            from apysc._validation import string_validation
+        from apysc._display.graphics import Graphics
+        from apysc._validation import display_validation
+        from apysc._validation import number_validation
+        from apysc._validation import string_validation
 
-            display_validation.validate_graphics(graphics=parent)
-            self.parent_graphics: Graphics = parent
-            number_validation.validate_integer(integer=x)
-            number_validation.validate_integer(integer=y)
-            if isinstance(x, int):
-                x = ap.Int(x)
-            self._x = x
-            if isinstance(y, int):
-                y = ap.Int(y)
-            self._y = y
-            string_validation.validate_not_empty_string(string=variable_name)
-            super(GraphicsBase, self).__init__(
-                variable_name=variable_name)
+        display_validation.validate_graphics(graphics=parent)
+        self.parent_graphics: Graphics = parent
+        number_validation.validate_integer(integer=x)
+        number_validation.validate_integer(integer=y)
+        if isinstance(x, int):
+            x = ap.Int(x)
+        self._x = x
+        if isinstance(y, int):
+            y = ap.Int(y)
+        self._y = y
+        string_validation.validate_not_empty_string(string=variable_name)
+        super(GraphicsBase, self).__init__(
+            variable_name=variable_name)

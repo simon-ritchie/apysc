@@ -7,6 +7,7 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class FlipXInterface(
@@ -25,19 +26,16 @@ class FlipXInterface(
 
         self._append_flip_x_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='FlipXInterface')
     def _append_flip_x_attr_linking_setting(self) -> None:
         """
         Append a flip-x attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_flip_x_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=FlipXInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._flip_x, attr_name='flip_x')
-            self._append_attr_to_linking_stack(
-                attr=self._flip_x, attr_name='flip_x')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._flip_x, attr_name='flip_x')
+        self._append_attr_to_linking_stack(
+            attr=self._flip_x, attr_name='flip_x')
 
     @property
     def flip_x(self) -> Boolean:
@@ -70,10 +68,11 @@ class FlipXInterface(
         >>> polygon.flip_x
         Boolean(True)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='flip_x', locals_=locals(),
-                module_name=__name__, class_=FlipXInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='fill_color', args=[], kwargs={},
+                module_name=__name__,
+                class_name=FlipXInterface.__name__):
             from apysc._type import value_util
             self._initialize_flip_x_if_not_initialized()
             return value_util.get_copy(value=self._flip_x)
@@ -94,10 +93,12 @@ class FlipXInterface(
         - GraphicsBase flip_x and flip_y interfaces document
             - https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html  # noqa
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='flip_x', locals_=locals(),
-                module_name=__name__, class_=FlipXInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='fill_color', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=FlipXInterface.__name__):
+            import apysc as ap
             self._initialize_flip_x_if_not_initialized()
             before_value: ap.Boolean = self._flip_x
             self._flip_x = value
@@ -105,6 +106,8 @@ class FlipXInterface(
 
             self._append_flip_x_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='FlipXInterface')
     def _append_flip_x_update_expression(
             self, *, before_value: Boolean) -> None:
         """
@@ -116,18 +119,14 @@ class FlipXInterface(
             Before updating flipping value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_flip_x_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=FlipXInterface):
-            from apysc._display import flip_interface_helper
-            self._initialize_flip_x_if_not_initialized()
-            expression: str = flip_interface_helper.\
-                make_flip_update_expression(
-                    before_value=before_value, after_value=self._flip_x,
-                    axis=flip_interface_helper.Axis.X,
-                    interface_variable_name=self.variable_name)
-            ap.append_js_expression(expression=expression)
+        from apysc._display import flip_interface_helper
+        self._initialize_flip_x_if_not_initialized()
+        expression: str = flip_interface_helper.\
+            make_flip_update_expression(
+                before_value=before_value, after_value=self._flip_x,
+                axis=flip_interface_helper.Axis.X,
+                interface_variable_name=self.variable_name)
+        ap.append_js_expression(expression=expression)
 
     _flip_x_snapshots: Dict[str, bool]
 

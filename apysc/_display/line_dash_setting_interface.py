@@ -56,6 +56,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         >>> line.line_dash_setting.space_size
         Int(2)
         """
+        self._initialize_line_dash_setting_if_not_initialized()
         return self._line_dash_setting
 
     @line_dash_setting.setter

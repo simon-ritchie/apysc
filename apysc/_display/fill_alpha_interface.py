@@ -38,7 +38,9 @@ class FillAlphaInterface(
         self._append_attr_to_linking_stack(
             attr=self._fill_alpha, attr_name='fill_alpha')
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='FillAlphaInterface')
     def fill_alpha(self) -> Number:
         """
         Get this instance's fill opacity.
@@ -65,17 +67,12 @@ class FillAlphaInterface(
         >>> rectangle.fill_alpha
         Number(0.5)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='fill_alpha', args=[], kwargs={},
-                module_name=__name__,
-                class_name=FillAlphaInterface.__name__):
-            import apysc as ap
-            from apysc._type import value_util
-            self._initialize_fill_alpha_if_not_initialized()
-            fill_alpha: ap.Number = value_util.get_copy(
-                value=self._fill_alpha)
-            return fill_alpha
+        import apysc as ap
+        from apysc._type import value_util
+        self._initialize_fill_alpha_if_not_initialized()
+        fill_alpha: ap.Number = value_util.get_copy(
+            value=self._fill_alpha)
+        return fill_alpha
 
     @fill_alpha.setter
     def fill_alpha(

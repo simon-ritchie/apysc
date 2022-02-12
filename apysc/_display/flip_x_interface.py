@@ -37,7 +37,9 @@ class FlipXInterface(
         self._append_attr_to_linking_stack(
             attr=self._flip_x, attr_name='flip_x')
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='FlipXInterface')
     def flip_x(self) -> Boolean:
         """
         Get a boolean value whether the x-axis is flipping or not.
@@ -68,14 +70,9 @@ class FlipXInterface(
         >>> polygon.flip_x
         Boolean(True)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='fill_color', args=[], kwargs={},
-                module_name=__name__,
-                class_name=FlipXInterface.__name__):
-            from apysc._type import value_util
-            self._initialize_flip_x_if_not_initialized()
-            return value_util.get_copy(value=self._flip_x)
+        from apysc._type import value_util
+        self._initialize_flip_x_if_not_initialized()
+        return value_util.get_copy(value=self._flip_x)
 
     @flip_x.setter
     def flip_x(self, value: Boolean) -> None:

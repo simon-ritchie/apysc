@@ -37,7 +37,9 @@ class EllipseHeightInterface(
         self._append_attr_to_linking_stack(
             attr=self._ellipse_height, attr_name='ellipse_height')
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='EllipseHeightInterface')
     def ellipse_height(self) -> Int:
         """
         Get ellipse height value.
@@ -60,14 +62,9 @@ class EllipseHeightInterface(
         >>> rectangle.ellipse_height
         Int(15)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='ellipse_height', args=[], kwargs={},
-                module_name=__name__,
-                class_name=EllipseHeightInterface.__name__):
-            from apysc._type import value_util
-            self._initialize_ellipse_height_if_not_initialized()
-            return value_util.get_copy(value=self._ellipse_height)
+        from apysc._type import value_util
+        self._initialize_ellipse_height_if_not_initialized()
+        return value_util.get_copy(value=self._ellipse_height)
 
     @ellipse_height.setter
     def ellipse_height(self, value: Int) -> None:

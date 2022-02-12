@@ -36,7 +36,9 @@ class CyInterface(
             new_attr=self._cy, attr_name='cy')
         self._append_attr_to_linking_stack(attr=self._cy, attr_name='cy')
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='CyInterface')
     def y(self) -> Int:
         """
         Get a center y-coordinate.
@@ -63,16 +65,11 @@ class CyInterface(
         >>> circle.y
         Int(120)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='y', args=[], kwargs={},
-                module_name=__name__,
-                class_name=CyInterface.__name__):
-            import apysc as ap
-            from apysc._type import value_util
-            self._initialize_cy_if_not_initialized()
-            y: ap.Int = value_util.get_copy(value=self._cy)
-            return y
+        import apysc as ap
+        from apysc._type import value_util
+        self._initialize_cy_if_not_initialized()
+        y: ap.Int = value_util.get_copy(value=self._cy)
+        return y
 
     @y.setter
     def y(self, value: Int) -> None:

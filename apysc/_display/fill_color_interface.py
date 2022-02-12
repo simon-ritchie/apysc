@@ -17,7 +17,9 @@ class FillColorInterface(
 
     _fill_color: String
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='FillColorInterface')
     def fill_color(self) -> String:
         """
         Get this instance's fill color.
@@ -45,16 +47,11 @@ class FillColorInterface(
         >>> rectangle.fill_color
         String('#ff00aa')
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='fill_color', args=[], kwargs={},
-                module_name=__name__,
-                class_name=FillColorInterface.__name__):
-            import apysc as ap
-            from apysc._type import value_util
-            self._initialize_fill_color_if_not_initialized()
-            fill_color: ap.String = value_util.get_copy(value=self._fill_color)
-            return fill_color
+        import apysc as ap
+        from apysc._type import value_util
+        self._initialize_fill_color_if_not_initialized()
+        fill_color: ap.String = value_util.get_copy(value=self._fill_color)
+        return fill_color
 
     @fill_color.setter
     def fill_color(self, value: String) -> None:

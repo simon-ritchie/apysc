@@ -9,8 +9,8 @@ from apysc._display.cy_interface import CyInterface
 from apysc._display.line_base import LineBase
 from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
-from apysc._type.int import Int
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.int import Int
 
 
 class Ellipse(  # type: ignore

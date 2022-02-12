@@ -6,10 +6,10 @@ from typing import Union
 
 from apysc._animation.animation_fill_color_interface import \
     AnimationFillColorInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
-from apysc._html.debug_mode import add_debug_info_setting
 
 
 class FillColorInterface(

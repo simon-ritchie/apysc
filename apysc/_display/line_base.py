@@ -47,7 +47,6 @@ class LineBase(
         parent_graphics : Graphics
             Parent Graphics instance.
         """
-        import apysc as ap
         from apysc._display.graphics import Graphics
         parent_graphics_: Graphics = parent_graphics
         if parent_graphics_.line_dot_setting is not None:
@@ -77,7 +76,6 @@ class LineBase(
         parent : Graphics
             Graphics instance to link this graphic.
         """
-        import apysc as ap
         from apysc._display.graphics import Graphics
         parent_graphics: Graphics = parent
         self._set_initial_fill_color_if_not_blank(
@@ -141,7 +139,6 @@ class LineBase(
         expression : str
             After appending expression.
         """
-        import apysc as ap
         from apysc._display import graphics_expression
         from apysc._display.graphics import Graphics
         graphics: Graphics = self.parent_graphics

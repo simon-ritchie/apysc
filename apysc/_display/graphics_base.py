@@ -21,8 +21,8 @@ from apysc._display.scale_y_from_point_interface import \
     ScaleYFromPointInterface
 from apysc._display.skew_x_interface import SkewXInterface
 from apysc._display.skew_y_interface import SkewYInterface
-from apysc._type.int import Int
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.int import Int
 
 
 class GraphicsBase(

@@ -899,7 +899,6 @@ class Graphics(
         ...             dest_x=100, dest_y=50),
         ...     ])
         """
-        import apysc as ap
         path: _path.Path = _path.Path(
             parent=self, path_data_list=path_data_list)
         self.add_child(path)

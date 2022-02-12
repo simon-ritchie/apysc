@@ -117,7 +117,6 @@ def append_y_expression(
     expression : str
         After appended expression string.
     """
-    import apysc as ap
     from apysc._string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (

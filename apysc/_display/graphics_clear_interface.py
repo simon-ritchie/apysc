@@ -10,11 +10,11 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.polyline import Polyline
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._html.debug_mode import add_debug_info_setting
 
 
 class GraphicsClearInterface:

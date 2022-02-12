@@ -12,6 +12,7 @@ from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage
@@ -23,6 +24,8 @@ class ChildInterface(RevertInterface):
     _variable_name: str
     stage: 'Stage'
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='ChildInterface')
     def add_child(self, child: DisplayObject) -> None:
         """
         Add display object child to this instance.
@@ -49,17 +52,14 @@ class ChildInterface(RevertInterface):
         >>> sprite_2.add_child(rectangle)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.add_child, locals_=locals(),
-                module_name=__name__, class_=ChildInterface):
-            from apysc._validation import display_validation
-            self._initialize_children_if_not_initialized()
-            display_validation.validate_display_object(display_object=child)
-            if child.parent is not None:
-                child.remove_from_parent()
-            self._children.append(child)
-            child.parent = self
-            append_expression_of_add_child(child=child)
+        from apysc._validation import display_validation
+        self._initialize_children_if_not_initialized()
+        display_validation.validate_display_object(display_object=child)
+        if child.parent is not None:
+            child.remove_from_parent()
+        self._children.append(child)
+        child.parent = self
+        append_expression_of_add_child(child=child)
 
     def _initialize_children_if_not_initialized(self) -> None:
         """
@@ -70,6 +70,8 @@ class ChildInterface(RevertInterface):
             return
         self._children = Array([])
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='ChildInterface')
     def remove_child(self, child: DisplayObject) -> None:
         """
         Remove display object child from this instance.
@@ -96,19 +98,17 @@ class ChildInterface(RevertInterface):
         >>> print(rectangle.parent)
         None
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.remove_child, locals_=locals(),
-                module_name=__name__, class_=ChildInterface):
-            self._initialize_children_if_not_initialized()
-            append_expression_of_remove_child(child=child)
-            for child_ in self._children.value:  # type: ignore
-                if child_ != child:
-                    continue
-                self._children.remove(child)
-                child.parent = None
-                return
+        self._initialize_children_if_not_initialized()
+        append_expression_of_remove_child(child=child)
+        for child_ in self._children.value:  # type: ignore
+            if child_ != child:
+                continue
+            self._children.remove(child)
+            child.parent = None
+            return
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='ChildInterface')
     def contains(self, child: DisplayObject) -> Boolean:
         """
         Get a boolean whether this instance contains a specified child.
@@ -145,17 +145,14 @@ class ChildInterface(RevertInterface):
         Boolean(False)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.contains, locals_=locals(),
-                module_name=__name__, class_=ChildInterface):
-            self._initialize_children_if_not_initialized()
-            index: ap.Int = self._children.index_of(value=child)
-            if index == -1:
-                result: ap.Boolean = ap.Boolean(False)
-            else:
-                result = ap.Boolean(True)
-            self._append_contains_expression(result=result, child=child)
-            return result
+        self._initialize_children_if_not_initialized()
+        index: ap.Int = self._children.index_of(value=child)
+        if index == -1:
+            result: ap.Boolean = ap.Boolean(False)
+        else:
+            result = ap.Boolean(True)
+        self._append_contains_expression(result=result, child=child)
+        return result
 
     def _append_contains_expression(
             self, *, result: Boolean, child: DisplayObject) -> None:
@@ -177,6 +174,8 @@ class ChildInterface(RevertInterface):
         ap.append_js_expression(expression=expression)
 
     @property
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='ChildInterface')
     def num_children(self) -> Int:
         """
         Get a current children's number.
@@ -205,13 +204,10 @@ class ChildInterface(RevertInterface):
         Int(2)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='num_children', locals_=locals(),
-                module_name=__name__, class_=ChildInterface):
-            self._initialize_children_if_not_initialized()
-            num_children: ap.Int = ap.Int(value=self._children.length)
-            self._append_num_children_expression(num_children=num_children)
-            return num_children
+        self._initialize_children_if_not_initialized()
+        num_children: ap.Int = ap.Int(value=self._children.length)
+        self._append_num_children_expression(num_children=num_children)
+        return num_children
 
     def _append_num_children_expression(
             self, *, num_children: Int) -> None:
@@ -230,6 +226,8 @@ class ChildInterface(RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='ChildInterface')
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """
         Get child at a specified index.
@@ -264,21 +262,17 @@ class ChildInterface(RevertInterface):
         >>> child_at_index_1 == rectangle_2
         True
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.get_child_at, locals_=locals(),
-                module_name=__name__, class_=ChildInterface):
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            self._initialize_children_if_not_initialized()
-            if self.num_children > index:
-                child: DisplayObject = self._children[index]
-            else:
-                variable_name: str = expression_variables_util.\
-                    get_next_variable_name(type_name=var_names.DISPLAY_OBJECT)
-                child = DisplayObject(variable_name=variable_name)
-            self._append_get_child_at_expression(child=child, index=index)
-            return child
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        self._initialize_children_if_not_initialized()
+        if self.num_children > index:
+            child: DisplayObject = self._children[index]
+        else:
+            variable_name: str = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.DISPLAY_OBJECT)
+            child = DisplayObject(variable_name=variable_name)
+        self._append_get_child_at_expression(child=child, index=index)
+        return child
 
     def _append_get_child_at_expression(
             self, *, child: DisplayObject, index: Union[int, Int]) -> None:
@@ -345,6 +339,8 @@ class ChildInterface(RevertInterface):
             child._run_all_revert_methods(snapshot_name=snapshot_name)
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def append_expression_of_add_child(*, child: DisplayObject) -> None:
     """
     Append expression of add_child (add).
@@ -355,17 +351,16 @@ def append_expression_of_add_child(*, child: DisplayObject) -> None:
         Child object to add.
     """
     import apysc as ap
-    with ap.DebugInfo(
-            callable_=append_expression_of_add_child, locals_=locals(),
-            module_name=__name__):
-        parent_name: str = child.parent.variable_name  # type: ignore
-        child_name: str = child.variable_name
-        expression: str = (
-            f'{parent_name}.add({child_name});'
-        )
-        ap.append_js_expression(expression=expression)
+    parent_name: str = child.parent.variable_name  # type: ignore
+    child_name: str = child.variable_name
+    expression: str = (
+        f'{parent_name}.add({child_name});'
+    )
+    ap.append_js_expression(expression=expression)
 
 
+@add_debug_info_setting(  # type: ignore
+    module_name=__name__)
 def append_expression_of_remove_child(*, child: DisplayObject) -> None:
     """
     Append expression of remove_child (removeElement).
@@ -376,18 +371,15 @@ def append_expression_of_remove_child(*, child: DisplayObject) -> None:
         Child object to remove.
     """
     import apysc as ap
-    with ap.DebugInfo(
-            callable_=append_expression_of_remove_child, locals_=locals(),
-            module_name=__name__):
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        parent_name: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.PARENT)
-        child_name: str = child.variable_name
-        expression: str = (
-            f'var {parent_name} = {child_name}.parent();'
-            f'\nif ({parent_name}) {{'
-            f'\n  {parent_name}.removeElement({child_name});'
-            '\n}'
-        )
-        ap.append_js_expression(expression=expression)
+    from apysc._expression import expression_variables_util
+    from apysc._expression import var_names
+    parent_name: str = expression_variables_util.get_next_variable_name(
+        type_name=var_names.PARENT)
+    child_name: str = child.variable_name
+    expression: str = (
+        f'var {parent_name} = {child_name}.parent();'
+        f'\nif ({parent_name}) {{'
+        f'\n  {parent_name}.removeElement({child_name});'
+        '\n}'
+    )
+    ap.append_js_expression(expression=expression)

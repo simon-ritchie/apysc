@@ -7,6 +7,7 @@ from apysc._animation.animation_cx_interface import AnimationCxInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class CxInterface(
@@ -25,20 +26,20 @@ class CxInterface(
 
         self._append_cx_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='CxInterface')
     def _append_cx_attr_linking_setting(self) -> None:
         """
         Append cx attribute linking settings.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_cx_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=CxInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._cx, attr_name='cx')
-            self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._cx, attr_name='cx')
+        self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')
 
     @property
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='CxInterface')
     def x(self) -> Int:
         """
         Get a center x-coordinate.
@@ -66,15 +67,14 @@ class CxInterface(
         Int(120)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='x', locals_=locals(),
-                module_name=__name__, class_=CxInterface):
-            from apysc._type import value_util
-            self._initialize_cx_if_not_initialized()
-            x: ap.Int = value_util.get_copy(value=self._cx)
-            return x
+        from apysc._type import value_util
+        self._initialize_cx_if_not_initialized()
+        x: ap.Int = value_util.get_copy(value=self._cx)
+        return x
 
     @x.setter
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='CxInterface')
     def x(self, value: Int) -> None:
         """
         Update a center x-coordinate.
@@ -90,18 +90,15 @@ class CxInterface(
             - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='x', locals_=locals(),
-                module_name=__name__, class_=CxInterface):
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=value)
-            if not isinstance(value, ap.Int):
-                value = ap.Int(value)
-            self._cx = value
-            self._cx._append_incremental_calc_substitution_expression()
-            self._append_cx_update_expression()
+        from apysc._validation import number_validation
+        number_validation.validate_integer(integer=value)
+        if not isinstance(value, ap.Int):
+            value = ap.Int(value)
+        self._cx = value
+        self._cx._append_incremental_calc_substitution_expression()
+        self._append_cx_update_expression()
 
-            self._append_cx_attr_linking_setting()
+        self._append_cx_attr_linking_setting()
 
     def _append_cx_update_expression(self) -> None:
         """

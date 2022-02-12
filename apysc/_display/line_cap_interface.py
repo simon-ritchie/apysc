@@ -24,7 +24,9 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             return
         self._line_cap = String(LineCaps.BUTT.value)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineCapInterface')
     def line_cap(self) -> Union[String, LineCaps]:
         """
         Get this instance's line cap style setting.
@@ -46,13 +48,8 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         >>> line.line_cap
         String('round')
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='line_cap', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineCapInterface.__name__):
-            self._initialize_line_cap_if_not_initialized()
-            return self._line_cap._copy()
+        self._initialize_line_cap_if_not_initialized()
+        return self._line_cap._copy()
 
     @line_cap.setter
     def line_cap(self, value: Union[String, LineCaps]) -> None:

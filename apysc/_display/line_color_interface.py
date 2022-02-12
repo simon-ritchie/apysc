@@ -17,7 +17,9 @@ class LineColorInterface(
 
     _line_color: String
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineColorInterface')
     def line_color(self) -> String:
         """
         Get this instance's line color.
@@ -45,17 +47,12 @@ class LineColorInterface(
         >>> line.line_color
         String('#00aaff')
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='line_color', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineColorInterface.__name__):
-            import apysc as ap
-            from apysc._type import value_util
-            self._initialize_line_color_if_not_initialized()
-            line_color: ap.String = value_util.get_copy(
-                value=self._line_color)
-            return line_color
+        import apysc as ap
+        from apysc._type import value_util
+        self._initialize_line_color_if_not_initialized()
+        line_color: ap.String = value_util.get_copy(
+            value=self._line_color)
+        return line_color
 
     @line_color.setter
     def line_color(self, value: String) -> None:

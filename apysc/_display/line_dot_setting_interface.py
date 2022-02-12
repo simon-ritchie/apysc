@@ -23,7 +23,9 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
             return
         self._line_dot_setting = None
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineDotSettingInterface')
     def line_dot_setting(self) -> Optional[LineDotSetting]:
         """
         Get this instance's line dot setting.
@@ -50,13 +52,8 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         >>> line.line_dot_setting.dot_size
         Int(5)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='line_dot_setting', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineDotSettingInterface.__name__):
-            self._initialize_line_dot_setting_if_not_initialized()
-            return self._line_dot_setting
+        self._initialize_line_dot_setting_if_not_initialized()
+        return self._line_dot_setting
 
     @line_dot_setting.setter
     def line_dot_setting(self, value: Optional[LineDotSetting]) -> None:

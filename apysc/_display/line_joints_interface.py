@@ -24,7 +24,9 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             return
         self._line_joints = String(LineJoints.MITER.value)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineJointsInterface')
     def line_joints(self) -> Union[String, LineJoints]:
         """
         Get this instance's line joints style setting.
@@ -47,13 +49,8 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         >>> line.line_joints
         String('round')
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='line_joints', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineJointsInterface.__name__):
-            self._initialize_line_joints_if_not_initialized()
-            return self._line_joints._copy()
+        self._initialize_line_joints_if_not_initialized()
+        return self._line_joints._copy()
 
     @line_joints.setter
     def line_joints(self, value: Union[String, LineJoints]) -> None:

@@ -23,7 +23,9 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
             return
         self._line_dash_dot_setting = None
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineDashDotSettingInterface')
     def line_dash_dot_setting(self) -> Optional[LineDashDotSetting]:
         """
         Get current dash dot (1-dot chain) setting.
@@ -57,13 +59,8 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         >>> line.line_dash_dot_setting.space_size
         Int(3)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='line_dash_dot_setting', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineDashDotSettingInterface.__name__):
-            self._initialize_line_dash_dot_setting_if_not_initialized()
-            return self._line_dash_dot_setting
+        self._initialize_line_dash_dot_setting_if_not_initialized()
+        return self._line_dash_dot_setting
 
     @line_dash_dot_setting.setter
     def line_dash_dot_setting(

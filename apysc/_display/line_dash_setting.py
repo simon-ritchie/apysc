@@ -85,7 +85,9 @@ class LineDashSetting(Dictionary[str, Int]):
             'space_size': space_size_,
         })
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineDashSetting')
     def dash_size(self) -> Int:
         """
         Get a dash size setting.
@@ -108,14 +110,11 @@ class LineDashSetting(Dictionary[str, Int]):
         >>> line.line_dash_setting.dash_size
         Int(5)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='dash_size', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineDashSetting.__name__):
-            return self['dash_size']
+        return self['dash_size']
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineDashSetting')
     def space_size(self) -> Int:
         """
         Get a space size setting.
@@ -138,9 +137,4 @@ class LineDashSetting(Dictionary[str, Int]):
         >>> line.line_dash_setting.space_size
         Int(2)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='space_size', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineDashSetting.__name__):
-            return self['space_size']
+        return self['space_size']

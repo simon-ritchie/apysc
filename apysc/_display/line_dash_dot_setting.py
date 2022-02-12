@@ -96,7 +96,9 @@ class LineDashDotSetting(Dictionary[str, Int]):
             'space_size': space_size_,
         })
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineDashDotSetting')
     def dot_size(self) -> Int:
         """
         Get a dot size setting.
@@ -119,14 +121,11 @@ class LineDashDotSetting(Dictionary[str, Int]):
         >>> line.line_dash_dot_setting.dot_size
         Int(2)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='dot_size', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineDashDotSetting.__name__):
-            return self['dot_size']
+        return self['dot_size']
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineDashDotSetting')
     def dash_size(self) -> Int:
         """
         Get a dash size setting.
@@ -149,14 +148,11 @@ class LineDashDotSetting(Dictionary[str, Int]):
         >>> line.line_dash_dot_setting.dash_size
         Int(5)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='dash_size', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineDashDotSetting.__name__):
-            return self['dash_size']
+        return self['dash_size']
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineDashDotSetting')
     def space_size(self) -> Int:
         """
         Get a space size setting.
@@ -179,9 +175,4 @@ class LineDashDotSetting(Dictionary[str, Int]):
         >>> line.line_dash_dot_setting.space_size
         Int(3)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='space_size', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineDashDotSetting.__name__):
-            return self['space_size']
+        return self['space_size']

@@ -68,7 +68,9 @@ class LineDotSetting(Dictionary[str, Int]):
             integer=dot_size)
         super(LineDotSetting, self).__init__({'dot_size': dot_size_})
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineDotSetting')
     def dot_size(self) -> Int:
         """
         Get a dot size setting.
@@ -90,9 +92,4 @@ class LineDotSetting(Dictionary[str, Int]):
         >>> line.line_dot_setting.dot_size
         Int(5)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='dot_size', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineDotSetting.__name__):
-            return self['dot_size']._copy()
+        return self['dot_size']._copy()

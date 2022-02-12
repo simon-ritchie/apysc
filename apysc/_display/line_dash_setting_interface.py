@@ -23,7 +23,9 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
             return
         self._line_dash_setting = None
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineDashSettingInterface')
     def line_dash_setting(self) -> Optional[LineDashSetting]:
         """
         Get current line dash setting.
@@ -54,13 +56,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         >>> line.line_dash_setting.space_size
         Int(2)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='line_dash_setting', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineDashSettingInterface.__name__):
-            self._initialize_line_dash_setting_if_not_initialized()
-            return self._line_dash_setting
+        return self._line_dash_setting
 
     @line_dash_setting.setter
     def line_dash_setting(self, value: Optional[LineDashSetting]) -> None:

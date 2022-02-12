@@ -9,6 +9,7 @@ from apysc._animation.animation_line_alpha_interface import \
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineAlphaInterface(
@@ -26,18 +27,16 @@ class LineAlphaInterface(
 
         self._append_line_alpha_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineAlphaInterface')
     def _append_line_alpha_attr_linking_setting(self) -> None:
         """
         Append a line alpha attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_alpha', locals_=locals(),
-                module_name=__name__, class_=LineAlphaInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._line_alpha, attr_name='line_alpha')
-            self._append_attr_to_linking_stack(
-                attr=self._line_alpha, attr_name='line_alpha')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._line_alpha, attr_name='line_alpha')
+        self._append_attr_to_linking_stack(
+            attr=self._line_alpha, attr_name='line_alpha')
 
     @property
     def line_alpha(self) -> Number:
@@ -66,10 +65,11 @@ class LineAlphaInterface(
         >>> rectangle.line_alpha
         Number(0.5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_alpha', locals_=locals(),
-                module_name=__name__, class_=LineAlphaInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_alpha', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineAlphaInterface.__name__):
             from apysc._type import value_util
             self._initialize_line_alpha_if_not_initialized()
             return value_util.get_copy(value=self._line_alpha)
@@ -89,10 +89,11 @@ class LineAlphaInterface(
         - Graphics line_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_alpha', locals_=locals(),
-                module_name=__name__, class_=LineAlphaInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_alpha', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineAlphaInterface.__name__):
             self._initialize_line_alpha_if_not_initialized()
             self._update_line_alpha_and_skip_appending_exp(value=value)
             self._line_alpha._append_incremental_calc_substitution_expression()
@@ -100,22 +101,20 @@ class LineAlphaInterface(
 
             self._append_line_alpha_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineAlphaInterface')
     def _append_line_alpha_update_expression(self) -> None:
         """
         Append line alpha updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_line_alpha_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=LineAlphaInterface):
-            from apysc._type import value_util
-            line_alpha_str: str = value_util.get_value_str_for_expression(
-                value=self._line_alpha)
-            expression: str = (
-                f'{self.variable_name}.stroke({{opacity: {line_alpha_str}}});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        line_alpha_str: str = value_util.get_value_str_for_expression(
+            value=self._line_alpha)
+        expression: str = (
+            f'{self.variable_name}.stroke({{opacity: {line_alpha_str}}});'
+        )
+        ap.append_js_expression(expression=expression)
 
     def _update_line_alpha_and_skip_appending_exp(
             self, *, value: Union[float, Number]) -> None:

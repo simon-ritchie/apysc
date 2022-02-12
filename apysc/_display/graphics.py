@@ -57,6 +57,8 @@ class Graphics(
 
     _current_line: Optional['_polyline.Polyline'] = None
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def __init__(
             self, *, parent: 'sprite.Sprite',
             variable_name: Optional[str] = None) -> None:
@@ -77,43 +79,38 @@ class Graphics(
             - https://simon-ritchie.github.io/apysc/graphics.html
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            from apysc._validation import display_validation
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._validation import display_validation
 
-            display_validation.validate_sprite(sprite=parent)
-            self.parent_sprite: ap.Sprite = parent
-            if variable_name is None:
-                variable_name = expression_variables_util.\
-                    get_next_variable_name(type_name=var_names.GRAPHICS)
-            super(Graphics, self).__init__(variable_name=variable_name)
-            self._fill_color = ap.String('')
-            self._fill_alpha = ap.Number(1.0)
-            self._line_color = ap.String('')
-            self._line_alpha = ap.Number(1.0)
-            self._line_thickness = ap.Int(1.0)
-            self._children = ap.Array([])
-            self._append_constructor_expression()
-            self.parent_sprite.add_child(self)
-            self._set_overflow_visible_setting()
+        display_validation.validate_sprite(sprite=parent)
+        self.parent_sprite: ap.Sprite = parent
+        if variable_name is None:
+            variable_name = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.GRAPHICS)
+        super(Graphics, self).__init__(variable_name=variable_name)
+        self._fill_color = ap.String('')
+        self._fill_alpha = ap.Number(1.0)
+        self._line_color = ap.String('')
+        self._line_alpha = ap.Number(1.0)
+        self._line_thickness = ap.Int(1.0)
+        self._children = ap.Array([])
+        self._append_constructor_expression()
+        self.parent_sprite.add_child(self)
+        self._set_overflow_visible_setting()
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_constructor_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            stage_name: str = self.parent_sprite.stage.variable_name
-            expression: str = (
-                f'var {self.variable_name} = {stage_name}.nested();'
-            )
-            ap.append_js_expression(expression=expression)
+        stage_name: str = self.parent_sprite.stage.variable_name
+        expression: str = (
+            f'var {self.variable_name} = {stage_name}.nested();'
+        )
+        ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(  # type: ignore
         module_name=__name__, class_name='Graphics')
@@ -168,6 +165,8 @@ class Graphics(
         self.add_child(child=rectangle)
         return rectangle
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_round_rect(
             self, x: Union[int, Int],
             y: Union[int, Int],
@@ -219,20 +218,19 @@ class Graphics(
         Int(15)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_round_rect, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            rectangle: Rectangle = Rectangle(
-                parent=self, x=x, y=y, width=width, height=height)
-            if isinstance(ellipse_width, int):
-                ellipse_width = ap.Int(ellipse_width)
-            if isinstance(ellipse_height, int):
-                ellipse_height = ap.Int(ellipse_height)
-            rectangle.ellipse_width = ellipse_width
-            rectangle.ellipse_height = ellipse_height
-            self.add_child(child=rectangle)
-            return rectangle
+        rectangle: Rectangle = Rectangle(
+            parent=self, x=x, y=y, width=width, height=height)
+        if isinstance(ellipse_width, int):
+            ellipse_width = ap.Int(ellipse_width)
+        if isinstance(ellipse_height, int):
+            ellipse_height = ap.Int(ellipse_height)
+        rectangle.ellipse_width = ellipse_width
+        rectangle.ellipse_height = ellipse_height
+        self.add_child(child=rectangle)
+        return rectangle
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_circle(
             self,
             x: Union[int, Int],
@@ -280,15 +278,13 @@ class Graphics(
         >>> circle.fill_color
         String('#00aaff')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_circle, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            circle: _circle.Circle = _circle.Circle(
-                parent=self, x=x, y=y, radius=radius)
-            self.add_child(child=circle)
-            return circle
+        circle: _circle.Circle = _circle.Circle(
+            parent=self, x=x, y=y, radius=radius)
+        self.add_child(child=circle)
+        return circle
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_ellipse(
             self,
             x: Union[int, Int],
@@ -342,15 +338,13 @@ class Graphics(
         >>> ellipse.fill_color
         String('#00aaff')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_ellipse, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            ellipse: _ellipse.Ellipse = _ellipse.Ellipse(
-                parent=self, x=x, y=y, width=width, height=height)
-            self.add_child(child=ellipse)
-            return ellipse
+        ellipse: _ellipse.Ellipse = _ellipse.Ellipse(
+            parent=self, x=x, y=y, width=width, height=height)
+        self.add_child(child=ellipse)
+        return ellipse
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def line_to(
             self, x: Union[int, Int],
             y: Union[int, Int]) -> '_polyline.Polyline':
@@ -394,18 +388,17 @@ class Graphics(
         Int(5)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.line_to, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            if self._current_line is None:
-                self._current_line = _polyline.Polyline(
-                    parent=self,
-                    points=ap.Array([Point2D(x=0, y=0), Point2D(x=x, y=y)]))
-                self.add_child(self._current_line)
-            else:
-                self._current_line.append_line_point(x=x, y=y)
-            return self._current_line
+        if self._current_line is None:
+            self._current_line = _polyline.Polyline(
+                parent=self,
+                points=ap.Array([Point2D(x=0, y=0), Point2D(x=x, y=y)]))
+            self.add_child(self._current_line)
+        else:
+            self._current_line.append_line_point(x=x, y=y)
+        return self._current_line
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def move_to(
             self,
             x: Union[int, Int],
@@ -448,12 +441,9 @@ class Graphics(
         Int(5)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.move_to, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            self._current_line = _polyline.Polyline(
-                parent=self, points=ap.Array([Point2D(x=x, y=y)]))
-            return self._current_line
+        self._current_line = _polyline.Polyline(
+            parent=self, points=ap.Array([Point2D(x=x, y=y)]))
+        return self._current_line
 
     def _reset_each_line_settings(self) -> None:
         """
@@ -469,6 +459,8 @@ class Graphics(
         self._line_round_dot_setting = None
         self._line_dash_dot_setting = None
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_line(
             self,
             x_start: Union[int, Int],
@@ -518,21 +510,19 @@ class Graphics(
         >>> line.line_thickness
         Int(5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_line, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            snapshot_name: str = self._get_next_snapshot_name()
-            self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-            self._reset_each_line_settings()
-            line: _line.Line = _line.Line(
-                parent=self,
-                start_point=Point2D(x=x_start, y=y_start),
-                end_point=Point2D(x=x_end, y=y_end))
-            self._run_all_revert_methods(snapshot_name=snapshot_name)
-            self.add_child(child=line)
-            return line
+        snapshot_name: str = self._get_next_snapshot_name()
+        self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._reset_each_line_settings()
+        line: _line.Line = _line.Line(
+            parent=self,
+            start_point=Point2D(x=x_start, y=y_start),
+            end_point=Point2D(x=x_end, y=y_end))
+        self._run_all_revert_methods(snapshot_name=snapshot_name)
+        self.add_child(child=line)
+        return line
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_dotted_line(
             self,
             x_start: Union[int, Int],
@@ -589,21 +579,20 @@ class Graphics(
         Int(5)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_dotted_line, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            snapshot_name: str = self._get_next_snapshot_name()
-            self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-            self._reset_each_line_settings()
-            self._line_dot_setting = ap.LineDotSetting(dot_size=dot_size)
-            line: _line.Line = _line.Line(
-                parent=self,
-                start_point=Point2D(x=x_start, y=y_start),
-                end_point=Point2D(x=x_end, y=y_end))
-            self._run_all_revert_methods(snapshot_name=snapshot_name)
-            self.add_child(child=line)
-            return line
+        snapshot_name: str = self._get_next_snapshot_name()
+        self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._reset_each_line_settings()
+        self._line_dot_setting = ap.LineDotSetting(dot_size=dot_size)
+        line: _line.Line = _line.Line(
+            parent=self,
+            start_point=Point2D(x=x_start, y=y_start),
+            end_point=Point2D(x=x_end, y=y_end))
+        self._run_all_revert_methods(snapshot_name=snapshot_name)
+        self.add_child(child=line)
+        return line
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_dashed_line(
             self,
             x_start: Union[int, Int],
@@ -664,22 +653,21 @@ class Graphics(
         Int(2)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_dashed_line, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            snapshot_name: str = self._get_next_snapshot_name()
-            self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-            self._reset_each_line_settings()
-            self._line_dash_setting = ap.LineDashSetting(
-                dash_size=dash_size, space_size=space_size)
-            line: _line.Line = _line.Line(
-                parent=self,
-                start_point=Point2D(x=x_start, y=y_start),
-                end_point=Point2D(x=x_end, y=y_end))
-            self._run_all_revert_methods(snapshot_name=snapshot_name)
-            self.add_child(child=line)
-            return line
+        snapshot_name: str = self._get_next_snapshot_name()
+        self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._reset_each_line_settings()
+        self._line_dash_setting = ap.LineDashSetting(
+            dash_size=dash_size, space_size=space_size)
+        line: _line.Line = _line.Line(
+            parent=self,
+            start_point=Point2D(x=x_start, y=y_start),
+            end_point=Point2D(x=x_end, y=y_end))
+        self._run_all_revert_methods(snapshot_name=snapshot_name)
+        self.add_child(child=line)
+        return line
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_round_dotted_line(
             self,
             x_start: Union[int, Int],
@@ -740,22 +728,21 @@ class Graphics(
         Int(3)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_round_dotted_line, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            snapshot_name: str = self._get_next_snapshot_name()
-            self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-            self._reset_each_line_settings()
-            self._line_round_dot_setting = ap.LineRoundDotSetting(
-                round_size=round_size, space_size=space_size)
-            line: _line.Line = _line.Line(
-                parent=self,
-                start_point=Point2D(x=x_start, y=y_start),
-                end_point=Point2D(x=x_end, y=y_end))
-            self._run_all_revert_methods(snapshot_name=snapshot_name)
-            self.add_child(child=line)
-            return line
+        snapshot_name: str = self._get_next_snapshot_name()
+        self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._reset_each_line_settings()
+        self._line_round_dot_setting = ap.LineRoundDotSetting(
+            round_size=round_size, space_size=space_size)
+        line: _line.Line = _line.Line(
+            parent=self,
+            start_point=Point2D(x=x_start, y=y_start),
+            end_point=Point2D(x=x_end, y=y_end))
+        self._run_all_revert_methods(snapshot_name=snapshot_name)
+        self.add_child(child=line)
+        return line
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_dash_dotted_line(
             self,
             x_start: Union[int, Int],
@@ -817,24 +804,23 @@ class Graphics(
         Int(3)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_dash_dotted_line, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            snapshot_name: str = self._get_next_snapshot_name()
-            self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-            self._reset_each_line_settings()
-            self._line_dash_dot_setting = ap.LineDashDotSetting(
-                dot_size=dot_size,
-                dash_size=dash_size,
-                space_size=space_size)
-            line: _line.Line = _line.Line(
-                parent=self,
-                start_point=Point2D(x=x_start, y=y_start),
-                end_point=Point2D(x=x_end, y=y_end))
-            self._run_all_revert_methods(snapshot_name=snapshot_name)
-            self.add_child(child=line)
-            return line
+        snapshot_name: str = self._get_next_snapshot_name()
+        self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._reset_each_line_settings()
+        self._line_dash_dot_setting = ap.LineDashDotSetting(
+            dot_size=dot_size,
+            dash_size=dash_size,
+            space_size=space_size)
+        line: _line.Line = _line.Line(
+            parent=self,
+            start_point=Point2D(x=x_start, y=y_start),
+            end_point=Point2D(x=x_end, y=y_end))
+        self._run_all_revert_methods(snapshot_name=snapshot_name)
+        self.add_child(child=line)
+        return line
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_polygon(
             self,
             points: Union[List[Point2D], Array[Point2D]]) -> '_polyg.Polygon':
@@ -875,16 +861,15 @@ class Graphics(
         String('#00aaff')
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_polygon, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            if isinstance(points, list):
-                points = ap.Array(points)
-            polygon: _polyg.Polygon = _polyg.Polygon(
-                parent=self, points=points)
-            self.add_child(polygon)
-            return polygon
+        if isinstance(points, list):
+            points = ap.Array(points)
+        polygon: _polyg.Polygon = _polyg.Polygon(
+            parent=self, points=points)
+        self.add_child(polygon)
+        return polygon
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='Graphics')
     def draw_path(
             self, path_data_list: List[PathDataBase]) -> '_path.Path':
         """
@@ -915,13 +900,10 @@ class Graphics(
         ...     ])
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.draw_path, locals_=locals(),
-                module_name=__name__, class_=Graphics):
-            path: _path.Path = _path.Path(
-                parent=self, path_data_list=path_data_list)
-            self.add_child(path)
-            return path
+        path: _path.Path = _path.Path(
+            parent=self, path_data_list=path_data_list)
+        self.add_child(path)
+        return path
 
     def __repr__(self) -> str:
         """

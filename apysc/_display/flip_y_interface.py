@@ -37,7 +37,7 @@ class FlipYInterface(
         self._append_attr_to_linking_stack(
             attr=self._flip_y, attr_name='flip_y')
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FlipYInterface')
     def flip_y(self) -> Boolean:

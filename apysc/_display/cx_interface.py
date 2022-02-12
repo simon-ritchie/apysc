@@ -36,7 +36,7 @@ class CxInterface(
             new_attr=self._cx, attr_name='cx')
         self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CxInterface')
     def x(self) -> Int:

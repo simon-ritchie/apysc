@@ -172,7 +172,7 @@ class ChildInterface(RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='ChildInterface')
     def num_children(self) -> Int:

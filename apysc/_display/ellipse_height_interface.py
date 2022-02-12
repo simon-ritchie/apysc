@@ -37,7 +37,7 @@ class EllipseHeightInterface(
         self._append_attr_to_linking_stack(
             attr=self._ellipse_height, attr_name='ellipse_height')
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='EllipseHeightInterface')
     def ellipse_height(self) -> Int:

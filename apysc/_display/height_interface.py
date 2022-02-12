@@ -38,7 +38,7 @@ class HeightInterface(
         self._append_attr_to_linking_stack(
             attr=self._height, attr_name='height')
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='HeightInterface')
     def height(self) -> Int:

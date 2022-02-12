@@ -75,7 +75,7 @@ class BeginFillInterface(RevertInterface):
         else:
             self._fill_alpha.value = alpha
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='BeginFillInterface')
     def fill_color(self) -> String:
@@ -114,7 +114,7 @@ class BeginFillInterface(RevertInterface):
             return
         self._fill_color = String('')
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='BeginFillInterface')
     def fill_alpha(self) -> Number:

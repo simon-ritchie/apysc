@@ -38,7 +38,7 @@ class FillAlphaInterface(
         self._append_attr_to_linking_stack(
             attr=self._fill_alpha, attr_name='fill_alpha')
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FillAlphaInterface')
     def fill_alpha(self) -> Number:

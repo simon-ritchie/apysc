@@ -38,7 +38,7 @@ class LineAlphaInterface(
         self._append_attr_to_linking_stack(
             attr=self._line_alpha, attr_name='line_alpha')
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineAlphaInterface')
     def line_alpha(self) -> Number:

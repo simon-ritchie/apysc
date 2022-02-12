@@ -17,7 +17,7 @@ class FillColorInterface(
 
     _fill_color: String
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='FillColorInterface')
     def fill_color(self) -> String:

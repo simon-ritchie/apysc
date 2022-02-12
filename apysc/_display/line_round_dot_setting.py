@@ -5,6 +5,7 @@ from typing import Union
 
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineRoundDotSetting(Dictionary[str, Int]):
@@ -33,6 +34,8 @@ class LineRoundDotSetting(Dictionary[str, Int]):
     Int(5)
     """
 
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineRoundDotSetting')
     def __init__(
             self, round_size: Union[int, Int],
             space_size: Union[int, Int]) -> None:
@@ -68,22 +71,19 @@ class LineRoundDotSetting(Dictionary[str, Int]):
         Int(5)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=LineRoundDotSetting):
-            from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val
-            from apysc._validation import number_validation
-            number_validation.validate_nums_are_int_and_gt_zero(
-                nums=[round_size, space_size])
-            round_size_: ap.Int = get_copied_int_from_builtin_val(
-                integer=round_size)
-            space_size_: ap.Int = get_copied_int_from_builtin_val(
-                integer=space_size)
-            super(LineRoundDotSetting, self).__init__({
-                'round_size': round_size_,
-                'space_size': space_size_,
-            })
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
+        from apysc._validation import number_validation
+        number_validation.validate_nums_are_int_and_gt_zero(
+            nums=[round_size, space_size])
+        round_size_: ap.Int = get_copied_int_from_builtin_val(
+            integer=round_size)
+        space_size_: ap.Int = get_copied_int_from_builtin_val(
+            integer=space_size)
+        super(LineRoundDotSetting, self).__init__({
+            'round_size': round_size_,
+            'space_size': space_size_,
+        })
 
     @property
     def round_size(self) -> Int:
@@ -108,10 +108,11 @@ class LineRoundDotSetting(Dictionary[str, Int]):
         >>> line.line_round_dot_setting.round_size
         Int(10)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='round_size', locals_=locals(),
-                module_name=__name__, class_=LineRoundDotSetting):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='round_size', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineRoundDotSetting.__name__):
             return self['round_size']
 
     @property
@@ -137,8 +138,9 @@ class LineRoundDotSetting(Dictionary[str, Int]):
         >>> line.line_round_dot_setting.space_size
         Int(5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='space_size', locals_=locals(),
-                module_name=__name__, class_=LineRoundDotSetting):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='round_size', args=[], kwargs={},
+                module_name=__name__,
+                class_name=LineRoundDotSetting.__name__):
             return self['space_size']

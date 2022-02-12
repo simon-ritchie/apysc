@@ -40,7 +40,7 @@ class TestLineDashSettingInterface:
         interface.line_dash_setting = LineDashSetting(
             dash_size=5, space_size=3)
         line_dash_setting = interface.line_dash_setting
-        assert line_dash_setting.dash_size == 5
+        assert line_dash_setting.dash_size == 5  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_dash_setting_and_skip_appending_exp(self) -> None:

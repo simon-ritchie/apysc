@@ -5,10 +5,10 @@ from typing import Dict
 from typing import Union
 
 from apysc._display.line_joints import LineJoints
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineJointsInterface(VariableNameInterface, RevertInterface):

@@ -16,11 +16,11 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
-from apysc._html.debug_mode import add_debug_info_setting
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -162,8 +162,7 @@ class LineStyleInterface(RevertInterface):
             Line vertices (joints) style setting.
         """
         import apysc as ap
-        from apysc._validation.display_validation import \
-            validate_line_joints
+        from apysc._validation.display_validation import validate_line_joints
         if joints is None:
             joints = LineJoints.MITER
         validate_line_joints(joints=joints)

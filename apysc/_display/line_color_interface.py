@@ -6,10 +6,10 @@ from typing import Union
 
 from apysc._animation.animation_line_color_interface import \
     AnimationLineColorInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
-from apysc._html.debug_mode import add_debug_info_setting
 
 
 class LineColorInterface(
@@ -77,7 +77,6 @@ class LineColorInterface(
                 callable_='line_color', args=[], kwargs={},
                 module_name=__name__,
                 class_name=LineColorInterface.__name__):
-            import apysc as ap
             self._initialize_line_color_if_not_initialized()
             self._update_line_color_and_skip_appending_exp(value=value)
             self._append_line_color_update_expression()

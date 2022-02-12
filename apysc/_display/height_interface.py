@@ -38,7 +38,9 @@ class HeightInterface(
         self._append_attr_to_linking_stack(
             attr=self._height, attr_name='height')
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='HeightInterface')
     def height(self) -> Int:
         """
         Get this instance's height.
@@ -60,16 +62,11 @@ class HeightInterface(
         >>> rectangle.height
         Int(100)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='height', args=[], kwargs={},
-                module_name=__name__,
-                class_name=HeightInterface.__name__):
-            import apysc as ap
-            from apysc._type import value_util
-            self._initialize_height_if_not_initialized()
-            height: ap.Int = value_util.get_copy(value=self._height)
-            return height
+        import apysc as ap
+        from apysc._type import value_util
+        self._initialize_height_if_not_initialized()
+        height: ap.Int = value_util.get_copy(value=self._height)
+        return height
 
     @height.setter
     def height(self, value: Int) -> None:

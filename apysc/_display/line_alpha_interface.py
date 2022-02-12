@@ -38,7 +38,9 @@ class LineAlphaInterface(
         self._append_attr_to_linking_stack(
             attr=self._line_alpha, attr_name='line_alpha')
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='LineAlphaInterface')
     def line_alpha(self) -> Number:
         """
         Get this instance's line alpha (opacity).
@@ -65,14 +67,9 @@ class LineAlphaInterface(
         >>> rectangle.line_alpha
         Number(0.5)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='line_alpha', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineAlphaInterface.__name__):
-            from apysc._type import value_util
-            self._initialize_line_alpha_if_not_initialized()
-            return value_util.get_copy(value=self._line_alpha)
+        from apysc._type import value_util
+        self._initialize_line_alpha_if_not_initialized()
+        return value_util.get_copy(value=self._line_alpha)
 
     @line_alpha.setter
     def line_alpha(self, value: Number) -> None:

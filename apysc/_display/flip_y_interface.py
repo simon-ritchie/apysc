@@ -37,7 +37,9 @@ class FlipYInterface(
         self._append_attr_to_linking_stack(
             attr=self._flip_y, attr_name='flip_y')
 
-    @property
+    @property  # type: ignore
+    @add_debug_info_setting(  # type: ignore
+        module_name=__name__, class_name='FlipYInterface')
     def flip_y(self) -> Boolean:
         """
         Get a boolean value whether the y-axis is flipping or not.
@@ -68,14 +70,9 @@ class FlipYInterface(
         >>> polygon.flip_y
         Boolean(True)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='flip_y', args=[], kwargs={},
-                module_name=__name__,
-                class_name=FlipYInterface.__name__):
-            from apysc._type import value_util
-            self._initialize_flip_y_if_not_initialized()
-            return value_util.get_copy(value=self._flip_y)
+        from apysc._type import value_util
+        self._initialize_flip_y_if_not_initialized()
+        return value_util.get_copy(value=self._flip_y)
 
     @flip_y.setter
     def flip_y(self, value: Boolean) -> None:

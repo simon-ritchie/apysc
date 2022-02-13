@@ -6,6 +6,7 @@ from typing import Union
 
 from apysc._animation.animation_line_thickness_interface import \
     AnimationLineThicknessInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -29,21 +30,20 @@ class LineThicknessInterface(
 
         self._append_line_thickness_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineThicknessInterface')
     def _append_line_thickness_attr_linking_setting(self) -> None:
         """
         Append a line thickness attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_line_thickness_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=LineThicknessInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._line_thickness, attr_name='line_thickness')
-            self._append_attr_to_linking_stack(
-                attr=self._line_thickness, attr_name='line_thickness')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._line_thickness, attr_name='line_thickness')
+        self._append_attr_to_linking_stack(
+            attr=self._line_thickness, attr_name='line_thickness')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineThicknessInterface')
     def line_thickness(self) -> Int:
         """
         Get this instance's line thickness.
@@ -70,12 +70,8 @@ class LineThicknessInterface(
         >>> line.line_thickness
         Int(5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_thickness', locals_=locals(),
-                module_name=__name__, class_=LineThicknessInterface):
-            from apysc._type import value_util
-            return value_util.get_copy(value=self._line_thickness)
+        from apysc._type import value_util
+        return value_util.get_copy(value=self._line_thickness)
 
     @line_thickness.setter
     def line_thickness(self, value: Int) -> None:
@@ -92,10 +88,11 @@ class LineThicknessInterface(
         - Graphics line_thickness interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_thickness.html  # noqa
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_thickness', locals_=locals(),
-                module_name=__name__, class_=LineThicknessInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='line_thickness', args=[value],
+                kwargs={}, module_name=__name__,
+                class_name=LineThicknessInterface.__name__):
             self._update_line_thickness_and_skip_appending_exp(value=value)
             self._line_thickness.\
                 _append_incremental_calc_substitution_expression()
@@ -103,23 +100,21 @@ class LineThicknessInterface(
 
             self._append_line_thickness_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineThicknessInterface')
     def _append_line_thickness_update_expression(self) -> None:
         """
         Append line thickness update expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_line_thickness_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=LineThicknessInterface):
-            from apysc._type import value_util
-            line_thickness_str: str = value_util.get_value_str_for_expression(
-                value=self.line_thickness)
-            expression: str = (
-                f'{self.variable_name}.attr({{"stroke-width": '
-                f'{line_thickness_str}}});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        line_thickness_str: str = value_util.get_value_str_for_expression(
+            value=self.line_thickness)
+        expression: str = (
+            f'{self.variable_name}.attr({{"stroke-width": '
+            f'{line_thickness_str}}});'
+        )
+        ap.append_js_expression(expression=expression)
 
     def _update_line_thickness_and_skip_appending_exp(
             self, *, value: Union[int, Int]) -> None:

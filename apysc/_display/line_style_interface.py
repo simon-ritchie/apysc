@@ -168,6 +168,8 @@ class LineStyleInterface(RevertInterface):
         validate_line_joints(joints=joints)
         self._line_joints = ap.String(joints.value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineStyleInterface')
     def _set_line_cap(self, *, cap: Optional[LineCaps]) -> None:
         """
         Set line cap setting to attribute.
@@ -178,14 +180,11 @@ class LineStyleInterface(RevertInterface):
             Line cap (edge style) setting.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._set_line_cap, locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            from apysc._validation.display_validation import validate_line_cap
-            if cap is None:
-                cap = LineCaps.BUTT
-            validate_line_cap(cap=cap)
-            self._line_cap = ap.String(cap.value)
+        from apysc._validation.display_validation import validate_line_cap
+        if cap is None:
+            cap = LineCaps.BUTT
+        validate_line_cap(cap=cap)
+        self._line_cap = ap.String(cap.value)
 
     def _initialize_line_color_if_not_initialized(self) -> None:
         """
@@ -266,7 +265,9 @@ class LineStyleInterface(RevertInterface):
             return
         self._line_dash_dot_setting = None
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineStyleInterface')
     def line_color(self) -> String:
         """
         Get current line color.
@@ -288,15 +289,13 @@ class LineStyleInterface(RevertInterface):
         >>> sprite.graphics.line_color
         String('#ffffff')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_color', locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            from apysc._type import value_util
-            self._initialize_line_color_if_not_initialized()
-            return value_util.get_copy(value=self._line_color)
+        from apysc._type import value_util
+        self._initialize_line_color_if_not_initialized()
+        return value_util.get_copy(value=self._line_color)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineStyleInterface')
     def line_thickness(self) -> Int:
         """
         Get current line thickness.
@@ -316,15 +315,13 @@ class LineStyleInterface(RevertInterface):
         >>> sprite.graphics.line_thickness
         Int(5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_thickness', locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            from apysc._type import value_util
-            self._initialize_line_thickness_if_not_initialized()
-            return value_util.get_copy(value=self._line_thickness)
+        from apysc._type import value_util
+        self._initialize_line_thickness_if_not_initialized()
+        return value_util.get_copy(value=self._line_thickness)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineStyleInterface')
     def line_alpha(self) -> Number:
         """
         Get current line color opacity.
@@ -345,15 +342,13 @@ class LineStyleInterface(RevertInterface):
         >>> sprite.graphics.line_alpha
         Number(0.5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_alpha', locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            from apysc._type import value_util
-            self._initialize_line_alpha_if_not_initialized()
-            return value_util.get_copy(value=self._line_alpha)
+        from apysc._type import value_util
+        self._initialize_line_alpha_if_not_initialized()
+        return value_util.get_copy(value=self._line_alpha)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineStyleInterface')
     def line_cap(self) -> String:
         """
         Get current line cap (edge) style setting.
@@ -374,14 +369,12 @@ class LineStyleInterface(RevertInterface):
         >>> sprite.graphics.line_cap
         String('round')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_cap', locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            self._initialize_line_cap_if_not_initialized()
-            return self._line_cap
+        self._initialize_line_cap_if_not_initialized()
+        return self._line_cap
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineStyleInterface')
     def line_joints(self) -> String:
         """
         Get current line joints (vertices) style setting.
@@ -402,14 +395,12 @@ class LineStyleInterface(RevertInterface):
         >>> sprite.graphics.line_joints
         String('round')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_joints', locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            self._initialize_line_joints_if_not_initialized()
-            return self._line_joints
+        self._initialize_line_joints_if_not_initialized()
+        return self._line_joints
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineStyleInterface')
     def line_dot_setting(self) -> Optional[LineDotSetting]:
         """
         Get current line dot setting.
@@ -430,14 +421,12 @@ class LineStyleInterface(RevertInterface):
         >>> sprite.graphics.line_dot_setting.dot_size
         Int(5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_dot_setting', locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            self._initialize_line_dot_setting_if_not_initialized()
-            return self._line_dot_setting
+        self._initialize_line_dot_setting_if_not_initialized()
+        return self._line_dot_setting
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineStyleInterface')
     def line_dash_setting(self) -> Optional[LineDashSetting]:
         """
         Get current line dash setting.
@@ -462,14 +451,12 @@ class LineStyleInterface(RevertInterface):
         >>> sprite.graphics.line_dash_setting.space_size
         Int(5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_dash_setting', locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            self._initialize_line_dash_setting_if_not_initialized()
-            return self._line_dash_setting
+        self._initialize_line_dash_setting_if_not_initialized()
+        return self._line_dash_setting
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineRoundDotSetting')
     def line_round_dot_setting(self) -> Optional[LineRoundDotSetting]:
         """
         Get current line round dot setting.
@@ -494,14 +481,12 @@ class LineStyleInterface(RevertInterface):
         >>> sprite.graphics.line_round_dot_setting.space_size
         Int(3)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_round_dot_setting', locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            self._initialize_line_round_dot_setting_if_not_initialized()
-            return self._line_round_dot_setting
+        self._initialize_line_round_dot_setting_if_not_initialized()
+        return self._line_round_dot_setting
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineRoundDotSetting')
     def line_dash_dot_setting(self) -> Optional[LineDashDotSetting]:
         """
         Get current line dash dot setting.
@@ -529,12 +514,8 @@ class LineStyleInterface(RevertInterface):
         >>> sprite.graphics.line_dash_dot_setting.space_size
         Int(3)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='line_dash_dot_setting', locals_=locals(),
-                module_name=__name__, class_=LineStyleInterface):
-            self._initialize_line_dash_dot_setting_if_not_initialized()
-            return self._line_dash_dot_setting
+        self._initialize_line_dash_dot_setting_if_not_initialized()
+        return self._line_dash_dot_setting
 
     _line_color_snapshots: Dict[str, str]
     _line_thickness_snapshots: Dict[str, int]

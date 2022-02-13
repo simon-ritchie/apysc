@@ -85,7 +85,9 @@ class LineRoundDotSetting(Dictionary[str, Int]):
             'space_size': space_size_,
         })
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineRoundDotSetting')
     def round_size(self) -> Int:
         """
         Get a round size setting.
@@ -108,14 +110,11 @@ class LineRoundDotSetting(Dictionary[str, Int]):
         >>> line.line_round_dot_setting.round_size
         Int(10)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='round_size', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineRoundDotSetting.__name__):
-            return self['round_size']
+        return self['round_size']
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineRoundDotSetting')
     def space_size(self) -> Int:
         """
         Get a space size setting.
@@ -138,9 +137,4 @@ class LineRoundDotSetting(Dictionary[str, Int]):
         >>> line.line_round_dot_setting.space_size
         Int(5)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='round_size', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineRoundDotSetting.__name__):
-            return self['space_size']
+        return self['space_size']

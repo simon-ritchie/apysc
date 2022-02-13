@@ -23,7 +23,9 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             return
         self._line_round_dot_setting = None
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='LineRoundDotSettingInterface')
     def line_round_dot_setting(self) -> Optional[LineRoundDotSetting]:
         """
         Get this instance's line round dot setting.
@@ -54,13 +56,8 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         >>> line.line_round_dot_setting.space_size
         Int(5)
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
-                callable_='line_round_dot_setting', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineRoundDotSettingInterface.__name__):
-            self._initialize_line_round_dot_setting_if_not_initialized()
-            return self._line_round_dot_setting
+        self._initialize_line_round_dot_setting_if_not_initialized()
+        return self._line_round_dot_setting
 
     @line_round_dot_setting.setter
     def line_round_dot_setting(

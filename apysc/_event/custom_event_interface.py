@@ -10,6 +10,7 @@ from typing import Union
 from apysc._event.custom_event_type import CustomEventType
 from apysc._event.event import Event
 from apysc._event.handler import HandlerData
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.blank_object_interface import BlankObjectInterface
 
 _CustomEventType = str
@@ -107,6 +108,8 @@ class CustomEventInterface(BlankObjectInterface):
             return
         del self._custom_event_handlers[custom_event_type_str][name]
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='CustomEventInterface')
     def bind_custom_event(
             self, custom_event_type: Union[CustomEventType, str],
             handler: _Handler,
@@ -163,29 +166,27 @@ class CustomEventInterface(BlankObjectInterface):
         >>> rectangle.trigger_custom_event(
         ...     custom_event_type='my_custom_event')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.bind_custom_event, locals_=locals(),
-                module_name=__name__, class_=CustomEventInterface):
-            from apysc._event.handler import append_handler_expression
-            from apysc._event.handler import get_handler_name
-            custom_event_type_str: str = self._get_custom_event_type_str(
-                custom_event_type=custom_event_type)
-            self._initialize_custom_event_handlers_if_not_initialized(
-                custom_event_type_str=custom_event_type_str)
-            self._set_custom_event_handler_data(
-                handler=handler, custom_event_type_str=custom_event_type_str,
-                options=options)
-            name: str = get_handler_name(handler=handler, instance=self)
-            self._append_custom_event_binding_expression(
-                custom_event_type_str=custom_event_type_str, name=name)
-            handler_data: HandlerData = \
-                self._custom_event_handlers[custom_event_type_str][name]
-            append_handler_expression(
-                handler_data=handler_data, handler_name=name, e=e,
-                in_handler_head_expression=in_handler_head_expression)
-            return name
+        from apysc._event.handler import append_handler_expression
+        from apysc._event.handler import get_handler_name
+        custom_event_type_str: str = self._get_custom_event_type_str(
+            custom_event_type=custom_event_type)
+        self._initialize_custom_event_handlers_if_not_initialized(
+            custom_event_type_str=custom_event_type_str)
+        self._set_custom_event_handler_data(
+            handler=handler, custom_event_type_str=custom_event_type_str,
+            options=options)
+        name: str = get_handler_name(handler=handler, instance=self)
+        self._append_custom_event_binding_expression(
+            custom_event_type_str=custom_event_type_str, name=name)
+        handler_data: HandlerData = \
+            self._custom_event_handlers[custom_event_type_str][name]
+        append_handler_expression(
+            handler_data=handler_data, handler_name=name, e=e,
+            in_handler_head_expression=in_handler_head_expression)
+        return name
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='CustomEventInterface')
     def _append_custom_event_binding_expression(
             self, *, custom_event_type_str: str, name: str) -> None:
         """
@@ -199,19 +200,17 @@ class CustomEventInterface(BlankObjectInterface):
             Handler's name.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_custom_event_binding_expression,
-                locals_=locals(),
-                module_name=__name__, class_=CustomEventInterface):
-            blank_object_variable_name: str = self.blank_object_variable_name
-            expression: str = (
-                f'$({blank_object_variable_name})'
-                f'.off("{custom_event_type_str}", {name});'
-                f'\n$({blank_object_variable_name})'
-                f'.on("{custom_event_type_str}", {name});'
-            )
-            ap.append_js_expression(expression=expression)
+        blank_object_variable_name: str = self.blank_object_variable_name
+        expression: str = (
+            f'$({blank_object_variable_name})'
+            f'.off("{custom_event_type_str}", {name});'
+            f'\n$({blank_object_variable_name})'
+            f'.on("{custom_event_type_str}", {name});'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='CustomEventInterface')
     def trigger_custom_event(
             self, custom_event_type: Union[CustomEventType, str]) -> None:
         """
@@ -248,18 +247,17 @@ class CustomEventInterface(BlankObjectInterface):
         ...     custom_event_type='my_custom_event')
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.trigger_custom_event, locals_=locals(),
-                module_name=__name__, class_=CustomEventInterface):
-            blank_object_variable_name: str = self.blank_object_variable_name
-            custom_event_type_str: str = self._get_custom_event_type_str(
-                custom_event_type=custom_event_type)
-            expression: str = (
-                f'$({blank_object_variable_name})'
-                f'.trigger("{custom_event_type_str}");'
-            )
-            ap.append_js_expression(expression=expression)
+        blank_object_variable_name: str = self.blank_object_variable_name
+        custom_event_type_str: str = self._get_custom_event_type_str(
+            custom_event_type=custom_event_type)
+        expression: str = (
+            f'$({blank_object_variable_name})'
+            f'.trigger("{custom_event_type_str}");'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='CustomEventInterface')
     def unbind_custom_event(
             self,
             custom_event_type: Union[CustomEventType, str],
@@ -302,22 +300,20 @@ class CustomEventInterface(BlankObjectInterface):
         >>> rectangle.trigger_custom_event(
         ...     custom_event_type='my_custom_event')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.unbind_custom_event, locals_=locals(),
-                module_name=__name__, class_=CustomEventInterface):
-            from apysc._event.handler import get_handler_name
-            custom_event_type_str: str = self._get_custom_event_type_str(
-                custom_event_type=custom_event_type)
-            self._initialize_custom_event_handlers_if_not_initialized(
-                custom_event_type_str=custom_event_type_str)
-            self._unset_custom_event_handler_data(
-                handler=handler, custom_event_type_str=custom_event_type_str)
-            name: str = get_handler_name(handler=handler, instance=self)
-            self._append_custom_event_unbinding_expression(
-                custom_event_type_str=custom_event_type_str, name=name)
-            return name
+        from apysc._event.handler import get_handler_name
+        custom_event_type_str: str = self._get_custom_event_type_str(
+            custom_event_type=custom_event_type)
+        self._initialize_custom_event_handlers_if_not_initialized(
+            custom_event_type_str=custom_event_type_str)
+        self._unset_custom_event_handler_data(
+            handler=handler, custom_event_type_str=custom_event_type_str)
+        name: str = get_handler_name(handler=handler, instance=self)
+        self._append_custom_event_unbinding_expression(
+            custom_event_type_str=custom_event_type_str, name=name)
+        return name
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='CustomEventInterface')
     def _append_custom_event_unbinding_expression(
             self, *, custom_event_type_str: str, name: str) -> None:
         """
@@ -331,16 +327,14 @@ class CustomEventInterface(BlankObjectInterface):
             Handler's name.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_custom_event_unbinding_expression,
-                locals_=locals(),
-                module_name=__name__, class_=CustomEventInterface):
-            expression: str = (
-                f'$({self.blank_object_variable_name})'
-                f'.off("{custom_event_type_str}", {name});'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'$({self.blank_object_variable_name})'
+            f'.off("{custom_event_type_str}", {name});'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='CustomEventInterface')
     def unbind_custom_event_all(
             self, custom_event_type: Union[CustomEventType, str]) -> None:
         """
@@ -374,16 +368,13 @@ class CustomEventInterface(BlankObjectInterface):
         ...     custom_event_type='my_custom_event')
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.unbind_custom_event_all, locals_=locals(),
-                module_name=__name__, class_=CustomEventInterface):
-            custom_event_type_str: str = self._get_custom_event_type_str(
-                custom_event_type=custom_event_type)
-            self._initialize_custom_event_handlers_if_not_initialized(
-                custom_event_type_str=custom_event_type_str)
-            self._custom_event_handlers[custom_event_type_str] = {}
-            expression: str = (
-                f'$({self.blank_object_variable_name})'
-                f'.off("{custom_event_type_str}");'
-            )
-            ap.append_js_expression(expression=expression)
+        custom_event_type_str: str = self._get_custom_event_type_str(
+            custom_event_type=custom_event_type)
+        self._initialize_custom_event_handlers_if_not_initialized(
+            custom_event_type_str=custom_event_type_str)
+        self._custom_event_handlers[custom_event_type_str] = {}
+        expression: str = (
+            f'$({self.blank_object_variable_name})'
+            f'.off("{custom_event_type_str}");'
+        )
+        ap.append_js_expression(expression=expression)

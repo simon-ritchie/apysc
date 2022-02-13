@@ -5,6 +5,7 @@ from typing import Generic
 from typing import Optional
 from typing import TypeVar
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
 
 T = TypeVar('T', bound=VariableNameInterface)
@@ -37,6 +38,8 @@ class Event(Generic[T], VariableNameInterface):
 
     _this: T
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Event')
     def __init__(
             self, this: T,
             *,
@@ -71,18 +74,14 @@ class Event(Generic[T], VariableNameInterface):
         >>> rectangle.trigger_custom_event(
         ...     custom_event_type='my_custom_event')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=Event):
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            self._validate_type_name_and_self_type(type_name=type_name)
-            self._this = this
-            if type_name is None:
-                type_name = var_names.EVENT
-            self.variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=type_name)
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        self._validate_type_name_and_self_type(type_name=type_name)
+        self._this = this
+        if type_name is None:
+            type_name = var_names.EVENT
+        self.variable_name = expression_variables_util.\
+            get_next_variable_name(type_name=type_name)
 
     def _validate_type_name_and_self_type(
             self, *, type_name: Optional[str]) -> None:

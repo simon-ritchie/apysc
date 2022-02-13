@@ -6,6 +6,7 @@ from typing import TypeVar
 
 from apysc._animation import animation_base
 from apysc._event.event import Event
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)
@@ -33,6 +34,8 @@ class AnimationEvent(Event, Generic[_T]):
 
     _this: 'animation_base.AnimationBase[_T]'
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='AnimationEvent')
     def __init__(
             self, *,
             this: 'animation_base.AnimationBase[_T]') -> None:
@@ -60,15 +63,13 @@ class AnimationEvent(Event, Generic[_T]):
         ...     x=100).animation_complete(on_animation_complete)
 
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationEvent):
-            from apysc._expression import var_names
-            super(AnimationEvent, self).__init__(
-                this=this, type_name=var_names.ANIMATION_EVENT)
+        from apysc._expression import var_names
+        super(AnimationEvent, self).__init__(
+            this=this, type_name=var_names.ANIMATION_EVENT)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='AnimationEvent')
     def this(self) -> 'animation_base.AnimationBase[_T]':
         """
         Get an animation setting instance of listening to this event.

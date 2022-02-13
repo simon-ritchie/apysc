@@ -13,6 +13,7 @@ from apysc._animation.animation_height_for_ellipse_interface import \
     AnimationHeightForEllipseInterface
 from apysc._animation.animation_width_for_ellipse_interface import \
     AnimationWidthForEllipseInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -38,37 +39,31 @@ class WidthAndHeightInterfacesForEllipse(
             self._height = Int(0)
             self._append_height_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def _append_width_attr_linking_setting(self) -> None:
         """
         Append a width attricute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_width_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__,
-                class_=WidthAndHeightInterfacesForEllipse):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._width, attr_name='width')
-            self._append_attr_to_linking_stack(
-                attr=self._width, attr_name='width')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._width, attr_name='width')
+        self._append_attr_to_linking_stack(
+            attr=self._width, attr_name='width')
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def _append_height_attr_linking_setting(self) -> None:
         """
         Append a height attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_height_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__,
-                class_=WidthAndHeightInterfacesForEllipse):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._height, attr_name='height')
-            self._append_attr_to_linking_stack(
-                attr=self._height, attr_name='height')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._height, attr_name='height')
+        self._append_attr_to_linking_stack(
+            attr=self._height, attr_name='height')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def width(self) -> Int:
         """
         Get a ellipse width value.
@@ -90,14 +85,9 @@ class WidthAndHeightInterfacesForEllipse(
         >>> ellipse.width
         Int(100)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='width', locals_=locals(),
-                module_name=__name__,
-                class_=WidthAndHeightInterfacesForEllipse):
-            from apysc._type import value_util
-            self._initialize_width_and_height_if_not_initialized()
-            return value_util.get_copy(value=self._width)
+        from apysc._type import value_util
+        self._initialize_width_and_height_if_not_initialized()
+        return value_util.get_copy(value=self._width)
 
     @width.setter
     def width(self, value: Int) -> None:
@@ -109,11 +99,12 @@ class WidthAndHeightInterfacesForEllipse(
         value : int or Int
             Ellipse width value.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='width', locals_=locals(),
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='width', args=[value], kwargs={},
                 module_name=__name__,
-                class_=WidthAndHeightInterfacesForEllipse):
+                class_name=WidthAndHeightInterfacesForEllipse.__name__):
+            import apysc as ap
             from apysc._validation import number_validation
             if not isinstance(value, ap.Int):
                 number_validation.validate_integer(integer=value)
@@ -124,7 +115,9 @@ class WidthAndHeightInterfacesForEllipse(
 
             self._append_width_attr_linking_setting()
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def height(self) -> Int:
         """
         Get a ellipse height value.
@@ -146,14 +139,9 @@ class WidthAndHeightInterfacesForEllipse(
         >>> ellipse.height
         Int(100)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='height', locals_=locals(),
-                module_name=__name__,
-                class_=WidthAndHeightInterfacesForEllipse):
-            from apysc._type import value_util
-            self._initialize_width_and_height_if_not_initialized()
-            return value_util.get_copy(value=self._height)
+        from apysc._type import value_util
+        self._initialize_width_and_height_if_not_initialized()
+        return value_util.get_copy(value=self._height)
 
     @height.setter
     def height(self, value: Int) -> None:
@@ -165,11 +153,12 @@ class WidthAndHeightInterfacesForEllipse(
         value : int or Int
             Ellipse height value.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='height', locals_=locals(),
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='height', args=[value], kwargs={},
                 module_name=__name__,
-                class_=WidthAndHeightInterfacesForEllipse):
+                class_name=WidthAndHeightInterfacesForEllipse.__name__):
+            import apysc as ap
             from apysc._validation import number_validation
             if not isinstance(value, ap.Int):
                 number_validation.validate_integer(integer=value)
@@ -180,28 +169,25 @@ class WidthAndHeightInterfacesForEllipse(
 
             self._append_height_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def _append_ellipse_width_and_height_update_expression(self) -> None:
         """
         Append an ellipse width and height updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_ellipse_width_and_height_update_expression,  # noqa
-                locals_=locals(),
-                module_name=__name__,
-                class_=WidthAndHeightInterfacesForEllipse):
-            from apysc._type import value_util
-            self._initialize_width_and_height_if_not_initialized()
-            width_value_str: str = value_util.get_value_str_for_expression(
-                value=self._width)
-            height_value_str: str = value_util.get_value_str_for_expression(
-                value=self._height)
-            expression: str = (
-                f'{self.variable_name}.radius('
-                f'parseInt({width_value_str} / 2), '
-                f'parseInt({height_value_str}) / 2);'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        self._initialize_width_and_height_if_not_initialized()
+        width_value_str: str = value_util.get_value_str_for_expression(
+            value=self._width)
+        height_value_str: str = value_util.get_value_str_for_expression(
+            value=self._height)
+        expression: str = (
+            f'{self.variable_name}.radius('
+            f'parseInt({width_value_str} / 2), '
+            f'parseInt({height_value_str}) / 2);'
+        )
+        ap.append_js_expression(expression=expression)
 
     _width_snapshots: Dict[str, int]
     _height_snapshots: Dict[str, int]

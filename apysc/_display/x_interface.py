@@ -5,6 +5,7 @@ from typing import Dict
 
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_x_interface import AnimationXInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -26,21 +27,20 @@ class XInterface(
 
         self._append_x_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='XInterface')
     def _append_x_attr_linking_setting(self) -> None:
         """
         Append a x attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_x_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=XInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._x, attr_name='x')
-            self._append_attr_to_linking_stack(
-                attr=self._x, attr_name='x')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._x, attr_name='x')
+        self._append_attr_to_linking_stack(
+            attr=self._x, attr_name='x')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='XInterface')
     def x(self) -> Int:
         """
         Get a x-coordinate.
@@ -68,13 +68,10 @@ class XInterface(
         Int(100)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='x', locals_=locals(),
-                module_name=__name__, class_=XInterface):
-            from apysc._type import value_util
-            self._initialize_x_if_not_initialized()
-            x: ap.Int = value_util.get_copy(value=self._x)
-            return x
+        from apysc._type import value_util
+        self._initialize_x_if_not_initialized()
+        x: ap.Int = value_util.get_copy(value=self._x)
+        return x
 
     @x.setter
     def x(self, value: Int) -> None:
@@ -91,10 +88,12 @@ class XInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='x', locals_=locals(),
-                module_name=__name__, class_=XInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='x', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=XInterface.__name__):
+            import apysc as ap
             from apysc._type.number_value_interface import NumberValueInterface
             from apysc._validation import number_validation
             if not isinstance(value, NumberValueInterface):
@@ -106,22 +105,21 @@ class XInterface(
 
             self._append_x_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='XInterface')
     def _append_x_update_expression(self) -> None:
         """
         Append the x position updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_x_update_expression, locals_=locals(),
-                module_name=__name__, class_=XInterface):
-            from apysc._type import value_util
-            self._initialize_x_if_not_initialized()
-            value_str: str = value_util.get_value_str_for_expression(
-                value=self._x)
-            expression: str = (
-                f'{self.variable_name}.x({value_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        self._initialize_x_if_not_initialized()
+        value_str: str = value_util.get_value_str_for_expression(
+            value=self._x)
+        expression: str = (
+            f'{self.variable_name}.x({value_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
     _x_snapshots: Dict[str, int]
 

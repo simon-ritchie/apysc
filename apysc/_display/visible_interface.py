@@ -3,6 +3,7 @@
 
 from typing import Dict
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
@@ -24,21 +25,20 @@ class VisibleInterface(
 
         self._append_visible_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='VisibleInterface')
     def _append_visible_attr_linking_setting(self) -> None:
         """
         Append a visible attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_visible_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=VisibleInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._visible, attr_name='visible')
-            self._append_attr_to_linking_stack(
-                attr=self._visible, attr_name='visible')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._visible, attr_name='visible')
+        self._append_attr_to_linking_stack(
+            attr=self._visible, attr_name='visible')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='VisibleInterface')
     def visible(self) -> Boolean:
         """
         Get a visibility value of this instance.
@@ -60,13 +60,9 @@ class VisibleInterface(
         >>> rectangle.visible
         Boolean(False)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='visible', locals_=locals(),
-                module_name=__name__, class_=VisibleInterface):
-            from apysc._type import value_util
-            self._initialize_visible_if_not_initialized()
-            return value_util.get_copy(value=self._visible)
+        from apysc._type import value_util
+        self._initialize_visible_if_not_initialized()
+        return value_util.get_copy(value=self._visible)
 
     @visible.setter
     def visible(self, value: Boolean) -> None:
@@ -78,10 +74,12 @@ class VisibleInterface(
         value : Boolean
             Boolean value to set.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='visible', locals_=locals(),
-                module_name=__name__, class_=VisibleInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='visible', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=VisibleInterface.__name__):
+            import apysc as ap
             from apysc._validation import bool_validation
             bool_validation.validate_bool(value=value)
             if isinstance(value, bool):
@@ -91,23 +89,21 @@ class VisibleInterface(
 
             self._append_visible_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='VisibleInterface')
     def _append_visible_update_expression(self) -> None:
         """
         Append visible property updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_visible_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=VisibleInterface):
-            expression: str = (
-                f'if ({self._visible.variable_name}) {{'
-                f'\n  {self.variable_name}.show();'
-                '\n}else {'
-                f'\n  {self.variable_name}.hide();'
-                '\n}'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'if ({self._visible.variable_name}) {{'
+            f'\n  {self.variable_name}.show();'
+            '\n}else {'
+            f'\n  {self.variable_name}.hide();'
+            '\n}'
+        )
+        ap.append_js_expression(expression=expression)
 
     _visible_snapshots: Dict[str, bool]
 

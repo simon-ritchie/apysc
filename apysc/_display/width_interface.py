@@ -5,6 +5,7 @@ from typing import Dict
 from typing import Union
 
 from apysc._animation.animation_width_interface import AnimationWidthInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -25,21 +26,20 @@ class WidthInterface(
 
         self._append_width_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WidthInterface')
     def _append_width_attr_linking_setting(self) -> None:
         """
         Append a width attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_width_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=WidthInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._width, attr_name='width')
-            self._append_attr_to_linking_stack(
-                attr=self._width, attr_name='width')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._width, attr_name='width')
+        self._append_attr_to_linking_stack(
+            attr=self._width, attr_name='width')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WidthInterface')
     def width(self) -> Int:
         """
         Get this instance's width.
@@ -62,13 +62,10 @@ class WidthInterface(
         Int(100)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='width', locals_=locals(),
-                module_name=__name__, class_=WidthInterface):
-            from apysc._type import value_util
-            self._initialize_width_if_not_initialized()
-            width: ap.Int = value_util.get_copy(value=self._width)
-            return width
+        from apysc._type import value_util
+        self._initialize_width_if_not_initialized()
+        width: ap.Int = value_util.get_copy(value=self._width)
+        return width
 
     @width.setter
     def width(self, value: Int) -> None:
@@ -80,32 +77,31 @@ class WidthInterface(
         value : Int
             Width value to set.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='width', locals_=locals(),
-                module_name=__name__, class_=WidthInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='width', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=WidthInterface.__name__):
             self._update_width_and_skip_appending_exp(value=value)
             self._width._append_incremental_calc_substitution_expression()
             self._append_width_update_expression()
 
             self._append_width_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WidthInterface')
     def _append_width_update_expression(self) -> None:
         """
         Append width updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_width_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=WidthInterface):
-            from apysc._type import value_util
-            width_str: str = value_util.get_value_str_for_expression(
-                value=self._width)
-            expression: str = (
-                f'{self.variable_name}.width({width_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        width_str: str = value_util.get_value_str_for_expression(
+            value=self._width)
+        expression: str = (
+            f'{self.variable_name}.width({width_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
     def _update_width_and_skip_appending_exp(
             self, *, value: Union[int, Int]) -> None:

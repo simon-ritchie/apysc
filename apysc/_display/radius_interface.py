@@ -6,6 +6,7 @@ from typing import Union
 
 from apysc._animation.animation_radius_interface import \
     AnimationRadiusInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -26,21 +27,20 @@ class RadiusInterface(
 
         self._append_raidus_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='RadiusInterface')
     def _append_raidus_attr_linking_setting(self) -> None:
         """
         Append a radius attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_raidus_attr_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=RadiusInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._radius, attr_name='radius')
-            self._append_attr_to_linking_stack(
-                attr=self._radius, attr_name='radius')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._radius, attr_name='radius')
+        self._append_attr_to_linking_stack(
+            attr=self._radius, attr_name='radius')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='RadiusInterface')
     def radius(self) -> Int:
         """
         Get radius value.
@@ -62,13 +62,9 @@ class RadiusInterface(
         >>> circle.radius
         Int(75)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='radius', locals_=locals(),
-                module_name=__name__, class_=RadiusInterface):
-            from apysc._type import value_util
-            self._initialize_radius_if_not_initialized()
-            return value_util.get_copy(value=self._radius)
+        from apysc._type import value_util
+        self._initialize_radius_if_not_initialized()
+        return value_util.get_copy(value=self._radius)
 
     @radius.setter
     def radius(self, value: Int) -> None:
@@ -80,10 +76,11 @@ class RadiusInterface(
         value : int or Int
             Radius value.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='radius', locals_=locals(),
-                module_name=__name__, class_=RadiusInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='points', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=RadiusInterface.__name__):
             from apysc._validation import number_validation
             number_validation.validate_integer(integer=value)
             value = self._get_converted_radius_int(radius=value)
@@ -93,6 +90,8 @@ class RadiusInterface(
 
             self._append_raidus_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='RadiusInterface')
     def _get_converted_radius_int(
             self, *, radius: Union[int, Int]) -> Int:
         """
@@ -109,30 +108,25 @@ class RadiusInterface(
             Type converted radius value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._get_converted_radius_int, locals_=locals(),
-                module_name=__name__, class_=RadiusInterface):
-            if not isinstance(radius, ap.Int):
-                return ap.Int(radius)
-            return radius
+        if not isinstance(radius, ap.Int):
+            return ap.Int(radius)
+        return radius
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='RadiusInterface')
     def _append_radius_update_expression(self) -> None:
         """
         Append radius value updating expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_radius_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=RadiusInterface):
-            from apysc._type import value_util
-            self._initialize_radius_if_not_initialized()
-            value_str: str = value_util.get_value_str_for_expression(
-                value=self._radius)
-            expression: str = (
-                f'{self.variable_name}.radius({value_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        self._initialize_radius_if_not_initialized()
+        value_str: str = value_util.get_value_str_for_expression(
+            value=self._radius)
+        expression: str = (
+            f'{self.variable_name}.radius({value_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
     _radius_snapshots: Dict[str, int]
 

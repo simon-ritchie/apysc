@@ -441,9 +441,10 @@ class Graphics(
         Int(5)
         """
         import apysc as ap
-        self._current_line = _polyline.Polyline(
+        polyline: _polyline.Polyline = _polyline.Polyline(
             parent=self, points=ap.Array([Point2D(x=x, y=y)]))
-        return self._current_line
+        self._current_line = polyline
+        return polyline
 
     def _reset_each_line_settings(self) -> None:
         """

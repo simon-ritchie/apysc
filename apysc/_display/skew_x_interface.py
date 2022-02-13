@@ -4,6 +4,7 @@
 from typing import Dict
 
 from apysc._animation.animation_skew_x_interface import AnimationSkewXInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -24,20 +25,20 @@ class SkewXInterface(
 
         self._append_skew_x_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='SkewXInterface')
     def _append_skew_x_attr_linking_setting(self) -> None:
         """
         Append a skew-x attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='skew_x', locals_=locals(),
-                module_name=__name__, class_=SkewXInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._skew_x, attr_name='skew_x')
-            self._append_attr_to_linking_stack(
-                attr=self._skew_x, attr_name='skew_x')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._skew_x, attr_name='skew_x')
+        self._append_attr_to_linking_stack(
+            attr=self._skew_x, attr_name='skew_x')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='SkewXInterface')
     def skew_x(self) -> Int:
         """
         Get a current skew x value of the instance.
@@ -64,13 +65,9 @@ class SkewXInterface(
         >>> rectangle.skew_x
         Int(50)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='skew_x', locals_=locals(),
-                module_name=__name__, class_=SkewXInterface):
-            from apysc._type import value_util
-            self._initialize_skew_x_if_not_initialized()
-            return value_util.get_copy(value=self._skew_x)
+        from apysc._type import value_util
+        self._initialize_skew_x_if_not_initialized()
+        return value_util.get_copy(value=self._skew_x)
 
     @skew_x.setter
     def skew_x(self, value: Int) -> None:
@@ -87,10 +84,12 @@ class SkewXInterface(
         - GraphicsBase skew_x and skew_y interfaces document
             - https://simon-ritchie.github.io/apysc/graphics_base_skew.html
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='skew_x', locals_=locals(),
-                module_name=__name__, class_=SkewXInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='skew_x', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=SkewXInterface.__name__):
+            import apysc as ap
             from apysc._validation import number_validation
             self._initialize_skew_x_if_not_initialized()
             number_validation.validate_integer(integer=value)
@@ -100,6 +99,8 @@ class SkewXInterface(
 
             self._append_skew_x_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='SkewXInterface')
     def _append_skew_x_update_expression(
             self, *, before_value: Int) -> None:
         """
@@ -111,21 +112,17 @@ class SkewXInterface(
             Before updating value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_skew_x_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=SkewXInterface):
-            from apysc._type import value_util
-            before_value_str: str = value_util.get_value_str_for_expression(
-                value=before_value)
-            after_value_str: str = value_util.get_value_str_for_expression(
-                value=self._skew_x)
-            expression: str = (
-                f'{self.variable_name}.skew(-{before_value_str}, 0);'
-                f'\n{self.variable_name}.skew({after_value_str}, 0);'
-                f'\n{before_value_str} = {after_value_str};'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        before_value_str: str = value_util.get_value_str_for_expression(
+            value=before_value)
+        after_value_str: str = value_util.get_value_str_for_expression(
+            value=self._skew_x)
+        expression: str = (
+            f'{self.variable_name}.skew(-{before_value_str}, 0);'
+            f'\n{self.variable_name}.skew({after_value_str}, 0);'
+            f'\n{before_value_str} = {after_value_str};'
+        )
+        ap.append_js_expression(expression=expression)
 
     _skew_x_snapshots: Dict[str, int]
 

@@ -6,6 +6,7 @@ from typing import Dict
 
 from apysc._animation.animation_rotation_around_point_interface import \
     AnimationRotationAroundPointInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -25,6 +26,8 @@ class RotationAroundPointInterface(
             return
         self._rotation_around_point = Dictionary({})
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='RotationAroundPointInterface')
     def get_rotation_around_point(self, x: Int, y: Int) -> Int:
         """
         Get a rotation value around the given coordinates.
@@ -62,23 +65,22 @@ class RotationAroundPointInterface(
         Int(45)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.get_rotation_around_point, locals_=locals(),
-                module_name=__name__, class_=RotationAroundPointInterface):
-            from apysc._display import rotation_interface_helper
-            from apysc._type.expression_string import ExpressionString
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=x)
-            number_validation.validate_integer(integer=y)
-            self._initialize_rotation_around_point_if_not_initialized()
-            default_val: ap.Int = ap.Int(0)
-            key_exp_str: ExpressionString = rotation_interface_helper.\
-                get_coordinates_key_for_expression(
-                    x=int(x._value), y=int(y._value))
-            rotation: ap.Int = self._rotation_around_point.get(
-                key=key_exp_str, default=default_val)
-            return rotation
+        from apysc._display import rotation_interface_helper
+        from apysc._type.expression_string import ExpressionString
+        from apysc._validation import number_validation
+        number_validation.validate_integer(integer=x)
+        number_validation.validate_integer(integer=y)
+        self._initialize_rotation_around_point_if_not_initialized()
+        default_val: ap.Int = ap.Int(0)
+        key_exp_str: ExpressionString = rotation_interface_helper.\
+            get_coordinates_key_for_expression(
+                x=int(x._value), y=int(y._value))
+        rotation: ap.Int = self._rotation_around_point.get(
+            key=key_exp_str, default=default_val)
+        return rotation
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='RotationAroundPointInterface')
     def set_rotation_around_point(
             self, rotation: Int, x: Int, y: Int) -> None:
         """
@@ -98,24 +100,22 @@ class RotationAroundPointInterface(
         - GraphicsBase rotate_around_point interfaces document
             - https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_point.html  # noqa
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.set_rotation_around_point, locals_=locals(),
-                module_name=__name__, class_=RotationAroundPointInterface):
-            from apysc._display import rotation_interface_helper
-            from apysc._type.expression_string import ExpressionString
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=rotation)
-            number_validation.validate_integer(integer=x)
-            number_validation.validate_integer(integer=y)
-            self._initialize_rotation_around_point_if_not_initialized()
-            key_exp_str: ExpressionString = rotation_interface_helper.\
-                get_coordinates_key_for_expression(
-                    x=int(x._value), y=int(y._value))
-            self._rotation_around_point._value[key_exp_str.value] = rotation
-            self._append_rotation_around_point_update_expression(
-                rotation=rotation, x=x, y=y)
+        from apysc._display import rotation_interface_helper
+        from apysc._type.expression_string import ExpressionString
+        from apysc._validation import number_validation
+        number_validation.validate_integer(integer=rotation)
+        number_validation.validate_integer(integer=x)
+        number_validation.validate_integer(integer=y)
+        self._initialize_rotation_around_point_if_not_initialized()
+        key_exp_str: ExpressionString = rotation_interface_helper.\
+            get_coordinates_key_for_expression(
+                x=int(x._value), y=int(y._value))
+        self._rotation_around_point._value[key_exp_str.value] = rotation
+        self._append_rotation_around_point_update_expression(
+            rotation=rotation, x=x, y=y)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='RotationAroundPointInterface')
     def _append_rotation_around_point_update_expression(
             self, *, rotation: Int, x: Int, y: Int) -> None:
         """
@@ -132,14 +132,10 @@ class RotationAroundPointInterface(
             Y-coordinate.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_rotation_around_point_update_expression,  # noqa
-                locals_=locals(),
-                module_name=__name__, class_=RotationAroundPointInterface):
-            expression: str = \
-                self._get_rotation_around_point_updating_expression(
-                    rotation=rotation, x=x, y=y)
-            ap.append_js_expression(expression=expression)
+        expression: str = \
+            self._get_rotation_around_point_updating_expression(
+                rotation=rotation, x=x, y=y)
+        ap.append_js_expression(expression=expression)
 
     def _get_rotation_around_point_updating_expression(
             self, *, rotation: Int, x: Int, y: Int) -> str:

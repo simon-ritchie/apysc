@@ -5,6 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 
 
@@ -77,6 +78,8 @@ class ParentInterface(RevertInterface):
             parent=value, child=self)
         self._parent = value
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='ParentInterface')
     def remove_from_parent(self) -> None:
         """
         Remove this instance from parent.
@@ -86,20 +89,16 @@ class ParentInterface(RevertInterface):
         ValueError
             If this instance is not added to any parent.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.remove_from_parent, locals_=locals(),
-                module_name=__name__, class_=ParentInterface):
-            from apysc._display.child_interface import ChildInterface
-            from apysc._display.child_interface import \
-                append_expression_of_remove_child
-            from apysc._display.display_object import DisplayObject
-            parent: Optional[ChildInterface] = self._parent
-            child: DisplayObject = self  # type: ignore
-            if parent is not None:
-                parent.remove_child(child=child)
-            else:
-                append_expression_of_remove_child(child=child)
+        from apysc._display.child_interface import ChildInterface
+        from apysc._display.child_interface import \
+            append_expression_of_remove_child
+        from apysc._display.display_object import DisplayObject
+        parent: Optional[ChildInterface] = self._parent
+        child: DisplayObject = self  # type: ignore
+        if parent is not None:
+            parent.remove_child(child=child)
+        else:
+            append_expression_of_remove_child(child=child)
 
     _parent_snapshots: Dict[str, Optional[Any]]
 

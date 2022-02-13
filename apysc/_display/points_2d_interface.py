@@ -5,6 +5,7 @@ from typing import Dict
 from typing import Tuple
 
 from apysc._geom.point2d import Point2D
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -22,7 +23,9 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
             return
         self._points = Array([])
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Points2DInterface')
     def points(self) -> Array[Point2D]:
         """
         Get current points.
@@ -46,12 +49,8 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         >>> polygon.points
         Array([Point2D(Int(0), Int(0)), Point2D(Int(50), Int(0))])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='points', locals_=locals(),
-                module_name=__name__, class_=Points2DInterface):
-            self._initialize_points_if_not_initialized()
-            return self._points
+        self._initialize_points_if_not_initialized()
+        return self._points
 
     @points.setter
     def points(self, value: Array[Point2D]) -> None:
@@ -68,10 +67,11 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         ValueError
             If array contains not Point2D value.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='points', locals_=locals(),
-                module_name=__name__, class_=Points2DInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='points', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=Points2DInterface.__name__):
             for point in value.value:  # type: ignore
                 if isinstance(point, Point2D):
                     continue
@@ -116,6 +116,8 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         )
         return variable_name, expression
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Points2DInterface')
     def _append_points_update_expression(self, *, value: Array) -> None:
         """
         Append points updating expression.
@@ -126,14 +128,10 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
             Points value to set.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_points_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Points2DInterface):
-            expression: str = (
-                f'{self._points.variable_name} = {value.variable_name};'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self._points.variable_name} = {value.variable_name};'
+        )
+        ap.append_js_expression(expression=expression)
 
     _points_snapshots: Dict[str, Array]
 

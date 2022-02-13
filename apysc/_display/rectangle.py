@@ -9,6 +9,7 @@ from apysc._display.ellipse_width_interface import EllipseWidthInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.line_base import LineBase
 from apysc._display.width_interface import WidthInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 
 
@@ -47,6 +48,8 @@ class Rectangle(
     String('#00aaff')
     """
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Rectangle')
     def __init__(
             self, *, parent: 'graphics.Graphics',
             x: Union[int, Int],
@@ -97,28 +100,24 @@ class Rectangle(
         >>> rectangle.fill_color
         String('#00aaff')
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=Rectangle):
-            from apysc._display.graphics import Graphics
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            from apysc._validation import size_validation
-            parent_graphics: Graphics = parent
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.RECTANGLE)
-            super(Rectangle, self).__init__(
-                parent=parent, x=x, y=y, variable_name=variable_name)
-            size_validation.validate_size_is_gte_zero(size=width)
-            size_validation.validate_size_is_gte_zero(size=height)
-            self._update_width_and_skip_appending_exp(value=width)
-            self._update_height_and_skip_appending_exp(value=height)
-            self._set_initial_basic_values(parent=parent)
-            self._append_constructor_expression()
-            self._set_line_setting_if_not_none_value_exists(
-                parent_graphics=parent_graphics)
-            self._set_overflow_visible_setting()
+        from apysc._display.graphics import Graphics
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._validation import size_validation
+        parent_graphics: Graphics = parent
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(type_name=var_names.RECTANGLE)
+        super(Rectangle, self).__init__(
+            parent=parent, x=x, y=y, variable_name=variable_name)
+        size_validation.validate_size_is_gte_zero(size=width)
+        size_validation.validate_size_is_gte_zero(size=height)
+        self._update_width_and_skip_appending_exp(value=width)
+        self._update_height_and_skip_appending_exp(value=height)
+        self._set_initial_basic_values(parent=parent)
+        self._append_constructor_expression()
+        self._set_line_setting_if_not_none_value_exists(
+            parent_graphics=parent_graphics)
+        self._set_overflow_visible_setting()
 
     def __repr__(self) -> str:
         """
@@ -134,26 +133,24 @@ class Rectangle(
         repr_str: str = f"Rectangle('{self.variable_name}')"
         return repr_str
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Rectangle')
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_constructor_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Rectangle):
-            from apysc._display.stage import get_stage_variable_name
-            variable_name: str = self.variable_name
-            stage_variable_name: str = get_stage_variable_name()
-            expression: str = (
-                f'var {variable_name} = {stage_variable_name}'
-                f'\n  .rect({self.width.variable_name}, '
-                f'{self.height.variable_name})'
-            )
-            attrs_str: str = self._make_rect_attrs_expression()
-            expression += f'{attrs_str};'
-            ap.append_js_expression(expression=expression)
+        from apysc._display.stage import get_stage_variable_name
+        variable_name: str = self.variable_name
+        stage_variable_name: str = get_stage_variable_name()
+        expression: str = (
+            f'var {variable_name} = {stage_variable_name}'
+            f'\n  .rect({self.width.variable_name}, '
+            f'{self.height.variable_name})'
+        )
+        attrs_str: str = self._make_rect_attrs_expression()
+        expression += f'{attrs_str};'
+        ap.append_js_expression(expression=expression)
 
     def _make_rect_attrs_expression(self) -> str:
         """

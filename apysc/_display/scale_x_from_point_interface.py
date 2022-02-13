@@ -6,6 +6,7 @@ from typing import Dict
 
 from apysc._animation.animation_scale_x_from_point_interface import \
     AnimationScaleXFromPointInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -26,6 +27,8 @@ class ScaleXFromPointInterface(
             return
         self._scale_x_from_point = Dictionary({})
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='ScaleXFromPointInterface')
     def get_scale_x_from_point(self, x: Int) -> Number:
         """
         Get a scale-x value from the given x-coordinate.
@@ -59,21 +62,20 @@ class ScaleXFromPointInterface(
         Number(1.5)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.get_scale_x_from_point, locals_=locals(),
-                module_name=__name__, class_=ScaleXFromPointInterface):
-            from apysc._display import scale_interface_helper
-            from apysc._type.expression_string import ExpressionString
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=x)
-            self._initialize_scale_x_from_point_if_not_initialized()
-            default_val: ap.Number = ap.Number(1.0)
-            key_exp_str: ExpressionString = scale_interface_helper.\
-                get_coordinate_key_for_expression(coordinate=int(x._value))
-            scale_x: ap.Number = self._scale_x_from_point.get(
-                key=key_exp_str, default=default_val)
-            return scale_x
+        from apysc._display import scale_interface_helper
+        from apysc._type.expression_string import ExpressionString
+        from apysc._validation import number_validation
+        number_validation.validate_integer(integer=x)
+        self._initialize_scale_x_from_point_if_not_initialized()
+        default_val: ap.Number = ap.Number(1.0)
+        key_exp_str: ExpressionString = scale_interface_helper.\
+            get_coordinate_key_for_expression(coordinate=int(x._value))
+        scale_x: ap.Number = self._scale_x_from_point.get(
+            key=key_exp_str, default=default_val)
+        return scale_x
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='ScaleXFromPointInterface')
     def set_scale_x_from_point(self, scale_x: Number, x: Int) -> None:
         """
         Update a scale-x value from the given x-coordinate.
@@ -103,21 +105,19 @@ class ScaleXFromPointInterface(
         >>> rectangle.get_scale_x_from_point(x=x)
         Number(1.5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.set_scale_x_from_point, locals_=locals(),
-                module_name=__name__, class_=ScaleXFromPointInterface):
-            from apysc._display import scale_interface_helper
-            from apysc._type.expression_string import ExpressionString
-            from apysc._validation import number_validation
-            number_validation.validate_num(num=scale_x)
-            number_validation.validate_integer(integer=x)
-            self._initialize_scale_x_from_point_if_not_initialized()
-            key_exp_str: ExpressionString = scale_interface_helper.\
-                get_coordinate_key_for_expression(coordinate=int(x._value))
-            self._scale_x_from_point._value[key_exp_str.value] = scale_x
-            self._append_scale_x_from_point_update_expression(x=x)
+        from apysc._display import scale_interface_helper
+        from apysc._type.expression_string import ExpressionString
+        from apysc._validation import number_validation
+        number_validation.validate_num(num=scale_x)
+        number_validation.validate_integer(integer=x)
+        self._initialize_scale_x_from_point_if_not_initialized()
+        key_exp_str: ExpressionString = scale_interface_helper.\
+            get_coordinate_key_for_expression(coordinate=int(x._value))
+        self._scale_x_from_point._value[key_exp_str.value] = scale_x
+        self._append_scale_x_from_point_update_expression(x=x)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='ScaleXFromPointInterface')
     def _append_scale_x_from_point_update_expression(
             self, *, x: Int) -> None:
         """
@@ -130,18 +130,14 @@ class ScaleXFromPointInterface(
             X-coordinate.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_scale_x_from_point_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=ScaleXFromPointInterface):
-            from apysc._display import scale_interface_helper
-            expression: str
-            expression = scale_interface_helper.get_scale_updating_expression(
-                coordinate=x,
-                scale_dict=self._scale_x_from_point,
-                interface_variable_name=self.variable_name,
-                coordinate_type=scale_interface_helper.CoordinateType.X)
-            ap.append_js_expression(expression=expression)
+        from apysc._display import scale_interface_helper
+        expression: str
+        expression = scale_interface_helper.get_scale_updating_expression(
+            coordinate=x,
+            scale_dict=self._scale_x_from_point,
+            interface_variable_name=self.variable_name,
+            coordinate_type=scale_interface_helper.CoordinateType.X)
+        ap.append_js_expression(expression=expression)
 
     _scale_x_from_point_snapshots: Dict[str, Dict[str, Any]]
 

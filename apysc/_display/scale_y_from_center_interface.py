@@ -5,6 +5,7 @@ from typing import Dict
 
 from apysc._animation.animation_scale_y_from_center_interface import \
     AnimationScaleYFromCenterInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
@@ -16,41 +17,36 @@ class ScaleYFromCenterInterface(
 
     _scale_y_from_center: Number
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='ScaleYFromCenterInterface')
     def _initialize_scale_y_from_center_if_not_initialized(self) -> None:
         """
         Initialize the `_scale_y_from_center` attribute if it hasn't been
         initialized yet.'
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.
-                _initialize_scale_y_from_center_if_not_initialized,
-                locals_=locals(),
-                module_name=__name__, class_=ScaleYFromCenterInterface):
-            if hasattr(self, '_scale_y_from_center'):
-                return
-            self._scale_y_from_center = ap.Number(1.0)
+        if hasattr(self, '_scale_y_from_center'):
+            return
+        self._scale_y_from_center = ap.Number(1.0)
 
-            self._append_scale_y_from_center_attr_linking_setting()
+        self._append_scale_y_from_center_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='ScaleYFromCenterInterface')
     def _append_scale_y_from_center_attr_linking_setting(self) -> None:
         """
         Append a scale-y attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.
-                _initialize_scale_y_from_center_if_not_initialized,
-                locals_=locals(),
-                module_name=__name__, class_=ScaleYFromCenterInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._scale_y_from_center,
-                attr_name='scale_y_from_center')
-            self._append_attr_to_linking_stack(
-                attr=self._scale_y_from_center,
-                attr_name='scale_y_from_center')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._scale_y_from_center,
+            attr_name='scale_y_from_center')
+        self._append_attr_to_linking_stack(
+            attr=self._scale_y_from_center,
+            attr_name='scale_y_from_center')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='ScaleYFromCenterInterface')
     def scale_y_from_center(self) -> Number:
         """
         Get a scale-y value from the center of this instance.
@@ -77,13 +73,9 @@ class ScaleYFromCenterInterface(
         >>> rectangle.scale_y_from_center
         Number(1.5)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='scale_y_from_center', locals_=locals(),
-                module_name=__name__, class_=ScaleYFromCenterInterface):
-            from apysc._type import value_util
-            self._initialize_scale_y_from_center_if_not_initialized()
-            return value_util.get_copy(value=self._scale_y_from_center)
+        from apysc._type import value_util
+        self._initialize_scale_y_from_center_if_not_initialized()
+        return value_util.get_copy(value=self._scale_y_from_center)
 
     @scale_y_from_center.setter
     def scale_y_from_center(self, value: Number) -> None:
@@ -100,10 +92,12 @@ class ScaleYFromCenterInterface(
         - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
             - https://simon-ritchie.github.io/apysc/graphics_base_scale_from_center.html  # noqa
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='scale_y_from_center', locals_=locals(),
-                module_name=__name__, class_=ScaleYFromCenterInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='scale_y_from_center', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=ScaleYFromCenterInterface.__name__):
+            import apysc as ap
             from apysc._validation import number_validation
             self._initialize_scale_y_from_center_if_not_initialized()
             number_validation.validate_num(num=value)
@@ -116,6 +110,8 @@ class ScaleYFromCenterInterface(
 
             self._append_scale_y_from_center_attr_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='ScaleYFromCenterInterface')
     def _append_scale_y_from_center_update_expression(
             self, *, before_value: Number) -> None:
         """
@@ -128,21 +124,17 @@ class ScaleYFromCenterInterface(
             Before updating value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_scale_y_from_center_update_expression,
-                locals_=locals(),
-                module_name=__name__, class_=ScaleYFromCenterInterface):
-            from apysc._type import value_util
-            before_value_str: str = value_util.get_value_str_for_expression(
-                value=before_value)
-            after_value_str: str = value_util.get_value_str_for_expression(
-                value=self._scale_y_from_center)
-            expression: str = (
-                f'{self.variable_name}.scale(1, 1 / {before_value_str});'
-                f'\n{self.variable_name}.scale(1, {after_value_str});'
-                f'\n{before_value_str} = {after_value_str};'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        before_value_str: str = value_util.get_value_str_for_expression(
+            value=before_value)
+        after_value_str: str = value_util.get_value_str_for_expression(
+            value=self._scale_y_from_center)
+        expression: str = (
+            f'{self.variable_name}.scale(1, 1 / {before_value_str});'
+            f'\n{self.variable_name}.scale(1, {after_value_str});'
+            f'\n{before_value_str} = {after_value_str};'
+        )
+        ap.append_js_expression(expression=expression)
 
     _scale_y_from_center_snapshots: Dict[str, float]
 

@@ -7,6 +7,7 @@ from typing import TypeVar
 from apysc._event.event import Event
 from apysc._event.prevent_default_interface import PreventDefaultInterface
 from apysc._event.stop_propagation_interface import StopPropagationInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -40,6 +41,8 @@ class MouseEvent(
     >>> _ = rectangle.mousedown(on_mousedown)
     """
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='MouseEvent')
     def __init__(self, this: T) -> None:
         """
         Mouse event class.
@@ -64,15 +67,13 @@ class MouseEvent(
         ...     x=50, y=50, width=50, height=50)
         >>> e: ap.MouseEvent = ap.MouseEvent(this=rectangle)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=MouseEvent):
-            from apysc._expression import var_names
-            super(MouseEvent, self).__init__(
-                this=this, type_name=var_names.MOUSE_EVENT)
+        from apysc._expression import var_names
+        super(MouseEvent, self).__init__(
+            this=this, type_name=var_names.MOUSE_EVENT)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='MouseEvent')
     def stage_x(self) -> Int:
         """
         Get the x-coordinate of the stage reference.
@@ -102,13 +103,12 @@ class MouseEvent(
         >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='stage_x', locals_=locals(),
-                module_name=__name__, class_=MouseEvent):
-            x: ap.Int = ap.Int(0)
-            self._append_stage_x_getter_expression(x=x)
-            return x
+        x: ap.Int = ap.Int(0)
+        self._append_stage_x_getter_expression(x=x)
+        return x
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='MouseEvent')
     def _append_stage_x_getter_expression(self, *, x: Int) -> None:
         """
         Append stage_x getter property expression.
@@ -119,18 +119,16 @@ class MouseEvent(
             Target x-coordinate value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_stage_x_getter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=MouseEvent):
-            from apysc._display.stage import get_stage_elem_str
-            expression: str = (
-                f'{x.variable_name} = {self.variable_name}.pageX - '
-                f'{get_stage_elem_str()}.offset().left;'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._display.stage import get_stage_elem_str
+        expression: str = (
+            f'{x.variable_name} = {self.variable_name}.pageX - '
+            f'{get_stage_elem_str()}.offset().left;'
+        )
+        ap.append_js_expression(expression=expression)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='MouseEvent')
     def stage_y(self) -> Int:
         """
         Get the y-coordinate of the stage reference.
@@ -160,13 +158,12 @@ class MouseEvent(
         >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='stage_y', locals_=locals(),
-                module_name=__name__, class_=MouseEvent):
-            y: ap.Int = ap.Int(0)
-            self._append_stage_y_getter_expression(y=y)
-            return y
+        y: ap.Int = ap.Int(0)
+        self._append_stage_y_getter_expression(y=y)
+        return y
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='MouseEvent')
     def _append_stage_y_getter_expression(self, *, y: Int) -> None:
         """
         Append stage_y getter property expression.
@@ -177,18 +174,16 @@ class MouseEvent(
             Target y-coordinate value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_stage_y_getter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=MouseEvent):
-            from apysc._display.stage import get_stage_elem_str
-            expression: str = (
-                f'{y.variable_name} = {self.variable_name}.pageY - '
-                f'{get_stage_elem_str()}.offset().top;'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._display.stage import get_stage_elem_str
+        expression: str = (
+            f'{y.variable_name} = {self.variable_name}.pageY - '
+            f'{get_stage_elem_str()}.offset().top;'
+        )
+        ap.append_js_expression(expression=expression)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='MouseEvent')
     def local_x(self) -> Int:
         """
         Get a local x-coordinate event listening instance.
@@ -220,13 +215,12 @@ class MouseEvent(
         >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='local_x', locals_=locals(),
-                module_name=__name__, class_=MouseEvent):
-            x: ap.Int = ap.Int(0)
-            self._append_local_x_getter_expression(x=x)
-            return x
+        x: ap.Int = ap.Int(0)
+        self._append_local_x_getter_expression(x=x)
+        return x
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='MouseEvent')
     def _append_local_x_getter_expression(self, *, x: Int) -> None:
         """
         Append local_x getter property expression.
@@ -237,19 +231,17 @@ class MouseEvent(
             Target x-coordinate value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_local_x_getter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=MouseEvent):
-            stage_x: ap.Int = self.stage_x
-            this: T = self.this
-            expression: str = (
-                f'{x.variable_name} = {stage_x.variable_name} - '
-                f'get_total_x({this.variable_name});'
-            )
-            ap.append_js_expression(expression=expression)
+        stage_x: ap.Int = self.stage_x
+        this: T = self.this
+        expression: str = (
+            f'{x.variable_name} = {stage_x.variable_name} - '
+            f'get_total_x({this.variable_name});'
+        )
+        ap.append_js_expression(expression=expression)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='MouseEvent')
     def local_y(self) -> Int:
         """
         Get the local y-coordinate of the event listening instance.
@@ -281,13 +273,12 @@ class MouseEvent(
         >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='local_y', locals_=locals(),
-                module_name=__name__, class_=MouseEvent):
-            y: ap.Int = ap.Int(0)
-            self._append_local_y_getter_expression(y=y)
-            return y
+        y: ap.Int = ap.Int(0)
+        self._append_local_y_getter_expression(y=y)
+        return y
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='MouseEvent')
     def _append_local_y_getter_expression(self, *, y: Int) -> None:
         """
         Append local_y getter property expression.
@@ -298,14 +289,10 @@ class MouseEvent(
             Target y-coordinate value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_local_y_getter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=MouseEvent):
-            stage_y: ap.Int = self.stage_y
-            this: T = self.this
-            expression: str = (
-                f'{y.variable_name} = {stage_y.variable_name} - '
-                f'get_total_y({this.variable_name});'
-            )
-            ap.append_js_expression(expression=expression)
+        stage_y: ap.Int = self.stage_y
+        this: T = self.this
+        expression: str = (
+            f'{y.variable_name} = {stage_y.variable_name} - '
+            f'get_total_y({this.variable_name});'
+        )
+        ap.append_js_expression(expression=expression)

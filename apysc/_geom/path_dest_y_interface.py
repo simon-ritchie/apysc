@@ -3,6 +3,7 @@
 
 from typing import Dict
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -23,21 +24,20 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
 
         self._append_dest_y_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathDestYInterface')
     def _append_dest_y_linking_setting(self) -> None:
         """
         Append a dest_y linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_dest_y_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=PathDestYInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._dest_y, attr_name='dest_y')
-            self._append_attr_to_linking_stack(
-                attr=self._dest_y, attr_name='dest_y')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._dest_y, attr_name='dest_y')
+        self._append_attr_to_linking_stack(
+            attr=self._dest_y, attr_name='dest_y')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathDestYInterface')
     def dest_y(self) -> Int:
         """
         Get a y-coordinate of the destination point.
@@ -57,12 +57,8 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
         >>> bezier_2d.dest_y
         Int(75)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='dest_y', locals_=locals(),
-                module_name=__name__, class_=PathDestYInterface):
-            self._initialize_dest_y_if_not_initialized()
-            return self._dest_y._copy()
+        self._initialize_dest_y_if_not_initialized()
+        return self._dest_y._copy()
 
     @dest_y.setter
     def dest_y(self, value: Int) -> None:
@@ -74,10 +70,11 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             Y-coordinate of the destination point
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='dest_y', locals_=locals(),
-                module_name=__name__, class_=PathDestYInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='dest_y', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=PathDestYInterface.__name__):
             self._initialize_dest_y_if_not_initialized()
             self._dest_y.value = value
 

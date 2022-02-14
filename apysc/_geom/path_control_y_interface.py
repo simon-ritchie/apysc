@@ -3,6 +3,7 @@
 
 from typing import Dict
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -23,21 +24,20 @@ class PathControlYInterface(RevertInterface, AttrLinkingInterface):
 
         self._append_control_y_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathControlYInterface')
     def _append_control_y_linking_setting(self) -> None:
         """
         Append a control_y attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_control_y_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=PathControlYInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._control_y, attr_name='control_y')
-            self._append_attr_to_linking_stack(
-                attr=self._control_y, attr_name='control_y')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._control_y, attr_name='control_y')
+        self._append_attr_to_linking_stack(
+            attr=self._control_y, attr_name='control_y')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathControlYInterface')
     def control_y(self) -> Int:
         """
         Get a Y-coordinate of the control point.
@@ -56,12 +56,8 @@ class PathControlYInterface(RevertInterface, AttrLinkingInterface):
         >>> bezier_2d.control_y
         Int(25)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='control_y', locals_=locals(),
-                module_name=__name__, class_=PathControlYInterface):
-            self._initialize_control_y_if_not_initialized()
-            return self._control_y._copy()
+        self._initialize_control_y_if_not_initialized()
+        return self._control_y._copy()
 
     @control_y.setter
     def control_y(self, value: Int) -> None:
@@ -73,10 +69,11 @@ class PathControlYInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             Y-coordinate of the control point.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='control_y', locals_=locals(),
-                module_name=__name__, class_=PathControlYInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='control_y', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=PathControlYInterface.__name__):
             self._initialize_control_y_if_not_initialized()
             self._control_y.value = value
 

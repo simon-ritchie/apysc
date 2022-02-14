@@ -4,8 +4,11 @@
 from typing import List
 
 from apysc._geom.path_data_base import PathDataBase
+from apysc._html.debug_mode import add_debug_info_setting
 
 
+@add_debug_info_setting(  # type: ignore[misc]
+    module_name=__name__)
 def make_paths_expression_from_list(
         *, path_data_list: List[PathDataBase]) -> str:
     """
@@ -21,13 +24,9 @@ def make_paths_expression_from_list(
     expression : str
         Created expression string.
     """
-    import apysc as ap
-    with ap.DebugInfo(
-            callable_=make_paths_expression_from_list,
-            locals_=locals(), module_name=__name__):
-        expression: str = ''
-        for path_data in path_data_list:
-            if expression != '':
-                expression += ' + " " + '
-            expression += path_data._get_svg_str()
-        return expression
+    expression: str = ''
+    for path_data in path_data_list:
+        if expression != '':
+            expression += ' + " " + '
+        expression += path_data._get_svg_str()
+    return expression

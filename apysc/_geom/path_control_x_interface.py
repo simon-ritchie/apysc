@@ -3,6 +3,7 @@
 
 from typing import Dict
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -23,21 +24,20 @@ class PathControlXInterface(RevertInterface, AttrLinkingInterface):
 
         self._append_control_x_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathControlXInterface')
     def _append_control_x_linking_setting(self) -> None:
         """
         Append a control_x attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_control_x_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=PathControlXInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._control_x, attr_name='control_x')
-            self._append_attr_to_linking_stack(
-                attr=self._control_x, attr_name='control_x')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._control_x, attr_name='control_x')
+        self._append_attr_to_linking_stack(
+            attr=self._control_x, attr_name='control_x')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathControlXInterface')
     def control_x(self) -> Int:
         """
         Get a X-coordinate of the point.
@@ -56,12 +56,8 @@ class PathControlXInterface(RevertInterface, AttrLinkingInterface):
         >>> bezier_2d.control_x
         Int(125)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='control_x', locals_=locals(),
-                module_name=__name__, class_=PathControlXInterface):
-            self._initialize_control_x_if_not_initialized()
-            return self._control_x._copy()
+        self._initialize_control_x_if_not_initialized()
+        return self._control_x._copy()
 
     @control_x.setter
     def control_x(self, value: Int) -> None:
@@ -73,10 +69,11 @@ class PathControlXInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             X-coordinate of the control point.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='control_x', locals_=locals(),
-                module_name=__name__, class_=PathControlXInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='control_x', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=PathControlXInterface.__name__):
             self._initialize_control_x_if_not_initialized()
             self._control_x.value = value
 

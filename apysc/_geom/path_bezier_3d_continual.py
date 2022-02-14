@@ -10,6 +10,7 @@ from apysc._geom.path_control_y_interface import PathControlYInterface
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_dest_x_interface import PathDestXInterface
 from apysc._geom.path_dest_y_interface import PathDestYInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
@@ -40,6 +41,8 @@ class PathBezier3DContinual(
     ...     ])
     """
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3DContinual')
     def __init__(
             self,
             control_x: Union[int, Int],
@@ -83,23 +86,21 @@ class PathBezier3DContinual(
         ...             dest_x=100, dest_y=50),
         ...     ])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=PathBezier3DContinual):
-            from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val
-            from apysc._geom.path_label import PathLabel
-            super(PathBezier3DContinual, self).__init__(
-                path_label=PathLabel.BEZIER_3D_CONTINUAL,
-                relative=relative)
-            self.control_x = get_copied_int_from_builtin_val(
-                integer=control_x)
-            self.control_y = get_copied_int_from_builtin_val(
-                integer=control_y)
-            self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-            self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
+        from apysc._geom.path_label import PathLabel
+        super(PathBezier3DContinual, self).__init__(
+            path_label=PathLabel.BEZIER_3D_CONTINUAL,
+            relative=relative)
+        self.control_x = get_copied_int_from_builtin_val(
+            integer=control_x)
+        self.control_y = get_copied_int_from_builtin_val(
+            integer=control_y)
+        self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
+        self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3DContinual')
     def _get_svg_str(self) -> str:
         """
         Get a path's SVG string created with the current setting.
@@ -109,28 +110,26 @@ class PathBezier3DContinual(
         svg_str : str
             A path's SVG string created with the current setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._get_svg_str, locals_=locals(),
-                module_name=__name__, class_=PathBezier3DContinual):
-            from apysc._type.value_util import get_value_str_for_expression
-            svg_char: String = self._get_svg_char()
-            svg_char_str: str = get_value_str_for_expression(
-                value=svg_char)
-            control_x_str: str = get_value_str_for_expression(
-                value=self._control_x)
-            control_y_str: str = get_value_str_for_expression(
-                value=self._control_y)
-            dest_x_str: str = get_value_str_for_expression(value=self._dest_x)
-            dest_y_str: str = get_value_str_for_expression(value=self._dest_y)
-            svg_str: str = (
-                f'{svg_char_str} + String({control_x_str}) '
-                f'+ " " + String({control_y_str}) '
-                f'+ " " + String({dest_x_str}) '
-                f'+ " " + String({dest_y_str})'
-            )
-            return svg_str
+        from apysc._type.value_util import get_value_str_for_expression
+        svg_char: String = self._get_svg_char()
+        svg_char_str: str = get_value_str_for_expression(
+            value=svg_char)
+        control_x_str: str = get_value_str_for_expression(
+            value=self._control_x)
+        control_y_str: str = get_value_str_for_expression(
+            value=self._control_y)
+        dest_x_str: str = get_value_str_for_expression(value=self._dest_x)
+        dest_y_str: str = get_value_str_for_expression(value=self._dest_y)
+        svg_str: str = (
+            f'{svg_char_str} + String({control_x_str}) '
+            f'+ " " + String({control_y_str}) '
+            f'+ " " + String({dest_x_str}) '
+            f'+ " " + String({dest_y_str})'
+        )
+        return svg_str
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3DContinual')
     def update_path_data(
             self,
             control_x: Union[int, Int],
@@ -177,23 +176,21 @@ class PathBezier3DContinual(
         >>> bezier_3d_continual.dest_y
         Int(100)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.update_path_data, locals_=locals(),
-                module_name=__name__, class_=PathBezier3DContinual):
-            from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_boolean_from_builtin_val
-            from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val
-            self.control_x = get_copied_int_from_builtin_val(
-                integer=control_x)
-            self.control_y = get_copied_int_from_builtin_val(
-                integer=control_y)
-            self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-            self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
-            self.relative = get_copied_boolean_from_builtin_val(
-                bool_val=relative)
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_boolean_from_builtin_val
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
+        self.control_x = get_copied_int_from_builtin_val(
+            integer=control_x)
+        self.control_y = get_copied_int_from_builtin_val(
+            integer=control_y)
+        self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
+        self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+        self.relative = get_copied_boolean_from_builtin_val(
+            bool_val=relative)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3DContinual')
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
@@ -209,19 +206,18 @@ class PathBezier3DContinual(
             Comparison result.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__eq__', locals_=locals(),
-                module_name=__name__, class_=PathBezier3DContinual):
-            if not isinstance(other, PathBezier3DContinual):
-                result: ap.Boolean = ap.Boolean(False)
-                return result
-            return (
-                self.control_x == other.control_x
-                and self.control_y == other.control_y
-                and self.dest_x == other.dest_x
-                and self.dest_y == other.dest_y
-                and self.relative == other.relative)
+        if not isinstance(other, PathBezier3DContinual):
+            result: ap.Boolean = ap.Boolean(False)
+            return result
+        return (
+            self.control_x == other.control_x
+            and self.control_y == other.control_y
+            and self.dest_x == other.dest_x
+            and self.dest_y == other.dest_y
+            and self.relative == other.relative)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3DContinual')
     def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.
@@ -237,9 +233,6 @@ class PathBezier3DContinual(
             Comparison result.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__ne__', locals_=locals(),
-                module_name=__name__, class_=PathBezier3DContinual):
-            result: ap.Boolean = self == other
-            result = result.not_
-            return result
+        result: ap.Boolean = self == other
+        result = result.not_
+        return result

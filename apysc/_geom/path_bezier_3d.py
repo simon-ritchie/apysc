@@ -11,6 +11,7 @@ from apysc._geom.path_control_y2_interface import PathControlY2Interface
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_dest_x_interface import PathDestXInterface
 from apysc._geom.path_dest_y_interface import PathDestYInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
@@ -42,6 +43,8 @@ class PathBezier3D(
     ...     ])
     """
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3D')
     def __init__(
             self,
             control_x1: Union[int, Int],
@@ -91,27 +94,25 @@ class PathBezier3D(
         ...             dest_x=100, dest_y=50),
         ...     ])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=PathBezier3D):
-            from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val
-            from apysc._geom.path_label import PathLabel
-            super(PathBezier3D, self).__init__(
-                path_label=PathLabel.BEZIER_3D,
-                relative=relative)
-            self.control_x1 = get_copied_int_from_builtin_val(
-                integer=control_x1)
-            self.control_y1 = get_copied_int_from_builtin_val(
-                integer=control_y1)
-            self.control_x2 = get_copied_int_from_builtin_val(
-                integer=control_x2)
-            self.control_y2 = get_copied_int_from_builtin_val(
-                integer=control_y2)
-            self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-            self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
+        from apysc._geom.path_label import PathLabel
+        super(PathBezier3D, self).__init__(
+            path_label=PathLabel.BEZIER_3D,
+            relative=relative)
+        self.control_x1 = get_copied_int_from_builtin_val(
+            integer=control_x1)
+        self.control_y1 = get_copied_int_from_builtin_val(
+            integer=control_y1)
+        self.control_x2 = get_copied_int_from_builtin_val(
+            integer=control_x2)
+        self.control_y2 = get_copied_int_from_builtin_val(
+            integer=control_y2)
+        self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
+        self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3D')
     def _get_svg_str(self) -> str:
         """
         Get a path's SVG string created with the current setting.
@@ -121,34 +122,32 @@ class PathBezier3D(
         svg_str : str
             A path's SVG string created with the current setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._get_svg_str, locals_=locals(),
-                module_name=__name__, class_=PathBezier3D):
-            from apysc._type.value_util import get_value_str_for_expression
-            svg_char: String = self._get_svg_char()
-            svg_char_str: str = get_value_str_for_expression(
-                value=svg_char)
-            control_x1_str: str = get_value_str_for_expression(
-                value=self._control_x1)
-            control_y1_str: str = get_value_str_for_expression(
-                value=self._control_y1)
-            control_x2_str: str = get_value_str_for_expression(
-                value=self._control_x2)
-            control_y2_str: str = get_value_str_for_expression(
-                value=self._control_y2)
-            dest_x_str: str = get_value_str_for_expression(value=self._dest_x)
-            dest_y_str: str = get_value_str_for_expression(value=self._dest_y)
-            svg_str: str = (
-                f'{svg_char_str} + String({control_x1_str}) '
-                f'+ " " + String({control_y1_str}) '
-                f'+ " " + String({control_x2_str}) '
-                f'+ " " + String({control_y2_str}) '
-                f'+ " " + String({dest_x_str}) '
-                f'+ " " + String({dest_y_str})'
-            )
-            return svg_str
+        from apysc._type.value_util import get_value_str_for_expression
+        svg_char: String = self._get_svg_char()
+        svg_char_str: str = get_value_str_for_expression(
+            value=svg_char)
+        control_x1_str: str = get_value_str_for_expression(
+            value=self._control_x1)
+        control_y1_str: str = get_value_str_for_expression(
+            value=self._control_y1)
+        control_x2_str: str = get_value_str_for_expression(
+            value=self._control_x2)
+        control_y2_str: str = get_value_str_for_expression(
+            value=self._control_y2)
+        dest_x_str: str = get_value_str_for_expression(value=self._dest_x)
+        dest_y_str: str = get_value_str_for_expression(value=self._dest_y)
+        svg_str: str = (
+            f'{svg_char_str} + String({control_x1_str}) '
+            f'+ " " + String({control_y1_str}) '
+            f'+ " " + String({control_x2_str}) '
+            f'+ " " + String({control_y2_str}) '
+            f'+ " " + String({dest_x_str}) '
+            f'+ " " + String({dest_y_str})'
+        )
+        return svg_str
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3D')
     def update_path_data(
             self,
             control_x1: Union[int, Int],
@@ -209,27 +208,25 @@ class PathBezier3D(
         >>> bezier_3d_continual.dest_y
         Int(150)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.update_path_data, locals_=locals(),
-                module_name=__name__, class_=PathBezier3D):
-            from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_boolean_from_builtin_val
-            from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val
-            self.control_x1 = get_copied_int_from_builtin_val(
-                integer=control_x1)
-            self.control_y1 = get_copied_int_from_builtin_val(
-                integer=control_y1)
-            self.control_x2 = get_copied_int_from_builtin_val(
-                integer=control_x2)
-            self.control_y2 = get_copied_int_from_builtin_val(
-                integer=control_y2)
-            self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-            self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
-            self.relative = get_copied_boolean_from_builtin_val(
-                bool_val=relative)
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_boolean_from_builtin_val
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
+        self.control_x1 = get_copied_int_from_builtin_val(
+            integer=control_x1)
+        self.control_y1 = get_copied_int_from_builtin_val(
+            integer=control_y1)
+        self.control_x2 = get_copied_int_from_builtin_val(
+            integer=control_x2)
+        self.control_y2 = get_copied_int_from_builtin_val(
+            integer=control_y2)
+        self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
+        self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+        self.relative = get_copied_boolean_from_builtin_val(
+            bool_val=relative)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3D')
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
@@ -245,21 +242,20 @@ class PathBezier3D(
             Comparison result.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__eq__', locals_=locals(),
-                module_name=__name__, class_=PathBezier3D):
-            if not isinstance(other, PathBezier3D):
-                result: ap.Boolean = ap.Boolean(False)
-                return result
-            return (
-                self.control_x1 == other.control_x1
-                and self.control_y1 == other.control_y1
-                and self.control_x2 == other.control_x2
-                and self.control_y2 == other.control_y2
-                and self.dest_x == other.dest_x
-                and self.dest_y == other.dest_y
-                and self.relative == other.relative)
+        if not isinstance(other, PathBezier3D):
+            result: ap.Boolean = ap.Boolean(False)
+            return result
+        return (
+            self.control_x1 == other.control_x1
+            and self.control_y1 == other.control_y1
+            and self.control_x2 == other.control_x2
+            and self.control_y2 == other.control_y2
+            and self.dest_x == other.dest_x
+            and self.dest_y == other.dest_y
+            and self.relative == other.relative)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathBezier3D')
     def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.
@@ -275,9 +271,6 @@ class PathBezier3D(
             Comparison result.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__ne__', locals_=locals(),
-                module_name=__name__, class_=PathBezier3D):
-            result: ap.Boolean = self == other
-            result = result.not_
-            return result
+        result: ap.Boolean = self == other
+        result = result.not_
+        return result

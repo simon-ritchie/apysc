@@ -2,6 +2,7 @@
 """
 
 from apysc._event.event import Event
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -11,6 +12,8 @@ class WheelEvent(Event):
     Mouse wheel event class.
     """
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WheelEvent')
     def __init__(self, this: VariableNameInterface) -> None:
         """
         Mouse wheel event class.
@@ -25,16 +28,14 @@ class WheelEvent(Event):
         Not supported each SVG elements' mouse wheel event currently, only
         supported document (overall screen) mouse wheel.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=WheelEvent):
-            from apysc._expression import var_names
-            super(WheelEvent, self).__init__(
-                this=this,
-                type_name=var_names.WHEEL_EVENT)
+        from apysc._expression import var_names
+        super(WheelEvent, self).__init__(
+            this=this,
+            type_name=var_names.WHEEL_EVENT)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WheelEvent')
     def delta_x(self) -> Int:
         """
         Horizontal mouse wheel value.
@@ -45,13 +46,12 @@ class WheelEvent(Event):
             Delta x value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='delta_x', locals_=locals(),
-                module_name=__name__, class_=WheelEvent):
-            delta_x: ap.Int = ap.Int(0)
-            self._append_delta_x_getter_expression(delta_x=delta_x)
-            return delta_x
+        delta_x: ap.Int = ap.Int(0)
+        self._append_delta_x_getter_expression(delta_x=delta_x)
+        return delta_x
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WheelEvent')
     def _append_delta_x_getter_expression(self, *, delta_x: Int) -> None:
         """
         Append delta_x getter property's expression.
@@ -62,17 +62,15 @@ class WheelEvent(Event):
             Target delta x value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_delta_x_getter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=WheelEvent):
-            expression: str = (
-                f'{delta_x.variable_name} = '
-                f'{self.variable_name}.deltaX;'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{delta_x.variable_name} = '
+            f'{self.variable_name}.deltaX;'
+        )
+        ap.append_js_expression(expression=expression)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WheelEvent')
     def delta_y(self) -> Int:
         """
         Vertical mouse wheel value.
@@ -83,13 +81,12 @@ class WheelEvent(Event):
             Delta y value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='delta_y', locals_=locals(),
-                module_name=__name__, class_=WheelEvent):
-            delta_y: ap.Int = ap.Int(0)
-            self._append_delta_y_getter_expression(delta_y=delta_y)
-            return delta_y
+        delta_y: ap.Int = ap.Int(0)
+        self._append_delta_y_getter_expression(delta_y=delta_y)
+        return delta_y
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='WheelEvent')
     def _append_delta_y_getter_expression(self, *, delta_y: Int) -> None:
         """
         Append delta_y getter property's expression.

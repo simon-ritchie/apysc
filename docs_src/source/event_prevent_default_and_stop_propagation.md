@@ -114,7 +114,7 @@ If you click the following rectangle, the only message of `The rectangle is clic
 
 **[Interface signature]** `prevent_default(self) -> None`<hr>
 
-**[Interface summary]** Prevent event's default behavior. Refenreces ---------- - Event class prevent_default and stop_propagation interfaces document - https://simon-ritchie.github.io/apysc/event_prevent_default_and_stop_propagation.html # noqa<hr>
+**[Interface summary]** Prevent event's default behavior.<hr>
 
 **[Examples]**
 
@@ -142,7 +142,7 @@ If you click the following rectangle, the only message of `The rectangle is clic
 
 **[Interface signature]** `stop_propagation(self) -> None`<hr>
 
-**[Interface summary]** Stop event propagation. Refenreces ---------- - Event class prevent_default and stop_propagation interfaces document - https://simon-ritchie.github.io/apysc/event_prevent_default_and_stop_propagation.html # noqa<hr>
+**[Interface summary]** Stop event propagation.<hr>
 
 **[Examples]**
 

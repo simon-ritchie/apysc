@@ -2,6 +2,7 @@
 """
 
 from apysc._event.event import Event
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._time import timer
 
 
@@ -39,6 +40,8 @@ class TimerEvent(Event):
 
     _this: 'timer.Timer'
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='TimerEvent')
     def __init__(self, this: 'timer.Timer') -> None:
         """
         Timer event class.
@@ -72,13 +75,9 @@ class TimerEvent(Event):
         ...     on_timer, delay=ap.FPS.FPS_60, options=options,
         ... ).start()
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=TimerEvent):
-            from apysc._expression import var_names
-            super(TimerEvent, self).__init__(
-                this=this, type_name=var_names.TIMER_EVENT)
+        from apysc._expression import var_names
+        super(TimerEvent, self).__init__(
+            this=this, type_name=var_names.TIMER_EVENT)
 
     @property
     def this(self) -> 'timer.Timer':

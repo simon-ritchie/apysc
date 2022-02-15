@@ -3,6 +3,7 @@
 
 from typing import Dict
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -22,21 +23,20 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
 
         self._append_y_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathYInterface')
     def _append_y_linking_setting(self) -> None:
         """
         Append a y attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_y_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=PathYInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._y, attr_name='y')
-            self._append_attr_to_linking_stack(
-                attr=self._y, attr_name='y')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._y, attr_name='y')
+        self._append_attr_to_linking_stack(
+            attr=self._y, attr_name='y')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathYInterface')
     def y(self) -> Int:
         """
         Get a y-coordinate of the destination point.
@@ -54,12 +54,8 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
         >>> line_to.y
         Int(100)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='y', locals_=locals(),
-                module_name=__name__, class_=PathYInterface):
-            self._initialize_y_if_not_initialized()
-            return self._y._copy()
+        self._initialize_y_if_not_initialized()
+        return self._y._copy()
 
     @y.setter
     def y(self, value: Int) -> None:
@@ -71,10 +67,11 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             Y-coordinate of the destination point.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='y', locals_=locals(),
-                module_name=__name__, class_=PathYInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='y', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=PathYInterface.__name__):
             self._initialize_y_if_not_initialized()
             self._y.value = value
 

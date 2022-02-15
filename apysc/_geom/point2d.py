@@ -6,6 +6,7 @@ from typing import Dict
 from typing import Union
 
 from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -44,6 +45,8 @@ class Point2D(
     _x: Int
     _y: Int
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def __init__(self, x: _Int, y: _Int) -> None:
         """
         2-dimensional geometry point.
@@ -69,41 +72,38 @@ class Point2D(
         ...     ])
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            from apysc._validation.number_validation import validate_integer
-            validate_integer(integer=x)
-            validate_integer(integer=y)
-            if isinstance(x, int):
-                x = ap.Int(x)
-            if isinstance(y, int):
-                y = ap.Int(y)
-            self._x = x
-            self._y = y
-            self.variable_name = \
-                expression_variables_util.get_next_variable_name(
-                    type_name=var_names.POINT2D)
-            self._append_constructor_expression()
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._validation.number_validation import validate_integer
+        validate_integer(integer=x)
+        validate_integer(integer=y)
+        if isinstance(x, int):
+            x = ap.Int(x)
+        if isinstance(y, int):
+            y = ap.Int(y)
+        self._x = x
+        self._y = y
+        self.variable_name = \
+            expression_variables_util.get_next_variable_name(
+                type_name=var_names.POINT2D)
+        self._append_constructor_expression()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_constructor_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            expression: str = (
-                f'var {self.variable_name} = {{'
-                f'"x": {self._x.variable_name}, '
-                f'"y": {self._y.variable_name}}};')
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'var {self.variable_name} = {{'
+            f'"x": {self._x.variable_name}, '
+            f'"y": {self._y.variable_name}}};')
+        ap.append_js_expression(expression=expression)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def x(self) -> Int:
         """
         X-coordinate property.
@@ -122,12 +122,9 @@ class Point2D(
         Int(150)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='x', locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            x: ap.Int = ap.Int(self._x._value)
-            self._append_x_getter_expression(x=x)
-            return x
+        x: ap.Int = ap.Int(self._x._value)
+        self._append_x_getter_expression(x=x)
+        return x
 
     @x.setter
     def x(self, value: Int) -> None:
@@ -139,10 +136,12 @@ class Point2D(
         value : Int
             X-coordinate to set.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='x', locals_=locals(),
-                module_name=__name__, class_=Point2D):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='x', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=Point2D.__name__):
+            import apysc as ap
             from apysc._validation.number_validation import validate_integer
             validate_integer(integer=value)
             if isinstance(value, int):
@@ -151,6 +150,8 @@ class Point2D(
             self._x._append_incremental_calc_substitution_expression()
             self._append_x_setter_expression(value=value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def _append_x_getter_expression(self, *, x: Int) -> None:
         """
         Append x property getter expression.
@@ -161,15 +162,14 @@ class Point2D(
             Target x value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_x_getter_expression, locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            expression: str = (
-                f'{x.variable_name} = '
-                f'{self.variable_name}["x"];'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{x.variable_name} = '
+            f'{self.variable_name}["x"];'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def _append_x_setter_expression(self, *, value: Int) -> None:
         """
         Append x property setter expression.
@@ -180,15 +180,14 @@ class Point2D(
             X-coordinate to set.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_x_setter_expression, locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            expression: str = (
-                f'{self.variable_name}["x"] = {value.variable_name};'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}["x"] = {value.variable_name};'
+        )
+        ap.append_js_expression(expression=expression)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def y(self) -> Int:
         """
         Y-coordinate property.
@@ -207,12 +206,9 @@ class Point2D(
         Int(150)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='y', locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            y: ap.Int = ap.Int(self._y._value)
-            self._append_y_getter_expression(y=y)
-            return y
+        y: ap.Int = ap.Int(self._y._value)
+        self._append_y_getter_expression(y=y)
+        return y
 
     @y.setter
     def y(self, value: Int) -> None:
@@ -224,10 +220,12 @@ class Point2D(
         value : Int
             Y-coordinate to set.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='y', locals_=locals(),
-                module_name=__name__, class_=Point2D):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='y', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=Point2D.__name__):
+            import apysc as ap
             from apysc._validation.number_validation import validate_integer
             validate_integer(integer=value)
             if isinstance(value, int):
@@ -236,6 +234,8 @@ class Point2D(
             self._y._append_incremental_calc_substitution_expression()
             self._append_y_setter_expression(value=value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def _append_y_getter_expression(self, *, y: Int) -> None:
         """
         Append y property getter expression.
@@ -246,15 +246,14 @@ class Point2D(
             Target y value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_y_getter_expression, locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            expression: str = (
-                f'{y.variable_name} = '
-                f'{self.variable_name}["y"];'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{y.variable_name} = '
+            f'{self.variable_name}["y"];'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def _append_y_setter_expression(self, *, value: Int) -> None:
         """
         Append y property setter expression.
@@ -265,15 +264,13 @@ class Point2D(
             Y-coordinate to set.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_y_setter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            expression: str = (
-                f'{self.variable_name}["y"] = {value.variable_name};'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}["y"] = {value.variable_name};'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
@@ -289,15 +286,14 @@ class Point2D(
             Comparison result.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__eq__', locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            result: ap.Boolean
-            if not isinstance(other, Point2D):
-                result = ap.Boolean(False)
-                return result
-            return other.x == self.x and other.y == self.y
+        result: ap.Boolean
+        if not isinstance(other, Point2D):
+            result = ap.Boolean(False)
+            return result
+        return other.x == self.x and other.y == self.y
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Point2D')
     def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.
@@ -313,12 +309,9 @@ class Point2D(
             Comparison result.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__ne__', locals_=locals(),
-                module_name=__name__, class_=Point2D):
-            result: ap.Boolean = self == other
-            result = result.not_
-            return result
+        result: ap.Boolean = self == other
+        result = result.not_
+        return result
 
     def __repr__(self) -> str:
         """

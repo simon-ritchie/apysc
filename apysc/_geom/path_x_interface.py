@@ -3,6 +3,7 @@
 
 from typing import Dict
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
@@ -22,21 +23,20 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
 
         self._append_x_linking_setting()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathXInterface')
     def _append_x_linking_setting(self) -> None:
         """
         Append a x attribute linking setting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_x_linking_setting,
-                locals_=locals(),
-                module_name=__name__, class_=PathXInterface):
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._x, attr_name='x')
-            self._append_attr_to_linking_stack(
-                attr=self._x, attr_name='x')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._x, attr_name='x')
+        self._append_attr_to_linking_stack(
+            attr=self._x, attr_name='x')
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='PathXInterface')
     def x(self) -> Int:
         """
         Get a x-coordinate of the destination point.
@@ -54,12 +54,8 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
         >>> line_to.x
         Int(100)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='x', locals_=locals(),
-                module_name=__name__, class_=PathXInterface):
-            self._initialize_x_if_not_initialized()
-            return self._x._copy()
+        self._initialize_x_if_not_initialized()
+        return self._x._copy()
 
     @x.setter
     def x(self, value: Int) -> None:
@@ -71,10 +67,11 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             X-coordinate of the destination point.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='x', locals_=locals(),
-                module_name=__name__, class_=PathXInterface):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='x', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=PathXInterface.__name__):
             self._initialize_x_if_not_initialized()
             self._x.value = value
 

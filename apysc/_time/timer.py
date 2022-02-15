@@ -10,6 +10,7 @@ from typing import Union
 from apysc._event import timer_event
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.handler import HandlerData
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._time.fps import FPS
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
@@ -70,6 +71,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
     _handler_name: str
     _running: Boolean
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def __init__(
             self,
             handler: _Handler[_O1],
@@ -131,44 +134,44 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ...     on_timer, delay=ap.FPS.FPS_60, options=options).start()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._event.handler import get_handler_name
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            from apysc._expression.event_handler_scope import \
-                TemporaryNotHandlerScope
-            from apysc._validation import number_validation
-            from apysc._validation.handler_options_validation import \
-                validate_options_type
-            with TemporaryNotHandlerScope():
-                validate_options_type(options=options)
-                self.variable_name = \
-                    expression_variables_util.get_next_variable_name(
-                        type_name=var_names.TIMER)
-                self._handler_name = get_handler_name(
-                    handler=handler, instance=self)
-                handler = self._wrap_handler(handler=handler)
-                self._handler: _Handler[_O1] = handler
-                delay = self._convert_delay_to_number(delay=delay)
-                number_validation.validate_num_is_gte_zero(num=delay)
-                self._delay = delay
-                if not isinstance(repeat_count, ap.Int):
-                    repeat_count = ap.Int(repeat_count)
-                number_validation.validate_num_is_gte_zero(num=repeat_count)
-                self._repeat_count = repeat_count
-                self._running = ap.Boolean(False)
-                self._current_count = ap.Int(0)
-                if options is None:
-                    options = {}  # type: ignore
-                self._handler_data = {  # type: ignore
-                    'handler': self._handler,  # type: ignore
-                    'options': options,
-                }
-                ap.append_js_expression(
-                    expression=f'var {self.variable_name};')
+        from apysc._event.handler import get_handler_name
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._expression.event_handler_scope import \
+            TemporaryNotHandlerScope
+        from apysc._validation import number_validation
+        from apysc._validation.handler_options_validation import \
+            validate_options_type
+        with TemporaryNotHandlerScope():
+            validate_options_type(options=options)
+            self.variable_name = \
+                expression_variables_util.get_next_variable_name(
+                    type_name=var_names.TIMER)
+            self._handler_name = get_handler_name(
+                handler=handler, instance=self)
+            handler = self._wrap_handler(handler=handler)
+            self._handler: _Handler[_O1] = handler
+            delay_: ap.Number = self._convert_delay_to_number(
+                delay=delay)
+            number_validation.validate_num_is_gte_zero(num=delay_)
+            self._delay = delay_
+            if not isinstance(repeat_count, ap.Int):
+                repeat_count = ap.Int(repeat_count)
+            number_validation.validate_num_is_gte_zero(num=repeat_count)
+            self._repeat_count = repeat_count
+            self._running = ap.Boolean(False)
+            self._current_count = ap.Int(0)
+            if options is None:
+                options = {}  # type: ignore
+            self._handler_data = {  # type: ignore
+                'handler': self._handler,  # type: ignore
+                'options': options,
+            }
+            ap.append_js_expression(
+                expression=f'var {self.variable_name};')
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def _convert_delay_to_number(
             self, *,
             delay: Union[int, float, NumberValueInterface, FPS]) -> Number:
@@ -187,18 +190,17 @@ class Timer(VariableNameInterface, CustomEventInterface):
             Converted delay value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._convert_delay_to_number, locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._time.fps import FPSDefinition
-            if isinstance(delay, FPS):
-                fps_definition: FPSDefinition = delay.value
-                delay = fps_definition.milisecond_intervals
-            if not isinstance(delay, ap.Number):
-                delay = ap.Number(delay)
-            return delay
+        from apysc._time.fps import FPSDefinition
+        if isinstance(delay, FPS):
+            fps_definition: FPSDefinition = delay.value
+            delay = fps_definition.milisecond_intervals
+        if not isinstance(delay, ap.Number):
+            delay = ap.Number(delay)
+        return delay
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def delay(self) -> Number:
         """
         Get a delay value.
@@ -223,14 +225,12 @@ class Timer(VariableNameInterface, CustomEventInterface):
         >>> timer.delay
         Number(33.3)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='delay', locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._type import value_util
-            return value_util.get_copy(value=self._delay)
+        from apysc._type import value_util
+        return value_util.get_copy(value=self._delay)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def repeat_count(self) -> Int:
         """
         Get a max count value of a handler's calling.
@@ -256,14 +256,12 @@ class Timer(VariableNameInterface, CustomEventInterface):
         >>> timer.repeat_count
         Int(50)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='repeat_count', locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._type import value_util
-            return value_util.get_copy(value=self._repeat_count)
+        from apysc._type import value_util
+        return value_util.get_copy(value=self._repeat_count)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def running(self) -> Boolean:
         """
         Get a boolean value whether this timer is running or not.
@@ -287,14 +285,12 @@ class Timer(VariableNameInterface, CustomEventInterface):
         >>> timer.running
         Boolean(True)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='running', locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._type import value_util
-            return value_util.get_copy(value=self._running)
+        from apysc._type import value_util
+        return value_util.get_copy(value=self._running)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def current_count(self) -> Int:
         """
         Get a current timer count.
@@ -313,13 +309,11 @@ class Timer(VariableNameInterface, CustomEventInterface):
         >>> _ = ap.Timer(
         ...     on_timer, delay=33.3, repeat_count=50).start()
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='current_count', locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._type import value_util
-            return value_util.get_copy(value=self._current_count)
+        from apysc._type import value_util
+        return value_util.get_copy(value=self._current_count)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def start(self) -> None:
         """
         Start this timer.
@@ -338,39 +332,36 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ...     on_timer, delay=33.3, repeat_count=50).start()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.start, locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._event import handler_circular_calling_util
-            from apysc._event.handler import append_handler_expression
-            from apysc._expression import expression_data_util
-            from apysc._type import value_util
-            delay_val_str: str = value_util.get_value_str_for_expression(
-                value=self._delay)
-            is_handler_circular_calling: bool = handler_circular_calling_util.\
-                is_handler_circular_calling(handler_name=self._handler_name)
-            if is_handler_circular_calling:
-                handler_name: str = handler_circular_calling_util.\
-                    get_prev_handler_name(handler_name=self._handler_name)
-                variable_name: str = handler_circular_calling_util.\
-                    get_prev_variable_name(handler_name=self._handler_name)
-            else:
-                handler_name = self._handler_name
-                variable_name = self.variable_name
-            expression: str = (
-                f'\nif (_.isUndefined({variable_name})) {{'
-                f'\n  {variable_name} = setInterval('
-                f'{handler_name}, {delay_val_str});'
-                '\n}'
-            )
-            expression_data_util.append_js_expression(expression=expression)
+        from apysc._event import handler_circular_calling_util
+        from apysc._event.handler import append_handler_expression
+        from apysc._expression import expression_data_util
+        from apysc._type import value_util
+        delay_val_str: str = value_util.get_value_str_for_expression(
+            value=self._delay)
+        is_handler_circular_calling: bool = handler_circular_calling_util.\
+            is_handler_circular_calling(handler_name=self._handler_name)
+        if is_handler_circular_calling:
+            handler_name: str = handler_circular_calling_util.\
+                get_prev_handler_name(handler_name=self._handler_name)
+            variable_name: str = handler_circular_calling_util.\
+                get_prev_variable_name(handler_name=self._handler_name)
+        else:
+            handler_name = self._handler_name
+            variable_name = self.variable_name
+        expression: str = (
+            f'\nif (_.isUndefined({variable_name})) {{'
+            f'\n  {variable_name} = setInterval('
+            f'{handler_name}, {delay_val_str});'
+            '\n}'
+        )
+        expression_data_util.append_js_expression(expression=expression)
 
-            e: ap.TimerEvent = ap.TimerEvent(this=self)
-            append_handler_expression(
-                handler_data=self._handler_data,
-                handler_name=handler_name,
-                e=e)
-            self._running.value = True
+        e: ap.TimerEvent = ap.TimerEvent(this=self)
+        append_handler_expression(
+            handler_data=self._handler_data,
+            handler_name=handler_name,
+            e=e)
+        self._running.value = True
 
     def _wrap_handler(self, *, handler: _Handler[_O1]) -> _Handler[_O1]:
         """
@@ -407,39 +398,38 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
         return wrapped
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def _append_count_branch_expression(self) -> None:
         """
         Append the timer stopping expression by the counting.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_count_branch_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._event.custom_event_type import CustomEventType
-            from apysc._expression import expression_data_util
-            from apysc._expression.indent_num import Indent
-            from apysc._type import value_util
-            current_count_val_str: str = value_util.\
-                get_value_str_for_expression(value=self._current_count)
-            repeat_count_val_str: str = value_util.\
-                get_value_str_for_expression(value=self._repeat_count)
-            expression: str = (
-                f'if ({repeat_count_val_str} !== 0 '
-                f'&& {current_count_val_str} === {repeat_count_val_str}) {{'
-                f'\n{self._get_stop_expression(indent_num=1)}'
-            )
-            expression_data_util.append_js_expression(expression=expression)
-            with Indent():
-                self._running.value = False
-                self.trigger_custom_event(
-                    custom_event_type=CustomEventType.TIMER_COMPLETE)
-                self.unbind_custom_event_all(
-                    custom_event_type=CustomEventType.TIMER_COMPLETE)
-                self._current_count.value = 0
-            expression = '\n}'
-            expression_data_util.append_js_expression(expression=expression)
+        from apysc._event.custom_event_type import CustomEventType
+        from apysc._expression import expression_data_util
+        from apysc._expression.indent_num import Indent
+        from apysc._type import value_util
+        current_count_val_str: str = value_util.\
+            get_value_str_for_expression(value=self._current_count)
+        repeat_count_val_str: str = value_util.\
+            get_value_str_for_expression(value=self._repeat_count)
+        expression: str = (
+            f'if ({repeat_count_val_str} !== 0 '
+            f'&& {current_count_val_str} === {repeat_count_val_str}) {{'
+            f'\n{self._get_stop_expression(indent_num=1)}'
+        )
+        expression_data_util.append_js_expression(expression=expression)
+        with Indent():
+            self._running.value = False
+            self.trigger_custom_event(
+                custom_event_type=CustomEventType.TIMER_COMPLETE)
+            self.unbind_custom_event_all(
+                custom_event_type=CustomEventType.TIMER_COMPLETE)
+            self._current_count.value = 0
+        expression = '\n}'
+        expression_data_util.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def stop(self) -> None:
         """
         Stop this timer.
@@ -470,15 +460,13 @@ class Timer(VariableNameInterface, CustomEventInterface):
         >>> _ = ap.Timer(
         ...     on_timer, delay=33.3, options=options).start()
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.stop, locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._expression import expression_data_util
-            self._running.value = False
-            expression: str = self._get_stop_expression(indent_num=0)
-            expression_data_util.append_js_expression(expression=expression)
+        from apysc._expression import expression_data_util
+        self._running.value = False
+        expression: str = self._get_stop_expression(indent_num=0)
+        expression_data_util.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def _get_stop_expression(self, *, indent_num: int) -> str:
         """
         Get a stop interface expression string.
@@ -493,21 +481,19 @@ class Timer(VariableNameInterface, CustomEventInterface):
         expression : str
             Stop interface expression string.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._get_stop_expression, locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._string import indent_util
-            expression: str = (
-                f'if (!_.isUndefined({self.variable_name})) {{'
-                f'\n  clearInterval({self.variable_name});'
-                f'\n  {self.variable_name} = undefined;'
-                '\n}'
-            )
-            expression = indent_util.append_spaces_to_expression(
-                expression=expression, indent_num=indent_num)
-            return expression
+        from apysc._string import indent_util
+        expression: str = (
+            f'if (!_.isUndefined({self.variable_name})) {{'
+            f'\n  clearInterval({self.variable_name});'
+            f'\n  {self.variable_name} = undefined;'
+            '\n}'
+        )
+        expression = indent_util.append_spaces_to_expression(
+            expression=expression, indent_num=indent_num)
+        return expression
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def reset(self) -> None:
         """
         Reset the timer count and stop this timer.
@@ -538,13 +524,11 @@ class Timer(VariableNameInterface, CustomEventInterface):
         >>> _ = ap.Timer(
         ...     on_timer, delay=33.3, options=options).start()
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.reset, locals_=locals(),
-                module_name=__name__, class_=Timer):
-            self.stop()
-            self._current_count.value = 0
+        self.stop()
+        self._current_count.value = 0
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Timer')
     def timer_complete(
             self, handler: _Handler[_O2], *,
             options: Optional[_O2] = None) -> str:
@@ -594,17 +578,14 @@ class Timer(VariableNameInterface, CustomEventInterface):
         >>> timer.start()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.timer_complete, locals_=locals(),
-                module_name=__name__, class_=Timer):
-            from apysc._event.custom_event_type import CustomEventType
-            from apysc._validation.handler_options_validation import \
-                validate_options_type
-            validate_options_type(options=options)
-            e: ap.TimerEvent = ap.TimerEvent(this=self)
-            name: str = self.bind_custom_event(
-                custom_event_type=CustomEventType.TIMER_COMPLETE,
-                handler=handler,
-                e=e,
-                options=options)
-            return name
+        from apysc._event.custom_event_type import CustomEventType
+        from apysc._validation.handler_options_validation import \
+            validate_options_type
+        validate_options_type(options=options)
+        e: ap.TimerEvent = ap.TimerEvent(this=self)
+        name: str = self.bind_custom_event(
+            custom_event_type=CustomEventType.TIMER_COMPLETE,
+            handler=handler,
+            e=e,
+            options=options)
+        return name

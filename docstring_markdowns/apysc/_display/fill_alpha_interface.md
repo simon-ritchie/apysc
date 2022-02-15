@@ -8,15 +8,15 @@ Class implementation for fill alpha interface.
 
 ### `_append_fill_alpha_attr_linking_setting` method docstring
 
-Append a scale-y attribute linking setting.
+Append a scale-y attribute linking settings.
 
 ### `_append_fill_alpha_update_expression` method docstring
 
-Append fill alpha updating expression.
+Append the fill alpha updating expression.
 
 ### `_initialize_fill_alpha_if_not_initialized` method docstring
 
-Initialize _fill_alpha attribute if it hasn't been initialized yet.
+Initialize _fill_alpha attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -38,7 +38,7 @@ Revert value if snapshot exists.<hr>
 
 ### `_update_fill_alpha_and_skip_appending_exp` method docstring
 
-Update fill opacity and skip appending expression.<hr>
+Update the fill opacity and skip appending expression.<hr>
 
 **[Parameters]**
 

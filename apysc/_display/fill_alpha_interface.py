@@ -19,7 +19,8 @@ class FillAlphaInterface(
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """
-        Initialize _fill_alpha attribute if it hasn't been initialized yet.
+        Initialize _fill_alpha attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_fill_alpha'):
             return
@@ -31,7 +32,7 @@ class FillAlphaInterface(
         module_name=__name__, class_name='FillAlphaInterface')
     def _append_fill_alpha_attr_linking_setting(self) -> None:
         """
-        Append a scale-y attribute linking setting.
+        Append a scale-y attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._fill_alpha, attr_name='fill_alpha')
@@ -108,7 +109,7 @@ class FillAlphaInterface(
         module_name=__name__, class_name='FillAlphaInterface')
     def _append_fill_alpha_update_expression(self) -> None:
         """
-        Append fill alpha updating expression.
+        Append the fill alpha updating expression.
         """
         import apysc as ap
         from apysc._type import value_util
@@ -122,7 +123,7 @@ class FillAlphaInterface(
     def _update_fill_alpha_and_skip_appending_exp(
             self, *, value: Number) -> None:
         """
-        Update fill opacity and skip appending expression.
+        Update the fill opacity and skip appending expression.
 
         Parameters
         ----------

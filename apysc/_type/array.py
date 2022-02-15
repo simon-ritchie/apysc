@@ -511,7 +511,7 @@ class Array(
         if isinstance(index, ap.Int):
             index_: int = int(index.value)
         else:
-            index_ = index
+            index_ = int(index)
         value_: Any
         if isinstance(value, ap.Int):
             value_ = int(value.value)
@@ -703,7 +703,7 @@ class Array(
         if isinstance(index, ap.Int):
             index_: int = int(index.value)
         else:
-            index_ = index
+            index_ = int(index)
         if index_ in self._value:
             del self._value[index_]
         self._append_remove_at_expression(index=index)
@@ -854,11 +854,11 @@ class Array(
         if isinstance(start, ap.Int):
             start_: Optional[int] = int(start.value)
         else:
-            start_ = start
+            start_ = start  # type: ignore[assignment]
         if isinstance(end, ap.Int):
             end_: Optional[int] = int(end.value)
         else:
-            end_ = end
+            end_ = end  # type: ignore[assignment]
         sliced_arr: Array = self._copy()
         sliced_arr._value = self._value[slice(start_, end_)]
         self._append_slice_expression(
@@ -949,7 +949,7 @@ class Array(
         import apysc as ap
         if isinstance(index, ap.Int):
             return int(index.value)
-        return index
+        return int(index)
 
     def _validate_index_type_is_int(
             self, *, index: Union[int, Int]) -> None:

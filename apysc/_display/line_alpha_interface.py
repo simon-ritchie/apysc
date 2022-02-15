@@ -123,13 +123,16 @@ class LineAlphaInterface(
         value : float or Number
             Line alpha (opacity) to set.
         """
+        import apysc as ap
         from apysc._validation import color_validation
         from apysc._validation import number_validation
         number_validation.validate_num(num=value)
         color_validation.validate_alpha_range(alpha=value)
-        if isinstance(value, float):
-            value = Number(value)
-        self._line_alpha = value
+        if isinstance(value, ap.Number):
+            value_: ap.Number = value
+        else:
+            value_ = Number(value)
+        self._line_alpha = value_
 
     _line_alpha_snapshots: Dict[str, float]
 

@@ -118,8 +118,6 @@ class LineStyleInterface(RevertInterface):
         """
         import apysc as ap
         from apysc._color import color_util
-        from apysc._converter import cast
-        from apysc._type.number_value_interface import NumberValueInterface
         from apysc._validation import color_validation
         from apysc._validation import display_validation
         from apysc._validation import number_validation
@@ -136,11 +134,12 @@ class LineStyleInterface(RevertInterface):
         number_validation.validate_num_is_gt_zero(num=thickness)
         self._line_thickness = ap.Int(thickness)
         number_validation.validate_num(num=alpha)
-        if not isinstance(alpha, NumberValueInterface):
-            alpha = cast.to_float_from_int(int_or_float=alpha)
-            alpha = ap.Number(alpha)
+        if isinstance(alpha, ap.Number):
+            alpha_: ap.Number = alpha
+        else:
+            alpha_ = ap.Number(alpha)
         color_validation.validate_alpha_range(alpha=alpha)
-        self._line_alpha = alpha
+        self._line_alpha = alpha_
         self._set_line_cap(cap=cap)
         self._set_line_joints(joints=joints)
         self._line_dot_setting = dot_setting

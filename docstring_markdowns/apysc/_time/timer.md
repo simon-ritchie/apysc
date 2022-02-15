@@ -108,7 +108,7 @@ Convert each type of delay value to a `Number` value.<hr>
 
 **[Returns]**
 
-- `delay`: Number
+- `delay_`: Number
   - Converted delay value.
 
 ### `_get_stop_expression` method docstring

@@ -126,12 +126,15 @@ class LineThicknessInterface(
         value : int or Int
             Line thickness to set.
         """
+        import apysc as ap
         from apysc._validation import number_validation
         number_validation.validate_integer(integer=value)
         number_validation.validate_num_is_gte_zero(num=value)
-        if isinstance(value, int):
-            value = Int(value)
-        self._line_thickness = value
+        if isinstance(value, ap.Int):
+            value_: ap.Int = value
+        else:
+            value_ = Int(value)
+        self._line_thickness = value_
 
     _line_thickness_snapshots: Dict[str, int]
 

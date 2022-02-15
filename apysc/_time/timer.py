@@ -155,10 +155,12 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 delay=delay)
             number_validation.validate_num_is_gte_zero(num=delay_)
             self._delay = delay_
-            if not isinstance(repeat_count, ap.Int):
-                repeat_count = ap.Int(repeat_count)
+            if isinstance(repeat_count, ap.Int):
+                repeat_count_: ap.Int = repeat_count
+            else:
+                repeat_count_ = ap.Int(repeat_count)
             number_validation.validate_num_is_gte_zero(num=repeat_count)
-            self._repeat_count = repeat_count
+            self._repeat_count = repeat_count_
             self._running = ap.Boolean(False)
             self._current_count = ap.Int(0)
             if options is None:
@@ -186,7 +188,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
         Returns
         -------
-        delay : Number
+        delay_ : Number
             Converted delay value.
         """
         import apysc as ap
@@ -195,8 +197,10 @@ class Timer(VariableNameInterface, CustomEventInterface):
             fps_definition: FPSDefinition = delay.value
             delay = fps_definition.milisecond_intervals
         if not isinstance(delay, ap.Number):
-            delay = ap.Number(delay)
-        return delay
+            delay_: ap.Number = ap.Number(delay)
+        else:
+            delay_ = delay
+        return delay_
 
     @property  # type: ignore[misc]
     @add_debug_info_setting(  # type: ignore[misc]

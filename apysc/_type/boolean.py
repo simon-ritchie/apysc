@@ -122,7 +122,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         elif isinstance(value, Boolean):
             result = value._value
         else:
-            result = bool(value)
+            result = value  # type: ignore
         bool_validation.validate_bool(value=result)
         return result
 

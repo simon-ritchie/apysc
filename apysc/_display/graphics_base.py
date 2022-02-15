@@ -68,12 +68,16 @@ class GraphicsBase(
         self.parent_graphics: Graphics = parent
         number_validation.validate_integer(integer=x)
         number_validation.validate_integer(integer=y)
-        if isinstance(x, int):
-            x = ap.Int(x)
-        self._x = x
-        if isinstance(y, int):
-            y = ap.Int(y)
-        self._y = y
+        if isinstance(x, ap.Int):
+            x_: ap.Int = x
+        else:
+            x_ = ap.Int(x)
+        self._x = x_
+        if isinstance(y, ap.Int):
+            y_: ap.Int = y
+        else:
+            y_ = ap.Int(y)
+        self._y = y_
         string_validation.validate_not_empty_string(string=variable_name)
         super(GraphicsBase, self).__init__(
             variable_name=variable_name)

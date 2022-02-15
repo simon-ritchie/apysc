@@ -4,6 +4,7 @@
 from typing import Any
 from typing import Union
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number_value_interface import NumberValueInterface
 
 
@@ -46,6 +47,8 @@ class Number(NumberValueInterface[float, 'Number']):
     Number(20.8)
     """
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Number')
     def __init__(
             self,
             value: Union[int, float, NumberValueInterface]) -> None:
@@ -92,22 +95,18 @@ class Number(NumberValueInterface[float, 'Number']):
         >>> number
         Number(20.8)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=Number):
-            from apysc._converter import cast
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            from apysc._expression.event_handler_scope import \
-                TemporaryNotHandlerScope
-            with TemporaryNotHandlerScope():
-                TYPE_NAME: str = var_names.NUMBER
-                self.variable_name = expression_variables_util.\
-                    get_next_variable_name(type_name=TYPE_NAME)
-                super(Number, self).__init__(value=value, type_name=TYPE_NAME)
-                self._value = cast.to_float_from_int(int_or_float=self.value)
-                self.append_constructor_expression()
+        from apysc._converter import cast
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._expression.event_handler_scope import \
+            TemporaryNotHandlerScope
+        with TemporaryNotHandlerScope():
+            TYPE_NAME: str = var_names.NUMBER
+            self.variable_name = expression_variables_util.\
+                get_next_variable_name(type_name=TYPE_NAME)
+            super(Number, self).__init__(value=value, type_name=TYPE_NAME)
+            self._value = cast.to_float_from_int(int_or_float=self.value)
+            self.append_constructor_expression()
 
     def _set_value_and_skip_expression_appending(
             self, *, value: Union[int, float, Any]) -> None:

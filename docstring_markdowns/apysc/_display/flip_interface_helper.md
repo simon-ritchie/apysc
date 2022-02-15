@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The helper module for the flip interfaces.
+This module is the helper module for the flip interfaces.
 
 ## `make_flip_update_expression` function docstring
 

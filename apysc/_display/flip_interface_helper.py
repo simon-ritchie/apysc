@@ -1,4 +1,4 @@
-"""The helper module for the flip interfaces.
+"""This module is the helper module for the flip interfaces.
 """
 
 from enum import Enum

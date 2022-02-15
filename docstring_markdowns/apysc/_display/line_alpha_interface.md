@@ -8,7 +8,7 @@ Class implementation for line alpha interface.
 
 ### `_append_line_alpha_attr_linking_setting` method docstring
 
-Append a line alpha attribute linking setting.
+Append a line alpha attribute linking settings.
 
 ### `_append_line_alpha_update_expression` method docstring
 
@@ -16,7 +16,7 @@ Append line alpha updating expression.
 
 ### `_initialize_line_alpha_if_not_initialized` method docstring
 
-Initialize _line_alpha attribute if it hasn't been initialized yet.
+Initialize _line_alpha attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

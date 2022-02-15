@@ -19,7 +19,8 @@ class LineAlphaInterface(
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
-        Initialize _line_alpha attribute if it hasn't been initialized yet.
+        Initialize _line_alpha attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_line_alpha'):
             return
@@ -31,7 +32,7 @@ class LineAlphaInterface(
         module_name=__name__, class_name='LineAlphaInterface')
     def _append_line_alpha_attr_linking_setting(self) -> None:
         """
-        Append a line alpha attribute linking setting.
+        Append a line alpha attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._line_alpha, attr_name='line_alpha')

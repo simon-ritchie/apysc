@@ -41,19 +41,19 @@ String('#00aaff')
 
 ### `__init__` method docstring
 
-Create a ellipse vector graphics.<hr>
+Create an ellipse vector graphic.<hr>
 
 **[Parameters]**
 
 - `parent`: Graphics
-  - Graphics instance to link this graphics.
-- `x`: int or Int
+  - Graphics instance to link this graphic.
+- `x`: Int or int
   - X-coordinate of the ellipse center.
-- `y`: int or Int
+- `y`: Int or int
   - Y-coordinate of the ellipse center.
-- `width`: int or Int
+- `width`: Int or int
   - Ellipse width.
-- `height`: int or Int
+- `height`: Int or int
   - Ellipse height.
 
 <hr>

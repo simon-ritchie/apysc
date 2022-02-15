@@ -19,7 +19,8 @@ class HeightInterface(
 
     def _initialize_height_if_not_initialized(self) -> None:
         """
-        Initialize _height attribute if it hasn't been initialized yet.
+        Initialize _height attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_height'):
             return
@@ -31,7 +32,7 @@ class HeightInterface(
         module_name=__name__, class_name='HeightInterface')
     def _append_height_attr_linking_setting(self) -> None:
         """
-        Append a height attribute linking setting.
+        Append a height attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._height, attr_name='height')

@@ -8,7 +8,7 @@ Class implementation for height interface.
 
 ### `_append_height_attr_linking_setting` method docstring
 
-Append a height attribute linking setting.
+Append a height attribute linking settings.
 
 ### `_append_height_update_expression` method docstring
 
@@ -16,7 +16,7 @@ Append height updating expression.
 
 ### `_initialize_height_if_not_initialized` method docstring
 
-Initialize _height attribute if it hasn't been initialized yet.
+Initialize _height attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

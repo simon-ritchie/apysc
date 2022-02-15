@@ -9,6 +9,7 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Type
+import time
 
 from retrying import retry
 
@@ -129,6 +130,31 @@ _TEST_MODULE_PATH: str = os.path.join(
 )
 
 
+def _read_test_module() -> ModuleType:
+    """
+    Read a module for testing.
+
+    Returns
+    -------
+    module : ModuleType
+        Read module.
+    """
+    count: int = 0
+    while True:
+        try:
+            _save_test_module()
+            module: ModuleType = module_util.read_target_path_module(
+                module_path=_TEST_MODULE_PATH)
+            break
+        except Exception:
+            time.sleep(randint(1, 10))
+            count += 1
+        if count > 10:
+            raise Exception('Failed to read a module for testing.')
+        continue
+    return module
+
+
 def _save_test_module() -> None:
     """Save the test module.
     """
@@ -158,8 +184,7 @@ def test__append_module_docstring_to_markdown() -> None:
             markdown='', docstring=None)
     assert markdown == ''
 
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=_TEST_MODULE_PATH)
+    module: ModuleType = _read_test_module()
     markdown = docstring_to_markdown_converter.\
         _append_module_docstring_to_markdown(
             markdown='# Test module docstring',
@@ -179,9 +204,7 @@ def test__append_module_docstring_to_markdown() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_module_toplevel_functions() -> None:
-    _save_test_module()
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=_TEST_MODULE_PATH)
+    module: ModuleType = _read_test_module()
     toplevel_functions: List[Callable] = docstring_to_markdown_converter.\
         _get_module_toplevel_functions(module=module)
     assert len(toplevel_functions) == 1
@@ -190,7 +213,6 @@ def test__get_module_toplevel_functions() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_toplevel_function_docstring_to_markdown() -> None:
-    _save_test_module()
     markdown: str = docstring_to_markdown_converter.\
         _append_toplevel_function_docstring_to_markdown(
             markdown='',
@@ -198,8 +220,7 @@ def test__append_toplevel_function_docstring_to_markdown() -> None:
                 test__append_toplevel_function_docstring_to_markdown))
     assert markdown == ''
 
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=_TEST_MODULE_PATH)
+    module: ModuleType = _read_test_module()
     toplevel_functions: List[Callable] = docstring_to_markdown_converter.\
         _get_module_toplevel_functions(module=module)
     markdown = docstring_to_markdown_converter.\
@@ -217,9 +238,7 @@ def test__append_toplevel_function_docstring_to_markdown() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_each_section_to_markdown() -> None:
-    _save_test_module()
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=_TEST_MODULE_PATH)
+    module: ModuleType = _read_test_module()
     toplevel_functions: List[Callable] = docstring_to_markdown_converter.\
         _get_module_toplevel_functions(module=module)
     docstring: str = toplevel_functions[0].__doc__ or ''
@@ -242,9 +261,7 @@ def test__append_each_section_to_markdown() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_toplevel_classes() -> None:
-    _save_test_module()
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=_TEST_MODULE_PATH)
+    module: ModuleType = _read_test_module()
     toplevel_classes: List[Type] = docstring_to_markdown_converter.\
         _get_toplevel_classes(module=module)
     assert len(toplevel_classes) == 2
@@ -256,9 +273,7 @@ def test__get_toplevel_classes() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_methods_from_class() -> None:
-    _save_test_module()
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=_TEST_MODULE_PATH)
+    module: ModuleType = _read_test_module()
     toplevel_classes: List[Type] = docstring_to_markdown_converter.\
         _get_toplevel_classes(module=module)
     target_class: Optional[Type] = None
@@ -283,9 +298,7 @@ def test__get_methods_from_class() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_toplevel_class_docstring_to_markdown() -> None:
-    _save_test_module()
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=_TEST_MODULE_PATH)
+    module: ModuleType = _read_test_module()
     toplevel_classes: List[Type] = docstring_to_markdown_converter.\
         _get_toplevel_classes(module=module)
     target_class: Optional[Type] = None

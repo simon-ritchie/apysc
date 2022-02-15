@@ -81,7 +81,7 @@ ap.save_overall_html(
 
 **[Interface signature]** `draw_round_dotted_line(self, x_start:Union[int, apysc._type.int.Int], y_start:Union[int, apysc._type.int.Int], x_end:Union[int, apysc._type.int.Int], y_end:Union[int, apysc._type.int.Int], round_size:Union[int, apysc._type.int.Int], space_size:Union[int, apysc._type.int.Int]) -> '_line.Line'`<hr>
 
-**[Interface summary]** Draw a round dotted line vector graphics.<hr>
+**[Interface summary]** Draw a round-dotted line vector graphics.<hr>
 
 **[Parameters]**
 

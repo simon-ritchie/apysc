@@ -9,6 +9,7 @@ from typing import TypeVar
 from typing import Union
 
 from apysc._expression.indent_num import Indent
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
@@ -41,6 +42,8 @@ class For(Generic[T]):
     _snapshot_name: str
     _indent: Indent
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='For')
     def __init__(
             self, arr_or_dict: Union[Array, Dictionary],
             *,
@@ -77,19 +80,15 @@ class For(Generic[T]):
         >>> with ap.For(arr) as i:
         ...     ap.trace('Loop index is:', i)
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=For):
-            self._validate_arr_or_dict_val_type(arr_or_dict=arr_or_dict)
-            if locals_ is None:
-                locals_ = {}
-            if globals_ is None:
-                globals_ = {}
-            self._arr_or_dict = arr_or_dict
-            self._locals = locals_
-            self._globals = globals_
-            self._indent = Indent()
+        self._validate_arr_or_dict_val_type(arr_or_dict=arr_or_dict)
+        if locals_ is None:
+            locals_ = {}
+        if globals_ is None:
+            globals_ = {}
+        self._arr_or_dict = arr_or_dict
+        self._locals = locals_
+        self._globals = globals_
+        self._indent = Indent()
 
     def _validate_arr_or_dict_val_type(
             self, *, arr_or_dict: Union[Array, Dictionary]) -> None:
@@ -112,6 +111,8 @@ class For(Generic[T]):
             'Specified value type is neither Array nor Dictionary: '
             f'{type(arr_or_dict)}')
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='For')
     def __enter__(self) -> T:
         """
         Method to be called when begining of with statement.
@@ -122,49 +123,47 @@ class For(Generic[T]):
             Loop index or dictionary key.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__enter__', locals_=locals(),
-                module_name=__name__, class_=For):
-            from apysc._loop import loop_count
-            from apysc._type import revert_interface
-            loop_count.increment_current_loop_count()
-            self._snapshot_name = \
-                revert_interface.make_snapshots_of_each_scope_vars(
-                    locals_=self._locals, globals_=self._globals)
-            i_or_key: Union[ap.Int, ap.String]
-            if isinstance(self._arr_or_dict, ap.Array):
-                i_or_key = ap.Int(0)
-                self._append_arr_enter_expression(i=i_or_key)
+        from apysc._loop import loop_count
+        from apysc._type import revert_interface
+        loop_count.increment_current_loop_count()
+        self._snapshot_name = \
+            revert_interface.make_snapshots_of_each_scope_vars(
+                locals_=self._locals, globals_=self._globals)
+        i_or_key: Union[ap.Int, ap.String]
+        if isinstance(self._arr_or_dict, ap.Array):
+            i_or_key = ap.Int(0)
+            self._append_arr_enter_expression(i=i_or_key)
+        else:
+            if self._arr_or_dict._value:
+                key: str = str(list(self._arr_or_dict._value.keys())[0])
             else:
-                if self._arr_or_dict._value:
-                    key: str = str(list(self._arr_or_dict._value.keys())[0])
-                else:
-                    key = ''
-                i_or_key = ap.String(key)
-                self._append_dict_enter_expression(key=i_or_key)
-            self._indent.__enter__()
-            return i_or_key  # type: ignore
+                key = ''
+            i_or_key = ap.String(key)
+            self._append_dict_enter_expression(key=i_or_key)
+        self._indent.__enter__()
+        return i_or_key  # type: ignore
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='For')
     def __exit__(self, *args: Any) -> None:
         """
         Method to be called when end of with statement.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__exit__', locals_=locals(),
-                module_name=__name__, class_=For):
-            from apysc._expression import last_scope
-            from apysc._expression.last_scope import LastScope
-            from apysc._loop import loop_count
-            from apysc._type import revert_interface
-            loop_count.decrement_current_loop_count()
-            revert_interface.revert_each_scope_vars(
-                snapshot_name=self._snapshot_name,
-                locals_=self._locals, globals_=self._globals)
-            self._indent.__exit__()
-            ap.append_js_expression(expression='}')
-            last_scope.set_last_scope(value=LastScope.FOR)
+        from apysc._expression import last_scope
+        from apysc._expression.last_scope import LastScope
+        from apysc._loop import loop_count
+        from apysc._type import revert_interface
+        loop_count.decrement_current_loop_count()
+        revert_interface.revert_each_scope_vars(
+            snapshot_name=self._snapshot_name,
+            locals_=self._locals, globals_=self._globals)
+        self._indent.__exit__()
+        ap.append_js_expression(expression='}')
+        last_scope.set_last_scope(value=LastScope.FOR)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='For')
     def _append_arr_enter_expression(self, *, i: Int) -> None:
         """
         Append for loop start expression (for Array value).
@@ -175,16 +174,15 @@ class For(Generic[T]):
             Loop index value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_arr_enter_expression, locals_=locals(),
-                module_name=__name__, class_=For):
-            i_name: str = i.variable_name
-            expression: str = (
-                f'var length = {self._arr_or_dict.variable_name}.length;\n'
-                f'for ({i_name} = 0; {i_name} < length; {i_name}++) {{'
-            )
-            ap.append_js_expression(expression=expression)
+        i_name: str = i.variable_name
+        expression: str = (
+            f'var length = {self._arr_or_dict.variable_name}.length;\n'
+            f'for ({i_name} = 0; {i_name} < length; {i_name}++) {{'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='For')
     def _append_dict_enter_expression(self, *, key: String) -> None:
         """
         Append for loop start expression (for Dictionary value).
@@ -195,13 +193,9 @@ class For(Generic[T]):
             Loop (dictionary) key value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_dict_enter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=For):
-            key_name: str = key.variable_name
-            expression: str = (
-                f'for (var {key_name} in '
-                f'{self._arr_or_dict.variable_name}) {{'
-            )
-            ap.append_js_expression(expression=expression)
+        key_name: str = key.variable_name
+        expression: str = (
+            f'for (var {key_name} in '
+            f'{self._arr_or_dict.variable_name}) {{'
+        )
+        ap.append_js_expression(expression=expression)

@@ -1,6 +1,8 @@
 """Class implementation for the continue.
 """
 
+from apysc._html.debug_mode import add_debug_info_setting
+
 
 class Continue:
     """
@@ -25,6 +27,8 @@ class Continue:
     ...         _ = ap.Continue()
     """
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Continue')
     def __init__(self) -> None:
         """
         The loop continue expression class.
@@ -48,16 +52,13 @@ class Continue:
         ...         _ = ap.Continue()
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=Continue):
-            from apysc._loop import loop_count
-            current_loop_count: int = loop_count.get_current_loop_count()
-            if current_loop_count == 0:
-                err_msg: str = (
-                    'The `Continue` class can be instantiated in the with '
-                    'loop statement, for example, after the '
-                    '`with ap.For(...):` statement.'
-                )
-                raise Exception(err_msg)
-            ap.append_js_expression(expression='continue;')
+        from apysc._loop import loop_count
+        current_loop_count: int = loop_count.get_current_loop_count()
+        if current_loop_count == 0:
+            err_msg: str = (
+                'The `Continue` class can be instantiated in the with '
+                'loop statement, for example, after the '
+                '`with ap.For(...):` statement.'
+            )
+            raise Exception(err_msg)
+        ap.append_js_expression(expression='continue;')

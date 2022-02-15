@@ -31,7 +31,7 @@ class Graphics(
         BeginFillInterface, LineStyleInterface, VariableNameInterface,
         GraphicsClearInterface, ChildInterface):
     """
-    Create a object that has each vector graphics interface.
+    Create an object that has each vector graphics interface.
 
     References
     ----------
@@ -63,15 +63,15 @@ class Graphics(
             self, *, parent: 'sprite.Sprite',
             variable_name: Optional[str] = None) -> None:
         """
-        Create a object that has each vector graphics interface.
+        Create an object that has each vector graphics interface.
 
         Parameters
         ----------
         parent : Sprite
-            This instance's parent instance.
+            A parent instance.
         variable_name : str or None, default None
-            Variable name to set. Specified only when subclass
-            instantiation.
+            Variable name to set. Specified only when
+            a subclass instantiation.
 
         References
         ----------
@@ -292,7 +292,7 @@ class Graphics(
             width: Union[int, Int],
             height: Union[int, Int]) -> '_ellipse.Ellipse':
         """
-        Draw a ellipse vector graphics.
+        Draw an ellipse vector graphic.
 
         Parameters
         ----------
@@ -453,7 +453,7 @@ class Graphics(
 
         Notes
         -----
-        expression will not be appended.
+        This interface does not append an expression.
         """
         self._line_dot_setting = None
         self._line_dash_setting = None
@@ -469,7 +469,7 @@ class Graphics(
             x_end: Union[int, Int],
             y_end: Union[int, Int]) -> '_line.Line':
         """
-        Draw a normal line vector graphics.
+        Draw a normal line vector graphic.
 
         Notes
         -----
@@ -678,7 +678,7 @@ class Graphics(
             round_size: Union[int, Int],
             space_size: Union[int, Int]) -> '_line.Line':
         """
-        Draw a round dotted line vector graphics.
+        Draw a round-dotted line vector graphics.
 
         Notes
         -----
@@ -754,7 +754,7 @@ class Graphics(
             dash_size: Union[int, Int],
             space_size: Union[int, Int]) -> '_line.Line':
         """
-        Draw a dash dotted (1-dot chain) line vector graphics.
+        Draw a dash-dotted (1-dot chain) line vector graphics.
 
         Parameters
         ----------

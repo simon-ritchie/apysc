@@ -6,7 +6,7 @@ Implementations for Graphics class.
 
 ## `Graphics` class docstring
 
-Create a object that has each vector graphics interface.<hr>
+Create an object that has each vector graphics interface.<hr>
 
 **[Examples]**
 
@@ -34,14 +34,14 @@ Int(100)
 
 ### `__init__` method docstring
 
-Create a object that has each vector graphics interface.<hr>
+Create an object that has each vector graphics interface.<hr>
 
 **[Parameters]**
 
 - `parent`: Sprite
-  - This instance's parent instance.
+  - A parent instance.
 - `variable_name`: str or None, default None
-  - Variable name to set. Specified only when subclass instantiation.
+  - Variable name to set. Specified only when a subclass instantiation.
 
 <hr>
 
@@ -68,7 +68,7 @@ Reset each line settings (e.g., LineDotSetting, LineDashSetting, and so on).<hr>
 
 **[Notes]**
 
-expression will not be appended.
+This interface does not append an expression.
 
 ### `draw_circle` method docstring
 
@@ -122,7 +122,7 @@ String('#00aaff')
 
 ### `draw_dash_dotted_line` method docstring
 
-Draw a dash dotted (1-dot chain) line vector graphics.<hr>
+Draw a dash-dotted (1-dot chain) line vector graphics.<hr>
 
 **[Parameters]**
 
@@ -294,7 +294,7 @@ Int(5)
 
 ### `draw_ellipse` method docstring
 
-Draw a ellipse vector graphics.<hr>
+Draw an ellipse vector graphic.<hr>
 
 **[Parameters]**
 
@@ -349,7 +349,7 @@ String('#00aaff')
 
 ### `draw_line` method docstring
 
-Draw a normal line vector graphics.<hr>
+Draw a normal line vector graphic.<hr>
 
 **[Parameters]**
 
@@ -523,7 +523,7 @@ String('#00aaff')
 
 ### `draw_round_dotted_line` method docstring
 
-Draw a round dotted line vector graphics.<hr>
+Draw a round-dotted line vector graphics.<hr>
 
 **[Parameters]**
 

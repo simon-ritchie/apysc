@@ -1,4 +1,4 @@
-"""Class implementation for line style related interface.
+"""Class implementation for line style-related interface.
 
 See Also
 --------
@@ -187,8 +187,8 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_color_if_not_initialized(self) -> None:
         """
-        Initialize _line_color attribute it it is not
-        initialized yet.
+        Initialize _line_color attribute if this interface does
+        not initialize it yet.
         """
         if hasattr(self, '_line_color'):
             return
@@ -196,8 +196,8 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
-        Initialize _line_thickness attribute if it is not
-        initialized yet.
+        Initialize _line_thickness attribute if this interface
+        does not initialize it yet.
         """
         if hasattr(self, '_line_thickness'):
             return
@@ -205,8 +205,8 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
-        Initialize _line_alpha attribute if it is not
-        initialized yet.
+        Initialize _line_alpha attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_line_alpha'):
             return
@@ -214,7 +214,8 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
-        Initialize _line_cap attribute if it hasn't been initialized yet.
+        Initialize _line_cap attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_line_cap'):
             return
@@ -222,7 +223,8 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
-        Initialize _line_joints attribute if it hasn't been initialized yet.
+        Initialize _line_joints attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_line_joints'):
             return
@@ -230,8 +232,8 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_dot_setting_if_not_initialized(self) -> None:
         """
-        Initialize _line_dot_setting attribute if it is not
-        initialized yet.
+        Initialize _line_dot_setting attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_line_dot_setting'):
             return
@@ -239,8 +241,8 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_dash_setting_if_not_initialized(self) -> None:
         """
-        Initialize _line_dash_setting attribute if it is not
-        initialized yet.
+        Initialize _line_dash_setting attribute if this
+        interface does not initialize it yet.
         """
         if hasattr(self, '_line_dash_setting'):
             return
@@ -248,8 +250,8 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_round_dot_setting_if_not_initialized(self) -> None:
         """
-        Initialize _line_round_dot_setting attribute if it is not
-        initialized yet.
+        Initialize _line_round_dot_setting attribute if this interface
+        does not initialize it yet.
         """
         if hasattr(self, '_line_round_dot_setting'):
             return
@@ -257,8 +259,8 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_dash_dot_setting_if_not_initialized(self) -> None:
         """
-        Initialize _line_dash_dot_setting attribute if it is not
-        initialized yet.
+        Initialize _line_dash_dot_setting attribute if this interface
+        does not initialize it yet.
         """
         if hasattr(self, '_line_dash_dot_setting'):
             return

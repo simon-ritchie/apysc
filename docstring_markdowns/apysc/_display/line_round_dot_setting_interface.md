@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementation for line round dot setting interface.
+Class implementation for the line round-dot setting interface.
 
 ## `LineRoundDotSettingInterface` class docstring
 
@@ -12,7 +12,7 @@ Append line round dot setting updating expression.
 
 ### `_initialize_line_round_dot_setting_if_not_initialized` method docstring
 
-Initialize _line_round_dot_setting if it is not initialized yet.
+Initialize _line_round_dot_setting if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -39,4 +39,4 @@ Update line round setting and skip appending expression.<hr>
 **[Parameters]**
 
 - `value`: LineRoundSetting or None
-  - Line round dot setting to set.
+  - Line round-dot settings to set.

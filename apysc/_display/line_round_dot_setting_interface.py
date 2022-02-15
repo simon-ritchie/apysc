@@ -1,4 +1,5 @@
-"""Class implementation for line round dot setting interface.
+"""Class implementation for the line round-dot setting
+interface.
 """
 
 from typing import Dict
@@ -16,8 +17,8 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
 
     def _initialize_line_round_dot_setting_if_not_initialized(self) -> None:
         """
-        Initialize _line_round_dot_setting if it is not
-        initialized yet.
+        Initialize _line_round_dot_setting if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_line_round_dot_setting'):
             return
@@ -101,7 +102,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         Parameters
         ----------
         value : LineRoundSetting or None
-            Line round dot setting to set.
+            Line round-dot settings to set.
         """
         if value is not None and not isinstance(value, LineRoundDotSetting):
             raise TypeError(

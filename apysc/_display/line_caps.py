@@ -1,4 +1,4 @@
-"""Line caps enum definitions.
+"""Line caps enum's definitions.
 """
 
 from enum import Enum
@@ -6,7 +6,7 @@ from enum import Enum
 
 class LineCaps(Enum):
     """
-    Line caps style type definitions.
+    The class for the line caps style type definitions.
 
     Attributes
     ----------

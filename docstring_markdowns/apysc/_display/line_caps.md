@@ -2,8 +2,8 @@
 
 ## Module summary
 
-Line caps enum definitions.
+Line caps enum's definitions.
 
 ## `LineCaps` class docstring
 
-Line caps style type definitions.
+The class for the line caps style type definitions.

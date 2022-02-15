@@ -8,11 +8,11 @@ Class implementation for the flip_x interface.
 
 ### `_append_flip_x_attr_linking_setting` method docstring
 
-Append a flip-x attribute linking setting.
+Append a flip-x attribute linking settings.
 
 ### `_append_flip_x_update_expression` method docstring
 
-Append a x-axis flipping value updating expression.<hr>
+Append x-axis flipping value updating expression.<hr>
 
 **[Parameters]**
 
@@ -21,7 +21,7 @@ Append a x-axis flipping value updating expression.<hr>
 
 ### `_initialize_flip_x_if_not_initialized` method docstring
 
-Initialize the _flip_x attribute if it hasn't been initialized yet.
+Initialize the _flip_x attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -34,7 +34,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

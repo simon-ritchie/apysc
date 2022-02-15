@@ -17,8 +17,8 @@ class FlipXInterface(
 
     def _initialize_flip_x_if_not_initialized(self) -> None:
         """
-        Initialize the _flip_x attribute if it hasn't been
-        initialized yet.
+        Initialize the _flip_x attribute if this interface
+        does not initialize it yet.
         """
         if hasattr(self, '_flip_x'):
             return
@@ -30,7 +30,7 @@ class FlipXInterface(
         module_name=__name__, class_name='FlipXInterface')
     def _append_flip_x_attr_linking_setting(self) -> None:
         """
-        Append a flip-x attribute linking setting.
+        Append a flip-x attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._flip_x, attr_name='flip_x')
@@ -108,7 +108,7 @@ class FlipXInterface(
     def _append_flip_x_update_expression(
             self, *, before_value: Boolean) -> None:
         """
-        Append a x-axis flipping value updating expression.
+        Append x-axis flipping value updating expression.
 
         Parameters
         ----------
@@ -143,7 +143,7 @@ class FlipXInterface(
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

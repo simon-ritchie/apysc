@@ -40,7 +40,7 @@ def complement_hex_color(
     if isinstance(hex_color_code, ap.String):
         value_: str = hex_color_code._value
     else:
-        value_ = hex_color_code
+        value_ = str(hex_color_code)
     char_len = len(value_)
     if char_len == 1:
         value_ = _fill_one_digit_hex_color_code(

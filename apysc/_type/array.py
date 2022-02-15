@@ -1158,7 +1158,7 @@ class Array(
         if isinstance(sep, ap.String):
             sep_: str = sep._value
         else:
-            sep_ = sep
+            sep_ = str(sep)
         values_: List[Any] = [str(value) for value in self._value]
         joined: ap.String = ap.String(sep_.join(values_))
         self._append_join_expression(joined=joined, sep=sep)

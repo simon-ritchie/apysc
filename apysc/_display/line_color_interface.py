@@ -109,12 +109,16 @@ class LineColorInterface(
         line_color : str or String
             Line color (hexadecimal string, e.g., '#00aaff').
         """
+        import apysc as ap
         self._initialize_line_color_if_not_initialized()
         if line_color == '':
             return
-        if isinstance(line_color, str):
-            line_color = String(line_color)
-        self._update_line_color_and_skip_appending_exp(value=line_color)
+        if isinstance(line_color, ap.String):
+            line_color_: ap.String = line_color
+        else:
+            line_color_ = String(line_color)
+        self._update_line_color_and_skip_appending_exp(
+            value=line_color_)
 
     def _update_line_color_and_skip_appending_exp(
             self, *, value: String) -> None:

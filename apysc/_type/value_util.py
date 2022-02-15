@@ -14,6 +14,7 @@ from typing import List
 from typing import TypeVar
 from typing import Union
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 
 
@@ -138,6 +139,8 @@ def _get_value_str_from_iterable(
 T = TypeVar('T')
 
 
+@add_debug_info_setting(  # type: ignore[misc]
+    module_name=__name__)
 def get_copy(*, value: T) -> T:
     """
     Get a copy of specified instance if it is instance of CopyInterface.
@@ -153,11 +156,7 @@ def get_copy(*, value: T) -> T:
         Copied value. If value is not instance of CopyInterface,
         then argument value will be returned directly.
     """
-    import apysc as ap
-    with ap.DebugInfo(
-            callable_=get_copy, locals_=locals(),
-            module_name=__name__):
-        from apysc._type.copy_interface import CopyInterface
-        if not isinstance(value, CopyInterface):
-            return value
-        return value._copy()
+    from apysc._type.copy_interface import CopyInterface
+    if not isinstance(value, CopyInterface):
+        return value
+    return value._copy()

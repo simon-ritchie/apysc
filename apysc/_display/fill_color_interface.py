@@ -104,12 +104,16 @@ class FillColorInterface(
         fill_color : str or String
             Fill color (hexadecimal string, e.g., '#00aaff').
         """
+        import apysc as ap
         self._initialize_fill_color_if_not_initialized()
         if fill_color == '':
             return
-        if isinstance(fill_color, str):
-            fill_color = String(fill_color)
-        self._update_fill_color_and_skip_appending_exp(value=fill_color)
+        if isinstance(fill_color, ap.String):
+            fill_color_: ap.String = fill_color
+        else:
+            fill_color_ = String(fill_color)
+        self._update_fill_color_and_skip_appending_exp(
+            value=fill_color_)
 
     def _update_fill_color_and_skip_appending_exp(
             self, *, value: String) -> None:

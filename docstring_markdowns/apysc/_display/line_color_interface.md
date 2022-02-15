@@ -12,7 +12,7 @@ Append line color updating expression.
 
 ### `_initialize_line_color_if_not_initialized` method docstring
 
-Initialize line_color attribute if that value is not initialized yet.
+Initialize the line_color attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -34,7 +34,7 @@ Revert value if snapshot exists.<hr>
 
 ### `_set_initial_line_color_if_not_blank` method docstring
 
-Set initial line color value if specified value is not blank string.<hr>
+Set initial line color value if a specified value is not a blank string.<hr>
 
 **[Parameters]**
 

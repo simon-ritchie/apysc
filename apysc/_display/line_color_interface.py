@@ -101,8 +101,8 @@ class LineColorInterface(
     def _set_initial_line_color_if_not_blank(
             self, *, line_color: Union[str, String]) -> None:
         """
-        Set initial line color value if specified value is not
-        blank string.
+        Set initial line color value if a specified value is
+        not a blank string.
 
         Parameters
         ----------
@@ -139,8 +139,8 @@ class LineColorInterface(
 
     def _initialize_line_color_if_not_initialized(self) -> None:
         """
-        Initialize line_color attribute if that value is not
-        initialized yet.
+        Initialize the line_color attribute if this
+        interface does not initialize it yet.
         """
         if hasattr(self, '_line_color'):
             return

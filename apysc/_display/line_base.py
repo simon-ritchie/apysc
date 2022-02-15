@@ -1,4 +1,4 @@
-"""Base class implementation for each lines.
+"""Base class implementation for each line.
 """
 
 from abc import ABC
@@ -69,7 +69,8 @@ class LineBase(
     def _set_initial_basic_values(
             self, *, parent: 'graphics.Graphics') -> None:
         """
-        Set initial basic values (fill color, line thickness, and so on).
+        Set initial fundamental values (such as the fill color or
+        line thickness).
 
         Parameters
         ----------
@@ -125,7 +126,7 @@ class LineBase(
     def _append_basic_vals_expression(
             self, *, expression: str, indent_num: int) -> str:
         """
-        Append basic values expression to specified one.
+        Append basic values expression to a specified one.
 
         Parameters
         ----------

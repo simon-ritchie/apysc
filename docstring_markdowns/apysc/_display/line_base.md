@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Base class implementation for each lines.
+Base class implementation for each line.
 
 ## `LineBase` class docstring
 
@@ -12,7 +12,7 @@ Get a string representation of this instance (for the sake of debugging).
 
 ### `_append_basic_vals_expression` method docstring
 
-Append basic values expression to specified one.<hr>
+Append basic values expression to a specified one.<hr>
 
 **[Parameters]**
 
@@ -30,7 +30,7 @@ Append basic values expression to specified one.<hr>
 
 ### `_set_initial_basic_values` method docstring
 
-Set initial basic values (fill color, line thickness, and so on).<hr>
+Set initial fundamental values (such as the fill color or line thickness).<hr>
 
 **[Parameters]**
 

@@ -77,8 +77,8 @@ class WidthInterface(
         value : Int
             Width value to set.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='width', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=WidthInterface.__name__):

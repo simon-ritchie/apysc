@@ -90,8 +90,8 @@ class RotationAroundCenterInterface(
         - GraphicsBase rotation_around_center interface
             - https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_center.html  # noqa
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='rotation_around_center', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=RotationAroundCenterInterface.__name__):

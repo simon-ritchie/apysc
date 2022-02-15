@@ -90,8 +90,8 @@ class FlipXInterface(
         - GraphicsBase flip_x and flip_y interfaces document
             - https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html  # noqa
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='fill_color', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=FlipXInterface.__name__):

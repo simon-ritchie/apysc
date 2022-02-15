@@ -68,8 +68,8 @@ class FillColorInterface(
         - Graphics fill_color interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='fill_color', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=FillColorInterface.__name__):

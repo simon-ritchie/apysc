@@ -70,8 +70,8 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             Y-coordinate of the destination point
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='dest_y', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=PathDestYInterface.__name__):

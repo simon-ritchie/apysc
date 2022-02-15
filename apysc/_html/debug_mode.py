@@ -234,7 +234,7 @@ def _increment_callable_count(
     expression_data_util.exec_query(sql=query)
 
 
-class _DebugInfo:
+class DebugInfo:
     """
     Save a debug information (append callable interface name
     comment and arguments information) to the JavaScript
@@ -440,7 +440,7 @@ def add_debug_info_setting(
             result : Any
                 A return value(s) of a callable execution result.
             """
-            with _DebugInfo(
+            with DebugInfo(
                     callable_=func,
                     args=list(args),
                     kwargs=kwargs, module_name=module_name,

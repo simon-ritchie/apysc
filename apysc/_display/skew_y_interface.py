@@ -84,8 +84,8 @@ class SkewYInterface(
         - GraphicsBase skew_x and skew_y interfaces document
             - https://simon-ritchie.github.io/apysc/graphics_base_skew.html
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='skew_y', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=SkewYInterface.__name__):

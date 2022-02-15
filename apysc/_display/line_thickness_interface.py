@@ -88,8 +88,8 @@ class LineThicknessInterface(
         - Graphics line_thickness interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_thickness.html  # noqa
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='line_thickness', args=[value],
                 kwargs={}, module_name=__name__,
                 class_name=LineThicknessInterface.__name__):

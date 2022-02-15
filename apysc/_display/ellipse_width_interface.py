@@ -75,8 +75,8 @@ class EllipseWidthInterface(
         value : int or Int
             Ellipse width value.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='ellipse_height', args=[], kwargs={},
                 module_name=__name__,
                 class_name=EllipseWidthInterface.__name__):

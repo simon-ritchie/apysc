@@ -71,8 +71,8 @@ class PathControlY1Interface(RevertInterface, AttrLinkingInterface):
         value : Int
             First y-coordinate of the control point.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='control_y1', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=PathControlY1Interface.__name__):

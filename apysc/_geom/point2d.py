@@ -140,8 +140,8 @@ class Point2D(
         value : Int
             X-coordinate to set.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='x', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=Point2D.__name__):
@@ -224,8 +224,8 @@ class Point2D(
         value : Int
             Y-coordinate to set.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='y', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=Point2D.__name__):

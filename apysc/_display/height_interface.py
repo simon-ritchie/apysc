@@ -78,8 +78,8 @@ class HeightInterface(
         value : int
             Height value to set.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='height', args=[], kwargs={},
                 module_name=__name__,
                 class_name=HeightInterface.__name__):

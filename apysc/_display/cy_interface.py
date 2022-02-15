@@ -86,8 +86,8 @@ class CyInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='y', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=CyInterface.__name__):

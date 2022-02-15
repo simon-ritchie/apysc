@@ -62,8 +62,8 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         value : String or LineJoints
             Line joints style setting to set.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='line_joints', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=LineJointsInterface.__name__):

@@ -8,7 +8,7 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._html import debug_mode
-from apysc._html.debug_mode import _DebugInfo
+from apysc._html.debug_mode import DebugInfo
 from tests.testing_helper import assert_attrs
 
 
@@ -38,20 +38,20 @@ def test_is_debug_mode() -> None:
 def test__get_callable_count() -> None:
     expression_data_util.empty_expression()
     callable_count: int = debug_mode._get_callable_count(
-        callable_=Test_DebugInfo.test___init__,
+        callable_=TestDebugInfo.test___init__,
         module_name=__name__,
-        class_=Test_DebugInfo)
+        class_=TestDebugInfo)
     assert callable_count == 0
 
     for _ in range(2):
         debug_mode._increment_callable_count(
-            callable_=Test_DebugInfo.test___init__,
+            callable_=TestDebugInfo.test___init__,
             module_name=__name__,
-            class_=Test_DebugInfo)
+            class_=TestDebugInfo)
     callable_count = debug_mode._get_callable_count(
-        callable_=Test_DebugInfo.test___init__,
+        callable_=TestDebugInfo.test___init__,
         module_name=__name__,
-        class_=Test_DebugInfo)
+        class_=TestDebugInfo)
     assert callable_count == 2
 
 
@@ -59,13 +59,13 @@ def test__get_callable_count() -> None:
 def test__increment_callable_count() -> None:
     expression_data_util.empty_expression()
     debug_mode._increment_callable_count(
-        callable_=Test_DebugInfo.test___init__,
+        callable_=TestDebugInfo.test___init__,
         module_name=__name__,
-        class_=Test_DebugInfo)
+        class_=TestDebugInfo)
     callable_count: int = debug_mode._get_callable_count(
-        callable_=Test_DebugInfo.test___init__,
+        callable_=TestDebugInfo.test___init__,
         module_name=__name__,
-        class_=Test_DebugInfo)
+        class_=TestDebugInfo)
     assert callable_count == 1
 
 
@@ -91,21 +91,21 @@ def test_unset_debug_mode() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_callable_path_name() -> None:
     path_name: str = debug_mode._get_callable_path_name(
-        callable_=Test_DebugInfo.test___init__,
+        callable_=TestDebugInfo.test___init__,
         module_name=__name__,
-        class_=Test_DebugInfo)
+        class_=TestDebugInfo)
     assert path_name == \
         'tests__html_test_debug_mode_TestDebugInfo_test___init__'
 
     path_name = debug_mode._get_callable_path_name(
-        callable_=Test_DebugInfo.test___init__,
+        callable_=TestDebugInfo.test___init__,
         module_name=__name__,
         class_='TestDebugInfo')
     assert path_name == \
         'tests__html_test_debug_mode_TestDebugInfo_test___init__'
 
     path_name = debug_mode._get_callable_path_name(
-        callable_=Test_DebugInfo.test___init__,
+        callable_=TestDebugInfo.test___init__,
         module_name=__name__)
     assert path_name == \
         'tests__html_test_debug_mode_test___init__'
@@ -134,23 +134,23 @@ def test_add_debug_info_setting() -> None:
     assert 'class: TestClass' in expression
 
 
-class Test_DebugInfo:
+class TestDebugInfo:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        debug_info: _DebugInfo = _DebugInfo(
+        debug_info: DebugInfo = DebugInfo(
             callable_=self.test___init__,
             args=[10, 20],
             kwargs={'c': 30},
             module_name=__name__,
-            class_name='Test_DebugInfo')
+            class_name='TestDebugInfo')
         assert_attrs(
             expected_attrs={
                 '_callable': self.test___init__,
                 '_module_name': __name__,
                 '_args': [10, 20],
                 '_kwargs': {'c': 30},
-                '_class_name': 'Test_DebugInfo',
+                '_class_name': 'TestDebugInfo',
             },
             any_obj=debug_info,
         )
@@ -158,41 +158,41 @@ class Test_DebugInfo:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         ap.Stage()
-        with _DebugInfo(
+        with DebugInfo(
                 callable_=self.test___init__, args=[10],
                 kwargs={'a': 10},
                 module_name=__name__,
-                class_name='Test_DebugInfo'):
+                class_name='TestDebugInfo'):
             pass
         expression: str = expression_data_util.get_current_expression()
         assert f'\n// [{self.test___init__.__name__}' not in expression
 
         ap.set_debug_mode()
-        with _DebugInfo(
+        with DebugInfo(
                 callable_=self.test___init__, args=[10],
                 kwargs={'a': 10},
                 module_name=__name__,
-                class_name='Test_DebugInfo'):
+                class_name='TestDebugInfo'):
             pass
         expression = expression_data_util.get_current_expression()
         assert f'\n// [{self.test___init__.__name__}' in expression
         assert f'\n// module name: {__name__}' in expression
-        assert '\n// class: Test_DebugInfo' in expression
+        assert '\n// class: TestDebugInfo' in expression
         assert '\n// Positional arguments: [10]' in expression
         assert "\n// Keyword arguments: {'a': 10}" in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_class_info(self) -> None:
-        debug_info: _DebugInfo = _DebugInfo(
+        debug_info: DebugInfo = DebugInfo(
             callable_=self.test___init__,
             args=[],
             kwargs={},
             module_name=__name__,
-            class_name='Test_DebugInfo')
+            class_name='TestDebugInfo')
         class_info: str = debug_info._get_class_info()
-        assert class_info == '\n// class: Test_DebugInfo'
+        assert class_info == '\n// class: TestDebugInfo'
 
-        debug_info = _DebugInfo(
+        debug_info = DebugInfo(
             callable_=self.test___init__,
             args=[],
             kwargs={},
@@ -203,9 +203,9 @@ class Test_DebugInfo:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         ap.Stage()
-        with _DebugInfo(
+        with DebugInfo(
                 callable_=self.test___init__, args=[], kwargs={},
-                module_name=__name__, class_name='Test_DebugInfo'):
+                module_name=__name__, class_name='TestDebugInfo'):
             pass
         expression: str = expression_data_util.get_current_expression()
         callable_name: str = self.test___init__.__name__
@@ -217,9 +217,9 @@ class Test_DebugInfo:
         assert match is None
 
         ap.set_debug_mode()
-        with _DebugInfo(
+        with DebugInfo(
                 callable_=self.test___init__, args=[], kwargs={},
-                module_name=__name__, class_name='Test_DebugInfo'):
+                module_name=__name__, class_name='TestDebugInfo'):
             pass
         expression = expression_data_util.get_current_expression()
         match = re.search(

@@ -71,8 +71,8 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
         value : Int
             First x-coordinate of the control point.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='control_x1', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=PathControlX1Interface.__name__):

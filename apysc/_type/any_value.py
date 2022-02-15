@@ -109,8 +109,8 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         value : *
             Any value to set.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='value', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=AnyValue.__name__):

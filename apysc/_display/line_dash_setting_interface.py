@@ -74,8 +74,8 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         - Graphics line_dash_setting interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_dash_setting.html  # noqa
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='line_dash_setting', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=LineDashSettingInterface.__name__):

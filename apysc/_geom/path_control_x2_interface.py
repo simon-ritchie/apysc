@@ -71,8 +71,8 @@ class PathControlX2Interface(RevertInterface, AttrLinkingInterface):
         value : Int
             Second x-coordinate of the control point.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='control_x2', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=PathControlX2Interface.__name__):

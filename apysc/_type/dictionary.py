@@ -208,8 +208,8 @@ class Dictionary(
         apysc fundamental data classes value interface
             https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='value', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=Dictionary.__name__):

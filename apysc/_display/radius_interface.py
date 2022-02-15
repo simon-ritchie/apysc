@@ -76,8 +76,8 @@ class RadiusInterface(
         value : int or Int
             Radius value.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='points', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=RadiusInterface.__name__):

@@ -86,8 +86,8 @@ class LineAlphaInterface(
         - Graphics line_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='line_alpha', args=[], kwargs={},
                 module_name=__name__,
                 class_name=LineAlphaInterface.__name__):

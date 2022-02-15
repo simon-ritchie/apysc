@@ -172,7 +172,7 @@ Unset the debug mode for the HTML and JavaScript debugging.<hr>
 
 - [unset_debug_mode interface document](https://simon-ritchie.github.io/apysc/unset_debug_mode.html)
 
-## `_DebugInfo` class docstring
+## `DebugInfo` class docstring
 
 Save a debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class is used at the `with` statement.<hr>
 

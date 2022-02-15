@@ -67,8 +67,8 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             X-coordinate of the destination point.
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='x', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=PathXInterface.__name__):

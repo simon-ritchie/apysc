@@ -92,8 +92,8 @@ class ScaleYFromCenterInterface(
         - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
             - https://simon-ritchie.github.io/apysc/graphics_base_scale_from_center.html  # noqa
         """
-        from apysc._html.debug_mode import _DebugInfo
-        with _DebugInfo(
+        from apysc._html.debug_mode import DebugInfo
+        with DebugInfo(
                 callable_='scale_y_from_center', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=ScaleYFromCenterInterface.__name__):

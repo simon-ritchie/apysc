@@ -12,7 +12,7 @@ Append line dash setting updating expression.
 
 ### `_initialize_line_dash_setting_if_not_initialized` method docstring
 
-Initialize _line_dash_setting attribute if it is not initialized yet.
+Initialize the _line_dash_setting attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

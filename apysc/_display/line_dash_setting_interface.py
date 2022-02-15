@@ -16,8 +16,8 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_line_dash_setting_if_not_initialized(self) -> None:
         """
-        Initialize _line_dash_setting attribute if it is not
-        initialized yet.
+        Initialize the _line_dash_setting attribute if this
+        interface does not initialize it yet.
         """
         if hasattr(self, '_line_dash_setting'):
             return

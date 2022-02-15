@@ -12,7 +12,7 @@ Append line dot setting updating expression.
 
 ### `_initialize_line_dot_setting_if_not_initialized` method docstring
 
-Initialize _line_dot_setting attribute if it is not initialized yet.
+Initialize _line_dot_setting attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

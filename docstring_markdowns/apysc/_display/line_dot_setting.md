@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Dot setting class implementation for line.
+Dot setting class implementation for a line.
 
 ## `LineDotSetting` class docstring
 

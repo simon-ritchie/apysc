@@ -12,7 +12,7 @@ Append line cap updating expression.
 
 ### `_initialize_line_cap_if_not_initialized` method docstring
 
-Inilialize _line_cap attribute if it is not initialized yet.
+Initialize the _line_cap attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

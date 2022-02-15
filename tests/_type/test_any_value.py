@@ -68,6 +68,12 @@ class TestAnyValue:
         any_value.value = 200
         assert any_value.value == 200
 
+        int_val: ap.Int = ap.Int(10)
+        any_value = ap.AnyValue(int_val)
+        assert isinstance(any_value.value, ap.Int)
+        assert any_value.value == 10
+        assert any_value.value.variable_name != int_val.variable_name
+
     def _assert_arithmetic_operation_dunder_method_expression(
             self, any_value: ap.AnyValue, result: VariableNameInterface,
             other: VariableNameInterface,

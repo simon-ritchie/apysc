@@ -8,7 +8,7 @@ Class implementation for the flip_y interface.
 
 ### `_append_flip_y_attr_linking_setting` method docstring
 
-Append a flip-y attribute linking setting.
+Append a flip-y attribute linking settings.
 
 ### `_append_flip_y_update_expression` method docstring
 
@@ -21,7 +21,7 @@ Append a y-axis flipping value updating expression.<hr>
 
 ### `_initialize_flip_y_if_not_initialized` method docstring
 
-Initialize the _flip_y attribute if it hasn't been initialized yet.
+Initialize the _flip_y attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -34,7 +34,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

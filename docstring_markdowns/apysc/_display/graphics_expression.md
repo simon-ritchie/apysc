@@ -86,7 +86,7 @@ Append stroke line cap expression to specified expression's string.<hr>
 
 ## `append_stroke_linejoin_expression` function docstring
 
-Append stroke linejoin expression to specified expression's string.<hr>
+Append stroke line-join expression to specified expression's string.<hr>
 
 **[Parameters]**
 

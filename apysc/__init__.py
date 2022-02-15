@@ -73,7 +73,6 @@ from apysc._time.timer import Timer  # isort:skip # noqa
 from apysc._html.debug_mode import set_debug_mode  # isort:skip # noqa
 from apysc._html.debug_mode import unset_debug_mode  # isort:skip # noqa
 from apysc._html.debug_mode import is_debug_mode  # isort:skip # noqa
-from apysc._html.debug_mode import DebugInfo  # isort:skip # noqa
 from apysc._html.debug_mode import add_debug_info_setting  # isort:skip # noqa
 from apysc._type._return import Return  # isort:skip # noqa
 from apysc._animation.easing import Easing  # isort:skip # noqa

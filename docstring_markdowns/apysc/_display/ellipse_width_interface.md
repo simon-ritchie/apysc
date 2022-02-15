@@ -8,7 +8,7 @@ Class implementation for ellipse the width interface.
 
 ### `_append_ellipse_width_attr_linking_setting` method docstring
 
-Append a ellipse-height attribute linking setting.
+Append an ellipse-height attribute linking settings.
 
 ### `_append_ellipse_width_update_expression` method docstring
 
@@ -16,7 +16,7 @@ Append ellipse width updating expression.
 
 ### `_initialize_ellipse_width_if_not_initialized` method docstring
 
-Initialize _ellipse_width attribute if it hasn't been initialized yet.
+Initialize _ellipse_width attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

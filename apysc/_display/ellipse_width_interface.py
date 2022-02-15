@@ -17,7 +17,8 @@ class EllipseWidthInterface(
 
     def _initialize_ellipse_width_if_not_initialized(self) -> None:
         """
-        Initialize _ellipse_width attribute if it hasn't been initialized yet.
+        Initialize _ellipse_width attribute if this interface
+        does not initialize it yet.
         """
         if hasattr(self, '_ellipse_width'):
             return
@@ -29,7 +30,7 @@ class EllipseWidthInterface(
         module_name=__name__, class_name='EllipseWidthInterface')
     def _append_ellipse_width_attr_linking_setting(self) -> None:
         """
-        Append a ellipse-height attribute linking setting.
+        Append an ellipse-height attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._ellipse_width, attr_name='ellipse_width')

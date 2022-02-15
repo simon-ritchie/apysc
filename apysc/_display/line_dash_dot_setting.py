@@ -1,4 +1,4 @@
-"""Dash dot (1-dot chain) setting for line.
+"""Dash dot (1-dot chain) setting for a line.
 """
 
 from typing import Union

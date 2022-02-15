@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Dash dot (1-dot chain) setting for line.
+Dash dot (1-dot chain) setting for a line.
 
 ## `LineDashDotSetting` class docstring
 

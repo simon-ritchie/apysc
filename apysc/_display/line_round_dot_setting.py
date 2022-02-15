@@ -1,4 +1,5 @@
-"""Round dot setting class implementation for line.
+"""This module is the round-dot settings' class implementation
+for a line.
 """
 
 from typing import Union

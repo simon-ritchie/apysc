@@ -121,10 +121,8 @@ def _get_value_str_from_iterable(
     from apysc._type.variable_name_interface import VariableNameInterface
     if isinstance(value, Array):
         value_: List[Any] = value.value  # type: ignore
-    elif isinstance(value, tuple):
-        value_ = list(value)
     else:
-        value_ = value
+        value_ = list(value)  # type: ignore[arg-type]
     value_str: str = '['
     for unit_value in value_:
         if value_str != '[':

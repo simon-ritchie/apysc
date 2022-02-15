@@ -133,7 +133,7 @@ class For(Generic[T]):
         if isinstance(self._arr_or_dict, ap.Array):
             i_or_key = ap.Int(0)
             self._append_arr_enter_expression(i=i_or_key)
-        else:
+        elif isinstance(self._arr_or_dict, ap.Dictionary):
             if self._arr_or_dict._value:
                 key: str = str(list(self._arr_or_dict._value.keys())[0])
             else:

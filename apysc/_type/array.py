@@ -10,6 +10,7 @@ from typing import TypeVar
 from typing import Union
 
 from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.int import Int
@@ -67,6 +68,8 @@ class Array(
     _initial_value: Union[List[Any], tuple, 'Array']
     _value: List[Any]
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def __init__(
             self,
             value: Union[List[T], tuple, range, 'Array']) -> None:
@@ -106,25 +109,21 @@ class Array(
         >>> arr
         Array([0, 1, 2])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            from apysc._expression.event_handler_scope import \
-                TemporaryNotHandlerScope
-            with TemporaryNotHandlerScope():
-                TYPE_NAME: str = var_names.ARRAY
-                self._validate_acceptable_value_type(value=value)
-                value = self._convert_range_to_list(value=value)
-                value_: Union[List[Any], tuple, 'Array'] = value
-                self._initial_value = value_
-                self._type_name = TYPE_NAME
-                self._value = self._get_list_value(value=value)
-                self.variable_name = expression_variables_util.\
-                    get_next_variable_name(type_name=TYPE_NAME)
-                self._append_constructor_expression()
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._expression.event_handler_scope import \
+            TemporaryNotHandlerScope
+        with TemporaryNotHandlerScope():
+            TYPE_NAME: str = var_names.ARRAY
+            self._validate_acceptable_value_type(value=value)
+            value = self._convert_range_to_list(value=value)
+            value_: Union[List[Any], tuple, 'Array'] = value
+            self._initial_value = value_
+            self._type_name = TYPE_NAME
+            self._value = self._get_list_value(value=value)
+            self.variable_name = expression_variables_util.\
+                get_next_variable_name(type_name=TYPE_NAME)
+            self._append_constructor_expression()
 
     def _convert_range_to_list(
             self, *,
@@ -147,24 +146,22 @@ class Array(
             return list(value)
         return value
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_constructor_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            expression: str = f'var {self.variable_name} = '
-            if isinstance(self._initial_value, Array):
-                expression += f'{self._initial_value.variable_name};'
-            else:
-                value_str: str = value_util.get_value_str_for_expression(
-                    value=self._value)
-                expression += f'{value_str};'
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        expression: str = f'var {self.variable_name} = '
+        if isinstance(self._initial_value, Array):
+            expression += f'{self._initial_value.variable_name};'
+        else:
+            value_str: str = value_util.get_value_str_for_expression(
+                value=self._value)
+            expression += f'{value_str};'
+        ap.append_js_expression(expression=expression)
 
     def _get_list_value(
             self, *, value: Union[List[Any], tuple, 'Array']) -> List[Any]:
@@ -185,7 +182,7 @@ class Array(
             return list(value)
         if isinstance(value, Array):
             return value._value
-        return value
+        return list(value)  # type: ignore[arg-type]
 
     def _validate_acceptable_value_type(
             self, *,
@@ -250,14 +247,17 @@ class Array(
         apysc fundamental data classes value interface
             https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='value', locals_=locals(),
-                module_name=__name__, class_=Array):
+        from apysc._html.debug_mode import _DebugInfo
+        with _DebugInfo(
+                callable_='value', args=[value], kwargs={},
+                module_name=__name__,
+                class_name=Array.__name__):
             self._validate_acceptable_value_type(value=value)
             self._value = self._get_list_value(value=value)
             self._append_value_setter_expression(value=value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_value_setter_expression(
             self, *, value: Union[List[Any], tuple, 'Array']) -> None:
         """
@@ -269,20 +269,18 @@ class Array(
             Iterable value (list, tuple, or Array) to set.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_value_setter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            expression: str = f'{self.variable_name} = '
-            if isinstance(value, Array):
-                expression += f'{value.variable_name};'
-            else:
-                value_str: str = value_util.get_value_str_for_expression(
-                    value=value)
-                expression += f'{value_str};'
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        expression: str = f'{self.variable_name} = '
+        if isinstance(value, Array):
+            expression += f'{value.variable_name};'
+        else:
+            value_str: str = value_util.get_value_str_for_expression(
+                value=value)
+            expression += f'{value_str};'
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def append(self, value: T) -> None:
         """
         Add any value to the end of this array.
@@ -306,13 +304,11 @@ class Array(
         >>> arr
         Array([1, 2, 3, 4])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.append, locals_=locals(),
-                module_name=__name__, class_=Array):
-            self._value.append(value)
-            self._append_push_and_append_expression(value=value)
+        self._value.append(value)
+        self._append_push_and_append_expression(value=value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def push(self, value: T) -> None:
         """
         Add any value to the end of this array.
@@ -336,12 +332,10 @@ class Array(
         >>> arr
         Array([1, 2, 3, 4])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.push, locals_=locals(),
-                module_name=__name__, class_=Array):
-            self.append(value=value)
+        self.append(value=value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_push_and_append_expression(
             self, *, value: T) -> None:
         """
@@ -353,18 +347,16 @@ class Array(
             Any value to append.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_push_and_append_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            value_str: str = value_util.get_value_str_for_expression(
-                value=value)
-            expression: str = (
-                f'{self.variable_name}.push({value_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        value_str: str = value_util.get_value_str_for_expression(
+            value=value)
+        expression: str = (
+            f'{self.variable_name}.push({value_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def extend(self, other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
         Concatenate argument array to this one. This interface
@@ -391,17 +383,15 @@ class Array(
         >>> arr
         Array([1, 2, 3, 4, 5, 6])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.extend, locals_=locals(),
-                module_name=__name__, class_=Array):
-            self._validate_acceptable_value_type(value=other_arr)
-            if isinstance(other_arr, Array):
-                self._value.extend(other_arr.value)  # type: ignore
-            else:
-                self._value.extend(other_arr)
-            self._append_extend_expression(other_arr=other_arr)
+        self._validate_acceptable_value_type(value=other_arr)
+        if isinstance(other_arr, Array):
+            self._value.extend(other_arr.value)  # type: ignore
+        else:
+            self._value.extend(list(other_arr))  # type: ignore[arg-type]
+        self._append_extend_expression(other_arr=other_arr)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_extend_expression(
             self, *, other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
@@ -413,17 +403,16 @@ class Array(
             Other array-like value to concatenate.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_extend_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            value_str: str = value_util.get_value_str_for_expression(
-                value=other_arr)
-            expression: str = (
-                f'{self.variable_name} = {self.variable_name}'
-                f'.concat({value_str});')
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        value_str: str = value_util.get_value_str_for_expression(
+            value=other_arr)
+        expression: str = (
+            f'{self.variable_name} = {self.variable_name}'
+            f'.concat({value_str});')
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def concat(
             self, other_arr: Union[List[T], tuple, 'Array']) -> 'Array':
         """
@@ -457,16 +446,14 @@ class Array(
         >>> arr
         Array([1, 2, 3, 4, 5, 6])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.concat, locals_=locals(),
-                module_name=__name__, class_=Array):
-            concatenated: Array = self._copy()
-            concatenated.extend(other_arr)
-            self._append_concat_expression(
-                concatenated=concatenated, other_arr=other_arr)
-            return concatenated
+        concatenated: Array = self._copy()
+        concatenated.extend(other_arr)
+        self._append_concat_expression(
+            concatenated=concatenated, other_arr=other_arr)
+        return concatenated
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_concat_expression(
             self, *, concatenated: VariableNameInterface,
             other_arr: Union[List[T], tuple, 'Array']) -> None:
@@ -481,18 +468,17 @@ class Array(
             Other array-like value to concatenate.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_concat_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            value_str: str = value_util.get_value_str_for_expression(
-                value=other_arr)
-            expression: str = (
-                f'var {concatenated.variable_name} = '
-                f'{self.variable_name}.concat({value_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        value_str: str = value_util.get_value_str_for_expression(
+            value=other_arr)
+        expression: str = (
+            f'var {concatenated.variable_name} = '
+            f'{self.variable_name}.concat({value_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def insert(
             self, index: Union[int, Int], value: T) -> None:
         """
@@ -520,23 +506,22 @@ class Array(
         Array([1, 2, 3])
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.insert, locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=index)
-            if isinstance(index, ap.Int):
-                index_: int = int(index.value)
-            else:
-                index_ = index
-            value_: Any
-            if isinstance(value, ap.Int):
-                value_ = int(value.value)
-            else:
-                value_ = value
-            self._value.insert(index_, value_)
-            self._append_insert_expression(index=index, value=value)
+        from apysc._validation import number_validation
+        number_validation.validate_integer(integer=index)
+        if isinstance(index, ap.Int):
+            index_: int = int(index.value)
+        else:
+            index_ = index
+        value_: Any
+        if isinstance(value, ap.Int):
+            value_ = int(value.value)
+        else:
+            value_ = value
+        self._value.insert(index_, value_)
+        self._append_insert_expression(index=index, value=value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def insert_at(self, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
@@ -562,12 +547,10 @@ class Array(
         >>> arr
         Array([1, 2, 3])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.insert_at, locals_=locals(),
-                module_name=__name__, class_=Array):
-            self.insert(index=index, value=value)
+        self.insert(index=index, value=value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_insert_expression(
             self, *, index: Union[int, Int], value: T) -> None:
         """
@@ -581,19 +564,18 @@ class Array(
             Any value to append.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_insert_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            value_str: str = value_util.get_value_str_for_expression(
-                value=value)
-            index_str: str = value_util.get_value_str_for_expression(
-                value=index)
-            expression: str = (
-                f'{self.variable_name}.splice({index_str}, 0, {value_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        value_str: str = value_util.get_value_str_for_expression(
+            value=value)
+        index_str: str = value_util.get_value_str_for_expression(
+            value=index)
+        expression: str = (
+            f'{self.variable_name}.splice({index_str}, 0, {value_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def pop(self) -> T:
         """
         Remove this array's last value and return it.
@@ -619,14 +601,12 @@ class Array(
         >>> arr
         Array([1, 2])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.pop, locals_=locals(),
-                module_name=__name__, class_=Array):
-            value: T = self._value.pop()
-            self._append_pop_expression(value=value)
-            return value
+        value: T = self._value.pop()
+        self._append_pop_expression(value=value)
+        return value
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_pop_expression(self, *, value: T) -> None:
         """
         Append pop method expression.
@@ -637,14 +617,13 @@ class Array(
             Removed value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_pop_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            expression: str = f'{self.variable_name}.pop();'
-            if isinstance(value, VariableNameInterface):
-                expression = f'{value.variable_name} = {expression}'
-            ap.append_js_expression(expression=expression)
+        expression: str = f'{self.variable_name}.pop();'
+        if isinstance(value, VariableNameInterface):
+            expression = f'{value.variable_name} = {expression}'
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def remove(self, value: T) -> None:
         """
         Remove specified value from this array.
@@ -667,13 +646,11 @@ class Array(
         >>> arr
         Array([1, 5])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.remove, locals_=locals(),
-                module_name=__name__, class_=Array):
-            self._value.remove(value)
-            self._append_remove_expression(value=value)
+        self._value.remove(value)
+        self._append_remove_expression(value=value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_remove_expression(self, *, value: T) -> None:
         """
         Append remove method expression.
@@ -684,22 +661,21 @@ class Array(
             Value to remove.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_remove_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            from apysc._type import value_util
-            index_var_name: str = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.INDEX)
-            value_str: str = value_util.get_value_str_for_expression(
-                value=value)
-            expression: str = (
-                f'var {index_var_name} = _.indexOf'
-                f'({self.variable_name}, {value_str});'
-                f'\n{self.variable_name}.splice({index_var_name}, 1);')
-            ap.append_js_expression(expression=expression)
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._type import value_util
+        index_var_name: str = expression_variables_util.\
+            get_next_variable_name(type_name=var_names.INDEX)
+        value_str: str = value_util.get_value_str_for_expression(
+            value=value)
+        expression: str = (
+            f'var {index_var_name} = _.indexOf'
+            f'({self.variable_name}, {value_str});'
+            f'\n{self.variable_name}.splice({index_var_name}, 1);')
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def remove_at(self, index: Union[int, Int]) -> None:
         """
         Remove specified index value from this array.
@@ -723,18 +699,17 @@ class Array(
         Array([1, 3])
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.remove_at, locals_=locals(),
-                module_name=__name__, class_=Array):
-            self._validate_index_type_is_int(index=index)
-            if isinstance(index, ap.Int):
-                index_: int = int(index.value)
-            else:
-                index_ = index
-            if index_ in self._value:
-                del self._value[index_]
-            self._append_remove_at_expression(index=index)
+        self._validate_index_type_is_int(index=index)
+        if isinstance(index, ap.Int):
+            index_: int = int(index.value)
+        else:
+            index_ = index
+        if index_ in self._value:
+            del self._value[index_]
+        self._append_remove_at_expression(index=index)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_remove_at_expression(
             self, *, index: Union[int, Int]) -> None:
         """
@@ -746,18 +721,16 @@ class Array(
             Index to remove value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_remove_at_expression,
-                locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            index_str: str = value_util.get_value_str_for_expression(
-                value=index)
-            expression: str = (
-                f'{self.variable_name}.splice({index_str}, 1);'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        index_str: str = value_util.get_value_str_for_expression(
+            value=index)
+        expression: str = (
+            f'{self.variable_name}.splice({index_str}, 1);'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def reverse(self) -> None:
         """
         Reverse this array in place.
@@ -775,26 +748,23 @@ class Array(
         >>> arr
         Array([3, 2, 1])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.reverse, locals_=locals(),
-                module_name=__name__, class_=Array):
-            self._value.reverse()
-            self._append_reverse_expression()
+        self._value.reverse()
+        self._append_reverse_expression()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_reverse_expression(self) -> None:
         """
         Append reverse method expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_reverse_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            expression: str = (
-                f'{self.variable_name}.reverse();'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}.reverse();'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def sort(self, *, ascending: bool = True) -> None:
         """
         Sort this array in place.
@@ -822,28 +792,25 @@ class Array(
         >>> arr
         Array([5, 4, 3, 2, 1])
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.sort, locals_=locals(),
-                module_name=__name__, class_=Array):
-            self._value.sort()
-            self._append_sort_expression()
-            if not ascending:
-                self.reverse()
+        self._value.sort()
+        self._append_sort_expression()
+        if not ascending:
+            self.reverse()
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_sort_expression(self) -> None:
         """
         Append sort method expression.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_sort_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            expression: str = (
-                f'{self.variable_name}.sort();'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{self.variable_name}.sort();'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def slice(
             self,
             *,
@@ -884,23 +851,22 @@ class Array(
         Array([1, 2])
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.slice, locals_=locals(),
-                module_name=__name__, class_=Array):
-            if isinstance(start, ap.Int):
-                start_: Optional[int] = int(start.value)
-            else:
-                start_ = start
-            if isinstance(end, ap.Int):
-                end_: Optional[int] = int(end.value)
-            else:
-                end_ = end
-            sliced_arr: Array = self._copy()
-            sliced_arr._value = self._value[slice(start_, end_)]
-            self._append_slice_expression(
-                sliced_arr=sliced_arr, start=start, end=end)
-            return sliced_arr
+        if isinstance(start, ap.Int):
+            start_: Optional[int] = int(start.value)
+        else:
+            start_ = start
+        if isinstance(end, ap.Int):
+            end_: Optional[int] = int(end.value)
+        else:
+            end_ = end
+        sliced_arr: Array = self._copy()
+        sliced_arr._value = self._value[slice(start_, end_)]
+        self._append_slice_expression(
+            sliced_arr=sliced_arr, start=start, end=end)
+        return sliced_arr
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_slice_expression(
             self,
             *,
@@ -920,21 +886,20 @@ class Array(
             Slicing end index.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_slice_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            if start is None:
-                start = 0
-            expression: str = (
-                f'var {sliced_arr.variable_name} = '
-                f'{self.variable_name}.slice('
-                f'{start}'
-            )
-            if end is not None:
-                expression += f', {end}'
-            expression += ');'
-            ap.append_js_expression(expression=expression)
+        if start is None:
+            start = 0
+        expression: str = (
+            f'var {sliced_arr.variable_name} = '
+            f'{self.variable_name}.slice('
+            f'{start}'
+        )
+        if end is not None:
+            expression += f', {end}'
+        expression += ');'
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def __getitem__(self, index: Union[int, Int]) -> T:
         """
         Get a specified index single value.
@@ -956,18 +921,15 @@ class Array(
             If specified index type is not int and Int.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__getitem__', locals_=locals(),
-                module_name=__name__, class_=Array):
-            self._validate_index_type_is_int(index=index)
-            index_: int = self._get_builtin_int_from_index(index=index)
-            value: Any
-            if len(self._value) <= index:
-                value = ap.AnyValue(None)
-            else:
-                value = self._value[index_]
-            self._append_getitem_expression(index=index, value=value)
-            return value
+        self._validate_index_type_is_int(index=index)
+        index_: int = self._get_builtin_int_from_index(index=index)
+        value: Any
+        if len(self._value) <= index:
+            value = ap.AnyValue(None)
+        else:
+            value = self._value[index_]
+        self._append_getitem_expression(index=index, value=value)
+        return value
 
     def _get_builtin_int_from_index(
             self, *, index: Union[int, Int]) -> int:
@@ -1010,6 +972,8 @@ class Array(
             'Currently indexing is only supported int or Int types.'
             ' If you need to slice array please use slice method.')
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_getitem_expression(
             self, *, index: Union[int, Int],
             value: T) -> None:
@@ -1024,23 +988,22 @@ class Array(
             Specified index's value.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_getitem_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            value_: VariableNameInterface
-            if not isinstance(value, VariableNameInterface):
-                value_ = ap.AnyValue(None)
-            else:
-                value_ = value
-            index_str: str = value_util.get_value_str_for_expression(
-                value=index)
-            expression: str = (
-                f'var {value_.variable_name} = '
-                f'{self.variable_name}[{index_str}];'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        value_: VariableNameInterface
+        if not isinstance(value, VariableNameInterface):
+            value_ = ap.AnyValue(None)
+        else:
+            value_ = value
+        index_str: str = value_util.get_value_str_for_expression(
+            value=index)
+        expression: str = (
+            f'var {value_.variable_name} = '
+            f'{self.variable_name}[{index_str}];'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def __setitem__(self, index: Union[int, Int], value: T) -> None:
         """
         Set value to a specified index.
@@ -1058,15 +1021,13 @@ class Array(
         ValueError
             If specified index type is not int and Int.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__setitem__', locals_=locals(),
-                module_name=__name__, class_=Array):
-            self._validate_index_type_is_int(index=index)
-            index_: int = self._get_builtin_int_from_index(index=index)
-            self._value[index_] = value
-            self._append_setitem_expression(index=index, value=value)
+        self._validate_index_type_is_int(index=index)
+        index_: int = self._get_builtin_int_from_index(index=index)
+        self._value[index_] = value
+        self._append_setitem_expression(index=index, value=value)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_setitem_expression(
             self, *, index: Union[int, Int], value: T) -> None:
         """
@@ -1081,20 +1042,19 @@ class Array(
             Any value to set.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_setitem_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            index_str: str = value_util.get_value_str_for_expression(
-                value=index)
-            value_str: str = value_util.get_value_str_for_expression(
-                value=value)
-            expression: str = (
-                f'{self.variable_name}[{index_str}] = '
-                f'{value_str};'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        index_str: str = value_util.get_value_str_for_expression(
+            value=index)
+        value_str: str = value_util.get_value_str_for_expression(
+            value=value)
+        expression: str = (
+            f'{self.variable_name}[{index_str}] = '
+            f'{value_str};'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def __delitem__(self, index: Union[int, Int]) -> None:
         """
         Delete specified index value from this array.
@@ -1110,13 +1070,11 @@ class Array(
         ValueError
             If specified index type is not int and Int.
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_='__delitem__', locals_=locals(),
-                module_name=__name__, class_=Array):
-            self.remove_at(index=index)
+        self.remove_at(index=index)
 
-    @property
+    @property  # type: ignore[misc]
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def length(self) -> Int:
         """
         Get length of this array.
@@ -1139,13 +1097,12 @@ class Array(
         Int(3)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='length', locals_=locals(),
-                module_name=__name__, class_=Array):
-            length: ap.Int = ap.Int(len(self._value))
-            self._append_length_expression(length=length)
-            return length
+        length: ap.Int = ap.Int(len(self._value))
+        self._append_length_expression(length=length)
+        return length
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_length_expression(self, *, length: Int) -> None:
         """
         Append length method expression.
@@ -1156,13 +1113,10 @@ class Array(
             Created length Int variable.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_length_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            expression: str = (
-                f'{length.variable_name} = {self.variable_name}.length;'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{length.variable_name} = {self.variable_name}.length;'
+        )
+        ap.append_js_expression(expression=expression)
 
     def __len__(self) -> None:
         """
@@ -1172,6 +1126,8 @@ class Array(
             'Array instance can\'t apply len function.'
             ' Please use length property instead.')
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def join(self, sep: Union[str, String]) -> String:
         """
         Join this array value with a specified separator string.
@@ -1199,18 +1155,17 @@ class Array(
         String('1, 2, 3')
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.join, locals_=locals(),
-                module_name=__name__, class_=Array):
-            if isinstance(sep, ap.String):
-                sep_: str = sep._value
-            else:
-                sep_ = sep
-            values_: List[Any] = [str(value) for value in self._value]
-            joined: ap.String = ap.String(sep_.join(values_))
-            self._append_join_expression(joined=joined, sep=sep)
-            return joined
+        if isinstance(sep, ap.String):
+            sep_: str = sep._value
+        else:
+            sep_ = sep
+        values_: List[Any] = [str(value) for value in self._value]
+        joined: ap.String = ap.String(sep_.join(values_))
+        self._append_join_expression(joined=joined, sep=sep)
+        return joined
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_join_expression(
             self, *, joined: String, sep: Union[str, String]) -> None:
         """
@@ -1224,16 +1179,13 @@ class Array(
             Separator string.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_join_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            sep_str: str = value_util.get_value_str_for_expression(value=sep)
-            expression: str = (
-                f'{joined.variable_name} = {self.variable_name}'
-                f'.join({sep_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        sep_str: str = value_util.get_value_str_for_expression(value=sep)
+        expression: str = (
+            f'{joined.variable_name} = {self.variable_name}'
+            f'.join({sep_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
     def __str__(self) -> str:
         """
@@ -1263,6 +1215,8 @@ class Array(
             repr_str = f'Array({repr(self._value)})'
         return repr_str
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def index_of(self, value: T) -> Int:
         """
         Search specified value's index and return it.
@@ -1291,18 +1245,17 @@ class Array(
         Int(1)
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.index_of, locals_=locals(),
-                module_name=__name__, class_=Array):
-            index: ap.Int = ap.Int(-1)
-            try:
-                index_: int = self._value.index(value)
-            except Exception:
-                index_ = -1
-            index._value = index_
-            self._append_index_of_expression(index=index, value=value)
-            return index
+        index: ap.Int = ap.Int(-1)
+        try:
+            index_: int = self._value.index(value)
+        except Exception:
+            index_ = -1
+        index._value = index_
+        self._append_index_of_expression(index=index, value=value)
+        return index
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_index_of_expression(
             self, *, index: Int, value: T) -> None:
         """
@@ -1317,18 +1270,17 @@ class Array(
             Any value to search.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_index_of_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            from apysc._type import value_util
-            value_str: str = value_util.get_value_str_for_expression(
-                value=value)
-            expression: str = (
-                f'{index.variable_name} = {self.variable_name}'
-                f'.indexOf({value_str});'
-            )
-            ap.append_js_expression(expression=expression)
+        from apysc._type import value_util
+        value_str: str = value_util.get_value_str_for_expression(
+            value=value)
+        expression: str = (
+            f'{index.variable_name} = {self.variable_name}'
+            f'.indexOf({value_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
@@ -1344,19 +1296,18 @@ class Array(
             Comparison result.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__eq__', locals_=locals(),
-                module_name=__name__, class_=Array):
-            result: ap.Boolean
-            if isinstance(other, Array):
-                result = ap.Boolean(self._value == other._value)
-            else:
-                result = ap.Boolean(self._value == other)
-                other = self._convert_other_val_to_array(other=other)
-            if isinstance(other, VariableNameInterface):
-                self._append_eq_expression(result=result, other=other)
-            return result
+        result: ap.Boolean
+        if isinstance(other, Array):
+            result = ap.Boolean(self._value == other._value)
+        else:
+            result = ap.Boolean(self._value == other)
+            other = self._convert_other_val_to_array(other=other)
+        if isinstance(other, VariableNameInterface):
+            self._append_eq_expression(result=result, other=other)
+        return result
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _convert_other_val_to_array(self, *, other: Any) -> Any:
         """
         If comparison's other value is list value, then convert it to
@@ -1374,14 +1325,12 @@ class Array(
             be Array type. Otherwise this will be returned directly
             (not to be converted).
         """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._convert_other_val_to_array, locals_=locals(),
-                module_name=__name__, class_=Array):
-            if isinstance(other, list):
-                return Array(other)
-            return other
+        if isinstance(other, list):
+            return Array(other)
+        return other
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_eq_expression(
             self, *, result: Boolean,
             other: VariableNameInterface) -> None:
@@ -1396,15 +1345,14 @@ class Array(
             Array other value to compare.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_eq_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            expression: str = (
-                f'{result.variable_name} = '
-                f'_.isEqual({self.variable_name}, {other.variable_name});'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{result.variable_name} = '
+            f'_.isEqual({self.variable_name}, {other.variable_name});'
+        )
+        ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.
@@ -1420,16 +1368,15 @@ class Array(
             Comparison result.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_='__ne__', locals_=locals(),
-                module_name=__name__, class_=Array):
-            other = self._convert_other_val_to_array(other=other)
-            result: ap.Boolean = self == other
-            result = result.not_
-            if isinstance(other, VariableNameInterface):
-                self._append_ne_expression(result=result, other=other)
-            return result
+        other = self._convert_other_val_to_array(other=other)
+        result: ap.Boolean = self == other
+        result = result.not_
+        if isinstance(other, VariableNameInterface):
+            self._append_ne_expression(result=result, other=other)
+        return result
 
+    @add_debug_info_setting(  # type: ignore[misc]
+        module_name=__name__, class_name='Array')
     def _append_ne_expression(
             self, *, result: Boolean,
             other: VariableNameInterface) -> None:
@@ -1444,14 +1391,11 @@ class Array(
             Array other value to compare.
         """
         import apysc as ap
-        with ap.DebugInfo(
-                callable_=self._append_ne_expression, locals_=locals(),
-                module_name=__name__, class_=Array):
-            expression: str = (
-                f'{result.variable_name} = '
-                f'!_.isEqual({self.variable_name}, {other.variable_name});'
-            )
-            ap.append_js_expression(expression=expression)
+        expression: str = (
+            f'{result.variable_name} = '
+            f'!_.isEqual({self.variable_name}, {other.variable_name});'
+        )
+        ap.append_js_expression(expression=expression)
 
     def __bool__(self) -> bool:
         """

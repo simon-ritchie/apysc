@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Dash setting class implementation for line.
+Dash setting class implementation for a line.
 
 ## `LineDashSetting` class docstring
 

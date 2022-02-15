@@ -1,4 +1,4 @@
-"""Dash setting class implementation for line.
+"""Dash setting class implementation for a line.
 """
 
 from typing import Union

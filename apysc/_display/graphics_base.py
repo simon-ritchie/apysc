@@ -1,4 +1,4 @@
-"""Class implementation for graphic base class.
+"""Class implementation for graphic's base class.
 """
 
 from typing import Union

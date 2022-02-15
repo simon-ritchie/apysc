@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementation for graphic base class.
+Class implementation for graphic's base class.
 
 ## `GraphicsBase` class docstring
 

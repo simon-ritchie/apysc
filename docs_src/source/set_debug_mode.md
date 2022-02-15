@@ -92,7 +92,6 @@ This setting appends the information (Python's function and method callings, its
 ## See also
 
 - [Unset debug mode interface](unset_debug_mode.md)
-- [DebugInfo class](debug_info.md)
 
 
 ## set_debug_mode API

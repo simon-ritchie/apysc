@@ -98,7 +98,6 @@ The exported HTML includes the debug information at the first integer position. 
 ## See also
 
 - [Set debug mode interface](set_debug_mode.md)
-- [DebugInfo class](debug_info.md)
 
 
 ## unset_debug_mode API

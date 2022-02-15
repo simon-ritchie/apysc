@@ -34,7 +34,6 @@ def test_is_debug_mode() -> None:
     assert not result
 
 
-
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_callable_count() -> None:
     expression_data_util.empty_expression()

@@ -75,26 +75,30 @@ function main_stage() {
   // [__init__ 12] started.
   // module name: apysc._type.int
   // class: Int
-  // arguments and variables:
-  //    value = 10
-  //    self = 0()
+  // Positional arguments: [Int(0), 10]
     //////////////////////////////////////////////////////////////////////
     // [__init__ 14] started.
     // module name: apysc._type.number_value_interface
     // class: NumberValueInterface
-    // arguments and variables:
-    //    type_name = 'i'
-    //    value = 10
-    //    self = 0(i_16)
+    // Positional arguments: [Int(0)]
+    // Keyword arguments: {'value': 10, 'type_name': 'i'}
     // [__init__ 14] ended.
+    // module name: apysc._type.number_value_interface
+    // class: NumberValueInterface
+    //////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////
+    // [value 14] started.
+    // module name: apysc._type.number_value_interface
+    // class: NumberValueInterface
+    // Positional arguments: [Int(10)]
+    // [value 14] ended.
     // module name: apysc._type.number_value_interface
     // class: NumberValueInterface
     //////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////
     // [to_int_from_float 14] started.
     // module name: apysc._converter.cast
-    // arguments and variables:
-    //    int_or_float = 10
+    // Keyword arguments: {'int_or_float': 10}
     // [to_int_from_float 14] ended.
     // module name: apysc._converter.cast
     //////////////////////////////////////////////////////////////////////
@@ -102,8 +106,7 @@ function main_stage() {
     // [append_constructor_expression 14] started.
     // module name: apysc._type.number_value_interface
     // class: NumberValueInterface
-    // arguments and variables:
-    //    self = 10(i_16)
+    // Positional arguments: [Int(10)]
       var i_16 = 10;
     // [append_constructor_expression 14] ended.
     // module name: apysc._type.number_value_interface
@@ -113,9 +116,8 @@ function main_stage() {
     // [_append_cast_expression 12] started.
     // module name: apysc._type.int
     // class: Int
-    // arguments and variables:
-    //    is_number_specified = False
-    //    self = 10(i_16)
+    // Positional arguments: [Int(10)]
+    // Keyword arguments: {'is_number_specified': False}
     // [_append_cast_expression 12] ended.
     // module name: apysc._type.int
     // class: Int
@@ -128,29 +130,23 @@ function main_stage() {
   // [__iadd__ 1] started.
   // module name: apysc._type.number_value_interface
   // class: NumberValueInterface
-  // arguments and variables:
-  //    other = 10
-  //    self = 10(i_16)
+  // Positional arguments: [Int(10), 10]
     //////////////////////////////////////////////////////////////////////
     // [__add__ 1] started.
     // module name: apysc._type.number_value_interface
     // class: NumberValueInterface
-    // arguments and variables:
-    //    other = 10
-    //    self = 10(i_16)
+    // Positional arguments: [Int(10), 10]
       //////////////////////////////////////////////////////////////////////
       // [_copy 5] started.
       // module name: apysc._type.copy_interface
       // class: CopyInterface
-      // arguments and variables:
-      //    self = 10(i_16)
+      // Positional arguments: [Int(10)]
         //////////////////////////////////////////////////////////////////////
         // [_append_copy_expression 5] started.
         // module name: apysc._type.copy_interface
         // class: CopyInterface
-        // arguments and variables:
-        //    result_variable_name = 'i_17'
-        //    self = 10(i_16)
+        // Positional arguments: [Int(10)]
+        // Keyword arguments: {'result_variable_name': 'i_17'}
           var i_17 = i_16;
         // [_append_copy_expression 5] ended.
         // module name: apysc._type.copy_interface
@@ -160,9 +156,8 @@ function main_stage() {
         // [_append_value_updating_cpy_exp_to_handler_scope 5] started.
         // module name: apysc._type.copy_interface
         // class: CopyInterface
-        // arguments and variables:
-        //    result_variable_name = 'i_17'
-        //    self = 10(i_16)
+        // Positional arguments: [Int(10)]
+        // Keyword arguments: {'result_variable_name': 'i_17'}
         // [_append_value_updating_cpy_exp_to_handler_scope 5] ended.
         // module name: apysc._type.copy_interface
         // class: CopyInterface
@@ -174,8 +169,7 @@ function main_stage() {
       //////////////////////////////////////////////////////////////////////
       // [to_int_from_float 15] started.
       // module name: apysc._converter.cast
-      // arguments and variables:
-      //    int_or_float = 20
+      // Keyword arguments: {'int_or_float': 20}
       // [to_int_from_float 15] ended.
       // module name: apysc._converter.cast
       //////////////////////////////////////////////////////////////////////
@@ -183,10 +177,8 @@ function main_stage() {
       // [_append_addition_expression 1] started.
       // module name: apysc._type.number_value_interface
       // class: NumberValueInterface
-      // arguments and variables:
-      //    other = 10
-      //    result = 20(i_17)
-      //    self = 10(i_16)
+      // Positional arguments: [Int(10)]
+      // Keyword arguments: {'result': Int(20), 'other': 10}
         var i_17 = i_16 + 10;
       // [_append_addition_expression 1] ended.
       // module name: apysc._type.number_value_interface

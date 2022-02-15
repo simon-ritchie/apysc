@@ -1,4 +1,4 @@
-"""Graphics class related expression implementations.
+"""Graphics class-related expression implementations.
 """
 
 from apysc._display.graphics import Graphics
@@ -11,7 +11,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 def append_fill_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
-    Append fill expression to specified expression's string.
+    Append a fill expression to specified expression's string.
 
     Parameters
     ----------
@@ -43,7 +43,7 @@ def append_fill_expression(
 def append_fill_opacity_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
-    Append fill opacity expression to specified expression's string.
+    Append a fill opacity expression to a specified expression's string.
 
     Parameters
     ----------
@@ -220,7 +220,7 @@ def append_stroke_opacity_expression(
 def append_stroke_linecap_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
-    Append stroke linecap expression to specified expression's string.
+    Append stroke line cap expression to specified expression's string.
 
     Parameters
     ----------
@@ -252,7 +252,8 @@ def append_stroke_linecap_expression(
 def append_stroke_linejoin_expression(
         *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
-    Append stroke linejoin expression to specified expression's string.
+    Append stroke line-join expression to specified
+    expression's string.
 
     Parameters
     ----------

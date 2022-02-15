@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Graphics class related expression implementations.
+Graphics class-related expression implementations.
 
 ## `append_fill_expression` function docstring
 
-Append fill expression to specified expression's string.<hr>
+Append a fill expression to specified expression's string.<hr>
 
 **[Parameters]**
 
@@ -26,7 +26,7 @@ Append fill expression to specified expression's string.<hr>
 
 ## `append_fill_opacity_expression` function docstring
 
-Append fill opacity expression to specified expression's string.<hr>
+Append a fill opacity expression to a specified expression's string.<hr>
 
 **[Parameters]**
 
@@ -66,7 +66,7 @@ Append stroke expression to specified expression's string.<hr>
 
 ## `append_stroke_linecap_expression` function docstring
 
-Append stroke linecap expression to specified expression's string.<hr>
+Append stroke line cap expression to specified expression's string.<hr>
 
 **[Parameters]**
 

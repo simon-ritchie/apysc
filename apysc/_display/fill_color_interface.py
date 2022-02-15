@@ -85,7 +85,7 @@ class FillColorInterface(
         module_name=__name__, class_name='FillColorInterface')
     def _append_fill_color_update_expression(self) -> None:
         """
-        Append fill color updating expression.
+        Append the fill color updating expression.
         """
         import apysc as ap
         expression: str = (
@@ -96,8 +96,8 @@ class FillColorInterface(
     def _set_initial_fill_color_if_not_blank(
             self, *, fill_color: Union[str, String]) -> None:
         """
-        Set initial fill color value if specified value is not
-        blank string.
+        Set the initial fill color if a specified value
+        is not a blank string.
 
         Parameters
         ----------
@@ -133,8 +133,8 @@ class FillColorInterface(
 
     def _initialize_fill_color_if_not_initialized(self) -> None:
         """
-        Initialize fill_color attribute if that value is not
-        instantiated yet.
+        Initialize the fill_color attribute if this interface
+        does not initialize it yet.
         """
         if hasattr(self, '_fill_color'):
             return

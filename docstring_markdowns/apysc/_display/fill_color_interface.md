@@ -8,11 +8,11 @@ Class implementation for fill color interface.
 
 ### `_append_fill_color_update_expression` method docstring
 
-Append fill color updating expression.
+Append the fill color updating expression.
 
 ### `_initialize_fill_color_if_not_initialized` method docstring
 
-Initialize fill_color attribute if that value is not instantiated yet.
+Initialize the fill_color attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -34,7 +34,7 @@ Revert value if snapshot exists.<hr>
 
 ### `_set_initial_fill_color_if_not_blank` method docstring
 
-Set initial fill color value if specified value is not blank string.<hr>
+Set the initial fill color if a specified value is not a blank string.<hr>
 
 **[Parameters]**
 

@@ -17,8 +17,8 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
-        Initialize _line_joints attribute if that it is not
-        initialized yet.
+        Initialize _line_joints attribute if this interface does
+        not initialize it yet.
         """
         if hasattr(self, '_line_joints'):
             return

@@ -2,8 +2,8 @@
 
 ## Module summary
 
-Line joints enum definitions.
+Line joints enum's definitions.
 
 ## `LineJoints` class docstring
 
-Line joints style type definitions.
+The class for the line joints' style type definitions.

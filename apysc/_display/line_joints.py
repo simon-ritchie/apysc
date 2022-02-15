@@ -1,4 +1,4 @@
-"""Line joints enum definitions.
+"""Line joints enum's definitions.
 """
 
 from enum import Enum
@@ -6,7 +6,7 @@ from enum import Enum
 
 class LineJoints(Enum):
     """
-    Line joints style type definitions.
+    The class for the line joints' style type definitions.
 
     Attributes
     ----------

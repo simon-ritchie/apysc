@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Helper module for the rotation interfaces.
+This module is the helper module for the rotation interfaces.
 
 ## `get_coordinates_key_for_expression` function docstring
 

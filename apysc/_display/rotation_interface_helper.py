@@ -1,4 +1,4 @@
-"""Helper module for the rotation interfaces.
+"""This module is the helper module for the rotation interfaces.
 """
 
 from typing import Union

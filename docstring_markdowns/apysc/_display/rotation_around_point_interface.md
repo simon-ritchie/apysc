@@ -21,7 +21,7 @@ Append a rotation value around the given coordinates updating expression.<hr>
 
 ### `_get_rotation_around_point_updating_expression` method docstring
 
-Get a rotation value around the given coordinates updating expression string.<hr>
+Get a rotation value around the given coordinates' updating expression string.<hr>
 
 **[Parameters]**
 
@@ -37,11 +37,11 @@ Get a rotation value around the given coordinates updating expression string.<hr
 **[Returns]**
 
 - `expression`: str
-  - A rotation value around the given coordinates updating expression string.
+  - A rotation value around the given coordinates' updating expression string.
 
 ### `_initialize_rotation_around_point_if_not_initialized` method docstring
 
-Initialize the `_rotation_around_point` attribute if it hasn't been initialized yet.
+Initialize the `_rotation_around_point` attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -54,7 +54,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

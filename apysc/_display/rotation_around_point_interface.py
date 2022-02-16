@@ -19,8 +19,8 @@ class RotationAroundPointInterface(
 
     def _initialize_rotation_around_point_if_not_initialized(self) -> None:
         """
-        Initialize the `_rotation_around_point` attribute if it hasn't
-        been initialized yet.
+        Initialize the `_rotation_around_point` attribute
+        if this interface does not initialize it yet.
         """
         if hasattr(self, '_rotation_around_point'):
             return
@@ -140,8 +140,8 @@ class RotationAroundPointInterface(
     def _get_rotation_around_point_updating_expression(
             self, *, rotation: Int, x: Int, y: Int) -> str:
         """
-        Get a rotation value around the given coordinates updating
-        expression string.
+        Get a rotation value around the given coordinates'
+        updating expression string.
 
         Parameters
         ----------
@@ -155,8 +155,8 @@ class RotationAroundPointInterface(
         Returns
         -------
         expression : str
-            A rotation value around the given coordinates updating
-            expression string.
+            A rotation value around the given coordinates'
+            updating expression string.
         """
         from apysc._display import rotation_interface_helper
         from apysc._expression import expression_variables_util
@@ -213,7 +213,7 @@ class RotationAroundPointInterface(
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

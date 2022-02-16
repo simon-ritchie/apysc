@@ -17,7 +17,8 @@ class SkewXInterface(
 
     def _initialize_skew_x_if_not_initialized(self) -> None:
         """
-        Initialize the _skew_x attribute if it hasn't been initialized yet.
+        Initialize the _skew_x attribute if this instance does not
+        initialize it yet.
         """
         if hasattr(self, '_skew_x'):
             return
@@ -29,7 +30,7 @@ class SkewXInterface(
         module_name=__name__, class_name='SkewXInterface')
     def _append_skew_x_attr_linking_setting(self) -> None:
         """
-        Append a skew-x attribute linking setting.
+        Append a skew-x attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._skew_x, attr_name='skew_x')
@@ -142,7 +143,7 @@ class SkewXInterface(
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

@@ -21,8 +21,8 @@ class ScaleYFromCenterInterface(
         module_name=__name__, class_name='ScaleYFromCenterInterface')
     def _initialize_scale_y_from_center_if_not_initialized(self) -> None:
         """
-        Initialize the `_scale_y_from_center` attribute if it hasn't been
-        initialized yet.'
+        Initialize the `_scale_y_from_center` attribute if this
+        instance does not initialize it yet.
         """
         import apysc as ap
         if hasattr(self, '_scale_y_from_center'):
@@ -35,7 +35,7 @@ class ScaleYFromCenterInterface(
         module_name=__name__, class_name='ScaleYFromCenterInterface')
     def _append_scale_y_from_center_attr_linking_setting(self) -> None:
         """
-        Append a scale-y attribute linking setting.
+        Append a scale-y attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._scale_y_from_center,
@@ -155,7 +155,7 @@ class ScaleYFromCenterInterface(
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

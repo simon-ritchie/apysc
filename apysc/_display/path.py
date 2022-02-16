@@ -38,7 +38,7 @@ class Path(LineBase):
             parent: 'graphics.Graphics',
             path_data_list: List[PathDataBase]) -> None:
         """
-        Create a path vector graphics.
+        Create a path vector graphic.
 
         Parameters
         ----------

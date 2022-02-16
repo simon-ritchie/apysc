@@ -26,7 +26,7 @@ The path vector graphics class.<hr>
 
 ### `__init__` method docstring
 
-Create a path vector graphics.<hr>
+Create a path vector graphic.<hr>
 
 **[Parameters]**
 

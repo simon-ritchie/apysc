@@ -20,8 +20,8 @@ class RotationAroundCenterInterface(
 
     def _initialize_rotation_around_center_if_not_initialized(self) -> None:
         """
-        Initialize the `_rotation_around_center` attribute if if hasn't
-        been initialized yet.
+        Initialize the `_rotation_around_center` attribute if this interface
+        does not initialize it yet.
         """
         if hasattr(self, '_rotation_around_center'):
             return
@@ -33,7 +33,7 @@ class RotationAroundCenterInterface(
         module_name=__name__, class_name='RotationAroundCenterInterface')
     def _append_rotation_around_center_attr_linking_setting(self) -> None:
         """
-        Append a rotation around center attribute linking setting.
+        Append a rotation around a center attribute linking setting.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._rotation_around_center,
@@ -153,7 +153,7 @@ class RotationAroundCenterInterface(
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

@@ -8,7 +8,7 @@ Class implementation for the rotation_around_center_interface interface.
 
 ### `_append_rotation_around_center_attr_linking_setting` method docstring
 
-Append a rotation around center attribute linking setting.
+Append a rotation around a center attribute linking setting.
 
 ### `_append_rotation_around_center_update_expression` method docstring
 
@@ -21,7 +21,7 @@ Append the rotation around the center of this instance updating expression.<hr>
 
 ### `_initialize_rotation_around_center_if_not_initialized` method docstring
 
-Initialize the `_rotation_around_center` attribute if if hasn't been initialized yet.
+Initialize the `_rotation_around_center` attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -34,7 +34,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

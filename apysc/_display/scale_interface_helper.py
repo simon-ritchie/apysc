@@ -1,4 +1,4 @@
-"""Helper module for the scale interfaces.
+"""This module is the helper module for the scale interfaces.
 """
 
 from enum import Enum

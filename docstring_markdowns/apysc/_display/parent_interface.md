@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementation for parent related interface.
+Class implementation for the parent-related interfaces.
 
 ## `ParentInterface` class docstring
 
@@ -26,8 +26,8 @@ Revert value if snapshot exists.<hr>
 
 ### `remove_from_parent` method docstring
 
-Remove this instance from parent.<hr>
+Remove this instance from a parent.<hr>
 
 **[Raises]**
 
-- ValueError: If this instance is not added to any parent.
+- ValueError: If a parent is None (there is no parent).

@@ -1,4 +1,4 @@
-"""Class implementation for parent related interface.
+"""Class implementation for the parent-related interfaces.
 """
 
 from typing import Any
@@ -82,12 +82,12 @@ class ParentInterface(RevertInterface):
         module_name=__name__, class_name='ParentInterface')
     def remove_from_parent(self) -> None:
         """
-        Remove this instance from parent.
+        Remove this instance from a parent.
 
         Raises
         ------
         ValueError
-            If this instance is not added to any parent.
+            If a parent is None (there is no parent).
         """
         from apysc._display.child_interface import ChildInterface
         from apysc._display.child_interface import \

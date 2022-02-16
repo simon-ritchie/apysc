@@ -17,7 +17,8 @@ class SkewYInterface(
 
     def _initialize_skew_y_if_not_initialized(self) -> None:
         """
-        Initialize the _skew_y attribute if it hasn't been initialized yet.
+        Initialize the _skew_y attribute if this instance does not
+        initialize it yet.
         """
         if hasattr(self, '_skew_y'):
             return
@@ -29,7 +30,7 @@ class SkewYInterface(
         module_name=__name__, class_name='SkewYInterface')
     def _append_skew_y_attr_linking_setting(self) -> None:
         """
-        Append a skew-y attribute linking setting.
+        Append a skew-y attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._skew_y, attr_name='skew_y')
@@ -142,7 +143,7 @@ class SkewYInterface(
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

@@ -50,7 +50,7 @@ class Line(LineBase):
             start_point: 'point2d.Point2D',
             end_point: 'point2d.Point2D') -> None:
         """
-        Create a line vector graphics.
+        Create a line vector graphic.
 
         Parameters
         ----------
@@ -135,7 +135,7 @@ class Line(LineBase):
         Returns
         -------
         expression : str
-            Each points expression.
+            Each point expression.
         """
         import apysc as ap
         start_point: ap.Point2D = self._start_point

@@ -36,7 +36,7 @@ Int(5)
 
 ### `__init__` method docstring
 
-Create a line vector graphics.<hr>
+Create a line vector graphic.<hr>
 
 **[Parameters]**
 
@@ -95,4 +95,4 @@ Make line start and end expression str.<hr>
 **[Returns]**
 
 - `expression`: str
-  - Each points expression.
+  - Each point expression.

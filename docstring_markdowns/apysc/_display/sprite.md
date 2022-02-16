@@ -6,7 +6,7 @@ Implementations for Sprite class.
 
 ## `Sprite` class docstring
 
-Basic display object that can be a parent.<hr>
+This class is for the basic display object that can be a parent.<hr>
 
 **[Examples]**
 
@@ -44,7 +44,7 @@ Int(50)
 
 ### `__init__` method docstring
 
-Basic display object that can be parent.<hr>
+Create a basic display object that can be a parent.<hr>
 
 **[Parameters]**
 
@@ -103,13 +103,13 @@ Append Sprite constructor expression.<hr>
 **[Returns]**
 
 - `appended`: bool
-  - If expression appended, then True will be set.
+  - If this interface appends an expression, this interface returns True.
 
 <hr>
 
 **[Notes]**
 
-Expression not to be added if instance is Sprite subclass.
+This interface does not add an expression if this instance is the `Sprite`' subclass.
 
 ### `_make_snapshot` method docstring
 

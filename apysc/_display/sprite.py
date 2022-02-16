@@ -12,7 +12,8 @@ from apysc._type.revert_interface import RevertInterface
 
 class Sprite(DisplayObject, ChildInterface, RevertInterface):
     """
-    Basic display object that can be a parent.
+    This class is for the basic display object that
+    can be a parent.
 
     References
     ----------
@@ -53,7 +54,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             self, *,
             variable_name: Optional[str] = None) -> None:
         """
-        Basic display object that can be parent.
+        Create a basic display object that can be a parent.
 
         Parameters
         ----------
@@ -114,12 +115,14 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
 
         Notes
         -----
-        Expression not to be added if instance is Sprite subclass.
+        This interface does not add an expression if this instance is the
+        `Sprite`' subclass.
 
         Returns
         -------
         appended : bool
-            If expression appended, then True will be set.
+            If this interface appends an expression, this interface
+            returns True.
         """
         import apysc as ap
         from apysc._display.stage import get_stage_variable_name

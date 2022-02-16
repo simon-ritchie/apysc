@@ -129,7 +129,7 @@ class Stage(
     def _create_stage_elem_id_if_none(
             self, *, stage_elem_id: Optional[str]) -> str:
         """
-        Create random stage element id if specified id is None.
+        Create random stage element id if a specified id is None.
 
         Parameters
         ----------
@@ -139,9 +139,9 @@ class Stage(
         Returns
         -------
         result_id : str
-            If specified id is not None, then unchanged argument value
-            will be returned.
-            Otherwise, random integer string will be returned.
+            If a specified id isn't None, this interface
+            returns an unchanged argument value. Otherwise,
+            this interface returns a random integer string.
         """
         if stage_elem_id is not None:
             return stage_elem_id
@@ -238,8 +238,9 @@ def get_stage_elem_id() -> str:
     Returns
     -------
     stage_elem_id : str
-        Current stage's element id. If stage is not instantiated yet,
-        blank string will be set.
+        Current stage's element id. If there is no
+        instantiated stage yet, this interface returns
+        a blank string.
     """
     from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.STAGE_ELEM_ID.value
@@ -260,8 +261,9 @@ def get_stage_variable_name() -> str:
     Returns
     -------
     stage_variable_name : str
-        Current stage's js global variable name. If stage is not
-        instantiated yet, blank string will be set.
+        Current stage's js global variable name.
+        If there is no instantiated stage yet, this interface
+        returns a blank string.
     """
     stage_elem_id: str = get_stage_elem_id()
     stage_variable_name: str = stage_elem_id.replace('-', '_')
@@ -309,7 +311,7 @@ class _StageNotCreatedError(Exception):
 
 def get_stage() -> Stage:
     """
-    Get a already instantiated stage instance.
+    Get an already instantiated stage instance.
 
     Returns
     -------
@@ -319,7 +321,7 @@ def get_stage() -> Stage:
     Raises
     ------
     _StageNotCreatedError
-        If a stage is not instantiated yet.
+        If there is no instantiated stage yet.
     """
     from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.STAGE_ID.value

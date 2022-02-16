@@ -15,7 +15,7 @@ Save a stage's memory address (id) to the database.<hr>
 
 ## `get_stage` function docstring
 
-Get a already instantiated stage instance.<hr>
+Get an already instantiated stage instance.<hr>
 
 **[Returns]**
 
@@ -26,7 +26,7 @@ Get a already instantiated stage instance.<hr>
 
 **[Raises]**
 
-- _StageNotCreatedError: If a stage is not instantiated yet.
+- _StageNotCreatedError: If there is no instantiated stage yet.
 
 ## `get_stage_elem_id` function docstring
 
@@ -35,7 +35,7 @@ Get current stage's element id.<hr>
 **[Returns]**
 
 - `stage_elem_id`: str
-  - Current stage's element id. If stage is not instantiated yet, blank string will be set.
+  - Current stage's element id. If there is no instantiated stage yet, this interface returns a blank string.
 
 ## `get_stage_elem_str` function docstring
 
@@ -53,7 +53,7 @@ Get current stage's global variable name.<hr>
 **[Returns]**
 
 - `stage_variable_name`: str
-  - Current stage's js global variable name. If stage is not instantiated yet, blank string will be set.
+  - Current stage's js global variable name. If there is no instantiated stage yet, this interface returns a blank string.
 
 ## `Stage` class docstring
 
@@ -123,7 +123,7 @@ Append stage constructor expression.
 
 ### `_create_stage_elem_id_if_none` method docstring
 
-Create random stage element id if specified id is None.<hr>
+Create random stage element id if a specified id is None.<hr>
 
 **[Parameters]**
 
@@ -135,7 +135,7 @@ Create random stage element id if specified id is None.<hr>
 **[Returns]**
 
 - `result_id`: str
-  - If specified id is not None, then unchanged argument value will be returned. Otherwise, random integer string will be returned.
+  - If a specified id isn't None, this interface returns an unchanged argument value. Otherwise, this interface returns a random integer string.
 
 ### `_make_constructor_expression` method docstring
 

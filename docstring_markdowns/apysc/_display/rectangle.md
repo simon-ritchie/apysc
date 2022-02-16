@@ -41,19 +41,19 @@ String('#00aaff')
 
 ### `__init__` method docstring
 
-Create a rectangle vector graphics.<hr>
+Create a rectangle vector graphic.<hr>
 
 **[Parameters]**
 
 - `parent`: Graphics
-  - Graphics instance to link this graphics.
-- `x`: int or Int
+  - Graphics instance to link this instance.
+- `x`: Int or int
   - X-coordinate to start drawing.
-- `y`: int or Int
+- `y`: Int or int
   - Y-coordinate to start drawing.
-- `width`: int or Int
+- `width`: Int or int
   - Rectangle width.
-- `height`: int or Int
+- `height`: Int or int
   - Rectangle height.
 
 <hr>

@@ -57,19 +57,19 @@ class Rectangle(
             width: Union[int, Int],
             height: Union[int, Int]) -> None:
         """
-        Create a rectangle vector graphics.
+        Create a rectangle vector graphic.
 
         Parameters
         ----------
         parent : Graphics
-            Graphics instance to link this graphics.
-        x : int or Int
+            Graphics instance to link this instance.
+        x : Int or int
             X-coordinate to start drawing.
-        y : int or Int
+        y : Int or int
             Y-coordinate to start drawing.
-        width : int or Int
+        width : Int or int
             Rectangle width.
-        height : int or Int
+        height : Int or int
             Rectangle height.
 
         References

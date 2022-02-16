@@ -17,7 +17,7 @@ Append the scale-y from the specified y-coordinate updating expression.<hr>
 
 ### `_initialize_scale_y_from_point_if_not_initialized` method docstring
 
-Initialize the `_scale_y_from_point` attribute if it hasn't been initialized yet.
+Initialize the `_scale_y_from_point` attribute if this instance does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -30,7 +30,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

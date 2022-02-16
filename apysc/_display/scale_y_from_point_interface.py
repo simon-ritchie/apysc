@@ -21,8 +21,8 @@ class ScaleYFromPointInterface(
 
     def _initialize_scale_y_from_point_if_not_initialized(self) -> None:
         """
-        Initialize the `_scale_y_from_point` attribute if it hasn't been
-        initialized yet.
+        Initialize the `_scale_y_from_point` attribute if this
+        instance does not initialize it yet.
         """
         if hasattr(self, '_scale_y_from_point'):
             return
@@ -157,7 +157,7 @@ class ScaleYFromPointInterface(
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

@@ -8,7 +8,7 @@ Class implementation for line thickness interface.
 
 ### `_append_line_thickness_attr_linking_setting` method docstring
 
-Append a line thickness attribute linking setting.
+Append a line thickness attribute linking settings.
 
 ### `_append_line_thickness_update_expression` method docstring
 
@@ -16,7 +16,7 @@ Append line thickness update expression.
 
 ### `_initialize_line_thickness_if_not_initialized` method docstring
 
-Initialize _line_thickness attribute if it is not initialized yet.
+Initialize _line_thickness attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -42,5 +42,5 @@ Update line thickness and skip appending expression.<hr>
 
 **[Parameters]**
 
-- `value`: int or Int
+- `value`: Int or int
   - Line thickness to set.

@@ -12,7 +12,7 @@ Append radius value updating expression.
 
 ### `_append_raidus_attr_linking_setting` method docstring
 
-Append a radius attribute linking setting.
+Append a radius attribute linking settings.
 
 ### `_get_converted_radius_int` method docstring
 
@@ -32,7 +32,7 @@ Get a radius converted Int instance.<hr>
 
 ### `_initialize_radius_if_not_initialized` method docstring
 
-Initialize _radius attribute if it hasn't been initialized yet.
+Initialize _radius attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

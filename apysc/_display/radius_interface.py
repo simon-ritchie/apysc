@@ -19,7 +19,8 @@ class RadiusInterface(
 
     def _initialize_radius_if_not_initialized(self) -> None:
         """
-        Initialize _radius attribute if it hasn't been initialized yet.
+        Initialize _radius attribute if this interface does not
+        initialize it yet.
         """
         if hasattr(self, '_radius'):
             return
@@ -31,7 +32,7 @@ class RadiusInterface(
         module_name=__name__, class_name='RadiusInterface')
     def _append_raidus_attr_linking_setting(self) -> None:
         """
-        Append a radius attribute linking setting.
+        Append a radius attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._radius, attr_name='radius')

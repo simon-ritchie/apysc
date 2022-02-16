@@ -17,7 +17,7 @@ Append points updating expression.<hr>
 
 ### `_initialize_points_if_not_initialized` method docstring
 
-Initialize _points attribute if it hasn't been initialized yet.
+Initialize _points attribute if this interface does not initialize it yet.
 
 ### `_make_2dim_points_expression` method docstring
 

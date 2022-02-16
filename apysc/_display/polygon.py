@@ -41,9 +41,9 @@ class Polygon(LineBase, AppendLinePointInterface):
             self, *, parent: 'graphics.Graphics',
             points: Array[Point2D]) -> None:
         """
-        Create a polygon vector graphic. This is similar to Polyline
-        class, but unlike that, end point and start point will be
-        connected.
+        Create a polygon vector graphic. This class is
+        similar to the Polyline class, but unlike that,
+        this class connects an end-point and start-point.
 
         Parameters
         ----------

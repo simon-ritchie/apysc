@@ -33,7 +33,7 @@ String('#00aaff')
 
 ### `__init__` method docstring
 
-Create a polygon vector graphic. This is similar to Polyline class, but unlike that, end point and start point will be connected.<hr>
+Create a polygon vector graphic. This class is similar to the Polyline class, but unlike that, this class connects an end-point and start-point.<hr>
 
 **[Parameters]**
 

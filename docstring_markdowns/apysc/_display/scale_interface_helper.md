@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Helper module for the scale interfaces.
+This module is the helper module for the scale interfaces.
 
 ## `get_coordinate_key_for_expression` function docstring
 

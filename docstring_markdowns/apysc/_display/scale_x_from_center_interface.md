@@ -8,7 +8,7 @@ Class implementation for the scale_x_from_center interface.
 
 ### `_append_scale_x_from_center_attr_linking_setting` method docstring
 
-Append a scale-x attribute linking setting.
+Append a scale-x attribute linking settings.
 
 ### `_append_scale_x_from_center_update_expression` method docstring
 
@@ -21,7 +21,7 @@ Append the scale-x from the center of this instance updating expression.<hr>
 
 ### `_initialize_scale_x_from_center_if_not_initialized` method docstring
 
-Initialize the `_scale_x_from_center` attribute if it hasn't been initialized yet.
+Initialize the `_scale_x_from_center` attribute if this instance does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -34,7 +34,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

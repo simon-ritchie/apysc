@@ -1089,7 +1089,7 @@ def test__convert_docstring_path_comment_to_markdown_format() -> None:
             ),
             md_file_path='./docs_src/source/test_document.md')
     assert '**[Interface summary]**' in markdown_format_docstring
-    assert 'Basic display object that can be parent.' \
+    assert 'Create a basic display object that can be a parent.' \
         in markdown_format_docstring
 
 

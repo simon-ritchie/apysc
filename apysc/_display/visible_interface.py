@@ -1,4 +1,4 @@
-"""Class implementation for visible interface.
+"""Class implementation for the `visible` interface.
 """
 
 from typing import Dict
@@ -17,7 +17,8 @@ class VisibleInterface(
 
     def _initialize_visible_if_not_initialized(self) -> None:
         """
-        Initialize _visible attribute if it hasn't been initialized yet.
+        Initialize _visible attribute if this instance does not
+        initialize it yet.
         """
         if hasattr(self, '_visible'):
             return
@@ -29,7 +30,7 @@ class VisibleInterface(
         module_name=__name__, class_name='VisibleInterface')
     def _append_visible_attr_linking_setting(self) -> None:
         """
-        Append a visible attribute linking setting.
+        Append a visible attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._visible, attr_name='visible')

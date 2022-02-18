@@ -1,4 +1,4 @@
-"""Class implementation for witdth interface.
+"""Class implementation for width interface.
 """
 
 from typing import Dict
@@ -18,7 +18,8 @@ class WidthInterface(
 
     def _initialize_width_if_not_initialized(self) -> None:
         """
-        Initialize _width attribute if it hasn't been initialized yet.
+        Initialize _width attribute if this instance does not
+        initialize it yet.
         """
         if hasattr(self, '_width'):
             return
@@ -30,7 +31,7 @@ class WidthInterface(
         module_name=__name__, class_name='WidthInterface')
     def _append_width_attr_linking_setting(self) -> None:
         """
-        Append a width attribute linking setting.
+        Append a width attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._width, attr_name='width')

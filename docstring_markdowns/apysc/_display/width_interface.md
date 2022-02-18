@@ -2,13 +2,13 @@
 
 ## Module summary
 
-Class implementation for witdth interface.
+Class implementation for width interface.
 
 ## `WidthInterface` class docstring
 
 ### `_append_width_attr_linking_setting` method docstring
 
-Append a width attribute linking setting.
+Append a width attribute linking settings.
 
 ### `_append_width_update_expression` method docstring
 
@@ -16,7 +16,7 @@ Append width updating expression.
 
 ### `_initialize_width_if_not_initialized` method docstring
 
-Initialize _width attribute if it hasn't been initialized yet.
+Initialize _width attribute if this instance does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

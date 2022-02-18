@@ -26,7 +26,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             *,
             options: Optional[_O] = None) -> str:
         """
-        Add double click event listener setting.
+        Add a double-click event listener setting.
 
         Parameters
         ----------
@@ -88,8 +88,8 @@ class DoubleClickInterface(MouseEventInterfaceBase):
 
     def _initialize_dblclick_handlers_if_not_initialized(self) -> None:
         """
-        Initialize _dblclick_handlers attribute if it is not
-        initialized yet.
+        Initialize _dblclick_handlers attribute if this instance
+        does not initialize it yet.
         """
         if hasattr(self, '_dblclick_handlers'):
             return

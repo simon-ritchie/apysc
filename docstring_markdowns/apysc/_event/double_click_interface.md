@@ -8,11 +8,11 @@ Class implementation for double click interface.
 
 ### `_initialize_dblclick_handlers_if_not_initialized` method docstring
 
-Initialize _dblclick_handlers attribute if it is not initialized yet.
+Initialize _dblclick_handlers attribute if this instance does not initialize it yet.
 
 ### `dblclick` method docstring
 
-Add double click event listener setting.<hr>
+Add a double-click event listener setting.<hr>
 
 **[Parameters]**
 

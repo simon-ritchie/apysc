@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Definitions of the custom event type.
+This module is for the definitions of the custom event types.
 
 ## `CustomEventType` class docstring
 

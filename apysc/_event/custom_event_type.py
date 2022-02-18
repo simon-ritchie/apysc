@@ -1,4 +1,5 @@
-"""Definitions of the custom event type.
+"""This module is for the definitions of the custom
+event types.
 """
 
 from enum import Enum

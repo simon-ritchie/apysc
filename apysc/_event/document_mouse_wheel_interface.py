@@ -29,9 +29,9 @@ def bind_wheel_event_to_document(
     Parameters
     ----------
     handler : _Handler
-        Callable that handle wheel event.
+        Callable that handles wheel event.
     options : dict or None, default None
-        Optional arguments dictionary to pass to.
+        Optional arguments dictionary to pass.
 
     Returns
     -------
@@ -72,7 +72,8 @@ def bind_wheel_event_to_document(
     module_name=__name__)
 def unbind_wheel_event_from_document(handler: _Handler[_O]) -> None:
     """
-    Unbind specified handler's wheel event from document (overall window).
+    Unbind a specified handler's wheel event from a document
+    (overall window).
 
     Parameters
     ----------
@@ -92,7 +93,7 @@ def unbind_wheel_event_from_document(handler: _Handler[_O]) -> None:
     module_name=__name__)
 def unbind_wheel_event_all_from_document() -> None:
     """
-    Unbind all wheel event from document (overall window).
+    Unbind all wheels event from the document (overall window).
     """
     import apysc as ap
     expression: str = (

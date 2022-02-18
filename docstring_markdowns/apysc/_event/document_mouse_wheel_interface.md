@@ -15,9 +15,9 @@ Bind wheel event to document (overall window).<hr>
 **[Parameters]**
 
 - `handler`: _Handler
-  - Callable that handle wheel event.
+  - Callable that handles wheel event.
 - `options`: dict or None, default None
-  - Optional arguments dictionary to pass to.
+  - Optional arguments dictionary to pass.
 
 <hr>
 
@@ -34,11 +34,11 @@ Bind wheel event to document (overall window).<hr>
 
 ## `unbind_wheel_event_all_from_document` function docstring
 
-Unbind all wheel event from document (overall window).
+Unbind all wheels event from the document (overall window).
 
 ## `unbind_wheel_event_from_document` function docstring
 
-Unbind specified handler's wheel event from document (overall window).<hr>
+Unbind a specified handler's wheel event from a document (overall window).<hr>
 
 **[Parameters]**
 

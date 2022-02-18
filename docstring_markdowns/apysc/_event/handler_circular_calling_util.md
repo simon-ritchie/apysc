@@ -6,12 +6,12 @@ Handler circular calling related utilities.
 
 ## `_append_handler_name_to_last_of_list` function docstring
 
-Append a specified handler's name to the last of the list if the last one is an other handler's name. This function is used to unify last value regardless of `HandlerScope` setting.<hr>
+Append a specified handler's name to the list last if the last one is the other handler's name. This function is for the unifying last value regardless of the `HandlerScope` setting.<hr>
 
 **[Parameters]**
 
 - `handler_name`: str
-  - Targer handler name.
+  - Target handler name.
 - `handler_names`: list of str
   - List to be appended.
 
@@ -24,7 +24,7 @@ Append a specified handler's name to the last of the list if the last one is an 
 
 ## `_get_same_name_prev_data` function docstring
 
-Get previous handler name and variable name values of the previous same name (but the suffix number is different) handler from the current stack.<hr>
+Get a previous handler name and variable name values of the same previous name (but the suffix number is different) handler from the current stack.<hr>
 
 **[Parameters]**
 
@@ -48,7 +48,7 @@ Get previous handler name and variable name values of the previous same name (bu
 
 ## `_get_same_name_prev_hadler_name` function docstring
 
-Get a previous same name (but the suffix number is different) handler's name from the current stack.<hr>
+Get the same previous name (but the suffix number is different) handler's name from the current stack.<hr>
 
 **[Parameters]**
 
@@ -64,7 +64,7 @@ Get a previous same name (but the suffix number is different) handler's name fro
 
 ## `_get_same_name_prev_variable_name` function docstring
 
-Get a previous same name (but the suffix number is different) handler binded variable name from the current stack.<hr>
+Get the same previous name (but the suffix number is different) handler's binding variable name from the current stack.<hr>
 
 **[Parameters]**
 
@@ -76,11 +76,11 @@ Get a previous same name (but the suffix number is different) handler binded var
 **[Returns]**
 
 - `prev_variable_name`: str
-  - A previous handler binded instance's variable name.
+  - A previous handler that binding instance's variable name.
 
 ## `_is_already_saved_circular_calling` function docstring
 
-Get a boolean indicating whether a specified handler name has been already saved as the circular calling handler or not.<hr>
+Get a boolean indicating whether the interface already has saved a handler name as the circular calling handler or not.<hr>
 
 **[Parameters]**
 
@@ -92,7 +92,7 @@ Get a boolean indicating whether a specified handler name has been already saved
 **[Returns]**
 
 - `result`: bool
-  - If a specified handler name has already been saved as the circular calling handler then True will be returned
+  - If the interface already saves a specified handler name as the circular calling handler, this interface returns True.
 
 ## `_read_handler_names` function docstring
 
@@ -126,11 +126,11 @@ Get a previous handler's name of a specified handler's one if it is a circular c
 **[Returns]**
 
 - `prev_handler_name`: str
-  - A previous handler's name. If there is no previous one, then blank string will be returned.
+  - A previous handler's name. If there is no previous one, this interface returns a blank string.
 
 ## `get_prev_variable_name` function docstring
 
-Get a previous handler binded instance's variable name if a specified handler is a circular calling handler.<hr>
+Get a previous handler binding instance's variable name if a specified handler is a circular calling's handler.<hr>
 
 **[Parameters]**
 
@@ -142,7 +142,7 @@ Get a previous handler binded instance's variable name if a specified handler is
 **[Returns]**
 
 - `prev_variable_name`: str
-  - A previous handler binded instance's variable name. If there is no previous (same handler's name prefix) one then blank string will be returned.
+  - A previous handler binding instance's variable name. If there is no previous (same handler's name prefix) one, this interface returns a blank string.
 
 ## `is_handler_circular_calling` function docstring
 
@@ -158,4 +158,4 @@ Get a boolean value whether a specified handler is a circular call or not.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If a specified handler is a circular call, True will be returned.
+  - If a specified handler is a circular call, this interface returns True.

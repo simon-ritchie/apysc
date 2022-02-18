@@ -19,7 +19,8 @@ def is_handler_circular_calling(*, handler_name: str) -> bool:
     Returns
     -------
     result : bool
-        If a specified handler is a circular call, True will be returned.
+        If a specified handler is a circular call, this interface
+        returns True.
     """
     from apysc._expression import event_handler_scope
     if _is_already_saved_circular_calling(handler_name=handler_name):
@@ -55,8 +56,8 @@ def is_handler_circular_calling(*, handler_name: str) -> bool:
 
 def _is_already_saved_circular_calling(*, handler_name: str) -> bool:
     """
-    Get a boolean indicating whether a specified handler name
-    has been already saved as the circular calling handler or not.
+    Get a boolean indicating whether the interface
+    already has saved a handler name as the circular calling handler or not.
 
     Parameters
     ----------
@@ -66,8 +67,9 @@ def _is_already_saved_circular_calling(*, handler_name: str) -> bool:
     Returns
     -------
     result : bool
-        If a specified handler name has already been saved as the
-        circular calling handler then True will be returned
+        If the interface already saves a specified handler
+        name as the circular calling handler, this interface
+        returns True.
     """
     prev_handler_name: str = get_prev_handler_name(
         handler_name=handler_name)
@@ -89,8 +91,8 @@ def get_prev_handler_name(*, handler_name: str) -> str:
     Returns
     -------
     prev_handler_name : str
-        A previous handler's name. If there is no previous one,
-        then blank string will be returned.
+        A previous handler's name. If there is no
+        previous one, this interface returns a blank string.
     """
     from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.\
@@ -108,8 +110,8 @@ def get_prev_handler_name(*, handler_name: str) -> str:
 
 def get_prev_variable_name(*, handler_name: str) -> str:
     """
-    Get a previous handler binded instance's variable name if a
-    specified handler is a circular calling handler.
+    Get a previous handler binding instance's variable
+    name if a specified handler is a circular calling's handler.
 
     Parameters
     ----------
@@ -119,9 +121,9 @@ def get_prev_variable_name(*, handler_name: str) -> str:
     Returns
     -------
     prev_variable_name : str
-        A previous handler binded instance's variable name.
-        If there is no previous (same handler's name prefix) one
-        then blank string will be returned.
+        A previous handler binding instance's variable name.
+        If there is no previous (same handler's name prefix) one,
+        this interface returns a blank string.
     """
     from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.\
@@ -164,8 +166,8 @@ def _save_circular_calling_handler_name(*, handler_name: str) -> None:
 
 def _get_same_name_prev_hadler_name(*, handler_name: str) -> str:
     """
-    Get a previous same name (but the suffix number is different)
-    handler's name from the current stack.
+    Get the same previous name (but the suffix number is
+    different) handler's name from the current stack.
 
     Parameters
     ----------
@@ -186,8 +188,9 @@ def _get_same_name_prev_hadler_name(*, handler_name: str) -> str:
 
 def _get_same_name_prev_variable_name(*, handler_name: str) -> str:
     """
-    Get a previous same name (but the suffix number is different)
-    handler binded variable name from the current stack.
+    Get the same previous name (but the suffix number is
+    different) handler's binding variable name from the
+    current stack.
 
     Parameters
     ----------
@@ -197,7 +200,8 @@ def _get_same_name_prev_variable_name(*, handler_name: str) -> str:
     Returns
     -------
     prev_variable_name : str
-        A previous handler binded instance's variable name.
+        A previous handler that binding instance's
+        variable name.
     """
     prev_variable_name: str
     _, prev_variable_name = _get_same_name_prev_data(
@@ -207,9 +211,9 @@ def _get_same_name_prev_variable_name(*, handler_name: str) -> str:
 
 def _get_same_name_prev_data(*, handler_name: str) -> Tuple[str, str]:
     """
-    Get previous handler name and variable name values of the
-    previous same name (but the suffix number is different) handler
-    from the current stack.
+    Get a previous handler name and variable name values
+    of the same previous name (but the suffix number
+    is different) handler from the current stack.
 
     Parameters
     ----------
@@ -260,16 +264,15 @@ def _get_same_name_prev_data(*, handler_name: str) -> Tuple[str, str]:
 def _append_handler_name_to_last_of_list(
         *, handler_name: str, handler_names: List[str]) -> List[str]:
     """
-    Append a specified handler's name to the last of the list
-    if the last one is an other handler's name.
-
-    This function is used to unify last value regardless of
-    `HandlerScope` setting.
+    Append a specified handler's name to the list
+    last if the last one is the other handler's name.
+    This function is for the unifying last value regardless
+    of the `HandlerScope` setting.
 
     Parameters
     ----------
     handler_name : str
-        Targer handler name.
+        Target handler name.
     handler_names : list of str
         List to be appended.
 

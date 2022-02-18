@@ -8,7 +8,7 @@ Class implementation for the y-coordinate interface.
 
 ### `_append_y_attr_linking_setting` method docstring
 
-Append a y attribute linking setting.
+Append a y attribute linking settings.
 
 ### `_append_y_update_expression` method docstring
 
@@ -16,7 +16,7 @@ Append y position updating expression.
 
 ### `_initialize_y_if_not_initialized` method docstring
 
-Initialize the _y attribute if it hasn't been initialized yet.
+Initialize the _y attribute if this instance does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -29,7 +29,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class Implementation for basic event.
+Class Implementation for an event.
 
 ## `Event` class docstring
 
@@ -39,7 +39,7 @@ Basic event class.<hr>
 - `this`: VariableNameInterface
   - Instance that listening event (e.g., Sprite).
 - `type_name`: str or None, default None
-  - Type name to set. Only specify when inherit this class.
+  - Type name to set. Only specify when inheriting this class.
 
 <hr>
 
@@ -67,7 +67,7 @@ Basic event class.<hr>
 
 ### `_validate_type_name_and_self_type` method docstring
 
-Validate type_name argument is None when self instance is not Event subclass, and the opposite pattern is true as well.<hr>
+Validate type_name argument is None when a self instance is not Event subclass, and the same is true for the opposite pattern.<hr>
 
 **[Parameters]**
 

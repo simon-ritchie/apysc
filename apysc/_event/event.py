@@ -1,4 +1,4 @@
-"""Class Implementation for basic event.
+"""Class Implementation for an event.
 """
 
 from typing import Generic
@@ -52,7 +52,8 @@ class Event(Generic[T], VariableNameInterface):
         this : VariableNameInterface
             Instance that listening event (e.g., Sprite).
         type_name : str or None, default None
-            Type name to set. Only specify when inherit this class.
+            Type name to set. Only specify when inheriting
+            this class.
 
         Examples
         --------
@@ -86,9 +87,9 @@ class Event(Generic[T], VariableNameInterface):
     def _validate_type_name_and_self_type(
             self, *, type_name: Optional[str]) -> None:
         """
-        Validate type_name argument is None when self instance
-        is not Event subclass, and the opposite pattern is true
-        as well.
+        Validate type_name argument is None when a self
+        instance is not Event subclass, and the same is true
+        for the opposite pattern.
 
         Parameters
         ----------

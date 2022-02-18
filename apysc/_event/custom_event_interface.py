@@ -27,8 +27,8 @@ class CustomEventInterface(BlankObjectInterface):
     def _initialize_custom_event_handlers_if_not_initialized(
             self, *, custom_event_type_str: str) -> None:
         """
-        Initialize the _custom_event_handlers data if it hasn't been
-        initialized yet.
+        Initialize the _custom_event_handlers data if this instance
+        does not initialize it yet.
 
         Parameters
         ----------
@@ -71,9 +71,10 @@ class CustomEventInterface(BlankObjectInterface):
         Parameters
         ----------
         handler : _Handler
-            Callable will be called when an event is dispatched.
+            Callable that this instance calls when its event's
+            dispatching.
         custom_event_type_str : str
-            Target custom event type string.
+            A target custom event type's string.
         options : dict or None
             Optional arguments dictionary to be passed to a handler.
         """
@@ -96,9 +97,10 @@ class CustomEventInterface(BlankObjectInterface):
         Parameters
         ----------
         handler : _Handler
-            Callable will be called when an event is dispatched.
+            Callable that this instance calls when its
+            event's dispatching.
         custom_event_type_str : str
-            Target custom event type string.
+            A target custom event type's string.
         """
         from apysc._event.handler import get_handler_name
         if custom_event_type_str not in self._custom_event_handlers:
@@ -125,7 +127,8 @@ class CustomEventInterface(BlankObjectInterface):
         custom_event_type : CustomEventType or str
             Target custom event type.
         handler : _Handler
-            A handler will be called when the custom event is triggered.
+            Callable that this instance calls when its
+            event's dispatching.
         e : Event
             Event instance.
         options : dict or None, default None

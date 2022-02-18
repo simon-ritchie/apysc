@@ -46,7 +46,7 @@ Get a custom event type string from a type value.<hr>
 
 ### `_initialize_custom_event_handlers_if_not_initialized` method docstring
 
-Initialize the _custom_event_handlers data if it hasn't been initialized yet.<hr>
+Initialize the _custom_event_handlers data if this instance does not initialize it yet.<hr>
 
 **[Parameters]**
 
@@ -60,9 +60,9 @@ Set a handler's data to the dictionary.<hr>
 **[Parameters]**
 
 - `handler`: _Handler
-  - Callable will be called when an event is dispatched.
+  - Callable that this instance calls when its event's dispatching.
 - `custom_event_type_str`: str
-  - Target custom event type string.
+  - A target custom event type's string.
 - `options`: dict or None
   - Optional arguments dictionary to be passed to a handler.
 
@@ -73,9 +73,9 @@ Unset a handler's data from the dictionary.<hr>
 **[Parameters]**
 
 - `handler`: _Handler
-  - Callable will be called when an event is dispatched.
+  - Callable that this instance calls when its event's dispatching.
 - `custom_event_type_str`: str
-  - Target custom event type string.
+  - A target custom event type's string.
 
 ### `bind_custom_event` method docstring
 
@@ -86,7 +86,7 @@ Add a custom event listener setting.<hr>
 - `custom_event_type`: CustomEventType or str
   - Target custom event type.
 - `handler`: _Handler
-  - A handler will be called when the custom event is triggered.
+  - Callable that this instance calls when its event's dispatching.
 - `e`: Event
   - Event instance.
 - `options`: dict or None, default None

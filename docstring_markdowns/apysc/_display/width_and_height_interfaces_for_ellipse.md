@@ -6,7 +6,7 @@ Class implementation of the width and height Interfaces for the ellipse.<hr>
 
 **[Notes]**
 
-Subclass that inherit the normal WidthInterface and HeightInterface can't use this interface.
+A Subclass that inherits the normal WidthInterface and HeightInterface can't use this interface.
 
 ## `WidthAndHeightInterfacesForEllipse` class docstring
 
@@ -16,15 +16,15 @@ Append an ellipse width and height updating expression.
 
 ### `_append_height_attr_linking_setting` method docstring
 
-Append a height attribute linking setting.
+Append a height attribute linking settings.
 
 ### `_append_width_attr_linking_setting` method docstring
 
-Append a width attricute linking setting.
+Append a width attribute linking settings.
 
 ### `_initialize_width_and_height_if_not_initialized` method docstring
 
-Initialize _width and _height attributes if these are not initialized yet.
+Initialize _width and _height attributes if this interface does not initialize these yet.
 
 ### `_make_snapshot` method docstring
 

@@ -3,8 +3,8 @@ for the ellipse.
 
 Notes
 -----
-Subclass that inherit the normal WidthInterface and HeightInterface
-can't use this interface.
+A Subclass that inherits the normal WidthInterface and
+HeightInterface can't use this interface.
 """
 
 from typing import Dict
@@ -29,8 +29,8 @@ class WidthAndHeightInterfacesForEllipse(
 
     def _initialize_width_and_height_if_not_initialized(self) -> None:
         """
-        Initialize _width and _height attributes if these are not
-        initialized yet.
+        Initialize _width and _height attributes if this interface
+        does not initialize these yet.
         """
         if not hasattr(self, '_width'):
             self._width = Int(0)
@@ -43,7 +43,7 @@ class WidthAndHeightInterfacesForEllipse(
         module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def _append_width_attr_linking_setting(self) -> None:
         """
-        Append a width attricute linking setting.
+        Append a width attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._width, attr_name='width')
@@ -54,7 +54,7 @@ class WidthAndHeightInterfacesForEllipse(
         module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def _append_height_attr_linking_setting(self) -> None:
         """
-        Append a height attribute linking setting.
+        Append a height attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._height, attr_name='height')

@@ -4,7 +4,8 @@ Mainly following interfaces are defined:
 
 - get_current_indent_num: Get a current indent number.
 - Indent: Class implementation for increment and decrement
-    indentation number. Basically use this class at with statement.
+    indentation number. Mainly the apysc uses this class
+    at with-statement.
 - reset: Reset current indent number.
 """
 
@@ -57,8 +58,9 @@ def _save_current_indent_num(*, indent_num: int) -> None:
 
 def _get_indent_num_table_name() -> str:
     """
-    Get a indentation number table name. This value will switch
-    by scope condition (e.g., event handler's scope or not).
+    Get an indentation number table name. This interface
+    switches its value by scope condition (e.g., event
+    handler's scope or not).
 
     Returns
     -------
@@ -75,14 +77,16 @@ def _get_indent_num_table_name() -> str:
 
 
 class Indent:
-    """Class implementation for increment and decrement
-    indentation number. Basically use this class at with statement.
+    """
+    Class implementation for incrementing and decrementing
+    indentation's number. Mainly the apysc uses this
+    class at with-statement.
     """
 
     def __enter__(self) -> None:
         """
-        Method to be used by with statement.
-        This method will increment indentation number.
+        This method is for the use of with-statement — this
+        method increments indentation's number.
         """
         current_indent_num: int = get_current_indent_num()
         current_indent_num += 1
@@ -90,8 +94,8 @@ class Indent:
 
     def __exit__(self, *args: Any) -> None:
         """
-        Method to be used by with statement.
-        This method will decrement indentation number.
+        This method is for the use of with-statement — this
+        method decrements indentation's number.
 
         Parameters
         ----------

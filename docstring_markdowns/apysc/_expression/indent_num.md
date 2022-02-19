@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Implementations of expression's indent number related interfaces. Mainly following interfaces are defined: <br>・get_current_indent_num: Get a current indent number. <br>・Indent: Class implementation for increment and decrement indentation number. Basically use this class at with statement. <br>・reset: Reset current indent number.
+Implementations of expression's indent number related interfaces. Mainly following interfaces are defined: <br>・get_current_indent_num: Get a current indent number. <br>・Indent: Class implementation for increment and decrement indentation number. Mainly the apysc uses this class at with-statement. <br>・reset: Reset current indent number.
 
 ## `_get_indent_num_table_name` function docstring
 
-Get a indentation number table name. This value will switch by scope condition (e.g., event handler's scope or not).<hr>
+Get an indentation number table name. This interface switches its value by scope condition (e.g., event handler's scope or not).<hr>
 
 **[Returns]**
 
@@ -37,15 +37,15 @@ Reset current indent number.
 
 ## `Indent` class docstring
 
-Class implementation for increment and decrement indentation number. Basically use this class at with statement.
+Class implementation for incrementing and decrementing indentation's number. Mainly the apysc uses this class at with-statement.
 
 ### `__enter__` method docstring
 
-Method to be used by with statement. This method will increment indentation number.
+This method is for the use of with-statement — this method increments indentation's number.
 
 ### `__exit__` method docstring
 
-Method to be used by with statement. This method will decrement indentation number.<hr>
+This method is for the use of with-statement — this method decrements indentation's number.<hr>
 
 **[Parameters]**
 

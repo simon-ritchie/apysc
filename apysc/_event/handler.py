@@ -1,4 +1,4 @@
-"""Class implementation for handler.
+"""Class implementation for a handler.
 """
 
 from typing import Any

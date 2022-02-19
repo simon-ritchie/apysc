@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementation for handler.
+Class implementation for a handler.
 
 ## `_append_in_handler_head_expression` function docstring
 

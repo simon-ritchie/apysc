@@ -138,7 +138,7 @@ ap.save_overall_html(
 - `custom_event_type`: CustomEventType or str
   - Target custom event type.
 - `handler`: _Handler
-  - A handler will be called when the custom event is triggered.
+  - Callable that this instance calls when its event's dispatching.
 - `e`: Event
   - Event instance.
 - `options`: dict or None, default None

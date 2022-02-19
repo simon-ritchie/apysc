@@ -104,7 +104,7 @@ ap.save_overall_html(
 
 **[Interface signature]** `dblclick(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> str`<hr>
 
-**[Interface summary]** Add double click event listener setting.<hr>
+**[Interface summary]** Add a double-click event listener setting.<hr>
 
 **[Parameters]**
 

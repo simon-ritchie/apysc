@@ -318,7 +318,7 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseover_all` in
 
 **[Interface signature]** `unbind_mouseout(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[Interface summary]** Unbind a specified handler's mouse out event.<hr>
+**[Interface summary]** Unbind a specified handler's mouse-out event.<hr>
 
 **[Parameters]**
 

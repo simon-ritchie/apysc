@@ -8,7 +8,7 @@ Class implementation for mouse over interface.
 
 ### `_initialize_mouse_over_handlers_if_not_initialized` method docstring
 
-Initialize _mouse_over_handlers attribute if it is not initialized yet.
+Initialize _mouse_over_handlers attribute if this interface does not initialize it yet.
 
 ### `mouseover` method docstring
 

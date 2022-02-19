@@ -44,14 +44,14 @@ FUNC_GET_TOTAL_Y: Final[str] = """function get_total_y(any_obj) {
 
 def get_js_functions() -> List[str]:
     """
-    Get js function expressions that defined in this module.
+    Get js function expressions defined in this module.
 
     Returns
     -------
     js_function_strs : list of str
-        js function expressions that defined in this module.
-        String constants that have `FUNC_` name prefix will be
-        appended in.
+        js function expressions defined in this module.
+        This interface returns the list of string constants
+        with the `FUNC_` name prefix.
     """
     this_module: ModuleType = sys.modules[__name__]
     members: List[Tuple[str, Any]] = inspect.getmembers(this_module)

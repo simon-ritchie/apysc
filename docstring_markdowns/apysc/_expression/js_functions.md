@@ -6,9 +6,9 @@ Definition of js function expressions (e.g., common helper function).
 
 ## `get_js_functions` function docstring
 
-Get js function expressions that defined in this module.<hr>
+Get js function expressions defined in this module.<hr>
 
 **[Returns]**
 
 - `js_function_strs`: list of str
-  - js function expressions that defined in this module. String constants that have `FUNC_` name prefix will be appended in.
+  - js function expressions defined in this module. This interface returns the list of string constants with the `FUNC_` name prefix.

@@ -86,8 +86,8 @@ class MouseOutInterface(MouseEventInterfaceBase):
 
     def _initialize_mouse_out_handlers_if_not_initialized(self) -> None:
         """
-        Initialize _mouse_out_handlers attribute if it is not
-        initialized yet.
+        Initialize _mouse_out_handlers attribute if this
+        instance does not initialize it yet.
         """
         if hasattr(self, '_mouse_out_handlers'):
             return
@@ -97,7 +97,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
         module_name=__name__, class_name='MouseOutInterface')
     def unbind_mouseout(self, handler: _Handler[_O]) -> None:
         """
-        Unbind a specified handler's mouse out event.
+        Unbind a specified handler's mouse-out event.
 
         Parameters
         ----------

@@ -8,7 +8,7 @@ Class implementation for mouse out interface.
 
 ### `_initialize_mouse_out_handlers_if_not_initialized` method docstring
 
-Initialize _mouse_out_handlers attribute if it is not initialized yet.
+Initialize _mouse_out_handlers attribute if this instance does not initialize it yet.
 
 ### `mouseout` method docstring
 
@@ -55,7 +55,7 @@ Add mouse out event listener setting.<hr>
 
 ### `unbind_mouseout` method docstring
 
-Unbind a specified handler's mouse out event.<hr>
+Unbind a specified handler's mouse-out event.<hr>
 
 **[Parameters]**
 

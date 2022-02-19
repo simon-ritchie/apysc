@@ -86,8 +86,8 @@ class MouseMoveInterface(MouseEventInterfaceBase):
 
     def _initialize_mouse_move_handlers_if_not_initialized(self) -> None:
         """
-        Initialize _mouse_move_handlers attribute if it is not
-        initialized yet.
+        Initialize _mouse_move_handlers attribute if this
+        interface does not initialize it yet.
         """
         if hasattr(self, '_mouse_move_handlers'):
             return

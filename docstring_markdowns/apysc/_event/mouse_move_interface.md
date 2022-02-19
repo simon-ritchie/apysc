@@ -8,7 +8,7 @@ Class implementation for mouse move interface.
 
 ### `_initialize_mouse_move_handlers_if_not_initialized` method docstring
 
-Initialize _mouse_move_handlers attribute if it is not initialized yet.
+Initialize _mouse_move_handlers attribute if this interface does not initialize it yet.
 
 ### `mousemove` method docstring
 

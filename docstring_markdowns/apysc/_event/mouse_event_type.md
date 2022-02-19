@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Definitions of the mouse event type.
+This module is for the definitions of the mouse event types.
 
 ## `MouseEventType` class docstring
 

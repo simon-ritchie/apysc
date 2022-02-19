@@ -6,7 +6,7 @@ The implementation of manipulating HTL and js expression files. Mainly following
 
 ## `_check_connection` function docstring
 
-The decorator function to check a SQLite connection when a specified function calling, and if failed, create a new connection and recall a function.<hr>
+The decorator function checks an SQLite connection when a specified function calls. If failed, create a new connection and recall a function.<hr>
 
 **[Parameters]**
 
@@ -290,7 +290,7 @@ Get a current expression string from a specified table.<hr>
 
 ## `_get_expression_table_name` function docstring
 
-Get a expression table name. This value will be switched whether current scope is event handler's one or not.<hr>
+Get an expression table name. This interface switches this value by the current scope is event handler's one or not.<hr>
 
 **[Returns]**
 
@@ -299,7 +299,7 @@ Get a expression table name. This value will be switched whether current scope i
 
 ## `_make_create_table_query` function docstring
 
-Make a create table sql query.<hr>
+Make a create table SQL query.<hr>
 
 **[Parameters]**
 
@@ -313,7 +313,7 @@ Make a create table sql query.<hr>
 **[Returns]**
 
 - `query`: str
-  - A create table sql query.
+  - A create table SQL query.
 
 ## `new_func` function docstring
 
@@ -335,7 +335,7 @@ Function for the decoration.<hr>
 
 ## `_validate_limit_clause` function docstring
 
-Validate whether a LIMIT clause is used in a UPDATE or DELETE sql.<hr>
+Validate whether a LIMIT clause is used in an UPDATE or DELETE SQL.<hr>
 
 **[Parameters]**
 
@@ -378,14 +378,14 @@ Empty the current js expression data.
 
 ## `exec_query` function docstring
 
-Execute a SQLite sql query.<hr>
+Execute an SQLite SQL query.<hr>
 
 **[Parameters]**
 
 - `sql`: str
-  - Target sql.
+  - Target SQL.
 - `commit`: bool, default True
-  - A boolean value whether commit the transaction after the sql query or not.
+  - A boolean value indicating whether commit the transaction after the SQL query or not.
 
 <hr>
 
@@ -406,11 +406,11 @@ Get a current event handler scope's expression string.<hr>
 
 **[Notes]**
 
-If it is necessary to get normal scope's expression, then use get_current_expression function instead.
+If it is necessary to get a normal scope's expression, use the get_current_expression function instead.
 
 ## `get_current_expression` function docstring
 
-Get a current expression's string.<hr>
+Get a current expression string.<hr>
 
 **[Returns]**
 
@@ -421,11 +421,11 @@ Get a current expression's string.<hr>
 
 **[Notes]**
 
-If it is necessary to get event handler scope's expression, then use get_current_event_handler_scope_expression function instead.
+If it is necessary to get an event handler scope's expression, use the get_current_event_handler_scope_expression function instead.
 
 ## `initialize_sqlite_tables_if_not_initialized` function docstring
 
-Initialize the sqlite tables if they have not been initialized yet.<hr>
+Initialize the SQLite tables if the apysc does not initialize them yet.<hr>
 
 **[Returns]**
 

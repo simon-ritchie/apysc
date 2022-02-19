@@ -1,5 +1,5 @@
-"""Implementations for the event handler's expression scope
-interfaces.
+"""This module is for the event handler's expression
+scope interfaces implementations.
 """
 
 from typing import Any
@@ -12,7 +12,8 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class HandlerScope:
     """
-    Class for a handler scope. This is used at a with statement.
+    Class for a handler scope. The apysc uses this class at
+    a with-statement.
     """
 
     _handler_name: str
@@ -22,7 +23,8 @@ class HandlerScope:
             self, *, handler_name: str,
             instance: VariableNameInterface) -> None:
         """
-        Class for a handler scope. This is used at a with statement.
+        Class for a handler scope. The apysc uses this class at
+        a with-statement.
 
         Parameters
         ----------
@@ -121,8 +123,8 @@ def _delete_handler_calling_stack(*, handler_name: str) -> None:
 
 class TemporaryNotHandlerScope:
     """
-    Class temporarily sets up a scope that is not a handler.
-    This is used at a with statement.
+    Class temporarily sets up a scope that is not
+    a handler. The apysc uses this at a with-statement.
     """
 
     _original_scope_count: int
@@ -130,7 +132,7 @@ class TemporaryNotHandlerScope:
     def __init__(self) -> None:
         """
         Class temporarily sets up a scope that is not a handler.
-        This is used at a with statement.
+        The apysc uses this at a with-statement.
         """
         self._original_scope_count = get_current_event_handler_scope_count()
 
@@ -178,7 +180,7 @@ def _save_current_scope_count(*, count: int) -> None:
     Parameters
     ----------
     count : int
-        Scope count ot save.
+        Scope count to save.
     """
     from apysc._expression import expression_data_util
     query: str = (
@@ -201,10 +203,10 @@ def get_current_event_handler_scope_count() -> int:
     Returns
     -------
     scope_count : int
-        Current event handler's scope count.
-        If normal handler's call, then 1 will be returned,
-        or call other handler in handler's function, then
-        2 or more count will be returned.
+        Current event handler's scope count. If normal
+        handler's call, then this interface returns 1,
+        or call the other handler in handler's function,
+        then this interface returns 2 or more count.
     """
     from apysc._expression import expression_data_util
     query: str = (

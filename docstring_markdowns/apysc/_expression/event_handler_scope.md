@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Implementations for the event handler's expression scope interfaces.
+This module is for the event handler's expression scope interfaces implementations.
 
 ## `_decrement_scope_count` function docstring
 
@@ -28,7 +28,7 @@ Save current scope count.<hr>
 **[Parameters]**
 
 - `count`: int
-  - Scope count ot save.
+  - Scope count to save.
 
 ## `_save_handler_calling_stack` function docstring
 
@@ -48,7 +48,7 @@ Get a current event handler's scope count.<hr>
 **[Returns]**
 
 - `scope_count`: int
-  - Current event handler's scope count. If normal handler's call, then 1 will be returned, or call other handler in handler's function, then 2 or more count will be returned.
+  - Current event handler's scope count. If normal handler's call, then this interface returns 1, or call the other handler in handler's function, then this interface returns 2 or more count.
 
 ## `remove_suffix_num_from_handler_name` function docstring
 
@@ -68,7 +68,7 @@ Remove the suffix number from a specified handler name.<hr>
 
 ## `HandlerScope` class docstring
 
-Class for a handler scope. This is used at a with statement.
+Class for a handler scope. The apysc uses this class at a with-statement.
 
 ### `__enter__` method docstring
 
@@ -85,7 +85,7 @@ Exit and remove an event handler scope setting.<hr>
 
 ### `__init__` method docstring
 
-Class for a handler scope. This is used at a with statement.<hr>
+Class for a handler scope. The apysc uses this class at a with-statement.<hr>
 
 **[Parameters]**
 
@@ -96,7 +96,7 @@ Class for a handler scope. This is used at a with statement.<hr>
 
 ## `TemporaryNotHandlerScope` class docstring
 
-Class temporarily sets up a scope that is not a handler. This is used at a with statement.
+Class temporarily sets up a scope that is not a handler. The apysc uses this at a with-statement.
 
 ### `__enter__` method docstring
 
@@ -113,4 +113,4 @@ Exit and revert the scope count.<hr>
 
 ### `__init__` method docstring
 
-Class temporarily sets up a scope that is not a handler. This is used at a with statement.
+Class temporarily sets up a scope that is not a handler. The apysc uses this at a with-statement.

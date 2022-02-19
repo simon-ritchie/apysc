@@ -8,7 +8,7 @@ Class implementation for mouse up interface.
 
 ### `_initialize_mouse_up_handlers_if_not_initialized` method docstring
 
-Initialize _mouse_up_handlers attribute if it is not initialized yet.
+Initialize _mouse_up_handlers attribute if this instance does not initialize it yet.
 
 ### `mouseup` method docstring
 

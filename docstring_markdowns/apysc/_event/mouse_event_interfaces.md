@@ -2,8 +2,8 @@
 
 ## Module summary
 
-Class implementation for inheritance of each mouse event interfaces.
+Class implementation for the inheritance of each mouse event interface.
 
 ## `MouseEventInterfaces` class docstring
 
-Class implementation for inheritance of each mouse event interfaces.
+Class implementation for the inheritance of each mouse event interface.

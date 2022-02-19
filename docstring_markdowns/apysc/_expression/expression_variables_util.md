@@ -73,7 +73,7 @@ Append a substitution expression between two variable names.<hr>
 
 **[Notes]**
 
-If the left or the right variable names are blank, then expression appending will be skipped.
+If the left or right variable names are blank, this interface skips appending an expression.
 
 ## `get_next_variable_name` function docstring
 
@@ -82,7 +82,7 @@ Get next variable name of specified type name.<hr>
 **[Parameters]**
 
 - `type_name`: str
-  - Any type name, e.g., `sprite`. If `sprite` is specified and there is no `sprite` variable name in expression file, then `sprite_1` will be returned. If variable name of `sprite_1` is already used, then `sprite_2` will be returned.
+  - Any type name, e.g., `sp` (`Sprite`). If `sp` is specified and there is no `sprite` variable name in expression data, this interface returns the `sp_1`. If the apysc already uses a variable name of `sp_1`, this interface returns `sp_2`.
 
 <hr>
 
@@ -95,4 +95,4 @@ Get next variable name of specified type name.<hr>
 
 **[Notes]**
 
-If call this function multiple times, then returned number will be increased.
+If calling this function multiple times, this interface increases a returned number.

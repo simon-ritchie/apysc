@@ -24,15 +24,15 @@ Set a handler's data to the given dictionary.<hr>
 **[Parameters]**
 
 - `handler`: _Handler
-  - Callable would be called when event is dispatched.
+  - Callable that this instance calls when dispatching.
 - `handlers_dict`: dict
-  - Dictionary to be set handler's data.
+  - Dictionary that this instance sets a handler's data.
 - `options`: dict or None
-  - Optional arguments dictionary to be passed to handler.
+  - Optional arguments dictionary that this instance passes to a handler.
 
 ### `_unbind_all_mouse_events` method docstring
 
-Unbind specified all mouse event type's event.<hr>
+Unbind specified all mouse event type's events.<hr>
 
 **[Parameters]**
 
@@ -43,7 +43,7 @@ Unbind specified all mouse event type's event.<hr>
 
 ### `_unbind_mouse_event` method docstring
 
-Unbind specified handler's mouse event.<hr>
+Unbind a specified handler's mouse event.<hr>
 
 **[Parameters]**
 

@@ -28,11 +28,12 @@ class MouseEventInterfaceBase:
         Parameters
         ----------
         handler : _Handler
-            Callable would be called when event is dispatched.
+            Callable that this instance calls when dispatching.
         handlers_dict : dict
-            Dictionary to be set handler's data.
+            Dictionary that this instance sets a handler's data.
         options : dict or None
-            Optional arguments dictionary to be passed to handler.
+            Optional arguments dictionary that this instance passes
+            to a handler.
         """
         from apysc._event.handler import get_handler_name
         from apysc._validation.handler_options_validation import \
@@ -52,7 +53,7 @@ class MouseEventInterfaceBase:
             self, *, handler: _Handler[_O], mouse_event_type: MouseEventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
-        Unbind specified handler's mouse event.
+        Unbind a specified handler's mouse event.
 
         Parameters
         ----------
@@ -82,7 +83,7 @@ class MouseEventInterfaceBase:
             self, *, mouse_event_type: MouseEventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
-        Unbind specified all mouse event type's event.
+        Unbind specified all mouse event type's events.
 
         Parameters
         ----------

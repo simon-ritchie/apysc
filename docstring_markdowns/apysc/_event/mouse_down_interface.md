@@ -2,13 +2,13 @@
 
 ## Module summary
 
-Class implementation for mouse down interface.
+Class implementation for the mouse-down interface.
 
 ## `MouseDownInterface` class docstring
 
 ### `_initialize_mouse_down_handlers_if_not_initialized` method docstring
 
-Initialize _mouse_down_handlers attribute if it is not initialized yet.
+Initialize _mouse_down_handlers attribute if this instance does not initialize it yet.
 
 ### `mousedown` method docstring
 

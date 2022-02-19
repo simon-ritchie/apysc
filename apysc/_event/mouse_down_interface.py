@@ -1,4 +1,4 @@
-"""Class implementation for mouse down interface.
+"""Class implementation for the mouse-down interface.
 """
 
 from typing import Callable
@@ -87,8 +87,8 @@ class MouseDownInterface(MouseEventInterfaceBase):
 
     def _initialize_mouse_down_handlers_if_not_initialized(self) -> None:
         """
-        Initialize _mouse_down_handlers attribute if it is not
-        initialized yet.
+        Initialize _mouse_down_handlers attribute if this instance
+        does not initialize it yet.
         """
         if hasattr(self, '_mouse_down_handlers'):
             return

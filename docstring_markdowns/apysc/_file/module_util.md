@@ -20,7 +20,7 @@ Get all module paths under the specified directory.<hr>
 **[Returns]**
 
 - `module_paths`: list of str
-  - Python module paths. `__init__.py` modules will not be included.
+  - Python module paths. This interface does not include the `__init__.py` modules.
 
 ## `read_module_or_class_from_package_path` function docstring
 

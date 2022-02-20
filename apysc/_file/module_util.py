@@ -43,8 +43,8 @@ def get_module_paths_recursively(
     Returns
     -------
     module_paths : list of str
-        Python module paths.
-        `__init__.py` modules will not be included.
+        Python module paths. This interface does not
+        include the `__init__.py` modules.
     """
     if module_paths is None:
         module_paths = []

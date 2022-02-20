@@ -11,11 +11,11 @@ Mainly following interfaces are defined:
 - append_plain_txt
     - Append plain text string to file.
 - remove_file_if_exists
-    - Remove specified file if exists.
+    - Remove a specified file if it exists.
 - get_abs_directory_path_from_file_path
-    - Get an absolute directory path of specified file.
+    - Get an absolute directory path of a specified file.
 - get_abs_module_dir_path
-    - Get a specified module's abosulute directory path.
+    - Get a specified module's absolute directory path.
 - get_specified_ext_file_paths_recursively
     - Get specified extension file paths recursively.
 - count_files_recursively
@@ -37,8 +37,8 @@ def empty_directory(*, directory_path: str) -> None:
     Parameters
     ----------
     directory_path : str
-        Directory path to empty. This folder itself will not be
-        removed.
+        Directory path to empty. This interface does not
+        remove this folder itself.
     """
     if os.path.isdir(directory_path):
         shutil.rmtree(directory_path, ignore_errors=True)
@@ -109,7 +109,7 @@ def append_plain_txt(*, txt: str, file_path: str) -> None:
 
 def remove_file_if_exists(*, file_path: str) -> None:
     """
-    Remove specified file if exists.
+    Remove a specified file if it exists.
 
     Parameters
     ----------
@@ -123,7 +123,7 @@ def remove_file_if_exists(*, file_path: str) -> None:
 
 def get_abs_directory_path_from_file_path(*, file_path: str) -> str:
     """
-    Get an absolute directory path of specified file.
+    Get an absolute directory path of a specified file.
 
     Parameters
     ----------
@@ -142,7 +142,7 @@ def get_abs_directory_path_from_file_path(*, file_path: str) -> str:
 
 def get_abs_module_dir_path(*, module: ModuleType) -> str:
     """
-    Get a specified module's abosulute directory path.
+    Get a specified module's absolute directory path.
 
     Parameters
     ----------

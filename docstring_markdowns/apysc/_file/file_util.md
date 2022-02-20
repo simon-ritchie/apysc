@@ -38,11 +38,11 @@ Empty specified directory.<hr>
 **[Parameters]**
 
 - `directory_path`: str
-  - Directory path to empty. This folder itself will not be removed.
+  - Directory path to empty. This interface does not remove this folder itself.
 
 ## `get_abs_directory_path_from_file_path` function docstring
 
-Get an absolute directory path of specified file.<hr>
+Get an absolute directory path of a specified file.<hr>
 
 **[Parameters]**
 
@@ -58,7 +58,7 @@ Get an absolute directory path of specified file.<hr>
 
 ## `get_abs_module_dir_path` function docstring
 
-Get a specified module's abosulute directory path.<hr>
+Get a specified module's absolute directory path.<hr>
 
 **[Parameters]**
 
@@ -110,7 +110,7 @@ Read specified file's text.<hr>
 
 ## `remove_file_if_exists` function docstring
 
-Remove specified file if exists.<hr>
+Remove a specified file if it exists.<hr>
 
 **[Parameters]**
 

@@ -82,7 +82,7 @@ Get next variable name of specified type name.<hr>
 **[Parameters]**
 
 - `type_name`: str
-  - Any type name, e.g., `sp` (`Sprite`). If `sp` is specified and there is no `sprite` variable name in expression data, this interface returns the `sp_1`. If the apysc already uses a variable name of `sp_1`, this interface returns `sp_2`.
+  - Any type name, e.g., `sp` (`Sprite`). If `sp` is specified and there is no `sp` variable name in expression data, this interface returns the `sp_1`. If the apysc already uses a variable name of `sp_1`, this interface returns `sp_2`.
 
 <hr>
 

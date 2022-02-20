@@ -2,4 +2,4 @@
 
 ## Module summary
 
-A module that defines constants of expression's variable names.
+This module is for the constants definitions of the expression's variable names.

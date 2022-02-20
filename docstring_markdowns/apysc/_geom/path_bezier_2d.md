@@ -31,7 +31,7 @@ Equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -46,16 +46,16 @@ Path data class for the svg's `2D bezier curve` (Q).<hr>
 
 **[Parameters]**
 
-- `control_x`: int or Int
+- `control_x`: Int or int
   - X-coordinate of the bezier's control point.
-- `control_y`: int or Int
+- `control_y`: Int or int
   - Y-coordinate of the bezier's control point.
-- `dest_x`: int or Int
+- `dest_x`: Int or int
   - X-coordinate of the destination point.
-- `dest_y`: int or Int
+- `dest_y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 
@@ -82,7 +82,7 @@ Not equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -98,7 +98,7 @@ Get a path's SVG string created with the current setting.<hr>
 **[Returns]**
 
 - `svg_str`: str
-  - A path's SVG string created with the current setting.
+  - A SVG path string was created with the current setting.
 
 ### `update_path_data` method docstring
 
@@ -106,16 +106,16 @@ Update the path's data settings.<hr>
 
 **[Parameters]**
 
-- `control_x`: int or Int
+- `control_x`: Int or int
   - X-coordinate of the bezier's control point.
-- `control_y`: int or Int
+- `control_y`: Int or int
   - Y-coordinate of the bezier's control point.
-- `dest_x`: int or Int
+- `dest_x`: Int or int
   - X-coordinate of the destination point.
-- `dest_y`: int or Int
+- `dest_y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 

@@ -51,16 +51,16 @@ class PathBezier2D(
 
         Parameters
         ----------
-        control_x : int or Int
+        control_x : Int or int
             X-coordinate of the bezier's control point.
-        control_y : int or Int
+        control_y : Int or int
             Y-coordinate of the bezier's control point.
-        dest_x : int or Int
+        dest_x : Int or int
             X-coordinate of the destination point.
-        dest_y : int or Int
+        dest_y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
 
         Examples
@@ -99,7 +99,7 @@ class PathBezier2D(
         Returns
         -------
         svg_str : str
-            A path's SVG string created with the current setting.
+            A SVG path string was created with the current setting.
         """
         from apysc._type import value_util
         svg_char: String = self._get_svg_char()
@@ -136,16 +136,16 @@ class PathBezier2D(
 
         Parameters
         ----------
-        control_x : int or Int
+        control_x : Int or int
             X-coordinate of the bezier's control point.
-        control_y : int or Int
+        control_y : Int or int
             Y-coordinate of the bezier's control point.
-        dest_x : int or Int
+        dest_x : Int or int
             X-coordinate of the destination point.
-        dest_y : int or Int
+        dest_y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
 
         Examples
@@ -191,7 +191,7 @@ class PathBezier2D(
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
@@ -218,7 +218,7 @@ class PathBezier2D(
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------

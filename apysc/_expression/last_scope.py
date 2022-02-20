@@ -1,4 +1,5 @@
-"""Interfaces and definitions for last expression's scope information.
+"""This module is for interfaces and definitions for
+a last expression's scope information.
 """
 
 from enum import Enum
@@ -34,8 +35,8 @@ def get_last_scope() -> LastScope:
     Returns
     -------
     last_scope : LastScope
-        Last scope value. If there is no last scope's value, then
-        LastScope.NORMAL will be returned.
+        Last scope value. If there is no last scope's
+        value, this interface returns LastScope.NORMAL.
     """
     from apysc._expression import expression_data_util
     query: str = (

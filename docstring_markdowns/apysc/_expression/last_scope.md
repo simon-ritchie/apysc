@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Interfaces and definitions for last expression's scope information.
+This module is for interfaces and definitions for a last expression's scope information.
 
 ## `get_last_scope` function docstring
 
@@ -11,7 +11,7 @@ Get last scope value.<hr>
 **[Returns]**
 
 - `last_scope`: LastScope
-  - Last scope value. If there is no last scope's value, then LastScope.NORMAL will be returned.
+  - Last scope value. If there is no last scope's value, this interface returns LastScope.NORMAL.
 
 ## `reset` function docstring
 

@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Path data class implementation for the svg's `continual 2D bezier curve` (T).
+This module is for the SVG `continual 2D bezier curve` (T) class implementation.
 
 ## `PathBezier2DContinual` class docstring
 
-Path data class for the svg's `continual 2D bezier curve` (T).<hr>
+Path data class for the SVG `continual 2D bezier curve` (T).<hr>
 
 **[Examples]**
 
@@ -32,7 +32,7 @@ Equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -43,16 +43,16 @@ Equal comparison method.<hr>
 
 ### `__init__` method docstring
 
-Path data class for the svg's `continual 2D bezier curve` (T).<hr>
+Path data class for the SVG `continual 2D bezier curve` (T).<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: Int or int
   - X-coordinate of the destination point.
-- `y`: int or Int
+- `y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - The boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 
@@ -80,7 +80,7 @@ Not equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -91,25 +91,25 @@ Not equal comparison method.<hr>
 
 ### `_get_svg_str` method docstring
 
-Get a path's SVG string created with the current setting.<hr>
+Get an SVG path string created with the current setting.<hr>
 
 **[Returns]**
 
 - `svg_str`: str
-  - A path's SVG string created with the current setting.
+  - An SVG path string was created with the current setting.
 
 ### `update_path_data` method docstring
 
-Update the path's data settings.<hr>
+Update a path data settings.<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: Int or int
   - X-coordinate of the destination point.
-- `y`: int or Int
+- `y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 

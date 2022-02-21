@@ -1,4 +1,5 @@
-"""Path data class implementation for the svg's `3D besier curve` (C).
+"""This module is for the SVG's `3D bezier curve` (C) path
+data class implementation.
 """
 
 from typing import Any
@@ -60,20 +61,20 @@ class PathBezier3D(
 
         Parameters
         ----------
-        control_x1 : int or Int
+        control_x1 : Int or int
             X-coordinate of the bezier's first control point.
-        control_y1 : int or Int
+        control_y1 : Int or int
             Y-coordinate of the bezier's first control point.
-        control_x2 : int or Int
+        control_x2 : Int or int
             X-coordinate of the bezier's second control point.
-        control_y2 : int or Int
+        control_y2 : Int or int
             Y-coordinate of the bezier's second control point.
-        dest_x : int or Int
+        dest_x : Int or int
             X-coordinate of the destination point.
-        dest_y : int or Int
+        dest_y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
 
         Examples
@@ -120,7 +121,7 @@ class PathBezier3D(
         Returns
         -------
         svg_str : str
-            A path's SVG string created with the current setting.
+            An SVG path string was created with the current setting.
         """
         from apysc._type.value_util import get_value_str_for_expression
         svg_char: String = self._get_svg_char()
@@ -163,20 +164,20 @@ class PathBezier3D(
 
         Parameters
         ----------
-        control_x1 : int or Int
+        control_x1 : Int or int
             X-coordinate of the bezier's first control point.
-        control_y1 : int or Int
+        control_y1 : Int or int
             Y-coordinate of the bezier's first control point.
-        control_x2 : int or Int
+        control_x2 : Int or int
             X-coordinate of the bezier's second control point.
-        control_y2 : int or Int
+        control_y2 : Int or int
             Y-coordinate of the bezier's second control point.
-        dest_x : int or Int
+        dest_x : Int or int
             X-coordinate of the destination point.
-        dest_y : int or Int
+        dest_y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
 
         Examples
@@ -234,7 +235,7 @@ class PathBezier3D(
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
@@ -263,7 +264,7 @@ class PathBezier3D(
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------

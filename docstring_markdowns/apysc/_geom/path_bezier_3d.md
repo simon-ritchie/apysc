@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Path data class implementation for the svg's `3D besier curve` (C).
+This module is for the SVG's `3D bezier curve` (C) path data class implementation.
 
 ## `PathBezier3D` class docstring
 
@@ -35,7 +35,7 @@ Equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -50,20 +50,20 @@ Path data class for the svg's `3D bezier curve` (C).<hr>
 
 **[Parameters]**
 
-- `control_x1`: int or Int
+- `control_x1`: Int or int
   - X-coordinate of the bezier's first control point.
-- `control_y1`: int or Int
+- `control_y1`: Int or int
   - Y-coordinate of the bezier's first control point.
-- `control_x2`: int or Int
+- `control_x2`: Int or int
   - X-coordinate of the bezier's second control point.
-- `control_y2`: int or Int
+- `control_y2`: Int or int
   - Y-coordinate of the bezier's second control point.
-- `dest_x`: int or Int
+- `dest_x`: Int or int
   - X-coordinate of the destination point.
-- `dest_y`: int or Int
+- `dest_y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 
@@ -94,7 +94,7 @@ Not equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -110,7 +110,7 @@ Get a path's SVG string created with the current setting.<hr>
 **[Returns]**
 
 - `svg_str`: str
-  - A path's SVG string created with the current setting.
+  - An SVG path string was created with the current setting.
 
 ### `update_path_data` method docstring
 
@@ -118,20 +118,20 @@ Update the path's data settings.<hr>
 
 **[Parameters]**
 
-- `control_x1`: int or Int
+- `control_x1`: Int or int
   - X-coordinate of the bezier's first control point.
-- `control_y1`: int or Int
+- `control_y1`: Int or int
   - Y-coordinate of the bezier's first control point.
-- `control_x2`: int or Int
+- `control_x2`: Int or int
   - X-coordinate of the bezier's second control point.
-- `control_y2`: int or Int
+- `control_y2`: Int or int
   - Y-coordinate of the bezier's second control point.
-- `dest_x`: int or Int
+- `dest_x`: Int or int
   - X-coordinate of the destination point.
-- `dest_y`: int or Int
+- `dest_y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 

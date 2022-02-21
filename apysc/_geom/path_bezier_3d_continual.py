@@ -1,5 +1,5 @@
-"""Path data class implementation for the svg's
-`continual 3D bezier curve` (S).
+"""This module is for SVG's `continual 3D bezier curve` (S)
+path data class implementations.
 """
 
 from typing import Any
@@ -20,7 +20,7 @@ class PathBezier3DContinual(
         PathDataBase, PathControlXInterface, PathControlYInterface,
         PathDestXInterface, PathDestYInterface):
     """
-    Path data class for the svg's `continual 3D bezier curve` (S).
+    Path data class for SVG's `continual 3D bezier curve` (S).
 
     Examples
     --------
@@ -52,21 +52,21 @@ class PathBezier3DContinual(
             *,
             relative: Union[bool, Boolean] = False) -> None:
         """
-        Path data class for the svg's `continual 3D bezier curve` (S).
+        Path data class for SVG's `continual 3D bezier curve` (S).
 
         Parameters
         ----------
-        control_x : int or Int
+        control_x : Int or int
             X-coordinate of the bezier's control point.
-        control_y : int or Int
+        control_y : Int or int
             Y-coordinate of the bezier's control point.
-        dest_x : int or Int
+        dest_x : Int or int
             X-coordinate of the destination point.
-        dest_y : int or Int
+        dest_y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
-            coordinates are relative or not (absolute).
+            A boolean value indicates whether the path coordinates
+            are relative or not (absolute).
 
         Examples
         --------
@@ -108,7 +108,8 @@ class PathBezier3DContinual(
         Returns
         -------
         svg_str : str
-            A path's SVG string created with the current setting.
+            An SVG path string was created with the
+            current setting.
         """
         from apysc._type.value_util import get_value_str_for_expression
         svg_char: String = self._get_svg_char()
@@ -143,16 +144,16 @@ class PathBezier3DContinual(
 
         Parameters
         ----------
-        control_x : int or Int
+        control_x : Int or int
             X-coordinate of the bezier's control point.
-        control_y : int or Int
+        control_y : Int or int
             Y-coordinate of the bezier's control point.
-        dest_x : int or Int
+        dest_x : Int or int
             X-coordinate of the destination point.
-        dest_y : int or Int
+        dest_y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
 
         Examples
@@ -198,7 +199,7 @@ class PathBezier3DContinual(
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
@@ -225,7 +226,7 @@ class PathBezier3DContinual(
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------

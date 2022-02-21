@@ -15,8 +15,8 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
 
     def _initialize_dest_y_if_not_initialized(self) -> None:
         """
-        Initialize the _dest_y attribute if it hasn't been
-        initialized yet.
+        Initialize the _dest_y attribute if this instance
+        does not initialize it yet.
         """
         if hasattr(self, '_dest_y'):
             return
@@ -98,7 +98,7 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

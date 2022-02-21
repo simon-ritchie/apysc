@@ -1,4 +1,5 @@
-"""Path data class implementation for the svg's `vertical line` (V).
+"""This module is for implementing the SVG `vertical line` (V)
+path data class.
 """
 
 from typing import Any
@@ -14,7 +15,7 @@ from apysc._type.string import String
 
 class PathVertical(PathDataBase, PathYInterface):
     """
-    Path data class for the svg's `vertical line` (V).
+    Path data class for the SVG `vertical line` (V).
 
     Examples
     --------
@@ -35,11 +36,11 @@ class PathVertical(PathDataBase, PathYInterface):
             self, y: Union[int, Int], *,
             relative: Union[bool, Boolean] = False) -> None:
         """
-        Path data class for the svg's `vertical line' (V).
+        Path data class for the SVG `vertical line' (V).
 
         Parameters
         ----------
-        y : int or Int
+        y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
             The boolean value indicating whether the path
@@ -74,7 +75,7 @@ class PathVertical(PathDataBase, PathYInterface):
         Returns
         -------
         svg_str : str
-            A path's SVG string created with the current setting.
+            An SVG path string was created with the current setting.
         """
         from apysc._type import value_util
         svg_char: String = self._get_svg_char()
@@ -96,11 +97,11 @@ class PathVertical(PathDataBase, PathYInterface):
 
         Parameters
         ----------
-        y : int or Int
+        y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean
-            The boolean value indicating whether the path
-            coordinates are relative or not (absolute).
+            A boolean value indicates whether the path
+            coordinates are relative or not (absolute)..
 
         Examples
         --------
@@ -127,7 +128,7 @@ class PathVertical(PathDataBase, PathYInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
@@ -144,7 +145,7 @@ class PathVertical(PathDataBase, PathYInterface):
         module_name=__name__, class_name='PathVertical')
     def __ne__(self, other: Any) -> Any:
         """
-        Not equal comparison method.
+        The other value to compare.
 
         Parameters
         ----------

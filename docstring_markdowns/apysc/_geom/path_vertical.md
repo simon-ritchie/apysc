@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Path data class implementation for the svg's `vertical line` (V).
+This module is for implementing the SVG `vertical line` (V) path data class.
 
 ## `PathVertical` class docstring
 
-Path data class for the svg's `vertical line` (V).<hr>
+Path data class for the SVG `vertical line` (V).<hr>
 
 **[Examples]**
 
@@ -29,7 +29,7 @@ Equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -40,14 +40,14 @@ Equal comparison method.<hr>
 
 ### `__init__` method docstring
 
-Path data class for the svg's `vertical line' (V).<hr>
+Path data class for the SVG `vertical line' (V).<hr>
 
 **[Parameters]**
 
-- `y`: int or Int
+- `y': Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 
@@ -72,7 +72,7 @@ Not equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -88,7 +88,7 @@ Get a path's SVG string created with the current setting.<hr>
 **[Returns]**
 
 - `svg_str`: str
-  - A path's SVG string created with the current setting.
+  - An SVG path string was created with the current setting.
 
 ### `update_path_data` method docstring
 
@@ -96,10 +96,10 @@ Update the path's data settings.<hr>
 
 **[Parameters]**
 
-- `y`: int or Int
+- `y': Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 

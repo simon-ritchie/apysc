@@ -8,11 +8,11 @@ Interface class implementation for the second control y path data.
 
 ### `_append_control_y2_linking_setting` method docstring
 
-Append a control_y2 attribute linking setting.
+Append a control_y2 attribute linking settings.
 
 ### `_initialize_control_y2_if_not_initialized` method docstring
 
-Initialize the _control_y2 attribute if it hasn't been initialized yet.
+Initialize the _control_y2 attribute if this instance does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -25,7 +25,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

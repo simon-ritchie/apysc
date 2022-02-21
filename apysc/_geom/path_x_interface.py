@@ -15,7 +15,8 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
 
     def _initialize_x_if_not_initialized(self) -> None:
         """
-        Initialize the _x attribute if it hasn't been initialized yet.
+        Initialize the _x attribute if this instance does not
+        initialize it yet.
         """
         if hasattr(self, '_x'):
             return
@@ -27,7 +28,7 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
         module_name=__name__, class_name='PathXInterface')
     def _append_x_linking_setting(self) -> None:
         """
-        Append a x attribute linking setting.
+        Append an x attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._x, attr_name='x')
@@ -95,7 +96,7 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

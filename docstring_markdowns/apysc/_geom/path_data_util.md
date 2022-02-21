@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The common utility implementations for the path data.
+This module is for the path data fundamental utility implementations.
 
 ## `make_paths_expression_from_list` function docstring
 

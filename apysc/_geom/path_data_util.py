@@ -1,4 +1,5 @@
-"""The common utility implementations for the path data.
+"""This module is for the path data fundamental
+utility implementations.
 """
 
 from typing import List

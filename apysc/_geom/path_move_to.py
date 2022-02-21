@@ -1,4 +1,5 @@
-"""Path data class implementation for the svg's `move to` (M).
+"""This module is for the SVG `move to` (M) path data
+class implementation.
 """
 
 from typing import Any
@@ -15,7 +16,7 @@ from apysc._type.string import String
 
 class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
     """
-    Path data class for the svg's `move to` (M).
+    Path data class for the SVG `move to` (M).
 
     Examples
     --------
@@ -36,17 +37,17 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
             self, x: Union[int, Int], y: Union[int, Int], *,
             relative: Union[bool, Boolean] = False) -> None:
         """
-        Path data class for the svg's `move to` (M).
+        Path data class for the SVG `move to` (M).
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X-coordinate of the destination point.
-        y : int or Int
+        y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
-            coordinates are relative or not (absolute).
+            A boolean value indicates whether the path coordinates
+            are relative or not (absolute).
 
         Examples
         --------
@@ -73,12 +74,13 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
         module_name=__name__, class_name='PathMoveTo')
     def _get_svg_str(self) -> str:
         """
-        Get a path's SVG string created with the current setting.
+        Get an SVG path string created with the current setting.
 
         Returns
         -------
         svg_str : str
-            A path's SVG string created with the current setting.
+            An SVG path string was created with the
+            current setting.
         """
         from apysc._type import value_util
         svg_char: String = self._get_svg_char()
@@ -99,16 +101,16 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
             *,
             relative: Union[bool, Boolean] = False) -> None:
         """
-        Update the path's data settings.
+        Update the path data settings.
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X-coordinate of the destination point.
-        y : int or Int
+        y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
 
         Examples
@@ -140,7 +142,7 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
@@ -165,7 +167,7 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------

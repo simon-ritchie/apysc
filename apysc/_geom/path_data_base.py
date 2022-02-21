@@ -32,9 +32,9 @@ class PathDataBase(RelativeInterface, ABC):
         Parameters
         ----------
         path_label : PathLabel
-            Target (svg's) path label.
+            Target (SVG's) path label.
         relative : bool or Boolean
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
         """
         from apysc._converter.to_apysc_val_from_builtin import \

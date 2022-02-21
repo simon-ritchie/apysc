@@ -15,9 +15,9 @@ Base class for the path data.<hr>
 **[Parameters]**
 
 - `path_label`: PathLabel
-  - Target (svg's) path label.
+  - Target (SVG's) path label.
 - `relative`: bool or Boolean
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 ### `_get_svg_char` method docstring
 

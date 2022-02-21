@@ -15,8 +15,8 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
 
     def _initialize_control_x1_if_not_initialized(self) -> None:
         """
-        Initialize the _control_x1 attribute if it hasn't been
-        initialized yet.
+        Initialize the _control_x1 attribute if this instance does not
+        initialize it yet.
         """
         if hasattr(self, '_control_x1'):
             return
@@ -99,7 +99,7 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

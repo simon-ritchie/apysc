@@ -1,4 +1,5 @@
-"""Path data class implementation for the svg's `horizontal line` (H).
+"""This module is for the SVG's `horizontal line` (H) data
+class implementation.
 """
 
 from typing import Any
@@ -39,10 +40,10 @@ class PathHorizontal(PathDataBase, PathXInterface):
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
 
         Examples
@@ -74,7 +75,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         Returns
         -------
         svg_str : str
-            A path's SVG string created with the current setting.
+            An SVG path string was created with the current setting.
         """
         from apysc._type import value_util
         svg_char: String = self._get_svg_char()
@@ -96,10 +97,10 @@ class PathHorizontal(PathDataBase, PathXInterface):
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
 
         Examples
@@ -127,7 +128,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
@@ -149,7 +150,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------

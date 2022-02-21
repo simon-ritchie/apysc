@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Path data class implementation for the svg's `horizontal line` (H).
+This module is for the SVG's `horizontal line` (H) data class implementation.
 
 ## `PathHorizontal` class docstring
 
@@ -29,7 +29,7 @@ Equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -44,10 +44,10 @@ Path data class for the svg's `horizontal line` (H).<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: Int or int
   - X-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 
@@ -72,7 +72,7 @@ Not equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
@@ -88,7 +88,7 @@ Get a path's SVG string created with the current setting.<hr>
 **[Returns]**
 
 - `svg_str`: str
-  - A path's SVG string created with the current setting.
+  - An SVG path string was created with the current setting.
 
 ### `update_path_data` method docstring
 
@@ -96,10 +96,10 @@ Update the path's data settings.<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: Int or int
   - X-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 

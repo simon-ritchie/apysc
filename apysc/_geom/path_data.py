@@ -1,4 +1,5 @@
-"""Class definitions of each path data class.
+"""This module is for the class definitions of
+each path data class.
 """
 
 from apysc._geom.path_bezier_2d import PathBezier2D
@@ -14,7 +15,7 @@ from apysc._geom.path_vertical import PathVertical
 
 class PathData:
     """
-    Class definitions of each path data class.
+    This class is for the definitions of each path data class.
     """
     MoveTo = PathMoveTo
     LineTo = PathLineTo

@@ -2,8 +2,8 @@
 
 ## Module summary
 
-Class definitions of each path data class.
+This module is for the class definitions of each path data class.
 
 ## `PathData` class docstring
 
-Class definitions of each path data class.
+This class is for the definitions of each path data class.

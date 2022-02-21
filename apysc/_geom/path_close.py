@@ -1,4 +1,5 @@
-"""Path data class implementation for the svg's `close path` (Z).
+"""This module is for the SVG's `close path` (Z) path
+data class implementation.
 """
 
 from apysc._geom.path_data_base import PathDataBase
@@ -8,7 +9,7 @@ from apysc._type.string import String
 
 class PathClose(PathDataBase):
     """
-    Path data class for the svg's `close path` (Z).
+    Path data class for the SVG's `close path` (Z).
 
     Examples
     --------
@@ -29,7 +30,7 @@ class PathClose(PathDataBase):
         module_name=__name__, class_name='PathClose')
     def __init__(self) -> None:
         """
-        Path data class for the svg's `close path` (Z).
+        Path data class for the SVG's `close path` (Z).
 
         Examples
         --------
@@ -59,7 +60,8 @@ class PathClose(PathDataBase):
         Returns
         -------
         svg_str : str
-            A path's SVG string created with the current setting.
+            An SVG path string was created with the current
+            setting.
         """
         from apysc._type import value_util
         svg_char: String = self._get_svg_char()

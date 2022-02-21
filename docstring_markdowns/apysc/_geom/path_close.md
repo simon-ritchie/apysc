@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Path data class implementation for the svg's `close path` (Z).
+This module is for the SVG's `close path` (Z) path data class implementation.
 
 ## `PathClose` class docstring
 
-Path data class for the svg's `close path` (Z).<hr>
+Path data class for the SVG's `close path` (Z).<hr>
 
 **[Examples]**
 
@@ -26,7 +26,7 @@ Path data class for the svg's `close path` (Z).<hr>
 
 ### `__init__` method docstring
 
-Path data class for the svg's `close path` (Z).<hr>
+Path data class for the SVG's `close path` (Z).<hr>
 
 **[Examples]**
 
@@ -51,4 +51,4 @@ Get a path's SVG string created with the current setting.<hr>
 **[Returns]**
 
 - `svg_str`: str
-  - A path's SVG string created with the current setting.
+  - An SVG path string was created with the current setting.

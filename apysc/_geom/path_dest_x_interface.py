@@ -15,8 +15,8 @@ class PathDestXInterface(RevertInterface, AttrLinkingInterface):
 
     def _initialize_dest_x_if_not_initialized(self) -> None:
         """
-        Initialize the _dest_x attribute if it hasn't been
-        initialized yet.
+        Initialize the _dest_x attribute if this instance
+        does not initialize it yet.
         """
         if hasattr(self, '_dest_x'):
             return
@@ -28,7 +28,7 @@ class PathDestXInterface(RevertInterface, AttrLinkingInterface):
         module_name=__name__, class_name='PathDestXInterface')
     def _append_dest_x_linking_setting(self) -> None:
         """
-        Append a dest_x attribute linking setting.
+        Append a dest_x attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._dest_x, attr_name='dest_x')
@@ -98,7 +98,7 @@ class PathDestXInterface(RevertInterface, AttrLinkingInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

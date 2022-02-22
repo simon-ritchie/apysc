@@ -1,3 +1,4 @@
+import importlib
 import os
 import re
 import shutil
@@ -10,7 +11,6 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Type
-import importlib
 
 from retrying import retry
 

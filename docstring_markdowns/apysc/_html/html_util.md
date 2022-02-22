@@ -11,11 +11,11 @@ Append remove_first_selector_symbol_char function's expression.<hr>
 **[Parameters]**
 
 - `str_val`: String
-  - First character removed string instance.
+  - A first character removed string instance.
 
 ## `append_html_to_str` function docstring
 
-Add html string to another string with line break and specified number's indentation.<hr>
+Add an HTML string to another string with the line break and specified number's indentation.<hr>
 
 **[Parameters]**
 
@@ -65,7 +65,7 @@ Get a boolean whether the specified line contains script end tag (`</script>`).<
 **[Returns]**
 
 - `result`: bool
-  - If specified line contains script end tag, then True will be set.
+  - If a specified line contains the script end tag, this interface returns True.
 
 <hr>
 
@@ -87,7 +87,7 @@ Get a boolean whether the specified line contains script start tag (`<script ...
 **[Returns]**
 
 - `result`: bool
-  - If specified line contains script start tag, then True will be set.
+  - If a specified line contains the script start tag, this interface returns True.
 
 <hr>
 
@@ -97,7 +97,7 @@ External js script tag will not be target. e.g., `<script type="text/javascript"
 
 ## `remove_first_selector_symbol_char` function docstring
 
-Remove first selector symbol (`.` or `#`) from string.<hr>
+Remove a first selector symbol (`.` or `#`) from a string.<hr>
 
 **[Parameters]**
 
@@ -109,13 +109,13 @@ Remove first selector symbol (`.` or `#`) from string.<hr>
 **[Returns]**
 
 - `str_val`: str or String
-  - The string that removed first selector symbol character.
+  - The string removed a first selector symbol character.
 
 <hr>
 
 **[Raises]**
 
-- TypeError: If other than str or String type value is passed.
+- TypeError: If a specified value is other than str or String type value.
 
 ## `wrap_expression_by_script_tag` function docstring
 
@@ -146,11 +146,11 @@ The class for HTML's script line utility.<hr>
 
 ### `_set_script_line_ranges` method docstring
 
-Set each script start and end line numbers.
+Set each script's start and end line numbers.
 
 ### `is_script_line` method docstring
 
-Get a boolean value whether specified line number is script line or not.<hr>
+Get a boolean value whether a specified line number is a script line or not.<hr>
 
 **[Parameters]**
 
@@ -162,4 +162,4 @@ Get a boolean value whether specified line number is script line or not.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If the target line is script line, then True will be set.
+  - If the target line is a script line, this interface returns True.

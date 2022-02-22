@@ -2,10 +2,10 @@
 
 Mainly following interfaces are defined:
 
-- remove_first_selector_symbol_char : Remove first selector
-    symbol (`.` or `#`) from string.
-- append_html_to_str : Add html string to another string with line
-    break and specified number's indentation.
+- remove_first_selector_symbol_char : Remove a first
+    selector symbol (`.` or `#`) from a string.
+- append_html_to_str : Add an HTML string to another
+    string with the line break and specified number's indentation.
 - append_indent_to_each_script_line : Append indentation spaces to
     each script lines of specified html.
 - ScriptLineUtil : The class for HTML's script line utility.
@@ -33,7 +33,7 @@ StrOrString = TypeVar('StrOrString', str, String)
 def remove_first_selector_symbol_char(
         *, str_val: StrOrString) -> StrOrString:
     """
-    Remove first selector symbol (`.` or `#`) from string.
+    Remove a first selector symbol (`.` or `#`) from a string.
 
     Parameters
     ----------
@@ -43,12 +43,13 @@ def remove_first_selector_symbol_char(
     Returns
     -------
     str_val : str or String
-        The string that removed first selector symbol character.
+        The string removed a first selector symbol character.
 
     Raises
     ------
     TypeError
-        If other than str or String type value is passed.
+        If a specified value is other than str or String
+        type value.
     """
     from apysc._type import value_util
     if isinstance(str_val, str):
@@ -79,7 +80,7 @@ def _append_remove_first_selector_symbol_char_expression(
     Parameters
     ----------
     str_val : String
-        First character removed string instance.
+        A first character removed string instance.
     """
     import apysc as ap
     var_name: str = str_val.variable_name
@@ -95,8 +96,8 @@ def _append_remove_first_selector_symbol_char_expression(
 def append_html_to_str(
         *, to_append_html: str, dest_html: str, indent_num: int) -> str:
     """
-    Add html string to another string with line break and specified
-    number's indentation.
+    Add an HTML string to another string with the line
+    break and specified number's indentation.
 
     Parameters
     ----------
@@ -180,7 +181,7 @@ class ScriptLineUtil:
 
     def _set_script_line_ranges(self) -> None:
         """
-        Set each script start and end line numbers.
+        Set each script's start and end line numbers.
         """
         self.script_line_ranges = []
         each_lines: List[str] = self.html.splitlines()
@@ -197,8 +198,8 @@ class ScriptLineUtil:
 
     def is_script_line(self, *, line_number: int) -> bool:
         """
-        Get a boolean value whether specified line number is script line
-        or not.
+        Get a boolean value whether a specified line number
+        is a script line or not.
 
         Parameters
         ----------
@@ -208,7 +209,8 @@ class ScriptLineUtil:
         Returns
         -------
         result : bool
-            If the target line is script line, then True will be set.
+            If the target line is a script line, this interface
+            returns True.
         """
         for script_line_start, script_line_end in self.script_line_ranges:
             if (script_line_start <= line_number
@@ -235,8 +237,8 @@ def is_script_start_tag_line(*, line: str) -> bool:
     Returns
     -------
     result : bool
-        If specified line contains script start tag, then True
-        will be set.
+        If a specified line contains the script start tag,
+        this interface returns True.
     """
     match: Optional[Match] = re.search(
         pattern=r'<script ', string=line)
@@ -265,8 +267,8 @@ def is_script_end_tag_line(*, line: str) -> bool:
     Returns
     -------
     result : bool
-        If specified line contains script end tag, then True
-        will be set.
+        If a specified line contains the script end tag,
+        this interface returns True.
     """
     match: Optional[Match] = re.search(
         pattern=r'</script>', string=line)

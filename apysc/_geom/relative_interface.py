@@ -13,8 +13,8 @@ class RelativeInterface(RevertInterface):
 
     def _initialize_relative_if_not_initialized(self) -> None:
         """
-        Initialize the _relative attribute if it hasn't been
-        initialized yet.
+        Initialize the _relative attribute if this instance
+        does not initialize it yet.
         """
         if hasattr(self, '_relative'):
             return
@@ -77,7 +77,7 @@ class RelativeInterface(RevertInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

@@ -44,10 +44,10 @@ Path data class for the SVG `vertical line' (V).<hr>
 
 **[Parameters]**
 
-- `y': Int or int
+- `y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - A boolean value indicates whether the path coordinates are relative or not (absolute).
+  - The boolean value indicating whether the path coordinates are relative or not (absolute).
 
 <hr>
 
@@ -67,12 +67,12 @@ Path data class for the SVG `vertical line' (V).<hr>
 
 ### `__ne__` method docstring
 
-Not equal comparison method.<hr>
+The other value to compare.<hr>
 
 **[Parameters]**
 
 - `other`: Any
-  - The other value to compare.
+  - Other value to compare.
 
 <hr>
 
@@ -96,10 +96,10 @@ Update the path's data settings.<hr>
 
 **[Parameters]**
 
-- `y': Int or int
+- `y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean
-  - A boolean value indicates whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute)..
 
 <hr>
 

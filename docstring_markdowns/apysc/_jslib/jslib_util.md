@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Common JavaScript library utility implementations. Mainly the following interfaces are defined: <br>・get_jslib_file_names Get the JavaScript libraries file names. <br>・get_jslib_abs_dir_path Get the Javascript library's absolute directory path. <br>・export_jslib_to_specified_dir Export a JavaScript library to specified directory. <br>・read_jslib_str Read a JavaScript library file str.
+Common JavaScript library utility implementations. Mainly the following interfaces are defined: <br>・get_jslib_file_names Get the JavaScript libraries file's names. <br>・get_jslib_abs_dir_path Get the Javascript library's absolute directory path. This interface returns this module's directory. <br>・export_jslib_to_specified_dir Export a JavaScript library to a specified directory. <br>・read_jslib_str Read a JavaScript library file str.
 
 ## `export_jslib_to_specified_dir` function docstring
 
@@ -30,12 +30,12 @@ Export a JavaScript library to a specified directory.<hr>
 
 ## `get_jslib_abs_dir_path` function docstring
 
-Get the Javascript library's absolute directory path.<hr>
+Get the Javascript library's absolute directory path. This interface returns this module's directory.<hr>
 
 **[Returns]**
 
 - `jslib_abs_dir_path`: str
-  - Javascript library's absolute directory path. This interface returns this module's directory.
+  - Javascript library's absolute directory path. This module's directory will be set.
 
 ## `get_jslib_file_names` function docstring
 

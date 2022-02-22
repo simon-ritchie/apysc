@@ -6,7 +6,7 @@ Utility implementations for docstrings.
 
 ## `_append_br_tag_and_replace_symbol_if_first_char_is_hyphen` function docstring
 
-Append a break tag and replace the hypen symbol if the first character is the hypen symbol.<hr>
+Append a break tag and replace the hyphen symbol if the first character is the hyphen symbol.<hr>
 
 **[Parameters]**
 
@@ -114,7 +114,7 @@ Extract a path string from a specified docstring path comment.<hr>
 
 ## `_get_base_indent_num_if_not_set` function docstring
 
-Get a base indent number from line if it is not set.<hr>
+Get a base indent number from a line if it is an initial value.<hr>
 
 **[Parameters]**
 
@@ -173,7 +173,7 @@ Get matched docstring path specification comments.<hr>
 
 ## `_get_indent_num_from_line` function docstring
 
-Get an indent number from a specified docstring line.<hr>
+Get an indentation number from a specified docstring line.<hr>
 
 **[Parameters]**
 
@@ -207,7 +207,7 @@ Get the parameters or returns section pattern of a specified type.<hr>
 
 **[Raises]**
 
-- ValueError: If an invalid target type is provided.
+- ValueError: If a provided argument is an invalid target's type.
 
 ## `_get_value_name_and_type_from_line` function docstring
 
@@ -229,7 +229,7 @@ Get a parameter or return value and type from a specified line.<hr>
 
 ## `_is_example_output_line` function docstring
 
-Get a boolean indicating whether a specified line is example section's output line or not.<hr>
+Get a boolean indicating whether a specified line is an example section's output line or not.<hr>
 
 **[Parameters]**
 
@@ -241,7 +241,7 @@ Get a boolean indicating whether a specified line is example section's output li
 **[Returns]**
 
 - `result`: bool
-  - This function return True if a specified line is example section's output line.
+  - This function returns True if a specified line is an example section's output line.
 
 ## `_is_hyphens_line` function docstring
 
@@ -273,7 +273,7 @@ Get a boolean indicating whether a specified docstring line is a section line or
 **[Returns]**
 
 - `result`: bool
-  - If a specified docstring line is section line, this function returns True.
+  - If a specified docstring line is a section line, this function returns True.
 
 ## `_is_skip_target_line` function docstring
 
@@ -295,7 +295,7 @@ Get a boolean indicating whether a specified line is skipping target or not.<hr>
 
 ## `_is_target_section_pattern_line` function docstring
 
-Get a boolean indicating whether a specified line is matching with a target section pattern or not.<hr>
+Get a boolean indicating whether a specified line matches a target section pattern or not.<hr>
 
 **[Parameters]**
 
@@ -313,7 +313,7 @@ Get a boolean indicating whether a specified line is matching with a target sect
 
 ## `_make_example_and_append_to_list` function docstring
 
-Make an example value and append it ot a specified list.<hr>
+Make an example value and append it to a specified list.<hr>
 
 **[Parameters]**
 
@@ -399,11 +399,11 @@ Remove blank lines from a list of lines.<hr>
 **[Returns]**
 
 - `result_lines`: list of str
-  - A lines list which removed blank lines.
+  - A blank lines removed line list.
 
 ## `_remove_line_breaks_and_unnecessary_spaces` function docstring
 
-Remove line breaks to a single space and unnecessary spaces (e.g., double spaces and leading and trailing spaces).<hr>
+Remove line breaks of single and unnecessary spaces (e.g., double spaces and leading and trailing spaces).<hr>
 
 **[Parameters]**
 
@@ -419,7 +419,7 @@ Remove line breaks to a single space and unnecessary spaces (e.g., double spaces
 
 ## `_remove_noqa` function docstring
 
-Remove a noqa comment from a specified string.<hr>
+Remove a `noqa` comment from a specified string.<hr>
 
 **[Parameters]**
 
@@ -469,7 +469,7 @@ Remove unnecessary markdown list string from a line.<hr>
 
 ## `_slice_references_by_md_file_path` function docstring
 
-Slice a specified references list to exclude a same URL's document file.<hr>
+Slice a specified references list to exclude the same URL's document file.<hr>
 
 **[Parameters]**
 
@@ -494,14 +494,14 @@ Append examples to a specified markdown string.<hr>
 - `markdown`: str
   - Target markdown string.
 - `examples`: list of Example
-  - Examples list value to append to.
+  - Examples list value to append.
 
 <hr>
 
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `append_notes_to_markdown` function docstring
 
@@ -519,7 +519,7 @@ Append a notes string to a specified markdown string.<hr>
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `append_params_or_rtns_to_markdown` function docstring
 
@@ -537,7 +537,7 @@ Append parameters or returns to a specified markdown string.<hr>
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `append_raises_to_markdown` function docstring
 
@@ -548,14 +548,14 @@ Append raises to a specified markdown string.<hr>
 - `markdown`: str
   - Target markdown string.
 - `raises`: list of Raise
-  - Raises list value to append to.
+  - Raises list value to append.
 
 <hr>
 
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `append_references_to_markdown` function docstring
 
@@ -566,18 +566,18 @@ Append references to a specified markdown string.<hr>
 - `markdown`: str
   - Target markdown string.
 - `references`: list of Reference
-  - References list value to append to.
+  - References list value to append.
 
 <hr>
 
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `append_summary_to_markdown` function docstring
 
-Append a interface summary string to a specified markdown string.<hr>
+Append an interface summary string to a specified markdown string.<hr>
 
 **[Parameters]**
 
@@ -593,7 +593,7 @@ Append a interface summary string to a specified markdown string.<hr>
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `extract_example_values_from_docstring` function docstring
 
@@ -613,7 +613,7 @@ Extract example values from a docstring.<hr>
 
 ## `extract_notes_from_docstring` function docstring
 
-Extract a notes value from a docstring.<hr>
+Extract a notes' value from a docstring.<hr>
 
 **[Parameters]**
 
@@ -729,11 +729,11 @@ Remove a trailing `<hr>` tag from a specified markdown string.<hr>
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `replace_docstring_path_specification` function docstring
 
-Replace a docstring path specification in a specified markdown document by a converted docstring text.<hr>
+Replace a docstring path specification with a converted docstring text in a specified markdown document.<hr>
 
 **[Parameters]**
 
@@ -767,7 +767,7 @@ The method for equality comparison.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare with.
+  - The other value to compare.
 
 <hr>
 
@@ -798,7 +798,7 @@ The method for equality comparison.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other instance to compare with.
+  - The other instance to compare.
 
 <hr>
 
@@ -831,7 +831,7 @@ The method for equality comparison.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare with.
+  - The other value to compare.
 
 <hr>
 
@@ -862,7 +862,7 @@ The method for equality comparison.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare with.
+  - The other value to compare.
 
 <hr>
 
@@ -893,7 +893,7 @@ The method for equality comparison.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other instance to compare with.
+  - The other instance to compare.
 
 <hr>
 
@@ -928,7 +928,7 @@ The method for equality comparison.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other instance to compare with.
+  - The other instance to compare.
 
 <hr>
 

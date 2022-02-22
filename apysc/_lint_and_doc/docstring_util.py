@@ -195,8 +195,8 @@ def _get_docstring_path_comment_matches(*, md_txt: str) -> List[str]:
 
 def replace_docstring_path_specification(*, md_file_path: str) -> None:
     """
-    Replace a docstring path specification in a specified
-    markdown document by a converted docstring text.
+    Replace a docstring path specification with a converted
+    docstring text in a specified markdown document.
 
     Parameters
     ----------
@@ -408,7 +408,7 @@ def remove_trailing_hr_tag(*, markdown: str) -> str:
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     markdown = markdown.strip()
     hr_tag: str = '<hr>'
@@ -422,7 +422,8 @@ def append_summary_to_markdown(
         *, markdown: str, summary: str,
         heading_label: str) -> str:
     """
-    Append a interface summary string to a specified markdown string.
+    Append an interface summary string to a specified
+    markdown string.
 
     Parameters
     ----------
@@ -436,7 +437,7 @@ def append_summary_to_markdown(
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     if summary == '':
         return markdown
@@ -462,7 +463,7 @@ def append_notes_to_markdown(*, markdown: str, notes: str) -> str:
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     if notes == '':
         return markdown
@@ -479,7 +480,7 @@ def append_notes_to_markdown(*, markdown: str, notes: str) -> str:
 
 def extract_notes_from_docstring(*, docstring: str) -> str:
     """
-    Extract a notes value from a docstring.
+    Extract a notes' value from a docstring.
 
     Parameters
     ----------
@@ -546,7 +547,7 @@ class _ParamOrRtnBase:
         Parameters
         ----------
         other : Any
-            Other instance to compare with.
+            The other instance to compare.
 
         Returns
         -------
@@ -662,7 +663,7 @@ class Raise:
         Parameters
         ----------
         other : Any
-            Other value to compare with.
+            The other value to compare.
 
         Returns
         -------
@@ -731,7 +732,7 @@ class Reference:
         Parameters
         ----------
         other : Any
-            Other value to compare with.
+            The other value to compare.
 
         Returns
         -------
@@ -802,7 +803,7 @@ class Example:
         Parameters
         ----------
         other : Any
-            Other value to compare with.
+            The other value to compare.
 
         Returns
         -------
@@ -823,8 +824,8 @@ def _slice_references_by_md_file_path(
         references: List[Reference],
         md_file_path: str) -> List[Reference]:
     """
-    Slice a specified references list to exclude a same
-    URL's document file.
+    Slice a specified references list to exclude the
+    same URL's document file.
 
     Parameters
     ----------
@@ -861,12 +862,12 @@ def append_examples_to_markdown(
     markdown : str
         Target markdown string.
     examples : list of Example
-        Examples list value to append to.
+        Examples list value to append.
 
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     if not examples:
         return markdown
@@ -938,7 +939,7 @@ def _make_example_and_append_to_list(
         input_code_block_lines: List[str],
         expected_output: str) -> None:
     """
-    Make an example value and append it ot a specified list.
+    Make an example value and append it to a specified list.
 
     Notes
     -----
@@ -967,8 +968,8 @@ def _make_example_and_append_to_list(
 
 def _is_example_output_line(*, line: str) -> bool:
     """
-    Get a boolean indicating whether a specified line is
-    example section's output line or not.
+    Get a boolean indicating whether a specified line
+    is an example section's output line or not.
 
     Parameters
     ----------
@@ -978,8 +979,8 @@ def _is_example_output_line(*, line: str) -> bool:
     Returns
     -------
     result : bool
-        This function return True if a specified line is
-        example section's output line.
+        This function returns True if a specified line
+        is an example section's output line.
     """
     line = line.strip()
     if line.startswith('>>>') or line.startswith('...'):
@@ -997,12 +998,12 @@ def append_references_to_markdown(
     markdown : str
         Target markdown string.
     references : list of Reference
-        References list value to append to.
+        References list value to append.
 
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     if not references:
         return markdown
@@ -1027,12 +1028,12 @@ def append_raises_to_markdown(
     markdown : str
         Target markdown string.
     raises : list of Raise
-        Raises list value to append to.
+        Raises list value to append.
 
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     if not raises:
         return markdown
@@ -1066,7 +1067,7 @@ def append_params_or_rtns_to_markdown(
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     if not params_or_rtns:
         return markdown
@@ -1260,8 +1261,8 @@ def extract_raise_values_from_docstring(*, docstring: str) -> List[Raise]:
 def _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
         line: str) -> str:
     """
-    Append a break tag and replace the hypen symbol if the first
-    character is the hypen symbol.
+    Append a break tag and replace the hyphen symbol
+    if the first character is the hyphen symbol.
 
     Parameters
     ----------
@@ -1297,7 +1298,7 @@ def _remove_blank_lines_from_list(*, lines: List[str]) -> List[str]:
     Returns
     -------
     result_lines : list of str
-        A lines list which removed blank lines.
+        A blank lines removed line list.
     """
     result_lines: List[str] = []
     for line in lines:
@@ -1310,7 +1311,8 @@ def _remove_blank_lines_from_list(*, lines: List[str]) -> List[str]:
 def _get_base_indent_num_if_not_set(
         *, line: str, base_indent_num: int) -> int:
     """
-    Get a base indent number from line if it is not set.
+    Get a base indent number from a line if it is an
+    initial value.
 
     Parameters
     ----------
@@ -1477,7 +1479,7 @@ def _get_params_or_rtns_section_pattern_by_type(
     Raises
     ------
     ValueError
-        If an invalid target type is provided.
+        If a provided argument is an invalid target's type.
     """
     if target_type == Parameter:
         return _SectionPattern.PARAMETERS
@@ -1529,7 +1531,7 @@ def _make_prm_or_rtn_description_and_append_to_list(
 
 def _get_indent_num_from_line(*, line: str) -> int:
     """
-    Get an indent number from a specified docstring line.
+    Get an indentation number from a specified docstring line.
 
     Parameters
     ----------
@@ -1604,7 +1606,7 @@ def _is_target_section_pattern_line(
         section_pattern: _SectionPattern) -> bool:
     """
     Get a boolean indicating whether a specified line
-    is matching with a target section pattern or not.
+    matches a target section pattern or not.
 
     Parameters
     ----------
@@ -1659,8 +1661,8 @@ def extract_summary_from_docstring(*, docstring: str) -> str:
 
 def _remove_line_breaks_and_unnecessary_spaces(*, text: str) -> str:
     """
-    Remove line breaks to a single space and unnecessary
-    spaces (e.g., double spaces and leading and trailing spaces).
+    Remove line breaks of single and unnecessary spaces
+    (e.g., double spaces and leading and trailing spaces).
 
     Parameters
     ----------
@@ -1694,8 +1696,8 @@ def _is_section_line(*, line: str) -> bool:
     Returns
     -------
     result : bool
-        If a specified docstring line is section line, this
-        function returns True.
+        If a specified docstring line is a section line,
+        this function returns True.
     """
     for pattern in _SectionPattern:
         match: Optional[Match] = re.search(

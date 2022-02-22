@@ -1,12 +1,13 @@
 """
-The module that is implemented each Jupyter interface and definition.
+This module is for each Jupyter interface and definition
+implementation.
 
 Mainly the following interfaces are defined:
 
 - display_on_jupyter
-    Save the overall HTML and display it on the Jupyter.
+    - Save the overall HTML and display it on the Jupyter.
 - display_on_colaboratory
-    Save the overall HTML and display it on the Google Colaboratory.
+    - Save the overall HTML and display it on Google Colaboratory.
 """
 
 import os
@@ -89,7 +90,7 @@ def display_on_colaboratory(
         html_file_name: str, *,
         minify: bool = True) -> None:
     """
-    Save the overall HTML and display it on the Google Colaboratory.
+    Save the overall HTML and display it on Google Colaboratory.
 
     Parameters
     ----------

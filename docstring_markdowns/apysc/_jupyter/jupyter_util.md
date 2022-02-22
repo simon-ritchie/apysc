@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The module that is implemented each Jupyter interface and definition. Mainly the following interfaces are defined: <br>・display_on_jupyter Save the overall HTML and display it on the Jupyter. <br>・display_on_colaboratory Save the overall HTML and display it on the Google Colaboratory.
+This module is for each Jupyter interface and definition implementation. Mainly the following interfaces are defined: <br>・display_on_jupyter Save the overall HTML and display it on the Jupyter. <br>・display_on_colaboratory Save the overall HTML and display it on Google Colaboratory.
 
 ## `_save_overall_html` function docstring
 
@@ -17,7 +17,7 @@ Save the overall HTML file.<hr>
 
 ## `display_on_colaboratory` function docstring
 
-Save the overall HTML and display it on the Google Colaboratory.<hr>
+Save the overall HTML and display it on Google Colaboratory.<hr>
 
 **[Parameters]**
 

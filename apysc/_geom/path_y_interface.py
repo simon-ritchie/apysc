@@ -15,7 +15,8 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
 
     def _initialize_y_if_not_initialized(self) -> None:
         """
-        Initialize the _y attribute if it hasn't been initialized yet.
+        Initialize the _y attribute if this instance does not
+        initialize it yet.
         """
         if hasattr(self, '_y'):
             return
@@ -27,7 +28,7 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
         module_name=__name__, class_name='PathYInterface')
     def _append_y_linking_setting(self) -> None:
         """
-        Append a y attribute linking setting.
+        Append a y attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
             new_attr=self._y, attr_name='y')
@@ -95,7 +96,7 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

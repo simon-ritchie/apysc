@@ -6,7 +6,7 @@ Common JavaScript library utility implementations. Mainly the following interfac
 
 ## `export_jslib_to_specified_dir` function docstring
 
-Export a JavaScript library to specified directory.<hr>
+Export a JavaScript library to a specified directory.<hr>
 
 **[Parameters]**
 
@@ -26,7 +26,7 @@ Export a JavaScript library to specified directory.<hr>
 
 **[Raises]**
 
-- FileNotFoundError: If specified JavaScript file is not found.
+- FileNotFoundError: If there is no specified JavaScript file.
 
 ## `get_jslib_abs_dir_path` function docstring
 
@@ -35,11 +35,11 @@ Get the Javascript library's absolute directory path.<hr>
 **[Returns]**
 
 - `jslib_abs_dir_path`: str
-  - Javascript library's absolute directory path. This module's directory will be set.
+  - Javascript library's absolute directory path. This interface returns this module's directory.
 
 ## `get_jslib_file_names` function docstring
 
-Get the JavaScript libraries file names.<hr>
+Get the JavaScript libraries file's names.<hr>
 
 **[Returns]**
 

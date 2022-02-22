@@ -3,11 +3,12 @@
 Mainly the following interfaces are defined:
 
 - get_jslib_file_names
-    Get the JavaScript libraries file names.
+    Get the JavaScript libraries file's names.
 - get_jslib_abs_dir_path
     Get the Javascript library's absolute directory path.
+    This interface returns this module's directory.
 - export_jslib_to_specified_dir
-    Export a JavaScript library to specified directory.
+    Export a JavaScript library to a specified directory.
 - read_jslib_str
     Read a JavaScript library file str.
 """
@@ -21,7 +22,7 @@ from typing import List
 
 def get_jslib_file_names() -> List[str]:
     """
-    Get the JavaScript libraries file names.
+    Get the JavaScript libraries file's names.
 
     Returns
     -------
@@ -43,6 +44,7 @@ def get_jslib_file_names() -> List[str]:
 def get_jslib_abs_dir_path() -> str:
     """
     Get the Javascript library's absolute directory path.
+    This interface returns this module's directory.
 
     Returns
     -------
@@ -58,7 +60,7 @@ def get_jslib_abs_dir_path() -> str:
 def export_jslib_to_specified_dir(
         *, dest_dir_path: str, jslib_name: str) -> str:
     """
-    Export a JavaScript library to specified directory.
+    Export a JavaScript library to a specified directory.
 
     Parameters
     ----------
@@ -75,7 +77,7 @@ def export_jslib_to_specified_dir(
     Raises
     ------
     FileNotFoundError
-        If specified JavaScript file is not found.
+        If there is no specified JavaScript file.
     """
     os.makedirs(dest_dir_path, exist_ok=True)
     dir_path: str = get_jslib_abs_dir_path()

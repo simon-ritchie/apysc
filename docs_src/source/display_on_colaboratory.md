@@ -45,7 +45,7 @@ ap.display_on_colaboratory(html_file_name='jupyter_test_1.html')
 
 **[Interface signature]** `display_on_colaboratory(html_file_name:str, *, minify:bool=True) -> None`<hr>
 
-**[Interface summary]** Save the overall HTML and display it on the Google Colaboratory.<hr>
+**[Interface summary]** Save the overall HTML and display it on Google Colaboratory.<hr>
 
 **[Parameters]**
 

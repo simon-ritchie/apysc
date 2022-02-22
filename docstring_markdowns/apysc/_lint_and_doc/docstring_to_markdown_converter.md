@@ -20,7 +20,7 @@ Append each docstring section to a specified markdown string.<hr>
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `_append_module_docstring_to_markdown` function docstring
 
@@ -38,7 +38,7 @@ Append a module description docstring to a specified markdown string.<hr>
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `_append_toplevel_class_docstring_to_markdown` function docstring
 
@@ -58,7 +58,7 @@ Append a top-level class docstring to a specified markdown string.<hr>
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `_append_toplevel_function_docstring_to_markdown` function docstring
 
@@ -76,7 +76,7 @@ Append a top-level function docstring to a specified markdown string.<hr>
 **[Returns]**
 
 - `markdown`: str
-  - Result markdown string.
+  - A result markdown string.
 
 ## `_convert_module_docstring_to_markdown` function docstring
 
@@ -96,7 +96,7 @@ Convert a specified module's docstring to a markdown string.<hr>
 
 ## `_get_excluding_target_builtin_methods` function docstring
 
-Get a excluding target builtin methods' docstring values dict.<hr>
+Get an excluding target built-in methods' docstring values dict.<hr>
 
 **[Returns]**
 

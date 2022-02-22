@@ -153,7 +153,7 @@ def _append_toplevel_class_docstring_to_markdown(
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     markdown += f'\n\n## `{toplevel_class.__name__}` class docstring'
     if toplevel_class.__doc__ is not None:
@@ -206,7 +206,7 @@ def _get_methods_from_class(*, class_: Type) -> List[Callable]:
 
 def _get_excluding_target_builtin_methods() -> Dict[str, str]:
     """
-    Get a excluding target builtin methods' docstring
+    Get an excluding target built-in methods' docstring
     values dict.
 
     Returns
@@ -266,7 +266,7 @@ def _append_toplevel_function_docstring_to_markdown(
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     if toplevel_function.__doc__ is None:
         return markdown
@@ -295,7 +295,7 @@ def _append_each_section_to_markdown(
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     from apysc._lint_and_doc import docstring_util
     from apysc._lint_and_doc.docstring_util import Example
@@ -379,7 +379,7 @@ def _append_module_docstring_to_markdown(
     Returns
     -------
     markdown : str
-        Result markdown string.
+        A result markdown string.
     """
     from apysc._lint_and_doc import docstring_util
     from apysc._lint_and_doc.docstring_util import Reference

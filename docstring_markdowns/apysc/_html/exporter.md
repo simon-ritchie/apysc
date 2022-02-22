@@ -18,11 +18,11 @@ Append common JavaScript functions (e.g., helper function) to a expression strin
 **[Returns]**
 
 - `expression`: str
-  - Expression string that common functions are appended.
+  - Expression string which includes fundamental functions.
 
 ## `_append_entry_point_function_call` function docstring
 
-Append entry point function call script to html string.<hr>
+Append entry-point function call's script to a HTML string.<hr>
 
 **[Parameters]**
 
@@ -50,7 +50,7 @@ Append event handler's expressions to a specified string.<hr>
 **[Returns]**
 
 - `expression`: str
-  - Result expression string.
+  - A result expression string.
 
 ## `_append_expression_to_html_str` function docstring
 
@@ -72,7 +72,7 @@ Append expression strings to a specified HTML string.<hr>
 
 ## `_append_head_to_html_str` function docstring
 
-Append head tag section to specified html string.<hr>
+Append a head tag section to a specified HTML string.<hr>
 
 **[Parameters]**
 
@@ -114,7 +114,7 @@ Append JavaScript libraries script string to HTML.<hr>
 
 ## `_append_stage_global_variable_to_html` function docstring
 
-Append stage's global variable to html string.<hr>
+Append a stage's global variable to an HTML string.<hr>
 
 **[Parameters]**
 
@@ -130,14 +130,14 @@ Append stage's global variable to html string.<hr>
 
 ## `_display_debug_mode_ignoring_minify_setting_info` function docstring
 
-Display an information of ignoring minify setting if the debug mode is enabled.<hr>
+Display information of ignoring minify setting if the debug mode is enabled.<hr>
 
 **[Parameters]**
 
 - `minify`: bool
-  - Boolean value whether minify HTML and js or not. False setting is useful when debugging.
+  - A Boolean value indicates whether minify HTML and js or not. The False setting is helpful when debugging.
 - `verbose`: int
-  - If 0 is specified, message will not be displayed. 1 or the other value will display the message.
+  - If 0 is specified, the apysc does not display a message. The apysc displays a message when this value is 1 or the other value.
 
 <hr>
 
@@ -155,7 +155,7 @@ Display an info log message.<hr>
 - `msg`: str
   - A message to display.
 - `verbose`: int
-  - If 0 is specified, message will not be displayed. 1 or the other value will display the message.
+  - If 0 is specified, the apysc does not display a message. 1 or the other value displays the message.
 
 <hr>
 
@@ -184,7 +184,7 @@ Export JavaScript libraries to a specified directory.<hr>
 
 ## `_get_var_name_from_line` function docstring
 
-Get a js variable name from specified line string.<hr>
+Get a js variable name from a specified line string.<hr>
 
 **[Parameters]**
 
@@ -207,7 +207,7 @@ Minify HTML and js string.<hr>
 - `html_str`: str
   - HTML string to minify.
 - `minify`: bool
-  - Boolean value whether minify HTML and js or not. If False, then minifying will be skipped.
+  - A boolean value indicates whether minify HTML and js or not. If False, the apysc skips minifying.
 
 <hr>
 
@@ -220,11 +220,11 @@ Minify HTML and js string.<hr>
 
 **[Notes]**
 
-If the debug mode setting is enabled, minifying will be skipped.
+If the debug mode setting is enabled, the apysc skips minifying.
 
 ## `_remove_blank_lines` function docstring
 
-Remove blank (break or spaces only) lines from expression string.<hr>
+Remove blank (break or spaces only) lines from an expression string.<hr>
 
 **[Parameters]**
 
@@ -252,7 +252,7 @@ Remove unused js variables from expression string.<hr>
 **[Returns]**
 
 - `expression`: str
-  - After removing expression string.
+  - An expression string after removing.
 
 ## `_save_html` function docstring
 
@@ -269,7 +269,7 @@ Save HTML string to file.<hr>
 
 ## `_target_js_variable_is_used` function docstring
 
-Get a boolean value whether target variable is used in js expression or not.<hr>
+Get a boolean value whether an expression uses a target variable in JS expression or not.<hr>
 
 **[Parameters]**
 
@@ -283,7 +283,7 @@ Get a boolean value whether target variable is used in js expression or not.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If target variable is used in js expression, True will be returned.
+  - If an expression uses a target variable in JS expression, this interface returns True.
 
 ## `get_entry_point_func_name` function docstring
 

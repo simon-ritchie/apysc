@@ -115,17 +115,19 @@ def save_overall_html(
 def _display_debug_mode_ignoring_minify_setting_info(
         *, minify: bool, verbose: int) -> str:
     """
-    Display an information of ignoring minify setting if the
+    Display information of ignoring minify setting if the
     debug mode is enabled.
 
     Parameters
     ----------
     minify : bool
-        Boolean value whether minify HTML and js or not.
-        False setting is useful when debugging.
+        A Boolean value indicates whether minify HTML
+        and js or not. The False setting is helpful
+        when debugging.
     verbose : int
-        If 0 is specified, message will not be displayed.
-        1 or the other value will display the message.
+        If 0 is specified, the apysc does not display
+        a message. The apysc displays a message when
+        this value is 1 or the other value.
 
     Returns
     -------
@@ -153,8 +155,8 @@ def _display_info(*, msg: str, verbose: int) -> str:
     msg : str
         A message to display.
     verbose : int
-        If 0 is specified, message will not be displayed.
-        1 or the other value will display the message.
+        If 0 is specified, the apysc does not display
+        a message. 1 or the other value displays the message.
 
     Returns
     -------
@@ -173,15 +175,16 @@ def _minify_html(*, html_str: str, minify: bool) -> str:
 
     Notes
     -----
-    If the debug mode setting is enabled, minifying will be skipped.
+    If the debug mode setting is enabled, the apysc
+    skips minifying.
 
     Parameters
     ----------
     html_str : str
         HTML string to minify.
     minify : bool
-        Boolean value whether minify HTML and js or not.
-        If False, then minifying will be skipped.
+        A boolean value indicates whether minify HTML
+        and js or not. If False, the apysc skips minifying.
 
     Returns
     -------
@@ -200,7 +203,7 @@ def _minify_html(*, html_str: str, minify: bool) -> str:
 
 def _append_stage_global_variable_to_html(*, html_str: str) -> str:
     """
-    Append stage's global variable to html string.
+    Append a stage's global variable to an HTML string.
 
     Parameters
     ----------
@@ -244,7 +247,7 @@ def get_entry_point_func_name() -> str:
 
 def _append_entry_point_function_call(*, html_str: str) -> str:
     """
-    Append entry point function call script to html string.
+    Append entry-point function call's script to a HTML string.
 
     Parameters
     ----------
@@ -351,7 +354,7 @@ def _append_event_handler_expressions(*, expression: str) -> str:
     Returns
     -------
     expression : str
-        Result expression string.
+        A result expression string.
     """
     from apysc._expression import expression_data_util
     event_handler_scope_expression: str = \
@@ -362,7 +365,8 @@ def _append_event_handler_expressions(*, expression: str) -> str:
 
 def _remove_blank_lines(*, expression: str) -> str:
     """
-    Remove blank (break or spaces only) lines from expression string.
+    Remove blank (break or spaces only) lines from an
+    expression string.
 
     Parameters
     ----------
@@ -399,7 +403,7 @@ def _append_common_js_functions(*, expression: str) -> str:
     Returns
     -------
     expression : str
-        Expression string that common functions are appended.
+        Expression string which includes fundamental functions.
     """
     from apysc._expression import js_functions
     js_function_strs: List[str] = js_functions.get_js_functions()
@@ -421,7 +425,7 @@ def _remove_unused_js_vars(*, expression: str) -> str:
     Returns
     -------
     expression : str
-        After removing expression string.
+        An expression string after removing.
     """
     lines: List[str] = expression.splitlines()
     lines.reverse()
@@ -447,8 +451,8 @@ def _remove_unused_js_vars(*, expression: str) -> str:
 def _target_js_variable_is_used(
         *, var_name: str, exp_lines: List[str]) -> bool:
     """
-    Get a boolean value whether target variable is used in
-    js expression or not.
+    Get a boolean value whether an expression uses a target
+    variable in JS expression or not.
 
     Parameters
     ----------
@@ -460,8 +464,8 @@ def _target_js_variable_is_used(
     Returns
     -------
     result : bool
-        If target variable is used in js expression, True will be
-        returned.
+        If an expression uses a target variable in JS
+        expression, this interface returns True.
     """
     var_pattern: Pattern = re.compile(pattern=rf'var ({var_name}) = ')
     used_pattern_1: Pattern = re.compile(
@@ -490,7 +494,7 @@ _VAR_PATTERN: Pattern = re.compile(pattern=r'^var (.+?) = ')
 
 def _get_var_name_from_line(*, line: str) -> str:
     """
-    Get a js variable name from specified line string.
+    Get a js variable name from a specified line string.
 
     Parameters
     ----------
@@ -516,7 +520,7 @@ def _append_head_to_html_str(
         *, html_str: str, js_lib_dir_path: str,
         embed_js_libs: bool) -> str:
     """
-    Append head tag section to specified html string.
+    Append a head tag section to a specified HTML string.
 
     Parameters
     ----------

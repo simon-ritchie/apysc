@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Debugging mode setting interface implementations for the HTML and JavaScript.
+This module is for the HTML and JavaScript debugging-mode setting interface implementations.
 
 ## `_get_callable_count` function docstring
 
@@ -13,9 +13,9 @@ Get a specified callable count number.<hr>
 - `callable_`: Callable or str
   - Target function or method or property or dunder method name.
 - `module_name`: str
-  - Module name. This value will be set the `__name__` value.
+  - Module name. This value needs to set the `__name__` value.
 - `class_`: Type or str or None, optional
-  - Target class type or type name. If the target callable_ variable is not a method, this argument will be ignored.
+  - Target class type or type name. If the target callable_ variable is not a method, this interface ignores this argument.
 
 <hr>
 
@@ -33,9 +33,9 @@ Get a specified callable count data path name.<hr>
 - `callable_`: Callable or str
   - Target function or method or property or dunder method name.
 - `module_name`: str
-  - Module name. This value will be set the `__name__` value.
+  - Module name. This value needs to set the `__name__` value.
 - `class_`: Type or str or None, optional
-  - Target class type or type name. If the target callable_ variable is not a method, this argument will be ignored.
+  - Target class type or type name. If the target callable_ variable is not a method, this interface ignores this argument.
 
 <hr>
 
@@ -69,9 +69,9 @@ Increment a specified callable count number.<hr>
 - `callable_`: Callable or str
   - Target function or method or property or dunder method name.
 - `module_name`: str
-  - Module name. This value will be set the `__name__` value.
+  - Module name. This value needs to set the `__name__` value.
 - `class_`: Type or str or None, optional
-  - Target class type or type name. If the target callable_ variable is not a method, this argument will be ignored.
+  - Target class type or type name. If the target callable_ variable is not a method, this interface ignores this argument.
 
 ## `add_debug_info_setting` function docstring
 
@@ -82,7 +82,7 @@ Set a debug information setting to a target callable object (decorator function)
 - `module_name`: str
   - A target module name.
 - `class_name`: str or None, default None
-  - Target class name. If a target callable is function, this interface requires None of this argument.
+  - Target class name. If a target callable is a function, this interface requires None of this argument.
 
 <hr>
 
@@ -95,7 +95,7 @@ Set a debug information setting to a target callable object (decorator function)
 
 **[Notes]**
 
-Currently this interface raise a mypy error under the some mypy setting. Please set `type: ignore` comment if encountered its mypy error.<hr>
+Currently, this interface raises a mypy error under some mypy settings. Please set `type: ignore` comment if encountered its mypy error.<hr>
 
 **[Examples]**
 
@@ -114,7 +114,7 @@ Get a boolean value whether the current debug mode is enabled or not.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If the current debug mode is enabled, True will be returned.
+  - If the current debug mode is enabled, this interface returns True.
 
 <hr>
 
@@ -135,7 +135,7 @@ False
 
 ## `set_debug_mode` function docstring
 
-Set the debug mode for the HTML and JavaScript debugging. This interface applies the following setting if calling this function: <br> ・Disabling HTML minify setting. <br> ・Changing to append per each interface JavaScript divider string.<hr>
+Set the debug mode for the HTML and JavaScript debugging. If calling this function, this interface applies the following setting: <br> ・Disabling HTML minify setting. <br> ・Changing to append per each interface JavaScript divider string.<hr>
 
 **[Examples]**
 
@@ -174,19 +174,19 @@ Unset the debug mode for the HTML and JavaScript debugging.<hr>
 
 ## `DebugInfo` class docstring
 
-Save a debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class is used at the `with` statement.<hr>
+Save debugging information (append callable interface name comment and arguments information) to the JavaScript expression file. The apysc uses this class at the `with` statement.<hr>
 
 **[Notes]**
 
-If the debug mode setting is not enabled, saving will be skipped.
+If the debug mode setting is not enabled, the apysc skips the saving.
 
 ### `__enter__` method docstring
 
-The method will be called at the start of the with block.
+This class uses this method at the start of the with-block.
 
 ### `__exit__` method docstring
 
-The method will be called at the end of the with block.<hr>
+This class uses this method at the end of the with-block.<hr>
 
 **[Parameters]**
 

@@ -1,5 +1,5 @@
-"""Debugging mode setting interface implementations for the HTML
-and JavaScript.
+"""This module is for the HTML and JavaScript debugging-mode
+setting interface implementations.
 """
 
 import functools
@@ -20,7 +20,8 @@ from apysc._expression.indent_num import Indent
 def set_debug_mode() -> None:
     """
     Set the debug mode for the HTML and JavaScript debugging.
-    This interface applies the following setting if calling this function:
+    If calling this function, this interface applies
+    the following setting:
     - Disabling HTML minify setting.
     - Changing to append per each interface JavaScript divider string.
 
@@ -74,7 +75,8 @@ def is_debug_mode() -> bool:
     Returns
     -------
     result : bool
-        If the current debug mode is enabled, True will be returned.
+        If the current debug mode is enabled, this interface
+        returns True.
 
     Examples
     --------
@@ -134,10 +136,10 @@ def _get_callable_path_name(
     callable_ : Callable or str
         Target function or method or property or dunder method name.
     module_name : str
-        Module name. This value will be set the `__name__` value.
+        Module name. This value needs to set the `__name__` value.
     class_ : Type or str or None, optional
         Target class type or type name. If the target callable_
-        variable is not a method, this argument will be ignored.
+        variable is not a method, this interface ignores this argument.
 
     Returns
     -------
@@ -170,10 +172,10 @@ def _get_callable_count(
     callable_ : Callable or str
         Target function or method or property or dunder method name.
     module_name : str
-        Module name. This value will be set the `__name__` value.
+        Module name. This value needs to set the `__name__` value.
     class_ : Type or str or None, optional
         Target class type or type name. If the target callable_
-        variable is not a method, this argument will be ignored.
+        variable is not a method, this interface ignores this argument.
 
     Returns
     -------
@@ -209,10 +211,10 @@ def _increment_callable_count(
     callable_ : Callable or str
         Target function or method or property or dunder method name.
     module_name : str
-        Module name. This value will be set the `__name__` value.
+        Module name. This value needs to set the `__name__` value.
     class_ : Type or str or None, optional
         Target class type or type name. If the target callable_
-        variable is not a method, this argument will be ignored.
+        variable is not a method, this interface ignores this argument.
     """
     from apysc._expression import expression_data_util
     callable_count: int = _get_callable_count(
@@ -236,14 +238,15 @@ def _increment_callable_count(
 
 class DebugInfo:
     """
-    Save a debug information (append callable interface name
-    comment and arguments information) to the JavaScript
-    expression file. This class is used at the `with` statement.
+    Save debugging information (append callable interface
+    name comment and arguments information) to the
+    JavaScript expression file. The apysc uses this
+    class at the `with` statement.
 
     Notes
     -----
-    If the debug mode setting is not enabled, saving will
-    be skipped.
+    If the debug mode setting is not enabled, the apysc
+    skips the saving.
     """
 
     _callable: Union[Callable, str]
@@ -319,7 +322,8 @@ class DebugInfo:
 
     def __enter__(self) -> None:
         """
-        The method will be called at the start of the with block.
+        This class uses this method at the start of the
+        with-block.
         """
         import apysc as ap
         if not ap.is_debug_mode():
@@ -346,7 +350,7 @@ class DebugInfo:
 
     def __exit__(self, *args: Any) -> None:
         """
-        The method will be called at the end of the with block.
+        This class uses this method at the end of the with-block.
 
         Parameters
         ----------
@@ -384,9 +388,8 @@ def add_debug_info_setting(
     module_name : str
         A target module name.
     class_name : str or None, default None
-        Target class name. If a target callable is
-        function, this interface requires None of
-        this argument.
+        Target class name. If a target callable is a function,
+        this interface requires None of this argument.
 
     Returns
     -------
@@ -395,8 +398,8 @@ def add_debug_info_setting(
 
     Notes
     -----
-    Currently this interface raise a mypy error under the
-    some mypy setting. Please set `type: ignore` comment
+    Currently, this interface raises a mypy error under
+    some mypy settings. Please set `type: ignore` comment
     if encountered its mypy error.
 
     Examples

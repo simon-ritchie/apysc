@@ -10,6 +10,7 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Type
+import importlib
 
 from retrying import retry
 
@@ -145,6 +146,7 @@ def _read_test_module() -> ModuleType:
             _save_test_module()
             module: ModuleType = module_util.read_target_path_module(
                 module_path=_TEST_MODULE_PATH)
+            importlib.reload(module)
             break
         except Exception:
             time.sleep(randint(1, 10))

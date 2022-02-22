@@ -2,7 +2,7 @@
 
 ## Module summary
 
-HTML related implementations. Mainly following interfaces are defined: <br>・remove_first_selector_symbol_char : Remove first selector symbol (`.` or `#`) from string. <br>・append_html_to_str : Add html string to another string with line break and specified number's indentation. <br>・append_indent_to_each_script_line : Append indentation spaces to each script lines of specified html. <br>・ScriptLineUtil : The class for HTML's script line utility. <br>・is_script_start_tag_line : Get a boolean whether the specified line contains script start tag (`<script ...>`). <br>・is_script_end_tag_line : Get a boolean whether the specified line contains script end tag (`</script>`). <br>・wrap_expression_by_script_tag : Wrap an expression string by script start and end tag.
+HTML related implementations. Mainly following interfaces are defined: <br>・remove_first_selector_symbol_char : Remove a first selector symbol (`.` or `#`) from a string. <br>・append_html_to_str : Add an HTML string to another string with the line break and specified number's indentation. <br>・append_indent_to_each_script_line : Append indentation spaces to each script lines of specified html. <br>・ScriptLineUtil : The class for HTML's script line utility. <br>・is_script_start_tag_line : Get a boolean whether the specified line contains script start tag (`<script ...>`). <br>・is_script_end_tag_line : Get a boolean whether the specified line contains script end tag (`</script>`). <br>・wrap_expression_by_script_tag : Wrap an expression string by script start and end tag.
 
 ## `_append_remove_first_selector_symbol_char_expression` function docstring
 

@@ -102,7 +102,7 @@ This setting appends the information (Python's function and method callings, its
 
 **[Interface signature]** `set_debug_mode() -> None`<hr>
 
-**[Interface summary]** Set the debug mode for the HTML and JavaScript debugging. This interface applies the following setting if calling this function: <br> ・Disabling HTML minify setting. <br> ・Changing to append per each interface JavaScript divider string.<hr>
+**[Interface summary]** Set the debug mode for the HTML and JavaScript debugging. If calling this function, this interface applies the following setting: <br> ・Disabling HTML minify setting. <br> ・Changing to append per each interface JavaScript divider string.<hr>
 
 **[Examples]**
 

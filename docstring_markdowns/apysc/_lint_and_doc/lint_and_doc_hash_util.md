@@ -36,7 +36,7 @@ Wrapper function of the `is_module_updated` function for the multiprocessing.<hr
 **[Returns]**
 
 - `result`: bool
-  - If a specified module has been updated then True will be returned.
+  - If there is an updated module, this interface returns True.
 
 ## `get_hash_dir_path` function docstring
 
@@ -58,7 +58,7 @@ Get a specified type's hash directory path.<hr>
 
 **[Notes]**
 
-Returned directory path will create automatically if it does not exist.
+This interface creates a returned directory path if it does not exist.
 
 ## `get_target_module_hash_file_path` function docstring
 
@@ -82,11 +82,11 @@ Get a specified module's hash file path.<hr>
 
 **[Notes]**
 
-Returned file's directory path will create automatically if it does not exist.
+This interface automatically creates a returned file's directory path if it does not exist.
 
 ## `is_module_updated` function docstring
 
-Get a boolean value whether a specified module has been updated.<hr>
+Get a boolean value whether a specified module is changing or not.<hr>
 
 **[Parameters]**
 
@@ -100,7 +100,7 @@ Get a boolean value whether a specified module has been updated.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If a specified module has been updated then True will be returned.
+  - If a specified module is changing, this interface returns True.
 
 ## `read_saved_hash` function docstring
 
@@ -118,7 +118,7 @@ Read an already-saved module's hashed string.<hr>
 **[Returns]**
 
 - `saved_hash`: str
-  - An already-saved module's hash string. If there is no saved hash file then a blank string will be returned.
+  - An already-saved module's hash string. If there is no saved hash file, this interface returns a blank string.
 
 ## `read_target_module_hash` function docstring
 
@@ -134,7 +134,7 @@ Read a specified module's hashed string.<hr>
 **[Returns]**
 
 - `hashed_string`: str
-  - Hashed module string. If there is no module at the specified path, then a blank string will be returned.
+  - Hashed module string. If there is no module at the specified path, this interface returns a blank string.
 
 ## `remove_not_updated_module_paths` function docstring
 

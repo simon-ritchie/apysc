@@ -60,8 +60,8 @@ def get_hash_dir_path(*, hash_type: HashType) -> str:
 
     Notes
     -----
-    Returned directory path will create automatically if it does
-    not exist.
+    This interface creates a returned directory path
+    if it does not exist.
     """
     dir_path: str = os.path.join(
         _HASH_PACKAGE_ROOT_PATH,
@@ -90,8 +90,8 @@ def get_target_module_hash_file_path(
 
     Notes
     -----
-    Returned file's directory path will create automatically if it
-    does not exist.
+    This interface automatically creates a returned file's
+    directory path if it does not exist.
     """
     if module_path.startswith('./'):
         module_path = module_path.replace('./', '', 1)
@@ -114,8 +114,9 @@ def read_target_module_hash(*, module_path: str) -> str:
     Returns
     -------
     hashed_string : str
-        Hashed module string. If there is no module at the specified
-        path, then a blank string will be returned.
+        Hashed module string. If there is no module at
+        the specified path, this interface returns
+        a blank string.
     """
     from apysc._file import file_util
     if not os.path.isfile(module_path):
@@ -139,8 +140,9 @@ def read_saved_hash(*, module_path: str, hash_type: HashType) -> str:
     Returns
     -------
     saved_hash : str
-        An already-saved module's hash string. If there is no saved
-        hash file then a blank string will be returned.
+        An already-saved module's hash string. If there
+        is no saved hash file, this interface returns
+        a blank string.
     """
     from apysc._file import file_util
     file_path: str = get_target_module_hash_file_path(
@@ -198,7 +200,7 @@ def save_target_modules_hash(
 
 def is_module_updated(*, module_path: str, hash_type: HashType) -> bool:
     """
-    Get a boolean value whether a specified module has been updated.
+    Get a boolean value whether a specified module is changing or not.
 
     Parameters
     ----------
@@ -210,8 +212,8 @@ def is_module_updated(*, module_path: str, hash_type: HashType) -> bool:
     Returns
     -------
     result : bool
-        If a specified module has been updated then True will
-        be returned.
+        If a specified module is changing, this interface
+        returns True.
     """
     saved_hash: str = read_saved_hash(
         module_path=module_path, hash_type=hash_type)
@@ -241,8 +243,8 @@ def _is_module_updated_func_for_multiprocessing(
     Returns
     -------
     result : bool
-        If a specified module has been updated then True will
-        be returned.
+        If there is an updated module, this interface
+        returns True.
     """
     result: bool = is_module_updated(
         module_path=args['module_path'],

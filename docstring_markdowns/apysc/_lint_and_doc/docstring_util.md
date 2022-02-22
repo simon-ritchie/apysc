@@ -419,7 +419,7 @@ Remove line breaks of single and unnecessary spaces (e.g., double spaces and lea
 
 ## `_remove_noqa` function docstring
 
-Remove a `noqa` comment from a specified string.<hr>
+Remove a noqa comment from a specified string.<hr>
 
 **[Parameters]**
 

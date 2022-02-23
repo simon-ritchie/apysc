@@ -22,7 +22,7 @@ Escape double quotations.<hr>
 
 ## `escape_str` function docstring
 
-Escape special characters (e.g. line breaks of ` `).<hr>
+Escape special characters (e.g., line breaks).<hr>
 
 **[Parameters]**
 
@@ -38,7 +38,7 @@ Escape special characters (e.g. line breaks of ` `).<hr>
 
 ## `replace_double_spaces_to_single_space` function docstring
 
-Replace double spaces to a single space.<hr>
+Replace double spaces with a single space.<hr>
 
 **[Parameters]**
 
@@ -69,7 +69,7 @@ Substitute text file by regular expression pattern.<hr>
 
 ## `wrap_by_double_quotation_if_value_is_string` function docstring
 
-Wrap specified by double quotation if value is a string.<hr>
+Wrap specified value by double quotation if a value is a string.<hr>
 
 **[Parameters]**
 
@@ -81,4 +81,4 @@ Wrap specified by double quotation if value is a string.<hr>
 **[Returns]**
 
 - `value`: *
-  - Wrapped value. If not string value is specified, return that value imediatelly.
+  - Wrapped value. If a not-string value is specified, return that value immediately.

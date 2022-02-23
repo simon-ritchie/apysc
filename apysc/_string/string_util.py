@@ -3,15 +3,16 @@
 Mainly following interfaces and defined.
 
 - escape_str
-    Escape special characters (e.g. line breaks of `\n`).
+    - Escape special characters (e.g., line breaks).
 - escape_double_quotation
-    Escape double quotations.
+    - Escape double quotations.
 - wrap_by_double_quotation_if_value_is_string
-    Wrap specified by double quotation if value is a string.
+    - Wrap specified value by double quotation if a value
+    is a string.
 - substitute_file_by_pattern
-    Substitute text file by regular expression pattern.
+    - Substitute text file by regular expression pattern.
 - replace_double_spaces_to_single_space
-    Replace double spaces to a single space.
+    - Replace double spaces with a single space.
 """
 
 import re
@@ -60,7 +61,8 @@ T = TypeVar('T')
 
 def wrap_by_double_quotation_if_value_is_string(*, value: T) -> T:
     """
-    Wrap specified by double quotation if value is a string.
+    Wrap specified value by double quotation if a
+    value is a string.
 
     Parameters
     ----------
@@ -70,8 +72,8 @@ def wrap_by_double_quotation_if_value_is_string(*, value: T) -> T:
     Returns
     -------
     value : *
-        Wrapped value. If not string value is specified, return that
-        value imediatelly.
+        Wrapped value. If a not-string value is specified,
+        return that value immediately.
     """
     if not isinstance(value, str):
         return value
@@ -108,7 +110,7 @@ def substitute_file_by_pattern(
 
 def replace_double_spaces_to_single_space(*, string: str) -> str:
     """
-    Replace double spaces to a single space.
+    Replace double spaces with a single space.
 
     Parameters
     ----------

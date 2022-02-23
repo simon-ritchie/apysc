@@ -183,7 +183,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         Parameters
         ----------
         delay : int or float or Int or Number or FPS
-            A delay between each handler's calling in milisecond
+            A delay between each handler's calling in milliseconds
             or FPS value.
 
         Returns
@@ -380,7 +380,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         Returns
         -------
         wrapped : _Handler
-            Wrapped handler.
+            A wrapped handler.
         """
         from apysc._event.timer_event import TimerEvent
 

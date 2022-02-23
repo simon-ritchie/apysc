@@ -102,7 +102,7 @@ Convert each type of delay value to a `Number` value.<hr>
 **[Parameters]**
 
 - `delay`: int or float or Int or Number or FPS
-  - A delay between each handler's calling in milisecond or FPS value.
+  - A delay between each handler's calling in milliseconds or FPS value.
 
 <hr>
 
@@ -141,7 +141,7 @@ Wrap a handler to update a current count value when it is called.<hr>
 **[Returns]**
 
 - `wrapped`: _Handler
-  - Wrapped handler.
+  - A wrapped handler.
 
 ### `reset` method docstring
 

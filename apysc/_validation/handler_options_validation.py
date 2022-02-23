@@ -1,4 +1,5 @@
-"""Validation implementations for the handler's options value.
+"""This module is for the handler's option value
+validation implementations.
 """
 
 from typing import Any

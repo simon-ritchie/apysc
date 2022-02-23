@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Validation implementations for the handler's options value.
+This module is for the handler's option value validation implementations.
 
 ## `validate_options_type` function docstring
 

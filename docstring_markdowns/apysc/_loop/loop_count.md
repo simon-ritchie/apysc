@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Implementations for the count of the current loop number (the For or the other loop class nested number).
+Implementations for the current loop number (the For or the other loop class nested number).
 
 ## `_save_loop_count` function docstring
 

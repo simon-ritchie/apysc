@@ -1,4 +1,4 @@
-"""Implementations for the count of the current loop number
+"""Implementations for the current loop number
 (the For or the other loop class nested number).
 """
 

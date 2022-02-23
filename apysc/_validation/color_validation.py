@@ -14,7 +14,7 @@ StrOrString = TypeVar('StrOrString', str, String)
 
 def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
     """
-    Validate a specified hexadecimal color code's format.
+    Validate a specified hexadecimal color code format.
 
     Parameters
     ----------
@@ -67,7 +67,7 @@ def validate_alpha_range(
     Raises
     ------
     ValueError
-        If specified opacity is out of 0.0 to 1.0 range.
+        If a specified opacity is out of the 0.0 to 1.0 range.
     """
     if alpha < 0.0:
         raise ValueError(

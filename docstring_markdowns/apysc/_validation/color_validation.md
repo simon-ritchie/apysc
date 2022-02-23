@@ -17,11 +17,11 @@ Validate specified alpha (opacity) value's range.<hr>
 
 **[Raises]**
 
-- ValueError: If specified opacity is out of 0.0 to 1.0 range.
+- ValueError: If a specified opacity is out of the 0.0 to 1.0 range.
 
 ## `validate_hex_color_code_format` function docstring
 
-Validate a specified hexadecimal color code's format.<hr>
+Validate a specified hexadecimal color code format.<hr>
 
 **[Parameters]**
 

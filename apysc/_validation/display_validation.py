@@ -5,8 +5,8 @@ Mainly following interfaces are defined:
 - validate_stage
     Validate whether the specified instance is Stage type or not.
 - validate_display_object
-    Validate specified instance is DisplayObject type or it's
-    subclass type (e.g., Sprite).
+    Validate whether a  specified instance is the
+    `DisplayObject` type or its subclass type (e.g., Sprite).
 - validate_sprite
     Validate specified instance is Sprite type.
 - validate_graphics
@@ -16,8 +16,8 @@ Mainly following interfaces are defined:
 - validate_line_joints
     Validate specified line joints style setting.
 - validate_multiple_line_settings_isnt_set
-    Validate multiple line settings (dotted, dashed, and so on)
-    is not set.
+    Validate that there are no multiple line settings
+    (dotted, dashed, and so on).
 """
 
 
@@ -37,7 +37,7 @@ def validate_stage(stage: Any) -> None:
     Raises
     ------
     ValueError
-        If specified instance is not stage type.
+        If a specified instance is not stage type.
     """
     import apysc as ap
     if isinstance(stage, ap.Stage):
@@ -48,8 +48,8 @@ def validate_stage(stage: Any) -> None:
 
 def validate_display_object(display_object: Any) -> None:
     """
-    Validate specified instance is DisplayObject type or it's subclass
-    type (e.g., Sprite).
+    Validate whether a  specified instance is the
+    `DisplayObject` type or its subclass type (e.g., Sprite).
 
     Parameters
     ----------
@@ -59,8 +59,8 @@ def validate_display_object(display_object: Any) -> None:
     Raises
     ------
     ValueError
-        If specified instance is not DisplayObject type or it's subclass
-        type.
+        If a specified instance is not DisplayObject type
+        or its subclass type.
     """
     from apysc._display.display_object import DisplayObject
     if isinstance(display_object, DisplayObject):
@@ -82,7 +82,7 @@ def validate_sprite(sprite: Any) -> None:
     Raises
     ------
     ValueError
-        If specified instance is not Sprite type.
+        If a specified instance is not Sprite type.
     """
     import apysc as ap
     if isinstance(sprite, ap.Sprite):
@@ -103,7 +103,7 @@ def validate_graphics(graphics: Any) -> None:
     Raises
     ------
     ValueError
-        If specified instance is not Graphics type.
+        If a specified instance is not Graphics type.
     """
     from apysc._display.graphics import Graphics
     if isinstance(graphics, Graphics):
@@ -175,8 +175,8 @@ def validate_line_joints(joints: Any) -> None:
 
 def validate_multiple_line_settings_isnt_set(any_instance: Any) -> None:
     """
-    Validate multiple line settings (dotted, dashed, and so on)
-    is not set.
+    Validate that there are no multiple line settings
+    (dotted, dashed, and so on).
 
     Parameters
     ----------
@@ -186,7 +186,7 @@ def validate_multiple_line_settings_isnt_set(any_instance: Any) -> None:
     Raises
     ------
     ValueError
-        If multiple line settings are set.
+        If there are multiple line settings.
     """
     from apysc._display.line_dash_dot_setting_interface import \
         LineDashDotSettingInterface

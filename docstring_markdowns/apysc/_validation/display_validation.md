@@ -6,7 +6,7 @@ Each display's validation implementations. Mainly following interfaces are defin
 
 ## `validate_display_object` function docstring
 
-Validate specified instance is DisplayObject type or it's subclass type (e.g., Sprite).<hr>
+Validate whether a  specified instance is the `DisplayObject` type or its subclass type (e.g., Sprite).<hr>
 
 **[Parameters]**
 
@@ -17,7 +17,7 @@ Validate specified instance is DisplayObject type or it's subclass type (e.g., S
 
 **[Raises]**
 
-- ValueError: If specified instance is not DisplayObject type or it's subclass type.
+- ValueError: If a specified instance is not DisplayObject type or its subclass type.
 
 ## `validate_graphics` function docstring
 
@@ -32,7 +32,7 @@ Validate specified instance is Graphics type.<hr>
 
 **[Raises]**
 
-- ValueError: If specified instance is not Graphics type.
+- ValueError: If a specified instance is not Graphics type.
 
 ## `validate_line_cap` function docstring
 
@@ -66,7 +66,7 @@ Validate specified line joints style setting.<hr>
 
 ## `validate_multiple_line_settings_isnt_set` function docstring
 
-Validate multiple line settings (dotted, dashed, and so on) is not set.<hr>
+Validate that there are no multiple line settings (dotted, dashed, and so on).<hr>
 
 **[Parameters]**
 
@@ -77,7 +77,7 @@ Validate multiple line settings (dotted, dashed, and so on) is not set.<hr>
 
 **[Raises]**
 
-- ValueError: If multiple line settings are set.
+- ValueError: If there are multiple line settings.
 
 ## `validate_sprite` function docstring
 
@@ -92,7 +92,7 @@ Validate specified instance is Sprite type.<hr>
 
 **[Raises]**
 
-- ValueError: If specified instance is not Sprite type.
+- ValueError: If a specified instance is not Sprite type.
 
 ## `validate_stage` function docstring
 
@@ -107,4 +107,4 @@ Validate whether the specified instance is Stage type or not.<hr>
 
 **[Raises]**
 
-- ValueError: If specified instance is not stage type.
+- ValueError: If a specified instance is not stage type.

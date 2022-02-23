@@ -2,7 +2,7 @@
 
 ## Module summary
 
-For loop class implementation.
+This module is for the `For` loop class implementation.
 
 ## `For` class docstring
 
@@ -25,7 +25,7 @@ A class to append for the (loop) expression.<hr>
 
 ### `__enter__` method docstring
 
-Method to be called when begining of with statement.<hr>
+This class calls this method at the with-statement.<hr>
 
 **[Returns]**
 
@@ -34,7 +34,7 @@ Method to be called when begining of with statement.<hr>
 
 ### `__exit__` method docstring
 
-Method to be called when end of with statement.
+This class calls this method at the with-statement.
 
 ### `__init__` method docstring
 
@@ -97,4 +97,4 @@ Validate loop value type is Array of Dictionary.<hr>
 
 **[Raises]**
 
-- TypeError: If value type is neither Array nor Dictionary.
+- TypeError: If a value type is neither Array nor Dictionary.

@@ -1,4 +1,4 @@
-"""For loop class implementation.
+"""This module is for the `For` loop class implementation.
 """
 
 from typing import Any
@@ -103,7 +103,7 @@ class For(Generic[T]):
         Raises
         ------
         TypeError
-            If value type is neither Array nor Dictionary.
+            If a value type is neither Array nor Dictionary.
         """
         if isinstance(arr_or_dict, (Array, Dictionary)):
             return
@@ -115,7 +115,7 @@ class For(Generic[T]):
         module_name=__name__, class_name='For')
     def __enter__(self) -> T:
         """
-        Method to be called when begining of with statement.
+        This class calls this method at the with-statement.
 
         Returns
         -------
@@ -147,7 +147,7 @@ class For(Generic[T]):
         module_name=__name__, class_name='For')
     def __exit__(self, *args: Any) -> None:
         """
-        Method to be called when end of with statement.
+        This class calls this method at the with-statement.
         """
         import apysc as ap
         from apysc._expression import last_scope

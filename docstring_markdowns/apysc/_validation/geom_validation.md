@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Validation helper interfaces for geometry related values.
+This module is for the geometry-related values' validation helper interfaces.
 
 ## `validate_point_2d_type` function docstring
 
@@ -17,4 +17,4 @@ Validate specified value's type is Point2D.<hr>
 
 **[Raises]**
 
-- ValueError: If scpecified value's type is not Point2D.
+- ValueError: If a specified value's type is not Point2D.

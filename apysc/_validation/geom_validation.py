@@ -1,4 +1,5 @@
-"""Validation helper interfaces for geometry related values.
+"""This module is for the geometry-related values' validation
+helper interfaces.
 """
 
 
@@ -17,7 +18,7 @@ def validate_point_2d_type(point: Any) -> None:
     Raises
     ------
     ValueError
-        If scpecified value's type is not Point2D.
+        If a specified value's type is not Point2D.
     """
     import apysc as ap
     if isinstance(point, ap.Point2D):

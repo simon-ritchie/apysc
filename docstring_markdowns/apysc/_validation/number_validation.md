@@ -10,39 +10,39 @@ Validate specified integer value is zero or one.<hr>
 
 **[Parameters]**
 
-- `integer`: int or Int
+- `integer`: Int or int
   - Integer value to check.
 
 <hr>
 
 **[Raises]**
 
-- ValueError: If specified integer is not zero and one.
+- ValueError: If a specified integer is not zero and one.
 
 <hr>
 
 **[Notes]**
 
-If argument value is not int or Int instance, then validation will be skipped.
+This interface skips validation if an argument value is not an Int or int instance.
 
 ## `validate_integer` function docstring
 
-Validate specified value is integer.<hr>
+Validate whether a specified value is an integer or not.<hr>
 
 **[Parameters]**
 
-- `integer`: int or Int
+- `integer`: Int or int
   - Integer value to check.
 
 <hr>
 
 **[Raises]**
 
-- ValueError: If specified value is not integer.
+- ValueError: If a specified value is not an integer.
 
 ## `validate_num` function docstring
 
-Validate specified value is integer or float type.<hr>
+Validate a specified value is an integer or float type.<hr>
 
 **[Parameters]**
 
@@ -53,7 +53,7 @@ Validate specified value is integer or float type.<hr>
 
 **[Raises]**
 
-- ValueError: If specified value is not integer and float value.
+- ValueError: If specified value is not an integer and float value.
 
 ## `validate_num_is_gt_zero` function docstring
 
@@ -72,7 +72,7 @@ Validate specified value is greater than zero.<hr>
 
 ## `validate_num_is_gte_zero` function docstring
 
-Validate specified value is greater than or equal to zero.<hr>
+Validate whether a specified value is greater than or equal to zero.<hr>
 
 **[Parameters]**
 

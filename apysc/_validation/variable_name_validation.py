@@ -1,4 +1,4 @@
-"""Variable name related Validation interfaces.
+"""Variable name-related Validation interfaces.
 """
 
 from typing import Any

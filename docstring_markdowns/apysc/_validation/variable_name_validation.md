@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Variable name related Validation interfaces.
+Variable name-related Validation interfaces.
 
 ## `validate_variable_name_interface_type` function docstring
 

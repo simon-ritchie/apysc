@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The class implementation for the return expression.
+This module is for the `return` expression class implementation.
 
 ## `Return` class docstring
 

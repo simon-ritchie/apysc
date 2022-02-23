@@ -14,7 +14,8 @@ from apysc._event.mouse_event_type import MouseEventType
 
 def validate_event(e: Any) -> Event:
     """
-    Validate whether specified instance is Event or not.
+    Validate whether a specified instance is the
+    `Event` class or not.
 
     Parameters
     ----------
@@ -24,7 +25,8 @@ def validate_event(e: Any) -> Event:
     Raises
     ------
     ValueError
-        If specified instance is not Event instance.
+        If a specified instance is not the `Event`
+        class instance.
 
     Returns
     -------

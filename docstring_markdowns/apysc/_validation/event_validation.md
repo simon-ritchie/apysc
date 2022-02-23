@@ -6,7 +6,7 @@ Event validation implementation. Mainly following interfaces are defined. <br>ãƒ
 
 ## `validate_event` function docstring
 
-Validate whether specified instance is Event or not.<hr>
+Validate whether a specified instance is the `Event` class or not.<hr>
 
 **[Parameters]**
 
@@ -24,7 +24,7 @@ Validate whether specified instance is Event or not.<hr>
 
 **[Raises]**
 
-- ValueError: If specified instance is not Event instance.
+- ValueError: If a specified instance is not the `Event` class instance.
 
 ## `validate_event_type` function docstring
 

@@ -12,7 +12,7 @@ def validate_string_type(string: Union[str, String]) -> None:
 
     Parameters
     ----------
-    string : str or String
+    string : String or str
         String to check.
 
     Raises
@@ -29,11 +29,11 @@ def validate_string_type(string: Union[str, String]) -> None:
 
 def validate_not_empty_string(string: Union[str, String]) -> None:
     """
-    Validate specified string is not empty.
+    Validate whether a specified string is not empty.
 
     Parameters
     ----------
-    string : str or String
+    string : String or str
         String to check.
 
     Raises

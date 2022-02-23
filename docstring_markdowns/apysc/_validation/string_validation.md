@@ -6,11 +6,11 @@ String's validation implementations.
 
 ## `validate_not_empty_string` function docstring
 
-Validate specified string is not empty.<hr>
+Validate whether a specified string is not empty.<hr>
 
 **[Parameters]**
 
-- `string`: str or String
+- `string`: String or str
   - String to check.
 
 <hr>
@@ -25,7 +25,7 @@ Validate specified string's type is str.<hr>
 
 **[Parameters]**
 
-- `string`: str or String
+- `string`: String or str
   - String to check.
 
 <hr>

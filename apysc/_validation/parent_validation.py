@@ -1,4 +1,4 @@
-"""Parent related validation interfaces.
+"""Parent-related validation interfaces.
 """
 
 from typing import Any
@@ -17,8 +17,8 @@ def validate_parent_instance(parent: Optional[Any]) -> None:
     Raises
     ------
     ValueError
-        If specified parent is not None and not `ChildInterface`
-        instance.
+        If a specified parent isn't the `None` and
+        `ChildInterface` instance.
     """
     if parent is None:
         return
@@ -33,7 +33,7 @@ def validate_parent_instance(parent: Optional[Any]) -> None:
 def validate_parent_contains_child(
         parent: Optional[Any], child: Any) -> None:
     """
-    Validate parent contains specified child.
+    Validate whether a parent contains a specified child.
 
     Parameters
     ----------
@@ -45,8 +45,8 @@ def validate_parent_contains_child(
     Raises
     ------
     ValueError
-        If parent not contains specified child. If parent is None,
-        check will be skipped.
+        If a parent does not contain a specified child.
+        If a parent is None, this interface skips the checking.
     """
     from apysc._display.child_interface import ChildInterface
     from apysc._display.display_object import DisplayObject

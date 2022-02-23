@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Parent related validation interfaces.
+Parent-related validation interfaces.
 
 ## `validate_parent_contains_child` function docstring
 
-Validate parent contains specified child.<hr>
+Validate whether a parent contains a specified child.<hr>
 
 **[Parameters]**
 
@@ -19,7 +19,7 @@ Validate parent contains specified child.<hr>
 
 **[Raises]**
 
-- ValueError: If parent not contains specified child. If parent is None, check will be skipped.
+- ValueError: If a parent does not contain a specified child. If a parent is None, this interface skips the checking.
 
 ## `validate_parent_instance` function docstring
 
@@ -34,4 +34,4 @@ Validate specified parent is `ChildInterface` instance.<hr>
 
 **[Raises]**
 
-- ValueError: If specified parent is not None and not `ChildInterface` instance.
+- ValueError: If a specified parent isn't the `None` and `ChildInterface` instance.

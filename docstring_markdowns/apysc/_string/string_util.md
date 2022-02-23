@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Common string utilities. Mainly following interfaces and defined. <br>・escape_str Escape special characters (e.g. line breaks of ` `). <br>・escape_double_quotation Escape double quotations. <br>・wrap_by_double_quotation_if_value_is_string Wrap specified by double quotation if value is a string. <br>・substitute_file_by_pattern Substitute text file by regular expression pattern. <br>・replace_double_spaces_to_single_space Replace double spaces to a single space.
+Common string utilities. Mainly following interfaces and defined. <br>・escape_str <br> ・Escape special characters (e.g., line breaks). <br>・escape_double_quotation <br> ・Escape double quotations. <br>・wrap_by_double_quotation_if_value_is_string <br> ・Wrap specified value by double quotation if a value is a string. <br>・substitute_file_by_pattern <br> ・Substitute text file by regular expression pattern. <br>・replace_double_spaces_to_single_space <br> ・Replace double spaces with a single space.
 
 ## `escape_double_quotation` function docstring
 
@@ -22,7 +22,7 @@ Escape double quotations.<hr>
 
 ## `escape_str` function docstring
 
-Escape special characters (e.g., line breaks).<hr>
+Escape special characters (e.g. line breaks of ` `).<hr>
 
 **[Parameters]**
 

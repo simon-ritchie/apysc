@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Common indentation related utility implementations. Mainly following interfaces are defined: <br>・make_spaces_for_html: Make spaces that multiplied 2 to specified indentation number. <br>・append_spaces_to_expression: Append spaces to a expression string.
+Common indentation related utility implementations. Mainly following interfaces are defined: <br>・make_spaces_for_html: Make spaces that multiply 2 to a specified indentation number. <br>・append_spaces_to_expression: Append spaces to a expression string.
 
 ## `append_spaces_to_expression` function docstring
 

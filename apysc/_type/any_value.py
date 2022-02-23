@@ -14,7 +14,8 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
     """
-    Class implementation of any value (value that can't determine type).
+    Class implementation of any value (a value that can't
+    determine type).
 
     Examples
     --------
@@ -34,8 +35,8 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         module_name=__name__, class_name='AnyValue')
     def __init__(self, value: Any) -> None:
         """
-        Class implementation of any value (value that can't determine
-        type).
+        Class implementation of any value (a value that can't
+        determine type).
 
         Parameters
         ----------
@@ -196,7 +197,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         other : Any
-            Other value to subtract.
+            The other value to subtract.
 
         Returns
         -------
@@ -393,13 +394,14 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             JavaScript comparison operator (e.g., '===', '>=',
             and so on).
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
         result : Boolean
-            Comparison result. This will always be False on Python
-            since correct comparison is not possible.
+            Comparison result. This value always becomes
+            False on Python since the correct comparison
+            is impossible.
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
@@ -421,13 +423,14 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
         result : Boolean
-            Comparison result. This will always be False on Python
-            since correct comparison is not possible.
+            Comparison result. This value always becomes
+            False on Python since the correct comparison
+            is impossible.
         """
         import apysc as ap
         result: ap.Boolean = self._append_comparison_expression(
@@ -443,13 +446,14 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
         result : Boolean
-            Comparison result. This will always be False on Python
-            since correct comparison is not possible.
+            Comparison result. This value always becomes
+            False on Python since the correct comparison
+            is impossible.
         """
         import apysc as ap
         result: ap.Boolean = self._append_comparison_expression(
@@ -465,13 +469,14 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
         result : Boolean
-            Comparison result. This will always be False on Python
-            since correct comparison is not possible.
+            Comparison result. This value always becomes
+            False on Python since the correct comparison
+            is impossible.
         """
         import apysc as ap
         result: ap.Boolean = self._append_comparison_expression(
@@ -487,13 +492,14 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
         result : Boolean
-            Comparison result. This will always be False on Python
-            since correct comparison is not possible.
+            Comparison result. This value always becomes
+            False on Python since the correct comparison
+            is impossible.
         """
         import apysc as ap
         result: ap.Boolean = self._append_comparison_expression(
@@ -509,13 +515,14 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
         result : Boolean
-            Comparison result. This will always be False on Python
-            since correct comparison is not possible.
+            Comparison result. This value always becomes
+            False on Python since the correct comparison
+            is impossible.
         """
         import apysc as ap
         result: ap.Boolean = self._append_comparison_expression(
@@ -531,13 +538,13 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         other : Any
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
         result : Boolean
-            Comparison result. This will always be False on Python
-            since correct comparison is not possible.
+            Comparison result. This value always becomes
+            False on Python since the correct comparison is impossible.
         """
         import apysc as ap
         result: ap.Boolean = self._append_comparison_expression(

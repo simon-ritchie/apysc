@@ -6,7 +6,7 @@ Class implementation of any value.
 
 ## `AnyValue` class docstring
 
-Class implementation of any value (value that can't determine type).<hr>
+Class implementation of any value (a value that can't determine type).<hr>
 
 **[Examples]**
 
@@ -44,14 +44,14 @@ Equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - Comparison result. This will always be False on Python since correct comparison is not possible.
+  - Comparison result. This value always becomes False on Python since the correct comparison is impossible.
 
 ### `__floordiv__` method docstring
 
@@ -76,14 +76,14 @@ Greater than equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - Comparison result. This will always be False on Python since correct comparison is not possible.
+  - Comparison result. This value always becomes False on Python since the correct comparison is impossible.
 
 ### `__gt__` method docstring
 
@@ -92,14 +92,14 @@ Greater than comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - Comparison result. This will always be False on Python since correct comparison is not possible.
+  - Comparison result. This value always becomes False on Python since the correct comparison is impossible.
 
 ### `__iadd__` method docstring
 
@@ -135,7 +135,7 @@ Method for incremental multiplication.<hr>
 
 ### `__init__` method docstring
 
-Class implementation of any value (value that can't determine type).<hr>
+Class implementation of any value (a value that can't determine type).<hr>
 
 **[Parameters]**
 
@@ -192,14 +192,14 @@ Less than equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - Comparison result. This will always be False on Python since correct comparison is not possible.
+  - Comparison result. This value always becomes False on Python since the correct comparison is impossible.
 
 ### `__lt__` method docstring
 
@@ -208,14 +208,14 @@ Less than comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - Comparison result. This will always be False on Python since correct comparison is not possible.
+  - Comparison result. This value always becomes False on Python since the correct comparison is impossible.
 
 ### `__mul__` method docstring
 
@@ -240,14 +240,14 @@ Not equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - Comparison result. This will always be False on Python since correct comparison is not possible.
+  - Comparison result. This value always becomes False on Python since the correct comparison is impossible.
 
 ### `__sub__` method docstring
 
@@ -256,7 +256,7 @@ Method for subtraction.<hr>
 **[Parameters]**
 
 - `other`: Any
-  - Other value to subtract.
+  - The other value to subtract.
 
 <hr>
 
@@ -308,14 +308,14 @@ Append comparison operation expression.<hr>
 - `comparison_operator`: str
   - JavaScript comparison operator (e.g., '===', '>=', and so on).
 - `other`: Any
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - Comparison result. This will always be False on Python since correct comparison is not possible.
+  - Comparison result. This value always becomes False on Python since the correct comparison is impossible.
 
 ### `_append_constructor_expression` method docstring
 

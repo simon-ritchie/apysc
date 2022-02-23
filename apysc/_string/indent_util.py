@@ -2,8 +2,8 @@
 
 Mainly following interfaces are defined:
 
-- make_spaces_for_html: Make spaces that multiplied 2 to
-    specified indentation number.
+- make_spaces_for_html: Make spaces that multiply 2 to
+    a specified indentation number.
 - append_spaces_to_expression: Append spaces to a expression string.
 """
 
@@ -13,7 +13,7 @@ from typing import List
 
 def make_spaces_for_html(*, indent_num: int) -> str:
     """
-    Make spaces that multiplied 2 to specified indentation number.
+    Make spaces that multiply 2 to a specified indentation number.
 
     Parameters
     ----------
@@ -39,9 +39,9 @@ def append_spaces_to_expression(*, expression: str, indent_num: int) -> str:
     Parameters
     ----------
     expression : str
-        JavaScript expression string to add spaces to.
+        JavaScript expression string to add spaces.
     indent_num : int
-        Indentation number. If 1 is specified, then spaces will be 2.
+        Indentation number. If 1 is specified, spaces become 2.
 
     Returns
     -------

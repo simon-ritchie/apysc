@@ -11,9 +11,9 @@ Append spaces to a js expression string.<hr>
 **[Parameters]**
 
 - `expression`: str
-  - JavaScript expression string to add spaces to.
+  - JavaScript expression string to add spaces.
 - `indent_num`: int
-  - Indentation number. If 1 is specified, then spaces will be 2.
+  - Indentation number. If 1 is specified, spaces become 2.
 
 <hr>
 
@@ -24,7 +24,7 @@ Append spaces to a js expression string.<hr>
 
 ## `make_spaces_for_html` function docstring
 
-Make spaces that multiplied 2 to specified indentation number.<hr>
+Make spaces that multiply 2 to a specified indentation number.<hr>
 
 **[Parameters]**
 

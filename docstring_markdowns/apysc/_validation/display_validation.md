@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Each display's validation implementations. Mainly following interfaces are defined: <br>・validate_stage Validate whether the specified instance is Stage type or not. <br>・validate_display_object Validate specified instance is DisplayObject type or it's subclass type (e.g., Sprite). <br>・validate_sprite Validate specified instance is Sprite type. <br>・validate_graphics Validate specified instance is Graphics type. <br>・validate_line_cap Validate specified line cap style setting. <br>・validate_line_joints Validate specified line joints style setting. <br>・validate_multiple_line_settings_isnt_set Validate multiple line settings (dotted, dashed, and so on) is not set.
+Each display's validation implementations. Mainly following interfaces are defined: <br>・validate_stage Validate whether the specified instance is Stage type or not. <br>・validate_display_object Validate whether a specified instance is the `DisplayObject` type or its subclass type (e.g., Sprite). <br>・validate_sprite Validate specified instance is Sprite type. <br>・validate_graphics Validate specified instance is Graphics type. <br>・validate_line_cap Validate specified line cap style setting. <br>・validate_line_joints Validate specified line joints style setting. <br>・validate_multiple_line_settings_isnt_set Validate that there are no multiple line settings (dotted, dashed, and so on).
 
 ## `validate_display_object` function docstring
 
-Validate whether a  specified instance is the `DisplayObject` type or its subclass type (e.g., Sprite).<hr>
+Validate whether a specified instance is the `DisplayObject` type or its subclass type (e.g., Sprite).<hr>
 
 **[Parameters]**
 

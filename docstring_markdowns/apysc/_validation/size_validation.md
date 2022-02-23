@@ -47,10 +47,10 @@ Check whether a specified size is an integer or not.<hr>
 - `size`: Int or int
   - Target size (width or height) value.
 - `err_msg`: str or None, default None
-  - The error message which displays at error raised.
+  - The error message that display at error raised.
 
 <hr>
 
 **[Raises]**
 
-- ValueError: If not integer value is specified.
+- ValueError: The error message which displays at error raised.

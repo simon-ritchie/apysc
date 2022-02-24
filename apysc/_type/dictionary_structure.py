@@ -5,10 +5,10 @@ data structure.
 
 class DictionaryStructure:
     """
-    Base class implementation for that has JavaScript dictionary
-    data structure.
+    Base class implementation for that has JavaScript
+    dictionary data structure.
 
-    Instance that inherite this base class will be treated as
-    dictionary value in JavaScript (e.g., assert_equal dictionary
-    type branch instruction).
+    The apysc treats an instance that inherits this base
+    class as dictionary value in JavaScript (e.g., assert_equal
+    dictionary type branch instruction).
     """

@@ -1,4 +1,4 @@
-"""Class implementation for array.
+"""Class implementation for an array.
 """
 
 from typing import Any
@@ -78,7 +78,7 @@ class Array(
 
         Parameters
         ----------
-        value : list or tuple or range or Array
+        value : Array or list or tuple or range
             Initial array value.
 
         References
@@ -129,17 +129,17 @@ class Array(
             self, *,
             value: Any) -> Union[List[Any], tuple, 'Array']:
         """
-        Convert argument value to list that if specified
-        value is range type.
+        Convert argument value to list if a specified
+        value is a range type.
 
         Parameters
         ----------
-        value : list or tuple or range or Array
+        value : Array or list or tuple or range
             Target value.
 
         Returns
         -------
-        value : list or tuple or Array
+        value : Array or list or tuple
             Converted value.
         """
         if isinstance(value, range):
@@ -166,11 +166,12 @@ class Array(
     def _get_list_value(
             self, *, value: Union[List[Any], tuple, 'Array']) -> List[Any]:
         """
-        Get a list value from specified list, tuple, or Array value.
+        Get a list value from a specified list, tuple, or
+        Array value.
 
         Parameters
         ----------
-        value : list or tuple or Array
+        value : Array or list or tuple
             Specified list, tuple, or Array value.
 
         Returns
@@ -188,17 +189,19 @@ class Array(
             self, *,
             value: Union[List[Any], tuple, range, 'Array']) -> None:
         """
-        Validate that specified value is acceptable type or not.
+        Validate whether a specified value is an acceptable type
+        or not.
 
         Parameters
         ----------
-        value : list or tuple or range or Array
+        value : Array or list or tuple or range
             Iterable value to check.
 
         Raises
         ------
         ValueError
-            If specified value's type is not list, tuple, or Array.
+            If specified value's type is not list, tuple,
+            or Array value.
         """
         if isinstance(value, (list, tuple, range, Array)):
             return
@@ -239,7 +242,7 @@ class Array(
 
         Parameters
         ----------
-        value : list or tuple or Array
+        value : Array or list or tuple
             Iterable value (list, tuple, or Array) to set.
 
         References
@@ -265,8 +268,8 @@ class Array(
 
         Parameters
         ----------
-        value : list or tuple or Array
-            Iterable value (list, tuple, or Array) to set.
+        value : Array or list or tuple
+            Iterable value (Array, list, or tuple) to set.
         """
         import apysc as ap
         from apysc._type import value_util
@@ -311,8 +314,8 @@ class Array(
         module_name=__name__, class_name='Array')
     def push(self, value: T) -> None:
         """
-        Add any value to the end of this array.
-        This behaves same as append method.
+        Add any value to the end of this array. This
+        interface behaves the same as the `append` method.
 
         Parameters
         ----------
@@ -367,7 +370,7 @@ class Array(
 
         Parameters
         ----------
-        other_arr : list or tuple or Array
+        other_arr : Array or list or tuple
             Other array-like values to concatenate.
 
         References
@@ -395,12 +398,12 @@ class Array(
     def _append_extend_expression(
             self, *, other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
-        Append extend method expression.
+        Append an `extend` method expression.
 
         Parameters
         ----------
-        other_arr : list or tuple or Array
-            Other array-like value to concatenate.
+        other_arr : Array or list or tuple
+            The other array-like value to concatenate.
         """
         import apysc as ap
         from apysc._type import value_util
@@ -425,7 +428,7 @@ class Array(
 
         Parameters
         ----------
-        other_arr : list or tuple or Array
+        other_arr : Array or list or tuple
             Other array-like values to concatenate.
 
         Returns
@@ -458,14 +461,14 @@ class Array(
             self, *, concatenated: VariableNameInterface,
             other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
-        Append concat method expression.
+        Append the `concat` method expression.
 
         Parameters
         ----------
         concatenated : Array
             Concatenated array value.
-        other_arr : list or tuple or Array
-            Other array-like value to concatenate.
+        other_arr : Array or list or tuple
+            The other array-like value to concatenate.
         """
         import apysc as ap
         from apysc._type import value_util
@@ -559,7 +562,7 @@ class Array(
         Parameters
         ----------
         index : Int or int
-            Index to append value to.
+            Index to append value.
         value : *
             Any value to append.
         """
@@ -626,7 +629,7 @@ class Array(
         module_name=__name__, class_name='Array')
     def remove(self, value: T) -> None:
         """
-        Remove specified value from this array.
+        Remove a specified value from this array.
 
         Parameters
         ----------
@@ -653,7 +656,7 @@ class Array(
         module_name=__name__, class_name='Array')
     def _append_remove_expression(self, *, value: T) -> None:
         """
-        Append remove method expression.
+        Append a `remove` method expression.
 
         Parameters
         ----------
@@ -678,7 +681,7 @@ class Array(
         module_name=__name__, class_name='Array')
     def remove_at(self, index: Union[int, Int]) -> None:
         """
-        Remove specified index value from this array.
+        Remove a specified index value from this array.
 
         Parameters
         ----------
@@ -879,7 +882,7 @@ class Array(
         Parameters
         ----------
         sliced_arr : Array
-            Sliced array.
+            Sliced array value.
         start : Int or int or None
             Slicing start index.
         end : Int or int or None
@@ -918,7 +921,7 @@ class Array(
         Raises
         ------
         ValueError
-            If specified index type is not int and Int.
+            If specified index type is not the `Int` or `int` type.
         """
         import apysc as ap
         self._validate_index_type_is_int(index=index)
@@ -934,12 +937,12 @@ class Array(
     def _get_builtin_int_from_index(
             self, *, index: Union[int, Int]) -> int:
         """
-        Get Python builtin integer from index value.
+        Get Python built-in integer from index value.
 
         Parameters
         ----------
         index : Int or int
-            Specified array's index.
+            Specified an array's index.
 
         Returns
         -------
@@ -954,7 +957,8 @@ class Array(
     def _validate_index_type_is_int(
             self, *, index: Union[int, Int]) -> None:
         """
-        Validate whether index value type is int (or Int) or not.
+        Validate whether an index value type is an int (or Int)
+        type or not.
 
         Parameters
         ----------
@@ -1019,7 +1023,8 @@ class Array(
         Raises
         ------
         ValueError
-            If specified index type is not int and Int.
+            If a specified index type is not an `Int` or an
+            `int` type.
         """
         self._validate_index_type_is_int(index=index)
         index_: int = self._get_builtin_int_from_index(index=index)
@@ -1057,7 +1062,7 @@ class Array(
         module_name=__name__, class_name='Array')
     def __delitem__(self, index: Union[int, Int]) -> None:
         """
-        Delete specified index value from this array.
+        Delete a specified index value from this array value.
 
         Parameters
         ----------
@@ -1068,7 +1073,8 @@ class Array(
         Raises
         ------
         ValueError
-            If specified index type is not int and Int.
+            - ValueError: If specified index type is not the
+            `Int` or `int`.
         """
         self.remove_at(index=index)
 
@@ -1120,7 +1126,8 @@ class Array(
 
     def __len__(self) -> None:
         """
-        This method is disabled and can't use from Array instance.
+        This method is disabled and can't use from an
+        Array instance.
         """
         raise Exception(
             'Array instance can\'t apply len function.'
@@ -1169,7 +1176,7 @@ class Array(
     def _append_join_expression(
             self, *, joined: String, sep: Union[str, String]) -> None:
         """
-        Append join method expression.
+        Append a `join` method expression.
 
         Parameters
         ----------
@@ -1264,10 +1271,10 @@ class Array(
         Parameters
         ----------
         index : Int
-            Found position of index. If value is not contains,
-            -1 will be set.
+            Found position of index. If an array does not
+            contain a value, this interface returns -1.
         value : *
-            Any value to search.
+            Any value to find.
         """
         import apysc as ap
         from apysc._type import value_util
@@ -1288,7 +1295,8 @@ class Array(
         Parameters
         ----------
         other : *
-            Other value to compare. list or Array types are acceptable.
+            The other value to compare. A list or an Array
+            type is acceptable.
 
         Returns
         -------
@@ -1310,20 +1318,20 @@ class Array(
         module_name=__name__, class_name='Array')
     def _convert_other_val_to_array(self, *, other: Any) -> Any:
         """
-        If comparison's other value is list value, then convert it to
-        Array instance.
+        If a comparison's other value is list value, then convert
+        it to Array instance.
 
         Parameters
         ----------
         other : *
-            Other value to compare.
+            The other value to compare.
 
         Returns
         -------
         converted_val : *
-            Converted value. If other value is list, then this will
-            be Array type. Otherwise this will be returned directly
-            (not to be converted).
+            Converted value. If the other value is a list,
+            this value becomes Array type. Otherwise, this
+            interface returns its value directly (skips conversion).
         """
         if isinstance(other, list):
             return Array(other)
@@ -1340,9 +1348,9 @@ class Array(
         Parameters
         ----------
         result : Boolean
-            Result boolean value.
+            A result boolean value.
         other : Array
-            Array other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         expression: str = (
@@ -1360,7 +1368,8 @@ class Array(
         Parameters
         ----------
         other : *
-            Other value to compare. list or Array types are acceptable.
+            The other value to compare. A list or an Array
+            type is acceptable.
 
         Returns
         -------
@@ -1386,9 +1395,9 @@ class Array(
         Parameters
         ----------
         result : Boolean
-            Result boolean value.
+            A result boolean value.
         other : Array
-            Array other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         expression: str = (
@@ -1399,12 +1408,13 @@ class Array(
 
     def __bool__(self) -> bool:
         """
-        Get a boolean value whether this array is empty or not.
+        Get a boolean value whether this array value is empty
+        or not.
 
         Returns
         -------
         result : bool
-            If this array is empty, True will be returned.
+            If this array value is empty, this interface returns True.
         """
         return bool(self._value)
 

@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementation for array.
+Class implementation for an array.
 
 ## `Array` class docstring
 
@@ -50,16 +50,16 @@ Array([1, 2, 3, 4, 5, 6])
 
 ### `__bool__` method docstring
 
-Get a boolean value whether this array is empty or not.<hr>
+Get a boolean value whether this array value is empty or not.<hr>
 
 **[Returns]**
 
 - `result`: bool
-  - If this array is empty, True will be returned.
+  - If this array value is empty, this interface returns True.
 
 ### `__delitem__` method docstring
 
-Delete specified index value from this array.<hr>
+Delete a specified index value from this array value.<hr>
 
 **[Parameters]**
 
@@ -70,7 +70,7 @@ Delete specified index value from this array.<hr>
 
 **[Raises]**
 
-- ValueError: If specified index type is not int and Int.
+- ValueError: If specified index type is not the `Int` or `int`.
 
 ### `__eq__` method docstring
 
@@ -79,7 +79,7 @@ Equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. list or Array types are acceptable.
+  - The other value to compare. A list or an Array type is acceptable.
 
 <hr>
 
@@ -108,7 +108,7 @@ Get a specified index single value.<hr>
 
 **[Raises]**
 
-- ValueError: If specified index type is not int and Int.
+- ValueError: If specified index type is not the `Int` or `int` type.
 
 ### `__init__` method docstring
 
@@ -116,7 +116,7 @@ Array class for the apysc library.<hr>
 
 **[Parameters]**
 
-- `value`: list or tuple or range or Array
+- `value`: Array or list or tuple or range
   - Initial array value.
 
 <hr>
@@ -153,7 +153,7 @@ Array([0, 1, 2])
 
 ### `__len__` method docstring
 
-This method is disabled and can't use from Array instance.
+This method is disabled and can't use from an Array instance.
 
 ### `__ne__` method docstring
 
@@ -162,7 +162,7 @@ Not equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. list or Array types are acceptable.
+  - The other value to compare. A list or an Array type is acceptable.
 
 <hr>
 
@@ -195,7 +195,7 @@ Set value to a specified index.<hr>
 
 **[Raises]**
 
-- ValueError: If specified index type is not int and Int.
+- ValueError: If a specified index type is not an `Int` or an `int` type.
 
 ### `__str__` method docstring
 
@@ -208,14 +208,14 @@ String conversion method.<hr>
 
 ### `_append_concat_expression` method docstring
 
-Append concat method expression.<hr>
+Append the `concat` method expression.<hr>
 
 **[Parameters]**
 
 - `concatenated`: Array
   - Concatenated array value.
-- `other_arr`: list or tuple or Array
-  - Other array-like value to concatenate.
+- `other_arr`: Array or list or tuple
+  - The other array-like value to concatenate.
 
 ### `_append_constructor_expression` method docstring
 
@@ -228,18 +228,18 @@ Append an __eq__ expression.<hr>
 **[Parameters]**
 
 - `result`: Boolean
-  - Result boolean value.
+  - A result boolean value.
 - `other`: Array
-  - Array other value to compare.
+  - The other value to compare.
 
 ### `_append_extend_expression` method docstring
 
-Append extend method expression.<hr>
+Append an `extend` method expression.<hr>
 
 **[Parameters]**
 
-- `other_arr`: list or tuple or Array
-  - Other array-like value to concatenate.
+- `other_arr`: Array or list or tuple
+  - The other array-like value to concatenate.
 
 ### `_append_getitem_expression` method docstring
 
@@ -259,9 +259,9 @@ Append index_of method expression.<hr>
 **[Parameters]**
 
 - `index`: Int
-  - Found position of index. If value is not contains, -1 will be set.
+  - Found position of index. If an array does not contain a value, this interface returns -1.
 - `value`: *
-  - Any value to search.
+  - Any value to find.
 
 ### `_append_insert_expression` method docstring
 
@@ -270,13 +270,13 @@ Append insert method expression.<hr>
 **[Parameters]**
 
 - `index`: Int or int
-  - Index to append value to.
+  - Index to append value.
 - `value`: *
   - Any value to append.
 
 ### `_append_join_expression` method docstring
 
-Append join method expression.<hr>
+Append a `join` method expression.<hr>
 
 **[Parameters]**
 
@@ -301,9 +301,9 @@ Append a __ne__ expression.<hr>
 **[Parameters]**
 
 - `result`: Boolean
-  - Result boolean value.
+  - A result boolean value.
 - `other`: Array
-  - Array other value to compare.
+  - The other value to compare.
 
 ### `_append_pop_expression` method docstring
 
@@ -334,7 +334,7 @@ Append remove_at method expression.<hr>
 
 ### `_append_remove_expression` method docstring
 
-Append remove method expression.<hr>
+Append a `remove` method expression.<hr>
 
 **[Parameters]**
 
@@ -363,7 +363,7 @@ Append slice method expression.<hr>
 **[Parameters]**
 
 - `sliced_arr`: Array
-  - Sliced array.
+  - Sliced array value.
 - `start`: Int or int or None
   - Slicing start index.
 - `end`: Int or int or None
@@ -379,49 +379,49 @@ Append value's setter expression.<hr>
 
 **[Parameters]**
 
-- `value`: list or tuple or Array
-  - Iterable value (list, tuple, or Array) to set.
+- `value`: Array or list or tuple
+  - Iterable value (Array, list, or tuple) to set.
 
 ### `_convert_other_val_to_array` method docstring
 
-If comparison's other value is list value, then convert it to Array instance.<hr>
+If a comparison's other value is list value, then convert it to Array instance.<hr>
 
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
 **[Returns]**
 
 - `converted_val`: *
-  - Converted value. If other value is list, then this will be Array type. Otherwise this will be returned directly (not to be converted).
+  - Converted value. If the other value is a list, this value becomes Array type. Otherwise, this interface returns its value directly (skips conversion).
 
 ### `_convert_range_to_list` method docstring
 
-Convert argument value to list that if specified value is range type.<hr>
+Convert argument value to list if a specified value is a range type.<hr>
 
 **[Parameters]**
 
-- `value`: list or tuple or range or Array
+- `value`: Array or list or tuple or range
   - Target value.
 
 <hr>
 
 **[Returns]**
 
-- `value`: list or tuple or Array
+- `value`: Array or list or tuple
   - Converted value.
 
 ### `_get_builtin_int_from_index` method docstring
 
-Get Python builtin integer from index value.<hr>
+Get Python built-in integer from index value.<hr>
 
 **[Parameters]**
 
 - `index`: Int or int
-  - Specified array's index.
+  - Specified an array's index.
 
 <hr>
 
@@ -432,11 +432,11 @@ Get Python builtin integer from index value.<hr>
 
 ### `_get_list_value` method docstring
 
-Get a list value from specified list, tuple, or Array value.<hr>
+Get a list value from a specified list, tuple, or Array value.<hr>
 
 **[Parameters]**
 
-- `value`: list or tuple or Array
+- `value`: Array or list or tuple
   - Specified list, tuple, or Array value.
 
 <hr>
@@ -466,22 +466,22 @@ Revert values if snapshot exists.<hr>
 
 ### `_validate_acceptable_value_type` method docstring
 
-Validate that specified value is acceptable type or not.<hr>
+Validate whether a specified value is an acceptable type or not.<hr>
 
 **[Parameters]**
 
-- `value`: list or tuple or range or Array
+- `value`: Array or list or tuple or range
   - Iterable value to check.
 
 <hr>
 
 **[Raises]**
 
-- ValueError: If specified value's type is not list, tuple, or Array.
+- ValueError: If specified value's type is not list, tuple, or Array value.
 
 ### `_validate_index_type_is_int` method docstring
 
-Validate whether index value type is int (or Int) or not.<hr>
+Validate whether an index value type is an int (or Int) type or not.<hr>
 
 **[Parameters]**
 
@@ -523,11 +523,11 @@ Array([1, 2, 3, 4])
 
 ### `concat` method docstring
 
-Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr>
+Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (the `extend` method) or returned as a different variable (the `concat` method).<hr>
 
 **[Parameters]**
 
-- `other_arr`: list or tuple or Array
+- `other_arr`: Array or list or tuple
   - Other array-like values to concatenate.
 
 <hr>
@@ -561,7 +561,7 @@ Concatenate argument array to this one. This interface positions the argument ar
 
 **[Parameters]**
 
-- `other_arr`: list or tuple or Array
+- `other_arr`: Array or list or tuple
   - Other array-like values to concatenate.
 
 <hr>
@@ -738,7 +738,7 @@ Array([1, 2])
 
 ### `push` method docstring
 
-Add any value to the end of this array. This behaves same as append method.<hr>
+Add any value to the end of this array. This interface behaves the same as the `append` method.<hr>
 
 **[Parameters]**
 
@@ -765,7 +765,7 @@ Array([1, 2, 3, 4])
 
 ### `remove` method docstring
 
-Remove specified value from this array.<hr>
+Remove a specified value from this array.<hr>
 
 **[Parameters]**
 
@@ -792,7 +792,7 @@ Array([1, 5])
 
 ### `remove_at` method docstring
 
-Remove specified index value from this array.<hr>
+Remove a specified index value from this array.<hr>
 
 **[Parameters]**
 

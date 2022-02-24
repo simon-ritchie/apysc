@@ -139,8 +139,8 @@ class Int(NumberValueInterface[int, 'Int']):
         Parameters
         ----------
         value : int or float or Int or Number
-            Any number value to set. If float or Number value is specified,
-            that value will be cast to integer.
+            Any number value to set. This interface casts that
+            value to an integer if float or number value is specified.
         """
         from apysc._converter import cast
         from apysc._validation import number_validation

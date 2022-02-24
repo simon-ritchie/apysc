@@ -50,7 +50,7 @@ Comparison method for equal condition.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare (Boolean, bool, int, or Int).
+  - The other value to compare.
 
 <hr>
 
@@ -65,7 +65,7 @@ Boolean class for apysc library.<hr>
 
 **[Parameters]**
 
-- `value`: bool or int or Boolean or Int
+- `value`: Boolean or Int or bool or int
   - Initial boolean value. 0 or 1 are acceptable for an integer value.
 
 <hr>
@@ -100,7 +100,7 @@ Comparison method for not equal condition.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare (Boolean, bool, int, or Int).
+  - The other value to compare.
 
 <hr>
 
@@ -129,9 +129,9 @@ Append __eq__ method expression.<hr>
 **[Parameters]**
 
 - `result`: Boolean
-  - Result boolean value.
+  - A result boolean value.
 - `other`: Boolean or Int
-  - Other value to compare.
+  - The other value to compare.
 
 ### `_append_ne_expression` method docstring
 
@@ -140,9 +140,9 @@ Append __ne__ method expression.<hr>
 **[Parameters]**
 
 - `result`: Boolean
-  - Result boolean value.
+  - A result boolean value.
 - `other`: Boolean or Int
-  - Other value to compare.
+  - The other value to compare.
 
 ### `_append_not_prop_expression` method docstring
 
@@ -151,7 +151,7 @@ Append not_ property expression.<hr>
 **[Parameters]**
 
 - `result`: Boolean
-  - Result Boolean value.
+  - A result Boolean value.
 
 ### `_append_value_setter_expression` method docstring
 
@@ -168,8 +168,8 @@ Get bool value from specified argument value.<hr>
 
 **[Parameters]**
 
-- `value`: bool or int or Boolean or Int
-  - Specified value. 0 or 1 are acceptable for integer value.
+- `value`: Boolean or Int or bool or int
+  - Specified value. 0 or 1 are acceptable for an integer value.
 
 <hr>
 
@@ -202,20 +202,20 @@ Update value attribute and skip expression appending.<hr>
 
 **[Parameters]**
 
-- `value`: bool or int or Boolean or Int
+- `value`: Boolean or Int or bool or int
   - Any boolean value to set.
 
 ### `_validate_comparison_other_type` method docstring
 
-Validate comparison's other value type.<hr>
+Validate a comparison's other value type.<hr>
 
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare.
+  - The other value to compare.
 
 <hr>
 
 **[Raises]**
 
-- ValueError: If other value type is not Boolean, bool, Int, and int.
+- ValueError: If the other value type is not Boolean, Int, bool, and int.

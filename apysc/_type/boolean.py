@@ -58,7 +58,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        value : bool or int or Boolean or Int
+        value : Boolean or Int or bool or int
             Initial boolean value. 0 or 1 are acceptable for
             an integer value.
 
@@ -104,9 +104,9 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        value : bool or int or Boolean or Int
-            Specified value. 0 or 1 are acceptable for integer
-            value.
+        value : Boolean or Int or bool or int
+            Specified value. 0 or 1 are acceptable for
+            an integer value.
 
         Returns
         -------
@@ -181,7 +181,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        value : bool or int or Boolean or Int
+        value : Boolean or Int or bool or int
             Any boolean value to set.
 
         References
@@ -232,7 +232,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        value : bool or int or Boolean or Int
+        value : Boolean or Int or bool or int
             Any boolean value to set.
         """
         value_: bool = self._get_bool_from_arg_value(value=value)
@@ -301,7 +301,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         other : *
-            Other value to compare (Boolean, bool, int, or Int).
+            The other value to compare.
 
         Returns
         -------
@@ -327,17 +327,18 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _validate_comparison_other_type(self, *, other: Any) -> None:
         """
-        Validate comparison's other value type.
+        Validate a comparison's other value type.
 
         Parameters
         ----------
         other : *
-            Other value to compare.
+            The other value to compare.
 
         Raises
         ------
         ValueError
-            If other value type is not Boolean, bool, Int, and int.
+            If the other value type is not Boolean, Int, bool,
+            and int.
         """
         import apysc as ap
         ACCEPTABLE_TYPES: tuple = (Boolean, bool, ap.Int, int)
@@ -359,9 +360,9 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         result : Boolean
-            Result boolean value.
+            A result boolean value.
         other : Boolean or Int
-            Other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         other_str: str = other.variable_name
@@ -382,7 +383,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         other : *
-            Other value to compare (Boolean, bool, int, or Int).
+            The other value to compare.
 
         Returns
         -------
@@ -407,9 +408,9 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         result : Boolean
-            Result boolean value.
+            A result boolean value.
         other : Boolean or Int
-            Other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         other_str: str = other.variable_name
@@ -458,7 +459,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         result : Boolean
-            Result Boolean value.
+            A result Boolean value.
         """
         import apysc as ap
         expression: str = (

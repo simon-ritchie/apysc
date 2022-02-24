@@ -1,5 +1,5 @@
 """Class implementation for the blank object interface.
-This interface will be used by the custom event interface
+The apysc uses this interface at the custom event interface
 or something else.
 """
 
@@ -15,8 +15,8 @@ class BlankObjectInterface:
         module_name=__name__, class_name='BlankObjectInterface')
     def _initialize_blank_object_if_not_initialized(self) -> None:
         """
-        Initialize a blank object value if it hasn't been
-        initialized yet.
+        Initialize a blank object value if this interface
+        does not initialize it yet.
         """
         from apysc._expression import expression_data_util
         from apysc._expression import expression_variables_util

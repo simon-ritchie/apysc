@@ -2,13 +2,13 @@
 
 ## Module summary
 
-Class implementation for the attribute linking interface. This interface is used for updating an old property value to achieve consistency in the handler functions.
+Class implementation for the attribute linking interface. This interface updates an old property value to achieve consistency in the handler functions.
 
 ## `AttrLinkingInterface` class docstring
 
 ### `_append_applying_new_attr_val_exp` method docstring
 
-Append the expression of applying new attribute value to each stacked value.<hr>
+Append the expression of applying a new attribute value to each stacked value.<hr>
 
 **[Parameters]**
 
@@ -30,7 +30,7 @@ Append an attribute to the linking attribute stack.<hr>
 
 ### `_initialize_attr_linking_stack` method docstring
 
-Initialize the _attr_linking_stack attribute if it hasn't been initialized yet.<hr>
+Initialize the _attr_linking_stack attribute if this instance does not initialize it yet.<hr>
 
 **[Parameters]**
 
@@ -39,7 +39,7 @@ Initialize the _attr_linking_stack attribute if it hasn't been initialized yet.<
 
 ### `_is_target_attr_already_linked` method docstring
 
-Get a boolean value whether a specified attribute has already been appended to the linking attribute stack.<hr>
+Get a boolean value whether this instance already appends a specified attribute to the linking attribute stack.<hr>
 
 **[Parameters]**
 
@@ -53,4 +53,4 @@ Get a boolean value whether a specified attribute has already been appended to t
 **[Returns]**
 
 - `result`: bool
-  - If a specified attribute has already been appended to the linking stack, this value will be True.
+  - If this instance already appends a specified attribute to the linking stack, this interface returns True.

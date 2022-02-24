@@ -1,7 +1,7 @@
 """Class implementation for the attribute linking interface.
 
-This interface is used for updating an old property value to
-achieve consistency in the handler functions.
+This interface updates an old property value to achieve
+consistency in the handler functions.
 """
 
 from typing import Dict
@@ -24,8 +24,8 @@ class AttrLinkingInterface:
     def _initialize_attr_linking_stack(
             self, *, attr_name: str) -> None:
         """
-        Initialize the _attr_linking_stack attribute if it hasn't been
-        initialized yet.
+        Initialize the _attr_linking_stack attribute if
+        this instance does not initialize it yet.
 
         Parameters
         ----------
@@ -59,8 +59,9 @@ class AttrLinkingInterface:
     def _is_target_attr_already_linked(
             self, *, attr: _Attr, attr_name: str) -> bool:
         """
-        Get a boolean value whether a specified attribute has already
-        been appended to the linking attribute stack.
+        Get a boolean value whether this instance already
+        appends a specified attribute to the linking
+        attribute stack.
 
         Parameters
         ----------
@@ -72,8 +73,9 @@ class AttrLinkingInterface:
         Returns
         -------
         result : bool
-            If a specified attribute has already been appended to
-            the linking stack, this value will be True.
+            If this instance already appends a specified
+            attribute to the linking stack, this interface
+            returns True.
         """
         self._initialize_attr_linking_stack(attr_name=attr_name)
         for in_stack_value in self._attr_linking_stack[attr_name]:
@@ -84,8 +86,8 @@ class AttrLinkingInterface:
     def _append_applying_new_attr_val_exp(
             self, *, new_attr: _Attr, attr_name: str) -> None:
         """
-        Append the expression of applying new attribute value to each
-        stacked value.
+        Append the expression of applying a new attribute
+        value to each stacked value.
 
         Parameters
         ----------

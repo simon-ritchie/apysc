@@ -6,7 +6,7 @@ Class implementation for the JavaScript expression string.
 
 ## `ExpressionString` class docstring
 
-The class for the JavaScript expression string.
+This class is for the JavaScript expression string.
 
 ### `__init__` method docstring
 
@@ -28,7 +28,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

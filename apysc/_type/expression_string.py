@@ -8,7 +8,7 @@ from apysc._type.revert_interface import RevertInterface
 
 class ExpressionString(RevertInterface):
     """
-    The class for the JavaScript expression string.
+    This class is for the JavaScript expression string.
     """
 
     _value: str
@@ -53,7 +53,7 @@ class ExpressionString(RevertInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

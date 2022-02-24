@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementation for dictionary.
+Class implementation for the dictionary value.
 
 ## `Dictionary` class docstring
 
@@ -40,7 +40,7 @@ Int(2)
 
 ### `__delitem__` method docstring
 
-Delete specified key's value from dictionary.<hr>
+Delete specified key's value from a dictionary.<hr>
 
 **[Parameters]**
 
@@ -54,7 +54,7 @@ Equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. dict or Dictionary types are acceptable.
+  - The other value to compare. dict or Dictionary types are acceptable.
 
 <hr>
 
@@ -115,7 +115,7 @@ Dictionary({'a': 10})
 
 ### `__len__` method docstring
 
-This method is disabled and can't use from Dictionary instance.
+This method is disabled and can't use from a Dictionary instance.
 
 ### `__ne__` method docstring
 
@@ -124,7 +124,7 @@ Noe equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. dict or Dictionary types are acceptable.
+  - The other value to compare. dict or Dictionary types are acceptable.
 
 <hr>
 
@@ -182,9 +182,9 @@ Append an __eq__ expression.<hr>
 **[Parameters]**
 
 - `result`: Boolean
-  - Result boolean value.
+  - A result boolean value.
 - `other`: Dictionary
-  - Dictionary other value to compare.
+  - The Dictionary's other value to compare.
 
 ### `_append_get_expression` method docstring
 
@@ -197,7 +197,7 @@ Append the `get` method expression.<hr>
 - `result_value`: Any
   - Extracted value or a default value.
 - `default`: Any
-  - Any default value. Basically apysc types (e.g., Int, Number, String, and so on) are necessary.
+  - Any default value. Basic apysc types (e.g., Int, Number, String, and so on) are necessary.
 
 ### `_append_getitem_expression` method docstring
 
@@ -226,9 +226,9 @@ Append a __ne__ expression.<hr>
 **[Parameters]**
 
 - `result`: Boolean
-  - Result boolean value.
+  - A result boolean value.
 - `other`: Dictionary
-  - Dictionary other value to compare.
+  - The Dictionary's other value to compare.
 
 ### `_append_setitem_expression` method docstring
 
@@ -268,7 +268,7 @@ Get a built-in type's key (str, int, or float) from a specified key.<hr>
 
 ### `_get_dict_value` method docstring
 
-Get a dict value from specified value.<hr>
+Get a dict value from a specified value.<hr>
 
 **[Parameters]**
 
@@ -302,7 +302,7 @@ Revert values if snapshot exists.<hr>
 
 ### `_validate_acceptable_value_type` method docstring
 
-Validate that specified value is acceptable type or not.<hr>
+Validate whether a specified value is an acceptable type or not.<hr>
 
 **[Parameters]**
 
@@ -313,11 +313,11 @@ Validate that specified value is acceptable type or not.<hr>
 
 **[Raises]**
 
-- TypeError: If specified value's type is not dict or Dictionary.
+- TypeError: If specified value's type is not a Dictionary or dict value.
 
 ### `_validate_key_type_is_str_or_numeric` method docstring
 
-Validate whether key value type is acceptable (str or int or flaot) or not.<hr>
+Validate whether a key's value type is acceptable (str or int or float) or not.<hr>
 
 **[Parameters]**
 
@@ -328,7 +328,7 @@ Validate whether key value type is acceptable (str or int or flaot) or not.<hr>
 
 **[Raises]**
 
-- ValueError: If key type is not str, String, int, Int, float, or Number.
+- ValueError: If a key's type is not String, Int, Number, str, int, or float.
 
 ### `get` method docstring
 

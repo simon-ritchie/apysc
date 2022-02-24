@@ -1,4 +1,4 @@
-"""Class implementation for dictionary.
+"""Class implementation for the dictionary value.
 """
 
 from typing import Any
@@ -129,7 +129,7 @@ class Dictionary(
             self, *,
             value: Union[Dict[_K, _V], 'Dictionary']) -> Dict[_K, _V]:
         """
-        Get a dict value from specified value.
+        Get a dict value from a specified value.
 
         Parameters
         ----------
@@ -148,7 +148,8 @@ class Dictionary(
     def _validate_acceptable_value_type(
             self, *, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
-        Validate that specified value is acceptable type or not.
+        Validate whether a specified value is an acceptable
+        type or not.
 
         Parameters
         ----------
@@ -158,7 +159,8 @@ class Dictionary(
         Raises
         ------
         TypeError
-            If specified value's type is not dict or Dictionary.
+            If specified value's type is not a Dictionary
+            or dict value.
         """
         if isinstance(value, (dict, Dictionary)):
             return
@@ -341,7 +343,8 @@ class Dictionary(
 
     def __len__(self) -> None:
         """
-        This method is disabled and can't use from Dictionary instance.
+        This method is disabled and can't use from a
+        Dictionary instance.
         """
         raise Exception(
             'Dictionary instance can\'t apply len function.'
@@ -425,8 +428,8 @@ class Dictionary(
     def _validate_key_type_is_str_or_numeric(
             self, *, key: Union[_K, ExpressionString]) -> None:
         """
-        Validate whether key value type is acceptable (str or int or
-        flaot) or not.
+        Validate whether a key's value type is acceptable
+        (str or int or float) or not.
 
         Parameters
         ----------
@@ -436,7 +439,8 @@ class Dictionary(
         Raises
         ------
         ValueError
-            If key type is not str, String, int, Int, float, or Number.
+            If a key's type is not String, Int, Number, str, int,
+            or float.
         """
         if isinstance(
                 key,
@@ -493,7 +497,7 @@ class Dictionary(
         module_name=__name__, class_name='Dictionary')
     def __delitem__(self, key: Union[_K, ExpressionString]) -> None:
         """
-        Delete specified key's value from dictionary.
+        Delete specified key's value from a dictionary.
 
         Parameters
         ----------
@@ -534,7 +538,8 @@ class Dictionary(
         Parameters
         ----------
         other : *
-            Other value to compare. dict or Dictionary types are acceptable.
+            The other value to compare. dict or Dictionary
+            types are acceptable.
 
         Returns
         -------
@@ -563,9 +568,9 @@ class Dictionary(
         Parameters
         ----------
         result : Boolean
-            Result boolean value.
+            A result boolean value.
         other : Dictionary
-            Dictionary other value to compare.
+            The Dictionary's other value to compare.
         """
         import apysc as ap
         expression: str = (
@@ -583,7 +588,8 @@ class Dictionary(
         Parameters
         ----------
         other : *
-            Other value to compare. dict or Dictionary types are acceptable.
+            The other value to compare. dict or Dictionary types
+            are acceptable.
 
         Returns
         -------
@@ -610,9 +616,9 @@ class Dictionary(
         Parameters
         ----------
         result : Boolean
-            Result boolean value.
+            A result boolean value.
         other : Dictionary
-            Dictionary other value to compare.
+            The Dictionary's other value to compare.
         """
         import apysc as ap
         expression: str = (
@@ -691,8 +697,8 @@ class Dictionary(
         result_value : Any
             Extracted value or a default value.
         default : Any
-            Any default value. Basically apysc types (e.g., Int, Number,
-            String, and so on) are necessary.
+            Any default value. Basic apysc types (e.g.,
+            Int, Number, String, and so on) are necessary.
         """
         import apysc as ap
         from apysc._type import value_util

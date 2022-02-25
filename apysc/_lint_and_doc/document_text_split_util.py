@@ -186,9 +186,18 @@ def split_markdown_document(
     """
     is_code_block: bool = False
     current_code_block_lines: List[str] = []
+    current_body_text_lines: List[str] = []
     lines: List[str] = markdown_txt.splitlines()
     splitted: List[Union[Heading, BodyText, CodeBlock]] = []
     for line in lines:
+        if not is_code_block and line.startswith('```'):
+            is_code_block = True
+            current_code_block_lines.append(line)
+            _create_body_text_and_append_to_list_if_values_exist(
+                splitted=splitted,
+                body_text_lines=current_body_text_lines)
+            continue
+
         if is_code_block:
             current_code_block_lines.append(line)
             if line.startswith('```'):
@@ -197,7 +206,45 @@ def split_markdown_document(
                 splitted.append(code_block)
                 is_code_block = False
                 continue
+
+        if line.startswith('#'):
+            splitted.append(Heading(heading_text=line))
+            _create_body_text_and_append_to_list_if_values_exist(
+                splitted=splitted,
+                body_text_lines=current_body_text_lines)
+            continue
+
+        current_body_text_lines.append(line)
     pass
+
+
+def _create_body_text_and_append_to_list_if_values_exist(
+        *,
+        splitted: List[Union[Heading, BodyText, CodeBlock]],
+        body_text_lines: List[str]) -> None:
+    """
+    Create a body text instance from a specified
+    body text lines list and append it to a result list.
+    If a specified body text lines list is blank, this
+    interface skips the appending.
+
+    Notes
+    -----
+    This function clears a specified body text lines list
+    at the end of this function.
+
+    Parameters
+    ----------
+    splitted : list of Heading, BodyText, and CodeBlock
+        A result list to append a body text instance.
+    body_text_lines : list of str
+        A target body test line list.
+    """
+    if not body_text_lines:
+        return
+    body_text_str: str = '\n'.join(body_text_lines)
+    splitted.append(BodyText(text=body_text_str))
+    body_text_lines.clear()
 
 
 def _create_code_block_from_list(

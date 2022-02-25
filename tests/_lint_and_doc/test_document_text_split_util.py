@@ -1,5 +1,5 @@
 from random import randint
-from typing import List
+from typing import List, Union
 
 from retrying import retry
 
@@ -146,3 +146,30 @@ def test__create_code_block_from_list() -> None:
         "\nap.trace('Hello!')"
     )
     assert code_block.code_type == 'py'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_body_text_and_append_to_list_if_values_exist() -> None:
+    splitted: List[Union[Heading, BodyText, CodeBlock]] = []
+    document_text_split_util.\
+        _create_body_text_and_append_to_list_if_values_exist(
+            splitted=splitted, body_text_lines=[])
+    assert splitted == []
+
+    body_text_lines: List[str] = [
+        '',
+        'Lorem ipsum dolor sit amet.',
+        'consectetur adipiscing.',
+        '',
+    ]
+    document_text_split_util.\
+        _create_body_text_and_append_to_list_if_values_exist(
+            splitted=splitted, body_text_lines=body_text_lines)
+    assert len(splitted) == 1
+    body_text = splitted[0]
+    if not isinstance(body_text, BodyText):
+        raise AssertionError(
+            f'Returned value\'s type is invalid: {type(body_text)}')
+    assert body_text.text == (
+        'Lorem ipsum dolor sit amet.\nconsectetur adipiscing.'
+    )

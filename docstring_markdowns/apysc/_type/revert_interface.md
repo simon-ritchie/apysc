@@ -84,7 +84,7 @@ Get a next snapshot name.<hr>
 
 ### `_initialize_ss_exists_val_if_not_initialized` method docstring
 
-Initialize _snapshot_exists_ value it hasn't been initialized yet.
+Initialize _snapshot_exists_ value if this instance does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -106,7 +106,7 @@ Revert values if snapshot exists.<hr>
 
 ### `_run_all_make_snapshot_methods` method docstring
 
-Run all _make_snapshot methods. If instance is multiple inheritance one, and each has RevertInterface, then each _make_snapshot methods will be called.<hr>
+Run all _make_snapshot methods. If an instance has multiple inheritances, and each class inherits RevertInterface, each class calls the _make_snapshot methods.<hr>
 
 **[Parameters]**
 
@@ -115,7 +115,7 @@ Run all _make_snapshot methods. If instance is multiple inheritance one, and eac
 
 ### `_run_all_revert_methods` method docstring
 
-Run all _revert methods. If instance is multiple inheritance one, and each has RevertInterface, then each _revert methods will be called.<hr>
+Run all _revert methods. If an instance has multiple inheritances, and each class inherits RevertInterface, each class calls the _revert methods.<hr>
 
 **[Parameters]**
 
@@ -161,7 +161,7 @@ Set a single snapshot value to the specified name dictionary.<hr>
 
 **[Notes]**
 
-If a snapshot value of the same name already exists, the process will be stopped.
+If a snapshot value of the same name already exists, this interface stops the method execution.
 
 ### `_set_snapshot_exists_val` method docstring
 
@@ -174,7 +174,7 @@ Set boolean value whether snapshot value exists or not.<hr>
 
 ### `_snapshot_exists` method docstring
 
-Get a boolean value whether snapshot value exists or not.<hr>
+Get a boolean value whether a snapshot value exists or not.<hr>
 
 **[Parameters]**
 

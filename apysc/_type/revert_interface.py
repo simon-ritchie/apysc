@@ -16,7 +16,8 @@ class RevertInterface(ABC):
 
     def _initialize_ss_exists_val_if_not_initialized(self) -> None:
         """
-        Initialize _snapshot_exists_ value it hasn't been initialized yet.
+        Initialize _snapshot_exists_ value if this instance
+        does not initialize it yet.
         """
         if hasattr(self, '_snapshot_exists_'):
             return
@@ -46,9 +47,10 @@ class RevertInterface(ABC):
 
     def _run_all_make_snapshot_methods(self, *, snapshot_name: str) -> None:
         """
-        Run all _make_snapshot methods. If instance is multiple
-        inheritance one, and each has RevertInterface, then each
-        _make_snapshot methods will be called.
+        Run all _make_snapshot methods. If an instance has
+        multiple inheritances, and each class inherits
+        RevertInterface, each class calls the _make_snapshot
+        methods.
 
         Parameters
         ----------
@@ -84,9 +86,9 @@ class RevertInterface(ABC):
 
     def _run_all_revert_methods(self, *, snapshot_name: str) -> None:
         """
-        Run all _revert methods. If instance is multiple inheritance one,
-        and each has RevertInterface, then each _revert methods will be
-        called.
+        Run all _revert methods. If an instance has multiple
+        inheritances, and each class inherits RevertInterface,
+        each class calls the _revert methods.
 
         Parameters
         ----------
@@ -121,7 +123,7 @@ class RevertInterface(ABC):
 
     def _snapshot_exists(self, *, snapshot_name: str) -> bool:
         """
-        Get a boolean value whether snapshot value exists or not.
+        Get a boolean value whether a snapshot value exists or not.
 
         Parameters
         ----------
@@ -186,7 +188,7 @@ class RevertInterface(ABC):
         Notes
         -----
         If a snapshot value of the same name already exists,
-        the process will be stopped.
+        this interface stops the method execution.
 
         Parameters
         ----------

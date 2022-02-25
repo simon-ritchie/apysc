@@ -1,4 +1,4 @@
-"""Class implementation of floating point number.
+"""Class implementation of the floating-point number value.
 """
 
 from typing import Any
@@ -14,8 +14,8 @@ class Number(NumberValueInterface[float, 'Number']):
 
     Notes
     -----
-    Float class is the alias of the Number, and it behaves
-    the same as the Number class.
+    The `Float` class is the alias of the Number,
+    and it behaves the same as the Number class.
 
     References
     ----------
@@ -116,8 +116,9 @@ class Number(NumberValueInterface[float, 'Number']):
         Parameters
         ----------
         value : int or float or Int or Number
-            Any number value to set. If float or Number value is specified,
-            that value will be cast to integer.
+            Any number value to set. If a float or Number
+            value is specified, this interface casts its
+            value to an integer.
         """
         from apysc._converter import cast
         from apysc._validation import number_validation

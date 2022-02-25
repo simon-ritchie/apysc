@@ -12,7 +12,7 @@ Method for addition.<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value to add.
 
 <hr>
@@ -29,14 +29,14 @@ Equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. Builtin types, Int, and Number class instances are acceptable.
+  - The other value to compare. Builtin types, Int, and Number class instances are acceptable.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - If specified value is same amount, True will be returned.
+  - If a specified value is the same amount, this interface returns True.
 
 ### `__float__` method docstring
 
@@ -53,7 +53,7 @@ Method for floor division (return integer).<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value for floor division.
 
 <hr>
@@ -70,14 +70,14 @@ Greater than equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. Builtin types, Int, and Number class instances are acceptable.
+  - The other value to compare. Builtin types, Int, and Number class instances are acceptable.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - If this value is greater than or equal to a specified value, then True will be returned.
+  - If this value is greater than or equal to a specified value, this interface returns True.
 
 ### `__gt__` method docstring
 
@@ -86,14 +86,14 @@ Greater than comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. Builtin types, Int, and Number class instances are acceptable.
+  - The other value to compare. Builtin types, Int, and Number class instances are acceptable.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - If this value is greater than a specified value, then True will be returned.
+  - If this value is greater than a specified value, this interface returns True.
 
 ### `__iadd__` method docstring
 
@@ -101,7 +101,7 @@ Method for incremental addition.<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value for` incremental addition.
 
 <hr>
@@ -117,7 +117,7 @@ Method for incremental multiplication.<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value for incremental multiplication.
 
 <hr>
@@ -133,7 +133,7 @@ Class for number value interface.<hr>
 
 **[Parameters]**
 
-- `value`: int or float or NumberValueInterface
+- `value`: NumberValueInterface or int or float
   - Initial number value.
 - `type_name`: str
   - This instance expression's type name (e.g., int, number).
@@ -153,7 +153,7 @@ Method for incremental subtraction.<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value for incremental subtraction.
 
 <hr>
@@ -169,8 +169,8 @@ Method for incremental true division.<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
-  - Other value for incremental true division.
+- `other`: NumberValueInterface or int or float
+  - The other value for incremental-true division.
 
 <hr>
 
@@ -186,14 +186,14 @@ Less than equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. Builtin types, Int, and Number class instances are acceptable.
+  - The other value to compare. Builtin types, Int, and Number class instances are acceptable.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - If this value is less than or equal to a specified value, then True will be returned.
+  - If this value is less than or equal to a specified value, this interface returns True.
 
 ### `__lt__` method docstring
 
@@ -202,14 +202,14 @@ Less than comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. Builtin types, Int, and Number class instances are acceptable.
+  - The other value to compare. Builtin types, Int, and Number class instances are acceptable.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - If this value is less than a specified value, then True will be returned.
+  - If this value is less than a specified value, this interface returns True.
 
 ### `__mod__` method docstring
 
@@ -217,8 +217,8 @@ Method for the modulo operation.<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
-  - Other value to be used in the modulo operation.
+- `other`: NumberValueInterface or int or float
+  - The other value to use in the modulo operation.
 
 <hr>
 
@@ -233,7 +233,7 @@ Method for multiplication.<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value to multiply.
 
 <hr>
@@ -250,14 +250,14 @@ Not equal comparison method.<hr>
 **[Parameters]**
 
 - `other`: *
-  - Other value to compare. Builtin types, Int, and Number class instances are acceptable.
+  - The other value to compare. Builtin types, Int, and Number class instances are acceptable.
 
 <hr>
 
 **[Returns]**
 
 - `result`: Boolean
-  - If specified value is not same amount, True will be returned.
+  - If a specified value is not the same amount, this interface returns True.
 
 ### `__str__` method docstring
 
@@ -274,8 +274,8 @@ Method for subtraction.<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
-  - Other value to subtract.
+- `other`: NumberValueInterface or int or float
+  - The other value to subtract.
 
 <hr>
 
@@ -286,12 +286,12 @@ Method for subtraction.<hr>
 
 ### `__truediv__` method docstring
 
-Method for true division (return floating point number).<hr>
+Method for true division (returns floating-point number).<hr>
 
 **[Parameters]**
 
-- `other`: int or float or NumberValueInterface
-  - Other value for true division.
+- `other`: NumberValueInterface or int or float
+  - Other value for true-division.
 
 <hr>
 
@@ -308,7 +308,7 @@ Append addition expression.<hr>
 
 - `result`: NumberValueInterface
   - Addition result value.
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value to add.
 
 ### `_append_eq_expression` method docstring
@@ -320,7 +320,7 @@ Append __eq__ method expression.<hr>
 - `result`: Boolean
   - Result boolean value.
 - `other`: VariableNameInterface
-  - Other value to compare.
+  - The other value to compare.
 
 ### `_append_floor_division_expression` method docstring
 
@@ -330,7 +330,7 @@ Append floor division expression.<hr>
 
 - `result`: NumberValueInterface
   - Floor division result value.
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value for floor division.
 
 ### `_append_ge_expression` method docstring
@@ -342,7 +342,7 @@ Append __ge__ expression.<hr>
 - `result`: Boolean
   - Result boolean value.
 - `other`: VariableNameInterface
-  - Other value to compare.
+  - The other value to compare.
 
 ### `_append_gt_expression` method docstring
 
@@ -353,11 +353,11 @@ Append __gt__ expression.<hr>
 - `result`: Boolean
   - Result boolean value.
 - `other`: VariableNameInterface
-  - Other value to compare.
+  - The other value to compare.
 
 ### `_append_incremental_calc_substitution_expression` method docstring
 
-Append a incremental calculation's substitution expression. This method will be called from the each interface.
+Append an incremental calculation's substitution expression. Each interface call this method.
 
 ### `_append_le_expression` method docstring
 
@@ -368,7 +368,7 @@ Append __le__ method expression.<hr>
 - `result`: Boolean
   - Result boolean value.
 - `other`: VariableNameInterface
-  - Other value to compare.
+  - The other value to compare.
 
 ### `_append_lt_expression` method docstring
 
@@ -379,7 +379,7 @@ Append __lt__ method expression.<hr>
 - `result`: Boolean
   - Result boolean value.
 - `other`: VariableNameInterface
-  - Other value to compare.
+  - The other value to compare.
 
 ### `_append_modulo_expression` method docstring
 
@@ -389,8 +389,8 @@ Append a module expression.<hr>
 
 - `result`: NumberValueInterface
   - Modulo operation result value.
-- `other`: int or float or NumberValueInterface
-  - Other value to be used in the modulo operation.
+- `other`: NumberValueInterface or int or float
+  - The other value to use in the modulo operation.
 
 ### `_append_multiplication_expression` method docstring
 
@@ -400,7 +400,7 @@ Append multiplication expression.<hr>
 
 - `result`: NumberValueInterface
   - Multiplication result value.
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value to multiply.
 
 ### `_append_ne_expression` method docstring
@@ -412,7 +412,7 @@ Append __ne__ method expression.<hr>
 - `result`: Boolean
   - Result boolean value.
 - `other`: VariableNameInterface
-  - Other value to compare.
+  - The other value to compare.
 
 ### `_append_subtraction_expression` method docstring
 
@@ -422,7 +422,7 @@ Append subtraction expression.<hr>
 
 - `result`: NumberValueInterface
   - Subtraction result value.
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value to subtract.
 
 ### `_append_true_division_expression` method docstring
@@ -433,21 +433,21 @@ Append true division expression.<hr>
 
 - `result`: NumberValueInterface
   - True division result value.
-- `other`: int or float or NumberValueInterface
+- `other`: NumberValueInterface or int or float
   - Other value for true division.
 
 ### `_append_value_setter_expression` method docstring
 
-Append value's setter expresion.<hr>
+Append value's setter-expresion.<hr>
 
 **[Parameters]**
 
-- `value`: int or float or NumberValueInterface
+- `value`: NumberValueInterface or int or float
   - Any number value to set.
 
 ### `_convert_other_val_to_int_or_number` method docstring
 
-If comparison other value is int or float, then convert it to Int or Number.<hr>
+Convert a specified other value if comparison its type is an int or float, then convert it to Int or Number.<hr>
 
 **[Parameters]**
 
@@ -459,7 +459,7 @@ If comparison other value is int or float, then convert it to Int or Number.<hr>
 **[Returns]**
 
 - `converted_val`: *
-  - Converted value. If int is specified, then this will be Int. float is specified, then Number. Other type will be returned directly (not to be converted).
+  - Converted value. If an int is specified, this interface converts it to an Int. Similarly, if a float is specified, this interface converts it to a Number value. This interface returns the other type directly (not to be converted).
 
 ### `_make_snapshot` method docstring
 
@@ -485,7 +485,7 @@ Update value attribute and skip expression appending.<hr>
 
 **[Parameters]**
 
-- `value`: int or float or NumberValueInterface
+- `value`: NumberValueInterface or int or float
   - Any number value to set.
 
 ### `append_constructor_expression` method docstring

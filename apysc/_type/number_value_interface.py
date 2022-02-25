@@ -35,7 +35,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        value : int or float or NumberValueInterface
+        value : NumberValueInterface or int or float
             Initial number value.
         type_name : str
             This instance expression's type name (e.g., int, number).
@@ -109,7 +109,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        value : int or float or NumberValueInterface
+        value : NumberValueInterface or int or float
             Any number value to set.
 
         References
@@ -135,7 +135,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        value : int or float or NumberValueInterface
+        value : NumberValueInterface or int or float
             Any number value to set.
         """
         from apysc._validation import number_validation
@@ -152,11 +152,11 @@ class NumberValueInterface(
     def _append_value_setter_expression(
             self, *, value: _NumType) -> None:
         """
-        Append value's setter expresion.
+        Append value's setter-expresion.
 
         Parameters
         ----------
-        value : int or float or NumberValueInterface
+        value : NumberValueInterface or int or float
             Any number value to set.
         """
         import apysc as ap
@@ -177,7 +177,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value to add.
 
         Returns
@@ -206,7 +206,7 @@ class NumberValueInterface(
         ----------
         result : NumberValueInterface
             Addition result value.
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value to add.
         """
         import apysc as ap
@@ -226,8 +226,8 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
-            Other value to subtract.
+        other : NumberValueInterface or int or float
+            The other value to subtract.
 
         Returns
         -------
@@ -255,7 +255,7 @@ class NumberValueInterface(
         ----------
         result : NumberValueInterface
             Subtraction result value.
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value to subtract.
         """
         import apysc as ap
@@ -275,7 +275,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value to multiply.
 
         Returns
@@ -304,7 +304,7 @@ class NumberValueInterface(
         ----------
         result : NumberValueInterface
             Multiplication result value.
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value to multiply.
         """
         import apysc as ap
@@ -320,12 +320,12 @@ class NumberValueInterface(
         module_name=__name__, class_name='NumberValueInterface')
     def __truediv__(self, other: _NumType) -> Any:
         """
-        Method for true division (return floating point number).
+        Method for true division (returns floating-point number).
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
-            Other value for true division.
+        other : NumberValueInterface or int or float
+            Other value for true-division.
 
         Returns
         -------
@@ -354,7 +354,7 @@ class NumberValueInterface(
         ----------
         result : NumberValueInterface
             True division result value.
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value for true division.
         """
         import apysc as ap
@@ -374,7 +374,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value for floor division.
 
         Returns
@@ -404,7 +404,7 @@ class NumberValueInterface(
         ----------
         result : NumberValueInterface
             Floor division result value.
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value for floor division.
         """
         import apysc as ap
@@ -422,8 +422,8 @@ class NumberValueInterface(
         module_name=__name__, class_name='NumberValueInterface')
     def _append_incremental_calc_substitution_expression(self) -> None:
         """
-        Append a incremental calculation's substitution expression.
-        This method will be called from the each interface.
+        Append an incremental calculation's substitution expression.
+        Each interface call this method.
         """
         from apysc._expression import expression_variables_util
         expression_variables_util.\
@@ -440,7 +440,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value for` incremental addition.
 
         Returns
@@ -465,7 +465,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value for incremental subtraction.
 
         Returns
@@ -490,7 +490,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value for incremental multiplication.
 
         Returns
@@ -515,13 +515,13 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
+        other : NumberValueInterface or int or float
             Other value for incremental true division.
 
         Returns
         -------
         result : NumberValueInterface
-            Incremental true division result value.
+            The other value for incremental-true division.
         """
         from apysc._expression import expression_variables_util
         self._incremental_calc_prev_name = \
@@ -542,8 +542,8 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : int or float or NumberValueInterface
-            Other value to be used in the modulo operation.
+        other : NumberValueInterface or int or float
+            The other value to use in the modulo operation.
 
         Returns
         -------
@@ -571,8 +571,8 @@ class NumberValueInterface(
         ----------
         result : NumberValueInterface
             Modulo operation result value.
-        other : int or float or NumberValueInterface
-            Other value to be used in the modulo operation.
+        other : NumberValueInterface or int or float
+            The other value to use in the modulo operation.
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
@@ -627,13 +627,14 @@ class NumberValueInterface(
         Parameters
         ----------
         other : *
-            Other value to compare. Builtin types, Int,
+            The other value to compare. Builtin types, Int,
             and Number class instances are acceptable.
 
         Returns
         -------
         result : Boolean
-            If specified value is same amount, True will be returned.
+            If a specified value is the same amount, this interface
+            returns True.
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
@@ -649,8 +650,9 @@ class NumberValueInterface(
         module_name=__name__, class_name='NumberValueInterface')
     def _convert_other_val_to_int_or_number(self, *, other: Any) -> Any:
         """
-        If comparison other value is int or float, then
-        convert it to Int or Number.
+        Convert a specified other value if comparison
+        its type is an int or float, then convert it
+        to Int or Number.
 
         Parameters
         ----------
@@ -660,9 +662,11 @@ class NumberValueInterface(
         Returns
         -------
         converted_val : *
-            Converted value. If int is specified, then this will be
-            Int. float is specified, then Number.
-            Other type will be returned directly (not to be converted).
+            Converted value. If an int is specified, this
+            interface converts it to an Int. Similarly, if a
+            float is specified, this interface converts it
+            to a Number value. This interface returns the
+            other type directly (not to be converted).
         """
         import apysc as ap
         if isinstance(other, int):
@@ -684,7 +688,7 @@ class NumberValueInterface(
         result : Boolean
             Result boolean value.
         other : VariableNameInterface
-            Other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         expression: str = (
@@ -702,13 +706,14 @@ class NumberValueInterface(
         Parameters
         ----------
         other : *
-            Other value to compare. Builtin types, Int,
+            The other value to compare. Builtin types, Int,
             and Number class instances are acceptable.
 
         Returns
         -------
         result : Boolean
-            If specified value is not same amount, True will be returned.
+            If a specified value is not the same amount, this interface
+            returns True.
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
@@ -733,7 +738,7 @@ class NumberValueInterface(
         result : Boolean
             Result boolean value.
         other : VariableNameInterface
-            Other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         expression: str = (
@@ -751,14 +756,14 @@ class NumberValueInterface(
         Parameters
         ----------
         other : *
-            Other value to compare. Builtin types, Int,
+            The other value to compare. Builtin types, Int,
             and Number class instances are acceptable.
 
         Returns
         -------
         result : Boolean
-            If this value is less than a specified value, then
-            True will be returned.
+            If this value is less than a specified value,
+            this interface returns True.
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
@@ -783,7 +788,7 @@ class NumberValueInterface(
         result : Boolean
             Result boolean value.
         other : VariableNameInterface
-            Other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         expression: str = (
@@ -801,14 +806,14 @@ class NumberValueInterface(
         Parameters
         ----------
         other : *
-            Other value to compare. Builtin types, Int,
+            The other value to compare. Builtin types, Int,
             and Number class instances are acceptable.
 
         Returns
         -------
         result : Boolean
-            If this value is less than or equal to a specified value,
-            then True will be returned.
+            If this value is less than or equal to a specified
+            value, this interface returns True.
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
@@ -833,7 +838,7 @@ class NumberValueInterface(
         result : Boolean
             Result boolean value.
         other : VariableNameInterface
-            Other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         expression: str = (
@@ -851,14 +856,14 @@ class NumberValueInterface(
         Parameters
         ----------
         other : *
-            Other value to compare. Builtin types, Int,
+            The other value to compare. Builtin types, Int,
             and Number class instances are acceptable.
 
         Returns
         -------
         result : Boolean
-            If this value is greater than a specified value, then
-            True will be returned.
+            If this value is greater than a specified value,
+            this interface returns True.
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
@@ -883,7 +888,7 @@ class NumberValueInterface(
         result : Boolean
             Result boolean value.
         other : VariableNameInterface
-            Other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         expression: str = (
@@ -901,14 +906,14 @@ class NumberValueInterface(
         Parameters
         ----------
         other : *
-            Other value to compare. Builtin types, Int,
+            The other value to compare. Builtin types, Int,
             and Number class instances are acceptable.
 
         Returns
         -------
         result : Boolean
-            If this value is greater than or equal to a specified value,
-            then True will be returned.
+            If this value is greater than or equal to a specified
+            value, this interface returns True.
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
@@ -933,7 +938,7 @@ class NumberValueInterface(
         result : Boolean
             Result boolean value.
         other : VariableNameInterface
-            Other value to compare.
+            The other value to compare.
         """
         import apysc as ap
         expression: str = (

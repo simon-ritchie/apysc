@@ -51,3 +51,9 @@ class TestBodyText:
                 '_text': 'Lorem ipsum dolor sit amet.'
             },
             any_obj=body_text)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_text(self) -> None:
+        body_text: BodyText = BodyText(
+            text='\n\nLorem ipsum dolor sit amet.\n\n')
+        assert body_text.text == 'Lorem ipsum dolor sit amet.'

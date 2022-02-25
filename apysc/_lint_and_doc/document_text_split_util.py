@@ -82,3 +82,15 @@ class BodyText:
             A document body text.
         """
         self._text = text.strip()
+
+    @property
+    def text(self) -> str:
+        """
+        Get a document body text.
+
+        Returns
+        -------
+        text : str
+            A document body text.
+        """
+        return self._text

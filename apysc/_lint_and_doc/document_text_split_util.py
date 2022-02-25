@@ -64,3 +64,21 @@ class Heading:
             A sharp number of a heading text's sharp symbols.
         """
         return self._sharp_num
+
+
+class BodyText:
+    """The class for a document body text.
+    """
+
+    _text: str
+
+    def __init__(self, text: str) -> None:
+        """
+        The class for a document body text.
+
+        Parameters
+        ----------
+        text : str
+            A document body text.
+        """
+        self._text = text.strip()

@@ -48,6 +48,19 @@ class Heading:
 
         Returns
         -------
+        overall_text : str
             A overall heading text.
         """
         return self._overall_text
+
+    @property
+    def sharp_num(self) -> int:
+        """
+        Get a sharp number of a heading text's sharp symbols.
+
+        Returns
+        -------
+        sharp_num : int
+            A sharp number of a heading text's sharp symbols.
+        """
+        return self._sharp_num

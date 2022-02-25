@@ -3,9 +3,10 @@
 Mainly following interfaces are defined:
 
 - get_value_str_for_expression
-    Get a value string for expression.
+    - Get a value string for expression.
 - get_copy
-    Get a copy of specified instance if it is instance of CopyInterface.
+    - Get a copy of a specified instance if it is an instance
+    of CopyInterface.
 """
 
 from typing import Any
@@ -30,14 +31,15 @@ def get_value_str_for_expression(*, value: Any) -> str:
     Returns
     -------
     value_str : str
-        String for expression. If value is instance of
-        VariableNameInterface, then variable's name will be returned,
-        otherwise string casted value will be returned.
-        Bool value will be lowercase (true or false) and str value
-        will be quoted by double quotation.
-        List or tuple value will be converted to js Array expression,
+        String for expression. If a value is an instance of
+        VariableNameInterface, this interface returns
+        a variable's name. Otherwise, this interface returns
+        a string-casted value. A bool value becomes lowercase
+        (true or false), and this interface quotes a string
+        value by double quotation. This interface converts
+        a List or tuple value to a JavaScript Array expression,
         e.g., '[10, "Hello!", true, any_variable]'.
-        None will be Nan.
+        None becomes NaN.
     """
     from apysc._type.expression_string import ExpressionString
     from apysc._type.variable_name_interface import VariableNameInterface
@@ -62,7 +64,7 @@ def get_value_str_for_expression(*, value: Any) -> str:
 
 def _get_value_str_from_dict(*, value: Dict[Any, Any]) -> str:
     """
-    Get a value string from dictionary object.
+    Get a value string from a dictionary object.
 
     Parameters
     ----------
@@ -86,7 +88,7 @@ def _get_value_str_from_dict(*, value: Dict[Any, Any]) -> str:
 
 def _validate_dict_key_type(*, key: Any) -> None:
     """
-    Validate whether a dictionary key type is str or int.
+    Validate whether a dictionary key type is an int or str.
 
     Parameters
     ----------
@@ -96,7 +98,7 @@ def _validate_dict_key_type(*, key: Any) -> None:
     Raises
     ------
     TypeError
-        If key type isn't str or int.
+        If a key-type isn't str or int.
     """
     if isinstance(key, (str, int, float)):
         return
@@ -107,7 +109,7 @@ def _validate_dict_key_type(*, key: Any) -> None:
 def _get_value_str_from_iterable(
         *, value: Union[list, tuple, Array]) -> str:
     """
-    Get a value string from iterable object.
+    Get a value string from an iterable object.
 
     Parameters
     ----------
@@ -143,7 +145,8 @@ T = TypeVar('T')
     module_name=__name__)
 def get_copy(*, value: T) -> T:
     """
-    Get a copy of specified instance if it is instance of CopyInterface.
+    Get a copy of a specified instance if it is an instance
+    of CopyInterface.
 
     Parameters
     ----------
@@ -153,8 +156,9 @@ def get_copy(*, value: T) -> T:
     Returns
     -------
     copied : *
-        Copied value. If value is not instance of CopyInterface,
-        then argument value will be returned directly.
+        Copied value. If a value is not an instance of
+        CopyInterface, this interface returns an argument
+        value directly.
     """
     from apysc._type.copy_interface import CopyInterface
     if not isinstance(value, CopyInterface):

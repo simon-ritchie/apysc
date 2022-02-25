@@ -6,7 +6,7 @@ Each types common value utilities. Mainly following interfaces are defined: <br>
 
 ## `_get_value_str_from_dict` function docstring
 
-Get a value string from dictionary object.<hr>
+Get a value string from a dictionary object.<hr>
 
 **[Parameters]**
 
@@ -22,7 +22,7 @@ Get a value string from dictionary object.<hr>
 
 ## `_get_value_str_from_iterable` function docstring
 
-Get a value string from iterable object.<hr>
+Get a value string from an iterable object.<hr>
 
 **[Parameters]**
 
@@ -38,7 +38,7 @@ Get a value string from iterable object.<hr>
 
 ## `_validate_dict_key_type` function docstring
 
-Validate whether a dictionary key type is str or int.<hr>
+Validate whether a dictionary key type is an int or str.<hr>
 
 **[Parameters]**
 
@@ -49,11 +49,11 @@ Validate whether a dictionary key type is str or int.<hr>
 
 **[Raises]**
 
-- TypeError: If key type isn't str or int.
+- TypeError: If a key-type isn't str or int.
 
 ## `get_copy` function docstring
 
-Get a copy of specified instance if it is instance of CopyInterface.<hr>
+Get a copy of a specified instance if it is an instance of CopyInterface.<hr>
 
 **[Parameters]**
 
@@ -65,7 +65,7 @@ Get a copy of specified instance if it is instance of CopyInterface.<hr>
 **[Returns]**
 
 - `copied`: *
-  - Copied value. If value is not instance of CopyInterface, then argument value will be returned directly.
+  - Copied value. If a value is not an instance of CopyInterface, this interface returns an argument value directly.
 
 ## `get_value_str_for_expression` function docstring
 
@@ -81,4 +81,4 @@ Get a value string for expression.<hr>
 **[Returns]**
 
 - `value_str`: str
-  - String for expression. If value is instance of VariableNameInterface, then variable's name will be returned, otherwise string casted value will be returned. Bool value will be lowercase (true or false) and str value will be quoted by double quotation. List or tuple value will be converted to js Array expression, e.g., '[10, "Hello!", true, any_variable]'. None will be Nan.
+  - String for expression. If a value is an instance of VariableNameInterface, this interface returns a variable's name. Otherwise, this interface returns a string-casted value. A bool value becomes lowercase (true or false), and this interface quotes a string value by double quotation. This interface converts a List or tuple value to a JavaScript Array expression, e.g., '[10, "Hello!", true, any_variable]'. None becomes NaN.

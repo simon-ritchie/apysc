@@ -2,6 +2,9 @@
 """
 
 
+from typing import List
+
+
 class Heading:
     """The class for the document's heading.
     """
@@ -94,3 +97,34 @@ class BodyText:
             A document body text.
         """
         return self._text
+
+
+class CodeBlock:
+
+    _code_block: str
+    _overall_code_block: str
+    _code_type: str
+
+    def __init__(self, code_block: str) -> None:
+        """
+        The class for a document code block.
+
+        Parameters
+        ----------
+        code_block : str
+            A document code block.
+        """
+        code_block = code_block.strip()
+        self._overall_code_block = code_block
+        code_block_lines: List[str] = []
+        lines: List[str] = code_block.splitlines()
+        for line in lines:
+            if line.startswith('```') and not hasattr(self, '_code_type'):
+                self._code_type = line.replace('```', '').strip()
+                continue
+            if line.startswith('```'):
+                break
+            if line == '# runnable':
+                continue
+            code_block_lines.append(line)
+        self._code_block = '\n'.join(code_block_lines).strip()

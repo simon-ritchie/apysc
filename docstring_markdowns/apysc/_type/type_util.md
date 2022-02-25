@@ -6,7 +6,7 @@ Type related common implementations. Mainly following interface is defined: <br>
 
 ## `is_bool` function docstring
 
-Get a boolean value whether specified value is bool or Boolean value.<hr>
+Get a boolean value whether a specified value is bool or Boolean value.<hr>
 
 **[Parameters]**
 
@@ -18,11 +18,11 @@ Get a boolean value whether specified value is bool or Boolean value.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If bool or Boolean value is specified, True will be returned.
+  - If bool or Boolean value is specified, this interface returns True.
 
 ## `is_float_or_number` function docstring
 
-Get a boolean value whether specified value is float or Nuber value.<hr>
+Get a boolean value whether a specified value is a float or Number value.<hr>
 
 **[Parameters]**
 
@@ -34,11 +34,11 @@ Get a boolean value whether specified value is float or Nuber value.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If float or Number value is specified, True will be returned.
+  - If float or Number value is specified, this interface returns True.
 
 ## `is_immutable_type` function docstring
 
-Get a boolean value whether specified value is immutable type or not.<hr>
+Get a boolean value whether a specified value is an immutable type or not.<hr>
 
 **[Parameters]**
 
@@ -50,17 +50,17 @@ Get a boolean value whether specified value is immutable type or not.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If a specified value is immutable, then True will be set.
+  - If a specified value is immutable, this interface returns True.
 
 <hr>
 
 **[Notes]**
 
-apysc's value types, such as the `Int`, are checked as immutable since these js types are immutable.
+This interface checks the apysc value types as immutable to match the JavaScript behavior.
 
 ## `is_number` function docstring
 
-Get a boolean value whether specified value is Number value.<hr>
+Get a boolean value whether a specified value is a Number value.<hr>
 
 **[Parameters]**
 
@@ -72,11 +72,11 @@ Get a boolean value whether specified value is Number value.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If Number value is specified, True will be returned.
+  - If a Number value is specified, this interface returns True.
 
 ## `is_same_class_instance` function docstring
 
-Get a boolean value whether specified class and instance's class are same or not.<hr>
+Get a boolean value whether a specified class and instance's class are the same or not.<hr>
 
 **[Parameters]**
 
@@ -90,10 +90,10 @@ Get a boolean value whether specified class and instance's class are same or not
 **[Returns]**
 
 - `result`: bool
-  - If a specified class and instance's class are same, then True will be set.
+  - If a specified class and instance's class are the same, this interface returns True.
 
 <hr>
 
 **[Notes]**
 
-If instance is subclass of `cls` argument, differ from `isinstace`, then False will be returned.
+If an instance is a subclass of the `cls` argument (differ from `isinstance`), this interface returns False.

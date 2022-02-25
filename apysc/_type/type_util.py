@@ -3,18 +3,18 @@
 Mainly following interface is defined:
 
 - is_number
-    - Get a boolean value whether specified value is Number value.
+    - Get a boolean value whether a specified value is a Number value.
 - is_float_or_number
-    - Get a boolean value whether specified value is float or Nuber
-    value.
+    - Get a boolean value whether a specified value is
+    a float or Number value.
 - is_bool
-    - Get a boolean value whether specified value is bool or Boolean
-    value.
+    - Get a boolean value whether a specified value is bool
+    or Boolean value.
 - is_same_class_instance
-    - Get a boolean value whether specified class and instance's class
-    are same or not.
+    - Get a boolean value whether a specified class and
+    instance's class are the same or not.
 - is_immutable_type
-    - Get a boolean value whether specified value is immutable
+    - Get a boolean value whether a specified value is an immutable
     type or not.
 """
 
@@ -25,7 +25,7 @@ from typing import Type
 
 def is_number(*, value: Any) -> bool:
     """
-    Get a boolean value whether specified value is Number value.
+    Get a boolean value whether a specified value is a Number value.
 
     Parameters
     ----------
@@ -35,7 +35,7 @@ def is_number(*, value: Any) -> bool:
     Returns
     -------
     result : bool
-        If Number value is specified, True will be returned.
+        If a Number value is specified, this interface returns True.
     """
     import apysc as ap
     if isinstance(value, ap.Number):
@@ -45,8 +45,8 @@ def is_number(*, value: Any) -> bool:
 
 def is_float_or_number(*, value: Any) -> bool:
     """
-    Get a boolean value whether specified value is float or Nuber
-    value.
+    Get a boolean value whether a specified value is
+    a float or Number value.
 
     Parameters
     ----------
@@ -56,7 +56,8 @@ def is_float_or_number(*, value: Any) -> bool:
     Returns
     -------
     result : bool
-        If float or Number value is specified, True will be returned.
+        If float or Number value is specified, this interface
+        returns True.
     """
     if isinstance(value, float):
         return True
@@ -67,8 +68,8 @@ def is_float_or_number(*, value: Any) -> bool:
 
 def is_bool(*, value: Any) -> bool:
     """
-    Get a boolean value whether specified value is bool or Boolean
-    value.
+    Get a boolean value whether a specified value is bool
+    or Boolean value.
 
     Parameters
     ----------
@@ -78,7 +79,8 @@ def is_bool(*, value: Any) -> bool:
     Returns
     -------
     result : bool
-        If bool or Boolean value is specified, True will be returned.
+        If bool or Boolean value is specified, this interface
+        returns True.
     """
     if is_same_class_instance(class_=bool, instance=value):
         return True
@@ -90,13 +92,13 @@ def is_bool(*, value: Any) -> bool:
 
 def is_same_class_instance(*, class_: Type, instance: Any) -> bool:
     """
-    Get a boolean value whether specified class and instance's class
-    are same or not.
+    Get a boolean value whether a specified class and
+    instance's class are the same or not.
 
     Notes
     -----
-    If instance is subclass of `cls` argument, differ from `isinstace`,
-    then False will be returned.
+    If an instance is a subclass of the `cls` argument
+    (differ from `isinstance`), this interface returns False.
 
     Parameters
     ----------
@@ -108,8 +110,8 @@ def is_same_class_instance(*, class_: Type, instance: Any) -> bool:
     Returns
     -------
     result : bool
-        If a specified class and instance's class are same, then True
-        will be set.
+        If a specified class and instance's class are the same,
+        this interface returns True.
     """
     instance_type: Type = type(instance)  # type: ignore
     if instance_type == class_:
@@ -117,9 +119,9 @@ def is_same_class_instance(*, class_: Type, instance: Any) -> bool:
     return False
 
 
-def is_immutable_type(value: Any) -> bool:
+def is_immutable_type(*, value: Any) -> bool:
     """
-    Get a boolean value whether specified value is immutable
+    Get a boolean value whether a specified value is an immutable
     type or not.
 
     Notes
@@ -135,8 +137,8 @@ def is_immutable_type(value: Any) -> bool:
     Returns
     -------
     result : bool
-        If a specified value is immutable, then True
-        will be set.
+        This interface checks the apysc value types as
+        immutable to match the JavaScript behavior.
     """
     import apysc as ap
     immutable_types: Tuple = (

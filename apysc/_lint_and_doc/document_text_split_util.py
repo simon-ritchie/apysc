@@ -40,3 +40,14 @@ class Heading:
             A heading text except first sharp symbols.
         """
         return self._text
+
+    @property
+    def overall_text(self) -> str:
+        """
+        Get a overall heading text.
+
+        Returns
+        -------
+            A overall heading text.
+        """
+        return self._overall_text

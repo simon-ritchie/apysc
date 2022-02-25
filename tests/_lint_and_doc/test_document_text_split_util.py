@@ -26,3 +26,9 @@ class TestHeading:
         heading: Heading = Heading(
             heading_text='## What is the Sprite?')
         assert heading.text == 'What is the Sprite?'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_overall_text(self) -> None:
+        heading: Heading = Heading(
+            heading_text='## What is the Sprite?')
+        assert heading.overall_text == '## What is the Sprite?'

@@ -108,7 +108,7 @@ assert bool_3
 
 **[Parameters]**
 
-- `value`: bool or int or Boolean or Int
+- `value`: Boolean or Int or bool or int
   - Initial boolean value. 0 or 1 are acceptable for an integer value.
 
 <hr>

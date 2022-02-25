@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Type related common implementations. Mainly following interface is defined: <br>・is_number <br> ・Get a boolean value whether specified value is Number value. <br>・is_float_or_number <br> ・Get a boolean value whether specified value is float or Nuber value. <br>・is_bool <br> ・Get a boolean value whether specified value is bool or Boolean value. <br>・is_same_class_instance <br> ・Get a boolean value whether specified class and instance's class are same or not. <br>・is_immutable_type <br> ・Get a boolean value whether specified value is immutable type or not.
+Type related common implementations. Mainly following interface is defined: <br>・is_number <br> ・Get a boolean value whether a specified value is a Number value. <br>・is_float_or_number <br> ・Get a boolean value whether a specified value is a float or Number value. <br>・is_bool <br> ・Get a boolean value whether a specified value is bool or Boolean value. <br>・is_same_class_instance <br> ・Get a boolean value whether a specified class and instance's class are the same or not. <br>・is_immutable_type <br> ・Get a boolean value whether a specified value is an immutable type or not.
 
 ## `is_bool` function docstring
 
@@ -50,13 +50,13 @@ Get a boolean value whether a specified value is an immutable type or not.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If a specified value is immutable, this interface returns True.
+  - This interface checks the apysc value types as immutable to match the JavaScript behavior.
 
 <hr>
 
 **[Notes]**
 
-This interface checks the apysc value types as immutable to match the JavaScript behavior.
+apysc's value types, such as the `Int`, are checked as immutable since these js types are immutable.
 
 ## `is_number` function docstring
 

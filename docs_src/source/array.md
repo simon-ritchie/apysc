@@ -71,7 +71,7 @@ assert isinstance(int_val, int)
 
 **[Parameters]**
 
-- `value`: list or tuple or range or Array
+- `value`: Array or list or tuple or range
   - Initial array value.
 
 <hr>

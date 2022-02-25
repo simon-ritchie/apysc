@@ -41,7 +41,7 @@ For more details about the `String` class each interface, please see the followi
 
 **[Parameters]**
 
-- `value`: str or String
+- `value`: String or str
   - Initial string value.
 
 <hr>

@@ -38,7 +38,7 @@ assert arr == [1, 2, 3, 4]
 
 **[Parameters]**
 
-- `other_arr`: list or tuple or Array
+- `other_arr`: Array or list or tuple
   - Other array-like values to concatenate.
 
 <hr>
@@ -65,7 +65,7 @@ Array([1, 2, 3, 4, 5, 6])
 
 **[Parameters]**
 
-- `other_arr`: list or tuple or Array
+- `other_arr`: Array or list or tuple
   - Other array-like values to concatenate.
 
 <hr>

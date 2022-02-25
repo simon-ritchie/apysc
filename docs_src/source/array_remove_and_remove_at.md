@@ -39,7 +39,7 @@ assert arr == [1, 3]
 
 **[Interface signature]** `remove(self, value:~T) -> None`<hr>
 
-**[Interface summary]** Remove specified value from this array.<hr>
+**[Interface summary]** Remove a specified value from this array.<hr>
 
 **[Parameters]**
 
@@ -66,7 +66,7 @@ Array([1, 5])
 
 **[Interface signature]** `remove_at(self, index:Union[int, apysc._type.int.Int]) -> None`<hr>
 
-**[Interface summary]** Remove specified index value from this array.<hr>
+**[Interface summary]** Remove a specified index value from this array.<hr>
 
 **[Parameters]**
 

@@ -170,14 +170,14 @@ Method for incremental true division.<hr>
 **[Parameters]**
 
 - `other`: NumberValueInterface or int or float
-  - The other value for incremental-true division.
+  - Other value for incremental true division.
 
 <hr>
 
 **[Returns]**
 
 - `result`: NumberValueInterface
-  - Incremental true division result value.
+  - The other value for incremental-true division.
 
 ### `__le__` method docstring
 

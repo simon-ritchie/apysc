@@ -70,7 +70,7 @@ Delete a specified index value from this array value.<hr>
 
 **[Raises]**
 
-- ValueError: If specified index type is not the `Int` or `int`.
+- ValueError: <br> ・ValueError: If specified index type is not the `Int` or `int`.
 
 ### `__eq__` method docstring
 
@@ -523,7 +523,7 @@ Array([1, 2, 3, 4])
 
 ### `concat` method docstring
 
-Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (the `extend` method) or returned as a different variable (the `concat` method).<hr>
+Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr>
 
 **[Parameters]**
 

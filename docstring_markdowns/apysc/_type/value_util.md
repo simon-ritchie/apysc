@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Each types common value utilities. Mainly following interfaces are defined: <br>・get_value_str_for_expression Get a value string for expression. <br>・get_copy Get a copy of specified instance if it is instance of CopyInterface.
+Each types common value utilities. Mainly following interfaces are defined: <br>・get_value_str_for_expression <br> ・Get a value string for expression. <br>・get_copy <br> ・Get a copy of a specified instance if it is an instance of CopyInterface.
 
 ## `_get_value_str_from_dict` function docstring
 

@@ -20,3 +20,9 @@ class TestHeading:
                 '_sharp_num': 2,
             },
             any_obj=heading)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_text(self) -> None:
+        heading: Heading = Heading(
+            heading_text='## What is the Sprite?')
+        assert heading.text == 'What is the Sprite?'

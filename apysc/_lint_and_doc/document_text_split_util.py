@@ -28,3 +28,15 @@ class Heading:
         text: str = heading_text.replace('#', '', sharp_num).strip()
         self._text = text
         self._sharp_num = sharp_num
+
+    @property
+    def text(self) -> str:
+        """
+        Get a heading text except first sharp symbols.
+
+        Returns
+        -------
+        text : str
+            A heading text except first sharp symbols.
+        """
+        return self._text

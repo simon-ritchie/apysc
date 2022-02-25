@@ -108,3 +108,9 @@ class TestCodeBlock:
                 '_code_type': 'py',
             },
             any_obj=code_block)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_code_block(self) -> None:
+        code_block: CodeBlock = CodeBlock(
+            code_block=_TEST_CODE_BLOCK_1)
+        assert code_block.code_block == _TEST_CODE_BLOCK_2

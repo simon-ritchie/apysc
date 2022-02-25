@@ -128,3 +128,15 @@ class CodeBlock:
                 continue
             code_block_lines.append(line)
         self._code_block = '\n'.join(code_block_lines).strip()
+
+    @property
+    def code_block(self) -> str:
+        """
+        Get a code block string except triple-quotations.
+
+        Returns
+        -------
+        code_block : str
+            A code block string except triple-quotations.
+        """
+        return self._code_block

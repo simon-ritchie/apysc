@@ -1,4 +1,5 @@
 from random import randint
+from typing import List
 
 from retrying import retry
 
@@ -126,3 +127,22 @@ class TestCodeBlock:
         code_block: CodeBlock = CodeBlock(
             code_block=_TEST_CODE_BLOCK_1)
         assert code_block.code_type == 'py'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_code_block_from_list() -> None:
+    code_block_lines: List[str] = [
+        '```py',
+        'import apysc as ap',
+        "ap.trace('Hello!')",
+        '```',
+    ]
+    code_block: CodeBlock = document_text_split_util.\
+        _create_code_block_from_list(
+            code_block_lines=code_block_lines)
+    assert code_block_lines == []
+    assert code_block.code_block == (
+        'import apysc as ap'
+        "\nap.trace('Hello!')"
+    )
+    assert code_block.code_type == 'py'

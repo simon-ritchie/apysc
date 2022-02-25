@@ -2,7 +2,7 @@
 """
 
 
-from typing import List
+from typing import List, Union
 
 
 class Heading:
@@ -75,7 +75,7 @@ class BodyText:
 
     _text: str
 
-    def __init__(self, text: str) -> None:
+    def __init__(self, *, text: str) -> None:
         """
         The class for a document body text.
 
@@ -105,7 +105,7 @@ class CodeBlock:
     _overall_code_block: str
     _code_type: str = ''
 
-    def __init__(self, code_block: str) -> None:
+    def __init__(self, *, code_block: str) -> None:
         """
         The class for a document code block.
 
@@ -164,3 +164,63 @@ class CodeBlock:
             A code type (e.g., 'py').
         """
         return self._code_type
+
+
+def split_markdown_document(
+        *,
+        markdown_txt: str) -> List[Union[Heading, BodyText, CodeBlock]]:
+    """
+    Split a specified markdown document to `Heading`,
+    `BodyText`, and `CodeBlock` values.
+
+    Parameters
+    ----------
+    markdown_txt : str
+        A target markdown document.
+
+    Returns
+    -------
+    splitted : list of Heading, BodyText, and CodeBlock
+        A list of splitted `Heading`, `BodyText`, and `CodeBlock`
+        values.
+    """
+    is_code_block: bool = False
+    current_code_block_lines: List[str] = []
+    lines: List[str] = markdown_txt.splitlines()
+    splitted: List[Union[Heading, BodyText, CodeBlock]] = []
+    for line in lines:
+        if is_code_block:
+            current_code_block_lines.append(line)
+            if line.startswith('```'):
+                code_block: CodeBlock = _create_code_block_from_list(
+                    code_block_lines=current_code_block_lines)
+                splitted.append(code_block)
+                is_code_block = False
+                continue
+    pass
+
+
+def _create_code_block_from_list(
+        *, code_block_lines: List[str]) -> CodeBlock:
+    """
+    Create a code block instance from a specified lines list.
+
+    Notes
+    -----
+    This function clears a specified list at the end of the
+    function.
+
+    Parameters
+    ----------
+    code_block_lines : list of str
+        A target code block lines.
+
+    Returns
+    -------
+    code_block : CodeBlock
+        A created code block instance.
+    """
+    code_block_str: str = '\n'.join(code_block_lines)
+    code_block: CodeBlock = CodeBlock(code_block=code_block_str)
+    code_block_lines.clear()
+    return code_block

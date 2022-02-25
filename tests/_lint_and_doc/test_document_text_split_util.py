@@ -114,3 +114,9 @@ class TestCodeBlock:
         code_block: CodeBlock = CodeBlock(
             code_block=_TEST_CODE_BLOCK_1)
         assert code_block.code_block == _TEST_CODE_BLOCK_2
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_overall_code_block(self) -> None:
+        code_block: CodeBlock = CodeBlock(
+            code_block=_TEST_CODE_BLOCK_1)
+        assert code_block.overall_code_block == _TEST_CODE_BLOCK_1.strip()

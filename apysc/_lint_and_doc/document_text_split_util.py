@@ -47,7 +47,7 @@ class Heading:
     @property
     def overall_text(self) -> str:
         """
-        Get a overall heading text.
+        Get an overall heading text.
 
         Returns
         -------
@@ -140,3 +140,15 @@ class CodeBlock:
             A code block string except triple-quotations.
         """
         return self._code_block
+
+    @property
+    def overall_code_block(self) -> str:
+        """
+        Get an overall code block string.
+
+        Returns
+        -------
+        overall_code_block : str
+            An overall code block string.
+        """
+        return self._overall_code_block

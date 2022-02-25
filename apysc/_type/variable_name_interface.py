@@ -47,8 +47,9 @@ class VariableNameInterface:
         Returns
         -------
         previous_variable_name : str
-            A previous variable name of this instance. If that value
-            is not existing, then a blank string will be returned.
+            A previous-variable name of this instance.
+            If that value is not existing, this interface
+            returns a blank string.
         """
         if not hasattr(self, '_variable_name_history'):
             return ''

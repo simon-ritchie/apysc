@@ -13,4 +13,4 @@ Get a previous variable name.<hr>
 **[Returns]**
 
 - `previous_variable_name`: str
-  - A previous variable name of this instance. If that value is not existing, then a blank string will be returned.
+  - A previous-variable name of this instance. If that value is not existing, this interface returns a blank string.

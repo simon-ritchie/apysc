@@ -1,4 +1,4 @@
-"""Class implementation for string.
+"""Class implementation for the string class.
 """
 
 from typing import Any
@@ -57,7 +57,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        value : str or String
+        value : String or str
             Initial string value.
 
         References
@@ -111,17 +111,17 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _get_str_value(self, *, value: Union[str, 'String']) -> str:
         """
-        Get a (Python's) str value from specified value.
+        Get a (Python's) str value from a specified value.
 
         Parameters
         ----------
-        value : str or String
+        value : String or str
             Target string value.
 
         Returns
         -------
         value : str
-            Python's builtin str value.
+            Python's built-in str value.
         """
         if isinstance(value, String):
             return value._value
@@ -159,7 +159,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        value : str or String
+        value : String or str
             Any string value to set.
 
         References
@@ -186,7 +186,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        value : str or String
+        value : String or str
             Any string value to set.
         """
         import apysc as ap
@@ -205,8 +205,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        other : str or String
-            Other string value to concatenate.
+        other : String or str
+            The other string value to concatenate.
 
         Returns
         -------
@@ -236,8 +236,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ----------
         result : String
             Addition result value.
-        other : str or String
-            Other string value to concatenate.
+        other : String or str
+            The other string value to concatenate.
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
@@ -256,7 +256,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        other : int or Int
+        other : Int or int
             String repetition number.
 
         Returns
@@ -288,7 +288,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ----------
         result : String
             Multiplication result value.
-        other : int or Int
+        other : Int or int
             String repetition number.
         """
         import apysc as ap
@@ -312,8 +312,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        other : str or String
-            Other string value to concatenate.
+        other : String or str
+            The other string value to concatenate.
 
         Returns
         -------
@@ -335,7 +335,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        other : int or Int
+        other : Int or int
             String repetition number.
 
         Returns
@@ -377,8 +377,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         Returns
         -------
         result : Boolean
-            Comparison result. If same value of str or String
-            is specified, True will be returned.
+            Comparison result. If the equal value of a String
+            or str is specified, this interface returns True.
         """
         import apysc as ap
         if isinstance(other, str):
@@ -394,8 +394,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _convert_other_val_to_string(self, *, other: Any) -> Any:
         """
-        If comparison other value is string, then convert it to
-        String.
+        Convert a comparison other value to a String if it is
+        a string value.
 
         Parameters
         ----------
@@ -405,8 +405,9 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         Returns
         -------
         converted_val : *
-            Converted value. If other value is string, then this
-            will be String instance. Other type will be returned
+            Converted value. If the other value is a string,
+            this interface converts it to a String value.
+            This interface returns the other type value
             directly (not to be converted).
         """
         if isinstance(other, str):
@@ -449,8 +450,9 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         Returns
         -------
         result : Boolean
-            Comparison result. If not same value of str or String
-            is specified, True will be returned.
+            Comparison result. If a specified value is not
+            the equal value of a String or str, this interface
+            returns True.
         """
         import apysc as ap
         if isinstance(other, str):
@@ -494,7 +496,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        other : str or String
+        other : String or str
             String value to compare.
 
         Returns
@@ -542,7 +544,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        other : str or String
+        other : String or str
             String value to compare.
 
         Returns
@@ -590,7 +592,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        other : str or String
+        other : String or str
             String value to compare.
 
         Returns
@@ -638,7 +640,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
         Parameters
         ----------
-        other : str or String
+        other : String or str
             String value to compare.
 
         Returns
@@ -734,7 +736,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert a value if snapshot exists.
+        Revert a value if a snapshot exists.
 
         Parameters
         ----------

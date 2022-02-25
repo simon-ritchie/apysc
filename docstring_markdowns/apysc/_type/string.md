@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementation for string.
+Class implementation for the string class.
 
 ## `String` class docstring
 
@@ -44,8 +44,8 @@ Method for addition (string concatenation).<hr>
 
 **[Parameters]**
 
-- `other`: str or String
-  - Other string value to concatenate.
+- `other`: String or str
+  - The other string value to concatenate.
 
 <hr>
 
@@ -68,7 +68,7 @@ Method for equal comparison.<hr>
 **[Returns]**
 
 - `result`: Boolean
-  - Comparison result. If same value of str or String is specified, True will be returned.
+  - Comparison result. If the equal value of a String or str is specified, this interface returns True.
 
 ### `__float__` method docstring
 
@@ -85,7 +85,7 @@ Method for greater than or equal comparison.<hr>
 
 **[Parameters]**
 
-- `other`: str or String
+- `other`: String or str
   - String value to compare.
 
 <hr>
@@ -101,7 +101,7 @@ Method for greater than comparison.<hr>
 
 **[Parameters]**
 
-- `other`: str or String
+- `other`: String or str
   - String value to compare.
 
 <hr>
@@ -117,8 +117,8 @@ Method for incremental addition (string concatenation).<hr>
 
 **[Parameters]**
 
-- `other`: str or String
-  - Other string value to concatenate.
+- `other`: String or str
+  - The other string value to concatenate.
 
 <hr>
 
@@ -133,7 +133,7 @@ Method for incremental multiplication (string repetition).<hr>
 
 **[Parameters]**
 
-- `other`: int or Int
+- `other`: Int or int
   - String repetition number.
 
 <hr>
@@ -149,7 +149,7 @@ String class for apysc library.<hr>
 
 **[Parameters]**
 
-- `value`: str or String
+- `value`: String or str
   - Initial string value.
 
 <hr>
@@ -190,7 +190,7 @@ Method for less than or equal comparison.<hr>
 
 **[Parameters]**
 
-- `other`: str or String
+- `other`: String or str
   - String value to compare.
 
 <hr>
@@ -206,7 +206,7 @@ Method for less than comparison.<hr>
 
 **[Parameters]**
 
-- `other`: str or String
+- `other`: String or str
   - String value to compare.
 
 <hr>
@@ -222,7 +222,7 @@ Method for multiplication (string repetition).<hr>
 
 **[Parameters]**
 
-- `other`: int or Int
+- `other`: Int or int
   - String repetition number.
 
 <hr>
@@ -246,7 +246,7 @@ Method for not equal comparison.<hr>
 **[Returns]**
 
 - `result`: Boolean
-  - Comparison result. If not same value of str or String is specified, True will be returned.
+  - Comparison result. If a specified value is not the equal value of a String or str, this interface returns True.
 
 ### `__repr__` method docstring
 
@@ -274,8 +274,8 @@ Append addition (string concatenation) expression.<hr>
 
 - `result`: String
   - Addition result value.
-- `other`: str or String
-  - Other string value to concatenate.
+- `other`: String or str
+  - The other string value to concatenate.
 
 ### `_append_constructor_expression` method docstring
 
@@ -344,7 +344,7 @@ Append multiplication (string repetition) expression.<hr>
 
 - `result`: String
   - Multiplication result value.
-- `other`: int or Int
+- `other`: Int or int
   - String repetition number.
 
 ### `_append_ne_expression` method docstring
@@ -364,12 +364,12 @@ Append value's setter expression.<hr>
 
 **[Parameters]**
 
-- `value`: str or String
+- `value`: String or str
   - Any string value to set.
 
 ### `_convert_other_val_to_string` method docstring
 
-If comparison other value is string, then convert it to String.<hr>
+Convert a comparison other value to a String if it is a string value.<hr>
 
 **[Parameters]**
 
@@ -381,15 +381,15 @@ If comparison other value is string, then convert it to String.<hr>
 **[Returns]**
 
 - `converted_val`: *
-  - Converted value. If other value is string, then this will be String instance. Other type will be returned directly (not to be converted).
+  - Converted value. If the other value is a string, this interface converts it to a String value. This interface returns the other type value directly (not to be converted).
 
 ### `_get_str_value` method docstring
 
-Get a (Python's) str value from specified value.<hr>
+Get a (Python's) str value from a specified value.<hr>
 
 **[Parameters]**
 
-- `value`: str or String
+- `value`: String or str
   - Target string value.
 
 <hr>
@@ -397,7 +397,7 @@ Get a (Python's) str value from specified value.<hr>
 **[Returns]**
 
 - `value`: str
-  - Python's builtin str value.
+  - Python's built-in str value.
 
 ### `_make_snapshot` method docstring
 
@@ -410,7 +410,7 @@ Make a value's snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert a value if snapshot exists.<hr>
+Revert a value if a snapshot exists.<hr>
 
 **[Parameters]**
 

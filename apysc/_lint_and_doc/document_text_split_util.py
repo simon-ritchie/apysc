@@ -103,7 +103,7 @@ class CodeBlock:
 
     _code_block: str
     _overall_code_block: str
-    _code_type: str
+    _code_type: str = ''
 
     def __init__(self, code_block: str) -> None:
         """
@@ -119,7 +119,7 @@ class CodeBlock:
         code_block_lines: List[str] = []
         lines: List[str] = code_block.splitlines()
         for line in lines:
-            if line.startswith('```') and not hasattr(self, '_code_type'):
+            if line.startswith('```') and self._code_type == '':
                 self._code_type = line.replace('```', '').strip()
                 continue
             if line.startswith('```'):
@@ -152,3 +152,15 @@ class CodeBlock:
             An overall code block string.
         """
         return self._overall_code_block
+
+    @property
+    def code_type(self) -> str:
+        """
+        Get a code type of a code block.
+
+        Returns
+        -------
+        code_type : str
+            A code type (e.g., 'py').
+        """
+        return self._code_type

@@ -120,3 +120,9 @@ class TestCodeBlock:
         code_block: CodeBlock = CodeBlock(
             code_block=_TEST_CODE_BLOCK_1)
         assert code_block.overall_code_block == _TEST_CODE_BLOCK_1.strip()
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_code_type(self) -> None:
+        code_block: CodeBlock = CodeBlock(
+            code_block=_TEST_CODE_BLOCK_1)
+        assert code_block.code_type == 'py'

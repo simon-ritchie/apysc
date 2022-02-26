@@ -191,11 +191,11 @@ def split_markdown_document(
     splitted: List[Union[Heading, BodyText, CodeBlock]] = []
     for line in lines:
         if not is_code_block and line.startswith('```'):
-            is_code_block = True
-            current_code_block_lines.append(line)
             _create_body_text_and_append_to_list_if_values_exist(
                 splitted=splitted,
                 body_text_lines=current_body_text_lines)
+            is_code_block = True
+            current_code_block_lines.append(line)
             continue
 
         if is_code_block:
@@ -206,16 +206,21 @@ def split_markdown_document(
                 splitted.append(code_block)
                 is_code_block = False
                 continue
+            continue
 
         if line.startswith('#'):
-            splitted.append(Heading(heading_text=line))
             _create_body_text_and_append_to_list_if_values_exist(
                 splitted=splitted,
                 body_text_lines=current_body_text_lines)
+            splitted.append(Heading(heading_text=line))
             continue
 
         current_body_text_lines.append(line)
-    pass
+
+    _create_body_text_and_append_to_list_if_values_exist(
+        splitted=splitted,
+        body_text_lines=current_body_text_lines)
+    return splitted
 
 
 def _create_body_text_and_append_to_list_if_values_exist(

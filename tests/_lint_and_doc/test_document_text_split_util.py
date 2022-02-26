@@ -95,6 +95,26 @@ sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 ap.save_overall_html(
     dest_dir_path='sprite_graphics_attribute/')'''
 
+_TEST_MARKDOWN_TEXT: str = (
+    '# Sprite'
+    '\n\nThis page explains the `Sprite` class.'
+    '\n\n## What is the Sprite?'
+    '\n\nThe `Sprite` class is the container of each '
+    '`DisplayObject` instance. It also has the '
+    '`Graphics` class interfaces and can draw each '
+    'vector graphic.'
+    '\n\n## graphics attribute interfaces'
+    '\n\nThe `Sprite` instance has the `graphics` attribute, '
+    'and you can draw each vector graphic with it.'
+    '\n\n```py'
+    '\n# runnable'
+    '\nimport apysc as ap'
+    '\nap.Stage()'
+    '\n```'
+    '\n\n<iframe src="static/sprite_graphics_attribute/index.html" '
+    'width="150" height="150"></iframe>'
+)
+
 
 class TestCodeBlock:
 
@@ -172,4 +192,75 @@ def test__create_body_text_and_append_to_list_if_values_exist() -> None:
             f'Returned value\'s type is invalid: {type(body_text)}')
     assert body_text.text == (
         'Lorem ipsum dolor sit amet.\nconsectetur adipiscing.'
+    )
+    assert body_text_lines == []
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_split_markdown_document() -> None:
+    splitted: List[Union[Heading, BodyText, CodeBlock]] = \
+        document_text_split_util.split_markdown_document(
+            markdown_txt=_TEST_MARKDOWN_TEXT)
+    assert len(splitted) == 8
+
+    heading_1 = splitted[0]
+    if not isinstance(heading_1, Heading):
+        raise AssertionError(
+            f'A returned value\'s type is invalid: {type(heading_1)}')
+    assert heading_1.text == 'Sprite'
+
+    body_text_1 = splitted[1]
+    if not isinstance(body_text_1, BodyText):
+        raise AssertionError(
+            f'A returned value\'s type is invalid: {type(body_text_1)}')
+    assert body_text_1.text == 'This page explains the `Sprite` class.'
+
+    heading_2 = splitted[2]
+    if not isinstance(heading_2, Heading):
+        raise AssertionError(
+            f'A returned value\'s type is invalid: {type(heading_2)}')
+    assert heading_2.text == 'What is the Sprite?'
+
+    body_text_2 = splitted[3]
+    if not isinstance(body_text_2, BodyText):
+        raise AssertionError(
+            f'A returned value\'s type is invalid: {type(body_text_2)}')
+    assert body_text_2.text == (
+        'The `Sprite` class is the container of each '
+        '`DisplayObject` instance. It also has the '
+        '`Graphics` class interfaces and can draw each '
+        'vector graphic.'
+    )
+
+    heading_3 = splitted[4]
+    if not isinstance(heading_3, Heading):
+        raise AssertionError(
+            f'A returned value\'s type is invalid: {type(heading_3)}')
+    assert heading_3.text == 'graphics attribute interfaces'
+
+    body_text_3 = splitted[5]
+    if not isinstance(body_text_3, BodyText):
+        raise AssertionError(
+            f'A returned value\'s type is invalid: {type(body_text_3)}')
+    assert body_text_3.text == (
+        'The `Sprite` instance has the `graphics` attribute, '
+        'and you can draw each vector graphic with it.'
+    )
+
+    code_block_1 = splitted[6]
+    if not isinstance(code_block_1, CodeBlock):
+        raise AssertionError(
+            f'A returned value\'s type is invalid: {type(code_block_1)}')
+    assert code_block_1.code_block == (
+        'import apysc as ap'
+        '\nap.Stage()'
+    )
+
+    body_text_4 = splitted[7]
+    if not isinstance(body_text_4, BodyText):
+        raise AssertionError(
+            f'A returned value\'s type is invalid: {type(body_text_4)}')
+    assert body_text_4.text == (
+        '<iframe src="static/sprite_graphics_attribute/index.html" '
+        'width="150" height="150"></iframe>'
     )

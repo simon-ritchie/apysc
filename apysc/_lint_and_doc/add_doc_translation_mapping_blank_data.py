@@ -10,6 +10,8 @@ import importlib
 
 from apysc._lint_and_doc import document_text_split_util
 from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
+from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
@@ -34,6 +36,11 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
     """
     from apysc._file import file_util
     src_docs_file_paths: List[str] = _get_src_docs_file_paths()
+    hash_type: HashType = _get_hash_type_from_lang(lang=lang)
+    # src_docs_file_paths = lint_and_doc_hash_util.\
+    #     remove_not_updated_file_paths(
+    #         file_paths=src_docs_file_paths,
+    #         hash_type=lint_and_doc_hash_util.HashType.TRANSLATION_MAPPING_JP)
     for src_doc_file_path in src_docs_file_paths:
         markdown_txt: str = file_util.read_txt(file_path=src_doc_file_path)
         splitted_values: _SplittedVals= document_text_split_util.\
@@ -47,6 +54,34 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
             mappings=mappings, src_doc_file_path=src_doc_file_path,
             lang=lang)
     pass
+
+
+def _get_hash_type_from_lang(*, lang: Lang) -> HashType:
+    """
+    Get a hash type from a specified language type.
+
+    Parameters
+    ----------
+    lang : Lang
+        A target translation language.
+
+    Returns
+    -------
+    hash_type : HashType
+        A target hash type.
+
+    Raises
+    ------
+    ValueError
+        If there is no implementation of a specified language
+        type's branch condition.
+    """
+    if lang == Lang.JP:
+        return HashType.TRANSLATION_MAPPING_JP
+    raise ValueError(
+        'There is no implementation of a specified language type\'s '
+        'branch condition. Please add a necessary branch condition: '
+        f'{lang}')
 
 
 def _save_mapping_data(

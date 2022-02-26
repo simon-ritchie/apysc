@@ -9,6 +9,9 @@ from apysc._lint_and_doc import add_doc_translation_mapping_blank_data
 from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import Lang, _MAPPING_CONST_NAME
 from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
 from apysc._file import file_util, module_util
+from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from tests.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -172,3 +175,16 @@ def test__save_mapping_data() -> None:
     }
 
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_hash_type_from_lang() -> None:
+    hash_type: HashType = add_doc_translation_mapping_blank_data.\
+        _get_hash_type_from_lang(lang=Lang.JP)
+    assert hash_type == HashType.TRANSLATION_MAPPING_JP
+
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=add_doc_translation_mapping_blank_data.
+        _get_hash_type_from_lang,
+        kwargs={'lang': None})

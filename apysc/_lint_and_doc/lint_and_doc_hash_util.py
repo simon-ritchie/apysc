@@ -98,7 +98,10 @@ def get_target_file_hash_file_path(
         file_path = file_path.replace('./', '', 1)
     dir_path: str = get_hash_dir_path(hash_type=hash_type)
     file_path_: str = os.path.join(dir_path, file_path)
-    file_path_ = file_path_.replace('.py', '', 1)
+    basename: str = os.path.basename(file_path_)
+    if '.' in basename:
+        extension: str = basename.split('.')[-1]
+        file_path_ = file_path_.replace(f'.{extension}', '', 1)
     os.makedirs(os.path.dirname(file_path_), exist_ok=True)
     return file_path_
 

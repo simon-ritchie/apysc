@@ -93,26 +93,26 @@ def test_save_target_file_hash() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_is_module_updated() -> None:
+def test_is_file_updated() -> None:
     module_path: str = './apysc/_display/not_existing_module_4.py'
     hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
         file_path=module_path, hash_type=HashType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
     file_util.remove_file_if_exists(file_path=hash_path)
 
-    result: bool = lint_and_doc_hash_util.is_module_updated(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    result: bool = lint_and_doc_hash_util.is_file_updated(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     assert not result
 
     file_util.save_plain_txt(txt='abc', file_path=module_path)
-    result = lint_and_doc_hash_util.is_module_updated(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    result = lint_and_doc_hash_util.is_file_updated(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     assert result
 
     lint_and_doc_hash_util.save_target_file_hash(
         file_path=module_path, hash_type=HashType.AUTOPEP8)
-    result = lint_and_doc_hash_util.is_module_updated(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    result = lint_and_doc_hash_util.is_file_updated(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     assert not result
 
     file_util.remove_file_if_exists(file_path=module_path)

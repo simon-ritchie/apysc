@@ -43,10 +43,10 @@ def convert_recursively(*, dir_path: str) -> List[str]:
             continue
         if not file_or_dir_path.endswith('.py'):
             continue
-        is_module_updated: bool = lint_and_doc_hash_util.is_module_updated(
-            module_path=file_or_dir_path,
+        is_file_updated: bool = lint_and_doc_hash_util.is_file_updated(
+            file_path=file_or_dir_path,
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
-        if not is_module_updated:
+        if not is_file_updated:
             continue
         saved_markdown_file_path: str = _save_markdown(
             module_path=file_or_dir_path)

@@ -15,8 +15,8 @@ Mainly following interfaces are defined:
     - Save a target file's current hash.
 - save_target_files_hash
     - Save target files' current hash.
-- is_module_updated
-    - Get a boolean value whether a specified module has been updated.
+- is_file_updated
+    - Get a boolean value whether a specified file has been updated.
 - remove_not_updated_module_paths
     - Remove not updated modules from specified module paths.
 """
@@ -199,26 +199,26 @@ def save_target_files_hash(
         _ = futures.as_completed(fs=future_list)
 
 
-def is_module_updated(*, module_path: str, hash_type: HashType) -> bool:
+def is_file_updated(*, file_path: str, hash_type: HashType) -> bool:
     """
-    Get a boolean value whether a specified module is changing or not.
+    Get a boolean value whether a specified file is changing or not.
 
     Parameters
     ----------
-    module_path : str
-        Target module path.
+    file_path : str
+        Target file path.
     hash_type : HashType
         Target hash type.
 
     Returns
     -------
     result : bool
-        If a specified module is changing, this interface
+        If a specified file is changing, this interface
         returns True.
     """
     saved_hash: str = read_saved_hash(
-        module_path=module_path, hash_type=hash_type)
-    current_hash: str = read_target_file_hash(file_path=module_path)
+        module_path=file_path, hash_type=hash_type)
+    current_hash: str = read_target_file_hash(file_path=file_path)
     if saved_hash == current_hash:
         return False
     return True
@@ -247,8 +247,8 @@ def _is_file_updated_func_for_multiprocessing(
         If there is an updated file, this interface
         returns True.
     """
-    result: bool = is_module_updated(
-        module_path=args['file_path'],
+    result: bool = is_file_updated(
+        file_path=args['file_path'],
         hash_type=args['hash_type'])
     return result
 

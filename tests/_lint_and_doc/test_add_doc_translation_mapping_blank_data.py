@@ -1,11 +1,12 @@
 from random import randint
-from typing import List, Union
+from typing import Dict, List, Union
 
 from retrying import retry
 
 from apysc._lint_and_doc import add_doc_translation_mapping_blank_data
-from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import Lang
+from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import Lang, _MAPPING_CONST_NAME
 from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
+from apysc._file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -64,3 +65,39 @@ def test__get_mapping_module_path() -> None:
             src_doc_file_path='./docs_src/source/sprite.md',
             lang=Lang.JP)
     assert mapping_module_path == './apysc/_translation/jp/sprite.py'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__read_already_saved_mapping() -> None:
+    test_src_doc_file_path: str = \
+        './docs_src/source/test_add_doc_translation_mapping_blank_data_1.md'
+    test_mapping_module_path: str = add_doc_translation_mapping_blank_data.\
+        _get_mapping_module_path(
+            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
+    file_util.remove_file_if_exists(file_path=test_mapping_module_path)
+    already_saved_mapping: Dict[str, str] = \
+        add_doc_translation_mapping_blank_data.\
+        _read_already_saved_mapping(
+            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
+    assert already_saved_mapping == {}
+
+    file_util.save_plain_txt(
+        txt='', file_path=test_mapping_module_path)
+    already_saved_mapping = add_doc_translation_mapping_blank_data.\
+        _read_already_saved_mapping(
+            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
+    assert already_saved_mapping == {}
+
+    file_util.save_plain_txt(
+        txt=(
+            'from typing import Dict'
+            f'\n\n{_MAPPING_CONST_NAME}: Dict[str, str] = '
+            "{'a': 'b'}"
+        ),
+        file_path=test_mapping_module_path)
+    already_saved_mapping = add_doc_translation_mapping_blank_data.\
+        _read_already_saved_mapping(
+            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
+    assert already_saved_mapping == {'a': 'b'}
+
+    file_util.remove_file_if_exists(file_path=test_mapping_module_path)

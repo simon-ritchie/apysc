@@ -11,7 +11,7 @@ sys.path.append('./')
 from apysc import __version__
 
 _DESCRIPTION: str = (
-    'apysc is a Python\'s frontend library to create '
+    'apysc is the Python\'s frontend library to create '
     'html and js file, that has the ActionScript 3 (as3)-like interface.'
 )
 

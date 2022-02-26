@@ -3,8 +3,10 @@ mapping dictionary's blank data.
 """
 
 from enum import Enum
+from types import ModuleType
 from typing import Dict, List, Union
 import os
+import importlib
 
 from apysc._lint_and_doc import document_text_split_util
 from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
@@ -16,6 +18,9 @@ class Lang(Enum):
     """Translation target languages definitions.
     """
     JP = 'jp'
+
+
+_MAPPING_CONST_NAME: str = 'MAPPING'
 
 
 def add_mapping_blank_data(*, lang: Lang) -> None:
@@ -35,18 +40,18 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
             split_markdown_document(markdown_txt=markdown_txt)
         keys: List[str] = _convert_splitted_values_to_keys(
             splitted_values=splitted_values)
-        mapping: Dict[str, str] = _make_mapping_from_keys(
+        mappings: List[Dict[str, str]] = _make_mappings_from_keys(
             keys=keys, src_doc_file_path=src_doc_file_path,
             lang=lang)
     pass
 
 
-def _make_mapping_from_keys(
+def _make_mappings_from_keys(
         *, keys: List[str],
         src_doc_file_path: str,
-        lang: Lang) -> Dict[str, str]:
+        lang: Lang) -> List[Dict[str, str]]:
     """
-    Make a mapping dictionary value from specified key values.
+    Make mapping dictionary values from specified key values.
 
     Parameters
     ----------
@@ -59,12 +64,13 @@ def _make_mapping_from_keys(
 
     Returns
     -------
-    mapping : dict
-        A created mapping dictionary. A dictionary
-        value becomes a blank string if it is a new one.
+    mappings : list of dict
+        Created mapping dictionary values. A dictionary
+        value becomes a blank string if it is a new mapping value.
     """
     already_saved_mapping: Dict[str, str] = _read_already_saved_mapping(
         src_doc_file_path=src_doc_file_path, lang=lang)
+    mappings: List[Dict[str, str]] = []
     pass
 
 
@@ -86,9 +92,19 @@ def _read_already_saved_mapping(
     already_saved_mapping : dict
         An already saved mapping data dictionary.
     """
+    from apysc._file import module_util
     mapping_module_path: str = _get_mapping_module_path(
         src_doc_file_path=src_doc_file_path, lang=lang)
-    pass
+    if not os.path.isfile(mapping_module_path):
+        return {}
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=mapping_module_path)
+    importlib.reload(module)
+    if not hasattr(module, _MAPPING_CONST_NAME):
+        return {}
+    already_saved_mapping: Dict[str, str] = getattr(
+        module, _MAPPING_CONST_NAME)
+    return already_saved_mapping
 
 
 def _get_mapping_module_path(

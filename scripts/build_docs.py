@@ -237,7 +237,7 @@ def _remove_document_hash_files_if_docstring_src_modified(
         return []
     for module_path in module_paths:
         saved_hash: str = lint_and_doc_hash_util.read_saved_hash(
-            module_path=module_path,
+            file_path=module_path,
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_SRC)
         current_hash: str = _read_file_and_hash_it(
             file_path=module_path)

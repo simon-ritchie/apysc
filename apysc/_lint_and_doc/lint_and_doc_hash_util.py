@@ -10,7 +10,7 @@ Mainly following interfaces are defined:
 - read_target_file_hash
     - Read a specified file's hashed string.
 - read_saved_hash
-    - Read an already-saved module's hashed string.
+    - Read an already-saved file's hashed string.
 - save_target_file_hash
     - Save a target file's current hash.
 - save_target_files_hash
@@ -127,30 +127,30 @@ def read_target_file_hash(*, file_path: str) -> str:
     return hashed_string
 
 
-def read_saved_hash(*, module_path: str, hash_type: HashType) -> str:
+def read_saved_hash(*, file_path: str, hash_type: HashType) -> str:
     """
-    Read an already-saved module's hashed string.
+    Read an already-saved file's hashed string.
 
     Parameters
     ----------
-    module_path : str
-        Target module path.
+    file_path : str
+        Target file path.
     hash_type : HashType
         Target hash type.
 
     Returns
     -------
     saved_hash : str
-        An already-saved module's hash string. If there
+        An already-saved file's hash string. If there
         is no saved hash file, this interface returns
         a blank string.
     """
     from apysc._file import file_util
-    file_path: str = get_target_file_hash_file_path(
-        file_path=module_path, hash_type=hash_type)
-    if not os.path.isfile(file_path):
+    file_path_: str = get_target_file_hash_file_path(
+        file_path=file_path, hash_type=hash_type)
+    if not os.path.isfile(file_path_):
         return ''
-    saved_hash: str = file_util.read_txt(file_path=file_path)
+    saved_hash: str = file_util.read_txt(file_path=file_path_)
     saved_hash = saved_hash.strip()
     return saved_hash
 
@@ -217,7 +217,7 @@ def is_file_updated(*, file_path: str, hash_type: HashType) -> bool:
         returns True.
     """
     saved_hash: str = read_saved_hash(
-        module_path=file_path, hash_type=hash_type)
+        file_path=file_path, hash_type=hash_type)
     current_hash: str = read_target_file_hash(file_path=file_path)
     if saved_hash == current_hash:
         return False

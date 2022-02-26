@@ -653,7 +653,7 @@ def test__remove_document_hash_files_if_docstring_src_modified() -> None:
             '\n\n<!-- Docstring:apysc._display.sprite.Sprite.__init__ -->')
 
     def mock_read_saved_hash(
-            *, module_path: str,
+            *, file_path: str,
             hash_type: lint_and_doc_hash_util.HashType) -> str:
         return 'abc'
 

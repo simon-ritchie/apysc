@@ -54,13 +54,13 @@ def test_read_saved_hash() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
     saved_hash: str = lint_and_doc_hash_util.read_saved_hash(
-        module_path=module_path,
+        file_path=module_path,
         hash_type=HashType.AUTOPEP8)
     assert saved_hash == ''
 
     file_util.save_plain_txt(txt='abcdef', file_path=file_path)
     saved_hash = lint_and_doc_hash_util.read_saved_hash(
-        module_path=module_path,
+        file_path=module_path,
         hash_type=HashType.AUTOPEP8)
     assert saved_hash == 'abcdef'
 
@@ -78,14 +78,14 @@ def test_save_target_file_hash() -> None:
     lint_and_doc_hash_util.save_target_file_hash(
         file_path=module_path, hash_type=HashType.AUTOPEP8)
     saved_hash: str = lint_and_doc_hash_util.read_saved_hash(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     assert saved_hash == ''
 
     file_util.save_plain_txt(txt='abcdef', file_path=module_path)
     lint_and_doc_hash_util.save_target_file_hash(
         file_path=module_path, hash_type=HashType.AUTOPEP8)
     saved_hash = lint_and_doc_hash_util.read_saved_hash(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     assert saved_hash != ''
 
     file_util.remove_file_if_exists(file_path=module_path)
@@ -202,9 +202,9 @@ def test_save_target_files_hash() -> None:
         file_paths=[module_path_1, module_path_2],
         hash_type=HashType.AUTOPEP8)
     hash_1: str = lint_and_doc_hash_util.read_saved_hash(
-        module_path=module_path_1, hash_type=HashType.AUTOPEP8)
+        file_path=module_path_1, hash_type=HashType.AUTOPEP8)
     hash_2: str = lint_and_doc_hash_util.read_saved_hash(
-        module_path=module_path_2, hash_type=HashType.AUTOPEP8)
+        file_path=module_path_2, hash_type=HashType.AUTOPEP8)
     assert hash_1 != ''
     assert hash_2 != ''
 

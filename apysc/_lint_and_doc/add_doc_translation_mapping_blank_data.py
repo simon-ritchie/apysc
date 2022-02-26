@@ -43,7 +43,52 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
         mappings: List[Dict[str, str]] = _make_mappings_from_keys(
             keys=keys, src_doc_file_path=src_doc_file_path,
             lang=lang)
+        _save_mapping_data(
+            mappings=mappings, src_doc_file_path=src_doc_file_path,
+            lang=lang)
     pass
+
+
+def _save_mapping_data(
+        *, mappings: List[Dict[str, str]],
+        src_doc_file_path: str,
+        lang: Lang) -> None:
+    """
+    Save mapping data module with specified mappings data.
+
+    Parameters
+    ----------
+    mappings : list of dict
+        Target mappings data to save.
+    src_doc_file_path : str
+        A target source document file path.
+    lang : Lang
+        A target translation language.
+    """
+    from apysc._file import file_util
+    basename: str = os.path.basename(src_doc_file_path)
+    module_str: str = (
+        f'"""This module is for the translation mapping data '
+        'of the \nfollowing document:'
+        f'\n\nDocument file: {basename}'
+        f'\nLanguage: {lang.value}'
+        '\n"""'
+        '\n\nfrom typing import Dict'
+        f'\n\n{_MAPPING_CONST_NAME}: Dict[str, str] = {{'
+    )
+    for mapping in mappings:
+        key: str = list(mapping.keys())[0]
+        value: str = list(mapping.values())[0]
+        module_str += (
+            f"\n\n    '{key}':"
+            f"\n    '{value}',"
+        )
+        if len(value) >= 74:
+            module_str += '  # noqa'
+    module_str += '\n\n}'
+    module_path: str = _get_mapping_module_path(
+        src_doc_file_path=src_doc_file_path, lang=lang)
+    file_util.save_plain_txt(txt=module_str, file_path=module_path)
 
 
 def _make_mappings_from_keys(

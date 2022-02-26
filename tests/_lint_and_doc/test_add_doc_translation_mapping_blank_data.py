@@ -1,12 +1,14 @@
 from random import randint
+from types import ModuleType
 from typing import Dict, List, Union
+import importlib
 
 from retrying import retry
 
 from apysc._lint_and_doc import add_doc_translation_mapping_blank_data
 from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import Lang, _MAPPING_CONST_NAME
 from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
-from apysc._file import file_util
+from apysc._file import file_util, module_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -128,5 +130,45 @@ def test__make_mappings_from_keys() -> None:
         {'a': 'b'},
         {'c': ''},
     ]
+
+    file_util.remove_file_if_exists(file_path=test_mapping_module_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__save_mapping_data() -> None:
+    test_src_doc_file_path: str = \
+        './docs_src/source/test_add_doc_translation_mapping_blank_data_3.md'
+    test_mapping_module_path: str = add_doc_translation_mapping_blank_data.\
+        _get_mapping_module_path(
+            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
+    file_util.remove_file_if_exists(file_path=test_mapping_module_path)
+
+    add_doc_translation_mapping_blank_data._save_mapping_data(
+        mappings=[{
+            'a': 'b',
+        }, {
+            'c':
+            'Lorem ipsum dolor sit amet, consectetur adipiscing '
+            'elit, sed do eiusmod tempor.',
+        }],
+        src_doc_file_path=test_src_doc_file_path,
+        lang=Lang.JP)
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=test_mapping_module_path)
+    importlib.reload(module)
+    assert module.__doc__ == (
+        'This module is for the translation mapping data of the '
+        '\nfollowing document:'
+        '\n\nDocument file: test_add_doc_translation_mapping_blank_data_3.md'
+        '\nLanguage: jp'
+        '\n'
+    )
+    mapping: Dict[str, str] = getattr(module, _MAPPING_CONST_NAME)
+    assert mapping == {
+        'a': 'b',
+        'c':
+        'Lorem ipsum dolor sit amet, consectetur adipiscing '
+        'elit, sed do eiusmod tempor.'
+    }
 
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)

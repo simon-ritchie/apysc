@@ -229,7 +229,7 @@ class _IsFileUpdatedArgs(TypedDict):
     hash_type: HashType
 
 
-def _is_module_updated_func_for_multiprocessing(
+def _is_file_updated_func_for_multiprocessing(
         args: _IsFileUpdatedArgs) -> bool:
     """
     Wrapper function of the `is_file_updated` function
@@ -305,7 +305,7 @@ def remove_not_updated_module_paths(
     sliced_module_paths: List[str] = []
     with Pool(processes=workers) as p:
         module_updated_bool_list: List[bool] = p.map(
-            func=_is_module_updated_func_for_multiprocessing,
+            func=_is_file_updated_func_for_multiprocessing,
             iterable=args_list,
         )
     module_updated: bool

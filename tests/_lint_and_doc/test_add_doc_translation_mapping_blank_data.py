@@ -4,6 +4,7 @@ from typing import List, Union
 from retrying import retry
 
 from apysc._lint_and_doc import add_doc_translation_mapping_blank_data
+from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import Lang
 from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
 
 
@@ -54,3 +55,12 @@ def test__convert_splitted_values_to_keys() -> None:
         "\nprint(\\'Hello!\\')"
         '\n```'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_mapping_module_path() -> None:
+    mapping_module_path: str = add_doc_translation_mapping_blank_data.\
+        _get_mapping_module_path(
+            src_doc_file_path='./docs_src/source/sprite.md',
+            lang=Lang.JP)
+    assert mapping_module_path == './apysc/_translation/jp/sprite.py'

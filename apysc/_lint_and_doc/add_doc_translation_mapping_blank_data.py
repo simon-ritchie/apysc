@@ -3,7 +3,7 @@ mapping dictionary's blank data.
 """
 
 from enum import Enum
-from typing import List, Union
+from typing import Dict, List, Union
 import os
 
 from apysc._lint_and_doc import document_text_split_util
@@ -35,11 +35,90 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
             split_markdown_document(markdown_txt=markdown_txt)
         keys: List[str] = _convert_splitted_values_to_keys(
             splitted_values=splitted_values)
+        mapping: Dict[str, str] = _make_mapping_from_keys(
+            keys=keys, src_doc_file_path=src_doc_file_path,
+            lang=lang)
     pass
 
 
+def _make_mapping_from_keys(
+        *, keys: List[str],
+        src_doc_file_path: str,
+        lang: Lang) -> Dict[str, str]:
+    """
+    Make a mapping dictionary value from specified key values.
+
+    Parameters
+    ----------
+    keys : list of str
+        Target dictionary key values.
+    src_doc_file_path : str
+        A target source document file path.
+    lang : Lang
+        A target translation language.
+
+    Returns
+    -------
+    mapping : dict
+        A created mapping dictionary. A dictionary
+        value becomes a blank string if it is a new one.
+    """
+    already_saved_mapping: Dict[str, str] = _read_already_saved_mapping(
+        src_doc_file_path=src_doc_file_path, lang=lang)
+    pass
+
+
+def _read_already_saved_mapping(
+        *, src_doc_file_path: str,
+        lang: Lang) -> Dict[str, str]:
+    """
+    Read an already saved mapping data.
+
+    Parameters
+    ----------
+    src_doc_file_path : str
+        A target source document file path.
+    lang : Lang
+        A target translation language.
+
+    Returns
+    -------
+    already_saved_mapping : dict
+        An already saved mapping data dictionary.
+    """
+    mapping_module_path: str = _get_mapping_module_path(
+        src_doc_file_path=src_doc_file_path, lang=lang)
+    pass
+
+
+def _get_mapping_module_path(
+        *, src_doc_file_path: str, lang: Lang) -> str:
+    """
+    Get a mapping data module path.
+
+    Parameters
+    ----------
+    src_doc_file_path : str
+        A target source document file path.
+    lang : Lang
+        A target translation language.
+
+    Returns
+    -------
+    mapping_module_path : str
+        A mapping data module path.
+    """
+    basename: str = os.path.basename(src_doc_file_path)
+    basename = basename.replace('.md', '.py', 1)
+    mapping_module_path: str = os.path.join(
+        f'./apysc/_translation/{lang.value}/',
+        basename,
+    )
+    return mapping_module_path
+
+
 def _convert_splitted_values_to_keys(
-        splitted_values: _SplittedVals) -> List[str]:
+        *, splitted_values: _SplittedVals) -> List[str]:
     """
     Convert specified splitted values to dictionary's key
     strings.

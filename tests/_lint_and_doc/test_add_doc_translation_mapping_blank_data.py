@@ -101,3 +101,32 @@ def test__read_already_saved_mapping() -> None:
     assert already_saved_mapping == {'a': 'b'}
 
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__make_mappings_from_keys() -> None:
+    test_src_doc_file_path: str = \
+        './docs_src/source/test_add_doc_translation_mapping_blank_data_2.md'
+    test_mapping_module_path: str = add_doc_translation_mapping_blank_data.\
+        _get_mapping_module_path(
+            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
+    file_util.remove_file_if_exists(file_path=test_mapping_module_path)
+
+    file_util.save_plain_txt(
+        txt=(
+            'from typing import Dict'
+            f'\n\n{_MAPPING_CONST_NAME}: Dict[str, str] = '
+            "{'a': 'b'}"
+        ),
+        file_path=test_mapping_module_path)
+    mappings: List[Dict[str, str]] = add_doc_translation_mapping_blank_data.\
+        _make_mappings_from_keys(
+            keys=['a', 'c'],
+            src_doc_file_path=test_mapping_module_path,
+            lang=Lang.JP)
+    assert mappings == [
+        {'a': 'b'},
+        {'c': ''},
+    ]
+
+    file_util.remove_file_if_exists(file_path=test_mapping_module_path)

@@ -71,7 +71,10 @@ def _make_mappings_from_keys(
     already_saved_mapping: Dict[str, str] = _read_already_saved_mapping(
         src_doc_file_path=src_doc_file_path, lang=lang)
     mappings: List[Dict[str, str]] = []
-    pass
+    for key in keys:
+        value: str = already_saved_mapping.get(key, '')
+        mappings.append({key: value})
+    return mappings
 
 
 def _read_already_saved_mapping(

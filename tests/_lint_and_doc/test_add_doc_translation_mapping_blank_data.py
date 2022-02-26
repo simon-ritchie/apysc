@@ -14,3 +14,14 @@ def test__get_src_docs_file_paths() -> None:
     assert './docs_src/source/_static/' not in src_docs_file_paths
     assert './docs_src/source/jp_sprite.md' not in src_docs_file_paths
     assert './docs_src/source/conf.py' not in src_docs_file_paths
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__is_translated_document() -> None:
+    result: bool = add_doc_translation_mapping_blank_data.\
+        _is_translated_document(path='./test/path.md')
+    assert not result
+
+    result = add_doc_translation_mapping_blank_data.\
+        _is_translated_document(path='./test/jp_path.md')
+    assert result

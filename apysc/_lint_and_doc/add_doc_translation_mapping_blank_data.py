@@ -44,5 +44,30 @@ def _get_src_docs_file_paths() -> List[str]:
             continue
         if not file_or_dir_path.endswith('.md'):
             continue
+        if _is_translated_document(path=file_or_dir_path):
+            continue
         src_docs_file_paths.append(file_or_dir_path)
     return src_docs_file_paths
+
+
+def _is_translated_document(*, path: str) -> bool:
+    """
+    Get a boolean indicating whether a specified document path
+    is a translated document or not.
+
+    Parameters
+    ----------
+    path : str
+        A target document path.
+
+    Returns
+    -------
+    result : bool
+        If a specified document path is a translated document,
+        this interface returns True.
+    """
+    basename: str = os.path.basename(path)
+    for lang in Lang:
+        if basename.startswith(lang.value):
+            return True
+    return False

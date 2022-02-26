@@ -254,15 +254,15 @@ def _is_file_updated_func_for_multiprocessing(
 
 
 def _create_args_list_for_multiprocessing(
-        *, module_paths: List[str],
+        *, file_paths: List[str],
         hash_type: HashType) -> List[_IsFileUpdatedArgs]:
     """
     Create an arguments list for the multiprocessing.
 
     Parameters
     ----------
-    module_paths : list of str
-        Target Python module paths.
+    file_paths : list of str
+        Target file paths.
     hash_type : HashType
         Target hash type.
 
@@ -272,9 +272,9 @@ def _create_args_list_for_multiprocessing(
         Created arguments list for the multiprocessing.
     """
     args_list: List[_IsFileUpdatedArgs] = []
-    for module_path in module_paths:
+    for file_path in file_paths:
         args_list.append({
-            'file_path': module_path,
+            'file_path': file_path,
             'hash_type': hash_type,
         })
     return args_list
@@ -301,7 +301,7 @@ def remove_not_updated_file_paths(
     workers: int = max(cpu_count() - 1, 1)
     args_list: List[_IsFileUpdatedArgs] = \
         _create_args_list_for_multiprocessing(
-            module_paths=file_paths, hash_type=hash_type)
+            file_paths=file_paths, hash_type=hash_type)
     sliced_file_paths: List[str] = []
     with Pool(processes=workers) as p:
         file_updated_bool_list: List[bool] = p.map(

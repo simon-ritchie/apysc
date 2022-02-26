@@ -144,7 +144,7 @@ def test__is_file_updated_func_for_multiprocessing() -> None:
 def test__create_args_list_for_multiprocessing() -> None:
     args_list: List[_IsFileUpdatedArgs] = lint_and_doc_hash_util.\
         _create_args_list_for_multiprocessing(
-            module_paths=[
+            file_paths=[
                 'test/path_1.py',
                 'test/path_2.py',
             ],

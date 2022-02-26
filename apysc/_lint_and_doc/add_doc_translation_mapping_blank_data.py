@@ -3,8 +3,13 @@ mapping dictionary's blank data.
 """
 
 from enum import Enum
-from typing import List
+from typing import List, Union
 import os
+
+from apysc._lint_and_doc import document_text_split_util
+from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
+
+_SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
 
 class Lang(Enum):
@@ -22,8 +27,45 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
     lang : Lang
         A target translation language.
     """
+    from apysc._file import file_util
     src_docs_file_paths: List[str] = _get_src_docs_file_paths()
+    for src_doc_file_path in src_docs_file_paths:
+        markdown_txt: str = file_util.read_txt(file_path=src_doc_file_path)
+        splitted_values: _SplittedVals= document_text_split_util.\
+            split_markdown_document(markdown_txt=markdown_txt)
+        keys: List[str] = _convert_splitted_values_to_keys(
+            splitted_values=splitted_values)
     pass
+
+
+def _convert_splitted_values_to_keys(
+        splitted_values: _SplittedVals) -> List[str]:
+    """
+    Convert specified splitted values to dictionary's key
+    strings.
+
+    Parameters
+    ----------
+    splitted_values : List of Heading, BodyText and CodeBlock
+        Target splitted values.
+
+    Returns
+    -------
+    keys : list of str
+        A converted key strings.
+    """
+    keys: List[str] = []
+    for splitted_value in splitted_values:
+        key: str = ''
+        if isinstance(splitted_value, Heading):
+            key = splitted_value.overall_text
+        if isinstance(splitted_value, BodyText):
+            key = splitted_value.text
+        if isinstance(splitted_value, CodeBlock):
+            key = splitted_value.overall_code_block
+        key = key.replace("'", "\\'")
+        keys.append(key)
+    return keys
 
 
 def _get_src_docs_file_paths() -> List[str]:

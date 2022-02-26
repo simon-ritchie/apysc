@@ -33,15 +33,15 @@ def test_get_target_file_hash_file_path() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_read_target_module_hash() -> None:
+def test_read_target_file_hash() -> None:
     file_util.remove_file_if_exists(
         file_path='./apysc/_display/not_existing_module_1.py')
-    hashed_string: str = lint_and_doc_hash_util.read_target_module_hash(
-        module_path='./apysc/_display/not_existing_module_1.py')
+    hashed_string: str = lint_and_doc_hash_util.read_target_file_hash(
+        file_path='./apysc/_display/not_existing_module_1.py')
     assert hashed_string == ''
 
-    hashed_string = lint_and_doc_hash_util.read_target_module_hash(
-        module_path='./apysc/_display/sprite.py')
+    hashed_string = lint_and_doc_hash_util.read_target_file_hash(
+        file_path='./apysc/_display/sprite.py')
     assert hashed_string != ''
 
 

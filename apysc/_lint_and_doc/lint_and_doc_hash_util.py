@@ -7,8 +7,8 @@ Mainly following interfaces are defined:
     - Get a specified type's hash directory path.
 - get_target_file_hash_file_path
     - Get a specified file's hash file path.
-- read_target_module_hash
-    - Read a specified module's hashed string.
+- read_target_file_hash
+    - Read a specified file's hashed string.
 - read_saved_hash
     - Read an already-saved module's hashed string.
 - save_target_module_hash
@@ -79,8 +79,8 @@ def get_target_file_hash_file_path(
 
     Parameters
     ----------
-    module_path : str
-        Target module path.
+    file_path : str
+        Target file path.
     hash_type : HashType
         Target hash type.
 
@@ -103,27 +103,27 @@ def get_target_file_hash_file_path(
     return file_path_
 
 
-def read_target_module_hash(*, module_path: str) -> str:
+def read_target_file_hash(*, file_path: str) -> str:
     """
-    Read a specified module's hashed string.
+    Read a specified file's hashed string.
 
     Parameters
     ----------
-    module_path : str
-        Target module path.
+    file_path : str
+        Target file path.
 
     Returns
     -------
     hashed_string : str
-        Hashed module string. If there is no module at
+        Hashed file string. If there is no file at
         the specified path, this interface returns
         a blank string.
     """
     from apysc._file import file_util
-    if not os.path.isfile(module_path):
+    if not os.path.isfile(file_path):
         return ''
-    module_txt: str = file_util.read_txt(file_path=module_path)
-    hashed_string: str = hashlib.sha1(module_txt.encode()).hexdigest()
+    file_txt: str = file_util.read_txt(file_path=file_path)
+    hashed_string: str = hashlib.sha1(file_txt.encode()).hexdigest()
     return hashed_string
 
 
@@ -167,7 +167,7 @@ def save_target_module_hash(*, module_path: str, hash_type: HashType) -> None:
         Target hash type.
     """
     from apysc._file import file_util
-    hash: str = read_target_module_hash(module_path=module_path)
+    hash: str = read_target_file_hash(file_path=module_path)
     if hash == '':
         return
     file_path: str = get_target_file_hash_file_path(
@@ -218,7 +218,7 @@ def is_module_updated(*, module_path: str, hash_type: HashType) -> bool:
     """
     saved_hash: str = read_saved_hash(
         module_path=module_path, hash_type=hash_type)
-    current_hash: str = read_target_module_hash(module_path=module_path)
+    current_hash: str = read_target_file_hash(file_path=module_path)
     if saved_hash == current_hash:
         return False
     return True

@@ -185,8 +185,8 @@ def _save_docstring_module_hash(module_path: str) -> None:
         Target module path.
     """
     from apysc._lint_and_doc import lint_and_doc_hash_util
-    lint_and_doc_hash_util.save_target_module_hash(
-        module_path=module_path,
+    lint_and_doc_hash_util.save_target_file_hash(
+        file_path=module_path,
         hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_SRC)
 
 

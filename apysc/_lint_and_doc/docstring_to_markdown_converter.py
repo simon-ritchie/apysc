@@ -51,8 +51,8 @@ def convert_recursively(*, dir_path: str) -> List[str]:
         saved_markdown_file_path: str = _save_markdown(
             module_path=file_or_dir_path)
         saved_markdown_file_paths.append(saved_markdown_file_path)
-        lint_and_doc_hash_util.save_target_module_hash(
-            module_path=file_or_dir_path,
+        lint_and_doc_hash_util.save_target_file_hash(
+            file_path=file_or_dir_path,
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
     return saved_markdown_file_paths
 

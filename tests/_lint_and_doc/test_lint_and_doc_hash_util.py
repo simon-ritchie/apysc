@@ -68,22 +68,22 @@ def test_read_saved_hash() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_save_target_module_hash() -> None:
+def test_save_target_file_hash() -> None:
     module_path: str = './apysc/_display/not_existing_module_3.py'
     hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
         file_path=module_path, hash_type=HashType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
     file_util.remove_file_if_exists(file_path=hash_path)
 
-    lint_and_doc_hash_util.save_target_module_hash(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    lint_and_doc_hash_util.save_target_file_hash(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     saved_hash: str = lint_and_doc_hash_util.read_saved_hash(
         module_path=module_path, hash_type=HashType.AUTOPEP8)
     assert saved_hash == ''
 
     file_util.save_plain_txt(txt='abcdef', file_path=module_path)
-    lint_and_doc_hash_util.save_target_module_hash(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    lint_and_doc_hash_util.save_target_file_hash(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     saved_hash = lint_and_doc_hash_util.read_saved_hash(
         module_path=module_path, hash_type=HashType.AUTOPEP8)
     assert saved_hash != ''
@@ -109,8 +109,8 @@ def test_is_module_updated() -> None:
         module_path=module_path, hash_type=HashType.AUTOPEP8)
     assert result
 
-    lint_and_doc_hash_util.save_target_module_hash(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    lint_and_doc_hash_util.save_target_file_hash(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     result = lint_and_doc_hash_util.is_module_updated(
         module_path=module_path, hash_type=HashType.AUTOPEP8)
     assert not result
@@ -172,8 +172,8 @@ def test_remove_not_updated_module_paths() -> None:
             module_paths=[module_path], hash_type=HashType.AUTOPEP8)
     assert sliced_module_paths == [module_path]
 
-    lint_and_doc_hash_util.save_target_module_hash(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    lint_and_doc_hash_util.save_target_file_hash(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     sliced_module_paths = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=[module_path], hash_type=HashType.AUTOPEP8)

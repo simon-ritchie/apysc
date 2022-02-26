@@ -11,8 +11,8 @@ Mainly following interfaces are defined:
     - Read a specified file's hashed string.
 - read_saved_hash
     - Read an already-saved module's hashed string.
-- save_target_module_hash
-    - Save a target module's current hash.
+- save_target_file_hash
+    - Save a target file's current hash.
 - save_target_modules_hash
     - Save target modules' current hash.
 - is_module_updated
@@ -155,24 +155,24 @@ def read_saved_hash(*, module_path: str, hash_type: HashType) -> str:
     return saved_hash
 
 
-def save_target_module_hash(*, module_path: str, hash_type: HashType) -> None:
+def save_target_file_hash(*, file_path: str, hash_type: HashType) -> None:
     """
-    Save a target module's current hash.
+    Save a target file's current hash.
 
     Parameters
     ----------
-    module_path : str
-        Target module path.
+    file_path : str
+        Target file path.
     hash_type : HashType
         Target hash type.
     """
     from apysc._file import file_util
-    hash: str = read_target_file_hash(file_path=module_path)
+    hash: str = read_target_file_hash(file_path=file_path)
     if hash == '':
         return
-    file_path: str = get_target_file_hash_file_path(
-        file_path=module_path, hash_type=hash_type)
-    file_util.save_plain_txt(txt=hash, file_path=file_path)
+    file_path_: str = get_target_file_hash_file_path(
+        file_path=file_path, hash_type=hash_type)
+    file_util.save_plain_txt(txt=hash, file_path=file_path_)
 
 
 def save_target_modules_hash(
@@ -192,8 +192,8 @@ def save_target_modules_hash(
         future_list: List[futures.Future] = []
         for module_path in module_paths:
             future = executor.submit(
-                save_target_module_hash,
-                module_path=module_path,
+                save_target_file_hash,
+                file_path=module_path,
                 hash_type=hash_type)
             future_list.append(future)
         _ = futures.as_completed(fs=future_list)

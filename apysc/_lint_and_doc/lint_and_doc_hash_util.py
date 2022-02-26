@@ -224,38 +224,38 @@ def is_module_updated(*, module_path: str, hash_type: HashType) -> bool:
     return True
 
 
-class _IsModuleUpdatedArgs(TypedDict):
-    module_path: str
+class _IsFileUpdatedArgs(TypedDict):
+    file_path: str
     hash_type: HashType
 
 
 def _is_module_updated_func_for_multiprocessing(
-        args: _IsModuleUpdatedArgs) -> bool:
+        args: _IsFileUpdatedArgs) -> bool:
     """
-    Wrapper function of the `is_module_updated` function
+    Wrapper function of the `is_file_updated` function
     for the multiprocessing.
 
     Parameters
     ----------
-    args : _IsModuleUpdatedArgs
-        Arguments dictionary to pass to the `is_module_updated`
+    args : _IsFileUpdatedArgs
+        Arguments dictionary to pass to the `is_file_updated`
         function.
 
     Returns
     -------
     result : bool
-        If there is an updated module, this interface
+        If there is an updated file, this interface
         returns True.
     """
     result: bool = is_module_updated(
-        module_path=args['module_path'],
+        module_path=args['file_path'],
         hash_type=args['hash_type'])
     return result
 
 
 def _create_args_list_for_multiprocessing(
         *, module_paths: List[str],
-        hash_type: HashType) -> List[_IsModuleUpdatedArgs]:
+        hash_type: HashType) -> List[_IsFileUpdatedArgs]:
     """
     Create an arguments list for the multiprocessing.
 
@@ -268,13 +268,13 @@ def _create_args_list_for_multiprocessing(
 
     Returns
     -------
-    args_list : list of _IsModuleUpdatedArgs
+    args_list : list of _IsFileUpdatedArgs
         Created arguments list for the multiprocessing.
     """
-    args_list: List[_IsModuleUpdatedArgs] = []
+    args_list: List[_IsFileUpdatedArgs] = []
     for module_path in module_paths:
         args_list.append({
-            'module_path': module_path,
+            'file_path': module_path,
             'hash_type': hash_type,
         })
     return args_list
@@ -299,7 +299,7 @@ def remove_not_updated_module_paths(
         After the slicing module paths.
     """
     workers: int = max(cpu_count() - 1, 1)
-    args_list: List[_IsModuleUpdatedArgs] = \
+    args_list: List[_IsFileUpdatedArgs] = \
         _create_args_list_for_multiprocessing(
             module_paths=module_paths, hash_type=hash_type)
     sliced_module_paths: List[str] = []

@@ -7,7 +7,7 @@ from retrying import retry
 from apysc._file import file_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
-from apysc._lint_and_doc.lint_and_doc_hash_util import _IsModuleUpdatedArgs
+from apysc._lint_and_doc.lint_and_doc_hash_util import _IsFileUpdatedArgs
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -124,8 +124,8 @@ def test__is_module_updated_func_for_multiprocessing() -> None:
     module_path: str = './apysc/_display/not_existing_module_5.py'
     file_util.remove_file_if_exists(file_path=module_path)
 
-    args: _IsModuleUpdatedArgs = {
-        'module_path': module_path,
+    args: _IsFileUpdatedArgs = {
+        'file_path': module_path,
         'hash_type': HashType.AUTOPEP8,
     }
     result: bool = lint_and_doc_hash_util.\
@@ -142,7 +142,7 @@ def test__is_module_updated_func_for_multiprocessing() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__create_args_list_for_multiprocessing() -> None:
-    args_list: List[_IsModuleUpdatedArgs] = lint_and_doc_hash_util.\
+    args_list: List[_IsFileUpdatedArgs] = lint_and_doc_hash_util.\
         _create_args_list_for_multiprocessing(
             module_paths=[
                 'test/path_1.py',

@@ -184,7 +184,7 @@ def test_remove_not_updated_module_paths() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_save_target_modules_hash() -> None:
+def test_save_target_files_hash() -> None:
     module_path_1: str = './apysc/_display/not_existing_module_7.py'
     module_path_2: str = './apysc/_display/not_existing_module_8.py'
     hash_path_1: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
@@ -198,8 +198,8 @@ def test_save_target_modules_hash() -> None:
 
     file_util.save_plain_txt(txt='abc', file_path=module_path_1)
     file_util.save_plain_txt(txt='def', file_path=module_path_2)
-    lint_and_doc_hash_util.save_target_modules_hash(
-        module_paths=[module_path_1, module_path_2],
+    lint_and_doc_hash_util.save_target_files_hash(
+        file_paths=[module_path_1, module_path_2],
         hash_type=HashType.AUTOPEP8)
     hash_1: str = lint_and_doc_hash_util.read_saved_hash(
         module_path=module_path_1, hash_type=HashType.AUTOPEP8)

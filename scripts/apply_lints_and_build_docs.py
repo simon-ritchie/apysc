@@ -159,8 +159,8 @@ def _main() -> None:
     for hash_lint_type in hash_lint_types:
         logger.info(
             msg=f'Saving {hash_lint_type.value} hash files...')
-        lint_and_doc_hash_util.save_target_modules_hash(
-            module_paths=updated_module_paths,
+        lint_and_doc_hash_util.save_target_files_hash(
+            file_paths=updated_module_paths,
             hash_type=hash_lint_type)
 
     _check_build_doc_process(build_doc_process=build_doc_process)

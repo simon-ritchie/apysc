@@ -13,8 +13,8 @@ Mainly following interfaces are defined:
     - Read an already-saved module's hashed string.
 - save_target_file_hash
     - Save a target file's current hash.
-- save_target_modules_hash
-    - Save target modules' current hash.
+- save_target_files_hash
+    - Save target files' current hash.
 - is_module_updated
     - Get a boolean value whether a specified module has been updated.
 - remove_not_updated_module_paths
@@ -175,25 +175,25 @@ def save_target_file_hash(*, file_path: str, hash_type: HashType) -> None:
     file_util.save_plain_txt(txt=hash, file_path=file_path_)
 
 
-def save_target_modules_hash(
-        *, module_paths: List[str], hash_type: HashType) -> None:
+def save_target_files_hash(
+        *, file_paths: List[str], hash_type: HashType) -> None:
     """
-    Save target modules' current hash.
+    Save target files' current hash.
 
     Parameters
     ----------
-    module_paths : list of str
-        Target module paths.
+    file_paths : list of str
+        Target file paths.
     hash_type : HashType
         Target hash type.
     """
     workers: int = max(cpu_count() - 1, 1)
     with futures.ProcessPoolExecutor(max_workers=workers) as executor:
         future_list: List[futures.Future] = []
-        for module_path in module_paths:
+        for file_path in file_paths:
             future = executor.submit(
                 save_target_file_hash,
-                file_path=module_path,
+                file_path=file_path,
                 hash_type=hash_type)
             future_list.append(future)
         _ = futures.as_completed(fs=future_list)

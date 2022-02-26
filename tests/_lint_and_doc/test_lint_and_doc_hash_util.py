@@ -159,7 +159,7 @@ def test__create_args_list_for_multiprocessing() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_remove_not_updated_module_paths() -> None:
+def test_remove_not_updated_file_paths() -> None:
     module_path: str = './apysc/_display/not_existing_module_6.py'
     hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
         file_path=module_path, hash_type=HashType.AUTOPEP8)
@@ -168,15 +168,15 @@ def test_remove_not_updated_module_paths() -> None:
 
     file_util.save_plain_txt(txt='abc', file_path=module_path)
     sliced_module_paths: List[str] = lint_and_doc_hash_util.\
-        remove_not_updated_module_paths(
-            module_paths=[module_path], hash_type=HashType.AUTOPEP8)
+        remove_not_updated_file_paths(
+            file_paths=[module_path], hash_type=HashType.AUTOPEP8)
     assert sliced_module_paths == [module_path]
 
     lint_and_doc_hash_util.save_target_file_hash(
         file_path=module_path, hash_type=HashType.AUTOPEP8)
     sliced_module_paths = lint_and_doc_hash_util.\
-        remove_not_updated_module_paths(
-            module_paths=[module_path], hash_type=HashType.AUTOPEP8)
+        remove_not_updated_file_paths(
+            file_paths=[module_path], hash_type=HashType.AUTOPEP8)
     assert sliced_module_paths == []
 
     file_util.remove_file_if_exists(file_path=module_path)

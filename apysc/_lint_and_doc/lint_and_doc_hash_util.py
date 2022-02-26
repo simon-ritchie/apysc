@@ -17,8 +17,8 @@ Mainly following interfaces are defined:
     - Save target files' current hash.
 - is_file_updated
     - Get a boolean value whether a specified file has been updated.
-- remove_not_updated_module_paths
-    - Remove not updated modules from specified module paths.
+- remove_not_updated_file_paths
+    - Remove not updated files from specified file paths.
 """
 
 import hashlib
@@ -280,37 +280,37 @@ def _create_args_list_for_multiprocessing(
     return args_list
 
 
-def remove_not_updated_module_paths(
-        *, module_paths: List[str],
+def remove_not_updated_file_paths(
+        *, file_paths: List[str],
         hash_type: HashType) -> List[str]:
     """
-    Remove not updated modules from specified module paths.
+    Remove not updated files from specified file paths.
 
     Parameters
     ----------
-    module_paths : list of str
-        Target Python module paths.
+    file_paths : list of str
+        Target file paths.
     hash_type : HashType
         Target hash type.
 
     Returns
     -------
-    sliced_module_paths : list of str
-        After the slicing module paths.
+    sliced_file_paths : list of str
+        After the slicing file paths.
     """
     workers: int = max(cpu_count() - 1, 1)
     args_list: List[_IsFileUpdatedArgs] = \
         _create_args_list_for_multiprocessing(
-            module_paths=module_paths, hash_type=hash_type)
-    sliced_module_paths: List[str] = []
+            module_paths=file_paths, hash_type=hash_type)
+    sliced_file_paths: List[str] = []
     with Pool(processes=workers) as p:
-        module_updated_bool_list: List[bool] = p.map(
+        file_updated_bool_list: List[bool] = p.map(
             func=_is_file_updated_func_for_multiprocessing,
             iterable=args_list,
         )
-    module_updated: bool
-    for i, module_updated in enumerate(module_updated_bool_list):
-        if not module_updated:
+    file_updated: bool
+    for i, file_updated in enumerate(file_updated_bool_list):
+        if not file_updated:
             continue
-        sliced_module_paths.append(module_paths[i])
-    return sliced_module_paths
+        sliced_file_paths.append(file_paths[i])
+    return sliced_file_paths

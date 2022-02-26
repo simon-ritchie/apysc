@@ -21,9 +21,9 @@ def test_get_lint_hash_dir_path() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_get_target_module_hash_file_path() -> None:
-    file_path: str = lint_and_doc_hash_util.get_target_module_hash_file_path(
-        module_path='./apysc/_display/sprite.py',
+def test_get_target_file_hash_file_path() -> None:
+    file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path='./apysc/_display/sprite.py',
         hash_type=HashType.AUTOPEP8)
     expected: str = (
         './.lint_and_doc_hash/.autopep8/apysc/_display/sprite'
@@ -48,8 +48,8 @@ def test_read_target_module_hash() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_read_saved_hash() -> None:
     module_path: str = './apysc/_display/not_existing_module_2.py'
-    file_path: str = lint_and_doc_hash_util.get_target_module_hash_file_path(
-        module_path=module_path,
+    file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path=module_path,
         hash_type=HashType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=file_path)
 
@@ -70,8 +70,8 @@ def test_read_saved_hash() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_save_target_module_hash() -> None:
     module_path: str = './apysc/_display/not_existing_module_3.py'
-    hash_path: str = lint_and_doc_hash_util.get_target_module_hash_file_path(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
     file_util.remove_file_if_exists(file_path=hash_path)
 
@@ -95,8 +95,8 @@ def test_save_target_module_hash() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_module_updated() -> None:
     module_path: str = './apysc/_display/not_existing_module_4.py'
-    hash_path: str = lint_and_doc_hash_util.get_target_module_hash_file_path(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
     file_util.remove_file_if_exists(file_path=hash_path)
 
@@ -161,8 +161,8 @@ def test__create_args_list_for_multiprocessing() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_remove_not_updated_module_paths() -> None:
     module_path: str = './apysc/_display/not_existing_module_6.py'
-    hash_path: str = lint_and_doc_hash_util.get_target_module_hash_file_path(
-        module_path=module_path, hash_type=HashType.AUTOPEP8)
+    hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path=module_path, hash_type=HashType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
     file_util.remove_file_if_exists(file_path=hash_path)
 
@@ -187,10 +187,10 @@ def test_remove_not_updated_module_paths() -> None:
 def test_save_target_modules_hash() -> None:
     module_path_1: str = './apysc/_display/not_existing_module_7.py'
     module_path_2: str = './apysc/_display/not_existing_module_8.py'
-    hash_path_1: str = lint_and_doc_hash_util.get_target_module_hash_file_path(
-        module_path=module_path_1, hash_type=HashType.AUTOPEP8)
-    hash_path_2: str = lint_and_doc_hash_util.get_target_module_hash_file_path(
-        module_path=module_path_2, hash_type=HashType.AUTOPEP8)
+    hash_path_1: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path=module_path_1, hash_type=HashType.AUTOPEP8)
+    hash_path_2: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path=module_path_2, hash_type=HashType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path_1)
     file_util.remove_file_if_exists(file_path=hash_path_1)
     file_util.remove_file_if_exists(file_path=module_path_2)

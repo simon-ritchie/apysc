@@ -403,12 +403,12 @@ def test_convert_recursively() -> None:
     assert saved_markdown_file_paths == []
 
     hash_file_path_1: str = \
-        lint_and_doc_hash_util.get_target_module_hash_file_path(
-            module_path=_TEST_MODULE_PATH,
+        lint_and_doc_hash_util.get_target_file_hash_file_path(
+            file_path=_TEST_MODULE_PATH,
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
     hash_file_path_2: str = \
-        lint_and_doc_hash_util.get_target_module_hash_file_path(
-            module_path=init_path,
+        lint_and_doc_hash_util.get_target_file_hash_file_path(
+            file_path=init_path,
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
     for hash_file_path in (hash_file_path_1, hash_file_path_2):
         file_util.remove_file_if_exists(file_path=hash_file_path)

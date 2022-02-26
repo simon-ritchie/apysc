@@ -5,8 +5,8 @@ Mainly following interfaces are defined:
 
 - get_hash_dir_path
     - Get a specified type's hash directory path.
-- get_target_module_hash_file_path
-    - Get a specified module's hash file path.
+- get_target_file_hash_file_path
+    - Get a specified file's hash file path.
 - read_target_module_hash
     - Read a specified module's hashed string.
 - read_saved_hash
@@ -39,6 +39,7 @@ class HashType(Enum):
     AUTOPEP8 = 'autopep8'
     DOCSTRING_SRC = 'docstring_src'
     DOCSTRING_TO_MARKDOWN = 'docstring_to_markdown'
+    TRANSLATION_MAPPING_JP = 'translation_mapping_jp'
 
 
 _HASH_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'
@@ -71,10 +72,10 @@ def get_hash_dir_path(*, hash_type: HashType) -> str:
     return dir_path
 
 
-def get_target_module_hash_file_path(
-        *, module_path: str, hash_type: HashType) -> str:
+def get_target_file_hash_file_path(
+        *, file_path: str, hash_type: HashType) -> str:
     """
-    Get a specified module's hash file path.
+    Get a specified file's hash file path.
 
     Parameters
     ----------
@@ -93,13 +94,13 @@ def get_target_module_hash_file_path(
     This interface automatically creates a returned file's
     directory path if it does not exist.
     """
-    if module_path.startswith('./'):
-        module_path = module_path.replace('./', '', 1)
+    if file_path.startswith('./'):
+        file_path = file_path.replace('./', '', 1)
     dir_path: str = get_hash_dir_path(hash_type=hash_type)
-    file_path: str = os.path.join(dir_path, module_path)
-    file_path = file_path.replace('.py', '', 1)
-    os.makedirs(os.path.dirname(file_path), exist_ok=True)
-    return file_path
+    file_path_: str = os.path.join(dir_path, file_path)
+    file_path_ = file_path_.replace('.py', '', 1)
+    os.makedirs(os.path.dirname(file_path_), exist_ok=True)
+    return file_path_
 
 
 def read_target_module_hash(*, module_path: str) -> str:
@@ -145,8 +146,8 @@ def read_saved_hash(*, module_path: str, hash_type: HashType) -> str:
         a blank string.
     """
     from apysc._file import file_util
-    file_path: str = get_target_module_hash_file_path(
-        module_path=module_path, hash_type=hash_type)
+    file_path: str = get_target_file_hash_file_path(
+        file_path=module_path, hash_type=hash_type)
     if not os.path.isfile(file_path):
         return ''
     saved_hash: str = file_util.read_txt(file_path=file_path)
@@ -169,8 +170,8 @@ def save_target_module_hash(*, module_path: str, hash_type: HashType) -> None:
     hash: str = read_target_module_hash(module_path=module_path)
     if hash == '':
         return
-    file_path: str = get_target_module_hash_file_path(
-        module_path=module_path, hash_type=hash_type)
+    file_path: str = get_target_file_hash_file_path(
+        file_path=module_path, hash_type=hash_type)
     file_util.save_plain_txt(txt=hash, file_path=file_path)
 
 

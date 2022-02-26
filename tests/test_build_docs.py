@@ -703,8 +703,8 @@ def test__flatten_2dim_module_paths_and_make_it_unique() -> None:
 def test__save_docstring_module_hash() -> None:
     test_module_path: str = './tests/test_build_docs.py'
     test_hash_file_path: str = lint_and_doc_hash_util.\
-        get_target_module_hash_file_path(
-            module_path=test_module_path,
+        get_target_file_hash_file_path(
+            file_path=test_module_path,
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_SRC)
     file_util.remove_file_if_exists(file_path=test_hash_file_path)
     build_docs._save_docstring_module_hash(module_path=test_module_path)

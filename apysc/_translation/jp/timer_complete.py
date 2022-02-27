@@ -1,0 +1,48 @@
+"""This module is for the translation mapping data of the
+following document:
+
+Document file: timer_complete.md
+Language: jp
+"""
+
+from typing import Dict
+
+MAPPING: Dict[str, str] = {
+
+    '# Timer class timer_complete interface':
+    '',
+
+    'This page explains the `Timer` class `timer_complete` method interface.':  # noqa
+    '',
+
+    '## What interface is this?':
+    '',
+
+    'The `timer_complete` method interface binds a new handler that a timer calls when it is complete. For instance, if the `repeat_count` argument is 100, it calls this handler when a timer count reaches 100 times.':  # noqa
+    '',
+
+    '## Basic usage':
+    '',
+
+    'The `timer_complete` method has the same interface as the other event binding interface (arguments of the `handler` callable and `options` dictionary).\n\nThe following example starts the first timer (rotating the left-side rectangle) when you click the rectangle. If that one completes, then the second timer starts:':  # noqa
+    '',
+
+    '```py\n# runnable\nfrom typing_extensions import TypedDict\n\nimport apysc as ap\n\n\nclass _RectsOptions(TypedDict):\n    rectangle_1: ap.Rectangle\n    rectangle_2: ap.Rectangle\n\n\nclass _RectOptions(TypedDict):\n    rectangle: ap.Rectangle\n\n\ndef on_click(e: ap.MouseEvent[ap.Sprite], options: _RectsOptions) -> None:\n    """\n    The handler that a rectangle calls when clicked.\n\n    Parameters\n    ----------\n    e : ap.MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    e.this.unbind_click(on_click)\n    rectangle_1: ap.Rectangle = options[\'rectangle_1\']\n    rectangle_2: ap.Rectangle = options[\'rectangle_2\']\n    options_: _RectOptions = {\'rectangle\': rectangle_1}\n    timer_1: ap.Timer = ap.Timer(\n        handler=on_timer, delay=ap.FPS.FPS_60, repeat_count=90,\n        options=options_)\n    options_ = {\'rectangle\': rectangle_2}\n    timer_1.timer_complete(\n        handler=on_timer_1_complete, options=options_)\n    timer_1.start()\n\n\ndef on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:\n    """\n    The handler that a timer calls.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rectangle: ap.Rectangle = options[\'rectangle\']\n    rectangle.rotation_around_center += 1\n\n\ndef on_timer_1_complete(e: ap.TimerEvent, options: _RectOptions) -> None:\n    """\n    The handler that the first time calls when completed.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rectangle_2: ap.Rectangle = options[\'rectangle\']\n    options_: _RectOptions = {\'rectangle\': rectangle_2}\n    timer_2: ap.Timer = ap.Timer(\n        handler=on_timer, delay=ap.FPS.FPS_60, repeat_count=90,\n        options=options_)\n    timer_2.start()\n\n\nap.Stage(\n    stage_width=250, stage_height=150, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\n\nrectangle_1: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\nrectangle_2: ap.Rectangle = sprite.graphics.draw_rect(\n    x=150, y=50, width=50, height=50)\noptions: _RectsOptions = {\n    \'rectangle_1\': rectangle_1, \'rectangle_2\': rectangle_2}\nsprite.click(handler=on_click, options=options)\n\nap.save_overall_html(\n    dest_dir_path=\'timer_complete_basic_usage/\')\n```':  # noqa
+    '',
+
+    '<iframe src="static/timer_complete_basic_usage/index.html" width="250" height="150"></iframe>':  # noqa
+    '',
+
+    '## timer_complete API':
+    '',
+
+    '<!-- Docstring: apysc._time.timer.Timer.timer_complete -->\n\n<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>\n\n**[Interface signature]** `timer_complete(self, handler:Callable[[_ForwardRef(\'timer_event.TimerEvent\'), ~_O2], NoneType], *, options:Union[~_O2, NoneType]=None) -> str`<hr>\n\n**[Interface summary]** Add a timer complete event listener setting.<hr>\n\n**[Parameters]**\n\n- `handler`: _Handler\n  - A callable that a timer calls when complete.\n- `options`: dict or None, default None\n  - Optional arguments dictionary to be passed to a handler.\n\n<hr>\n\n**[Returns]**\n\n- `name`: str\n  - Handler\'s name.\n\n<hr>\n\n**[Examples]**':  # noqa
+    '',
+
+    '```py\n>>> from typing_extensions import TypedDict\n>>> import apysc as ap\n>>> class RectOptions(TypedDict):\n...     rectangle: ap.Rectangle\n>>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:\n...     rectangle: ap.Rectangle = options[\'rectangle\']\n...     rectangle.x += 1\n>>> def on_timer_complete(\n...         e: ap.TimerEvent, options: RectOptions) -> None:\n...     ap.trace(\'Timer completed!\')\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> options: RectOptions = {\'rectangle\': rectangle}\n>>> timer: ap.Timer = ap.Timer(\n...     on_timer, delay=33.3, options=options)\n>>> _ = timer.timer_complete(on_timer_complete)\n>>> timer.start()\n```':  # noqa
+    '',
+
+    '<hr>\n\n**[References]**\n\n- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)':  # noqa
+    '',
+
+}

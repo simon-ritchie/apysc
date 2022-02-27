@@ -36,9 +36,6 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_graphics_attribute/\')\n```':  # noqa
     '',
 
-    '<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>':  # noqa
-    '',
-
     'For more details, please see the `Graphics` related documents, for example:':  # noqa
     '詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。',
 
@@ -54,9 +51,6 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    sprite.y += 50\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=250,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\nsprite.click(on_sprite_click)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_move_instances_simultaneously/\')\n```':  # noqa
     '',
 
-    '<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>':  # noqa
-    '',
-
     'The subsequent pages explain the other interfaces, such as the `add_child` interface.':  # noqa
     '以降のページでは`add_child`のインターフェースなど、Spriteクラスの他のインターフェースについて説明していきます。',
 
@@ -70,9 +64,6 @@ MAPPING: Dict[str, str] = {
     '',
 
     '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
-    '',
-
-    '**[Interface signature]** `__init__(self, *, variable_name:Union[str, NoneType]=None) -> None`<hr>':  # noqa
     '',
 
     '**[Interface summary]** Create a basic display object that can be a parent.<hr>':  # noqa

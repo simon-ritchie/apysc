@@ -1,10 +1,10 @@
-"""This module is for the base class of the fixed-translation
+"""This module is for the data model of the fixed-translation
 mapping setting.
 """
 
 
-class Base:
-    """The base class of a single fixed-translation mapping setting.
+class Mapping:
+    """The class of a single fixed-translation mapping setting.
     """
 
     _key: str
@@ -12,7 +12,7 @@ class Base:
 
     def __init__(self, *, key: str, value: str) -> None:
         """
-        Single fixed-translation mapping setting.
+        A single fixed-translation mapping setting.
 
         Parameters
         ----------

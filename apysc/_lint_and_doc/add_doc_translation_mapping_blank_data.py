@@ -4,7 +4,7 @@ mapping dictionary's blank data.
 
 from enum import Enum
 from types import ModuleType
-from typing import Dict, List, Union, Optional, Match
+from typing import Dict, List, Union, Optional, Match, Pattern
 import os
 import importlib
 import re
@@ -26,10 +26,6 @@ class Lang(Enum):
 
 _MAPPING_CONST_NAME: str = 'MAPPING'
 
-_SKIPPING_PATTERNS: List[str] = [
-    DOCSTRING_PATH_COMMENT_PATTERN,
-]
-
 _HR_TAG_PATTERN: str = r'^<hr>$'
 
 _INTERFACE_SIGNATURE_PATTERN: str = (
@@ -47,11 +43,15 @@ _API_DOCS_AUTO_GEN_TXT_PATTERN: str = (
     r'compared with previous sections\.</span>$'
 )
 
-_MAPPING_UNNECESSARY_PATTERNS: List[str] = [
-    _HR_TAG_PATTERN,
-    _INTERFACE_SIGNATURE_PATTERN,
-    _CODE_BLOCK_IFRAME_PATTERN,
-    _API_DOCS_AUTO_GEN_TXT_PATTERN,
+_SKIPPING_PATTERNS: List[Pattern] = [
+    re.compile(pattern=DOCSTRING_PATH_COMMENT_PATTERN),
+]
+
+_MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
+    re.compile(pattern=_HR_TAG_PATTERN,),
+    re.compile(pattern=_INTERFACE_SIGNATURE_PATTERN),
+    re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN),
+    re.compile(pattern=_API_DOCS_AUTO_GEN_TXT_PATTERN),
 ]
 
 
@@ -304,14 +304,12 @@ def _remove_skipping_pattern_keys_from_list(
         An after removing key's list.
     """
     result_keys: List[str] = []
-    patterns: List[str] = [
+    patterns: List[Pattern] = [
         *_SKIPPING_PATTERNS, *_MAPPING_UNNECESSARY_PATTERNS]
     for key in keys:
         is_pattern_matching: bool = False
         for pattern in patterns:
-            match: Optional[Match] = re.search(
-                pattern=pattern, string=key,
-                flags=re.MULTILINE | re.DOTALL)
+            match: Optional[Match] = pattern.search(string=key)
             if match is not None:
                 is_pattern_matching = True
                 break

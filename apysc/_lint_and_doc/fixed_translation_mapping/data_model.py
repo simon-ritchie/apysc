@@ -2,7 +2,11 @@
 mapping settings.
 """
 
-from typing import List, Optional
+from types import ModuleType
+from typing import List, Optional, Tuple
+import os
+import inspect
+from functools import lru_cache
 
 from apysc._lint_and_doc.docs_lang import Lang
 
@@ -58,7 +62,7 @@ class Mappings:
     """The class for fixed-translation mappings settings.
     """
 
-    mapping: List[Mapping]
+    mappings: List[Mapping]
 
     def __init__(self, mappings: List[Mapping]) -> None:
         """
@@ -69,7 +73,7 @@ class Mappings:
         mappings : list of Mapping
             A target mappings list.
         """
-        self.mapping = mappings
+        self.mappings = mappings
 
 
 def get_fixed_translation_str_if_exists(
@@ -95,7 +99,8 @@ def get_fixed_translation_str_if_exists(
     pass
 
 
-def _read_mappings(*, lang) -> Optional[Mappings]:
+@lru_cache(maxsize=None)
+def _read_mappings(*, lang: Lang) -> Optional[Mappings]:
     """
     Read a fixed-translation mappings settings if it exists.
 
@@ -106,12 +111,21 @@ def _read_mappings(*, lang) -> Optional[Mappings]:
 
     Returns
     -------
-    mappings : Mappings
+    mappings : Mappings or None
         A read mappings settings. If there is no mappings
         settings, this interface returns None.
     """
+    from apysc._file import module_util
     module_path: str = _get_mappings_module_path_from_lang(lang=lang)
-    pass
+    if not os.path.isfile(module_path):
+        return None
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=module_path)
+    members: List[Tuple[str, Mappings]] = inspect.getmembers(
+        module, predicate=lambda x: isinstance(x, Mappings))
+    if not members:
+        return None
+    return members[0][1]
 
 
 def _get_mappings_module_path_from_lang(*, lang: Lang) -> str:

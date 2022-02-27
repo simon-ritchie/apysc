@@ -1,6 +1,7 @@
 from random import randint
-from typing import List
+from typing import List, Optional
 import os
+from enum import Enum
 
 from retrying import retry
 
@@ -8,6 +9,8 @@ from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mapping, Ma
 from apysc._lint_and_doc.fixed_translation_mapping import data_model
 from tests.testing_helper import assert_attrs
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._file import file_util
+from apysc._lint_and_doc.fixed_translation_mapping import jp
 
 
 class TestMapping:
@@ -56,3 +59,29 @@ def test__get_mappings_module_path_from_lang() -> None:
         lang=Lang.JP)
     assert module_path.endswith('jp.py')
     assert os.path.isfile(module_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__read_mappings() -> None:
+
+    class _MockLang(Enum):
+        NOT_EXISTING_LANG = 'not_existing_lang'
+
+    test_module_path: str = data_model._get_mappings_module_path_from_lang(
+        lang=_MockLang.NOT_EXISTING_LANG)  # type: ignore
+    file_util.remove_file_if_exists(file_path=test_module_path)
+
+    mappings: Optional[Mappings] = data_model._read_mappings(
+        lang=_MockLang.NOT_EXISTING_LANG)  # type: ignore
+    assert mappings is None
+
+    file_util.save_plain_txt(
+        txt='', file_path=test_module_path)
+    mappings = data_model._read_mappings(
+        lang=_MockLang.NOT_EXISTING_LANG)  # type: ignore
+    assert mappings is None
+
+    mappings = data_model._read_mappings(lang=Lang.JP)
+    assert mappings == jp.MAPPINGS
+
+    file_util.remove_file_if_exists(file_path=test_module_path)

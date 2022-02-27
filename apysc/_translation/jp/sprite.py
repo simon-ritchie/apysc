@@ -10,7 +10,7 @@ from typing import Dict
 MAPPING: Dict[str, str] = {
 
     '# Sprite':
-    '',
+    '# Sprite',
 
     'This page explains the `Sprite` class.':
     'このページでは、`Sprite`クラスについて説明します。',
@@ -49,7 +49,7 @@ MAPPING: Dict[str, str] = {
     '## DisplayObjectの複数のインスタンスの移動について',
 
     'The `Sprite` class is a container, and if you move that coordinates, it changes children\'s coordinates simultaneously. For example, the following code changes the sprite y-coordinate when clicking the rectangle.':  # noqa
-    '`Sprite`クラスはコンテナであり、その座標を移動させると同時に子のインスタンスの座標も変更されます。例えば以下のコードでは四角をクリックするとSpriteのy座標が変化します（子の各四角が一通り移動します）。',  # noqa
+    '`Sprite`クラスはコンテナであり、その座標を移動させると同時に子のインスタンスの座標も変更されます。例えば以下のコードでは四角をクリックするとSpriteのy座標が変化します（子の各四角形が一通り移動します）。',  # noqa
 
     '```py\n# runnable\nimport apysc as ap\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    sprite.y += 50\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=250,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\nsprite.click(on_sprite_click)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_move_instances_simultaneously/\')\n```':  # noqa
     '',

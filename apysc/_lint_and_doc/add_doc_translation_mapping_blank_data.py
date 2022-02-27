@@ -2,7 +2,6 @@
 mapping dictionary's blank data.
 """
 
-from enum import Enum
 from types import ModuleType
 from typing import Dict, List, Union, Optional, Match, Pattern
 import os
@@ -14,14 +13,9 @@ from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, Code
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
+from apysc._lint_and_doc.docs_lang import Lang
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
-
-
-class Lang(Enum):
-    """Translation target languages definitions.
-    """
-    JP = 'jp'
 
 
 _MAPPING_CONST_NAME: str = 'MAPPING'

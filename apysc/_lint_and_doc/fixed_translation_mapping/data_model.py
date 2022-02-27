@@ -4,7 +4,7 @@ mapping settings.
 
 from typing import List, Optional
 
-from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import Lang
+from apysc._lint_and_doc.docs_lang import Lang
 
 
 class Mapping:

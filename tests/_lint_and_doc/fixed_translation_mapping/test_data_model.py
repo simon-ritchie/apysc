@@ -7,7 +7,7 @@ from retrying import retry
 from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mapping, Mappings
 from apysc._lint_and_doc.fixed_translation_mapping import data_model
 from tests.testing_helper import assert_attrs
-from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import Lang
+from apysc._lint_and_doc.docs_lang import Lang
 
 
 class TestMapping:

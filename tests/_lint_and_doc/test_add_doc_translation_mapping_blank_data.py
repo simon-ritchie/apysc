@@ -6,7 +6,8 @@ import importlib
 from retrying import retry
 
 from apysc._lint_and_doc import add_doc_translation_mapping_blank_data
-from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import Lang, _MAPPING_CONST_NAME
+from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import _MAPPING_CONST_NAME
+from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
 from apysc._file import file_util, module_util
 from apysc._lint_and_doc import lint_and_doc_hash_util

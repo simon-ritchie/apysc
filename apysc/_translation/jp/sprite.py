@@ -10,13 +10,13 @@ from typing import Dict
 MAPPING: Dict[str, str] = {
 
     '# Sprite':
-    '# Sprite',
+    '',
 
     'This page explains the `Sprite` class.':
     'このページでは、`Sprite`クラスについて説明します。',
 
     '## What is the Sprite?':
-    'Spriteとは？',
+    '## Spriteとは？',
 
     'The `Sprite` class is the container of each `DisplayObject` instance. It also has the `Graphics` class interfaces and can draw each vector graphic.':  # noqa
     '`Sprite`クラスは、各`DisplayObject`インスタンスのコンテナです。また、`Graphics`クラスのインタフェースを持ち、各ベクターグラフィックを描画することができます。',  # noqa
@@ -28,16 +28,22 @@ MAPPING: Dict[str, str] = {
     '`Sprite`のインスタンスは自動的にステージに追加されます（`add_child`などの関連インタフェースを呼び出す必要はありません）。一方で、もし他のインスタンスに`Sprite`のインスタンスを追加したいと場合、手動で `add_child` メソッドを呼び出す必要があります。',  # noqa
 
     '## graphics attribute interfaces':
-    'graphics属性のインタフェース',
+    '## graphics属性のインタフェース',
 
     'The `Sprite` instance has the `graphics` attribute, and you can draw each vector graphic with it. For example, the following code draws the cyan color rectangle.':  # noqa
     '`Sprite`クラスのインスタンスは`graphics`属性を持っており、それを使って各ベクターグラフィックを描画することができます。例えば以下のコードでは水色の四角を描画します。',  # noqa
 
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_graphics_attribute/\')\n```':  # noqa
-    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_graphics_attribute/\')\n```',  # noqa
+    '',
 
-    '<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>\n\nFor more details, please see the `Graphics` related documents, for example:\n\n- [Graphics class](graphics.md)\n- [Graphics class begin fill interface](graphics_begin_fill.md)\n- [Graphics class line style interface](graphics_line_style.md)\n- [Graphics class draw rect interface](graphics_draw_rect.md)\n- [Graphics class draw circle interface](graphics_draw_circle.md)':  # noqa
-    '<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>\n\nFor more details, please see the `Graphics` related documents, for example:\n\n- [Graphics class](graphics.md)\n- [Graphics class begin fill interface](graphics_begin_fill.md)\n- [Graphics class line style interface](graphics_line_style.md)\n- [Graphics class draw rect interface](graphics_draw_rect.md)\n- [Graphics class draw circle interface](graphics_draw_circle.md)',  # noqa
+    '<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>':  # noqa
+    '',  # noqa
+
+    'For more details, please see the `Graphics` related documents, for example:':  # noqa
+    '詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。',  # noqa
+
+    '- [Graphics class](graphics.md)\n- [Graphics class begin fill interface](graphics_begin_fill.md)\n- [Graphics class line style interface](graphics_line_style.md)\n- [Graphics class draw rect interface](graphics_draw_rect.md)\n- [Graphics class draw circle interface](graphics_draw_circle.md)':  # noqa
+    '',
 
     '## Move DisplayObject instances simultaneously':
     '## DisplayObjectの複数のインスタンスの移動について',
@@ -46,10 +52,13 @@ MAPPING: Dict[str, str] = {
     '`Sprite`クラスはコンテナであり、その座標を移動させると同時に子のインスタンスの座標も変更されます。例えば以下のコードでは四角をクリックするとSpriteのy座標が変化します（子の各四角が一通り移動します）。',  # noqa
 
     '```py\n# runnable\nimport apysc as ap\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    sprite.y += 50\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=250,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\nsprite.click(on_sprite_click)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_move_instances_simultaneously/\')\n```':  # noqa
-    '```py\n# runnable\nimport apysc as ap\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    sprite.y += 50\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=250,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\nsprite.click(on_sprite_click)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_move_instances_simultaneously/\')\n```',  # noqa
+    '',
 
-    '<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>\n\nThe subsequent pages explain the other interfaces, such as the `add_child` interface.':  # noqa
-    '<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>\n\n以降のページでは`add_child`のインターフェースなど、Spriteクラスの他のインターフェースについて説明していきます。',
+    '<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>':  # noqa
+    '',
+
+    'The subsequent pages explain the other interfaces, such as the `add_child` interface.':  # noqa
+    '以降のページでは`add_child`のインターフェースなど、Spriteクラスの他のインターフェースについて説明していきます。',  # noqa
 
     '## See also':
     '',
@@ -60,7 +69,28 @@ MAPPING: Dict[str, str] = {
     '## Sprite class constructor API':
     '',
 
-    '<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->\n\n<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>\n\n**[Interface signature]** `__init__(self, *, variable_name:Union[str, NoneType]=None) -> None`<hr>\n\n**[Interface summary]** Create a basic display object that can be a parent.<hr>\n\n**[Parameters]**\n\n- `variable_name`: str or None, default None\n  - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.\n\n<hr>\n\n**[Examples]**':  # noqa
+    '<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->':
+    '',
+
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
+    '',
+
+    '**[Interface signature]** `__init__(self, *, variable_name:Union[str, NoneType]=None) -> None`<hr>':  # noqa
+    '',
+
+    '**[Interface summary]** Create a basic display object that can be a parent.<hr>':  # noqa
+    '',
+
+    '**[Parameters]**':
+    '',
+
+    '- `variable_name`: str or None, default None\n  - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.':  # noqa
+    '',
+
+    '<hr>':
+    '',
+
+    '**[Examples]**':
     '',
 
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> # Create the sprite child rectangle\n>>> sprite_1.graphics.begin_fill(color=\'#0af\')\n>>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_1.graphics.contains(rect)\nBoolean(True)\n\n>>> # Move the created rectangle to the other sprite\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rect)\n>>> sprite_1.graphics.contains(rect)\nBoolean(False)\n\n>>> sprite_2.contains(rect)\nBoolean(True)\n\n>>> # Move the sprite container\n>>> sprite_2.x = ap.Int(50)\n>>> sprite_2.x\nInt(50)\n```':  # noqa

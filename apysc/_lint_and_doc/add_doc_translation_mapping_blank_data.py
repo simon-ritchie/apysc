@@ -4,14 +4,16 @@ mapping dictionary's blank data.
 
 from enum import Enum
 from types import ModuleType
-from typing import Dict, List, Union
+from typing import Dict, List, Union, Optional, Match
 import os
 import importlib
+import re
 
 from apysc._lint_and_doc import document_text_split_util
 from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
@@ -23,6 +25,10 @@ class Lang(Enum):
 
 
 _MAPPING_CONST_NAME: str = 'MAPPING'
+
+_SKIPPING_PATTERNS: List[str] = [
+    DOCSTRING_PATH_COMMENT_PATTERN,
+]
 
 
 def add_mapping_blank_data(*, lang: Lang) -> None:
@@ -251,7 +257,39 @@ def _convert_splitted_values_to_keys(
             keys.append(key)
         else:
             _append_body_text_keys_to_list(key=key, keys=keys)
+    keys = _remove_skipping_pattern_keys_from_list(keys=keys)
     return keys
+
+
+def _remove_skipping_pattern_keys_from_list(
+        *, keys: List[str]) -> List[str]:
+    """
+    Remove skipping pattern matching keys from a specified list.
+
+    Parameters
+    ----------
+    keys : list of str
+        A target key's list.
+
+    Returns
+    -------
+    result_keys : list of str
+        An after removing key's list.
+    """
+    result_keys: List[str] = []
+    for key in keys:
+        is_pattern_matching: bool = False
+        for pattern in _SKIPPING_PATTERNS:
+            match: Optional[Match] = re.search(
+                pattern=pattern, string=key,
+                flags=re.MULTILINE | re.DOTALL)
+            if match is not None:
+                is_pattern_matching = True
+                break
+        if is_pattern_matching:
+            continue
+        result_keys.append(key)
+    return result_keys
 
 
 def _append_body_text_keys_to_list(

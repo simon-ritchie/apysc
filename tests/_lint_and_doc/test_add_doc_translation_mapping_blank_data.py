@@ -228,3 +228,18 @@ def test__append_body_text_keys_to_list() -> None:
     add_doc_translation_mapping_blank_data._append_body_text_keys_to_list(
         key='Lorem ipsum\\n\\ndolor sit', keys=keys)
     assert keys == ['Lorem ipsum', 'dolor sit']
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_skipping_pattern_keys_from_list() -> None:
+    result_keys: List[str] = add_doc_translation_mapping_blank_data.\
+        _remove_skipping_pattern_keys_from_list(
+            keys=[
+                'Lorem ipsum',
+                '<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->',
+                'Dolor sit amet, consectetur adipiscing.',
+            ])
+    assert result_keys == [
+        'Lorem ipsum',
+        'Dolor sit amet, consectetur adipiscing.',
+    ]

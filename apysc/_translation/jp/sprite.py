@@ -84,9 +84,6 @@ MAPPING: Dict[str, str] = {
     '- `variable_name`: str or None, default None\n  - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.':  # noqa
     '',
 
-    '<hr>':
-    '',
-
     '**[Examples]**':
     '',
 

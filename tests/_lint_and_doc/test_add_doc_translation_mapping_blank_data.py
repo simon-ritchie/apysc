@@ -39,7 +39,7 @@ def test__is_translated_document() -> None:
 def test__convert_splitted_values_to_keys() -> None:
     splitted_values: List[Union[Heading, BodyText, CodeBlock]] = [
         Heading(heading_text='# Sprite'),
-        BodyText(text='This page explains the `Sprite` class.'),
+        BodyText(text='This page explains the `Sprite` class\\.'),
         CodeBlock(
             code_block=(
                 '```py'
@@ -53,13 +53,13 @@ def test__convert_splitted_values_to_keys() -> None:
         _convert_splitted_values_to_keys(splitted_values=splitted_values)
     assert len(keys) == 3
     assert keys[0] == '# Sprite'
-    assert keys[1] == 'This page explains the `Sprite` class.'
+    assert keys[1] == 'This page explains the `Sprite` class\\\\.'
     assert keys[2] == (
         '```py'
-        '\n# runnable'
-        '\nimport apysc as ap'
-        "\nprint(\\'Hello!\\')"
-        '\n```'
+        '\\n# runnable'
+        '\\nimport apysc as ap'
+        "\\nprint(\\'Hello!\\')"
+        '\\n```'
     )
 
 
@@ -153,6 +153,10 @@ def test__save_mapping_data() -> None:
             'c':
             'Lorem ipsum dolor sit amet, consectetur adipiscing '
             'elit, sed do eiusmod tempor.',
+        }, {
+            'Lorem ipsum dolor sit amet, consectetur adipiscing '
+            'elit, sed do eiusmod tempor.':
+            'd',
         }],
         src_doc_file_path=test_src_doc_file_path,
         lang=Lang.JP)
@@ -160,7 +164,7 @@ def test__save_mapping_data() -> None:
         module_path=test_mapping_module_path)
     importlib.reload(module)
     assert module.__doc__ == (
-        'This module is for the translation mapping data of the '
+        'This module is for the translation mapping data of the'
         '\nfollowing document:'
         '\n\nDocument file: test_add_doc_translation_mapping_blank_data_3.md'
         '\nLanguage: jp'
@@ -171,8 +175,22 @@ def test__save_mapping_data() -> None:
         'a': 'b',
         'c':
         'Lorem ipsum dolor sit amet, consectetur adipiscing '
-        'elit, sed do eiusmod tempor.'
+        'elit, sed do eiusmod tempor.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing '
+        'elit, sed do eiusmod tempor.':
+        'd',
     }
+
+    module_str: str = file_util.read_txt(
+        file_path=test_mapping_module_path)
+    expected_strs: List[str] = [
+        "\n    'Lorem ipsum dolor sit amet, consectetur "
+        "adipiscing elit, sed do eiusmod tempor.',  # noqa",
+        "\n    'Lorem ipsum dolor sit amet, consectetur adipiscing "
+        "elit, sed do eiusmod tempor.':  # noqa",
+    ]
+    for expected_str in expected_strs:
+        assert expected_str in module_str
 
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)
 
@@ -188,3 +206,9 @@ def test__get_hash_type_from_lang() -> None:
         func_or_method=add_doc_translation_mapping_blank_data.
         _get_hash_type_from_lang,
         kwargs={'lang': None})
+
+
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_add_mapping_blank_data() -> None:
+    add_doc_translation_mapping_blank_data.add_mapping_blank_data(
+        lang=Lang.JP)

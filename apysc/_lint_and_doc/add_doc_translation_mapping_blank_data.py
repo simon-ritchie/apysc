@@ -37,10 +37,10 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
     from apysc._file import file_util
     src_docs_file_paths: List[str] = _get_src_docs_file_paths()
     hash_type: HashType = _get_hash_type_from_lang(lang=lang)
-    # src_docs_file_paths = lint_and_doc_hash_util.\
-    #     remove_not_updated_file_paths(
-    #         file_paths=src_docs_file_paths,
-    #         hash_type=lint_and_doc_hash_util.HashType.TRANSLATION_MAPPING_JP)
+    src_docs_file_paths = lint_and_doc_hash_util.\
+        remove_not_updated_file_paths(
+            file_paths=src_docs_file_paths,
+            hash_type=hash_type)
     for src_doc_file_path in src_docs_file_paths:
         markdown_txt: str = file_util.read_txt(file_path=src_doc_file_path)
         splitted_values: _SplittedVals= document_text_split_util.\
@@ -53,7 +53,8 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
         _save_mapping_data(
             mappings=mappings, src_doc_file_path=src_doc_file_path,
             lang=lang)
-    pass
+    lint_and_doc_hash_util.save_target_files_hash(
+        file_paths=src_docs_file_paths, hash_type=hash_type)
 
 
 def _get_hash_type_from_lang(*, lang: Lang) -> HashType:
@@ -104,7 +105,7 @@ def _save_mapping_data(
     basename: str = os.path.basename(src_doc_file_path)
     module_str: str = (
         f'"""This module is for the translation mapping data '
-        'of the \nfollowing document:'
+        'of the\nfollowing document:'
         f'\n\nDocument file: {basename}'
         f'\nLanguage: {lang.value}'
         '\n"""'
@@ -114,11 +115,11 @@ def _save_mapping_data(
     for mapping in mappings:
         key: str = list(mapping.keys())[0]
         value: str = list(mapping.values())[0]
-        module_str += (
-            f"\n\n    '{key}':"
-            f"\n    '{value}',"
-        )
-        if len(value) >= 74:
+        module_str += f"\n\n    '{key}':"
+        if len(key) >= 70:
+            module_str += '  # noqa'
+        module_str += f"\n    '{value}',"
+        if len(value) >= 70:
             module_str += '  # noqa'
     module_str += '\n\n}'
     module_path: str = _get_mapping_module_path(
@@ -241,7 +242,9 @@ def _convert_splitted_values_to_keys(
             key = splitted_value.text
         if isinstance(splitted_value, CodeBlock):
             key = splitted_value.overall_code_block
+        key = key.replace('\\', '\\\\')
         key = key.replace("'", "\\'")
+        key = key.replace('\n', '\\n')
         keys.append(key)
     return keys
 

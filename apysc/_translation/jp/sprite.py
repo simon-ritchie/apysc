@@ -10,46 +10,46 @@ from typing import Dict
 MAPPING: Dict[str, str] = {
 
     '# Sprite':
-    '',
+    '# Sprite',
 
     'This page explains the `Sprite` class.':
-    '',
+    'このページでは、`Sprite`クラスについて説明します。',
 
     '## What is the Sprite?':
-    '',
+    'Spriteとは？',
 
     'The `Sprite` class is the container of each `DisplayObject` instance. It also has the `Graphics` class interfaces and can draw each vector graphic.':  # noqa
-    '',
+    '`Sprite`クラスは、各`DisplayObject`インスタンスのコンテナです。また、`Graphics`クラスのインタフェースを持ち、各ベクターグラフィックを描画することができます。',  # noqa
 
     '## Note for the automated addition':
-    '',
+    '## インスタンスの自動追加に関する注意点',
 
     'The `Sprite` instance is automated added to the stage (no need to call `add_child` or other related interfaces). However, suppose you want to add to the other instance. In that case, you need to call the `add_child` method manually.':  # noqa
-    '',
+    '`Sprite`のインスタンスは自動的にステージに追加されます（`add_child`などの関連インタフェースを呼び出す必要はありません）。一方で、もし他のインスタンスに`Sprite`のインスタンスを追加したいと場合、手動で `add_child` メソッドを呼び出す必要があります。',  # noqa
 
     '## graphics attribute interfaces':
-    '',
+    'graphics属性のインタフェース',
 
     'The `Sprite` instance has the `graphics` attribute, and you can draw each vector graphic with it. For example, the following code draws the cyan color rectangle.':  # noqa
-    '',
+    '`Sprite`クラスのインスタンスは`graphics`属性を持っており、それを使って各ベクターグラフィックを描画することができます。例えば以下のコードでは水色の四角を描画します。',  # noqa
 
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_graphics_attribute/\')\n```':  # noqa
-    '',
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_graphics_attribute/\')\n```',  # noqa
 
     '<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>\n\nFor more details, please see the `Graphics` related documents, for example:\n\n- [Graphics class](graphics.md)\n- [Graphics class begin fill interface](graphics_begin_fill.md)\n- [Graphics class line style interface](graphics_line_style.md)\n- [Graphics class draw rect interface](graphics_draw_rect.md)\n- [Graphics class draw circle interface](graphics_draw_circle.md)':  # noqa
-    '',
+    '<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>\n\nFor more details, please see the `Graphics` related documents, for example:\n\n- [Graphics class](graphics.md)\n- [Graphics class begin fill interface](graphics_begin_fill.md)\n- [Graphics class line style interface](graphics_line_style.md)\n- [Graphics class draw rect interface](graphics_draw_rect.md)\n- [Graphics class draw circle interface](graphics_draw_circle.md)',  # noqa
 
     '## Move DisplayObject instances simultaneously':
-    '',
+    '## DisplayObjectの複数のインスタンスの移動について',
 
     'The `Sprite` class is a container, and if you move that coordinates, it changes children\'s coordinates simultaneously. For example, the following code changes the sprite y-coordinate when clicking the rectangle.':  # noqa
-    '',
+    '`Sprite`クラスはコンテナであり、その座標を移動させると同時に子のインスタンスの座標も変更されます。例えば以下のコードでは四角をクリックするとSpriteのy座標が変化します（子の各四角が一通り移動します）。',  # noqa
 
     '```py\n# runnable\nimport apysc as ap\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    sprite.y += 50\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=250,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\nsprite.click(on_sprite_click)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_move_instances_simultaneously/\')\n```':  # noqa
-    '',
+    '```py\n# runnable\nimport apysc as ap\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    sprite.y += 50\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=250,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\nsprite.click(on_sprite_click)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_move_instances_simultaneously/\')\n```',  # noqa
 
     '<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>\n\nThe subsequent pages explain the other interfaces, such as the `add_child` interface.':  # noqa
-    '',
+    '<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>\n\n以降のページでは`add_child`のインターフェースなど、Spriteクラスの他のインターフェースについて説明していきます。',
 
     '## See also':
     '',

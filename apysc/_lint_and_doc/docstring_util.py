@@ -17,7 +17,7 @@ from typing import Type
 from typing import TypeVar
 
 DOCSTRING_PATH_COMMENT_KEYWORD: str = 'Docstring:'
-_DOCSTRING_PATH_COMMENT_PATTERN: str = (
+DOCSTRING_PATH_COMMENT_PATTERN: str = (
     rf'^\<\!\-\-.*?{DOCSTRING_PATH_COMMENT_KEYWORD}'
     r'(?P<path>.*?)\-\-\>'
 )
@@ -62,7 +62,7 @@ def get_docstring_src_module_paths(md_file_path: str) -> List[str]:
     lines: List[str] = md_txt.splitlines()
     module_paths: List[str] = []
     pattern: Pattern = re.compile(
-        pattern=_DOCSTRING_PATH_COMMENT_PATTERN)
+        pattern=DOCSTRING_PATH_COMMENT_PATTERN)
     for line in lines:
         if not line.startswith('<!--'):
             continue
@@ -186,7 +186,7 @@ def _get_docstring_path_comment_matches(*, md_txt: str) -> List[str]:
     """
     matches: List[str] = []
     for match in re.finditer(
-            pattern=_DOCSTRING_PATH_COMMENT_PATTERN,
+            pattern=DOCSTRING_PATH_COMMENT_PATTERN,
             string=md_txt,
             flags=re.MULTILINE):
         matches.append(match.group(0))
@@ -209,7 +209,7 @@ def replace_docstring_path_specification(*, md_file_path: str) -> None:
     result_lines: List[str] = []
     for line in lines:
         match: Optional[Match] = re.search(
-            pattern=_DOCSTRING_PATH_COMMENT_PATTERN, string=line)
+            pattern=DOCSTRING_PATH_COMMENT_PATTERN, string=line)
         if match is not None:
             result_lines.append(line)
             result_lines.append('')
@@ -1753,7 +1753,7 @@ def _extract_path_from_docstring_comment(
         Extracted path string.
     """
     match: Optional[Match] = re.search(
-        pattern=_DOCSTRING_PATH_COMMENT_PATTERN,
+        pattern=DOCSTRING_PATH_COMMENT_PATTERN,
         string=docstring_path_comment)
     if match is None:
         return ''

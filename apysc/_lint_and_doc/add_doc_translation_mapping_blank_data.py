@@ -40,10 +40,18 @@ _CODE_BLOCK_IFRAME_PATTERN: str = (
     r'<iframe src="static.*?index\.html".*?></iframe>'
 )
 
+_API_DOCS_AUTO_GEN_TXT_PATTERN: str = (
+    r'^<span class="inconspicuous-txt">Note: the document build '
+    r'script generates and updates this API document section '
+    r'automatically\. Maybe this section is duplicated '
+    r'compared with previous sections\.</span>$'
+)
+
 _MAPPING_UNNECESSARY_PATTERNS: List[str] = [
     _HR_TAG_PATTERN,
     _INTERFACE_SIGNATURE_PATTERN,
     _CODE_BLOCK_IFRAME_PATTERN,
+    _API_DOCS_AUTO_GEN_TXT_PATTERN,
 ]
 
 

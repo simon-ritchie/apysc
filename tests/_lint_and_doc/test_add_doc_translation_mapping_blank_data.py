@@ -237,13 +237,24 @@ def test__remove_skipping_pattern_keys_from_list() -> None:
         _remove_skipping_pattern_keys_from_list(
             keys=[
                 'Lorem ipsum',
+
                 '<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->',
+
                 '**[Interface signature]** `__init__(self, *, '
                 'variable_name:Union[str, NoneType]=None) -> None`<hr>',
+
                 '<hr>',
+
                 'Dolor sit amet, consectetur adipiscing.',
+
                 '<iframe src="static/sprite_move_instances_simultaneously'
                 '/index.html" width="250" height="250"></iframe>',
+
+                '<span class="inconspicuous-txt">Note: the '
+                'document build script generates and updates this '
+                'API document section automatically. Maybe this '
+                'section is duplicated compared with previous '
+                'sections.</span>',
             ])
     assert result_keys == [
         'Lorem ipsum',

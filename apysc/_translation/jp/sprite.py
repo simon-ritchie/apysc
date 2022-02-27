@@ -63,9 +63,6 @@ MAPPING: Dict[str, str] = {
     '## Sprite class constructor API':
     '',
 
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
-    '',
-
     '**[Interface summary]** Create a basic display object that can be a parent.<hr>':  # noqa
     '',
 

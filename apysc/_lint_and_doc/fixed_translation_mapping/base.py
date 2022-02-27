@@ -24,3 +24,15 @@ class Base:
         """
         self._key = key
         self._value = value
+
+    @property
+    def key(self) -> str:
+        """
+        Get a key value (a source english string).
+
+        Returns
+        -------
+        key : str
+            A key value (a source english string).
+        """
+        return self._key

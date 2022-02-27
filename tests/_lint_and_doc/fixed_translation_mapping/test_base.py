@@ -17,3 +17,8 @@ class TestBase:
                 '_value': 'ipsum',
             },
             any_obj=base)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_key(self) -> None:
+        base: Base = Base(key='Lorem', value='ipsum')
+        assert base.key == 'Lorem'

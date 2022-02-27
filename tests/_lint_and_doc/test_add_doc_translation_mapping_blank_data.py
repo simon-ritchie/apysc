@@ -124,17 +124,18 @@ def test__make_mappings_from_keys() -> None:
         txt=(
             'from typing import Dict'
             f'\n\n{_MAPPING_CONST_NAME}: Dict[str, str] = '
-            "{'a': 'b'}"
+            "{'a': 'b', 'd\\ne': 'f'}"
         ),
         file_path=test_mapping_module_path)
     mappings: List[Dict[str, str]] = add_doc_translation_mapping_blank_data.\
         _make_mappings_from_keys(
-            keys=['a', 'c'],
+            keys=['a', 'c', 'd\\ne'],
             src_doc_file_path=test_mapping_module_path,
             lang=Lang.JP)
     assert mappings == [
         {'a': 'b'},
         {'c': ''},
+        {'d\\ne': 'f'},
     ]
 
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)

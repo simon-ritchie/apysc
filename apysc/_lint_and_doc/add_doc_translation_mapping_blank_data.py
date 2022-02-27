@@ -159,7 +159,10 @@ def _make_mappings_from_keys(
         src_doc_file_path=src_doc_file_path, lang=lang)
     mappings: List[Dict[str, str]] = []
     for key in keys:
-        value: str = already_saved_mapping.get(key, '')
+        key_: str = key.replace('\\\\', '\\')
+        key_: str = key_.replace("\\'", "'")
+        key_: str = key_.replace('\\n', '\n')
+        value: str = already_saved_mapping.get(key_, '')
         mappings.append({key: value})
     return mappings
 

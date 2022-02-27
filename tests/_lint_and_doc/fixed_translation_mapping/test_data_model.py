@@ -85,3 +85,23 @@ def test__read_mappings() -> None:
     assert mappings == jp.MAPPINGS
 
     file_util.remove_file_if_exists(file_path=test_module_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_fixed_translation_str_if_exists() -> None:
+
+    class _MockLang(Enum):
+        NOT_EXISTING_LANG = 'not_existing_lang'
+
+    translation_str: str = data_model.get_fixed_translation_str_if_exists(
+        key='**[Parameters]**',
+        lang=_MockLang.NOT_EXISTING_LANG)  # type: ignore
+    assert translation_str == ''
+
+    translation_str = data_model.get_fixed_translation_str_if_exists(
+        key='not existing key', lang=Lang.JP)
+    assert translation_str == ''
+
+    translation_str = data_model.get_fixed_translation_str_if_exists(
+        key='**[Parameters]**', lang=Lang.JP)
+    assert translation_str == '**[引数]**'

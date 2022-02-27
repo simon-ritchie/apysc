@@ -96,7 +96,12 @@ def get_fixed_translation_str_if_exists(
         mapping setting, this interface returns a blank string.
     """
     mappings: Optional[Mappings] = _read_mappings(lang=lang)
-    pass
+    if mappings is None:
+        return ''
+    for mapping in mappings.mappings:
+        if mapping.key == key:
+            return mapping.value
+    return ''
 
 
 @lru_cache(maxsize=None)

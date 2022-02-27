@@ -30,8 +30,15 @@ _SKIPPING_PATTERNS: List[str] = [
     DOCSTRING_PATH_COMMENT_PATTERN,
 ]
 
-_MAPPING_UNNECESSARY_STRS: List[str] = [
-    '<hr>',
+_HR_TAG_PATTERN: str = r'^<hr>$'
+
+_INTERFACE_SIGNATURE_PATTERN: str = (
+    r'\*\*\[Interface signature\]\*\* .*?<hr>'
+)
+
+_MAPPING_UNNECESSARY_PATTERNS: List[str] = [
+    _HR_TAG_PATTERN,
+    _INTERFACE_SIGNATURE_PATTERN,
 ]
 
 
@@ -265,31 +272,7 @@ def _convert_splitted_values_to_keys(
         else:
             _append_body_text_keys_to_list(key=key, keys=keys)
     keys = _remove_skipping_pattern_keys_from_list(keys=keys)
-    keys = _remove_unnecessary_strs_from_key_list(keys=keys)
     return keys
-
-
-def _remove_unnecessary_strs_from_key_list(
-        *, keys: List[str]) -> List[str]:
-    """
-    Remove unnecessary strings from a specified key's list.
-
-    Parameters
-    ----------
-    keys : list of str
-        A target key's list.
-
-    Returns
-    -------
-    result_keys : list of str
-        An after removing key's list.
-    """
-    result_keys: List[str] = []
-    for key in keys:
-        if key in _MAPPING_UNNECESSARY_STRS:
-            continue
-        result_keys.append(key)
-    return result_keys
 
 
 def _remove_skipping_pattern_keys_from_list(
@@ -308,9 +291,11 @@ def _remove_skipping_pattern_keys_from_list(
         An after removing key's list.
     """
     result_keys: List[str] = []
+    patterns: List[str] = [
+        *_SKIPPING_PATTERNS, *_MAPPING_UNNECESSARY_PATTERNS]
     for key in keys:
         is_pattern_matching: bool = False
-        for pattern in _SKIPPING_PATTERNS:
+        for pattern in patterns:
             match: Optional[Match] = re.search(
                 pattern=pattern, string=key,
                 flags=re.MULTILINE | re.DOTALL)

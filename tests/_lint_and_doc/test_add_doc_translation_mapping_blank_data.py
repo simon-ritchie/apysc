@@ -238,20 +238,12 @@ def test__remove_skipping_pattern_keys_from_list() -> None:
             keys=[
                 'Lorem ipsum',
                 '<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->',
+                '**[Interface signature]** `__init__(self, *, '
+                'variable_name:Union[str, NoneType]=None) -> None`<hr>',
+                '<hr>',
                 'Dolor sit amet, consectetur adipiscing.',
             ])
     assert result_keys == [
         'Lorem ipsum',
         'Dolor sit amet, consectetur adipiscing.',
-    ]
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__remove_unnecessary_strs_from_key_list() -> None:
-    result_keys: List[str] = add_doc_translation_mapping_blank_data.\
-        _remove_unnecessary_strs_from_key_list(
-            keys=['Lorem ipsum', '<hr>', 'Dolor sit amet, consectet.'])
-    assert result_keys == [
-        'Lorem ipsum',
-        'Dolor sit amet, consectet.',
     ]

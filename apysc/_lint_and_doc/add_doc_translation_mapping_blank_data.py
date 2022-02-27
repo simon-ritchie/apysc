@@ -36,9 +36,14 @@ _INTERFACE_SIGNATURE_PATTERN: str = (
     r'\*\*\[Interface signature\]\*\* .*?<hr>'
 )
 
+_CODE_BLOCK_IFRAME_PATTERN: str = (
+    r'<iframe src="static.*?index\.html".*?></iframe>'
+)
+
 _MAPPING_UNNECESSARY_PATTERNS: List[str] = [
     _HR_TAG_PATTERN,
     _INTERFACE_SIGNATURE_PATTERN,
+    _CODE_BLOCK_IFRAME_PATTERN,
 ]
 
 

@@ -242,6 +242,8 @@ def test__remove_skipping_pattern_keys_from_list() -> None:
                 'variable_name:Union[str, NoneType]=None) -> None`<hr>',
                 '<hr>',
                 'Dolor sit amet, consectetur adipiscing.',
+                '<iframe src="static/sprite_move_instances_simultaneously'
+                '/index.html" width="250" height="250"></iframe>',
             ])
     assert result_keys == [
         'Lorem ipsum',

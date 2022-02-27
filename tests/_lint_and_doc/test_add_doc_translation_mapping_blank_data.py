@@ -47,11 +47,12 @@ def test__convert_splitted_values_to_keys() -> None:
                 '\nimport apysc as ap'
                 "\nprint('Hello!')"
                 '\n```'
-            ))
+            )),
+        BodyText(text='Lorem ipsum dolor sit amet\n\nconsectetur adipiscing')
     ]
     keys: List[str] = add_doc_translation_mapping_blank_data.\
         _convert_splitted_values_to_keys(splitted_values=splitted_values)
-    assert len(keys) == 3
+    assert len(keys) == 5
     assert keys[0] == '# Sprite'
     assert keys[1] == 'This page explains the `Sprite` class\\\\.'
     assert keys[2] == (
@@ -61,6 +62,8 @@ def test__convert_splitted_values_to_keys() -> None:
         "\\nprint(\\'Hello!\\')"
         '\\n```'
     )
+    assert keys[3] == 'Lorem ipsum dolor sit amet'
+    assert keys[4] == 'consectetur adipiscing'
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -208,7 +211,20 @@ def test__get_hash_type_from_lang() -> None:
         kwargs={'lang': None})
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_add_mapping_blank_data() -> None:
     add_doc_translation_mapping_blank_data.add_mapping_blank_data(
         lang=Lang.JP)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_body_text_keys_to_list() -> None:
+    keys: List[str] = []
+    add_doc_translation_mapping_blank_data._append_body_text_keys_to_list(
+        key='Lorem ipsum', keys=keys)
+    assert keys == ['Lorem ipsum']
+
+    keys = []
+    add_doc_translation_mapping_blank_data._append_body_text_keys_to_list(
+        key='Lorem ipsum\\n\\ndolor sit', keys=keys)
+    assert keys == ['Lorem ipsum', 'dolor sit']

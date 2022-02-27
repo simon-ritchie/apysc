@@ -235,18 +235,41 @@ def _convert_splitted_values_to_keys(
     """
     keys: List[str] = []
     for splitted_value in splitted_values:
+        is_body_text: bool = False
         key: str = ''
         if isinstance(splitted_value, Heading):
             key = splitted_value.overall_text
         if isinstance(splitted_value, BodyText):
+            is_body_text = True
             key = splitted_value.text
         if isinstance(splitted_value, CodeBlock):
             key = splitted_value.overall_code_block
         key = key.replace('\\', '\\\\')
         key = key.replace("'", "\\'")
         key = key.replace('\n', '\\n')
-        keys.append(key)
+        if not is_body_text:
+            keys.append(key)
+        else:
+            _append_body_text_keys_to_list(key=key, keys=keys)
     return keys
+
+
+def _append_body_text_keys_to_list(
+        *, key: str, keys: List[str]) -> None:
+    """
+    Append document's body text keys to a specified key's list.
+
+    Parameters
+    ----------
+    key : str
+        A target key string. This interface splits its string
+        if there are two consecutive line breaks.
+    keys : list of str
+        A key's list to append.
+    """
+    splitted_keys: List[str] = key.split('\\n\\n')
+    for key_ in splitted_keys:
+        keys.append(key_)
 
 
 def _get_src_docs_file_paths() -> List[str]:

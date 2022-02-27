@@ -2,6 +2,8 @@
 mapping setting.
 """
 
+from typing import List
+
 
 class Mapping:
     """The class of a single fixed-translation mapping setting.
@@ -48,3 +50,21 @@ class Mapping:
             A translated value.
         """
         return self._value
+
+
+class Mappings:
+    """The class for fixed-translation mappings settings.
+    """
+
+    mapping: List[Mapping]
+
+    def __init__(self, mappings: List[Mapping]) -> None:
+        """
+        The class for fixed-translation mappings settings.
+
+        Parameters
+        ----------
+        mappings : list of Mapping
+            A target mappings list.
+        """
+        self.mapping = mappings

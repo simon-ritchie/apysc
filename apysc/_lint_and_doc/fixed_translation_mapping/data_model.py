@@ -1,12 +1,12 @@
 """This module is for the data model of the fixed-translation
-mapping setting.
+mapping settings.
 """
 
 from typing import List
 
 
 class Mapping:
-    """The class of a single fixed-translation mapping setting.
+    """The class of a single fixed-translation mapping settings.
     """
 
     _key: str
@@ -14,7 +14,7 @@ class Mapping:
 
     def __init__(self, *, key: str, value: str) -> None:
         """
-        A single fixed-translation mapping setting.
+        A single fixed-translation mapping settings.
 
         Parameters
         ----------

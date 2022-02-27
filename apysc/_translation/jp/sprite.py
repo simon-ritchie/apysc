@@ -37,10 +37,10 @@ MAPPING: Dict[str, str] = {
     '',
 
     '<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>':  # noqa
-    '',  # noqa
+    '',
 
     'For more details, please see the `Graphics` related documents, for example:':  # noqa
-    '詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。',  # noqa
+    '詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。',
 
     '- [Graphics class](graphics.md)\n- [Graphics class begin fill interface](graphics_begin_fill.md)\n- [Graphics class line style interface](graphics_line_style.md)\n- [Graphics class draw rect interface](graphics_draw_rect.md)\n- [Graphics class draw circle interface](graphics_draw_circle.md)':  # noqa
     '',
@@ -58,7 +58,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     'The subsequent pages explain the other interfaces, such as the `add_child` interface.':  # noqa
-    '以降のページでは`add_child`のインターフェースなど、Spriteクラスの他のインターフェースについて説明していきます。',  # noqa
+    '以降のページでは`add_child`のインターフェースなど、Spriteクラスの他のインターフェースについて説明していきます。',
 
     '## See also':
     '',
@@ -67,9 +67,6 @@ MAPPING: Dict[str, str] = {
     '',
 
     '## Sprite class constructor API':
-    '',
-
-    '<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->':
     '',
 
     '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa

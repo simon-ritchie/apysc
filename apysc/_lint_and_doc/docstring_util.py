@@ -16,9 +16,9 @@ from typing import Tuple
 from typing import Type
 from typing import TypeVar
 
-_DOCSTRING_PATH_COMMENT_KEYWORD: str = 'Docstring:'
+DOCSTRING_PATH_COMMENT_KEYWORD: str = 'Docstring:'
 _DOCSTRING_PATH_COMMENT_PATTERN: str = (
-    rf'^\<\!\-\-.*?{_DOCSTRING_PATH_COMMENT_KEYWORD}'
+    rf'^\<\!\-\-.*?{DOCSTRING_PATH_COMMENT_KEYWORD}'
     r'(?P<path>.*?)\-\-\>'
 )
 

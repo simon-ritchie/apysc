@@ -1065,7 +1065,7 @@ def test__convert_docstring_to_markdown() -> None:
 
 
 _PATH_COMMENT_KEYWORD: str = \
-    docstring_util._DOCSTRING_PATH_COMMENT_KEYWORD
+    docstring_util.DOCSTRING_PATH_COMMENT_KEYWORD
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -22,3 +22,8 @@ class TestMapping:
     def test_key(self) -> None:
         base: Mapping = Mapping(key='Lorem', value='ipsum')
         assert base.key == 'Lorem'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_value(self) -> None:
+        base: Mapping = Mapping(key='Lorem', value='ipsum')
+        assert base.value == 'ipsum'

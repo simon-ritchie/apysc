@@ -36,3 +36,15 @@ class Mapping:
             A key value (a source english string).
         """
         return self._key
+
+    @property
+    def value(self) -> str:
+        """
+        Get a translated value.
+
+        Returns
+        -------
+        value : str
+            A translated value.
+        """
+        return self._value

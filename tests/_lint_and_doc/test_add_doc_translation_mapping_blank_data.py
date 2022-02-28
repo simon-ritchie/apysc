@@ -281,3 +281,24 @@ def test__set_fixed_translation_value_if_exists() -> None:
         _set_fixed_translation_value_if_exists(
             key='Not existing key', value='Lorem ipsum.')
     assert fixed_value == 'Lorem ipsum.'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__set_same_value_if_code_block_mapping_is_blank() -> None:
+    value: str = add_doc_translation_mapping_blank_data.\
+        _set_same_value_if_code_block_mapping_is_blank(
+            key='```py\nprint(10)\n```',
+            value='Lorem ipsum.')
+    assert value == 'Lorem ipsum.'
+
+    value = add_doc_translation_mapping_blank_data.\
+        _set_same_value_if_code_block_mapping_is_blank(
+            key='Lorem ipsum.',
+            value='')
+    assert value == ''
+
+    value = add_doc_translation_mapping_blank_data.\
+        _set_same_value_if_code_block_mapping_is_blank(
+            key='```py\nprint(10)\n```',
+            value='')
+    assert value == '```py\nprint(10)\n```'

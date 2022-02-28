@@ -183,12 +183,42 @@ def _make_mappings_from_keys(
         value: str = already_saved_mapping.get(key_, '')
         value = _set_fixed_translation_value_if_exists(
             key=key_, value=value)
+        value = _set_same_value_if_code_block_mapping_is_blank(
+            key=key, value=value)
         mappings.append({key: value})
     return mappings
 
 
+def _set_same_value_if_code_block_mapping_is_blank(
+        *, key: str, value: str) -> str:
+    """
+    Set a same code-block value if a specified value
+    is blank string and key's value is a code block.
+
+    Parameters
+    ----------
+    key : str
+        A target key string (source english string).
+    value : str
+        A target value string.
+
+    Returns
+    -------
+    value : str
+        A result value. If an argument value is not a blank string,
+        this interface returns it directly. If a key's value
+        is not a code block, this interface also returns
+        argument value directly.
+    """
+    if value != '':
+        return value
+    if not key.startswith('```'):
+        return value
+    return key
+
+
 def _set_fixed_translation_value_if_exists(
-        key: str, value: str) -> str:
+        *, key: str, value: str) -> str:
     """
     Set a fixed translation value if its mapping setting exists.
 

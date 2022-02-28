@@ -34,7 +34,7 @@ MAPPING: Dict[str, str] = {
     '`Sprite`クラスのインスタンスは`graphics`属性を持っており、それを使って各ベクターグラフィックを描画することができます。例えば以下のコードでは水色の四角を描画します。',  # noqa
 
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_graphics_attribute/\')\n```':  # noqa
-    '',
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_graphics_attribute/\')\n```',  # noqa
 
     'For more details, please see the `Graphics` related documents, for example:':  # noqa
     '詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。',
@@ -49,7 +49,7 @@ MAPPING: Dict[str, str] = {
     '`Sprite`クラスはコンテナであり、その座標を移動させると同時に子のインスタンスの座標も変更されます。例えば以下のコードでは四角をクリックするとSpriteのy座標が変化します（子の各四角形が一通り移動します）。',  # noqa
 
     '```py\n# runnable\nimport apysc as ap\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    sprite.y += 50\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=250,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\nsprite.click(on_sprite_click)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_move_instances_simultaneously/\')\n```':  # noqa
-    '',
+    '```py\n# runnable\nimport apysc as ap\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    sprite.y += 50\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=250,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\nsprite.click(on_sprite_click)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_move_instances_simultaneously/\')\n```',  # noqa
 
     'The subsequent pages explain the other interfaces, such as the `add_child` interface.':  # noqa
     '以降のページでは`add_child`のインターフェースなど、Spriteクラスの他のインターフェースについて説明していきます。',
@@ -76,6 +76,6 @@ MAPPING: Dict[str, str] = {
     '**[コードサンプル]**',
 
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> # Create the sprite child rectangle\n>>> sprite_1.graphics.begin_fill(color=\'#0af\')\n>>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_1.graphics.contains(rect)\nBoolean(True)\n\n>>> # Move the created rectangle to the other sprite\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rect)\n>>> sprite_1.graphics.contains(rect)\nBoolean(False)\n\n>>> sprite_2.contains(rect)\nBoolean(True)\n\n>>> # Move the sprite container\n>>> sprite_2.x = ap.Int(50)\n>>> sprite_2.x\nInt(50)\n```':  # noqa
-    '',
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> # Create the sprite child rectangle\n>>> sprite_1.graphics.begin_fill(color=\'#0af\')\n>>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_1.graphics.contains(rect)\nBoolean(True)\n\n>>> # Move the created rectangle to the other sprite\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rect)\n>>> sprite_1.graphics.contains(rect)\nBoolean(False)\n\n>>> sprite_2.contains(rect)\nBoolean(True)\n\n>>> # Move the sprite container\n>>> sprite_2.x = ap.Int(50)\n>>> sprite_2.x\nInt(50)\n```',  # noqa
 
 }

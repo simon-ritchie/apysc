@@ -181,8 +181,37 @@ def _make_mappings_from_keys(
         key_: str = key_.replace("\\'", "'")
         key_: str = key_.replace('\\n', '\n')
         value: str = already_saved_mapping.get(key_, '')
+        value = _set_fixed_translation_value_if_exists(
+            key=key_, value=value)
         mappings.append({key: value})
     return mappings
+
+
+def _set_fixed_translation_value_if_exists(
+        key: str, value: str) -> str:
+    """
+    Set a fixed translation value if its mapping setting exists.
+
+    Parameters
+    ----------
+    key : str
+        A target translation key.
+    value : str
+        A current translation value.
+
+    Returns
+    -------
+    fixed_value : str
+        A fixed translation value. If there is no fixed translation
+        mapping setting, this interface returns argument's value
+        directly.
+    """
+    from apysc._lint_and_doc.fixed_translation_mapping import data_model
+    fixed_value: str = data_model.get_fixed_translation_str_if_exists(
+        key=key, lang=Lang.JP)
+    if fixed_value == '':
+        return value
+    return fixed_value
 
 
 def _read_already_saved_mapping(

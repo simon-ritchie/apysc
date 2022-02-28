@@ -261,3 +261,16 @@ def test__remove_skipping_pattern_keys_from_list() -> None:
         'Lorem ipsum',
         'Dolor sit amet, consectetur adipiscing.',
     ]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__set_fixed_translation_value_if_exists() -> None:
+    fixed_value: str = add_doc_translation_mapping_blank_data.\
+        _set_fixed_translation_value_if_exists(
+            key='**[Parameters]**', value='Lorem ipsum.')
+    assert fixed_value == '**[引数]**'
+
+    fixed_value = add_doc_translation_mapping_blank_data.\
+        _set_fixed_translation_value_if_exists(
+            key='Not existing key', value='Lorem ipsum.')
+    assert fixed_value == 'Lorem ipsum.'

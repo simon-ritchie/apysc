@@ -1,3 +1,4 @@
+import os
 from random import randint
 from types import ModuleType
 from typing import Dict, List, Union
@@ -215,8 +216,14 @@ def test__get_hash_type_from_lang() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_add_mapping_blank_data() -> None:
+    file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path='./docs_src/source/sprite.md',
+        hash_type=HashType.TRANSLATION_MAPPING_JP)
+    file_util.remove_file_if_exists(file_path=file_path)
+
     add_doc_translation_mapping_blank_data.add_mapping_blank_data(
         lang=Lang.JP)
+    assert os.path.isfile(file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -40,7 +40,7 @@ MAPPING: Dict[str, str] = {
     '詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。',
 
     '- [Graphics class](graphics.md)\n- [Graphics class begin fill interface](graphics_begin_fill.md)\n- [Graphics class line style interface](graphics_line_style.md)\n- [Graphics class draw rect interface](graphics_draw_rect.md)\n- [Graphics class draw circle interface](graphics_draw_circle.md)':  # noqa
-    '',
+    '- [Graphics class](jp_graphics.md)\n\n- [Graphics class begin fill interface](jp_graphics_begin_fill.md)\n\n- [Graphics class line style interface](jp_graphics_line_style.md)\n\n- [Graphics class draw rect interface](jp_graphics_draw_rect.md)\n\n- [Graphics class draw circle interface](jp_graphics_draw_circle.md)',  # noqa
 
     '## Move DisplayObject instances simultaneously':
     '## DisplayObjectの複数のインスタンスの移動について',
@@ -58,7 +58,7 @@ MAPPING: Dict[str, str] = {
     '## 関連資料',
 
     '- [Add child and remove child interfaces](add_child_and_remove_child.md)\n- [Contains interface](contains.md)\n- [Num children interface](num_children.md)\n- [Get child at interface](get_child_at.md)':  # noqa
-    '',
+    '- [Add child and remove child interfaces](jp_add_child_and_remove_child.md)\n\n- [Contains interface](jp_contains.md)\n\n- [Num children interface](jp_num_children.md)\n\n- [Get child at interface](jp_get_child_at.md)',  # noqa
 
     '## Sprite class constructor API':
     '',

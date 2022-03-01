@@ -181,12 +181,70 @@ def _make_mappings_from_keys(
         key_: str = key_.replace("\\'", "'")
         key_: str = key_.replace('\\n', '\n')
         value: str = already_saved_mapping.get(key_, '')
+        value = _escape_key_or_value(key_or_val=value)
         value = _set_fixed_translation_value_if_exists(
             key=key_, value=value)
         value = _set_same_value_if_code_block_mapping_is_blank(
             key=key, value=value)
+        value = _convert_link_list_by_lang(
+            key=key, value=value, lang=lang)
         mappings.append({key: value})
     return mappings
+
+
+_LINK_PATTERN: Pattern = re.compile(
+    pattern=(
+        r'(.*?\[.+?\])'
+        r'\((.+?\.md)\)'
+        r'(?P<after_txt>.*?)'
+    ),
+    flags=re.MULTILINE)
+
+
+def _convert_link_list_by_lang(
+        *, key: str, value: str, lang: Lang) -> str:
+    """
+    Convert a link list value by a specified language if a key's
+    value is a link list.
+
+    Parameters
+    ----------
+    key : str
+        A target key string (source english string).
+    value : str
+        A target value string.
+    lang : Lang
+        A target translation language.
+
+    Returns
+    -------
+    value : str
+        A converted value. If a specified key's value
+        is not a link list, this interface skips the conversion.
+    """
+    if not key.startswith('- '):
+        return value
+    match: Optional[Match] = _LINK_PATTERN.search(string=key)
+    if match is None:
+        return value
+    value = ''
+    while match is not None:
+        prev_txt: str = match.group(1)
+        doc_path: str = match.group(2)
+        basename: str = os.path.basename(doc_path)
+        basename = f'{lang.value}_{basename}'
+        dir_path = os.path.dirname(doc_path)
+        doc_path = os.path.join(dir_path, basename)
+        if value != '':
+            value += '\n'
+        value += f'{prev_txt}({doc_path})'
+
+        key = _LINK_PATTERN.sub(
+            repl=rf'\g<after_txt>',
+            string=key, count=1)
+        match = _LINK_PATTERN.search(string=key)
+    value = _escape_key_or_value(key_or_val=value)
+    return value
 
 
 def _set_same_value_if_code_block_mapping_is_blank(
@@ -330,15 +388,34 @@ def _convert_splitted_values_to_keys(
             key = splitted_value.text
         if isinstance(splitted_value, CodeBlock):
             key = splitted_value.overall_code_block
-        key = key.replace('\\', '\\\\')
-        key = key.replace("'", "\\'")
-        key = key.replace('\n', '\\n')
+        key = _escape_key_or_value(key_or_val=key)
         if not is_body_text:
             keys.append(key)
         else:
             _append_body_text_keys_to_list(key=key, keys=keys)
     keys = _remove_skipping_pattern_keys_from_list(keys=keys)
     return keys
+
+
+def _escape_key_or_value(*, key_or_val: str) -> str:
+    """
+    Escape a mapping key or value to save.
+
+    Parameters
+    ----------
+    key_or_val : str
+        A target key or value.
+
+    Returns
+    -------
+    key_or_val : str
+        An escaped key or value string.
+    """
+    key_or_val = key_or_val.replace('\\', '\\\\')
+    key_or_val = key_or_val.replace("'", "\\'")
+    key_or_val = key_or_val.replace('\n', '\\n')
+    key_or_val = key_or_val.replace('\\\\n', '\\n')
+    return key_or_val
 
 
 def _remove_skipping_pattern_keys_from_list(

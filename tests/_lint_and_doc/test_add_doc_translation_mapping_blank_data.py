@@ -302,3 +302,47 @@ def test__set_same_value_if_code_block_mapping_is_blank() -> None:
             key='```py\nprint(10)\n```',
             value='')
     assert value == '```py\nprint(10)\n```'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__convert_link_list_by_lang() -> None:
+    value: str = add_doc_translation_mapping_blank_data.\
+        _convert_link_list_by_lang(
+            key='Lorem ipsum.',
+            value='Dolor sit.',
+            lang=Lang.JP)
+    assert value == 'Dolor sit.'
+
+    value = add_doc_translation_mapping_blank_data.\
+        _convert_link_list_by_lang(
+            key='- Lorem ipsum.\n- Dolor sit.',
+            value='Dolor sit.',
+            lang=Lang.JP)
+    assert value == 'Dolor sit.'
+
+    value = add_doc_translation_mapping_blank_data.\
+        _convert_link_list_by_lang(
+            key=(
+                '- [Lorem ipsum](any/path_1.md)'
+                '\n- [Dolor sit](any/path_2.md)'
+            ),
+            value='',
+            lang=Lang.JP)
+    assert value == (
+        '- [Lorem ipsum](any/jp_path_1.md)'
+        '\\n- [Dolor sit](any/jp_path_2.md)'
+    )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__escape_key_or_value() -> None:
+    key_or_val: str = add_doc_translation_mapping_blank_data.\
+        _escape_key_or_value(
+            key_or_val=(
+                "- [Lorem's\\+ ipsum](any/path_1.md)"
+                '\n- [Dolor sit](any/path_2.md)'
+            ))
+    assert key_or_val == (
+        "- [Lorem\\'s\\\\+ ipsum](any/path_1.md)"
+        '\\n- [Dolor sit](any/path_2.md)'
+    )

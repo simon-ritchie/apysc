@@ -61,16 +61,16 @@ MAPPING: Dict[str, str] = {
     '- [Add child and remove child interfaces](jp_add_child_and_remove_child.md)\n\n- [Contains interface](jp_contains.md)\n\n- [Num children interface](jp_num_children.md)\n\n- [Get child at interface](jp_get_child_at.md)',  # noqa
 
     '## Sprite class constructor API':
-    '',
+    '## SpriteクラスのコンストラクタAPI',
 
     '**[Interface summary]** Create a basic display object that can be a parent.<hr>':  # noqa
-    '',
+    '**[インターフェイス概要]** 子を持つことのできる基本的な表示要素用のオブジェクトを生成します。',  # noqa
 
     '**[Parameters]**':
     '**[引数]**',
 
     '- `variable_name`: str or None, default None\n  - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.':  # noqa
-    '',
+    '- `variable_name`: str or None, default None\n  - このインスタンスのJavaScriptで使用するための変数名です。Spriteクラスのサブクラスを使う場合を除いてこの引数の指定は不要です。',  # noqa
 
     '**[Examples]**':
     '**[コードサンプル]**',

@@ -65,7 +65,7 @@ This class is for a document body text.
 
 ### `__init__` method docstring
 
-The class for a document body text.<hr>
+This class is for a document body text.<hr>
 
 **[Parameters]**
 
@@ -89,7 +89,7 @@ This class is for the document's heading.
 
 ### `__init__` method docstring
 
-The class for the document's heading.<hr>
+This class is for the document's heading.<hr>
 
 **[Parameters]**
 

@@ -151,6 +151,22 @@ Get top-level classes from a specified module.<hr>
 - `toplevel_classes`: list of Type
   - Top-level classes.
 
+## `_is_excluding_dir_path` function docstring
+
+Get a boolean indicating whether a specified directory path is a excluding condition or not.<hr>
+
+**[Parameters]**
+
+- `dir_path`: str
+  - A target directory path.
+
+<hr>
+
+**[Returns]**
+
+- `result`: bool
+  - This interface returns True if a specified directory path is excluding condition.
+
 ## `_save_markdown` function docstring
 
 Save a specified module's markdown file.<hr>

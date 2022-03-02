@@ -64,7 +64,7 @@ MAPPING: Dict[str, str] = {
     '## SpriteクラスのコンストラクタAPI',
 
     '**[Interface summary]** Create a basic display object that can be a parent.<hr>':  # noqa
-    '**[インターフェイス概要]** 子を持つことのできる基本的な表示要素用のオブジェクトを生成します。',  # noqa
+    '**[インターフェイス概要]** 子を持つことのできる基本的な表示要素用のオブジェクトを生成します。',
 
     '**[Parameters]**':
     '**[引数]**',

@@ -150,10 +150,10 @@ def test__create_args_list_for_multiprocessing() -> None:
             ],
             hash_type=HashType.AUTOPEP8)
     assert args_list == [{
-        'module_path': 'test/path_1.py',
+        'file_path': 'test/path_1.py',
         'hash_type': HashType.AUTOPEP8,
     }, {
-        'module_path': 'test/path_2.py',
+        'file_path': 'test/path_2.py',
         'hash_type': HashType.AUTOPEP8,
     }]
 

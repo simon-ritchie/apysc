@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The utilities module for each lint and doc's hash file (used to check whether the files are updated or not). Mainly following interfaces are defined: <br>・get_hash_dir_path <br> ・Get a specified type's hash directory path. <br>・get_target_module_hash_file_path <br> ・Get a specified module's hash file path. <br>・read_target_module_hash <br> ・Read a specified module's hashed string. <br>・read_saved_hash <br> ・Read an already-saved module's hashed string. <br>・save_target_module_hash <br> ・Save a target module's current hash. <br>・save_target_modules_hash <br> ・Save target modules' current hash. <br>・is_module_updated <br> ・Get a boolean value whether a specified module has been updated. <br>・remove_not_updated_module_paths <br> ・Remove not updated modules from specified module paths.
+The utilities module for each lint and doc's hash file (used to check whether the files are updated or not). Mainly following interfaces are defined: <br>・get_hash_dir_path <br> ・Get a specified type's hash directory path. <br>・get_target_file_hash_file_path <br> ・Get a specified file's hash file path. <br>・read_target_file_hash <br> ・Read a specified file's hashed string. <br>・read_saved_hash <br> ・Read an already-saved file's hashed string. <br>・save_target_file_hash <br> ・Save a target file's current hash. <br>・save_target_files_hash <br> ・Save target files' current hash. <br>・is_file_updated <br> ・Get a boolean value whether a specified file has been updated. <br>・remove_not_updated_file_paths <br> ・Remove not updated files from specified file paths.
 
 ## `_create_args_list_for_multiprocessing` function docstring
 
@@ -10,8 +10,8 @@ Create an arguments list for the multiprocessing.<hr>
 
 **[Parameters]**
 
-- `module_paths`: list of str
-  - Target Python module paths.
+- `file_paths`: list of str
+  - Target file paths.
 - `hash_type`: HashType
   - Target hash type.
 
@@ -19,24 +19,24 @@ Create an arguments list for the multiprocessing.<hr>
 
 **[Returns]**
 
-- `args_list`: list of _IsModuleUpdatedArgs
+- `args_list`: list of _IsFileUpdatedArgs
   - Created arguments list for the multiprocessing.
 
-## `_is_module_updated_func_for_multiprocessing` function docstring
+## `_is_file_updated_func_for_multiprocessing` function docstring
 
-Wrapper function of the `is_module_updated` function for the multiprocessing.<hr>
+Wrapper function of the `is_file_updated` function for the multiprocessing.<hr>
 
 **[Parameters]**
 
-- `args`: _IsModuleUpdatedArgs
-  - Arguments dictionary to pass to the `is_module_updated` function.
+- `args`: _IsFileUpdatedArgs
+  - Arguments dictionary to pass to the `is_file_updated` function.
 
 <hr>
 
 **[Returns]**
 
 - `result`: bool
-  - If there is an updated module, this interface returns True.
+  - If there is an updated file, this interface returns True.
 
 ## `get_hash_dir_path` function docstring
 
@@ -60,14 +60,14 @@ Get a specified type's hash directory path.<hr>
 
 This interface creates a returned directory path if it does not exist.
 
-## `get_target_module_hash_file_path` function docstring
+## `get_target_file_hash_file_path` function docstring
 
-Get a specified module's hash file path.<hr>
+Get a specified file's hash file path.<hr>
 
 **[Parameters]**
 
-- `module_path`: str
-  - Target module path.
+- `file_path`: str
+  - Target file path.
 - `hash_type`: HashType
   - Target hash type.
 
@@ -84,14 +84,14 @@ Get a specified module's hash file path.<hr>
 
 This interface automatically creates a returned file's directory path if it does not exist.
 
-## `is_module_updated` function docstring
+## `is_file_updated` function docstring
 
-Get a boolean value whether a specified module is changing or not.<hr>
+Get a boolean value whether a specified file is changing or not.<hr>
 
 **[Parameters]**
 
-- `module_path`: str
-  - Target module path.
+- `file_path`: str
+  - Target file path.
 - `hash_type`: HashType
   - Target hash type.
 
@@ -100,16 +100,16 @@ Get a boolean value whether a specified module is changing or not.<hr>
 **[Returns]**
 
 - `result`: bool
-  - If a specified module is changing, this interface returns True.
+  - If a specified file is changing, this interface returns True.
 
 ## `read_saved_hash` function docstring
 
-Read an already-saved module's hashed string.<hr>
+Read an already-saved file's hashed string.<hr>
 
 **[Parameters]**
 
-- `module_path`: str
-  - Target module path.
+- `file_path`: str
+  - Target file path.
 - `hash_type`: HashType
   - Target hash type.
 
@@ -118,32 +118,32 @@ Read an already-saved module's hashed string.<hr>
 **[Returns]**
 
 - `saved_hash`: str
-  - An already-saved module's hash string. If there is no saved hash file, this interface returns a blank string.
+  - An already-saved file's hash string. If there is no saved hash file, this interface returns a blank string.
 
-## `read_target_module_hash` function docstring
+## `read_target_file_hash` function docstring
 
-Read a specified module's hashed string.<hr>
+Read a specified file's hashed string.<hr>
 
 **[Parameters]**
 
-- `module_path`: str
-  - Target module path.
+- `file_path`: str
+  - Target file path.
 
 <hr>
 
 **[Returns]**
 
 - `hashed_string`: str
-  - Hashed module string. If there is no module at the specified path, this interface returns a blank string.
+  - Hashed file string. If there is no file at the specified path, this interface returns a blank string.
 
-## `remove_not_updated_module_paths` function docstring
+## `remove_not_updated_file_paths` function docstring
 
-Remove not updated modules from specified module paths.<hr>
+Remove not updated files from specified file paths.<hr>
 
 **[Parameters]**
 
-- `module_paths`: list of str
-  - Target Python module paths.
+- `file_paths`: list of str
+  - Target file paths.
 - `hash_type`: HashType
   - Target hash type.
 
@@ -151,28 +151,28 @@ Remove not updated modules from specified module paths.<hr>
 
 **[Returns]**
 
-- `sliced_module_paths`: list of str
-  - After the slicing module paths.
+- `sliced_file_paths`: list of str
+  - After the slicing file paths.
 
-## `save_target_module_hash` function docstring
+## `save_target_file_hash` function docstring
 
-Save a target module's current hash.<hr>
+Save a target file's current hash.<hr>
 
 **[Parameters]**
 
-- `module_path`: str
-  - Target module path.
+- `file_path`: str
+  - Target file path.
 - `hash_type`: HashType
   - Target hash type.
 
-## `save_target_modules_hash` function docstring
+## `save_target_files_hash` function docstring
 
-Save target modules' current hash.<hr>
+Save target files' current hash.<hr>
 
 **[Parameters]**
 
-- `module_paths`: list of str
-  - Target module paths.
+- `file_paths`: list of str
+  - Target file paths.
 - `hash_type`: HashType
   - Target hash type.
 
@@ -180,4 +180,4 @@ Save target modules' current hash.<hr>
 
 An enumeration.
 
-## `_IsModuleUpdatedArgs` class docstring
+## `_IsFileUpdatedArgs` class docstring

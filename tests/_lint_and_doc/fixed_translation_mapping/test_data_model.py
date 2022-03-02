@@ -1,16 +1,18 @@
-from random import randint
-from typing import List, Optional
 import os
 from enum import Enum
+from random import randint
+from typing import List
+from typing import Optional
 
 from retrying import retry
 
-from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mapping, Mappings
-from apysc._lint_and_doc.fixed_translation_mapping import data_model
-from tests.testing_helper import assert_attrs
-from apysc._lint_and_doc.docs_lang import Lang
 from apysc._file import file_util
+from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc.fixed_translation_mapping import data_model
 from apysc._lint_and_doc.fixed_translation_mapping import jp
+from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mapping
+from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mappings
+from tests.testing_helper import assert_attrs
 
 
 class TestMapping:

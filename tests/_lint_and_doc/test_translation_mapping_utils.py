@@ -2,11 +2,11 @@ from random import randint
 from typing import Dict
 
 from retrying import retry
-from apysc._file import file_util
 
+from apysc._file import file_util
 from apysc._lint_and_doc import translation_mapping_utils
-from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -6,6 +6,7 @@ import importlib
 import os
 from types import ModuleType
 from typing import Dict
+
 from apysc._lint_and_doc.docs_lang import Lang
 
 MAPPING_CONST_NAME: str = 'MAPPING'

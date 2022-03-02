@@ -2,11 +2,13 @@
 mapping settings.
 """
 
-from types import ModuleType
-from typing import List, Optional, Tuple
-import os
 import inspect
+import os
 from functools import lru_cache
+from types import ModuleType
+from typing import List
+from typing import Optional
+from typing import Tuple
 
 from apysc._lint_and_doc.docs_lang import Lang
 

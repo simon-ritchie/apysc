@@ -1,0 +1,1 @@
+# `apysc._lint_and_doc.fixed_translation_mapping.__init__` docstrings

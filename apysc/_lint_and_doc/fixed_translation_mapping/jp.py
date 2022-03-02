@@ -2,10 +2,8 @@
 settings.
 """
 
-from apysc._lint_and_doc.fixed_translation_mapping.data_model import \
-    Mapping, Mappings
-
-
+from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mapping
+from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mappings
 MAPPINGS: Mappings = Mappings(
     mappings=[
         Mapping(

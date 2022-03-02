@@ -1,0 +1,209 @@
+# `apysc._lint_and_doc.add_doc_translation_mapping_blank_data` docstrings
+
+## Module summary
+
+This module is for the adding of document translations mapping dictionary's blank data.
+
+## `_append_body_text_keys_to_list` function docstring
+
+Append document's body text keys to a specified key's list.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target key string. This interface splits its string if there are two consecutive line breaks.
+- `keys`: list of str
+  - A key's list to append.
+
+## `_convert_link_list_by_lang` function docstring
+
+Convert a link list value by a specified language if a key's value is a link list.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target key string (source english string).
+- `value`: str
+  - A target value string.
+- `lang`: Lang
+  - A target translation language.
+
+<hr>
+
+**[Returns]**
+
+- `value`: str
+  - A converted value. If a specified key's value is not a link list, this interface skips the conversion.
+
+## `_convert_splitted_values_to_keys` function docstring
+
+Convert specified splitted values to dictionary's key strings.<hr>
+
+**[Parameters]**
+
+- `splitted_values`: List of Heading, BodyText and CodeBlock
+  - Target splitted values.
+
+<hr>
+
+**[Returns]**
+
+- `keys`: list of str
+  - A converted key strings.
+
+## `_escape_key_or_value` function docstring
+
+Escape a mapping key or value to save.<hr>
+
+**[Parameters]**
+
+- `key_or_val`: str
+  - A target key or value.
+
+<hr>
+
+**[Returns]**
+
+- `key_or_val`: str
+  - An escaped key or value string.
+
+## `_get_hash_type_from_lang` function docstring
+
+Get a hash type from a specified language type.<hr>
+
+**[Parameters]**
+
+- `lang`: Lang
+  - A target translation language.
+
+<hr>
+
+**[Returns]**
+
+- `hash_type`: HashType
+  - A target hash type.
+
+<hr>
+
+**[Raises]**
+
+- ValueError: If there is no implementation of a specified language type's branch condition.
+
+## `_get_src_docs_file_paths` function docstring
+
+Get source documents file paths.<hr>
+
+**[Returns]**
+
+- `src_docs_file_paths`: list of str
+  - Source documents file paths.
+
+## `_is_translated_document` function docstring
+
+Get a boolean indicating whether a specified document path is a translated document or not.<hr>
+
+**[Parameters]**
+
+- `path`: str
+  - A target document path.
+
+<hr>
+
+**[Returns]**
+
+- `result`: bool
+  - If a specified document path is a translated document, this interface returns True.
+
+## `_make_mappings_from_keys` function docstring
+
+Make mapping dictionary values from specified key values.<hr>
+
+**[Parameters]**
+
+- `keys`: list of str
+  - Target dictionary key values.
+- `src_doc_file_path`: str
+  - A target source document file path.
+- `lang`: Lang
+  - A target translation language.
+
+<hr>
+
+**[Returns]**
+
+- `mappings`: list of dict
+  - Created mapping dictionary values. A dictionary value becomes a blank string if it is a new mapping value.
+
+## `_remove_skipping_pattern_keys_from_list` function docstring
+
+Remove skipping pattern matching keys from a specified list.<hr>
+
+**[Parameters]**
+
+- `keys`: list of str
+  - A target key's list.
+
+<hr>
+
+**[Returns]**
+
+- `result_keys`: list of str
+  - An after removing key's list.
+
+## `_save_mapping_data` function docstring
+
+Save mapping data module with specified mappings data.<hr>
+
+**[Parameters]**
+
+- `mappings`: list of dict
+  - Target mappings data to save.
+- `src_doc_file_path`: str
+  - A target source document file path.
+- `lang`: Lang
+  - A target translation language.
+
+## `_set_fixed_translation_value_if_exists` function docstring
+
+Set a fixed translation value if its mapping setting exists.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target translation key.
+- `value`: str
+  - A current translation value.
+
+<hr>
+
+**[Returns]**
+
+- `fixed_value`: str
+  - A fixed translation value. If there is no fixed translation mapping setting, this interface returns argument's value directly.
+
+## `_set_same_value_if_code_block_mapping_is_blank` function docstring
+
+Set a same code-block value if a specified value is blank string and key's value is a code block.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target key string (source english string).
+- `value`: str
+  - A target value string.
+
+<hr>
+
+**[Returns]**
+
+- `value`: str
+  - A result value. If an argument value is not a blank string, this interface returns it directly. If a key's value is not a code block, this interface also returns argument value directly.
+
+## `add_mapping_blank_data` function docstring
+
+Add mapping blank data of document translations.<hr>
+
+**[Parameters]**
+
+- `lang`: Lang
+  - A target translation language.

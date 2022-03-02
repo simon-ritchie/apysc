@@ -2,17 +2,27 @@
 mapping dictionary's blank data.
 """
 
-from typing import Dict, List, Union, Optional, Match, Pattern
 import os
 import re
+from typing import Dict
+from typing import List
+from typing import Match
+from typing import Optional
+from typing import Pattern
+from typing import Union
 
 from apysc._lint_and_doc import document_text_split_util
-from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
 from apysc._lint_and_doc import lint_and_doc_hash_util
-from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
-from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
 from apysc._lint_and_doc.docs_lang import Lang
-from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME, read_mapping_data, get_mapping_module_path
+from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
+from apysc._lint_and_doc.document_text_split_util import BodyText
+from apysc._lint_and_doc.document_text_split_util import CodeBlock
+from apysc._lint_and_doc.document_text_split_util import Heading
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
+from apysc._lint_and_doc.translation_mapping_utils import \
+    get_mapping_module_path
+from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
@@ -63,7 +73,7 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
             hash_type=hash_type)
     for src_doc_file_path in src_docs_file_paths:
         markdown_txt: str = file_util.read_txt(file_path=src_doc_file_path)
-        splitted_values: _SplittedVals= document_text_split_util.\
+        splitted_values: _SplittedVals = document_text_split_util.\
             split_markdown_document(markdown_txt=markdown_txt)
         keys: List[str] = _convert_splitted_values_to_keys(
             splitted_values=splitted_values)
@@ -141,7 +151,7 @@ def _save_mapping_data(
         module_str += f"\n    '{value}',"
         if len(value) >= 70:
             module_str += '  # noqa'
-    module_str += '\n\n}'
+    module_str += '\n\n}\n'
     module_path: str = get_mapping_module_path(
         src_doc_file_path=src_doc_file_path, lang=lang)
     file_util.save_plain_txt(txt=module_str, file_path=module_path)
@@ -236,7 +246,7 @@ def _convert_link_list_by_lang(
         value += f'{prev_txt}({doc_path})'
 
         key = _LINK_PATTERN.sub(
-            repl=rf'\g<after_txt>',
+            repl=r'\g<after_txt>',
             string=key, count=1)
         match = _LINK_PATTERN.search(string=key)
     value = _escape_key_or_value(key_or_val=value)

@@ -436,3 +436,14 @@ def test__get_excluding_target_builtin_methods() -> None:
     assert excluding_target_builtin_methods_dict['__hash__'] == (
         'Return hash(self).'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__is_excluding_dir_path() -> None:
+    result: bool = docstring_to_markdown_converter._is_excluding_dir_path(
+        dir_path='./apysc/_translation/jp/sprite.py')
+    assert result
+
+    result = docstring_to_markdown_converter._is_excluding_dir_path(
+        dir_path='./apysc/_display/sprite.py')
+    assert not result

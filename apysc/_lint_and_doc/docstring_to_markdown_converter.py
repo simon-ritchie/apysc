@@ -38,7 +38,8 @@ def convert_recursively(*, dir_path: str) -> List[str]:
     for file_or_dir_name in file_or_dir_names:
         file_or_dir_path: str = os.path.join(
             dir_path, file_or_dir_name)
-        if os.path.isdir(file_or_dir_path):
+        if (os.path.isdir(file_or_dir_path)
+                and not _is_excluding_dir_path(dir_path=file_or_dir_path)):
             convert_recursively(dir_path=file_or_dir_path)
             continue
         if not file_or_dir_path.endswith('.py'):
@@ -55,6 +56,33 @@ def convert_recursively(*, dir_path: str) -> List[str]:
             file_path=file_or_dir_path,
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
     return saved_markdown_file_paths
+
+
+_EXCLUDING_DIR_PATHS: List[str] = [
+    'apysc/_translation/',
+]
+
+
+def _is_excluding_dir_path(*, dir_path: str) -> bool:
+    """
+    Get a boolean indicating whether a specified directory path
+    is a excluding condition or not.
+
+    Parameters
+    ----------
+    dir_path : str
+        A target directory path.
+
+    Returns
+    -------
+    result : bool
+        This interface returns True if a specified directory path
+        is excluding condition.
+    """
+    for excluding_dir_path in _EXCLUDING_DIR_PATHS:
+        if excluding_dir_path in dir_path:
+            return True
+    return False
 
 
 def _save_markdown(*, module_path: str) -> str:

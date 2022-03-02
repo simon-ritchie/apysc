@@ -2,10 +2,8 @@
 mapping dictionary's blank data.
 """
 
-from types import ModuleType
 from typing import Dict, List, Union, Optional, Match, Pattern
 import os
-import importlib
 import re
 
 from apysc._lint_and_doc import document_text_split_util
@@ -14,11 +12,9 @@ from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME, read_mapping_data, get_mapping_module_path
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
-
-
-_MAPPING_CONST_NAME: str = 'MAPPING'
 
 _HR_TAG_PATTERN: str = r'^<hr>$'
 
@@ -134,7 +130,7 @@ def _save_mapping_data(
         f'\nLanguage: {lang.value}'
         '\n"""'
         '\n\nfrom typing import Dict'
-        f'\n\n{_MAPPING_CONST_NAME}: Dict[str, str] = {{'
+        f'\n\n{MAPPING_CONST_NAME}: Dict[str, str] = {{'
     )
     for mapping in mappings:
         key: str = list(mapping.keys())[0]
@@ -146,7 +142,7 @@ def _save_mapping_data(
         if len(value) >= 70:
             module_str += '  # noqa'
     module_str += '\n\n}'
-    module_path: str = _get_mapping_module_path(
+    module_path: str = get_mapping_module_path(
         src_doc_file_path=src_doc_file_path, lang=lang)
     file_util.save_plain_txt(txt=module_str, file_path=module_path)
 
@@ -173,7 +169,7 @@ def _make_mappings_from_keys(
         Created mapping dictionary values. A dictionary
         value becomes a blank string if it is a new mapping value.
     """
-    already_saved_mapping: Dict[str, str] = _read_already_saved_mapping(
+    already_saved_mapping: Dict[str, str] = read_mapping_data(
         src_doc_file_path=src_doc_file_path, lang=lang)
     mappings: List[Dict[str, str]] = []
     for key in keys:
@@ -300,65 +296,6 @@ def _set_fixed_translation_value_if_exists(
     if fixed_value == '':
         return value
     return fixed_value
-
-
-def _read_already_saved_mapping(
-        *, src_doc_file_path: str,
-        lang: Lang) -> Dict[str, str]:
-    """
-    Read an already saved mapping data.
-
-    Parameters
-    ----------
-    src_doc_file_path : str
-        A target source document file path.
-    lang : Lang
-        A target translation language.
-
-    Returns
-    -------
-    already_saved_mapping : dict
-        An already saved mapping data dictionary.
-    """
-    from apysc._file import module_util
-    mapping_module_path: str = _get_mapping_module_path(
-        src_doc_file_path=src_doc_file_path, lang=lang)
-    if not os.path.isfile(mapping_module_path):
-        return {}
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=mapping_module_path)
-    importlib.reload(module)
-    if not hasattr(module, _MAPPING_CONST_NAME):
-        return {}
-    already_saved_mapping: Dict[str, str] = getattr(
-        module, _MAPPING_CONST_NAME)
-    return already_saved_mapping
-
-
-def _get_mapping_module_path(
-        *, src_doc_file_path: str, lang: Lang) -> str:
-    """
-    Get a mapping data module path.
-
-    Parameters
-    ----------
-    src_doc_file_path : str
-        A target source document file path.
-    lang : Lang
-        A target translation language.
-
-    Returns
-    -------
-    mapping_module_path : str
-        A mapping data module path.
-    """
-    basename: str = os.path.basename(src_doc_file_path)
-    basename = basename.replace('.md', '.py', 1)
-    mapping_module_path: str = os.path.join(
-        f'./apysc/_translation/{lang.value}/',
-        basename,
-    )
-    return mapping_module_path
 
 
 def _convert_splitted_values_to_keys(

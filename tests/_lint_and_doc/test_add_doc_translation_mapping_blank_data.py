@@ -7,8 +7,8 @@ import importlib
 from retrying import retry
 
 from apysc._lint_and_doc import add_doc_translation_mapping_blank_data
-from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import _MAPPING_CONST_NAME
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME, read_mapping_data, get_mapping_module_path
 from apysc._lint_and_doc.document_text_split_util import Heading, BodyText, CodeBlock
 from apysc._file import file_util, module_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
@@ -69,63 +69,18 @@ def test__convert_splitted_values_to_keys() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_mapping_module_path() -> None:
-    mapping_module_path: str = add_doc_translation_mapping_blank_data.\
-        _get_mapping_module_path(
-            src_doc_file_path='./docs_src/source/sprite.md',
-            lang=Lang.JP)
-    assert mapping_module_path == './apysc/_translation/jp/sprite.py'
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__read_already_saved_mapping() -> None:
-    test_src_doc_file_path: str = \
-        './docs_src/source/test_add_doc_translation_mapping_blank_data_1.md'
-    test_mapping_module_path: str = add_doc_translation_mapping_blank_data.\
-        _get_mapping_module_path(
-            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
-    file_util.remove_file_if_exists(file_path=test_mapping_module_path)
-    already_saved_mapping: Dict[str, str] = \
-        add_doc_translation_mapping_blank_data.\
-        _read_already_saved_mapping(
-            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
-    assert already_saved_mapping == {}
-
-    file_util.save_plain_txt(
-        txt='', file_path=test_mapping_module_path)
-    already_saved_mapping = add_doc_translation_mapping_blank_data.\
-        _read_already_saved_mapping(
-            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
-    assert already_saved_mapping == {}
-
-    file_util.save_plain_txt(
-        txt=(
-            'from typing import Dict'
-            f'\n\n{_MAPPING_CONST_NAME}: Dict[str, str] = '
-            "{'a': 'b'}"
-        ),
-        file_path=test_mapping_module_path)
-    already_saved_mapping = add_doc_translation_mapping_blank_data.\
-        _read_already_saved_mapping(
-            src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
-    assert already_saved_mapping == {'a': 'b'}
-
-    file_util.remove_file_if_exists(file_path=test_mapping_module_path)
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_mappings_from_keys() -> None:
     test_src_doc_file_path: str = \
         './docs_src/source/test_add_doc_translation_mapping_blank_data_2.md'
     test_mapping_module_path: str = add_doc_translation_mapping_blank_data.\
-        _get_mapping_module_path(
+        get_mapping_module_path(
             src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)
 
     file_util.save_plain_txt(
         txt=(
             'from typing import Dict'
-            f'\n\n{_MAPPING_CONST_NAME}: Dict[str, str] = '
+            f'\n\n{MAPPING_CONST_NAME}: Dict[str, str] = '
             "{'a': 'b', 'd\\ne': 'f'}"
         ),
         file_path=test_mapping_module_path)
@@ -148,7 +103,7 @@ def test__save_mapping_data() -> None:
     test_src_doc_file_path: str = \
         './docs_src/source/test_add_doc_translation_mapping_blank_data_3.md'
     test_mapping_module_path: str = add_doc_translation_mapping_blank_data.\
-        _get_mapping_module_path(
+        get_mapping_module_path(
             src_doc_file_path=test_src_doc_file_path, lang=Lang.JP)
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)
 
@@ -176,7 +131,7 @@ def test__save_mapping_data() -> None:
         '\nLanguage: jp'
         '\n'
     )
-    mapping: Dict[str, str] = getattr(module, _MAPPING_CONST_NAME)
+    mapping: Dict[str, str] = getattr(module, MAPPING_CONST_NAME)
     assert mapping == {
         'a': 'b',
         'c':

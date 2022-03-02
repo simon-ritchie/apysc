@@ -2,11 +2,11 @@
 
 ## Module summary
 
-This module is for the translation-conversion of the documents.
+This module is for the translation conversion of the documents.
 
 ## `apply_translation_to_doc` function docstring
 
-Apply a translation mapping to a specified markdown document. This interface save a translated file with a file name which has a language suffix (e.g., 'jp_your_doc.md').<hr>
+Apply a translation mapping to a specified markdown document. This interface saves a translated file with a file name with a language suffix (e.g., jp_your_doc.md).<hr>
 
 **[Parameters]**
 

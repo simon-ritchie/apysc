@@ -2,7 +2,7 @@
 
 ## Module summary
 
-This module is for the translation-mapping utility implementations.
+This module is for translation-mapping utility implementations.
 
 ## `get_mapping_module_path` function docstring
 

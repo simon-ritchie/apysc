@@ -1,4 +1,4 @@
-"""This module is for the translation-mapping
+"""This module is for translation-mapping
 utility implementations.
 """
 

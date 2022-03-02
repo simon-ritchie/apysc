@@ -22,12 +22,12 @@ Get a fixed-translation mappings settings module path of a specified language.<h
 
 ## `get_fixed_translation_str_if_exists` function docstring
 
-Get a fixed-translation string from a specified language key string if there is a mapping setting.<hr>
+If a mapping setting exists, get a fixed-translation string from a specified language key string.<hr>
 
 **[Parameters]**
 
 - `key`: str
-  - A target key string (source english string).
+  - A target key string (source English string).
 - `lang`: Lang
   - A target language.
 
@@ -40,22 +40,22 @@ Get a fixed-translation string from a specified language key string if there is 
 
 ## `Mapping` class docstring
 
-The class of a single fixed-translation mapping settings.
+This class is for a single fixed-translation mapping setting.
 
 ### `__init__` method docstring
 
-A single fixed-translation mapping settings.<hr>
+A single fixed-translation mapping setting.<hr>
 
 **[Parameters]**
 
 - `key`: str
-  - A key value (this value needs to set a source english string).
+  - A key value (this value needs to set source English string).
 - `value`: str
   - A translated value.
 
 ## `Mappings` class docstring
 
-The class for fixed-translation mappings settings.
+This class is for fixed-translation mappings settings.
 
 ### `__init__` method docstring
 

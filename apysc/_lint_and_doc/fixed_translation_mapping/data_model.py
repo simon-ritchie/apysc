@@ -14,7 +14,7 @@ from apysc._lint_and_doc.docs_lang import Lang
 
 
 class Mapping:
-    """The class of a single fixed-translation mapping settings.
+    """This class is for a single fixed-translation mapping setting.
     """
 
     _key: str
@@ -22,13 +22,13 @@ class Mapping:
 
     def __init__(self, *, key: str, value: str) -> None:
         """
-        A single fixed-translation mapping settings.
+        A single fixed-translation mapping setting.
 
         Parameters
         ----------
         key : str
-            A key value (this value needs to set a source
-            english string).
+            A key value (this value needs to set source
+            English string).
         value : str
             A translated value.
         """
@@ -61,7 +61,7 @@ class Mapping:
 
 
 class Mappings:
-    """The class for fixed-translation mappings settings.
+    """This class is for fixed-translation mappings settings.
     """
 
     mappings: List[Mapping]
@@ -81,13 +81,13 @@ class Mappings:
 def get_fixed_translation_str_if_exists(
         *, key: str, lang: Lang) -> str:
     """
-    Get a fixed-translation string from a specified language key
-    string if there is a mapping setting.
+    If a mapping setting exists, get a fixed-translation
+    string from a specified language key string.
 
     Parameters
     ----------
     key : str
-        A target key string (source english string).
+        A target key string (source English string).
     lang : Lang
         A target language.
 

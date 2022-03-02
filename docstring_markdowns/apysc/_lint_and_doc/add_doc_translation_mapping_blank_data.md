@@ -2,7 +2,7 @@
 
 ## Module summary
 
-This module is for the adding of document translations mapping dictionary's blank data.
+This module is for adding document translations mapping dictionary's blank data.
 
 ## `_append_body_text_keys_to_list` function docstring
 
@@ -22,7 +22,7 @@ Convert a link list value by a specified language if a key's value is a link lis
 **[Parameters]**
 
 - `key`: str
-  - A target key string (source english string).
+  - A target key string (source English string).
 - `value`: str
   - A target value string.
 - `lang`: Lang
@@ -33,7 +33,7 @@ Convert a link list value by a specified language if a key's value is a link lis
 **[Returns]**
 
 - `value`: str
-  - A converted value. If a specified key's value is not a link list, this interface skips the conversion.
+  - A converted value. This interface skips the conversion if a specified key's value is not a link list.
 
 ## `_convert_splitted_values_to_keys` function docstring
 
@@ -49,7 +49,7 @@ Convert specified splitted values to dictionary's key strings.<hr>
 **[Returns]**
 
 - `keys`: list of str
-  - A converted key strings.
+  - Converted strings.
 
 ## `_escape_key_or_value` function docstring
 
@@ -159,7 +159,7 @@ Save mapping data module with specified mappings data.<hr>
 - `mappings`: list of dict
   - Target mappings data to save.
 - `src_doc_file_path`: str
-  - A target source document file path.
+  - A target source document's file path.
 - `lang`: Lang
   - A target translation language.
 
@@ -179,16 +179,16 @@ Set a fixed translation value if its mapping setting exists.<hr>
 **[Returns]**
 
 - `fixed_value`: str
-  - A fixed translation value. If there is no fixed translation mapping setting, this interface returns argument's value directly.
+  - A fixed translation value. If there is no fixed translation mapping setting, this interface directly returns an argument's value.
 
 ## `_set_same_value_if_code_block_mapping_is_blank` function docstring
 
-Set a same code-block value if a specified value is blank string and key's value is a code block.<hr>
+Set the same code-block value if a specified value is a blank string and a key's value is a code block.<hr>
 
 **[Parameters]**
 
 - `key`: str
-  - A target key string (source english string).
+  - A target key string (source English string).
 - `value`: str
   - A target value string.
 
@@ -197,11 +197,11 @@ Set a same code-block value if a specified value is blank string and key's value
 **[Returns]**
 
 - `value`: str
-  - A result value. If an argument value is not a blank string, this interface returns it directly. If a key's value is not a code block, this interface also returns argument value directly.
+  - A result value. If an argument value is not a blank string, this interface returns it directly. If a key's value is not a code block, this interface also returns an argument value directly.
 
 ## `add_mapping_blank_data` function docstring
 
-Add mapping blank data of document translations.<hr>
+Add a mapping's blank data of document translations.<hr>
 
 **[Parameters]**
 

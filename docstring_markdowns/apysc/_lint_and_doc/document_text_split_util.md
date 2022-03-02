@@ -6,20 +6,20 @@ This module is for the document splitting utility.
 
 ## `_create_body_text_and_append_to_list_if_values_exist` function docstring
 
-Create a body text instance from a specified body text lines list and append it to a result list. If a specified body text lines list is blank, this interface skips the appending.<hr>
+Create a body text instance from a specified body text lines list and append it to a result list. This interface skips the appending if a specified body text line list is blank.<hr>
 
 **[Parameters]**
 
-- `splitted`: list of Heading, BodyText, and CodeBlock
+- `splitted_values`: list of Heading, BodyText, and CodeBlock
   - A result list to append a body text instance.
 - `body_text_lines`: list of str
-  - A target body test line list.
+  - A target body text line's list.
 
 <hr>
 
 **[Notes]**
 
-This function clears a specified body text lines list at the end of this function.
+This function clears a specified body text lines list at the end.
 
 ## `_create_code_block_from_list` function docstring
 
@@ -56,12 +56,12 @@ Split a specified markdown document to `Heading`, `BodyText`, and `CodeBlock` va
 
 **[Returns]**
 
-- `splitted`: list of Heading, BodyText, and CodeBlock
+- `splitted_values`: list of Heading, BodyText, and CodeBlock
   - A list of splitted `Heading`, `BodyText`, and `CodeBlock` values.
 
 ## `BodyText` class docstring
 
-The class for a document body text.
+This class is for a document body text.
 
 ### `__init__` method docstring
 
@@ -85,7 +85,7 @@ The class for a document code block.<hr>
 
 ## `Heading` class docstring
 
-The class for the document's heading.
+This class is for the document's heading.
 
 ### `__init__` method docstring
 

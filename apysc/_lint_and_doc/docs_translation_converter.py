@@ -1,5 +1,5 @@
-"""This module is for the translation-conversion of the
-documents.
+"""This module is for the translation conversion
+of the documents.
 """
 
 from typing import List
@@ -12,9 +12,9 @@ def apply_translation_to_doc(
         *, md_file_path: str, lang: Lang) -> None:
     """
     Apply a translation mapping to a specified markdown
-    document. This interface save a translated file with
-    a file name which has a language suffix
-    (e.g., 'jp_your_doc.md').
+    document. This interface saves a translated file
+    with a file name with a language suffix (e.g.,
+    jp_your_doc.md).
 
     Parameters
     ----------

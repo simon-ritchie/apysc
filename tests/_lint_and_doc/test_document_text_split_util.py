@@ -173,11 +173,11 @@ def test__create_code_block_from_list() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__create_body_text_and_append_to_list_if_values_exist() -> None:
-    splitted: List[Union[Heading, BodyText, CodeBlock]] = []
+    splitted_values: List[Union[Heading, BodyText, CodeBlock]] = []
     document_text_split_util.\
         _create_body_text_and_append_to_list_if_values_exist(
-            splitted=splitted, body_text_lines=[])
-    assert splitted == []
+            splitted_values=splitted_values, body_text_lines=[])
+    assert splitted_values == []
 
     body_text_lines: List[str] = [
         '',
@@ -187,9 +187,9 @@ def test__create_body_text_and_append_to_list_if_values_exist() -> None:
     ]
     document_text_split_util.\
         _create_body_text_and_append_to_list_if_values_exist(
-            splitted=splitted, body_text_lines=body_text_lines)
-    assert len(splitted) == 1
-    body_text = splitted[0]
+            splitted_values=splitted_values, body_text_lines=body_text_lines)
+    assert len(splitted_values) == 1
+    body_text = splitted_values[0]
     if not isinstance(body_text, BodyText):
         raise AssertionError(
             f'Returned value\'s type is invalid: {type(body_text)}')

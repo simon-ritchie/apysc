@@ -7,7 +7,7 @@ from typing import Union
 
 
 class Heading:
-    """The class for the document's heading.
+    """This class is for the document's heading.
     """
 
     _text: str
@@ -16,7 +16,7 @@ class Heading:
 
     def __init__(self, *, heading_text: str) -> None:
         """
-        The class for the document's heading.
+        This class is for the document's heading.
 
         Parameters
         ----------
@@ -71,14 +71,14 @@ class Heading:
 
 
 class BodyText:
-    """The class for a document body text.
+    """This class is for a document body text.
     """
 
     _text: str
 
     def __init__(self, *, text: str) -> None:
         """
-        The class for a document body text.
+        This class is for a document body text.
 
         Parameters
         ----------
@@ -181,7 +181,7 @@ def split_markdown_document(
 
     Returns
     -------
-    splitted : list of Heading, BodyText, and CodeBlock
+    splitted_values : list of Heading, BodyText, and CodeBlock
         A list of splitted `Heading`, `BodyText`, and `CodeBlock`
         values.
     """
@@ -189,11 +189,11 @@ def split_markdown_document(
     current_code_block_lines: List[str] = []
     current_body_text_lines: List[str] = []
     lines: List[str] = markdown_txt.splitlines()
-    splitted: List[Union[Heading, BodyText, CodeBlock]] = []
+    splitted_values: List[Union[Heading, BodyText, CodeBlock]] = []
     for line in lines:
         if not is_code_block and line.startswith('```'):
             _create_body_text_and_append_to_list_if_values_exist(
-                splitted=splitted,
+                splitted_values=splitted_values,
                 body_text_lines=current_body_text_lines)
             is_code_block = True
             current_code_block_lines.append(line)
@@ -204,52 +204,52 @@ def split_markdown_document(
             if line.startswith('```'):
                 code_block: CodeBlock = _create_code_block_from_list(
                     code_block_lines=current_code_block_lines)
-                splitted.append(code_block)
+                splitted_values.append(code_block)
                 is_code_block = False
                 continue
             continue
 
         if line.startswith('#'):
             _create_body_text_and_append_to_list_if_values_exist(
-                splitted=splitted,
+                splitted_values=splitted_values,
                 body_text_lines=current_body_text_lines)
-            splitted.append(Heading(heading_text=line))
+            splitted_values.append(Heading(heading_text=line))
             continue
 
         current_body_text_lines.append(line)
 
     _create_body_text_and_append_to_list_if_values_exist(
-        splitted=splitted,
+        splitted_values=splitted_values,
         body_text_lines=current_body_text_lines)
-    return splitted
+    return splitted_values
 
 
 def _create_body_text_and_append_to_list_if_values_exist(
         *,
-        splitted: List[Union[Heading, BodyText, CodeBlock]],
+        splitted_values: List[Union[Heading, BodyText, CodeBlock]],
         body_text_lines: List[str]) -> None:
     """
-    Create a body text instance from a specified
-    body text lines list and append it to a result list.
-    If a specified body text lines list is blank, this
-    interface skips the appending.
+    Create a body text instance from a specified body
+    text lines list and append it to a result list.
+    This interface skips the appending if a specified
+    body text line list is blank.
 
     Notes
     -----
     This function clears a specified body text lines list
-    at the end of this function.
+    at the end.
 
     Parameters
     ----------
-    splitted : list of Heading, BodyText, and CodeBlock
+    splitted_values : list of Heading, BodyText, and CodeBlock
         A result list to append a body text instance.
     body_text_lines : list of str
-        A target body test line list.
+        A target body text line's list.
     """
     if not body_text_lines:
         return
     body_text_str: str = '\n'.join(body_text_lines)
-    splitted.append(BodyText(text=body_text_str))
+    splitted_values.append(BodyText(text=body_text_str))
     body_text_lines.clear()
 
 

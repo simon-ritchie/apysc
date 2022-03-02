@@ -1,5 +1,5 @@
-"""This module is for the adding of document translations
-mapping dictionary's blank data.
+"""This module is for adding document translations mapping
+dictionary's blank data.
 """
 
 import os
@@ -57,7 +57,7 @@ _MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
 
 def add_mapping_blank_data(*, lang: Lang) -> None:
     """
-    Add mapping blank data of document translations.
+    Add a mapping's blank data of document translations.
 
     Parameters
     ----------
@@ -127,7 +127,7 @@ def _save_mapping_data(
     mappings : list of dict
         Target mappings data to save.
     src_doc_file_path : str
-        A target source document file path.
+        A target source document's file path.
     lang : Lang
         A target translation language.
     """
@@ -216,7 +216,7 @@ def _convert_link_list_by_lang(
     Parameters
     ----------
     key : str
-        A target key string (source english string).
+        A target key string (source English string).
     value : str
         A target value string.
     lang : Lang
@@ -225,8 +225,9 @@ def _convert_link_list_by_lang(
     Returns
     -------
     value : str
-        A converted value. If a specified key's value
-        is not a link list, this interface skips the conversion.
+        A converted value. This interface skips the
+        conversion if a specified key's value is not
+        a link list.
     """
     if not key.startswith('- '):
         return value
@@ -256,23 +257,23 @@ def _convert_link_list_by_lang(
 def _set_same_value_if_code_block_mapping_is_blank(
         *, key: str, value: str) -> str:
     """
-    Set a same code-block value if a specified value
-    is blank string and key's value is a code block.
+    Set the same code-block value if a specified value
+    is a blank string and a key's value is a code block.
 
     Parameters
     ----------
     key : str
-        A target key string (source english string).
+        A target key string (source English string).
     value : str
         A target value string.
 
     Returns
     -------
     value : str
-        A result value. If an argument value is not a blank string,
-        this interface returns it directly. If a key's value
-        is not a code block, this interface also returns
-        argument value directly.
+        A result value. If an argument value is not a blank
+        string, this interface returns it directly.
+        If a key's value is not a code block, this interface
+        also returns an argument value directly.
     """
     if value != '':
         return value
@@ -296,9 +297,9 @@ def _set_fixed_translation_value_if_exists(
     Returns
     -------
     fixed_value : str
-        A fixed translation value. If there is no fixed translation
-        mapping setting, this interface returns argument's value
-        directly.
+        A fixed translation value. If there is no fixed
+        translation mapping setting, this interface directly
+        returns an argument's value.
     """
     from apysc._lint_and_doc.fixed_translation_mapping import data_model
     fixed_value: str = data_model.get_fixed_translation_str_if_exists(
@@ -322,7 +323,7 @@ def _convert_splitted_values_to_keys(
     Returns
     -------
     keys : list of str
-        A converted key strings.
+        Converted strings.
     """
     keys: List[str] = []
     for splitted_value in splitted_values:

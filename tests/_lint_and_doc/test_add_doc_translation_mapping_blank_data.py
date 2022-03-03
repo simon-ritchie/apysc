@@ -43,37 +43,6 @@ def test__is_translated_document() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__convert_splitted_values_to_keys() -> None:
-    splitted_values: List[Union[Heading, BodyText, CodeBlock]] = [
-        Heading(heading_text='# Sprite'),
-        BodyText(text='This page explains the `Sprite` class\\.'),
-        CodeBlock(
-            code_block=(
-                '```py'
-                '\n# runnable'
-                '\nimport apysc as ap'
-                "\nprint('Hello!')"
-                '\n```'
-            )),
-        BodyText(text='Lorem ipsum dolor sit amet\n\nconsectetur adipiscing')
-    ]
-    keys: List[str] = add_doc_translation_mapping_blank_data.\
-        _convert_splitted_values_to_keys(splitted_values=splitted_values)
-    assert len(keys) == 5
-    assert keys[0] == '# Sprite'
-    assert keys[1] == 'This page explains the `Sprite` class\\\\.'
-    assert keys[2] == (
-        '```py'
-        '\\n# runnable'
-        '\\nimport apysc as ap'
-        "\\nprint(\\'Hello!\\')"
-        '\\n```'
-    )
-    assert keys[3] == 'Lorem ipsum dolor sit amet'
-    assert keys[4] == 'consectetur adipiscing'
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_mappings_from_keys() -> None:
     test_src_doc_file_path: str = \
         './docs_src/source/test_add_doc_translation_mapping_blank_data_2.md'
@@ -187,19 +156,6 @@ def test_add_mapping_blank_data() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__append_body_text_keys_to_list() -> None:
-    keys: List[str] = []
-    add_doc_translation_mapping_blank_data._append_body_text_keys_to_list(
-        key='Lorem ipsum', keys=keys)
-    assert keys == ['Lorem ipsum']
-
-    keys = []
-    add_doc_translation_mapping_blank_data._append_body_text_keys_to_list(
-        key='Lorem ipsum\\n\\ndolor sit', keys=keys)
-    assert keys == ['Lorem ipsum', 'dolor sit']
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__remove_skipping_pattern_keys_from_list() -> None:
     result_keys: List[str] = add_doc_translation_mapping_blank_data.\
         _remove_skipping_pattern_keys_from_list(
@@ -291,18 +247,4 @@ def test__convert_link_list_by_lang() -> None:
     assert value == (
         '- [Lorem ipsum](any/jp_path_1.md)'
         '\\n- [Dolor sit](any/jp_path_2.md)'
-    )
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__escape_key_or_value() -> None:
-    key_or_val: str = add_doc_translation_mapping_blank_data.\
-        _escape_key_or_value(
-            key_or_val=(
-                "- [Lorem's\\+ ipsum](any/path_1.md)"
-                '\n- [Dolor sit](any/path_2.md)'
-            ))
-    assert key_or_val == (
-        "- [Lorem\\'s\\\\+ ipsum](any/path_1.md)"
-        '\\n- [Dolor sit](any/path_2.md)'
     )

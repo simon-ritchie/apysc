@@ -1,5 +1,5 @@
 from random import randint
-from typing import Dict
+from typing import Dict, List, Union
 
 from retrying import retry
 
@@ -7,6 +7,9 @@ from apysc._file import file_util
 from apysc._lint_and_doc import translation_mapping_utils
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
+from apysc._lint_and_doc.document_text_split_util import BodyText
+from apysc._lint_and_doc.document_text_split_util import CodeBlock
+from apysc._lint_and_doc.document_text_split_util import Heading
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -52,3 +55,60 @@ def test_get_mapping_module_path() -> None:
             src_doc_file_path='./docs_src/source/sprite.md',
             lang=Lang.JP)
     assert mapping_module_path == './apysc/_translation/jp/sprite.py'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_convert_splitted_values_to_keys() -> None:
+    splitted_values: List[Union[Heading, BodyText, CodeBlock]] = [
+        Heading(heading_text='# Sprite'),
+        BodyText(text='This page explains the `Sprite` class\\.'),
+        CodeBlock(
+            code_block=(
+                '```py'
+                '\n# runnable'
+                '\nimport apysc as ap'
+                "\nprint('Hello!')"
+                '\n```'
+            )),
+        BodyText(text='Lorem ipsum dolor sit amet\n\nconsectetur adipiscing')
+    ]
+    keys: List[str] = translation_mapping_utils.\
+        convert_splitted_values_to_keys(splitted_values=splitted_values)
+    assert len(keys) == 5
+    assert keys[0] == '# Sprite'
+    assert keys[1] == 'This page explains the `Sprite` class\\\\.'
+    assert keys[2] == (
+        '```py'
+        '\\n# runnable'
+        '\\nimport apysc as ap'
+        "\\nprint(\\'Hello!\\')"
+        '\\n```'
+    )
+    assert keys[3] == 'Lorem ipsum dolor sit amet'
+    assert keys[4] == 'consectetur adipiscing'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_escape_key_or_value() -> None:
+    key_or_val: str = translation_mapping_utils.escape_key_or_value(
+        key_or_val=(
+            "- [Lorem's\\+ ipsum](any/path_1.md)"
+            '\n- [Dolor sit](any/path_2.md)'
+        ))
+    assert key_or_val == (
+        "- [Lorem\\'s\\\\+ ipsum](any/path_1.md)"
+        '\\n- [Dolor sit](any/path_2.md)'
+    )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_body_text_keys_to_list() -> None:
+    keys: List[str] = []
+    translation_mapping_utils._append_body_text_keys_to_list(
+        key='Lorem ipsum', keys=keys)
+    assert keys == ['Lorem ipsum']
+
+    keys = []
+    translation_mapping_utils._append_body_text_keys_to_list(
+        key='Lorem ipsum\\n\\ndolor sit', keys=keys)
+    assert keys == ['Lorem ipsum', 'dolor sit']

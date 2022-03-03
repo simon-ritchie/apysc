@@ -22,7 +22,7 @@ from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 from apysc._lint_and_doc.translation_mapping_utils import \
     get_mapping_module_path
-from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data
+from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, convert_splitted_values_to_keys, escape_key_or_value
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
@@ -75,7 +75,7 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
         markdown_txt: str = file_util.read_txt(file_path=src_doc_file_path)
         splitted_values: _SplittedVals = document_text_split_util.\
             split_markdown_document(markdown_txt=markdown_txt)
-        keys: List[str] = _convert_splitted_values_to_keys(
+        keys: List[str] = convert_splitted_values_to_keys(
             splitted_values=splitted_values)
         keys = _remove_skipping_pattern_keys_from_list(keys=keys)
         mappings: List[Dict[str, str]] = _make_mappings_from_keys(
@@ -188,7 +188,7 @@ def _make_mappings_from_keys(
         key_ = key_.replace("\\'", "'")
         key_ = key_.replace('\\n', '\n')
         value: str = already_saved_mapping.get(key_, '')
-        value = _escape_key_or_value(key_or_val=value)
+        value = escape_key_or_value(key_or_val=value)
         value = _set_fixed_translation_value_if_exists(
             key=key_, value=value)
         value = _set_same_value_if_code_block_mapping_is_blank(
@@ -251,7 +251,7 @@ def _convert_link_list_by_lang(
             repl=r'\g<after_txt>',
             string=key, count=1)
         match = _LINK_PATTERN.search(string=key)
-    value = _escape_key_or_value(key_or_val=value)
+    value = escape_key_or_value(key_or_val=value)
     return value
 
 
@@ -310,62 +310,6 @@ def _set_fixed_translation_value_if_exists(
     return fixed_value
 
 
-def _convert_splitted_values_to_keys(
-        *, splitted_values: _SplittedVals) -> List[str]:
-    """
-    Convert specified splitted values to dictionary's key
-    strings.
-
-    Parameters
-    ----------
-    splitted_values : List of Heading, BodyText and CodeBlock
-        Target splitted values.
-
-    Returns
-    -------
-    keys : list of str
-        Converted strings.
-    """
-    keys: List[str] = []
-    for splitted_value in splitted_values:
-        is_body_text: bool = False
-        key: str = ''
-        if isinstance(splitted_value, Heading):
-            key = splitted_value.overall_text
-        if isinstance(splitted_value, BodyText):
-            is_body_text = True
-            key = splitted_value.text
-        if isinstance(splitted_value, CodeBlock):
-            key = splitted_value.overall_code_block
-        key = _escape_key_or_value(key_or_val=key)
-        if not is_body_text:
-            keys.append(key)
-        else:
-            _append_body_text_keys_to_list(key=key, keys=keys)
-    return keys
-
-
-def _escape_key_or_value(*, key_or_val: str) -> str:
-    """
-    Escape a mapping key or value to save.
-
-    Parameters
-    ----------
-    key_or_val : str
-        A target key or value.
-
-    Returns
-    -------
-    key_or_val : str
-        An escaped key or value string.
-    """
-    key_or_val = key_or_val.replace('\\', '\\\\')
-    key_or_val = key_or_val.replace("'", "\\'")
-    key_or_val = key_or_val.replace('\n', '\\n')
-    key_or_val = key_or_val.replace('\\\\n', '\\n')
-    return key_or_val
-
-
 def _remove_skipping_pattern_keys_from_list(
         *, keys: List[str]) -> List[str]:
     """
@@ -395,24 +339,6 @@ def _remove_skipping_pattern_keys_from_list(
             continue
         result_keys.append(key)
     return result_keys
-
-
-def _append_body_text_keys_to_list(
-        *, key: str, keys: List[str]) -> None:
-    """
-    Append document's body text keys to a specified key's list.
-
-    Parameters
-    ----------
-    key : str
-        A target key string. This interface splits its string
-        if there are two consecutive line breaks.
-    keys : list of str
-        A key's list to append.
-    """
-    splitted_keys: List[str] = key.split('\\n\\n')
-    for key_ in splitted_keys:
-        keys.append(key_)
 
 
 def _get_src_docs_file_paths() -> List[str]:

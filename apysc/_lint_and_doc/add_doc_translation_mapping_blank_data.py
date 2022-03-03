@@ -77,6 +77,7 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
             split_markdown_document(markdown_txt=markdown_txt)
         keys: List[str] = _convert_splitted_values_to_keys(
             splitted_values=splitted_values)
+        keys = _remove_skipping_pattern_keys_from_list(keys=keys)
         mappings: List[Dict[str, str]] = _make_mappings_from_keys(
             keys=keys, src_doc_file_path=src_doc_file_path,
             lang=lang)
@@ -341,7 +342,6 @@ def _convert_splitted_values_to_keys(
             keys.append(key)
         else:
             _append_body_text_keys_to_list(key=key, keys=keys)
-    keys = _remove_skipping_pattern_keys_from_list(keys=keys)
     return keys
 
 

@@ -74,7 +74,7 @@ class TestPoints2DInterface:
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
 
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        interface.points = ap.Array([])
+        interface.points = ap.Array([])  # type: ignore
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         interface.points == [point_1]
 

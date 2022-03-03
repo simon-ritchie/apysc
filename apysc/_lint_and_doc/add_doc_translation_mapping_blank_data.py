@@ -184,8 +184,8 @@ def _make_mappings_from_keys(
     mappings: List[Dict[str, str]] = []
     for key in keys:
         key_: str = key.replace('\\\\', '\\')
-        key_: str = key_.replace("\\'", "'")
-        key_: str = key_.replace('\\n', '\n')
+        key_ = key_.replace("\\'", "'")
+        key_ = key_.replace('\\n', '\n')
         value: str = already_saved_mapping.get(key_, '')
         value = _escape_key_or_value(key_or_val=value)
         value = _set_fixed_translation_value_if_exists(

@@ -20,6 +20,8 @@ def apply_translation_to_doc(
     ----------
     md_file_path : str
         A source markdown file path.
+    lang : Lang
+        A target language setting.
     """
     from apysc._file import file_util
     from apysc._lint_and_doc.document_text_split_util import BodyText

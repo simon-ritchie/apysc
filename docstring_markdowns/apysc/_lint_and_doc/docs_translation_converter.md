@@ -12,3 +12,5 @@ Apply a translation mapping to a specified markdown document. This interface sav
 
 - `md_file_path`: str
   - A source markdown file path.
+- `lang`: Lang
+  - A target language setting.

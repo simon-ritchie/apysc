@@ -11,6 +11,7 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Type
+import traceback
 
 from retrying import retry
 
@@ -149,9 +150,11 @@ def _read_test_module() -> ModuleType:
             importlib.reload(module)
             break
         except Exception:
-            time.sleep(randint(1, 10))
+            traceback_: str = traceback.format_exc()
+            time.sleep(randint(1, 5))
             count += 1
         if count > 10:
+            print(traceback_)
             raise Exception('Failed to read a module for testing.')
         continue
     return module
@@ -160,6 +163,10 @@ def _read_test_module() -> ModuleType:
 def _save_test_module() -> None:
     """Save the test module.
     """
+    os.makedirs('./tmp/', exist_ok=True)
+    file_util.append_plain_txt(
+        txt='',
+        file_path='./tmp/__init__.py')
     os.makedirs(_TEST_MODULE_DIR_PATH, exist_ok=True)
     init_path: str = os.path.join(_TEST_MODULE_DIR_PATH, '__init__.py')
     file_util.save_plain_txt(txt='', file_path=init_path)

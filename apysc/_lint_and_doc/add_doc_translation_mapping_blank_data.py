@@ -22,36 +22,12 @@ from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 from apysc._lint_and_doc.translation_mapping_utils import \
     get_mapping_module_path
-from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, convert_splitted_values_to_keys, escape_key_or_value, remove_escaping_from_key_or_value
+from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, convert_splitted_values_to_keys, escape_key_or_value, remove_escaping_from_key_or_value, MAPPING_UNNECESSARY_PATTERNS
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
-_HR_TAG_PATTERN: str = r'^<hr>$'
-
-_INTERFACE_SIGNATURE_PATTERN: str = (
-    r'\*\*\[Interface signature\]\*\* .*?<hr>'
-)
-
-_CODE_BLOCK_IFRAME_PATTERN: str = (
-    r'<iframe src="static.*?index\.html".*?></iframe>'
-)
-
-_API_DOCS_AUTO_GEN_TXT_PATTERN: str = (
-    r'^<span class="inconspicuous-txt">Note: the document build '
-    r'script generates and updates this API document section '
-    r'automatically\. Maybe this section is duplicated '
-    r'compared with previous sections\.</span>$'
-)
-
 _SKIPPING_PATTERNS: List[Pattern] = [
     re.compile(pattern=DOCSTRING_PATH_COMMENT_PATTERN),
-]
-
-MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
-    re.compile(pattern=_HR_TAG_PATTERN,),
-    re.compile(pattern=_INTERFACE_SIGNATURE_PATTERN),
-    re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN),
-    re.compile(pattern=_API_DOCS_AUTO_GEN_TXT_PATTERN),
 ]
 
 

@@ -22,7 +22,7 @@ from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 from apysc._lint_and_doc.translation_mapping_utils import \
     get_mapping_module_path
-from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, convert_splitted_values_to_keys, escape_key_or_value
+from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, convert_splitted_values_to_keys, escape_key_or_value, remove_escaping_from_key_or_value
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
@@ -184,9 +184,7 @@ def _make_mappings_from_keys(
         src_doc_file_path=src_doc_file_path, lang=lang)
     mappings: List[Dict[str, str]] = []
     for key in keys:
-        key_: str = key.replace('\\\\', '\\')
-        key_ = key_.replace("\\'", "'")
-        key_ = key_.replace('\\n', '\n')
+        key_: str = remove_escaping_from_key_or_value(key_or_val=key)
         value: str = already_saved_mapping.get(key_, '')
         value = escape_key_or_value(key_or_val=value)
         value = _set_fixed_translation_value_if_exists(

@@ -2,7 +2,7 @@
 of the documents.
 """
 
-from typing import List
+from typing import Dict, List
 from typing import Union
 
 from apysc._lint_and_doc.docs_lang import Lang
@@ -29,8 +29,19 @@ def apply_translation_to_doc(
     from apysc._lint_and_doc.document_text_split_util import Heading
     from apysc._lint_and_doc.document_text_split_util import \
         split_markdown_document
+    from apysc._lint_and_doc import translation_mapping_utils
     markdown: str = file_util.read_txt(file_path=md_file_path)
     splitted_values: List[Union[Heading, BodyText, CodeBlock]] = \
         split_markdown_document(markdown_txt=markdown)
-    for splitted_value in splitted_values:
-        pass
+    mapping_data: Dict[str, str] = translation_mapping_utils.\
+        read_mapping_data(src_doc_file_path=md_file_path, lang=lang)
+    keys: List[str] = translation_mapping_utils.\
+        convert_splitted_values_to_keys(splitted_values=splitted_values)
+    translated_doc: str = ''
+    for key in keys:
+        key_: str = translation_mapping_utils.\
+            remove_escaping_from_key_or_value(key_or_val=key)
+        if translated_doc != '':
+            translated_doc += '\n\n'
+        translated_doc += mapping_data.get(key_, '')
+    print(translated_doc)

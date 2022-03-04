@@ -148,3 +148,23 @@ def escape_key_or_value(*, key_or_val: str) -> str:
     key_or_val = key_or_val.replace('\n', '\\n')
     key_or_val = key_or_val.replace('\\\\n', '\\n')
     return key_or_val
+
+
+def remove_escaping_from_key_or_value(*, key_or_val: str) -> str:
+    """
+    Remove escaping characters from a specified key or value string.
+
+    Parameters
+    ----------
+    key_or_val : str
+        A target key or value string.
+
+    Returns
+    -------
+    key_or_val : str
+        A result key or value string.
+    """
+    key_or_val = key_or_val.replace('\\\\', '\\')
+    key_or_val = key_or_val.replace("\\'", "'")
+    key_or_val = key_or_val.replace('\\n', '\n')
+    return key_or_val

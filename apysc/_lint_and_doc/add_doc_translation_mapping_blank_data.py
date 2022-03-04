@@ -47,7 +47,7 @@ _SKIPPING_PATTERNS: List[Pattern] = [
     re.compile(pattern=DOCSTRING_PATH_COMMENT_PATTERN),
 ]
 
-_MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
+MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
     re.compile(pattern=_HR_TAG_PATTERN,),
     re.compile(pattern=_INTERFACE_SIGNATURE_PATTERN),
     re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN),
@@ -325,7 +325,7 @@ def _remove_skipping_pattern_keys_from_list(
     """
     result_keys: List[str] = []
     patterns: List[Pattern] = [
-        *_SKIPPING_PATTERNS, *_MAPPING_UNNECESSARY_PATTERNS]
+        *_SKIPPING_PATTERNS, *MAPPING_UNNECESSARY_PATTERNS]
     for key in keys:
         is_pattern_matching: bool = False
         for pattern in patterns:

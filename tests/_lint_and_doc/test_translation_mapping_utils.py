@@ -1,3 +1,4 @@
+import os
 from random import randint
 from typing import Dict, List, Union
 
@@ -145,3 +146,13 @@ def test_is_translation_skipping_key() -> None:
     result = translation_mapping_utils.is_translation_skipping_key(
         key='Lorem ipsum dolor sit.')
     assert not result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_translated_file_path_from_src_path() -> None:
+    test_source_doc_path: str = './tmp/test_document.md'
+    translated_file_path: str = translation_mapping_utils.\
+        get_translated_file_path_from_src_path(
+            source_doc_path=test_source_doc_path,
+            lang=Lang.JP)
+    assert translated_file_path == './tmp/jp_test_document.md'

@@ -245,3 +245,29 @@ def is_translation_skipping_key(*, key: str) -> bool:
         if match is not None:
             return True
     return False
+
+
+def get_translated_file_path_from_src_path(
+        *, source_doc_path: str,
+        lang: Lang) -> str:
+    """
+    Get a translated file path from a specified source
+    document's file path.
+
+    Parameters
+    ----------
+    source_doc_path : str
+        A target document's file path.
+    lang : Lang
+        A target language.
+
+    Returns
+    -------
+    translated_file_path : str
+        A translated file path.
+    """
+    basename: str = os.path.basename(source_doc_path)
+    basename = f'{lang.value}_{basename}'
+    dir_path = os.path.dirname(source_doc_path)
+    translated_file_path: str = os.path.join(dir_path, basename)
+    return translated_file_path

@@ -21,7 +21,7 @@ from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 from apysc._lint_and_doc.translation_mapping_utils import \
     get_mapping_module_path
-from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, convert_splitted_values_to_keys, escape_key_or_value, remove_escaping_from_key_or_value, MAPPING_UNNECESSARY_PATTERNS, SKIPPING_PATTERNS
+from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, convert_splitted_values_to_keys, escape_key_or_value, remove_escaping_from_key_or_value, MAPPING_UNNECESSARY_PATTERNS, SKIPPING_PATTERNS, get_translated_file_path_from_src_path
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
@@ -208,10 +208,8 @@ def _convert_link_list_by_lang(
     while match is not None:
         prev_txt: str = match.group(1)
         doc_path: str = match.group(2)
-        basename: str = os.path.basename(doc_path)
-        basename = f'{lang.value}_{basename}'
-        dir_path = os.path.dirname(doc_path)
-        doc_path = os.path.join(dir_path, basename)
+        doc_path = get_translated_file_path_from_src_path(
+            source_doc_path=doc_path, lang=lang)
         if value != '':
             value += '\n'
         value += f'{prev_txt}({doc_path})'

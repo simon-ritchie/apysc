@@ -12,8 +12,13 @@ from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.document_text_split_util import BodyText
 from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
+from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
 
 MAPPING_CONST_NAME: str = 'MAPPING'
+
+SKIPPING_PATTERNS: List[Pattern] = [
+    re.compile(pattern=DOCSTRING_PATH_COMMENT_PATTERN),
+]
 
 _HR_TAG_PATTERN: str = r'^<hr>$'
 

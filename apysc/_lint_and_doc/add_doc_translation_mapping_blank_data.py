@@ -14,7 +14,6 @@ from typing import Union
 from apysc._lint_and_doc import document_text_split_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
-from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
 from apysc._lint_and_doc.document_text_split_util import BodyText
 from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
@@ -22,13 +21,9 @@ from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 from apysc._lint_and_doc.translation_mapping_utils import \
     get_mapping_module_path
-from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, convert_splitted_values_to_keys, escape_key_or_value, remove_escaping_from_key_or_value, MAPPING_UNNECESSARY_PATTERNS
+from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, convert_splitted_values_to_keys, escape_key_or_value, remove_escaping_from_key_or_value, MAPPING_UNNECESSARY_PATTERNS, SKIPPING_PATTERNS
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
-
-SKIPPING_PATTERNS: List[Pattern] = [
-    re.compile(pattern=DOCSTRING_PATH_COMMENT_PATTERN),
-]
 
 
 def add_mapping_blank_data(*, lang: Lang) -> None:

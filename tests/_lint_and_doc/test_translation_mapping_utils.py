@@ -134,3 +134,14 @@ def test_is_mapping_unnecessary_key() -> None:
     result = translation_mapping_utils.is_mapping_unnecessary_key(
         key='Lorem ipsum dolor sit.')
     assert not result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_translation_skipping_key() -> None:
+    result: bool = translation_mapping_utils.is_translation_skipping_key(
+        key='<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->')
+    assert result
+
+    result = translation_mapping_utils.is_translation_skipping_key(
+        key='Lorem ipsum dolor sit.')
+    assert not result

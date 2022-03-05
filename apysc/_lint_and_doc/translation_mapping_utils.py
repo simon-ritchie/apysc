@@ -5,7 +5,7 @@ utility implementations.
 import importlib
 import os
 from types import ModuleType
-from typing import Dict, List, Union, Pattern
+from typing import Dict, List, Union, Pattern, Optional, Match
 import re
 
 from apysc._lint_and_doc.docs_lang import Lang
@@ -194,3 +194,26 @@ def remove_escaping_from_key_or_value(*, key_or_val: str) -> str:
     key_or_val = key_or_val.replace("\\'", "'")
     key_or_val = key_or_val.replace('\\n', '\n')
     return key_or_val
+
+
+def is_mapping_unnecessary_key(*, key: str) -> bool:
+    """
+    Get a boolean indicating whether a specified
+    key is a unnecessary mapping pattern or not.
+
+    Parameters
+    ----------
+    key : str
+        A target key string to check.
+
+    Returns
+    -------
+    result : bool
+        This interface returns True if a specified key is
+        unnecessary mapping pattern.
+    """
+    for pattern in MAPPING_UNNECESSARY_PATTERNS:
+        match: Optional[Match] = pattern.search(string=key)
+        if match is not None:
+            return True
+    return False

@@ -120,3 +120,17 @@ def test_remove_escaping_from_key_or_value() -> None:
         remove_escaping_from_key_or_value(
             key_or_val="\\\\Hello!\\n\\'World!")
     assert key_or_val == "\\Hello!\n'World!"
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_mapping_unnecessary_key() -> None:
+    result: bool = translation_mapping_utils.\
+        is_mapping_unnecessary_key(
+            key=(
+                '<iframe src="static/sprite_graphics_attribute'
+                '/index.html" width="150" height="150"></iframe>'))
+    assert result
+
+    result = translation_mapping_utils.is_mapping_unnecessary_key(
+        key='Lorem ipsum dolor sit.')
+    assert not result

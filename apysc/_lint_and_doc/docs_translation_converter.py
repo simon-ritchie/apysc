@@ -8,8 +8,12 @@ from typing import Union
 from apysc._lint_and_doc.docs_lang import Lang
 
 
+class _TranslationMappingNotFound(Exception):
+    pass
+
+
 def apply_translation_to_doc(
-        *, md_file_path: str, lang: Lang) -> None:
+        *, md_file_path: str, lang: Lang) -> str:
     """
     Apply a translation mapping to a specified markdown
     document. This interface saves a translated file
@@ -22,6 +26,11 @@ def apply_translation_to_doc(
         A source markdown file path.
     lang : Lang
         A target language setting.
+
+    Returns
+    -------
+    translated_file_path : str
+        A translated document file path.
     """
     from apysc._file import file_util
     from apysc._lint_and_doc.document_text_split_util import BodyText
@@ -41,7 +50,50 @@ def apply_translation_to_doc(
     for key in keys:
         key_: str = translation_mapping_utils.\
             remove_escaping_from_key_or_value(key_or_val=key)
+
+        if translation_mapping_utils.is_translation_skipping_key(key=key_):
+            continue
+
         if translated_doc != '':
             translated_doc += '\n\n'
-        translated_doc += mapping_data.get(key_, '')
+
+        is_mapping_unnecessary_key: bool = translation_mapping_utils.\
+            is_mapping_unnecessary_key(key=key_)
+        if is_mapping_unnecessary_key:
+            translated_doc += key_
+            continue
+
+        translated_str: str = mapping_data.get(key_, '')
+        translated_doc += translated_str
+        _validate_translated_str_is_not_blank(
+            translated_str=translated_str, key=key,
+            md_file_path=md_file_path)
     print(translated_doc)
+
+
+def _validate_translated_str_is_not_blank(
+        *, translated_str: str, key: str,
+        md_file_path: str) -> None:
+    """
+    Validate whether a translated string is not a blank string.
+
+    Parameters
+    ----------
+    translated_str : str
+        A target translated string.
+    key : str
+        A target key string (original source text).
+    md_file_path : str
+        A source markdown file path.
+
+    Raises
+    ------
+    _TranslationMappingNotFound
+        If a specified translated string is a blank string.
+    """
+    if translated_str != '':
+        return
+    raise _TranslationMappingNotFound(
+        'There is no translation mapping.'
+        f'\nOriginal source text: {key}'
+        f'\nSource document path: {md_file_path}')

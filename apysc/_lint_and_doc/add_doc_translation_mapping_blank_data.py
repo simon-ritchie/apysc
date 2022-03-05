@@ -26,7 +26,7 @@ from apysc._lint_and_doc.translation_mapping_utils import read_mapping_data, con
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
-_SKIPPING_PATTERNS: List[Pattern] = [
+SKIPPING_PATTERNS: List[Pattern] = [
     re.compile(pattern=DOCSTRING_PATH_COMMENT_PATTERN),
 ]
 
@@ -301,7 +301,7 @@ def _remove_skipping_pattern_keys_from_list(
     """
     result_keys: List[str] = []
     patterns: List[Pattern] = [
-        *_SKIPPING_PATTERNS, *MAPPING_UNNECESSARY_PATTERNS]
+        *SKIPPING_PATTERNS, *MAPPING_UNNECESSARY_PATTERNS]
     for key in keys:
         is_pattern_matching: bool = False
         for pattern in patterns:

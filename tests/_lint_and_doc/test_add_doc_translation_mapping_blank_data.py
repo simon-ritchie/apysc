@@ -169,12 +169,6 @@ def test__remove_skipping_pattern_keys_from_list() -> None:
 
                 '<iframe src="static/sprite_move_instances_simultaneously'
                 '/index.html" width="250" height="250"></iframe>',
-
-                '<span class="inconspicuous-txt">Note: the '
-                'document build script generates and updates this '
-                'API document section automatically. Maybe this '
-                'section is duplicated compared with previous '
-                'sections.</span>',
             ])
     assert result_keys == [
         'Lorem ipsum',

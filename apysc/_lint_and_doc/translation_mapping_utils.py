@@ -35,18 +35,10 @@ _CODE_BLOCK_IFRAME_PATTERN: str = (
     r'<iframe src="static.*?index\.html".*?></iframe>'
 )
 
-_API_DOCS_AUTO_GEN_TXT_PATTERN: str = (
-    r'^<span class="inconspicuous-txt">Note: the document build '
-    r'script generates and updates this API document section '
-    r'automatically\. Maybe this section is duplicated '
-    r'compared with previous sections\.</span>$'
-)
-
 MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
     re.compile(pattern=_HR_TAG_PATTERN,),
     re.compile(pattern=_INTERFACE_SIGNATURE_PATTERN),
     re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN),
-    re.compile(pattern=_API_DOCS_AUTO_GEN_TXT_PATTERN),
 ]
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]

@@ -2,10 +2,13 @@
 of the documents.
 """
 
+import re
 from typing import Dict
 from typing import List
-from typing import Union, Optional, Match, Pattern
-import re
+from typing import Match
+from typing import Optional
+from typing import Pattern
+from typing import Union
 
 from apysc._lint_and_doc.docs_lang import Lang
 

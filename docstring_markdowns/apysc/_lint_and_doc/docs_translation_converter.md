@@ -24,6 +24,24 @@ Add a target language's heading information text to a specified translated text.
 - `translated_doc`: str
   - A result translated document's text. This interface directly returns argument value if there is no heading information setting.
 
+## `_apply_mapping_if_translated_str_is_api_sig` function docstring
+
+Apply an API signature translation mapping if a specified translated string is a signature string.<hr>
+
+**[Parameters]**
+
+- `translated_str`: str
+  - A target tlanslated string.
+- `lang`: Lang
+  - A target language.
+
+<hr>
+
+**[Returns]**
+
+- `translated_str`: str
+  - An applied string. This interface directly returns argument value if a specified translated string is not a signature string.
+
 ## `_validate_translated_str_is_not_blank` function docstring
 
 Validate whether a translated string is not a blank string.<hr>

@@ -208,8 +208,8 @@ def remove_escaping_from_key_or_value(*, key_or_val: str) -> str:
 
 def is_mapping_unnecessary_key(*, key: str) -> bool:
     """
-    Get a boolean indicating whether a specified
-    key is a unnecessary mapping pattern or not.
+    Get a boolean indicating whether a specified key
+    is an unnecessary mapping pattern or not.
 
     Parameters
     ----------
@@ -242,8 +242,8 @@ def is_translation_skipping_key(*, key: str) -> bool:
     Returns
     -------
     result : bool
-        This interface return True if a specified key is
-        a translation skipping pattern.
+        This interface returns True if a specified key
+        is a translation skipping pattern.
     """
     for pattern in SKIPPING_PATTERNS:
         match: Optional[Match] = pattern.search(string=key)

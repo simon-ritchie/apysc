@@ -85,7 +85,7 @@ Get a translated file path from a specified source document's file path.<hr>
 
 ## `is_mapping_unnecessary_key` function docstring
 
-Get a boolean indicating whether a specified key is a unnecessary mapping pattern or not.<hr>
+Get a boolean indicating whether a specified key is an unnecessary mapping pattern or not.<hr>
 
 **[Parameters]**
 
@@ -113,7 +113,7 @@ Get a boolean indicating whether a specified key is a translation skipping patte
 **[Returns]**
 
 - `result`: bool
-  - This interface return True if a specified key is a translation skipping pattern.
+  - This interface returns True if a specified key is a translation skipping pattern.
 
 ## `read_mapping_data` function docstring
 

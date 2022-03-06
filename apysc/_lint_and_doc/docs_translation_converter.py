@@ -68,7 +68,14 @@ def apply_translation_to_doc(
         _validate_translated_str_is_not_blank(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
-    print(translated_doc)
+
+    translated_file_path: str = translation_mapping_utils.\
+        get_translated_file_path_from_src_path(
+            source_doc_path=md_file_path, lang=lang)
+    file_util.save_plain_txt(
+        txt=translated_doc, file_path=translated_file_path)
+
+    return translated_file_path
 
 
 def _validate_translated_str_is_not_blank(

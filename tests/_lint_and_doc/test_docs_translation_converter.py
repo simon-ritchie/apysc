@@ -70,3 +70,31 @@ def test__add_heading_info_if_exists() -> None:
     assert '※この翻訳ドキュメントは' in translated_doc
     assert '[英語の原文](./docs_src/source/test_doc.md)' \
         in translated_doc
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__apply_mapping_if_translated_str_is_api_sig() -> None:
+    src_translated_str: str = (
+        '**[Interface signature]** `__init__(self, *, '
+        'variable_name:Union[str, NoneType]=None) -> None`<hr>'
+    )
+    translated_str: str = docs_translation_converter.\
+        _apply_mapping_if_translated_str_is_api_sig(
+            translated_str=src_translated_str,
+            lang='Invalid lang')  # type: ignore
+    assert translated_str == src_translated_str
+
+    translated_str = docs_translation_converter.\
+        _apply_mapping_if_translated_str_is_api_sig(
+            translated_str='Lorem ipsum',
+            lang=Lang.JP)
+    assert translated_str == 'Lorem ipsum'
+
+    translated_str = docs_translation_converter.\
+        _apply_mapping_if_translated_str_is_api_sig(
+            translated_str=src_translated_str,
+            lang=Lang.JP)
+    assert translated_str == (
+        '**[インターフェイスの構造]** `__init__(self, *, '
+        'variable_name:Union[str, NoneType]=None) -> None`<hr>'
+    )

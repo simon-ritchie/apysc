@@ -262,7 +262,8 @@ def _read_added_mapping_modules_recursively(
         if file_or_dir_name == '__init__.py':
             continue
         file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
-        print(file_or_dir_path)
+        print(
+            'Checking a mapping module\'s importing:', file_or_dir_path)
         if os.path.isdir(file_or_dir_path):
             _read_added_mapping_modules_recursively(
                 dir_path=file_or_dir_path)

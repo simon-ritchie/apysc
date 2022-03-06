@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合はGitHubにissueを追加したり[英語の原文](./docs_src/source/sprite.md)を確認してください。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合はGitHubにissueを追加したり[英語の原文](./docs_src/source/sprite.md)の確認をお願いします。</span>
 
 # Sprite
 

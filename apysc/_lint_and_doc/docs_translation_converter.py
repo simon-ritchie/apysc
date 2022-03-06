@@ -4,7 +4,8 @@ of the documents.
 
 from typing import Dict
 from typing import List
-from typing import Union
+from typing import Union, Optional, Match, Pattern
+import re
 
 from apysc._lint_and_doc.docs_lang import Lang
 
@@ -17,9 +18,19 @@ _EACH_LANG_HEADING_INFO_FORMAT: Dict[Lang, str] = {
     Lang.JP:
     '<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプト'
     'によって出力・同期されています。内容が怪しそうな場合はGitHubに'
-    'issueを追加したり[英語の原文]({source_doc_path})を'
-    '確認してください。</span>',
+    'issueを追加したり[英語の原文]({source_doc_path})の'
+    '確認をお願いします。</span>',
 }
+
+_EACH_LANG_API_INTERFACE_SIGNATURE_MAPPING: Dict[Lang, str] = {
+    Lang.JP: 'インターフェイスの構造',
+}
+
+_API_SIGNATURE_PATTERN: Pattern = re.compile(
+    pattern=(
+        r'^\*\*\[Interface signature\]\*\*'
+        r'(?P<tail_str>.*?)$'
+    ))
 
 
 def apply_translation_to_doc(
@@ -77,6 +88,9 @@ def apply_translation_to_doc(
             continue
 
         translated_str: str = mapping_data.get(key_, '')
+        translated_str = _apply_mapping_if_translated_str_is_api_sig(
+            translated_str=translated_str,
+            lang=lang)
         translated_doc += translated_str
         _validate_translated_str_is_not_blank(
             translated_str=translated_str, key=key,
@@ -89,6 +103,40 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+def _apply_mapping_if_translated_str_is_api_sig(
+        *, translated_str: str, lang: Lang) -> str:
+    """
+    Apply an API signature translation mapping if a specified
+    translated string is a signature string.
+
+    Parameters
+    ----------
+    translated_str : str
+        A target tlanslated string.
+    lang : Lang
+        A target language.
+
+    Returns
+    -------
+    translated_str : str
+        An applied string. This interface directly returns
+        argument value if a specified translated string
+        is not a signature string.
+    """
+    sig_label_mapping: str = _EACH_LANG_API_INTERFACE_SIGNATURE_MAPPING.get(
+        lang, '')
+    if sig_label_mapping == '':
+        return translated_str
+    match: Optional[Match] = _API_SIGNATURE_PATTERN.search(
+        string=translated_str)
+    if match is None:
+        return translated_str
+    translated_str = _API_SIGNATURE_PATTERN.sub(
+        repl=rf'**[{sig_label_mapping}]**\g<tail_str>',
+        string=translated_str, count=1)
+    return translated_str
 
 
 def _add_heading_info_if_exists(

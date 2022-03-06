@@ -84,13 +84,13 @@ def apply_translation_to_doc(
         is_mapping_unnecessary_key: bool = translation_mapping_utils.\
             is_mapping_unnecessary_key(key=key_)
         if is_mapping_unnecessary_key:
+            key_ = _apply_mapping_if_translated_str_is_api_sig(
+                translated_str=key_,
+                lang=lang)
             translated_doc += key_
             continue
 
         translated_str: str = mapping_data.get(key_, '')
-        translated_str = _apply_mapping_if_translated_str_is_api_sig(
-            translated_str=translated_str,
-            lang=lang)
         translated_doc += translated_str
         _validate_translated_str_is_not_blank(
             translated_str=translated_str, key=key,

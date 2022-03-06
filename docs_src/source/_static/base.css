@@ -49,8 +49,13 @@ div.sphinxsidebar {
     position: absolute !important;
 }
 
-/* The style for a inconspicuous text. */
+/* The style for an inconspicuous text. */
 .inconspicuous-txt {
     color: #888 !important;
     font-size: 14px !important;
+}
+
+/* The style for an inconspicuous text of an anchor tag. */
+.inconspicuous-txt a {
+    color: #A30 !important;
 }

@@ -4,6 +4,26 @@
 
 This module is for the translation conversion of the documents.
 
+## `_add_heading_info_if_exists` function docstring
+
+Add a target language's heading information text to a specified translated text.<hr>
+
+**[Parameters]**
+
+- `translated_doc`: str
+  - A target translated document's text.
+- `lang`: Lang
+  - A target language.
+- `md_file_path`: str
+  - A target source document path.
+
+<hr>
+
+**[Returns]**
+
+- `translated_doc`: str
+  - A result translated document's text. This interface directly returns argument value if there is no heading information setting.
+
 ## `_validate_translated_str_is_not_blank` function docstring
 
 Validate whether a translated string is not a blank string.<hr>

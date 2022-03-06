@@ -238,3 +238,41 @@ def test__convert_link_list_by_lang() -> None:
         '- [Lorem ipsum](any/jp_path_1.md)'
         '\\n- [Dolor sit](any/jp_path_2.md)'
     )
+
+
+def _read_added_mapping_modules_recursively(
+        *, dir_path: str) -> None:
+    """
+    Read specified directory path's modules recursively
+    to check it does not raise an exception.
+
+    Parameters
+    ----------
+    dir_path : str
+        A target directory path.
+    """
+    if not os.path.isdir(dir_path):
+        return
+    file_or_dir_names: List[str] = os.listdir(dir_path)
+    for file_or_dir_name in file_or_dir_names:
+        if '__pycache__' in file_or_dir_name:
+            continue
+        if file_or_dir_name.endswith('.pyc'):
+            continue
+        if file_or_dir_name == '__init__.py':
+            continue
+        file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
+        print(file_or_dir_path)
+        if os.path.isdir(file_or_dir_path):
+            _read_added_mapping_modules_recursively(
+                dir_path=file_or_dir_path)
+            continue
+        module: ModuleType = module_util.read_target_path_module(
+            module_path=file_or_dir_path)
+        importlib.reload(module)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_can_read_added_mapping_modules() -> None:
+    _read_added_mapping_modules_recursively(
+        dir_path='./apysc/_translation/')

@@ -1,3 +1,5 @@
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合はGitHubにissueを追加したり[英語の原文](./docs_src/source/sprite.md)を確認してください。</span>
+
 # Sprite
 
 このページでは、`Sprite`クラスについて説明します。

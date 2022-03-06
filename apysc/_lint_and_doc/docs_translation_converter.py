@@ -13,6 +13,15 @@ class _TranslationMappingNotFound(Exception):
     pass
 
 
+_EACH_LANG_HEADING_INFO_FORMAT: Dict[Lang, str] = {
+    Lang.JP:
+    '<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプト'
+    'によって出力・同期されています。内容が怪しそうな場合はGitHubに'
+    'issueを追加したり[英語の原文]({source_doc_path})を'
+    '確認してください。</span>',
+}
+
+
 def apply_translation_to_doc(
         *, md_file_path: str, lang: Lang) -> str:
     """
@@ -48,6 +57,9 @@ def apply_translation_to_doc(
     keys: List[str] = translation_mapping_utils.\
         convert_splitted_values_to_keys(splitted_values=splitted_values)
     translated_doc: str = ''
+    translated_doc = _add_heading_info_if_exists(
+        translated_doc=translated_doc, lang=lang,
+        md_file_path=md_file_path)
     for key in keys:
         key_: str = translation_mapping_utils.\
             remove_escaping_from_key_or_value(key_or_val=key)
@@ -77,6 +89,40 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+def _add_heading_info_if_exists(
+        *, translated_doc: str, lang: Lang,
+        md_file_path: str) -> str:
+    """
+    Add a target language's heading information text
+    to a specified translated text.
+
+    Parameters
+    ----------
+    translated_doc : str
+        A target translated document's text.
+    lang : Lang
+        A target language.
+    md_file_path : str
+        A target source document path.
+
+    Returns
+    -------
+    translated_doc : str
+        A result translated document's text.
+        This interface directly returns argument value
+        if there is no heading information setting.
+    """
+    heading_info_format: str = _EACH_LANG_HEADING_INFO_FORMAT.get(
+        lang, '')
+    if heading_info_format == '':
+        return translated_doc
+    heading_info_format = heading_info_format.format(
+        source_doc_path=md_file_path,
+    )
+    translated_doc += heading_info_format
+    return translated_doc
 
 
 def _validate_translated_str_is_not_blank(

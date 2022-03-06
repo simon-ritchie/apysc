@@ -51,3 +51,22 @@ def test_apply_translation_to_doc() -> None:
         file_path=translated_file_path)
     assert 'このページでは、`Sprite`クラスについて説明します。' \
         in translated_doc_str
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__add_heading_info_if_exists() -> None:
+    translated_doc: str = docs_translation_converter.\
+        _add_heading_info_if_exists(
+            translated_doc='',
+            lang='Invalid lang',  # type: ignore
+            md_file_path='./docs_src/source/test_doc.md')
+    assert translated_doc == ''
+
+    translated_doc = docs_translation_converter.\
+        _add_heading_info_if_exists(
+            translated_doc='',
+            lang=Lang.JP,
+            md_file_path='./docs_src/source/test_doc.md')
+    assert '※この翻訳ドキュメントは' in translated_doc
+    assert '[英語の原文](./docs_src/source/test_doc.md)' \
+        in translated_doc

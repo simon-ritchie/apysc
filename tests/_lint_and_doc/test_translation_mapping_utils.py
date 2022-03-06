@@ -1,16 +1,17 @@
-import os
 from random import randint
-from typing import Dict, List, Union
+from typing import Dict
+from typing import List
+from typing import Union
 
 from retrying import retry
 
 from apysc._file import file_util
 from apysc._lint_and_doc import translation_mapping_utils
 from apysc._lint_and_doc.docs_lang import Lang
-from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 from apysc._lint_and_doc.document_text_split_util import BodyText
 from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
+from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

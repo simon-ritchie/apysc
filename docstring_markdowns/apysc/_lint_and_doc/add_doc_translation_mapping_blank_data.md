@@ -4,17 +4,6 @@
 
 This module is for adding document translations mapping dictionary's blank data.
 
-## `_append_body_text_keys_to_list` function docstring
-
-Append document's body text keys to a specified key's list.<hr>
-
-**[Parameters]**
-
-- `key`: str
-  - A target key string. This interface splits its string if there are two consecutive line breaks.
-- `keys`: list of str
-  - A key's list to append.
-
 ## `_convert_link_list_by_lang` function docstring
 
 Convert a link list value by a specified language if a key's value is a link list.<hr>
@@ -34,38 +23,6 @@ Convert a link list value by a specified language if a key's value is a link lis
 
 - `value`: str
   - A converted value. This interface skips the conversion if a specified key's value is not a link list.
-
-## `_convert_splitted_values_to_keys` function docstring
-
-Convert specified splitted values to dictionary's key strings.<hr>
-
-**[Parameters]**
-
-- `splitted_values`: List of Heading, BodyText and CodeBlock
-  - Target splitted values.
-
-<hr>
-
-**[Returns]**
-
-- `keys`: list of str
-  - Converted strings.
-
-## `_escape_key_or_value` function docstring
-
-Escape a mapping key or value to save.<hr>
-
-**[Parameters]**
-
-- `key_or_val`: str
-  - A target key or value.
-
-<hr>
-
-**[Returns]**
-
-- `key_or_val`: str
-  - An escaped key or value string.
 
 ## `_get_hash_type_from_lang` function docstring
 

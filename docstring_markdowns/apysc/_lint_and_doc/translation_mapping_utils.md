@@ -4,6 +4,49 @@
 
 This module is for translation-mapping utility implementations.
 
+## `_append_body_text_keys_to_list` function docstring
+
+Append document's body text keys to a specified key's list.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target key string. This interface splits its string if there are two consecutive line breaks.
+- `keys`: list of str
+  - A key's list to append.
+
+## `convert_splitted_values_to_keys` function docstring
+
+Convert specified splitted values to dictionary's key strings.<hr>
+
+**[Parameters]**
+
+- `splitted_values`: List of Heading, BodyText and CodeBlock
+  - Target splitted values.
+
+<hr>
+
+**[Returns]**
+
+- `keys`: list of str
+  - Converted strings.
+
+## `escape_key_or_value` function docstring
+
+Escape a mapping key or value to save.<hr>
+
+**[Parameters]**
+
+- `key_or_val`: str
+  - A target key or value.
+
+<hr>
+
+**[Returns]**
+
+- `key_or_val`: str
+  - An escaped key or value string.
+
 ## `get_mapping_module_path` function docstring
 
 Get a mapping data module path.<hr>
@@ -22,6 +65,56 @@ Get a mapping data module path.<hr>
 - `mapping_module_path`: str
   - A mapping data module path.
 
+## `get_translated_file_path_from_src_path` function docstring
+
+Get a translated file path from a specified source document's file path.<hr>
+
+**[Parameters]**
+
+- `source_doc_path`: str
+  - A target document's file path.
+- `lang`: Lang
+  - A target language.
+
+<hr>
+
+**[Returns]**
+
+- `translated_file_path`: str
+  - A translated file path.
+
+## `is_mapping_unnecessary_key` function docstring
+
+Get a boolean indicating whether a specified key is a unnecessary mapping pattern or not.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target key string to check.
+
+<hr>
+
+**[Returns]**
+
+- `result`: bool
+  - This interface returns True if a specified key is an unnecessary mapping pattern.
+
+## `is_translation_skipping_key` function docstring
+
+Get a boolean indicating whether a specified key is a translation skipping pattern or not.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target key string to check.
+
+<hr>
+
+**[Returns]**
+
+- `result`: bool
+  - This interface return True if a specified key is a translation skipping pattern.
+
 ## `read_mapping_data` function docstring
 
 Read an already saved mapping data.<hr>
@@ -39,3 +132,19 @@ Read an already saved mapping data.<hr>
 
 - `already_saved_mapping`: dict
   - An already saved mapping data dictionary.
+
+## `remove_escaping_from_key_or_value` function docstring
+
+Remove escaping characters from a specified key or value string.<hr>
+
+**[Parameters]**
+
+- `key_or_val`: str
+  - A target key or value string.
+
+<hr>
+
+**[Returns]**
+
+- `key_or_val`: str
+  - A result key or value string.

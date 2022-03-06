@@ -3,6 +3,7 @@ import os
 import re
 import shutil
 import time
+import traceback
 from random import randint
 from types import ModuleType
 from typing import Callable
@@ -11,7 +12,6 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Type
-import traceback
 
 from retrying import retry
 

@@ -4,15 +4,20 @@ utility implementations.
 
 import importlib
 import os
-from types import ModuleType
-from typing import Dict, List, Union, Pattern, Optional, Match
 import re
+from types import ModuleType
+from typing import Dict
+from typing import List
+from typing import Match
+from typing import Optional
+from typing import Pattern
+from typing import Union
 
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
 from apysc._lint_and_doc.document_text_split_util import BodyText
 from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
-from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
 
 MAPPING_CONST_NAME: str = 'MAPPING'
 

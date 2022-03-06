@@ -40,7 +40,7 @@ Apply an API signature translation mapping if a specified translated string is a
 **[Returns]**
 
 - `translated_str`: str
-  - An applied string. This interface directly returns argument value if a specified translated string is not a signature string.
+  - An applied string. This interface returns an argument value if a specified translated string is not a signature string.
 
 ## `_validate_translated_str_is_not_blank` function docstring
 

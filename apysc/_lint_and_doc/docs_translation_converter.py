@@ -124,9 +124,9 @@ def _apply_mapping_if_translated_str_is_api_sig(
     Returns
     -------
     translated_str : str
-        An applied string. This interface directly returns
-        argument value if a specified translated string
-        is not a signature string.
+        An applied string. This interface returns an argument
+        value if a specified translated string is not a signature
+        string.
     """
     sig_label_mapping: str = _EACH_LANG_API_INTERFACE_SIGNATURE_MAPPING.get(
         lang, '')

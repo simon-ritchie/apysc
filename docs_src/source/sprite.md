@@ -37,10 +37,10 @@ ap.save_overall_html(
 For more details, please see the `Graphics` related documents, for example:
 
 - [Graphics class](graphics.md)
-- [Graphics class begin fill interface](graphics_begin_fill.md)
-- [Graphics class line style interface](graphics_line_style.md)
-- [Graphics class draw rect interface](graphics_draw_rect.md)
-- [Graphics class draw circle interface](graphics_draw_circle.md)
+- [Graphics begin_fill interface](graphics_begin_fill.md)
+- [Graphics line_style interface](graphics_line_style.md)
+- [Graphics draw_rect interface](graphics_draw_rect.md)
+- [Graphics draw_circle interface](graphics_draw_circle.md)
 
 ## Move DisplayObject instances simultaneously
 

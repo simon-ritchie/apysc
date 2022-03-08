@@ -53,4 +53,22 @@ class Mapping:
         mapping_text : str
             A mapping (tlanslated) text.
         """
-        return self.mapping_text
+        return self._mapping_text
+
+
+class Mappings:
+    """This class is for link-text translation mappings.
+    """
+
+    mappings: List[Mapping]
+
+    def __init__(self, mappings: List[Mapping]) -> None:
+        """
+        The class for link-text translation mappings.
+
+        Parameters
+        ----------
+        mappings : list of Mapping
+            A target mappings list.
+        """
+        self.mappings = mappings

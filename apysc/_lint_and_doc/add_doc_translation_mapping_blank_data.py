@@ -228,8 +228,57 @@ def _convert_link_list_by_lang(
             repl=r'\g<after_txt>',
             string=key, count=1)
         match = _LINK_PATTERN.search(string=key)
+    value = _replace_link_text_by_fixed_mapping(value=value)
     value = escape_key_or_value(key_or_val=value)
     return value
+
+
+def _replace_link_text_by_fixed_mapping(*, value: str) -> str:
+    """
+    Replace each link text if there are fixed translation-mapping
+    settings.
+
+    Parameters
+    ----------
+    value : str
+        A link text.
+
+    Returns
+    -------
+    result_value : str
+        A replaced link text.
+    """
+    link_texts: List[str] = _extract_link_texts(value=value)
+    pass
+
+
+_LinkTextPattern: Pattern = re.compile(
+    pattern=r'.*?\[(.+?)\]\(.+?\.md\)',
+    flags=re.MULTILINE)
+
+
+def _extract_link_texts(*, value: str) -> List[str]:
+    """
+    Extract link texts from a specified value string.
+
+    Parameters
+    ----------
+    value : str
+        A target value string.
+
+    Returns
+    -------
+    link_texts : list of str
+        Extracted link texts.
+    """
+    link_texts: List[str] = []
+    match: Optional[Match] = _LinkTextPattern.search(string=value)
+    while match is not None:
+        link_text: str =  match.group(1)
+        link_texts.append(link_text)
+        value = _LinkTextPattern.sub(repl='', string=value, count=1)
+        match = _LinkTextPattern.search(string=value)
+    return link_texts
 
 
 def _set_same_value_if_code_block_mapping_is_blank(

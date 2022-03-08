@@ -277,3 +277,14 @@ def _read_added_mapping_modules_recursively(
 def test_can_read_added_mapping_modules() -> None:
     _read_added_mapping_modules_recursively(
         dir_path='./apysc/_translation/')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extract_link_texts() -> None:
+    link_texts: List[str] = add_doc_translation_mapping_blank_data.\
+        _extract_link_texts(
+            value=(
+                '- [Lorem ipsum](any/path_1.md)'
+                '\n- [Dolar sit](any/path_2.md)'
+            ))
+    assert link_texts == ['Lorem ipsum', 'Dolar sit']

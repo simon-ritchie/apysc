@@ -24,9 +24,21 @@ class Mapping:
         Parameters
         ----------
         link_text : str
-            A (source) link text.
+            A link (source) text.
         mapping_text : str
             A mapping (tlanslated) text.
         """
         self._link_text = link_text
         self._mapping_text = mapping_text
+
+    @property
+    def link_text(self) -> str:
+        """
+        Get a link (source) text value.
+
+        Returns
+        -------
+        link_text : str
+            A link (source) text value.
+        """
+        return self._link_text

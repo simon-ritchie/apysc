@@ -7,6 +7,7 @@ from apysc._lint_and_doc.link_text_translation_mapping import data_model
 from apysc._lint_and_doc.link_text_translation_mapping.data_model import \
     Mapping, Mappings
 from tests.testing_helper import assert_attrs
+from apysc._lint_and_doc.docs_lang import Lang
 
 
 class TestMapping:
@@ -44,3 +45,13 @@ class TestMappings:
         ]
         mappings: Mappings = Mappings(mappings=mappings_list)
         assert mappings.mappings == mappings_list
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_mapping_module_path_from_lang() -> None:
+    module_path: str = data_model.\
+        _get_mapping_module_path_from_lang(lang=Lang.JP)
+    assert module_path == (
+        './apysc/_lint_and_doc/link_text_translation_mapping/'
+        'jp.py'
+    )

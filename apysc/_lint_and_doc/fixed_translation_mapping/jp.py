@@ -38,4 +38,19 @@ MAPPINGS: Mappings = Mappings(
                 '生成・同期されています。そのためもしかしたらこの節の'
                 '内容は前節までの内容と重複している場合があります。</span>'
             )),
+        Mapping(
+            key='Graphics class',
+            value='Graphicsクラス'),
+        Mapping(
+            key='Graphics begin_fill interface',
+            value='Graphicsクラス begin_fill インターフェイス'),
+        Mapping(
+            key='Graphics line_style interface',
+            value='Graphicsクラス line_style インターフェイス'),
+        Mapping(
+            key='Graphics draw_rect interface',
+            value='Graphicsクラス draw_rect インターフェイス'),
+        Mapping(
+            key='Graphics draw_circle interface',
+            value='Graphicsクラス draw_circle インターフェイス'),
     ])

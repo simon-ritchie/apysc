@@ -26,3 +26,9 @@ class TestMapping:
         mapping: Mapping = Mapping(
             link_text='Lorem ipsum', mapping_text='テストテキスト')
         assert mapping.link_text == 'Lorem ipsum'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_mapping_text(self) -> None:
+        mapping: Mapping = Mapping(
+            link_text='Lorem ipsum', mapping_text='テストテキスト')
+        assert mapping.mapping_text == 'テストテキスト'

@@ -42,3 +42,15 @@ class Mapping:
             A link (source) text value.
         """
         return self._link_text
+
+    @property
+    def mapping_text(self) -> str:
+        """
+        Get a mapping (tlanslated) text.
+
+        Returns
+        -------
+        mapping_text : str
+            A mapping (tlanslated) text.
+        """
+        return self.mapping_text

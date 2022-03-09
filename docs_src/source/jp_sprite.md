@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合はGitHubにissueを追加したり[英語の原文](./docs_src/source/sprite.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合はGitHubにissueを追加したり[英語の原文](docs_src/source/sprite.md)の確認をお願いします。</span>
 
 # Sprite
 
@@ -38,15 +38,15 @@ ap.save_overall_html(
 
 詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。
 
-- [Graphics class](jp_graphics.md)
+- [Graphicsクラス](jp_graphics.md)
 
-- [Graphics class begin fill interface](jp_graphics_begin_fill.md)
+- [Graphicsクラス begin_fill インターフェイス](jp_graphics_begin_fill.md)
 
-- [Graphics class line style interface](jp_graphics_line_style.md)
+- [Graphicsクラス line_style インターフェイス](jp_graphics_line_style.md)
 
-- [Graphics class draw rect interface](jp_graphics_draw_rect.md)
+- [Graphicsクラス draw_rect インターフェイス](jp_graphics_draw_rect.md)
 
-- [Graphics class draw circle interface](jp_graphics_draw_circle.md)
+- [Graphicsクラス draw_circle インターフェイス](jp_graphics_draw_circle.md)
 
 ## DisplayObjectの複数のインスタンスの移動について
 
@@ -95,13 +95,13 @@ ap.save_overall_html(
 
 ## 関連資料
 
-- [Add child and remove child interfaces](jp_add_child_and_remove_child.md)
+- [add_child と remove_child インターフェイス](jp_add_child_and_remove_child.md)
 
-- [Contains interface](jp_contains.md)
+- [contains インターフェイス](jp_contains.md)
 
-- [Num children interface](jp_num_children.md)
+- [num_children インターフェイス](jp_num_children.md)
 
-- [Get child at interface](jp_get_child_at.md)
+- [get_child_at インターフェイス](jp_get_child_at.md)
 
 ## SpriteクラスのコンストラクタAPI
 

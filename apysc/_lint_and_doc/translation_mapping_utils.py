@@ -268,3 +268,26 @@ def get_translated_file_path_from_src_path(
     dir_path = os.path.dirname(source_doc_path)
     translated_file_path: str = os.path.join(dir_path, basename)
     return translated_file_path
+
+
+def remove_empty_keys(*, keys: List[str]) -> List[str]:
+    """
+    Remove empty (or only spaces) keys (source text) from
+    a specified list.
+
+    Parameters
+    ----------
+    keys : list of str
+        A target keys list.
+
+    Returns
+    -------
+    result_keys : list of str
+        A result keys list.
+    """
+    result_keys: List[str] = []
+    for key in keys:
+        if key.strip() == '':
+            continue
+        result_keys.append(key)
+    return result_keys

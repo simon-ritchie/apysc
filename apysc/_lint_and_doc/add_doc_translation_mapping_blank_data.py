@@ -23,7 +23,7 @@ from apysc._lint_and_doc.translation_mapping_utils import \
     MAPPING_UNNECESSARY_PATTERNS
 from apysc._lint_and_doc.translation_mapping_utils import SKIPPING_PATTERNS
 from apysc._lint_and_doc.translation_mapping_utils import \
-    convert_splitted_values_to_keys
+    convert_splitted_values_to_keys, remove_empty_keys
 from apysc._lint_and_doc.translation_mapping_utils import escape_key_or_value
 from apysc._lint_and_doc.translation_mapping_utils import \
     get_mapping_module_path
@@ -58,7 +58,7 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
             split_markdown_document(markdown_txt=markdown_txt)
         keys: List[str] = convert_splitted_values_to_keys(
             splitted_values=splitted_values)
-        keys = _remove_empty_keys(keys=keys)
+        keys = remove_empty_keys(keys=keys)
         keys = _remove_skipping_pattern_keys_from_list(keys=keys)
         mappings: List[Dict[str, str]] = _make_mappings_from_keys(
             keys=keys, src_doc_file_path=src_doc_file_path,
@@ -68,28 +68,6 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
             lang=lang)
     lint_and_doc_hash_util.save_target_files_hash(
         file_paths=src_docs_file_paths, hash_type=hash_type)
-
-
-def _remove_empty_keys(*, keys: List[str]) -> List[str]:
-    """
-    Remove empty (or only spaces) keys from a specified list.
-
-    Parameters
-    ----------
-    keys : list of str
-        A target keys list.
-
-    Returns
-    -------
-    result_keys : list of str
-        A result keys list.
-    """
-    result_keys: List[str] = []
-    for key in keys:
-        if key.strip() == '':
-            continue
-        result_keys.append(key)
-    return result_keys
 
 
 def _get_hash_type_from_lang(*, lang: Lang) -> HashType:

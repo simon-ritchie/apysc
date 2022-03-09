@@ -157,3 +157,15 @@ def test_get_translated_file_path_from_src_path() -> None:
             source_doc_path=test_source_doc_path,
             lang=Lang.JP)
     assert translated_file_path == './tmp/jp_test_document.md'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_remove_empty_keys() -> None:
+    keys: List[str] = [
+        ' ',
+        '',
+        'Lorem ipsum',
+    ]
+    result_keys: List[str] = translation_mapping_utils.\
+        remove_empty_keys(keys=keys)
+    assert result_keys == ['Lorem ipsum']

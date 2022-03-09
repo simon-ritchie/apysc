@@ -301,7 +301,7 @@ def _extract_link_texts(*, value: str) -> List[str]:
     link_texts: List[str] = []
     match: Optional[Match] = _LinkTextPattern.search(string=value)
     while match is not None:
-        link_text: str =  match.group(1)
+        link_text: str = match.group(1)
         link_texts.append(link_text)
         value = _LinkTextPattern.sub(repl='', string=value, count=1)
         match = _LinkTextPattern.search(string=value)

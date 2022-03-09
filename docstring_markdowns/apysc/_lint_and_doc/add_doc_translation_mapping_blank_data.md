@@ -24,6 +24,22 @@ Convert a link list value by a specified language if a key's value is a link lis
 - `value`: str
   - A converted value. This interface skips the conversion if a specified key's value is not a link list.
 
+## `_extract_link_texts` function docstring
+
+Extract link texts from a specified value string.<hr>
+
+**[Parameters]**
+
+- `value`: str
+  - A target value string.
+
+<hr>
+
+**[Returns]**
+
+- `link_texts`: list of str
+  - Extracted link texts.
+
 ## `_get_hash_type_from_lang` function docstring
 
 Get a hash type from a specified language type.<hr>
@@ -107,6 +123,30 @@ Remove skipping pattern matching keys from a specified list.<hr>
 - `result_keys`: list of str
   - An after removing key's list.
 
+## `_replace_link_text_by_fixed_mapping` function docstring
+
+Replace each link text if there are fixed translation-mapping settings.<hr>
+
+**[Parameters]**
+
+- `value`: str
+  - A link text.
+- `lang`: Lang
+  - A target translation language.
+
+<hr>
+
+**[Returns]**
+
+- `value`: str
+  - A replaced link text.
+
+<hr>
+
+**[Raises]**
+
+- _LinkTextTranslationMappingNotFound: If there is no translation mapping.
+
 ## `_save_mapping_data` function docstring
 
 Save mapping data module with specified mappings data.<hr>
@@ -164,3 +204,5 @@ Add a mapping's blank data of document translations.<hr>
 
 - `lang`: Lang
   - A target translation language.
+
+## `_LinkTextTranslationMappingNotFound` class docstring

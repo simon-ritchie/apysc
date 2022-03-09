@@ -10,9 +10,9 @@ from retrying import retry
 from apysc._file import file_util
 from apysc._file import module_util
 from apysc._lint_and_doc import add_doc_translation_mapping_blank_data
+from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
     _LinkTextTranslationMappingNotFound
-from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME

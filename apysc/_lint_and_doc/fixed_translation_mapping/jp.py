@@ -53,4 +53,16 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Graphics draw_circle interface',
             value='Graphicsクラス draw_circle インターフェイス'),
+        Mapping(
+            key='add_child and remove_child interfaces',
+            value='add_child と remove_child インターフェイス'),
+        Mapping(
+            key='contains interface',
+            value='contains インターフェイス'),
+        Mapping(
+            key='num_children interface',
+            value='num_children インターフェイス'),
+        Mapping(
+            key='get_child_at interface',
+            value='get_child_at インターフェイス'),
     ])

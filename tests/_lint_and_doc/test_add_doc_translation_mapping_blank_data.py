@@ -231,14 +231,14 @@ def test__convert_link_list_by_lang() -> None:
     value = add_doc_translation_mapping_blank_data.\
         _convert_link_list_by_lang(
             key=(
-                '- [Lorem ipsum](any/path_1.md)'
-                '\n- [Dolor sit](any/path_2.md)'
+                '- [Graphics class](any/path_1.md)'
+                '\n- [Graphics begin_fill interface](any/path_2.md)'
             ),
             value='',
             lang=Lang.JP)
     assert value == (
-        '- [Lorem ipsum](any/jp_path_1.md)'
-        '\\n- [Dolor sit](any/jp_path_2.md)'
+        '- [Graphicsクラス](any/jp_path_1.md)'
+        '\\n- [Graphicsクラス begin_fill インターフェイス](any/jp_path_2.md)'
     )
 
 

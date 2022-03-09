@@ -39,8 +39,8 @@ MAPPING: Dict[str, str] = {
     'For more details, please see the `Graphics` related documents, for example:':  # noqa
     '詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。',
 
-    '- [Graphics class](graphics.md)\n- [Graphics class begin fill interface](graphics_begin_fill.md)\n- [Graphics class line style interface](graphics_line_style.md)\n- [Graphics class draw rect interface](graphics_draw_rect.md)\n- [Graphics class draw circle interface](graphics_draw_circle.md)':  # noqa
-    '- [Graphics class](jp_graphics.md)\n\n- [Graphics class begin fill interface](jp_graphics_begin_fill.md)\n\n- [Graphics class line style interface](jp_graphics_line_style.md)\n\n- [Graphics class draw rect interface](jp_graphics_draw_rect.md)\n\n- [Graphics class draw circle interface](jp_graphics_draw_circle.md)',  # noqa
+    '- [Graphics class](graphics.md)\n- [Graphics begin_fill interface](graphics_begin_fill.md)\n- [Graphics line_style interface](graphics_line_style.md)\n- [Graphics draw_rect interface](graphics_draw_rect.md)\n- [Graphics draw_circle interface](graphics_draw_circle.md)':  # noqa
+    '- [Graphicsクラス](jp_graphics.md)\n\n- [Graphicsクラス begin_fill インターフェイス](jp_graphics_begin_fill.md)\n\n- [Graphicsクラス line_style インターフェイス](jp_graphics_line_style.md)\n\n- [Graphicsクラス draw_rect インターフェイス](jp_graphics_draw_rect.md)\n\n- [Graphicsクラス draw_circle インターフェイス](jp_graphics_draw_circle.md)',  # noqa
 
     '## Move DisplayObject instances simultaneously':
     '## DisplayObjectの複数のインスタンスの移動について',
@@ -57,8 +57,8 @@ MAPPING: Dict[str, str] = {
     '## See also':
     '## 関連資料',
 
-    '- [Add child and remove child interfaces](add_child_and_remove_child.md)\n- [Contains interface](contains.md)\n- [Num children interface](num_children.md)\n- [Get child at interface](get_child_at.md)':  # noqa
-    '- [Add child and remove child interfaces](jp_add_child_and_remove_child.md)\n\n- [Contains interface](jp_contains.md)\n\n- [Num children interface](jp_num_children.md)\n\n- [Get child at interface](jp_get_child_at.md)',  # noqa
+    '- [add_child and remove_child interfaces](add_child_and_remove_child.md)\n- [contains interface](contains.md)\n- [num_children interface](num_children.md)\n- [get_child_at interface](get_child_at.md)':  # noqa
+    '- [add_child と remove_child インターフェイス](jp_add_child_and_remove_child.md)\n\n- [contains インターフェイス](jp_contains.md)\n\n- [num_children インターフェイス](jp_num_children.md)\n\n- [get_child_at インターフェイス](jp_get_child_at.md)',  # noqa
 
     '## Sprite class constructor API':
     '## SpriteクラスのコンストラクタAPI',

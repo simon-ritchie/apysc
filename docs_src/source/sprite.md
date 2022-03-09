@@ -89,10 +89,10 @@ The subsequent pages explain the other interfaces, such as the `add_child` inter
 
 ## See also
 
-- [Add child and remove child interfaces](add_child_and_remove_child.md)
-- [Contains interface](contains.md)
-- [Num children interface](num_children.md)
-- [Get child at interface](get_child_at.md)
+- [add_child and remove_child interfaces](add_child_and_remove_child.md)
+- [contains interface](contains.md)
+- [num_children interface](num_children.md)
+- [get_child_at interface](get_child_at.md)
 
 ## Sprite class constructor API
 

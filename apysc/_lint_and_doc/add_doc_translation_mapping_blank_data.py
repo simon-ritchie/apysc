@@ -228,12 +228,18 @@ def _convert_link_list_by_lang(
             repl=r'\g<after_txt>',
             string=key, count=1)
         match = _LINK_PATTERN.search(string=key)
-    value = _replace_link_text_by_fixed_mapping(value=value)
+    value = _replace_link_text_by_fixed_mapping(
+        value=value, lang=lang)
     value = escape_key_or_value(key_or_val=value)
     return value
 
 
-def _replace_link_text_by_fixed_mapping(*, value: str) -> str:
+class _LinkTextTranslationMappingNotFound(Exception):
+    pass
+
+
+def _replace_link_text_by_fixed_mapping(
+        *, value: str, lang: Lang) -> str:
     """
     Replace each link text if there are fixed translation-mapping
     settings.
@@ -242,14 +248,35 @@ def _replace_link_text_by_fixed_mapping(*, value: str) -> str:
     ----------
     value : str
         A link text.
+    lang : Lang
+        A target translation language.
 
     Returns
     -------
-    result_value : str
+    value : str
         A replaced link text.
+
+    Raises
+    ------
+    _LinkTextTranslationMappingNotFound
+        If there is no translation mapping.
     """
+    from apysc._lint_and_doc.fixed_translation_mapping import data_model
     link_texts: List[str] = _extract_link_texts(value=value)
-    pass
+    for link_text in link_texts:
+        translation_str: str = data_model.get_fixed_translation_str_if_exists(
+            key=link_text, lang=lang)
+        if translation_str == '':
+            raise _LinkTextTranslationMappingNotFound(
+                'A specified link text\'s translation mapping is not found.'
+                f'\nPlease append a mapping setting to the {lang.value}.py '
+                'module.'
+                f'\nTarget link text: {link_text}'
+                f'\nLanguage: {lang.value}'
+            )
+        value = value.replace(
+            f'[{link_text}](', f'[{translation_str}](')
+    return value
 
 
 _LinkTextPattern: Pattern = re.compile(

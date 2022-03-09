@@ -10,6 +10,8 @@ from retrying import retry
 from apysc._file import file_util
 from apysc._file import module_util
 from apysc._lint_and_doc import add_doc_translation_mapping_blank_data
+from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
+    _LinkTextTranslationMappingNotFound
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
@@ -288,3 +290,29 @@ def test__extract_link_texts() -> None:
                 '\n- [Dolar sit](any/path_2.md)'
             ))
     assert link_texts == ['Lorem ipsum', 'Dolar sit']
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__replace_link_text_by_fixed_mapping() -> None:
+    assert_raises(
+        expected_error_class=_LinkTextTranslationMappingNotFound,
+        func_or_method=add_doc_translation_mapping_blank_data.
+        _replace_link_text_by_fixed_mapping,
+        kwargs={
+            'value': '- [Lorem ipsum](any/path_1.md)',
+            'lang': Lang.JP,
+        },
+        match='translation mapping is not found.')
+
+    value: str = add_doc_translation_mapping_blank_data.\
+        _replace_link_text_by_fixed_mapping(
+            value=(
+                '- [Graphics class](graphics.md)'
+                '\n- [Graphics line_style interface](graphics_line_style.md)'
+            ),
+            lang=Lang.JP)
+    expected: str = (
+        '- [Graphicsクラス](graphics.md)'
+        '\n- [Graphicsクラス line_style インターフェイス](graphics_line_style.md)'
+    )
+    assert value == expected

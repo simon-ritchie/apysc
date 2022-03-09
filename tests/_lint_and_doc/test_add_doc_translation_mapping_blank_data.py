@@ -316,3 +316,15 @@ def test__replace_link_text_by_fixed_mapping() -> None:
         '\n- [Graphicsクラス line_style インターフェイス](graphics_line_style.md)'
     )
     assert value == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_empty_keys() -> None:
+    keys: List[str] = [
+        ' ',
+        '',
+        'Lorem ipsum',
+    ]
+    result_keys: List[str] = add_doc_translation_mapping_blank_data.\
+        _remove_empty_keys(keys=keys)
+    assert result_keys == ['Lorem ipsum']

@@ -70,6 +70,7 @@ def apply_translation_to_doc(
         read_mapping_data(src_doc_file_path=md_file_path, lang=lang)
     keys: List[str] = translation_mapping_utils.\
         convert_splitted_values_to_keys(splitted_values=splitted_values)
+    keys = translation_mapping_utils.remove_empty_keys(keys=keys)
     translated_doc: str = ''
     translated_doc = _add_heading_info_if_exists(
         translated_doc=translated_doc, lang=lang,

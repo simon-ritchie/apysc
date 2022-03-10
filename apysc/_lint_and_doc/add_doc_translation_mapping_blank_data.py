@@ -23,7 +23,7 @@ from apysc._lint_and_doc.translation_mapping_utils import \
     MAPPING_UNNECESSARY_PATTERNS
 from apysc._lint_and_doc.translation_mapping_utils import SKIPPING_PATTERNS
 from apysc._lint_and_doc.translation_mapping_utils import \
-    convert_splitted_values_to_keys
+    convert_splitted_values_to_keys, get_hash_type_from_lang
 from apysc._lint_and_doc.translation_mapping_utils import escape_key_or_value
 from apysc._lint_and_doc.translation_mapping_utils import \
     get_mapping_module_path
@@ -48,7 +48,7 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
     """
     from apysc._file import file_util
     src_docs_file_paths: List[str] = _get_src_docs_file_paths()
-    hash_type: HashType = _get_hash_type_from_lang(lang=lang)
+    hash_type: HashType = get_hash_type_from_lang(lang=lang)
     src_docs_file_paths = lint_and_doc_hash_util.\
         remove_not_updated_file_paths(
             file_paths=src_docs_file_paths,
@@ -69,34 +69,6 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
             lang=lang)
     lint_and_doc_hash_util.save_target_files_hash(
         file_paths=src_docs_file_paths, hash_type=hash_type)
-
-
-def _get_hash_type_from_lang(*, lang: Lang) -> HashType:
-    """
-    Get a hash type from a specified language type.
-
-    Parameters
-    ----------
-    lang : Lang
-        A target translation language.
-
-    Returns
-    -------
-    hash_type : HashType
-        A target hash type.
-
-    Raises
-    ------
-    ValueError
-        If there is no implementation of a specified language
-        type's branch condition.
-    """
-    if lang == Lang.JP:
-        return HashType.TRANSLATION_MAPPING_JP
-    raise ValueError(
-        'There is no implementation of a specified language type\'s '
-        'branch condition. Please add a necessary branch condition: '
-        f'{lang}')
 
 
 def _save_mapping_data(

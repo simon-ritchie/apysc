@@ -129,19 +129,6 @@ def test__save_mapping_data() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_hash_type_from_lang() -> None:
-    hash_type: HashType = add_doc_translation_mapping_blank_data.\
-        _get_hash_type_from_lang(lang=Lang.JP)
-    assert hash_type == HashType.TRANSLATION_MAPPING_JP
-
-    assert_raises(
-        expected_error_class=ValueError,
-        func_or_method=add_doc_translation_mapping_blank_data.
-        _get_hash_type_from_lang,
-        kwargs={'lang': None})
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_add_mapping_blank_data() -> None:
     file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
         file_path='./docs_src/source/sprite.md',

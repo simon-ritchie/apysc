@@ -18,6 +18,7 @@ from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_PATTERN
 from apysc._lint_and_doc.document_text_split_util import BodyText
 from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
 MAPPING_CONST_NAME: str = 'MAPPING'
 
@@ -291,3 +292,31 @@ def remove_empty_keys(*, keys: List[str]) -> List[str]:
             continue
         result_keys.append(key)
     return result_keys
+
+
+def get_hash_type_from_lang(*, lang: Lang) -> HashType:
+    """
+    Get a hash type from a specified language type.
+
+    Parameters
+    ----------
+    lang : Lang
+        A target translation language.
+
+    Returns
+    -------
+    hash_type : HashType
+        A target hash type.
+
+    Raises
+    ------
+    ValueError
+        If there is no implementation of a specified language
+        type's branch condition.
+    """
+    if lang == Lang.JP:
+        return HashType.TRANSLATION_MAPPING_JP
+    raise ValueError(
+        'There is no implementation of a specified language type\'s '
+        'branch condition. Please add a necessary branch condition: '
+        f'{lang}')

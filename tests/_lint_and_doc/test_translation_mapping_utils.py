@@ -12,6 +12,8 @@ from apysc._lint_and_doc.document_text_split_util import BodyText
 from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from tests.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -169,3 +171,16 @@ def test_remove_empty_keys() -> None:
     result_keys: List[str] = translation_mapping_utils.\
         remove_empty_keys(keys=keys)
     assert result_keys == ['Lorem ipsum']
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_hash_type_from_lang() -> None:
+    hash_type: HashType = translation_mapping_utils.\
+        get_hash_type_from_lang(lang=Lang.JP)
+    assert hash_type == HashType.TRANSLATION_MAPPING_JP
+
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=translation_mapping_utils.
+        get_hash_type_from_lang,
+        kwargs={'lang': None})

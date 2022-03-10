@@ -9,8 +9,8 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# Sprite (English)':
-    '# Sprite (Japanese)',
+    '# Sprite (English document)':
+    '# Sprite (日本語ドキュメント)',
 
     'This page explains the `Sprite` class.':
     'このページでは、`Sprite`クラスについて説明します。',

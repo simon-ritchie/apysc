@@ -9,8 +9,8 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# About the handler options\' type (English)':
-    '# ハンドラのoptions引数の型について (Japanese)',
+    '# About the handler options\' type (English document)':
+    '# ハンドラのoptions引数の型について (日本語ドキュメント)',
 
     'This page explains the event handler `options` argument\'s type.':
     'このページではイベントハンドラの`options`引数の型について説明します。',

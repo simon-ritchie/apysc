@@ -124,8 +124,8 @@ class _HeadingSuffixIsNotLanguage(Exception):
 
 
 _SUPPORTED_LANGUAGES_TAILS: List[str] = [
-    '(English)',
-    '(Japanese)',
+    '(English document)',
+    '(日本語ドキュメント)',
 ]
 
 
@@ -157,8 +157,8 @@ def _validate_heading_tail_is_language(
 
     for target_str in (translated_str, key):
         tail_is_language: bool = False
-        for supported_language_suffix in _SUPPORTED_LANGUAGES_TAILS:
-            if target_str.endswith(supported_language_suffix):
+        for supported_language_tail in _SUPPORTED_LANGUAGES_TAILS:
+            if target_str.endswith(supported_language_tail):
                 tail_is_language = True
                 break
 

@@ -70,7 +70,7 @@ def test__add_heading_info_if_exists() -> None:
             lang=Lang.JP,
             md_file_path='./docs_src/source/test_doc.md')
     assert '※この翻訳ドキュメントは' in translated_doc
-    assert '[英語の原文](./docs_src/source/test_doc.md)' \
+    assert '[英語の原文](test_doc.md)' \
         in translated_doc
 
 

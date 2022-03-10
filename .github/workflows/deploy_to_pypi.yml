@@ -301,6 +301,7 @@ jobs:
       RunDocTest,
       SetGlobalConstants,
       UpdateReadmeBadgesToCheckingStatus,
+      DeployToPyPI,
     ]
     runs-on: ubuntu-latest
     timeout-minutes: 10

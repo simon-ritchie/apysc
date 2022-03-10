@@ -26,6 +26,9 @@ def _main() -> None:
     """
     Translate a specified single document file.
     """
+    from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
+        add_mapping_blank_data
+    from apysc._lint_and_doc import docs_translation_converter
     command_options: _CommandOptions = _get_command_options()
     _validate_src_option(src=command_options['src'])
     _validate_lang_option(lang=command_options['lang'])
@@ -33,7 +36,37 @@ def _main() -> None:
         str_value=command_options['lang'])
     _delete_translation_mapping_hash(
         lang=lang, src_file_path=command_options['src'])
+    add_mapping_blank_data(lang=lang)
+    docs_translation_converter.apply_translation_to_doc(
+        md_file_path=command_options['src'],
+        lang=lang)
+    status_code: int = os.system('python ./scripts/build_docs.py')
+    _validate_build_doc_command_status_code(status_code=status_code)
+
+
+class _InvalidDocBuildStatusCode(Exception):
     pass
+
+
+def _validate_build_doc_command_status_code(*, status_code: int) -> None:
+    """
+    Validate a document's build command status code.
+
+    Parameters
+    ----------
+    status_code : int
+        A result status code.
+
+    Raises
+    ------
+    _InvalidDocBuildStatusCode
+        If a status code is not zero.
+    """
+    if status_code == 0:
+        return
+    raise _InvalidDocBuildStatusCode(
+        'A document\'s build command status code is not zero: '
+        f'{status_code}')
 
 
 def _delete_translation_mapping_hash(

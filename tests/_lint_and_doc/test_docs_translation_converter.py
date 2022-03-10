@@ -8,9 +8,11 @@ from apysc._lint_and_doc import docs_translation_converter
 from apysc._lint_and_doc import translation_mapping_utils
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import \
+    _HeadingSuffixIsNotLanguage
+from apysc._lint_and_doc.docs_translation_converter import \
     _InvalidHeadingSharpSymbolNumber
 from apysc._lint_and_doc.docs_translation_converter import \
-    _TranslationMappingNotFound, _HeadingSuffixIsNotLanguage
+    _TranslationMappingNotFound
 from tests.testing_helper import assert_raises
 
 

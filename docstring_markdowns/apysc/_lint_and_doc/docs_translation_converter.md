@@ -58,6 +58,25 @@ Get a sharp heading symbol number from a specified string.<hr>
 - `sharp_symbol_num`: int
   - - A sharp heading symbol number.
 
+## `_validate_heading_tail_is_language` function docstring
+
+Validate whether a first heading's tail is a language (e.g., (English)) or not.<hr>
+
+**[Parameters]**
+
+- `translated_str`: str
+  - A translated string.
+- `key`: str
+  - A key (source) string.
+- `md_file_path`: str
+  - A source markdown file path.
+
+<hr>
+
+**[Raises]**
+
+- _HeadingSuffixIsNotLanguage: If a heading's tail is not a language.
+
 ## `_validate_sharp_heading_symbol_num_are_same` function docstring
 
 Validate whether a sharp heading symbol of source and translated string are the same.<hr>
@@ -113,6 +132,8 @@ Apply a translation mapping to a specified markdown document. This interface sav
 
 - `translated_file_path`: str
   - A translated document file path.
+
+## `_HeadingSuffixIsNotLanguage` class docstring
 
 ## `_InvalidHeadingSharpSymbolNumber` class docstring
 

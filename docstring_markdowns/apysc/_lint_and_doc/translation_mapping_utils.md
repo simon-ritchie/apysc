@@ -47,6 +47,28 @@ Escape a mapping key or value to save.<hr>
 - `key_or_val`: str
   - An escaped key or value string.
 
+## `get_hash_type_from_lang` function docstring
+
+Get a hash type from a specified language type.<hr>
+
+**[Parameters]**
+
+- `lang`: Lang
+  - A target translation language.
+
+<hr>
+
+**[Returns]**
+
+- `hash_type`: HashType
+  - A target hash type.
+
+<hr>
+
+**[Raises]**
+
+- ValueError: If there is no implementation of a specified language type's branch condition.
+
 ## `get_mapping_module_path` function docstring
 
 Get a mapping data module path.<hr>

@@ -3,12 +3,15 @@ from random import randint
 
 from retrying import retry
 
-from scripts import translate_single_document
-from scripts.translate_single_document import _SourceFileNotFound, _SourceFileIsNotEnglish, _UndefinedLanguage, _InvalidDocBuildStatusCode
-from tests.testing_helper import assert_raises
 from apysc._lint_and_doc import lint_and_doc_hash_util
-from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from scripts import translate_single_document
+from scripts.translate_single_document import _InvalidDocBuildStatusCode
+from scripts.translate_single_document import _SourceFileIsNotEnglish
+from scripts.translate_single_document import _SourceFileNotFound
+from scripts.translate_single_document import _UndefinedLanguage
+from tests.testing_helper import assert_raises
 
 _TEST_DOC_SRC_PATH: str = './docs_src/source/sprite.md'
 _TEST_HASH_FILE_PATH: str = lint_and_doc_hash_util.\
@@ -33,7 +36,7 @@ def test__validate_src_option() -> None:
         func_or_method=translate_single_document._validate_src_option,
         kwargs={'src': 'docs_src/source/jp_sprite.md'},
         match=(
-            f'not an English document: docs_src/source/jp_sprite.md'
+            'not an English document: docs_src/source/jp_sprite.md'
         ))
 
     translate_single_document._validate_src_option(

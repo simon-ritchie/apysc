@@ -7,17 +7,17 @@ $ python scripts/translate_single_document.py \
     --lang jp
 """
 
-from argparse import ArgumentParser
-from argparse import Namespace
 import os
 import sys
+from argparse import ArgumentParser
+from argparse import Namespace
 
 from typing_extensions import TypedDict
 
 sys.path.append('./')
 
-from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc import docs_lang
+from apysc._lint_and_doc.docs_lang import Lang
 
 
 class _CommandOptions(TypedDict):
@@ -29,9 +29,9 @@ def _main() -> None:
     """
     Translate a specified single document file.
     """
+    from apysc._lint_and_doc import docs_translation_converter
     from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
         add_mapping_blank_data
-    from apysc._lint_and_doc import docs_translation_converter
     command_options: _CommandOptions = _get_command_options()
     _validate_src_option(src=command_options['src'])
     _validate_lang_option(lang=command_options['lang'])
@@ -84,10 +84,10 @@ def _delete_translation_mapping_hash(
     src_file_path : str
         A source file path.
     """
-    from apysc._lint_and_doc import lint_and_doc_hash_util
-    from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
-    from apysc._lint_and_doc import translation_mapping_utils
     from apysc._file import file_util
+    from apysc._lint_and_doc import lint_and_doc_hash_util
+    from apysc._lint_and_doc import translation_mapping_utils
+    from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
     hash_type: HashType = translation_mapping_utils.get_hash_type_from_lang(
         lang=lang)
     hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(

@@ -23,8 +23,10 @@ from apysc._lint_and_doc.translation_mapping_utils import \
     MAPPING_UNNECESSARY_PATTERNS
 from apysc._lint_and_doc.translation_mapping_utils import SKIPPING_PATTERNS
 from apysc._lint_and_doc.translation_mapping_utils import \
-    convert_splitted_values_to_keys, get_hash_type_from_lang
+    convert_splitted_values_to_keys
 from apysc._lint_and_doc.translation_mapping_utils import escape_key_or_value
+from apysc._lint_and_doc.translation_mapping_utils import \
+    get_hash_type_from_lang
 from apysc._lint_and_doc.translation_mapping_utils import \
     get_mapping_module_path
 from apysc._lint_and_doc.translation_mapping_utils import \

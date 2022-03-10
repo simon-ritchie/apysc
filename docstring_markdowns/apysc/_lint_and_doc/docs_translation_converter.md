@@ -42,6 +42,41 @@ Apply an API signature translation mapping if a specified translated string is a
 - `translated_str`: str
   - An applied string. This interface returns an argument value if a specified translated string is not a signature string.
 
+## `_get_heading_sharp_symbol_num` function docstring
+
+Get a heading sharp symbol number from a specified string.<hr>
+
+**[Parameters]**
+
+- `target_str`: str
+  - A target string to check.
+
+<hr>
+
+**[Returns]**
+
+- `sharp_symbol_num`: int
+  - A heading sharp symbol number.
+
+## `_validate_heading_sharp_symbol_num_are_same` function docstring
+
+Validate whether heading sharp symbol of source and translated string are same.<hr>
+
+**[Parameters]**
+
+- `translated_str`: str
+  - A translated string.
+- `key`: str
+  - A key (source) string.
+- `md_file_path`: str
+  - A source markdown file path.
+
+<hr>
+
+**[Raises]**
+
+- _InvalidHeadingSharpSymbolNumber: If specified translated string and source string's heading sharp symbol number are different.
+
 ## `_validate_translated_str_is_not_blank` function docstring
 
 Validate whether a translated string is not a blank string.<hr>
@@ -78,5 +113,7 @@ Apply a translation mapping to a specified markdown document. This interface sav
 
 - `translated_file_path`: str
   - A translated document file path.
+
+## `_InvalidHeadingSharpSymbolNumber` class docstring
 
 ## `_TranslationMappingNotFound` class docstring

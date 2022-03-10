@@ -8,7 +8,9 @@ from apysc._lint_and_doc import docs_translation_converter
 from apysc._lint_and_doc import translation_mapping_utils
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import \
-    _TranslationMappingNotFound, _InvalidHeadingSharpSymbolNumber
+    _InvalidHeadingSharpSymbolNumber
+from apysc._lint_and_doc.docs_translation_converter import \
+    _TranslationMappingNotFound
 from tests.testing_helper import assert_raises
 
 
@@ -106,7 +108,7 @@ def test__get_heading_sharp_symbol_num() -> None:
         _get_heading_sharp_symbol_num(target_str='Lorem ipsum')
     assert sharp_symbol_num == 0
 
-    sharp_symbol_num: int = docs_translation_converter.\
+    sharp_symbol_num = docs_translation_converter.\
         _get_heading_sharp_symbol_num(target_str='## Lorem ipsum')
     assert sharp_symbol_num == 2
 

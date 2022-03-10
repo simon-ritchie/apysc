@@ -133,6 +133,22 @@ Read an already saved mapping data.<hr>
 - `already_saved_mapping`: dict
   - An already saved mapping data dictionary.
 
+## `remove_empty_keys` function docstring
+
+Remove empty (or only spaces) keys (source text) from a specified list.<hr>
+
+**[Parameters]**
+
+- `keys`: list of str
+  - A target keys list.
+
+<hr>
+
+**[Returns]**
+
+- `result_keys`: list of str
+  - A result keys list.
+
 ## `remove_escaping_from_key_or_value` function docstring
 
 Remove escaping characters from a specified key or value string.<hr>

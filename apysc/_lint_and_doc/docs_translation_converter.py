@@ -17,11 +17,14 @@ class _TranslationMappingNotFound(Exception):
     pass
 
 
+_GITHUB_ISSUE_URL: str = 'https://github.com/simon-ritchie/apysc/issues'
+
 _EACH_LANG_HEADING_INFO_FORMAT: Dict[Lang, str] = {
     Lang.JP:
     '<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプト'
-    'によって出力・同期されています。内容が怪しそうな場合はGitHubに'
-    'issueを追加したり[英語の原文]({source_doc_path})の'
+    'によって出力・同期されています。内容が怪しそうな場合は'
+    f'<a href="{_GITHUB_ISSUE_URL}" target="_blank">GitHubに'
+    'issue</a>を追加したり[英語の原文]({source_doc_path})の'
     '確認をお願いします。</span>',
 }
 

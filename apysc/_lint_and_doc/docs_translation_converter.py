@@ -102,7 +102,7 @@ def apply_translation_to_doc(
         _validate_translated_str_is_not_blank(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
-        _validate_heading_sharp_symbol_num_are_same(
+        _validate_sharp_heading_symbol_num_are_same(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
 
@@ -119,12 +119,12 @@ class _InvalidHeadingSharpSymbolNumber(Exception):
     pass
 
 
-def _validate_heading_sharp_symbol_num_are_same(
+def _validate_sharp_heading_symbol_num_are_same(
         *, translated_str: str, key: str,
         md_file_path: str) -> None:
     """
-    Validate whether heading sharp symbol of source and
-    translated string are same.
+    Validate whether a sharp heading symbol of source and
+    translated string are the same.
 
     Parameters
     ----------
@@ -138,26 +138,26 @@ def _validate_heading_sharp_symbol_num_are_same(
     Raises
     ------
     _InvalidHeadingSharpSymbolNumber
-        If specified translated string and source string's
-        heading sharp symbol number are different.
+        The symbol number is different for a specified translated
+        string and a source string's sharp symbol heading.
     """
-    translated_str_sharp_symbol_num: int = _get_heading_sharp_symbol_num(
+    translated_str_sharp_symbol_num: int = _get_sharp_heading_symbol_num(
         target_str=translated_str)
-    key_str_sharp_symbol_num: int = _get_heading_sharp_symbol_num(
+    key_str_sharp_symbol_num: int = _get_sharp_heading_symbol_num(
         target_str=key)
     if translated_str_sharp_symbol_num == key_str_sharp_symbol_num:
         return
     raise _InvalidHeadingSharpSymbolNumber(
         'There is a difference between source document and '
-        'translated document\'s heading sharp symbol number.'
+        'translated document\'s sharp heading symbol number.'
         f'\n\nSource string: {key}'
         f'\nTranslated string: {translated_str}'
         f'\nSource document path: {md_file_path}')
 
 
-def _get_heading_sharp_symbol_num(*, target_str: str) -> int:
+def _get_sharp_heading_symbol_num(*, target_str: str) -> int:
     """
-    Get a heading sharp symbol number from a specified string.
+    Get a sharp heading symbol number from a specified string.
 
     Parameters
     ----------
@@ -167,7 +167,7 @@ def _get_heading_sharp_symbol_num(*, target_str: str) -> int:
     Returns
     -------
     sharp_symbol_num : int
-        A heading sharp symbol number.
+        - A sharp heading symbol number.
     """
     sharp_symbol_num: int = 0
     for char in target_str:

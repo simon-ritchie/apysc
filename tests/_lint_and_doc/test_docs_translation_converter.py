@@ -103,19 +103,19 @@ def test__apply_mapping_if_translated_str_is_api_sig() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_heading_sharp_symbol_num() -> None:
+def test__get_sharp_heading_symbol_num() -> None:
     sharp_symbol_num: int = docs_translation_converter.\
-        _get_heading_sharp_symbol_num(target_str='Lorem ipsum')
+        _get_sharp_heading_symbol_num(target_str='Lorem ipsum')
     assert sharp_symbol_num == 0
 
     sharp_symbol_num = docs_translation_converter.\
-        _get_heading_sharp_symbol_num(target_str='## Lorem ipsum')
+        _get_sharp_heading_symbol_num(target_str='## Lorem ipsum')
     assert sharp_symbol_num == 2
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__validate_heading_sharp_symbol_num_are_same() -> None:
-    docs_translation_converter._validate_heading_sharp_symbol_num_are_same(
+def test__validate_sharp_heading_symbol_num_are_same() -> None:
+    docs_translation_converter._validate_sharp_heading_symbol_num_are_same(
         translated_str='## テストテキスト',
         key='## Lorem ipsum',
         md_file_path='./test/source/path.md')
@@ -123,7 +123,7 @@ def test__validate_heading_sharp_symbol_num_are_same() -> None:
     assert_raises(
         expected_error_class=_InvalidHeadingSharpSymbolNumber,
         func_or_method=docs_translation_converter.
-        _validate_heading_sharp_symbol_num_are_same,
+        _validate_sharp_heading_symbol_num_are_same,
         kwargs={
             'translated_str': 'テストテキスト',
             'key': '## Lorem ipsum',

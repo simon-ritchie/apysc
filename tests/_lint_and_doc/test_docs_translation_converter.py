@@ -98,3 +98,14 @@ def test__apply_mapping_if_translated_str_is_api_sig() -> None:
         '**[インターフェイスの構造]** `__init__(self, *, '
         'variable_name:Union[str, NoneType]=None) -> None`<hr>'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_heading_sharp_symbol_num() -> None:
+    sharp_symbol_num: int = docs_translation_converter.\
+        _get_heading_sharp_symbol_num(target_str='Lorem ipsum')
+    assert sharp_symbol_num == 0
+
+    sharp_symbol_num: int = docs_translation_converter.\
+        _get_heading_sharp_symbol_num(target_str='## Lorem ipsum')
+    assert sharp_symbol_num == 2

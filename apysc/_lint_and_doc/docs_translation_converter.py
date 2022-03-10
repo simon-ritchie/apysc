@@ -99,6 +99,9 @@ def apply_translation_to_doc(
         _validate_translated_str_is_not_blank(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
+        _validate_heading_sharp_symbol_num_are_same(
+            translated_str=translated_str, key=key,
+            md_file_path=md_file_path)
 
     translated_file_path: str = translation_mapping_utils.\
         get_translated_file_path_from_src_path(
@@ -107,6 +110,53 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+class _InvalidHeadingSharpSymbolNumber(Exception):
+    pass
+
+
+def _validate_heading_sharp_symbol_num_are_same(
+        *, translated_str: str, key: str,
+        md_file_path: str) -> None:
+    """
+    Validate whether heading sharp symbol of source and
+    translated string are same.
+
+    Parameters
+    ----------
+    translated_str : str
+        A translated string.
+    key : str
+        A key (source) string.
+    md_file_path : str
+        A source markdown file path.
+    """
+    translated_str_sharp_symbol_num: int = _get_heading_sharp_symbol_num(
+        target_str=translated_str)
+    pass
+
+
+def _get_heading_sharp_symbol_num(*, target_str: str) -> int:
+    """
+    Get a heading sharp symbol number from a specified string.
+
+    Parameters
+    ----------
+    target_str : str
+        A target string to check.
+
+    Returns
+    -------
+    sharp_symbol_num : int
+        A heading sharp symbol number.
+    """
+    sharp_symbol_num: int = 0
+    for char in target_str:
+        if char != '#':
+            break
+        sharp_symbol_num += 1
+    return sharp_symbol_num
 
 
 def _apply_mapping_if_translated_str_is_api_sig(

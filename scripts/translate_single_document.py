@@ -10,8 +10,11 @@ $ python scripts/translate_single_document.py \
 from argparse import ArgumentParser
 from argparse import Namespace
 import os
+import sys
 
 from typing_extensions import TypedDict
+
+sys.path.append('./')
 
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc import docs_lang

@@ -1,4 +1,4 @@
-# Sprite
+# Sprite (English)
 
 This page explains the `Sprite` class.
 

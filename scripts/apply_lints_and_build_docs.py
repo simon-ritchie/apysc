@@ -1,6 +1,6 @@
 """Apply each lint to all modules and build documentation.
 
-Command example:
+Command examples:
 $ python scripts/apply_lints_and_build_docs.py
 $ python scripts/apply_lints_and_build_docs.py --skip_overall_docs_build
 """

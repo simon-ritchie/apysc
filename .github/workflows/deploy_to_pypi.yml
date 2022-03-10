@@ -288,7 +288,7 @@ jobs:
       - name: Set the twine alias
         run: alias twine=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/twine
       - name: Upload to PyPI
-        run: twine upload --repository apysc dist/*
+        run: twine upload --repository apysc --verbose dist/*
 
   CreateReleaseNotes:
     needs: [

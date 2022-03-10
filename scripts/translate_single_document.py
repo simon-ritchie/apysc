@@ -14,6 +14,7 @@ import os
 from typing_extensions import TypedDict
 
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc import docs_lang
 
 
 class _CommandOptions(TypedDict):
@@ -28,7 +29,34 @@ def _main() -> None:
     command_options: _CommandOptions = _get_command_options()
     _validate_src_option(src=command_options['src'])
     _validate_lang_option(lang=command_options['lang'])
+    lang: Lang = docs_lang.get_lang_from_str_value(
+        str_value=command_options['lang'])
+    _delete_translation_mapping_hash(
+        lang=lang, src_file_path=command_options['src'])
     pass
+
+
+def _delete_translation_mapping_hash(
+        *, lang: Lang, src_file_path: str) -> None:
+    """
+    Delete a specified source file's mapping hash file.
+
+    Parameters
+    ----------
+    lang : Lang
+        A target translation language.
+    src_file_path : str
+        A source file path.
+    """
+    from apysc._lint_and_doc import lint_and_doc_hash_util
+    from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+    from apysc._lint_and_doc import translation_mapping_utils
+    from apysc._file import file_util
+    hash_type: HashType = translation_mapping_utils.get_hash_type_from_lang(
+        lang=lang)
+    hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path=src_file_path, hash_type=hash_type)
+    file_util.remove_file_if_exists(file_path=hash_path)
 
 
 class _UndefinedLanguage(Exception):

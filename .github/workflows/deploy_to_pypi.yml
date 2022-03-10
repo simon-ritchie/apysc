@@ -274,9 +274,16 @@ jobs:
         env:
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: |
+          echo -e '[distutils]' >> ~/.pypirc
+          echo -e '    pypi' >> ~/.pypirc
+          echo -e '    apysc' >> ~/.pypirc
           echo -e '[pypi]' >> ~/.pypirc
-          echo -e "username = ${PYPI_TOKEN}" >> ~/.pypirc
-          echo -e "password = ${PYPI_TOKEN}" >> ~/.pypirc
+          echo -e 'username = ${PYPI_TOKEN}' >> ~/.pypirc
+          echo -e 'password = ${PYPI_TOKEN}' >> ~/.pypirc
+          echo -e '[apysc]' >> ~/.pypirc
+          echo -e '  repository = https://upload.pypi.org/legacy/' >> ~/.pypirc
+          echo -e '  username = ${PYPI_TOKEN}' >> ~/.pypirc
+          echo -e '  password = ${PYPI_TOKEN}' >> ~/.pypirc
       - name: Set the twine alias
         run: alias twine=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/twine
       - name: Upload to PyPI

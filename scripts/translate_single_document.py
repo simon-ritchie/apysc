@@ -27,7 +27,35 @@ def _main() -> None:
     """
     command_options: _CommandOptions = _get_command_options()
     _validate_src_option(src=command_options['src'])
+    _validate_lang_option(lang=command_options['lang'])
     pass
+
+
+class _UndefinedLanguage(Exception):
+    pass
+
+
+def _validate_lang_option(*, lang: str) -> None:
+    """
+    Validate a specified language string.
+
+    Parameters
+    ----------
+    lang : str
+        A target language string to check.
+
+    Raises
+    ------
+    _UndefinedLanguage
+        If a specified language string is undefined,
+        this interface raises an exception.
+    """
+    for lang_ in Lang:
+        if lang == lang_.value:
+            return
+    raise _UndefinedLanguage(
+        'A specified language string is undefined (currently '
+        f'not supported): {lang}')
 
 
 class _SourceFileNotFound(Exception):

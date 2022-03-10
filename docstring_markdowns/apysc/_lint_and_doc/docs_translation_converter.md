@@ -42,7 +42,7 @@ Apply an API signature translation mapping if a specified translated string is a
 - `translated_str`: str
   - An applied string. This interface returns an argument value if a specified translated string is not a signature string.
 
-## `_get_heading_sharp_symbol_num` function docstring
+## `_get_sharp_heading_symbol_num` function docstring
 
 Get a sharp heading symbol number from a specified string.<hr>
 
@@ -56,9 +56,9 @@ Get a sharp heading symbol number from a specified string.<hr>
 **[Returns]**
 
 - `sharp_symbol_num`: int
-  - A sharp heading symbol number.
+  - - A sharp heading symbol number.
 
-## `_validate_heading_sharp_symbol_num_are_same` function docstring
+## `_validate_sharp_heading_symbol_num_are_same` function docstring
 
 Validate whether a sharp heading symbol of source and translated string are the same.<hr>
 
@@ -75,7 +75,7 @@ Validate whether a sharp heading symbol of source and translated string are the 
 
 **[Raises]**
 
-_InvalidHeadingSharpSymbolNumber: The symbol number is different for a specified translated string and a source string's sharp symbol heading.
+- _InvalidHeadingSharpSymbolNumber: The symbol number is different for a specified translated string and a source string's sharp symbol heading.
 
 ## `_validate_translated_str_is_not_blank` function docstring
 

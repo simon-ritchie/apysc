@@ -273,7 +273,7 @@ jobs:
       - name: Upload to PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
+          password: ${{ secrets.PYPI_TOKEN }}
 
   CreateReleaseNotes:
     needs: [

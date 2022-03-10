@@ -131,10 +131,25 @@ def _validate_heading_sharp_symbol_num_are_same(
         A key (source) string.
     md_file_path : str
         A source markdown file path.
+
+    Raises
+    ------
+    _InvalidHeadingSharpSymbolNumber
+        If specified translated string and source string's
+        heading sharp symbol number are different.
     """
     translated_str_sharp_symbol_num: int = _get_heading_sharp_symbol_num(
         target_str=translated_str)
-    pass
+    key_str_sharp_symbol_num: int = _get_heading_sharp_symbol_num(
+        target_str=key)
+    if translated_str_sharp_symbol_num == key_str_sharp_symbol_num:
+        return
+    raise _InvalidHeadingSharpSymbolNumber(
+        'There is a difference between source document and '
+        'translated document\'s heading sharp symbol number.'
+        f'\n\nSource string: {key}'
+        f'\nTranslated string: {translated_str}'
+        f'\nSource document path: {md_file_path}')
 
 
 def _get_heading_sharp_symbol_num(*, target_str: str) -> int:

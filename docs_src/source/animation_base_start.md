@@ -1,10 +1,10 @@
-# AnimationBase class start interface
+# AnimationBase class start interface (English document)
 
 This page explains the `AnimationBase` class `start` method interface.
 
 ## What interface is this?
 
-The `start` method interface starts the target animation. This interface returns the `AnimationBase` subclass instance is when you call each animation interface, such as the `animation_move` or `animation_x`\, and it has the `start` method.
+The `start` method interface starts the target animation. Each animation interface returns the `AnimationBase` subclass instance is when you call each animation interface, such as the `animation_move` or `animation_x`\, and it has the `start` method.
 
 ## Basic usage
 

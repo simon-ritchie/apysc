@@ -17,9 +17,9 @@ from typing_extensions import TypedDict
 
 sys.path.append('./')
 
+from apysc._console import loggers
 from apysc._lint_and_doc import docs_lang
 from apysc._lint_and_doc.docs_lang import Lang
-from apysc._console import loggers
 
 logger: Logger = loggers.get_info_logger()
 

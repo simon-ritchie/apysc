@@ -174,7 +174,7 @@ def test_remove_empty_keys() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_hash_type_from_lang() -> None:
+def test_get_hash_type_from_lang() -> None:
     hash_type: HashType = translation_mapping_utils.\
         get_hash_type_from_lang(lang=Lang.JP)
     assert hash_type == HashType.TRANSLATION_MAPPING_JP

@@ -65,4 +65,10 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='get_child_at interface',
             value='get_child_at インターフェイス'),
+        Mapping(
+            key='DisplayObject class parent interfaces',
+            value='DisplayObjectクラス parent インターフェイス'),
+        Mapping(
+            key='contains interface',
+            value='contains インターフェイス'),
     ])

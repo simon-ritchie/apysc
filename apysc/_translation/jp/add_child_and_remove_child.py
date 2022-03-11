@@ -9,73 +9,97 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# add_child and remove_child interfaces':
-    '',
+    '# add_child and remove_child interfaces (English document)':
+    '# add_child と remove_child インターフェイス (日本語ドキュメント)',
 
     'This page explains the container class, like the `Graphics`\\, `Sprite`\\, `Stage`) `add_child` and `remove_child` method interfaces.':  # noqa
-    '',
+    'このページではGraphicsクラスやSprite、Stageクラスなどのコンテナーとして扱えるクラスが持つ`add_child`と`remove_child`のインターフェイスについて説明します。',  # noqa
 
     '## What interfaces are these?':
-    '',
+    '## 各インターフェイス概要',
 
     'The `add_child` and `remove_child` add or remove a `DisplayObject` child instance from a container instance. The apysc does not display a removed `DisplayObject` instance.':  # noqa
-    '',
+    '`add_child`インターフェイスではコンテナーのインスタンスへ子となる各`DisplayObject`を継承したインスタンスを追加し、逆に`remove_child`インターフェイスでは子のインスタンスをコンテナーから取り除きます。apyscでは取り除かれた子のインスタンスは表示されなくなります。',  # noqa
 
     '## Automatic addition of the children':
-    '',
+    '## 子のインスタンスの自動追加について',
 
-    'The apysc appends each `DisplayObject` instance to a parent at the constructor. So, for example, it appends a `Sprite` instance to a parent stage. Similarly, it appends a `graphics` instance to a parent `Sprite` instance.\n\nIf you need to adjust a parent, it is necessary to call the `add_child` or `remove_child` interfaces manually (for instance, set a `Sprite` parent to the other `Sprite`).':  # noqa
-    '',
+    'The apysc appends each `DisplayObject` instance to a parent at the constructor. So, for example, it appends a `Sprite` instance to a parent stage. Similarly, it appends a `graphics` instance to a parent `Sprite` instance.':  # noqa
+    'apyscでは各`DisplayObject`のインスタンスはコンストラクタの時点で親のインスタンスへと自動で追加されます。例えば`Sprite`クラスであれば`Stage`クラスのインスタンスを親として追加され、`Sprite`クラスを親として内部で作成される`graphics`プロパティのインスタンスは`Sprite`クラスのインスタンスへと自動で追加されます。',  # noqa
+
+    'If you need to adjust a parent, it is necessary to call the `add_child` or `remove_child` interfaces manually (for instance, set a `Sprite` parent to the other `Sprite`).':  # noqa
+    'もし親のインスタンスを調整したい場合には手動で`add_child`や`remove_child`などのインターフェイスを呼ぶ必要があります。例えば親としてのとある`Sprite`クラスのインスタンスから別の`Sprite`クラスのインスタンスに子を移したい場合などが該当します。',  # noqa
 
     '## Basic usage of the remove_child interface':
-    '',
+    '## remove_child インターフェイスの基本的な使い方',
 
-    'The `remove_child` interface removes a child from a parent container instance. The apysc does not display a removed `DisplayObject` instance.\n\nFor example, the following code calls the `remove_child` interface in the click handler, so if you click the rectangle, it removes that rectangle.':  # noqa
-    '',
+    'The `remove_child` interface removes a child from a parent container instance. The apysc does not display a removed `DisplayObject` instance.':  # noqa
+    '`remove_child`インターフェイスでは子を親のコンテナー要素から取り除きます。apyscは取り除かれた`DisplayObject`の子のインスタンスを表示しません。',  # noqa
+
+    'For example, the following code calls the `remove_child` interface in the click handler, so if you click the rectangle, it removes that rectangle.':  # noqa
+    '例えば以下のコードでは四角をクリックした際のハンドラ内で`remove_child`インターフェイスを呼び出しており、クリック時に四角が画面から取り除かれます。',  # noqa
 
     '```py\n# runnable\nfrom typing_extensions import TypedDict\n\nimport apysc as ap\n\n\nclass _RectOptions(TypedDict):\n    rectangle: ap.Rectangle\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    rectangle: ap.Rectangle = options[\'rectangle\']\n    sprite.remove_child(child=rectangle)\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\noptions: _RectOptions = {\'rectangle\': rectangle}\nsprite.click(on_sprite_click, options=options)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_basic_usage_of_remove_child/\')\n```':  # noqa
-    '',
-
-    '<iframe src="static/sprite_basic_usage_of_remove_child/index.html" width="150" height="150"></iframe>':  # noqa
-    '',
+    '```py\n# runnable\nfrom typing_extensions import TypedDict\n\nimport apysc as ap\n\n\nclass _RectOptions(TypedDict):\n    rectangle: ap.Rectangle\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    sprite: ap.Sprite = e.this\n    rectangle: ap.Rectangle = options[\'rectangle\']\n    sprite.remove_child(child=rectangle)\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\noptions: _RectOptions = {\'rectangle\': rectangle}\nsprite.click(on_sprite_click, options=options)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_basic_usage_of_remove_child/\')\n```',  # noqa
 
     '## The basic usage of the add_child interface':
-    '',
+    '## add_child インターフェイスの基本的な使い方',
 
-    'The `add_child` interface adds a removed child again or adds a child to the other container instance.\n\nThe following code example removes the rectangle from the first `Sprite` container (be positioned to the left) when you click the rectangle. Also, that click event adds the rectangle to the second `Sprite` container (be positioned to the right).':  # noqa
-    '',
+    'The `add_child` interface adds a removed child again or adds a child to the other container instance.':  # noqa
+    '`add_child`インターフェイスは取り除かれた子のインスタンスをもう一度他の親のコンテナーのインスタンスへと追加します。',
+
+    'The following code example removes the rectangle from the first `Sprite` container (be positioned to the left) when you click the rectangle. Also, that click event adds the rectangle to the second `Sprite` container (be positioned to the right).':  # noqa
+    '以下のコードでは四角をクリックした際に1つ目の左に配置されている`Sprite`の親のコンテナーからその四角を取り除き、そして2つ目の右側に配置してある`Sprite`のインスタンスへと子を追加しています。',  # noqa
 
     '```py\n# runnable\nfrom typing_extensions import TypedDict\n\nimport apysc as ap\n\n\nclass _SpriteAndRectOptions(TypedDict):\n    rectangle: ap.Rectangle\n    sprite: ap.Sprite\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite],\n        options: _SpriteAndRectOptions) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    first_sprite: ap.Sprite = e.this\n    rectangle: ap.Rectangle = options[\'rectangle\']\n    second_sprite: ap.Sprite = options[\'sprite\']\n    first_sprite.remove_child(child=rectangle)\n    second_sprite.add_child(child=rectangle)\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nfirst_sprite: ap.Sprite = ap.Sprite()\nfirst_sprite.graphics.begin_fill(color=\'#0af\')\nfirst_sprite.x = ap.Int(50)\nfirst_sprite.y = ap.Int(50)\nrectangle: ap.Rectangle = first_sprite.graphics.draw_rect(\n    x=0, y=0, width=50, height=50)\n\nsecond_sprite: ap.Sprite = ap.Sprite()\nsecond_sprite.x = ap.Int(150)\nsecond_sprite.y = ap.Int(50)\n\noptions: _SpriteAndRectOptions = {\n    \'rectangle\': rectangle, \'sprite\': second_sprite}\nfirst_sprite.click(on_sprite_click, options=options)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_basic_usage_of_add_child/\')\n```':  # noqa
-    '',
-
-    '<iframe src="static/sprite_basic_usage_of_add_child/index.html" width="250" height="150"></iframe>':  # noqa
-    '',
+    '```py\n# runnable\nfrom typing_extensions import TypedDict\n\nimport apysc as ap\n\n\nclass _SpriteAndRectOptions(TypedDict):\n    rectangle: ap.Rectangle\n    sprite: ap.Sprite\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite],\n        options: _SpriteAndRectOptions) -> None:\n    """\n    The handler that the sprite calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    first_sprite: ap.Sprite = e.this\n    rectangle: ap.Rectangle = options[\'rectangle\']\n    second_sprite: ap.Sprite = options[\'sprite\']\n    first_sprite.remove_child(child=rectangle)\n    second_sprite.add_child(child=rectangle)\n\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nfirst_sprite: ap.Sprite = ap.Sprite()\nfirst_sprite.graphics.begin_fill(color=\'#0af\')\nfirst_sprite.x = ap.Int(50)\nfirst_sprite.y = ap.Int(50)\nrectangle: ap.Rectangle = first_sprite.graphics.draw_rect(\n    x=0, y=0, width=50, height=50)\n\nsecond_sprite: ap.Sprite = ap.Sprite()\nsecond_sprite.x = ap.Int(150)\nsecond_sprite.y = ap.Int(50)\n\noptions: _SpriteAndRectOptions = {\n    \'rectangle\': rectangle, \'sprite\': second_sprite}\nfirst_sprite.click(on_sprite_click, options=options)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_basic_usage_of_add_child/\')\n```',  # noqa
 
     '## See also':
-    '',
+    '## 関連資料',
 
-    '- [DisplayObject class parent interfaces](display_object_parent.md)\n- [Contains interface](contains.md)':  # noqa
-    '',
+    '- [DisplayObject class parent interfaces](display_object_parent.md)\n- [contains interface](contains.md)':  # noqa
+    '- [DisplayObjectクラス parent インターフェイス](jp_display_object_parent.md)\n\n- [contains インターフェイス](jp_contains.md)',  # noqa
 
     '## add_child API':
-    '',
+    '## add_child API',
 
-    '<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child -->\n\n<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>\n\n**[Interface signature]** `add_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>\n\n**[Interface summary]** Add display object child to this instance.<hr>\n\n**[Parameters]**\n\n- `child`: DisplayObject\n  - Child instance to add.\n\n<hr>\n\n**[Examples]**':  # noqa
-    '',
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
+    '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+
+    '**[Interface summary]** Add display object child to this instance.<hr>':  # noqa
+    '**[Interface 概要]** 子の表示用のインスタンスをこのインスタンスへと追加します。<hr>',
+
+    '**[Parameters]**':
+    '**[引数]**',
+
+    '- `child`: DisplayObject\n  - Child instance to add.':
+    '- `child`: DisplayObject\n  - 追加対象となる子のインスタンス.',
+
+    '**[Examples]**':
+    '**[コードサンプル]**',
 
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> sprite_1.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rectangle)\n```':  # noqa
-    '',
-
-    '':
-    '',
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> sprite_1.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rectangle)\n```',  # noqa
 
     '## remove_child API':
-    '',
+    '## remove_child API',
 
-    '<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child -->\n\n<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>\n\n**[Interface signature]** `remove_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>\n\n**[Interface summary]** Remove display object child from this instance.<hr>\n\n**[Parameters]**\n\n- `child`: DisplayObject\n  - Child instance to remove.\n\n<hr>\n\n**[Examples]**':  # noqa
-    '',
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
+    '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+
+    '**[Interface summary]** Remove display object child from this instance.<hr>':  # noqa
+    '**[Interface 概要]** 表示用の子のインスタンスをこのインスタンスから取り除きます。<hr>',
+
+    '**[Parameters]**':
+    '**[引数]**',
+
+    '- `child`: DisplayObject\n  - Child instance to remove.':
+    '- `child`: DisplayObject\n  - 取り除く対象の子のインスタンス。',
+
+    '**[Examples]**':
+    '**[コードサンプル]**',
 
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.remove_child(rectangle)\n>>> print(rectangle.parent)\nNone\n```':  # noqa
-    '',
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.remove_child(rectangle)\n>>> print(rectangle.parent)\nNone\n```',  # noqa
 
 }

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>add_child and remove_child interfaces (English document) &#8212; apysc  documentation</title>
+    <title>add_child と remove_child インターフェイス (日本語ドキュメント) &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="contains interface" href="contains.html" />
-    <link rel="prev" title="append_js_expression interface" href="append_js_expression.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="contains.html" title="contains interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="append_js_expression.html" title="append_js_expression interface"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">add_child and remove_child interfaces (English document)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">add_child と remove_child インターフェイス (日本語ドキュメント)</a></li> 
       </ul>
     </div>  
 
@@ -43,22 +35,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="add-child-and-remove-child-interfaces-english-document">
-<h1>add_child and remove_child interfaces (English document)<a class="headerlink" href="#add-child-and-remove-child-interfaces-english-document" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>, <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Stage</span></code>) <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> method interfaces.</p>
-<section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> add or remove a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> child instance from a container instance. The apysc does not display a removed <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="add_child_and_remove_child.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="add-child-remove-child">
+<h1>add_child と remove_child インターフェイス (日本語ドキュメント)<a class="headerlink" href="#add-child-remove-child" title="Permalink to this headline">¶</a></h1>
+<p>このページではGraphicsクラスやSprite、Stageクラスなどのコンテナーとして扱えるクラスが持つ<code class="docutils literal notranslate"><span class="pre">add_child</span></code>と<code class="docutils literal notranslate"><span class="pre">remove_child</span></code>のインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>各インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">add_child</span></code>インターフェイスではコンテナーのインスタンスへ子となる各<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>を継承したインスタンスを追加し、逆に<code class="docutils literal notranslate"><span class="pre">remove_child</span></code>インターフェイスでは子のインスタンスをコンテナーから取り除きます。apyscでは取り除かれた子のインスタンスは表示されなくなります。</p>
 </section>
-<section id="automatic-addition-of-the-children">
-<h2>Automatic addition of the children<a class="headerlink" href="#automatic-addition-of-the-children" title="Permalink to this headline">¶</a></h2>
-<p>The apysc appends each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance to a parent at the constructor. So, for example, it appends a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance to a parent stage. Similarly, it appends a <code class="docutils literal notranslate"><span class="pre">graphics</span></code> instance to a parent <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance.</p>
-<p>If you need to adjust a parent, it is necessary to call the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> or <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interfaces manually (for instance, set a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> parent to the other <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>).</p>
+<section id="id2">
+<h2>子のインスタンスの自動追加について<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>apyscでは各<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスはコンストラクタの時点で親のインスタンスへと自動で追加されます。例えば<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>クラスであれば<code class="docutils literal notranslate"><span class="pre">Stage</span></code>クラスのインスタンスを親として追加され、<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>クラスを親として内部で作成される<code class="docutils literal notranslate"><span class="pre">graphics</span></code>プロパティのインスタンスは<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>クラスのインスタンスへと自動で追加されます。</p>
+<p>もし親のインスタンスを調整したい場合には手動で<code class="docutils literal notranslate"><span class="pre">add_child</span></code>や<code class="docutils literal notranslate"><span class="pre">remove_child</span></code>などのインターフェイスを呼ぶ必要があります。例えば親としてのとある<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>クラスのインスタンスから別の<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>クラスのインスタンスに子を移したい場合などが該当します。</p>
 </section>
-<section id="basic-usage-of-the-remove-child-interface">
-<h2>Basic usage of the remove_child interface<a class="headerlink" href="#basic-usage-of-the-remove-child-interface" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interface removes a child from a parent container instance. The apysc does not display a removed <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
-<p>For example, the following code calls the <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interface in the click handler, so if you click the rectangle, it removes that rectangle.</p>
+<section id="remove-child">
+<h2>remove_child インターフェイスの基本的な使い方<a class="headerlink" href="#remove-child" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">remove_child</span></code>インターフェイスでは子を親のコンテナー要素から取り除きます。apyscは取り除かれた<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の子のインスタンスを表示しません。</p>
+<p>例えば以下のコードでは四角をクリックした際のハンドラ内で<code class="docutils literal notranslate"><span class="pre">remove_child</span></code>インターフェイスを呼び出しており、クリック時に四角が画面から取り除かれます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -104,10 +97,10 @@
 </pre></div>
 </div>
 <iframe src="static/sprite_basic_usage_of_remove_child/index.html" width="150" height="150"></iframe></section>
-<section id="the-basic-usage-of-the-add-child-interface">
-<h2>The basic usage of the add_child interface<a class="headerlink" href="#the-basic-usage-of-the-add-child-interface" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface adds a removed child again or adds a child to the other container instance.</p>
-<p>The following code example removes the rectangle from the first <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container (be positioned to the left) when you click the rectangle. Also, that click event adds the rectangle to the second <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container (be positioned to the right).</p>
+<section id="add-child">
+<h2>add_child インターフェイスの基本的な使い方<a class="headerlink" href="#add-child" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">add_child</span></code>インターフェイスは取り除かれた子のインスタンスをもう一度他の親のコンテナーのインスタンスへと追加します。</p>
+<p>以下のコードでは四角をクリックした際に1つ目の左に配置されている<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>の親のコンテナーからその四角を取り除き、そして2つ目の右側に配置してある<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>のインスタンスへと子を追加しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -165,27 +158,27 @@
 </pre></div>
 </div>
 <iframe src="static/sprite_basic_usage_of_add_child/index.html" width="250" height="150"></iframe></section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id3">
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="display_object_parent.html"><span class="doc">DisplayObject class parent interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="contains.html"><span class="doc">contains interface</span></a></p></li>
+<li><p><a class="reference external" href="jp_display_object_parent">DisplayObjectクラス parent インターフェイス</a></p></li>
+<li><p><a class="reference external" href="jp_contains">contains インターフェイス</a></p></li>
 </ul>
 </section>
 <section id="add-child-api">
 <h2>add_child API<a class="headerlink" href="#add-child-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">add_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Add display object child to this instance.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">add_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface 概要]</strong> 子の表示用のインスタンスをこのインスタンスへと追加します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
 <ul>
-<li><p>Child instance to add.</p></li>
+<li><p>追加対象となる子のインスタンス.</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -199,18 +192,18 @@
 </section>
 <section id="remove-child-api">
 <h2>remove_child API<a class="headerlink" href="#remove-child-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">remove_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Remove display object child from this instance.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">remove_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface 概要]</strong> 表示用の子のインスタンスをこのインスタンスから取り除きます。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
 <ul>
-<li><p>Child instance to remove.</p></li>
+<li><p>取り除く対象の子のインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -237,24 +230,18 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">add_child and remove_child interfaces (English document)</a><ul>
-<li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
-<li><a class="reference internal" href="#automatic-addition-of-the-children">Automatic addition of the children</a></li>
-<li><a class="reference internal" href="#basic-usage-of-the-remove-child-interface">Basic usage of the remove_child interface</a></li>
-<li><a class="reference internal" href="#the-basic-usage-of-the-add-child-interface">The basic usage of the add_child interface</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">add_child と remove_child インターフェイス (日本語ドキュメント)</a><ul>
+<li><a class="reference internal" href="#id1">各インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">子のインスタンスの自動追加について</a></li>
+<li><a class="reference internal" href="#remove-child">remove_child インターフェイスの基本的な使い方</a></li>
+<li><a class="reference internal" href="#add-child">add_child インターフェイスの基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">関連資料</a></li>
 <li><a class="reference internal" href="#add-child-api">add_child API</a></li>
 <li><a class="reference internal" href="#remove-child-api">remove_child API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="append_js_expression.html"
-                        title="previous chapter">append_js_expression interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="contains.html"
-                        title="next chapter">contains interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -275,14 +262,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="contains.html" title="contains interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="append_js_expression.html" title="append_js_expression interface"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">add_child and remove_child interfaces (English document)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">add_child と remove_child インターフェイス (日本語ドキュメント)</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

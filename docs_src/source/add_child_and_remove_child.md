@@ -1,4 +1,4 @@
-# add_child and remove_child interfaces
+# add_child and remove_child interfaces (English document)
 
 This page explains the container class, like the `Graphics`\, `Sprite`\, `Stage`) `add_child` and `remove_child` method interfaces.
 
@@ -133,7 +133,7 @@ ap.save_overall_html(
 ## See also
 
 - [DisplayObject class parent interfaces](display_object_parent.md)
-- [Contains interface](contains.md)
+- [contains interface](contains.md)
 
 ## add_child API
 

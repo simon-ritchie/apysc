@@ -11,6 +11,7 @@ import os
 import sys
 from argparse import ArgumentParser
 from argparse import Namespace
+from logging import Logger
 
 from typing_extensions import TypedDict
 
@@ -18,6 +19,9 @@ sys.path.append('./')
 
 from apysc._lint_and_doc import docs_lang
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._console import loggers
+
+logger: Logger = loggers.get_info_logger()
 
 
 class _CommandOptions(TypedDict):
@@ -33,18 +37,24 @@ def _main() -> None:
     from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
         add_mapping_blank_data
     command_options: _CommandOptions = _get_command_options()
+    logger.info('Validating command arguments...')
     _validate_src_option(src=command_options['src'])
     _validate_lang_option(lang=command_options['lang'])
     lang: Lang = docs_lang.get_lang_from_str_value(
         str_value=command_options['lang'])
+    logger.info('Deleting translation mapping hash...')
     _delete_translation_mapping_hash(
         lang=lang, src_file_path=command_options['src'])
+    logger.info('Adding mapping blank data...')
     add_mapping_blank_data(lang=lang)
+    logger.info('Applying translation...')
     docs_translation_converter.apply_translation_to_doc(
         md_file_path=command_options['src'],
         lang=lang)
+    logger.info('Running document build script...')
     status_code: int = os.system('python ./scripts/build_docs.py')
     _validate_build_doc_command_status_code(status_code=status_code)
+    logger.info('Completed!')
 
 
 class _InvalidDocBuildStatusCode(Exception):

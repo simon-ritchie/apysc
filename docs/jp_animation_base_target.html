@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>AnimationBase class target property interface (English document) &#8212; apysc  documentation</title>
+    <title>AnimationBase クラス target 属性のインターフェイス (日本語ドキュメント) &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="animation_pause and animation_play interfaces" href="animation_pause_and_play.html" />
-    <link rel="prev" title="AnimationBase class interfaces method chaining" href="animation_method_chaining.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="animation_pause_and_play.html" title="animation_pause and animation_play interfaces"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="animation_method_chaining.html" title="AnimationBase class interfaces method chaining"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">AnimationBase class target property interface (English document)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">AnimationBase クラス target 属性のインターフェイス (日本語ドキュメント)</a></li> 
       </ul>
     </div>  
 
@@ -43,16 +35,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="animationbase-class-target-property-interface-english-document">
-<h1>AnimationBase class target property interface (English document)<a class="headerlink" href="#animationbase-class-target-property-interface-english-document" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class <code class="docutils literal notranslate"><span class="pre">target</span></code> property interface.</p>
-<section id="what-property-is-this">
-<h2>What property is this?<a class="headerlink" href="#what-property-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">target</span></code> property returns the animation target instance (e.g., <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>).</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="animation_base_target.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="animationbase-target">
+<h1>AnimationBase クラス target 属性のインターフェイス (日本語ドキュメント)<a class="headerlink" href="#animationbase-target" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">target</span></code>属性のインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>属性の概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">target</span></code>属性はアニメーション対象のインスタンス（例: <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>や<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>などのインスタンス）を返却します。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code>, <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>) has the <code class="docutils literal notranslate"><span class="pre">target</span></code> getter property.</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>クラスの各サブクラス（例: <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code>や<code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>クラスなど）はgetterの<code class="docutils literal notranslate"><span class="pre">target</span></code>属性を持っています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -68,10 +61,10 @@
 </pre></div>
 </div>
 </section>
-<section id="generic-type-annotation-setting">
-<h2>Generic type annotation setting<a class="headerlink" href="#generic-type-annotation-setting" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class and its subclasses can set a generic type annotation. For example, the <code class="docutils literal notranslate"><span class="pre">target</span></code> property type becomes its type if you set it.</p>
-<p>The following code sets the <code class="docutils literal notranslate"><span class="pre">[ap.Rectangle]</span></code> generic type annotation:</p>
+<section id="id3">
+<h2>ジェネリックの型アノテーションについて<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>クラスとその各サブクラスにはジェネリックの型アノテーションを行うことができます。型アノテーションをした場合<code class="docutils literal notranslate"><span class="pre">target</span></code>属性の型はその型のインスタンスとなります。</p>
+<p>以下のコードでは<code class="docutils literal notranslate"><span class="pre">[ap.Rectangle]</span></code>というジェネリックの型アノテーションを行っています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -86,7 +79,7 @@
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">animation_x</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>It is also sometimes useful to annotate generic type to the handler’s <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>. This generic type annotation also affects the <code class="docutils literal notranslate"><span class="pre">target</span></code> type (<code class="docutils literal notranslate"><span class="pre">e.this.target</span></code>), as follows:</p>
+<p>イベントハンドラの<code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>のインスタンスへジェネリックの型アノテーションを行うことも有益なケースがあります。この型アノテーションも<code class="docutils literal notranslate"><span class="pre">target</span></code>属性（<code class="docutils literal notranslate"><span class="pre">e.this.target</span></code>）の型に影響します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -121,17 +114,17 @@
 </section>
 <section id="target-property-api">
 <h2>target property API<a class="headerlink" href="#target-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._animation.animation_base.AnimationBase.target --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get an animation target instance.<hr></p>
-<p><strong>[Returns]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> アニメーション対象のインスタンスを取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: VariableNameInterface</p>
 <ul>
-<li><p>An animation target instance.</p></li>
+<li><p>アニメーション対象のインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span>
@@ -162,21 +155,15 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">AnimationBase class target property interface (English document)</a><ul>
-<li><a class="reference internal" href="#what-property-is-this">What property is this?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#generic-type-annotation-setting">Generic type annotation setting</a></li>
+<li><a class="reference internal" href="#">AnimationBase クラス target 属性のインターフェイス (日本語ドキュメント)</a><ul>
+<li><a class="reference internal" href="#id1">属性の概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">ジェネリックの型アノテーションについて</a></li>
 <li><a class="reference internal" href="#target-property-api">target property API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_method_chaining.html"
-                        title="previous chapter">AnimationBase class interfaces method chaining</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_pause_and_play.html"
-                        title="next chapter">animation_pause and animation_play interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -197,14 +184,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="animation_pause_and_play.html" title="animation_pause and animation_play interfaces"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="animation_method_chaining.html" title="AnimationBase class interfaces method chaining"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">AnimationBase class target property interface (English document)</a></li> 
+        <li class="nav-item nav-item-this"><a href="">AnimationBase クラス target 属性のインターフェイス (日本語ドキュメント)</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

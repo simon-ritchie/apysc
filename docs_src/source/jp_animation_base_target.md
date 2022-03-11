@@ -1,14 +1,16 @@
-# AnimationBase class target property interface (English document)
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_base_target.md)の確認をお願いします。</span>
 
-This page explains the `AnimationBase` class `target` property interface.
+# AnimationBase クラス target 属性のインターフェイス (日本語ドキュメント)
 
-## What property is this?
+このページでは`AnimationBase`クラスの`target`属性のインターフェイスについて説明します。
 
-The `target` property returns the animation target instance (e.g., `Sprite`\, `Rectangle`).
+## 属性の概要
 
-## Basic usage
+`target`属性はアニメーション対象のインスタンス（例: `Sprite`や`Rectangle`などのインスタンス）を返却します。
 
-Each subclass of the `AnimationBase` (e.g., `AnimationMove`\, `AnimationX`) has the `target` getter property.
+## 基本的な使い方
+
+`AnimationBase`クラスの各サブクラス（例: `AnimationMove`や`AnimationX`クラスなど）はgetterの`target`属性を持っています。
 
 ```py
 # runnable
@@ -25,11 +27,11 @@ animation_x: ap.AnimationX = rectangle.animation_x(x=100)
 assert isinstance(animation_x.target, ap.Rectangle)
 ```
 
-## Generic type annotation setting
+## ジェネリックの型アノテーションについて
 
-The `AnimationBase` class and its subclasses can set a generic type annotation. For example, the `target` property type becomes its type if you set it.
+`AnimationBase`クラスとその各サブクラスにはジェネリックの型アノテーションを行うことができます。型アノテーションをした場合`target`属性の型はその型のインスタンスとなります。
 
-The following code sets the `[ap.Rectangle]` generic type annotation:
+以下のコードでは`[ap.Rectangle]`というジェネリックの型アノテーションを行っています。
 
 ```py
 # runnable
@@ -46,7 +48,7 @@ animation_x: ap.AnimationX[ap.Rectangle] = rectangle.animation_x(x=100)
 assert isinstance(animation_x.target, ap.Rectangle)
 ```
 
-It is also sometimes useful to annotate generic type to the handler's `AnimationEvent`\. This generic type annotation also affects the `target` type (`e.this.target`), as follows:
+イベントハンドラの`AnimationEvent`のインスタンスへジェネリックの型アノテーションを行うことも有益なケースがあります。この型アノテーションも`target`属性（`e.this.target`）の型に影響します。
 
 ```py
 # runnable
@@ -82,20 +84,18 @@ animation_x.animation_complete(on_animation_complete)
 
 ## target property API
 
-<!-- Docstring: apysc._animation.animation_base.AnimationBase.target -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイス概要]** アニメーション対象のインスタンスを取得します。<hr>
 
-**[Interface summary]** Get an animation target instance.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `target`: VariableNameInterface
-  - An animation target instance.
+  - アニメーション対象のインスタンス。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap

@@ -10,37 +10,37 @@ from typing import Dict
 MAPPING: Dict[str, str] = {
 
     '# AnimationBase class animation_complete interface':
-    '# AnimationBaseクラス animation_complete インターフェイス',
+    '# AnimationBase クラス animation_complete インターフェイス',
 
     'This page explains the `AnimationBase` class `animation_complete` method interface.':  # noqa
-    '',
+    'このページでは`AnimationBase`クラスの`animation_complete`メソッドのインターフェイスについて説明します。',
 
     '## What interface is this?':
-    '',
+    '## インターフェイス概要',
 
     'The `animation_complete` method binds a handler that the animation calls when its end.':  # noqa
-    '',
+    '`animation_complete`メソッドはアニメーションが終了したときのハンドラを設定します。',
 
     'The handler\'s arguments require the event instance (`ap.AnimationEvent`) at the first argument and the options dictionary at the second argument.':  # noqa
-    '',
+    'ハンドラの引数には第一引数にイベントのインスタンス（`ap.AnimationEvent`）、第二引数にはオプションのパラメーターとなる辞書が必要になります。',
 
     '## Basic usage':
-    '',
+    '## 基本的な使い方',
 
     'The `animation_complete` method requires a handler at the first argument and the optional options dictionary at the second argument.':  # noqa
-    '',
+    '`animation_complete`メソッドは第一引数にハンドラが必要となり、第二引数にはオプションのパラメーターの辞書を設定することができます。',
 
     'The following example calls the `animation_complete` method at the x-coordinate animation end. It starts another animation to reset the x-coordinate:':  # noqa
-    '',
+    '以下のコード例ではX座標のアニメーション終了時用に`animation_complete`メソッドを読んでハンドラを設定しています。そのハンドラ内ではX座標をリセットするための別のアニメーションを開始しています。',
 
     '```py\n# runnable\nimport apysc as ap\n\nDURATION: int = 1000\n\n\ndef on_animation_complete_1(\n        e: ap.AnimationEvent[ap.Rectangle],\n        options: dict) -> None:\n    """\n    The handler that animation calls when its end.\n\n    Parameters\n    ----------\n    e : ap.AnimationEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rectangle: ap.Rectangle = e.this.target\n    animation_x: ap.AnimationX = rectangle.animation_x(\n        x=50, duration=DURATION)\n    animation_x.animation_complete(on_animation_complete_2)\n    animation_x.start()\n\n\ndef on_animation_complete_2(\n        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:\n    """\n    The handler that animation calls when its end.\n\n    Parameters\n    ----------\n    e : ap.AnimationEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rectangle: ap.Rectangle = e.this.target\n    animation_x: ap.AnimationX = rectangle.animation_x(\n        x=100, duration=DURATION)\n    animation_x.animation_complete(on_animation_complete_1)\n    animation_x.start()\n\n\nap.Stage(\n    stage_width=200, stage_height=150, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\n\nanimation_x: ap.AnimationX = rectangle.animation_x(\n    x=100, duration=1000)\nanimation_x.animation_complete(on_animation_complete_1)\nanimation_x.start()\n\nap.save_overall_html(\n    dest_dir_path=\'./animation_complete_basic_usage/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nDURATION: int = 1000\n\n\ndef on_animation_complete_1(\n        e: ap.AnimationEvent[ap.Rectangle],\n        options: dict) -> None:\n    """\n    The handler that animation calls when its end.\n\n    Parameters\n    ----------\n    e : ap.AnimationEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rectangle: ap.Rectangle = e.this.target\n    animation_x: ap.AnimationX = rectangle.animation_x(\n        x=50, duration=DURATION)\n    animation_x.animation_complete(on_animation_complete_2)\n    animation_x.start()\n\n\ndef on_animation_complete_2(\n        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:\n    """\n    The handler that animation calls when its end.\n\n    Parameters\n    ----------\n    e : ap.AnimationEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rectangle: ap.Rectangle = e.this.target\n    animation_x: ap.AnimationX = rectangle.animation_x(\n        x=100, duration=DURATION)\n    animation_x.animation_complete(on_animation_complete_1)\n    animation_x.start()\n\n\nap.Stage(\n    stage_width=200, stage_height=150, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\n\nanimation_x: ap.AnimationX = rectangle.animation_x(\n    x=100, duration=1000)\nanimation_x.animation_complete(on_animation_complete_1)\nanimation_x.start()\n\nap.save_overall_html(\n    dest_dir_path=\'./animation_complete_basic_usage/\')\n```',  # noqa
 
     '## Notes about the other interface calling order':
-    '',
+    '## 他のインターフェイスを呼び出す際の特記事項',
 
     'You can only call the `animation_complete` before the animation start, so if you call the `animation_complete` method after the `start` method, it raises an exception:':  # noqa
-    '',
+    '`animation_complete`メソッドはアニメーション開始前にのみ設定することができます。`start`メソッド呼び出し後に`animation_complete`メソッドを呼び出すとエラーになります。',
 
     '```py\nimport apysc as ap\n\n\ndef on_animation_complete(\n        e: ap.AnimationEvent[ap.Rectangle],\n        options: dict) -> None:\n    """\n    The handler that animation calls when its end.\n\n    Parameters\n    ----------\n    e : ap.AnimationEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    ap.trace(\'Animation complete!\')\n\n\nap.Stage(\n    stage_width=200, stage_height=200, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\n\nanimation_move: ap.AnimationMove = rectangle.animation_move(\n    x=100, y=100, duration=1000)\nanimation_move.start()\nanimation_move.animation_complete(on_animation_complete)\n```':  # noqa
     '```py\nimport apysc as ap\n\n\ndef on_animation_complete(\n        e: ap.AnimationEvent[ap.Rectangle],\n        options: dict) -> None:\n    """\n    The handler that animation calls when its end.\n\n    Parameters\n    ----------\n    e : ap.AnimationEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    ap.trace(\'Animation complete!\')\n\n\nap.Stage(\n    stage_width=200, stage_height=200, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\n\nanimation_move: ap.AnimationMove = rectangle.animation_move(\n    x=100, y=100, duration=1000)\nanimation_move.start()\nanimation_move.animation_complete(on_animation_complete)\n```',  # noqa
@@ -49,19 +49,19 @@ MAPPING: Dict[str, str] = {
     '```\nException: This interface can not be called after the animation is started.\n```',  # noqa
 
     'The calling of the `animation_complete` method before the `start` method works correctly:':  # noqa
-    '',
+    '`start`メソッド呼び出し前に`animation_complete`メソッドを呼び出すことで正常に動作します:',
 
     '```py\n# runnable\nimport apysc as ap\n\n\ndef on_animation_complete(\n        e: ap.AnimationEvent[ap.Rectangle],\n        options: dict) -> None:\n    """\n    The handler that animation calls when its end.\n\n    Parameters\n    ----------\n    e : ap.AnimationEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    ap.trace(\'Animation complete!\')\n\n\nap.Stage(\n    stage_width=200, stage_height=200, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\n\nanimation_move: ap.AnimationMove = rectangle.animation_move(\n    x=100, y=100, duration=1000)\nanimation_move.animation_complete(on_animation_complete)\nanimation_move.start()\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\n\ndef on_animation_complete(\n        e: ap.AnimationEvent[ap.Rectangle],\n        options: dict) -> None:\n    """\n    The handler that animation calls when its end.\n\n    Parameters\n    ----------\n    e : ap.AnimationEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    ap.trace(\'Animation complete!\')\n\n\nap.Stage(\n    stage_width=200, stage_height=200, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\n\nanimation_move: ap.AnimationMove = rectangle.animation_move(\n    x=100, y=100, duration=1000)\nanimation_move.animation_complete(on_animation_complete)\nanimation_move.start()\n```',  # noqa
 
     '## animation_complete API':
-    '',
+    '## animation_complete API',
 
     '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
     '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
 
     '**[Interface summary]** Add an animation complete event listener setting.<hr>':  # noqa
-    '',
+    '**[インターフェイス概要]** アニメーション終了時のイベントリスナーの設定を追加します。<hr>',
 
     '**[Parameters]**':
     '**[引数]**',

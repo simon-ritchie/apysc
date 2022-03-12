@@ -1,6 +1,6 @@
 <span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](add_child_and_remove_child.md)の確認をお願いします。</span>
 
-# add_child と remove_child インターフェイス (日本語ドキュメント)
+# add_child と remove_child インターフェイス
 
 このページではGraphicsクラスやSprite、Stageクラスなどのコンテナーとして扱えるクラスが持つ`add_child`と`remove_child`のインターフェイスについて説明します。
 

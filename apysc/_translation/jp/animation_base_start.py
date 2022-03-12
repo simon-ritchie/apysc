@@ -9,8 +9,8 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# AnimationBase class start interface (English document)':
-    '# AnimationBaseクラス start インターフェイス (日本語ドキュメント)',
+    '# AnimationBase class start interface':
+    '# AnimationBaseクラス start インターフェイス',
 
     'This page explains the `AnimationBase` class `start` method interface.':  # noqa
     'このページでの`AnimationBase`クラスの`start`メソッドのインターフェイスについて説明します。',

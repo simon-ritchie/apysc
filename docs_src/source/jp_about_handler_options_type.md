@@ -1,6 +1,6 @@
 <span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](about_handler_options_type.md)の確認をお願いします。</span>
 
-# ハンドラのoptions引数の型について (日本語ドキュメント)
+# ハンドラのoptions引数の型について
 
 このページではイベントハンドラの`options`引数の型について説明します。
 

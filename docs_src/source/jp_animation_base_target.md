@@ -1,6 +1,6 @@
 <span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_base_target.md)の確認をお願いします。</span>
 
-# AnimationBase クラス target 属性のインターフェイス (日本語ドキュメント)
+# AnimationBase クラス target 属性のインターフェイス
 
 このページでは`AnimationBase`クラスの`target`属性のインターフェイスについて説明します。
 

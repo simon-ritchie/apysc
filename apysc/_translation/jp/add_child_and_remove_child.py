@@ -9,8 +9,8 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# add_child and remove_child interfaces (English document)':
-    '# add_child と remove_child インターフェイス (日本語ドキュメント)',
+    '# add_child and remove_child interfaces':
+    '# add_child と remove_child インターフェイス',
 
     'This page explains the container class, like the `Graphics`\\, `Sprite`\\, `Stage`) `add_child` and `remove_child` method interfaces.':  # noqa
     'このページではGraphicsクラスやSprite、Stageクラスなどのコンテナーとして扱えるクラスが持つ`add_child`と`remove_child`のインターフェイスについて説明します。',  # noqa

@@ -1,4 +1,4 @@
-# AnimationBase class start interface (English document)
+# AnimationBase class start interface
 
 This page explains the `AnimationBase` class `start` method interface.
 

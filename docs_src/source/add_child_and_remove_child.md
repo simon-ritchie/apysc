@@ -1,4 +1,4 @@
-# add_child and remove_child interfaces (English document)
+# add_child and remove_child interfaces
 
 This page explains the container class, like the `Graphics`\, `Sprite`\, `Stage`) `add_child` and `remove_child` method interfaces.
 

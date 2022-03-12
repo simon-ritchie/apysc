@@ -1,4 +1,4 @@
-# AnimationBase class animation_complete interface (English document)
+# AnimationBase class animation_complete interface
 
 This page explains the `AnimationBase` class `animation_complete` method interface.
 

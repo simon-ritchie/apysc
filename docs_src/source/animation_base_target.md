@@ -1,4 +1,4 @@
-# AnimationBase class target property interface (English document)
+# AnimationBase class target property interface
 
 This page explains the `AnimationBase` class `target` property interface.
 

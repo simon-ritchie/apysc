@@ -9,8 +9,8 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# AnimationBase class target property interface (English document)':
-    '# AnimationBase クラス target 属性のインターフェイス (日本語ドキュメント)',
+    '# AnimationBase class target property interface':
+    '# AnimationBase クラス target 属性のインターフェイス',
 
     'This page explains the `AnimationBase` class `target` property interface.':  # noqa
     'このページでは`AnimationBase`クラスの`target`属性のインターフェイスについて説明します。',

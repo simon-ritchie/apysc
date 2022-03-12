@@ -15,6 +15,22 @@ Append document's body text keys to a specified key's list.<hr>
 - `keys`: list of str
   - A key's list to append.
 
+## `_key_is_api_docs_list` function docstring
+
+Get a boolean indicating whether a specified key's string is an api document's (parameters, returns, exceptions) list.<hr>
+
+**[Parameters]**
+
+- `key_`: str
+  - A target key string to check.
+
+<hr>
+
+**[Returns]**
+
+- `result`: bool
+  - This interface returns True if a specified key string is an api document's list.
+
 ## `convert_splitted_values_to_keys` function docstring
 
 Convert specified splitted values to dictionary's key strings.<hr>

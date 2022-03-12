@@ -156,6 +156,24 @@ Set a fixed translation value if its mapping setting exists.<hr>
 - `fixed_value`: str
   - A fixed translation value. If there is no fixed translation mapping setting, this interface directly returns an argument's value.
 
+## `_set_same_value_if_api_params_or_returns_list` function docstring
+
+Set the same key as a value if a specified key string is an API parameters or returns list's line.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target key string.
+- `value`: str
+  - A target value.
+
+<hr>
+
+**[Returns]**
+
+- `value`: str
+  - This interface returns a key value if a specified key string is an API parameters or returns list's line. Otherwise this interface returns a specified value directly.
+
 ## `_set_same_value_if_code_block_mapping_is_blank` function docstring
 
 Set the same code-block value if a specified value is a blank string and a key's value is a code block.<hr>

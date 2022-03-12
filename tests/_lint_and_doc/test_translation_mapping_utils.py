@@ -125,8 +125,7 @@ def test__append_body_text_keys_to_list() -> None:
             'is complete.'
             '\\n- `options`: dict or None, default None'
             '\\n  - Optional arguments dictionary to be passed to a '
-            'handler.')
-        ,
+            'handler.'),
         keys=keys)
     assert keys == [
         '- `handler`: _Handler',

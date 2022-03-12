@@ -42,6 +42,22 @@ Apply an API signature translation mapping if a specified translated string is a
 - `translated_str`: str
   - An applied string. This interface returns an argument value if a specified translated string is not a signature string.
 
+## `_get_first_spaces_num` function docstring
+
+Get a first spaces number of a specified string.<hr>
+
+**[Parameters]**
+
+- `txt`: str
+  - A target string.
+
+<hr>
+
+**[Returns]**
+
+- `first_spaces_num`: int
+  - A first spaces number.
+
 ## `_get_sharp_heading_symbol_num` function docstring
 
 Get a sharp heading symbol number from a specified string.<hr>
@@ -58,9 +74,25 @@ Get a sharp heading symbol number from a specified string.<hr>
 - `sharp_symbol_num`: int
   - - A sharp heading symbol number.
 
-## `_validate_heading_tail_is_language` function docstring
+## `_remove_unnecessary_line_break_between_list` function docstring
 
-Validate whether a first heading's tail is a language (e.g., (English)) or not.<hr>
+Remove an unnecessary line break between each markdown's list.<hr>
+
+**[Parameters]**
+
+- `translated_doc`: str
+  - A target translated document to remove unnecessary line break.
+
+<hr>
+
+**[Returns]**
+
+- `result_translated_doc`: str
+  - A result translated document.
+
+## `_validate_first_spaces_nums_are_same` function docstring
+
+Validate whether first spaces numbers are the same between a source markdown and a translated markdown text.<hr>
 
 **[Parameters]**
 
@@ -75,7 +107,7 @@ Validate whether a first heading's tail is a language (e.g., (English)) or not.<
 
 **[Raises]**
 
-- _HeadingSuffixIsNotLanguage: If a heading's tail is not a language.
+- _FirstSpacesNumAreDifferent: This interface raises an exception if first spaces numbers are different.
 
 ## `_validate_sharp_heading_symbol_num_are_same` function docstring
 
@@ -133,7 +165,7 @@ Apply a translation mapping to a specified markdown document. This interface sav
 - `translated_file_path`: str
   - A translated document file path.
 
-## `_HeadingSuffixIsNotLanguage` class docstring
+## `_FirstSpacesNumAreDifferent` class docstring
 
 ## `_InvalidHeadingSharpSymbolNumber` class docstring
 

@@ -105,7 +105,7 @@ def test_escape_key_or_value() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_body_text_keys_to_list() -> None:
     keys: List[str] = []
     translation_mapping_utils._append_body_text_keys_to_list(
@@ -120,11 +120,11 @@ def test__append_body_text_keys_to_list() -> None:
     keys = []
     translation_mapping_utils._append_body_text_keys_to_list(
         key=(
-            '- `handler`: _Handler\n'
+            '- `handler`: _Handler\\n'
             '  - A callable that an instance calls when an animation '
             'is complete.'
-            '\n- `options`: dict or None, default None'
-            '\n  - Optional arguments dictionary to be passed to a '
+            '\\n- `options`: dict or None, default None'
+            '\\n  - Optional arguments dictionary to be passed to a '
             'handler.')
         ,
         keys=keys)

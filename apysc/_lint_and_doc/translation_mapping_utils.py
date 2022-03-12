@@ -161,14 +161,14 @@ def _append_body_text_keys_to_list(
     splitted_keys: List[str] = key.split('\\n\\n')
     for key_ in splitted_keys:
         if _key_is_api_docs_list(key_=key_):
-            lines: List[str] = key_.splitlines()
+            lines: List[str] = key_.split('\\n')
             keys.extend(lines)
         else:
             keys.append(key_)
 
 
 _API_DOCS_LIST_PATTERN: Pattern = re.compile(
-    pattern=r'^- [^\[].*?: .*?\n',
+    pattern=r'^- [^\[].*?: .*?\\n',
     flags=re.MULTILINE)
 
 

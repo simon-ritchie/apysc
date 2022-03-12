@@ -1,5 +1,10 @@
 /* Basic document style settings. */
 
+/* Headings style settings. */
+div.body h1, div.body h2 {
+    font-size: 150%;
+}
+
 /* Inline code block style stting. */
 span.pre {
     color: #e66 !important;

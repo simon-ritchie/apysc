@@ -331,7 +331,7 @@ jobs:
         with:
           NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_NAME }}'
           LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_LABEL }}'
-          STATUS: 'flake8, mypy, Pyright, numdoclint'
+          STATUS: 'flake8 | mypy | Pyright | numdoclint'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update tests line coverage
@@ -363,7 +363,7 @@ jobs:
         with:
           NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
           LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

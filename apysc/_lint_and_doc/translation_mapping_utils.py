@@ -156,7 +156,8 @@ def _append_body_text_keys_to_list(
     splitted_keys: List[str] = key.split('\\n\\n')
     for key_ in splitted_keys:
         if _key_is_api_docs_list(key_=key_):
-            pass
+            lines: List[str] = key_.splitlines()
+            keys.extend(lines)
         else:
             keys.append(key_)
 

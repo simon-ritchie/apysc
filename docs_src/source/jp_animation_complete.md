@@ -1,18 +1,20 @@
-# AnimationBase class animation_complete interface
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_complete.md)の確認をお願いします。</span>
 
-This page explains the `AnimationBase` class `animation_complete` method interface.
+# AnimationBase クラス animation_complete インターフェイス
 
-## What interface is this?
+このページでは`AnimationBase`クラスの`animation_complete`メソッドのインターフェイスについて説明します。
 
-The `animation_complete` method binds a handler that the animation calls when its end.
+## インターフェイス概要
 
-The handler's arguments require the event instance (`ap.AnimationEvent`) at the first argument and the options dictionary at the second argument.
+`animation_complete`メソッドはアニメーションが終了したときのハンドラを設定します。
 
-## Basic usage
+ハンドラの引数には第一引数にイベントのインスタンス（`ap.AnimationEvent`）、第二引数にはオプションのパラメーターとなる辞書が必要になります。
 
-The `animation_complete` method requires a handler at the first argument and the optional options dictionary at the second argument.
+## 基本的な使い方
 
-The following example calls the `animation_complete` method at the x-coordinate animation end. It starts another animation to reset the x-coordinate:
+`animation_complete`メソッドは第一引数にハンドラが必要となり、第二引数にはオプションのパラメーターの辞書を設定することができます。
+
+以下のコード例ではX座標のアニメーション終了時用に`animation_complete`メソッドを読んでハンドラを設定しています。そのハンドラ内ではX座標をリセットするための別のアニメーションを開始しています。
 
 ```py
 # runnable
@@ -79,9 +81,9 @@ ap.save_overall_html(
 
 <iframe src="static/animation_complete_basic_usage/index.html" width="200" height="150"></iframe>
 
-## Notes about the other interface calling order
+## 他のインターフェイスを呼び出す際の特記事項
 
-You can only call the `animation_complete` before the animation start, so if you call the `animation_complete` method after the `start` method, it raises an exception:
+`animation_complete`メソッドはアニメーション開始前にのみ設定することができます。`start`メソッド呼び出し後に`animation_complete`メソッドを呼び出すとエラーになります。
 
 ```py
 import apysc as ap
@@ -121,7 +123,7 @@ animation_move.animation_complete(on_animation_complete)
 Exception: This interface can not be called after the animation is started.
 ```
 
-The calling of the `animation_complete` method before the `start` method works correctly:
+`start`メソッド呼び出し前に`animation_complete`メソッドを呼び出すことで正常に動作します:
 
 ```py
 # runnable
@@ -158,44 +160,42 @@ animation_move.animation_complete(on_animation_complete)
 animation_move.start()
 ```
 
-
 ## animation_complete API
 
-<!-- Docstring: apysc._animation.animation_base.AnimationBase.animation_complete -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイスの構造]** `animation_complete(self, handler:Callable[[_ForwardRef('animation_event.AnimationEvent'), ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> 'AnimationBase'`<hr>
 
-**[Interface signature]** `animation_complete(self, handler:Callable[[_ForwardRef('animation_event.AnimationEvent'), ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> 'AnimationBase'`<hr>
+**[インターフェイス概要]** アニメーション終了時のイベントリスナーの設定を追加します。<hr>
 
-**[Interface summary]** Add an animation complete event listener setting.<hr>
-
-**[Parameters]**
+**[引数]**
 
 - `handler`: _Handler
-  - A callable that an instance calls when an animation is complete.
+  - アニメーション終了時に実行される関数もしくはメソッド。
+
 - `options`: dict or None, default None
-  - Optional arguments dictionary to be passed to a handler.
+  - オプションとしてのハンドラへ渡される各パラメーターの辞書。
 
 <hr>
 
-**[Returns]**
+**[返却値]**
 
 - `self`: AnimatonBase
-  - This instance.
+  - このインスタンス。
 
 <hr>
 
-**[Raises]**
+**[エラー発生条件]**
 
-- Exception: If calling this interface after an animation starts
+- Exception: もしアニメーション開始後にこのインターフェイスを呼び出している場合。
 
 <hr>
 
-**[Notes]**
+**[特記事項]**
 
-This interface can only use before an animation starts<hr>
+このインターフェイスはアニメーション開始前にのみ利用することができます。
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap
@@ -215,6 +215,6 @@ This interface can only use before an animation starts<hr>
 
 <hr>
 
-**[References]**
+**[関連資料]**
 
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html)

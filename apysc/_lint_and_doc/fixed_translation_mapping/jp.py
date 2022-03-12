@@ -71,4 +71,13 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='contains interface',
             value='contains インターフェイス'),
+        Mapping(
+            key='**[Notes]**',
+            value='**[特記事項]**'),
+        Mapping(
+            key='**[Raises]**',
+            value='**[エラー発生条件]**'),
+        Mapping(
+            key='About the handler options\\\' type document',
+            value='ハンドラのoptions引数の型について'),
     ])

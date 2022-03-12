@@ -191,7 +191,7 @@ def _set_same_value_if_api_params_or_returns_list(
 _LINK_PATTERN: Pattern = re.compile(
     pattern=(
         r'(.*?\[.+?\])'
-        r'\((.+?\.md)\)'
+        r'\((.+?\.(md|html))\)'
         r'(?P<after_txt>.*?)'
     ),
     flags=re.MULTILINE)
@@ -275,7 +275,8 @@ def _replace_link_text_by_fixed_mapping(
     link_texts: List[str] = _extract_link_texts(value=value)
     for link_text in link_texts:
         translation_str: str = data_model.get_fixed_translation_str_if_exists(
-            key=link_text, lang=lang)
+            key=link_text,
+            lang=lang)
         if translation_str == '':
             raise _LinkTextTranslationMappingNotFound(
                 'A specified link text\'s translation mapping is not found.'
@@ -290,7 +291,7 @@ def _replace_link_text_by_fixed_mapping(
 
 
 _LinkTextPattern: Pattern = re.compile(
-    pattern=r'.*?\[(.+?)\]\(.+?\.md\)',
+    pattern=r'.*?\[(.+?)\]\(.+?\.(md|html)\)',
     flags=re.MULTILINE)
 
 

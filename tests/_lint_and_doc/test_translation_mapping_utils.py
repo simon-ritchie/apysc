@@ -184,3 +184,27 @@ def test_get_hash_type_from_lang() -> None:
         func_or_method=translation_mapping_utils.
         get_hash_type_from_lang,
         kwargs={'lang': None})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__key_is_api_docs_list() -> None:
+    result: bool = translation_mapping_utils._key_is_api_docs_list(
+        key_='Lorem ipsum')
+    assert not result
+
+    result = translation_mapping_utils._key_is_api_docs_list(
+        key_=(
+            '- [test document 1](test/document/path1.md)'
+            '\n- [test document 2](test/document/path2.md)'
+        ))
+    assert not result
+
+    result = translation_mapping_utils._key_is_api_docs_list(
+        key_=(
+            '- `handler`: _Handler\n  - A callable that an '
+            'instance calls when an animation is complete.'
+            '\n- `options`: dict or None, default None\n'
+            '  - Optional arguments dictionary to be passed to '
+            'a handler.'
+        ))
+    assert result

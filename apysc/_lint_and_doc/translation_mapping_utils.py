@@ -155,7 +155,38 @@ def _append_body_text_keys_to_list(
     """
     splitted_keys: List[str] = key.split('\\n\\n')
     for key_ in splitted_keys:
-        keys.append(key_)
+        if _key_is_api_docs_list(key_=key_):
+            pass
+        else:
+            keys.append(key_)
+
+
+_API_DOCS_LIST_PATTERN: Pattern = re.compile(
+    pattern=r'^- [^\[].*?: .*?\n',
+    flags=re.MULTILINE)
+
+
+def _key_is_api_docs_list(*, key_: str) -> bool:
+    """
+    Get a boolean indicating whether a specified key's string
+    is an api document's (parameters, returns, exceptions) list.
+
+    Parameters
+    ----------
+    key_ : str
+        A target key string to check.
+
+    Returns
+    -------
+    result : bool
+        This interface returns True if a specified key string
+        is an api document's list.
+    """
+    match: Optional[Match] = _API_DOCS_LIST_PATTERN.search(
+        string=key_)
+    if match is None:
+        return False
+    return True
 
 
 def escape_key_or_value(*, key_or_val: str) -> str:

@@ -72,8 +72,11 @@ MAPPING: Dict[str, str] = {
     '**[Parameters]**':
     '**[引数]**',
 
-    '- `child`: DisplayObject\n  - Child instance to add.':
-    '- `child`: DisplayObject\n  - 追加対象となる子のインスタンス.',
+    '- `child`: DisplayObject':
+    '- `child`: DisplayObject',
+
+    '  - Child instance to add.':
+    '  - 追加する子のインスタンス。',
 
     '**[Examples]**':
     '**[コードサンプル]**',
@@ -93,8 +96,11 @@ MAPPING: Dict[str, str] = {
     '**[Parameters]**':
     '**[引数]**',
 
-    '- `child`: DisplayObject\n  - Child instance to remove.':
-    '- `child`: DisplayObject\n  - 取り除く対象の子のインスタンス。',
+    '- `child`: DisplayObject':
+    '- `child`: DisplayObject',
+
+    '  - Child instance to remove.':
+    '  - 取り除く子のインスタンス。',
 
     '**[Examples]**':
     '**[コードサンプル]**',

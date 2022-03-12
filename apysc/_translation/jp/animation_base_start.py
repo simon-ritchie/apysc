@@ -48,8 +48,11 @@ MAPPING: Dict[str, str] = {
     '**[Returns]**':
     '**[返却値]**',
 
-    '- `self`: AnimatonBase\n  - This instance.':
-    'self`: AnimatonBase\n  - このインスタンス自体を返却します。',
+    '- `self`: AnimatonBase':
+    '- `self`: AnimatonBase',
+
+    '  - This instance.':
+    '  - このインスタンス。',
 
     '**[Examples]**':
     '**[コードサンプル]**',

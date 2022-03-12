@@ -135,7 +135,6 @@ ap.save_overall_html(
 ## 関連資料
 
 - [DisplayObjectクラス parent インターフェイス](jp_display_object_parent.md)
-
 - [contains インターフェイス](jp_contains.md)
 
 ## add_child API
@@ -149,7 +148,7 @@ ap.save_overall_html(
 **[引数]**
 
 - `child`: DisplayObject
-  - 追加対象となる子のインスタンス.
+  - 追加する子のインスタンス。
 
 <hr>
 
@@ -177,7 +176,7 @@ ap.save_overall_html(
 **[引数]**
 
 - `child`: DisplayObject
-  - 取り除く対象の子のインスタンス。
+  - 取り除く子のインスタンス。
 
 <hr>
 

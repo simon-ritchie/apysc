@@ -60,8 +60,11 @@ MAPPING: Dict[str, str] = {
     '**[Returns]**':
     '**[返却値]**',
 
-    '- `target`: VariableNameInterface\n  - An animation target instance.':
-    '- `target`: VariableNameInterface\n  - アニメーション対象のインスタンス。',
+    '- `target`: VariableNameInterface':
+    '- `target`: VariableNameInterface',
+
+    '  - An animation target instance.':
+    '  - アニメーション対象のインスタンス。',
 
     '**[Examples]**':
     '**[コードサンプル]**',

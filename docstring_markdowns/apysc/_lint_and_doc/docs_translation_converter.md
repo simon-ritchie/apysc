@@ -81,14 +81,14 @@ Remove an unnecessary line break between each markdown's list.<hr>
 **[Parameters]**
 
 - `translated_doc`: str
-  - A target translated document to remove an unnecessary line break.
+  - A target translated document to remove unnecessary line break.
 
 <hr>
 
 **[Returns]**
 
 - `result_translated_doc`: str
-  - A result translated document.
+  - A target translated document to remove an unnecessary line break.
 
 ## `_validate_first_spaces_nums_are_same` function docstring
 

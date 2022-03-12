@@ -1,6 +1,6 @@
 <span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](sprite.md)の確認をお願いします。</span>
 
-# Sprite (日本語ドキュメント)
+# Spriteクラス
 
 このページでは、`Sprite`クラスについて説明します。
 
@@ -39,11 +39,9 @@ ap.save_overall_html(
 詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。
 
 - [Graphicsクラス](jp_graphics.md)
-
 - [Graphicsクラス begin_fill インターフェイス](jp_graphics_begin_fill.md)
 
 - [Graphicsクラス line_style インターフェイス](jp_graphics_line_style.md)
-
 - [Graphicsクラス draw_rect インターフェイス](jp_graphics_draw_rect.md)
 
 - [Graphicsクラス draw_circle インターフェイス](jp_graphics_draw_circle.md)
@@ -96,11 +94,9 @@ ap.save_overall_html(
 ## 関連資料
 
 - [add_child と remove_child インターフェイス](jp_add_child_and_remove_child.md)
-
 - [contains インターフェイス](jp_contains.md)
 
 - [num_children インターフェイス](jp_num_children.md)
-
 - [get_child_at インターフェイス](jp_get_child_at.md)
 
 ## SpriteクラスのコンストラクタAPI
@@ -114,7 +110,7 @@ ap.save_overall_html(
 **[引数]**
 
 - `variable_name`: str or None, default None
-  - このインスタンスのJavaScriptで使用するための変数名です。Spriteクラスのサブクラスを使う場合を除いてこの引数の指定は不要です。
+  - このインスタンスの（JavaScript上などで使われる）変数名の設定値。apyscの内部実装で`Sprite`クラスのサブクラスをインスタンス化する時以外は設定は不要です。
 
 <hr>
 

@@ -72,8 +72,11 @@ MAPPING: Dict[str, str] = {
     '**[Parameters]**':
     '**[引数]**',
 
-    '- `variable_name`: str or None, default None\n  - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.':  # noqa
-    '- `variable_name`: str or None, default None\n  - このインスタンスのJavaScriptで使用するための変数名です。Spriteクラスのサブクラスを使う場合を除いてこの引数の指定は不要です。',  # noqa
+    '- `variable_name`: str or None, default None':
+    '- `variable_name`: str or None, default None',
+
+    '  - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.':  # noqa
+    '  - このインスタンスの（JavaScript上などで使われる）変数名の設定値。apyscの内部実装で`Sprite`クラスのサブクラスをインスタンス化する時以外は設定は不要です。',  # noqa
 
     '**[Examples]**':
     '**[コードサンプル]**',

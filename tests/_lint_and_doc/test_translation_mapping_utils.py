@@ -213,15 +213,15 @@ def test__key_is_api_docs_list() -> None:
     result = translation_mapping_utils._key_is_api_docs_list(
         key_=(
             '- [test document 1](test/document/path1.md)'
-            '\n- [test document 2](test/document/path2.md)'
+            '\\n- [test document 2](test/document/path2.md)'
         ))
     assert not result
 
     result = translation_mapping_utils._key_is_api_docs_list(
         key_=(
-            '- `handler`: _Handler\n  - A callable that an '
+            '- `handler`: _Handler\\n  - A callable that an '
             'instance calls when an animation is complete.'
-            '\n- `options`: dict or None, default None\n'
+            '\\n- `options`: dict or None, default None\\n'
             '  - Optional arguments dictionary to be passed to '
             'a handler.'
         ))

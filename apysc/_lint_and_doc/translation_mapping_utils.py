@@ -36,10 +36,15 @@ _CODE_BLOCK_IFRAME_PATTERN: str = (
     r'<iframe src="static.*?index\.html".*?></iframe>'
 )
 
+_API_DOC_PARAMS_OR_RETURNS_NAME_PATTERN: str = (
+    r'^- \`.+?\`\: .*?$'
+)
+
 MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
     re.compile(pattern=_HR_TAG_PATTERN,),
     re.compile(pattern=_INTERFACE_SIGNATURE_PATTERN),
     re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN),
+    re.compile(pattern=_API_DOC_PARAMS_OR_RETURNS_NAME_PATTERN),
 ]
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]

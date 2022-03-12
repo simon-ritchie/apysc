@@ -130,7 +130,7 @@ def _validate_first_spaces_nums_are_same(
         md_file_path: str) -> None:
     """
     Validate whether first spaces numbers are the same between
-    a source markdown and tlanslated markdown text.
+    a source markdown and a translated markdown text.
 
     Parameters
     ----------
@@ -149,7 +149,16 @@ def _validate_first_spaces_nums_are_same(
     """
     translated_str_first_spaces_num: int = _get_first_spaces_num(
         txt=translated_str)
-    pass
+    key_first_spaces_num: int = _get_first_spaces_num(txt=key)
+    if translated_str_first_spaces_num == key_first_spaces_num:
+        return
+    raise _FirstSpacesNumAreDifferent(
+        'First spaces numbers are not the same between a '
+        'source markdown and a translated markdown text.'
+        f'\nSource string: {key}'
+        f'\nTranslated string: {translated_str}'
+        f'\nSource document path: {md_file_path}'
+    )
 
 
 def _get_first_spaces_num(*, txt: str) -> int:

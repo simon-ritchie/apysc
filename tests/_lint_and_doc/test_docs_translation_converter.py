@@ -8,7 +8,7 @@ from apysc._lint_and_doc import docs_translation_converter
 from apysc._lint_and_doc import translation_mapping_utils
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import \
-    _InvalidHeadingSharpSymbolNumber
+    _InvalidHeadingSharpSymbolNumber, _FirstSpacesNumAreDifferent
 from apysc._lint_and_doc.docs_translation_converter import \
     _TranslationMappingNotFound
 from tests.testing_helper import assert_raises
@@ -166,3 +166,22 @@ def test__get_first_spaces_num() -> None:
     first_spaces_num: int = docs_translation_converter._get_first_spaces_num(
         txt='    - Lorem ipsum')
     assert first_spaces_num == 4
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__validate_first_spaces_nums_are_same() -> None:
+    docs_translation_converter._validate_first_spaces_nums_are_same(
+        translated_str='    - Lorem ipsum',
+        key='    - テストテキスト',
+        md_file_path='test/path_1.md')
+
+    assert_raises(
+        expected_error_class=_FirstSpacesNumAreDifferent,
+        func_or_method=docs_translation_converter.
+        _validate_first_spaces_nums_are_same,
+        kwargs={
+            'translated_str': '    - Lorem ipsum',
+            'key': '   - テストテキスト',
+            'md_file_path': 'test/path_1.md',
+        },
+        match='First spaces numbers are not the same')

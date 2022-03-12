@@ -82,7 +82,7 @@ animation_x: ap.AnimationX = rectangle.animation_x(x=100)
 animation_x.animation_complete(on_animation_complete)
 ```
 
-## target property API
+## target 属性のAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 

@@ -80,4 +80,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='About the handler options\\\' type document',
             value='ハンドラのoptions引数の型について'),
+        Mapping(
+            key='## Basic usage',
+            value='## 使い方例'),
     ])

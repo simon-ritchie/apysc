@@ -1,16 +1,18 @@
-# Animation interfaces delay setting
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_delay.md)の確認をお願いします。</span>
 
-This page explains the animation interfaces `delay` setting.
+# 各アニメーションのインターフェイスのdelayの設定
 
-## What setting is this?
+このページでは各アニメーションのインターフェイスの`delay`の設定について説明します。
 
-The `delay` setting determines the delay time before the animation starts. For instance, if you specify 3000 to the `delay` argument, the animation starts after 3 seconds after.
+## 設定概要
 
-Each animation method interface (such as the `animation_move`\, `animation_x`\, and so on) has the `delay` argument.
+`delay`の設定はアニメーション開始前の遅延時間を値を設定することができます。たとえば`delay`の引数に3000を指定すればアニメーションは3秒後に開始します。
 
-## Basic usage
+`animation_move`や`animation_x`などの各アニメーションのインターフェイスはこの`delay`引数を持っています。
 
-The following example sets 2 seconds between each x-coordinate animation (pause 2 seconds before animation starts):
+## 使い方例
+
+以下の例では各X座標のアニメーション間で2秒の遅延設定(delay)を行っています。2秒間停止してからアニメーションが開始します。
 
 ```py
 # runnable

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Animation interfaces delay setting &#8212; apysc  documentation</title>
+    <title>各アニメーションのインターフェイスのdelayの設定 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Each animation interface return value" href="animation_return_value.html" />
-    <link rel="prev" title="Animation interfaces duration setting" href="animation_duration.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="animation_return_value.html" title="Each animation interface return value"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="animation_duration.html" title="Animation interfaces duration setting"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Animation interfaces delay setting</a></li> 
+        <li class="nav-item nav-item-this"><a href="">各アニメーションのインターフェイスのdelayの設定</a></li> 
       </ul>
     </div>  
 
@@ -43,17 +35,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="animation-interfaces-delay-setting">
-<h1>Animation interfaces delay setting<a class="headerlink" href="#animation-interfaces-delay-setting" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the animation interfaces <code class="docutils literal notranslate"><span class="pre">delay</span></code> setting.</p>
-<section id="what-setting-is-this">
-<h2>What setting is this?<a class="headerlink" href="#what-setting-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">delay</span></code> setting determines the delay time before the animation starts. For instance, if you specify 3000 to the <code class="docutils literal notranslate"><span class="pre">delay</span></code> argument, the animation starts after 3 seconds after.</p>
-<p>Each animation method interface (such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, and so on) has the <code class="docutils literal notranslate"><span class="pre">delay</span></code> argument.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="animation_delay.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="delay">
+<h1>各アニメーションのインターフェイスのdelayの設定<a class="headerlink" href="#delay" title="Permalink to this headline">¶</a></h1>
+<p>このページでは各アニメーションのインターフェイスの<code class="docutils literal notranslate"><span class="pre">delay</span></code>の設定について説明します。</p>
+<section id="id1">
+<h2>設定概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">delay</span></code>の設定はアニメーション開始前の遅延時間を値を設定することができます。たとえば<code class="docutils literal notranslate"><span class="pre">delay</span></code>の引数に3000を指定すればアニメーションは3秒後に開始します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">animation_move</span></code>や<code class="docutils literal notranslate"><span class="pre">animation_x</span></code>などの各アニメーションのインターフェイスはこの<code class="docutils literal notranslate"><span class="pre">delay</span></code>引数を持っています。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example sets 2 seconds between each x-coordinate animation (pause 2 seconds before animation starts):</p>
+<section id="id2">
+<h2>使い方例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下の例では各X座標のアニメーション間で2秒の遅延設定(delay)を行っています。2秒間停止してからアニメーションが開始します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -133,19 +126,13 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Animation interfaces delay setting</a><ul>
-<li><a class="reference internal" href="#what-setting-is-this">What setting is this?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#">各アニメーションのインターフェイスのdelayの設定</a><ul>
+<li><a class="reference internal" href="#id1">設定概要</a></li>
+<li><a class="reference internal" href="#id2">使い方例</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_duration.html"
-                        title="previous chapter">Animation interfaces duration setting</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_return_value.html"
-                        title="next chapter">Each animation interface return value</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -166,14 +153,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="animation_return_value.html" title="Each animation interface return value"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="animation_duration.html" title="Animation interfaces duration setting"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Animation interfaces delay setting</a></li> 
+        <li class="nav-item nav-item-this"><a href="">各アニメーションのインターフェイスのdelayの設定</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

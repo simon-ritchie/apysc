@@ -106,9 +106,6 @@ def apply_translation_to_doc(
         _validate_sharp_heading_symbol_num_are_same(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
-        _validate_heading_tail_is_language(
-            translated_str=translated_str, key=key,
-            md_file_path=md_file_path)
 
     translated_file_path: str = translation_mapping_utils.\
         get_translated_file_path_from_src_path(
@@ -117,60 +114,6 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
-
-
-class _HeadingSuffixIsNotLanguage(Exception):
-    pass
-
-
-_SUPPORTED_LANGUAGES_TAILS: List[str] = [
-    '(English document)',
-    '(日本語ドキュメント)',
-]
-
-
-def _validate_heading_tail_is_language(
-        *, translated_str: str, key: str,
-        md_file_path: str) -> None:
-    """
-    Validate whether a first heading's tail is
-    a language (e.g., (English)) or not.
-
-    Parameters
-    ----------
-    translated_str : str
-        A translated string.
-    key : str
-        A key (source) string.
-    md_file_path : str
-        A source markdown file path.
-
-    Raises
-    ------
-    _HeadingSuffixIsNotLanguage
-        If a heading's tail is not a language.
-    """
-    sharp_symbol_num: int = _get_sharp_heading_symbol_num(
-        target_str=translated_str)
-    if sharp_symbol_num != 1:
-        return
-
-    for target_str in (translated_str, key):
-        tail_is_language: bool = False
-        for supported_language_tail in _SUPPORTED_LANGUAGES_TAILS:
-            if target_str.endswith(supported_language_tail):
-                tail_is_language = True
-                break
-
-        if tail_is_language:
-            continue
-        raise _HeadingSuffixIsNotLanguage(
-            'A source document or translated string\'s heading tail '
-            'is not a language.'
-            '\nPlease append a language tail (e.g., (English)).'
-            f'\n\nSource string: {key}'
-            f'\nTranslated string: {translated_str}'
-            f'\nSource document path: {md_file_path}')
 
 
 class _InvalidHeadingSharpSymbolNumber(Exception):

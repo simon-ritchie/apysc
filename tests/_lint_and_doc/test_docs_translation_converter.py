@@ -8,8 +8,6 @@ from apysc._lint_and_doc import docs_translation_converter
 from apysc._lint_and_doc import translation_mapping_utils
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import \
-    _HeadingSuffixIsNotLanguage
-from apysc._lint_and_doc.docs_translation_converter import \
     _InvalidHeadingSharpSymbolNumber
 from apysc._lint_and_doc.docs_translation_converter import \
     _TranslationMappingNotFound
@@ -132,39 +130,3 @@ def test__validate_sharp_heading_symbol_num_are_same() -> None:
             'md_file_path': './test/source/path.md',
         },
         match='There is a difference between source document')
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__validate_heading_tail_is_language() -> None:
-    docs_translation_converter._validate_heading_tail_is_language(
-        translated_str='テストテキスト',
-        key='Lorem ipsum',
-        md_file_path='./test/source/path.md')
-
-    docs_translation_converter._validate_heading_tail_is_language(
-        translated_str='テストテキスト (Japanese)',
-        key='Lorem ipsum (English)',
-        md_file_path='./test/source/path.md')
-
-    assert_raises(
-        expected_error_class=_HeadingSuffixIsNotLanguage,
-        func_or_method=docs_translation_converter.
-        _validate_heading_tail_is_language,
-        kwargs={
-            'translated_str': '# テストテキスト',
-            'key': 'Lorem ipsum (English)',
-            'md_file_path': './test/source/path.md',
-        },
-        match='A source document or translated string\'s '
-              'heading tail is not a language')
-    assert_raises(
-        expected_error_class=_HeadingSuffixIsNotLanguage,
-        func_or_method=docs_translation_converter.
-        _validate_heading_tail_is_language,
-        kwargs={
-            'translated_str': '# テストテキスト (Japanese)',
-            'key': 'Lorem ipsum',
-            'md_file_path': './test/source/path.md',
-        },
-        match='A source document or translated string\'s '
-              'heading tail is not a language')

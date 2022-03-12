@@ -1,4 +1,4 @@
-# About the handler options' type (English document)
+# About the handler options' type
 
 This page explains the event handler `options` argument's type.
 

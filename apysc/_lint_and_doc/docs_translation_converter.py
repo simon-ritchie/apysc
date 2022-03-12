@@ -106,6 +106,9 @@ def apply_translation_to_doc(
         _validate_sharp_heading_symbol_num_are_same(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
+        _validate_first_spaces_nums_are_same(
+            translated_str=translated_str, key=key,
+            md_file_path=md_file_path)
 
     translated_file_path: str = translation_mapping_utils.\
         get_translated_file_path_from_src_path(
@@ -116,6 +119,59 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+class _FirstSpacesNumAreDifferent(Exception):
+    pass
+
+
+def _validate_first_spaces_nums_are_same(
+        *, translated_str: str, key: str,
+        md_file_path: str) -> None:
+    """
+    Validate whether first spaces numbers are the same between
+    a source markdown and tlanslated markdown text.
+
+    Parameters
+    ----------
+    translated_str : str
+        A translated string.
+    key : str
+        A key (source) string.
+    md_file_path : str
+        A source markdown file path.
+
+    Raises
+    ------
+    _FirstSpacesNumAreDifferent
+        This interface raises an exception if first spaces
+        numbers are different.
+    """
+    translated_str_first_spaces_num: int = _get_first_spaces_num(
+        txt=translated_str)
+    pass
+
+
+def _get_first_spaces_num(*, txt: str) -> int:
+    """
+    Get a first spaces number of a specified string.
+
+    Parameters
+    ----------
+    txt : str
+        A target string.
+
+    Returns
+    -------
+    first_spaces_num : int
+        A first spaces number.
+    """
+    first_spaces_num: int = 0
+    for char in txt:
+        if char != ' ':
+            break
+        first_spaces_num += 1
+    return first_spaces_num
 
 
 def _remove_unnecessary_line_break_between_list(

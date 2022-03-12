@@ -159,3 +159,10 @@ def test__remove_unnecessary_line_break_between_list() -> None:
         '\n- [テストテキスト5](test/path_3.md)'
         '\n\nテストテキスト6'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_first_spaces_num() -> None:
+    first_spaces_num: int = docs_translation_converter._get_first_spaces_num(
+        txt='    - Lorem ipsum')
+    assert first_spaces_num == 4

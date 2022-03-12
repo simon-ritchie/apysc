@@ -110,10 +110,36 @@ def apply_translation_to_doc(
     translated_file_path: str = translation_mapping_utils.\
         get_translated_file_path_from_src_path(
             source_doc_path=md_file_path, lang=lang)
+    translated_doc = _remove_unnecessary_line_break_between_list(
+        translated_doc=translated_doc)
     file_util.save_plain_txt(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+def _remove_unnecessary_line_break_between_list(
+        *, translated_doc: str) -> str:
+    """
+    Remove an unnecessary line break between each markdown's list.
+
+    Parameters
+    ----------
+    translated_doc : str
+        A target translated document to remove unnecessary line break.
+
+    Returns
+    -------
+    result_translated_doc : str
+        A result translated document.
+    """
+    result_translated_doc: str = re.sub(
+        pattern=(
+            r'(?P<prev_part>\s*?- .+?$\n)\n(?P<after_part>\s*?- )'
+        ),
+        repl=r'\g<prev_part>\g<after_part>',
+        string=translated_doc, flags=re.MULTILINE)
+    return result_translated_doc
 
 
 class _InvalidHeadingSharpSymbolNumber(Exception):

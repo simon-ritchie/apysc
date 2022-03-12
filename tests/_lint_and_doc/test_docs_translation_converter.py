@@ -130,3 +130,32 @@ def test__validate_sharp_heading_symbol_num_are_same() -> None:
             'md_file_path': './test/source/path.md',
         },
         match='There is a difference between source document')
+
+
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_unnecessary_line_break_between_list() -> None:
+    translated_doc: str = (
+        '# テスト見出し1'
+        '\n\nテストテキスト1'
+        '\n\n'
+        '## テスト見出し2'
+        '\n\nテストテキスト2'
+        '\n\n- [テストテキスト3](test/path_1.md)'
+        '\n\n- [テストテキスト4](test/path_2.md)'
+        '\n- [テストテキスト5](test/path_3.md)'
+        '\n\nテストテキスト6'
+    )
+    result_translated_doc = docs_translation_converter.\
+        _remove_unnecessary_line_break_between_list(
+            translated_doc=translated_doc)
+    assert result_translated_doc == (
+        '# テスト見出し1'
+        '\n\nテストテキスト1'
+        '\n\n'
+        '## テスト見出し2'
+        '\n\nテストテキスト2'
+        '\n\n- [テストテキスト3](test/path_1.md)'
+        '\n- [テストテキスト4](test/path_2.md)'
+        '\n- [テストテキスト5](test/path_3.md)'
+        '\n\nテストテキスト6'
+    )

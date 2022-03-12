@@ -164,8 +164,8 @@ _API_DOC_PARAMS_OR_RETURNS_NAME_PATTERN: Pattern = re.compile(
 def _set_same_value_if_api_params_or_returns_list(
         *, key: str, value: str) -> str:
     """
-    Set the same key as a value if a specified key string is an
-    API parameters or returns list's line.
+    Set the same key as a value if a specified key string
+    is an API's parameters or returns list's line.
 
     Parameters
     ----------
@@ -177,9 +177,9 @@ def _set_same_value_if_api_params_or_returns_list(
     Returns
     -------
     value : str
-        This interface returns a key value if a specified key
-        string is an API parameters or returns list's line.
-        Otherwise this interface returns a specified value directly.
+        This interface returns a key's value if a specified
+        key string is an API's parameters or returns line.
+        Otherwise, this interface returns a specified value directly.
     """
     match: Optional[Match] = _API_DOC_PARAMS_OR_RETURNS_NAME_PATTERN.match(
         string=key)

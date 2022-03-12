@@ -158,7 +158,7 @@ Set a fixed translation value if its mapping setting exists.<hr>
 
 ## `_set_same_value_if_api_params_or_returns_list` function docstring
 
-Set the same key as a value if a specified key string is an API parameters or returns list's line.<hr>
+Set the same key as a value if a specified key string is an API's parameters or returns list's line.<hr>
 
 **[Parameters]**
 
@@ -172,7 +172,7 @@ Set the same key as a value if a specified key string is an API parameters or re
 **[Returns]**
 
 - `value`: str
-  - This interface returns a key value if a specified key string is an API parameters or returns list's line. Otherwise this interface returns a specified value directly.
+  - This interface returns a key's value if a specified key string is an API's parameters or returns line. Otherwise, this interface returns a specified value directly.
 
 ## `_set_same_value_if_code_block_mapping_is_blank` function docstring
 

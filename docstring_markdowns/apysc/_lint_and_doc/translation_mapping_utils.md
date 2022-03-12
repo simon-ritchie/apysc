@@ -17,7 +17,7 @@ Append document's body text keys to a specified key's list.<hr>
 
 ## `_key_is_api_docs_list` function docstring
 
-Get a boolean indicating whether a specified key's string is an api document's (parameters, returns, exceptions) list.<hr>
+Get a boolean indicating whether a specified key's string is an API document's (parameters, returns, exceptions) list.<hr>
 
 **[Parameters]**
 
@@ -29,7 +29,7 @@ Get a boolean indicating whether a specified key's string is an api document's (
 **[Returns]**
 
 - `result`: bool
-  - This interface returns True if a specified key string is an api document's list.
+  - This interface returns True if a specified key string is an API document's list.
 
 ## `convert_splitted_values_to_keys` function docstring
 

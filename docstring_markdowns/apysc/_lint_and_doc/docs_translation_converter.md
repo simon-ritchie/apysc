@@ -81,7 +81,7 @@ Remove an unnecessary line break between each markdown's list.<hr>
 **[Parameters]**
 
 - `translated_doc`: str
-  - A target translated document to remove unnecessary line break.
+  - A target translated document to remove an unnecessary line break.
 
 <hr>
 

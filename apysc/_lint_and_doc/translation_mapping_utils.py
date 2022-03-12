@@ -169,8 +169,8 @@ _API_DOCS_LIST_PATTERN: Pattern = re.compile(
 
 def _key_is_api_docs_list(*, key_: str) -> bool:
     """
-    Get a boolean indicating whether a specified key's string
-    is an api document's (parameters, returns, exceptions) list.
+    Get a boolean indicating whether a specified key's
+    string is an API document's (parameters, returns, exceptions) list.
 
     Parameters
     ----------
@@ -181,7 +181,7 @@ def _key_is_api_docs_list(*, key_: str) -> bool:
     -------
     result : bool
         This interface returns True if a specified key string
-        is an api document's list.
+        is an API document's list.
     """
     match: Optional[Match] = _API_DOCS_LIST_PATTERN.search(
         string=key_)

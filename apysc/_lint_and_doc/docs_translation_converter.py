@@ -196,7 +196,8 @@ def _remove_unnecessary_line_break_between_list(
     Returns
     -------
     result_translated_doc : str
-        A result translated document.
+        A target translated document to remove an unnecessary
+        line break.
     """
     result_translated_doc: str = re.sub(
         pattern=(

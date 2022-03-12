@@ -155,14 +155,6 @@ def test_is_mapping_unnecessary_key() -> None:
     assert result
 
     result = translation_mapping_utils.is_mapping_unnecessary_key(
-        key='- `options`: dict or None, default None')
-    assert result
-
-    result = translation_mapping_utils.is_mapping_unnecessary_key(
-        key='  - Optional arguments dictionary to be passed to a handler.')
-    assert not result
-
-    result = translation_mapping_utils.is_mapping_unnecessary_key(
         key='Lorem ipsum dolor sit.')
     assert not result
 

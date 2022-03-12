@@ -150,8 +150,42 @@ def _make_mappings_from_keys(
             key=key, value=value)
         value = _convert_link_list_by_lang(
             key=key, value=value, lang=lang)
+        value = _set_same_value_if_api_params_or_returns_list(
+            key=key, value=value)
         mappings.append({key: value})
     return mappings
+
+
+_API_DOC_PARAMS_OR_RETURNS_NAME_PATTERN: Pattern = re.compile(
+    pattern=r'^\- \`.+?\`\: .*$'
+)
+
+
+def _set_same_value_if_api_params_or_returns_list(
+        *, key: str, value: str) -> str:
+    """
+    Set the same key as a value if a specified key string is an
+    API parameters or returns list's line.
+
+    Parameters
+    ----------
+    key : str
+        A target key string.
+    value : str
+        A target value.
+
+    Returns
+    -------
+    value : str
+        This interface returns a key value if a specified key
+        string is an API parameters or returns list's line.
+        Otherwise this interface returns a specified value directly.
+    """
+    match: Optional[Match] = _API_DOC_PARAMS_OR_RETURNS_NAME_PATTERN.match(
+        string=key)
+    if match is None:
+        return value
+    return key
 
 
 _LINK_PATTERN: Pattern = re.compile(

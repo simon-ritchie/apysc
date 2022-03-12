@@ -303,3 +303,18 @@ def test__replace_link_text_by_fixed_mapping() -> None:
         '\n- [Graphicsクラス line_style インターフェイス](graphics_line_style.md)'
     )
     assert value == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__set_same_value_if_api_params_or_returns_list() -> None:
+    value: str = add_doc_translation_mapping_blank_data.\
+        _set_same_value_if_api_params_or_returns_list(
+            key='Lorem ipsum',
+            value='テストテキスト')
+    assert value == 'テストテキスト'
+
+    value = add_doc_translation_mapping_blank_data.\
+        _set_same_value_if_api_params_or_returns_list(
+            key='- `self`: AnimatonBase',
+            value='テストテキスト')
+    assert value == '- `self`: AnimatonBase'

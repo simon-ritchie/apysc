@@ -163,14 +163,15 @@ def _append_body_text_keys_to_list(
 
 
 _API_DOCS_LIST_PATTERN: Pattern = re.compile(
-    pattern=r'^- [^\[].*?: .*?\\n',
+    pattern=r'^- .+?\\n',
     flags=re.MULTILINE)
 
 
 def _key_is_api_docs_list(*, key_: str) -> bool:
     """
     Get a boolean indicating whether a specified key's
-    string is an API document's (parameters, returns, exceptions) list.
+    string is an API document's (parameters, returns, exceptions,
+    references) list.
 
     Parameters
     ----------

@@ -43,34 +43,38 @@ MAPPINGS: Mappings = Mappings(
             value='Graphicsクラス'),
         Mapping(
             key='Graphics begin_fill interface',
-            value='Graphicsクラス begin_fill インターフェイス'),
+            value='Graphicsクラス begin_fill （塗り設定）の'
+                  'インターフェイス'),
         Mapping(
             key='Graphics line_style interface',
-            value='Graphicsクラス line_style インターフェイス'),
+            value='Graphicsクラス line_style （線設定）の'
+                  'インターフェイス'),
         Mapping(
             key='Graphics draw_rect interface',
-            value='Graphicsクラス draw_rect インターフェイス'),
+            value='Graphicsクラス draw_rect （四角描画）の'
+                  'インターフェイス'),
         Mapping(
             key='Graphics draw_circle interface',
-            value='Graphicsクラス draw_circle インターフェイス'),
+            value='Graphicsクラス draw_circle （円描画）の'
+                  'インターフェイス'),
         Mapping(
             key='add_child and remove_child interfaces',
-            value='add_child と remove_child インターフェイス'),
+            value='add_child （子の追加）と remove_child （子の削除）'
+                  'のインターフェイス'),
         Mapping(
             key='contains interface',
             value='contains インターフェイス'),
         Mapping(
             key='num_children interface',
-            value='num_children インターフェイス'),
+            value='num_children （子の件数属性）のインターフェイス'),
         Mapping(
             key='get_child_at interface',
-            value='get_child_at インターフェイス'),
+            value='get_child_at （特定位置の子の取得処理）の'
+                  'インターフェイス'),
         Mapping(
             key='DisplayObject class parent interfaces',
-            value='DisplayObjectクラス parent インターフェイス'),
-        Mapping(
-            key='contains interface',
-            value='contains インターフェイス'),
+            value='DisplayObjectクラス parent （親要素属性）の'
+                  'インターフェイス'),
         Mapping(
             key='**[Notes]**',
             value='**[特記事項]**'),
@@ -94,7 +98,8 @@ MAPPINGS: Mappings = Mappings(
             value='## インターフェイス概要'),
         Mapping(
             key='Animation interfaces duration setting document',
-            value='各アニメーションインターフェイスの duration 設定'),
+            value='各アニメーションインターフェイスの duration '
+                  '（アニメーション時間）設定'),
         Mapping(
             key='Each animation interface return value document',
             value='各アニメーションインターフェイスの返却値'),
@@ -103,8 +108,29 @@ MAPPINGS: Mappings = Mappings(
             value='連続したアニメーション設定'),
         Mapping(
             key='animation_parallel interface document',
-            value='animation_parallel インターフェイス'),
+            value='animation_parallel （並列アニメーション設定）の'
+                  'インターフェイス'),
         Mapping(
             key='Easing enum document',
             value='イージングのenum'),
+        Mapping(
+            key='  - Milliseconds before an animation ends.',
+            value='  - アニメーション完了までのミリ秒。'),
+        Mapping(
+            key='  - Milliseconds before an animation starts.',
+            value='  - アニメーション開始までの遅延時間のミリ秒。'),
+        Mapping(
+            key='  - Easing setting.',
+            value='  - イージング設定。'),
+        Mapping(
+            key='To start this animation, you need to call the '
+                '`start` method of the returned instance.<hr>',
+            value='アニメーションを開始するには返却されたインスタンスの'
+                  '`start`メソッドを呼び出す必要があります。<hr>'),
+        Mapping(
+            key='Animation interfaces delay setting document',
+            value='各アニメーションインターフェイスの delay （遅延時間）設定'),
+        Mapping(
+            key='  - Created animation setting instance.',
+            value='  - 生成されたアニメーションのインスタンス。'),
     ])

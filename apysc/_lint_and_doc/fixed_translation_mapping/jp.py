@@ -133,4 +133,16 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Created animation setting instance.',
             value='  - 生成されたアニメーションのインスタンス。'),
+        Mapping(
+            key='<details>\\n<summary>Display the code block:</summary>',
+            value='<details>\\n<summary>コードブロックを表示:</summary>'),
+        Mapping(
+            key='animation_x interface document',
+            value='animation_x （X座標のアニメーション）のインターフェイス'),
+        Mapping(
+            key='animation_y interface document',
+            value='animation_y （Y座標のアニメーション）のインターフェイス'),
+        Mapping(
+            key='animation_move interface document',
+            value='animation_move （XとY座標のアニメーション）のインターフェイス'),
     ])

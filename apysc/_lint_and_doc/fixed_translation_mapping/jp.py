@@ -86,4 +86,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='## What setting is this?',
             value='## 設定概要'),
+        Mapping(
+            key='## What class is this?',
+            value='## クラス概要'),
     ])

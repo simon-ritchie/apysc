@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>AnimationEvent class &#8212; apysc  documentation</title>
+    <title>AnimationEvent クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Animation interfaces duration setting" href="animation_duration.html" />
-    <link rel="prev" title="Animation interfaces abstract" href="animation_interfaces_abstract.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="animation_duration.html" title="Animation interfaces duration setting"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="animation_interfaces_abstract.html" title="Animation interfaces abstract"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">AnimationEvent class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">AnimationEvent クラス</a></li> 
       </ul>
     </div>  
 
@@ -43,16 +35,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="animationevent-class">
-<h1>AnimationEvent class<a class="headerlink" href="#animationevent-class" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> class.</p>
-<section id="what-class-is-this">
-<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
-<p>An animation-related event handler uses the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> class, such as the complete animation event. Each animation interface passes this event instance to the handler.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="animation_event.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="animationevent">
+<h1>AnimationEvent クラス<a class="headerlink" href="#animationevent" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>クラスについて説明します。</p>
+<section id="id1">
+<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>アニメーション終了時のイベントなどの各アニメーション関連のイベントで<code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>クラスは使用されます。各アニメーションのインターフェイスはイベントのハンドラへこのイベントのインスタンスを渡します。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example sets the animation complete event handler. The animation interface passes the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> instance argument as the <code class="docutils literal notranslate"><span class="pre">e:</span> <span class="pre">ap.AnimationEvent</span></code>:</p>
+<section id="id2">
+<h2>使い方例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下の例ではアニメーション完了時のイベントのハンドラへ<code class="docutils literal notranslate"><span class="pre">e:</span> <span class="pre">ap.AnimationEvent</span></code>という指定で<code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>のインスタンスの引数を設定しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -84,10 +77,10 @@
 </pre></div>
 </div>
 </section>
-<section id="this-property">
-<h2>this property<a class="headerlink" href="#this-property" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> instance’s <code class="docutils literal notranslate"><span class="pre">this</span></code> property is a subclass instance of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class, such as the <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code>, <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>, or other class.</p>
-<p>This type depends on the called interface, e.g., if you use the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> interface, <code class="docutils literal notranslate"><span class="pre">this</span></code> property type becomes an <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance.</p>
+<section id="this">
+<h2>this属性<a class="headerlink" href="#this" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>のインスタンスの<code class="docutils literal notranslate"><span class="pre">this</span></code>属性は<code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code>や<code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>等の<code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>クラスのサブクラスになります。</p>
+<p>この属性の型は呼んだアニメーションのインターフェイスによって変動します。例えば<code class="docutils literal notranslate"><span class="pre">animation_x</span></code>のインターフェイスであれば<code class="docutils literal notranslate"><span class="pre">this</span></code>属性の型は<code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>クラスのインスタンスとなります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -119,10 +112,10 @@
 </pre></div>
 </div>
 </section>
-<section id="generic-type-annotation">
-<h2>Generic type annotation<a class="headerlink" href="#generic-type-annotation" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> class can set a generic type annotation. If you set a generic type annotation, then the animation target property type (e.g., <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>) changes.</p>
-<p>The following example sets a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> generic type annotation to the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> and benefits from type checking libraries (such as the <code class="docutils literal notranslate"><span class="pre">mypy</span></code> or <code class="docutils literal notranslate"><span class="pre">Pylance</span></code>).</p>
+<section id="id3">
+<h2>ジェネリックの型アノテーション<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>クラスはジェネリックの型アノテーションを行うことができます。もし型アノテーションをした場合にはアニメーション対象の値となる<code class="docutils literal notranslate"><span class="pre">target</span></code>属性は（<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>などの）型アノテーションを行った型のインスタンスになります。</p>
+<p>以下のコードでは<code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>の値に<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>のジェネリックの型アノテーションを行っており、mypyやPylanceなどでの型チェックのライブラリやエディタなどでの恩恵を受けることができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -156,20 +149,20 @@
 </pre></div>
 </div>
 </section>
-<section id="animationevent-constructor-api">
-<h2>AnimationEvent constructor API<a class="headerlink" href="#animationevent-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.animation_event.AnimationEvent.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">this:'animation_base.AnimationBase[_T]')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Animation event class.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<section id="animationevent-api">
+<h2>AnimationEvent クラスのコンストラクタのAPI<a class="headerlink" href="#animationevent-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">this:'animation_base.AnimationBase[_T]')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> アニメーション関係のイベントのクラス。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: AnimationBase</p>
 <ul>
-<li><p>Animation setting instance.</p></li>
+<li><p>アニメーションの設定を扱うインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span>
@@ -185,19 +178,19 @@
 </pre></div>
 </div>
 </section>
-<section id="this-property-api">
-<h2>this property API<a class="headerlink" href="#this-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.animation_event.AnimationEvent.this --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get an animation setting instance of listening to this event.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="thisapi">
+<h2>this属性のAPI<a class="headerlink" href="#thisapi" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> <hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: AnimationBase</p>
 <ul>
-<li><p>Instance of listening to this event.</p></li>
+<li><p>このイベントが登録されているインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span>
@@ -227,23 +220,17 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">AnimationEvent class</a><ul>
-<li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#this-property">this property</a></li>
-<li><a class="reference internal" href="#generic-type-annotation">Generic type annotation</a></li>
-<li><a class="reference internal" href="#animationevent-constructor-api">AnimationEvent constructor API</a></li>
-<li><a class="reference internal" href="#this-property-api">this property API</a></li>
+<li><a class="reference internal" href="#">AnimationEvent クラス</a><ul>
+<li><a class="reference internal" href="#id1">クラス概要</a></li>
+<li><a class="reference internal" href="#id2">使い方例</a></li>
+<li><a class="reference internal" href="#this">this属性</a></li>
+<li><a class="reference internal" href="#id3">ジェネリックの型アノテーション</a></li>
+<li><a class="reference internal" href="#animationevent-api">AnimationEvent クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#thisapi">this属性のAPI</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_interfaces_abstract.html"
-                        title="previous chapter">Animation interfaces abstract</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_duration.html"
-                        title="next chapter">Animation interfaces duration setting</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -264,14 +251,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="animation_duration.html" title="Animation interfaces duration setting"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="animation_interfaces_abstract.html" title="Animation interfaces abstract"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">AnimationEvent class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">AnimationEvent クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -1,14 +1,16 @@
-# AnimationEvent class
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_event.md)の確認をお願いします。</span>
 
-This page explains the `AnimationEvent` class.
+# AnimationEvent クラス
 
-## What class is this?
+このページでは`AnimationEvent`クラスについて説明します。
 
-An animation-related event handler uses the `AnimationEvent` class, such as the complete animation event. Each animation interface passes this event instance to the handler.
+## クラス概要
 
-## Basic usage
+アニメーション終了時のイベントなどの各アニメーション関連のイベントで`AnimationEvent`クラスは使用されます。各アニメーションのインターフェイスはイベントのハンドラへこのイベントのインスタンスを渡します。
 
-The following example sets the animation complete event handler. The animation interface passes the `AnimationEvent` instance argument as the `e: ap.AnimationEvent`:
+## 使い方例
+
+以下の例ではアニメーション完了時のイベントのハンドラへ`e: ap.AnimationEvent`という指定で`AnimationEvent`のインスタンスの引数を設定しています。
 
 ```py
 # runnable
@@ -41,11 +43,11 @@ animation_x.animation_complete(on_animation_complete)
 animation_x.start()
 ```
 
-## this property
+## this属性
 
-The `AnimationEvent` instance's `this` property is a subclass instance of the `AnimationBase` class, such as the `AnimationMove`\, `AnimationX`\, or other class.
+`AnimationEvent`のインスタンスの`this`属性は`AnimationMove`や`AnimationX`等の`AnimationEvent`クラスのサブクラスになります。
 
-This type depends on the called interface, e.g., if you use the `animation_x` interface, `this` property type becomes an `AnimationX` instance.
+この属性の型は呼んだアニメーションのインターフェイスによって変動します。例えば`animation_x`のインターフェイスであれば`this`属性の型は`AnimationX`クラスのインスタンスとなります。
 
 ```py
 # runnable
@@ -78,11 +80,11 @@ animation_x.animation_complete(on_animation_complete)
 animation_x.start()
 ```
 
-## Generic type annotation
+## ジェネリックの型アノテーション
 
-The `AnimationEvent` class can set a generic type annotation. If you set a generic type annotation, then the animation target property type (e.g., `DisplayObject`) changes.
+`AnimationEvent`クラスはジェネリックの型アノテーションを行うことができます。もし型アノテーションをした場合にはアニメーション対象の値となる`target`属性は（`DisplayObject`などの）型アノテーションを行った型のインスタンスになります。
 
-The following example sets a `Rectangle` generic type annotation to the `AnimationEvent` and benefits from type checking libraries (such as the `mypy` or `Pylance`).
+以下のコードでは`AnimationEvent`の値に`Rectangle`のジェネリックの型アノテーションを行っており、mypyやPylanceなどでの型チェックのライブラリやエディタなどでの恩恵を受けることができます。
 
 ```py
 # runnable
@@ -117,25 +119,22 @@ animation_x.animation_complete(on_animation_complete)
 animation_x.start()
 ```
 
+## AnimationEvent クラスのコンストラクタのAPI
 
-## AnimationEvent constructor API
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<!-- Docstring: apysc._event.animation_event.AnimationEvent.__init__ -->
+**[インターフェイスの構造]** `__init__(self, *, this:'animation_base.AnimationBase[_T]') -> None`<hr>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイス概要]** アニメーション関係のイベントのクラス。<hr>
 
-**[Interface signature]** `__init__(self, *, this:'animation_base.AnimationBase[_T]') -> None`<hr>
-
-**[Interface summary]** Animation event class.<hr>
-
-**[Parameters]**
+**[引数]**
 
 - `this`: AnimationBase
-  - Animation setting instance.
+  - アニメーションの設定を扱うインスタンス。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap
@@ -152,22 +151,20 @@ animation_x.start()
 ...     x=100).animation_complete(on_animation_complete)
 ```
 
-## this property API
+## this属性のAPI
 
-<!-- Docstring: apysc._event.animation_event.AnimationEvent.this -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイス概要]** <hr>
 
-**[Interface summary]** Get an animation setting instance of listening to this event.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `this`: AnimationBase
-  - Instance of listening to this event.
+  - このイベントが登録されているインスタンス。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap

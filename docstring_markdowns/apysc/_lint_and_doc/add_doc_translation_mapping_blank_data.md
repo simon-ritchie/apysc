@@ -117,13 +117,7 @@ Replace each link text if there are fixed translation-mapping settings.<hr>
 **[Returns]**
 
 - `value`: str
-  - A replaced link text.
-
-<hr>
-
-**[Raises]**
-
-- _LinkTextTranslationMappingNotFound: If there is no translation mapping.
+  - A replaced link text. This interface returns a blank string if there is no translation mapping.
 
 ## `_save_mapping_data` function docstring
 
@@ -192,6 +186,24 @@ Set the same code-block value if a specified value is a blank string and a key's
 - `value`: str
   - A result value. If an argument value is not a blank string, this interface returns it directly. If a key's value is not a code block, this interface also returns an argument value directly.
 
+## `_set_same_value_if_key_is_no_mapping_fixed_string` function docstring
+
+Set the same key as a value if a specified key is a no-mapping fixed string.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target key string.
+- `value`: str
+  - A target value.
+
+<hr>
+
+**[Returns]**
+
+- `value`: str
+  - This interface returns a key's value if a specified key is a no-mapping fixed string. Otherwise, this interface returns a specified value directly.
+
 ## `add_mapping_blank_data` function docstring
 
 Add a mapping's blank data of document translations.<hr>
@@ -200,5 +212,3 @@ Add a mapping's blank data of document translations.<hr>
 
 - `lang`: Lang
   - A target translation language.
-
-## `_LinkTextTranslationMappingNotFound` class docstring

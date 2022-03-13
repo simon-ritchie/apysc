@@ -14,7 +14,6 @@ from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
-from tests.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -286,7 +285,7 @@ def test__replace_link_text_by_fixed_mapping() -> None:
             lang=Lang.JP)
     assert value == ''
 
-    value: str = add_doc_translation_mapping_blank_data.\
+    value = add_doc_translation_mapping_blank_data.\
         _replace_link_text_by_fixed_mapping(
             value=(
                 '- [Graphics class](graphics.md)'

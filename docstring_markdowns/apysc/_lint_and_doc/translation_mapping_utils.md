@@ -17,7 +17,7 @@ Append document's body text keys to a specified key's list.<hr>
 
 ## `_key_is_api_docs_list` function docstring
 
-Get a boolean indicating whether a specified key's string is an API document's (parameters, returns, exceptions) list.<hr>
+Get a boolean indicating whether a specified key's string is an API document's (parameters, returns, exceptions, references) list.<hr>
 
 **[Parameters]**
 

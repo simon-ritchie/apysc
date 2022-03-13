@@ -89,4 +89,22 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='## What class is this?',
             value='## クラス概要'),
+        Mapping(
+            key='## What interface is this?',
+            value='## インターフェイス概要'),
+        Mapping(
+            key='Animation interfaces duration setting document',
+            value='各アニメーションインターフェイスの duration 設定'),
+        Mapping(
+            key='Each animation interface return value document',
+            value='各アニメーションインターフェイスの返却値'),
+        Mapping(
+            key='Sequential animation setting document',
+            value='連続したアニメーション設定'),
+        Mapping(
+            key='animation_parallel interface document',
+            value='animation_parallel インターフェイス'),
+        Mapping(
+            key='Easing enum document',
+            value='イージングのenum'),
     ])

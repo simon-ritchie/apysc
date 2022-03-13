@@ -223,7 +223,8 @@ def test__convert_link_list_by_lang() -> None:
             lang=Lang.JP)
     assert value == (
         '- [Graphicsクラス](any/jp_path_1.md)'
-        '\\n- [Graphicsクラス begin_fill インターフェイス](any/jp_path_2.md)'
+        '\\n- [Graphicsクラス begin_fill （塗り設定）の'
+        'インターフェイス](any/jp_path_2.md)'
     )
 
 
@@ -294,7 +295,8 @@ def test__replace_link_text_by_fixed_mapping() -> None:
             lang=Lang.JP)
     expected: str = (
         '- [Graphicsクラス](graphics.md)'
-        '\n- [Graphicsクラス line_style インターフェイス](graphics_line_style.md)'
+        '\n- [Graphicsクラス line_style （線設定）のインターフェイス]'
+        '(graphics_line_style.md)'
     )
     assert value == expected
 
@@ -312,3 +314,16 @@ def test__set_same_value_if_api_params_or_returns_list() -> None:
             key='- `self`: AnimatonBase',
             value='テストテキスト')
     assert value == '- `self`: AnimatonBase'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__set_same_value_if_key_is_no_mapping_fixed_string() -> None:
+    value: str = add_doc_translation_mapping_blank_data.\
+        _set_same_value_if_key_is_no_mapping_fixed_string(
+            key='</details>', value='')
+    assert value == '</details>'
+
+    value = add_doc_translation_mapping_blank_data.\
+        _set_same_value_if_key_is_no_mapping_fixed_string(
+            key='Lorem ipsum', value='')
+    assert value == ''

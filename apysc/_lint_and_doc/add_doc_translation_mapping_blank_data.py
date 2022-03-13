@@ -38,6 +38,10 @@ from apysc._lint_and_doc.translation_mapping_utils import \
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
+_NO_MAPPING_FIXED_STRINGS: List[str] = [
+    '</details>',
+]
+
 
 def add_mapping_blank_data(*, lang: Lang) -> None:
     """
@@ -152,6 +156,8 @@ def _make_mappings_from_keys(
             key=key, value=value, lang=lang)
         value = _set_same_value_if_api_params_or_returns_list(
             key=key, value=value)
+        value = _set_same_value_if_key_is_no_mapping_fixed_string(
+            key=key, value=value)
         mappings.append({key: value})
     return mappings
 
@@ -159,6 +165,32 @@ def _make_mappings_from_keys(
 _API_DOC_PARAMS_OR_RETURNS_NAME_PATTERN: Pattern = re.compile(
     pattern=r'^\- \`.+?\`\: .*$'
 )
+
+
+def _set_same_value_if_key_is_no_mapping_fixed_string(
+        *, key: str, value: str) -> str:
+    """
+    Set the same key as a value if a specified key is a
+    no-mapping fixed string.
+
+    Parameters
+    ----------
+    key : str
+        A target key string.
+    value : str
+        A target value.
+
+    Returns
+    -------
+    value : str
+        This interface returns a key's value if a specified
+        key is a no-mapping fixed string. Otherwise, this
+        interface returns a specified value directly.
+    """
+    for no_mapping_fixed_string in _NO_MAPPING_FIXED_STRINGS:
+        if key == no_mapping_fixed_string:
+            return key
+    return value
 
 
 def _set_same_value_if_api_params_or_returns_list(

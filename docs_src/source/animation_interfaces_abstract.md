@@ -983,7 +983,9 @@ ap.save_overall_html(
 
 ## Easing
 
-The easing setting can be set with the `easing` argument of each animation interface. For more details: [Easing enum document](easing_enum.md)
+The easing setting can be set with the `easing` argument of each animation interface. For more details:
+
+- [Easing enum document](easing_enum.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1088,7 +1090,9 @@ ap.save_overall_html(
 
 ## X animation
 
-The `animation_x` interface sets the x-coordinate animation. For more details: [animation_x interface document](animation_x.md)
+The `animation_x` interface sets the x-coordinate animation. For more details:
+
+- [animation_x interface document](animation_x.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1159,7 +1163,9 @@ ap.save_overall_html(
 ## Y animation
 
 
-The `animation_y` interface sets the y-coordinate animation. For more details: [animation_y interface document](animation_y.md)
+The `animation_y` interface sets the y-coordinate animation. For more details:
+
+- [animation_y interface document](animation_y.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1229,7 +1235,9 @@ ap.save_overall_html(
 
 ## Move animation
 
-The `animation_move` interface sets the x- and y-coordinates animation. For more details: [animation_move interface document](animation_move.md)
+The `animation_move` interface sets the x- and y-coordinates animation. For more details:
+
+- [animation_move interface document](animation_move.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1299,7 +1307,9 @@ ap.save_overall_html(
 
 ## Width animation
 
-The `animation_width` interface sets the width animation. For more details: [animation_width and animation_height interfaces document](animation_width_and_height.md)
+The `animation_width` interface sets the width animation. For more details:
+
+- [animation_width and animation_height interfaces document](animation_width_and_height.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1369,7 +1379,9 @@ ap.save_overall_html(
 
 ## Height animation
 
-The `animation_height` interface sets the height animation. For more details: [animation_width and animation_height interfaces document](animation_width_and_height.md)
+The `animation_height` interface sets the height animation. For more details:
+
+- [animation_width and animation_height interfaces document](animation_width_and_height.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1439,7 +1451,9 @@ ap.save_overall_html(
 
 ## Fill color animation
 
-The `animation_fill_color` interface sets the fill color animation. For more details: [animation_fill_color interface document](animation_fill_color.md)
+The `animation_fill_color` interface sets the fill color animation. For more details:
+
+- [animation_fill_color interface document](animation_fill_color.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1509,7 +1523,9 @@ ap.save_overall_html(
 
 ## Fill alpha animation
 
-The `animation_fill_alpha` interface sets the alpha (opacity) animation. For more details: [animation_fill_alpha interface document](animation_fill_alpha.md)
+The `animation_fill_alpha` interface sets the alpha (opacity) animation. For more details:
+
+- [animation_fill_alpha interface document](animation_fill_alpha.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1579,7 +1595,9 @@ ap.save_overall_html(
 
 ## Line-color animation
 
-The `animation_line_color` interface sets the line color animation. For more details: [animation_line_color interface document](animation_line_color.md)
+The `animation_line_color` interface sets the line color animation. For more details:
+
+- [animation_line_color interface document](animation_line_color.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1649,7 +1667,9 @@ ap.save_overall_html(
 
 ## Line alpha animation
 
-The `animation_line_alpha` interface sets the line alpha (opacity) animation. For more details: [animation_line_alpha interface document](animation_line_alpha.md)
+The `animation_line_alpha` interface sets the line alpha (opacity) animation. For more details:
+
+- [animation_line_alpha interface document](animation_line_alpha.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1719,7 +1739,9 @@ ap.save_overall_html(
 
 ## Line thickness animation
 
-The `animation_line_thickness` interface sets the line thickness (stroke width) animation. For more details: [animation_line_thickness interface document](animation_line_thickness.md)
+The `animation_line_thickness` interface sets the line thickness (stroke width) animation. For more details:
+
+- [animation_line_thickness interface document](animation_line_thickness.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1789,7 +1811,9 @@ ap.save_overall_html(
 
 ## Radius animation
 
-The `animation_radius` interface sets the radius (for instance, circle's radius) animation. For more details: [animation_radius interface document](animation_radius.md)
+The `animation_radius` interface sets the radius (for instance, circle's radius) animation. For more details:
+
+- [animation_radius interface document](animation_radius.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1859,7 +1883,9 @@ ap.save_overall_html(
 
 ## Rotation animation around the center point
 
-The `animation_rotation_around_center` interface sets the rotation animation around the center point. For more details: [animation_rotation_around_center interface document](animation_rotation_around_center.md)
+The `animation_rotation_around_center` interface sets the rotation animation around the center point. For more details:
+
+- [animation_rotation_around_center interface document](animation_rotation_around_center.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1932,7 +1958,9 @@ ap.save_overall_html(
 
 ## Rotation animation around the specified point
 
-The `animation_rotation_around_point` interface sets the rotation animation around the specified point. For more details: [animation_rotation_around_point interface document](animation_rotation_around_point.md)
+The `animation_rotation_around_point` interface sets the rotation animation around the specified point. For more details:
+
+- [animation_rotation_around_point interface document](animation_rotation_around_point.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -2005,7 +2033,9 @@ ap.save_overall_html(
 
 ## Scale-x animation from the center point
 
-The `animation_scale_x_from_center` interface sets the scale-x animation from the center point. For more details: [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)
+The `animation_scale_x_from_center` interface sets the scale-x animation from the center point. For more details:
+
+- [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -2078,7 +2108,9 @@ ap.save_overall_html(
 
 ## Scale-y animation from the center point
 
-The `animation_scale_y_from_center` interface sets the scale-y animation from the center point. For more details: [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)
+The `animation_scale_y_from_center` interface sets the scale-y animation from the center point. For more details:
+
+- [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -2151,7 +2183,9 @@ ap.save_overall_html(
 
 ## Scale-x animation from the specified point
 
-The `animation_scale_x_from_point` interface sets the scale-x animation from the specified point. For more details: [animation_scale_x_from_point and animation_scale_y_from_point interfaces document](animation_scale_x_and_y_from_point.md)
+The `animation_scale_x_from_point` interface sets the scale-x animation from the specified point. For more details:
+
+- [animation_scale_x_from_point and animation_scale_y_from_point interfaces document](animation_scale_x_and_y_from_point.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -2224,7 +2258,9 @@ ap.save_overall_html(
 
 ## Scale-y animation from the specified point
 
-The `animation_scale_y_from_point` interface sets the scale-y animation from the specified point. For more details: [animation_scale_x_from_point and animation_scale_y_from_point interfaces document](animation_scale_x_and_y_from_point.md)
+The `animation_scale_y_from_point` interface sets the scale-y animation from the specified point. For more details:
+
+- [animation_scale_x_from_point and animation_scale_y_from_point interfaces document](animation_scale_x_and_y_from_point.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -2297,7 +2333,9 @@ ap.save_overall_html(
 
 ## Skew-x animation
 
-The `animation_skew_x` interface sets the skew-x animation. For more details: [animation_skew_x interface document](animation_skew_x.md)
+The `animation_skew_x` interface sets the skew-x animation. For more details:
+
+- [animation_skew_x interface document](animation_skew_x.md)
 
 <details>
 <summary>Display the code block:</summary>

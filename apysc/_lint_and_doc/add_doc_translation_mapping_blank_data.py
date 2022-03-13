@@ -244,10 +244,6 @@ def _convert_link_list_by_lang(
     return value
 
 
-class _LinkTextTranslationMappingNotFound(Exception):
-    pass
-
-
 def _replace_link_text_by_fixed_mapping(
         *, value: str, lang: Lang) -> str:
     """
@@ -264,12 +260,8 @@ def _replace_link_text_by_fixed_mapping(
     Returns
     -------
     value : str
-        A replaced link text.
-
-    Raises
-    ------
-    _LinkTextTranslationMappingNotFound
-        If there is no translation mapping.
+        A replaced link text. This interface returns a blank string
+        if there is no translation mapping.
     """
     from apysc._lint_and_doc.fixed_translation_mapping import data_model
     link_texts: List[str] = _extract_link_texts(value=value)
@@ -278,13 +270,7 @@ def _replace_link_text_by_fixed_mapping(
             key=link_text,
             lang=lang)
         if translation_str == '':
-            raise _LinkTextTranslationMappingNotFound(
-                'A specified link text\'s translation mapping is not found.'
-                f'\nPlease append a mapping setting to the {lang.value}.py '
-                'module.'
-                f'\nTarget link text: {link_text}'
-                f'\nLanguage: {lang.value}'
-            )
+            return ''
         value = value.replace(
             f'[{link_text}](', f'[{translation_str}](')
     return value

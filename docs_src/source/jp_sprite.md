@@ -39,12 +39,12 @@ ap.save_overall_html(
 詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。
 
 - [Graphicsクラス](jp_graphics.md)
-- [Graphicsクラス begin_fill インターフェイス](jp_graphics_begin_fill.md)
+- [Graphicsクラス begin_fill （塗り設定）のインターフェイス](jp_graphics_begin_fill.md)
 
-- [Graphicsクラス line_style インターフェイス](jp_graphics_line_style.md)
-- [Graphicsクラス draw_rect インターフェイス](jp_graphics_draw_rect.md)
+- [Graphicsクラス line_style （線設定）のインターフェイス](jp_graphics_line_style.md)
+- [Graphicsクラス draw_rect （四角描画）のインターフェイス](jp_graphics_draw_rect.md)
 
-- [Graphicsクラス draw_circle インターフェイス](jp_graphics_draw_circle.md)
+- [Graphicsクラス draw_circle （円描画）のインターフェイス](jp_graphics_draw_circle.md)
 
 ## DisplayObjectの複数のインスタンスの移動について
 
@@ -93,11 +93,11 @@ ap.save_overall_html(
 
 ## 関連資料
 
-- [add_child と remove_child インターフェイス](jp_add_child_and_remove_child.md)
+- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](jp_add_child_and_remove_child.md)
 - [contains インターフェイス](jp_contains.md)
 
-- [num_children インターフェイス](jp_num_children.md)
-- [get_child_at インターフェイス](jp_get_child_at.md)
+- [num_children （子の件数属性）のインターフェイス](jp_num_children.md)
+- [get_child_at （特定位置の子の取得処理）のインターフェイス](jp_get_child_at.md)
 
 ## SpriteクラスのコンストラクタAPI
 

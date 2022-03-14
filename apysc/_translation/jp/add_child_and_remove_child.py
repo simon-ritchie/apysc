@@ -57,8 +57,11 @@ MAPPING: Dict[str, str] = {
     '## See also':
     '## 関連資料',
 
-    '- [DisplayObject class parent interfaces](display_object_parent.md)\n- [contains interface](contains.md)':  # noqa
-    '- [DisplayObjectクラス parent インターフェイス](jp_display_object_parent.md)\n\n- [contains インターフェイス](jp_contains.md)',  # noqa
+    '- [DisplayObject class parent interfaces](display_object_parent.md)':
+    '- [DisplayObjectクラス parent （親要素属性）のインターフェイス](jp_display_object_parent.md)',  # noqa
+
+    '- [contains interface](contains.md)':
+    '- [contains インターフェイス](jp_contains.md)',
 
     '## add_child API':
     '## add_child API',

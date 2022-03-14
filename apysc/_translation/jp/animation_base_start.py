@@ -22,7 +22,7 @@ MAPPING: Dict[str, str] = {
     '`start`メソッドは対象のアニメーションを開始します。各アニメーションのインターフェイスは`AnimationBase`クラスのサブクラスのインスタンスを返却します。例えば`animation_move`や`animation_x`などが該当し、それらのインスタンスはこの`start`メソッドを持っています。',  # noqa
 
     '## Basic usage':
-    '## 基本的な使い方',
+    '## 使い方例',
 
     'Notes: you need to call the `start` method to start an animation after the calling of the animation method, such as the `animation_x`\\, as follows:':  # noqa
     '特記事項: 以下のコードのようにアニメーションを開始するには`animation_x`などの各アニメーションのインターフェイスを呼び出した後に`start`メソッドを呼ぶ必要があります。',  # noqa

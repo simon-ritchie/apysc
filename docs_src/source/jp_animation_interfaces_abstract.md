@@ -1,23 +1,30 @@
-# Animation interfaces abstract
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_interfaces_abstract.md)の確認をお願いします。</span>
 
-This page explains the animation interfaces' abstract.
+# 各アニメーションインターフェイス概要
 
-## What apysc can do in its animation interfaces
+このページでは各アニメーションの概要について説明します。
 
-- You can animate each attribute, such as the coordinates, rotation, color, alpha (opacity), scale.
-- You can set the animation's duration in milliseconds.
-- You can set the animation's delay in milliseconds.
-- You can use many easing settings, such as the `EASE_IN_CUBIC`\, `EASE_OUT_QUINT`\, and `EASE_IN_OUT_BOUNCE`\.
-- You can control the target instance's animation with the pause, play, reset, finish, reverse, time interfaces.
-- You can set the parallel animation or sequential animation.
-- Animation complete event is supported.
+## apyscの各アニメーションのインターフェイスで出来ること
 
-## Examples of each attribute animation
+- 座標値や回転量、色や透明度、拡縮値などの各属性に対してアニメーションを行うことができます。
+- 何ミリ秒かけてアニメーションするかを設定することができます。
 
-This section will show each attribute animation example:
+- アニメーション開始前の遅延時間をミリ秒単位で設定することができます。
+
+`EASE_IN_CUBIC`や`EASE_OUT_QUINT`、`EASE_IN_OUT_BOUNCE`などのイージングの設定を行うことができます。
+
+一時停止、再生、リセット、終了、逆再生、経過時間取得などのアニメーション関係の制御を行うことができます。
+
+アニメーションの並列実行や直列実行を設定することができます。
+
+- アニメーション終了時のイベント設定をサポートしています。
+
+## 各属性のアニメーション設定例
+
+この節では各属性のアニメーション設定例を表示します。
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -981,14 +988,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_each_attr/index.html" width="550" height="550"></iframe>
 
-## Easing
+## イージング
 
-The easing setting can be set with the `easing` argument of each animation interface. For more details:
+イージング設定は各インターフェイスの`easing`引数で設定することができます。詳細は以下を参照してください:
 
-- [Easing enum document](easing_enum.md)
+- [イージングのenum](jp_easing_enum.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1088,14 +1095,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_easing/index.html" width="200" height="350"></iframe>
 
-## X animation
+## X座標のアニメーション
 
-The `animation_x` interface sets the x-coordinate animation. For more details:
+`animation_x`のインターフェイスではX座標のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_x interface document](animation_x.md)
+- [animation_x （X座標のアニメーション）のインターフェイス](jp_animation_x.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1160,15 +1167,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_x/index.html" width="200" height="150"></iframe>
 
-## Y animation
+## Y座標のアニメーション
 
+`animation_y`インターフェイスではY座標のアニメーションを設定します。詳細は以下を参照してください:
 
-The `animation_y` interface sets the y-coordinate animation. For more details:
-
-- [animation_y interface document](animation_y.md)
+- [animation_y （Y座標のアニメーション）のインターフェイス](jp_animation_y.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1233,14 +1239,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_y/index.html" width="150" height="200"></iframe>
 
-## Move animation
+## X座標とY座標のアニメーション
 
-The `animation_move` interface sets the x- and y-coordinates animation. For more details:
+`animation_move`のインターフェイスはX座標とY座標両方のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_move interface document](animation_move.md)
+- [animation_move （XとY座標のアニメーション）のインターフェイス](jp_animation_move.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1305,14 +1311,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_move/index.html" width="200" height="200"></iframe>
 
-## Width animation
+## 幅のアニメーション
 
-The `animation_width` interface sets the width animation. For more details:
+`animation_width`インターフェイスは幅のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_width and animation_height interfaces document](animation_width_and_height.md)
+- [animation_width （幅のアニメーション）と animation_height （高さのアニメーション）のインターフェイス](jp_animation_width_and_height.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1377,14 +1383,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_width/index.html" width="200" height="150"></iframe>
 
-## Height animation
+## 高さのアニメーション
 
-The `animation_height` interface sets the height animation. For more details:
+`animation_height`インターフェイスは高さのアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_width and animation_height interfaces document](animation_width_and_height.md)
+- [animation_width （幅のアニメーション）と animation_height （高さのアニメーション）のインターフェイス](jp_animation_width_and_height.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1449,14 +1455,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_height/index.html" width="150" height="200"></iframe>
 
-## Fill color animation
+## 塗りの色のアニメーション
 
-The `animation_fill_color` interface sets the fill color animation. For more details:
+`animation_fill_color`インターフェイスは塗りの色のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_fill_color interface document](animation_fill_color.md)
+- [animation_fill_color （塗りの色のアニメーション）のインターフェイス](jp_animation_fill_color.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1521,14 +1527,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_fill_color/index.html" width="150" height="150"></iframe>
 
-## Fill alpha animation
+## 塗りの透明度のアニメーション
 
-The `animation_fill_alpha` interface sets the alpha (opacity) animation. For more details:
+`animation_fill_alpha`インターフェイスは塗りの透明度のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_fill_alpha interface document](animation_fill_alpha.md)
+- [animation_fill_alpha （塗りの透明度のアニメーション）のインターフェイス](jp_animation_fill_alpha.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1593,14 +1599,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_fill_alpha/index.html" width="150" height="150"></iframe>
 
-## Line-color animation
+## 線色のアニメーション
 
-The `animation_line_color` interface sets the line color animation. For more details:
+`animation_line_color`インターフェイスは線色のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_line_color interface document](animation_line_color.md)
+- [animation_line_color （線色のアニメーション）のインターフェイス](jp_animation_line_color.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1665,14 +1671,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_line_color/index.html" width="150" height="150"></iframe>
 
-## Line alpha animation
+## 線の透明度のアニメーション
 
-The `animation_line_alpha` interface sets the line alpha (opacity) animation. For more details:
+`animation_line_alpha`インターフェイスは線の透明度のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_line_alpha interface document](animation_line_alpha.md)
+- [animation_line_alpha （線の透明度のアニメーション）のインターフェイス](jp_animation_line_alpha.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1737,14 +1743,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_line_alpha/index.html" width="150" height="150"></iframe>
 
-## Line thickness animation
+## 線幅のアニメーション
 
-The `animation_line_thickness` interface sets the line thickness (stroke width) animation. For more details:
+`animation_line_thickness`インターフェイスは線幅のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_line_thickness interface document](animation_line_thickness.md)
+- [animation_line_thickness （線幅のアニメーション）のインターフェイス](jp_animation_line_thickness.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1809,14 +1815,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_line_thickness/index.html" width="150" height="150"></iframe>
 
-## Radius animation
+## 半径のアニメーション
 
-The `animation_radius` interface sets the radius (for instance, circle's radius) animation. For more details:
+`animation_radius`インターフェイスは円のインスタンスなどの半径のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_radius interface document](animation_radius.md)
+- [animation_radius （半径のアニメーション）のインターフェイス](jp_animation_radius.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1881,14 +1887,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_radius/index.html" width="150" height="150"></iframe>
 
-## Rotation animation around the center point
+## 中央座標による回転のアニメーション
 
-The `animation_rotation_around_center` interface sets the rotation animation around the center point. For more details:
+`animation_rotation_around_center`インターフェイスは中央座標による回転のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_rotation_around_center interface document](animation_rotation_around_center.md)
+- [animation_rotation_around_center （中央座標での回転のアニメーション）のインターフェイス](jp_animation_rotation_around_center.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -1956,14 +1962,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_rotation_around_center/index.html" width="150" height="150"></iframe>
 
-## Rotation animation around the specified point
+## 指定座標による回転のアニメーション
 
-The `animation_rotation_around_point` interface sets the rotation animation around the specified point. For more details:
+`animation_rotation_around_point`
 
-- [animation_rotation_around_point interface document](animation_rotation_around_point.md)
+- [animation_rotation_around_point （指定座標による回転のアニメーション）のインターフェイス](jp_animation_rotation_around_point.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -2031,14 +2037,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_rotation_around_point/index.html" width="200" height="150"></iframe>
 
-## Scale-x animation from the center point
+## 中央座標による水平方向の拡縮のアニメーション
 
-The `animation_scale_x_from_center` interface sets the scale-x animation from the center point. For more details:
+`animation_scale_x_from_center`インターフェイスは中央座標による水平方向の拡縮のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_scale_x_from_center and animation_scale_y_from_center interfaces document](animation_scale_x_and_y_from_center.md)
+- [animation_scale_x_from_center （中央座標による水平方向の拡縮アニメーション）と animation_scale_y_from_center （中央座標による垂直方向の拡縮アニメーション）のインターフェイス](jp_animation_scale_x_and_y_from_center.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -2106,14 +2112,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_scale_x_from_center/index.html" width="150" height="150"></iframe>
 
-## Scale-y animation from the center point
+## 中央座標による垂直方向の拡縮のアニメーション
 
-The `animation_scale_y_from_center` interface sets the scale-y animation from the center point. For more details:
+`animation_scale_y_from_center`インターフェイスは中央座標による垂直方向のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_scale_x_from_center and animation_scale_y_from_center interfaces document](animation_scale_x_and_y_from_center.md)
+- [animation_scale_x_from_center （中央座標による水平方向の拡縮アニメーション）と animation_scale_y_from_center （中央座標による垂直方向の拡縮アニメーション）のインターフェイス](jp_animation_scale_x_and_y_from_center.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -2181,14 +2187,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_scale_y_from_center/index.html" width="150" height="150"></iframe>
 
-## Scale-x animation from the specified point
+## 指定座標による水平方向の拡縮アニメーション
 
-The `animation_scale_x_from_point` interface sets the scale-x animation from the specified point. For more details:
+`animation_scale_x_from_point`インターフェイスは指定座標による水平方向の拡縮のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_scale_x_from_point and animation_scale_y_from_point interfaces document](animation_scale_x_and_y_from_point.md)
+- [animation_scale_x_from_point （指定座標による水平方向の拡縮アニメーション）と animation_scale_y_from_point （指定座標による垂直方向のアニメーション）のインターフェイス](jp_animation_scale_x_and_y_from_point.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -2256,14 +2262,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_scale_x_from_point/index.html" width="150" height="150"></iframe>
 
-## Scale-y animation from the specified point
+## 指定座標による垂直方向の拡縮アニメーション
 
-The `animation_scale_y_from_point` interface sets the scale-y animation from the specified point. For more details:
+`animation_scale_y_from_point`インターフェイスは指定座標による垂直方向の拡縮アニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_scale_x_from_point and animation_scale_y_from_point interfaces document](animation_scale_x_and_y_from_point.md)
+- [animation_scale_x_from_point （指定座標による水平方向の拡縮アニメーション）と animation_scale_y_from_point （指定座標による垂直方向のアニメーション）のインターフェイス](jp_animation_scale_x_and_y_from_point.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -2331,14 +2337,14 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_scale_y_from_point/index.html" width="150" height="150"></iframe>
 
-## Skew-x animation
+## 水平方向の斜め変換のアニメーション
 
-The `animation_skew_x` interface sets the skew-x animation. For more details:
+`animation_skew_x`インターフェイスは水平方向の斜め変換のアニメーションを設定します。詳細は以下を参照してください:
 
-- [animation_skew_x interface document](animation_skew_x.md)
+- [animation_skew_x （水平方向の斜め変換のアニメーション）のインターフェイス](jp_animation_skew_x.md)
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable

@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     'ハンドラの引数には第一引数にイベントのインスタンス（`ap.AnimationEvent`）、第二引数にはオプションのパラメーターとなる辞書が必要になります。',  # noqa
 
     '## Basic usage':
-    '## 基本的な使い方',
+    '## 使い方例',
 
     'The `animation_complete` method requires a handler at the first argument and the optional options dictionary at the second argument.':  # noqa
     '`animation_complete`メソッドは第一引数にハンドラが必要となり、第二引数にはオプションのパラメーターの辞書を設定することができます。',  # noqa

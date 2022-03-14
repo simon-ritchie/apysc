@@ -58,7 +58,7 @@ MAPPING: Dict[str, str] = {
     '## イージング',
 
     'The easing setting can be set with the `easing` argument of each animation interface. For more details:':  # noqa
-    'イージング設定は各インターフェイスの`easing`引数で設定することができます。詳細は以下を参照してください。',
+    'イージング設定は各インターフェイスの`easing`引数で設定することができます。詳細は以下を参照してください:',
 
     '- [Easing enum document](easing_enum.md)':
     '- [イージングのenum](jp_easing_enum.md)',
@@ -76,10 +76,10 @@ MAPPING: Dict[str, str] = {
     '## X座標のアニメーション',
 
     'The `animation_x` interface sets the x-coordinate animation. For more details:':  # noqa
-    '`animation_x`のインターフェイスではX座標のアニメーションを設定します。詳細は以下を参照してください。',
+    '`animation_x`のインターフェイスではX座標のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_x interface document](animation_x.md)':
-    '- [animation_x （X座標のアニメーション）インターフェイス](jp_animation_x.md)',
+    '- [animation_x （X座標のアニメーション）のインターフェイス](jp_animation_x.md)',
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -94,10 +94,10 @@ MAPPING: Dict[str, str] = {
     '## Y座標のアニメーション',
 
     'The `animation_y` interface sets the y-coordinate animation. For more details:':  # noqa
-    '`animation_y`インターフェイスではY座標のアニメーションを設定します。詳細は以下を参照してください。',
+    '`animation_y`インターフェイスではY座標のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_y interface document](animation_y.md)':
-    '- [animation_y （Y座標のアニメーション）インターフェイス](jp_animation_y.md)',
+    '- [animation_y （Y座標のアニメーション）のインターフェイス](jp_animation_y.md)',
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -112,10 +112,10 @@ MAPPING: Dict[str, str] = {
     '## X座標とY座標のアニメーション',
 
     'The `animation_move` interface sets the x- and y-coordinates animation. For more details:':  # noqa
-    '`animation_move`のインターフェイスはX座標とY座標両方のアニメーションを設定します。詳細は以下を参照してください。',
+    '`animation_move`のインターフェイスはX座標とY座標両方のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_move interface document](animation_move.md)':
-    '',
+    '- [animation_move （XとY座標のアニメーション）のインターフェイス](jp_animation_move.md)',
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -130,10 +130,10 @@ MAPPING: Dict[str, str] = {
     '## 幅のアニメーション',
 
     'The `animation_width` interface sets the width animation. For more details:':  # noqa
-    '',
+    '`animation_width`インターフェイスは幅のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_width and animation_height interfaces document](animation_width_and_height.md)':  # noqa
-    '',
+    '- [animation_width （幅のアニメーション）と animation_height （高さのアニメーション）のインターフェイス](jp_animation_width_and_height.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -145,13 +145,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Height animation':
-    '',
+    '## 高さのアニメーション',
 
     'The `animation_height` interface sets the height animation. For more details:':  # noqa
-    '',
+    '`animation_height`インターフェイスは高さのアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_width and animation_height interfaces document](animation_width_and_height.md)':  # noqa
-    '',
+    '- [animation_width （幅のアニメーション）と animation_height （高さのアニメーション）のインターフェイス](jp_animation_width_and_height.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -163,13 +163,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Fill color animation':
-    '',
+    '## 塗りの色のアニメーション',
 
     'The `animation_fill_color` interface sets the fill color animation. For more details:':  # noqa
-    '',
+    '`animation_fill_color`インターフェイスは塗りの色のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_fill_color interface document](animation_fill_color.md)':
-    '',
+    '- [animation_fill_color （塗りの色のアニメーション）のインターフェイス](jp_animation_fill_color.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -181,13 +181,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Fill alpha animation':
-    '',
+    '## 塗りの透明度のアニメーション',
 
     'The `animation_fill_alpha` interface sets the alpha (opacity) animation. For more details:':  # noqa
-    '',
+    '`animation_fill_alpha`インターフェイスは塗りの透明度のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_fill_alpha interface document](animation_fill_alpha.md)':
-    '',
+    '- [animation_fill_alpha （塗りの透明度のアニメーション）のインターフェイス](jp_animation_fill_alpha.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -199,13 +199,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Line-color animation':
-    '',
+    '## 線色のアニメーション',
 
     'The `animation_line_color` interface sets the line color animation. For more details:':  # noqa
-    '',
+    '`animation_line_color`インターフェイスは線色のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_line_color interface document](animation_line_color.md)':
-    '',
+    '- [animation_line_color （線色のアニメーション）のインターフェイス](jp_animation_line_color.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -217,13 +217,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Line alpha animation':
-    '',
+    '## 線の透明度のアニメーション',
 
     'The `animation_line_alpha` interface sets the line alpha (opacity) animation. For more details:':  # noqa
-    '',
+    '`animation_line_alpha`インターフェイスは線の透明度のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_line_alpha interface document](animation_line_alpha.md)':
-    '',
+    '- [animation_line_alpha （線の透明度のアニメーション）のインターフェイス](jp_animation_line_alpha.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -235,13 +235,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Line thickness animation':
-    '',
+    '## 線幅のアニメーション',
 
     'The `animation_line_thickness` interface sets the line thickness (stroke width) animation. For more details:':  # noqa
-    '',
+    '`animation_line_thickness`インターフェイスは線幅のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_line_thickness interface document](animation_line_thickness.md)':  # noqa
-    '',
+    '- [animation_line_thickness （線幅のアニメーション）のインターフェイス](jp_animation_line_thickness.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -253,13 +253,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Radius animation':
-    '',
+    '## 半径のアニメーション',
 
     'The `animation_radius` interface sets the radius (for instance, circle\'s radius) animation. For more details:':  # noqa
-    '',
+    '`animation_radius`インターフェイスは円のインスタンスなどの半径のアニメーションを設定します。詳細は以下を参照してください:',  # noqa
 
     '- [animation_radius interface document](animation_radius.md)':
-    '',
+    '- [animation_radius （半径のアニメーション）のインターフェイス](jp_animation_radius.md)',
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -271,13 +271,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Rotation animation around the center point':
-    '',
+    '## 中央座標による回転のアニメーション',
 
     'The `animation_rotation_around_center` interface sets the rotation animation around the center point. For more details:':  # noqa
-    '',
+    '`animation_rotation_around_center`インターフェイスは中央座標による回転のアニメーションを設定します。詳細は以下を参照してください:',  # noqa
 
     '- [animation_rotation_around_center interface document](animation_rotation_around_center.md)':  # noqa
-    '',
+    '- [animation_rotation_around_center （中央座標での回転のアニメーション）のインターフェイス](jp_animation_rotation_around_center.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -289,13 +289,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Rotation animation around the specified point':
-    '',
+    '## 指定座標による回転のアニメーション',
 
     'The `animation_rotation_around_point` interface sets the rotation animation around the specified point. For more details:':  # noqa
-    '',
+    '`animation_rotation_around_point`',
 
     '- [animation_rotation_around_point interface document](animation_rotation_around_point.md)':  # noqa
-    '',
+    '- [animation_rotation_around_point （指定座標による回転のアニメーション）のインターフェイス](jp_animation_rotation_around_point.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -307,13 +307,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Scale-x animation from the center point':
-    '',
+    '## 中央座標による水平方向の拡縮のアニメーション',
 
     'The `animation_scale_x_from_center` interface sets the scale-x animation from the center point. For more details:':  # noqa
-    '',
+    '`animation_scale_x_from_center`インターフェイスは中央座標による水平方向の拡縮のアニメーションを設定します。詳細は以下を参照してください:',  # noqa
 
-    '- [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)':  # noqa
-    '',
+    '- [animation_scale_x_from_center and animation_scale_y_from_center interfaces document](animation_scale_x_and_y_from_center.md)':  # noqa
+    '- [animation_scale_x_from_center （中央座標による水平方向の拡縮アニメーション）と animation_scale_y_from_center （中央座標による垂直方向の拡縮アニメーション）のインターフェイス](jp_animation_scale_x_and_y_from_center.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -325,13 +325,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Scale-y animation from the center point':
-    '',
+    '## 中央座標による垂直方向の拡縮のアニメーション',
 
     'The `animation_scale_y_from_center` interface sets the scale-y animation from the center point. For more details:':  # noqa
-    '',
+    '`animation_scale_y_from_center`インターフェイスは中央座標による垂直方向のアニメーションを設定します。詳細は以下を参照してください:',  # noqa
 
-    '- [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)':  # noqa
-    '',
+    '- [animation_scale_x_from_center and animation_scale_y_from_center interfaces document](animation_scale_x_and_y_from_center.md)':  # noqa
+    '- [animation_scale_x_from_center （中央座標による水平方向の拡縮アニメーション）と animation_scale_y_from_center （中央座標による垂直方向の拡縮アニメーション）のインターフェイス](jp_animation_scale_x_and_y_from_center.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -343,13 +343,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Scale-x animation from the specified point':
-    '',
+    '## 指定座標による水平方向の拡縮アニメーション',
 
     'The `animation_scale_x_from_point` interface sets the scale-x animation from the specified point. For more details:':  # noqa
-    '',
+    '`animation_scale_x_from_point`インターフェイスは指定座標による水平方向の拡縮のアニメーションを設定します。詳細は以下を参照してください:',  # noqa
 
     '- [animation_scale_x_from_point and animation_scale_y_from_point interfaces document](animation_scale_x_and_y_from_point.md)':  # noqa
-    '',
+    '- [animation_scale_x_from_point （指定座標による水平方向の拡縮アニメーション）と animation_scale_y_from_point （指定座標による垂直方向のアニメーション）のインターフェイス](jp_animation_scale_x_and_y_from_point.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -361,13 +361,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Scale-y animation from the specified point':
-    '',
+    '## 指定座標による垂直方向の拡縮アニメーション',
 
     'The `animation_scale_y_from_point` interface sets the scale-y animation from the specified point. For more details:':  # noqa
-    '',
+    '`animation_scale_y_from_point`インターフェイスは指定座標による垂直方向の拡縮アニメーションを設定します。詳細は以下を参照してください:',  # noqa
 
     '- [animation_scale_x_from_point and animation_scale_y_from_point interfaces document](animation_scale_x_and_y_from_point.md)':  # noqa
-    '',
+    '- [animation_scale_x_from_point （指定座標による水平方向の拡縮アニメーション）と animation_scale_y_from_point （指定座標による垂直方向のアニメーション）のインターフェイス](jp_animation_scale_x_and_y_from_point.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',
@@ -379,13 +379,13 @@ MAPPING: Dict[str, str] = {
     '</details>',
 
     '## Skew-x animation':
-    '',
+    '## 水平方向の斜め変換のアニメーション',
 
     'The `animation_skew_x` interface sets the skew-x animation. For more details:':  # noqa
-    '',
+    '`animation_skew_x`インターフェイスは水平方向の斜め変換のアニメーションを設定します。詳細は以下を参照してください:',
 
     '- [animation_skew_x interface document](animation_skew_x.md)':
-    '',
+    '- [animation_skew_x （水平方向の斜め変換のアニメーション）のインターフェイス](jp_animation_skew_x.md)',  # noqa
 
     '<details>\n<summary>Display the code block:</summary>':
     '<details>\n<summary>コードブロックを表示:</summary>',

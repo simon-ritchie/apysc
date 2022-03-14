@@ -55,13 +55,13 @@ MAPPING: Dict[str, str] = {
     '- `duration`: Int or int, default 3000',
 
     '  - Milliseconds before an animation ends.':
-    '  - アニメーションが終了するまでのミリ秒。',
+    '  - アニメーション完了までのミリ秒。',
 
     '- `delay`: Int or int, default 0':
     '- `delay`: Int or int, default 0',
 
     '  - Milliseconds before an animation starts.':
-    '  - アニメーションが開始するまでの遅延時間のミリ秒。',
+    '  - アニメーション開始までの遅延時間のミリ秒。',
 
     '- `easing`: Easing, default Easing.LINEAR':
     '- `easing`: Easing, default Easing.LINEAR',
@@ -76,7 +76,7 @@ MAPPING: Dict[str, str] = {
     '- `animation_fill_alpha`: AnimationFillAlpha',
 
     '  - Created animation setting instance.':
-    '  - 作成されたアニメーション設定のインスタンス。',
+    '  - 生成されたアニメーションのインスタンス。',
 
     '**[Notes]**':
     '**[特記事項]**',
@@ -93,7 +93,19 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)\n- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)\n- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)\n- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)\n- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)':  # noqa
-    '- [各アニメーションインターフェイスの duration 設定](https://simon-ritchie.github.io/apysc/jp_animation_duration.html)\n\n- [各アニメーションインターフェイスの返却値](https://simon-ritchie.github.io/apysc/jp_animation_return_value.html)\n\n- [連続したアニメーション設定](https://simon-ritchie.github.io/apysc/jp_sequential_animation.html)\n\n- [animation_parallel インターフェイス](https://simon-ritchie.github.io/apysc/jp_animation_parallel.html)\n\n- [イージングのenum](https://simon-ritchie.github.io/apysc/jp_easing_enum.html)',  # noqa
+    '- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)':  # noqa
+    '- [各アニメーションインターフェイスの duration （アニメーション時間）設定](https://simon-ritchie.github.io/apysc/jp_animation_duration.html)',  # noqa
+
+    '- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)':  # noqa
+    '- [各アニメーションインターフェイスの返却値](https://simon-ritchie.github.io/apysc/jp_animation_return_value.html)',  # noqa
+
+    '- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)':  # noqa
+    '- [連続したアニメーション設定](https://simon-ritchie.github.io/apysc/jp_sequential_animation.html)',  # noqa
+
+    '- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)':  # noqa
+    '- [animation_parallel （並列アニメーション設定）のインターフェイス](https://simon-ritchie.github.io/apysc/jp_animation_parallel.html)',  # noqa
+
+    '- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)':  # noqa
+    '- [イージングのenum](https://simon-ritchie.github.io/apysc/jp_easing_enum.html)',  # noqa
 
 }

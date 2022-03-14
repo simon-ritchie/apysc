@@ -145,4 +145,56 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='animation_move interface document',
             value='animation_move （XとY座標のアニメーション）のインターフェイス'),
+        Mapping(
+            key='animation_width and animation_height interfaces document',
+            value='animation_width （幅のアニメーション）と animation_height '
+                  '（高さのアニメーション）のインターフェイス'),
+        Mapping(
+            key='animation_fill_color interface document',
+            value='animation_fill_color （塗りの色のアニメーション）の'
+                  'インターフェイス'),
+        Mapping(
+            key='animation_fill_alpha interface document',
+            value='animation_fill_alpha （塗りの透明度のアニメーション）の'
+                  'インターフェイス'),
+        Mapping(
+            key='animation_line_color interface document',
+            value='animation_line_color （線色のアニメーション）の'
+                  'インターフェイス'),
+        Mapping(
+            key='animation_line_alpha interface document',
+            value='animation_line_alpha （線の透明度のアニメーション）'
+                  'のインターフェイス'),
+        Mapping(
+            key='animation_line_thickness interface document',
+            value='animation_line_thickness （線幅のアニメーション）の'
+                  'インターフェイス'),
+        Mapping(
+            key='animation_radius interface document',
+            value='animation_radius （半径のアニメーション）の'
+                  'インターフェイス'),
+        Mapping(
+            key='animation_rotation_around_center interface document',
+            value='animation_rotation_around_center （中央座標での'
+                  '回転のアニメーション）のインターフェイス'),
+        Mapping(
+            key='animation_rotation_around_point interface document',
+            value='animation_rotation_around_point （指定座標に'
+                  'よる回転のアニメーション）のインターフェイス'),
+        Mapping(
+            key='animation_scale_x_from_center and '
+                'animation_scale_y_from_center interfaces document',
+            value='animation_scale_x_from_center （中央座標による水平方向の'
+                  '拡縮アニメーション）と animation_scale_y_from_center '
+                  '（中央座標による垂直方向の拡縮アニメーション）のインターフェイス'),
+        Mapping(
+            key='animation_scale_x_from_point and '
+                'animation_scale_y_from_point interfaces document',
+            value='animation_scale_x_from_point （指定座標による'
+                  '水平方向の拡縮アニメーション）と animation_scale_y_from_point '
+                  '（指定座標による垂直方向のアニメーション）のインターフェイス'),
+        Mapping(
+            key='animation_skew_x interface document',
+            value='animation_skew_x （水平方向の斜め変換の'
+                  'アニメーション）のインターフェイス'),
     ])

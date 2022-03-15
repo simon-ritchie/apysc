@@ -28,13 +28,13 @@ MAPPING: Dict[str, str] = {
     '- アニメーション開始前の遅延時間をミリ秒単位で設定することができます。',
 
     '- You can use many easing settings, such as the `EASE_IN_CUBIC`\\, `EASE_OUT_QUINT`\\, and `EASE_IN_OUT_BOUNCE`\\.':  # noqa
-    '`EASE_IN_CUBIC`や`EASE_OUT_QUINT`、`EASE_IN_OUT_BOUNCE`などのイージングの設定を行うことができます。',  # noqa
+    '- `EASE_IN_CUBIC`や`EASE_OUT_QUINT`、`EASE_IN_OUT_BOUNCE`などのイージングの設定を行うことができます。',  # noqa
 
     '- You can control the target instance\'s animation with the pause, play, reset, finish, reverse, time interfaces.':  # noqa
-    '一時停止、再生、リセット、終了、逆再生、経過時間取得などのアニメーション関係の制御を行うことができます。',
+    '- 一時停止、再生、リセット、終了、逆再生、経過時間取得などのアニメーション関係の制御を行うことができます。',
 
     '- You can set the parallel animation or sequential animation.':
-    'アニメーションの並列実行や直列実行を設定することができます。',
+    '- アニメーションの並列実行や直列実行を設定することができます。',
 
     '- Animation complete event is supported.':
     '- アニメーション終了時のイベント設定をサポートしています。',

@@ -257,4 +257,12 @@ MAPPINGS: Mappings = Mappings(
             value='これらのインターフェイスは`animation_x`や'
                   '`animation_move`などのアニメーション関係のインターフェイスを'
                   '持つクラスのインスタンス上に存在します。'),
+        Mapping(
+            key='This interface exists on a `GraphicsBase` '
+                'subclass, such as the `Circle` class.',
+            value='このインターフェイスは`Circle`クラスなどの'
+                  '`GraphicsBase`の各サブクラス上に存在します。'),
+        Mapping(
+            key='  - The final radius of the animation.',
+            value='  - 半径のアニメーションの最終値。'),
     ])

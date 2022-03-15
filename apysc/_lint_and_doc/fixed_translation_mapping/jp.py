@@ -197,4 +197,17 @@ MAPPINGS: Mappings = Mappings(
             key='animation_skew_x interface document',
             value='animation_skew_x （水平方向の斜め変換の'
                   'アニメーション）のインターフェイス'),
+        Mapping(
+            key='This interface exists on a `GraphicsBase` subclass, '
+                'such as the `Rectangle` or `Circle` class.',
+            value='このインターフェイスは`Rectangle`や`Circle`'
+                  'クラスなどの`GraphicsBase`のサブクラスで存在します。'),
+        Mapping(
+            key='**[Interface summary]** Set the line alpha '
+                'animation setting.<hr>',
+            value='**[インターフェイス概要]** 線の透明度の'
+                  'アニメーションを設定します。<hr>'),
+        Mapping(
+            key='  - The final line alpha of the animation.',
+            value='  - 線の透明度のアニメーションの最終値。'),
     ])

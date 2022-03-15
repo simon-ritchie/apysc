@@ -238,3 +238,20 @@ def test__validate_tail_hr_tag() -> None:
             'md_file_path': 'test/path.md',
         },
         match='End of a translated string is not the `<hr>` tag.')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_line_break_between_api_docs_list_br_tag() -> None:
+    translated_doc: str = docs_translation_converter.\
+        _remove_line_break_between_api_docs_list_br_tag(
+            translated_doc=(
+                '- ValueError: \n\n<br> ・If the animations\' target '
+                'is not this instance. \n\n<br> ・If there are changed '
+                'duration, delay, or easing animation settings '
+                'in the `animations` list.'))
+    assert translated_doc == (
+        '- ValueError: <br> ・If the animations\' target '
+        'is not this instance. <br> ・If there are changed '
+        'duration, delay, or easing animation settings '
+        'in the `animations` list.'
+    )

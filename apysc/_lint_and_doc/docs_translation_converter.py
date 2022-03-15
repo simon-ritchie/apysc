@@ -121,10 +121,32 @@ def apply_translation_to_doc(
             source_doc_path=md_file_path, lang=lang)
     translated_doc = _remove_unnecessary_line_break_between_list(
         translated_doc=translated_doc)
+    translated_doc = _remove_line_break_between_api_docs_list_br_tag(
+        translated_doc=translated_doc)
     file_util.save_plain_txt(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+def _remove_line_break_between_api_docs_list_br_tag(
+        *, translated_doc: str) -> str:
+    """
+    Remove a line break between an API docs list's break tag.
+
+    Parameters
+    ----------
+    translated_doc : str
+        A translated string.
+
+    Returns
+    -------
+    translated_doc : str
+        A result string.
+    """
+    while '\n<br> ・' in translated_doc:
+        translated_doc = translated_doc.replace('\n<br> ・', '<br> ・')
+    return translated_doc
 
 
 class _InvalidTailsHrTag(Exception):

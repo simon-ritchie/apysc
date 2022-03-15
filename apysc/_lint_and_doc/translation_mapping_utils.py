@@ -168,7 +168,7 @@ def _append_body_text_keys_to_list(
 def _extend_keys_with_api_docs_br_tags_list(
         *, keys: List[str], key_: str) -> None:
     """
-    Extend a specified keys with an api docs' break tags list.
+    Extend a specified keys with an API docs' break tags list.
 
     Parameters
     ----------

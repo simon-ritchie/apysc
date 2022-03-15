@@ -247,4 +247,14 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Destination of the y-coordinate.',
             value='  - 最終的なY座標。'),
+        Mapping(
+            key='## What interface are these?',
+            value='## 各インターフェイス概要'),
+        Mapping(
+            key='These interfaces exist in the instances that '
+                'have the animation interfaces (such as the '
+                '`animation_x`\\, `animation_move`).',
+            value='これらのインターフェイスは`animation_x`や'
+                  '`animation_move`などのアニメーション関係のインターフェイスを'
+                  '持つクラスのインスタンス上に存在します。'),
     ])

@@ -118,6 +118,9 @@ def apply_translation_to_doc(
         _validate_first_br_tags_and_list_symbols_are_same(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
+        _validate_first_full_width_list_symbols_are_same(
+            translated_str=translated_str, key=key,
+            md_file_path=md_file_path)
 
     translated_file_path: str = translation_mapping_utils.\
         get_translated_file_path_from_src_path(
@@ -130,6 +133,45 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+class _FirstFullWidthListSymbolsAreNotSame(Exception):
+    pass
+
+
+def _validate_first_full_width_list_symbols_are_same(
+        *, translated_str: str, key: str,
+        md_file_path: str) -> None:
+    """
+    Validate whether specified first full-width list symbols
+    are the same or not.
+
+    Parameters
+    ----------
+    translated_str : str
+        A translated string.
+    key : str
+        A key (source) string.
+    md_file_path : str
+        A source markdown file path.
+
+    Raises
+    ------
+    _FirstFullWidthListSymbolsAreNotSame
+        If specified strings' first full-width list symbols
+        are not the same.
+    """
+    if not key.strip().startswith('・'):
+        return
+    if translated_str.strip().startswith('・'):
+        return
+    raise _FirstFullWidthListSymbolsAreNotSame(
+        'Specified strings\' first full-width list symbols '
+        'are not the same:'
+        f'\nSource string: {key}'
+        f'\nTranslated string: {translated_str}'
+        f'\nSource document path: {md_file_path}'
+    )
 
 
 class _BrTagsAndListSymbolsAreNotSame(Exception):

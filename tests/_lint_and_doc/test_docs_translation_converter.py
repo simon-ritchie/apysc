@@ -12,7 +12,7 @@ from apysc._lint_and_doc.docs_translation_converter import \
 from apysc._lint_and_doc.docs_translation_converter import \
     _InvalidHeadingSharpSymbolNumber
 from apysc._lint_and_doc.docs_translation_converter import \
-    _TranslationMappingNotFound
+    _TranslationMappingNotFound, _MarkdownListHyphenSymbolsAreNotSame
 from tests.testing_helper import assert_raises
 
 
@@ -187,3 +187,29 @@ def test__validate_first_spaces_nums_are_same() -> None:
             'md_file_path': 'test/path_1.md',
         },
         match='First spaces numbers are not the same')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__validate_markdown_list_hyphen_symbols_are_same() -> None:
+    docs_translation_converter.\
+        _validate_markdown_list_hyphen_symbols_are_same(
+            translated_str='テストテキスト',
+            key='Lorem ipsum',
+            md_file_path='test/path.md')
+
+    docs_translation_converter.\
+        _validate_markdown_list_hyphen_symbols_are_same(
+            translated_str='  - テストテキスト',
+            key='  - Lorem ipsum',
+            md_file_path='test/path.md')
+
+    assert_raises(
+        expected_error_class=_MarkdownListHyphenSymbolsAreNotSame,
+        func_or_method=docs_translation_converter.
+        _validate_markdown_list_hyphen_symbols_are_same,
+        kwargs={
+            'translated_str': 'テストテキスト',
+            'key': '- Lorem ipsum',
+            'md_file_path': 'test/path.md',
+        },
+        match='First character of list\'s hyphen symbols are not the same.')

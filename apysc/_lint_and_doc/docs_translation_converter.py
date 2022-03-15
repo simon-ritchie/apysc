@@ -109,6 +109,9 @@ def apply_translation_to_doc(
         _validate_first_spaces_nums_are_same(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
+        _validate_markdown_list_hyphen_symbols_are_same(
+            translated_str=translated_str, key=key,
+            md_file_path=md_file_path)
 
     translated_file_path: str = translation_mapping_utils.\
         get_translated_file_path_from_src_path(
@@ -119,6 +122,43 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+class _MarkdownListHyphenSymbolsAreNotSame(Exception):
+    pass
+
+
+def _validate_markdown_list_hyphen_symbols_are_same(
+        *, translated_str: str, key: str,
+        md_file_path: str) -> None:
+    """
+    Validate whether markdown's first hyphen symbols are the
+    same or not.
+
+    Parameters
+    ----------
+    translated_str : str
+        A translated string.
+    key : str
+        A key (source) string.
+    md_file_path : str
+        A source markdown file path.
+
+    Raises
+    ------
+    _MarkdownListHyphenSymbolsAreNotSame
+        This interface raises an exception if markdown's first
+        hyphen symbols are not the same.
+    """
+    if not key.strip().startswith('- '):
+        return
+    if translated_str.strip().startswith('- '):
+        return
+    raise _MarkdownListHyphenSymbolsAreNotSame(
+        'First character of list\'s hyphen symbols are not the same.'
+        f'\nSource string: {key}'
+        f'\nTranslated string: {translated_str}'
+        f'\nSource document path: {md_file_path}')
 
 
 class _FirstSpacesNumAreDifferent(Exception):

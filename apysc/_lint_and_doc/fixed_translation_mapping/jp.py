@@ -210,4 +210,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - The final line alpha of the animation.',
             value='  - 線の透明度のアニメーションの最終値。'),
+        Mapping(
+            key='**[Interface summary]** Set the line color animation '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** 線の色のアニメーションを'
+                  '設定します。<hr>'),
+        Mapping(
+            key='  - The final line color (hex color code) of the animation.',
+            value='  - 16進数の線の色のアニメーションの最終値。'),
     ])

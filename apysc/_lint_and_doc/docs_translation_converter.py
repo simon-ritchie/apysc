@@ -82,12 +82,10 @@ def apply_translation_to_doc(
     for key in keys:
         key_: str = translation_mapping_utils.\
             remove_escaping_from_key_or_value(key_or_val=key)
-
         if translation_mapping_utils.is_translation_skipping_key(key=key_):
             continue
-
-        if translated_doc != '':
-            translated_doc += '\n\n'
+        translated_doc = _append_double_line_breaks_if_txt_is_not_blank(
+            txt=translated_doc)
 
         is_mapping_unnecessary_key: bool = translation_mapping_utils.\
             is_mapping_unnecessary_key(key=key_)
@@ -133,6 +131,26 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+def _append_double_line_breaks_if_txt_is_not_blank(*, txt) -> str:
+    """
+    Append double line breaks if a specified text is not
+    a blank string.
+
+    Parameters
+    ----------
+    txt : str
+        A target text.
+
+    Returns
+    -------
+    txt : str
+        A result text.
+    """
+    if txt != '':
+        txt += '\n\n'
+    return txt
 
 
 class _FirstFullWidthListSymbolsAreNotSame(Exception):

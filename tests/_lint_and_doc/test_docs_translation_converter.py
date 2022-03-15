@@ -313,3 +313,15 @@ def test__validate_first_full_width_list_symbols_are_same() -> None:
         },
         match='Specified strings\' first full-width list '
               'symbols are not the same:')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_double_line_breaks_if_txt_is_not_blank() -> None:
+    txt: str = docs_translation_converter.\
+        _append_double_line_breaks_if_txt_is_not_blank(txt='')
+    assert txt == ''
+
+    txt = docs_translation_converter.\
+        _append_double_line_breaks_if_txt_is_not_blank(
+            txt='Lorem ipsum.')
+    assert txt == 'Lorem ipsum.\n\n'

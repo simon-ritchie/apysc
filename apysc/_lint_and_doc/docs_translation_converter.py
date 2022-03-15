@@ -112,6 +112,9 @@ def apply_translation_to_doc(
         _validate_markdown_list_hyphen_symbols_are_same(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
+        _validate_tail_hr_tag(
+            translated_str=translated_str, key=key,
+            md_file_path=md_file_path)
 
     translated_file_path: str = translation_mapping_utils.\
         get_translated_file_path_from_src_path(
@@ -122,6 +125,44 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+class _InvalidTailsHrTag(Exception):
+    pass
+
+
+def _validate_tail_hr_tag(
+        *, translated_str: str, key: str,
+        md_file_path: str) -> None:
+    """
+    Validate whether a tail of translated string's `<hr>`
+    tag is valid or not.
+
+    Parameters
+    ----------
+    translated_str : str
+        A translated string.
+    key : str
+        A key (source) string.
+    md_file_path : str
+        A source markdown file path.
+
+    Raises
+    ------
+    _InvalidTailsHrTag
+        This interface makes an exception if a tail of
+        a source text is the `<hr>` tag and a translated
+        string is not.
+    """
+    if not key.endswith('<hr>'):
+        return
+    if translated_str.endswith('<hr>'):
+        return
+    raise _InvalidTailsHrTag(
+        'End of a translated string is not the `<hr>` tag.'
+        f'\nSource string: {key}'
+        f'\nTranslated string: {translated_str}'
+        f'\nSource document path: {md_file_path}')
 
 
 class _MarkdownListHyphenSymbolsAreNotSame(Exception):

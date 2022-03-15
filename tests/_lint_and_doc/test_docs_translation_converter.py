@@ -14,7 +14,7 @@ from apysc._lint_and_doc.docs_translation_converter import \
 from apysc._lint_and_doc.docs_translation_converter import \
     _MarkdownListHyphenSymbolsAreNotSame
 from apysc._lint_and_doc.docs_translation_converter import \
-    _TranslationMappingNotFound
+    _TranslationMappingNotFound, _InvalidTailsHrTag
 from tests.testing_helper import assert_raises
 
 
@@ -215,3 +215,26 @@ def test__validate_markdown_list_hyphen_symbols_are_same() -> None:
             'md_file_path': 'test/path.md',
         },
         match='First character of list\'s hyphen symbols are not the same.')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__validate_tail_hr_tag() -> None:
+    docs_translation_converter._validate_tail_hr_tag(
+        translated_str='テストテキスト。',
+        key='Lorem ipsum.',
+        md_file_path='test/path.md')
+
+    docs_translation_converter._validate_tail_hr_tag(
+        translated_str='テストテキスト。<hr>',
+        key='Lorem ipsum.<ht>',
+        md_file_path='test/path.md')
+
+    assert_raises(
+        expected_error_class=_InvalidTailsHrTag,
+        func_or_method=docs_translation_converter._validate_tail_hr_tag,
+        kwargs={
+            'translated_str': 'テストテキスト。',
+            'key': 'Lorem ipsum.<hr>',
+            'md_file_path': 'test/path.md',
+        },
+        match='End of a translated string is not the `<hr>` tag.')

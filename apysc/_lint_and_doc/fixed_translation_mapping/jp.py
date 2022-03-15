@@ -128,6 +128,11 @@ MAPPINGS: Mappings = Mappings(
             value='アニメーションを開始するには返却されたインスタンスの'
                   '`start`メソッドを呼び出す必要があります。<hr>'),
         Mapping(
+            key=' ・To start this animation, you need to call the '
+                '`start` method of the returned instance. ',
+            value=' ・アニメーションを開始するには返却されたインスタンスの'
+                  '`start`メソッドを呼び出す必要があります。 '),
+        Mapping(
             key='Animation interfaces delay setting document',
             value='各アニメーションインターフェイスの delay （遅延時間）設定'),
         Mapping(
@@ -228,7 +233,7 @@ MAPPINGS: Mappings = Mappings(
             value='  - 線幅のアニメーションの最終値。'),
         Mapping(
             key='This interface exists on a `DisplayObject` subclass '
-                'instance, such as the `Sprite` or `Rectangle`.',
+                'instance, such as the `Sprite` or `Rectangle` class.',
             value='このインターフェイスは`Sprite`や`Rectangle`'
                    'などの`DisplayObject`の各サブクラスに存在します。'),
         Mapping(

@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     'The `animation_move` method interface creates an `AnimationMove` instance. You can animate the x and y coordinates with it.':  # noqa
     '`animation_move`メソッドのインターフェイスは`AnimationMove`クラスのインスタンスを生成します。そのインスタンスを使ってXとY座標に対してアニメーションを設定することができます。',  # noqa
 
-    'This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle`.':  # noqa
+    'This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle` class.':  # noqa
     'このインターフェイスは`Sprite`や`Rectangle`などの`DisplayObject`の各サブクラスに存在します。',
 
     '## Basic usage':

@@ -99,6 +99,9 @@ MAPPING: Dict[str, str] = {
     '  - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.':  # noqa
     '  - このインスタンスの（JavaScript上などで使われる）変数名の設定値。apyscの内部実装で`Sprite`クラスのサブクラスをインスタンス化する時以外は設定は不要です。',  # noqa
 
+    '<hr>':
+    '<hr>',
+
     '**[Examples]**':
     '**[コードサンプル]**',
 

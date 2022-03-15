@@ -40,6 +40,9 @@ _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
 _NO_MAPPING_FIXED_STRINGS: List[str] = [
     '</details>',
+    '<hr>',
+    '- ValueError: ',
+    '- Exception: ',
 ]
 
 

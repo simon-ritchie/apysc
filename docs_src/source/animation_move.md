@@ -6,7 +6,7 @@ This page explains the `animation_move` method interface.
 
 The `animation_move` method interface creates an `AnimationMove` instance. You can animate the x and y coordinates with it.
 
-This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle`.
+This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle` class.
 
 ## Basic usage
 

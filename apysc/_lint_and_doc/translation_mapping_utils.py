@@ -26,8 +26,6 @@ SKIPPING_PATTERNS: List[Pattern] = [
     re.compile(pattern=DOCSTRING_PATH_COMMENT_PATTERN),
 ]
 
-_HR_TAG_PATTERN: str = r'^<hr>$'
-
 _INTERFACE_SIGNATURE_PATTERN: str = (
     r'\*\*\[Interface signature\]\*\* .*?<hr>'
 )
@@ -37,7 +35,6 @@ _CODE_BLOCK_IFRAME_PATTERN: str = (
 )
 
 MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
-    re.compile(pattern=_HR_TAG_PATTERN,),
     re.compile(pattern=_INTERFACE_SIGNATURE_PATTERN),
     re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN),
 ]

@@ -10,7 +10,7 @@ This interface exists on a `DisplayObject` subclass instance, such as the `Sprit
 
 ## Basic usage
 
-You can use this interface with the `animation_parallel` method. The `animations` list argument requires any animation settings.
+You can use this interface with the `animation_parallel` method. The `animations` list argument does not require any animation settings.
 
 The following example sets the simultaneous animations of the x, fill alpha, fill color, and line thickness.
 

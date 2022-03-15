@@ -6,7 +6,7 @@ This page explains the `animation_y` method interface.
 
 The `animation_y` method interface creates an `AnimationY` instance. You can animate y-coordinate with it.
 
-This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle`.
+This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle` class.
 
 ## Basic usage
 

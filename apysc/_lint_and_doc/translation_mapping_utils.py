@@ -205,10 +205,18 @@ def escape_key_or_value(*, key_or_val: str) -> str:
     key_or_val : str
         An escaped key or value string.
     """
+    key_or_val = remove_escaping_from_key_or_value(key_or_val=key_or_val)
+    TMP_LINE_END_ESCAPE_STR: str = '___tmp_line_end___'
+    key_or_val = re.sub(
+        pattern=r'\\$\n', repl=TMP_LINE_END_ESCAPE_STR,
+        string=key_or_val, flags=re.MULTILINE)
     key_or_val = key_or_val.replace('\\', '\\\\')
     key_or_val = key_or_val.replace("'", "\\'")
     key_or_val = key_or_val.replace('\n', '\\n')
     key_or_val = key_or_val.replace('\\\\n', '\\n')
+    key_or_val = re.sub(
+        pattern=rf'{TMP_LINE_END_ESCAPE_STR}',
+        repl=r'\\\\\\n', string=key_or_val, flags=re.MULTILINE)
     return key_or_val
 
 

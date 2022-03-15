@@ -88,7 +88,7 @@ MAPPING: Dict[str, str] = {
     '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
 
     '**[Interface summary]** Create a basic display object that can be a parent.<hr>':  # noqa
-    '**[インターフェイス概要]** 子を持つことのできる基本的な表示要素用のオブジェクトを生成します。',
+    '**[インターフェイス概要]** 子を持つことのできる基本的な表示要素用のオブジェクトを生成します。<hr>',
 
     '**[Parameters]**':
     '**[引数]**',

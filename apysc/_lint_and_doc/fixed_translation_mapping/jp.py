@@ -226,4 +226,20 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - The final line thickness of the animation.',
             value='  - 線幅のアニメーションの最終値。'),
+        Mapping(
+            key='This interface exists on a `DisplayObject` subclass '
+                'instance, such as the `Sprite` or `Rectangle`.',
+            value='このインターフェイスは`Sprite`や`Rectangle`'
+                   'などの`DisplayObject`の各サブクラスに存在します。'),
+        Mapping(
+            key='**[Interface summary]** Set the x and y '
+                'coordinates animation settings.<hr>',
+            value='**[インターフェイス概要]** XとY座標に対する'
+                  'アニメーションを設定します。<hr>'),
+        Mapping(
+            key='  - Destination of the x-coordinate.',
+            value='  - 最終的なX座標。'),
+        Mapping(
+            key='  - Destination of the y-coordinate.',
+            value='  - 最終的なY座標。'),
     ])

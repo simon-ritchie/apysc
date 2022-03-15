@@ -226,3 +226,36 @@ def test__key_is_api_docs_list() -> None:
             'a handler.'
         ))
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__key_is_api_docs_br_tags_list() -> None:
+    result: bool = translation_mapping_utils._key_is_api_docs_br_tags_list(
+        key_='- ValueError: <br> ・If the animations\' target '
+             'is not this instance. <br> ・If there are changed '
+             'duration, delay, or easing animation settings '
+             'in the `animations` list.')
+    assert result
+
+    result = translation_mapping_utils._key_is_api_docs_br_tags_list(
+        key_='Lorem ipsum dolor sit.')
+    assert not result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extend_keys_with_api_docs_br_tags_list() -> None:
+    keys: List[str] = []
+    translation_mapping_utils._extend_keys_with_api_docs_br_tags_list(
+        keys=keys,
+        key_=(
+            '- ValueError: <br> ・If the animations\' target '
+             'is not this instance. <br> ・If there are changed '
+             'duration, delay, or easing animation settings '
+             'in the `animations` list.'
+        ))
+    assert keys == [
+        '- ValueError: ',
+        '<br> ・If the animations\' target is not this instance. ',
+        '<br> ・If there are changed duration, delay, or easing '
+        'animation settings in the `animations` list.',
+    ]

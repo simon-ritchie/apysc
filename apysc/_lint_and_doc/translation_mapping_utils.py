@@ -158,8 +158,51 @@ def _append_body_text_keys_to_list(
         if _key_is_api_docs_list(key_=key_):
             lines: List[str] = key_.split('\\n')
             keys.extend(lines)
+        elif _key_is_api_docs_br_tags_list(key_=key_):
+            _extend_keys_with_api_docs_br_tags_list(
+                keys=keys, key_=key_)
         else:
             keys.append(key_)
+
+
+def _extend_keys_with_api_docs_br_tags_list(
+        *, keys: List[str], key_: str) -> None:
+    """
+    Extend a specified keys with an api docs' break tags list.
+
+    Parameters
+    ----------
+    keys : list of str
+        A keys list to extend.
+    key_ : str
+        An api docs' break tags list string.
+    """
+    splitted_keys: List[str] = key_.split('<br> ・')
+    for i, splitted_key in enumerate(splitted_keys):
+        if i != 0:
+            splitted_keys[i] = f'<br> ・{splitted_key}'
+    keys.extend(splitted_keys)
+
+
+def _key_is_api_docs_br_tags_list(*, key_: str) -> bool:
+    """
+    Get a boolean indicating whether a specified key's string
+    is a markdown of list with break tags.
+
+    Parameters
+    ----------
+    key_ : str
+        A target key string to check.
+
+    Returns
+    -------
+    result : bool
+        A boolean indicating whether a specified key's string
+        is a markdown of list with break tags or not.
+    """
+    if '<br> ・' in key_:
+        return True
+    return False
 
 
 _API_DOCS_LIST_PATTERN: Pattern = re.compile(

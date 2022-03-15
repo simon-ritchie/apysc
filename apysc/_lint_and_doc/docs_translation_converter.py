@@ -147,7 +147,7 @@ def _validate_markdown_list_hyphen_symbols_are_same(
     Raises
     ------
     _MarkdownListHyphenSymbolsAreNotSame
-        This interface raises an exception if markdown's first
+        This interface makes an exception if markdown's first
         hyphen symbols are not the same.
     """
     if not key.strip().startswith('- '):
@@ -231,7 +231,7 @@ def _remove_unnecessary_line_break_between_list(
     Parameters
     ----------
     translated_doc : str
-        A target translated document to remove unnecessary line break.
+        A target translated document to remove an unnecessary line break.
 
     Returns
     -------

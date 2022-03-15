@@ -81,7 +81,7 @@ Remove an unnecessary line break between each markdown's list.<hr>
 **[Parameters]**
 
 - `translated_doc`: str
-  - A target translated document to remove unnecessary line break.
+  - A target translated document to remove an unnecessary line break.
 
 <hr>
 
@@ -108,6 +108,25 @@ Validate whether first spaces numbers are the same between a source markdown and
 **[Raises]**
 
 - _FirstSpacesNumAreDifferent: This interface raises an exception if first spaces numbers are different.
+
+## `_validate_markdown_list_hyphen_symbols_are_same` function docstring
+
+Validate whether markdown's first hyphen symbols are the same or not.<hr>
+
+**[Parameters]**
+
+- `translated_str`: str
+  - A translated string.
+- `key`: str
+  - A key (source) string.
+- `md_file_path`: str
+  - A source markdown file path.
+
+<hr>
+
+**[Raises]**
+
+- _MarkdownListHyphenSymbolsAreNotSame: This interface makes an exception if markdown's first hyphen symbols are not the same.
 
 ## `_validate_sharp_heading_symbol_num_are_same` function docstring
 
@@ -168,5 +187,7 @@ Apply a translation mapping to a specified markdown document. This interface sav
 ## `_FirstSpacesNumAreDifferent` class docstring
 
 ## `_InvalidHeadingSharpSymbolNumber` class docstring
+
+## `_MarkdownListHyphenSymbolsAreNotSame` class docstring
 
 ## `_TranslationMappingNotFound` class docstring

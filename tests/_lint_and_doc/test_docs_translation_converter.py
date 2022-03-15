@@ -12,7 +12,9 @@ from apysc._lint_and_doc.docs_translation_converter import \
 from apysc._lint_and_doc.docs_translation_converter import \
     _InvalidHeadingSharpSymbolNumber
 from apysc._lint_and_doc.docs_translation_converter import \
-    _TranslationMappingNotFound, _MarkdownListHyphenSymbolsAreNotSame
+    _MarkdownListHyphenSymbolsAreNotSame
+from apysc._lint_and_doc.docs_translation_converter import \
+    _TranslationMappingNotFound
 from tests.testing_helper import assert_raises
 
 

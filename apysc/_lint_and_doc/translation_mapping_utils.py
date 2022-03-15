@@ -194,8 +194,8 @@ def _key_is_api_docs_br_tags_list(*, key_: str) -> bool:
     Returns
     -------
     result : bool
-        A boolean indicating whether a specified key's string
-        is a markdown of list with break tags or not.
+        A boolean indicates whether a specified key's string
+        is a markdown of a list with break tags or not.
     """
     if '<br> ・' in key_:
         return True

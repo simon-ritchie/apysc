@@ -56,7 +56,7 @@ Get a boolean indicating whether a specified key's string is an API document's (
 **[Returns]**
 
 - `result`: bool
-  - This interface returns True if a specified key string is an API document's list.
+  - A boolean indicates whether a specified key's string is a markdown of a list with break tags or not.
 
 ## `convert_splitted_values_to_keys` function docstring
 

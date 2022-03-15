@@ -133,7 +133,7 @@ def apply_translation_to_doc(
     return translated_file_path
 
 
-def _append_double_line_breaks_if_txt_is_not_blank(*, txt) -> str:
+def _append_double_line_breaks_if_txt_is_not_blank(*, txt: str) -> str:
     """
     Append double line breaks if a specified text is not
     a blank string.

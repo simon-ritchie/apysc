@@ -24,6 +24,22 @@ Add a target language's heading information text to a specified translated text.
 - `translated_doc`: str
   - A result translated document's text. This interface directly returns argument value if there is no heading information setting.
 
+## `_append_double_line_breaks_if_txt_is_not_blank` function docstring
+
+Append double line breaks if a specified text is not a blank string.<hr>
+
+**[Parameters]**
+
+- `txt`: str
+  - A target text.
+
+<hr>
+
+**[Returns]**
+
+- `txt`: str
+  - A result text.
+
 ## `_apply_mapping_if_translated_str_is_api_sig` function docstring
 
 Apply an API signature translation mapping if a specified translated string is a signature string.<hr>

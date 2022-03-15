@@ -265,4 +265,11 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - The final radius of the animation.',
             value='  - 半径のアニメーションの最終値。'),
+        Mapping(
+            key='This interface exists in the instances that '
+                'have the animation interfaces (such as the '
+                '`animation_x`\\, `animation_move`).',
+            value='このインターフェイスは`animation_x`や`animation_move`'
+                  'などのアニメーション関係のインターフェイスを持つクラスの'
+                  'インスタンス上に存在します。'),
     ])

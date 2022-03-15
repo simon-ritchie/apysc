@@ -158,6 +158,8 @@ def _make_mappings_from_keys(
             key=key, value=value)
         value = _set_same_value_if_key_is_no_mapping_fixed_string(
             key=key, value=value)
+        key = escape_key_or_value(key_or_val=key)
+        value = escape_key_or_value(key_or_val=value)
         mappings.append({key: value})
     return mappings
 

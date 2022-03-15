@@ -218,4 +218,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - The final line color (hex color code) of the animation.',
             value='  - 16進数の線の色のアニメーションの最終値。'),
+        Mapping(
+            key='**[Interface summary]** Set the line thickness '
+                'animation setting.<hr>',
+            value='**[インターフェイス概要]** 線幅のアニメーションを'
+                  '設定します。<hr>'),
+        Mapping(
+            key='  - The final line thickness of the animation.',
+            value='  - 線幅のアニメーションの最終値。'),
     ])

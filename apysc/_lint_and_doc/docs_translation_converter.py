@@ -115,6 +115,9 @@ def apply_translation_to_doc(
         _validate_tail_hr_tag(
             translated_str=translated_str, key=key,
             md_file_path=md_file_path)
+        _validate_first_br_tags_and_list_symbols_are_same(
+            translated_str=translated_str, key=key,
+            md_file_path=md_file_path)
 
     translated_file_path: str = translation_mapping_utils.\
         get_translated_file_path_from_src_path(
@@ -127,6 +130,44 @@ def apply_translation_to_doc(
         txt=translated_doc, file_path=translated_file_path)
 
     return translated_file_path
+
+
+class _BrTagsAndListSymbolsAreNotSame(Exception):
+    pass
+
+
+def _validate_first_br_tags_and_list_symbols_are_same(
+        *, translated_str: str, key: str,
+        md_file_path: str) -> None:
+    """
+    Validate whether a string's first break tags and list
+    symbols（・） are the same between a source string and
+    a key string.
+
+    Parameters
+    ----------
+    translated_str : str
+        A translated string.
+    key : str
+        A key (source) string.
+    md_file_path : str
+        A source markdown file path.
+
+    Raises
+    ------
+    _BrTagsAndListSymbolsAreNotSame
+        This interface makes an exception if specified strings'
+        first break tags and list symbols are not the same.
+    """
+    if not key.startswith('<br> ・'):
+        return
+    if translated_str.startswith('<br> ・'):
+        return
+    raise _BrTagsAndListSymbolsAreNotSame(
+        'First break tags and list symbols are not the same:'
+        f'\nSource string: {key}'
+        f'\nTranslated string: {translated_str}'
+        f'\nSource document path: {md_file_path}')
 
 
 def _remove_line_break_between_api_docs_list_br_tag(

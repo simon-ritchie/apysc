@@ -14,7 +14,7 @@ from apysc._lint_and_doc.docs_translation_converter import \
 from apysc._lint_and_doc.docs_translation_converter import \
     _MarkdownListHyphenSymbolsAreNotSame
 from apysc._lint_and_doc.docs_translation_converter import \
-    _TranslationMappingNotFound, _InvalidTailsHrTag
+    _TranslationMappingNotFound, _InvalidTailsHrTag, _BrTagsAndListSymbolsAreNotSame
 from tests.testing_helper import assert_raises
 
 
@@ -255,3 +255,29 @@ def test__remove_line_break_between_api_docs_list_br_tag() -> None:
         'duration, delay, or easing animation settings '
         'in the `animations` list.'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__validate_first_br_tags_and_list_symbols_are_same() -> None:
+    docs_translation_converter.\
+        _validate_first_br_tags_and_list_symbols_are_same(
+            translated_str='テストテキスト',
+            key='Lorem ipsum',
+            md_file_path='test/path.md')
+
+    docs_translation_converter.\
+        _validate_first_br_tags_and_list_symbols_are_same(
+            translated_str='<br> ・テストテキスト',
+            key='<br> ・Lorem ipsum',
+            md_file_path='test/path.md')
+
+    assert_raises(
+        expected_error_class=_BrTagsAndListSymbolsAreNotSame,
+        func_or_method=docs_translation_converter.
+        _validate_first_br_tags_and_list_symbols_are_same,
+        kwargs={
+            'translated_str': 'テストテキスト',
+            'key': '<br> ・Lorem ipsum',
+            'md_file_path': 'test/path.md'
+        },
+        match='First break tags and list symbols are not the same:')

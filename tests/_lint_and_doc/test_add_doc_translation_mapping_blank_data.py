@@ -149,8 +149,6 @@ def test__remove_skipping_pattern_keys_from_list() -> None:
                 '**[Interface signature]** `__init__(self, *, '
                 'variable_name:Union[str, NoneType]=None) -> None`<hr>',
 
-                '<hr>',
-
                 'Dolor sit amet, consectetur adipiscing.',
 
                 '<iframe src="static/sprite_move_instances_simultaneously'

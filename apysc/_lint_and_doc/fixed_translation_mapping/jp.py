@@ -235,7 +235,7 @@ MAPPINGS: Mappings = Mappings(
             key='This interface exists on a `DisplayObject` subclass '
                 'instance, such as the `Sprite` or `Rectangle` class.',
             value='このインターフェイスは`Sprite`や`Rectangle`'
-                   'などの`DisplayObject`の各サブクラスに存在します。'),
+            'などの`DisplayObject`の各サブクラスに存在します。'),
         Mapping(
             key='**[Interface summary]** Set the x and y '
                 'coordinates animation settings.<hr>',

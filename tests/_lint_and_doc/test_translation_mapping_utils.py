@@ -265,9 +265,9 @@ def test__extend_keys_with_api_docs_br_tags_list() -> None:
         keys=keys,
         key_=(
             '- ValueError: <br> ・If the animations\' target '
-             'is not this instance. <br> ・If there are changed '
-             'duration, delay, or easing animation settings '
-             'in the `animations` list.'
+            'is not this instance. <br> ・If there are changed '
+            'duration, delay, or easing animation settings '
+            'in the `animations` list.'
         ))
     assert keys == [
         '- ValueError: ',

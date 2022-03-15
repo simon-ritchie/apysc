@@ -8,13 +8,18 @@ from apysc._lint_and_doc import docs_translation_converter
 from apysc._lint_and_doc import translation_mapping_utils
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import \
+    _BrTagsAndListSymbolsAreNotSame
+from apysc._lint_and_doc.docs_translation_converter import \
+    _FirstFullWidthListSymbolsAreNotSame
+from apysc._lint_and_doc.docs_translation_converter import \
     _FirstSpacesNumAreDifferent
 from apysc._lint_and_doc.docs_translation_converter import \
     _InvalidHeadingSharpSymbolNumber
+from apysc._lint_and_doc.docs_translation_converter import _InvalidTailsHrTag
 from apysc._lint_and_doc.docs_translation_converter import \
     _MarkdownListHyphenSymbolsAreNotSame
 from apysc._lint_and_doc.docs_translation_converter import \
-    _TranslationMappingNotFound, _InvalidTailsHrTag, _BrTagsAndListSymbolsAreNotSame, _FirstFullWidthListSymbolsAreNotSame
+    _TranslationMappingNotFound
 from tests.testing_helper import assert_raises
 
 

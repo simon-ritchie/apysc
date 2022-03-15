@@ -74,6 +74,22 @@ Get a sharp heading symbol number from a specified string.<hr>
 - `sharp_symbol_num`: int
   - - A sharp heading symbol number.
 
+## `_remove_line_break_between_api_docs_list_br_tag` function docstring
+
+Remove a line break between an API docs list's break tag.<hr>
+
+**[Parameters]**
+
+- `translated_doc`: str
+  - A translated string.
+
+<hr>
+
+**[Returns]**
+
+- `translated_doc`: str
+  - A result string.
+
 ## `_remove_unnecessary_line_break_between_list` function docstring
 
 Remove an unnecessary line break between each markdown's list.<hr>
@@ -89,6 +105,44 @@ Remove an unnecessary line break between each markdown's list.<hr>
 
 - `result_translated_doc`: str
   - A target translated document to remove an unnecessary line break.
+
+## `_validate_first_br_tags_and_list_symbols_are_same` function docstring
+
+Validate whether a string's first break tags and list symbols（・） are the same between a source string and a key string.<hr>
+
+**[Parameters]**
+
+- `translated_str`: str
+  - A translated string.
+- `key`: str
+  - A key (source) string.
+- `md_file_path`: str
+  - A source markdown file path.
+
+<hr>
+
+**[Raises]**
+
+- _BrTagsAndListSymbolsAreNotSame: This interface makes an exception if specified strings' first break tags and list symbols are not the same.
+
+## `_validate_first_full_width_list_symbols_are_same` function docstring
+
+Validate whether specified first full-width list symbols are the same or not.<hr>
+
+**[Parameters]**
+
+- `translated_str`: str
+  - A translated string.
+- `key`: str
+  - A key (source) string.
+- `md_file_path`: str
+  - A source markdown file path.
+
+<hr>
+
+**[Raises]**
+
+- _FirstFullWidthListSymbolsAreNotSame: If specified strings' first full-width list symbols are not the same.
 
 ## `_validate_first_spaces_nums_are_same` function docstring
 
@@ -147,6 +201,25 @@ Validate whether a sharp heading symbol of source and translated string are the 
 
 - _InvalidHeadingSharpSymbolNumber: The symbol number is different for a specified translated string and a source string's sharp symbol heading.
 
+## `_validate_tail_hr_tag` function docstring
+
+Validate whether a tail of translated string's `<hr>` tag is valid or not.<hr>
+
+**[Parameters]**
+
+- `translated_str`: str
+  - A translated string.
+- `key`: str
+  - A key (source) string.
+- `md_file_path`: str
+  - A source markdown file path.
+
+<hr>
+
+**[Raises]**
+
+- _InvalidTailsHrTag: This interface makes an exception if a tail of a source text is the `<hr>` tag and a translated string is not.
+
 ## `_validate_translated_str_is_not_blank` function docstring
 
 Validate whether a translated string is not a blank string.<hr>
@@ -184,9 +257,15 @@ Apply a translation mapping to a specified markdown document. This interface sav
 - `translated_file_path`: str
   - A translated document file path.
 
+## `_BrTagsAndListSymbolsAreNotSame` class docstring
+
+## `_FirstFullWidthListSymbolsAreNotSame` class docstring
+
 ## `_FirstSpacesNumAreDifferent` class docstring
 
 ## `_InvalidHeadingSharpSymbolNumber` class docstring
+
+## `_InvalidTailsHrTag` class docstring
 
 ## `_MarkdownListHyphenSymbolsAreNotSame` class docstring
 

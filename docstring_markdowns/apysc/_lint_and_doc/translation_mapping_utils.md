@@ -15,6 +15,33 @@ Append document's body text keys to a specified key's list.<hr>
 - `keys`: list of str
   - A key's list to append.
 
+## `_extend_keys_with_api_docs_br_tags_list` function docstring
+
+Extend a specified keys list with an API docs' break tags list.<hr>
+
+**[Parameters]**
+
+- `keys`: list of str
+  - A keys list to extend.
+- `key_`: str
+  - An API docs' break tags list string.
+
+## `_key_is_api_docs_br_tags_list` function docstring
+
+Get a boolean indicating whether a specified key's string is a list markdown with break tags.<hr>
+
+**[Parameters]**
+
+- `key_`: str
+  - A target key string to check.
+
+<hr>
+
+**[Returns]**
+
+- `result`: bool
+  - A boolean indicates whether a specified key's string is a markdown of a list with break tags or not.
+
 ## `_key_is_api_docs_list` function docstring
 
 Get a boolean indicating whether a specified key's string is an API document's (parameters, returns, exceptions, references) list.<hr>

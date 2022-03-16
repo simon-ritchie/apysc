@@ -1,3 +1,5 @@
+# pyright: reportUnusedExpression=false
+
 from random import randint
 from typing import Any
 from typing import Dict

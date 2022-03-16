@@ -1,3 +1,5 @@
+# pyright: reportUnusedExpression=false
+
 import re
 from random import randint
 from typing import List

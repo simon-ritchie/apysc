@@ -272,4 +272,11 @@ MAPPINGS: Mappings = Mappings(
             value='このインターフェイスは`animation_x`や`animation_move`'
                   'などのアニメーション関係のインターフェイスを持つクラスの'
                   'インスタンス上に存在します。'),
+        Mapping(
+            key='## Interface Notes',
+            value='## インターフェイスの特記事項'),
+        Mapping(
+            key='**[Interface summary]** Reverse all running animations.<hr>',
+            value='**[インターフェイス概要]** 動いている全ての'
+                  'アニメーションを反転（逆再生）します。<hr>'),
     ])

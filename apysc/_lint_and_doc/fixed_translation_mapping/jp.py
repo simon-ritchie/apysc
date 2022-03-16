@@ -279,4 +279,12 @@ MAPPINGS: Mappings = Mappings(
             key='**[Interface summary]** Reverse all running animations.<hr>',
             value='**[インターフェイス概要]** 動いている全ての'
                   'アニメーションを反転（逆再生）します。<hr>'),
+        Mapping(
+            key='**[Interface summary]** Set the rotation around the center '
+                'animation setting.<hr>',
+            value='**[インターフェイス概要]** 中央座標を使用した'
+                  '回転のアニメーションの設定を行います。<hr>'),
+        Mapping(
+            key='  - The final rotation of the animation.',
+            value='  - 回転のアニメーションの回転量の最終値。'),
     ])

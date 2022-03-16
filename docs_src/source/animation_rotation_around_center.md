@@ -6,7 +6,7 @@ This page explains the `animation_rotation_around_center` method interface.
 
 The `animation_rotation_around_center` method interface creates an `ap.AnimationRotationAroundCenter` instance. You can animate rotation around the instance's center point with it.
 
-This interface exists on a `GraphicsBase`\, such as the `Rectangle` or `Circle` class.
+This interface exists on a `GraphicsBase` subclass, such as the `Rectangle` or `Circle` class.
 
 ## Basic usage
 

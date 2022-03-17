@@ -330,4 +330,17 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - The final skew-x of the animation.',
             value='  - X軸の傾きのアニメーションの最終値。'),
+        Mapping(
+            key='**[Interface summary]** Get an animation elapsed '
+                'millisecond.<hr>',
+            value='**[インターフェイス概要]** アニメーションの'
+                  '経過時間のミリ秒を取得します。<hr>'),
+        Mapping(
+            key='**[Interface summary]** Get an animation elapsed '
+                'millisecond.<hr>',
+            value='**[インターフェイス概要]** アニメーションの'
+                  '経過時間のミリ秒を取得します。<hr>'),
+        Mapping(
+            key='  - An animation elapsed millisecond.',
+            value='  - アニメーションの経過時間のミリ秒。'),
     ])

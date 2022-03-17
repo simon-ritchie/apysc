@@ -1,14 +1,16 @@
-# animation_time interface
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_time.md)の確認をお願いします。</span>
 
-This page explains the `animation_time` method interface.
+# animation_time インターフェイス
 
-## What interface is this?
+このページでは`animation_time`メソッドのインターフェイスについて説明します。
 
-The `animation_time` interface returns the current animation elapsed time in milliseconds (`Number` type value).
+## インターフェイス概要
 
-## Basic usage
+`animation_time`インターフェイスは現在のアニメーションの経過時間をミリ秒で返却します（`Number`型の値で設定されます）。
 
-The following example sets the x-coordinate animation of the rectangle and the 1-second interval timer to display an animation's current elapsed time to console (please press the F12 key).
+## 基本的な使い方
+
+以下のコード例では四角に対してX座標のアニメーションを設定し、1秒ごとにアニメーションの経過時間をコンソールに出力しています（出力内容はF12キーを押してブラウザで確認してください）。
 
 ```py
 # runnable
@@ -55,25 +57,22 @@ ap.save_overall_html(
 
 <iframe src="static/animation_time_basic_usage/index.html" width="500" height="150"></iframe>
 
-
 ## animation_time API
 
-<!-- Docstring: apysc._animation.animation_time_interface.AnimationTimeInterface.animation_time -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイスの構造]** `animation_time(self) -> apysc._type.number.Number`<hr>
 
-**[Interface signature]** `animation_time(self) -> apysc._type.number.Number`<hr>
+**[インターフェイス概要]** アニメーションの経過時間のミリ秒を取得します。<hr>
 
-**[Interface summary]** Get an animation elapsed millisecond.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `elapsed_time`: Number
-  - An animation elapsed millisecond.
+  - アニメーションの経過時間のミリ秒。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> from typing_extensions import TypedDict

@@ -298,4 +298,23 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Y-coordinate.',
             value='  - Y座標。'),
+        Mapping(
+            key='## What interfaces are these?',
+            value='## 各インターフェイスの概要'),
+        Mapping(
+            key='**[Interface summary]** Set the scale-x from '
+                'the center point animation setting.<hr>',
+            value='**[インターフェイス概要]** 中央座標を基準とした'
+                  'X軸の拡縮アニメーションを設定します。<hr>'),
+        Mapping(
+            key='  - The final scale-x of the animation.',
+            value='  - X軸の拡縮のアニメーションの最終値。'),
+        Mapping(
+            key='**[Interface summary]** Set the scale-y from '
+                'the center point animation setting.<hr>',
+            value='**[インターフェイス概要]** 中央座標を基準とした'
+                  'Y軸の拡縮アニメーションを設定します。<hr>'),
+        Mapping(
+            key='  - The final scale-y of the animation.',
+            value='  - Y軸の拡縮のアニメーションの最終値。'),
     ])

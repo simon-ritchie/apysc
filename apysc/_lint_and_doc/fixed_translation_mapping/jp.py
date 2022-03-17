@@ -380,4 +380,7 @@ MAPPINGS: Mappings = Mappings(
                 'animation setting.<hr>',
             value='**[インターフェイス概要]** Y座標のアニメーションを'
                   '設定します。<hr>'),
+        Mapping(
+            key='  - Any value to append.',
+            value='  - 追加対象の任意の値。'),
     ])

@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>animation_width と animation_height のインターフェイス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">animation_width と animation_height のインターフェイス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="animation_width_and_height.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="animation-width-animation-height">
+<h1>animation_width と animation_height のインターフェイス<a class="headerlink" href="#animation-width-animation-height" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">animation_width</span></code>と<code class="docutils literal notranslate"><span class="pre">animation_height</span></code>メソッドの各インターフェイスについて説明します。</p>
+<section id="id1">
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">animation_width</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">AnimationWidth</span></code>クラスのインスタンスを生成します。そのインスタンスを使って幅のアニメーションを設定することができます。</p>
+<p>同様に<code class="docutils literal notranslate"><span class="pre">animation_height</span></code>メソッドのインターフェイスは<code class="docutils literal notranslate"><span class="pre">AnimationHeight</span></code>クラスのインスタンスを生成します。そのインスタンスを使って高さのアニメーションを設定することができます。</p>
+<p>これらの各インターフェイスは<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>クラスなどの<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の各サブクラス上に存在します。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">animation_width</span></code>メソッドを使って幅（50から100）のアニメーションを設定しています。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">DURATION</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">EASING</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span>
+
+
+<span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.AnimationEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
+    <span class="n">animation_width</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationWidth</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_width</span><span class="p">(</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">)</span>
+    <span class="n">animation_width</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_2</span><span class="p">)</span>
+    <span class="n">animation_width</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.AnimationEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
+    <span class="n">animation_width</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationWidth</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_width</span><span class="p">(</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">)</span>
+    <span class="n">animation_width</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_1</span><span class="p">)</span>
+    <span class="n">animation_width</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">animation_width</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationWidth</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_width</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">)</span>
+<span class="n">animation_width</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_1</span><span class="p">)</span>
+<span class="n">animation_width</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_width_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/animation_width_basic_usage/index.html" width="200" height="150"></iframe><p>同様に以下のコード例では<code class="docutils literal notranslate"><span class="pre">animation_height</span></code>メソッドを使って高さのアニメーションを設定しています。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">DURATION</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">EASING</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span>
+
+
+<span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.AnimationEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
+    <span class="n">animation_height</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationHeight</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_height</span><span class="p">(</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">)</span>
+    <span class="n">animation_height</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_2</span><span class="p">)</span>
+    <span class="n">animation_height</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.AnimationEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
+    <span class="n">animation_height</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationHeight</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_height</span><span class="p">(</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">)</span>
+    <span class="n">animation_height</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_1</span><span class="p">)</span>
+    <span class="n">animation_height</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">animation_height</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationHeight</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_height</span><span class="p">(</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">)</span>
+<span class="n">animation_height</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_1</span><span class="p">)</span>
+<span class="n">animation_height</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_height_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/animation_height_basic_usage/index.html" width="150" height="200"></iframe></section>
+<section id="ellipse">
+<h2>Ellipse のインスタンスにおける特記事項<a class="headerlink" href="#ellipse" title="Permalink to this headline">¶</a></h2>
+<p>楕円のインスタンス（<code class="docutils literal notranslate"><span class="pre">Ellipse</span></code>クラス）の<code class="docutils literal notranslate"><span class="pre">animation_width</span></code>と<code class="docutils literal notranslate"><span class="pre">animation_height</span></code>の各インターフェイスは内部実行が異なる都合で<code class="docutils literal notranslate"><span class="pre">AnimationWidth</span></code>クラスなどの代わりに<code class="docutils literal notranslate"><span class="pre">以下のコード例のようにAnimationWidthForEllipse</span></code>クラスと<code class="docutils literal notranslate"><span class="pre">AnimationHeightForEllipse</span></code>クラスのインスタンスを返却します:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">)</span>
+<span class="n">ellipse</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">animation_width</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationWidthForEllipse</span> <span class="o">=</span> <span class="n">ellipse</span><span class="o">.</span><span class="n">animation_width</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">animation_width</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="animation-width-api">
+<h2>animation_width API<a class="headerlink" href="#animation-width-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">animation_width(self,</span> <span class="pre">width:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">duration:Union[int,</span> <span class="pre">apysc._type.int.Int]=3000,</span> <span class="pre">delay:Union[int,</span> <span class="pre">apysc._type.int.Int]=0,</span> <span class="pre">easing:apysc._animation.easing.Easing=&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_width.AnimationWidth</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 幅のアニメーションを設定します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Int or int</p>
+<ul>
+<li><p>幅のアニメーションの最終値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: Int or int, default 3000</p>
+<ul>
+<li><p>アニメーション完了までのミリ秒。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code>: Int or int, default 0</p>
+<ul>
+<li><p>アニメーション開始までの遅延時間のミリ秒。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">easing</span></code>: Easing, default Easing.LINEAR</p>
+<ul>
+<li><p>イージング設定。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">animation_width</span></code>: AnimationWidth</p>
+<ul>
+<li><p>生成されたアニメーションのインスタンス。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[特記事項]</strong></p>
+<p>アニメーションを開始するには返却されたインスタンスの<code class="docutils literal notranslate"><span class="pre">start</span></code>メソッドを呼び出す必要があります。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_width</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">duration</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">easing</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr><p><strong>[関連資料]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_animation_duration.html">各アニメーションインターフェイスの duration （アニメーション時間）設定</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_animation_delay.html">各アニメーションインターフェイスの delay （遅延時間）設定</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_animation_return_value.html">各アニメーションインターフェイスの返却値</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_sequential_animation.html">連続したアニメーション設定</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_animation_parallel.html">animation_parallel （並列アニメーション設定）のインターフェイス</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_easing_enum.html">イージングのenum</a></p></li>
+</ul>
+</section>
+<section id="animation-height-api">
+<h2>animation_height API<a class="headerlink" href="#animation-height-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">animation_height(self,</span> <span class="pre">height:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">duration:Union[int,</span> <span class="pre">apysc._type.int.Int]=3000,</span> <span class="pre">delay:Union[int,</span> <span class="pre">apysc._type.int.Int]=0,</span> <span class="pre">easing:apysc._animation.easing.Easing=&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_height.AnimationHeight</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 高さのアニメーションを設定します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: Int or int</p>
+<ul>
+<li><p>高さのアニメーションの最終値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: Int or int, default 3000</p>
+<ul>
+<li><p>アニメーション完了までのミリ秒。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code>: Int or int, default 0</p>
+<ul>
+<li><p>アニメーション開始までの遅延時間のミリ秒。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">easing</span></code>: Easing, default Easing.LINEAR</p>
+<ul>
+<li><p>イージング設定。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">animation_height</span></code>: AnimationHeight</p>
+<ul>
+<li><p>生成されたアニメーションのインスタンス。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[特記事項]</strong></p>
+<p>アニメーションを開始するには返却されたインスタンスの<code class="docutils literal notranslate"><span class="pre">start</span></code>メソッドを呼び出す必要があります。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_height</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">duration</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">easing</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr><p><strong>[関連資料]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_animation_duration.html">各アニメーションインターフェイスの duration （アニメーション時間）設定</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_animation_delay.html">各アニメーションインターフェイスの delay （遅延時間）設定</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_animation_return_value.html">各アニメーションインターフェイスの返却値</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_sequential_animation.html">連続したアニメーション設定</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_animation_parallel.html">animation_parallel （並列アニメーション設定）のインターフェイス</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_easing_enum.html">イージングのenum</a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">animation_width と animation_height のインターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#ellipse">Ellipse のインスタンスにおける特記事項</a></li>
+<li><a class="reference internal" href="#animation-width-api">animation_width API</a></li>
+<li><a class="reference internal" href="#animation-height-api">animation_height API</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">animation_width と animation_height のインターフェイス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

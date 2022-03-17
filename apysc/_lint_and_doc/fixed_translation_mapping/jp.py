@@ -343,4 +343,28 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - An animation elapsed millisecond.',
             value='  - アニメーションの経過時間のミリ秒。'),
+        Mapping(
+            key='These interfaces exist on some `DisplayObject` '
+                'instances, such as the `Rectangle` class.',
+            value='これらの各インターフェイスは`Rectangle`クラスなどの'
+                  '`DisplayObject`の各サブクラス上に存在します。'),
+        Mapping(
+            key='## Notes for the Ellipse instance',
+            value='## Ellipse のインスタンスにおける特記事項'),
+        Mapping(
+            key='**[Interface summary]** Set the width animation '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** 幅のアニメーションを'
+                  '設定します。<hr>'),
+        Mapping(
+            key='**[Interface summary]** Set the height '
+                'animation setting.<hr>',
+            value='**[インターフェイス概要]** 高さのアニメーションを'
+                  '設定します。<hr>'),
+        Mapping(
+            key='  - The final width of the animation.',
+            value='  - 幅のアニメーションの最終値。'),
+        Mapping(
+            key='  - The final height of the animation.',
+            value='  - 高さのアニメーションの最終値。'),
     ])

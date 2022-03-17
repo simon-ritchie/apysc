@@ -367,4 +367,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - The final height of the animation.',
             value='  - 高さのアニメーションの最終値。'),
+        Mapping(
+            key='## Notes for the Circle and Ellipse classes',
+            value='## Circle と Ellipse の各クラスの特記事項'),
+        Mapping(
+            key='**[Interface summary]** Set the x-coordinate '
+                'animation setting.<hr>',
+            value='**[インターフェイス概要]** X座標のアニメーションを'
+                  '設定します。<hr>'),
     ])

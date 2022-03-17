@@ -317,4 +317,17 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - The final scale-y of the animation.',
             value='  - Y軸の拡縮のアニメーションの最終値。'),
+        Mapping(
+            key='This interface exists on a `GraphicsBase` '
+                'subclass, such as the `Rectangle` class.',
+            value='このインターフェイスは`Rectangle`などの'
+                  '`GraphicsBase`の各サブクラス上に存在します。'),
+        Mapping(
+            key='**[Interface summary]** Set the skew-x animation '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** X軸の傾きのアニメーションを'
+                  '設定します。<hr>'),
+        Mapping(
+            key='  - The final skew-x of the animation.',
+            value='  - X軸の傾きのアニメーションの最終値。'),
     ])

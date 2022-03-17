@@ -375,4 +375,9 @@ MAPPINGS: Mappings = Mappings(
                 'animation setting.<hr>',
             value='**[インターフェイス概要]** X座標のアニメーションを'
                   '設定します。<hr>'),
+        Mapping(
+            key='**[Interface summary]** Set the y-coordinate '
+                'animation setting.<hr>',
+            value='**[インターフェイス概要]** Y座標のアニメーションを'
+                  '設定します。<hr>'),
     ])

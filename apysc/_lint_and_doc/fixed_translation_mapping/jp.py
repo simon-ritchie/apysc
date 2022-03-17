@@ -86,7 +86,7 @@ MAPPINGS: Mappings = Mappings(
             value='ハンドラのoptions引数の型について'),
         Mapping(
             key='## Basic usage',
-            value='## 使い方例'),
+            value='## 基本的な使い方'),
         Mapping(
             key='## What setting is this?',
             value='## 設定概要'),
@@ -287,4 +287,15 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - The final rotation of the animation.',
             value='  - 回転のアニメーションの回転量の最終値。'),
+        Mapping(
+            key='**[Interface summary]** Set the rotation around '
+                'the given point animation setting.<hr>',
+            value='**[インターフェイス概要]** 指定された座標を'
+                  '基準とした回転のアニメーションを設定します。<hr>'),
+        Mapping(
+            key='  - X-coordinate.',
+            value='  - X座標。'),
+        Mapping(
+            key='  - Y-coordinate.',
+            value='  - Y座標。'),
     ])

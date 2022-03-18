@@ -383,4 +383,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Any value to append.',
             value='  - 追加対象の任意の値。'),
+        Mapping(
+            key='  - Other array-like values to concatenate.',
+            value='  - 連結対象となる他の配列の（もしくはそれに近しい）値。'),
     ])

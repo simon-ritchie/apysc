@@ -389,4 +389,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Any value to search.',
             value='  - 検索対象の任意の値。'),
+        Mapping(
+            key='  - Index to append value.',
+            value='  - 値を追加するインデックス。'),
     ])

@@ -386,4 +386,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Other array-like values to concatenate.',
             value='  - 連結対象となる他の配列の（もしくはそれに近しい）値。'),
+        Mapping(
+            key='  - Any value to search.',
+            value='  - 検索対象の任意の値。'),
     ])

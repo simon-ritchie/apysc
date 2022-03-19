@@ -4,7 +4,7 @@ This page explains the `Array` class `length` property interface.
 
 ## What interface is this?
 
-The `length` attribute interface returns a current array's values length.
+The `length` property interface returns a current array's values length.
 
 ## Basic usage
 

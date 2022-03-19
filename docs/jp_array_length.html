@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Array class length interface &#8212; apysc  documentation</title>
+    <title>Array クラスの length インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Array class join interface" href="array_join.html" />
-    <link rel="prev" title="Array class slice interface" href="array_slice.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="array_join.html" title="Array class join interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="array_slice.html" title="Array class slice interface"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Array class length interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Array クラスの length インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -43,16 +35,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="array-class-length-interface">
-<h1>Array class length interface<a class="headerlink" href="#array-class-length-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Array</span></code> class <code class="docutils literal notranslate"><span class="pre">length</span></code> property interface.</p>
-<section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">length</span></code> property interface returns a current array’s values length.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="array_length.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="array-length">
+<h1>Array クラスの length インターフェイス<a class="headerlink" href="#array-length" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Array</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">length</span></code>属性のインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">length</span></code>属性のインターフェイスは配列の値の長さ（件数）を返却します。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">length</span></code> property has the only getter interface. The return value type is the <code class="docutils literal notranslate"><span class="pre">Int</span></code> type.</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">length</span></code>属性はgetterのインターフェイスのみを持ちます。返却値はapyscの<code class="docutils literal notranslate"><span class="pre">Int</span></code>クラスの整数値となります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -62,9 +55,9 @@
 </pre></div>
 </div>
 </section>
-<section id="notes-of-the-len-function">
-<h2>Notes of the len() function<a class="headerlink" href="#notes-of-the-len-function" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Array</span></code> class is not supported the Python built-in <code class="docutils literal notranslate"><span class="pre">len()</span></code> function, and its function raises an exception. Please use the <code class="docutils literal notranslate"><span class="pre">length</span></code> property instead.</p>
+<section id="len">
+<h2>len()関数における特記事項<a class="headerlink" href="#len" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Array</span></code>クラスはPythonビルトインの<code class="docutils literal notranslate"><span class="pre">len()</span></code>関数をサポートしておらず、もし使用した場合にはエラーとなります。代わりに<code class="docutils literal notranslate"><span class="pre">length</span></code>属性を使用してください。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -75,19 +68,19 @@
 </pre></div>
 </div>
 </section>
-<section id="length-property-api">
-<h2>length property API<a class="headerlink" href="#length-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.array.Array.length --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get length of this array.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="lengthapi">
+<h2>length属性のAPI<a class="headerlink" href="#lengthapi" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> この配列の長さ（値の件数）を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: Int</p>
 <ul>
-<li><p>This array’s length.</p></li>
+<li><p>この配列の長さ（値の件数）。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">length</span>
@@ -109,21 +102,15 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Array class length interface</a><ul>
-<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#notes-of-the-len-function">Notes of the len() function</a></li>
-<li><a class="reference internal" href="#length-property-api">length property API</a></li>
+<li><a class="reference internal" href="#">Array クラスの length インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#len">len()関数における特記事項</a></li>
+<li><a class="reference internal" href="#lengthapi">length属性のAPI</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="array_slice.html"
-                        title="previous chapter">Array class slice interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="array_join.html"
-                        title="next chapter">Array class join interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -144,14 +131,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="array_join.html" title="Array class join interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="array_slice.html" title="Array class slice interface"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Array class length interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Array クラスの length インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

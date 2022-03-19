@@ -398,4 +398,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Joined string.',
             value='  - 連結された文字列。'),
+        Mapping(
+            key='  - Removed value.',
+            value='  - 取り除かれた値。'),
     ])

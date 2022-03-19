@@ -401,4 +401,10 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Removed value.',
             value='  - 取り除かれた値。'),
+        Mapping(
+            key='  - Value to remove.',
+            value='  - 取り除く対象の値。'),
+        Mapping(
+            key='  - Index to remove value.',
+            value='  - 取り除く値のインデックス。'),
     ])

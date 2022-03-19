@@ -392,4 +392,10 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Index to append value.',
             value='  - 値を追加するインデックス。'),
+        Mapping(
+            key='  - Separator string.',
+            value='  - 区切り文字。'),
+        Mapping(
+            key='  - Joined string.',
+            value='  - 連結された文字列。'),
     ])

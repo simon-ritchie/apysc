@@ -40,22 +40,22 @@ MAPPINGS: Mappings = Mappings(
             )),
         Mapping(
             key='Graphics class',
-            value='Graphicsクラス'),
+            value='Graphics クラス'),
         Mapping(
             key='Graphics begin_fill interface',
-            value='Graphicsクラス begin_fill （塗り設定）の'
+            value='Graphics クラス begin_fill （塗り設定）の'
                   'インターフェイス'),
         Mapping(
             key='Graphics line_style interface',
-            value='Graphicsクラス line_style （線設定）の'
+            value='Graphics クラス line_style （線設定）の'
                   'インターフェイス'),
         Mapping(
             key='Graphics draw_rect interface',
-            value='Graphicsクラス draw_rect （四角描画）の'
+            value='Graphics クラス draw_rect （四角描画）の'
                   'インターフェイス'),
         Mapping(
             key='Graphics draw_circle interface',
-            value='Graphicsクラス draw_circle （円描画）の'
+            value='Graphics クラス draw_circle （円描画）の'
                   'インターフェイス'),
         Mapping(
             key='add_child and remove_child interfaces',
@@ -407,4 +407,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Index to remove value.',
             value='  - 取り除く値のインデックス。'),
+        Mapping(
+            key='Array class sort interface',
+            value='Array クラスの sort インターフェイス'),
     ])

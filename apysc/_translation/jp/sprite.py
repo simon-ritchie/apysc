@@ -40,19 +40,19 @@ MAPPING: Dict[str, str] = {
     '詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。',
 
     '- [Graphics class](graphics.md)':
-    '- [Graphicsクラス](jp_graphics.md)',
+    '- [Graphics クラス](jp_graphics.md)',
 
     '- [Graphics begin_fill interface](graphics_begin_fill.md)':
-    '- [Graphicsクラス begin_fill （塗り設定）のインターフェイス](jp_graphics_begin_fill.md)',
+    '- [Graphics クラス begin_fill （塗り設定）のインターフェイス](jp_graphics_begin_fill.md)',  # noqa
 
     '- [Graphics line_style interface](graphics_line_style.md)':
-    '- [Graphicsクラス line_style （線設定）のインターフェイス](jp_graphics_line_style.md)',
+    '- [Graphics クラス line_style （線設定）のインターフェイス](jp_graphics_line_style.md)',
 
     '- [Graphics draw_rect interface](graphics_draw_rect.md)':
-    '- [Graphicsクラス draw_rect （四角描画）のインターフェイス](jp_graphics_draw_rect.md)',
+    '- [Graphics クラス draw_rect （四角描画）のインターフェイス](jp_graphics_draw_rect.md)',
 
     '- [Graphics draw_circle interface](graphics_draw_circle.md)':
-    '- [Graphicsクラス draw_circle （円描画）のインターフェイス](jp_graphics_draw_circle.md)',  # noqa
+    '- [Graphics クラス draw_circle （円描画）のインターフェイス](jp_graphics_draw_circle.md)',  # noqa
 
     '## Move DisplayObject instances simultaneously':
     '## DisplayObjectの複数のインスタンスの移動について',

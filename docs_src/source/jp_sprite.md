@@ -38,13 +38,13 @@ ap.save_overall_html(
 
 詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。
 
-- [Graphicsクラス](jp_graphics.md)
-- [Graphicsクラス begin_fill （塗り設定）のインターフェイス](jp_graphics_begin_fill.md)
+- [Graphics クラス](jp_graphics.md)
+- [Graphics クラス begin_fill （塗り設定）のインターフェイス](jp_graphics_begin_fill.md)
 
-- [Graphicsクラス line_style （線設定）のインターフェイス](jp_graphics_line_style.md)
-- [Graphicsクラス draw_rect （四角描画）のインターフェイス](jp_graphics_draw_rect.md)
+- [Graphics クラス line_style （線設定）のインターフェイス](jp_graphics_line_style.md)
+- [Graphics クラス draw_rect （四角描画）のインターフェイス](jp_graphics_draw_rect.md)
 
-- [Graphicsクラス draw_circle （円描画）のインターフェイス](jp_graphics_draw_circle.md)
+- [Graphics クラス draw_circle （円描画）のインターフェイス](jp_graphics_draw_circle.md)
 
 ## DisplayObjectの複数のインスタンスの移動について
 

@@ -219,8 +219,8 @@ def test__convert_link_list_by_lang() -> None:
             value='',
             lang=Lang.JP)
     assert value == (
-        '- [Graphicsクラス](any/jp_path_1.md)'
-        '\\n- [Graphicsクラス begin_fill （塗り設定）の'
+        '- [Graphics クラス](any/jp_path_1.md)'
+        '\\n- [Graphics クラス begin_fill （塗り設定）の'
         'インターフェイス](any/jp_path_2.md)'
     )
 
@@ -291,8 +291,8 @@ def test__replace_link_text_by_fixed_mapping() -> None:
             ),
             lang=Lang.JP)
     expected: str = (
-        '- [Graphicsクラス](graphics.md)'
-        '\n- [Graphicsクラス line_style （線設定）のインターフェイス]'
+        '- [Graphics クラス](graphics.md)'
+        '\n- [Graphics クラス line_style （線設定）のインターフェイス]'
         '(graphics_line_style.md)'
     )
     assert value == expected

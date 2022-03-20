@@ -410,4 +410,13 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Array class sort interface',
             value='Array クラスの sort インターフェイス'),
+        Mapping(
+            key='An original array is not modified.',
+            value='元々の配列の値は変更されません。'),
+        Mapping(
+            key='  - Slicing start index.',
+            value='  - スライス範囲の開始インデックス。'),
+        Mapping(
+            key='  - Sliced array.',
+            value='  - スライスされた配列。'),
     ])

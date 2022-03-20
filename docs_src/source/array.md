@@ -1,4 +1,4 @@
-# Array
+# Array class
 
 This page explains the `Array` class.
 
@@ -29,7 +29,7 @@ arr_from_arr: ap.Array = ap.Array(other_arr)
 assert arr_from_arr == [7, 8, 9]
 ```
 
-## Generic type
+## Generic type annotation
 
 If the `Array` values types are unique, you can set the generic type to an `Array` value. This annotation may be helpful when you use it on the IDE (for type checkers).
 
@@ -47,15 +47,15 @@ assert isinstance(int_val, int)
 - [Funcdamental data classes common value interface](fundamental_data_classes_value_interface.md)
 - [Array class append and push interfaces](array_append_and_push.md)
 - [Array class extend and concat interfaces](array_extend_and_concat.md)
-- [Array class insert and insert at interfaces](array_insert_and_insert_at.md)
+- [Array class insert and insert_at interfaces](array_insert_and_insert_at.md)
 - [Array class pop interface](array_pop.md)
-- [Array class remove and remove at interfaces](array_remove_and_remove_at.md)
+- [Array class remove and remove_at interfaces](array_remove_and_remove_at.md)
 - [Array class sort interface](array_sort.md)
 - [Array class reverse interface](array_reverse.md)
 - [Array class slice interface](array_slice.md)
 - [Array class length interface](array_length.md)
 - [Array class join interface](array_join.md)
-- [Array class index of interface](array_index_of.md)
+- [Array class index_of interface](array_index_of.md)
 - [Array class comparison interfaces](array_comparison.md)
 
 

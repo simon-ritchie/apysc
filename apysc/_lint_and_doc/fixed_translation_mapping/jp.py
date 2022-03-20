@@ -422,4 +422,71 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Array class reverse interface',
             value='Array クラスの reverse インターフェイス'),
+        Mapping(
+            key='Before reading on, maybe it is helpful to '
+                'read the following page:',
+            value='事前に以下のページを確認しておくと読み進める上で'
+                  '役に立つかもしれません:'),
+        Mapping(
+            key='Why the apysc library doesn\\\'t use the Python '
+                'built-in data type',
+            value='なぜapyscではPythonのビルトインのデータの'
+                  '型を使用していないのか'),
+        Mapping(
+            key='## Constructor method',
+            value='## コンストラクタメソッド'),
+        Mapping(
+            key='## Generic type annotation',
+            value='## ジェネリックの型アノテーション'),
+        Mapping(
+            key='Funcdamental data classes common value interface',
+            value='基本的なデータクラスの共通の value インターフェイス'),
+        Mapping(
+            key='Array class append and push interfaces',
+            value='Array クラスの append と push のインターフェイス'),
+        Mapping(
+            key='Array class extend and concat interfaces',
+            value='Array クラスの extend と concat のインターフェイス'),
+        Mapping(
+            key='Array class insert and insert_at interfaces',
+            value='Array クラスの insert と insert_at のインターフェイス'),
+        Mapping(
+            key='Array class pop interface',
+            value='Array クラスの pop インターフェイス'),
+        Mapping(
+            key='Array class remove and remove_at interfaces',
+            value='Array クラスの remove と remove_at のインターフェイス'),
+        Mapping(
+            key='Array class slice interface',
+            value='Array クラスの slice インターフェイス'),
+        Mapping(
+            key='Array class length interface',
+            value='Array クラスの length インターフェイス'),
+        Mapping(
+            key='Array class join interface',
+            value='Array クラスの join インターフェイス'),
+        Mapping(
+            key='Array class index_of interface',
+            value='Array クラスの index_of インターフェイス'),
+        Mapping(
+            key='Array class comparison interfaces',
+            value='Array クラスの 比較の各インターフェイス'),
+        Mapping(
+            key='Array class comparison interfaces document',
+            value='Array クラスの 比較の各インターフェイス'),
+        Mapping(
+            key='## Array class constructor API',
+            value='## Array クラスのコンストラクタのAPI'),
+        Mapping(
+            key='  - Initial array value.',
+            value='  - 配列の初期値。'),
+        Mapping(
+            key='## value property API',
+            value='## value 属性のAPI'),
+        Mapping(
+            key='  - Current array value.',
+            value='  - 現在の配列の値。'),
+        Mapping(
+            key='apysc fundamental data classes value interface',
+            value='apyscの基本的なデータクラスの value インターフェイス'),
     ])

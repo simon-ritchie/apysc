@@ -10,54 +10,63 @@ from typing import Dict
 MAPPING: Dict[str, str] = {
 
     '# Array class sort interface':
-    '',
+    '# Array クラスの sort インターフェイス',
 
     'This page explains the `Array` class `sort` method interface.':
-    '',
+    'このページでは`Array`クラスの`sort`メソッドのインターフェイスについて説明します。',
 
     '## What interface is this?':
-    '',
+    '## インターフェイス概要',
 
-    'The `sort` method interface sorts an array\'s values (ascending order).':  # noqa
-    '',
+    'The `sort` method interface sorts an array\'s values (default is ascending order).':  # noqa
+    '`sort`メソッドのインターフェイスは配列の値をソートします（デフォルトでは昇順となります）。',
 
     '## Basic usage':
-    '',
+    '## 基本的な使い方',
 
-    'The `sort` method requires no arguments and sorts values in place (no return value).':  # noqa
-    '',
+    'The `sort` method requires no arguments and sorts values ascending in place (no return value).':  # noqa
+    '`sort`は昇順でソートする場合引数を必要とせず、配列の値は直接更新されます（返却値は設定されません）。',
 
     '```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([5, 1, 3])\narr.sort()\nassert arr == [1, 3, 5]\n```':  # noqa
-    '',
+    '```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([5, 1, 3])\narr.sort()\nassert arr == [1, 3, 5]\n```',  # noqa
 
-    '':
-    '',
+    'If you specify `False` to the `ascending` option, a result value becomes descending order.':  # noqa
+    'もし`ascending`引数に`False`を指定した場合、結果は降順となります。',
 
-    '## Sort values by descending order':
-    '',
-
-    'If you need to sort values by descending order, then use the `reverse` method also:':  # noqa
-    '',
-
-    '```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 2])\narr.sort()\narr.reverse()\nassert arr == [3, 2, 1]\n```':  # noqa
-    '',
-
-    '':
-    '',
+    '```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([5, 1, 3])\narr.sort(ascending=False)\nassert arr == [5, 3, 1]\n```':  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([5, 1, 3])\narr.sort(ascending=False)\nassert arr == [5, 3, 1]\n```',  # noqa
 
     '## See also':
-    '',
+    '## 関連資料',
 
     '- [Array class reverse interface](array_reverse.md)':
-    '',
+    '- [Array クラスの reverse インターフェイス](jp_array_reverse.md)',
 
     '## sort API':
-    '',
+    '## sort API',
 
-    '<!-- Docstring: apysc._type.array.Array.sort -->\n\n<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>\n\n**[Interface signature]** `sort(self, *, ascending:bool=True) -> None`<hr>\n\n**[Interface summary]** Sort this array in place.<hr>\n\n**[Parameters]**\n\n- `ascending`: bool, default True\n  - Sort by ascending or not. If False is specified, this interface sorts values descending.\n\n<hr>\n\n**[Examples]**':  # noqa
-    '',
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
+    '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+
+    '**[Interface summary]** Sort this array in place.<hr>':
+    '**[インターフェイス概要]** この配列の値を直接更新する形でソートを行います。<hr>',
+
+    '**[Parameters]**':
+    '**[引数]**',
+
+    '- `ascending`: bool, default True':
+    '- `ascending`: bool, default True',
+
+    '  - Sort by ascending or not. If False is specified, this interface sorts values descending.':  # noqa
+    '  - 昇順でソートを行うかどうかの指定です。もしFalseが指定された場合、このインターフェイスは降順で値をソートします。',
+
+    '<hr>':
+    '<hr>',
+
+    '**[Examples]**':
+    '**[コードサンプル]**',
 
     '```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([3, 5, 1, 4, 2])\n>>> arr.sort()\n>>> arr\nArray([1, 2, 3, 4, 5])\n\n>>> arr.sort(ascending=False)\n>>> arr\nArray([5, 4, 3, 2, 1])\n```':  # noqa
-    '',
+    '```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([3, 5, 1, 4, 2])\n>>> arr.sort()\n>>> arr\nArray([1, 2, 3, 4, 5])\n\n>>> arr.sort(ascending=False)\n>>> arr\nArray([5, 4, 3, 2, 1])\n```',  # noqa
 
 }

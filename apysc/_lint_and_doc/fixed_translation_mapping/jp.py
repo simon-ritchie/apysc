@@ -419,4 +419,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Sliced array.',
             value='  - スライスされた配列。'),
+        Mapping(
+            key='Array class reverse interface',
+            value='Array クラスの reverse インターフェイス'),
     ])

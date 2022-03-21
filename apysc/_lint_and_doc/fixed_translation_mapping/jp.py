@@ -489,4 +489,24 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='apysc fundamental data classes value interface',
             value='apyscの基本的なデータクラスの value インターフェイス'),
+        Mapping(
+            key='JavaScript assertion interface basic behavior',
+            value='JavaScriptの各アサーションのインターフェイスの基本的な挙動'),
+        Mapping(
+            key='## Notes for the assert_equal and assert_not_equal '
+                'interfaces',
+            value='## assert_equal と assert_not_equal の各インターフェイスに'
+                  'おける特記事項'),
+        Mapping(
+            key='  - Left-side value to compare.',
+            value='  - 比較用の左辺の値。'),
+        Mapping(
+            key='  - Left-side value to compare.',
+            value='  - 比較用の左辺の値。'),
+        Mapping(
+            key='  - Right-side value to compare.',
+            value='  - 比較用の右辺の値。'),
+        Mapping(
+            key='  - Message to display when assertion failed.',
+            value='  - チェックに失敗した際に表示するメッセージ。'),
     ])

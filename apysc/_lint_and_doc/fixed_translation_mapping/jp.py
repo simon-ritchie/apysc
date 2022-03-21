@@ -509,4 +509,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Message to display when assertion failed.',
             value='  - チェックに失敗した際に表示するメッセージ。'),
+        Mapping(
+            key='  - Target value to check.',
+            value='  - チェック対象の値。'),
     ])

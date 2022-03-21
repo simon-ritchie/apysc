@@ -4,7 +4,7 @@ This page explains the `assert_dicts_equal` and `assert_dicts_not_equal` functio
 
 ## What interfaces are these?
 
-The `assert_dicts_equal` function interface asserts specified two dictionaries (`Dictionary` type value) are equal. Conversely, the `assert_dicts_not_equal` function interface asserts specified two dictionaries are not equal.
+The `assert_dicts_equal` function interface asserts specified two dictionaries (`dict` or `Dictionary` type value) are equal. Conversely, the `assert_dicts_not_equal` function interface asserts specified two dictionaries are not equal.
 
 ## See also
 

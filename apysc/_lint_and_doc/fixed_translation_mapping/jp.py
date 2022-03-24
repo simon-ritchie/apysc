@@ -512,4 +512,26 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Target value to check.',
             value='  - チェック対象の値。'),
+        Mapping(
+            key='  - Target custom event type.',
+            value='  - 対象の独自のイベントの種別値としての文字列。'),
+        Mapping(
+            key='  - Callable that this instance calls when its '
+                'event\'s dispatching.',
+            value='  - 対象のイベントが発生（発火）される時に実行される'
+                  'ハンドラ。'),
+        Mapping(
+            key='  - Target custom event type.',
+            value='  - 対象の独自のイベントの種別値としての文字列。'),
+        Mapping(
+            key='  - Event instance.',
+            value='  - イベントのインスタンス。'),
+        Mapping(
+            key='  - Optional arguments dictionary to be passed '
+                'to a handler.',
+            value='  - ハンドラに渡される省略が可能な追加のパラメーター'
+                  'としての辞書。'),
+        Mapping(
+            key='  - Handler\'s name.',
+            value='  - ハンドラ名。'),
     ])

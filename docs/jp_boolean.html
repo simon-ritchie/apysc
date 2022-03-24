@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Boolean class &#8212; apysc  documentation</title>
+    <title>Boolean クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Array class" href="array.html" />
-    <link rel="prev" title="String class addition and multiplication operations" href="string_addition_and_multiplication.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="array.html" title="Array class"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="string_addition_and_multiplication.html" title="String class addition and multiplication operations"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Boolean class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Boolean クラス</a></li> 
       </ul>
     </div>  
 
@@ -43,16 +35,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="boolean-class">
-<h1>Boolean class<a class="headerlink" href="#boolean-class" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class.</p>
-<p>Before reading on, maybe it is helpful to read the following page:</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="boolean.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="boolean">
+<h1>Boolean クラス<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスについて説明します。</p>
+<p>事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
+<li><p><a class="reference external" href="jp_why_apysc_doesnt_use_python_builtin_data_type">なぜapyscではPythonのビルトインのデータの型を使用していないのか</a></p></li>
 </ul>
-<section id="what-is-the-boolean-class">
-<h2>What is the Boolean class?<a class="headerlink" href="#what-is-the-boolean-class" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class is the apysc boolean class. It can accept <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> values at the constructor, as follows:</p>
+<section id="id1">
+<h2>Boolean クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスはapyscの真偽値のクラスです。コンストラクタの引数には以下のコード例のように<code class="docutils literal notranslate"><span class="pre">bool</span></code>や<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値を受け付けます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -67,9 +60,9 @@
 </pre></div>
 </div>
 </section>
-<section id="note-for-the-bool-class-alias">
-<h2>Note for the Bool class alias<a class="headerlink" href="#note-for-the-bool-class-alias" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Bool</span></code> class is the alias of the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class. And it behaves the same as the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class.</p>
+<section id="bool">
+<h2>Boolクラスのエイリアスの特記事項<a class="headerlink" href="#bool" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Bool</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスのエイリアスとなります。<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスと同じ挙動をします。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -78,10 +71,10 @@
 </pre></div>
 </div>
 </section>
-<section id="boolean-comparison">
-<h2>Boolean comparison<a class="headerlink" href="#boolean-comparison" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> comparison interface behaves like the Python built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> value.</p>
-<p>You can compare it with the equal comparison operator (<code class="docutils literal notranslate"><span class="pre">==</span></code>), and the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code> types are acceptable, as follows:</p>
+<section id="id2">
+<h2>Boolean クラスの比較制御<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスの比較のインターフェイスはPythonビルトインの<code class="docutils literal notranslate"><span class="pre">bool</span></code>クラスの値のように動作します。</p>
+<p>等値の比較のオペレーター（<code class="docutils literal notranslate"><span class="pre">==</span></code>）を使って<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値と比較することができ、以下のコード例のように<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>や<code class="docutils literal notranslate"><span class="pre">bool</span></code>、<code class="docutils literal notranslate"><span class="pre">int</span></code>、<code class="docutils literal notranslate"><span class="pre">Int</span></code>などの型との比較を行うことができます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -92,7 +85,7 @@
 <span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Also, the not equal comparison operator (<code class="docutils literal notranslate"><span class="pre">!=</span></code>) is supported, as follows:</p>
+<p>同様に以下のコード例のように非等値のオペレーター（<code class="docutils literal notranslate"><span class="pre">!=</span></code>）もサポートされています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -103,7 +96,7 @@
 <span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You can skip the comparison operator, as follows:</p>
+<p>以下のコードのように比較のオペレーターを省略して使うこともできます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -115,9 +108,9 @@
 </pre></div>
 </div>
 </section>
-<section id="reverse-a-boolean-value">
-<h2>Reverse a Boolean value<a class="headerlink" href="#reverse-a-boolean-value" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">not_</span></code> property returns the reversed <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value:</p>
+<section id="id3">
+<h2>Boolean の値を反転させる<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">not_</span></code>属性は値が反転した<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値を返却します:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -130,22 +123,22 @@
 </pre></div>
 </div>
 </section>
-<section id="boolean-class-constructor-api">
-<h2>Boolean class constructor API<a class="headerlink" href="#boolean-class-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.boolean.Boolean.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[int,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">_ForwardRef('Boolean')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Boolean class for apysc library.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<section id="boolean-api">
+<h2>Boolean クラスのコンストラクタのAPI<a class="headerlink" href="#boolean-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[int,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">_ForwardRef('Boolean')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> apyscライブラリ用の真偽値のクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: Boolean or Int or bool or int</p>
 <ul>
-<li><p>Initial boolean value. 0 or 1 are acceptable for an integer value.</p></li>
+<li><p>真偽値の初期値。整数の場合は0か1が受け付けられます。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
-<p>The Bool class is the alias of the Boolean, and it behaves the same as the Boolean class.<hr></p>
-<p><strong>[Examples]</strong></p>
+<hr><p><strong>[特記事項]</strong></p>
+<p>BoolクラスはBooleanクラスのエイリアスであり、Booleanクラスと同じように動作します。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val_1</span>
@@ -157,19 +150,19 @@
 </pre></div>
 </div>
 </section>
-<section id="value-property-api">
-<h2>value property API<a class="headerlink" href="#value-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.boolean.Boolean.value --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get a current boolean value.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="value-api">
+<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> 現在の真偽値の値を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: bool</p>
 <ul>
-<li><p>Current boolean value.</p></li>
+<li><p>現在の真偽値の値。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
@@ -181,24 +174,24 @@
 <span class="go">True</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html">apysc fundamental data classes value interface</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_fundamental_data_classes_value_interface.html">apyscの基本的なデータクラスの value インターフェイス</a></p></li>
 </ul>
 </section>
-<section id="not-property-api">
-<h2>not_ property API<a class="headerlink" href="#not-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.boolean.Boolean.not_ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get a not condition Boolean value.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="not-api">
+<h2>not_ 属性のAPI<a class="headerlink" href="#not-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> 反転（否定）させたBoolean型の真偽値を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: Boolean</p>
 <ul>
-<li><p>Not condition Boolean value.</p></li>
+<li><p>反転（否定）させたBoolean型の値。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val</span><span class="o">.</span><span class="n">not_</span>
@@ -224,24 +217,18 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Boolean class</a><ul>
-<li><a class="reference internal" href="#what-is-the-boolean-class">What is the Boolean class?</a></li>
-<li><a class="reference internal" href="#note-for-the-bool-class-alias">Note for the Bool class alias</a></li>
-<li><a class="reference internal" href="#boolean-comparison">Boolean comparison</a></li>
-<li><a class="reference internal" href="#reverse-a-boolean-value">Reverse a Boolean value</a></li>
-<li><a class="reference internal" href="#boolean-class-constructor-api">Boolean class constructor API</a></li>
-<li><a class="reference internal" href="#value-property-api">value property API</a></li>
-<li><a class="reference internal" href="#not-property-api">not_ property API</a></li>
+<li><a class="reference internal" href="#">Boolean クラス</a><ul>
+<li><a class="reference internal" href="#id1">Boolean クラスの概要</a></li>
+<li><a class="reference internal" href="#bool">Boolクラスのエイリアスの特記事項</a></li>
+<li><a class="reference internal" href="#id2">Boolean クラスの比較制御</a></li>
+<li><a class="reference internal" href="#id3">Boolean の値を反転させる</a></li>
+<li><a class="reference internal" href="#boolean-api">Boolean クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#value-api">value 属性のAPI</a></li>
+<li><a class="reference internal" href="#not-api">not_ 属性のAPI</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="string_addition_and_multiplication.html"
-                        title="previous chapter">String class addition and multiplication operations</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="array.html"
-                        title="next chapter">Array class</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -262,14 +249,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="array.html" title="Array class"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="string_addition_and_multiplication.html" title="String class addition and multiplication operations"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Boolean class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Boolean クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

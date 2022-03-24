@@ -1,4 +1,4 @@
-# Boolean
+# Boolean class
 
 This page explains the `Boolean` class.
 
@@ -40,7 +40,7 @@ assert ap.Boolean(True) == ap.Bool(True)
 
 The `Boolean` comparison interface behaves like the Python built-in `bool` value.
 
-You can compare it with the equal comparison operator (`=`), and the `Boolean`\, `bool`\, `int`\, `Int` types are acceptable, as follows:
+You can compare it with the equal comparison operator (`==`), and the `Boolean`\, `bool`\, `int`\, `Int` types are acceptable, as follows:
 
 ```py
 # runnable

@@ -10,54 +10,63 @@ from typing import Dict
 MAPPING: Dict[str, str] = {
 
     '# Dictionary length interface':
-    '',
+    '# Dictionary クラスの length インターフェイス',
 
     'This page explains the `Dictionary` class `length` property interface.':  # noqa
-    '',
+    'このページでは`Dictionary`クラスの`length`属性のインターフェイスについて説明します。',
 
     '## What interface is this?':
-    '',
+    '## インターフェイス概要',
 
     'The `length` property returns the length of dictionary keys.':
-    '',
+    '`length`属性は辞書のキーの長さ（件数）を返却します。',
 
     '## Basic usage':
-    '',
+    '## 基本的な使い方',
 
     'The `length` property interface returns the `Int` value. There is no setter interface.':  # noqa
-    '',
+    '`length`属性は`Int`型の整数を返却します。setterのインターフェイスは存在しません。',
 
     '```py\n# runnable\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\'a\': 10, \'b\': 20})\nassert dict_1.length == 2\nassert isinstance(dict_1.length, ap.Int)\n```':  # noqa
-    '',
-
-    '':
-    '',
+    '```py\n# runnable\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\'a\': 10, \'b\': 20})\nassert dict_1.length == 2\nassert isinstance(dict_1.length, ap.Int)\n```',  # noqa
 
     '## Note for the len function':
-    '',
+    '## len関数における特記事項',
 
     'The Python built-in `len` function is not supported and raises an exception:':  # noqa
-    '',
+    'Pythonビルトインの`len`関数はサポートされておらずエラーとなります:',
 
     '```py\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\'a\': 10, \'b\': 20})\nlen(dict_1)\n```':  # noqa
-    '',
-
-    '':
-    '',
+    '```py\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\'a\': 10, \'b\': 20})\nlen(dict_1)\n```',  # noqa
 
     '```\nException: Dictionary instance can\'t apply len function. Please use length property instead.\n```':  # noqa
-    '',
-
-    '':
-    '',
+    '```\nException: Dictionary instance can\'t apply len function. Please use length property instead.\n```',  # noqa
 
     '## length property API':
-    '',
+    '## length property API',
 
-    '<!-- Docstring: apysc._type.dictionary.Dictionary.length -->\n\n<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>\n\n**[Interface summary]** Get length of this dictionary values.<hr>\n\n**[Returns]**\n\n- `length`: Int\n  - This dictionary value\'s length.\n\n<hr>\n\n**[Examples]**':  # noqa
-    '',
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
+    '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+
+    '**[Interface summary]** Get length of this dictionary values.<hr>':
+    '**[インターフェイス概要]** 辞書の値の長さを取得します。<hr>',
+
+    '**[Returns]**':
+    '**[返却値]**',
+
+    '- `length`: Int':
+    '- `length`: Int',
+
+    '  - This dictionary value\'s length.':
+    '  - この辞書の値の長さ。',
+
+    '<hr>':
+    '<hr>',
+
+    '**[Examples]**':
+    '**[コードサンプル]**',
 
     '```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({\'a\': 1, \'b\': 2})\n>>> dictionary.length\nInt(2)\n```':  # noqa
-    '',
+    '```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({\'a\': 1, \'b\': 2})\n>>> dictionary.length\nInt(2)\n```',  # noqa
 
 }

@@ -567,4 +567,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Any default value.',
             value='  - 任意のデフォルト値の値。'),
+        Mapping(
+            key='## Note for the len function',
+            value='## len関数における特記事項'),
+        Mapping(
+            key='The Python built-in `len` function is not '
+                'supported and raises an exception:',
+            value='Pythonビルトインの`len`関数はサポートされて'
+                  'おらずエラーとなります:'),
     ])

@@ -534,4 +534,13 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Handler\'s name.',
             value='  - ハンドラ名。'),
+        Mapping(
+            key='If class',
+            value='If クラス'),
+        Mapping(
+            key='Elif class',
+            value='Elif クラス'),
+        Mapping(
+            key='Else class',
+            value='Else クラス'),
     ])

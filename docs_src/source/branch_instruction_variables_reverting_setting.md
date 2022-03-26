@@ -2,7 +2,7 @@
 
 This page explains each branch instruction class (like the `If`\, `Elif`\, and `Else`) scope variables reverting setting.
 
-## These interfaces execute With statement code
+## These interfaces execute with statement code
 
 These interfaces execute the code in each branch instruction regardless of the condition, and variables are updated.
 
@@ -24,7 +24,7 @@ This condition is skipped in JavaScript (converted code) since the condition is 
 
 ## Scope variables reverting setting
 
-The `If`, `Elif`, and `Else` classes have the arguments of the `locals_` and `globals_` (basically set the `locals()` and `globals` built-in functions return value). If these arguments are specified, the scope variables are reverted when ended each scope (e.g., `If` scope).
+The `If`, `Elif`, and `Else` classes have the arguments of the `locals_` and `globals_` (basically set the `locals()` and `globals()` built-in functions return value). If these arguments are specified, the scope variables are reverted when ended each scope (e.g., `If` scope).
 
 This interface is occasionally helpful when you don't want to update the variables in each branch instruction scope.
 

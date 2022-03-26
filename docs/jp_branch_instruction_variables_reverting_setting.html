@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Each branch instruction class’s scope variable reverting setting &#8212; apysc  documentation</title>
+    <title>各分岐制御のクラスのスコープ内の変数値の復元設定 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Return" href="return.html" />
-    <link rel="prev" title="Else" href="else.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="return.html" title="Return"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="else.html" title="Else"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Each branch instruction class’s scope variable reverting setting</a></li> 
+        <li class="nav-item nav-item-this"><a href="">各分岐制御のクラスのスコープ内の変数値の復元設定</a></li> 
       </ul>
     </div>  
 
@@ -43,13 +35,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="each-branch-instruction-class-s-scope-variable-reverting-setting">
-<h1>Each branch instruction class’s scope variable reverting setting<a class="headerlink" href="#each-branch-instruction-class-s-scope-variable-reverting-setting" title="Permalink to this headline">¶</a></h1>
-<p>This page explains each branch instruction class (like the <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code>) scope variables reverting setting.</p>
-<section id="these-interfaces-execute-with-statement-code">
-<h2>These interfaces execute with statement code<a class="headerlink" href="#these-interfaces-execute-with-statement-code" title="Permalink to this headline">¶</a></h2>
-<p>These interfaces execute the code in each branch instruction regardless of the condition, and variables are updated.</p>
-<p>For example, the following code of the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>, but the value of int is 20 on the Python:</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="branch_instruction_variables_reverting_setting.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="id1">
+<h1>各分岐制御のクラスのスコープ内の変数値の復元設定<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">If</span></code>や<code class="docutils literal notranslate"><span class="pre">Elif</span></code>、<code class="docutils literal notranslate"><span class="pre">Else</span></code>などの分岐制御の各クラスのスコープ内の変数の復元設定について説明します。</p>
+<section id="with">
+<h2>各インターフェイスのwithステートメント内のコードの実行について<a class="headerlink" href="#with" title="Permalink to this headline">¶</a></h2>
+<p>これらのインターフェイスでは条件に罹らわず各分岐箇所の（JavaScriptのコード出力のために）コードが実行され、Python上での変数の値が更新されます。</p>
+<p>例えば以下のコード例では条件は<code class="docutils literal notranslate"><span class="pre">False</span></code>となっていますがPython上の値は20に更新されます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -61,12 +54,12 @@
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
 </pre></div>
 </div>
-<p>This condition is skipped in JavaScript (converted code) since the condition is not satisfied.</p>
+<p>この部分はJavaScriptへ変換されたコード上では条件を満たさないため実行されません。</p>
 </section>
-<section id="scope-variables-reverting-setting">
-<h2>Scope variables reverting setting<a class="headerlink" href="#scope-variables-reverting-setting" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code> classes have the arguments of the <code class="docutils literal notranslate"><span class="pre">locals_</span></code> and <code class="docutils literal notranslate"><span class="pre">globals_</span></code> (basically set the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> and <code class="docutils literal notranslate"><span class="pre">globals()</span></code> built-in functions return value). If these arguments are specified, the scope variables are reverted when ended each scope (e.g., <code class="docutils literal notranslate"><span class="pre">If</span></code> scope).</p>
-<p>This interface is occasionally helpful when you don’t want to update the variables in each branch instruction scope.</p>
+<section id="id2">
+<h2>スコープ内の変数の復元設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">If</span></code>や<code class="docutils literal notranslate"><span class="pre">Elif</span></code>、<code class="docutils literal notranslate"><span class="pre">Else</span></code>などのクラスは<code class="docutils literal notranslate"><span class="pre">locals_</span></code>と<code class="docutils literal notranslate"><span class="pre">globals_</span></code>の引数の省略可能なオプションを持っています（基本的に設定する場合にはビルトインの<code class="docutils literal notranslate"><span class="pre">locals()</span></code>関数と<code class="docutils literal notranslate"><span class="pre">globals()</span></code>関数の値を設定します）。これらの引数へ値が設定された場合にはスコープ内の各変数が<code class="docutils literal notranslate"><span class="pre">If</span></code>クラスなどのそれぞれのスコープが終了した時点でスコープ前の段階に復元されます。</p>
+<p>このインターフェイスのオプションは各分岐の箇所でPythonの変数を更新したく無い場合などに役に立つケースがあります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -79,12 +72,12 @@
 </pre></div>
 </div>
 </section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id3">
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="if.html"><span class="doc">If class</span></a></p></li>
-<li><p><a class="reference internal" href="elif.html"><span class="doc">Elif class</span></a></p></li>
-<li><p><a class="reference internal" href="else.html"><span class="doc">Else class</span></a></p></li>
+<li><p><a class="reference external" href="jp_if">If クラス</a></p></li>
+<li><p><a class="reference external" href="jp_elif">Elif クラス</a></p></li>
+<li><p><a class="reference external" href="jp_else">Else クラス</a></p></li>
 </ul>
 </section>
 </section>
@@ -101,20 +94,14 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Each branch instruction class’s scope variable reverting setting</a><ul>
-<li><a class="reference internal" href="#these-interfaces-execute-with-statement-code">These interfaces execute with statement code</a></li>
-<li><a class="reference internal" href="#scope-variables-reverting-setting">Scope variables reverting setting</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">各分岐制御のクラスのスコープ内の変数値の復元設定</a><ul>
+<li><a class="reference internal" href="#with">各インターフェイスのwithステートメント内のコードの実行について</a></li>
+<li><a class="reference internal" href="#id2">スコープ内の変数の復元設定</a></li>
+<li><a class="reference internal" href="#id3">関連資料</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="else.html"
-                        title="previous chapter">Else</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="return.html"
-                        title="next chapter">Return</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -135,14 +122,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="return.html" title="Return"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="else.html" title="Else"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Each branch instruction class’s scope variable reverting setting</a></li> 
+        <li class="nav-item nav-item-this"><a href="">各分岐制御のクラスのスコープ内の変数値の復元設定</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

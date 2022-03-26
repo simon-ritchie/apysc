@@ -1,4 +1,4 @@
-# Continue
+# Continue class
 
 This page explains the `Continue` class.
 

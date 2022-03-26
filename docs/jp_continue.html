@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Continue class &#8212; apysc  documentation</title>
+    <title>Continue クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Timer" href="timer.html" />
-    <link rel="prev" title="For" href="for.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="timer.html" title="Timer"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="for.html" title="For"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Continue class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Continue クラス</a></li> 
       </ul>
     </div>  
 
@@ -43,20 +35,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="continue-class">
-<h1>Continue class<a class="headerlink" href="#continue-class" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> class.</p>
-<p>Before reading on, maybe it is helpful to read the following page (apysc uses the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> class for the same reason):</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="continue.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="continue">
+<h1>Continue クラス<a class="headerlink" href="#continue" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Continue</span></code>クラスについて説明します。</p>
+<p>このページを読み進める前に以下のページを確認しておくと役に立つかもしれません（apyscでは<code class="docutils literal notranslate"><span class="pre">Continue</span></code>クラスを同様の利用で使用しています）。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
+<li><p><a class="reference external" href="jp_why_apysc_doesnt_use_python_builtin_data_type">なぜapyscではPythonのビルトインのデータの型を使用していないのか</a></p></li>
 </ul>
-<section id="what-is-the-continue-class">
-<h2>What is the Continue class?<a class="headerlink" href="#what-is-the-continue-class" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">For</span></code> block uses the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> class to skip a current loop iteration (in JavaScript). It behaves like the Python built-in <code class="docutils literal notranslate"><span class="pre">continue</span></code> keyword.</p>
+<section id="id1">
+<h2>Continue クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">For</span></code>のブロックではJavaScript上での特定のループをスキップするために<code class="docutils literal notranslate"><span class="pre">Continue</span></code>クラスが使用されます。このインターフェイスはPythonビルトインの<code class="docutils literal notranslate"><span class="pre">continue</span></code>キーワードのように動作します。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Continue</span></code> class can only be used in the <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">For</span></code> (or other loop class) block, as follows:</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Continue</span></code>クラスは以下のコード例のように<code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">For</span></code>（もしくは他のループクラス）のブロックでのみ使用することができます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -81,7 +74,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;continue_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/continue_basic_usage/index.html" width="250" height="150"></iframe><p>If you use the <code class="docutils literal notranslate"><span class="pre">Continue</span></code> class in the out of the <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">For</span></code> block, then an exception is raised:</p>
+<iframe src="static/continue_basic_usage/index.html" width="250" height="150"></iframe><p>もし<code class="docutils literal notranslate"><span class="pre">Continue</span></code>クラスを<code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">For</span></code>ブロック外で使用した場合はエラーになります:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Continue</span><span class="p">()</span>
@@ -93,12 +86,12 @@
 </section>
 <section id="continue-api">
 <h2>Continue API<a class="headerlink" href="#continue-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._loop._continue.Continue.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> The loop continue expression class.<hr></p>
-<p><strong>[Notes]</strong></p>
-<p>This class can be instantiated in the with loop statement, for example, after the <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">ap.For(...):</span></code> statement.<hr></p>
-<p><strong>[Examples]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> ループ上のcontinue表現のためのクラスです。<hr></p>
+<p><strong>[特記事項]</strong></p>
+<p>このクラスはwithステートメントのループ内でのみインスタンス化することができます。例えば<code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">ap.For(...)ステート内が該当します。</span></code><hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">For</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
@@ -121,20 +114,14 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Continue class</a><ul>
-<li><a class="reference internal" href="#what-is-the-continue-class">What is the Continue class?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#">Continue クラス</a><ul>
+<li><a class="reference internal" href="#id1">Continue クラスの概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
 <li><a class="reference internal" href="#continue-api">Continue API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="for.html"
-                        title="previous chapter">For</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="timer.html"
-                        title="next chapter">Timer</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -155,14 +142,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="timer.html" title="Timer"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="for.html" title="For"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Continue class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Continue クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

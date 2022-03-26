@@ -279,4 +279,4 @@ Add a timer complete event listener setting.<hr>
 **[References]**
 
 - [Timer class timer_complete interface document](https://simon-ritchie.github.io/apysc/timer_complete.html)
-- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)

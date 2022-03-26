@@ -51,7 +51,7 @@ Add a double-click event listener setting.<hr>
 **[References]**
 
 - [Double click interface document](https://simon-ritchie.github.io/apysc/dblclick.html)
-- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
 ### `unbind_dblclick` method docstring
 

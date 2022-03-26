@@ -51,7 +51,7 @@ Add a click event listener setting.<hr>
 **[References]**
 
 - [Click interface document](https://simon-ritchie.github.io/apysc/click.html)
-- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
 ### `unbind_click` method docstring
 

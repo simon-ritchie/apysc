@@ -51,7 +51,7 @@ Add mouse down event listener setting.<hr>
 **[References]**
 
 - [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html)
-- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
 ### `unbind_mousedown` method docstring
 

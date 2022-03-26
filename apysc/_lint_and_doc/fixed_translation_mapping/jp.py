@@ -552,8 +552,13 @@ MAPPINGS: Mappings = Mappings(
             value='基本的なマウスイベントの各インターフェイス'),
         Mapping(
             key='  - Unbinding target Callable.',
-            value='  - 指定された関数やメソッドのハンドラの設定を解除します。'),
+            value='  - イベント設定を取り除く対象の関数やメソッドなど。'),
         Mapping(
             key='  - Child instance to check.',
             value='  - チェック対象の子のインスタンス。'),
+        Mapping(
+            key='The following page describes the basic mouse '
+                'event interfaces.',
+            value='以下のページでは基本的なマウスイベントの'
+                  '各インターフェイスについて説明しています。'),
     ])

@@ -1,4 +1,4 @@
-# Double click interface
+# dblclick interface
 
 This page explains the `dblclick` (double-click) interface.
 
@@ -55,7 +55,7 @@ ap.save_overall_html(
 
 ## Basic usage of the unbind_dblclick interfaces
 
-The `unbind_dblclick` interface can remove the single binded double-click event from a `DisplayObject` instance. The `unbind_dblclick_all` interface removes all double-click events.
+The `unbind_dblclick` interface can remove the single binding double-click event from a `DisplayObject` instance. The `unbind_dblclick_all` interface removes all double-click events.
 
 The following example removes the double click event by the `unbind_dblclick` method. If you double-click the rectangle, nothing happens.
 

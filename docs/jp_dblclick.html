@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>dblclick interface &#8212; apysc  documentation</title>
+    <title>dblclick インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Mousedown and mouseup interfaces" href="mousedown_and_mouseup.html" />
-    <link rel="prev" title="click interface" href="click.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="mousedown_and_mouseup.html" title="Mousedown and mouseup interfaces"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="click.html" title="click interface"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">dblclick interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">dblclick インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -43,24 +35,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="dblclick-interface">
-<h1>dblclick interface<a class="headerlink" href="#dblclick-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">dblclick</span></code> (double-click) interface.</p>
-<section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">dblclick</span></code> interface binds the double-click event to any <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance (e.g., <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, and so on). If you double-click on that instance, this interface calls the registered handler function.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="dblclick.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="dblclick">
+<h1>dblclick インターフェイス<a class="headerlink" href="#dblclick" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">dblclick</span></code> (double-click)のインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">dblclick</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>や<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>などの任意の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のサブクラスのインスタンスへダブルクリック時のイベントを設定します。もし登録したインスタンス上でダブルクリックした場合、登録されているハンドラの関数などが呼び出されます。</p>
 </section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<p>The following page describes the basic mouse event interfaces.</p>
+<section id="id2">
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下のページでは基本的なマウスイベントの各インターフェイスについて説明しています。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc">Basic mouse event interfaces</span></a></p></li>
+<li><p><a class="reference external" href="jp_mouse_event_basic">基本的なマウスイベントの各インターフェイス</a></p></li>
 </ul>
 </section>
-<section id="basic-usage-of-the-dblclick-interface">
-<h2>Basic usage of the dblclick interface<a class="headerlink" href="#basic-usage-of-the-dblclick-interface" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">dblclick</span></code> method, and you can bind handlers by that.</p>
-<p>The following example binds the double-click event handler to the rectangle. If you double-click on that instance, the rectangle color changes from cyan to magenta.</p>
+<section id="id3">
+<h2>dblclick インターフェイスの基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のサブクラスの各インスタンスは<code class="docutils literal notranslate"><span class="pre">dblclick</span></code>メソッドを持っており、それを使ってハンドラを登録することができます。</p>
+<p>以下のコード例では四角に対してダブルクリック時のハンドラを登録しています。対象の四角のインスタンスをダブルクリックすると四角の色はシアンからマゼンタに変化します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -94,10 +87,10 @@
 </pre></div>
 </div>
 <iframe src="static/dblclick_basic_usage/index.html" width="150" height="150"></iframe></section>
-<section id="basic-usage-of-the-unbind-dblclick-interfaces">
-<h2>Basic usage of the unbind_dblclick interfaces<a class="headerlink" href="#basic-usage-of-the-unbind-dblclick-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">unbind_dblclick</span></code> interface can remove the single binding double-click event from a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. The <code class="docutils literal notranslate"><span class="pre">unbind_dblclick_all</span></code> interface removes all double-click events.</p>
-<p>The following example removes the double click event by the <code class="docutils literal notranslate"><span class="pre">unbind_dblclick</span></code> method. If you double-click the rectangle, nothing happens.</p>
+<section id="unbind-dblclick">
+<h2>unbind_dblclick の各インターフェイスの基本的な使い方<a class="headerlink" href="#unbind-dblclick" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">unbind_dblclick</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のサブクラスの任意のインスタンスからダブルクリックイベントのハンドラの設定を取り除きます。また、<code class="docutils literal notranslate"><span class="pre">unbind_dblclick_all</span></code>インターフェイスは対象のインスタンスに設定されているダブルクリックのハンドラ設定を全て取り除きます。</p>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">unbind_dblclick</span></code>メソッドでダブルクリックのイベント設定を取り除いているため、四角をダブルクリックしても何も起きません。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -134,31 +127,31 @@
 <iframe src="static/unbind_dblclick_basic_usage/index.html" width="150" height="150"></iframe></section>
 <section id="dblclick-api">
 <h2>dblclick API<a class="headerlink" href="#dblclick-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.dblclick --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">dblclick(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:Union[~_O,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Add a double-click event listener setting.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">dblclick(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:Union[~_O,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> ダブルクリック時のイベント設定を追加します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
 <ul>
-<li><p>Callable that would be called when double-clicking this instance.</p></li>
+<li><p>このインスタンスをダブルクリックした際に呼ばれる関数やメソッドのハンドラ。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: dict or None, default None</p>
 <ul>
-<li><p>Optional arguments dictionary to be passed to a handler.</p></li>
+<li><p>ハンドラに渡される省略が可能な追加のパラメーターとしての辞書。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr><p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
 <ul>
-<li><p>Handler’s name.</p></li>
+<li><p>ハンドラ名。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_double_click</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -172,25 +165,25 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">dblclick</span><span class="p">(</span><span class="n">on_double_click</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/about_handler_options_type.html">About the handler options’ type document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html">ハンドラのoptions引数の型について</a></p></li>
 </ul>
 </section>
 <section id="unbind-dblclick-api">
 <h2>unbind_dblclick API<a class="headerlink" href="#unbind-dblclick-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.unbind_dblclick --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_dblclick(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Unbind a specified handler’s double click event.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_dblclick(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 指定されたハンドラのダブルクリック時のイベント設定を取り除きます。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
 <ul>
-<li><p>Unbinding target Callable.</p></li>
+<li><p>イベント設定を取り除く対象の関数やメソッドなど。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_double_click</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -208,10 +201,10 @@
 </section>
 <section id="unbind-dblclick-all-api">
 <h2>unbind_dblclick_all API<a class="headerlink" href="#unbind-dblclick-all-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.unbind_dblclick_all --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_dblclick_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Unbind all double click events.<hr></p>
-<p><strong>[Examples]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_dblclick_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 全てのダブルクリック時のイベント設定を取り除きます。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_double_click</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -241,11 +234,11 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">dblclick interface</a><ul>
-<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
-<li><a class="reference internal" href="#basic-usage-of-the-dblclick-interface">Basic usage of the dblclick interface</a></li>
-<li><a class="reference internal" href="#basic-usage-of-the-unbind-dblclick-interfaces">Basic usage of the unbind_dblclick interfaces</a></li>
+<li><a class="reference internal" href="#">dblclick インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">関連資料</a></li>
+<li><a class="reference internal" href="#id3">dblclick インターフェイスの基本的な使い方</a></li>
+<li><a class="reference internal" href="#unbind-dblclick">unbind_dblclick の各インターフェイスの基本的な使い方</a></li>
 <li><a class="reference internal" href="#dblclick-api">dblclick API</a></li>
 <li><a class="reference internal" href="#unbind-dblclick-api">unbind_dblclick API</a></li>
 <li><a class="reference internal" href="#unbind-dblclick-all-api">unbind_dblclick_all API</a></li>
@@ -253,12 +246,6 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="click.html"
-                        title="previous chapter">click interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="mousedown_and_mouseup.html"
-                        title="next chapter">Mousedown and mouseup interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -279,14 +266,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="mousedown_and_mouseup.html" title="Mousedown and mouseup interfaces"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="click.html" title="click interface"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">dblclick interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">dblclick インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

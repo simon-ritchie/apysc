@@ -1,4 +1,4 @@
-# Dictionary
+# Dictionary class
 
 This page explains the `Dictionary` class.
 

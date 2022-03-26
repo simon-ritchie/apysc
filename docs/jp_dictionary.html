@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Dictionary class &#8212; apysc  documentation</title>
+    <title>Dictionary クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Dictionary class generic type settings" href="dictionary_generic.html" />
-    <link rel="prev" title="Array class comparison interfaces" href="array_comparison.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="dictionary_generic.html" title="Dictionary class generic type settings"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="array_comparison.html" title="Array class comparison interfaces"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Dictionary class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Dictionary クラス</a></li> 
       </ul>
     </div>  
 
@@ -43,20 +35,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="dictionary-class">
-<h1>Dictionary class<a class="headerlink" href="#dictionary-class" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class.</p>
-<p>Before reading on, maybe it is helpful to read the following page:</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="dictionary.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="dictionary">
+<h1>Dictionary クラス<a class="headerlink" href="#dictionary" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>クラスについて説明します。</p>
+<p>事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
+<li><p><a class="reference external" href="jp_why_apysc_doesnt_use_python_builtin_data_type">なぜapyscではPythonのビルトインのデータの型を使用していないのか</a></p></li>
 </ul>
-<section id="what-is-the-dictionary">
-<h2>What is the Dictionary?<a class="headerlink" href="#what-is-the-dictionary" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class is the apysc dictionary class. It behaves like the Python built-in <code class="docutils literal notranslate"><span class="pre">dict</span></code> value.</p>
+<section id="id1">
+<h2>Dictionaryクラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>クラスはapyscの辞書用のクラスです。ごのクラスはPythonビルトインの<code class="docutils literal notranslate"><span class="pre">dict</span></code>の値のように動作します。</p>
 </section>
-<section id="constructor-method">
-<h2>Constructor method<a class="headerlink" href="#constructor-method" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class constructor method requires a Python built-in <code class="docutils literal notranslate"><span class="pre">dict</span></code> or <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value:</p>
+<section id="id2">
+<h2>コンストラクタメソッド<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>のコンストラクタではPythonビルトインの<code class="docutils literal notranslate"><span class="pre">dict</span></code>もしくはapyscの<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>の値を必要とします:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -68,9 +61,9 @@
 </pre></div>
 </div>
 </section>
-<section id="value-setter-interface">
-<h2>Value setter interface<a class="headerlink" href="#value-setter-interface" title="Permalink to this headline">¶</a></h2>
-<p>A <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value can be updated by indexing, like the Python built-in <code class="docutils literal notranslate"><span class="pre">dict</span></code> value:</p>
+<section id="setter">
+<h2>値のsetterのインターフェイス<a class="headerlink" href="#setter" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>の値はPythonのビルトインの<code class="docutils literal notranslate"><span class="pre">dict</span></code>の値と同じようにインデックスを使って更新することができます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -80,9 +73,9 @@
 </pre></div>
 </div>
 </section>
-<section id="value-getter-interface">
-<h2>Value getter interface<a class="headerlink" href="#value-getter-interface" title="Permalink to this headline">¶</a></h2>
-<p>A <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value also can be retrieved by indexing:</p>
+<section id="getter">
+<h2>値のgetterのインターフェイス<a class="headerlink" href="#getter" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>の値の取得も同様にインデックスを使って行うことができます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -94,9 +87,9 @@
 </pre></div>
 </div>
 </section>
-<section id="notes-of-the-getter-interface">
-<h2>Notes of the getter interface<a class="headerlink" href="#notes-of-the-getter-interface" title="Permalink to this headline">¶</a></h2>
-<p>If a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value doesn’t have the specified key, a retrieved value type becomes the <code class="docutils literal notranslate"><span class="pre">AnyValue</span></code> type. This behavior occasionally is helpful when a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value is updated dynamically (e.g., updating by the JavaScript event handler).</p>
+<section id="id3">
+<h2>getterのインターフェイスの特記事項<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>もしも<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>の値が指定されたキーを持たない場合、取り出される値は<code class="docutils literal notranslate"><span class="pre">AnyValue</span></code>型の値となります。この挙動はJavaScript上でのハンドラでの動的な更新処理などを使う際に便利な時があります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -107,9 +100,9 @@
 </pre></div>
 </div>
 </section>
-<section id="value-deletion-interface">
-<h2>Value deletion interface<a class="headerlink" href="#value-deletion-interface" title="Permalink to this headline">¶</a></h2>
-<p>A <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value can be deleted by the <code class="docutils literal notranslate"><span class="pre">del</span></code> statement, as follows:</p>
+<section id="id4">
+<h2>値の削除のインターフェイス<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>の値は以下のコード例のように<code class="docutils literal notranslate"><span class="pre">del</span></code>ステートメントで削除することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -120,20 +113,20 @@
 </pre></div>
 </div>
 </section>
-<section id="dictionary-class-constructor-api">
-<h2>Dictionary class constructor API<a class="headerlink" href="#dictionary-class-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.dictionary.Dictionary.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[Dict[~_K,</span> <span class="pre">~_V],</span> <span class="pre">_ForwardRef('Dictionary')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Dictionary class for the apysc library.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<section id="dictionary-api">
+<h2>Dictionary クラスのコンストラクタのAPI<a class="headerlink" href="#dictionary-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[Dict[~_K,</span> <span class="pre">~_V],</span> <span class="pre">_ForwardRef('Dictionary')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> apyscで使用する辞書のクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: dict or Dictionary</p>
 <ul>
-<li><p>Initial dictionary value.</p></li>
+<li><p>辞書の初期値。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span>
@@ -147,24 +140,24 @@
 <span class="go">20</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/dictionary_generic.html">Dictionary class generic type settings document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_dictionary_generic.html">Dictionary クラスのジェネリックの型設定</a></p></li>
 </ul>
 </section>
-<section id="value-attribute-api">
-<h2>value attribute API<a class="headerlink" href="#value-attribute-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.dictionary.Dictionary.value --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get a current dict value.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="value-api">
+<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> 現在の辞書の値を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: dict</p>
 <ul>
-<li><p>Current dict value.</p></li>
+<li><p>現在の辞書の値。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
@@ -172,9 +165,9 @@
 <span class="go">{&#39;a&#39;: 10}</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html">apysc fundamental data classes value interface</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_fundamental_data_classes_value_interface.html">apyscの基本的なデータクラスの value インターフェイス</a></p></li>
 </ul>
 </section>
 </section>
@@ -191,25 +184,19 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Dictionary class</a><ul>
-<li><a class="reference internal" href="#what-is-the-dictionary">What is the Dictionary?</a></li>
-<li><a class="reference internal" href="#constructor-method">Constructor method</a></li>
-<li><a class="reference internal" href="#value-setter-interface">Value setter interface</a></li>
-<li><a class="reference internal" href="#value-getter-interface">Value getter interface</a></li>
-<li><a class="reference internal" href="#notes-of-the-getter-interface">Notes of the getter interface</a></li>
-<li><a class="reference internal" href="#value-deletion-interface">Value deletion interface</a></li>
-<li><a class="reference internal" href="#dictionary-class-constructor-api">Dictionary class constructor API</a></li>
-<li><a class="reference internal" href="#value-attribute-api">value attribute API</a></li>
+<li><a class="reference internal" href="#">Dictionary クラス</a><ul>
+<li><a class="reference internal" href="#id1">Dictionaryクラスの概要</a></li>
+<li><a class="reference internal" href="#id2">コンストラクタメソッド</a></li>
+<li><a class="reference internal" href="#setter">値のsetterのインターフェイス</a></li>
+<li><a class="reference internal" href="#getter">値のgetterのインターフェイス</a></li>
+<li><a class="reference internal" href="#id3">getterのインターフェイスの特記事項</a></li>
+<li><a class="reference internal" href="#id4">値の削除のインターフェイス</a></li>
+<li><a class="reference internal" href="#dictionary-api">Dictionary クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#value-api">value 属性のAPI</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="array_comparison.html"
-                        title="previous chapter">Array class comparison interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="dictionary_generic.html"
-                        title="next chapter">Dictionary class generic type settings</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -230,14 +217,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="dictionary_generic.html" title="Dictionary class generic type settings"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="array_comparison.html" title="Array class comparison interfaces"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Dictionary class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Dictionary クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

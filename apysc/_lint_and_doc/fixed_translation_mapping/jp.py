@@ -575,4 +575,28 @@ MAPPINGS: Mappings = Mappings(
                 'supported and raises an exception:',
             value='Pythonビルトインの`len`関数はサポートされて'
                   'おらずエラーとなります:'),
+        Mapping(
+            key='## Value setter interface',
+            value='## 値のsetterのインターフェイス'),
+        Mapping(
+            key='## Value getter interface',
+            value='## 値のgetterのインターフェイス'),
+        Mapping(
+            key='## Notes of the getter interface',
+            value='## getterのインターフェイスの特記事項'),
+        Mapping(
+            key='## Value deletion interface',
+            value='## 値の削除のインターフェイス'),
+        Mapping(
+            key='  - Initial dictionary value.',
+            value='  - 辞書の初期値。'),
+        Mapping(
+            key='Dictionary class generic type settings document',
+            value='Dictionary クラスのジェネリックの型設定'),
+        Mapping(
+            key='## value attribute API',
+            value='## value 属性のAPI'),
+        Mapping(
+            key='  - Current dict value.',
+            value='  - 現在の辞書の値。'),
     ])

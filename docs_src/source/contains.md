@@ -4,11 +4,11 @@ This page explains the container class, like the `Graphics`\, `Sprite`\, `Stage`
 
 ## What interface is this?
 
-The `contains` interface returns the boolean (`Boolean`) value whether that `Sprite` instance has a given child or not.
+The `contains` interface returns the boolean (`Boolean`) value whether a container instance has a given child or not.
 
 ## Basic usage
 
-The following example checks whether the first rectangle is a child of the `Sprite` container. If it is `true`\, remove the rectangle from the sprite and display a log to the console (please press F12 to display that message).
+The following example checks whether the first rectangle is a child of the `Sprite` container. If it is true, remove the rectangle from the sprite and display a log to the console (please press F12 to display that message).
 
 ```py
 # runnable
@@ -64,7 +64,7 @@ ap.save_overall_html(
 
 ## See also
 
-- [Add child and remove child interfaces](add_child_and_remove_child.md)
+- [add_child and remove_child interfaces](add_child_and_remove_child.md)
 
 ## contains API
 

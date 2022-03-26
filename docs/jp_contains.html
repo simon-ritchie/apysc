@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>contains interface &#8212; apysc  documentation</title>
+    <title>contains インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="num_children interface" href="num_children.html" />
-    <link rel="prev" title="add_child and remove_child interfaces" href="add_child_and_remove_child.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="num_children.html" title="num_children interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="add_child_and_remove_child.html" title="add_child and remove_child interfaces"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">contains interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">contains インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -43,16 +35,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="contains-interface">
-<h1>contains interface<a class="headerlink" href="#contains-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>, <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Stage</span></code>) <code class="docutils literal notranslate"><span class="pre">contains</span></code> method interface.</p>
-<section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">contains</span></code> interface returns the boolean (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>) value whether a container instance has a given child or not.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="contains.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="contains">
+<h1>contains インターフェイス<a class="headerlink" href="#contains" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>や<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>、<code class="docutils literal notranslate"><span class="pre">Stage</span></code>などのコンテナとしての各クラスが持つ<code class="docutils literal notranslate"><span class="pre">contains</span></code>メソッドのインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">contains</span></code>インターフェイスは引数に指定された子のインスタンスを対象のコンテナが持つかどうかの真偽値（<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>）を返却します。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example checks whether the first rectangle is a child of the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container. If it is true, remove the rectangle from the sprite and display a log to the console (please press F12 to display that message).</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下のコード例では最初の四角が<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>のコンテナーの子かどうかをチェックしています。もしその子を含んでいればその子を取り除き、ブラウザのコンソール上にログを表示しています（ログの表示にはF12キーを押してください）。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -103,34 +96,34 @@
 </pre></div>
 </div>
 <iframe src="static/sprite_contains_basic_usage/index.html" width="250" height="150"></iframe></section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id3">
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="add_child_and_remove_child.html"><span class="doc">add_child and remove_child interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="jp_add_child_and_remove_child.html"><span class="doc">add_child （子の追加）と remove_child （子の削除）のインターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="contains-api">
 <h2>contains API<a class="headerlink" href="#contains-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.contains --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">contains(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.boolean.Boolean</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Get a boolean whether this instance contains a specified child.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">contains(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.boolean.Boolean</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> このインスタンスが指定された子を持つかどうかの真偽値を取得します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
 <ul>
-<li><p>Child instance to check.</p></li>
+<li><p>チェック対象の子のインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr><p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: Boolean</p>
 <ul>
-<li><p>If this instance contains a specified child, this method returns True.</p></li>
+<li><p>もしこのインスタンスが指定された子を持つ場合Trueとなります。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -160,21 +153,15 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">contains interface</a><ul>
-<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">contains インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">関連資料</a></li>
 <li><a class="reference internal" href="#contains-api">contains API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="add_child_and_remove_child.html"
-                        title="previous chapter">add_child and remove_child interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="num_children.html"
-                        title="next chapter">num_children interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -195,14 +182,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="num_children.html" title="num_children interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="add_child_and_remove_child.html" title="add_child and remove_child interfaces"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">contains interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">contains インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

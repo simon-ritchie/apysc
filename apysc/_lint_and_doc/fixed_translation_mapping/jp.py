@@ -553,4 +553,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Unbinding target Callable.',
             value='  - 指定された関数やメソッドのハンドラの設定を解除します。'),
+        Mapping(
+            key='  - Child instance to check.',
+            value='  - チェック対象の子のインスタンス。'),
     ])

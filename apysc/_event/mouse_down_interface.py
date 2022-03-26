@@ -44,7 +44,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
         ----------
         - Mousedown and mouseup interfaces document
             - https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html  # noqa
-        - About the handler options’ type document
+        - About the handler options' type document
             - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
 
         Examples

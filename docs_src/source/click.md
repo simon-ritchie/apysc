@@ -1,4 +1,4 @@
-# Click interface
+# click interface
 
 This page explains the `click` interface.
 
@@ -205,7 +205,7 @@ ap.save_overall_html(
 
 **[References]**
 
-- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
 ## unbind_click API
 

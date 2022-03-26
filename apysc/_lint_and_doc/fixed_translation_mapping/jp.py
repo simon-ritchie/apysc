@@ -543,4 +543,14 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Else class',
             value='Else クラス'),
+        Mapping(
+            key='The following page describes basic mouse event interfaces.',
+            value='以下のページでは基本的なマウスイベントの'
+                  'インターフェイスについて説明しています。'),
+        Mapping(
+            key='Basic mouse event interfaces',
+            value='基本的なマウスイベントの各インターフェイス'),
+        Mapping(
+            key='  - Unbinding target Callable.',
+            value='  - 指定された関数やメソッドのハンドラの設定を解除します。'),
     ])

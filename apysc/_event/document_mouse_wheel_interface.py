@@ -40,7 +40,7 @@ def bind_wheel_event_to_document(
 
     References
     ----------
-    - About the handler options’ type document
+    - About the handler options' type document
         - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
     """
     import apysc as ap

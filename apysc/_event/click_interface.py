@@ -43,7 +43,7 @@ class ClickInterface(MouseEventInterfaceBase):
         ----------
         - Click interface document
             - https://simon-ritchie.github.io/apysc/click.html
-        - About the handler options’ type document
+        - About the handler options' type document
             - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
 
         Examples

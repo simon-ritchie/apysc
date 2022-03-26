@@ -308,7 +308,7 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseover_all` in
 
 **[References]**
 
-- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
 
 ## unbind_mouseout API
 

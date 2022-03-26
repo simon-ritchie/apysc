@@ -561,4 +561,10 @@ MAPPINGS: Mappings = Mappings(
                 'event interfaces.',
             value='以下のページでは基本的なマウスイベントの'
                   '各インターフェイスについて説明しています。'),
+        Mapping(
+            key='  - Target key.',
+            value='  - 対象のキー。'),
+        Mapping(
+            key='  - Any default value.',
+            value='  - 任意のデフォルト値の値。'),
     ])

@@ -692,4 +692,19 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='## visible property API',
             value='## visible 属性のAPI'),
+        Mapping(
+            key='## Augmented assignment',
+            value='## 累算代入演算'),
+        Mapping(
+            key='## x property API',
+            value='## x属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get a x-coordinate.<hr>',
+            value='**[インターフェイス概要]** X座標を取得します。<hr>'),
+        Mapping(
+            key='## y property API',
+            value='## y属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get a y-coordinate.<hr>',
+            value='**[インターフェイス概要]** Y座標を取得します。<hr>'),
     ])

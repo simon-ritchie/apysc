@@ -1,14 +1,16 @@
-# DisplayObject x and y interfaces
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](display_object_x_and_y.md)の確認をお願いします。</span>
 
-This page explains the `DisplayObject` class x and y property interfaces.
+# DisplayObject クラスの x と y のインターフェイス
 
-## What interfaces are these?
+このページでは`DisplayObject`クラスのxとy属性のインターフェイスについて説明します。
 
-The x and y properties change the `DisplayObject` instance 2-dimensional coordinates.
+## 各インターフェイスの概要
 
-## Basic usage
+xとy属性は`DisplayObject`のインスタンスの2次元の座標位置を変更します。
 
-Each `DisplayObject` instance has the x and y properties and can get/set the value with it.
+## 基本的な使い方
+
+`DisplayObject`の各インスタンスはxとy属性を持っており、それを参照して座標値の取得と更新を行うことができます。
 
 ```py
 # runnable
@@ -35,11 +37,11 @@ ap.save_overall_html(
 
 <iframe src="static/display_object_x_and_y_basic_usage/index.html" width="150" height="150"></iframe>
 
-## Augmented assignment
+## 累算代入演算
 
-The x and y properties support the Augmented assignments, like the `+=`\, `-=`\, `/=`\, and `*=` operators.
+xとy属性は`+=`や`-=`、`/=`、`*=`の累算代入演算をサポートしています。
 
-The following example appends 10-pixel to the y-coordinate when you click the rectangle.
+以下のコード例では四角をクリックする度に10pxずつY座標を加算しています。
 
 ```py
 # runnable
@@ -79,23 +81,20 @@ ap.save_overall_html(
 
 <iframe src="static/display_object_x_and_y_augmented_assignment/index.html" width="150" height="150"></iframe>
 
+## x属性のAPI
 
-## x property API
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<!-- Docstring: apysc._display.x_interface.XInterface.x -->
+**[インターフェイス概要]** X座標を取得します。<hr>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
-
-**[Interface summary]** Get a x-coordinate.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `x`: Int
-  - X-coordinate.
+  - X座標。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap
@@ -109,22 +108,20 @@ ap.save_overall_html(
 Int(100)
 ```
 
-## y property API
+## y属性のAPI
 
-<!-- Docstring: apysc._display.y_interface.YInterface.y -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイス概要]** Y座標を取得します。<hr>
 
-**[Interface summary]** Get a y-coordinate.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `y`: Int
-  - Y-coordinate.
+  - Y座標。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap

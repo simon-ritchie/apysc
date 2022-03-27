@@ -177,7 +177,7 @@ def _set_same_value_if_key_is_image_link(
         *, key: str, value: str) -> str:
     """
     Set the same key as a value if a specified key is an
-    image link string with a blank alternative text.
+    image link string with an alternative blank text.
 
     Parameters
     ----------
@@ -190,7 +190,7 @@ def _set_same_value_if_key_is_image_link(
     -------
     value : str
         This interface returns the same value if a specified
-        key is an image link string with a blank alternative
+        key is an image link string with an alternative blank
         text. Otherwise, it returns a value argument directly.
     """
     match: Optional[Match] = _BLANK_ALT_IMAGE_LINK_PATTERN.match(

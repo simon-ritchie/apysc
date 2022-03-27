@@ -186,6 +186,24 @@ Set the same code-block value if a specified value is a blank string and a key's
 - `value`: str
   - A result value. If an argument value is not a blank string, this interface returns it directly. If a key's value is not a code block, this interface also returns an argument value directly.
 
+## `_set_same_value_if_key_is_image_link` function docstring
+
+Set the same key as a value if a specified key is an image link string with an alternative blank text.<hr>
+
+**[Parameters]**
+
+- `key`: str
+  - A target key string.
+- `value`: str
+  - A target value.
+
+<hr>
+
+**[Returns]**
+
+- `value`: str
+  - This interface returns the same value if a specified key is an image link string with an alternative blank text. Otherwise, it returns a value argument directly.
+
 ## `_set_same_value_if_key_is_no_mapping_fixed_string` function docstring
 
 Set the same key as a value if a specified key is a no-mapping fixed string.<hr>

@@ -620,7 +620,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='DisplayObject class visible interface',
             value='DisplayObject クラスの visible (表示・非表示) の'
-                   'インターフェイス'),
+            'インターフェイス'),
         Mapping(
             key='## rotation interfaces',
             value='## 回転の各インターフェイス'),

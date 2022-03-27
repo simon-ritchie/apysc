@@ -142,6 +142,9 @@ MAPPINGS: Mappings = Mappings(
             key='<details>\\n<summary>Display the code block:</summary>',
             value='<details>\\n<summary>コードブロックを表示:</summary>'),
         Mapping(
+            key='<details>\n<summary>Display the code block:</summary>',
+            value='<details>\n<summary>コードブロックを表示:</summary>'),
+        Mapping(
             key='animation_x interface document',
             value='animation_x （X座標のアニメーション）のインターフェイス'),
         Mapping(
@@ -599,4 +602,68 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Current dict value.',
             value='  - 現在の辞書の値。'),
+        Mapping(
+            key='## What apysc can do in its properties',
+            value='## それらの属性でapyscができること'),
+        Mapping(
+            key='For more details, please see the following:',
+            value='詳細については以下をご確認ください:'),
+        Mapping(
+            key='DisplayObject class x and y interfaces',
+            value='DisplayObject クラスの x と y インターフェイス'),
+        Mapping(
+            key='## x and y properties',
+            value='## x と y 属性'),
+        Mapping(
+            key='## visible property',
+            value='## visible 属性'),
+        Mapping(
+            key='DisplayObject class visible interface',
+            value='DisplayObject クラスの visible インターフェイス'),
+        Mapping(
+            key='## rotation interfaces',
+            value='## 回転の各インターフェイス'),
+        Mapping(
+            key='GraphicsBase class rotation_around_center interface',
+            value='GraphicsBase クラスの rotation_around_center '
+                  'インターフェイス'),
+        Mapping(
+            key='GraphicsBase class rotation_around_point interfaces',
+            value='GraphicsBase クラスの rotation_around_point '
+                  'の各インターフェイス'),
+        Mapping(
+            key='## scale interfaces',
+            value='## 拡縮の各インターフェイス'),
+        Mapping(
+            key='GraphicsBase class scale_from_center interfaces',
+            value='GraphicsBase クラスの scale_from_center '
+                  'の各インターフェイス'),
+        Mapping(
+            key='GraphicsBase class scale_from_point interfaces',
+            value='GraphicsBase クラスの scale_from_point '
+                  'の各インターフェイス'),
+        Mapping(
+            key='## flip properties',
+            value='## 反転の各属性'),
+        Mapping(
+            key='## GraphicsBase class flip_x and flip_y interfaces',
+            value='## GraphicsBase クラスの flip_x と flip_y '
+                  'のインターフェイス'),
+        Mapping(
+            key='GraphicsBase class flip_x and flip_y interfaces',
+            value='GraphicsBase クラスの flip_x と flip_y '
+                  'のインターフェイス'),
+        Mapping(
+            key='## skew properties',
+            value='## 歪みの各属性'),
+        Mapping(
+            key='## skew properties',
+            value='## 歪みの各属性'),
+        Mapping(
+            key='GraphicsBase class skew_x and skew_y interfaces',
+            value='GraphicsBase クラスの skew_x と skew_y '
+                  'のインターフェイス'),
+        Mapping(
+            key='DisplayObject class',
+            value='DisplayObject クラス'),
     ])

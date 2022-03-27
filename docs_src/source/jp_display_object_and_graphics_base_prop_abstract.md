@@ -1,17 +1,19 @@
-# DisplayObject and GraphicsBase classes base properties abstract
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](display_object_and_graphics_base_prop_abstract.md)の確認をお願いします。</span>
 
-This page explains the `DisplayObject` and `GraphicsBase` classes' each property (such as the x, visible) abstract.
+# DisplayObject と GraphicsBase クラスの基本的な属性の概要
 
-## What apysc can do in its properties
+このページでは`DisplayObject`や`GraphicsBase`の各サブクラスのxやvisibleなどの基本的な属性の概要について説明します。
 
-- You can get/set each property value, such as the x, y, visible.
+## それらの属性でapyscができること
 
-## x and y properties
+- xやy, visibleなどの属性の取得や更新を行うことができます。
 
-The x and y properties can get/set the x and y coordinates.
+## x と y 属性
+
+xとy属性ではXとY座標を更新・取得することができます。
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -72,16 +74,16 @@ ap.save_overall_html(
 
 <iframe src="static/do_and_graphics_base_prop_abstract_x_and_y/index.html" width="200" height="200"></iframe>
 
-For more details, please see the following:
+詳細については以下をご確認ください:
 
-- [DisplayObject class x and y interfaces](display_object_x_and_y.md).
+- [DisplayObject クラスの x と y インターフェイス](jp_display_object_x_and_y.md)
 
-## visible property
+## visible 属性
 
-The `visible` property can get/set the visibility of an object.
+`visible`属性ではオブジェクトの表示・非表示の属性値を取得・更新することができます。
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -130,16 +132,16 @@ ap.save_overall_html(
 
 <iframe src="static/do_and_graphics_base_prop_abstract_visible/index.html" width="150" height="150"></iframe>
 
-For more details, please see the following:
+詳細については以下をご確認ください:
 
-- [DisplayObject class visible interface](display_object_visible.md).
+- [DisplayObject クラスの visible インターフェイス](jp_display_object_visible.md)
 
-## rotation interfaces
+## 回転の各インターフェイス
 
-The `rotation_around_center` property, `get_rotation_around_point` method, and `set_rotation_around_point` method can get/set the rotation angle.
+`rotation_around_center`属性、`get_rotation_around_point`メソッド、そして`set_rotation_around_point`メソッドでは回転の角度の値の取得と更新を行うことができます。
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -188,17 +190,17 @@ ap.save_overall_html(
 
 <iframe src="static/do_and_graphics_base_prop_abstract_rotation/index.html" width="150" height="150"></iframe>
 
-For more details, please see the following:
+詳細については以下をご確認ください:
 
-- [GraphicsBase class rotation_around_center interface](graphics_base_rotation_around_center.md)
-- [GraphicsBase class rotation_around_point interfaces](graphics_base_rotation_around_point.md).
+- [GraphicsBase クラスの rotation_around_center インターフェイス](jp_graphics_base_rotation_around_center.md)
+- [GraphicsBase クラスの rotation_around_point の各インターフェイス](jp_graphics_base_rotation_around_point.md)
 
-## scale interfaces
+## 拡縮の各インターフェイス
 
-The `scale_x_from_center` property, `scale_y_from_center` property, `get_scale_x_from_point` method, `set_scale_x_from_point` method, `get_scale_y_from_point` method, and `set_scale_y_from_point` method can get/set the scale values.
+`scale_x_from_center`属性、`scale_y_from_center`属性、`get_scale_x_from_point`メソッド、`set_scale_x_from_point`メソッド、`get_scale_y_from_point`メソッド、そして`set_scale_y_from_point`メソッドの各インターフェイスでは拡縮の値の取得と更新を行うことができます。
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -259,17 +261,17 @@ ap.save_overall_html(
 
 <iframe src="static/do_and_graphics_base_prop_abstract_scale/index.html" width="150" height="150"></iframe>
 
-For more details, please see the following:
+詳細については以下をご確認ください:
 
-- [GraphicsBase class scale_from_center interfaces](graphics_base_scale_from_center.md)
-- [GraphicsBase class scale_from_point interfaces](graphics_base_scale_from_point.md).
+- [GraphicsBase クラスの scale_from_center の各インターフェイス](jp_graphics_base_scale_from_center.md)
+- [GraphicsBase クラスの scale_from_point の各インターフェイス](jp_graphics_base_scale_from_point.md)
 
-## flip properties
+## 反転の各属性
 
-The `flip_x` and `flip_y` properties can get/set the flip (reflection) setting.
+`flip_x`と`flip_y`の属性では反転の属性値の取得と更新を行うことができます。
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -318,16 +320,16 @@ ap.save_overall_html(
 
 <iframe src="static/do_and_graphics_base_prop_abstract_flip/index.html" width="150" height="150"></iframe>
 
-For more details, please see the following:
+詳細については以下をご確認ください:
 
-- [GraphicsBase class flip_x and flip_y interfaces](graphics_base_flip_interfaces.md)
+- [GraphicsBase クラスの flip_x と flip_y のインターフェイス](jp_graphics_base_flip_interfaces.md)
 
-## skew properties
+## 歪みの各属性
 
-The `skew_x` and `skew_y` properties can get/set the skew-value.
+`skew_x`と`skew_y`の各属性では歪みの値を取得・更新することができます。
 
 <details>
-<summary>Display the code block:</summary>
+<summary>コードブロックを表示:</summary>
 
 ```py
 # runnable
@@ -376,11 +378,11 @@ ap.save_overall_html(
 
 <iframe src="static/do_and_graphics_base_prop_abstract_skew/index.html" width="150" height="150"></iframe>
 
-For more details, please see the following:
+詳細については以下をご確認ください:
 
-- [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md).
+- [GraphicsBase クラスの skew_x と skew_y のインターフェイス](jp_graphics_base_skew.md)
 
-## See also
+## 関連資料
 
-- [DisplayObject class](display_object.md)
-- [DisplayObject class parent interfaces](display_object_parent.md)
+- [DisplayObject クラス](jp_display_object.md)
+- [DisplayObjectクラス parent （親要素属性）のインターフェイス](jp_display_object_parent.md)

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DisplayObject and GraphicsBase classes base properties abstract &#8212; apysc  documentation</title>
+    <title>DisplayObject と GraphicsBase クラスの基本的な属性の概要 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Display object x and y interfaces" href="display_object_x_and_y.html" />
-    <link rel="prev" title="DisplayObject" href="display_object.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="display_object_x_and_y.html" title="Display object x and y interfaces"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="display_object.html" title="DisplayObject"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject and GraphicsBase classes base properties abstract</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject と GraphicsBase クラスの基本的な属性の概要</a></li> 
       </ul>
     </div>  
 
@@ -43,20 +35,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="displayobject-and-graphicsbase-classes-base-properties-abstract">
-<h1>DisplayObject and GraphicsBase classes base properties abstract<a class="headerlink" href="#displayobject-and-graphicsbase-classes-base-properties-abstract" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> and <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> classes’ each property (such as the x, visible) abstract.</p>
-<section id="what-apysc-can-do-in-its-properties">
-<h2>What apysc can do in its properties<a class="headerlink" href="#what-apysc-can-do-in-its-properties" title="Permalink to this headline">¶</a></h2>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="display_object_and_graphics_base_prop_abstract.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="displayobject-graphicsbase">
+<h1>DisplayObject と GraphicsBase クラスの基本的な属性の概要<a class="headerlink" href="#displayobject-graphicsbase" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>や<code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code>の各サブクラスのxやvisibleなどの基本的な属性の概要について説明します。</p>
+<section id="apysc">
+<h2>それらの属性でapyscができること<a class="headerlink" href="#apysc" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>You can get/set each property value, such as the x, y, visible.</p></li>
+<li><p>xやy, visibleなどの属性の取得や更新を行うことができます。</p></li>
 </ul>
 </section>
-<section id="x-and-y-properties">
-<h2>x and y properties<a class="headerlink" href="#x-and-y-properties" title="Permalink to this headline">¶</a></h2>
-<p>The x and y properties can get/set the x and y coordinates.</p>
+<section id="x-y">
+<h2>x と y 属性<a class="headerlink" href="#x-y" title="Permalink to this headline">¶</a></h2>
+<p>xとy属性ではXとY座標を更新・取得することができます。</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -110,16 +103,16 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_x_and_y/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/do_and_graphics_base_prop_abstract_x_and_y/index.html" width="200" height="200"></iframe><p>For more details, please see the following:</p>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_x_and_y/index.html" width="200" height="200"></iframe><p>詳細については以下をご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="display_object_x_and_y.html"><span class="doc">DisplayObject class x and y interfaces</span></a>.</p></li>
+<li><p><a class="reference external" href="jp_display_object_x_and_y">DisplayObject クラスの x と y インターフェイス</a></p></li>
 </ul>
 </section>
-<section id="visible-property">
-<h2>visible property<a class="headerlink" href="#visible-property" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">visible</span></code> property can get/set the visibility of an object.</p>
+<section id="visible">
+<h2>visible 属性<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">visible</span></code>属性ではオブジェクトの表示・非表示の属性値を取得・更新することができます。</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -161,16 +154,16 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_visible/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/do_and_graphics_base_prop_abstract_visible/index.html" width="150" height="150"></iframe><p>For more details, please see the following:</p>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_visible/index.html" width="150" height="150"></iframe><p>詳細については以下をご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="display_object_visible.html"><span class="doc">DisplayObject class visible interface</span></a>.</p></li>
+<li><p><a class="reference external" href="jp_display_object_visible">DisplayObject クラスの visible インターフェイス</a></p></li>
 </ul>
 </section>
-<section id="rotation-interfaces">
-<h2>rotation interfaces<a class="headerlink" href="#rotation-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code> property, <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method, and <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method can get/set the rotation angle.</p>
+<section id="id1">
+<h2>回転の各インターフェイス<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code>属性、<code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code>メソッド、そして<code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code>メソッドでは回転の角度の値の取得と更新を行うことができます。</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -212,17 +205,17 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_rotation/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/do_and_graphics_base_prop_abstract_rotation/index.html" width="150" height="150"></iframe><p>For more details, please see the following:</p>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_rotation/index.html" width="150" height="150"></iframe><p>詳細については以下をご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="graphics_base_rotation_around_center.html"><span class="doc">GraphicsBase class rotation_around_center interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_base_rotation_around_point.html"><span class="doc">GraphicsBase class rotation_around_point interfaces</span></a>.</p></li>
+<li><p><a class="reference external" href="jp_graphics_base_rotation_around_center">GraphicsBase クラスの rotation_around_center インターフェイス</a></p></li>
+<li><p><a class="reference external" href="jp_graphics_base_rotation_around_point">GraphicsBase クラスの rotation_around_point の各インターフェイス</a></p></li>
 </ul>
 </section>
-<section id="scale-interfaces">
-<h2>scale interfaces<a class="headerlink" href="#scale-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> property, <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> property, <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code> method, <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> method, <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code> method, and <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> method can get/set the scale values.</p>
+<section id="id2">
+<h2>拡縮の各インターフェイス<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code>属性、<code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code>属性、<code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code>メソッド、<code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code>メソッド、<code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code>メソッド、そして<code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code>メソッドの各インターフェイスでは拡縮の値の取得と更新を行うことができます。</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -276,17 +269,17 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_scale/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/do_and_graphics_base_prop_abstract_scale/index.html" width="150" height="150"></iframe><p>For more details, please see the following:</p>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_scale/index.html" width="150" height="150"></iframe><p>詳細については以下をご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="graphics_base_scale_from_center.html"><span class="doc">GraphicsBase class scale_from_center interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_base_scale_from_point.html"><span class="doc">GraphicsBase class scale_from_point interfaces</span></a>.</p></li>
+<li><p><a class="reference external" href="jp_graphics_base_scale_from_center">GraphicsBase クラスの scale_from_center の各インターフェイス</a></p></li>
+<li><p><a class="reference external" href="jp_graphics_base_scale_from_point">GraphicsBase クラスの scale_from_point の各インターフェイス</a></p></li>
 </ul>
 </section>
-<section id="flip-properties">
-<h2>flip properties<a class="headerlink" href="#flip-properties" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> and <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> properties can get/set the flip (reflection) setting.</p>
+<section id="id3">
+<h2>反転の各属性<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">flip_x</span></code>と<code class="docutils literal notranslate"><span class="pre">flip_y</span></code>の属性では反転の属性値の取得と更新を行うことができます。</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -328,16 +321,16 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_flip/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/do_and_graphics_base_prop_abstract_flip/index.html" width="150" height="150"></iframe><p>For more details, please see the following:</p>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_flip/index.html" width="150" height="150"></iframe><p>詳細については以下をご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="graphics_base_flip_interfaces.html"><span class="doc">GraphicsBase class flip_x and flip_y interfaces</span></a></p></li>
+<li><p><a class="reference external" href="jp_graphics_base_flip_interfaces">GraphicsBase クラスの flip_x と flip_y のインターフェイス</a></p></li>
 </ul>
 </section>
-<section id="skew-properties">
-<h2>skew properties<a class="headerlink" href="#skew-properties" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">skew_x</span></code> and <code class="docutils literal notranslate"><span class="pre">skew_y</span></code> properties can get/set the skew-value.</p>
+<section id="id4">
+<h2>歪みの各属性<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">skew_x</span></code>と<code class="docutils literal notranslate"><span class="pre">skew_y</span></code>の各属性では歪みの値を取得・更新することができます。</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -379,16 +372,16 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_skew/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/do_and_graphics_base_prop_abstract_skew/index.html" width="150" height="150"></iframe><p>For more details, please see the following:</p>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_skew/index.html" width="150" height="150"></iframe><p>詳細については以下をご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="graphics_base_skew.html"><span class="doc">GraphicsBase class skew_x and skew_y interfaces</span></a>.</p></li>
+<li><p><a class="reference external" href="jp_graphics_base_skew">GraphicsBase クラスの skew_x と skew_y のインターフェイス</a></p></li>
 </ul>
 </section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id5">
+<h2>関連資料<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="display_object.html"><span class="doc">DisplayObject class</span></a></p></li>
-<li><p><a class="reference internal" href="display_object_parent.html"><span class="doc">DisplayObject class parent interfaces</span></a></p></li>
+<li><p><a class="reference external" href="jp_display_object">DisplayObject クラス</a></p></li>
+<li><p><a class="reference external" href="jp_display_object_parent">DisplayObjectクラス parent （親要素属性）のインターフェイス</a></p></li>
 </ul>
 </section>
 </section>
@@ -405,25 +398,19 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">DisplayObject and GraphicsBase classes base properties abstract</a><ul>
-<li><a class="reference internal" href="#what-apysc-can-do-in-its-properties">What apysc can do in its properties</a></li>
-<li><a class="reference internal" href="#x-and-y-properties">x and y properties</a></li>
-<li><a class="reference internal" href="#visible-property">visible property</a></li>
-<li><a class="reference internal" href="#rotation-interfaces">rotation interfaces</a></li>
-<li><a class="reference internal" href="#scale-interfaces">scale interfaces</a></li>
-<li><a class="reference internal" href="#flip-properties">flip properties</a></li>
-<li><a class="reference internal" href="#skew-properties">skew properties</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">DisplayObject と GraphicsBase クラスの基本的な属性の概要</a><ul>
+<li><a class="reference internal" href="#apysc">それらの属性でapyscができること</a></li>
+<li><a class="reference internal" href="#x-y">x と y 属性</a></li>
+<li><a class="reference internal" href="#visible">visible 属性</a></li>
+<li><a class="reference internal" href="#id1">回転の各インターフェイス</a></li>
+<li><a class="reference internal" href="#id2">拡縮の各インターフェイス</a></li>
+<li><a class="reference internal" href="#id3">反転の各属性</a></li>
+<li><a class="reference internal" href="#id4">歪みの各属性</a></li>
+<li><a class="reference internal" href="#id5">関連資料</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="display_object.html"
-                        title="previous chapter">DisplayObject</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="display_object_x_and_y.html"
-                        title="next chapter">Display object x and y interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -444,14 +431,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="display_object_x_and_y.html" title="Display object x and y interfaces"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="display_object.html" title="DisplayObject"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject and GraphicsBase classes base properties abstract</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject と GraphicsBase クラスの基本的な属性の概要</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

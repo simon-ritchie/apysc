@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DisplayObject class &#8212; apysc  documentation</title>
+    <title>DisplayObject クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="DisplayObject and GraphicsBase classes base properties abstract" href="display_object_and_graphics_base_prop_abstract.html" />
-    <link rel="prev" title="Point2D" href="point2d.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="display_object_and_graphics_base_prop_abstract.html" title="DisplayObject and GraphicsBase classes base properties abstract"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="point2d.html" title="Point2D"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject クラス</a></li> 
       </ul>
     </div>  
 
@@ -43,13 +35,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="displayobject-class">
-<h1>DisplayObject class<a class="headerlink" href="#displayobject-class" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class.</p>
-<section id="what-is-the-displayobject">
-<h2>What is the DisplayObject?<a class="headerlink" href="#what-is-the-displayobject" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> is the apysc base class for each display class, such as  <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, <code class="docutils literal notranslate"><span class="pre">Circle</span></code>, or something else.</p>
-<p>You can verify the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> inheritance with each instance by the <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> function.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="display_object.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="displayobject">
+<h1>DisplayObject クラス<a class="headerlink" href="#displayobject" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスについて説明します。</p>
+<section id="id1">
+<h2>DisplayObject クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>や<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>などのapyscの表示オブジェクトの基底クラスとなります。</p>
+<p>各インスタンスが<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>を継承していることを<code class="docutils literal notranslate"><span class="pre">isinstance</span></code>関数を使って確認することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -68,16 +61,16 @@
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">circle</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">DisplayObject</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The apysc uses this class for the basic interfaces or the creating the new display object with the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> inheritance.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class has the basic interfaces, like <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">visible</span></code>, each mouse event binding, or others. The following page explains these interfaces one by one.</p>
+<p>apyscはこのクラスを基本的な共通のインターフェイスで使用したり、もしくは別の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>を継承したインスタンスの作成処理などで使用しています。</p>
+<p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">x</span></code>や<code class="docutils literal notranslate"><span class="pre">y</span></code>、<code class="docutils literal notranslate"><span class="pre">visible</span></code>属性、各マウスイベントの設定などの基本的なインターフェイスを持っています。以下のページではそれぞれのインターフェイスについて1つ1つ詳しく触れています。</p>
 </section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id2">
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="display_object_x_and_y.html"><span class="doc">DisplayObject class x and y interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="display_object_parent.html"><span class="doc">DisplayObject class parent interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="display_object_visible.html"><span class="doc">DisplayObject class visible interface</span></a></p></li>
-<li><p><a class="reference internal" href="display_object_mouse_event.html"><span class="doc">DisplayObject class mouse event binding interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_object_x_and_y.html"><span class="doc">DisplayObject クラスの x と y インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_object_parent.html"><span class="doc">DisplayObjectクラス parent （親要素属性）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_object_visible.html"><span class="doc">DisplayObject クラスの visible (表示・非表示) のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_object_mouse_event.html"><span class="doc">DisplayObject クラスのマウスイベント設定の各インターフェイス</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -94,19 +87,13 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">DisplayObject class</a><ul>
-<li><a class="reference internal" href="#what-is-the-displayobject">What is the DisplayObject?</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">DisplayObject クラス</a><ul>
+<li><a class="reference internal" href="#id1">DisplayObject クラスの概要</a></li>
+<li><a class="reference internal" href="#id2">関連資料</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="point2d.html"
-                        title="previous chapter">Point2D</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="display_object_and_graphics_base_prop_abstract.html"
-                        title="next chapter">DisplayObject and GraphicsBase classes base properties abstract</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -127,14 +114,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="display_object_and_graphics_base_prop_abstract.html" title="DisplayObject and GraphicsBase classes base properties abstract"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="point2d.html" title="Point2D"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

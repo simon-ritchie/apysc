@@ -1,4 +1,4 @@
-# DisplayObject
+# DisplayObject class
 
 This page explains the `DisplayObject` class.
 

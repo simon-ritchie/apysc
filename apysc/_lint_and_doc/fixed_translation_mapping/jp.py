@@ -707,4 +707,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='**[Interface summary]** Get a y-coordinate.<hr>',
             value='**[インターフェイス概要]** Y座標を取得します。<hr>'),
+        Mapping(
+            key='DisplayObject class mouse event binding interfaces',
+            value='DisplayObject クラスのマウスイベント設定の各インターフェイス'),
     ])

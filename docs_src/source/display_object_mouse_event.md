@@ -1,4 +1,4 @@
-# Display object mouse event binding interfaces
+# DisplayObject class mouse event binding interfaces
 
 This page explains the `DisplayObject` class mouse event binding interfaces.
 
@@ -6,7 +6,7 @@ This page explains the `DisplayObject` class mouse event binding interfaces.
 
 Each `DisplayObject` instance has the mouse event binding interfaces, like the click, mouse over, mouse move.
 
-These interfaces can bind the mouse event to a `DisplayObject` instance. So, for instance, you can assign any function to handle when a `DisplayObject` instance click.
+These interfaces can bind the mouse event to a `DisplayObject` instance. So, for instance, you can assign any function to handle when a click of `DisplayObject` instance.
 
 ## Basic usage
 
@@ -58,7 +58,7 @@ ap.save_overall_html(
 For more details, please see the following pages:
 
 - [Basic mouse event interfaces](mouse_event_basic.md)
-- [Click interface](click.md)
-- [Mousedown and mouseup interfaces](mousedown_and_mouseup.md)
-- [Mouseover and mouseout interfaces](mouseover_and_mouseout.md)
-- [Mousemove interface](mousemove.md)
+- [click interface](click.md)
+- [mousedown and mouseup interfaces](mousedown_and_mouseup.md)
+- [mouseover and mouseout interfaces](mouseover_and_mouseout.md)
+- [mousemove interface](mousemove.md)

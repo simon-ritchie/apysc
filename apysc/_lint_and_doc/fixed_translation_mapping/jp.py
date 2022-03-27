@@ -670,4 +670,19 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - CSS name (e.g., \'display\').',
             value='  - CSS名（例 : \'display\'）。'),
+        Mapping(
+            key='For more details, please see the following pages:',
+            value='詳細については以下の各ページをご確認ください:'),
+        Mapping(
+            key='click interface',
+            value='クリックインターフェイス'),
+        Mapping(
+            key='mousedown and mouseup interfaces',
+            value='mousedown と mouseup のインターフェイス'),
+        Mapping(
+            key='mouseover and mouseout interfaces',
+            value='mouseover と mouseout インターフェイス'),
+        Mapping(
+            key='mousemove interface',
+            value='mousemove インターフェイス'),
     ])

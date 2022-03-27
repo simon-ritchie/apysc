@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DisplayObject class mouse event binding interfaces &#8212; apysc  documentation</title>
+    <title>DisplayObject クラスのマウスイベント設定の各インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GraphicsBase rotation_around_center interface" href="graphics_base_rotation_around_center.html" />
-    <link rel="prev" title="DisplayObject class get_css and set_css interfaces" href="display_object_get_and_set_css.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="graphics_base_rotation_around_center.html" title="GraphicsBase rotation_around_center interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="display_object_get_and_set_css.html" title="DisplayObject class get_css and set_css interfaces"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject class mouse event binding interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject クラスのマウスイベント設定の各インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -43,18 +35,19 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="displayobject-class-mouse-event-binding-interfaces">
-<h1>DisplayObject class mouse event binding interfaces<a class="headerlink" href="#displayobject-class-mouse-event-binding-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class mouse event binding interfaces.</p>
-<section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the mouse event binding interfaces, like the click, mouse over, mouse move.</p>
-<p>These interfaces can bind the mouse event to a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. So, for instance, you can assign any function to handle when a click of <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="display_object_mouse_event.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="displayobject">
+<h1>DisplayObject クラスのマウスイベント設定の各インターフェイス<a class="headerlink" href="#displayobject" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスのマウスイベントの登録の各インターフェイスについて説明します。</p>
+<section id="id1">
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>各<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスはクリックやマウスオーバーなどのマウスイベント登録用の各インターフェイスを持っています。</p>
+<p>これらのインターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>にマウスイベントを設定でき、例えばクリック時に実行したい関数などを登録することができます。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>You can bind event handler (callable) with each interface, like the <code class="docutils literal notranslate"><span class="pre">click</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseover</span></code>.</p>
-<p>The following example binds the click event handler, and if you click the rectangle, the fill color is changed.</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">click</span></code>や<code class="docutils literal notranslate"><span class="pre">mouseover</span></code>などの各インターフェイスで任意のイベントハンドラ（Callableオブジェクト）を登録することができます。</p>
+<p>以下のコード例ではクリックのイベントハンドラを設定しており、四角をクリックすると色が変わるようにしています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -92,15 +85,15 @@
 </pre></div>
 </div>
 <iframe src="static/display_object_mouse_event_basic_usage/index.html" width="150" height="150"></iframe></section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<p>For more details, please see the following pages:</p>
+<section id="id3">
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>詳細については以下の各ページをご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc">Basic mouse event interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="click.html"><span class="doc">click interface</span></a></p></li>
-<li><p><a class="reference internal" href="mousedown_and_mouseup.html"><span class="doc">mousedown and mouseup interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mouseover_and_mouseout.html"><span class="doc">mouseover and mouseout interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mousemove.html"><span class="doc">mousemove interface</span></a></p></li>
+<li><p><a class="reference external" href="jp_mouse_event_basic">基本的なマウスイベントの各インターフェイス</a></p></li>
+<li><p><a class="reference internal" href="jp_click.html"><span class="doc">クリックインターフェイス</span></a></p></li>
+<li><p><a class="reference external" href="jp_mousedown_and_mouseup">mousedown と mouseup のインターフェイス</a></p></li>
+<li><p><a class="reference external" href="jp_mouseover_and_mouseout">mouseover と mouseout インターフェイス</a></p></li>
+<li><p><a class="reference external" href="jp_mousemove">mousemove インターフェイス</a></p></li>
 </ul>
 </section>
 </section>
@@ -117,20 +110,14 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">DisplayObject class mouse event binding interfaces</a><ul>
-<li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">DisplayObject クラスのマウスイベント設定の各インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">関連資料</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="display_object_get_and_set_css.html"
-                        title="previous chapter">DisplayObject class get_css and set_css interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_base_rotation_around_center.html"
-                        title="next chapter">GraphicsBase rotation_around_center interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -151,14 +138,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="graphics_base_rotation_around_center.html" title="GraphicsBase rotation_around_center interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="display_object_get_and_set_css.html" title="DisplayObject class get_css and set_css interfaces"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject class mouse event binding interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject クラスのマウスイベント設定の各インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

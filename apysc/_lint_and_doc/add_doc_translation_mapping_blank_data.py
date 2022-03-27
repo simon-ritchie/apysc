@@ -161,10 +161,43 @@ def _make_mappings_from_keys(
             key=key, value=value)
         value = _set_same_value_if_key_is_no_mapping_fixed_string(
             key=key, value=value)
+        value = _set_same_value_if_key_is_image_link(
+            key=key, value=value)
         key = escape_key_or_value(key_or_val=key)
         value = escape_key_or_value(key_or_val=value)
         mappings.append({key: value})
     return mappings
+
+
+_BLANK_ALT_IMAGE_LINK_PATTERN: Pattern = re.compile(
+    pattern=r'^\!\[\]\(.+?\)$')
+
+
+def _set_same_value_if_key_is_image_link(
+        *, key: str, value: str) -> str:
+    """
+    Set the same key as a value if a specified key is an
+    image link string with a blank alternative text.
+
+    Parameters
+    ----------
+    key : str
+        A target key string.
+    value : str
+        A target value.
+
+    Returns
+    -------
+    value : str
+        This interface returns the same value if a specified
+        key is an image link string with a blank alternative
+        text. Otherwise, it returns a value argument directly.
+    """
+    match: Optional[Match] = _BLANK_ALT_IMAGE_LINK_PATTERN.match(
+        string=key)
+    if match is None:
+        return value
+    return key
 
 
 _API_DOC_PARAMS_OR_RETURNS_NAME_PATTERN: Pattern = re.compile(

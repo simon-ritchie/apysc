@@ -324,3 +324,17 @@ def test__set_same_value_if_key_is_no_mapping_fixed_string() -> None:
         _set_same_value_if_key_is_no_mapping_fixed_string(
             key='Lorem ipsum', value='')
     assert value == ''
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__set_same_value_if_key_is_image_link() -> None:
+    value: str = add_doc_translation_mapping_blank_data.\
+        _set_same_value_if_key_is_image_link(
+            key='Lorem ipsum', value='')
+    assert value == ''
+
+    value = add_doc_translation_mapping_blank_data.\
+        _set_same_value_if_key_is_image_link(
+            key='![](_static/colaboratory_interface.png)',
+            value='')
+    assert value == '![](_static/colaboratory_interface.png)'

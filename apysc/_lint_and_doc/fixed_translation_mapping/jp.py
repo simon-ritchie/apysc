@@ -718,4 +718,13 @@ MAPPINGS: Mappings = Mappings(
                 'False setting is useful when debugging.',
             value='  - HTMLを最小化（minify）するかどうかの真偽値。'
                   'Falseの設定はデバッグ時などに役に立つことがあります。'),
+        Mapping(
+            key='For more information, please see:',
+            value='詳細は以下をご確認ください:'),
+        Mapping(
+            key='## Notes',
+            value='## 特記事項'),
+        Mapping(
+            key='  - The output HTML file name.',
+            value='  - 出力されるHTMLのファイル名。'),
     ])

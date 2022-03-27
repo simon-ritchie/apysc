@@ -1,16 +1,18 @@
-# DisplayObject class visible interface
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](display_object_visible.md)の確認をお願いします。</span>
 
-This page explains the `DisplayObject` class `visible` property interface.
+# DisplayObject クラスの visible インターフェイス
 
-## What interface is this?
+このページでは`DisplayObject`クラスの`visible`属性のインターフェイスについて説明します。
 
-The `visible` property interface will change the `DisplayObject` visible / invisible state.
+## インターフェイス概要
 
-## Basic usage
+`visible`属性は`DisplayObject`の表示・非表示の状態を切り替えます。
 
-The `visible` property accepts a `Boolean` value. If you set the True value, a `DisplayObject` instance becomes visible (default). Conversely, if you set the False value, a `DisplayObject` instance becomes invisible.
+## 基本的な使い方
 
-The following example switches the visible values when you click the rectangle. For example, suppose you click the left rectangle (the rectangle_1). In that case, the left rectangle becomes invisible, and the right rectangle (rectangle_2) becomes visible.
+`visible`属性は`Boolean`の値を受け付けます。Trueを設定した場合その`DisplayObject`のインスタンスは表示状態になります（デフォルトの状態になります）。Falseを設定するとその`DisplayObject`のインスタンスは非表示になります。
+
+以下のコード例では四角をクリックした時にvisibleの設定を切り替えています。左側の四角をクリックした際には左側の四角は非表示となり、右側に別の四角が表示されます。
 
 ```py
 # runnable
@@ -89,23 +91,20 @@ ap.save_overall_html(
 
 <iframe src="static/display_object_visible_basic_usage/index.html" width="250" height="150"></iframe>
 
+## visible 属性のAPI
 
-## visible property API
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<!-- Docstring: apysc._display.visible_interface.VisibleInterface.visible -->
+**[インターフェイス概要]** このインスタンスの表示・非表示の状態の値を取得します。<hr>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
-
-**[Interface summary]** Get a visibility value of this instance.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `result`: Boolean
-  - If this instance is visible, this interface returns True.
+  - もしこのインスタンスが表示状態であればTrueとなります。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap

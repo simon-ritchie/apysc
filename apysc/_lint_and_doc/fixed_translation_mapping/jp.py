@@ -689,4 +689,7 @@ MAPPINGS: Mappings = Mappings(
             key='- ValueError: If a parent is None (there is no parent).',
             value='- ValueError: もしも親のインスタンスがNoneの'
                   '場合（親の無い状態の場合）。'),
+        Mapping(
+            key='## visible property API',
+            value='## visible 属性のAPI'),
     ])

@@ -685,4 +685,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='mousemove interface',
             value='mousemove インターフェイス'),
+        Mapping(
+            key='- ValueError: If a parent is None (there is no parent).',
+            value='- ValueError: もしも親のインスタンスがNoneの'
+                  '場合（親の無い状態の場合）。'),
     ])

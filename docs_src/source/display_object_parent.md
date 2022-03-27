@@ -1,4 +1,4 @@
-# Display object parent interfaces
+# DisplayObject class parent interfaces
 
 This page explains the `DisplayObject` class `parent` interfaces (the `parent` property and `remove_from_parent` method).
 
@@ -24,8 +24,6 @@ assert isinstance(sprite.parent, ap.Stage)
 assert isinstance(sprite.graphics.parent, ap.Sprite)
 assert isinstance(rectangle.parent, ap.Graphics)
 ```
-
-Notes: This interface automatically adds the sprite to the stage at the constructor. Similarly, this interface adds the `Graphics` instance to the `Sprite` instance.
 
 The `remove_from_parent` interface removes self-instance from the parent (and not be displayed on the stage).
 
@@ -59,7 +57,7 @@ ap.save_overall_html(
 
 ## See also
 
-- [Add child and remove child interfaces](add_child_and_remove_child.md)
+- [add_child and remove_child interfaces](add_child_and_remove_child.md)
 
 
 ## parent API
@@ -91,3 +89,17 @@ ap.save_overall_html(
 >>> rectangle.parent == sprite_2
 True
 ```
+
+## remove_from_parent API
+
+<!-- Docstring: apysc._display.parent_interface.ParentInterface.remove_from_parent -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `remove_from_parent(self) -> None`<hr>
+
+**[Interface summary]** Remove this instance from a parent.<hr>
+
+**[Raises]**
+
+- ValueError: If a parent is None (there is no parent).

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DisplayObject class parent interfaces &#8212; apysc  documentation</title>
+    <title>DisplayObject クラスの parent インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Display object visible interface" href="display_object_visible.html" />
-    <link rel="prev" title="Display object x and y interfaces" href="display_object_x_and_y.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="display_object_visible.html" title="Display object visible interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="display_object_x_and_y.html" title="Display object x and y interfaces"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject class parent interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject クラスの parent インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -43,12 +35,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="displayobject-class-parent-interfaces">
-<h1>DisplayObject class parent interfaces<a class="headerlink" href="#displayobject-class-parent-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class <code class="docutils literal notranslate"><span class="pre">parent</span></code> interfaces (the <code class="docutils literal notranslate"><span class="pre">parent</span></code> property and <code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code> method).</p>
-<section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">parent</span></code> attribute is the getter property. This attribute becomes a <code class="docutils literal notranslate"><span class="pre">Stage</span></code> instance or a container instance like a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="display_object_parent.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="displayobject-parent">
+<h1>DisplayObject クラスの parent インターフェイス<a class="headerlink" href="#displayobject-parent" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">parent</span></code>関係のインターフェイス（<code class="docutils literal notranslate"><span class="pre">parent</span></code>属性と<code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code>メソッド）について説明します。</p>
+<section id="id1">
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">parent</span></code>属性はgetterのみのインターフェイスとなります。この属性値は<code class="docutils literal notranslate"><span class="pre">Stage</span></code>のインスタンスもしくは<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>などのコンテナのインスタンスとなります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -67,11 +60,11 @@
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Graphics</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code> interface removes self-instance from the parent (and not be displayed on the stage).</p>
+<p><code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code>インターフェイスは自身のインスタンスを親のインスタンスから取り除き、画面上に表示されない状態にします。</p>
 </section>
-<section id="basic-usage-of-the-remove-from-parent-interface">
-<h2>Basic usage of the remove_from_parent interface<a class="headerlink" href="#basic-usage-of-the-remove-from-parent-interface" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code> method interface (no argument options) removes the self-instance from the parent. A Removed instance is not displayed until any parent adds it again.</p>
+<section id="remove-from-parent">
+<h2>remove_from_parent インターフェイスの基本的な使い方<a class="headerlink" href="#remove-from-parent" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code>メソッドのインターフェイス（引数を必要としません）は自身のインスタンスを親のインスタンスから取り除きます。取り除かれたインスタンスは他の親（コンテナ）のインスタンスへと追加されるまで画面に表示されません。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -94,25 +87,25 @@
 </pre></div>
 </div>
 <iframe src="static/display_object_remove_from_parent_basic_usage/index.html" width="150" height="150"></iframe></section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id2">
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="add_child_and_remove_child.html"><span class="doc">add_child and remove_child interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="jp_add_child_and_remove_child.html"><span class="doc">add_child （子の追加）と remove_child （子の削除）のインターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="parent-api">
 <h2>parent API<a class="headerlink" href="#parent-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.parent_interface.ParentInterface.parent --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get parent instance that has a add_child and remove_child interfaces.<hr></p>
-<p><strong>[Returns]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> <code class="docutils literal notranslate"><span class="pre">add_child</span></code>や<code class="docutils literal notranslate"><span class="pre">remove_child</span></code>などのインターフェイスを持っている親のインスタンスを取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">parent</span></code>: any parent instance or None</p>
 <ul>
-<li><p>Parent instance with <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interfaces. If this instance does not have a parent instance (not added child), this interface returns None.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_child</span></code>や<code class="docutils literal notranslate"><span class="pre">remove_child</span></code>などのインターフェイスを持っている親のインスタンス。もしこのインスタンスが親を持っていない（画面に追加されていない）場合、このインターフェイスはNoneを返却します。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -128,12 +121,12 @@
 </section>
 <section id="remove-from-parent-api">
 <h2>remove_from_parent API<a class="headerlink" href="#remove-from-parent-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.parent_interface.ParentInterface.remove_from_parent --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">remove_from_parent(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Remove this instance from a parent.<hr></p>
-<p><strong>[Raises]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">remove_from_parent(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> このインスタンスを親のインスタンスから取り除きます。.<hr></p>
+<p><strong>[エラー発生条件]</strong></p>
 <ul class="simple">
-<li><p>ValueError: If a parent is None (there is no parent).</p></li>
+<li><p>ValueError: もしも親のインスタンスがNoneの場合（親の無い状態の場合）。</p></li>
 </ul>
 </section>
 </section>
@@ -150,22 +143,16 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">DisplayObject class parent interfaces</a><ul>
-<li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
-<li><a class="reference internal" href="#basic-usage-of-the-remove-from-parent-interface">Basic usage of the remove_from_parent interface</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">DisplayObject クラスの parent インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
+<li><a class="reference internal" href="#remove-from-parent">remove_from_parent インターフェイスの基本的な使い方</a></li>
+<li><a class="reference internal" href="#id2">関連資料</a></li>
 <li><a class="reference internal" href="#parent-api">parent API</a></li>
 <li><a class="reference internal" href="#remove-from-parent-api">remove_from_parent API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="display_object_x_and_y.html"
-                        title="previous chapter">Display object x and y interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="display_object_visible.html"
-                        title="next chapter">Display object visible interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -186,14 +173,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="display_object_visible.html" title="Display object visible interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="display_object_x_and_y.html" title="Display object x and y interfaces"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject class parent interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject クラスの parent インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -464,19 +464,19 @@ MAPPINGS: Mappings = Mappings(
             value='Array クラスの slice インターフェイス'),
         Mapping(
             key='Array class length interface',
-            value='Array クラスの length インターフェイス'),
+            value='Array クラスの length (配列の長さ取得) のインターフェイス'),
         Mapping(
             key='Array class join interface',
-            value='Array クラスの join インターフェイス'),
+            value='Array クラスの join (値の連結文字列生成) のインターフェイス'),
         Mapping(
             key='Array class index_of interface',
-            value='Array クラスの index_of インターフェイス'),
+            value='Array クラスの index_of (値のインデックス取得) のインターフェイス'),
         Mapping(
             key='Array class comparison interfaces',
-            value='Array クラスの 比較の各インターフェイス'),
+            value='Array クラスの比較の各インターフェイス'),
         Mapping(
             key='Array class comparison interfaces document',
-            value='Array クラスの 比較の各インターフェイス'),
+            value='Array クラスの比較の各インターフェイス'),
         Mapping(
             key='## Array class constructor API',
             value='## Array クラスのコンストラクタのAPI'),
@@ -619,39 +619,40 @@ MAPPINGS: Mappings = Mappings(
             value='## visible 属性'),
         Mapping(
             key='DisplayObject class visible interface',
-            value='DisplayObject クラスの visible インターフェイス'),
+            value='DisplayObject クラスの visible (表示・非表示) の'
+                   'インターフェイス'),
         Mapping(
             key='## rotation interfaces',
             value='## 回転の各インターフェイス'),
         Mapping(
             key='GraphicsBase class rotation_around_center interface',
             value='GraphicsBase クラスの rotation_around_center '
-                  'インターフェイス'),
+                  '(中央座標基準の回転) インターフェイス'),
         Mapping(
             key='GraphicsBase class rotation_around_point interfaces',
             value='GraphicsBase クラスの rotation_around_point '
-                  'の各インターフェイス'),
+                  '(指定座標基準の回転) の各インターフェイス'),
         Mapping(
             key='## scale interfaces',
             value='## 拡縮の各インターフェイス'),
         Mapping(
             key='GraphicsBase class scale_from_center interfaces',
-            value='GraphicsBase クラスの scale_from_center '
+            value='GraphicsBase クラスの scale_from_center (中央座標基準の拡縮) '
                   'の各インターフェイス'),
         Mapping(
             key='GraphicsBase class scale_from_point interfaces',
-            value='GraphicsBase クラスの scale_from_point '
+            value='GraphicsBase クラスの scale_from_point (指定座標基準の拡縮) '
                   'の各インターフェイス'),
         Mapping(
             key='## flip properties',
             value='## 反転の各属性'),
         Mapping(
             key='## GraphicsBase class flip_x and flip_y interfaces',
-            value='## GraphicsBase クラスの flip_x と flip_y '
+            value='## GraphicsBase クラスの flip_x (横軸の反転) と flip_y (縦軸の反転) '
                   'のインターフェイス'),
         Mapping(
             key='GraphicsBase class flip_x and flip_y interfaces',
-            value='GraphicsBase クラスの flip_x と flip_y '
+            value='GraphicsBase クラスの flip_x (横軸の反転) と flip_y (縦軸の反転) '
                   'のインターフェイス'),
         Mapping(
             key='## skew properties',
@@ -661,7 +662,7 @@ MAPPINGS: Mappings = Mappings(
             value='## 歪みの各属性'),
         Mapping(
             key='GraphicsBase class skew_x and skew_y interfaces',
-            value='GraphicsBase クラスの skew_x と skew_y '
+            value='GraphicsBase クラスの skew_x (X軸の歪み) と skew_y (Y軸の歪み) '
                   'のインターフェイス'),
         Mapping(
             key='DisplayObject class',

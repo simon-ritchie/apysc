@@ -667,4 +667,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='DisplayObject class',
             value='DisplayObject クラス'),
+        Mapping(
+            key='  - CSS name (e.g., \'display\').',
+            value='  - CSS名（例 : \'display\'）。'),
     ])

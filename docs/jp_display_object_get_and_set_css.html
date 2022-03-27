@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DisplayObject class get_css and set_css interfaces &#8212; apysc  documentation</title>
+    <title>DisplayObject クラスの get_css と set_css メソッドのインターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Display object mouse event binding interfaces" href="display_object_mouse_event.html" />
-    <link rel="prev" title="Display object visible interface" href="display_object_visible.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="display_object_mouse_event.html" title="Display object mouse event binding interfaces"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="display_object_visible.html" title="Display object visible interface"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject class get_css and set_css interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject クラスの get_css と set_css メソッドのインターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -43,17 +35,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="displayobject-class-get-css-and-set-css-interfaces">
-<h1>DisplayObject class get_css and set_css interfaces<a class="headerlink" href="#displayobject-class-get-css-and-set-css-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class <code class="docutils literal notranslate"><span class="pre">get_css</span></code> and <code class="docutils literal notranslate"><span class="pre">set_css</span></code> method interfaces.</p>
-<section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">get_css</span></code> method will return a CSS string, and the <code class="docutils literal notranslate"><span class="pre">set_css</span></code> method will set the CSS setting to a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="display_object_get_and_set_css.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="displayobject-get-css-set-css">
+<h1>DisplayObject クラスの get_css と set_css メソッドのインターフェイス<a class="headerlink" href="#displayobject-get-css-set-css" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">get_css</span></code>と<code class="docutils literal notranslate"><span class="pre">set_css</span></code>の各インターフェイスについて説明します。</p>
+<section id="id1">
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">get_css</span></code>メソッドは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスに設定されている特定のCSSの文字列を返却し、<code class="docutils literal notranslate"><span class="pre">set_css</span></code>メソッドは特定のCSSの値を設定します。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each interface requires the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument as the CSS name. In addition, the <code class="docutils literal notranslate"><span class="pre">set_css</span></code> method interface also requires the <code class="docutils literal notranslate"><span class="pre">value</span></code> argument as the CSS value string.</p>
-<p>The following example sets the <code class="docutils literal notranslate"><span class="pre">none</span></code> value to the <code class="docutils literal notranslate"><span class="pre">display</span></code> CSS if the current CSS value is the default (blank string, <code class="docutils literal notranslate"><span class="pre">''</span></code>). Otherwise, revert the value to default (<code class="docutils literal notranslate"><span class="pre">Else</span></code> case) by the timer event (ticks every second).</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>各インターフェイスはCSS名としての<code class="docutils literal notranslate"><span class="pre">name</span></code>引数の指定を必要とします。加えて、<code class="docutils literal notranslate"><span class="pre">set_css</span></code>メソッドではCSSの値の文字列としての<code class="docutils literal notranslate"><span class="pre">value</span></code>引数が必要になります。</p>
+<p>以下のコード例では1秒ごとのタイマーでCSSの<code class="docutils literal notranslate"><span class="pre">display</span></code>の値がもしデフォルトの空文字になっていれば<code class="docutils literal notranslate"><span class="pre">none</span></code>の値を設定しています。デフォルト値以外の値になっていればデフォルトの値へと戻しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -103,26 +96,26 @@
 <iframe src="static/display_object_get_and_set_css_basic_usage/index.html" width="150" height="150"></iframe></section>
 <section id="get-css-api">
 <h2>get_css API<a class="headerlink" href="#get-css-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.css_interface.CssInterface.get_css --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_css(self,</span> <span class="pre">name:Union[str,</span> <span class="pre">apysc._type.string.String])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.string.String</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Get a CSS value string.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_css(self,</span> <span class="pre">name:Union[str,</span> <span class="pre">apysc._type.string.String])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.string.String</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> Get a CSS value string.<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str or String</p>
 <ul>
-<li><p>CSS name (e.g., ‘display’).</p></li>
+<li><p>CSS名（例 : ‘display’）。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr><p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">css</span></code>: ap.String</p>
 <ul>
-<li><p>CSS value.</p></li>
+<li><p>CSSの値。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -135,23 +128,23 @@
 </section>
 <section id="set-css-api">
 <h2>set_css API<a class="headerlink" href="#set-css-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.css_interface.CssInterface.set_css --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">set_css(self,</span> <span class="pre">name:Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">value:Union[str,</span> <span class="pre">apysc._type.string.String])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Set a specified value string to the CSS.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_css(self,</span> <span class="pre">name:Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">value:Union[str,</span> <span class="pre">apysc._type.string.String])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 特定のCSSの値を設定します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str or String</p>
 <ul>
-<li><p>CSS name (e.g., ‘display’).</p></li>
+<li><p>CSS名（例 : ‘display’）。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: str or String</p>
 <ul>
-<li><p>A CSS value string (e.g., ‘none’).</p></li>
+<li><p>CSSの値の文字列（例 : ‘none’）</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -176,21 +169,15 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">DisplayObject class get_css and set_css interfaces</a><ul>
-<li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#">DisplayObject クラスの get_css と set_css メソッドのインターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
 <li><a class="reference internal" href="#get-css-api">get_css API</a></li>
 <li><a class="reference internal" href="#set-css-api">set_css API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="display_object_visible.html"
-                        title="previous chapter">Display object visible interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="display_object_mouse_event.html"
-                        title="next chapter">Display object mouse event binding interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -211,14 +198,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="display_object_mouse_event.html" title="Display object mouse event binding interfaces"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="display_object_visible.html" title="Display object visible interface"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DisplayObject class get_css and set_css interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DisplayObject クラスの get_css と set_css メソッドのインターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

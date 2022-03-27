@@ -61,7 +61,7 @@ MAPPING: Dict[str, str] = {
     '詳細については以下をご確認ください:',
 
     '- [DisplayObject class visible interface](display_object_visible.md).':
-    '- [DisplayObject クラスの visible インターフェイス](jp_display_object_visible.md)',
+    '- [DisplayObject クラスの visible (表示・非表示) のインターフェイス](jp_display_object_visible.md)',  # noqa
 
     '## rotation interfaces':
     '## 回転の各インターフェイス',
@@ -82,10 +82,10 @@ MAPPING: Dict[str, str] = {
     '詳細については以下をご確認ください:',
 
     '- [GraphicsBase class rotation_around_center interface](graphics_base_rotation_around_center.md)':  # noqa
-    '- [GraphicsBase クラスの rotation_around_center インターフェイス](jp_graphics_base_rotation_around_center.md)',  # noqa
+    '- [GraphicsBase クラスの rotation_around_center (中央座標基準の回転) インターフェイス](jp_graphics_base_rotation_around_center.md)',  # noqa
 
     '- [GraphicsBase class rotation_around_point interfaces](graphics_base_rotation_around_point.md).':  # noqa
-    '- [GraphicsBase クラスの rotation_around_point の各インターフェイス](jp_graphics_base_rotation_around_point.md)',  # noqa
+    '- [GraphicsBase クラスの rotation_around_point (指定座標基準の回転) の各インターフェイス](jp_graphics_base_rotation_around_point.md)',  # noqa
 
     '## scale interfaces':
     '## 拡縮の各インターフェイス',
@@ -106,10 +106,10 @@ MAPPING: Dict[str, str] = {
     '詳細については以下をご確認ください:',
 
     '- [GraphicsBase class scale_from_center interfaces](graphics_base_scale_from_center.md)':  # noqa
-    '- [GraphicsBase クラスの scale_from_center の各インターフェイス](jp_graphics_base_scale_from_center.md)',  # noqa
+    '- [GraphicsBase クラスの scale_from_center (中央座標基準の拡縮) の各インターフェイス](jp_graphics_base_scale_from_center.md)',  # noqa
 
     '- [GraphicsBase class scale_from_point interfaces](graphics_base_scale_from_point.md).':  # noqa
-    '- [GraphicsBase クラスの scale_from_point の各インターフェイス](jp_graphics_base_scale_from_point.md)',  # noqa
+    '- [GraphicsBase クラスの scale_from_point (指定座標基準の拡縮) の各インターフェイス](jp_graphics_base_scale_from_point.md)',  # noqa
 
     '## flip properties':
     '## 反転の各属性',
@@ -130,7 +130,7 @@ MAPPING: Dict[str, str] = {
     '詳細については以下をご確認ください:',
 
     '- [GraphicsBase class flip_x and flip_y interfaces](graphics_base_flip_interfaces.md)':  # noqa
-    '- [GraphicsBase クラスの flip_x と flip_y のインターフェイス](jp_graphics_base_flip_interfaces.md)',  # noqa
+    '- [GraphicsBase クラスの flip_x (横軸の反転) と flip_y (縦軸の反転) のインターフェイス](jp_graphics_base_flip_interfaces.md)',  # noqa
 
     '## skew properties':
     '## 歪みの各属性',
@@ -151,7 +151,7 @@ MAPPING: Dict[str, str] = {
     '詳細については以下をご確認ください:',
 
     '- [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md).':  # noqa
-    '- [GraphicsBase クラスの skew_x と skew_y のインターフェイス](jp_graphics_base_skew.md)',  # noqa
+    '- [GraphicsBase クラスの skew_x (X軸の歪み) と skew_y (Y軸の歪み) のインターフェイス](jp_graphics_base_skew.md)',  # noqa
 
     '## See also':
     '## 関連資料',

@@ -1,10 +1,10 @@
-# Display object get_css and set_css interfaces
+# DisplayObject class get_css and set_css interfaces
 
 This page will explain the `DisplayObject` class `get_css` and `set_css` method interfaces.
 
 ## What interfaces are these?
 
-The `get_css` method will return a `css` string, and the `set_css` method will set the CSS setting to a `DisplayObject` instance.
+The `get_css` method will return a CSS string, and the `set_css` method will set the CSS setting to a `DisplayObject` instance.
 
 ## Basic usage
 

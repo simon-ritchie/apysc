@@ -134,7 +134,7 @@ ap.save_overall_html(
 
 詳細については以下をご確認ください:
 
-- [DisplayObject クラスの visible インターフェイス](jp_display_object_visible.md)
+- [DisplayObject クラスの visible (表示・非表示) のインターフェイス](jp_display_object_visible.md)
 
 ## 回転の各インターフェイス
 
@@ -192,8 +192,8 @@ ap.save_overall_html(
 
 詳細については以下をご確認ください:
 
-- [GraphicsBase クラスの rotation_around_center インターフェイス](jp_graphics_base_rotation_around_center.md)
-- [GraphicsBase クラスの rotation_around_point の各インターフェイス](jp_graphics_base_rotation_around_point.md)
+- [GraphicsBase クラスの rotation_around_center (中央座標基準の回転) インターフェイス](jp_graphics_base_rotation_around_center.md)
+- [GraphicsBase クラスの rotation_around_point (指定座標基準の回転) の各インターフェイス](jp_graphics_base_rotation_around_point.md)
 
 ## 拡縮の各インターフェイス
 
@@ -263,8 +263,8 @@ ap.save_overall_html(
 
 詳細については以下をご確認ください:
 
-- [GraphicsBase クラスの scale_from_center の各インターフェイス](jp_graphics_base_scale_from_center.md)
-- [GraphicsBase クラスの scale_from_point の各インターフェイス](jp_graphics_base_scale_from_point.md)
+- [GraphicsBase クラスの scale_from_center (中央座標基準の拡縮) の各インターフェイス](jp_graphics_base_scale_from_center.md)
+- [GraphicsBase クラスの scale_from_point (指定座標基準の拡縮) の各インターフェイス](jp_graphics_base_scale_from_point.md)
 
 ## 反転の各属性
 
@@ -322,7 +322,7 @@ ap.save_overall_html(
 
 詳細については以下をご確認ください:
 
-- [GraphicsBase クラスの flip_x と flip_y のインターフェイス](jp_graphics_base_flip_interfaces.md)
+- [GraphicsBase クラスの flip_x (横軸の反転) と flip_y (縦軸の反転) のインターフェイス](jp_graphics_base_flip_interfaces.md)
 
 ## 歪みの各属性
 
@@ -380,7 +380,7 @@ ap.save_overall_html(
 
 詳細については以下をご確認ください:
 
-- [GraphicsBase クラスの skew_x と skew_y のインターフェイス](jp_graphics_base_skew.md)
+- [GraphicsBase クラスの skew_x (X軸の歪み) と skew_y (Y軸の歪み) のインターフェイス](jp_graphics_base_skew.md)
 
 ## 関連資料
 

@@ -710,4 +710,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='DisplayObject class mouse event binding interfaces',
             value='DisplayObject クラスのマウスイベント設定の各インターフェイス'),
+        Mapping(
+            key='## Requirements',
+            value='## 必要とされるインストールなどの対応'),
+        Mapping(
+            key='  - Boolean value whether minify a HTML or not. '
+                'False setting is useful when debugging.',
+            value='  - HTMLを最小化（minify）するかどうかの真偽値。'
+                  'Falseの設定はデバッグ時などに役に立つことがあります。'),
     ])

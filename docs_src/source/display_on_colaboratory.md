@@ -8,7 +8,7 @@ The `display_on_colaboratory` interface displays the apysc HTML on the Google Co
 
 ## Requirements
 
-You need to install apysc on the Google Colaboratory before going on. A `!` symbol and pip command on the Google Colaboratory installs this library:
+You need to install apysc on the Google Colaboratory before going on. The `!` symbol and pip command on the Google Colaboratory installs this library:
 
 ```
 !pip install apysc

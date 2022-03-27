@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>display_on_colaboratory interface &#8212; apysc  documentation</title>
+    <title>display_on_colaboratory インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="append_js_expression interface" href="append_js_expression.html" />
-    <link rel="prev" title="display_on_jupyter interface" href="display_on_jupyter.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="append_js_expression.html" title="append_js_expression interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="display_on_jupyter.html" title="display_on_jupyter interface"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">display_on_colaboratory interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">display_on_colaboratory インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -43,24 +35,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="display-on-colaboratory-interface">
-<h1>display_on_colaboratory interface<a class="headerlink" href="#display-on-colaboratory-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">display_on_colaboratory</span></code> function interface.</p>
-<section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">display_on_colaboratory</span></code> interface displays the apysc HTML on the Google Colaboratory.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="display_on_colaboratory.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="display-on-colaboratory">
+<h1>display_on_colaboratory インターフェイス<a class="headerlink" href="#display-on-colaboratory" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">display_on_colaboratory</span></code>関数のインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">display_on_colaboratory</span></code>インターフェイスはapyscのHTMLをGoogle Colaboratory上で表示します。</p>
 </section>
-<section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>You need to install apysc on the Google Colaboratory before going on. The <code class="docutils literal notranslate"><span class="pre">!</span></code> symbol and pip command on the Google Colaboratory installs this library:</p>
+<section id="id2">
+<h2>必要とされるインストールなどの対応<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>利用するには事前にGoogle Colaboratory上でapyscをインストールする必要があります。<code class="docutils literal notranslate"><span class="pre">!</span></code>の記号とpip五万度でGoogle Colaboratory上にこのライブラリをインストールすることができます。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install apysc
 </pre></div>
 </div>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>You can use the <code class="docutils literal notranslate"><span class="pre">display_on_colaboratory</span></code> interface to display an output HTML instead of the <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function.</p>
-<p>This interface requires the <code class="docutils literal notranslate"><span class="pre">html_file_name</span></code> argument to be unique if you need to output multiple HTML. Otherwise, it overwrites the HTML file:</p>
+<section id="id3">
+<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code>関数の代わりに<code class="docutils literal notranslate"><span class="pre">display_on_colaboratory</span></code>関数のインターフェイスを使うことで出力結果のHTMLを表示することができます。</p>
+<p>このインターフェイスは複数の出力出力ファイルをユニークにするための<code class="docutils literal notranslate"><span class="pre">html_file_name</span></code>引数によるファイル名の指定が必要になります。ユニークに設定しないとHTMLファイルが上書きされてしまいます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -79,19 +72,19 @@
 </section>
 <section id="display-on-colaboratory-api">
 <h2>display_on_colaboratory API<a class="headerlink" href="#display-on-colaboratory-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._jupyter.jupyter_util.display_on_colaboratory --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">display_on_colaboratory(html_file_name:str,</span> <span class="pre">*,</span> <span class="pre">minify:bool=True)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Save the overall HTML and display it on Google Colaboratory.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">display_on_colaboratory(html_file_name:str,</span> <span class="pre">*,</span> <span class="pre">minify:bool=True)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> HTML全体を保存しGoogle Colaboratory上で表示します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">html_file_name</span></code>: str, default ‘index.html’</p>
 <ul>
-<li><p>The output HTML file name.</p></li>
+<li><p>出力されるHTMLのファイル名。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">minify</span></code>: bool, default True</p>
 <ul>
-<li><p>Boolean value whether minify a HTML or not. False setting is useful when debugging.</p></li>
+<li><p>HTMLを最小化（minify）するかどうかの真偽値。Falseの設定はデバッグ時などに役に立つことがあります。</p></li>
 </ul>
 </li>
 </ul>
@@ -110,21 +103,15 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">display_on_colaboratory interface</a><ul>
-<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
-<li><a class="reference internal" href="#requirements">Requirements</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#">display_on_colaboratory インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">必要とされるインストールなどの対応</a></li>
+<li><a class="reference internal" href="#id3">基本的な使い方</a></li>
 <li><a class="reference internal" href="#display-on-colaboratory-api">display_on_colaboratory API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="display_on_jupyter.html"
-                        title="previous chapter">display_on_jupyter interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="append_js_expression.html"
-                        title="next chapter">append_js_expression interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -145,14 +132,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="append_js_expression.html" title="append_js_expression interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="display_on_jupyter.html" title="display_on_jupyter interface"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">display_on_colaboratory interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">display_on_colaboratory インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

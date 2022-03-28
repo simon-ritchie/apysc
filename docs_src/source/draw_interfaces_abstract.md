@@ -30,7 +30,9 @@ ap.save_overall_html(
 
 <iframe src="static/draw_interfaces_abstract_begin_fill/index.html" width="150" height="150"></iframe>
 
-For more details, please see the [Graphics class begin fill interface](graphics_begin_fill.md).
+For more details, please see:
+
+- [Graphics class begin_fill interface](graphics_begin_fill.md).
 
 ## Line style settings
 
@@ -55,7 +57,9 @@ ap.save_overall_html(
 
 <iframe src="static/draw_interfaces_abstract_line_style/index.html" width="200" height="100"></iframe>
 
-For more details, please see the [Graphics class line style interface](graphics_line_style.md).
+For more details, please see:
+
+- [Graphics class line_style interface](graphics_line_style.md).
 
 ## Each drawing interface
 
@@ -83,27 +87,27 @@ ap.save_overall_html(
 
 For more details, please see the following:
 
-- [Graphics class draw rect interface](graphics_draw_rect.md)
-- [Graphics class draw round rect interface](graphics_draw_round_rect.md)
-- [Graphics class draw circle interface](graphics_draw_circle.md)
-- [Graphics class draw ellipse interface](graphics_draw_ellipse.md)
-- [Graphics class move to and line to interfaces](graphics_move_to_and_line_to.md)
-- [Graphics class draw line interface](graphics_draw_line.md)
-- [Graphics class draw dotted line interface](graphics_draw_dotted_line.md)
-- [Graphics class draw dashed line interface](graphics_draw_dashed_line.md)
-- [Graphics class draw round dotted line interface](graphics_draw_round_dotted_line.md)
-- [Graphics class draw dash dotted line interface](graphics_draw_dash_dotted_line.md)
-- [Graphics class draw polygon interface](graphics_draw_polygon.md)
+- [Graphics class draw_rect interface](graphics_draw_rect.md)
+- [Graphics class draw_round_rect interface](graphics_draw_round_rect.md)
+- [Graphics class draw_circle interface](graphics_draw_circle.md)
+- [Graphics class draw_ellipse interface](graphics_draw_ellipse.md)
+- [Graphics class move_to and line_to interfaces](graphics_move_to_and_line_to.md)
+- [Graphics class draw_line interface](graphics_draw_line.md)
+- [Graphics class draw_dotted_line interface](graphics_draw_dotted_line.md)
+- [Graphics class draw_dashed_line interface](graphics_draw_dashed_line.md)
+- [Graphics class draw_round_dotted_line interface](graphics_draw_round_dotted_line.md)
+- [Graphics class draw_dash_dotted_line interface](graphics_draw_dash_dotted_line.md)
+- [Graphics class draw_polygon interface](graphics_draw_polygon.md)
 
 ## See also
 
 - [Graphics class](graphics.md)
-- [Graphics class fill color interface](graphics_fill_color.md)
-- [Graphics class fill alpha interface](graphics_fill_alpha.md)
-- [Graphics class line color interface](graphics_line_color.md)
-- [Graphics class line alpha interface](graphics_line_alpha.md)
-- [Graphics class line thickness interface](graphics_line_thickness.md)
-- [Graphics class line dot setting interface](graphics_line_dot_setting.md)
-- [Graphics class line dash setting interface](graphics_line_dash_setting.md)
-- [Graphics class line round dot setting interface](graphics_line_round_dot_setting.md)
-- [Graphics class line dash dot setting interface](graphics_line_dash_dot_setting.md)
+- [Graphics class fill_color interface](graphics_fill_color.md)
+- [Graphics class fill_alpha interface](graphics_fill_alpha.md)
+- [Graphics class line_color interface](graphics_line_color.md)
+- [Graphics class line_alpha interface](graphics_line_alpha.md)
+- [Graphics class line_thickness interface](graphics_line_thickness.md)
+- [Graphics class line_dot_setting interface](graphics_line_dot_setting.md)
+- [Graphics class line_dash_setting interface](graphics_line_dash_setting.md)
+- [Graphics class line_round_dot_setting interface](graphics_line_round_dot_setting.md)
+- [Graphics class line_dash_dot_setting interface](graphics_line_dash_dot_setting.md)

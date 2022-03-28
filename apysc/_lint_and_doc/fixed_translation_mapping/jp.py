@@ -727,4 +727,96 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - The output HTML file name.',
             value='  - 出力されるHTMLのファイル名。'),
+        Mapping(
+            key='Graphics class draw_rect interface',
+            value='Graphics クラスの draw_rect (四角の描画)のインターフェイス'),
+        Mapping(
+            key='Graphics class draw_round_rect interface',
+            value='Graphics クラスの draw_round_rect (角丸の四角の描画)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class draw_circle interface',
+            value='Graphics クラスの draw_circle (円の描画)のインターフェイス'),
+        Mapping(
+            key='Graphics class draw_round_rect interface',
+            value='Graphics クラスの draw_round_rect (楕円の描画)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class move_to and line_to interfaces',
+            value='Graphics クラスの move_to (線の描画位置の変更)と'
+                  ' line_to (指定座標への線の描画)のインターフェイス'),
+        Mapping(
+            key='Graphics class draw_line interface',
+            value='Graphics クラスの draw_line (線の描画)のインターフェイス'),
+        Mapping(
+            key='Graphics class draw_dotted_line interface',
+            value='Graphics クラスの draw_dotted_line (点線の描画)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class draw_dashed_line interface',
+            value='Graphics クラスの draw_dashed_line (破線の描画)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class draw_round_dotted_line interface',
+            value='Graphics クラスの draw_round_dotted_line (点線(丸)の'
+                  '描画)のインターフェイス'),
+        Mapping(
+            key='Graphics class draw_dash_dotted_line interface',
+            value='Graphics クラスの draw_dash_dotted_line (一点鎖線の描画)'
+                  'のインターフェイス'),
+        Mapping(
+            key='Graphics class draw_polygon interface',
+            value='Graphics クラスの draw_polygon (多角形描画)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class fill_color interface',
+            value='Graphics クラスの fill_color (塗り設定)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class fill_alpha interface',
+            value='Graphics クラスの fill_alpha (塗りの透明度設定)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class line_color interface',
+            value='Graphics クラスの line_color (線の色設定)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class line_alpha interface',
+            value='Graphics クラスの line_color (線の透明度設定)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class line_thickness interface',
+            value='Graphics クラスの line_color (線幅設定)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class line_dot_setting interface',
+            value='Graphics クラスの line_dot_setting (点線設定)'
+                  'のインターフェイス'),
+        Mapping(
+            key='Graphics class line_dash_setting interface',
+            value='Graphics クラスの line_dash_setting (破線設定)'
+                  'のインターフェイス'),
+        Mapping(
+            key='Graphics class line_round_dot_setting interface',
+            value='Graphics クラスの line_round_dot_setting (点線(丸)設定)'
+                  'のインターフェイス'),
+        Mapping(
+            key='Graphics class line_dash_dot_setting interface',
+            value='Graphics クラスの line_dash_dot_setting (一点'
+                  '鎖線設定)のインターフェイス'),
+        Mapping(
+            key='For more details, please see:',
+            value='詳細は以下をご確認ください:'),
+        Mapping(
+            key='Graphics class begin_fill interface',
+            value='Graphics クラスの begin_fill (塗りの設定)の'
+                  'インターフェイス'),
+        Mapping(
+            key='Graphics class line_style interface',
+            value='Graphics クラスの line_style (線のスタイル設定)'
+                  'のインターフェイス'),
+        Mapping(
+            key='Graphics class draw_ellipse interface',
+            value='Graphics クラスの draw_ellipse (楕円描画) の'
+                  'インターフェイス'),
     ])

@@ -819,4 +819,19 @@ MAPPINGS: Mappings = Mappings(
             key='Graphics class draw_ellipse interface',
             value='Graphics クラスの draw_ellipse (楕円描画) の'
                   'インターフェイス'),
+        Mapping(
+            key='Each branch instruction class\\\'s scope variables '
+                'reverting setting',
+            value='分岐条件の各クラスのスコープ内変数の復元設定'),
+        Mapping(
+            key='  - Boolean value to be used for judgment.',
+            value='  - 判定に使われるBooleanの真偽値。'),
+        Mapping(
+            key='  - Current scope\'s global variables. Set '
+                'globals() value to this argument. This setting '
+                'works the same way as the locals_ argument.',
+            value='  - 現在のスコープの各グローバル変数。設定する'
+                  '場合にはglobal()関数の値をこの引数に指定して'
+                  'ください。この設定はlocals_引数と同じように'
+                  '動作します。'),
     ])

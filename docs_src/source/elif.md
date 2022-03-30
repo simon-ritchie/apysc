@@ -1,8 +1,8 @@
-# Elif
+# Elif class
 
 This page explains the `Elif` class.
 
-Before reading on, maybe it is helpful to read the following page (the apysc uses the `Elif` class for the same reason of each other data type):
+Before reading on, maybe it is helpful to read the following page (the apysc uses the `Elif` class for the same reason as each other data type):
 
 - [Why the apysc library doesn't use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)
 
@@ -69,11 +69,11 @@ with ap.Elif(int_1 == 10):
 ```
 ValueError: Elif interface can only use right after If or Elif interfaces.
 
-Maybe you are using Int or String, or anything else comparison expression at Elif constructor (e.g., `with Elif(any_value == 10, ...):`).
-Currently, that specifying expression directly is not supported so please define condition separately as follows:
+Maybe you are using Int or String, or anything-else comparison expression at Elif constructor (e.g., `with Elif(any_value == 10, ...):`).
+Currently, that specifying expression directly is not supported, so please define conditions separately as follows:
 condition: Boolean = any_value == 10
 ...
-with Elif(condition, ....):
+with Elif(condition, ...):
 ```
 
 ## See also
@@ -106,7 +106,26 @@ with Elif(condition, ....):
 
 **[Notes]**
 
- ・Currently the apysc can not initialize condition value in the constructor. For example, the following raises exception: <br> ・You can only use this class immediately after the `If` or `Elif` statement. ```py import apysc as ap with ap.Elif(any_value >= 10): ... ``` You can avoid this exception by predefining condition value, as follows: >>> import apysc as ap >>> any_value: ap.Int = ap.Int(10) >>> condition_1: ap.Boolean = any_value >= 10 >>> condition_2: ap.Boolean = any_value >= 5 >>> with ap.If(condition_1): ... # Do something here ... pass >>> with ap.Elif(condition_2): ... # Do something else here ... pass<hr>
+ ・Currently the apysc can not initialize condition value in the constructor. <br> ・You can only use this class immediately after the `If` or `Elif` statement.<hr>
+
+**[Examples]**
+
+```py
+>>> # You can avoid notes exception by predefining condition
+>>> # value, as follows:
+>>> import apysc as ap
+>>> any_value: ap.Int = ap.Int(10)
+>>> condition_1: ap.Boolean = any_value >= 10
+>>> condition_2: ap.Boolean = any_value >= 5
+>>> with ap.If(condition_1):
+...     # Do something here
+...     pass
+>>> with ap.Elif(condition_2):
+...     # Do something else here
+...     pass
+```
+
+<hr>
 
 **[References]**
 

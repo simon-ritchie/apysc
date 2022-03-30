@@ -1,8 +1,8 @@
-# Else
+# Else class
 
 This page explains the `Else` class.
 
-Before reading on, maybe it is helpful to read the following page (the apysc uses the `Else` class for the same reason of each apysc data type):
+Before reading on, maybe it is helpful to read the following page (the apysc uses the `Else` class for the same reason as each apysc data type):
 
 - [Why the apysc library doesn't use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)
 
@@ -29,7 +29,7 @@ with ap.Else():
 
 ## Notes
 
-if you insert the code between the `If` (or `Elif`) and `Else` statements, it raises an exception:
+If you insert the code between the `If` (or `Elif`) and `Else` statements, it raises an exception:
 
 ```py
 import apysc as ap

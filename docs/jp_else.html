@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Else class &#8212; apysc  documentation</title>
+    <title>Else クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Each branch instruction class’s scope variable reverting setting" href="branch_instruction_variables_reverting_setting.html" />
-    <link rel="prev" title="Elif class" href="elif.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="branch_instruction_variables_reverting_setting.html" title="Each branch instruction class’s scope variable reverting setting"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="elif.html" title="Elif class"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Else class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Else クラス</a></li> 
       </ul>
     </div>  
 
@@ -43,20 +35,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="else-class">
-<h1>Else class<a class="headerlink" href="#else-class" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Else</span></code> class.</p>
-<p>Before reading on, maybe it is helpful to read the following page (the apysc uses the <code class="docutils literal notranslate"><span class="pre">Else</span></code> class for the same reason as each apysc data type):</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="else.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="else">
+<h1>Else クラス<a class="headerlink" href="#else" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Else</span></code>クラスについて説明します。</p>
+<p>このページを読み進める前に以下のページを確認しておくと役に立つかもしれません（apyscでは<code class="docutils literal notranslate"><span class="pre">Else</span></code>クラスを以下のデータ型のケースと同じ理由で使用しています）:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
+<li><p><a class="reference external" href="jp_why_apysc_doesnt_use_python_builtin_data_type">なぜapyscではPythonのビルトインのデータの型を使用していないのか</a></p></li>
 </ul>
-<section id="what-is-the-else-class">
-<h2>What is the Else class?<a class="headerlink" href="#what-is-the-else-class" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Else</span></code> class is the apysc branch instruction class. It behaves like the Python built-in <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword.</p>
+<section id="id1">
+<h2>Else クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Else</span></code>クラスはapyscの条件分岐の指定用のクラスです。このクラスはPythonビルトインの<code class="docutils literal notranslate"><span class="pre">else</span></code>キーワードと同じように動作します。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Else</span></code> requires using the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. The <code class="docutils literal notranslate"><span class="pre">Else</span></code> class statement is only acceptable to implement right after the <code class="docutils literal notranslate"><span class="pre">If</span></code> or <code class="docutils literal notranslate"><span class="pre">Elif</span></code> classes statement.</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Else</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">with</span></code>ステートメントとセットで使用する必要があります。<code class="docutils literal notranslate"><span class="pre">Else</span></code>クラスのステートメントは<code class="docutils literal notranslate"><span class="pre">If</span></code>もしくは<code class="docutils literal notranslate"><span class="pre">Elif</span></code>クラスのステートメントの直後でのみ使用することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -70,9 +63,9 @@
 </pre></div>
 </div>
 </section>
-<section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>If you insert the code between the <code class="docutils literal notranslate"><span class="pre">If</span></code> (or <code class="docutils literal notranslate"><span class="pre">Elif</span></code>) and <code class="docutils literal notranslate"><span class="pre">Else</span></code> statements, it raises an exception:</p>
+<section id="id3">
+<h2>特記事項<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>もしも<code class="docutils literal notranslate"><span class="pre">If</span></code>もしくは<code class="docutils literal notranslate"><span class="pre">Elif</span></code>クラスと<code class="docutils literal notranslate"><span class="pre">Else</span></code>クラスのステートメントの間にコードを挿入するとエラーとなります:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -91,35 +84,35 @@
 </pre></div>
 </div>
 </section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id4">
+<h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="if.html"><span class="doc">If class</span></a></p></li>
-<li><p><a class="reference internal" href="elif.html"><span class="doc">Elif class</span></a></p></li>
-<li><p><a class="reference internal" href="branch_instruction_variables_reverting_setting.html"><span class="doc">Each branch instruction class’s scope variables reverting setting</span></a></p></li>
+<li><p><a class="reference external" href="jp_if">If クラス</a></p></li>
+<li><p><a class="reference internal" href="jp_elif.html"><span class="doc">Elif クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_branch_instruction_variables_reverting_setting.html"><span class="doc">分岐条件の各クラスのスコープ内変数の復元設定</span></a></p></li>
 </ul>
 </section>
-<section id="else-constructor-api">
-<h2>Else constructor API<a class="headerlink" href="#else-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._branch._else.Else.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">locals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None,</span> <span class="pre">globals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> A class to append else branch instruction expression.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<section id="else-api">
+<h2>Else クラスのコンストラクタのAPI<a class="headerlink" href="#else-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">locals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None,</span> <span class="pre">globals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> elseの条件分岐のコード表現を追加するためのクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: dict or None, default None</p>
 <ul>
-<li><p>Current scope’s local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of an <code class="docutils literal notranslate"><span class="pre">Else</span></code> scope. This setting is useful when you don’t want to update each variable by implementing the <code class="docutils literal notranslate"><span class="pre">Else</span></code> scope.</p></li>
+<li><p>現在のスコープの各ローカル変数の値。利用する場合にはlocals()関数をこの引数へ指定してください。もし設定された場合には<code class="docutils literal notranslate"><span class="pre">Else</span></code>のスコープの最後にVariableNameInterfaceクラスを継承したクラスの各変数（例 : Spriteなど）の設定は復元されます。この設定は<code class="docutils literal notranslate"><span class="pre">Else</span></code>クラスのスコープ内で変数を更新したくない場合などに便利なことがあります。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">globals_</span></code>: dict or None, default None</p>
 <ul>
-<li><p>Current scope’s global variables. Set globals() value to this argument. This setting works the same way as the locals_ argument.</p></li>
+<li><p>現在のスコープの各グローバル変数。設定する場合にはglobal()関数の値をこの引数に指定してください。この設定はlocals_引数と同じように動作します。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
-<p>・You can only use this class immediately after the <code class="docutils literal notranslate"><span class="pre">If</span></code> or <code class="docutils literal notranslate"><span class="pre">Elif</span></code> statement.<hr></p>
-<p><strong>[Examples]</strong></p>
+<hr><p><strong>[特記事項]</strong></p>
+<p>・このクラスは<code class="docutils literal notranslate"><span class="pre">If</span></code>もしくは<code class="docutils literal notranslate"><span class="pre">Elif</span></code>クラスのステートメントの直後にのみ使用することができます。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">int_val</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">):</span>
@@ -128,9 +121,9 @@
 <span class="gp">... </span>    <span class="n">ap</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s1">&#39;Value is less than 11.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html">Each branch instruction class’s scope variables reverting setting</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_branch_instruction_variables_reverting_setting.html">分岐条件の各クラスのスコープ内変数の復元設定</a></p></li>
 </ul>
 </section>
 </section>
@@ -147,22 +140,16 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Else class</a><ul>
-<li><a class="reference internal" href="#what-is-the-else-class">What is the Else class?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#notes">Notes</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
-<li><a class="reference internal" href="#else-constructor-api">Else constructor API</a></li>
+<li><a class="reference internal" href="#">Else クラス</a><ul>
+<li><a class="reference internal" href="#id1">Else クラスの概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">特記事項</a></li>
+<li><a class="reference internal" href="#id4">関連資料</a></li>
+<li><a class="reference internal" href="#else-api">Else クラスのコンストラクタのAPI</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="elif.html"
-                        title="previous chapter">Elif class</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="branch_instruction_variables_reverting_setting.html"
-                        title="next chapter">Each branch instruction class’s scope variable reverting setting</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -183,14 +170,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="branch_instruction_variables_reverting_setting.html" title="Each branch instruction class’s scope variable reverting setting"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="elif.html" title="Elif class"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Else class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Else クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

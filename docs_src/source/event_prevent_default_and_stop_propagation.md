@@ -4,13 +4,13 @@ This page explains the `Event` class `prevent_default` and `stop_propagation` me
 
 ## What interfaces are these?
 
-The `prevent_default` method interface appends the calling expression of the JavaScript `preventDefault` method. This interface prevents the browser default behavior of any event.
+The `prevent_default` method interface appends the calling expression of the JavaScript `preventDefault` method. This interface prevents the browser's default behavior of any event.
 
 The `stop_propagation` method interface stops an event's propagation; for example, the triggered child event does not propagate to a parent event (it ignores the parent event).
 
 ## Basic usage of the prevent_default interface
 
-The `Event` instance and its subclass instance have the `prevent_default` method. The `prevent_default` method requires no arguments, as follows:
+The `Event`'s subclass instance has the `prevent_default` method (note: there is a subclass that does not have this interface). The `prevent_default` method requires no arguments, as follows:
 
 ```py
 # runnable
@@ -47,7 +47,7 @@ ap.save_overall_html(
 
 ## Basic usage of the stop_propagation interface
 
-The `Event` instance and its subclass instance have the `stop_propagation` method. The `stop_propagation` method, like the `prevent_default` one, requires no arguments.
+The `Event`'s subclass instance has the `stop_propagation` method (note: there is a subclass that does not have this method). The `stop_propagation` method, like the `prevent_default` one, requires no arguments.
 
 The following example binds the click event to the sprite and rectangle instances. The rectangle (child) click handler calls the `stop_propagation` method, so the sprite (parent) doesn't call the click handler:
 

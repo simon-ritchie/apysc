@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Event class prevent_default and stop_propagation interfaces &#8212; apysc  documentation</title>
+    <title>Event クラスの prevent_default と stop_propagation のインターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Bind and trigger the custom event" href="bind_and_trigger_custom_event.html" />
-    <link rel="prev" title="About the handler options’ type" href="about_handler_options_type.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="bind_and_trigger_custom_event.html" title="Bind and trigger the custom event"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="about_handler_options_type.html" title="About the handler options’ type"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Event class prevent_default and stop_propagation interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Event クラスの prevent_default と stop_propagation のインターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -43,17 +35,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="event-class-prevent-default-and-stop-propagation-interfaces">
-<h1>Event class prevent_default and stop_propagation interfaces<a class="headerlink" href="#event-class-prevent-default-and-stop-propagation-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> and <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method interfaces.</p>
-<section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> method interface appends the calling expression of the JavaScript <code class="docutils literal notranslate"><span class="pre">preventDefault</span></code> method. This interface prevents the browser’s default behavior of any event.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method interface stops an event’s propagation; for example, the triggered child event does not propagate to a parent event (it ignores the parent event).</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="event_prevent_default_and_stop_propagation.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="event-prevent-default-stop-propagation">
+<h1>Event クラスの prevent_default と stop_propagation のインターフェイス<a class="headerlink" href="#event-prevent-default-stop-propagation" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Event</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>と<code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドの各インターフェイスについて説明します。</p>
+<section id="id1">
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>メソッドのインターフェイスはJavaScriptの<code class="docutils literal notranslate"><span class="pre">preventDefault</span></code>メソッドに該当するコード表現を加えます。このインターフェイスはイベントにおけるブラウザのデフォルトの挙動を無効化します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドのインターフェイスはイベントの伝搬を停止します。例えば、このインスタンス上で実行（発火）されたイベントは親のインスタンスへは伝搬しなくなります（親のイベントは無視されるようになります）。</p>
 </section>
-<section id="basic-usage-of-the-prevent-default-interface">
-<h2>Basic usage of the prevent_default interface<a class="headerlink" href="#basic-usage-of-the-prevent-default-interface" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Event</span></code>’s subclass instance has the <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> method (note: there is a subclass that does not have this interface). The <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> method requires no arguments, as follows:</p>
+<section id="prevent-default">
+<h2>prevent_default インターフェイスの基本的な使い方<a class="headerlink" href="#prevent-default" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Event</span></code>のサブクラスのインスタンスは<code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>メソッドを持っています（注: このインターフェイスを持っていないサブクラスも存在します）。<code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>メソッドは特に引数を必要としません。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -87,10 +80,10 @@
 </pre></div>
 </div>
 </section>
-<section id="basic-usage-of-the-stop-propagation-interface">
-<h2>Basic usage of the stop_propagation interface<a class="headerlink" href="#basic-usage-of-the-stop-propagation-interface" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Event</span></code>’s subclass instance has the <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method (note: there is a subclass that does not have this method). The <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method, like the <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> one, requires no arguments.</p>
-<p>The following example binds the click event to the sprite and rectangle instances. The rectangle (child) click handler calls the <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method, so the sprite (parent) doesn’t call the click handler:</p>
+<section id="stop-propagation">
+<h2>stop_propagation インターフェイスの基本的な使い方<a class="headerlink" href="#stop-propagation" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Event</span></code>のサブクラスのインスタンスは<code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドを持っています（注: このメソッドを持っていないサブクラスも存在します）。<code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドは<code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>メソッドと同様に引数を必要としません。</p>
+<p>以下のコード例ではクリックイベントをSpriteの親のインスタンスと四角の子のインスタンスにそれぞれ設定しています。四角の子のインスタンスのクリックのハンドラでは<code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドを読んでいるため、親のSpriteのハンドラは呼ばれません（イベントが伝搬しません）。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -140,14 +133,14 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;event_stop_propagation_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click the following rectangle, the only message of <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">rectangle</span> <span class="pre">is</span> <span class="pre">clicked!</span></code> is displayed browser console (please press the F12 key). Also, the sprite console message is not displayed.</p>
+<p>もし以下の四角をクリックした場合、ブラウザのコンソールには<code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">rectangle</span> <span class="pre">is</span> <span class="pre">clicked!</span></code>というメッセージのみが表示され、Sprite関係のメッセージは表示されません。</p>
 <iframe src="static/event_stop_propagation_basic_usage/index.html" width="150" height="150"></iframe></section>
 <section id="prevent-default-api">
 <h2>prevent_default API<a class="headerlink" href="#prevent-default-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.prevent_default_interface.PreventDefaultInterface.prevent_default --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">prevent_default(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Prevent event’s default behavior.<hr></p>
-<p><strong>[Examples]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">prevent_default(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> イベントのデフォルトの挙動を無効化します。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -166,10 +159,10 @@
 </section>
 <section id="stop-propagation-api">
 <h2>stop_propagation API<a class="headerlink" href="#stop-propagation-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.stop_propagation_interface.StopPropagationInterface.stop_propagation --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">stop_propagation(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Stop event propagation.<hr></p>
-<p><strong>[Examples]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">stop_propagation(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> イベントの伝搬を停止するように設定します。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">e</span><span class="o">.</span><span class="n">stop_propagation</span><span class="p">()</span>
@@ -198,22 +191,16 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Event class prevent_default and stop_propagation interfaces</a><ul>
-<li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
-<li><a class="reference internal" href="#basic-usage-of-the-prevent-default-interface">Basic usage of the prevent_default interface</a></li>
-<li><a class="reference internal" href="#basic-usage-of-the-stop-propagation-interface">Basic usage of the stop_propagation interface</a></li>
+<li><a class="reference internal" href="#">Event クラスの prevent_default と stop_propagation のインターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
+<li><a class="reference internal" href="#prevent-default">prevent_default インターフェイスの基本的な使い方</a></li>
+<li><a class="reference internal" href="#stop-propagation">stop_propagation インターフェイスの基本的な使い方</a></li>
 <li><a class="reference internal" href="#prevent-default-api">prevent_default API</a></li>
 <li><a class="reference internal" href="#stop-propagation-api">stop_propagation API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="about_handler_options_type.html"
-                        title="previous chapter">About the handler options’ type</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="bind_and_trigger_custom_event.html"
-                        title="next chapter">Bind and trigger the custom event</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -234,14 +221,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="bind_and_trigger_custom_event.html" title="Bind and trigger the custom event"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="about_handler_options_type.html" title="About the handler options’ type"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Event class prevent_default and stop_propagation interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Event クラスの prevent_default と stop_propagation のインターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -1,4 +1,4 @@
-# For
+# For class
 
 This page explains the `For` class.
 
@@ -12,7 +12,7 @@ The `For` class is the apysc for loop class. It behaves like the Python built-in
 
 ## Basic usage
 
-The `For` class requires using the `with` statement. The `as` keyword value becomes the `Int` type index (an `i` variable).
+The `For` class requires using the `with` statement. The `as` keyword value becomes the `Int` type index (an `i` variable)  or `String` type key.
 
 The following example draws the three rectangles in the `with For` block:
 

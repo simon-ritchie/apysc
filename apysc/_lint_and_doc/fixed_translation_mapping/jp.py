@@ -834,4 +834,7 @@ MAPPINGS: Mappings = Mappings(
                   '場合にはglobal()関数の値をこの引数に指定して'
                   'ください。この設定はlocals_引数と同じように'
                   '動作します。'),
+        Mapping(
+            key='Timer class delay setting',
+            value='Timer クラスの delay 設定'),
     ])

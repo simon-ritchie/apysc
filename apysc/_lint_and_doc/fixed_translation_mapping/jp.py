@@ -837,4 +837,10 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Timer class delay setting',
             value='Timer クラスの delay 設定'),
+        Mapping(
+            key='  - Child\'s index (start from 0).',
+            value='  - 対象の子のインデックス（0からスタートします）。'),
+        Mapping(
+            key='  - Target index child instance.',
+            value='  - 対象の子のインスタンス。'),
     ])

@@ -1,6 +1,6 @@
+import os
 from random import randint
 from typing import List
-import os
 
 from retrying import retry
 

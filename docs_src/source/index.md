@@ -34,8 +34,8 @@ The `Stage` is the apysc overall drawing area container, and the `Sprite` is the
 The HTML and JavaScript exporting interfaces.
 
 - [save overall html interface](save_overall_html.md)
-- [display on the jupyter interface](display_on_jupyter.md)
-- [display on the google colaboratory interface](display_on_colaboratory.md)
+- [display on jupyter interface](display_on_jupyter.md)
+- [display on google colaboratory interface](display_on_colaboratory.md)
 - [append js expression interface](append_js_expression.md)
 
 ---
@@ -92,7 +92,7 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [DisplayObject class x and y interfaces](display_object_x_and_y.md)
 - [DisplayObject class parent interfaces](display_object_parent.md)
 - [DisplayObject class visible interface](display_object_visible.md)
-- [DisplayObject class get and set css interfaces](display_object_get_and_set_css.md)
+- [DisplayObject class get css and set css interfaces](display_object_get_and_set_css.md)
 - [DisplayObject class mouse event binding interfaces](display_object_mouse_event.md)
 - [GraphicsBase class rotation around center interface](graphics_base_rotation_around_center.md)
 - [GraphicsBase class rotation around point interfaces](graphics_base_rotation_around_point.md)
@@ -138,7 +138,7 @@ The `Graphics` class handles each vector graphics drawing.
 
 - [About the handler options type](about_handler_options_type.md)
 - [Event class prevent default and stop propagation interfaces](event_prevent_default_and_stop_propagation.md)
-- [Bind and trigger custom event interfaces](bind_and_trigger_custom_event.md)
+- [bind custom event and trigger custom event interfaces](bind_and_trigger_custom_event.md)
 
 ---
 
@@ -202,7 +202,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [animation time interface](animation_time.md)
 - [Easing enum](easing_enum.md)
 - [Sequential animation setting](sequential_animation.md)
-- [Animation parallel interface](animation_parallel.md)
+- [animation parallel interface](animation_parallel.md)
 - [animation move interface](animation_move.md)
 - [animation x interface](animation_x.md)
 - [animation y interface](animation_y.md)
@@ -216,7 +216,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [animation rotation around center interface](animation_rotation_around_center.md)
 - [animation rotation around point interface](animation_rotation_around_point.md)
 - [animation scale x from center and animation scale y from center interfaces](animation_scale_x_and_y_from_center.md)
-- [animation scale x from point and animation y from point interfaces](animation_scale_x_and_y_from_point.md)
+- [animation scale x from point and animation scale y from point interfaces](animation_scale_x_and_y_from_point.md)
 - [animation skew x interface](animation_skew_x.md)
 
 ---

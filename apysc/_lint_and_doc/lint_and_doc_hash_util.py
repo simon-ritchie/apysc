@@ -40,6 +40,7 @@ class HashType(Enum):
     DOCSTRING_SRC = 'docstring_src'
     DOCSTRING_TO_MARKDOWN = 'docstring_to_markdown'
     TRANSLATION_MAPPING_JP = 'translation_mapping_jp'
+    INDEX_HTML_LINK_TEXT_MAPPING = 'index_html_link_text_mapping'
 
 
 _HASH_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'

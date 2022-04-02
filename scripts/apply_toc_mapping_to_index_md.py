@@ -26,31 +26,31 @@ def _main() -> None:
     print('-' * 20)
     logger.info(
         msg='Applying index.md\'s table-of-contents text mappings...')
-    module_paths: List[str] = _get_target_module_paths()
+    html_paths: List[str] = _get_target_html_paths()
     pass
 
 
-def _get_target_module_paths() -> List[str]:
+def _get_target_html_paths() -> List[str]:
     """
-    Get target index.md's module paths.
+    Get target index.html's file paths.
 
     Returns
     -------
-    module_paths : list of str
-        Target module paths.
+    html_paths : list of str
+        Target HTML files paths.
     """
-    module_paths: List[str] = []
-    DIR_PATH: str = './docs_src/source/'
+    html_paths: List[str] = []
+    DIR_PATH: str = './docs/'
     file_names: List[str] = os.listdir(DIR_PATH)
     for file_name in file_names:
-        if not file_name.endswith('index.md'):
+        if not file_name.endswith('index.html'):
             continue
-        module_path: str = os.path.join(
+        html_path: str = os.path.join(
             DIR_PATH,
             file_name,
         )
-        module_paths.append(module_path)
-    return module_paths
+        html_paths.append(html_path)
+    return html_paths
 
 
 if __name__ == '__main__':

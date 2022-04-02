@@ -868,4 +868,26 @@ MAPPINGS: Mappings = Mappings(
                 'around the given coordinates.<hr>',
             value='**[インターフェイス概要]** 指定された座標基準の回転量を'
                   '更新します。<hr>'),
+        Mapping(
+            key='## scale_x_from_center property API',
+            value='## scale_x_from_center 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get a scale-x value '
+                'from the center of this instance.<hr>',
+            value='**[インターフェイス概要]** インスタンスの中央座標を'
+                  '基準とした水平方向の拡縮の値を取得します。<hr>'),
+        Mapping(
+            key='  - Scale-x value from the center of this instance.',
+            value='  - インスタンスの中央座標を基準とした水平方向の拡縮の値。'),
+        Mapping(
+            key='## scale_y_from_center property API',
+            value='## scale_y_from_center 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get a scale-y value '
+                'from the center of this instance.<hr>',
+            value='**[インターフェイス概要]** インスタンスの中央座標を'
+                  '基準とした垂直方向の拡縮の値を取得します。<hr>'),
+        Mapping(
+            key='  - Scale-y value from the center of this instance.',
+            value='  - インスタンスの中央座標を基準とした垂直方向の拡縮の値。'),
     ])

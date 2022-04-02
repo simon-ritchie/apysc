@@ -107,8 +107,8 @@ def _main() -> None:
     """Entry point of this command.
     """
     from apysc._lint_and_doc import docstring_to_markdown_converter
-    from scripts.build_docs import HASHED_VALS_DIR_PATH
     from scripts import apply_link_text_mapping_to_index_html
+    from scripts.build_docs import HASHED_VALS_DIR_PATH
     options: _CommandOptions = _get_command_options()
     shutil.rmtree('./build/', ignore_errors=True)
     if not options['skip_overall_docs_build']:

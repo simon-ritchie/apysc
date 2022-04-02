@@ -6,11 +6,10 @@ $ python scripts/apply_link_text_mapping_to_index_html.py
 """
 
 import os
-import subprocess as sp
 import sys
 from logging import Logger
-from typing import Dict, List
-import re
+from typing import Dict
+from typing import List
 
 sys.path.append('./')
 
@@ -105,8 +104,8 @@ def apply() -> None:
     """Apply table-of-contents text mappings to each index's
     markdown file.
     """
-    from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
     from apysc._lint_and_doc import lint_and_doc_hash_util
+    from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
     print('-' * 20)
     logger.info(
         msg='Applying index.md\'s table-of-contents text mappings...')

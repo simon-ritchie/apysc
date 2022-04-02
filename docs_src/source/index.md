@@ -33,10 +33,10 @@ The `Stage` is the apysc overall drawing area container, and the `Sprite` is the
 
 The HTML and JavaScript exporting interfaces.
 
-- [Save overall html interface](save_overall_html.md)
-- [Display on the jupyter interface](display_on_jupyter.md)
-- [Display on the Google Colaboratory interface](display_on_colaboratory.md)
-- [Append js expression interface](append_js_expression.md)
+- [save overall html interface](save_overall_html.md)
+- [display on the jupyter interface](display_on_jupyter.md)
+- [display on the google colaboratory interface](display_on_colaboratory.md)
+- [append js expression interface](append_js_expression.md)
 
 ---
 
@@ -44,10 +44,10 @@ The HTML and JavaScript exporting interfaces.
 
 The parent class, such as the `Sprite` or `Stage` have the following interfaces:
 
-- [Add child and remove child interfaces](add_child_and_remove_child.md)
-- [Contains interface](contains.md)
-- [Num children interface](num_children.md)
-- [Get child at interface](get_child_at.md)
+- [add child and remove child interfaces](add_child_and_remove_child.md)
+- [contains interface](contains.md)
+- [num children interface](num_children.md)
+- [get child at interface](get_child_at.md)
 
 ---
 
@@ -146,11 +146,11 @@ The `Graphics` class handles each vector graphics drawing.
 
 - [MouseEvent interfaces abstract](mouse_event_abstract.md)
 - [Basic mouse event interfaces](mouse_event_basic.md)
-- [Click interface](click.md)
-- [Double click interface](dblclick.md)
-- [Mousedown and mouseup interfaces](mousedown_and_mouseup.md)
-- [Mouseover and mouseout interfaces](mouseover_and_mouseout.md)
-- [Mousemove interface](mousemove.md)
+- [click interface](click.md)
+- [dblclick interface](dblclick.md)
+- [mousedown and mouseup interfaces](mousedown_and_mouseup.md)
+- [mouseover and mouseout interfaces](mouseover_and_mouseout.md)
+- [mousemove interface](mousemove.md)
 
 ---
 
@@ -199,43 +199,43 @@ The `Graphics` class handles each vector graphics drawing.
 - [Animation reset interface](animation_reset.md)
 - [Animation finish interface](animation_finish.md)
 - [Animation reverse interface](animation_reverse.md)
-- [Animation time interface](animation_time.md)
+- [animation time interface](animation_time.md)
 - [Easing enum](easing_enum.md)
 - [Sequential animation setting](sequential_animation.md)
 - [Animation parallel interface](animation_parallel.md)
-- [Animation move interface](animation_move.md)
-- [Animation x interface](animation_x.md)
-- [Animation y interface](animation_y.md)
-- [Animation width and height interfaces](animation_width_and_height.md)
-- [Animation fill color interface](animation_fill_color.md)
-- [Animation fill alpha interface](animation_fill_alpha.md)
-- [Animation line color interface](animation_line_color.md)
-- [Animation line alpha interface](animation_line_alpha.md)
-- [Animation line thickness interface](animation_line_thickness.md)
-- [Animation radius interface](animation_radius.md)
-- [Animation rotation around center interface](animation_rotation_around_center.md)
-- [Animation rotation around point interface](animation_rotation_around_point.md)
-- [Animation scale x and y from center interfaces](animation_scale_x_and_y_from_center.md)
-- [Animation scale x and y from point interfaces](animation_scale_x_and_y_from_point.md)
-- [Animation skew x interface](animation_skew_x.md)
+- [animation move interface](animation_move.md)
+- [animation x interface](animation_x.md)
+- [animation y interface](animation_y.md)
+- [animation width and animation height interfaces](animation_width_and_height.md)
+- [animation fill color interface](animation_fill_color.md)
+- [animation fill alpha interface](animation_fill_alpha.md)
+- [animation line color interface](animation_line_color.md)
+- [animation line alpha interface](animation_line_alpha.md)
+- [animation line thickness interface](animation_line_thickness.md)
+- [animation radius interface](animation_radius.md)
+- [animation rotation around center interface](animation_rotation_around_center.md)
+- [animation rotation around point interface](animation_rotation_around_point.md)
+- [animation scale x from center and animation scale y from center interfaces](animation_scale_x_and_y_from_center.md)
+- [animation scale x from point and animation y from point interfaces](animation_scale_x_and_y_from_point.md)
+- [animation skew x interface](animation_skew_x.md)
 
 ---
 
 **Debugging**
 
-- [Trace function interface](trace.md)
-- [Set debug mode interface](set_debug_mode.md)
-- [Unset debug mode interface](unset_debug_mode.md)
+- [trace function interface](trace.md)
+- [set debug mode interface](set_debug_mode.md)
+- [unset debug mode interface](unset_debug_mode.md)
 
 ---
 
 **Testing**
 
 - [JavaScript assertion interface basic behavior](assertion_basic_behavior.md)
-- [Assert equal and assert not equal interfaces](assert_equal_and_not_equal.md)
-- [Assert true and assert false interfaces](assert_true_and_false.md)
-- [Assert arrays equal and arrays not equal interfaces](assert_arrays_equal_and_arrays_not_equal.md)
-- [Assert dicts equal and dicts not equal interfaces](assert_dicts_equal_and_dicts_not_equal.md)
-- [Assert defined and undefined interfaces](assert_defined_and_undefined.md)
+- [assert equal and assert not equal interfaces](assert_equal_and_not_equal.md)
+- [assert true and assert false interfaces](assert_true_and_false.md)
+- [assert arrays equal and assert arrays not equal interfaces](assert_arrays_equal_and_arrays_not_equal.md)
+- [assert dicts equal and assert dicts not equal interfaces](assert_dicts_equal_and_dicts_not_equal.md)
+- [assert defined and assert undefined interfaces](assert_defined_and_undefined.md)
 
 ---

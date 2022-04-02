@@ -475,7 +475,7 @@ Please check on Chrome DevTools (press F12) and move the mouse cursor on the fol
 >>> _ = rectangle.mousedown(on_mousedown)
 ```
 
-# this property API
+## this property API
 
 <!-- Docstring: apysc._event.event.Event.this -->
 

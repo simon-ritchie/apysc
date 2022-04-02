@@ -851,4 +851,21 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Rotation value around the center of this instance.',
             value='  - このインスタンスの中央座標を基準とした回転量。'),
+        Mapping(
+            key='  - Rotation value around the given coordinates.',
+            value='  - 指定された座標基準による回転量。'),
+        Mapping(
+            key='## set_rotation_around_point API',
+            value='## set_rotation_around_point API'),
+        Mapping(
+            key='## get_rotation_around_point API',
+            value='## get_rotation_around_point API'),
+        Mapping(
+            key='  - Rotation value to set.',
+            value='  - 設定する回転量。'),
+        Mapping(
+            key='**[Interface summary]** Update a rotation value '
+                'around the given coordinates.<hr>',
+            value='**[インターフェイス概要]** 指定された座標基準の回転量を'
+                  '更新します。<hr>'),
     ])

@@ -843,4 +843,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Target index child instance.',
             value='  - 対象の子のインスタンス。'),
+        Mapping(
+            key='**[Interface summary]** Get a rotation value '
+                'around the center of this instance.<hr>',
+            value='**[インターフェイス概要]** インスタンスの中央座標を'
+                  '基準とした回転量を取得します。<hr>'),
+        Mapping(
+            key='  - Rotation value around the center of this instance.',
+            value='  - このインスタンスの中央座標を基準とした回転量。'),
     ])

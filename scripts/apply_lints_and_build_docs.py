@@ -108,6 +108,7 @@ def _main() -> None:
     """
     from apysc._lint_and_doc import docstring_to_markdown_converter
     from scripts.build_docs import HASHED_VALS_DIR_PATH
+    from scripts import apply_link_text_mapping_to_index_html
     options: _CommandOptions = _get_command_options()
     shutil.rmtree('./build/', ignore_errors=True)
     if not options['skip_overall_docs_build']:
@@ -164,6 +165,7 @@ def _main() -> None:
             hash_type=hash_lint_type)
 
     _check_build_doc_process(build_doc_process=build_doc_process)
+    apply_link_text_mapping_to_index_html.apply()
     _check_flake8_process(flake8_process=flake8_process)
     _check_numdoclint_process(numdoclint_processes=numdoclint_processes)
     _check_mypy_process(mypy_process=mypy_process)

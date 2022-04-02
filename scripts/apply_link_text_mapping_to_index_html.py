@@ -2,13 +2,9 @@
 markdown file.
 
 Command examples:
-$ python scripts/apply_toc_mapping_to_index_md.py
+$ python scripts/apply_link_text_mapping_to_index_html.py
 """
 
-from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
-from apysc._lint_and_doc import lint_and_doc_hash_util
-from apysc._file import module_util
-from apysc._console import loggers
 import os
 import subprocess as sp
 import sys
@@ -17,6 +13,8 @@ from typing import Dict, List
 import re
 
 sys.path.append('./')
+
+from apysc._console import loggers
 
 logger: Logger = loggers.get_info_logger()
 
@@ -107,6 +105,8 @@ def apply() -> None:
     """Apply table-of-contents text mappings to each index's
     markdown file.
     """
+    from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+    from apysc._lint_and_doc import lint_and_doc_hash_util
     print('-' * 20)
     logger.info(
         msg='Applying index.md\'s table-of-contents text mappings...')
@@ -119,10 +119,10 @@ def apply() -> None:
             continue
         logger.info(
             msg=f'Applying mappings to the {html_path}')
+        _apply_mapping(html_path=html_path)
         lint_and_doc_hash_util.save_target_file_hash(
             file_path=html_path,
             hash_type=HashType.INDEX_HTML_LINK_TEXT_MAPPING)
-        _apply_mapping(html_path=html_path)
 
 
 def _apply_mapping(*, html_path: str) -> None:
@@ -136,7 +136,7 @@ def _apply_mapping(*, html_path: str) -> None:
     """
     from apysc._file import file_util
     html_txt: str = file_util.read_txt(file_path=html_path)
-    for mapping_key, mapping_value in _MAPPINGS:
+    for mapping_key, mapping_value in _MAPPINGS.items():
         html_txt = html_txt.replace(mapping_key, mapping_value)
     file_util.save_plain_txt(txt=html_txt, file_path=html_path)
 

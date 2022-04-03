@@ -38,6 +38,7 @@ _jslib_file_name_keys_dict: Dict[str, Any] = {
 def _main() -> None:
     """Entry point of this command.
     """
+    from scripts import apply_link_text_mapping_to_index_html
     print('-' * 20)
     logger.info(msg='Documentation build started...')
 
@@ -50,6 +51,7 @@ def _main() -> None:
     stdout: str = complete_process.stdout.decode('utf-8')
     print(stdout)
     _move_and_adjust_updated_files()
+    apply_link_text_mapping_to_index_html.apply()
 
     logger.info(msg='Build completed!')
 

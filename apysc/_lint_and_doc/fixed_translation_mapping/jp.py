@@ -890,4 +890,48 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Scale-y value from the center of this instance.',
             value='  - インスタンスの中央座標を基準とした垂直方向の拡縮の値。'),
+        Mapping(
+            key='## get_scale_x_from_point API',
+            value='## get_scale_x_from_point API'),
+        Mapping(
+            key='**[Interface summary]** Get a scale-x value from the given '
+                'x-coordinate.<hr>',
+            value='**[インターフェイス概要]** 指定されたX座標を'
+                  '基準として水平方向の拡縮の値を取得します。<hr>'),
+        Mapping(
+            key='  - Scale-x value from the given x-coordinate.',
+            value='  - 指定されたX座標を基準とした水平方向の拡縮値。'),
+        Mapping(
+            key='## set_scale_x_from_point API',
+            value='## set_scale_x_from_point API'),
+        Mapping(
+            key='**[Interface summary]** Update a scale-x value from the given '
+                'x-coordinate.<hr>',
+            value='**[インターフェイス概要]** 指定されたX座病を基準'
+                  'とした水平方向の拡縮値を更新します。<hr>'),
+        Mapping(
+            key='## get_scale_y_from_point API',
+            value='## get_scale_y_from_point API'),
+        Mapping(
+            key='**[Interface summary]** Get a scale-y value '
+                'from the given y-coordinate.<hr>',
+            value='**[インターフェイス概要]** 指定されたY座標を基準'
+                  'とした垂直方向の拡縮の値を取得します。<hr>'),
+        Mapping(
+            key='  - Scale-y value from the given y-coordinate.',
+            value='  - 指定されたY座標を基準とした垂直方向の拡縮値。'),
+        Mapping(
+            key='## set_scale_y_from_point API',
+            value='## set_scale_y_from_point API'),
+        Mapping(
+            key='**[Interface summary]** Update a scale-y value '
+                'from the given y-coordinate.<hr>',
+            value='**[インターフェイス概要]** 指定されたY座標を基準とした'
+                  '垂直方向の拡縮値を更新します。<hr>'),
+        Mapping(
+            key='  - Scale-y value to set.',
+            value='  - 設定すの垂直方向の拡縮値。'),
+        Mapping(
+            key='  - Scale-x value to set.',
+            value='  - 設定する水平方向の拡縮値。'),
     ])

@@ -2,8 +2,9 @@ import hashlib
 import os
 import shutil
 from random import randint
-from typing import List
+from typing import List, Match, Pattern
 from typing import Optional
+import re
 
 from retrying import retry
 
@@ -711,3 +712,31 @@ def test__save_docstring_module_hash() -> None:
     assert os.path.isfile(test_hash_file_path)
 
     file_util.remove_file_if_exists(file_path=test_hash_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_check_each_doc_has_single_h1_symbol() -> None:
+    file_names: List[str] = os.listdir('./docs_src/source/')
+    doc_file_paths: List[str] = []
+    for file_name in file_names:
+        file_path: str = os.path.join(
+            './docs_src/source/',
+            file_name,
+        )
+        if not os.path.isfile(file_path):
+            continue
+        if not file_path.endswith('.md'):
+            continue
+        doc_file_paths.append(file_path)
+
+    for doc_file_path in doc_file_paths:
+        doc_txt: str = file_util.read_txt(file_path=doc_file_path)
+        doc_txt = re.sub(
+            pattern=r'```.+?```',
+            repl='',
+            string=doc_txt, flags=re.MULTILINE | re.DOTALL)
+        found_txts: List[str] = re.findall(
+            pattern=r'^# ',
+            string=doc_txt,
+            flags=re.MULTILINE)
+        assert len(found_txts) == 1, doc_file_path

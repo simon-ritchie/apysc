@@ -1,10 +1,10 @@
 import hashlib
 import os
+import re
 import shutil
 from random import randint
-from typing import List, Match, Pattern
+from typing import List
 from typing import Optional
-import re
 
 from retrying import retry
 

@@ -1,14 +1,16 @@
-# GraphicsBase skew_x and skew_y interfaces
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](graphics_base_skew.md)の確認をお願いします。</span>
 
-This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `skew_x` and `skew_y` property interfaces.
+# GraphicsBase クラスの skew_x と skew_y インターフェイス
 
-## What interfaces are these?
+このページでは`GraphicsBase`クラス（`Rectangle`などのグラフィッククラスの基底クラス）の`skew_x`と`skew_y`属性のインターフェイスについて説明します。
 
-The `skew_x` property skews an object's x-axis. Conversely, the `skew_y` property skew a y-axis. These interfaces have getter and setter interfaces.
+## 各インターフェイスの概要
 
-Each interface value type is the `Int` value.
+`skew_x`属性はオブジェクトをX軸方向に歪ませます。逆に`skew_y`属性ではY軸方向にオブジェクトを歪ませます。これらのインターフェイスはgetterとsetterの各インターフェイスを持っています。
 
-The following example shows you the default rectangle (left) and the skewed 50px in the x-direction rectangle (right).
+各インターフェイスの値の型は`Int`型の値となります。
+
+以下のコード例では左側の四角はデフォルトの状態、右側の四角はX軸方向に50pxの歪みを設定しています。
 
 ```py
 # runnable
@@ -32,7 +34,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_base_skew_x_basic_usage/index.html" width="250" height="150"></iframe>
 
-The following example skews the rectangle in the y-direction incrementally.
+以下の例ではY軸方向に四角の歪みを加算していく形で設定しています。
 
 ```py
 # runnable
@@ -79,23 +81,20 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_base_skew_y_incremental_basic_usage/index.html" width="150" height="150"></iframe>
 
-
 ## skew_x property API
 
-<!-- Docstring: apysc._display.skew_x_interface.SkewXInterface.skew_x -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイス概要]** インスタンスの現在のX軸の歪みの値を取得します。<hr>
 
-**[Interface summary]** Get a current skew x value of the instance.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `skew_x`: Int
-  - Current skew x value of this instance.
+  - インスタンスの現在のX軸の歪みの値。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap
@@ -111,20 +110,18 @@ Int(50)
 
 ## skew_y property API
 
-<!-- Docstring: apysc._display.skew_y_interface.SkewYInterface.skew_y -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイス概要]** インスタンスの現在のY軸の歪みの値を取得します。<hr>
 
-**[Interface summary]** Get a current skew y value of the instance.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `skew_y`: Int
-  - Current skew y value of the instance.
+  - インスタンスの現在のY軸の歪みの値。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap

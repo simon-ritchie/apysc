@@ -934,4 +934,26 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Scale-x value to set.',
             value='  - 設定する水平方向の拡縮値。'),
+        Mapping(
+            key='## skew_x property API',
+            value='## skew_x property API'),
+        Mapping(
+            key='**[Interface summary]** Get a current skew x value of '
+                'the instance.<hr>',
+            value='**[インターフェイス概要]** インスタンスの現在のX軸の'
+                  '歪みの値を取得します。<hr>'),
+        Mapping(
+            key='  - Current skew x value of this instance.',
+            value='  - インスタンスの現在のX軸の歪みの値。'),
+        Mapping(
+            key='## skew_y property API',
+            value='## skew_y property API'),
+        Mapping(
+            key='**[Interface summary]** Get a current skew y '
+                'value of the instance.<hr>',
+            value='**[インターフェイス概要]** インスタンスの現在のY軸の'
+                  '歪みの値を取得します。<hr>'),
+        Mapping(
+            key='  - Current skew y value of the instance.',
+            value='  - インスタンスの現在のY軸の歪みの値。'),
     ])

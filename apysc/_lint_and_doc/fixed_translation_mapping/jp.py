@@ -956,4 +956,49 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Current skew y value of the instance.',
             value='  - インスタンスの現在のY軸の歪みの値。'),
+        Mapping(
+            key='## Fill color setting',
+            value='## 塗りの色の設定'),
+        Mapping(
+            key='## Fill color alpha (opacity) setting',
+            value='## 塗りの色の透明度の設定'),
+        Mapping(
+            key='## begin_fill API',
+            value='## begin_fill API'),
+        Mapping(
+            key='**[Interface summary]** Set single color value for '
+                'fill.<hr>',
+            value='**[インターフェイス概要]** 塗りのための単一の色の設定を行います。<hr>'),
+        Mapping(
+            key='**[Interface summary]** Set single color value for '
+                'fill.<hr>',
+            value='**[インターフェイス概要]** 塗りのための単一の色の設定を行います。<hr>'),
+        Mapping(
+            key='  - Hexadecimal color string. e.g., \'#00aaff\'',
+            value='  - \'#00aaff\'などの16進数の色の文字列。'),
+        Mapping(
+            key='  - Color opacity (0.0 to 1.0).',
+            value='  - 塗りの透明度（0.0～1.0）。'),
+        Mapping(
+            key='## fill_color property API',
+            value='## fill_color 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get current fill color.<hr>',
+            value='**[インターフェイス概要]** 現在の塗りの色を取得します。<hr>'),
+        Mapping(
+            key='  - Current fill color (hexadecimal string, e.g., '
+                '\'#00aaff\'). If not be set, this interface returns a blank string.',
+            value='  - 現在の塗りの色（`\'#00aaff\'`などの16進数の文字列）。'
+                  'もしも設定されていない場合空文字が返却されます。'),
+        Mapping(
+            key='## fill_alpha property API',
+            value='## fill_alpha 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get current fill color opacity.<hr>',
+            value='**[インターフェイス概要]** 現在の塗りの透明度を取得します。<hr>'),
+        Mapping(
+            key='  - Current fill color opacity (0.0 to 1.0). If '
+                'not be set, 1.0 will be returned.',
+            value='  - 現在の塗りの透明度（0.0～1.0）。もし設定されていない'
+                  '場合1.0の値が返却されます。'),
     ])

@@ -1001,4 +1001,26 @@ MAPPINGS: Mappings = Mappings(
                 'not be set, 1.0 will be returned.',
             value='  - 現在の塗りの透明度（0.0～1.0）。もし設定されていない'
                   '場合1.0の値が返却されます。'),
+        Mapping(
+            key='## Return value',
+            value='## 返却値'),
+        Mapping(
+            key='## draw_circle API',
+            value='## draw_circle API'),
+        Mapping(
+            key='**[Interface summary]** Draw a circle vector graphics.<hr>',
+            value='**[インターフェイス概要]** 円のベクターグラフィックスを'
+                  '描画します。<hr>'),
+        Mapping(
+            key='  - X-coordinate of the circle center.',
+            value='  - 円の中心のX座標。'),
+        Mapping(
+            key='  - Y-coordinate of the circle center.',
+            value='  - 円の中心のY座標。'),
+        Mapping(
+            key='  - Circle radius.',
+            value='  - 円の半径。'),
+        Mapping(
+            key='  - Created circle graphics instance.',
+            value='  - 生成された円のグラフィックスのインスタンス。'),
     ])

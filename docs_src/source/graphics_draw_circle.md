@@ -10,7 +10,7 @@ This page explains the `Graphics` class `draw_circle` method interface.
 
 The `draw_circle` interface has the `x`\, `y`\, and `radius` arguments.
 
-The `x` and `y` arguments are the circle center coordinates, and the radius argument determines the circle size. The width and height become twice the `radius` value.
+The `x` and `y` arguments are the circle center coordinates, and the `radius` argument determines the circle size. The width and height become twice the `radius` value.
 
 ```py
 # runnable

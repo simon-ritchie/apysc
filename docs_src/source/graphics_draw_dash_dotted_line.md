@@ -6,7 +6,7 @@ This page explains the `Graphics` class `draw_dash_dotted_line` method interface
 
 `draw_dash_dotted_line` interface draws the simple straight dash dotted-line (also called 1-dot chain line or long dashed short dashed line) graphics.
 
- This interface will ignore `dot_setting`, `dash_setting`, `round_dot_setting`, and `dash_dot_setting`.
+This interface will ignore `dot_setting`, `dash_setting`, `round_dot_setting`, and `dash_dot_setting`.
 
 ## Basic usage
 

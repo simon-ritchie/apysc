@@ -1023,4 +1023,39 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Created circle graphics instance.',
             value='  - 生成された円のグラフィックスのインスタンス。'),
+        Mapping(
+            key='## draw_dash_dotted_line API',
+            value='## draw_dash_dotted_line API'),
+        Mapping(
+            key='**[Interface summary]** Draw a dash-dotted (1-dot chain) '
+                'line vector graphics.<hr>',
+            value='**[インターフェイス概要]** 一点鎖線のベクターグラフィックスの'
+                  '線を描画します。<hr>'),
+        Mapping(
+            key='  - Line start x-coordinate.',
+            value='  - 線の開始位置のX座標。'),
+        Mapping(
+            key='  - Line start y-coordinate.',
+            value='  - 線の開始位置のY座標。'),
+        Mapping(
+            key='  - Line end x-coordinate.',
+            value='  - 線の終了位置のX座標。'),
+        Mapping(
+            key='  - Line end y-coordinate.',
+            value='  - 線の終了位置のY座標。'),
+        Mapping(
+            key='  - Line end y-coordinate.',
+            value='  - 線の終了位置のY座標。'),
+        Mapping(
+            key='  - Dot size.',
+            value='  - ドットのサイズ。'),
+        Mapping(
+            key='  - Dash size.',
+            value='  - 破線部分のサイズ。'),
+        Mapping(
+            key='  - Blank space size between dots and dashes.',
+            value='  - ドット（点線）や破線間の空白スペースのサイズ。'),
+        Mapping(
+            key='  - Created line graphics instance.',
+            value='  - 生成された線のグラフィックスのインスタンス。'),
     ])

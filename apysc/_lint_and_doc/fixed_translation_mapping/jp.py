@@ -905,7 +905,8 @@ MAPPINGS: Mappings = Mappings(
             key='## set_scale_x_from_point API',
             value='## set_scale_x_from_point API'),
         Mapping(
-            key='**[Interface summary]** Update a scale-x value from the given '
+            key='**[Interface summary]** Update a scale-x '
+                'value from the given '
                 'x-coordinate.<hr>',
             value='**[インターフェイス概要]** 指定されたX座病を基準'
                   'とした水平方向の拡縮値を更新します。<hr>'),
@@ -987,7 +988,8 @@ MAPPINGS: Mappings = Mappings(
             value='**[インターフェイス概要]** 現在の塗りの色を取得します。<hr>'),
         Mapping(
             key='  - Current fill color (hexadecimal string, e.g., '
-                '\'#00aaff\'). If not be set, this interface returns a blank string.',
+                '\'#00aaff\'). If not be set, this interface returns '
+                'a blank string.',
             value='  - 現在の塗りの色（`\'#00aaff\'`などの16進数の文字列）。'
                   'もしも設定されていない場合空文字が返却されます。'),
         Mapping(

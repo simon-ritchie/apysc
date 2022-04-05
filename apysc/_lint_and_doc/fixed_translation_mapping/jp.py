@@ -1076,4 +1076,17 @@ MAPPINGS: Mappings = Mappings(
                 'the `LineDotSetting`, except `LineDashSetting`.<hr>',
             value=' ・このインターフェイスは`LineDashSetting`'
                   'を除いた`LineDotSetting`などの線のスタイル設定を無視します。<hr>'),
+        Mapping(
+            key='## draw_dotted_line API',
+            value='## draw_dotted_line API'),
+        Mapping(
+            key='**[Interface summary]** Draw a dotted line vector '
+                'graphics.<hr>',
+            value='**[インターフェイス概要]** 点線のベクター'
+                  'グラフィックスを描画します。<hr>'),
+        Mapping(
+            key=' ・This interface ignores line settings, like the '
+                '`LineDashSetting`, except `LineDotSetting`.<hr>',
+            value=' ・このインターフェイスは`LineDotSetting`を'
+                  '除いた`LineDashSetting`などの線のスタイル設定を無視します。<hr>'),
     ])

@@ -10,36 +10,99 @@ from typing import Dict
 MAPPING: Dict[str, str] = {
 
     '# Graphics draw_dashed_line interface':
-    '',
+    '# Graphics クラスの draw_dashed_line インターフェイス',
 
     'This page explains the `Graphics` class `draw_dashed_line` method interface.':  # noqa
-    '',
+    'このページでは`Graphics`クラスの`draw_dashed_line`メソッドのインターフェイスについて説明します。',
 
     '## What interface is this?':
-    '',
+    '## インターフェイス概要',
 
     '`draw_dashed_line` interface will draw the simple straight dashed-line graphics. This interface will ignore `dot_setting`, `dash_setting`, `round_dot_setting`, and `dash_dot_setting`.':  # noqa
-    '',
+    '`draw_dashed_line`インターフェイスはシンプルな破線の直線のグラフィックスを描画します。このインターフェイスは`dot_setting`や`dash_setting`、`round_dot_setting`、`dash_dot_setting`の引数や属性の設定を無視します。',  # noqa
 
     '## Basic usage':
-    '',
+    '## 基本的な使い方',
 
     '`draw_dashed_line` interface has basic coordinates arguments of `x_start`, `y_start`, `x_end` and `y_end`. That also has `dash_size` and `space_size` arguments to determine dash style (line dash size and the space size between each dash).':  # noqa
-    '',
+    '`draw_dashed_line`インターフェイスは基本的な線の座標の指定として`x_start`、`y_start`、`x_end`、`y_end`の各引数を持ちます。加えて、破線のサイズとしての`dash_size`引数と破線間のスペースのサイズとしての``',  # noqa
 
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=130,\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\n\n# Set 5-pixel dash setting and draw the line.\nsprite.graphics.line_style(\n    color=\'#0af\', thickness=2)\nsprite.graphics.draw_dashed_line(\n    x_start=50, y_start=50, x_end=200, y_end=50,\n    dash_size=5, space_size=2)\n\n# Set 10-pixel dash setting and draw the line.\nsprite.graphics.draw_dashed_line(\n    x_start=50, y_start=80, x_end=200, y_end=80,\n    dash_size=10, space_size=2)\n\nap.save_overall_html(\n    dest_dir_path=\'graphics_draw_dashed_line_basic_usage/\')\n```':  # noqa
-    '',
-
-    '<iframe src="static/graphics_draw_dashed_line_basic_usage/index.html" width="250" height=130></iframe>':  # noqa
-    '',
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=250,\n    stage_height=130,\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\n\n# Set 5-pixel dash setting and draw the line.\nsprite.graphics.line_style(\n    color=\'#0af\', thickness=2)\nsprite.graphics.draw_dashed_line(\n    x_start=50, y_start=50, x_end=200, y_end=50,\n    dash_size=5, space_size=2)\n\n# Set 10-pixel dash setting and draw the line.\nsprite.graphics.draw_dashed_line(\n    x_start=50, y_start=80, x_end=200, y_end=80,\n    dash_size=10, space_size=2)\n\nap.save_overall_html(\n    dest_dir_path=\'graphics_draw_dashed_line_basic_usage/\')\n```',  # noqa
 
     '## draw_dashed_line API':
-    '',
+    '## draw_dashed_line API',
 
-    '<!-- Docstring: apysc._display.graphics.Graphics.draw_dashed_line -->\n\n<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>\n\n**[Interface signature]** `draw_dashed_line(self, x_start:Union[int, apysc._type.int.Int], y_start:Union[int, apysc._type.int.Int], x_end:Union[int, apysc._type.int.Int], y_end:Union[int, apysc._type.int.Int], dash_size:Union[int, apysc._type.int.Int], space_size:Union[int, apysc._type.int.Int]) -> \'_line.Line\'`<hr>\n\n**[Interface summary]** Draw a dashed line vector graphics.<hr>\n\n**[Parameters]**\n\n- `x_start`: Int or int\n  - Line start x-coordinate.\n- `y_start`: Int or int\n  - Line start y-coordinate.\n- `x_end`: Int or int\n  - Line end x-coordinate.\n- `y_end`: Int or int\n  - Line end y-coordinate.\n- `dash_size`: Int or int\n  - Dash size.\n- `space_size`: Int or int\n  - Blank space size between dashes.\n\n<hr>\n\n**[Returns]**\n\n- `line`: Line\n  - Created line graphics instance.\n\n<hr>\n\n**[Notes]**\n\n ・This interface ignores line settings, like the `LineDotSetting`, except `LineDashSetting`.<hr>\n\n**[Examples]**':  # noqa
-    '',
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
+    '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+
+    '**[Interface summary]** Draw a dashed line vector graphics.<hr>':
+    '**[インターフェイス概要]** 破線のベクターグラフィックスを描画します。<hr>',
+
+    '**[Parameters]**':
+    '**[引数]**',
+
+    '- `x_start`: Int or int':
+    '- `x_start`: Int or int',
+
+    '  - Line start x-coordinate.':
+    '  - 線の開始位置のX座標。',
+
+    '- `y_start`: Int or int':
+    '- `y_start`: Int or int',
+
+    '  - Line start y-coordinate.':
+    '  - 線の開始位置のY座標。',
+
+    '- `x_end`: Int or int':
+    '- `x_end`: Int or int',
+
+    '  - Line end x-coordinate.':
+    '  - 線の終了位置のX座標。',
+
+    '- `y_end`: Int or int':
+    '- `y_end`: Int or int',
+
+    '  - Line end y-coordinate.':
+    '  - 線の終了位置のY座標。',
+
+    '- `dash_size`: Int or int':
+    '- `dash_size`: Int or int',
+
+    '  - Dash size.':
+    '  - 破線部分のサイズ。',
+
+    '- `space_size`: Int or int':
+    '- `space_size`: Int or int',
+
+    '  - Blank space size between dashes.':
+    '  - 破線間の空白スペースのサイズ。',
+
+    '<hr>':
+    '<hr>',
+
+    '**[Returns]**':
+    '**[返却値]**',
+
+    '- `line`: Line':
+    '- `line`: Line',
+
+    '  - Created line graphics instance.':
+    '  - 生成された線のグラフィックスのインスタンス。',
+
+    '<hr>':
+    '<hr>',
+
+    '**[Notes]**':
+    '**[特記事項]**',
+
+    ' ・This interface ignores line settings, like the `LineDotSetting`, except `LineDashSetting`.<hr>':  # noqa
+    ' ・このインターフェイスは`LineDashSetting`を除いた`LineDotSetting`などの線のスタイル設定を無視します。<hr>',  # noqa
+
+    '**[Examples]**':
+    '**[コードサンプル]**',
 
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=\'#fff\', thickness=5)\n>>> line: ap.Line = sprite.graphics.draw_dashed_line(\n...     x_start=50, y_start=50, x_end=150, y_end=50,\n...     dash_size=5, space_size=2)\n>>> line.line_color\nString(\'#ffffff\')\n\n>>> line.line_dash_setting.dash_size\nInt(5)\n\n>>> line.line_dash_setting.space_size\nInt(2)\n```':  # noqa
-    '',
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=\'#fff\', thickness=5)\n>>> line: ap.Line = sprite.graphics.draw_dashed_line(\n...     x_start=50, y_start=50, x_end=150, y_end=50,\n...     dash_size=5, space_size=2)\n>>> line.line_color\nString(\'#ffffff\')\n\n>>> line.line_dash_setting.dash_size\nInt(5)\n\n>>> line.line_dash_setting.space_size\nInt(2)\n```',  # noqa
 
 }

@@ -1060,4 +1060,20 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Created line graphics instance.',
             value='  - 生成された線のグラフィックスのインスタンス。'),
+        Mapping(
+            key='## draw_dashed_line API',
+            value='## draw_dashed_line API'),
+        Mapping(
+            key='**[Interface summary]** Draw a dashed line vector '
+                'graphics.<hr>',
+            value='**[インターフェイス概要]** 破線のベクターグラフィックスを'
+                  '描画します。<hr>'),
+        Mapping(
+            key='  - Blank space size between dashes.',
+            value='  - 破線間の空白スペースのサイズ。'),
+        Mapping(
+            key=' ・This interface ignores line settings, like '
+                'the `LineDotSetting`, except `LineDashSetting`.<hr>',
+            value=' ・このインターフェイスは`LineDashSetting`'
+                  'を除いた`LineDotSetting`などの線のスタイル設定を無視します。<hr>'),
     ])

@@ -1089,4 +1089,26 @@ MAPPINGS: Mappings = Mappings(
                 '`LineDashSetting`, except `LineDotSetting`.<hr>',
             value=' ・このインターフェイスは`LineDotSetting`を'
                   '除いた`LineDashSetting`などの線のスタイル設定を無視します。<hr>'),
+        Mapping(
+            key='## draw_ellipse API',
+            value='## draw_ellipse API'),
+        Mapping(
+            key='**[Interface summary]** Draw an ellipse vector graphic.<hr>',
+            value='**[インターフェイス概要]** 楕円のベクターグラフィックスを'
+                  '描画します。<hr>'),
+        Mapping(
+            key='  - X-coordinate of the ellipse center.',
+            value='  - 楕円の中央のX座標。'),
+        Mapping(
+            key='  - Y-coordinate of the ellipse center.',
+            value='  - 楕円の中央のY座標。'),
+        Mapping(
+            key='  - Ellipse width.',
+            value='  - 楕円の幅。'),
+        Mapping(
+            key='  - Ellipse height.',
+            value='  - 楕円の高さ。'),
+        Mapping(
+            key='  - Created ellipse graphics instance.',
+            value='  - 作成された楕円のグラフィックスのインスタンス。'),
     ])

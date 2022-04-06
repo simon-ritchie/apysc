@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Graphics クラスの draw_ellipse インターフェイス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Graphics クラスの draw_ellipse インターフェイス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="graphics_draw_ellipse.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="graphics-draw-ellipse">
+<h1>Graphics クラスの draw_ellipse インターフェイス<a class="headerlink" href="#graphics-draw-ellipse" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code>メソッドのインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code>インターフェイスは楕円のベクターグラフィックスを描画します。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">x</span></code>、<code class="docutils literal notranslate"><span class="pre">y</span></code>、<code class="docutils literal notranslate"><span class="pre">width</span></code>、<code class="docutils literal notranslate"><span class="pre">height</span></code>の各インターフェイスを持っています。<code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>の引数は楕円の中央座標となります。<code class="docutils literal notranslate"><span class="pre">width</span></code>と<code class="docutils literal notranslate"><span class="pre">height</span></code>は楕円の幅と高さを決定します。これらのサイズは半径の倍の値（直径）で指定する必要があります。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">325</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+
+<span class="c1"># Set the cyan fill color and draw the ellipse.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">125</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Set the only dotted-line style and draw the ellipse.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">dot_setting</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">LineDotSetting</span><span class="p">(</span><span class="n">dot_size</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_ellipse_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_draw_ellipse_basic_usage/index.html" width="325" height="200"></iframe></section>
+<section id="id3">
+<h2>返却値<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code>インターフェイスの返却値は<code class="docutils literal notranslate"><span class="pre">Ellipse</span></code>クラスのインスタンスとなります。</p>
+<p>このクラスのインスタンスは他のグラフィックス系のクラスと同様に<code class="docutils literal notranslate"><span class="pre">x</span></code>や<code class="docutils literal notranslate"><span class="pre">y</span></code>、<code class="docutils literal notranslate"><span class="pre">width</span></code>などの基本的なインターフェイスを持っています。</p>
+<p>以下のコード例ではクリックのイベントハンドラを設定しており、楕円をクリックするたびに幅と高さが大きくなるようにしています。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">def</span> <span class="nf">on_ellipse_click</span><span class="p">(</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler that the ellipse calls when clicked.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : MouseEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ellipse</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">ellipse</span><span class="o">.</span><span class="n">width</span> <span class="o">+=</span> <span class="mi">15</span>
+    <span class="n">ellipse</span><span class="o">.</span><span class="n">height</span> <span class="o">+=</span> <span class="mi">10</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">ellipse</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">125</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ellipse</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_ellipse_click</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_ellipse_return_value/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_draw_ellipse_return_value/index.html" width="250" height="200"></iframe></section>
+<section id="draw-ellipse-api">
+<h2>draw_ellipse API<a class="headerlink" href="#draw-ellipse-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">draw_ellipse(self,</span> <span class="pre">x:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">width:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">height:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">'_ellipse.Ellipse'</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 楕円のベクターグラフィックスを描画します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<ul>
+<li><p>楕円の中央のX座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<ul>
+<li><p>楕円の中央のY座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Int or int</p>
+<ul>
+<li><p>楕円の幅。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: Int or int</p>
+<ul>
+<li><p>楕円の高さ。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ellipse</span></code>: Ellipse</p>
+<ul>
+<li><p>作成された楕円のグラフィックスのインスタンス。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">x</span>
+<span class="go">Int(100)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">y</span>
+<span class="go">Int(100)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">width</span>
+<span class="go">Int(100)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">height</span>
+<span class="go">Int(50)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">fill_color</span>
+<span class="go">String(&#39;#00aaff&#39;)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Graphics クラスの draw_ellipse インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">返却値</a></li>
+<li><a class="reference internal" href="#draw-ellipse-api">draw_ellipse API</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Graphics クラスの draw_ellipse インターフェイス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

@@ -57,7 +57,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_draw_line_ignored_dot_setting/index.html" width="200" height=100></iframe>
 
-## Line instance
+## Line class instance
 
 `draw_line` interface returns the `Line` instance. You can update each setting or bind events to that instance. `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`
 , and `draw_dash_dotted_line` will also return the same type instance.

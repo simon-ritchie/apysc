@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Graphics draw_line interface &#8212; apysc  documentation</title>
+    <title>Graphics クラスの draw_line インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graphics draw_dotted_line interface" href="graphics_draw_dotted_line.html" />
-    <link rel="prev" title="Graphics move_to and line_to interfaces" href="graphics_move_to_and_line_to.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="graphics_draw_dotted_line.html" title="Graphics draw_dotted_line interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="graphics_move_to_and_line_to.html" title="Graphics move_to and line_to interfaces"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Graphics draw_line interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Graphics クラスの draw_line インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -43,16 +35,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="graphics-draw-line-interface">
-<h1>Graphics draw_line interface<a class="headerlink" href="#graphics-draw-line-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_line</span></code> method interface.</p>
-<section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code> interface will draw the simple straight line graphics. This interface will ignore <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>, and <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="graphics_draw_line.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="graphics-draw-line">
+<h1>Graphics クラスの draw_line インターフェイス<a class="headerlink" href="#graphics-draw-line" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>メソッドのインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code>インターフェイスはシンプルな直線のグラフィックスを描画します。このインターフェイスは<code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>、<code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>、<code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>、<code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>などの引数や属性の設定を無視します。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code> inteface has <code class="docutils literal notranslate"><span class="pre">x_start</span></code> (line x-start coordinate), <code class="docutils literal notranslate"><span class="pre">y_start</span></code> (line y-start coordinate), <code class="docutils literal notranslate"><span class="pre">x_end</span></code> (line x-end coordinate), and <code class="docutils literal notranslate"><span class="pre">y_end</span></code> (line y-end coordinate) arguments.</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">x_start</span></code>（線の開始位置のX座標）、<code class="docutils literal notranslate"><span class="pre">y_start</span></code>（線の開始位置のY座標）、<code class="docutils literal notranslate"><span class="pre">x_end</span></code>（線の終了位置のX座標）、<code class="docutils literal notranslate"><span class="pre">y_end</span></code>（線の終了位置のY座標）の各引数を必要とします。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -71,9 +64,9 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_draw_line_basic_usage/index.html" width="200" height=100></iframe></section>
-<section id="ignored-line-style-settings">
-<h2>Ignored line style settings<a class="headerlink" href="#ignored-line-style-settings" title="Permalink to this headline">¶</a></h2>
-<p>This interface will ignore <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>, and <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code> for simplicity. If you need to draw these styled lines, then use <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>, or <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> interfaces instead of the <code class="docutils literal notranslate"><span class="pre">draw_line</span></code> interface.</p>
+<section id="id3">
+<h2>無視される線のスタイル設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>このインターフェイスはインターフェイスのシンプルさのために<code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>、<code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>、<code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>、<code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>の各設定を無視します。もしもこれらのスタイル設定が必要な場合には<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>インターフェイスの代わりに<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>などのインターフェイスを仕様してください。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -95,10 +88,9 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_draw_line_ignored_dot_setting/index.html" width="200" height=100></iframe></section>
-<section id="line-class-instance">
-<h2>Line class instance<a class="headerlink" href="#line-class-instance" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code> interface returns the <code class="docutils literal notranslate"><span class="pre">Line</span></code> instance. You can update each setting or bind events to that instance. <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>
-, and <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> will also return the same type instance.</p>
+<section id="line">
+<h2>Line クラスのインスタンス<a class="headerlink" href="#line" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Line</span></code>クラスのインスタンスを返却します。そのインスタンスの各種設定を変更したりイベントを登録したり等を行うことができます。<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>などのインターフェイスも同じく<code class="docutils literal notranslate"><span class="pre">Line</span></code>クラスのインスタンスを返却します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -124,43 +116,43 @@
 <iframe src="static/graphics_draw_line_line_instance/index.html" width="200" height=100></iframe></section>
 <section id="draw-line-api">
 <h2>draw_line API<a class="headerlink" href="#draw-line-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.graphics.Graphics.draw_line --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_line(self,</span> <span class="pre">x_start:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y_start:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">x_end:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y_end:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">'_line.Line'</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Draw a normal line vector graphic.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">draw_line(self,</span> <span class="pre">x_start:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y_start:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">x_end:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y_end:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">'_line.Line'</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 通常の直線のベクターグラフィックスを描画します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x_start</span></code>: Int or int</p>
 <ul>
-<li><p>Line start x-coordinate.</p></li>
+<li><p>線の開始位置のX座標。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">y_start</span></code>: Int or int</p>
 <ul>
-<li><p>Line start y-coordinate.</p></li>
+<li><p>線の開始位置のY座標。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x_end</span></code>: Int or int</p>
 <ul>
-<li><p>Line end x-coordinate.</p></li>
+<li><p>線の終了位置のX座標。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">y_end</span></code>: Int or int</p>
 <ul>
-<li><p>Line end y-coordinate.</p></li>
+<li><p>線の終了位置のY座標。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr><p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Line</p>
 <ul>
-<li><p>Created line graphics instance.</p></li>
+<li><p>生成された線のグラフィックスのインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
-<p>・This interface ignores line settings, like the <code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code>, <code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code>.<hr></p>
-<p><strong>[Examples]</strong></p>
+<hr><p><strong>[特記事項]</strong></p>
+<p>・このインターフェイスは<code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code>や<code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code>などの設定を無視します。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -189,22 +181,16 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Graphics draw_line interface</a><ul>
-<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#ignored-line-style-settings">Ignored line style settings</a></li>
-<li><a class="reference internal" href="#line-class-instance">Line class instance</a></li>
+<li><a class="reference internal" href="#">Graphics クラスの draw_line インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">無視される線のスタイル設定</a></li>
+<li><a class="reference internal" href="#line">Line クラスのインスタンス</a></li>
 <li><a class="reference internal" href="#draw-line-api">draw_line API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_move_to_and_line_to.html"
-                        title="previous chapter">Graphics move_to and line_to interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_draw_dotted_line.html"
-                        title="next chapter">Graphics draw_dotted_line interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -225,14 +211,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="graphics_draw_dotted_line.html" title="Graphics draw_dotted_line interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="graphics_move_to_and_line_to.html" title="Graphics move_to and line_to interfaces"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Graphics draw_line interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Graphics クラスの draw_line インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

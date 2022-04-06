@@ -1111,4 +1111,23 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Created ellipse graphics instance.',
             value='  - 作成された楕円のグラフィックスのインスタンス。'),
+        Mapping(
+            key='## Ignored line style settings',
+            value='## 無視される線のスタイル設定'),
+        Mapping(
+            key='## Line class instance',
+            value='## Line クラスのインスタンス'),
+        Mapping(
+            key='## draw_line API',
+            value='## draw_line API'),
+        Mapping(
+            key='**[Interface summary]** Draw a normal line vector '
+                'graphic.<hr>',
+            value='**[インターフェイス概要]** 通常の直線のベクター'
+                  'グラフィックスを描画します。<hr>'),
+        Mapping(
+            key=' ・This interface ignores line settings, '
+                'like the `LineDotSetting`, `LineDashSetting`.<hr>',
+            value=' ・このインターフェイスは`LineDotSetting`や'
+                  '`LineDashSetting`などの設定を無視します。<hr>'),
     ])

@@ -1150,4 +1150,27 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Created polygon graphics instance.',
             value='  - 作成された多角形のグラフィックスのインスタンス。'),
+        Mapping(
+            key='## draw_rect API',
+            value='## draw_rect API'),
+        Mapping(
+            key='**[Interface summary]** Draw a rectangle vector '
+                'graphics.<hr>',
+            value='**[インターフェイス概要]** ベクターグラフィックスの四角を'
+                  '描画します。<hr>'),
+        Mapping(
+            key='  - X position to start drawing.',
+            value='  - 描画を開始する位置のX座標。'),
+        Mapping(
+            key='  - Y position to start drawing.',
+            value='  - 描画を開始する位置のY座標。'),
+        Mapping(
+            key='  - Rectangle width.',
+            value='  - 四角の幅。'),
+        Mapping(
+            key='  - Rectangle height.',
+            value='  - 四角の高さ。'),
+        Mapping(
+            key='  - Created rectangle.',
+            value='  - 生成された四角。'),
     ])

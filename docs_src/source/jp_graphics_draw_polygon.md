@@ -1,14 +1,16 @@
-# Graphics draw_polygon interface
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](graphics_draw_polygon.md)の確認をお願いします。</span>
 
-This page explains the `Graphics` class `draw_polygon` method interface.
+# Graphics クラスの draw_polygon インターフェイス
 
-## What interface is this?
+このページでは`Graphics`クラスの`draw_polygon`メソッドのインターフェイスについて説明します。
 
-The `draw_polygon` interface draws vector polygon graphics. This interface works slightly similar to the `line_to` and `move_to` interfaces, but the paths do not need to be closed.
+## インターフェイス概要
 
-## Basic usage
+`draw_polygon`インターフェイスは多角形のベクターグラフィックスを描画します。このインターフェイスは`line_to`や`move_to`などのインターフェイスと挙動が少し似ていますが、パスを閉じなくても良いという違いがあります。
 
-The `draw_polygon` interface has the `points` argument, which determines the polygon vertices coordinates.
+## 基本的な使い方
+
+`draw_polygon`インターフェイスは各頂点の座標を決めるための`points`引数を必要とします。
 
 ```py
 # runnable
@@ -46,11 +48,11 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_draw_polygon_basic_usage/index.html" width="250" height="150"></iframe>
 
-## Difference between the line_to and draw_polygon interfaces
+## line_to と draw_polygon の各インターフェイスの違いについて
 
-If you set the fill color, the `draw_polygon` interface becomes slightly similar to the `line_to` (and `move_to`) interfaces. So, for example, the following codes both draw the triangle.
+塗りの色の設定をした場合`draw_polygon`と`line_to`（及び`move_to`）のインターフェイスの挙動は少し近くなります。例えば以下のコード例では各インターフェイスでどちらも三角形が描画しています。
 
-The `draw_polygon` interface draws the left triangle. Similarly, the `move_to` and `line_to` interfaces draw the right one.
+`draw_polygon`インターフェイスでは左側の三角形を描画し、`move_to`と`line_to`のインターフェイスでは右側の三角形を描画しています。
 
 ```py
 # runnable
@@ -84,7 +86,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_draw_polygon_line_to_difference_1/index.html" width="250" height="150"></iframe>
 
-But there is a difference in whether closing the paths is necessary or not. This difference becomes significant when you set the line style setting. The `line_to` interface does not close the paths from end coordinates to start coordinates.
+一方で、各インターフェイスにはパスを閉じる必要があるかどうかの違いがあります。この違いは線の設定を行った場合には顕著になります。`line_to`のインターフェイスでは終点の座標から始点の座標へはパスが自動では繋がりません。
 
 ```py
 # runnable
@@ -121,11 +123,11 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_draw_polygon_line_to_difference_2/index.html" width="250" height="150"></iframe>
 
-## Return value
+## 返却値
 
-The `draw_polygon` interface returns the `Polygon` instance. And that has the basic interface as same as the other type graphics instances. The `Polygon` instance also has the `append_line_point` method interface to append points dynamically.
+`draw_polygon`インターフェイスは`Polygon`クラスのインスタンスを返却します。そのインスタンスは他のグラフィックス系のインスタンスと同様の基本的なインターフェイスを持っています。加えて、`Polygon`クラスは頂点を加えるための`append_line_point`メソッドを持っています。
 
-For instance, the following code appends the point and changes from the triangle to the rectangle.
+例えば以下のコード例では座標の追加を行い三角から四角に変換しています。
 
 ```py
 # runnable
@@ -157,32 +159,29 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_draw_polygon_append_line_point/index.html" width="150" height="150"></iframe>
 
-
 ## draw_polygon API
 
-<!-- Docstring: apysc._display.graphics.Graphics.draw_polygon -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイスの構造]** `draw_polygon(self, points:Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]]) -> '_polyg.Polygon'`<hr>
 
-**[Interface signature]** `draw_polygon(self, points:Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]]) -> '_polyg.Polygon'`<hr>
+**[インターフェイス概要]** 多角形のベクターグラフィックスを描画します。このインターフェイスはPolylineクラス（`move_to`や`line_to`のインターフェイスで作成されます）に似ていますが、このインターフェイスは始点と終点が連結されるという違いがあります。<hr>
 
-**[Interface summary]** Draw a polygon vector graphic. This interface is similar to the Polyline class (created by `move_to` or `line_to`). But unlike that, this interface connects the last point and the start point.<hr>
-
-**[Parameters]**
+**[引数]**
 
 - `points`: list of Point2D or Array.
-  - Polygon vertex points.
+  - 多角形の頂点の各座標。
 
 <hr>
 
-**[Returns]**
+**[返却値]**
 
 - `polygon`: Polygon
-  - Created polygon graphics instance.
+  - 作成された多角形のグラフィックスのインスタンス。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap

@@ -1130,4 +1130,24 @@ MAPPINGS: Mappings = Mappings(
                 'like the `LineDotSetting`, `LineDashSetting`.<hr>',
             value=' ・このインターフェイスは`LineDotSetting`や'
                   '`LineDashSetting`などの設定を無視します。<hr>'),
+        Mapping(
+            key='## draw_polygon API',
+            value='## draw_polygon API'),
+        Mapping(
+            key='**[Interface summary]** Draw a polygon vector '
+                'graphic. This interface is similar to the '
+                'Polyline class (created by `move_to` or `line_to`). '
+                'But unlike that, this interface connects the '
+                'last point and the start point.<hr>',
+            value='**[インターフェイス概要]** 多角形のベクター'
+                  'グラフィックスを描画します。このインターフェイスはPolyline'
+                  'クラス（`move_to`や`line_to`のインターフェイスで作成されます）'
+                  'に似ていますが、このインターフェイスは始点と終点が連結される'
+                  'という違いがあります。<hr>'),
+        Mapping(
+            key='  - Polygon vertex points.',
+            value='  - 多角形の頂点の各座標。'),
+        Mapping(
+            key='  - Created polygon graphics instance.',
+            value='  - 作成された多角形のグラフィックスのインスタンス。'),
     ])

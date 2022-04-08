@@ -1212,4 +1212,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Ellipse height of the rectangle corner.',
             value='  - 四角の角丸の高さ。'),
+        Mapping(
+            key='**[Interface summary]** Get this instance\'s fill '
+                'opacity.<hr>',
+            value='**[インターフェイス概要]** このインスタンスの塗りの透明度を'
+                  '取得します。<hr>'),
+        Mapping(
+            key='  - Current fill opacity (0.0 to 1.0).',
+            value='  - 現在の塗りの透明度（0.0～1.0）。'),
     ])

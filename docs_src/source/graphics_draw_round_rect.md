@@ -8,7 +8,7 @@ This page explains the `Graphics` class `draw_round_rect` method interface.
 
 ## Basic usage
 
-`draw_rect` interface has `x`, `y`, `width`, and `height` arguments. `x` and `y` are rectangle coordinates setting, and `width` and `height` will determine rectangle size.
+`draw_round_rect` interface has `x`, `y`, `width`, and `height` arguments. `x` and `y` are rectangle coordinates setting, and `width` and `height` will determine rectangle size.
 
 This interface also has `ellipse_width` and `ellipse_height` arguments to set the round size to the rectangle corners.
 

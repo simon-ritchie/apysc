@@ -1192,4 +1192,24 @@ MAPPINGS: Mappings = Mappings(
                 'the `LineDotSetting`, except `LineRoundDotSetting`.<hr>',
             value='このインターフェイスは`LineRoundDotSetting`を除いて'
                   '`LineDotSetting`などの設定を無視します。<hr>'),
+        Mapping(
+            key='## draw_round_rect API',
+            value='## draw_round_rect API'),
+        Mapping(
+            key='**[Interface summary]** Draw a rounded rectangle '
+                'vector graphics.<hr>',
+            value='**[インターフェイス概要]** 角丸四角のベクターグラフィックスを'
+                  '描画します。<hr>'),
+        Mapping(
+            key='  - X-coordinate to start drawing.',
+            value='  - 描画を開始するX座標。'),
+        Mapping(
+            key='  - Y-coordinate to start drawing.',
+            value='  - 描画を開始するY座標。'),
+        Mapping(
+            key='  - Ellipse width of the rectangle corner.',
+            value='  - 四角の角丸の幅。'),
+        Mapping(
+            key='  - Ellipse height of the rectangle corner.',
+            value='  - 四角の角丸の高さ。'),
     ])

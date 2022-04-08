@@ -1173,4 +1173,23 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Created rectangle.',
             value='  - 生成された四角。'),
+        Mapping(
+            key='## draw_round_dotted_line API',
+            value='## draw_round_dotted_line API'),
+        Mapping(
+            key='**[Interface summary]** Draw a round-dotted '
+                'line vector graphics.<hr>',
+            value='**[インターフェイス概要]** 丸ドットの直線の'
+                  'ベクターグラフィックスを描画します。<hr>'),
+        Mapping(
+            key='  - Dot round size.',
+            value='  - 丸ドットのサイズ。'),
+        Mapping(
+            key='  - Blank space size between dots.',
+            value='  - ドット間の空白のスペースのサイズ。'),
+        Mapping(
+            key='This interface ignores line settings, like '
+                'the `LineDotSetting`, except `LineRoundDotSetting`.<hr>',
+            value='このインターフェイスは`LineRoundDotSetting`を除いて'
+                  '`LineDotSetting`などの設定を無視します。<hr>'),
     ])

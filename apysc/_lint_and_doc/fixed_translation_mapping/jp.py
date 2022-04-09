@@ -1225,4 +1225,20 @@ MAPPINGS: Mappings = Mappings(
                 'color.<hr>',
             value='**[インターフェイス概要]** インスタンスの塗りの色を'
                   '取得します。<hr>'),
+        Mapping(
+            key='The getter or setter interface value becomes '
+                '(or requires) the `Number` value (0.0 to 1.0).',
+            value='getterとsetterの両方のインターフェイスの値は`Number`'
+                  '型の0.0～1.0の範囲の値となります。'),
+        Mapping(
+            key='## line_alpha property API',
+            value='## line_alpha 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get this instance\'s line alpha '
+                '(opacity).<hr>',
+            value='**[インターフェイス概要]** インスタンスの線の'
+                  '透明度を取得します。<hr>'),
+        Mapping(
+            key='  - Current line alpha (opacity. 0.0 to 1.0).',
+            value='  - 現在の線の透明度（0.0～1.0）。'),
     ])

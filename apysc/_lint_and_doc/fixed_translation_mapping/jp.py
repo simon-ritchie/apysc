@@ -1241,4 +1241,23 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Current line alpha (opacity. 0.0 to 1.0).',
             value='  - 現在の線の透明度（0.0～1.0）。'),
+        Mapping(
+            key='The getter or setter interface value becomes '
+                '(or requires) the `String` hex color code value.',
+            value='getterとsetterのインターフェイスで扱う値は`String`型の'
+                  '16進数のカラーコードの文字列となります。'),
+        Mapping(
+            key='## line_color property API',
+            value='## line_color 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get this instance\'s line '
+                'color.<hr>',
+            value='**[インターフェイス概要]** インスタンスの線の色を'
+                  '取得します。<hr>'),
+        Mapping(
+            key='  - Current line color (hexadecimal string, '
+                'e.g., \'#00aaff\'). If not be set, this interface '
+                'returns a blank string.',
+            value='  - \'#00aaff\'などの16進数の線の色。もし設定'
+                  'されていない場合はこの空文字となります。'),
     ])

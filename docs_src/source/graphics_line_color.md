@@ -45,6 +45,7 @@ sprite.graphics.line_style(color='#0af', thickness=5)
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
+rectangle.click(on_click)
 
 ap.save_overall_html(
     dest_dir_path='./graphics_line_color_basic_usage/')

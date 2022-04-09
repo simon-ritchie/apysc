@@ -1260,4 +1260,15 @@ MAPPINGS: Mappings = Mappings(
                 'returns a blank string.',
             value='  - \'#00aaff\'などの16進数の線の色。もし設定'
                   'されていない場合はこの空文字となります。'),
+        Mapping(
+            key='**[Interface summary]** Get current dash dot (1-dot chain) '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** 現在の一点鎖線のスタイル設定を'
+                  '取得します。<hr>'),
+        Mapping(
+            key='## line_dash_dot_setting API',
+            value='## line_dash_dot_setting API'),
+        Mapping(
+            key='  - Dash dot (1-dot chain) setting.',
+            value='  - 一点鎖線の設定。'),
     ])

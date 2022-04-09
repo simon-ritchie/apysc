@@ -1220,4 +1220,9 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Current fill opacity (0.0 to 1.0).',
             value='  - 現在の塗りの透明度（0.0～1.0）。'),
+        Mapping(
+            key='**[Interface summary]** Get this instance\'s fill '
+                'color.<hr>',
+            value='**[インターフェイス概要]** インスタンスの塗りの色を'
+                  '取得します。<hr>'),
     ])

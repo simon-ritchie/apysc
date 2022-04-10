@@ -1271,4 +1271,15 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Dash dot (1-dot chain) setting.',
             value='  - 一点鎖線の設定。'),
+        Mapping(
+            key='## line_dash_setting property API',
+            value='## line_dash_setting 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get current line dash '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** 現在の線の破線のスタイル設定を'
+                  '取得します。<hr>'),
+        Mapping(
+            key='  - Line dash setting.',
+            value='  - 線の破線のスタイル設定。'),
     ])

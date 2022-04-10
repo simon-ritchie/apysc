@@ -1298,4 +1298,20 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Lien dot setting.',
             value='  - 線の点線のスタイル設定。'),
+        Mapping(
+            key='The getter or setter interface value becomes '
+                '(or requires) the `LineRoundDotSetting` instance value.',
+            value='getterやsetterのインターフェイスの値は`interface`クラスの'
+                  'インスタンスの値になります。'),
+        Mapping(
+            key='## line_round_dot_setting property API',
+            value='## line_round_dot_setting 属性のAPI'),
+        Mapping(
+            key='  - Line round dot setting.',
+            value='  - 線の丸ドットのスタイル設定。'),
+        Mapping(
+            key='**[Interface summary]** Get this instance\'s line round dot '
+                'setting.<hr>',
+            value='**[インターフェイス]** インスタンスの線の丸ドットの'
+                  'スタイル設定を取得します。<hr>'),
     ])

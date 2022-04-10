@@ -10,36 +10,54 @@ from typing import Dict
 MAPPING: Dict[str, str] = {
 
     '# Graphics line_round_dot_setting interface':
-    '',
+    '# Graphics クラスの line_round_dot_setting インターフェイス',
 
     'This page explains the `Graphics` class `line_round_dot_setting` property interface.':  # noqa
-    '',
+    'このページでは`Graphics`クラスの`line_round_dot_setting`属性のインターフェイスについて説明します。',
 
     '## What interface is this?':
-    '',
+    '## インターフェイス概要',
 
     'The `line_round_dot_setting` property interface updates or get the instance\'s current line round dot setting.':  # noqa
-    '',
+    '`line_round_dot_setting`属性のインターフェイスではインスタンスの現在線のの丸ドットのスタイル設定の更新や取得を行えます。',  # noqa
 
     '## Basic usage':
-    '',
+    '## 基本的な使い方',
 
-    'The getter or setter interface value becomes (or requires) the `LineRoundDotSetting` instance value.\n\nThe following example sets the 10-pixel round size to the line:':  # noqa
-    '',
+    'The getter or setter interface value becomes (or requires) the `LineRoundDotSetting` instance value.':  # noqa
+    'getterやsetterのインターフェイスの値は`interface`クラスのインスタンスの値になります。',
+
+    'The following example sets the 10-pixel round size to the line:':
+    '以下の例では10pxのサイズの丸ドットの線のスタイル設定を行っています:',
 
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=250, stage_height=100, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.line_style(color=\'#0af\', thickness=5)\n\nline: ap.Line = sprite.graphics.draw_line(\n    x_start=50, y_start=50, x_end=200, y_end=50)\nline.line_round_dot_setting = ap.LineRoundDotSetting(\n    round_size=10, space_size=5)\n\nap.save_overall_html(\n    dest_dir_path=\'./graphics_line_round_dot_setting_basic_usage/\')\n```':  # noqa
-    '',
-
-    '<iframe src="static/graphics_line_round_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>':  # noqa
-    '',
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=250, stage_height=100, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.line_style(color=\'#0af\', thickness=5)\n\nline: ap.Line = sprite.graphics.draw_line(\n    x_start=50, y_start=50, x_end=200, y_end=50)\nline.line_round_dot_setting = ap.LineRoundDotSetting(\n    round_size=10, space_size=5)\n\nap.save_overall_html(\n    dest_dir_path=\'./graphics_line_round_dot_setting_basic_usage/\')\n```',  # noqa
 
     '## line_round_dot_setting property API':
-    '',
+    '## line_round_dot_setting 属性のAPI',
 
-    '<!-- Docstring: apysc._display.line_round_dot_setting_interface.LineRoundDotSettingInterface.line_round_dot_setting -->\n\n<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>\n\n**[Interface summary]** Get this instance\'s line round dot setting.<hr>\n\n**[Returns]**\n\n- `line_round_dot_setting`: LineRoundDotSetting or None\n  - Line round dot setting.\n\n<hr>\n\n**[Examples]**':  # noqa
-    '',
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
+    '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+
+    '**[Interface summary]** Get this instance\'s line round dot setting.<hr>':  # noqa
+    '**[インターフェイス]** インスタンスの線の丸ドットのスタイル設定を取得します。<hr>',
+
+    '**[Returns]**':
+    '**[返却値]**',
+
+    '- `line_round_dot_setting`: LineRoundDotSetting or None':
+    '- `line_round_dot_setting`: LineRoundDotSetting or None',
+
+    '  - Line round dot setting.':
+    '  - 線の丸ドットのスタイル設定。',
+
+    '<hr>':
+    '<hr>',
+
+    '**[Examples]**':
+    '**[コードサンプル]**',
 
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=\'#fff\', thickness=10)\n>>> line: ap.Line = sprite.graphics.draw_line(\n...     x_start=50, y_start=50, x_end=150, y_end=50)\n>>> line.line_round_dot_setting = ap.LineRoundDotSetting(\n...     round_size=10, space_size=5)\n>>> line.line_round_dot_setting.round_size\nInt(10)\n\n>>> line.line_round_dot_setting.space_size\nInt(5)\n```':  # noqa
-    '',
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=\'#fff\', thickness=10)\n>>> line: ap.Line = sprite.graphics.draw_line(\n...     x_start=50, y_start=50, x_end=150, y_end=50)\n>>> line.line_round_dot_setting = ap.LineRoundDotSetting(\n...     round_size=10, space_size=5)\n>>> line.line_round_dot_setting.round_size\nInt(10)\n\n>>> line.line_round_dot_setting.space_size\nInt(5)\n```',  # noqa
 
 }

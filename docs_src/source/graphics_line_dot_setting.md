@@ -34,7 +34,7 @@ ap.save_overall_html(
 
 ## See also
 
-- [Graphics class line style interface](graphics_line_style.md)
+- [Graphics class line_style interface](graphics_line_style.md)
 
 
 ## line_dot_setting property API

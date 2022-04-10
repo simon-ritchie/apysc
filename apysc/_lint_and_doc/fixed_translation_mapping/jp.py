@@ -1282,4 +1282,20 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Line dash setting.',
             value='  - 線の破線のスタイル設定。'),
+        Mapping(
+            key='The getter or setter interface value becomes '
+                '(or requires) the `LineDotSetting` instance value.',
+            value='getterやsetterのインターフェイスの値は`LineDotSetting`'
+                  'クラスのインスタンスの値となります。'),
+        Mapping(
+            key='## line_dot_setting property API',
+            value='## line_dot_setting 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get this instance\'s '
+                'line dot setting.<hr>',
+            value='**[インターフェイス概要]** このインスタンスの線の点線のスタイル'
+                  '設定を取得します。<hr>'),
+        Mapping(
+            key='  - Lien dot setting.',
+            value='  - 線の点線のスタイル設定。'),
     ])

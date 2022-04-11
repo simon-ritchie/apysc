@@ -1314,4 +1314,234 @@ MAPPINGS: Mappings = Mappings(
                 'setting.<hr>',
             value='**[インターフェイス]** インスタンスの線の丸ドットの'
                   'スタイル設定を取得します。<hr>'),
+        Mapping(
+            key='## Line-color setting',
+            value='## 線の色の設定'),
+        Mapping(
+            key='- Six characters, e.g., `#00aaff`.',
+            value='- `#00aaff`などの6文字による指定。'),
+        Mapping(
+            key='- Three characters, e.g., `#0af` (this becomes '
+                '`#00aaff`).',
+            value='- `#0af`などの3文字による指定（これは`#00aaff`と同じ'
+                  '値として扱われます）。'),
+        Mapping(
+            key='- Single character, e.g., `#5` (this becomes `#000005`).',
+            value='- `#5`などの1文字による指定（これは`000005`と同じ値'
+                  'として扱われます）。'),
+        Mapping(
+            key='- Skipped `#` symbol, e.g., `0af` (this becomes '
+                '`#00aaff`).',
+            value='- `0af`などの`#`記号を省略した指定（これは`#00aaff`と同じ値'
+                  'として扱われます）。'),
+        Mapping(
+            key='- Blank string, e.g., `\'\'` (this clears line color '
+                'setting).',
+            value='- `\'\'`などの空文字の指定（これは線の色の削除指定として'
+                  '扱われます）。`'),
+        Mapping(
+            key='## Line thickness setting',
+            value='## 線幅の設定'),
+        Mapping(
+            key='## Line alpha (opacity) setting',
+            value='## 線の透明度の設定'),
+        Mapping(
+            key='## Line cap setting',
+            value='## 線端の設定'),
+        Mapping(
+            key='There are three `LineCaps` options, as follows:',
+            value='以下のように`LineCaps`のオプションは3種類存在します:'),
+        Mapping(
+            key='- BUTT: This is the default value, and it sets no cap.',
+            value='- BUTT: デフォルト値であり、端にはなにも設定されません。'),
+        Mapping(
+            key='- ROUND: This changes the line edge to the rounded one.',
+            value='- ROUND: 線の端のスタイルを丸くします。'),
+        Mapping(
+            key='- SQUARE: This is similar to BUTT, but it increases '
+                'the line length by the squared edge.',
+            value='- SQUARE: 線の端のスタイルを四角くします。これはBUTTと'
+                  '似た表示になりますが、設定される四角の分だけ線が長くなります。'),
+        Mapping(
+            key='## Line joints setting',
+            value='## 線の繋ぎ目の設定'),
+        Mapping(
+            key='There are three LineJoints enum values, as follows:',
+            value='以下のようにLineJointsのenumには3つの値が存在します:'),
+        Mapping(
+            key='- MITER: This setting sets the style like a picture '
+                'frame vertices. This setting is the default style setting.',
+            value='- MITER: この設定は頂点が（尖った形での）額縁のような'
+                  '形のスタイルが設定されます。この設定がデフォルトのスタイルと'
+                  'なります。'),
+        Mapping(
+            key='- ROUND: This setting sets the rounded vertices style.',
+            value='- ROUND: この設定は丸い頂点のスタイルを設定します。'),
+        Mapping(
+            key='- BEVEL: This setting sets a beveled vertices style.',
+            value='- BEVEL: この設定は射角（ベベル）の頂点のスタイルを設定します。'),
+        Mapping(
+            key='## Line dot setting',
+            value='## 線の点線設定'),
+        Mapping(
+            key='Notes: This setting will be ignored by `draw_line`, '
+                '`draw_dotted_line`, `draw_dashed_line`, '
+                '`draw_round_dotted_line`, and `draw_dash_dotted_line` '
+                'interfaces.',
+            value='特記事項: この設定は`draw_line`、`draw_dotted_line`、'
+                  '`draw_dashed_line`、`draw_round_dotted_line`、'
+                  '`draw_dash_dotted_line`の各インターフェイスで無視されます。'),
+        Mapping(
+            key='## Line dash setting',
+            value='## 線の破線設定'),
+        Mapping(
+            key='## Line round dot setting',
+            value='## 線の丸ドット設定'),
+        Mapping(
+            key='Notes: Since this setting uses the `cap` setting '
+                'internally, this setting ignores the `cap` setting, '
+                'increasing the line length by the capsize.',
+            value='特記事項: この設定は内部で`cap`設定の値を使用している'
+                  'ため、この設定では`cap`引数の設定が無視されます。また、丸の'
+                  'サイズに応じた分だけ線の長さが長くなります。'),
+        Mapping(
+            key='## Line dash-dot setting',
+            value='## 線の一点鎖線の設定'),
+        Mapping(
+            key='## line_style API',
+            value='## line_style API'),
+        Mapping(
+            key='**[Interface summary]** Set line style values.<hr>',
+            value='**[インターフェイス概要]** 線のスタイルを設定します。<hr>'),
+        Mapping(
+            key='  - Line thickness (minimum value is 1).',
+            value='  - 線の幅（1以上の値を受け付けます）。'),
+        Mapping(
+            key='  - Line cap (edge style) setting. The not line-related '
+                'graphics (e.g., Rectangle ignores this, conversely used '
+                'by Polyline) ignore this setting.',
+            value='  - 線の端のスタイル設定。線に関係しないRectangleクラスなどの'
+                  'グラフィックスインスタンスはこの設定を無視します。逆に'
+                  'Polylineクラスなどの線に関係したインスタンスではこの設定を'
+                  '使用します。'),
+        Mapping(
+            key='  - Line vertices (joints) style setting. The not '
+                'polyline-related graphics (e.g., Rectangle ignores '
+                'this, conversely used by Polyline) ignore this setting.',
+            value='  - 線の頂点（接合部）のスタイル設定。折れ線線に関係しないRectangle'
+                  'などのグラフィックスインスタンスはこの設定を無視します。'
+                  '逆にPolylineクラスなどの折れ線関係のクラスではこの設定を'
+                  '使用します。'),
+        Mapping(
+            key='  - Dot setting. If this is specified, it makes a '
+                'line dotted.',
+            value='  - 点線の設定。もしもこの引数が指定された場合、線は点線になります。'),
+        Mapping(
+            key='  - Dash setting. If this is specified, it makes a '
+                'line dashed.',
+            value='  - 破線の設定。もしこの引数が指定された場合、線は破線になります。'),
+        Mapping(
+            key='  - Round dot setting. If this is specified, it makes '
+                'a line round dotted. Notes: since this style uses a cap '
+                'setting, it overrides cap and line thickness settings. '
+                'And it increases the amount of line size. If you want to '
+                'adjust to the same width of a normal line when using '
+                'move_to and line_to interfaces, add half-round size to '
+                'start x-coordinate and subtract from end e-coordinate. '
+                'e.g., `this.move_to(x + round_size / 2, y)`, '
+                '`this.line_to(x - round_size / 2, y)`',
+            value='  - 丸ドットの設定。もしこの引数が指定された場合、線は丸ドット'
+                  'になります。特記事項: ごの設定は内部でcapの設定を使用しているため、'
+                  'cap（線の端のスタイル設定）と線幅の設定を上書きします。'
+                  'また、cap設定を使用している都合、線の長さも長くなります。'
+                  'move_toやline_toなどのインターフェイスを使った通常の線の'
+                  '長さと合わせたい場合には丸の半分のサイズを線の開始位置のX座標'
+                  'へ加算し、さらに丸の半分のサイズを線の終了位置のX座標から減算'
+                  'してください（Y座標も同様です）。'
+                  '例: `this.move_to(x + round_size / 2, y)`、'
+                  '`this.line_to(x - round_size / 2, y)`'),
+        Mapping(
+            key='  - Dash dot (1-dot chain) setting. If this is '
+                'specified, it makes a line 1-dot chained.',
+            value='  - 一点鎖線のスタイル設定。もしこの引数が指定された'
+                  '場合、線の一点鎖線になります。'),
+        Mapping(
+            key='**[Interface summary]** Get current line color.<hr>',
+            value='**[インターフェイス概要]** 現在の線の色を取得します。<hr>'),
+        Mapping(
+            key='## line_thickness property API',
+            value='## line_thickness 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get current line thickness.<hr>',
+            value='**[インターフェイス概要]** 現在の線の線幅を取得します。<hr>'),
+        Mapping(
+            key='  - Current line thickness.',
+            value='  - 現在の線幅。'),
+        Mapping(
+            key='**[Interface summary]** Get current line color opacity.<hr>',
+            value='**[インターフェイス概要]** 現在の線の透明度を取得します。<hr>'),
+        Mapping(
+            key='  - Current line opacity (0.0 to 1.0).',
+            value='  - 現在の線の透明度（0.0～1.0）。'),
+        Mapping(
+            key='## line_cap property API',
+            value='## line_cap 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get current line cap '
+                '(edge) style setting.<hr>',
+            value='**[インターフェイス概要]** 現在の線の端のスタイル設定。<hr>'),
+        Mapping(
+            key='  - Current line cap (edge) style setting.',
+            value='  - 現在の線の端のスタイル設定。'),
+        Mapping(
+            key='## line_joints property API',
+            value='## line_joints 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get current line joints (vertices) style '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** 現在の線の接合部（頂点）のスタイル'
+                  '設定を取得します。<hr>'),
+        Mapping(
+            key='  - Current line joints (vertices) style setting.',
+            value='  - 現在の線の接合部（頂点）のスタイル設定。'),
+        Mapping(
+            key='**[Interface summary]** Get current line dot setting.<hr>',
+            value='**[インターフェイス概要]** 現在の線の点線設定を取得します。<hr>'),
+        Mapping(
+            key='  - Current line dot setting.',
+            value='  - 現在の点線設定。'),
+        Mapping(
+            key='  - Current line dash setting.',
+            value='  - 現在の破線設定。'),
+        Mapping(
+            key='  - Current line dash setting.',
+            value='  - 現在の破線設定。'),
+        Mapping(
+            key='**[Interface summary]** Get current line round dot '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** 現在の線の丸ドットのスタイル設定を'
+                  '取得します。<hr>'),
+        Mapping(
+            key='  - Current line round dot setting.',
+            value='  - 現在の線の丸ドットのスタイル設定。'),
+        Mapping(
+            key='## line_dash_dot_setting property API',
+            value='## line_dash_dot_setting 属性のAPI'),
+        Mapping(
+            key='## line_dash_dot_setting property API',
+            value='## line_dash_dot_setting 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get current line dash dot '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** 現在の線の一点鎖線のスタイル'
+                  '設定を取得します。<hr>'),
+        Mapping(
+            key='  - Line color opacity (0.0 to 1.0).',
+            value='  - 線色の透明度（0.0～1.0）。'),
+        Mapping(
+            key='  - Line color opacity (0.0 to 1.0).',
+            value='  - 線色の透明度（0.0～1.0）。'),
+        Mapping(
+            key='  - Current line dash dot setting.',
+            value='  - 現在の一点鎖線のスタイル設定。'),
     ])

@@ -1544,4 +1544,14 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Current line dash dot setting.',
             value='  - 現在の一点鎖線のスタイル設定。'),
+        Mapping(
+            key='The getter or setter interface value becomes (or requires) '
+                'the `Int` value.',
+            value='getterもしくはsetterの各インターフェイスの値は`Int`型の値に'
+                  'なります。'),
+        Mapping(
+            key='**[Interface summary]** Get this instance\'s line '
+                'thickness.<hr>',
+            value='**[インターフェイス概要]** このインスタンスの線幅を'
+                  '取得します。<hr>'),
     ])

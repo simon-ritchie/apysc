@@ -95,7 +95,7 @@ Set line style values.<hr>
 - `joints`: LineJoints or None, default None
   - Line vertices (joints) style setting. The not polyline-related graphics (e.g., Rectangle ignores this, conversely used by Polyline) ignore this setting.
 - `dot_setting`: LineDotSetting or None, default None
-  - Dash setting. If this is specified, it makes a line dashed.
+  - Dot setting. If this is specified, it makes a line dotted.
 - `dash_setting`: LineDashSetting or None, default None
   - Dash setting. If this is specified, it makes a line dashed.
 - `round_dot_setting`: LineRoundDotSetting or None, default None

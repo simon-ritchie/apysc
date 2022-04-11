@@ -1497,8 +1497,8 @@ MAPPINGS: Mappings = Mappings(
             key='## line_joints property API',
             value='## line_joints 属性のAPI'),
         Mapping(
-            key='**[Interface summary]** Get current line joints (vertices) style '
-                'setting.<hr>',
+            key='**[Interface summary]** Get current line joints '
+                '(vertices) style setting.<hr>',
             value='**[インターフェイス概要]** 現在の線の接合部（頂点）のスタイル'
                   '設定を取得します。<hr>'),
         Mapping(

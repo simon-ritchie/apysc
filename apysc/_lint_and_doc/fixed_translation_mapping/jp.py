@@ -1598,4 +1598,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Y destination point to draw a line.',
             value='  - 線の描画先となる終点のY座標。'),
+        Mapping(
+            key='## Return values',
+            value='## 各返却値について'),
     ])

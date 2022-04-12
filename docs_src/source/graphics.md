@@ -1,4 +1,4 @@
-# Graphics
+# Graphics class
 
 This page explains the `Graphics` class.
 
@@ -107,16 +107,16 @@ If you click the following rectangle, that rectangle changes x and y coordinates
 
 ## See also
 
-- [Graphics class begin fill interface](graphics_begin_fill.md)
-- [Graphics class line style interface](graphics_line_style.md)
-- [Graphics class draw rect interface](graphics_draw_rect.md)
-- [Graphics class draw round rect interface](graphics_draw_round_rect.md)
-- [Graphics class draw circle interface](graphics_draw_circle.md)
-- [Graphics class draw ellipse interface](graphics_draw_ellipse.md)
-- [Graphics class move to and line to interfaces](graphics_move_to_and_line_to.md)
-- [Graphics class draw line interface](graphics_draw_line.md)
-- [Graphics class draw dotted line interface](graphics_draw_dotted_line.md)
-- [Graphics class draw dashed line interface](graphics_draw_dashed_line.md)
-- [Graphics class draw round dotted line interface](graphics_draw_round_dotted_line.md)
-- [Graphics class draw dash dotted line interface](graphics_draw_dash_dotted_line.md)
-- [Graphics class draw polygon interface](graphics_draw_polygon.md)
+- [Graphics class begin_fill interface](graphics_begin_fill.md)
+- [Graphics class line_style interface](graphics_line_style.md)
+- [Graphics class draw_rect interface](graphics_draw_rect.md)
+- [Graphics class draw_round_rect interface](graphics_draw_round_rect.md)
+- [Graphics class draw_circle interface](graphics_draw_circle.md)
+- [Graphics class draw_ellipse interface](graphics_draw_ellipse.md)
+- [Graphics class move_to and line_to interfaces](graphics_move_to_and_line_to.md)
+- [Graphics class draw_line interface](graphics_draw_line.md)
+- [Graphics class draw_dotted_line interface](graphics_draw_dotted_line.md)
+- [Graphics class draw_dashed_line interface](graphics_draw_dashed_line.md)
+- [Graphics class draw_round_dotted_line interface](graphics_draw_round_dotted_line.md)
+- [Graphics class draw_dash_dotted_line interface](graphics_draw_dash_dotted_line.md)
+- [Graphics class draw_polygon interface](graphics_draw_polygon.md)

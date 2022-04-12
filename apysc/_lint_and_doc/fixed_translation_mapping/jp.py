@@ -1554,4 +1554,48 @@ MAPPINGS: Mappings = Mappings(
                 'thickness.<hr>',
             value='**[インターフェイス概要]** このインスタンスの線幅を'
                   '取得します。<hr>'),
+        Mapping(
+            key='## What interfaces are they?',
+            value='## 各インターフェイスの概要'),
+        Mapping(
+            key='If you click the following line, line style will be '
+                'updated:',
+            value='もし以下の四角をクリックし0た場合、線のスタイルは更新'
+                  'されます:'),
+        Mapping(
+            key='## move_to API',
+            value='## move_to API'),
+        Mapping(
+            key='**[Interface summary]** Move a line position to a '
+                'specified point.<hr>',
+            value='**[インターフェイス概要]** 指定された座標に線の描画位置を'
+                  '移動させます。<hr>'),
+        Mapping(
+            key='  - X destination point to move.',
+            value='  - 移動先となるX座標。'),
+        Mapping(
+            key='  - Y destination point to move.',
+            value='  - 移動先となるY座標。'),
+        Mapping(
+            key='  - Line graphics instance.',
+            value='  - 線のグラフィックスのインスタンス。'),
+        Mapping(
+            key='  - Line graphics instance.',
+            value='  - 線のグラフィックスのインスタンス。'),
+        Mapping(
+            key='## line_to API',
+            value='## line_to API'),
+        Mapping(
+            key='**[Interface summary]** Draw a line from '
+                'previous point to specified point (initial '
+                'point is x = 0, y = 0).<hr>',
+            value='**[インターフェイス概要]** 直前の位置の座標から'
+                  '指定された座標に向けて線を描画します（初期位置は'
+                  'x=0, y=0になります）。<hr>'),
+        Mapping(
+            key='  - X destination point to draw a line.',
+            value='  - 線の描画先となる終点のX座標。'),
+        Mapping(
+            key='  - Y destination point to draw a line.',
+            value='  - 線の描画先となる終点のY座標。'),
     ])

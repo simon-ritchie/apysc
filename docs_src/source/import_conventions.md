@@ -1,4 +1,4 @@
-# Import conventions
+# import conventions
 
 The apysc library recommends using the `import apysc as ap` to import the package, like the `import numpy as np`\, `import pandas as pd`\, `import tkinter as tk`\, or something like that.
 

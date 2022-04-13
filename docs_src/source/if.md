@@ -1,4 +1,4 @@
-# If
+# If class
 
 This page explains the `If` class.
 
@@ -12,7 +12,7 @@ The `If` class is the apysc branch instruction class. It behaves like the Python
 
 ## Basic usage
 
-The `If` class requires the `with` statement, as follows:
+The `If` class requires the `with` statement as follows:
 
 ```py
 # runnable

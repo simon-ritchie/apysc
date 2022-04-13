@@ -1662,5 +1662,5 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='**Exporting**',
             value='**出力処理**'),
-        
+
     ])

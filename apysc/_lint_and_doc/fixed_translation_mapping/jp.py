@@ -1623,4 +1623,44 @@ MAPPINGS: Mappings = Mappings(
                   'の値をスコープの開始前の時点に復元します。この設定は`If`の'
                   'スコープ内の処理でPython上の各ローカル変数の値を更新したくない'
                   '場合などに便利なことがあります。'),
+        Mapping(
+            key='## Project links',
+            value='## プロジェクトの関連リンク'),
+        Mapping(
+            key='- [GitHub](https://github.com/simon-ritchie/apysc)',
+            value='- [GitHub](https://github.com/simon-ritchie/apysc)'),
+        Mapping(
+            key='- [Twitter](https://twitter.com/apysc)',
+            value='- [Twitter](https://twitter.com/apysc)'),
+        Mapping(
+            key='- [PyPI](https://pypi.org/project/apysc/)',
+            value='- [PyPI](https://pypi.org/project/apysc/)'),
+        Mapping(
+            key='What apysc can do in its current implementation',
+            value='apyscが現在の実装で出来ることの概要'),
+        Mapping(
+            key='## Contents',
+            value='## コンテンツ'),
+        Mapping(
+            key='**Quick start guide**',
+            value='**クイックスタートガイド**'),
+        Mapping(
+            key='Quick start guide',
+            value='クイックスタートガイド'),
+        Mapping(
+            key='import conventions',
+            value='import の慣習'),
+        Mapping(
+            key='**Container classes**',
+            value='**コンテナーの各クラス**'),
+        Mapping(
+            key='Stage class',
+            value='Stage クラス'),
+        Mapping(
+            key='Sprite class',
+            value='Sprite クラス'),
+        Mapping(
+            key='**Exporting**',
+            value='**出力処理**'),
+        
     ])

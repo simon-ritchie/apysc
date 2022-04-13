@@ -10,67 +10,67 @@ from typing import Dict
 MAPPING: Dict[str, str] = {
 
     '# apysc documentation':
-    '',
+    '# apysc ドキュメント',
 
     'Welcome to apysc documentation! apysc is the Python front-end library (currently developing and only works partially).':  # noqa
-    '',
+    'apyscのドキュメントページへようこそ！apyscはPythonのフロントエンド用のライブラリです（現在開発中であり部分的にのみ動作します）。',  # noqa
 
     '## Project links':
-    '',
+    '## プロジェクトの関連リンク',
 
     '- [GitHub](https://github.com/simon-ritchie/apysc)':
-    '',
+    '- [GitHub](https://github.com/simon-ritchie/apysc)',
 
-    '  - Stargazers are very welcome!':
-    '',
+    '  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!':  # noqa
+    '  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていっていただけますと幸いです！',  # noqa
 
     '- [Twitter](https://twitter.com/apysc)':
-    '',
+    '- [Twitter](https://twitter.com/apysc)',
 
     '  - The progress and updates are informed on Twitter. Please follow!':
-    '',
+    '  - 進捗やアップデートなどはTwitterで告知しています！',
 
     '- [PyPI](https://pypi.org/project/apysc/)':
-    '',
+    '- [PyPI](https://pypi.org/project/apysc/)',
 
     '## Contents':
-    '',
+    '## コンテンツ',
 
     '**Quick start guide**':
-    '',
+    '**クイックスタートガイド**',
 
     '- [What apysc can do in its current implementation](what_apysc_can_do.md)':  # noqa
-    '',
+    '- [apyscが現在の実装で出来ることの概要](jp_what_apysc_can_do.md)',
 
     '- [Quick start guide](quick_start.md)':
-    '',
+    '- [クイックスタートガイド](jp_quick_start.md)',
 
-    '- [Import conventions](import_conventions.md)':
-    '',
+    '- [import conventions](import_conventions.md)':
+    '- [import の慣習](jp_import_conventions.md)',
 
     '---':
-    '',
+    '---',
 
     '**Container classes**':
-    '',
+    '**コンテナーの各クラス**',
 
     'The `Stage` is the apysc overall drawing area container, and the `Sprite` is the container class.':  # noqa
-    '',
+    '`Stage`はapyscの描画領域全体のコンテナーとなり、`Sprite`は通常の各インスタンスのコンテナーのクラスとなります。',
 
     '- [Stage class](stage.md)':
-    '',
+    '- [Stage クラス](jp_stage.md)',
 
     '- [Sprite class](sprite.md)':
-    '',
+    '- [Sprite クラス](jp_sprite.md)',
 
     '---':
-    '',
+    '---',
 
     '**Exporting**':
-    '',
+    '**出力処理**',
 
     'The HTML and JavaScript exporting interfaces.':
-    '',
+    '以下はHTMLとJavaScriptの出力処理関係の各インターフェイスです。',
 
     '- [save overall html interface](save_overall_html.md)':
     '',
@@ -85,7 +85,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**Child-related interfaces**':
     '',
@@ -106,7 +106,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**apysc basic data classes**':
     '',
@@ -193,7 +193,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**DisplayObject and GraphicsBase classes**':
     '',
@@ -241,7 +241,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**Graphics class**':
     '',
@@ -322,7 +322,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**Common event interfaces**':
     '',
@@ -337,7 +337,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**MouseEvent class and mouse event binding**':
     '',
@@ -364,7 +364,7 @@ MAPPING: Dict[str, str] = {
     '- [mousemove インターフェイス](jp_mousemove.md)',
 
     '---':
-    '',
+    '---',
 
     '**Branch instruction**':
     '',
@@ -385,7 +385,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**Loop**':
     '',
@@ -397,7 +397,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**Timer**':
     '',
@@ -427,7 +427,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**Animation**':
     '',
@@ -529,7 +529,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**Debugging**':
     '',
@@ -544,7 +544,7 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
     '**Testing**':
     '',
@@ -568,6 +568,6 @@ MAPPING: Dict[str, str] = {
     '',
 
     '---':
-    '',
+    '---',
 
 }

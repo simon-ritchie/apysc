@@ -43,6 +43,7 @@ _NO_MAPPING_FIXED_STRINGS: List[str] = [
     '<hr>',
     '- ValueError: ',
     '- Exception: ',
+    '---',
 ]
 
 

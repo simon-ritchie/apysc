@@ -57,6 +57,10 @@ def _main() -> None:
     stdout: str = complete_process.stdout.decode('utf-8')
     print(stdout)
     _move_and_adjust_updated_files()
+
+    logger.info(msg='Reverting each index.md file...')
+    index_md_replacer.revert()
+
     apply_link_text_mapping_to_index_html.apply()
 
     logger.info(msg='Build completed!')

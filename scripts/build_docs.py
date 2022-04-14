@@ -56,6 +56,33 @@ def _main() -> None:
     logger.info(msg='Build completed!')
 
 
+class _IndexMdUnderscoresReplacer:
+
+    _index_src_file_paths: List[str]
+    _original_index_files_texts: Dict[str, str]
+
+    def __init__(self) -> None:
+        """
+        This class handles the index.md files underscores
+        replacing and reverting.
+        """
+        self._set_index_src_file_paths()
+
+    def _set_index_src_file_paths(self) -> None:
+        """
+        Set the index.md source file paths to the `_index_src_file_paths`
+        attribute.
+        """
+        self._index_src_file_paths = []
+        file_names: List[str] = os.listdir('./docs_src/source/')
+        for file_name in file_names:
+            if not file_name.endswith('index.md'):
+                continue
+            file_path = os.path.join(
+                './docs_src/source/', file_name)
+            self._index_src_file_paths.append(file_path)
+
+
 def _remove_runnable_inline_comment_from_code_blocks(
         dir_path: str = './docs/') -> None:
     """

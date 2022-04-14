@@ -12,7 +12,7 @@ import scripts.build_docs as build_docs
 from apysc._file import file_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_KEYWORD
-from scripts.build_docs import HASHED_VALS_DIR_PATH
+from scripts.build_docs import HASHED_VALS_DIR_PATH, _IndexMdUnderscoresReplacer
 from scripts.build_docs import _CodeBlock
 from scripts.build_docs import _CodeBlockFlake8Error
 from scripts.build_docs import _CodeBlockMypyError
@@ -740,3 +740,11 @@ def test_check_each_doc_has_single_h1_symbol() -> None:
             string=doc_txt,
             flags=re.MULTILINE)
         assert len(found_txts) == 1, doc_file_path
+
+
+class Test_IndexMdUnderscoresReplacer:
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_index_src_file_paths(self) -> None:
+        replacer: _IndexMdUnderscoresReplacer = _IndexMdUnderscoresReplacer()
+        assert './docs_src/source/index.md' in replacer._index_src_file_paths

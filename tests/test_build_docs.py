@@ -754,3 +754,26 @@ class Test_IndexMdUnderscoresReplacer:
         replacer: _IndexMdUnderscoresReplacer = _IndexMdUnderscoresReplacer()
         assert '# apysc documentation' in replacer.\
             _original_index_files_texts['./docs_src/source/index.md']
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_remove_underscores(self) -> None:
+        replacer: _IndexMdUnderscoresReplacer = _IndexMdUnderscoresReplacer()
+        txt: str = file_util.read_txt(file_path='./docs_src/source/index.md')
+        if 'save_overall_html interface' not in txt:
+            raise AssertionError(f"index.md's contents are invalid:\n{txt}")
+        replacer.remove_underscores()
+        txt = file_util.read_txt(file_path='./docs_src/source/index.md')
+        assert 'save_overall_html interface' not in txt
+        assert 'save overall html interface' in txt
+        replacer.revert()
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_revert(self) -> None:
+        replacer: _IndexMdUnderscoresReplacer = _IndexMdUnderscoresReplacer()
+        txt: str = file_util.read_txt(file_path='./docs_src/source/index.md')
+        if 'save_overall_html interface' not in txt:
+            raise AssertionError(f"index.md's contents are invalid:\n{txt}")
+        replacer.remove_underscores()
+        replacer.revert()
+        txt = file_util.read_txt(file_path='./docs_src/source/index.md')
+        assert 'save_overall_html interface' in txt

@@ -16,7 +16,7 @@ from logging import Logger
 from typing import Any
 from typing import Dict
 from typing import List
-from typing import Match
+from typing import Match, Pattern
 from typing import Optional as Op
 
 from typing_extensions import Final
@@ -44,6 +44,12 @@ def _main() -> None:
 
     _exec_document_lint_and_script()
 
+    index_md_replacer: _IndexMdUnderscoresReplacer = \
+        _IndexMdUnderscoresReplacer()
+
+    logger.info(msg='Removing underscores from each index.md file...')
+    index_md_replacer.remove_underscores()
+
     logger.info(msg='Sphinx build command started...')
     complete_process: sp.CompletedProcess = sp.run(
         'sphinx-build ./docs_src/source/ ./docs/', shell=True,
@@ -68,6 +74,33 @@ class _IndexMdUnderscoresReplacer:
         """
         self._set_index_src_file_paths()
         self._set_original_index_files_texts()
+
+    def remove_underscores(self) -> None:
+        """
+        Remove underscores from each index.md file.
+        """
+        from apysc._file import file_util
+        pattern: Pattern = re.compile(pattern=r'^(\- \[.*?)\_(.*?\])')
+        for file_path, text in self._original_index_files_texts.items():
+            lines: List[str] = text.splitlines()
+            result_lines: List[str] = []
+            for line in lines:
+                match: Op[Match] = pattern.match(string=line)
+                while match is not None:
+                    line = f'{match.group(1)} {match.group(2)}'
+                    match = pattern.match(string=line)
+                result_lines.append(line)
+            result_txt: str = '\n'.join(result_lines)
+            file_util.save_plain_txt(
+                txt=result_txt, file_path=file_path)
+
+    def revert(self) -> None:
+        """
+        Revert each index.md file's text.
+        """
+        from apysc._file import file_util
+        for file_path, txt in self._original_index_files_texts.items():
+            file_util.save_plain_txt(txt=txt, file_path=file_path)
 
     def _set_original_index_files_texts(self) -> None:
         """

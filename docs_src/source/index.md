@@ -33,10 +33,10 @@ The `Stage` is the apysc overall drawing area container, and the `Sprite` is the
 
 The HTML and JavaScript exporting interfaces.
 
-- [save overall html interface](save_overall_html.md)
-- [display on jupyter interface](display_on_jupyter.md)
-- [display on google colaboratory interface](display_on_colaboratory.md)
-- [append js expression interface](append_js_expression.md)
+- [save_overall_html interface](save_overall_html.md)
+- [display_on_jupyter interface](display_on_jupyter.md)
+- [display_on_google_colaboratory interface](display_on_colaboratory.md)
+- [append_js_expression interface](append_js_expression.md)
 
 ---
 
@@ -44,10 +44,10 @@ The HTML and JavaScript exporting interfaces.
 
 The parent class, such as the `Sprite` or `Stage` have the following interfaces:
 
-- [add child and remove child interfaces](add_child_and_remove_child.md)
+- [add_child and remove_child interfaces](add_child_and_remove_child.md)
 - [contains interface](contains.md)
-- [num children interface](num_children.md)
-- [get child at interface](get_child_at.md)
+- [num_children interface](num_children.md)
+- [get_child_at interface](get_child_at.md)
 
 ---
 
@@ -65,15 +65,15 @@ The parent class, such as the `Sprite` or `Stage` have the following interfaces:
 - [Array class](array.md)
 - [Array class append and push interfaces](array_append_and_push.md)
 - [Array class extend and concat interfaces](array_extend_and_concat.md)
-- [Array class insert and insert at interfaces](array_insert_and_insert_at.md)
+- [Array class insert and insert_at interfaces](array_insert_and_insert_at.md)
 - [Array class pop interface](array_pop.md)
-- [Array class remove and remove at interfaces](array_remove_and_remove_at.md)
+- [Array class remove and remove_at interfaces](array_remove_and_remove_at.md)
 - [Array class sort interface](array_sort.md)
 - [Array class reverse interface](array_reverse.md)
 - [Array class slice interface](array_slice.md)
 - [Array class length interface](array_length.md)
 - [Array class join interface](array_join.md)
-- [Array class index of interface](array_index_of.md)
+- [Array class index_of interface](array_index_of.md)
 - [Array class comparison interfaces](array_comparison.md)
 - [Dictionary class](dictionary.md)
 - [Dictionary class generic type settings](dictionary_generic.md)
@@ -92,14 +92,14 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [DisplayObject class x and y interfaces](display_object_x_and_y.md)
 - [DisplayObject class parent interfaces](display_object_parent.md)
 - [DisplayObject class visible interface](display_object_visible.md)
-- [DisplayObject class get css and set css interfaces](display_object_get_and_set_css.md)
+- [DisplayObject class get_css and set_css interfaces](display_object_get_and_set_css.md)
 - [DisplayObject class mouse event binding interfaces](display_object_mouse_event.md)
-- [GraphicsBase class rotation around center interface](graphics_base_rotation_around_center.md)
-- [GraphicsBase class rotation around point interfaces](graphics_base_rotation_around_point.md)
-- [GraphicsBase class scale from center interfaces](graphics_base_scale_from_center.md)
-- [GraphicsBase class scale from point interfaces](graphics_base_scale_from_point.md)
+- [GraphicsBase class rotation_around_center interface](graphics_base_rotation_around_center.md)
+- [GraphicsBase class rotation_around_point interfaces](graphics_base_rotation_around_point.md)
+- [GraphicsBase class scale_from_center interfaces](graphics_base_scale_from_center.md)
+- [GraphicsBase class scale_from_point interfaces](graphics_base_scale_from_point.md)
 - [GraphicsBase class flip x and flip y interfaces](graphics_base_flip_interfaces.md)
-- [GraphicsBase class skew x and skew y interfaces](graphics_base_skew.md)
+- [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md)
 
 ---
 
@@ -109,28 +109,28 @@ The `Graphics` class handles each vector graphics drawing.
 
 - [Draw interfaces abstract](draw_interfaces_abstract.md)
 - [Graphics class](graphics.md)
-- [Graphics class begin fill interface](graphics_begin_fill.md)
-- [Graphics class line style interface](graphics_line_style.md)
-- [Graphics class draw rect interface](graphics_draw_rect.md)
-- [Graphics class draw round rect interface](graphics_draw_round_rect.md)
-- [Graphics class draw circle interface](graphics_draw_circle.md)
-- [Graphics class draw ellipse interface](graphics_draw_ellipse.md)
-- [Graphics class move to and line to interfaces](graphics_move_to_and_line_to.md)
-- [Graphics class draw line interface](graphics_draw_line.md)
-- [Graphics class draw dotted line interface](graphics_draw_dotted_line.md)
-- [Graphics class draw dashed line interface](graphics_draw_dashed_line.md)
-- [Graphics class draw round dotted line interface](graphics_draw_round_dotted_line.md)
-- [Graphics class draw dash dotted line interface](graphics_draw_dash_dotted_line.md)
-- [Graphics class draw polygon interface](graphics_draw_polygon.md)
-- [Graphics class fill color interface](graphics_fill_color.md)
-- [Graphics class fill alpha interface](graphics_fill_alpha.md)
-- [Graphics class line color interface](graphics_line_color.md)
-- [Graphics class line alpha interface](graphics_line_alpha.md)
-- [Graphics class line thickness interface](graphics_line_thickness.md)
-- [Graphics class line dot setting interface](graphics_line_dot_setting.md)
-- [Graphics class line dash setting interface](graphics_line_dash_setting.md)
-- [Graphics class line round dot setting interface](graphics_line_round_dot_setting.md)
-- [Graphics class line dash dot setting interface](graphics_line_dash_dot_setting.md)
+- [Graphics class begin_fill interface](graphics_begin_fill.md)
+- [Graphics class line_style interface](graphics_line_style.md)
+- [Graphics class draw_rect interface](graphics_draw_rect.md)
+- [Graphics class draw_round_rect interface](graphics_draw_round_rect.md)
+- [Graphics class draw_circle interface](graphics_draw_circle.md)
+- [Graphics class draw_ellipse interface](graphics_draw_ellipse.md)
+- [Graphics class move_to and line_to interfaces](graphics_move_to_and_line_to.md)
+- [Graphics class draw_line interface](graphics_draw_line.md)
+- [Graphics class draw_dotted_line interface](graphics_draw_dotted_line.md)
+- [Graphics class draw_dashed_line interface](graphics_draw_dashed_line.md)
+- [Graphics class draw_round_dotted_line interface](graphics_draw_round_dotted_line.md)
+- [Graphics class draw_dash_dotted_line interface](graphics_draw_dash_dotted_line.md)
+- [Graphics class draw_polygon interface](graphics_draw_polygon.md)
+- [Graphics class fill_color interface](graphics_fill_color.md)
+- [Graphics class fill_alpha interface](graphics_fill_alpha.md)
+- [Graphics class line_color interface](graphics_line_color.md)
+- [Graphics class line_alpha interface](graphics_line_alpha.md)
+- [Graphics class line_thickness interface](graphics_line_thickness.md)
+- [Graphics class line_dot_setting interface](graphics_line_dot_setting.md)
+- [Graphics class line_dash_setting interface](graphics_line_dash_setting.md)
+- [Graphics class line_round_dot_setting interface](graphics_line_round_dot_setting.md)
+- [Graphics class line_dash_dot_setting interface](graphics_line_dash_dot_setting.md)
 
 ---
 
@@ -138,7 +138,7 @@ The `Graphics` class handles each vector graphics drawing.
 
 - [About the handler options type](about_handler_options_type.md)
 - [Event class prevent default and stop propagation interfaces](event_prevent_default_and_stop_propagation.md)
-- [bind custom event and trigger custom event interfaces](bind_and_trigger_custom_event.md)
+- [bind_custom_event and trigger_custom_event interfaces](bind_and_trigger_custom_event.md)
 
 ---
 
@@ -177,9 +177,9 @@ The `Graphics` class handles each vector graphics drawing.
 - [TimerEvent class](timer_event.md)
 - [Timer class delay setting](timer_delay.md)
 - [FPS enum](fps.md)
-- [Timer class repeat count setting](timer_repeat_count.md)
+- [Timer class repeat_count setting](timer_repeat_count.md)
 - [Timer class start and stop interfaces](timer_start_and_stop.md)
-- [Timer class timer complete interface](timer_complete.md)
+- [Timer class timer_complete interface](timer_complete.md)
 - [Timer class reset interface](timer_reset.md)
 
 ---
@@ -192,50 +192,50 @@ The `Graphics` class handles each vector graphics drawing.
 - [Animation delay setting](animation_delay.md)
 - [Each animation interface return value](animation_return_value.md)
 - [AnimationBase class start interface](animation_base_start.md)
-- [AnimationBase class animation complete interface](animation_complete.md)
+- [AnimationBase class animation_complete interface](animation_complete.md)
 - [AnimationBase class interfaces method chaining](animation_method_chaining.md)
 - [AnimationBase class target property](animation_base_target.md)
 - [Animation pause and play interfaces](animation_pause_and_play.md)
 - [Animation reset interface](animation_reset.md)
 - [Animation finish interface](animation_finish.md)
 - [Animation reverse interface](animation_reverse.md)
-- [animation time interface](animation_time.md)
+- [animation_time interface](animation_time.md)
 - [Easing enum](easing_enum.md)
 - [Sequential animation setting](sequential_animation.md)
-- [animation parallel interface](animation_parallel.md)
-- [animation move interface](animation_move.md)
-- [animation x interface](animation_x.md)
-- [animation y interface](animation_y.md)
-- [animation width and animation height interfaces](animation_width_and_height.md)
-- [animation fill color interface](animation_fill_color.md)
-- [animation fill alpha interface](animation_fill_alpha.md)
-- [animation line color interface](animation_line_color.md)
-- [animation line alpha interface](animation_line_alpha.md)
-- [animation line thickness interface](animation_line_thickness.md)
-- [animation radius interface](animation_radius.md)
-- [animation rotation around center interface](animation_rotation_around_center.md)
-- [animation rotation around point interface](animation_rotation_around_point.md)
-- [animation scale x from center and animation scale y from center interfaces](animation_scale_x_and_y_from_center.md)
-- [animation scale x from point and animation scale y from point interfaces](animation_scale_x_and_y_from_point.md)
-- [animation skew x interface](animation_skew_x.md)
+- [animation_parallel interface](animation_parallel.md)
+- [animation_move interface](animation_move.md)
+- [animation_x interface](animation_x.md)
+- [animation_y interface](animation_y.md)
+- [animation_width and animation_height interfaces](animation_width_and_height.md)
+- [animation fill_color interface](animation_fill_color.md)
+- [animation fill_alpha interface](animation_fill_alpha.md)
+- [animation line_color interface](animation_line_color.md)
+- [animation line_alpha interface](animation_line_alpha.md)
+- [animation line_thickness interface](animation_line_thickness.md)
+- [animation_radius interface](animation_radius.md)
+- [animation rotation_around_center interface](animation_rotation_around_center.md)
+- [animation rotation_around_point interface](animation_rotation_around_point.md)
+- [animation_scale_x_from_center and animation_scale_y_from_center interfaces](animation_scale_x_and_y_from_center.md)
+- [animation_scale_x_from_point and animation_scale_y_from_point interfaces](animation_scale_x_and_y_from_point.md)
+- [animation skew_x interface](animation_skew_x.md)
 
 ---
 
 **Debugging**
 
 - [trace function interface](trace.md)
-- [set debug mode interface](set_debug_mode.md)
-- [unset debug mode interface](unset_debug_mode.md)
+- [set_debug_mode interface](set_debug_mode.md)
+- [unset_debug_mode interface](unset_debug_mode.md)
 
 ---
 
 **Testing**
 
 - [JavaScript assertion interface basic behavior](assertion_basic_behavior.md)
-- [assert equal and assert not equal interfaces](assert_equal_and_not_equal.md)
-- [assert true and assert false interfaces](assert_true_and_false.md)
-- [assert arrays equal and assert arrays not equal interfaces](assert_arrays_equal_and_arrays_not_equal.md)
-- [assert dicts equal and assert dicts not equal interfaces](assert_dicts_equal_and_dicts_not_equal.md)
-- [assert defined and assert undefined interfaces](assert_defined_and_undefined.md)
+- [assert_equal and assert_not_equal interfaces](assert_equal_and_not_equal.md)
+- [assert_true and assert_false interfaces](assert_true_and_false.md)
+- [assert_arrays_equal and assert_arrays_not_equal interfaces](assert_arrays_equal_and_arrays_not_equal.md)
+- [assert_dicts_equal and assert_dicts_not_equal interfaces](assert_dicts_equal_and_dicts_not_equal.md)
+- [assert_defined and assert_undefined interfaces](assert_defined_and_undefined.md)
 
 ---

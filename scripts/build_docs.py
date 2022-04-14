@@ -67,6 +67,18 @@ class _IndexMdUnderscoresReplacer:
         replacing and reverting.
         """
         self._set_index_src_file_paths()
+        self._set_original_index_files_texts()
+
+    def _set_original_index_files_texts(self) -> None:
+        """
+        Set each index.md's original text to the
+        `_original_index_files_texts` attribute.
+        """
+        from apysc._file import file_util
+        self._original_index_files_texts = {}
+        for file_path in self._index_src_file_paths:
+            text: str = file_util.read_txt(file_path=file_path)
+            self._original_index_files_texts[file_path] = text
 
     def _set_index_src_file_paths(self) -> None:
         """

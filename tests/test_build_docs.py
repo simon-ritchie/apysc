@@ -748,3 +748,9 @@ class Test_IndexMdUnderscoresReplacer:
     def test__set_index_src_file_paths(self) -> None:
         replacer: _IndexMdUnderscoresReplacer = _IndexMdUnderscoresReplacer()
         assert './docs_src/source/index.md' in replacer._index_src_file_paths
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_original_index_files_texts(self) -> None:
+        replacer: _IndexMdUnderscoresReplacer = _IndexMdUnderscoresReplacer()
+        assert '# apysc documentation' in replacer.\
+            _original_index_files_texts['./docs_src/source/index.md']

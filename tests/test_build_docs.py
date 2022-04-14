@@ -764,7 +764,7 @@ class Test_IndexMdUnderscoresReplacer:
         replacer.remove_underscores()
         txt = file_util.read_txt(file_path='./docs_src/source/index.md')
         assert 'save_overall_html interface' not in txt
-        assert 'save overall html interface' in txt
+        assert '- [save overall html interface](save_overall_html.md)' in txt
         replacer.revert()
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

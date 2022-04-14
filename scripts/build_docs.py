@@ -84,7 +84,7 @@ class _IndexMdUnderscoresReplacer:
         Remove underscores from each index.md file.
         """
         from apysc._file import file_util
-        pattern: Pattern = re.compile(pattern=r'^(\- \[.*?)\_(.*?\])')
+        pattern: Pattern = re.compile(pattern=r'^(\- \[.*?)\_(.*?\].*)')
         for file_path, text in self._original_index_files_texts.items():
             lines: List[str] = text.splitlines()
             result_lines: List[str] = []

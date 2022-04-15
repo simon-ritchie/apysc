@@ -1,6 +1,7 @@
 import os
 from random import randint
-from typing import Dict, List
+from typing import Dict
+from typing import List
 
 from retrying import retry
 

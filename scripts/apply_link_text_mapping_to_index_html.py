@@ -6,11 +6,14 @@ $ python scripts/apply_link_text_mapping_to_index_html.py
 """
 
 import os
+import re
 import sys
 from logging import Logger
-from typing import Dict, Pattern, Optional, Match
+from typing import Dict
 from typing import List
-import re
+from typing import Match
+from typing import Optional
+from typing import Pattern
 
 sys.path.append('./')
 

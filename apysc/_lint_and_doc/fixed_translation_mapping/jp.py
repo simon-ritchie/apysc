@@ -436,6 +436,11 @@ MAPPINGS: Mappings = Mappings(
             value='なぜapyscではPythonのビルトインのデータの'
                   '型を使用していないのか'),
         Mapping(
+            key='Why the apysc library does not use the Python '
+                'built-in data type',
+            value='なぜapyscではPythonのビルトインのデータの'
+                  '型を使用していないのか'),
+        Mapping(
             key='## Constructor method',
             value='## コンストラクタメソッド'),
         Mapping(
@@ -675,7 +680,7 @@ MAPPINGS: Mappings = Mappings(
             value='詳細については以下の各ページをご確認ください:'),
         Mapping(
             key='click interface',
-            value='クリックインターフェイス'),
+            value='click インターフェイス'),
         Mapping(
             key='mousedown and mouseup interfaces',
             value='mousedown と mouseup のインターフェイス'),
@@ -1662,5 +1667,292 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='**Exporting**',
             value='**出力処理**'),
+        Mapping(
+            key='save_overall_html interface',
+            value='save_overall_html インターフェイス'),
+        Mapping(
+            key='display_on_jupyter interface',
+            value='display_on_jupyter インターフェイス'),
+        Mapping(
+            key='display_on_google_colaboratory interface',
+            value='display_on_google_colaboratory インターフェイス'),
+        Mapping(
+            key='append_js_expression interface',
+            value='append_js_expression インターフェイス'),
+        Mapping(
+            key='**apysc basic data classes**',
+            value='**apyscの基本的な各データクラス**'),
+        Mapping(
+            key='Int and Number classes',
+            value='Int と Number の各クラス'),
+        Mapping(
+            key='Int and Number classes common arithmetic operations',
+            value='Int と Number クラスの共通の計算制御'),
+        Mapping(
+            key='Int and Number classes common comparison operations',
+            value='Int と Number クラスの共通の比較制御'),
+        Mapping(
+            key='String class',
+            value='String クラス'),
+        Mapping(
+            key='String class comparison operations',
+            value='String クラスの比較制御'),
+        Mapping(
+            key='String class addition and multiplication operations',
+            value='String クラスの加算と乗算の制御'),
+        Mapping(
+            key='Boolean class',
+            value='Boolean クラス'),
+        Mapping(
+            key='Array class',
+            value='Array クラス'),
+        Mapping(
+            key='Dictionary class',
+            value='Dictionary クラス'),
+        Mapping(
+            key='Dictionary class generic type settings',
+            value='Dictionary クラスのジェネリックの型設定'),
+        Mapping(
+            key='Dictionary class get interface',
+            value='Dictionary クラスの get インターフェイス'),
+        Mapping(
+            key='Dictionary class length interface',
+            value='Dictionary クラスの length インターフェイス'),
+        Mapping(
+            key='Point2D class',
+            value='Point2D クラス'),
+        Mapping(
+            key='**DisplayObject and GraphicsBase classes**',
+            value='DisplayObject と GraphicsBase の各クラス'),
+        Mapping(
+            key='DisplayObject and GraphicsBase classes basic '
+                'properties abstract',
+            value='DisplayObject と GraphicsBase の各クラスの'
+                  '基本的な各属性の概要'),
+        Mapping(
+            key='DisplayObject class get_css and set_css interfaces',
+            value='DisplayObject クラスの get_css と set_css '
+                  'の各インターフェイス'),
+        Mapping(
+            key='**Graphics class**',
+            value='**Graphics クラス**'),
+        Mapping(
+            key='Draw interfaces abstract',
+            value='描画の各インターフェイスの概要'),
+        Mapping(
+            key='**Common event interfaces**',
+            value='**イベントの共通の各インターフェイス**'),
+        Mapping(
+            key='About the handler options type',
+            value='ハンドラの options パラメーターの型について'),
+        Mapping(
+            key='Event class prevent_default and stop_propagation interfaces',
+            value='Event クラスの prevent_default と stop_propagation '
+                  'の各インターフェイス'),
+        Mapping(
+            key='bind_custom_event and trigger_custom_event interfaces',
+            value='bind_custom_event と trigger_custom_event '
+                  'の各インターフェイス'),
+        Mapping(
+            key='**MouseEvent class and mouse event binding**',
+            value='**MouseEvent クラスとマウスイベントの設定**'),
+        Mapping(
+            key='MouseEvent interfaces abstract',
+            value='MouseEvent クラスの各インターフェイスの概要'),
+        Mapping(
+            key='dblclick interface',
+            value='dblclick インターフェイス'),
+        Mapping(
+            key='**Branch instruction**',
+            value='**条件分岐の制御**'),
+        Mapping(
+            key='Each branch instruction class scope variables reverting '
+                'setting',
+            value='各条件分岐のクラスのスコープ内の変数値の復元設定'),
+        Mapping(
+            key='Return class',
+            value='Return クラス'),
+        Mapping(
+            key='For loop class',
+            value='ループ用の For クラス'),
+        Mapping(
+            key='Continue class',
+            value='Continue クラス'),
+        Mapping(
+            key='**Loop**',
+            value='**ループ**'),
+        Mapping(
+            key='**Timer**',
+            value='**タイマー**'),
+        Mapping(
+            key='Timer class',
+            value='Timer クラス'),
+        Mapping(
+            key='TimerEvent class',
+            value='TimerEvent クラス'),
+        Mapping(
+            key='Timer class delay setting',
+            value='Timer クラスの delay 設定'),
+        Mapping(
+            key='FPS enum',
+            value='FPS の enum'),
+        Mapping(
+            key='Timer class repeat_count setting',
+            value='Timer クラスの repeat_count 設定'),
+        Mapping(
+            key='Timer class start and stop interfaces',
+            value='Timer クラスの start と stop の各インターフェイス'),
+        Mapping(
+            key='Timer class timer_complete interface',
+            value='Timer クラスの timer_complete インターフェイス'),
+        Mapping(
+            key='Timer class reset interface',
+            value='Timer クラスの reset インターフェイス'),
+        Mapping(
+            key='**Animation**',
+            value='**アニメーション**'),
+        Mapping(
+            key='Animation interfaces abstract',
+            value='アニメーションの各インターフェイスの概要'),
+        Mapping(
+            key='AnimationEvent class',
+            value='AnimationEvent クラス'),
+        Mapping(
+            key='Animation duration setting',
+            value='Animation クラスの duration 設定'),
+        Mapping(
+            key='Animation delay setting',
+            value='Animation クラスの delay 設定'),
+        Mapping(
+            key='Each animation interface return value',
+            value='アニメーションの各インターフェイスの返却値について'),
+        Mapping(
+            key='AnimationBase class start interface',
+            value='AnimationBase クラスの start インターフェイス'),
+        Mapping(
+            key='AnimationBase class animation_complete interface',
+            value='AnimationBase クラスの animation_complete '
+                  'インターフェイス'),
+        Mapping(
+            key='AnimationBase class interfaces method chaining',
+            value='AnimationBase クラスの各インターフェイスの'
+                  'メソッドチェーンについて'),
+        Mapping(
+            key='AnimationBase class target property',
+            value='AnimationBase クラスの target 属性'),
+        Mapping(
+            key='Animation pause and play interfaces',
+            value='アニメーションの pause と play の各インターフェイス'),
+        Mapping(
+            key='Animation reset interface',
+            value='アニメーションの reset インターフェイス'),
+        Mapping(
+            key='Animation finish interface',
+            value='アニメーションの finish インターフェイス'),
+        Mapping(
+            key='Animation reverse interface',
+            value='アニメーションの reverse インターフェイス'),
+        Mapping(
+            key='animation_time interface',
+            value='animation_time インターフェイス'),
+        Mapping(
+            key='Easing enum',
+            value='イージングの enum'),
+        Mapping(
+            key='Sequential animation setting',
+            value='連続したアニメーション設定'),
+        Mapping(
+            key='animation_parallel interface',
+            value='animation_parallel インターフェイス'),
+        Mapping(
+            key='animation_move interface',
+            value='animation_move インターフェイス'),
+        Mapping(
+            key='animation_x interface',
+            value='animation_x インターフェイス'),
+        Mapping(
+            key='animation_y interface',
+            value='animation_y インターフェイス'),
+        Mapping(
+            key='animation_width and animation_height interfaces',
+            value='animation_width と animation_height の各インターフェイス'),
+        Mapping(
+            key='animation_y interface',
+            value='animation_y インターフェイス'),
+        Mapping(
+            key='animation_fill_color interface',
+            value='animation_fill_color インターフェイス'),
+        Mapping(
+            key='animation_fill_alpha interface',
+            value='animation_fill_alpha インターフェイス'),
+        Mapping(
+            key='animation_line_color interface',
+            value='animation_line_color インターフェイス'),
+        Mapping(
+            key='animation_line_alpha interface',
+            value='animation_line_alpha インターフェイス'),
+        Mapping(
+            key='animation_line_thickness interface',
+            value='animation_line_thickness インターフェイス'),
+        Mapping(
+            key='animation_radius interface',
+            value='animation_radius インターフェイス'),
+        Mapping(
+            key='animation_rotation_around_center interface',
+            value='animation_rotation_around_center インターフェイス'),
+        Mapping(
+            key='animation_rotation_around_point interface',
+            value='animation_rotation_around_point インターフェイス'),
+        Mapping(
+            key='animation_scale_x_from_center and '
+                'animation_scale_y_from_center interfaces',
+            value='animation_scale_x_from_center と '
+                  'animation_scale_y_from_center の各インターフェイス'),
+        Mapping(
+            key='animation_scale_x_from_point and '
+                'animation_scale_y_from_point interfaces',
+            value='animation_scale_x_from_point と '
+                  'animation_scale_y_from_point の各インターフェイス'),
+        Mapping(
+            key='animation_skew_x interface',
+            value='animation_skew_x インターフェイス'),
+        Mapping(
+            key='**Debugging**',
+            value='**デバッグ**'),
+        Mapping(
+            key='trace function interface',
+            value='trace 関数のインターフェイス'),
+        Mapping(
+            key='set_debug_mode interface',
+            value='set_debug_mode インターフェイス'),
+        Mapping(
+            key='unset_debug_mode interface',
+            value='unset_debug_mode インターフェイス'),
+        Mapping(
+            key='**Testing**',
+            value='**テスト**'),
+        Mapping(
+            key='assert_equal and assert_not_equal interfaces',
+            value='assert_equal と assert_not_equal の各インターフェイス'),
+        Mapping(
+            key='assert_true and assert_false interfaces',
+            value='assert_true と assert_false の各インターフェイス'),
+        Mapping(
+            key='assert_arrays_equal and assert_arrays_not_equal interfaces',
+            value='assert_arrays_equal と assert_arrays_not_equal の'
+                  '各インターフェイス'),
+        Mapping(
+            key='assert_dicts_equal and assert_dicts_not_equal interfaces',
+            value='assert_dicts_equal と assert_dicts_not_equal の'
+                  '各インターフェイス'),
+        Mapping(
+            key='assert_defined and assert_undefined interfaces',
+            value='assert_defined と assert_undefined の各インターフェイス'),
+        Mapping(
+            key='**Child-related interfaces**',
+            value='**子要素関係の各インターフェイス**'),
+        Mapping(
+            key='',
+            value=''),
 
     ])

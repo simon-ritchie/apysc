@@ -98,7 +98,7 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [GraphicsBase class rotation_around_point interfaces](graphics_base_rotation_around_point.md)
 - [GraphicsBase class scale_from_center interfaces](graphics_base_scale_from_center.md)
 - [GraphicsBase class scale_from_point interfaces](graphics_base_scale_from_point.md)
-- [GraphicsBase class flip x and flip y interfaces](graphics_base_flip_interfaces.md)
+- [GraphicsBase class flip_x and flip_y interfaces](graphics_base_flip_interfaces.md)
 - [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md)
 
 ---
@@ -137,7 +137,7 @@ The `Graphics` class handles each vector graphics drawing.
 **Common event interfaces**
 
 - [About the handler options type](about_handler_options_type.md)
-- [Event class prevent default and stop propagation interfaces](event_prevent_default_and_stop_propagation.md)
+- [Event class prevent_default and stop_propagation interfaces](event_prevent_default_and_stop_propagation.md)
 - [bind_custom_event and trigger_custom_event interfaces](bind_and_trigger_custom_event.md)
 
 ---
@@ -207,17 +207,17 @@ The `Graphics` class handles each vector graphics drawing.
 - [animation_x interface](animation_x.md)
 - [animation_y interface](animation_y.md)
 - [animation_width and animation_height interfaces](animation_width_and_height.md)
-- [animation fill_color interface](animation_fill_color.md)
-- [animation fill_alpha interface](animation_fill_alpha.md)
-- [animation line_color interface](animation_line_color.md)
-- [animation line_alpha interface](animation_line_alpha.md)
-- [animation line_thickness interface](animation_line_thickness.md)
+- [animation_fill_color interface](animation_fill_color.md)
+- [animation_fill_alpha interface](animation_fill_alpha.md)
+- [animation_line_color interface](animation_line_color.md)
+- [animation_line_alpha interface](animation_line_alpha.md)
+- [animation_line_thickness interface](animation_line_thickness.md)
 - [animation_radius interface](animation_radius.md)
-- [animation rotation_around_center interface](animation_rotation_around_center.md)
-- [animation rotation_around_point interface](animation_rotation_around_point.md)
+- [animation_rotation_around_center interface](animation_rotation_around_center.md)
+- [animation_rotation_around_point interface](animation_rotation_around_point.md)
 - [animation_scale_x_from_center and animation_scale_y_from_center interfaces](animation_scale_x_and_y_from_center.md)
 - [animation_scale_x_from_point and animation_scale_y_from_point interfaces](animation_scale_x_and_y_from_point.md)
-- [animation skew_x interface](animation_skew_x.md)
+- [animation_skew_x interface](animation_skew_x.md)
 
 ---
 

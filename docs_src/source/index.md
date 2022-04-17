@@ -10,9 +10,9 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
   - The progress and updates are informed on Twitter. Please follow!
 - [PyPI](https://pypi.org/project/apysc/)
 
-## Contents
+## Quick start guide
 
-**Quick start guide**
+### Table of contents
 
 - [What apysc can do in its current implementation](what_apysc_can_do.md)
 - [Quick start guide](quick_start.md)
@@ -20,18 +20,26 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 
 ---
 
-**Container classes**
+## Container classes
+
+### Destination
 
 The `Stage` is the apysc overall drawing area container, and the `Sprite` is the container class.
+
+### Table of contents
 
 - [Stage class](stage.md)
 - [Sprite class](sprite.md)
 
 ---
 
-**Exporting**
+## Exporting
+
+### Destination
 
 The HTML and JavaScript exporting interfaces.
+
+### Table of contents
 
 - [save_overall_html interface](save_overall_html.md)
 - [display_on_jupyter interface](display_on_jupyter.md)
@@ -40,9 +48,13 @@ The HTML and JavaScript exporting interfaces.
 
 ---
 
-**Child-related interfaces**
+## Child-related interfaces
+
+### Destination
 
 The parent class, such as the `Sprite` or `Stage` have the following interfaces:
+
+### Table of contents
 
 - [add_child and remove_child interfaces](add_child_and_remove_child.md)
 - [contains interface](contains.md)
@@ -51,7 +63,9 @@ The parent class, such as the `Sprite` or `Stage` have the following interfaces:
 
 ---
 
-**apysc basic data classes**
+## apysc basic data classes
+
+### Table of contents
 
 - [Why the apysc library does not use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)
 - [Funcdamental data classes common value interface](fundamental_data_classes_value_interface.md)
@@ -83,9 +97,11 @@ The parent class, such as the `Sprite` or `Stage` have the following interfaces:
 
 ---
 
-**DisplayObject and GraphicsBase classes**
+## DisplayObject and GraphicsBase classes
 
 The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphics class, such as the `Rectangle` class.
+
+### Table of contents
 
 - [DisplayObject class](display_object.md)
 - [DisplayObject and GraphicsBase classes basic properties abstract](display_object_and_graphics_base_prop_abstract.md)
@@ -103,7 +119,9 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 
 ---
 
-**Graphics class**
+## Graphics class
+
+### Table of contents
 
 The `Graphics` class handles each vector graphics drawing.
 
@@ -134,7 +152,9 @@ The `Graphics` class handles each vector graphics drawing.
 
 ---
 
-**Common event interfaces**
+## Common event interfaces
+
+### Table of contents
 
 - [About the handler options type](about_handler_options_type.md)
 - [Event class prevent_default and stop_propagation interfaces](event_prevent_default_and_stop_propagation.md)
@@ -142,7 +162,9 @@ The `Graphics` class handles each vector graphics drawing.
 
 ---
 
-**MouseEvent class and mouse event binding**
+## MouseEvent class and mouse event binding
+
+### Table of contents
 
 - [MouseEvent interfaces abstract](mouse_event_abstract.md)
 - [Basic mouse event interfaces](mouse_event_basic.md)
@@ -154,7 +176,9 @@ The `Graphics` class handles each vector graphics drawing.
 
 ---
 
-**Branch instruction**
+## Branch instruction
+
+### Table of contents
 
 - [If class](if.md)
 - [Elif class](elif.md)
@@ -164,14 +188,18 @@ The `Graphics` class handles each vector graphics drawing.
 
 ---
 
-**Loop**
+## Loop
+
+### Table of contents
 
 - [For loop class](for.md)
 - [Continue class](continue.md)
 
 ---
 
-**Timer**
+## Timer
+
+### Table of contents
 
 - [Timer class](timer.md)
 - [TimerEvent class](timer_event.md)
@@ -184,7 +212,9 @@ The `Graphics` class handles each vector graphics drawing.
 
 ---
 
-**Animation**
+## Animation
+
+### Table of contents
 
 - [Animation interfaces abstract](animation_interfaces_abstract.md)
 - [AnimationEvent class](animation_event.md)
@@ -221,7 +251,9 @@ The `Graphics` class handles each vector graphics drawing.
 
 ---
 
-**Debugging**
+## Debugging
+
+### Table of contents
 
 - [trace function interface](trace.md)
 - [set_debug_mode interface](set_debug_mode.md)
@@ -229,7 +261,9 @@ The `Graphics` class handles each vector graphics drawing.
 
 ---
 
-**Testing**
+## Testing
+
+### Table of contents
 
 - [JavaScript assertion interface basic behavior](assertion_basic_behavior.md)
 - [assert_equal and assert_not_equal interfaces](assert_equal_and_not_equal.md)

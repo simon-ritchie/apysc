@@ -102,4 +102,10 @@ def setup(sphinx: Sphinx) -> None:
         message=r'.*Container node skipped.*',
     )
 
+    sphinx.add_config_value(
+        name='recommonmark_config',
+        default={
+            'auto_toc_tree_section': 'Table of contents',
+        },
+        rebuild=True)
     sphinx.add_transform(AutoStructify)

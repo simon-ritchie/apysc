@@ -14,6 +14,9 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import sys
+sys.path.append('../../')
+
 import warnings
 from datetime import datetime
 from typing import Dict
@@ -99,10 +102,4 @@ def setup(sphinx: Sphinx) -> None:
         message=r'.*Container node skipped.*',
     )
 
-    sphinx.add_config_value(
-        name='recommonmark_config',
-        default={
-            'auto_toc_tree_section': 'Contents',
-        },
-        rebuild=True)
     sphinx.add_transform(AutoStructify)

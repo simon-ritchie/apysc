@@ -1972,5 +1972,44 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='## Modulo',
             value='## 剰余'),
+        Mapping(
+            key='## Equal comparison operator',
+            value='## 等値条件の比較のオペレーター'),
+        Mapping(
+            key='You can use the `==` operator for the equal comparison:',
+            value='`==`のオペレーターを使って等値条件の比較を行うことができます。'),
+        Mapping(
+            key='## Not equal comparison operator',
+            value='## 非等値条件の比較のオペレーター'),
+        Mapping(
+            key='You can use the `!=` operator for the not equal comparison:',
+            value='`!=`のオペレーターを使って非等値条件の比較を行うことができます。'),
+        Mapping(
+            key='## Less than comparison operator',
+            value='## 未満条件の比較のオペレーター'),
+        Mapping(
+            key='You can use the `<` operator for the less than comparison:',
+            value='`<`のオペレーターを使って未満条件の比較を行うことができます。'),
+        Mapping(
+            key='## Less than or equal comparison operator',
+            value='## 以下条件の比較のオペレーター'),
+        Mapping(
+            key='You can use the `<=` operator for the less than or equal '
+                'comparison:',
+            value='`<=`のオペレーターを使って以下条件の比較を行うことができます。'),
+        Mapping(
+            key='## Greater than comparison operator',
+            value='## 超過条件の比較のオペレーター'),
+        Mapping(
+            key='You can use the `>` operator for the greater than '
+                'comparison:',
+            value='`>`のオペレーターを使って超過条件の比較を行うことができます。'),
+        Mapping(
+            key='## Greater than or equal comparison operator',
+            value='## 以上条件の比較のオペレーター'),
+        Mapping(
+            key='You can use the `>=` operator for the greater than or '
+                'equal comparison:',
+            value='`>=`のオペレーターを使って以上条件の比較を行うことができます。'),
 
     ])

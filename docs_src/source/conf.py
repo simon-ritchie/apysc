@@ -16,7 +16,7 @@
 
 import warnings
 from datetime import datetime
-from typing import Any, Dict
+from typing import Dict
 from typing import List
 
 from recommonmark.parser import CommonMarkParser

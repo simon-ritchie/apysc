@@ -14,12 +14,9 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-import sys
-sys.path.append('../../')
-
 import warnings
 from datetime import datetime
-from typing import Dict
+from typing import Any, Dict
 from typing import List
 
 from recommonmark.parser import CommonMarkParser
@@ -109,3 +106,5 @@ def setup(sphinx: Sphinx) -> None:
         },
         rebuild=True)
     sphinx.add_transform(AutoStructify)
+
+    sphinx.add_js_file(filename='hide_toctree_from_sidemenu.js')

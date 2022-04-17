@@ -1,8 +1,13 @@
 /* Basic document style settings. */
 
-/* Headings style settings. */
+/* H1 and H2's Headings style settings. */
 div.body h1, div.body h2 {
     font-size: 150%;
+}
+
+/* Table of contents' heading style settings. */
+#table-of-contents h3 {
+    display: none;
 }
 
 /* Inline code block style stting. */

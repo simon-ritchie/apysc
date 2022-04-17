@@ -22,8 +22,6 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 
 ## Container classes
 
-### Destination
-
 The `Stage` is the apysc overall drawing area container, and the `Sprite` is the container class.
 
 ### Table of contents
@@ -34,8 +32,6 @@ The `Stage` is the apysc overall drawing area container, and the `Sprite` is the
 ---
 
 ## Exporting
-
-### Destination
 
 The HTML and JavaScript exporting interfaces.
 
@@ -49,8 +45,6 @@ The HTML and JavaScript exporting interfaces.
 ---
 
 ## Child-related interfaces
-
-### Destination
 
 The parent class, such as the `Sprite` or `Stage` have the following interfaces:
 

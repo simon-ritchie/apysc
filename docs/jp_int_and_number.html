@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Int and Number classes &#8212; apysc  documentation</title>
+    <title>Int と Number クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -17,9 +17,7 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Int and Number basic arithmetic operations" href="int_and_number_arithmetic_operations.html" />
-    <link rel="prev" title="apysc fundamental data classes value interface" href="fundamental_data_classes_value_interface.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,14 +25,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="int_and_number_arithmetic_operations.html" title="Int and Number basic arithmetic operations"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="fundamental_data_classes_value_interface.html" title="apysc fundamental data classes value interface"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Int and Number classes</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Int と Number クラス</a></li> 
       </ul>
     </div>  
 
@@ -43,16 +35,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="int-and-number-classes">
-<h1>Int and Number classes<a class="headerlink" href="#int-and-number-classes" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes.</p>
-<p>Before reading on, maybe it is helpful to read the following page:</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="int_and_number.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="int-number">
+<h1>Int と Number クラス<a class="headerlink" href="#int-number" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Int</span></code>と<code class="docutils literal notranslate"><span class="pre">Number</span></code>の各クラスについて説明します。</p>
+<p>事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
+<li><p><a class="reference external" href="jp_why_apysc_doesnt_use_python_builtin_data_type">なぜapyscではPythonのビルトインのデータの型を使用していないのか</a></p></li>
 </ul>
-<section id="int-class">
-<h2>Int class<a class="headerlink" href="#int-class" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Int</span></code> class is the apysc integer type. It can accept numeric values at the constructor, as follows:</p>
+<section id="int">
+<h2>Int クラス<a class="headerlink" href="#int" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Int</span></code>クラスはapyscの整数の型となります。このクラスは以下のコード例のようにコンストラクタに数値の値を受け付けます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -76,7 +69,7 @@
 <span class="k">assert</span> <span class="n">int_2</span> <span class="o">==</span> <span class="mi">25</span>
 </pre></div>
 </div>
-<p>If you specify a float value to the constructor argument, then the <code class="docutils literal notranslate"><span class="pre">Int</span></code> class floor a value:</p>
+<p>もしコンストラクタの引数に浮動小数点数を指定した場合には<code class="docutils literal notranslate"><span class="pre">Int</span></code>クラスはその値の浮動小数点数を切り捨てます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -85,9 +78,9 @@
 </pre></div>
 </div>
 </section>
-<section id="number-class">
-<h2>Number class<a class="headerlink" href="#number-class" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Number</span></code> class is the apysc float type. It can accept numeric values at the constructor, same as <code class="docutils literal notranslate"><span class="pre">Int</span></code>:</p>
+<section id="number">
+<h2>Number クラス<a class="headerlink" href="#number" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span></code>クラスはapyscの浮動小数点数の型です。このクラスは<code class="docutils literal notranslate"><span class="pre">Int</span></code>クラスと同様にコンストラクタの引数に数値を受け付けます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -100,9 +93,9 @@
 </pre></div>
 </div>
 </section>
-<section id="note-for-the-float-class-alias">
-<h2>Note for the Float class alias<a class="headerlink" href="#note-for-the-float-class-alias" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Float</span></code> class is the alias of the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. It behaves the same as the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. Maybe a Python developer is familiar with its name rather than the <code class="docutils literal notranslate"><span class="pre">Number</span></code>. On the other hand, the <code class="docutils literal notranslate"><span class="pre">Number</span></code> is more common in JavaScript than the <code class="docutils literal notranslate"><span class="pre">Float</span></code>.</p>
+<section id="float">
+<h2>Floatクラスのエイリアスの特記事項<a class="headerlink" href="#float" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Float</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">Number</span></code>クラスのエイリアス。です。このエイリアスは<code class="docutils literal notranslate"><span class="pre">Number</span></code>クラスと同様に動作します。Python開発者の方はもしかしたら<code class="docutils literal notranslate"><span class="pre">Number</span></code>クラスよりもこちらのエイリアスの方が慣れ親しんでいて自然に感じられるかもしれません。一方でJavaScriptなどの開発者の方は<code class="docutils literal notranslate"><span class="pre">Float</span></code>よりも<code class="docutils literal notranslate"><span class="pre">Number</span></code>の方が自然に思えるかもしれません。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -111,29 +104,29 @@
 </pre></div>
 </div>
 </section>
-<section id="int-and-number-classes-basic-interfaces">
-<h2>Int and Number classes basic interfaces<a class="headerlink" href="#int-and-number-classes-basic-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes have the same interfaces. For more details, please see:</p>
+<section id="id1">
+<h2>Int と Number クラスの基本的なインターフェイス<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Int</span></code>と<code class="docutils literal notranslate"><span class="pre">Number</span></code>の各クラスは同じ各インターフェイスを持っています。詳細に関しては以下をご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="int_and_number_arithmetic_operations.html"><span class="doc">Int and Number classes basic arithmetic operations</span></a></p></li>
-<li><p><a class="reference internal" href="int_and_number_comparison_operations.html"><span class="doc">Int and Number classes basic comparison operations</span></a></p></li>
-<li><p><a class="reference internal" href="fundamental_data_classes_value_interface.html"><span class="doc">Funcdamental data classes common value interface</span></a></p></li>
+<li><p><a class="reference internal" href="jp_int_and_number_arithmetic_operations.html"><span class="doc">Int と Number クラスの基本的な各計算の制御</span></a></p></li>
+<li><p><a class="reference internal" href="jp_int_and_number_comparison_operations.html"><span class="doc">Int と Number クラスの基本的な各比較の制御</span></a></p></li>
+<li><p><a class="reference internal" href="jp_fundamental_data_classes_value_interface.html"><span class="doc">基本的なデータクラスの共通の value インターフェイス</span></a></p></li>
 </ul>
 </section>
-<section id="int-class-constructor-api">
-<h2>Int class constructor API<a class="headerlink" href="#int-class-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.int.Int.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_interface.NumberValueInterface])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Integer class for apysc library.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<section id="int-api">
+<h2>Int クラスのコンストラクタのAPI<a class="headerlink" href="#int-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_interface.NumberValueInterface])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> apyscライブラリ上の整数のためのクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: int or float or Int or Number</p>
 <ul>
-<li><p>Initial integer value. If the <code class="docutils literal notranslate"><span class="pre">float</span></code> or <code class="docutils literal notranslate"><span class="pre">Number</span></code> value is specified, this class casts it to an integer.</p></li>
+<li><p>整数の初期値。もしも<code class="docutils literal notranslate"><span class="pre">float</span></code>や<code class="docutils literal notranslate"><span class="pre">Number</span></code>の値が指定された場合このクラスは値を整数へと変換します。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span>
@@ -157,28 +150,28 @@
 <span class="go">Int(10)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html">Int and Number common arithmetic operations document</a></p></li>
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html">Int and Number common comparison operations document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_int_and_number_arithmetic_operations.html">Int と Number クラスの共通の各計算制御</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_int_and_number_comparison_operations.html">Int と Number クラスの共通の各比較制御</a></p></li>
 </ul>
 </section>
-<section id="number-class-constructor-api">
-<h2>Number class constructor API<a class="headerlink" href="#number-class-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.number.Number.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_interface.NumberValueInterface])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Floating point number class for apysc library.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<section id="number-api">
+<h2>Number クラスのコンストラクタのAPI<a class="headerlink" href="#number-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_interface.NumberValueInterface])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> apyscライブラリ用の浮動小数点数のクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: int or float or Int or Number</p>
 <ul>
-<li><p>Initial floating point number value. This class casts it to float if you specify int or Int value.</p></li>
+<li><p>浮動小数点数の初期値。もしもintやIntなどの型の値が指定された場合このクラスは値を浮動小数点数へ変換します。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Float</span></code> class is the alias of the Number, and it behaves the same as the Number class.<hr></p>
-<p><strong>[Examples]</strong></p>
+<hr><p><strong>[特記事項]</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">Float</span></code>クラスはNumberクラスのエイリアスであり、このエイリアスはNumberクラスと同様に動作します。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">number</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">number</span>
@@ -198,25 +191,25 @@
 <span class="go">Number(20.8)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html">Int and Number common arithmetic operations document</a></p></li>
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html">Int and Number common comparison operations document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_int_and_number_arithmetic_operations.html">Int と Number クラスの共通の各計算制御</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_int_and_number_comparison_operations.html">Int と Number クラスの共通の各比較制御</a></p></li>
 </ul>
 </section>
-<section id="value-property-api">
-<h2>value property API<a class="headerlink" href="#value-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.number_value_interface.NumberValueInterface.value --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get a current number value.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="value-api">
+<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> 現在の数値を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: int or float</p>
 <ul>
-<li><p>Current number value.</p></li>
+<li><p>現在の数値。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="o">.</span><span class="n">value</span>
@@ -231,9 +224,9 @@
 <span class="go">30</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html">apysc fundamental data classes value interface</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_fundamental_data_classes_value_interface.html">apyscの基本的なデータクラスの value インターフェイス</a></p></li>
 </ul>
 </section>
 </section>
@@ -250,24 +243,18 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Int and Number classes</a><ul>
-<li><a class="reference internal" href="#int-class">Int class</a></li>
-<li><a class="reference internal" href="#number-class">Number class</a></li>
-<li><a class="reference internal" href="#note-for-the-float-class-alias">Note for the Float class alias</a></li>
-<li><a class="reference internal" href="#int-and-number-classes-basic-interfaces">Int and Number classes basic interfaces</a></li>
-<li><a class="reference internal" href="#int-class-constructor-api">Int class constructor API</a></li>
-<li><a class="reference internal" href="#number-class-constructor-api">Number class constructor API</a></li>
-<li><a class="reference internal" href="#value-property-api">value property API</a></li>
+<li><a class="reference internal" href="#">Int と Number クラス</a><ul>
+<li><a class="reference internal" href="#int">Int クラス</a></li>
+<li><a class="reference internal" href="#number">Number クラス</a></li>
+<li><a class="reference internal" href="#float">Floatクラスのエイリアスの特記事項</a></li>
+<li><a class="reference internal" href="#id1">Int と Number クラスの基本的なインターフェイス</a></li>
+<li><a class="reference internal" href="#int-api">Int クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#number-api">Number クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#value-api">value 属性のAPI</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="fundamental_data_classes_value_interface.html"
-                        title="previous chapter">apysc fundamental data classes value interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="int_and_number_arithmetic_operations.html"
-                        title="next chapter">Int and Number basic arithmetic operations</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -288,14 +275,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="int_and_number_arithmetic_operations.html" title="Int and Number basic arithmetic operations"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="fundamental_data_classes_value_interface.html" title="apysc fundamental data classes value interface"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Int and Number classes</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Int と Number クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

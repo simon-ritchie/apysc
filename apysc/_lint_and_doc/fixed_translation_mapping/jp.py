@@ -2011,5 +2011,66 @@ MAPPINGS: Mappings = Mappings(
             key='You can use the `>=` operator for the greater than or '
                 'equal comparison:',
             value='`>=`のオペレーターを使って以上条件の比較を行うことができます。'),
+        Mapping(
+            key='## Int class',
+            value='## Int クラス'),
+        Mapping(
+            key='## Number class',
+            value='## Number クラス'),
+        Mapping(
+            key='## Note for the Float class alias',
+            value='## Floatクラスのエイリアスの特記事項'),
+        Mapping(
+            key='## Int and Number classes basic interfaces',
+            value='## Int と Number クラスの基本的なインターフェイス'),
+        Mapping(
+            key='Int and Number classes basic arithmetic operations',
+            value='Int と Number クラスの基本的な各計算の制御'),
+        Mapping(
+            key='Int and Number classes basic comparison operations',
+            value='Int と Number クラスの基本的な各比較の制御'),
+        Mapping(
+            key='## Int class constructor API',
+            value='## Int クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Integer class for apysc '
+                'library.<hr>',
+            value='**[インターフェイス概要]** apyscライブラリ上の整数のための'
+                  'クラスです。<hr>'),
+        Mapping(
+            key='  - Initial integer value. If the `float` or `Number` '
+                'value is specified, this class casts it to an integer.',
+            value='  - 整数の初期値。もしも`float`や`Number`の値が指定された'
+                  '場合このクラスは値を整数へと変換します。'),
+        Mapping(
+            key='Int and Number common arithmetic operations document',
+            value='Int と Number クラスの共通の各計算制御'),
+        Mapping(
+            key='Int and Number common comparison operations document',
+            value='Int と Number クラスの共通の各比較制御'),
+        Mapping(
+            key='## Number class constructor API',
+            value='## Number クラスのコンストラクタのAPI'),
+        Mapping(
+            key='  - Initial floating point number value. This class '
+                'casts it to float if you specify int or Int value.',
+            value='  - 浮動小数点数の初期値。もしもintやIntなどの型の値が指定された'
+                  '場合このクラスは値を浮動小数点数へ変換します。'),
+        Mapping(
+            key='The `Float` class is the alias of the Number, and '
+                'it behaves the same as the Number class.<hr>',
+            value='`Float`クラスはNumberクラスのエイリアスであり、このエイリアスは'
+                  'Numberクラスと同様に動作します。<hr>'),
+        Mapping(
+            key='**[Interface summary]** Get a current number value.<hr>',
+            value='**[インターフェイス概要]** 現在の数値を取得します。<hr>'),
+        Mapping(
+            key='  - Current number value.',
+            value='  - 現在の数値。'),
+        Mapping(
+            key='**[Interface summary]** Floating point number class for '
+                'apysc library.<hr>',
+            value='**[インターフェイス概要]** apyscライブラリ用の浮動小数点数の'
+                  'クラスです。<hr>'),
 
     ])

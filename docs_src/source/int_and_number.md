@@ -1,4 +1,4 @@
-# Int and Number
+# Int and Number classes
 
 This page explains the `Int` and `Number` classes.
 
@@ -64,7 +64,7 @@ assert number_2 == 21
 
 ## Note for the Float class alias
 
-The `Float` class is the alias of the `Number` class. It behaves the same as the `Number` class. Maybe a Python developer is familiar with its name rather than the `Number`\. On the other hand, the `Number` is more common in JavaScript than the `Number`\.
+The `Float` class is the alias of the `Number` class. It behaves the same as the `Number` class. Maybe a Python developer is familiar with its name rather than the `Number`\. On the other hand, the `Number` is more common in JavaScript than the `Float`\.
 
 ```py
 # runnable

@@ -107,4 +107,4 @@ def setup(sphinx: Sphinx) -> None:
         rebuild=True)
     sphinx.add_transform(AutoStructify)
 
-    sphinx.add_js_file(filename='hide_toctree_from_sidemenu.js')
+    sphinx.add_js_file(filename='hide_toctree_heading_and_sidemenu.js')

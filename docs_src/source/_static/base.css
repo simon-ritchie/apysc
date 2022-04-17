@@ -69,3 +69,8 @@ div.sphinxsidebar {
 .inconspicuous-txt a {
     color: #A30 !important;
 }
+
+/* Display setting of the toc's border. */
+hr.docutils {
+    display: none  !important;
+}

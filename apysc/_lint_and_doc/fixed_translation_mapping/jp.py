@@ -2075,4 +2075,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='### Table of contents',
             value='### Table of contents'),
+        Mapping(
+            key='## What apysc can do in its interfaces',
+            value='## これらの各インターフェイスでapyscが出来ること'),
     ])

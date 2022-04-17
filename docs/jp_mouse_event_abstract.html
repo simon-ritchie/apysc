@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>MouseEvent interfaces abstract &#8212; apysc  documentation</title>
+    <title>MouseEvent の各インターフェイスの概要 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,9 +18,7 @@
     <script src="static/doctools.js"></script>
     <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic mouse event interfaces" href="mouse_event_basic.html" />
-    <link rel="prev" title="Bind and trigger the custom event" href="bind_and_trigger_custom_event.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,14 +26,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="mouse_event_basic.html" title="Basic mouse event interfaces"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="bind_and_trigger_custom_event.html" title="Bind and trigger the custom event"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">MouseEvent interfaces abstract</a></li> 
+        <li class="nav-item nav-item-this"><a href="">MouseEvent の各インターフェイスの概要</a></li> 
       </ul>
     </div>  
 
@@ -44,20 +36,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="mouseevent-interfaces-abstract">
-<h1>MouseEvent interfaces abstract<a class="headerlink" href="#mouseevent-interfaces-abstract" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the MouseEvent interfaces abstract.</p>
-<section id="what-apysc-can-do-in-its-interfaces">
-<h2>What apysc can do in its interfaces<a class="headerlink" href="#what-apysc-can-do-in-its-interfaces" title="Permalink to this headline">¶</a></h2>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="mouse_event_abstract.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="mouseevent">
+<h1>MouseEvent の各インターフェイスの概要<a class="headerlink" href="#mouseevent" title="Permalink to this headline">¶</a></h1>
+<p>このページでは MouseEvent クラスの各インターフェイスの概要について説明します。</p>
+<section id="apysc">
+<h2>これらの各インターフェイスでapyscが出来ること<a class="headerlink" href="#apysc" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>You can set the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> handlers, such as the click, mouse down, mouse over, and so on, to each graphic instance.</p></li>
-<li><p>You can pass the optional arguments to the handler.</p></li>
+<li><p>クリックやマウスダウン、マウスオーバーなどの<code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>の各ハンドラをグラフィックスのインスタンスへ設定することができます。</p></li>
+<li><p>ハンドラの引数へ任意のパラメーターを渡すことができます。</p></li>
 </ul>
 </section>
-<section id="example-of-the-click-event">
-<h2>Example of the click event<a class="headerlink" href="#example-of-the-click-event" title="Permalink to this headline">¶</a></h2>
-<p>To bind MouseEvent, defining the handler function (or method) would be necessary (e.g., <code class="docutils literal notranslate"><span class="pre">on_click</span></code>).</p>
-<p>These handlers can bind with the click interface.</p>
+<section id="id1">
+<h2>クリックイベントの例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>マウスイベントを設定するにはまずはハンドラ用の関数（もしくはメソッド）の定義が必要になります（例: <code class="docutils literal notranslate"><span class="pre">on_click</span></code>）。</p>
+<p>これらのハンドラは click のインターフェイスで登録することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -99,16 +92,16 @@
 </pre></div>
 </div>
 <iframe src="static/mouse_event_abstract_click/index.html" width="150" height="150"></iframe></section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<p>There are a lot of other mouse event binding interfaces, such as the mouse down, mouse over, and mouse move. For more details, please see the following:</p>
+<section id="id2">
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>他にもマウスダウンやマウスオーバー、マウスムーブなど様々なイベント設定用のインターフェイスが存在します。詳細は以下をご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc">Basic mouse event interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="click.html"><span class="doc">click interface</span></a></p></li>
-<li><p><a class="reference internal" href="dblclick.html"><span class="doc">dblclick interface</span></a></p></li>
-<li><p><a class="reference internal" href="mousedown_and_mouseup.html"><span class="doc">mousedown and mouseup interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mouseover_and_mouseout.html"><span class="doc">mouseover and mouseout interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mousemove.html"><span class="doc">mousemove interface</span></a></p></li>
+<li><p><a class="reference external" href="jp_mouse_event_basic">基本的なマウスイベントの各インターフェイス</a></p></li>
+<li><p><a class="reference internal" href="jp_click.html"><span class="doc">click インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_dblclick.html"><span class="doc">dblclick インターフェイス</span></a></p></li>
+<li><p><a class="reference external" href="jp_mousedown_and_mouseup">mousedown と mouseup のインターフェイス</a></p></li>
+<li><p><a class="reference external" href="jp_mouseover_and_mouseout">mouseover と mouseout インターフェイス</a></p></li>
+<li><p><a class="reference external" href="jp_mousemove">mousemove インターフェイス</a></p></li>
 </ul>
 </section>
 </section>
@@ -125,20 +118,14 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">MouseEvent interfaces abstract</a><ul>
-<li><a class="reference internal" href="#what-apysc-can-do-in-its-interfaces">What apysc can do in its interfaces</a></li>
-<li><a class="reference internal" href="#example-of-the-click-event">Example of the click event</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">MouseEvent の各インターフェイスの概要</a><ul>
+<li><a class="reference internal" href="#apysc">これらの各インターフェイスでapyscが出来ること</a></li>
+<li><a class="reference internal" href="#id1">クリックイベントの例</a></li>
+<li><a class="reference internal" href="#id2">関連資料</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="bind_and_trigger_custom_event.html"
-                        title="previous chapter">Bind and trigger the custom event</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="mouse_event_basic.html"
-                        title="next chapter">Basic mouse event interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -159,14 +146,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="mouse_event_basic.html" title="Basic mouse event interfaces"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="bind_and_trigger_custom_event.html" title="Bind and trigger the custom event"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">MouseEvent interfaces abstract</a></li> 
+        <li class="nav-item nav-item-this"><a href="">MouseEvent の各インターフェイスの概要</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

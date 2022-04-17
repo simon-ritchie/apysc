@@ -1647,8 +1647,8 @@ MAPPINGS: Mappings = Mappings(
             key='## Contents',
             value='## コンテンツ'),
         Mapping(
-            key='**Quick start guide**',
-            value='**クイックスタートガイド**'),
+            key='## Quick start guide',
+            value='## クイックスタートガイド'),
         Mapping(
             key='Quick start guide',
             value='クイックスタートガイド'),
@@ -1656,8 +1656,8 @@ MAPPINGS: Mappings = Mappings(
             key='import conventions',
             value='import の慣習'),
         Mapping(
-            key='**Container classes**',
-            value='**コンテナーの各クラス**'),
+            key='## Container classes',
+            value='## コンテナーの各クラス'),
         Mapping(
             key='Stage class',
             value='Stage クラス'),
@@ -1665,8 +1665,8 @@ MAPPINGS: Mappings = Mappings(
             key='Sprite class',
             value='Sprite クラス'),
         Mapping(
-            key='**Exporting**',
-            value='**出力処理**'),
+            key='## Exporting',
+            value='## 出力処理'),
         Mapping(
             key='save_overall_html interface',
             value='save_overall_html インターフェイス'),
@@ -1680,8 +1680,8 @@ MAPPINGS: Mappings = Mappings(
             key='append_js_expression interface',
             value='append_js_expression インターフェイス'),
         Mapping(
-            key='**apysc basic data classes**',
-            value='**apyscの基本的な各データクラス**'),
+            key='## apysc basic data classes',
+            value='## apyscの基本的な各データクラス'),
         Mapping(
             key='Int and Number classes',
             value='Int と Number の各クラス'),
@@ -1722,8 +1722,8 @@ MAPPINGS: Mappings = Mappings(
             key='Point2D class',
             value='Point2D クラス'),
         Mapping(
-            key='**DisplayObject and GraphicsBase classes**',
-            value='DisplayObject と GraphicsBase の各クラス'),
+            key='## DisplayObject and GraphicsBase classes',
+            value='## DisplayObject と GraphicsBase の各クラス'),
         Mapping(
             key='DisplayObject and GraphicsBase classes basic '
                 'properties abstract',
@@ -1734,14 +1734,14 @@ MAPPINGS: Mappings = Mappings(
             value='DisplayObject クラスの get_css と set_css '
                   'の各インターフェイス'),
         Mapping(
-            key='**Graphics class**',
-            value='**Graphics クラス**'),
+            key='## Graphics class',
+            value='## Graphics クラス'),
         Mapping(
             key='Draw interfaces abstract',
             value='描画の各インターフェイスの概要'),
         Mapping(
-            key='**Common event interfaces**',
-            value='**イベントの共通の各インターフェイス**'),
+            key='## Common event interfaces',
+            value='## イベントの共通の各インターフェイス'),
         Mapping(
             key='About the handler options type',
             value='ハンドラの options パラメーターの型について'),
@@ -1754,8 +1754,8 @@ MAPPINGS: Mappings = Mappings(
             value='bind_custom_event と trigger_custom_event '
                   'の各インターフェイス'),
         Mapping(
-            key='**MouseEvent class and mouse event binding**',
-            value='**MouseEvent クラスとマウスイベントの設定**'),
+            key='## MouseEvent class and mouse event binding',
+            value='## MouseEvent クラスとマウスイベントの設定'),
         Mapping(
             key='MouseEvent interfaces abstract',
             value='MouseEvent クラスの各インターフェイスの概要'),
@@ -1763,8 +1763,8 @@ MAPPINGS: Mappings = Mappings(
             key='dblclick interface',
             value='dblclick インターフェイス'),
         Mapping(
-            key='**Branch instruction**',
-            value='**条件分岐の制御**'),
+            key='## Branch instruction',
+            value='## 条件分岐の制御'),
         Mapping(
             key='Each branch instruction class scope variables reverting '
                 'setting',
@@ -1779,11 +1779,11 @@ MAPPINGS: Mappings = Mappings(
             key='Continue class',
             value='Continue クラス'),
         Mapping(
-            key='**Loop**',
-            value='**ループ**'),
+            key='## Loop',
+            value='## ループ'),
         Mapping(
-            key='**Timer**',
-            value='**タイマー**'),
+            key='## Timer',
+            value='## タイマー'),
         Mapping(
             key='Timer class',
             value='Timer クラス'),
@@ -1809,8 +1809,8 @@ MAPPINGS: Mappings = Mappings(
             key='Timer class reset interface',
             value='Timer クラスの reset インターフェイス'),
         Mapping(
-            key='**Animation**',
-            value='**アニメーション**'),
+            key='## Animation',
+            value='## アニメーション'),
         Mapping(
             key='Animation interfaces abstract',
             value='アニメーションの各インターフェイスの概要'),
@@ -1917,8 +1917,8 @@ MAPPINGS: Mappings = Mappings(
             key='animation_skew_x interface',
             value='animation_skew_x インターフェイス'),
         Mapping(
-            key='**Debugging**',
-            value='**デバッグ**'),
+            key='## Debugging',
+            value='## デバッグ'),
         Mapping(
             key='trace function interface',
             value='trace 関数のインターフェイス'),
@@ -1929,8 +1929,8 @@ MAPPINGS: Mappings = Mappings(
             key='unset_debug_mode interface',
             value='unset_debug_mode インターフェイス'),
         Mapping(
-            key='**Testing**',
-            value='**テスト**'),
+            key='## Testing',
+            value='## テスト'),
         Mapping(
             key='assert_equal and assert_not_equal interfaces',
             value='assert_equal と assert_not_equal の各インターフェイス'),
@@ -1949,8 +1949,8 @@ MAPPINGS: Mappings = Mappings(
             key='assert_defined and assert_undefined interfaces',
             value='assert_defined と assert_undefined の各インターフェイス'),
         Mapping(
-            key='**Child-related interfaces**',
-            value='**子要素関係の各インターフェイス**'),
+            key='## Child-related interfaces',
+            value='## 子要素関係の各インターフェイス'),
         Mapping(
             key='## Common behaviors',
             value='## 共通の挙動'),
@@ -2072,5 +2072,7 @@ MAPPINGS: Mappings = Mappings(
                 'apysc library.<hr>',
             value='**[インターフェイス概要]** apyscライブラリ用の浮動小数点数の'
                   'クラスです。<hr>'),
-
+        Mapping(
+            key='### Table of contents',
+            value='### Table of contents'),
     ])

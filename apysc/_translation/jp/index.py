@@ -33,11 +33,11 @@ MAPPING: Dict[str, str] = {
     '- [PyPI](https://pypi.org/project/apysc/)':
     '- [PyPI](https://pypi.org/project/apysc/)',
 
-    '## Contents':
-    '## コンテンツ',
+    '## Quick start guide':
+    '## クイックスタートガイド',
 
-    '**Quick start guide**':
-    '**クイックスタートガイド**',
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [What apysc can do in its current implementation](what_apysc_can_do.md)':  # noqa
     '- [apyscが現在の実装で出来ることの概要](jp_what_apysc_can_do.md)',
@@ -51,11 +51,14 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Container classes**':
-    '**コンテナーの各クラス**',
+    '## Container classes':
+    '## コンテナーの各クラス',
 
     'The `Stage` is the apysc overall drawing area container, and the `Sprite` is the container class.':  # noqa
     '`Stage`はapyscの描画領域全体のコンテナーとなり、`Sprite`は通常の各インスタンスのコンテナーのクラスとなります。',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [Stage class](stage.md)':
     '- [Stage クラス](jp_stage.md)',
@@ -66,11 +69,14 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Exporting**':
-    '**出力処理**',
+    '## Exporting':
+    '## 出力処理',
 
     'The HTML and JavaScript exporting interfaces.':
     '以下はHTMLとJavaScriptの出力処理関係の各インターフェイスです。',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [save_overall_html interface](save_overall_html.md)':
     '- [save_overall_html インターフェイス](jp_save_overall_html.md)',
@@ -87,11 +93,14 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Child-related interfaces**':
-    '**子要素関係の各インターフェイス**',
+    '## Child-related interfaces':
+    '## 子要素関係の各インターフェイス',
 
     'The parent class, such as the `Sprite` or `Stage` have the following interfaces:':  # noqa
     '`Sprite`や`Stage`などの親となれる各クラスは以下のインターフェイスを持っています:',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [add_child and remove_child interfaces](add_child_and_remove_child.md)':  # noqa
     '- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](jp_add_child_and_remove_child.md)',  # noqa
@@ -108,8 +117,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**apysc basic data classes**':
-    '**apyscの基本的な各データクラス**',
+    '## apysc basic data classes':
+    '## apyscの基本的な各データクラス',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [Why the apysc library does not use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)':  # noqa
     '- [なぜapyscではPythonのビルトインのデータの型を使用していないのか](jp_why_apysc_doesnt_use_python_builtin_data_type.md)',  # noqa
@@ -195,11 +207,14 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**DisplayObject and GraphicsBase classes**':
-    'DisplayObject と GraphicsBase の各クラス',
+    '## DisplayObject and GraphicsBase classes':
+    '## DisplayObject と GraphicsBase の各クラス',
 
     'The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphics class, such as the `Rectangle` class.':  # noqa
     '`DisplayObject`クラスは各表示用のオブジェクトの基底クラスです。`GraphicsBase`クラスは`DisplayObject`のサブクラスであり、且つ`Rectangle`などの各グラフィックスの基底クラスとなります。',  # noqa
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [DisplayObject class](display_object.md)':
     '- [DisplayObject クラス](jp_display_object.md)',
@@ -243,8 +258,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Graphics class**':
-    '**Graphics クラス**',
+    '## Graphics class':
+    '## Graphics クラス',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     'The `Graphics` class handles each vector graphics drawing.':
     '`Graphics`クラスは各ベクターグラフィックスの描画処理を扱います。',
@@ -324,8 +342,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Common event interfaces**':
-    '**イベントの共通の各インターフェイス**',
+    '## Common event interfaces':
+    '## イベントの共通の各インターフェイス',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [About the handler options type](about_handler_options_type.md)':
     '- [ハンドラの options パラメーターの型について](jp_about_handler_options_type.md)',
@@ -339,8 +360,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**MouseEvent class and mouse event binding**':
-    '**MouseEvent クラスとマウスイベントの設定**',
+    '## MouseEvent class and mouse event binding':
+    '## MouseEvent クラスとマウスイベントの設定',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [MouseEvent interfaces abstract](mouse_event_abstract.md)':
     '- [MouseEvent クラスの各インターフェイスの概要](jp_mouse_event_abstract.md)',
@@ -366,8 +390,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Branch instruction**':
-    '**条件分岐の制御**',
+    '## Branch instruction':
+    '## 条件分岐の制御',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [If class](if.md)':
     '- [If クラス](jp_if.md)',
@@ -387,8 +414,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Loop**':
-    '**ループ**',
+    '## Loop':
+    '## ループ',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [For loop class](for.md)':
     '- [ループ用の For クラス](jp_for.md)',
@@ -399,8 +429,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Timer**':
-    '**タイマー**',
+    '## Timer':
+    '## タイマー',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [Timer class](timer.md)':
     '- [Timer クラス](jp_timer.md)',
@@ -429,8 +462,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Animation**':
-    '**アニメーション**',
+    '## Animation':
+    '## アニメーション',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [Animation interfaces abstract](animation_interfaces_abstract.md)':
     '- [アニメーションの各インターフェイスの概要](jp_animation_interfaces_abstract.md)',
@@ -531,8 +567,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Debugging**':
-    '**デバッグ**',
+    '## Debugging':
+    '## デバッグ',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [trace function interface](trace.md)':
     '- [trace 関数のインターフェイス](jp_trace.md)',
@@ -546,8 +585,11 @@ MAPPING: Dict[str, str] = {
     '---':
     '---',
 
-    '**Testing**':
-    '**テスト**',
+    '## Testing':
+    '## テスト',
+
+    '##### Table of contents':
+    '##### Table of contents',
 
     '- [JavaScript assertion interface basic behavior](assertion_basic_behavior.md)':  # noqa
     '- [JavaScriptの各アサーションのインターフェイスの基本的な挙動](jp_assertion_basic_behavior.md)',  # noqa

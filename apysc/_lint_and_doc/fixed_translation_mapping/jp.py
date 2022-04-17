@@ -1952,7 +1952,25 @@ MAPPINGS: Mappings = Mappings(
             key='**Child-related interfaces**',
             value='**子要素関係の各インターフェイス**'),
         Mapping(
-            key='',
-            value=''),
+            key='## Common behaviors',
+            value='## 共通の挙動'),
+        Mapping(
+            key='## Addition',
+            value='## 加算'),
+        Mapping(
+            key='## Subtraction',
+            value='## 減算'),
+        Mapping(
+            key='## Multiplication',
+            value='## 乗算'),
+        Mapping(
+            key='## Division',
+            value='## 除算'),
+        Mapping(
+            key='## Floor division',
+            value='## 切り捨て除算'),
+        Mapping(
+            key='## Modulo',
+            value='## 剰余'),
 
     ])

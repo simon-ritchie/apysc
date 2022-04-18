@@ -686,7 +686,7 @@ MAPPINGS: Mappings = Mappings(
             value='mousedown と mouseup のインターフェイス'),
         Mapping(
             key='mouseover and mouseout interfaces',
-            value='mouseover と mouseout インターフェイス'),
+            value='mouseover と mouseout のインターフェイス'),
         Mapping(
             key='mousemove interface',
             value='mousemove インターフェイス'),
@@ -2078,4 +2078,59 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='## What apysc can do in its interfaces',
             value='## これらの各インターフェイスでapyscが出来ること'),
+        Mapping(
+            key='## stage_x property API',
+            value='## stage_x 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get the x-coordinate of the stage '
+                'reference.<hr>',
+            value='**[インターフェイス概要]** ステージ基準のX座標を取得します。<hr>'),
+        Mapping(
+            key='## stage_y property API',
+            value='## stage_y 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get the y-coordinate of the stage '
+                'reference.<hr>',
+            value='**[インターフェイス概要]** ステージ基準のY座標を取得します。<hr>'),
+        Mapping(
+            key='  - x-coordinate.',
+            value='  - X座標。'),
+        Mapping(
+            key='  - y-coordinate.',
+            value='  - Y座標。'),
+        Mapping(
+            key='## local_x property API',
+            value='## local_x 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get a local x-coordinate '
+                'event listening instance. For example, this value '
+                'becomes x-coordinate from Sprite\'s left-end position '
+                'by clicking a Sprite instance.<hr>',
+            value='**[インターフェイス概要]** イベントが設定されている'
+                  'インスタンス内の相対座標のX座標を取得します。例えばSpriteの'
+                  'インスタンスをクリックした場合にはSpriteの左上の位置を基準'
+                  'とした座標になります。<hr>'),
+        Mapping(
+            key='## local_y property API',
+            value='## local_y 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get the local y-coordinate '
+                'of the event listening instance. For example, this '
+                'value becomes y-coordinate from Sprite\'s top-end '
+                'position by clicking a Sprite instance.<hr>',
+            value='**[インターフェイス概要]** イベントが設定されている'
+                  'インスタンスないの相対座標のY座標を取得します。例えばSpriteの'
+                  'インスタンスをクリックした場合にはSpriteの左上の位置を基準'
+                  'とした座標になります。<hr>'),
+        Mapping(
+            key='## this property API',
+            value='## this 属性のAPI'),
+        Mapping(
+            key='  - Instance that listening this event.',
+            value='  - このイベントが設定されているインスタンス。'),
+        Mapping(
+            key='**[Interface summary]** Get an instance of listening to '
+                'this event.<hr>',
+            value='**[インターフェイス概要]** このイベントが設定されている'
+                  'インスタンスを取得します。<hr>'),
     ])

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Basic mouse event interfaces &#8212; apysc  documentation</title>
+    <title>基本的なマウスイベントの各インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,9 +18,7 @@
     <script src="static/doctools.js"></script>
     <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="click interface" href="click.html" />
-    <link rel="prev" title="MouseEvent interfaces abstract" href="mouse_event_abstract.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,14 +26,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="click.html" title="click interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="mouse_event_abstract.html" title="MouseEvent interfaces abstract"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Basic mouse event interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">基本的なマウスイベントの各インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -44,14 +36,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="basic-mouse-event-interfaces">
-<h1>Basic mouse event interfaces<a class="headerlink" href="#basic-mouse-event-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the basic mouse event interfaces, like the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute.</p>
-<section id="basic-binding-usage">
-<h2>Basic binding usage<a class="headerlink" href="#basic-binding-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each mouse event binding interface accepts <code class="docutils literal notranslate"><span class="pre">handler</span></code> and <code class="docutils literal notranslate"><span class="pre">options</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">handler</span></code> argument is each interface’s callable object when event dispatching.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">options</span></code> argument is an optional parameter dictionary to be passed to the handler. You can skip this argument.</p>
-<p>For instance, you can set the <code class="docutils literal notranslate"><span class="pre">click</span></code> event as follows:</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="mouse_event_basic.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="id1">
+<h1>基本的なマウスイベントの各インターフェイス<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">this</span></code>属性などのマウスイベントの基本的な各インターフェイスについて説明します。</p>
+<section id="id2">
+<h2>基本的なイベント登録処理の使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>各マウスイベント設定のインターフェイスは<code class="docutils literal notranslate"><span class="pre">handler</span></code>と<code class="docutils literal notranslate"><span class="pre">options</span></code>引数を受け付けます。<code class="docutils literal notranslate"><span class="pre">handler</span></code>引数はイベントが発行された際に使用される関数などのオブジェクトです。</p>
+<p><code class="docutils literal notranslate"><span class="pre">options</span></code>引数はハンドラへ渡される追加の任意の辞書のパラメーターです。この引数は省略できます。</p>
+<p>例えば<code class="docutils literal notranslate"><span class="pre">click</span></code>のイベントを以下のコードのように設定することができます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -98,14 +91,14 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_basic_basic_binding_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click the rectangle, the handler changes the rectangle color to the specified options color.</p>
-<iframe src="static/mouse_event_basic_basic_binding_usage/index.html" width="150" height="150"></iframe><p>There are many mouse events binding interfaces, such as the <code class="docutils literal notranslate"><span class="pre">click</span></code>, <code class="docutils literal notranslate"><span class="pre">mousedown</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseup</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseover</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseout</span></code>, and <code class="docutils literal notranslate"><span class="pre">mousemove</span></code> that the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has.</p>
+<p>四角をクリックした場合、ハンドラは四角の色をパラメーターに渡された色に変更します。</p>
+<iframe src="static/mouse_event_basic_basic_binding_usage/index.html" width="150" height="150"></iframe><p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の各インスタンスには<code class="docutils literal notranslate"><span class="pre">click</span></code>や<code class="docutils literal notranslate"><span class="pre">mousedown</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseup</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseover</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseout</span></code>、<code class="docutils literal notranslate"><span class="pre">mousemove</span></code>などの様々なイベント設定用のインターフェイスがそっ歳します。</p>
 </section>
-<section id="basic-unbinding-usage">
-<h2>Basic unbinding usage<a class="headerlink" href="#basic-unbinding-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;</span></code> interfaces, for example, <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> or <code class="docutils literal notranslate"><span class="pre">unbind_mousedown</span></code> or something else.</p>
-<p>These interfaces can unbind the single handler setting (remove binding setting).</p>
-<p>For example, the following code unbinds the click event, so the interface doesn’t call the handler function.</p>
+<section id="id3">
+<h2>基本的なイベント解除処理の使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の各インスタンスは<code class="docutils literal notranslate"><span class="pre">unbind_click</span></code>や<code class="docutils literal notranslate"><span class="pre">unbind_mousedown</span></code>などの<code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;</span></code>という名前の形式のインターフェイスを持っています。</p>
+<p>これらのインターフェイスではイベントハンドラの設定単体を解除することができます。</p>
+<p>例えば以下のコード例ではクリックイベントを解除しているため、ハンドラの関数は呼ばれなくなります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -154,12 +147,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_basic_basic_unbinding_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When you click the following rectangle, nothing happens.</p>
+<p>以下の四角をクリックしてみても何も起こらないことが確認できます。</p>
 <iframe src="static/mouse_event_basic_basic_unbinding_usage/index.html" width="150" height="150"></iframe></section>
-<section id="unbind-all-event-handlers">
-<h2>Unbind all event handlers<a class="headerlink" href="#unbind-all-event-handlers" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes, it is helpful to unbind specific all the events at once. For example, each event interface has the <code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;_all</span></code> method (e.g., <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>). It can unbind all event handlers from that instance.</p>
-<p>The following code calls the <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> method and removes all handler settings.</p>
+<section id="id4">
+<h2>全てのイベントハンドラの設定を解除する<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>特定のイベントの設定を一括で解除するのが役立つ時があります。イベントが設定できる各インスタンスは<code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>などの<code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;_all</span></code>という名前の形式のインターフェイスを持っており、それを使ってインスタンスから一通りのイベントのハンドラ設定を解除することができます。</p>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>メソッドを呼んで全てのクリックイベントのハンドラ設定を解除しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -225,21 +218,21 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_basic_unbind_all_event_handlers/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Nothing happens when clicking the rectangle (no color change and no x-coordinate change).</p>
+<p>四角をクリックしてみても色の変化やX座標の更新などが発生しないことを確認できます。</p>
 <iframe src="static/mouse_event_basic_unbind_all_event_handlers/index.html" width="150" height="150"></iframe></section>
-<section id="handler-argument-names-and-types">
-<h2>Handler argument names and types<a class="headerlink" href="#handler-argument-names-and-types" title="Permalink to this headline">¶</a></h2>
-<p>Handler function (or method) first argument requires the type of the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>.</p>
-<p>Also, a second argument name is required to be <code class="docutils literal notranslate"><span class="pre">options</span></code>. This argument type becomes <code class="docutils literal notranslate"><span class="pre">dict</span></code>. If you skip options argument specification at binding the event, then this argument becomes a blank dictionary (<code class="docutils literal notranslate"><span class="pre">{}</span></code>).</p>
+<section id="id5">
+<h2>ハンドラの引数の名前と型<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>ハンドラの関数（もしくはメソッド）の第一引数は<code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>型の引数が必要になります。</p>
+<p>また、第二引数には<code class="docutils literal notranslate"><span class="pre">options</span></code>という名前の辞書の引数が必要になります。イベント設定時にこのoptionsパラメーターの指定を省略した場合にはこの引数の値は空の辞書（<code class="docutils literal notranslate"><span class="pre">{}</span></code>）になります。</p>
 </section>
-<section id="mouseevent-this-attribute">
-<h2>MouseEvent this attribute<a class="headerlink" href="#mouseevent-this-attribute" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute, which becomes an event target instance. So, if you bind the click event to the rectangle instance, the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute becomes that rectangle instance.</p>
+<section id="mouseevent-this">
+<h2>MouseEvent クラスの this 属性<a class="headerlink" href="#mouseevent-this" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>クラスのインスタンスはイベント登録対象のインスタンスとなる<code class="docutils literal notranslate"><span class="pre">this</span></code>属性を持っています。例えばクリックイベントを四角のインスタンスに設定した場合、<code class="docutils literal notranslate"><span class="pre">this</span></code>属性はその四角のインスタンスになります。</p>
 </section>
-<section id="mouseevent-generic-type-settings">
-<h2>MouseEvent generic type settings<a class="headerlink" href="#mouseevent-generic-type-settings" title="Permalink to this headline">¶</a></h2>
-<p>Suppose you know that you only use one of the handlers by an instance of a particular type. In that case, you can set generic type settings to the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> type annotation (e.g., <code class="docutils literal notranslate"><span class="pre">MouseEvent[Rectangle]</span></code>).</p>
-<p>This setting is helpful to determine the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute type, and the type-checking library, such as the <code class="docutils literal notranslate"><span class="pre">mypy</span></code> or <code class="docutils literal notranslate"><span class="pre">Pylance</span></code>, checks the instance type.</p>
+<section id="mouseevent">
+<h2>MouseEvent クラスのジェネリック型の設定<a class="headerlink" href="#mouseevent" title="Permalink to this headline">¶</a></h2>
+<p>もしもハンドラを特定の型のインスタンスのみで使うことが分かっている場合、<code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>の型アノテーションでジェネリックの型の指定を行うことができます（例: <code class="docutils literal notranslate"><span class="pre">MouseEvent[Rectangle]</span></code>）。</p>
+<p>この設定は<code class="docutils literal notranslate"><span class="pre">this</span></code>属性の型の決定に使われ、<code class="docutils literal notranslate"><span class="pre">mypy</span></code>や<code class="docutils literal notranslate"><span class="pre">Pylance</span></code>などの型チェックのライブラリを使っている場合役立つことがあります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -275,9 +268,9 @@
 </pre></div>
 </div>
 </section>
-<section id="mouseevent-stage-x-and-stage-y-attributes">
-<h2>MouseEvent stage_x and stage_y attributes<a class="headerlink" href="#mouseevent-stage-x-and-stage-y-attributes" title="Permalink to this headline">¶</a></h2>
-<p>MouseEvent instance has the <code class="docutils literal notranslate"><span class="pre">stage_x</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_y</span></code> attributes. These attributes are absolute coordinates from the upper-left position of the stage.</p>
+<section id="mouseevent-stage-x-stage-y">
+<h2>MouseEvent クラスの stage_x と stage_y 属性<a class="headerlink" href="#mouseevent-stage-x-stage-y" title="Permalink to this headline">¶</a></h2>
+<p>MouseEventクラスのインスタンスは<code class="docutils literal notranslate"><span class="pre">stage_x</span></code>や<code class="docutils literal notranslate"><span class="pre">stage_y</span></code>の各属性のインターフェイスを持っています。これらの属性はステージの左上の位置を基準とした絶対座標となります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -314,12 +307,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_basic_stage_x_and_stage_y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you open the DevTools console on Chrome (press F12) and move the mouse cursor on the following rectangle, you can check the <code class="docutils literal notranslate"><span class="pre">stage_x</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_y</span></code> coordinates. The previous code positions the rectangle at <code class="docutils literal notranslate"><span class="pre">(50,</span> <span class="pre">100)</span></code>, so the <code class="docutils literal notranslate"><span class="pre">stage_x</span></code> becomes the range of 50 to 100, and <code class="docutils literal notranslate"><span class="pre">stage_y</span></code> becomes 100 to 150.</p>
+<p>F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウスカーソルを動かすと<code class="docutils literal notranslate"><span class="pre">stage_x</span></code>や<code class="docutils literal notranslate"><span class="pre">stage_y</span></code>の座標値を家訓することができます。前述のコードでは四角を<code class="docutils literal notranslate"><span class="pre">(50,</span> <span class="pre">100)</span></code>の位置に設定しているため、<code class="docutils literal notranslate"><span class="pre">stage_x</span></code>の値は50～100の範囲の値となり、<code class="docutils literal notranslate"><span class="pre">stage_y</span></code>の値は100～150の範囲の値となります。</p>
 <iframe src="static/mouse_event_basic_stage_x_and_stage_y/index.html" width="150" height="200"></iframe></section>
-<section id="mouseevent-local-x-and-local-y-attributes">
-<h2>MouseEvent local_x and local_y attributes<a class="headerlink" href="#mouseevent-local-x-and-local-y-attributes" title="Permalink to this headline">¶</a></h2>
-<p>MouseEvent instance also has <code class="docutils literal notranslate"><span class="pre">local_x</span></code> and <code class="docutils literal notranslate"><span class="pre">local_y</span></code> attributes. These attributes are the local coordinates from the event registered instance position.</p>
-<p>The following example shows that local_x and local_y become the coordinates in the rectangle area. Both of the <code class="docutils literal notranslate"><span class="pre">local_x</span></code> and <code class="docutils literal notranslate"><span class="pre">local_y</span></code> become a range of 0 to 50 because the rectangle size is 50-pixel.</p>
+<section id="mouseevent-local-x-local-y">
+<h2>MouseEvent クラスの local_x と local_y 属性<a class="headerlink" href="#mouseevent-local-x-local-y" title="Permalink to this headline">¶</a></h2>
+<p>MouseEventのインスタンスは<code class="docutils literal notranslate"><span class="pre">local_x</span></code>と<code class="docutils literal notranslate"><span class="pre">local_y</span></code>という属性も持っています。これらの属性はイベントが登録されたインスタンスを基準とした相対座標となります。</p>
+<p>以下のコード例ではlocal_xとlocal_yの座標が四角の範囲の座標になっていることを確認できます。四角のサイズが50pxなため、<code class="docutils literal notranslate"><span class="pre">local_x</span></code>と<code class="docutils literal notranslate"><span class="pre">local_y</span></code>の値は両方とも0～50の範囲になります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -356,30 +349,30 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_basic_local_x_and_local_y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Please check on Chrome DevTools (press F12) and move the mouse cursor on the following rectangle.</p>
+<p>F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウスカーソルを動かしてみて出力結果を確認してみてください。</p>
 <iframe src="static/mouse_event_basic_local_x_and_local_y/index.html" width="150" height="150"></iframe></section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id6">
+<h2>関連資料<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="click.html"><span class="doc">click interface</span></a></p></li>
-<li><p><a class="reference internal" href="mousedown_and_mouseup.html"><span class="doc">mousedown and mouseup interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mouseover_and_mouseout.html"><span class="doc">mouseover and mouseout interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mousemove.html"><span class="doc">mousemove interface</span></a></p></li>
+<li><p><a class="reference internal" href="jp_click.html"><span class="doc">click インターフェイス</span></a></p></li>
+<li><p><a class="reference external" href="jp_mousedown_and_mouseup">mousedown と mouseup のインターフェイス</a></p></li>
+<li><p><a class="reference external" href="jp_mouseover_and_mouseout">mouseover と mouseout のインターフェイス</a></p></li>
+<li><p><a class="reference external" href="jp_mousemove">mousemove インターフェイス</a></p></li>
 </ul>
 </section>
-<section id="stage-x-property-api">
-<h2>stage_x property API<a class="headerlink" href="#stage-x-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_event.MouseEvent.stage_x --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get the x-coordinate of the stage reference.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="stage-x-api">
+<h2>stage_x 属性のAPI<a class="headerlink" href="#stage-x-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> ステージ基準のX座標を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int</p>
 <ul>
-<li><p>x-coordinate.</p></li>
+<li><p>X座標。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -394,19 +387,19 @@
 </pre></div>
 </div>
 </section>
-<section id="stage-y-property-api">
-<h2>stage_y property API<a class="headerlink" href="#stage-y-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_event.MouseEvent.stage_y --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get the y-coordinate of the stage reference.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="stage-y-api">
+<h2>stage_y 属性のAPI<a class="headerlink" href="#stage-y-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> ステージ基準のY座標を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int</p>
 <ul>
-<li><p>y-coordinate.</p></li>
+<li><p>Y座標。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -421,19 +414,19 @@
 </pre></div>
 </div>
 </section>
-<section id="local-x-property-api">
-<h2>local_x property API<a class="headerlink" href="#local-x-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_event.MouseEvent.local_x --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get a local x-coordinate event listening instance. For example, this value becomes x-coordinate from Sprite’s left-end position by clicking a Sprite instance.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="local-x-api">
+<h2>local_x 属性のAPI<a class="headerlink" href="#local-x-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> イベントが設定されているインスタンス内の相対座標のX座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int</p>
 <ul>
-<li><p>x-coordinate.</p></li>
+<li><p>X座標。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -448,19 +441,19 @@
 </pre></div>
 </div>
 </section>
-<section id="local-y-property-api">
-<h2>local_y property API<a class="headerlink" href="#local-y-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_event.MouseEvent.local_y --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get the local y-coordinate of the event listening instance. For example, this value becomes y-coordinate from Sprite’s top-end position by clicking a Sprite instance.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="local-y-api">
+<h2>local_y 属性のAPI<a class="headerlink" href="#local-y-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> イベントが設定されているインスタンスないの相対座標のY座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int</p>
 <ul>
-<li><p>y-coordinate.</p></li>
+<li><p>Y座標。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -475,19 +468,19 @@
 </pre></div>
 </div>
 </section>
-<section id="this-property-api">
-<h2>this property API<a class="headerlink" href="#this-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.event.Event.this --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get an instance of listening to this event.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="this-api">
+<h2>this 属性のAPI<a class="headerlink" href="#this-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> このイベントが設定されているインスタンスを取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: VariableNameInterface</p>
 <ul>
-<li><p>Instance that listening this event.</p></li>
+<li><p>このイベントが設定されているインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_custom_event</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Event</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -522,31 +515,25 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Basic mouse event interfaces</a><ul>
-<li><a class="reference internal" href="#basic-binding-usage">Basic binding usage</a></li>
-<li><a class="reference internal" href="#basic-unbinding-usage">Basic unbinding usage</a></li>
-<li><a class="reference internal" href="#unbind-all-event-handlers">Unbind all event handlers</a></li>
-<li><a class="reference internal" href="#handler-argument-names-and-types">Handler argument names and types</a></li>
-<li><a class="reference internal" href="#mouseevent-this-attribute">MouseEvent this attribute</a></li>
-<li><a class="reference internal" href="#mouseevent-generic-type-settings">MouseEvent generic type settings</a></li>
-<li><a class="reference internal" href="#mouseevent-stage-x-and-stage-y-attributes">MouseEvent stage_x and stage_y attributes</a></li>
-<li><a class="reference internal" href="#mouseevent-local-x-and-local-y-attributes">MouseEvent local_x and local_y attributes</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
-<li><a class="reference internal" href="#stage-x-property-api">stage_x property API</a></li>
-<li><a class="reference internal" href="#stage-y-property-api">stage_y property API</a></li>
-<li><a class="reference internal" href="#local-x-property-api">local_x property API</a></li>
-<li><a class="reference internal" href="#local-y-property-api">local_y property API</a></li>
-<li><a class="reference internal" href="#this-property-api">this property API</a></li>
+<li><a class="reference internal" href="#">基本的なマウスイベントの各インターフェイス</a><ul>
+<li><a class="reference internal" href="#id2">基本的なイベント登録処理の使い方</a></li>
+<li><a class="reference internal" href="#id3">基本的なイベント解除処理の使い方</a></li>
+<li><a class="reference internal" href="#id4">全てのイベントハンドラの設定を解除する</a></li>
+<li><a class="reference internal" href="#id5">ハンドラの引数の名前と型</a></li>
+<li><a class="reference internal" href="#mouseevent-this">MouseEvent クラスの this 属性</a></li>
+<li><a class="reference internal" href="#mouseevent">MouseEvent クラスのジェネリック型の設定</a></li>
+<li><a class="reference internal" href="#mouseevent-stage-x-stage-y">MouseEvent クラスの stage_x と stage_y 属性</a></li>
+<li><a class="reference internal" href="#mouseevent-local-x-local-y">MouseEvent クラスの local_x と local_y 属性</a></li>
+<li><a class="reference internal" href="#id6">関連資料</a></li>
+<li><a class="reference internal" href="#stage-x-api">stage_x 属性のAPI</a></li>
+<li><a class="reference internal" href="#stage-y-api">stage_y 属性のAPI</a></li>
+<li><a class="reference internal" href="#local-x-api">local_x 属性のAPI</a></li>
+<li><a class="reference internal" href="#local-y-api">local_y 属性のAPI</a></li>
+<li><a class="reference internal" href="#this-api">this 属性のAPI</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="mouse_event_abstract.html"
-                        title="previous chapter">MouseEvent interfaces abstract</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="click.html"
-                        title="next chapter">click interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -567,14 +554,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="click.html" title="click interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="mouse_event_abstract.html" title="MouseEvent interfaces abstract"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Basic mouse event interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">基本的なマウスイベントの各インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

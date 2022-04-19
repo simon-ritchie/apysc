@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>mousedown and mouseup interfaces &#8212; apysc  documentation</title>
+    <title>mousedown と mouseup のインターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,9 +18,7 @@
     <script src="static/doctools.js"></script>
     <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Mouseover and mouseout interfaces" href="mouseover_and_mouseout.html" />
-    <link rel="prev" title="dblclick interface" href="dblclick.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,14 +26,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="mouseover_and_mouseout.html" title="Mouseover and mouseout interfaces"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="dblclick.html" title="dblclick interface"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">mousedown and mouseup interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">mousedown と mouseup のインターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -44,24 +36,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="mousedown-and-mouseup-interfaces">
-<h1>mousedown and mouseup interfaces<a class="headerlink" href="#mousedown-and-mouseup-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">mouseup</span></code> interfaces.</p>
-<section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">mousedown</span></code> interface binds the event handler that the interface calls when a user mouse downed on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. Conversely, the <code class="docutils literal notranslate"><span class="pre">mouseup</span></code> interface binds the event handler that the interface calls when a user mouse upped on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> one.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="mousedown_and_mouseup.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="mousedown-mouseup">
+<h1>mousedown と mouseup のインターフェイス<a class="headerlink" href="#mousedown-mouseup" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">mousedown</span></code>や<code class="docutils literal notranslate"><span class="pre">mouseup</span></code>の各インターフェイスについて説明します。</p>
+<section id="id1">
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mousedown</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンス上でマウスを押した時のイベントのハンドラを設定するためのインターフェイスです。逆に<code class="docutils literal notranslate"><span class="pre">mouseup</span></code>インターフェイスはマウスから指を離した（押している状態を解除した）時のイベントのハンドラを設定するためのインターフェイスです。</p>
 </section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<p>The following page describes the basic mouse event interfaces:</p>
+<section id="id2">
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下のページでは基本的なマウスイベントのインターフェイスについて説明しています:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc">Basic mouse event interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mouse_event_basic.html"><span class="doc">基本的なマウスイベントの各インターフェイス</span></a></p></li>
 </ul>
 </section>
-<section id="basic-usage-of-the-mousedown-and-mouseup-interfaces">
-<h2>Basic usage of the mousedown and mouseup interfaces<a class="headerlink" href="#basic-usage-of-the-mousedown-and-mouseup-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">mouseup</span></code> method interfaces, and you can bind handlers by these.</p>
-<p>The following example binds the mouse down handler and mouse upped one to the rectangle. The handler changes the rectangle color when the mouse downs and reverts to the original one when the mouse upped.</p>
+<section id="id3">
+<h2>mousedown と mouseup のインターフェイスの基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の各インスタンスは<code class="docutils literal notranslate"><span class="pre">mousedown</span></code>と<code class="docutils literal notranslate"><span class="pre">mouseup</span></code>のメソッドのインターフェイスを持っており、それらを使ってハンドラを設定することができます。</p>
+<p>以下のコード例では四角に対してマウスを押した時と離した時のハンドラをそれぞれ設定しています。ハンドラではマウスを押した時に四角の色を変更し、マウスを離した時に元の色に戻しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -118,10 +111,10 @@
 </pre></div>
 </div>
 <iframe src="static/mousedown_and_mouseup_basic_usage/index.html" width="150" height="150"></iframe></section>
-<section id="unbind-interfaces">
-<h2>Unbind interfaces<a class="headerlink" href="#unbind-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">unbind_mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">unbind_mouseup</span></code> interfaces unbind each registered handler from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>.</p>
-<p>The following example unbinds handlers in the <code class="docutils literal notranslate"><span class="pre">on_mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">on_mouseup</span></code> functions so that the rectangle calls these handlers only once.</p>
+<section id="id4">
+<h2>解除用のインターフェイス<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">unbind_mousedown</span></code>と<code class="docutils literal notranslate"><span class="pre">unbind_mouseup</span></code>は<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスから設定されているハンドラの設定を解除します。</p>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">on_mousedown</span></code>と<code class="docutils literal notranslate"><span class="pre">on_mouseup</span></code>の各ハンドラ内でハンドラの設定を解除しているためハンドラの処理は1回のみ実行されます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -178,35 +171,35 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mousedown_and_mouseup_unbind_interfaces/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/mousedown_and_mouseup_unbind_interfaces/index.html" width="150" height="150"></iframe><p>There are also existing the <code class="docutils literal notranslate"><span class="pre">unbind_mousedown_all</span></code> and <code class="docutils literal notranslate"><span class="pre">unbind_mouseup_all</span></code> interfaces. These interfaces unbind all the handlers from the target <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
+<iframe src="static/mousedown_and_mouseup_unbind_interfaces/index.html" width="150" height="150"></iframe><p>また、<code class="docutils literal notranslate"><span class="pre">unbind_mousedown_all</span></code>や<code class="docutils literal notranslate"><span class="pre">unbind_mouseup_all</span></code>などのインターフェイスも存在します。これらのインターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスから該当のイベントのハンドラ設定を全て取り除きます。</p>
 </section>
 <section id="mousedown-api">
 <h2>mousedown API<a class="headerlink" href="#mousedown-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_down_interface.MouseDownInterface.mousedown --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">mousedown(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:Union[~_O,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Add mouse down event listener setting.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">mousedown(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:Union[~_O,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> マウスのボタンを押した時のイベント設定を追加します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
 <ul>
-<li><p>Callable that would be called when mouse down on this instance.</p></li>
+<li><p>インスタンス上でマウスのボタンを押した時に呼ばれる関数もしくはメソッド。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: dict or None, default None</p>
 <ul>
-<li><p>Optional arguments dictionary to be passed to a handler.</p></li>
+<li><p>ハンドラに渡される省略が可能な追加のパラメーターとしての辞書。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr><p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
 <ul>
-<li><p>Handler’s name.</p></li>
+<li><p>ハンドラ名。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -220,25 +213,25 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">mousedown</span><span class="p">(</span><span class="n">on_mousedown</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/about_handler_options_type.html">About the handler options’ type document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html">ハンドラのoptions引数の型について</a></p></li>
 </ul>
 </section>
 <section id="unbind-mousedown-api">
 <h2>unbind_mousedown API<a class="headerlink" href="#unbind-mousedown-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_down_interface.MouseDownInterface.unbind_mousedown --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mousedown(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Unbind a specified handler’s mouse down event.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mousedown(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> マウスのボタンを押した際のイベントの指定されたハンドラ設定を解除します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
 <ul>
-<li><p>Unbinding target Callable.</p></li>
+<li><p>イベント設定を取り除く対象の関数やメソッドなど。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -256,10 +249,10 @@
 </section>
 <section id="unbind-mousedown-all-api">
 <h2>unbind_mousedown_all API<a class="headerlink" href="#unbind-mousedown-all-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_down_interface.MouseDownInterface.unbind_mousedown_all --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mousedown_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Unbind all mouse down events.<hr></p>
-<p><strong>[Examples]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mousedown_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> マウスのボタンを押した時のイベントの全てのハンドラ設定を解除します。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -277,31 +270,31 @@
 </section>
 <section id="mouseup-api">
 <h2>mouseup API<a class="headerlink" href="#mouseup-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_up_interface.MouseUpInterface.mouseup --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">mouseup(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:Union[~_O,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Add mouse up event listener setting.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">mouseup(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:Union[~_O,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> マウスのボタンを離した時のイベント設定を追加します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
 <ul>
-<li><p>Callable that would be called when mouse-up on this instance.</p></li>
+<li><p>インスタンス上でマウスのボタンを離した時に呼ばれる関数もしくはメソッド。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: dict or None, default None</p>
 <ul>
-<li><p>Optional arguments dictionary to be passed to a handler.</p></li>
+<li><p>ハンドラに渡される省略が可能な追加のパラメーターとしての辞書。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr><p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
 <ul>
-<li><p>Handler’s name.</p></li>
+<li><p>ハンドラ名。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mouseup</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -315,25 +308,25 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">mouseup</span><span class="p">(</span><span class="n">on_mouseup</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/about_handler_options_type.html">About the handler options’ type document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html">ハンドラのoptions引数の型について</a></p></li>
 </ul>
 </section>
 <section id="unbind-mouseup-api">
 <h2>unbind_mouseup API<a class="headerlink" href="#unbind-mouseup-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_up_interface.MouseUpInterface.unbind_mouseup --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseup(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Unbind a specified handler’s mouse-up event.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseup(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> マウスのボタンを離した際のイベントの指定されたハンドラ設定を解除します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
 <ul>
-<li><p>Unbinding target Callable.</p></li>
+<li><p>イベント設定を取り除く対象の関数やメソッドなど。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mouseup</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -351,10 +344,10 @@
 </section>
 <section id="unbind-mouseup-all-api">
 <h2>unbind_mouseup_all API<a class="headerlink" href="#unbind-mouseup-all-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_up_interface.MouseUpInterface.unbind_mouseup_all --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseup_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Unbind all mouse up events.<hr></p>
-<p><strong>[Examples]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseup_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> マウスのボタンを離したとぎのイベントの全てのハンドラ設定を解除します。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mouseup</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -384,11 +377,11 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">mousedown and mouseup interfaces</a><ul>
-<li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
-<li><a class="reference internal" href="#basic-usage-of-the-mousedown-and-mouseup-interfaces">Basic usage of the mousedown and mouseup interfaces</a></li>
-<li><a class="reference internal" href="#unbind-interfaces">Unbind interfaces</a></li>
+<li><a class="reference internal" href="#">mousedown と mouseup のインターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
+<li><a class="reference internal" href="#id2">関連資料</a></li>
+<li><a class="reference internal" href="#id3">mousedown と mouseup のインターフェイスの基本的な使い方</a></li>
+<li><a class="reference internal" href="#id4">解除用のインターフェイス</a></li>
 <li><a class="reference internal" href="#mousedown-api">mousedown API</a></li>
 <li><a class="reference internal" href="#unbind-mousedown-api">unbind_mousedown API</a></li>
 <li><a class="reference internal" href="#unbind-mousedown-all-api">unbind_mousedown_all API</a></li>
@@ -399,12 +392,6 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="dblclick.html"
-                        title="previous chapter">dblclick interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="mouseover_and_mouseout.html"
-                        title="next chapter">Mouseover and mouseout interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -425,14 +412,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="mouseover_and_mouseout.html" title="Mouseover and mouseout interfaces"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="dblclick.html" title="dblclick interface"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">mousedown and mouseup interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">mousedown と mouseup のインターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

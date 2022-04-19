@@ -2133,4 +2133,68 @@ MAPPINGS: Mappings = Mappings(
                 'this event.<hr>',
             value='**[インターフェイス概要]** このイベントが設定されている'
                   'インスタンスを取得します。<hr>'),
+        Mapping(
+            key='The following page describes the basic mouse event '
+                'interfaces:',
+            value='以下のページでは基本的なマウスイベントのインターフェイスに'
+                  'ついて説明しています:'),
+        Mapping(
+            key='## Unbind interfaces',
+            value='## 解除用のインターフェイス'),
+        Mapping(
+            key='## mousedown API',
+            value='## mousedown API'),
+        Mapping(
+            key='**[Interface summary]** Add mouse down event listener '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** マウスのボタンを押した時のイベント'
+                  '設定を追加します。<hr>'),
+        Mapping(
+            key='  - Callable that would be called when mouse down on '
+                'this instance.',
+            value='  - インスタンス上でマウスのボタンを押した時に呼ばれる関数'
+                  'もしくはメソッド。'),
+        Mapping(
+            key='## unbind_mousedown API',
+            value='## unbind_mousedown API'),
+        Mapping(
+            key='**[Interface summary]** Unbind a specified handler\'s '
+                'mouse down event.<hr>',
+            value='**[インターフェイス概要]** マウスのボタンを押した際のイベントの'
+                  '指定されたハンドラ設定を解除します。<hr>'),
+        Mapping(
+            key='## unbind_mousedown_all API',
+            value='## unbind_mousedown_all API'),
+        Mapping(
+            key='**[Interface summary]** Unbind all mouse down events.<hr>',
+            value='**[インターフェイス概要]** マウスのボタンを押した時のイベントの'
+                  '全てのハンドラ設定を解除します。<hr>'),
+        Mapping(
+            key='## mouseup API',
+            value='## mouseup API'),
+        Mapping(
+            key='**[Interface summary]** Add mouse up event listener '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** マウスのボタンを離した時の'
+                  'イベント設定を追加します。<hr>'),
+        Mapping(
+            key='  - Callable that would be called when mouse-up on this '
+                'instance.',
+            value='  - インスタンス上でマウスのボタンを離した時に呼ばれる'
+                  '関数もしくはメソッド。'),
+        Mapping(
+            key='## unbind_mouseup API',
+            value='## unbind_mouseup API'),
+        Mapping(
+            key='**[Interface summary]** Unbind a specified handler\'s '
+                'mouse-up event.<hr>',
+            value='**[インターフェイス概要]** マウスのボタンを離した際のイベントの'
+                  '指定されたハンドラ設定を解除します。<hr>'),
+        Mapping(
+            key='## unbind_mouseup_all API',
+            value='## unbind_mouseup_all API'),
+        Mapping(
+            key='**[Interface summary]** Unbind all mouse up events.<hr>',
+            value='**[インターフェイス概要]** マウスのボタンを離したとぎのイベントの'
+                  '全てのハンドラ設定を解除します。<hr>'),
     ])

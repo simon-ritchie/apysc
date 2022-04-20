@@ -29,7 +29,7 @@ class Mapping:
         key : str
             A key value (this value needs to set source
             English string).
-        value : str
+        val : str
             A translated value.
         """
         self._key = key
@@ -54,7 +54,7 @@ class Mapping:
 
         Returns
         -------
-        value : str
+        val : str
             A translated value.
         """
         return self._val

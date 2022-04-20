@@ -50,7 +50,7 @@ A single fixed-translation mapping setting.<hr>
 
 - `key`: str
   - A key value (this value needs to set source English string).
-- `value`: str
+- `val`: str
   - A translated value.
 
 ## `Mappings` class docstring

@@ -19,7 +19,7 @@ Add mouse up event listener setting.<hr>
 - `handler`: _Handler
   - Callable that would be called when mouse-up on this instance.
 - `options`: dict or None, default None
-  - Optional arguments dictionary to be passed to a handler
+  - Optional arguments dictionary to be passed to a handler.
 
 <hr>
 

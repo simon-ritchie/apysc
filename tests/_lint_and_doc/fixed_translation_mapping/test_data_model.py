@@ -23,7 +23,7 @@ class TestMapping:
         assert_attrs(
             expected_attrs={
                 '_key': 'Lorem',
-                '_value': 'ipsum',
+                '_val': 'ipsum',
             },
             any_obj=base)
 

@@ -1,4 +1,4 @@
-# Mouseover and mouseout interfaces
+# mouseover and mouseout interfaces
 
 This page explains the `mouseover` and `mouseout` interfaces.
 
@@ -81,7 +81,7 @@ ap.save_overall_html(
 
 <iframe src="static/mouseover_and_mouseout_basic_usage/index.html" width="150" height="150"></iframe>
 
-## Unbind Interfaces
+## Unbind interfaces
 
 The `unbind_mouseover` and `unbind_mouseout` interfaces unbind each registered handler from the `DisplayObject`\.
 
@@ -150,7 +150,7 @@ ap.save_overall_html(
 
 <iframe src="static/mouseover_and_mouseout_unbind_interfaces/index.html" width="150" height="150"></iframe>
 
-There are also existing the `unbind_mouseover_all` and `unbind_mouseover_all` interfaces. These interfaces unbind all the handlers from the target `DisplayObject` instance.
+There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` interfaces. These interfaces unbind all the handlers from the target `DisplayObject` instance.
 
 
 ## mouseover API

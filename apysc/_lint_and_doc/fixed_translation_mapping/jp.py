@@ -2228,4 +2228,60 @@ MAPPINGS: Mappings = Mappings(
             key='**[Interface summary]** Unbind all mouse move events.<hr>',
             value='**[インターフェイス概要]** マウスカーソルを動かしたときのイベントの'
                   '全てのハンドラ設定を解除します。<hr>'),
+        Mapping(
+            key='## mouseover API',
+            value='## mouseover API'),
+        Mapping(
+            key='**[Interface summary]** Add mouse over event listener '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** マウスカーソルが乗った時のイベントの'
+                  'ハンドラ設定を追加します。<hr>'),
+        Mapping(
+            key='  - Callable that would be called when mouse over on '
+                'this instance.',
+            value='  - インスタンス上にマウスカーソルが乗った際に呼ばれる関数'
+                  'もしくはメソッド。'),
+        Mapping(
+            key='## unbind_mouseover API',
+            value='## unbind_mouseover API'),
+        Mapping(
+            key='**[Interface summary]** Unbind a specified handler\'s '
+                'mouseover event.<hr>',
+            value='**[インターフェイス概要]** マウスカーソルが乗った際のイベントの'
+                  '指定されたハンドラ設定を解除します。<hr>'),
+        Mapping(
+            key='## unbind_mouseover_all API',
+            value='## unbind_mouseover_all API'),
+        Mapping(
+            key='**[Interface summary]** Unbind all mouseover events.<hr>',
+            value='**[インターフェイス概要]** マウスカーソルが乗った際のイベントの'
+                  '全てのハンドラ設定を解除します。<hr>'),
+        Mapping(
+            key='## mouseout API',
+            value='## mouseout API'),
+        Mapping(
+            key='**[Interface summary]** Add mouse out event listener '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** マウスカーソルがインスタンス上から'
+                  '離れた際のイベントのハンドラを設定します。<hr>'),
+        Mapping(
+            key='  - Callable that would be called when mouse out on '
+                'this instance.',
+            value='  - インスタンス上からマウスカーソルが離れた際のイベントの'
+                  '対象のハンドラ設定を解除します。'),
+        Mapping(
+            key='## unbind_mouseout API',
+            value='## unbind_mouseout API'),
+        Mapping(
+            key='**[Interface summary]** Unbind a specified handler\'s '
+                'mouse-out event.<hr>',
+            value='**[インターフェイス概要]** インスタンス上からマウスカーソルが'
+                  '離れた際のイベントの対象のハンドラ設定を解除します。<hr>'),
+        Mapping(
+            key='## unbind_mouseout_all API',
+            value='## unbind_mouseout_all API'),
+        Mapping(
+            key='**[Interface summary]** Unbind all mouse out events.<hr>',
+            value='**[インターフェイス概要]** インスタンス上からマウスカーソルが'
+                  '離れた際のイベントのハンドラ設定を全て解除します。<hr>'),
     ])

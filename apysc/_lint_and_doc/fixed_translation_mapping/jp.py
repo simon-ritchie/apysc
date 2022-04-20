@@ -2284,4 +2284,14 @@ MAPPINGS: Mappings = Mappings(
             key='**[Interface summary]** Unbind all mouse out events.<hr>',
             val='**[インターフェイス概要]** インスタンス上からマウスカーソルが'
             '離れた際のイベントのハンドラ設定を全て解除します。<hr>'),
+        Mapping(
+            key='## num_children API',
+            val='## num_children API'),
+        Mapping(
+            key='**[Interface summary]** Get a current children\'s '
+                'number.<hr>',
+            val='**[インターフェイス概要]** 現在の子の数を取得します。<hr>'),
+        Mapping(
+            key='  - Current children number.',
+            val='  - 現在の子の数。'),
     ])

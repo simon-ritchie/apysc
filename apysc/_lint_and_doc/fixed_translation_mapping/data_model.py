@@ -18,9 +18,9 @@ class Mapping:
     """
 
     _key: str
-    _value: str
+    _val: str
 
-    def __init__(self, *, key: str, value: str) -> None:
+    def __init__(self, *, key: str, val: str) -> None:
         """
         A single fixed-translation mapping setting.
 
@@ -33,7 +33,7 @@ class Mapping:
             A translated value.
         """
         self._key = key
-        self._value = value
+        self._val = val
 
     @property
     def key(self) -> str:
@@ -48,7 +48,7 @@ class Mapping:
         return self._key
 
     @property
-    def value(self) -> str:
+    def val(self) -> str:
         """
         Get a translated value.
 
@@ -57,7 +57,7 @@ class Mapping:
         value : str
             A translated value.
         """
-        return self._value
+        return self._val
 
 
 class Mappings:
@@ -102,7 +102,7 @@ def get_fixed_translation_str_if_exists(
         return ''
     for mapping in mappings.mappings:
         if mapping.key == key:
-            return mapping.value
+            return mapping.val
     return ''
 
 

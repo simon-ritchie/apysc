@@ -2197,4 +2197,35 @@ MAPPINGS: Mappings = Mappings(
             key='**[Interface summary]** Unbind all mouse up events.<hr>',
             value='**[インターフェイス概要]** マウスのボタンを離したとぎのイベントの'
                   '全てのハンドラ設定を解除します。<hr>'),
+        Mapping(
+            key='## mousemove API',
+            value='## mousemove API'),
+        Mapping(
+            key='**[Interface summary]** Add mouse move event listener '
+                'setting.<hr>',
+            value='**[インターフェイス概要]** マウスを動かした時のイベント設定を'
+                  '追加します。<hr>'),
+        Mapping(
+            key='## mousemove API',
+            value='## mousemove API'),
+        Mapping(
+            key='  - Callable that would be called when mousemove on '
+                'this instance.',
+            value='  - インスタンス上でマウスを動かした際に呼ばれる関数'
+                  'もしくはメソッド。'),
+        Mapping(
+            key='## unbind_mousemove API',
+            value='## unbind_mousemove API'),
+        Mapping(
+            key='**[Interface summary]** Unbind a specified handler\'s '
+                'mouse move event.<hr>',
+            value='**[インターフェイス概要]** マウスカーソルを動かした際の'
+                  'イベントで指定されたハンドラの設定を解除します。<hr>'),
+        Mapping(
+            key='## unbind_mousemove_all API',
+            value='## unbind_mousemove_all API'),
+        Mapping(
+            key='**[Interface summary]** Unbind all mouse move events.<hr>',
+            value='**[インターフェイス概要]** マウスカーソルを動かしたときのイベントの'
+                  '全てのハンドラ設定を解除します。<hr>'),
     ])

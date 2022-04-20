@@ -1,4 +1,4 @@
-# Mousemove interface
+# mousemove interface
 
 This page explains the `mousemove` interface.
 

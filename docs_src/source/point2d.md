@@ -1,4 +1,4 @@
-# Point2D
+# Point2D class
 
 This page explains the `Point2D` class.
 

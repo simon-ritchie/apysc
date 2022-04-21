@@ -2294,4 +2294,16 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Current children number.',
             val='  - 現在の子の数。'),
+        Mapping(
+            key='## Point2D class constructor API',
+            val='## Point2D クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** 2-dimensional geometry point.<hr>',
+            val='**[インターフェイス概要]** 2次元の座標値を扱うクラスです。<hr>'),
+        Mapping(
+            key='**[Interface summary]** X-coordinate property.<hr>',
+            val='**[インターフェイス概要]** X座標の属性のインターフェイスです。<hr>'),
+        Mapping(
+            key='**[Interface summary]** Y-coordinate property.<hr>',
+            val='**[インターフェイス概要]** Y座標の属性のインターフェイスです。<hr>'),
     ])

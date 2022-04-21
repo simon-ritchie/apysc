@@ -2306,4 +2306,16 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='**[Interface summary]** Y-coordinate property.<hr>',
             val='**[インターフェイス概要]** Y座標の属性のインターフェイスです。<hr>'),
+        Mapping(
+            key='## Return API',
+            val='## Return API'),
+        Mapping(
+            key='**[Interface summary]** Class for the return '
+                'expression.<hr>',
+            val='**[インターフェイス概要]** return のコード表現のためのクラスです。<hr>'),
+        Mapping(
+            key='This class can be instantiated only in an event '
+                'handler scope.<hr>',
+            val='このクラスはイベントハンドラのスコープ内でのみインスタンス化'
+                'することができます。<hr>'),
     ])

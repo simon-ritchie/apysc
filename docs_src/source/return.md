@@ -1,4 +1,4 @@
-# Return
+# Return class
 
 This page explains the `Return` class.
 

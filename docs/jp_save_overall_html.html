@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>save_overall_html interface &#8212; apysc  documentation</title>
+    <title>save_overall_html インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,9 +18,7 @@
     <script src="static/doctools.js"></script>
     <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="display_on_jupyter interface" href="display_on_jupyter.html" />
-    <link rel="prev" title="Sprite class" href="sprite.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,14 +26,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="display_on_jupyter.html" title="display_on_jupyter interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="sprite.html" title="Sprite class"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">save_overall_html interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">save_overall_html インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -44,17 +36,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="save-overall-html-interface">
-<h1>save_overall_html interface<a class="headerlink" href="#save-overall-html-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function interface.</p>
-<section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function interface will export the overall HTML and JavaScript files. At the end of the apysc project, this function’s calling is necessary to export the HTML.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="save_overall_html.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="save-overall-html">
+<h1>save_overall_html インターフェイス<a class="headerlink" href="#save-overall-html" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code>関数のインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code>関数のインターフェイスはHTMLとJavaScript全体のファイルを出力します。apyscのプロジェクトの最後でHTMLなどを出力するためにこの関数の呼び出しが必要になります。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function need at least one argument, <code class="docutils literal notranslate"><span class="pre">dest_dir_path</span></code>. This argument determines a directory path to save HTML and JavaScript files.</p>
-<p>The following code example exports the HTML and JavaScript files, and the exported HTML displays the blank stage (150 px width and height).</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code>関数では最低限<code class="docutils literal notranslate"><span class="pre">dest_dir_path</span></code>引数の指定が必要になります。この引数はHTMLとJavaScriptの各ファイルの出力先のディレクトリとなります。</p>
+<p>以下のコード例ではHTMLとJavaScriptの各ファイル出力しています。出力したHTMLでは縦横150pxの空のステージのみ表示されるようにしてあります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -68,11 +61,11 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;save_overall_html_interface_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The preceding code exports the <code class="docutils literal notranslate"><span class="pre">save_overall_html_interface_basic_usage/index.html</span></code> and the other JavaScript library files.</p>
+<p>上記のコードでは<code class="docutils literal notranslate"><span class="pre">save_overall_html_interface_basic_usage/index.html</span></code>のパスにHTMLファイルや他のJavaScriptのライブラリファイルが出力されます。</p>
 <iframe src="static/save_overall_html_interface_basic_usage/index.html" width="150" height="150"></iframe></section>
-<section id="minify-the-html">
-<h2>Minify the HTML<a class="headerlink" href="#minify-the-html" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function has the <code class="docutils literal notranslate"><span class="pre">minify</span></code> optional argument (default is True). This interface minifies an output HTML if this value is <code class="docutils literal notranslate"><span class="pre">True</span></code>. The <code class="docutils literal notranslate"><span class="pre">False</span></code> setting is sometimes helpful for debugging.</p>
+<section id="html">
+<h2>HTMLを最小化する<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code>関数には<code class="docutils literal notranslate"><span class="pre">minify</span></code>のオプションの引数が存在します（デフォルトではTrueになっています）。この設定はもしTrueになっていきれば出力結果のHTMLを最小化（minify）します。Falseの設定はデバッグ時などに便利な時があります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -87,11 +80,11 @@
 </pre></div>
 </div>
 </section>
-<section id="javascript-libs-directory-path-setting-and-skip-option">
-<h2>JavaScript libs directory path setting and skip option<a class="headerlink" href="#javascript-libs-directory-path-setting-and-skip-option" title="Permalink to this headline">¶</a></h2>
-<p>If you want to adjust the JavaScript library paths, set the <code class="docutils literal notranslate"><span class="pre">js_lib_dir_path</span></code> optional argument. This option overrides the JavaScript library paths in an exported HTML (<code class="docutils literal notranslate"><span class="pre">index.html</span></code>).</p>
-<p>This setting is sometimes helpful when you want to export the HTML with specified JavaScript library paths, for instance, the Django library static directory.</p>
-<p>Also, the <code class="docutils literal notranslate"><span class="pre">skip_js_lib_exporting</span></code> option is helpful when you want to skip the already exported js files. This setting skips the JavaScript library exporting.</p>
+<section id="javascript">
+<h2>JavaScriptのライブラリのディレクトリパスの設定と出力スキップの設定<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<p>もしもJavaScriptのライブラリパスを調整したい場合、<code class="docutils literal notranslate"><span class="pre">js_lib_dir_path</span></code>のオプションとなる引数で設定することができます。このオプションは出力されたHTML（<code class="docutils literal notranslate"><span class="pre">index.html</span></code>）内のJavaScriptのライブラリのパス指定を上書きします。</p>
+<p>この設定は例えばDjangoのようなライブラリの静的ファイルのディレクトリを指定する形でJavaScriptライブラリのパスを指定してHTMLを出力したい場合などに役立つ時があります。</p>
+<p>また、<code class="docutils literal notranslate"><span class="pre">skip_js_lib_exporting</span></code>の引数のオプションも既に出力済みのJavaScriptライブラリの出力を省略したい場合に役立ちます。この設定を有効にするとJavaScriptライブラリのファイルは出力されなくなります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -106,11 +99,11 @@
     <span class="n">skip_js_lib_exporting</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Notes: The <code class="docutils literal notranslate"><span class="pre">js_lib_dir_path</span></code> option does not change the js files exporting destination directory currently.</p>
+<p>特記事項: 現在の実装では<code class="docutils literal notranslate"><span class="pre">js_lib_dir_path</span></code>の設定ではJavaScriptファイルの出力先は変更されません。</p>
 </section>
-<section id="change-the-html-file-name-by-the-html-file-name-option">
-<h2>Change the HTML file name by the html_file_name option<a class="headerlink" href="#change-the-html-file-name-by-the-html-file-name-option" title="Permalink to this headline">¶</a></h2>
-<p>If you need to change the output HTML file name, use the <code class="docutils literal notranslate"><span class="pre">html_file_name</span></code> optional argument. This argument changes the HTML file name from <code class="docutils literal notranslate"><span class="pre">index.html</span></code> to any other name.</p>
+<section id="html-file-name-html">
+<h2>html_file_name オプションを使用してHTMLのファイル名を変更する<a class="headerlink" href="#html-file-name-html" title="Permalink to this headline">¶</a></h2>
+<p>出力されるHTMLのファイル名を変更したい場合には<code class="docutils literal notranslate"><span class="pre">html_file_name</span></code>のオプションの引数を指定することで変更することができます。この引数はHTMLのファイル名を<code class="docutils literal notranslate"><span class="pre">index.html</span></code>から任意の他の名前に変更します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -125,9 +118,9 @@
 </pre></div>
 </div>
 </section>
-<section id="bundle-each-javascript-library-to-the-signle-html-file-by-the-embed-js-libs-option">
-<h2>Bundle each JavaScript library to the signle HTML file by the embed_js_libs option<a class="headerlink" href="#bundle-each-javascript-library-to-the-signle-html-file-by-the-embed-js-libs-option" title="Permalink to this headline">¶</a></h2>
-<p>You can bundle each JavaScript library to the single output HTML file by the <code class="docutils literal notranslate"><span class="pre">embed_js_libs</span></code> optional argument. This option is maybe useful when you need to pass the output file to the other members.</p>
+<section id="embed-js-libs-javascript1html">
+<h2>embed_js_libs オプションでJavaScriptのライブラリを1つのHTMLファイルにまとめる<a class="headerlink" href="#embed-js-libs-javascript1html" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">embed_js_libs</span></code>のオプションの引数を設定することで、出力結果のHTML内に各JavaScriptライブラリの内容を含めてまとめることができます。この設定は他のメンバーにファイルを共有する場合などに1つのファイルのみで扱うことができ便利な時があります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -142,9 +135,9 @@
 </pre></div>
 </div>
 </section>
-<section id="change-the-stdout-setting-by-the-verbose-option">
-<h2>Change the stdout setting by the verbose option<a class="headerlink" href="#change-the-stdout-setting-by-the-verbose-option" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">verbose</span></code> optional argument changes the exporting stdout behavior. If the specified value is 0, the apysc displays nothing. If 1 or the other values is specified, the apysc displays the stdout.</p>
+<section id="verbose">
+<h2>verbose オプションで標準出力の設定を変更する<a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>のオプションの引数はファイル出力時の標準出力の挙動を変更します。もしも0が指定された場合標準出力に何も表示しなくなります。1もしくは他の値を指定すればapyscライブラリは標準出力を表示します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -161,50 +154,50 @@
 </section>
 <section id="save-overall-html-api">
 <h2>save_overall_html API<a class="headerlink" href="#save-overall-html-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._html.exporter.save_overall_html --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">save_overall_html(dest_dir_path:str,</span> <span class="pre">*,</span> <span class="pre">html_file_name:str='index.html',</span> <span class="pre">minify:bool=True,</span> <span class="pre">js_lib_dir_path:str='./',</span> <span class="pre">skip_js_lib_exporting:bool=False,</span> <span class="pre">embed_js_libs:bool=False,</span> <span class="pre">verbose:int=1)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Save the overall HTML and js files under the specified directory path.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">save_overall_html(dest_dir_path:str,</span> <span class="pre">*,</span> <span class="pre">html_file_name:str='index.html',</span> <span class="pre">minify:bool=True,</span> <span class="pre">js_lib_dir_path:str='./',</span> <span class="pre">skip_js_lib_exporting:bool=False,</span> <span class="pre">embed_js_libs:bool=False,</span> <span class="pre">verbose:int=1)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 指定されたディレクトリパス以下にHTMLとJavaScriptのファイル全体を出力します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dest_dir_path</span></code>: str</p>
 <ul>
-<li><p>Destination directory path to save each HTML and js file.</p></li>
+<li><p>各HTMLとJavaScriptファイルの保存先となるディレクトリパス。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">html_file_name</span></code>: str, default ‘index.html’</p>
 <ul>
-<li><p>The output HTML file name.</p></li>
+<li><p>出力されるHTMLのファイル名。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">minify</span></code>: bool, default True</p>
 <ul>
-<li><p>Boolean value indicates whether minify HTML and js or not. The False setting is helpful when debugging.</p></li>
+<li><p>HTMLとJavaScriptの内容を最小化（minify）するかどうかの真偽値。Falseの設定はデバッグ時などに便利な時があります。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">js_lib_dir_path</span></code>: str, default ‘./’</p>
 <ul>
-<li><p>JavaScript libraries directory path. This setting applies to a JavaScript source path in HTML. If not specified, then set the same directory with HTML. This setting is maybe helpful to set js lib directory, such as Django’s static (static_collected) directory. This interface recommends setting True value to the <code class="docutils literal notranslate"><span class="pre">skip_js_lib_exporting</span></code> argument if this argument sets.</p></li>
+<li><p>JavaScriptライブラリのパスの設定。この設定はHTML内のJavaScriptのコードのパスの指定部分に影響します。指定されていない場合にはHTMLと同じディレクトリが設定されます。この設定はDjangoのようなライブラリの静的ファイルのディレクトリを指定する場合などに便利なことがあります。もしこの引数が設定された場合には<code class="docutils literal notranslate"><span class="pre">skip_js_lib_exporting</span></code>の設定も有効にすることが推奨されます。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">skip_js_lib_exporting</span></code>: bool, default False</p>
 <ul>
-<li><p>If True, this interface does not export JavaScript libraries.</p></li>
+<li><p>Trueが設定された場合、このインターフェイスはJavaScriptの各ライブラリを出力しなくなります。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">embed_js_libs</span></code>: bool, default False</p>
 <ul>
-<li><p>Option to embed the JavaScript libraries script to the output HTML or not. If True, the output HTML becomes enormous, and be only one HTML file. Occasionally, this option is useful when sharing the exported file or using the output file with an iframe tag to avoid the CORS error.</p></li>
+<li><p>各JavaScriptライブラリを出力されるHTML内に埋め込むかどうかの設定です。もしTrueが設定された場合、出力されるHTMLは大きくなり、そして1つのHTMLファイルのみ出力されるようになります。この設定は出力されたファイルをiframeタグで使う際にCORSのエラーを回避したい時などに役立つことがあります。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: int, default 1</p>
 <ul>
-<li><p>The Logging setting. If 0 is specified, this interface does not display a logging message. If 1 or the other value is specified, this interface displays a message usually.</p></li>
+<li><p>ロギング（ログ表示）の設定です。0が指定された場合、このインターフェイスはログのメッセージを表示しなくなります。1もしくは他の値を指定した場合、このインターフェイスはログのメッセージを通常通り表示します。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
-<p>This interface empties a specified directory before saving.<hr></p>
-<p><strong>[Examples]</strong></p>
+<hr><p><strong>[特記事項]</strong></p>
+<p>このインターフェイスは指定された出力先のディレクトリを出力前に空にします。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Do something here...</span>
@@ -226,25 +219,19 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">save_overall_html interface</a><ul>
-<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#minify-the-html">Minify the HTML</a></li>
-<li><a class="reference internal" href="#javascript-libs-directory-path-setting-and-skip-option">JavaScript libs directory path setting and skip option</a></li>
-<li><a class="reference internal" href="#change-the-html-file-name-by-the-html-file-name-option">Change the HTML file name by the html_file_name option</a></li>
-<li><a class="reference internal" href="#bundle-each-javascript-library-to-the-signle-html-file-by-the-embed-js-libs-option">Bundle each JavaScript library to the signle HTML file by the embed_js_libs option</a></li>
-<li><a class="reference internal" href="#change-the-stdout-setting-by-the-verbose-option">Change the stdout setting by the verbose option</a></li>
+<li><a class="reference internal" href="#">save_overall_html インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#html">HTMLを最小化する</a></li>
+<li><a class="reference internal" href="#javascript">JavaScriptのライブラリのディレクトリパスの設定と出力スキップの設定</a></li>
+<li><a class="reference internal" href="#html-file-name-html">html_file_name オプションを使用してHTMLのファイル名を変更する</a></li>
+<li><a class="reference internal" href="#embed-js-libs-javascript1html">embed_js_libs オプションでJavaScriptのライブラリを1つのHTMLファイルにまとめる</a></li>
+<li><a class="reference internal" href="#verbose">verbose オプションで標準出力の設定を変更する</a></li>
 <li><a class="reference internal" href="#save-overall-html-api">save_overall_html API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="sprite.html"
-                        title="previous chapter">Sprite class</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="display_on_jupyter.html"
-                        title="next chapter">display_on_jupyter interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -265,14 +252,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="display_on_jupyter.html" title="display_on_jupyter interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="sprite.html" title="Sprite class"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">save_overall_html interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">save_overall_html インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

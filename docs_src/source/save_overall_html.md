@@ -111,7 +111,7 @@ ap.save_overall_html(
 
 ## Change the stdout setting by the verbose option
 
-The `verbose` optional argument changes the exporting stdout behavior. If the specified value is 0, the apysc displays nothing to the stdout will. If 1 or the other values is specified, the apysc displays the stdout.
+The `verbose` optional argument changes the exporting stdout behavior. If the specified value is 0, the apysc displays nothing. If 1 or the other values is specified, the apysc displays the stdout.
 
 ```py
 import apysc as ap

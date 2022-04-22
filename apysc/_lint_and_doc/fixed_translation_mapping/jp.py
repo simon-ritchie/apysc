@@ -2318,4 +2318,65 @@ MAPPINGS: Mappings = Mappings(
                 'handler scope.<hr>',
             val='このクラスはイベントハンドラのスコープ内でのみインスタンス化'
                 'することができます。<hr>'),
+        Mapping(
+            key='## save_overall_html API',
+            val='## save_overall_html API'),
+        Mapping(
+            key='**[Interface summary]** Save the overall HTML and js '
+                'files under the specified directory path.<hr>',
+            val='**[インターフェイス概要]** 指定されたディレクトリパス以下に'
+                'HTMLとJavaScriptのファイル全体を出力します。<hr>'),
+        Mapping(
+            key='  - Destination directory path to save each HTML and '
+                'js file.',
+            val='  - 各HTMLとJavaScriptファイルの保存先となるディレクトリパス。'),
+        Mapping(
+            key='  - Boolean value indicates whether minify HTML and '
+                'js or not. The False setting is helpful when debugging.',
+            val='  - HTMLとJavaScriptの内容を最小化（minify）するかどうかの'
+                '真偽値。Falseの設定はデバッグ時などに便利な時があります。'),
+        Mapping(
+            key='  - JavaScript libraries directory path. This setting '
+                'applies to a JavaScript source path in HTML. If not '
+                'specified, then set the same directory with HTML. This '
+                'setting is maybe helpful to set js lib directory, such '
+                'as Django\'s static (static_collected) directory. This '
+                'interface recommends setting True value to the '
+                '`skip_js_lib_exporting` argument if this argument sets.',
+            val='  - JavaScriptライブラリのパスの設定。この設定はHTML内の'
+                'JavaScriptのコードのパスの指定部分に影響します。指定されていない'
+                '場合にはHTMLと同じディレクトリが設定されます。この設定はDjango'
+                'のようなライブラリの静的ファイルのディレクトリを指定する場合などに'
+                '便利なことがあります。もしこの引数が設定された場合には'
+                '`skip_js_lib_exporting`の設定も有効にすることが推奨されます。'),
+        Mapping(
+            key='  - If True, this interface does not export JavaScript '
+                'libraries.',
+            val='  - Trueが設定された場合、このインターフェイスはJavaScriptの'
+                '各ライブラリを出力しなくなります。'),
+        Mapping(
+            key='  - Option to embed the JavaScript libraries script '
+            'to the output HTML or not. If True, the output HTML becomes '
+            'enormous, and be only one HTML file. Occasionally, this '
+            'option is useful when sharing the exported file or using the '
+            'output file with an iframe tag to avoid the CORS error.',
+            val='  - 各JavaScriptライブラリを出力されるHTML内に埋め込むかどうか'
+            'の設定です。もしTrueが設定された場合、出力されるHTMLは大きくなり、'
+            'そして1つのHTMLファイルのみ出力されるようになります。この設定は'
+            '出力されたファイルをiframeタグで使う際にCORSのエラーを回避したい'
+            '時などに役立つことがあります。'),
+        Mapping(
+            key='  - The Logging setting. If 0 is specified, this '
+            'interface does not display a logging message. If 1 or the '
+            'other value is specified, this interface displays a message '
+            'usually.',
+            val='  - ロギング（ログ表示）の設定です。0が指定された場合、この'
+            'インターフェイスはログのメッセージを表示しなくなります。1もしくは'
+            '他の値を指定した場合、このインターフェイスはログのメッセージを'
+            '通常通り表示します。'),
+        Mapping(
+            key='This interface empties a specified directory before '
+            'saving.<hr>',
+            val='このインターフェイスは指定された出力先のディレクトリを'
+            '出力前に空にします。<hr>'),
     ])

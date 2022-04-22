@@ -2382,4 +2382,22 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='animation_complete interface document',
             val='animation_complete インターフェイス'),
+        Mapping(
+            key='## set_debug_mode API',
+            val='## set_debug_mode API'),
+        Mapping(
+            key='**[Interface summary]** Set the debug mode for the '
+            'HTML and JavaScript debugging. If calling this function, '
+            'this interface applies the following setting: ',
+            val='**[インターフェイス概要]** HTMLとJavaScriptのデバッグ用に'
+            'デバッグモードの設定を行います。もしこの関数を呼び出した場合、'
+            'のインターフェイスは以下の設定を追加します: '),
+        Mapping(
+            key='<br> ・Disabling HTML minify setting. ',
+            val='<br> ・HTMLの最小化（minify）設定を無効化します。 '),
+        Mapping(
+            key='<br> ・Changing to append per each interface JavaScript '
+            'divider string.<hr>',
+            val='<br> ・各インターフェイスごとのJavaScript上での区切りのための'
+            '文字列を追加します。<hr>'),
     ])

@@ -1,20 +1,22 @@
-# set_debug_mode interface
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](set_debug_mode.md)の確認をお願いします。</span>
 
-This page explains the `set_debug_mode` function interface.
+# set_debug_mode インターフェイス
 
-## What interface is this?
+このページでは`set_debug_mode`関数のインターフェイスについて説明します。
 
-The `set_debug_mode` function interface sets the debug mode setting. This setting appends the debug information (Python function or method calls and arguments information) to the exported HTML.
+## インターフェイス概要
 
-## Notes
+`set_debug_mode`関数のインターフェイスはデバッグモードの設定を有効化します。この設定はデバッグ用の情報（Python上の関数やメソッドの呼び出しと引数情報など）を出力されるHTML上に追加します。
 
-The debug mode setting appends lots of information to the HTML. As a result, the exporting time becomes long, and the HTML file size becomes large.
+## 特記事項
 
-Also, this setting ignores the `minify` setting.
+デバッグモードの設定は多くの情報をHTML上に追加します。結果として出力時間は長くなり、ファイルサイズも大きくなります。
 
-## Basic usage
+また、この設定は`minify`（HTML最小化）の設定も無視します。
 
-After the stage instantiation, you can set the debug mode by the `set_debug_mode` function.
+## 基本的な使い方
+
+ステージのインスタンス後であれば`set_debug_mode`関数を使ってデバッグモードを設定ずることができます。
 
 ```py
 # runnable
@@ -31,7 +33,7 @@ ap.save_overall_html(
     dest_dir_path='set_debug_mode_basic_usage/')
 ```
 
-This setting appends the information (Python's function and method callings, its module and class names, and argument information) as the JavaScript comment to the exported HTML, like the following:
+この設定は以下の例の用に出力されたHTML内にPythonの関数やメソッドの呼び出しやそのモジュールやクラス名、引数情報などのJavaScriptのコメントを追加します:
 
 ```js
 ...
@@ -89,22 +91,19 @@ This setting appends the information (Python's function and method callings, its
 ...
 ```
 
-## See also
+## 関連資料
 
-- [unset_debug_mode interface](unset_debug_mode.md)
-
+- [unset_debug_mode インターフェイス](jp_unset_debug_mode.md)
 
 ## set_debug_mode API
 
-<!-- Docstring: apysc._html.debug_mode.set_debug_mode -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイスの構造]** `set_debug_mode() -> None`<hr>
 
-**[Interface signature]** `set_debug_mode() -> None`<hr>
+**[インターフェイス概要]** HTMLとJavaScriptのデバッグ用にデバッグモードの設定を行います。もしこの関数を呼び出した場合、のインターフェイスは以下の設定を追加します: <br> ・HTMLの最小化（minify）設定を無効化します。 <br> ・各インターフェイスごとのJavaScript上での区切りのための文字列を追加します。<hr>
 
-**[Interface summary]** Set the debug mode for the HTML and JavaScript debugging. If calling this function, this interface applies the following setting: <br> ・Disabling HTML minify setting. <br> ・Changing to append per each interface JavaScript divider string.<hr>
-
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> import apysc as ap

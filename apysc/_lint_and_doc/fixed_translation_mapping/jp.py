@@ -2379,4 +2379,7 @@ MAPPINGS: Mappings = Mappings(
             'saving.<hr>',
             val='このインターフェイスは指定された出力先のディレクトリを'
             '出力前に空にします。<hr>'),
+        Mapping(
+            key='animation_complete interface document',
+            val='animation_complete インターフェイス'),
     ])

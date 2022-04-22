@@ -34,8 +34,12 @@ ap.save_overall_html(
 
 ## animation_complete handler setting
 
-Also, you can use the `animation_complete` interface to register a handler for the sequence animation. For the details, please see [animation_complete interface document](animation_complete.md).
+Also, you can use the `animation_complete` interface to register a handler for the sequence animation. For the details, please see:
+
+- [animation_complete interface document](animation_complete.md)
 
 ## See also
 
-If you want to animate multiple animations simultaneously, you can use the [`animation_parallel` interface](animation_parallel.md).
+If you want to animate multiple animations simultaneously, you can use the following interface:
+
+- [animation_parallel interface](animation_parallel.md)

@@ -1,4 +1,4 @@
-# String
+# String class
 
 This page explains the `String` class.
 

@@ -1712,7 +1712,14 @@ MAPPINGS: Mappings = Mappings(
             key='String class comparison operations',
             val='String クラスの比較制御'),
         Mapping(
+            key='String class comparison operations document',
+            val='String クラスの比較制御'),
+        Mapping(
             key='String class addition and multiplication operations',
+            val='String クラスの加算と乗算の制御'),
+        Mapping(
+            key='String class addition and multiplication operations '
+            'document',
             val='String クラスの加算と乗算の制御'),
         Mapping(
             key='Boolean class',
@@ -2525,4 +2532,21 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='## Less than or greater than comparison',
             val='## 未満もしくは超過条件の比較'),
+        Mapping(
+            key='## String class constructor API',
+            val='## String クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** String class for apysc '
+            'library.<hr>',
+            val='**[インターフェイス概要]** apyscライブラリにおける'
+            '文字列用のクラスです。<hr>'),
+        Mapping(
+            key='  - Initial string value.',
+            val='  - 文字列の値の初期値。'),
+        Mapping(
+            key='**[Interface summary]** Get a current string value.<hr>',
+            val='**[インターフェイス概要]** 現在の文字列の値を取得します。<hr>'),
+        Mapping(
+            key='  - Current string value.',
+            val='  - 現在の文字列の値。'),
     ])

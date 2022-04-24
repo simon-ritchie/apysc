@@ -2560,4 +2560,63 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - A callable that a timer calls when complete.',
             val='  - タイマー終了時に呼ばれる関数もしくはメソッド。'),
+        Mapping(
+            key='## What argument is this?',
+            val='## 引数の概要'),
+        Mapping(
+            key='## Timer constructor API',
+            val='## Timer クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Timer class to handle function '
+            'calling at regular intervals.<hr>',
+            val='**[インターフェイス概要]** 一定間隔ごとにハンドラの関数を実行'
+            'するためのタイマーのクラスです。<hr>'),
+        Mapping(
+            key='  - A delay between each `Handler` calling in a '
+            'millisecond or FPS value. If an `FPS` value is specified, '
+            'this value becomes a millisecond calculated with that FPS '
+            'value (e.g., if the `FPS_60` value is specified, then `delay` '
+            'becomes 16.6666667).',
+            val='  - ハンドラの実行間隔となるミリ秒もしくはFPSのenumの値。もし'
+            '`FPS`の値が指定された場合、FPSに応じて計算されたミリ秒が設定'
+            'されます（例えば、もし`FPS_60`が指定されていれば`delay`の値は'
+            '16.6666667ミリ秒相当になります。）。'),
+        Mapping(
+            key='  - Max count of a `Handler`\'s calling. A timer '
+            'stops if the `Handler`\'s calling count has reached '
+            'this value. If 0 is specified, then a timer loops '
+            'forever.',
+            val='  - ハンドラの実行回数の上限値。ハンドラの実行回数が'
+            'この値に到達した場合タイマーは停止します。もし0が指定された'
+            '場合にはタイマーは停止しなくなります。'),
+        Mapping(
+            key='  - Optional arguments dictionary to pass a `Handler` '
+            'callable.',
+            val='  - ハンドラの関数もしくはメソッドへ渡すオプションとしての'
+            '各パラメーターを格納した辞書。'),
+        Mapping(
+            key='Timer document',
+            val='Timer クラス'),
+        Mapping(
+            key='TimerEvent class document',
+            val='TimerEvent クラス'),
+        Mapping(
+            key='FPS enum document',
+            val='FPS の enum'),
+        Mapping(
+            key='Timer class repeat_count setting',
+            val='Timer クラスの repeat_count 設定'),
+        Mapping(
+            key='## delay property API',
+            val='## delay 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get a delay value.<hr>',
+            val='**[インターフェイス概要]** 遅延（間隔）値を取得します。<hr>'),
+        Mapping(
+            key='  - A delay value of each `Handler` calling in '
+            'milliseconds.',
+            val='  - ハンドラの実行ごとのミリ秒の間隔値。'),
+        Mapping(
+            key='  - A handler would be called at regular intervals.',
+            val='  - 一定間隔ごとに呼ばれる関数もしくはメソッドのハンドラ。'),
     ])

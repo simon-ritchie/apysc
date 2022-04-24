@@ -2507,4 +2507,22 @@ MAPPINGS: Mappings = Mappings(
             'index.<hr>',
             val='**[インターフェイス概要]** 指定されたインデックス位置の子を'
             '取得します。<hr>'),
+        Mapping(
+            key='## Acceptable comparison right-side value types',
+            val='## 受け付けられる右側の値の型'),
+        Mapping(
+            key='## Equal comparison',
+            val='## 等値条件の比較'),
+        Mapping(
+            key='## Not equal comparison',
+            val='## 等値条件の比較'),
+        Mapping(
+            key='## Not equal comparison',
+            val='## 非等値条件の比較'),
+        Mapping(
+            key='## Less than or greater than comparison',
+            val='## 未満もしくは超過条件の比較'),
+        Mapping(
+            key='## Less than or greater than comparison',
+            val='## 未満もしくは超過条件の比較'),
     ])

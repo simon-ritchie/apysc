@@ -2549,4 +2549,15 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Current string value.',
             val='  - 現在の文字列の値。'),
+        Mapping(
+            key='## timer_complete API',
+            val='## timer_complete API'),
+        Mapping(
+            key='**[Interface summary]** Add a timer complete event '
+            'listener setting.<hr>',
+            val='**[インターフェイス概要]** タイマー終了時のイベントハンドラの'
+            '設定を追加します。<hr>'),
+        Mapping(
+            key='  - A callable that a timer calls when complete.',
+            val='  - タイマー終了時に呼ばれる関数もしくはメソッド。'),
     ])

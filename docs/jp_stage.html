@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Stage class &#8212; apysc  documentation</title>
+    <title>Stage クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,9 +18,7 @@
     <script src="static/doctools.js"></script>
     <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Sprite class" href="sprite.html" />
-    <link rel="prev" title="import conventions" href="import_conventions.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,14 +26,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="sprite.html" title="Sprite class"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="import_conventions.html" title="import conventions"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Stage class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Stage クラス</a></li> 
       </ul>
     </div>  
 
@@ -44,17 +36,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="stage-class">
-<h1>Stage class<a class="headerlink" href="#stage-class" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Stage</span></code> class.</p>
-<section id="what-is-the-stage">
-<h2>What is the Stage?<a class="headerlink" href="#what-is-the-stage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Stage</span></code> is the apysc overall drawing area (like a viewport) and contains all elements.</p>
-<p>You must create the <code class="docutils literal notranslate"><span class="pre">Stage</span></code> at the first of the apysc project (this runs cleaning up internal data and files).</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="stage.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="stage">
+<h1>Stage クラス<a class="headerlink" href="#stage" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Stage</span></code>クラスについて説明します。</p>
+<section id="id1">
+<h2>Stage クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Stage</span></code>クラスはapyscにおける描画エリア全体を扱うインスタンスを作成し、各要素を格納します。</p>
+<p>apyscのプロジェクトの最初で<code class="docutils literal notranslate"><span class="pre">Stage</span></code>のインスタンスを作成する必要があります（この時点で内部でデータやファイルの古いものの削除などが実行されます）。</p>
 </section>
-<section id="create-stage">
-<h2>Create stage<a class="headerlink" href="#create-stage" title="Permalink to this headline">¶</a></h2>
-<p>Creating a stage is simple, like this:</p>
+<section id="id2">
+<h2>ステージの作成<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>ステージの作成は以下のコード例のようにシンプルです:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -62,9 +55,9 @@
 </pre></div>
 </div>
 </section>
-<section id="stage-background-color-setting">
-<h2>Stage background color setting<a class="headerlink" href="#stage-background-color-setting" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Stage</span></code> class has a <code class="docutils literal notranslate"><span class="pre">background_color</span></code> option, which changes the stage’s background color.</p>
+<section id="id3">
+<h2>ステージの背景色設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Stage</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">background_color</span></code>のオプションの引数を持っており、この引数でステージの背景色を変更することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -76,11 +69,11 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;stage_background_color/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This will create HTML with black background stage, as follows:</p>
+<p>このコードは以下のように黒背景のステージのHTMLを生成します:</p>
 <iframe src="static/stage_background_color/index.html" width="300" height="185"></iframe></section>
-<section id="stage-size-setting">
-<h2>Stage size setting<a class="headerlink" href="#stage-size-setting" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Stage</span></code> class has options to set stage width and stage height (arguments of <code class="docutils literal notranslate"><span class="pre">stage_width</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_height</span></code>). These settings change stage sizes.</p>
+<section id="id4">
+<h2>ステージのサイズ設定<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Stage</span></code>クラスはステージの幅を設定する<code class="docutils literal notranslate"><span class="pre">stage_width</span></code>引数とステージの高さを設定する<code class="docutils literal notranslate"><span class="pre">stage_height</span></code>引数を持っています。これらの設定はステージのサイズを変更します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -93,11 +86,11 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;stage_size/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The Previous script will create a horizontal stage, as follows:</p>
+<p>上記のコードは以下のように横長のステージを作成します:</p>
 <iframe src="static/stage_size/index.html" width="500", height="50"></iframe></section>
-<section id="stage-element-id-setting">
-<h2>Stage element id setting<a class="headerlink" href="#stage-element-id-setting" title="Permalink to this headline">¶</a></h2>
-<p>Stage element id (HTML id) can be set by <code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code> argument. If you don’t specify this, the apysc sets any unique id (based on created timestamp, like <code class="docutils literal notranslate"><span class="pre">stage_12345...</span></code>).</p>
+<section id="id">
+<h2>ステージの要素のID設定<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
+<p>ステージの要素のID（HTMLのID）は<code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code>引数で設定することができます。もしもこの設定を指定しない場合、apyscはステージ生成時のタイムスタンプや乱数などをベースとした一意なIDを生成します（例 : <code class="docutils literal notranslate"><span class="pre">stage_12345...</span></code>）。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -106,42 +99,42 @@
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;line_chart_1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.</p>
+<p>このオプションはapyscの各プロジェクトで複数回出力などを行う際のIDの識別やバージョン管理などの面で便利です。</p>
 </section>
-<section id="stage-class-constructor-api">
-<h2>Stage class constructor API<a class="headerlink" href="#stage-class-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.stage.Stage.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">stage_width:int=300,</span> <span class="pre">stage_height:int=185,</span> <span class="pre">background_color:str='#ffffff',</span> <span class="pre">add_to:str='body',</span> <span class="pre">stage_elem_id:Union[str,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Create Stage (overall viewport) instance.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<section id="stage-api">
+<h2>Stage クラスのコンストラクタのAPI<a class="headerlink" href="#stage-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">stage_width:int=300,</span> <span class="pre">stage_height:int=185,</span> <span class="pre">background_color:str='#ffffff',</span> <span class="pre">add_to:str='body',</span> <span class="pre">stage_elem_id:Union[str,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> ステージ（描画領域全体）のインスタンスを生成します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stage_width</span></code>: int, default 300</p>
 <ul>
-<li><p>Stage width.</p></li>
+<li><p>ステージの幅。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stage_height</span></code>: int, default 185</p>
 <ul>
-<li><p>Stage height</p></li>
+<li><p>ステージの高さ。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">background_color</span></code>: str, default ‘#ffffff’</p>
 <ul>
-<li><p>Hexadecimal background color string.</p></li>
+<li><p>16進数の背景色の文字列。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">add_to</span></code>: str, default ‘body’</p>
 <ul>
-<li><p>Specification of element to add stage. Unique tag (e.g., ‘body’) or ID selector (e.g., ‘#any-unique-elem’) is acceptable.</p></li>
+<li><p>ステージの要素を追加先となる要素の指定。一意のタグ（例 : ‘body’）やIDのセレクタ（例 : ‘#any-unique-elem’）を受け付けることができます。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code>: str or None, optional</p>
 <ul>
-<li><p>ID attribute set to stage html element (e.g., ‘line-graph’). If None is set, random integer will be applied.</p></li>
+<li><p>ステージのHTML要素に設定されるIDの属性（例 : ‘line-graph’）。もしNoneが設定されている場合、乱数などを使った数値を使った値が設定されます。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
@@ -149,19 +142,19 @@
 </pre></div>
 </div>
 </section>
-<section id="stage-elem-id-property-api">
-<h2>stage_elem_id property API<a class="headerlink" href="#stage-elem-id-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.stage.Stage.stage_elem_id --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get stage’s html element id.<hr></p>
-<p><strong>[Returns]</strong></p>
+<section id="stage-elem-id-api">
+<h2>stage_elem_id 属性のAPI<a class="headerlink" href="#stage-elem-id-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> ステージのHTML要素のIDを取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code>: str</p>
 <ul>
-<li><p>Stage’s html element id (not including class or id symbol). e.g., ‘line-graph’</p></li>
+<li><p>ステージのHTML要素のID（ID用の#の記号などは含まれません。例 : ‘line-graph’）。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
@@ -173,18 +166,18 @@
 </section>
 <section id="add-child-api">
 <h2>add_child API<a class="headerlink" href="#add-child-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">add_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Add display object child to this instance.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">add_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 表示オブジェクトの子をこのインスタンスへと追加します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
 <ul>
-<li><p>Child instance to add.</p></li>
+<li><p>追加する子のインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -195,25 +188,25 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_2</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">rectangle</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html">add_child and remove_child interfaces document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_add_child_and_remove_child.html">add_child （子の追加）と remove_child （子の削除）のインターフェイス</a></p></li>
 </ul>
 </section>
 <section id="remove-child-api">
 <h2>remove_child API<a class="headerlink" href="#remove-child-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">remove_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Remove display object child from this instance.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">remove_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
 <ul>
-<li><p>Child instance to remove.</p></li>
+<li><p>取り除く対象の子のインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -225,33 +218,33 @@
 <span class="go">None</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html">add_child and remove_child interfaces document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_add_child_and_remove_child.html">add_child （子の追加）と remove_child （子の削除）のインターフェイス</a></p></li>
 </ul>
 </section>
 <section id="contains-api">
 <h2>contains API<a class="headerlink" href="#contains-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.contains --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">contains(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.boolean.Boolean</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Get a boolean whether this instance contains a specified child.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">contains(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.boolean.Boolean</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 指定された子のインスタンスを持っているかどうかの真偽値を取得します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
 <ul>
-<li><p>Child instance to check.</p></li>
+<li><p>チェック対象の子のインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr><p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: Boolean</p>
 <ul>
-<li><p>If this instance contains a specified child, this method returns True.</p></li>
+<li><p>このインスタンスが指定された子を持つ場合Trueが設定されます。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -266,24 +259,24 @@
 <span class="go">Boolean(False)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/contains.html">contains interface document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_contains.html">contains インターフェイス</a></p></li>
 </ul>
 </section>
 <section id="num-children-property-api">
 <h2>num_children property API<a class="headerlink" href="#num-children-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.num_children --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface summary]</strong> Get a current children’s number.<hr></p>
-<p><strong>[Returns]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> 現在の子の数を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">num_children</span></code>: int</p>
 <ul>
-<li><p>Current children number.</p></li>
+<li><p>現在の子の数。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -296,33 +289,33 @@
 <span class="go">Int(2)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/num_children.html">num_children interface document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_num_children.html">num_children （子の件数属性）のインターフェイス</a></p></li>
 </ul>
 </section>
 <section id="get-child-at-api">
 <h2>get_child_at API<a class="headerlink" href="#get-child-at-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.get_child_at --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_child_at(self,</span> <span class="pre">index:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.display_object.DisplayObject</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Get child at a specified index.<hr></p>
-<p><strong>[Parameters]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_child_at(self,</span> <span class="pre">index:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.display_object.DisplayObject</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 指定されたインデックス位置の子を取得します。<hr></p>
+<p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: int or Int</p>
 <ul>
-<li><p>Child’s index (start from 0).</p></li>
+<li><p>対象の子のインデックス（0からスタートします）。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr><p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
 <ul>
-<li><p>Target index child instance.</p></li>
+<li><p>対象の子のインスタンス。</p></li>
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr><p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -337,9 +330,9 @@
 <span class="go">True</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr><p><strong>[関連資料]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/get_child_at.html">get_child_at interface document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_get_child_at.html">get_child_at （特定位置の子の取得処理）のインターフェイス</a></p></li>
 </ul>
 </section>
 </section>
@@ -356,14 +349,14 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Stage class</a><ul>
-<li><a class="reference internal" href="#what-is-the-stage">What is the Stage?</a></li>
-<li><a class="reference internal" href="#create-stage">Create stage</a></li>
-<li><a class="reference internal" href="#stage-background-color-setting">Stage background color setting</a></li>
-<li><a class="reference internal" href="#stage-size-setting">Stage size setting</a></li>
-<li><a class="reference internal" href="#stage-element-id-setting">Stage element id setting</a></li>
-<li><a class="reference internal" href="#stage-class-constructor-api">Stage class constructor API</a></li>
-<li><a class="reference internal" href="#stage-elem-id-property-api">stage_elem_id property API</a></li>
+<li><a class="reference internal" href="#">Stage クラス</a><ul>
+<li><a class="reference internal" href="#id1">Stage クラスの概要</a></li>
+<li><a class="reference internal" href="#id2">ステージの作成</a></li>
+<li><a class="reference internal" href="#id3">ステージの背景色設定</a></li>
+<li><a class="reference internal" href="#id4">ステージのサイズ設定</a></li>
+<li><a class="reference internal" href="#id">ステージの要素のID設定</a></li>
+<li><a class="reference internal" href="#stage-api">Stage クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#stage-elem-id-api">stage_elem_id 属性のAPI</a></li>
 <li><a class="reference internal" href="#add-child-api">add_child API</a></li>
 <li><a class="reference internal" href="#remove-child-api">remove_child API</a></li>
 <li><a class="reference internal" href="#contains-api">contains API</a></li>
@@ -373,12 +366,6 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="import_conventions.html"
-                        title="previous chapter">import conventions</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="sprite.html"
-                        title="next chapter">Sprite class</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -399,14 +386,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="sprite.html" title="Sprite class"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="import_conventions.html" title="import conventions"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Stage class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Stage クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

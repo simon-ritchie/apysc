@@ -62,13 +62,27 @@ MAPPINGS: Mappings = Mappings(
             val='add_child （子の追加）と remove_child （子の削除）'
             'のインターフェイス'),
         Mapping(
+            key='add_child and remove_child interfaces document',
+            val='add_child （子の追加）と remove_child （子の削除）'
+            'のインターフェイス'),
+        Mapping(
             key='contains interface',
+            val='contains インターフェイス'),
+        Mapping(
+            key='contains interface document',
             val='contains インターフェイス'),
         Mapping(
             key='num_children interface',
             val='num_children （子の件数属性）のインターフェイス'),
         Mapping(
+            key='num_children interface document',
+            val='num_children （子の件数属性）のインターフェイス'),
+        Mapping(
             key='get_child_at interface',
+            val='get_child_at （特定位置の子の取得処理）の'
+            'インターフェイス'),
+        Mapping(
+            key='get_child_at interface document',
             val='get_child_at （特定位置の子の取得処理）の'
             'インターフェイス'),
         Mapping(
@@ -2400,4 +2414,97 @@ MAPPINGS: Mappings = Mappings(
             'divider string.<hr>',
             val='<br> ・各インターフェイスごとのJavaScript上での区切りのための'
             '文字列を追加します。<hr>'),
+        Mapping(
+            key='## Stage class constructor API',
+            val='## Stage クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Create Stage (overall viewport) '
+            'instance.<hr>',
+            val='**[インターフェイス概要]** ステージ（描画領域全体）の'
+            'インスタンスを生成します。<hr>'),
+        Mapping(
+            key='## Stage class constructor API',
+            val='## Stage クラスのコンストラクタのAPI'),
+        Mapping(
+            key='  - Stage width.',
+            val='  - ステージの幅。'),
+        Mapping(
+            key='  - Stage height',
+            val='  - ステージの高さ。'),
+        Mapping(
+            key='  - Hexadecimal background color string.',
+            val='  - 16進数の背景色の文字列。'),
+        Mapping(
+            key='  - Specification of element to add stage. Unique '
+            'tag (e.g., \'body\') or ID selector (e.g., '
+            '\'#any-unique-elem\') is acceptable.',
+            val='  - ステージの要素を追加先となる要素の指定。一意のタグ'
+            '（例 : \'body\'）やIDのセレクタ（例 : \'#any-unique-elem\'）'
+            'を受け付けることができます。'),
+        Mapping(
+            key='  - ID attribute set to stage html element (e.g., '
+            '\'line-graph\'). If None is set, random integer will '
+            'be applied.',
+            val='  - ステージのHTML要素に設定されるIDの属性（例 : '
+            '\'line-graph\'）。もしNoneが設定されている場合、乱数などを使った'
+            '数値を使った値が設定されます。'),
+        Mapping(
+            key='## stage_elem_id property API',
+            val='## stage_elem_id 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get stage\'s html element id.<hr>',
+            val='**[インターフェイス概要]** ステージのHTML要素のIDを取得します。<hr>'),
+        Mapping(
+            key='  - Stage\'s html element id (not including class or id '
+            'symbol). e.g., \'line-graph\'',
+            val='  - ステージのHTML要素のID（ID用の#の記号などは含まれません。'
+            '例 : \'line-graph\'）。'),
+        Mapping(
+            key='## add_child API',
+            val='## add_child API'),
+        Mapping(
+            key='**[Interface summary]** Add display object child to this '
+            'instance.<hr>',
+            val='**[インターフェイス概要]** 表示オブジェクトの子をこの'
+            'インスタンスへと追加します。<hr>'),
+        Mapping(
+            key='  - Child instance to add.',
+            val='  - 追加する子のインスタンス。'),
+        Mapping(
+            key='## remove_child API',
+            val='## remove_child API'),
+        Mapping(
+            key='**[Interface summary]** Remove display object child from '
+            'this instance.<hr>',
+            val='**[インターフェイス概要]** このインスタンスから指定された'
+            '表示オブジェクトの子を取り除きます。<hr>'),
+        Mapping(
+            key='## remove_child API',
+            val='## remove_child API'),
+        Mapping(
+            key='  - Child instance to remove.',
+            val='  - 取り除く対象の子のインスタンス。'),
+        Mapping(
+            key='## contains API',
+            val='## contains API'),
+        Mapping(
+            key='**[Interface summary]** Get a boolean whether this '
+            'instance contains a specified child.<hr>',
+            val='**[インターフェイス概要]** 指定された子のインスタンスを'
+            '持っているかどうかの真偽値を取得します。<hr>'),
+        Mapping(
+            key='  - If this instance contains a specified child, this '
+            'method returns True.',
+            val='  - このインスタンスが指定された子を持つ場合Trueが設定されます。'),
+        Mapping(
+            key='## get_child_at API',
+            val='## get_child_at API'),
+        Mapping(
+            key='## num_children property API',
+            val='## num_children property API'),
+        Mapping(
+            key='**[Interface summary]** Get child at a specified '
+            'index.<hr>',
+            val='**[インターフェイス概要]** 指定されたインデックス位置の子を'
+            '取得します。<hr>'),
     ])

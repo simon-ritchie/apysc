@@ -1,16 +1,16 @@
-# Stage
+# Stage class
 
 This page explains the `Stage` class.
 
 ## What is the Stage?
 
-The `Stage` is the apysc overall drawing area (like a viewport, canvas, or something else) and contains all elements.
+The `Stage` is the apysc overall drawing area (like a viewport) and contains all elements.
 
 You must create the `Stage` at the first of the apysc project (this runs cleaning up internal data and files).
 
 ## Create stage
 
-Creating stage is simple, like this:
+Creating a stage is simple, like this:
 
 ```py
 # runnable
@@ -41,7 +41,7 @@ This will create HTML with black background stage, as follows:
 
 ## Stage size setting
 
-Stage class has options to set stage width and stage height (arguments of `stage_width` and `stage_height`). These settings change stage sizes.
+`Stage` class has options to set stage width and stage height (arguments of `stage_width` and `stage_height`). These settings change stage sizes.
 
 ```py
 # runnable

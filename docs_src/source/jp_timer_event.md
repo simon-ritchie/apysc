@@ -1,14 +1,16 @@
-# TimerEvent class
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](timer_event.md)の確認をお願いします。</span>
 
-This page explains the `TimerEvent` class.
+# TimerEvent クラス
 
-## What class is this?
+このページでは`TimerEvent`クラスについて説明します。
 
-The `TimerEvent` class is the event class that a timer passes to a timer event handler function, such as the `Timer` class constructor or the `timer_complete` function\.
+## クラス概要
 
-## Basic usage
+`TimerEvent`クラスは`Timer`クラスのコンストラクタや`timer_complete`などのインターフェイスで登録されるタイマー関係のイベントのハンドラに渡されるイベントのクラスです。
 
-Each timer event handler's first argument becomes the `TimerEvent` class instance.
+## 基本的な使い方
+
+タイマー関係の各イベントハンドラの第一引数は`TimerEvent`クラスのインスタンスとなります。
 
 ```py
 # runnable
@@ -70,9 +72,9 @@ ap.save_overall_html(
 
 <iframe src="static/timer_event_basic_usage/index.html" width="150" height="150"></iframe>
 
-## this attribute
+## this 属性
 
-The `TimerEvent` instance's `this` attribute becomes the target `Timer` instance, and you can use each timer instance interface from it.
+`TimerEvent`のインスタンスの`this`属性は対象の`Timer`クラスのインスタンスとなり、ぞれを参照してタイマー関係の各インターフェイスを使用することができます。
 
 ```py
 # runnable
@@ -120,25 +122,22 @@ ap.save_overall_html(
 
 <iframe src="static/timer_event_this_attribute/index.html" width="150" height="150"></iframe>
 
+## TimerEvent クラスのコンストラクタのAPI
 
-## TimerEvent constructor API
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<!-- Docstring: apysc._event.timer_event.TimerEvent.__init__ -->
+**[インターフェイスの構造]** `__init__(self, this:'timer.Timer') -> None`<hr>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイス概要]** タイマー関係のイベントのクラスです。<hr>
 
-**[Interface signature]** `__init__(self, this:'timer.Timer') -> None`<hr>
-
-**[Interface summary]** Timer event class.<hr>
-
-**[Parameters]**
+**[引数]**
 
 - `this`: Timer
-  - Target timer instance.
+  - 対象のタイマーのインスタンス。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> from typing_extensions import TypedDict
@@ -159,22 +158,20 @@ ap.save_overall_html(
 ... ).start()
 ```
 
-## this attribute API
+## this 属性のAPI
 
-<!-- Docstring: apysc._event.timer_event.TimerEvent.this -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイス概要]** このイベントのハンドラが設定されている対象のタイマーのインスタンス。<hr>
 
-**[Interface summary]** Get a timer instance of listening to this event.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `this`: TImer
-  - Instance of listening to this event.
+  - このイベントのハンドラが設定されているインスタンス。
 
 <hr>
 
-**[Examples]**
+**[コードサンプル]**
 
 ```py
 >>> from typing_extensions import TypedDict

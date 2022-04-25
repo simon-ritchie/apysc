@@ -2619,4 +2619,28 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - A handler would be called at regular intervals.',
             val='  - 一定間隔ごとに呼ばれる関数もしくはメソッドのハンドラ。'),
+        Mapping(
+            key='## this attribute',
+            val='## this 属性'),
+        Mapping(
+            key='## TimerEvent constructor API',
+            val='## TimerEvent クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Timer event class.<hr>',
+            val='**[インターフェイス概要]** タイマー関係のイベントの'
+            'クラスです。<hr>'),
+        Mapping(
+            key='  - Target timer instance.',
+            val='  - 対象のタイマーのインスタンス。'),
+        Mapping(
+            key='## this attribute API',
+            val='## this 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get a timer instance of listening to '
+            'this event.<hr>',
+            val='**[インターフェイス概要]** このイベントのハンドラが設定されている'
+            '対象のタイマーのインスタンス。<hr>'),
+        Mapping(
+            key='  - Instance of listening to this event.',
+            val='  - このイベントのハンドラが設定されているインスタンス。'),
     ])

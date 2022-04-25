@@ -2643,4 +2643,22 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Instance of listening to this event.',
             val='  - このイベントのハンドラが設定されているインスタンス。'),
+        Mapping(
+            key='## repeat_count property API',
+            val='## repeat_count 属性のAPI'),
+        Mapping(
+            key='**[Interface summary]** Get a max count value of a '
+            'handler\'s calling.<hr>',
+            val='**[インターフェイス概要]** ハンドラが呼ばれる最大数を取得します。<hr>'),
+        Mapping(
+            key='## repeat_count property API',
+            val='## repeat_count 属性のAPI'),
+        Mapping(
+            key='  - Max count of a handler\'s calling. If this value is '
+            '0, then a timer loop forever.',
+            val='  - ハンドラの呼び出しの上限回数。もし0が指定された場合、'
+            'タイマーはずっと実行され続けます（ハンドラを呼び続けます）。'),
+        Mapping(
+            key='Timer class delay setting document',
+            val='Timer クラスの delay 設定'),
     ])

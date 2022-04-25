@@ -2,15 +2,15 @@
 
 # apysc ドキュメント
 
-apyscのドキュメントページへようこそ！apyscはPythonのフロントエンド用のライブラリです（現在開発中であり部分的にのみ動作します）。
+apyscのドキュメントページへようこそ。apyscはPythonのフロントエンド用のライブラリです（現在開発中であり部分的にのみ動作します）。
 
 ## プロジェクトの関連リンク
 
 - [GitHub](https://github.com/simon-ritchie/apysc)
-  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていっていただけますと幸いです！
+  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。
 
 - [Twitter](https://twitter.com/apysc)
-  - 進捗やアップデートなどはTwitterで告知しています！
+  - 進捗やアップデートなどはTwitterで告知しています。
 
 - [PyPI](https://pypi.org/project/apysc/)
 
@@ -205,7 +205,7 @@ apyscのドキュメントページへようこそ！apyscはPythonのフロン�
 - [dblclick インターフェイス](jp_dblclick.md)
 
 - [mousedown と mouseup のインターフェイス](jp_mousedown_and_mouseup.md)
-- [mouseover と mouseout インターフェイス](jp_mouseover_and_mouseout.md)
+- [mouseover と mouseout のインターフェイス](jp_mouseover_and_mouseout.md)
 
 - [mousemove インターフェイス](jp_mousemove.md)
 

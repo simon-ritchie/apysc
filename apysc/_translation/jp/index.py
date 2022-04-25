@@ -13,7 +13,7 @@ MAPPING: Dict[str, str] = {
     '# apysc ドキュメント',
 
     'Welcome to apysc documentation! apysc is the Python front-end library (currently developing and only works partially).':  # noqa
-    'apyscのドキュメントページへようこそ！apyscはPythonのフロントエンド用のライブラリです（現在開発中であり部分的にのみ動作します）。',  # noqa
+    'apyscのドキュメントページへようこそ。apyscはPythonのフロントエンド用のライブラリです（現在開発中であり部分的にのみ動作します）。',  # noqa
 
     '## Project links':
     '## プロジェクトの関連リンク',
@@ -22,13 +22,13 @@ MAPPING: Dict[str, str] = {
     '- [GitHub](https://github.com/simon-ritchie/apysc)',
 
     '  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!':  # noqa
-    '  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていっていただけますと幸いです！',  # noqa
+    '  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。',  # noqa
 
     '- [Twitter](https://twitter.com/apysc)':
     '- [Twitter](https://twitter.com/apysc)',
 
     '  - The progress and updates are informed on Twitter. Please follow!':
-    '  - 進捗やアップデートなどはTwitterで告知しています！',
+    '  - 進捗やアップデートなどはTwitterで告知しています。',
 
     '- [PyPI](https://pypi.org/project/apysc/)':
     '- [PyPI](https://pypi.org/project/apysc/)',
@@ -382,7 +382,7 @@ MAPPING: Dict[str, str] = {
     '- [mousedown と mouseup のインターフェイス](jp_mousedown_and_mouseup.md)',
 
     '- [mouseover and mouseout interfaces](mouseover_and_mouseout.md)':
-    '- [mouseover と mouseout インターフェイス](jp_mouseover_and_mouseout.md)',
+    '- [mouseover と mouseout のインターフェイス](jp_mouseover_and_mouseout.md)',
 
     '- [mousemove interface](mousemove.md)':
     '- [mousemove インターフェイス](jp_mousemove.md)',

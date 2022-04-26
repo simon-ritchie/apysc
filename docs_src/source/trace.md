@@ -1,4 +1,4 @@
-# Trace interface
+# trace interface
 
 This page explains the `trace` function interface.
 

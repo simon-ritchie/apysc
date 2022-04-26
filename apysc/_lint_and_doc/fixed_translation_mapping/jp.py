@@ -2681,4 +2681,17 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='**[Interface summary]** Stop this timer.<hr>',
             val='**[インターフェイス概要]** タイマーを停止します。<hr>'),
+        Mapping(
+            key='## trace API',
+            val='## trace API'),
+        Mapping(
+            key='**[Interface summary]** Display arguments information '
+            'to console. This function saves a JavaScript `console.log` '
+            'expression.<hr>',
+            val='**[インターフェイス概要]** 引数に指定された値の情報をコンソールへ'
+            '表示します。この関数はJavaScriptの`console.log`に該当するコードを'
+            '保存します。<hr>'),
+        Mapping(
+            key='  - Any arguments to display to console.',
+            val='  - コンソール上に表示する任意の引数の値。'),
     ])

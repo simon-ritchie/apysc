@@ -2669,4 +2669,16 @@ MAPPINGS: Mappings = Mappings(
             'this timer.<hr>',
             val='**[インターフェイス概要]** タイマーのカウントをリセットし、そして'
             'タイマーの停止を行います。<hr>'),
+        Mapping(
+            key='## start API',
+            val='## start API'),
+        Mapping(
+            key='**[Interface summary]** Start this timer.<hr>',
+            val='**[インターフェイス概要]** タイマーを開始します。<hr>'),
+        Mapping(
+            key='## stop API',
+            val='## stop API'),
+        Mapping(
+            key='**[Interface summary]** Stop this timer.<hr>',
+            val='**[インターフェイス概要]** タイマーを停止します。<hr>'),
     ])

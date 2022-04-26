@@ -9,32 +9,32 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# Timer':
-    '',
+    '# Timer class':
+    '# Timer クラス',
 
     'This page explains the `Timer` class.':
-    '',
+    'このページでは`Timer`クラスについて説明します。',
 
     '## What is the Timer?':
-    '',
+    '## Timer クラスの概要',
 
     'The `Timer` class handles the timer\'s tick. You can call a handler at any intervals by it.':  # noqa
-    '',
+    '`Timer`クラスは一定間隔で処理を実行するためのタイマーの処理を扱います。任意の間隔を設定してハンドラの呼び出し設定を追加することができます。',  # noqa
 
     '## Basic usage':
     '## 基本的な使い方',
 
     'The `Timer` class requires arguments for the `handler` and `delay` (timer interval in milliseconds). And the `start` method starts that timer. A timer passes the `TimerEvent` instance and options arguments to a specified handler.':  # noqa
-    '',
+    '`Timer`クラスはコンストラクタでハンドラとしての`handler`引数とタイマー実行間隔のミリ秒としての`delay`引数の指定を必要とします。そして`start`メソッドを呼び出すとタイマーがスタートします。タイマーは`TimerEvent`クラスのインスタンスとオプションとして指定できる追加のパラメーターの引数をハンドラへ渡します。',  # noqa
 
     'The following code sets the `Timer` when clicking the rectangle (`Sprite`):':  # noqa
-    '',
+    '以下のコード例では四角（`Sprite`）をクリックした際に`Timer`クラスを使用した設定を行っています:',
 
     '```py\n# runnable\nfrom typing_extensions import TypedDict\n\nimport apysc as ap\n\n\nclass _RectOptions(TypedDict):\n    rectangle: ap.Rectangle\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:\n    """\n    The Handler that the rectangle calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    e.this.unbind_click_all()\n    timer: ap.Timer = ap.Timer(on_timer, delay=16.6, options=options)\n    timer.start()\n\n\ndef on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:\n    """\n    The Handler a timer calls.\n\n    Parameters\n    ----------\n    e : TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rectangle: ap.Rectangle = options[\'rectangle\']\n    rectangle.x += 1\n\n\nap.Stage(\n    stage_width=350, stage_height=150, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\noptions: _RectOptions = {\'rectangle\': rectangle}\nsprite.click(on_sprite_click, options=options)\n\nap.save_overall_html(\n    dest_dir_path=\'timer_basic_usage/\')\n```':  # noqa
     '```py\n# runnable\nfrom typing_extensions import TypedDict\n\nimport apysc as ap\n\n\nclass _RectOptions(TypedDict):\n    rectangle: ap.Rectangle\n\n\ndef on_sprite_click(\n        e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:\n    """\n    The Handler that the rectangle calls when clicked.\n\n    Parameters\n    ----------\n    e : MouseEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    e.this.unbind_click_all()\n    timer: ap.Timer = ap.Timer(on_timer, delay=16.6, options=options)\n    timer.start()\n\n\ndef on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:\n    """\n    The Handler a timer calls.\n\n    Parameters\n    ----------\n    e : TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rectangle: ap.Rectangle = options[\'rectangle\']\n    rectangle.x += 1\n\n\nap.Stage(\n    stage_width=350, stage_height=150, background_color=\'#333\',\n    stage_elem_id=\'stage\')\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(\n    x=50, y=50, width=50, height=50)\noptions: _RectOptions = {\'rectangle\': rectangle}\nsprite.click(on_sprite_click, options=options)\n\nap.save_overall_html(\n    dest_dir_path=\'timer_basic_usage/\')\n```',  # noqa
 
     'If you click the rectangle, the timer starts, and the Handler increases the rectangle x value.':  # noqa
-    '',
+    '四角をクリックするとタイマーがスタートし、タイマーのハンドラは四角のX座標を加算していきます。',
 
     '## See also':
     '## 関連資料',
@@ -48,14 +48,14 @@ MAPPING: Dict[str, str] = {
     '- [FPS enum](fps.md)':
     '- [FPS の enum](jp_fps.md)',
 
-    '- [Timer class repeat count setting](timer_repeat_count.md)':
-    '',
+    '- [Timer class repeat_count setting](timer_repeat_count.md)':
+    '- [Timer クラスの repeat_count 設定](jp_timer_repeat_count.md)',
 
     '- [Timer class start and stop interfaces](timer_start_and_stop.md)':
     '- [Timer クラスの start と stop の各インターフェイス](jp_timer_start_and_stop.md)',
 
-    '- [Timer class timer complete interface](timer_complete.md)':
-    '',
+    '- [Timer class timer_complete interface](timer_complete.md)':
+    '- [Timer クラスの timer_complete インターフェイス](jp_timer_complete.md)',
 
     '- [Timer class reset interface](timer_reset.md)':
     '- [Timer クラスの reset インターフェイス](jp_timer_reset.md)',
@@ -115,7 +115,7 @@ MAPPING: Dict[str, str] = {
     '- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/jp_timer_event.html)',  # noqa
 
     '- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/timer_delay.html)':  # noqa
-    '',
+    '- [Timer クラスの delay 設定](https://simon-ritchie.github.io/apysc/jp_timer_delay.html)',  # noqa
 
     '- [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)':
     '- [FPS の enum](https://simon-ritchie.github.io/apysc/jp_fps.html)',

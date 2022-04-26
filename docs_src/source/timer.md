@@ -1,4 +1,4 @@
-# Timer
+# Timer class
 
 This page explains the `Timer` class.
 
@@ -78,9 +78,9 @@ If you click the rectangle, the timer starts, and the Handler increases the rect
 - [TimerEvent class](timer_event.md)
 - [Timer class delay setting](timer_delay.md)
 - [FPS enum](fps.md)
-- [Timer class repeat count setting](timer_repeat_count.md)
+- [Timer class repeat_count setting](timer_repeat_count.md)
 - [Timer class start and stop interfaces](timer_start_and_stop.md)
-- [Timer class timer complete interface](timer_complete.md)
+- [Timer class timer_complete interface](timer_complete.md)
 - [Timer class reset interface](timer_reset.md)
 
 

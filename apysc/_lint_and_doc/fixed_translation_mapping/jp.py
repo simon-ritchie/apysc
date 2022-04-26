@@ -2661,4 +2661,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Timer class delay setting document',
             val='Timer クラスの delay 設定'),
+        Mapping(
+            key='## reset API',
+            val='## reset API'),
+        Mapping(
+            key='**[Interface summary]** Reset the timer count and stop '
+            'this timer.<hr>',
+            val='**[インターフェイス概要]** タイマーのカウントをリセットし、そして'
+            'タイマーの停止を行います。<hr>'),
     ])

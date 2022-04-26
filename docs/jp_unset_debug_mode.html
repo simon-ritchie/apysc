@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>unset_debug_mode interface &#8212; apysc  documentation</title>
+    <title>unset_debug_mode インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,9 +18,7 @@
     <script src="static/doctools.js"></script>
     <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="JavaScript assertion interface basic behaviors" href="assertion_basic_behavior.html" />
-    <link rel="prev" title="set_debug_mode interface" href="set_debug_mode.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,14 +26,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="assertion_basic_behavior.html" title="JavaScript assertion interface basic behaviors"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="set_debug_mode.html" title="set_debug_mode interface"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">unset_debug_mode interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">unset_debug_mode インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -44,22 +36,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="unset-debug-mode-interface">
-<h1>unset_debug_mode interface<a class="headerlink" href="#unset-debug-mode-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> function interface.</p>
-<section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> function interface unsets the debug mode setting. It stops the debug information appending.</p>
-<p>The debug mode exports lots of information. Sometimes it becomes cumbersome. In that case, stopping the debug mode is helpful when it is no longer needed.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="unset_debug_mode.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="unset-debug-mode">
+<h1>unset_debug_mode インターフェイス<a class="headerlink" href="#unset-debug-mode" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code>関数のインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code>関数のインターフェイスはデバッグモードの設定を解除します。この関数はデバッグ情報の追加を停止します。</p>
+<p>デバッグモードの設定は大量の情報を出力します。時折これは煩雑な（情報が多すぎる）状態になることがあります。そのような場合にデバッグモードが不要になったタイミングで設定を解除すると役に立つことがあります。</p>
 </section>
-<section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>If the exporting interface (e.g., <code class="docutils literal notranslate"><span class="pre">ap.save_overall_html</span></code>) <code class="docutils literal notranslate"><span class="pre">minify</span></code> option is enabled, it removes debug mode information. So it is required to set the <code class="docutils literal notranslate"><span class="pre">minify=False</span></code> when you use the <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> interface.</p>
+<section id="id2">
+<h2>特記事項<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>もしも出力のインターフェイス（例 : <code class="docutils literal notranslate"><span class="pre">ap.save_overall_html</span></code>など）の<code class="docutils literal notranslate"><span class="pre">minify</span></code>のオプションが有効になっていると、デバッグモードの情報なども削除されてしまいます。そのため<code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code>インターフェイスでデバッグモードを解除した場合には<code class="docutils literal notranslate"><span class="pre">minify=False</span></code>の引数設定が必要になります。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> interface requires no arguments.</p>
-<p>The following example appends the debug information only at the <code class="docutils literal notranslate"><span class="pre">int_1</span></code> instantiation and incremental addition of 10.</p>
+<section id="id3">
+<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code>インターフェイスは引数の指定を必要としません。</p>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">int_1</span></code>の変数のインスタンス化と10の加算処理の箇所のみデバッグ情報の追加を有効化しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -78,7 +71,7 @@
     <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;unset_debug_mode_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The exported HTML includes the debug information at the first integer position. It doesn’t include the sprite and second integer positions, as follows:</p>
+<p>出力されたHTMLでは最初の整数部分のデバッグ情報を以下のように含んでいます。その後のスプライトや2つ目の整数関係の位置のものは含まれないようになっています:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
   <span class="kd">var</span> <span class="nx">sp_1</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">nested</span><span class="p">();</span>
   <span class="kd">var</span> <span class="nx">g_1</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">nested</span><span class="p">();</span>
@@ -135,18 +128,18 @@
 </pre></div>
 </div>
 </section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id4">
+<h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="set_debug_mode.html"><span class="doc">set_debug_mode interface</span></a></p></li>
+<li><p><a class="reference internal" href="jp_set_debug_mode.html"><span class="doc">set_debug_mode インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="unset-debug-mode-api">
 <h2>unset_debug_mode API<a class="headerlink" href="#unset-debug-mode-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._html.debug_mode.unset_debug_mode --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unset_debug_mode()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Unset the debug mode for the HTML and JavaScript debugging.<hr></p>
-<p><strong>[Examples]</strong></p>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unset_debug_mode()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> HTMLとJavaScriptのデバッグ用のデバッグモードの設定を解除します。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">set_debug_mode</span><span class="p">()</span>
@@ -169,22 +162,16 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">unset_debug_mode interface</a><ul>
-<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
-<li><a class="reference internal" href="#notes">Notes</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">unset_debug_mode インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">特記事項</a></li>
+<li><a class="reference internal" href="#id3">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id4">関連資料</a></li>
 <li><a class="reference internal" href="#unset-debug-mode-api">unset_debug_mode API</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="set_debug_mode.html"
-                        title="previous chapter">set_debug_mode interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="assertion_basic_behavior.html"
-                        title="next chapter">JavaScript assertion interface basic behaviors</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -205,14 +192,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="assertion_basic_behavior.html" title="JavaScript assertion interface basic behaviors"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="set_debug_mode.html" title="set_debug_mode interface"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">unset_debug_mode interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">unset_debug_mode インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

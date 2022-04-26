@@ -2694,4 +2694,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Any arguments to display to console.',
             val='  - コンソール上に表示する任意の引数の値。'),
+        Mapping(
+            key='## unset_debug_mode API',
+            val='## unset_debug_mode API'),
+        Mapping(
+            key='**[Interface summary]** Unset the debug mode for the '
+            'HTML and JavaScript debugging.<hr>',
+            val='**[インターフェイス概要]** HTMLとJavaScriptのデバッグ用の'
+            'デバッグモードの設定を解除します。<hr>'),
     ])

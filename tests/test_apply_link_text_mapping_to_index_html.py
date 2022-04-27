@@ -23,7 +23,7 @@ def test__extract_mappings_from_index_md() -> None:
         _extract_mappings_from_index_md()
     print(mappings)
     expectd_mappings: Dict[str, str] = {
-        'display on google colaboratory': 'display_on_google_colaboratory',
+        'display on colaboratory': 'display_on_colaboratory',
         'append js expression': 'append_js_expression',
         'add child': 'add_child',
     }

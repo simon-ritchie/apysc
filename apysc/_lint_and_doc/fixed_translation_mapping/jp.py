@@ -1688,8 +1688,8 @@ MAPPINGS: Mappings = Mappings(
             key='display_on_jupyter interface',
             val='display_on_jupyter インターフェイス'),
         Mapping(
-            key='display_on_google_colaboratory interface',
-            val='display_on_google_colaboratory インターフェイス'),
+            key='display_on_colaboratory interface',
+            val='display_on_colaboratory インターフェイス'),
         Mapping(
             key='append_js_expression interface',
             val='append_js_expression インターフェイス'),
@@ -2702,4 +2702,7 @@ MAPPINGS: Mappings = Mappings(
             'HTML and JavaScript debugging.<hr>',
             val='**[インターフェイス概要]** HTMLとJavaScriptのデバッグ用の'
             'デバッグモードの設定を解除します。<hr>'),
+        Mapping(
+            key='See also:',
+            val='参考資料:'),
     ])

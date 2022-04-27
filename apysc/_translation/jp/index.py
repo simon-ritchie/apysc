@@ -84,8 +84,8 @@ MAPPING: Dict[str, str] = {
     '- [display_on_jupyter interface](display_on_jupyter.md)':
     '- [display_on_jupyter インターフェイス](jp_display_on_jupyter.md)',
 
-    '- [display_on_google_colaboratory interface](display_on_colaboratory.md)':  # noqa
-    '- [display_on_google_colaboratory インターフェイス](jp_display_on_colaboratory.md)',  # noqa
+    '- [display_on_colaboratory interface](display_on_colaboratory.md)':
+    '- [display_on_colaboratory インターフェイス](jp_display_on_colaboratory.md)',
 
     '- [append_js_expression interface](append_js_expression.md)':
     '- [append_js_expression インターフェイス](jp_append_js_expression.md)',

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>What apysc can do in its current implementation &#8212; apysc  documentation</title>
+    <title>apysc ライブラリが現在の実装でできること &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,9 +18,7 @@
     <script src="static/doctools.js"></script>
     <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Quick start guide" href="quick_start.html" />
-    <link rel="prev" title="apysc documentation" href="index.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,14 +26,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="quick_start.html" title="Quick start guide"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="apysc documentation"
-             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">What apysc can do in its current implementation</a></li> 
+        <li class="nav-item nav-item-this"><a href="">apysc ライブラリが現在の実装でできること</a></li> 
       </ul>
     </div>  
 
@@ -44,24 +36,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="what-apysc-can-do-in-its-current-implementation">
-<h1>What apysc can do in its current implementation<a class="headerlink" href="#what-apysc-can-do-in-its-current-implementation" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the current apysc implementation and functionality summary.</p>
-<section id="write-with-the-python-and-export-html-or-use-it-on-the-jupyter">
-<h2>Write with the Python and export HTML or use it on the Jupyter<a class="headerlink" href="#write-with-the-python-and-export-html-or-use-it-on-the-jupyter" title="Permalink to this headline">¶</a></h2>
-<p>The apysc library can write the front-end with the Python language and export the HTML or use it on the Jupyter notebook, JupyterLab, and the Google Colaboratory!</p>
-<p>See also:</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="what_apysc_can_do.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="apysc">
+<h1>apysc ライブラリが現在の実装でできること<a class="headerlink" href="#apysc" title="Permalink to this headline">¶</a></h1>
+<p>このページでは apysc ライブパリの現在の実装と機能の概要について説明します。</p>
+<section id="pythonhtmljupyter">
+<h2>Pythonを使って書き、それをHTMLへ出力・もしくはJupyter上で利用する<a class="headerlink" href="#pythonhtmljupyter" title="Permalink to this headline">¶</a></h2>
+<p>apysc ライブラリではフロントエンドをPythonを使って書くことができ、結果をHTMLに出力したりもしくはJupyter notebookやJupyterLab、Google Colaboratory上などで表示することができます。</p>
+<p>参考資料:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="save_overall_html.html"><span class="doc">save_overall_html interface</span></a></p></li>
-<li><p><a class="reference internal" href="display_on_jupyter.html"><span class="doc">display_on_jupyter interface</span></a></p></li>
-<li><p><a class="reference internal" href="display_on_colaboratory.html"><span class="doc">display_on_colaboratory interface</span></a></p></li>
+<li><p><a class="reference internal" href="jp_save_overall_html.html"><span class="doc">save_overall_html インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_on_jupyter.html"><span class="doc">display_on_jupyter インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_on_colaboratory.html"><span class="doc">display_on_colaboratory インターフェイス</span></a></p></li>
 </ul>
 </section>
-<section id="draw-the-many-types-of-the-vector-graphics">
-<h2>Draw the many types of the vector graphics<a class="headerlink" href="#draw-the-many-types-of-the-vector-graphics" title="Permalink to this headline">¶</a></h2>
-<p>The apysc library can draw many vector graphics types, like the rectangle, circle, line.</p>
+<section id="id1">
+<h2>様々な種類のベクターグラフィックスの描画<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>apysc ライブラリでは四角や円、線などの様々な種類のベクターグラフィックスの描画を行うことができます。</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -103,30 +96,30 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;what_apysc_can_do_draw_vector_graphics/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe><p>See also:</p>
+</details><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe><p>参考資料:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="graphics.html"><span class="doc">Graphics class</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_begin_fill.html"><span class="doc">Graphics class begin_fill interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_line_style.html"><span class="doc">Graphics class line_style interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_rect.html"><span class="doc">Graphics class draw_rect interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_round_rect.html"><span class="doc">Graphics class draw_round_rect interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_circle.html"><span class="doc">Graphics class draw_circle interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_ellipse.html"><span class="doc">Graphics class draw_ellipse interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_move_to_and_line_to.html"><span class="doc">Graphics class move_to and line_to interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_line.html"><span class="doc">Graphics class draw_line interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_dotted_line.html"><span class="doc">Graphics class draw_dotted_line interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_dashed_line.html"><span class="doc">Graphics class draw_dashed_line interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_round_dotted_line.html"><span class="doc">Graphics class draw_round_dotted_line interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_dash_dotted_line.html"><span class="doc">Graphics class draw_dash_dotted_line interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_polygon.html"><span class="doc">Graphics class draw_polygon interface</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics.html"><span class="doc">Graphics クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_begin_fill.html"><span class="doc">Graphics クラスの begin_fill (塗りの設定)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_line_style.html"><span class="doc">Graphics クラスの line_style (線のスタイル設定)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_rect.html"><span class="doc">Graphics クラスの draw_rect (四角の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_round_rect.html"><span class="doc">Graphics クラスの draw_round_rect (角丸の四角の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_circle.html"><span class="doc">Graphics クラスの draw_circle (円の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_ellipse.html"><span class="doc">Graphics クラスの draw_ellipse (楕円描画) のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_move_to_and_line_to.html"><span class="doc">Graphics クラスの move_to (線の描画位置の変更)と line_to (指定座標への線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_line.html"><span class="doc">Graphics クラスの draw_line (線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_dotted_line.html"><span class="doc">Graphics クラスの draw_dotted_line (点線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_dashed_line.html"><span class="doc">Graphics クラスの draw_dashed_line (破線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_round_dotted_line.html"><span class="doc">Graphics クラスの draw_round_dotted_line (点線(丸)の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_dash_dotted_line.html"><span class="doc">Graphics クラスの draw_dash_dotted_line (一点鎖線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_polygon.html"><span class="doc">Graphics クラスの draw_polygon (多角形描画)のインターフェイス</span></a></p></li>
 </ul>
 </section>
-<section id="set-each-mouse-event">
-<h2>Set each mouse event<a class="headerlink" href="#set-each-mouse-event" title="Permalink to this headline">¶</a></h2>
-<p>The apysc library supports each mouse event, like the click, mouse down, mouse over, mouse move.</p>
-<p>The click event example (please click the following rectangle):</p>
+<section id="id2">
+<h2>各種マウスイベントの設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>apysc ライブラリではクリックやマウスダウン、マウスオーバー、マウスムーブなどの各種マウスイベントの設定をサポートしています。</p>
+<p>クリックイベントの例（以下の四角をクリックしてご確認ください）:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
@@ -164,20 +157,20 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;what_apysc_can_do_mouse_event_click/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/what_apysc_can_do_mouse_event_click/index.html" width="150" height="150"></iframe><p>See also:</p>
+</details><iframe src="static/what_apysc_can_do_mouse_event_click/index.html" width="150" height="150"></iframe><p>参考資料:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc">Basic mouse event interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="click.html"><span class="doc">click interface</span></a></p></li>
-<li><p><a class="reference internal" href="mousedown_and_mouseup.html"><span class="doc">mousedown and mouseup interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mouseover_and_mouseout.html"><span class="doc">mouseover and mouseout interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mousemove.html"><span class="doc">mousemove interface</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mouse_event_basic.html"><span class="doc">基本的なマウスイベントの各インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_click.html"><span class="doc">click インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mousedown_and_mouseup.html"><span class="doc">mousedown と mouseup のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mouseover_and_mouseout.html"><span class="doc">mouseover と mouseout のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mousemove.html"><span class="doc">mousemove インターフェイス</span></a></p></li>
 </ul>
 </section>
-<section id="the-timer-interface-and-animation">
-<h2>The timer interface and animation<a class="headerlink" href="#the-timer-interface-and-animation" title="Permalink to this headline">¶</a></h2>
-<p>You can use the timer-related interfaces and animate with those.</p>
+<section id="id3">
+<h2>タイマーのインターフェイスとアニメーション<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>タイマーに関係したインターフェイスを利用することができ、それを使ってアニメーションを設定することができます。</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -231,16 +224,16 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;what_apysc_can_do_timer_animation/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe><p>See also:</p>
+</details><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe><p>参考資料:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="timer.html"><span class="doc">Timer class</span></a></p></li>
-<li><p><a class="reference internal" href="timer_event.html"><span class="doc">TimerEvent class</span></a></p></li>
-<li><p><a class="reference internal" href="timer_delay.html"><span class="doc">Timer class delay setting</span></a></p></li>
-<li><p><a class="reference internal" href="fps.html"><span class="doc">FPS enum</span></a></p></li>
-<li><p><a class="reference internal" href="timer_repeat_count.html"><span class="doc">Timer class repeat_count setting</span></a></p></li>
-<li><p><a class="reference internal" href="timer_start_and_stop.html"><span class="doc">Timer class start and stop interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="timer_complete.html"><span class="doc">Timer class timer_complete interface</span></a></p></li>
-<li><p><a class="reference internal" href="timer_reset.html"><span class="doc">Timer class reset interface</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer.html"><span class="doc">Timer クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_event.html"><span class="doc">TimerEvent クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_delay.html"><span class="doc">Timer クラスの delay 設定</span></a></p></li>
+<li><p><a class="reference internal" href="jp_fps.html"><span class="doc">FPS の enum</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_repeat_count.html"><span class="doc">Timer クラスの repeat_count 設定</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_start_and_stop.html"><span class="doc">Timer クラスの start と stop の各インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_complete.html"><span class="doc">Timer クラスの timer_complete インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_reset.html"><span class="doc">Timer クラスの reset インターフェイス</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -257,21 +250,15 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">What apysc can do in its current implementation</a><ul>
-<li><a class="reference internal" href="#write-with-the-python-and-export-html-or-use-it-on-the-jupyter">Write with the Python and export HTML or use it on the Jupyter</a></li>
-<li><a class="reference internal" href="#draw-the-many-types-of-the-vector-graphics">Draw the many types of the vector graphics</a></li>
-<li><a class="reference internal" href="#set-each-mouse-event">Set each mouse event</a></li>
-<li><a class="reference internal" href="#the-timer-interface-and-animation">The timer interface and animation</a></li>
+<li><a class="reference internal" href="#">apysc ライブラリが現在の実装でできること</a><ul>
+<li><a class="reference internal" href="#pythonhtmljupyter">Pythonを使って書き、それをHTMLへ出力・もしくはJupyter上で利用する</a></li>
+<li><a class="reference internal" href="#id1">様々な種類のベクターグラフィックスの描画</a></li>
+<li><a class="reference internal" href="#id2">各種マウスイベントの設定</a></li>
+<li><a class="reference internal" href="#id3">タイマーのインターフェイスとアニメーション</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">apysc documentation</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="quick_start.html"
-                        title="next chapter">Quick start guide</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -292,14 +279,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="quick_start.html" title="Quick start guide"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="apysc documentation"
-             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">What apysc can do in its current implementation</a></li> 
+        <li class="nav-item nav-item-this"><a href="">apysc ライブラリが現在の実装でできること</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

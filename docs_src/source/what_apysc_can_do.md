@@ -8,9 +8,9 @@ The apysc library can write the front-end with the Python language and export th
 
 See also:
 
-- [Save overall html interface](save_overall_html.md)
-- [Display on the jupyter interface](display_on_jupyter.md)
-- [Display on the Google Colaboratory interface](display_on_colaboratory.md)
+- [save_overall_html interface](save_overall_html.md)
+- [display_on_jupyter interface](display_on_jupyter.md)
+- [display_on_colaboratory interface](display_on_colaboratory.md)
 
 ## Draw the many types of the vector graphics
 
@@ -69,19 +69,19 @@ ap.save_overall_html(
 See also:
 
 - [Graphics class](graphics.md)
-- [Graphics class begin fill interface](graphics_begin_fill.md)
-- [Graphics class line style interface](graphics_line_style.md)
-- [Graphics class draw rect interface](graphics_draw_rect.md)
-- [Graphics class draw round rect interface](graphics_draw_round_rect.md)
-- [Graphics class draw circle interface](graphics_draw_circle.md)
-- [Graphics class draw ellipse interface](graphics_draw_ellipse.md)
-- [Graphics class move to and line to interfaces](graphics_move_to_and_line_to.md)
-- [Graphics class draw line interface](graphics_draw_line.md)
-- [Graphics class draw dotted line interface](graphics_draw_dotted_line.md)
-- [Graphics class draw dashed line interface](graphics_draw_dashed_line.md)
-- [Graphics class draw round dotted line interface](graphics_draw_round_dotted_line.md)
-- [Graphics class draw dash dotted line interface](graphics_draw_dash_dotted_line.md)
-- [Graphics class draw polygon interface](graphics_draw_polygon.md)
+- [Graphics class begin_fill interface](graphics_begin_fill.md)
+- [Graphics class line_style interface](graphics_line_style.md)
+- [Graphics class draw_rect interface](graphics_draw_rect.md)
+- [Graphics class draw_round_rect interface](graphics_draw_round_rect.md)
+- [Graphics class draw_circle interface](graphics_draw_circle.md)
+- [Graphics class draw_ellipse interface](graphics_draw_ellipse.md)
+- [Graphics class move_to and line_to interfaces](graphics_move_to_and_line_to.md)
+- [Graphics class draw_line interface](graphics_draw_line.md)
+- [Graphics class draw_dotted_line interface](graphics_draw_dotted_line.md)
+- [Graphics class draw_dashed_line interface](graphics_draw_dashed_line.md)
+- [Graphics class draw_round_dotted_line interface](graphics_draw_round_dotted_line.md)
+- [Graphics class draw_dash_dotted_line interface](graphics_draw_dash_dotted_line.md)
+- [Graphics class draw_polygon interface](graphics_draw_polygon.md)
 
 ## Set each mouse event
 
@@ -138,10 +138,10 @@ ap.save_overall_html(
 See also:
 
 - [Basic mouse event interfaces](mouse_event_basic.md)
-- [Click interface](click.md)
-- [Mousedown and mouseup interfaces](mousedown_and_mouseup.md)
-- [Mouseover and mouseout interfaces](mouseover_and_mouseout.md)
-- [Mousemove interface](mousemove.md)
+- [click interface](click.md)
+- [mousedown and mouseup interfaces](mousedown_and_mouseup.md)
+- [mouseover and mouseout interfaces](mouseover_and_mouseout.md)
+- [mousemove interface](mousemove.md)
 
 ## The timer interface and animation
 
@@ -215,7 +215,7 @@ See also:
 - [TimerEvent class](timer_event.md)
 - [Timer class delay setting](timer_delay.md)
 - [FPS enum](fps.md)
-- [Timer class repeat count setting](timer_repeat_count.md)
+- [Timer class repeat_count setting](timer_repeat_count.md)
 - [Timer class start and stop interfaces](timer_start_and_stop.md)
-- [Timer class timer complete interface](timer_complete.md)
+- [Timer class timer_complete interface](timer_complete.md)
 - [Timer class reset interface](timer_reset.md)

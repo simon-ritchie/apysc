@@ -4,7 +4,7 @@ This page explains why the apysc library doesn't use the Python built-in data ty
 
 ## apysc needs to convert Python to JavaScript and track variables change
 
-The apysc library needs to track variable creation and update to convert the Python code to JavaScript. For this reason, apysc using the original data types, such as `Int`\, `Number` (`Float`)\, `String`\, `Boolean`\, `Array`\, and `Dictionary`\.
+The apysc library needs to track variable creation and update to convert the Python code to JavaScript. For this reason, apysc using the original data types, such as `Int`\, `Number` (`Float`), `String`\, `Boolean`\, `Array`\, and `Dictionary`.
 
 Occasionally, these are unnecessary to create HTML. Still, these types become essential when you use the asynchronous function, such as the event handler.
 

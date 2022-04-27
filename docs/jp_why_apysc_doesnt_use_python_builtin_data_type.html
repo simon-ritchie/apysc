@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>何故 apysc ライブラリではPythonのビルトインのデータ型を使用していないのか &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">何故 apysc ライブラリではPythonのビルトインのデータ型を使用していないのか</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">英語の原文</span></a>の確認をお願いします。</span></p>
+<section id="apysc-python">
+<h1>何故 apysc ライブラリではPythonのビルトインのデータ型を使用していないのか<a class="headerlink" href="#apysc-python" title="Permalink to this headline">¶</a></h1>
+<p>このページでは apysc ライブラリが何故<code class="docutils literal notranslate"><span class="pre">int</span></code>や<code class="docutils literal notranslate"><span class="pre">float</span></code>、<code class="docutils literal notranslate"><span class="pre">bool</span></code>、<code class="docutils literal notranslate"><span class="pre">list</span></code>などのPythonビルトインのデータ型を使用していないのかについて説明します。また、何故それらの代わりに<code class="docutils literal notranslate"><span class="pre">Int</span></code>や<code class="docutils literal notranslate"><span class="pre">Number</span></code>、<code class="docutils literal notranslate"><span class="pre">Array</span></code>などのデータの型を使用しているのかについても説明します。</p>
+<section id="apysc-pythonjavascript">
+<h2>apysc ではPythonをJavaScriptへと変換する必要があり、変数の変化を追う必要があります<a class="headerlink" href="#apysc-pythonjavascript" title="Permalink to this headline">¶</a></h2>
+<p>apysc ライブラリではPythonのコードをJavaScriptへと変換するために変数の生成や更新などの処理を内部で追う必要があります。この理由から、 apysc では<code class="docutils literal notranslate"><span class="pre">Int</span></code>や<code class="docutils literal notranslate"><span class="pre">Number</span></code>（<code class="docutils literal notranslate"><span class="pre">Float</span></code>）、<code class="docutils literal notranslate"><span class="pre">String</span></code>、<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>、<code class="docutils literal notranslate"><span class="pre">Array</span></code>、<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>などの独自の型を設けてそちらを使用しています。</p>
+<p>場合によってはHTMLの生成処理でこれらの型の利用が不要な場合もありますが、イベントハンドラなどの非同期な処理を使う場合などには利用が必要になってきます。</p>
+<p>apysc ライブラリではそれらの型の内部で自動的に変数名を割り振り、HTMLやJavaScriptのファイルを出力する際にそれらの変数名を使用します。また、変数の生成や更新などの内容も出力されるJavaScriptのコードに反映されます。</p>
+<p>もしPythonビルトインの型を使った場合、これらの値JavaScript上では固定値で設定されます（apysc上では非同期の関数などでの変数の変更が反映されなくなります）。</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">何故 apysc ライブラリではPythonのビルトインのデータ型を使用していないのか</a><ul>
+<li><a class="reference internal" href="#apysc-pythonjavascript">apysc ではPythonをJavaScriptへと変換する必要があり、変数の変化を追う必要があります</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">何故 apysc ライブラリではPythonのビルトインのデータ型を使用していないのか</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

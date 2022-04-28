@@ -11,9 +11,6 @@ MAPPINGS: Mappings = Mappings(
             key='## See also',
             val='## 関連資料'),
         Mapping(
-            key='**[Parameters]**',
-            val='**[引数]**'),
-        Mapping(
             key='**[Returns]**',
             val='**[返却値]**'),
         Mapping(
@@ -349,11 +346,6 @@ MAPPINGS: Mappings = Mappings(
             val='**[インターフェイス概要]** アニメーションの'
             '経過時間のミリ秒を取得します。<hr>'),
         Mapping(
-            key='**[Interface summary]** Get an animation elapsed '
-            'millisecond.<hr>',
-            val='**[インターフェイス概要]** アニメーションの'
-            '経過時間のミリ秒を取得します。<hr>'),
-        Mapping(
             key='  - An animation elapsed millisecond.',
             val='  - アニメーションの経過時間のミリ秒。'),
         Mapping(
@@ -519,9 +511,6 @@ MAPPINGS: Mappings = Mappings(
             key='  - Left-side value to compare.',
             val='  - 比較用の左辺の値。'),
         Mapping(
-            key='  - Left-side value to compare.',
-            val='  - 比較用の左辺の値。'),
-        Mapping(
             key='  - Right-side value to compare.',
             val='  - 比較用の右辺の値。'),
         Mapping(
@@ -530,9 +519,6 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Target value to check.',
             val='  - チェック対象の値。'),
-        Mapping(
-            key='  - Target custom event type.',
-            val='  - 対象の独自のイベントの種別値としての文字列。'),
         Mapping(
             key='  - Callable that this instance calls when its '
             'event\'s dispatching.',
@@ -673,9 +659,6 @@ MAPPINGS: Mappings = Mappings(
             key='## skew properties',
             val='## 歪みの各属性'),
         Mapping(
-            key='## skew properties',
-            val='## 歪みの各属性'),
-        Mapping(
             key='GraphicsBase class skew_x and skew_y interfaces',
             val='GraphicsBase クラスの skew_x (X軸の歪み) と skew_y (Y軸の歪み) '
             'のインターフェイス'),
@@ -752,10 +735,6 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Graphics class draw_circle interface',
             val='Graphics クラスの draw_circle (円の描画)のインターフェイス'),
-        Mapping(
-            key='Graphics class draw_round_rect interface',
-            val='Graphics クラスの draw_round_rect (楕円の描画)の'
-            'インターフェイス'),
         Mapping(
             key='Graphics class move_to and line_to interfaces',
             val='Graphics クラスの move_to (線の描画位置の変更)と'
@@ -986,10 +965,6 @@ MAPPINGS: Mappings = Mappings(
             'fill.<hr>',
             val='**[インターフェイス概要]** 塗りのための単一の色の設定を行います。<hr>'),
         Mapping(
-            key='**[Interface summary]** Set single color value for '
-            'fill.<hr>',
-            val='**[インターフェイス概要]** 塗りのための単一の色の設定を行います。<hr>'),
-        Mapping(
             key='  - Hexadecimal color string. e.g., \'#00aaff\'',
             val='  - \'#00aaff\'などの16進数の色の文字列。'),
         Mapping(
@@ -1057,9 +1032,6 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Line end x-coordinate.',
             val='  - 線の終了位置のX座標。'),
-        Mapping(
-            key='  - Line end y-coordinate.',
-            val='  - 線の終了位置のY座標。'),
         Mapping(
             key='  - Line end y-coordinate.',
             val='  - 線の終了位置のY座標。'),
@@ -1529,9 +1501,6 @@ MAPPINGS: Mappings = Mappings(
             key='  - Current line dash setting.',
             val='  - 現在の破線設定。'),
         Mapping(
-            key='  - Current line dash setting.',
-            val='  - 現在の破線設定。'),
-        Mapping(
             key='**[Interface summary]** Get current line round dot '
             'setting.<hr>',
             val='**[インターフェイス概要]** 現在の線の丸ドットのスタイル設定を'
@@ -1543,16 +1512,10 @@ MAPPINGS: Mappings = Mappings(
             key='## line_dash_dot_setting property API',
             val='## line_dash_dot_setting 属性のAPI'),
         Mapping(
-            key='## line_dash_dot_setting property API',
-            val='## line_dash_dot_setting 属性のAPI'),
-        Mapping(
             key='**[Interface summary]** Get current line dash dot '
             'setting.<hr>',
             val='**[インターフェイス概要]** 現在の線の一点鎖線のスタイル'
             '設定を取得します。<hr>'),
-        Mapping(
-            key='  - Line color opacity (0.0 to 1.0).',
-            val='  - 線色の透明度（0.0～1.0）。'),
         Mapping(
             key='  - Line color opacity (0.0 to 1.0).',
             val='  - 線色の透明度（0.0～1.0）。'),
@@ -1591,9 +1554,6 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - Y destination point to move.',
             val='  - 移動先となるY座標。'),
-        Mapping(
-            key='  - Line graphics instance.',
-            val='  - 線のグラフィックスのインスタンス。'),
         Mapping(
             key='  - Line graphics instance.',
             val='  - 線のグラフィックスのインスタンス。'),
@@ -1808,9 +1768,6 @@ MAPPINGS: Mappings = Mappings(
             key='TimerEvent class',
             val='TimerEvent クラス'),
         Mapping(
-            key='Timer class delay setting',
-            val='Timer クラスの delay 設定'),
-        Mapping(
             key='FPS enum',
             val='FPS の enum'),
         Mapping(
@@ -1893,9 +1850,6 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='animation_width and animation_height interfaces',
             val='animation_width と animation_height の各インターフェイス'),
-        Mapping(
-            key='animation_y interface',
-            val='animation_y インターフェイス'),
         Mapping(
             key='animation_fill_color interface',
             val='animation_fill_color インターフェイス'),
@@ -2223,9 +2177,6 @@ MAPPINGS: Mappings = Mappings(
             val='**[インターフェイス概要]** マウスを動かした時のイベント設定を'
             '追加します。<hr>'),
         Mapping(
-            key='## mousemove API',
-            val='## mousemove API'),
-        Mapping(
             key='  - Callable that would be called when mousemove on '
             'this instance.',
             val='  - インスタンス上でマウスを動かした際に呼ばれる関数'
@@ -2426,9 +2377,6 @@ MAPPINGS: Mappings = Mappings(
             val='**[インターフェイス概要]** ステージ（描画領域全体）の'
             'インスタンスを生成します。<hr>'),
         Mapping(
-            key='## Stage class constructor API',
-            val='## Stage クラスのコンストラクタのAPI'),
-        Mapping(
             key='  - Stage width.',
             val='  - ステージの幅。'),
         Mapping(
@@ -2482,9 +2430,6 @@ MAPPINGS: Mappings = Mappings(
             val='**[インターフェイス概要]** このインスタンスから指定された'
             '表示オブジェクトの子を取り除きます。<hr>'),
         Mapping(
-            key='## remove_child API',
-            val='## remove_child API'),
-        Mapping(
             key='  - Child instance to remove.',
             val='  - 取り除く対象の子のインスタンス。'),
         Mapping(
@@ -2518,13 +2463,7 @@ MAPPINGS: Mappings = Mappings(
             val='## 等値条件の比較'),
         Mapping(
             key='## Not equal comparison',
-            val='## 等値条件の比較'),
-        Mapping(
-            key='## Not equal comparison',
             val='## 非等値条件の比較'),
-        Mapping(
-            key='## Less than or greater than comparison',
-            val='## 未満もしくは超過条件の比較'),
         Mapping(
             key='## Less than or greater than comparison',
             val='## 未満もしくは超過条件の比較'),
@@ -2600,9 +2539,6 @@ MAPPINGS: Mappings = Mappings(
             key='FPS enum document',
             val='FPS の enum'),
         Mapping(
-            key='Timer class repeat_count setting',
-            val='Timer クラスの repeat_count 設定'),
-        Mapping(
             key='## delay property API',
             val='## delay 属性のAPI'),
         Mapping(
@@ -2646,9 +2582,6 @@ MAPPINGS: Mappings = Mappings(
             key='**[Interface summary]** Get a max count value of a '
             'handler\'s calling.<hr>',
             val='**[インターフェイス概要]** ハンドラが呼ばれる最大数を取得します。<hr>'),
-        Mapping(
-            key='## repeat_count property API',
-            val='## repeat_count 属性のAPI'),
         Mapping(
             key='  - Max count of a handler\'s calling. If this value is '
             '0, then a timer loop forever.',

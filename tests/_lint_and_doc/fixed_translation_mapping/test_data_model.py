@@ -107,3 +107,20 @@ def test_get_fixed_translation_str_if_exists() -> None:
     translation_str = data_model.get_fixed_translation_str_if_exists(
         key='**[Parameters]**', lang=Lang.JP)
     assert translation_str == '**[引数]**'
+
+
+@retry(stop_max_attempt_number=1, wait_fixed=randint(10, 3000))
+def test_check_mapping_keys_not_duplicated() -> None:
+    for lang in Lang:
+        mappings: Optional[Mappings] = data_model._read_mappings(
+            lang=lang)
+        if mappings is None:
+            continue
+        keys: List[str] = []
+        for mapping in mappings.mappings:
+            if mapping.key in keys:
+                raise AssertionError(
+                    'There is a duplicated mapping\'s key.'
+                    f'\nLanguage: {lang}'
+                    f'\nTarget key: {mapping.key}')
+            keys.append(mapping.key)

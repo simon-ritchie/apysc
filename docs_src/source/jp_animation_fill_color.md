@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_fill_color.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_fill_color.html)の確認をお願いします。</span>
 
 # animation_fill_color インターフェイス
 
@@ -8,9 +8,9 @@
 
 `animation_fill_color`メソッドのインターフェイスは`ap.AnimationFillColor`クラスのインスタンスを生成します。そのインスタンスを使って塗りのアニメーションを行うことができます。
 
-このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`クラスの各サブクラスに存在します。
+このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`のサブクラスで存在します。
 
-## 使い方例
+## 基本的な使い方
 
 以下のコード例では`animation_fill_color`メソッドを使って塗りの色をシアン（`#0af`）からマゼンタ（`#f0a`）へとアニメーションさせています。
 

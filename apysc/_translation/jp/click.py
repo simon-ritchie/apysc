@@ -142,7 +142,7 @@ MAPPING: Dict[str, str] = {
     '- `handler`: _Handler',
 
     '  - Unbinding target Callable.':
-    '  - 指定された関数やメソッドのハンドラの設定を解除します。',
+    '  - イベント設定を取り除く対象の関数やメソッドなど。',
 
     '<hr>':
     '<hr>',

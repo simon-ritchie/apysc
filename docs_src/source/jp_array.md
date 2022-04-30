@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](array.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/array.html)の確認をお願いします。</span>
 
 # Array クラス
 
@@ -59,12 +59,12 @@ assert isinstance(int_val, int)
 - [Array クラスの reverse インターフェイス](jp_array_reverse.md)
 
 - [Array クラスの slice インターフェイス](jp_array_slice.md)
-- [Array クラスの length インターフェイス](jp_array_length.md)
+- [Array クラスの length (配列の長さ取得) のインターフェイス](jp_array_length.md)
 
-- [Array クラスの join インターフェイス](jp_array_join.md)
-- [Array クラスの index_of インターフェイス](jp_array_index_of.md)
+- [Array クラスの join (値の連結文字列生成) のインターフェイス](jp_array_join.md)
+- [Array クラスの index_of (値のインデックス取得) のインターフェイス](jp_array_index_of.md)
 
-- [Array クラスの 比較の各インターフェイス](jp_array_comparison.md)
+- [Array クラスの比較の各インターフェイス](jp_array_comparison.md)
 
 ## Array クラスのコンストラクタのAPI
 
@@ -108,7 +108,7 @@ Array([0, 1, 2])
 
 **[関連資料]**
 
-- [Array クラスの 比較の各インターフェイス](https://simon-ritchie.github.io/apysc/jp_array_comparison.html)
+- [Array クラスの比較の各インターフェイス](https://simon-ritchie.github.io/apysc/jp_array_comparison.html)
 
 ## value 属性のAPI
 

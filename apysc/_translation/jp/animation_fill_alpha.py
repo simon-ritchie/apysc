@@ -22,10 +22,10 @@ MAPPING: Dict[str, str] = {
     '`animation_fill_alpha`メソッドのインターフェイスでは`AnimationBase`のサブクラスであり且つアニメーション設定を扱う`ap.AnimationFillAlpha`クラスのインスタンスを生成します。そのインスタンスを使って塗りの透明度のアニメーションを設定することができます。',  # noqa
 
     'This interface exists on a `GraphicsBase` subclass, such as the `Rectangle` or `Circle` class.':  # noqa
-    'このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`クラスの各サブクラスが持っています。',
+    'このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`のサブクラスで存在します。',
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets the fill alpha animation (from 1.0 to 0.0) with the `animation_fill_alpha` method:':  # noqa
     '以下の例では1.0～0.0の塗りの透明度のアニメーションを`animation_fill_alpha`メソッドで設定しています。',
@@ -69,6 +69,9 @@ MAPPING: Dict[str, str] = {
     '  - Easing setting.':
     '  - イージング設定。',
 
+    '<hr>':
+    '<hr>',
+
     '**[Returns]**':
     '**[返却値]**',
 
@@ -77,6 +80,9 @@ MAPPING: Dict[str, str] = {
 
     '  - Created animation setting instance.':
     '  - 生成されたアニメーションのインスタンス。',
+
+    '<hr>':
+    '<hr>',
 
     '**[Notes]**':
     '**[特記事項]**',
@@ -89,6 +95,9 @@ MAPPING: Dict[str, str] = {
 
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> circle: ap.Circle = sprite.graphics.draw_circle(\n...     x=100, y=100, radius=50)\n>>> _ = circle.animation_y(\n...     y=100,\n...     duration=1500,\n...     easing=ap.Easing.EASE_OUT_QUINT,\n... ).start()\n```':  # noqa
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> circle: ap.Circle = sprite.graphics.draw_circle(\n...     x=100, y=100, radius=50)\n>>> _ = circle.animation_y(\n...     y=100,\n...     duration=1500,\n...     easing=ap.Easing.EASE_OUT_QUINT,\n... ).start()\n```',  # noqa
+
+    '<hr>':
+    '<hr>',
 
     '**[References]**':
     '**[関連資料]**',

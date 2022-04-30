@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](display_object_mouse_event.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/display_object_mouse_event.html)の確認をお願いします。</span>
 
 # DisplayObject クラスのマウスイベント設定の各インターフェイス
 
@@ -60,9 +60,9 @@ ap.save_overall_html(
 詳細については以下の各ページをご確認ください:
 
 - [基本的なマウスイベントの各インターフェイス](jp_mouse_event_basic.md)
-- [クリックインターフェイス](jp_click.md)
+- [click インターフェイス](jp_click.md)
 
 - [mousedown と mouseup のインターフェイス](jp_mousedown_and_mouseup.md)
-- [mouseover と mouseout インターフェイス](jp_mouseover_and_mouseout.md)
+- [mouseover と mouseout のインターフェイス](jp_mouseover_and_mouseout.md)
 
 - [mousemove インターフェイス](jp_mousemove.md)

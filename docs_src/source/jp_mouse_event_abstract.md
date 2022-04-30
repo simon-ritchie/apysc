@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](mouse_event_abstract.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/mouse_event_abstract.html)の確認をお願いします。</span>
 
 # MouseEvent の各インターフェイスの概要
 
@@ -68,5 +68,5 @@ ap.save_overall_html(
 - [dblclick インターフェイス](jp_dblclick.md)
 - [mousedown と mouseup のインターフェイス](jp_mousedown_and_mouseup.md)
 
-- [mouseover と mouseout インターフェイス](jp_mouseover_and_mouseout.md)
+- [mouseover と mouseout のインターフェイス](jp_mouseover_and_mouseout.md)
 - [mousemove インターフェイス](jp_mousemove.md)

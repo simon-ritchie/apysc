@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     'このインターフェイスは`animation_x`や`animation_move`などのアニメーション関係のインターフェイスを持つクラスのインスタンス上に存在します。',  # noqa
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets the x-coordinate animation and starts the 1-second interval timer to reverse animation with the `animation_reverse` interface.':  # noqa
     '以下の例ではX座標のアニメーションを設定し、1秒ごとの間隔で`animation_reverse`インターフェイスを使ってアニメーションを反転（逆作成）しています。',  # noqa

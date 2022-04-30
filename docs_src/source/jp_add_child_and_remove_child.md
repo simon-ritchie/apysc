@@ -1,10 +1,10 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](add_child_and_remove_child.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/add_child_and_remove_child.html)の確認をお願いします。</span>
 
 # add_child と remove_child インターフェイス
 
 このページではGraphicsクラスやSprite、Stageクラスなどのコンテナーとして扱えるクラスが持つ`add_child`と`remove_child`のインターフェイスについて説明します。
 
-## 各インターフェイス概要
+## 各インターフェイスの概要
 
 `add_child`インターフェイスではコンテナーのインスタンスへ子となる各`DisplayObject`を継承したインスタンスを追加し、逆に`remove_child`インターフェイスでは子のインスタンスをコンテナーから取り除きます。apyscでは取り除かれた子のインスタンスは表示されなくなります。
 
@@ -134,7 +134,7 @@ ap.save_overall_html(
 
 ## 関連資料
 
-- [DisplayObjectクラス parent インターフェイス](jp_display_object_parent.md)
+- [DisplayObjectクラス parent （親要素属性）のインターフェイス](jp_display_object_parent.md)
 - [contains インターフェイス](jp_contains.md)
 
 ## add_child API
@@ -143,7 +143,7 @@ ap.save_overall_html(
 
 **[インターフェイスの構造]** `add_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[Interface 概要]** 子の表示用のインスタンスをこのインスタンスへと追加します。<hr>
+**[インターフェイス概要]** 表示オブジェクトの子をこのインスタンスへと追加します。<hr>
 
 **[引数]**
 
@@ -171,12 +171,12 @@ ap.save_overall_html(
 
 **[インターフェイスの構造]** `remove_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[Interface 概要]** 表示用の子のインスタンスをこのインスタンスから取り除きます。<hr>
+**[インターフェイス概要]** このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr>
 
 **[引数]**
 
 - `child`: DisplayObject
-  - 取り除く子のインスタンス。
+  - 取り除く対象の子のインスタンス。
 
 <hr>
 

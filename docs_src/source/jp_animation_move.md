@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_move.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_move.html)の確認をお願いします。</span>
 
 # animation_move インターフェイス
 
@@ -10,7 +10,7 @@
 
 このインターフェイスは`Sprite`や`Rectangle`などの`DisplayObject`の各サブクラスに存在します。
 
-## 使い方例
+## 基本的な使い方
 
 以下のコード例では`animation_move`のメソッドを使ってx=50, y=50の座標からx=100, y=100の座標へのアニメーションを設定しています。
 

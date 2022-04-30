@@ -44,12 +44,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="add_child_and_remove_child">英語の原文</a>の確認をお願いします。</span></p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="../en/add_child_and_remove_child.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="add-child-remove-child">
 <h1>add_child と remove_child インターフェイス<a class="headerlink" href="#add-child-remove-child" title="Permalink to this headline">¶</a></h1>
 <p>このページではGraphicsクラスやSprite、Stageクラスなどのコンテナーとして扱えるクラスが持つ<code class="docutils literal notranslate"><span class="pre">add_child</span></code>と<code class="docutils literal notranslate"><span class="pre">remove_child</span></code>のインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>各インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">add_child</span></code>インターフェイスではコンテナーのインスタンスへ子となる各<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>を継承したインスタンスを追加し、逆に<code class="docutils literal notranslate"><span class="pre">remove_child</span></code>インターフェイスでは子のインスタンスをコンテナーから取り除きます。apyscでは取り除かれた子のインスタンスは表示されなくなります。</p>
 </section>
 <section id="id2">
@@ -170,7 +170,7 @@
 <section id="id3">
 <h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_display_object_parent.html"><span class="doc">DisplayObjectクラス parent インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_object_parent.html"><span class="doc">DisplayObjectクラス parent （親要素属性）のインターフェイス</span></a></p></li>
 <li><p><a class="reference internal" href="jp_contains.html"><span class="doc">contains インターフェイス</span></a></p></li>
 </ul>
 </section>
@@ -178,7 +178,7 @@
 <h2>add_child API<a class="headerlink" href="#add-child-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">add_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface 概要]</strong> 子の表示用のインスタンスをこのインスタンスへと追加します。<hr></p>
+<p><strong>[インターフェイス概要]</strong> 表示オブジェクトの子をこのインスタンスへと追加します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
@@ -203,12 +203,12 @@
 <h2>remove_child API<a class="headerlink" href="#remove-child-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">remove_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface 概要]</strong> 表示用の子のインスタンスをこのインスタンスから取り除きます。<hr></p>
+<p><strong>[インターフェイス概要]</strong> このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
 <ul>
-<li><p>取り除く子のインスタンス。</p></li>
+<li><p>取り除く対象の子のインスタンス。</p></li>
 </ul>
 </li>
 </ul>
@@ -240,7 +240,7 @@
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">add_child と remove_child インターフェイス</a><ul>
-<li><a class="reference internal" href="#id1">各インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
 <li><a class="reference internal" href="#id2">子のインスタンスの自動追加について</a></li>
 <li><a class="reference internal" href="#remove-child">remove_child インターフェイスの基本的な使い方</a></li>
 <li><a class="reference internal" href="#add-child">add_child インターフェイスの基本的な使い方</a></li>

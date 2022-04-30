@@ -22,7 +22,7 @@ MAPPING: Dict[str, str] = {
     'アニメーション終了時のイベントなどの各アニメーション関連のイベントで`AnimationEvent`クラスは使用されます。各アニメーションのインターフェイスはイベントのハンドラへこのイベントのインスタンスを渡します。',  # noqa
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets the animation complete event handler. The animation interface passes the `AnimationEvent` instance argument as the `e: ap.AnimationEvent`:':  # noqa
     '以下の例ではアニメーション完了時のイベントのハンドラへ`e: ap.AnimationEvent`という指定で`AnimationEvent`のインスタンスの引数を設定しています。',  # noqa
@@ -72,6 +72,9 @@ MAPPING: Dict[str, str] = {
     '  - Animation setting instance.':
     '  - アニメーションの設定を扱うインスタンス。',
 
+    '<hr>':
+    '<hr>',
+
     '**[Examples]**':
     '**[コードサンプル]**',
 
@@ -79,7 +82,7 @@ MAPPING: Dict[str, str] = {
     '```py\n>>> import apysc as ap\n>>> def on_animation_complete(\n...         e: ap.AnimationEvent[ap.Rectangle],\n...         options: dict) -> None:\n...     rectangle: ap.Rectangle = e.this.target\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> _ = rectangle.animation_x(\n...     x=100).animation_complete(on_animation_complete)\n```',  # noqa
 
     '## this property API':
-    '## this属性のAPI',
+    '## this 属性のAPI',
 
     '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
     '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
@@ -94,7 +97,10 @@ MAPPING: Dict[str, str] = {
     '- `this`: AnimationBase',
 
     '  - Instance of listening to this event.':
-    '  - このイベントが登録されているインスタンス。',
+    '  - このイベントのハンドラが設定されているインスタンス。',
+
+    '<hr>':
+    '<hr>',
 
     '**[Examples]**':
     '**[コードサンプル]**',

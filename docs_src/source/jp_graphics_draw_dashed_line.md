@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](graphics_draw_dashed_line.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/graphics_draw_dashed_line.html)の確認をお願いします。</span>
 
 # Graphics クラスの draw_dashed_line インターフェイス
 
@@ -10,7 +10,7 @@
 
 ## 基本的な使い方
 
-`draw_dashed_line`インターフェイスは基本的な線の座標の指定として`x_start`、`y_start`、`x_end`、`y_end`の各引数を持ちます。加えて、破線のサイズとしての`dash_size`引数と破線間のスペースのサイズとしての``
+`draw_dashed_line`インターフェイスは基本的な線の座標の指定として`x_start`、`y_start`、`x_end`、`y_end`の各引数を持ちます。加えて、破線のサイズとしての`dash_size`引数と破線間のスペースのサイズとしての`space_size`引数の指定が必要です。
 
 ```py
 # runnable

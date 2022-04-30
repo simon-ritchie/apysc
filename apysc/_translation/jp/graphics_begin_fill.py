@@ -55,13 +55,13 @@ MAPPING: Dict[str, str] = {
     '- `#00aaff`などの6文字による指定。',
 
     '- Three characters, e.g., `#0af` (this becomes `#00aaff`).':
-    '- `#0af`などの3文字による指定（この指定は`#00aaff`の指定と同じ挙動をします）。',
+    '- `#0af`などの3文字による指定（これは`#00aaff`と同じ値として扱われます）。',
 
     '- Single character, e.g., `#5` (this becomes `#000005`).':
-    '- `#5`などの1文字による指定（この指定は`#000005`の指定と同じ挙動をします）。',
+    '- `#5`などの1文字による指定（これは`000005`と同じ値として扱われます）。',
 
     '- Skipped `#` symbol, e.g., `0af` (this becomes `#00aaff`).':
-    '- `0af`などの`#`の記号を省略した指定（この指定は`#00aaff`の指定と同じ挙動をします）。',
+    '- `0af`などの`#`記号を省略した指定（これは`#00aaff`と同じ値として扱われます）。',
 
     '- Blank string, e.g., `\'\'` (this setting clears the fill color setting).':  # noqa
     '- ``などの空文字（この指定は塗りの色の設定を削除します）。',

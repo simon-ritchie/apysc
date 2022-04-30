@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     'このインターフェイスは`Circle`クラスなどの`GraphicsBase`の各サブクラス上に存在します。',
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets the radius animation (from 50 to 100) with the `animation_radius` method:':  # noqa
     '以下のコード例では50から100の半径のアニメーションを`animation_radius`メソッドを使って設定しています。',

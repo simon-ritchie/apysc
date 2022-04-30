@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](string_comparison_operations.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/string_comparison_operations.html)の確認をお願いします。</span>
 
 # String クラスの比較の各オペレーション
 
@@ -54,7 +54,7 @@ result: ap.Boolean = string_1 == 'Hello'
 assert result
 ```
 
-## 等値条件の比較
+## 非等値条件の比較
 
 `!=`のオペレーターを使って非等値条件の比較を行うことができます。
 

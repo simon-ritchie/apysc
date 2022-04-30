@@ -76,16 +76,16 @@ MAPPING: Dict[str, str] = {
     '- [Array クラスの slice インターフェイス](jp_array_slice.md)',
 
     '- [Array class length interface](array_length.md)':
-    '- [Array クラスの length インターフェイス](jp_array_length.md)',
+    '- [Array クラスの length (配列の長さ取得) のインターフェイス](jp_array_length.md)',
 
     '- [Array class join interface](array_join.md)':
-    '- [Array クラスの join インターフェイス](jp_array_join.md)',
+    '- [Array クラスの join (値の連結文字列生成) のインターフェイス](jp_array_join.md)',
 
     '- [Array class index_of interface](array_index_of.md)':
-    '- [Array クラスの index_of インターフェイス](jp_array_index_of.md)',
+    '- [Array クラスの index_of (値のインデックス取得) のインターフェイス](jp_array_index_of.md)',
 
     '- [Array class comparison interfaces](array_comparison.md)':
-    '- [Array クラスの 比較の各インターフェイス](jp_array_comparison.md)',
+    '- [Array クラスの比較の各インターフェイス](jp_array_comparison.md)',
 
     '## Array class constructor API':
     '## Array クラスのコンストラクタのAPI',
@@ -121,7 +121,7 @@ MAPPING: Dict[str, str] = {
     '**[関連資料]**',
 
     '- [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/array_comparison.html)':  # noqa
-    '- [Array クラスの 比較の各インターフェイス](https://simon-ritchie.github.io/apysc/jp_array_comparison.html)',  # noqa
+    '- [Array クラスの比較の各インターフェイス](https://simon-ritchie.github.io/apysc/jp_array_comparison.html)',  # noqa
 
     '## value property API':
     '## value 属性のAPI',

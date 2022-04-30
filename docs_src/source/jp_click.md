@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](click.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/click.html)の確認をお願いします。</span>
 
 # click インターフェイス
 
@@ -216,7 +216,7 @@ ap.save_overall_html(
 **[引数]**
 
 - `handler`: _Handler
-  - 指定された関数やメソッドのハンドラの設定を解除します。
+  - イベント設定を取り除く対象の関数やメソッドなど。
 
 <hr>
 

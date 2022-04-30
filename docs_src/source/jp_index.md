@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](index.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/index.html)の確認をお願いします。</span>
 
 # apysc ドキュメント
 
@@ -45,7 +45,7 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [save_overall_html インターフェイス](jp_save_overall_html.md)
 - [display_on_jupyter インターフェイス](jp_display_on_jupyter.md)
 
-- [display_on_google_colaboratory インターフェイス](jp_display_on_colaboratory.md)
+- [display_on_colaboratory インターフェイス](jp_display_on_colaboratory.md)
 - [append_js_expression インターフェイス](jp_append_js_expression.md)
 
 ---
@@ -329,5 +329,3 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 
 - [assert_dicts_equal と assert_dicts_not_equal の各インターフェイス](jp_assert_dicts_equal_and_dicts_not_equal.md)
 - [assert_defined と assert_undefined の各インターフェイス](jp_assert_defined_and_undefined.md)
-
----

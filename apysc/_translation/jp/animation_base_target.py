@@ -22,7 +22,7 @@ MAPPING: Dict[str, str] = {
     '`target`属性はアニメーション対象のインスタンス（例: `Sprite`や`Rectangle`などのインスタンス）を返却します。',
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'Each subclass of the `AnimationBase` (e.g., `AnimationMove`\\, `AnimationX`) has the `target` getter property.':  # noqa
     '`AnimationBase`クラスの各サブクラス（例: `AnimationMove`や`AnimationX`クラスなど）はgetterの`target`属性を持っています。',  # noqa
@@ -65,6 +65,9 @@ MAPPING: Dict[str, str] = {
 
     '  - An animation target instance.':
     '  - アニメーション対象のインスタンス。',
+
+    '<hr>':
+    '<hr>',
 
     '**[Examples]**':
     '**[コードサンプル]**',

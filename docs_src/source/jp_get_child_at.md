@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](get_child_at.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/get_child_at.html)の確認をお願いします。</span>
 
 # get_child_at インターフェイス
 
@@ -41,7 +41,7 @@ assert isinstance(second_child, ap.Rectangle)
 
 **[インターフェイスの構造]** `get_child_at(self, index:Union[int, apysc._type.int.Int]) -> apysc._display.display_object.DisplayObject`<hr>
 
-**[インターフェイス概要]** 指定されたインデックスの子のインスタンスを取得します。<hr>
+**[インターフェイス概要]** 指定されたインデックス位置の子を取得します。<hr>
 
 **[引数]**
 

@@ -44,7 +44,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="animation_complete">英語の原文</a>の確認をお願いします。</span></p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="../en/animation_complete.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="animationbase-animation-complete">
 <h1>AnimationBase クラス animation_complete インターフェイス<a class="headerlink" href="#animationbase-animation-complete" title="Permalink to this headline">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>メソッドのインターフェイスについて説明します。</p>
@@ -209,7 +209,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: dict or None, default None</p>
 <ul>
-<li><p>オプションとしてのハンドラへ渡される各パラメーターの辞書。</p></li>
+<li><p>ハンドラに渡される省略が可能な追加のパラメーターとしての辞書。</p></li>
 </ul>
 </li>
 </ul>
@@ -226,7 +226,7 @@
 <li><p>Exception: もしアニメーション開始後にこのインターフェイスを呼び出している場合。</p></li>
 </ul>
 <hr><p><strong>[特記事項]</strong></p>
-<p>このインターフェイスはアニメーション開始前にのみ利用することができます。</p>
+<p>このインターフェイスはアニメーション開始前にのみ利用することができます。<hr></p>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span>

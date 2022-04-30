@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_event.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_event.html)の確認をお願いします。</span>
 
 # AnimationEvent クラス
 
@@ -8,7 +8,7 @@
 
 アニメーション終了時のイベントなどの各アニメーション関連のイベントで`AnimationEvent`クラスは使用されます。各アニメーションのインターフェイスはイベントのハンドラへこのイベントのインスタンスを渡します。
 
-## 使い方例
+## 基本的な使い方
 
 以下の例ではアニメーション完了時のイベントのハンドラへ`e: ap.AnimationEvent`という指定で`AnimationEvent`のインスタンスの引数を設定しています。
 
@@ -151,7 +151,7 @@ animation_x.start()
 ...     x=100).animation_complete(on_animation_complete)
 ```
 
-## this属性のAPI
+## this 属性のAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
@@ -160,7 +160,7 @@ animation_x.start()
 **[返却値]**
 
 - `this`: AnimationBase
-  - このイベントが登録されているインスタンス。
+  - このイベントのハンドラが設定されているインスタンス。
 
 <hr>
 

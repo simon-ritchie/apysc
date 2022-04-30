@@ -16,7 +16,7 @@ MAPPING: Dict[str, str] = {
     'このページではGraphicsクラスやSprite、Stageクラスなどのコンテナーとして扱えるクラスが持つ`add_child`と`remove_child`のインターフェイスについて説明します。',  # noqa
 
     '## What interfaces are these?':
-    '## 各インターフェイス概要',
+    '## 各インターフェイスの概要',
 
     'The `add_child` and `remove_child` add or remove a `DisplayObject` child instance from a container instance. The apysc does not display a removed `DisplayObject` instance.':  # noqa
     '`add_child`インターフェイスではコンテナーのインスタンスへ子となる各`DisplayObject`を継承したインスタンスを追加し、逆に`remove_child`インターフェイスでは子のインスタンスをコンテナーから取り除きます。apyscでは取り除かれた子のインスタンスは表示されなくなります。',  # noqa
@@ -70,7 +70,7 @@ MAPPING: Dict[str, str] = {
     '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
 
     '**[Interface summary]** Add display object child to this instance.<hr>':  # noqa
-    '**[Interface 概要]** 子の表示用のインスタンスをこのインスタンスへと追加します。<hr>',
+    '**[インターフェイス概要]** 表示オブジェクトの子をこのインスタンスへと追加します。<hr>',
 
     '**[Parameters]**':
     '**[引数]**',
@@ -80,6 +80,9 @@ MAPPING: Dict[str, str] = {
 
     '  - Child instance to add.':
     '  - 追加する子のインスタンス。',
+
+    '<hr>':
+    '<hr>',
 
     '**[Examples]**':
     '**[コードサンプル]**',
@@ -94,7 +97,7 @@ MAPPING: Dict[str, str] = {
     '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
 
     '**[Interface summary]** Remove display object child from this instance.<hr>':  # noqa
-    '**[Interface 概要]** 表示用の子のインスタンスをこのインスタンスから取り除きます。<hr>',
+    '**[インターフェイス概要]** このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr>',
 
     '**[Parameters]**':
     '**[引数]**',
@@ -103,7 +106,10 @@ MAPPING: Dict[str, str] = {
     '- `child`: DisplayObject',
 
     '  - Child instance to remove.':
-    '  - 取り除く子のインスタンス。',
+    '  - 取り除く対象の子のインスタンス。',
+
+    '<hr>':
+    '<hr>',
 
     '**[Examples]**':
     '**[コードサンプル]**',

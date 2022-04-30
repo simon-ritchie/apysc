@@ -55,7 +55,7 @@ MAPPING: Dict[str, str] = {
     '- [mousedown と mouseup のインターフェイス](jp_mousedown_and_mouseup.md)',
 
     '- [mouseover and mouseout interfaces](mouseover_and_mouseout.md)':
-    '- [mouseover と mouseout インターフェイス](jp_mouseover_and_mouseout.md)',
+    '- [mouseover と mouseout のインターフェイス](jp_mouseover_and_mouseout.md)',
 
     '- [mousemove interface](mousemove.md)':
     '- [mousemove インターフェイス](jp_mousemove.md)',

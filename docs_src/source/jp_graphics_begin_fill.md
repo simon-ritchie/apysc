@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](graphics_begin_fill.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/graphics_begin_fill.html)の確認をお願いします。</span>
 
 # Graphics クラスの begin_fill インターフェイス
 
@@ -101,10 +101,10 @@ ap.save_overall_html(
 カラーコードは以下の形の指定を受け付けています。
 
 - `#00aaff`などの6文字による指定。
-- `#0af`などの3文字による指定（この指定は`#00aaff`の指定と同じ挙動をします）。
+- `#0af`などの3文字による指定（これは`#00aaff`と同じ値として扱われます）。
 
-- `#5`などの1文字による指定（この指定は`#000005`の指定と同じ挙動をします）。
-- `0af`などの`#`の記号を省略した指定（この指定は`#00aaff`の指定と同じ挙動をします）。
+- `#5`などの1文字による指定（これは`000005`と同じ値として扱われます）。
+- `0af`などの`#`記号を省略した指定（これは`#00aaff`と同じ値として扱われます）。
 
 - ``などの空文字（この指定は塗りの色の設定を削除します）。
 

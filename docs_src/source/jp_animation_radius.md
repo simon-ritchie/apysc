@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_radius.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_radius.html)の確認をお願いします。</span>
 
 # animation_radius インターフェイス
 
@@ -10,7 +10,7 @@
 
 このインターフェイスは`Circle`クラスなどの`GraphicsBase`の各サブクラス上に存在します。
 
-## 使い方例
+## 基本的な使い方
 
 以下のコード例では50から100の半径のアニメーションを`animation_radius`メソッドを使って設定しています。
 

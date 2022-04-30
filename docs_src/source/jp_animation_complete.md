@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_complete.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_complete.html)の確認をお願いします。</span>
 
 # AnimationBase クラス animation_complete インターフェイス
 
@@ -174,7 +174,7 @@ animation_move.start()
   - アニメーション終了時に実行される関数もしくはメソッド。
 
 - `options`: dict or None, default None
-  - オプションとしてのハンドラへ渡される各パラメーターの辞書。
+  - ハンドラに渡される省略が可能な追加のパラメーターとしての辞書。
 
 <hr>
 
@@ -193,7 +193,7 @@ animation_move.start()
 
 **[特記事項]**
 
-このインターフェイスはアニメーション開始前にのみ利用することができます。
+このインターフェイスはアニメーション開始前にのみ利用することができます。<hr>
 
 **[コードサンプル]**
 

@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     '`AnimationBase`クラスはアニメーションの開始用の`start`メソッドやアニメーション終了時のイベント登録用の`animation_complete`メソッドなどの基本的な共通のアニメーション関係のインターフェイスを持っています。',  # noqa
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'Each return value class is in the apysc package (e.g., `ap.AnimationMove`). Therefore, you can set the type annotation with it.':  # noqa
     '返却された各値のクラスはapyscのパッケージに含まれています（例: `ap.AnimationMove`など）。そのためそれらを使用して型アノテーションを行うことができます。',  # noqa

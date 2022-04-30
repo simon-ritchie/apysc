@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](contains.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/contains.html)の確認をお願いします。</span>
 
 # contains インターフェイス
 
@@ -74,7 +74,7 @@ ap.save_overall_html(
 
 **[インターフェイスの構造]** `contains(self, child:apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`<hr>
 
-**[インターフェイス概要]** このインスタンスが指定された子を持つかどうかの真偽値を取得します。<hr>
+**[インターフェイス概要]** 指定された子のインスタンスを持っているかどうかの真偽値を取得します。<hr>
 
 **[引数]**
 
@@ -86,7 +86,7 @@ ap.save_overall_html(
 **[返却値]**
 
 - `result`: Boolean
-  - もしこのインスタンスが指定された子を持つ場合Trueとなります。
+  - このインスタンスが指定された子を持つ場合Trueが設定されます。
 
 <hr>
 

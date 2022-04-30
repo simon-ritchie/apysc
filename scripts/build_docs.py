@@ -27,10 +27,13 @@ sys.path.append('./')
 
 from apysc._console import loggers
 from apysc._jslib import jslib_util
-from apysc._lint_and_doc import docstring_util
+from apysc._lint_and_doc import docstring_util, document_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
     add_mapping_blank_data
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._lint_and_doc.docs_translation_converter import apply_translation_to_doc
 
 logger: Logger = loggers.get_info_logger()
 
@@ -88,12 +91,31 @@ def _apply_translation_mappings() -> None:
     """
     Apply each translation mapping.
     """
+    md_file_paths: List[str] = document_util.get_docs_md_file_paths()
+    md_file_paths = lint_and_doc_hash_util.remove_not_updated_file_paths(
+        file_paths=md_file_paths,
+        hash_type=HashType.APPLYING_TRANSLATION_MAPPING)
     for lang in Lang:
         if lang == Lang.EN:
             continue
         logger.info(
             msg=f'Applying {lang.value}\'s translation mappings...')
         add_mapping_blank_data(lang=lang)
+
+        for md_file_path in md_file_paths:
+
+            is_en_document: bool = True
+            basename: str = os.path.basename(md_file_path)
+            for lang_ in Lang:
+                if lang_ == Lang.EN:
+                    continue
+                if basename.startswith(f'{lang_.value}_'):
+                    is_en_document = False
+                    break
+            if not is_en_document:
+                continue
+            apply_translation_to_doc(
+                md_file_path=md_file_path, lang=lang)
 
 
 def _get_build_command(*, lang: Lang) -> str:

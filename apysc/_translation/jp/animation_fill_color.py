@@ -22,10 +22,10 @@ MAPPING: Dict[str, str] = {
     '`animation_fill_color`メソッドのインターフェイスは`ap.AnimationFillColor`クラスのインスタンスを生成します。そのインスタンスを使って塗りのアニメーションを行うことができます。',  # noqa
 
     'This interface exists on a `GraphicsBase` subclass, such as the `Rectangle` or `Circle` class.':  # noqa
-    'このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`クラスの各サブクラスに存在します。',
+    'このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`のサブクラスで存在します。',
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets the fill color animation (from cyan color `#0af` to magenta `#f0a`) with the `animation_fill_color` method:':  # noqa
     '以下のコード例では`animation_fill_color`メソッドを使って塗りの色をシアン（`#0af`）からマゼンタ（`#f0a`）へとアニメーションさせています。',  # noqa
@@ -69,6 +69,9 @@ MAPPING: Dict[str, str] = {
     '  - Easing setting.':
     '  - イージング設定。',
 
+    '<hr>':
+    '<hr>',
+
     '**[Returns]**':
     '**[返却値]**',
 
@@ -77,6 +80,9 @@ MAPPING: Dict[str, str] = {
 
     '  - Created animation setting instance.':
     '  - 生成されたアニメーションのインスタンス。',
+
+    '<hr>':
+    '<hr>',
 
     '**[Notes]**':
     '**[特記事項]**',
@@ -89,6 +95,9 @@ MAPPING: Dict[str, str] = {
 
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> _ = rectangle.animation_fill_color(\n...     fill_color=\'#f0a\',\n...     duration=1500,\n...     easing=ap.Easing.EASE_OUT_QUINT,\n... ).start()\n```':  # noqa
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> _ = rectangle.animation_fill_color(\n...     fill_color=\'#f0a\',\n...     duration=1500,\n...     easing=ap.Easing.EASE_OUT_QUINT,\n... ).start()\n```',  # noqa
+
+    '<hr>':
+    '<hr>',
 
     '**[References]**':
     '**[関連資料]**',

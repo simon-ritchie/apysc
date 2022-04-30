@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_fill_alpha.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_fill_alpha.html)の確認をお願いします。</span>
 
 # animation_fill_alpha インターフェイス
 
@@ -8,9 +8,9 @@
 
 `animation_fill_alpha`メソッドのインターフェイスでは`AnimationBase`のサブクラスであり且つアニメーション設定を扱う`ap.AnimationFillAlpha`クラスのインスタンスを生成します。そのインスタンスを使って塗りの透明度のアニメーションを設定することができます。
 
-このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`クラスの各サブクラスが持っています。
+このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`のサブクラスで存在します。
 
-## 使い方例
+## 基本的な使い方
 
 以下の例では1.0～0.0の塗りの透明度のアニメーションを`animation_fill_alpha`メソッドで設定しています。
 
@@ -88,10 +88,10 @@ ap.save_overall_html(
   - 透明度のアニメーションの最終値。
 
 - `duration`: Int or int, default 3000
-  - アニメーションが終了するまでのミリ秒。
+  - アニメーション完了までのミリ秒。
 
 - `delay`: Int or int, default 0
-  - アニメーションが開始するまでの遅延時間のミリ秒。
+  - アニメーション開始までの遅延時間のミリ秒。
 
 - `easing`: Easing, default Easing.LINEAR
   - イージング設定。
@@ -101,7 +101,7 @@ ap.save_overall_html(
 **[返却値]**
 
 - `animation_fill_alpha`: AnimationFillAlpha
-  - 作成されたアニメーション設定のインスタンス。
+  - 生成されたアニメーションのインスタンス。
 
 <hr>
 
@@ -129,10 +129,10 @@ ap.save_overall_html(
 
 **[関連資料]**
 
-- [各アニメーションインターフェイスの duration 設定](https://simon-ritchie.github.io/apysc/jp_animation_duration.html)
+- [各アニメーションインターフェイスの duration （アニメーション時間）設定](https://simon-ritchie.github.io/apysc/jp_animation_duration.html)
 - [各アニメーションインターフェイスの返却値](https://simon-ritchie.github.io/apysc/jp_animation_return_value.html)
 
 - [連続したアニメーション設定](https://simon-ritchie.github.io/apysc/jp_sequential_animation.html)
-- [animation_parallel インターフェイス](https://simon-ritchie.github.io/apysc/jp_animation_parallel.html)
+- [animation_parallel （並列アニメーション設定）のインターフェイス](https://simon-ritchie.github.io/apysc/jp_animation_parallel.html)
 
 - [イージングのenum](https://simon-ritchie.github.io/apysc/jp_easing_enum.html)

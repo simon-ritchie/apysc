@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_finish.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_finish.html)の確認をお願いします。</span>
 
 # animation_finish インターフェイス
 
@@ -8,9 +8,9 @@
 
 `animation_finish`インターフェイスでは実行されている全てのアニメーションにアニメーションの各属性の最終値を設定しアニメーションを終了させます。
 
-このインターフェイスは`animation_x`や`animation_move`などのアニメーションのインターフェイスを持つ各クラスのインスタンスに存在します。
+このインターフェイスは`animation_x`や`animation_move`などのアニメーション関係のインターフェイスを持つクラスのインスタンス上に存在します。
 
-## 使い方例
+## 基本的な使い方
 
 以下のコード例では四角にクリックイベントを設定しています。四角をクリックするとX座標のアニメーションが開始するようになっています。アニメーション開始後に2秒経過したらアニメーションは終了し、最終値の座標が設定されます。
 

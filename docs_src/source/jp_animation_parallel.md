@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_parallel.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_parallel.html)の確認をお願いします。</span>
 
 # animation_parallel インターフェイス
 
@@ -10,7 +10,7 @@
 
 このインターフェイスは`Sprite`や`Rectangle`などの`DisplayObject`の各サブクラスに存在します。
 
-## 使い方例
+## 基本的な使い方
 
 `animation_parallel`メソッドを使ってこのインターフェイスを使用することができます。`animations`引数の値は各アニメーションの設定値の指定を必要としません。
 

@@ -37,7 +37,7 @@ MAPPING: Dict[str, str] = {
     '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
 
     '**[Interface summary]** Get child at a specified index.<hr>':
-    '**[インターフェイス概要]** 指定されたインデックスの子のインスタンスを取得します。<hr>',
+    '**[インターフェイス概要]** 指定されたインデックス位置の子を取得します。<hr>',
 
     '**[Parameters]**':
     '**[引数]**',

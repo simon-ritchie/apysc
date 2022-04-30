@@ -46,13 +46,13 @@ MAPPING: Dict[str, str] = {
     '- [基本的なマウスイベントの各インターフェイス](jp_mouse_event_basic.md)',
 
     '- [click interface](click.md)':
-    '- [クリックインターフェイス](jp_click.md)',
+    '- [click インターフェイス](jp_click.md)',
 
     '- [mousedown and mouseup interfaces](mousedown_and_mouseup.md)':
     '- [mousedown と mouseup のインターフェイス](jp_mousedown_and_mouseup.md)',
 
     '- [mouseover and mouseout interfaces](mouseover_and_mouseout.md)':
-    '- [mouseover と mouseout インターフェイス](jp_mouseover_and_mouseout.md)',
+    '- [mouseover と mouseout のインターフェイス](jp_mouseover_and_mouseout.md)',
 
     '- [mousemove interface](mousemove.md)':
     '- [mousemove インターフェイス](jp_mousemove.md)',

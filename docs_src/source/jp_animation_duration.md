@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_duration.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_duration.html)の確認をお願いします。</span>
 
 # 各アニメーションのインターフェイスのduration設定
 
@@ -10,7 +10,7 @@
 
 `animation_move`などの各アニメーションのインターフェイスはこの`duration`引数を持っています。
 
-## 使い方例
+## 基本的な使い方
 
 以下の例ではX座標のアニメーションで`duration`の設定に3秒を設定しています。
 

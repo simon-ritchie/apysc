@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     'このインターフェイスは`Sprite`や`Rectangle`などの`DisplayObject`の各サブクラスに存在します。',
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'You can use this interface with the `animation_parallel` method. The `animations` list argument does not require any animation settings.':  # noqa
     '`animation_parallel`メソッドを使ってこのインターフェイスを使用することができます。`animations`引数の値は各アニメーションの設定値の指定を必要としません。',  # noqa

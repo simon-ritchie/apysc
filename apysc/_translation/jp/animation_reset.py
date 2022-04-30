@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     'このインターフェイスは`animation_x`や`animation_move`などのアニメーション関係のインターフェイスを持つクラスのインスタンス上に存在します。',  # noqa
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets the click event to the rectangle. If you click the rectangle, the x-coordinate animation starts. After 1 second has passed, the `animation_reset` interface resets the x-coordinate animation:':  # noqa
     '以下のコード例では四角にクリックイベントを設定し、四角をクリックした際にX座標にアニメーションがスタートするようにしてあります。アニメーションがスタートしてから1秒経過した時点で`animation_reset`インターフェイスによってX座標のリセットが実行されています。',  # noqa

@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_reverse.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_reverse.html)の確認をお願いします。</span>
 
 # animation_reverse インターフェイス
 
@@ -10,7 +10,7 @@
 
 このインターフェイスは`animation_x`や`animation_move`などのアニメーション関係のインターフェイスを持つクラスのインスタンス上に存在します。
 
-## 使い方例
+## 基本的な使い方
 
 以下の例ではX座標のアニメーションを設定し、1秒ごとの間隔で`animation_reverse`インターフェイスを使ってアニメーションを反転（逆作成）しています。
 

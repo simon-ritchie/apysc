@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](animation_return_value.md)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](../en/animation_return_value.html)の確認をお願いします。</span>
 
 # 各アニメーションのインターフェイスの返却値
 
@@ -10,7 +10,7 @@
 
 `AnimationBase`クラスはアニメーションの開始用の`start`メソッドやアニメーション終了時のイベント登録用の`animation_complete`メソッドなどの基本的な共通のアニメーション関係のインターフェイスを持っています。
 
-## 使い方例
+## 基本的な使い方
 
 返却された各値のクラスはapyscのパッケージに含まれています（例: `ap.AnimationMove`など）。そのためそれらを使用して型アノテーションを行うことができます。
 

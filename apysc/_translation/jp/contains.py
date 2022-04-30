@@ -43,7 +43,7 @@ MAPPING: Dict[str, str] = {
     '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
 
     '**[Interface summary]** Get a boolean whether this instance contains a specified child.<hr>':  # noqa
-    '**[インターフェイス概要]** このインスタンスが指定された子を持つかどうかの真偽値を取得します。<hr>',
+    '**[インターフェイス概要]** 指定された子のインスタンスを持っているかどうかの真偽値を取得します。<hr>',
 
     '**[Parameters]**':
     '**[引数]**',
@@ -64,7 +64,7 @@ MAPPING: Dict[str, str] = {
     '- `result`: Boolean',
 
     '  - If this instance contains a specified child, this method returns True.':  # noqa
-    '  - もしこのインスタンスが指定された子を持つ場合Trueとなります。',
+    '  - このインスタンスが指定された子を持つ場合Trueが設定されます。',
 
     '<hr>':
     '<hr>',

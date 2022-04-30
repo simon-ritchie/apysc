@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     '`animation_move`などの各アニメーションのインターフェイスはこの`duration`引数を持っています。',
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets 3 seconds to the `duration` option and animates x-coordinate.':  # noqa
     '以下の例ではX座標のアニメーションで`duration`の設定に3秒を設定しています。',

@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     'これらのインターフェイスは`animation_x`や`animation_move`などのアニメーション関係のインターフェイスを持つクラスのインスタンス上に存在します。',  # noqa
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example starts the x-coordinate animation and stops after 1 second. After stopping the animation and additionally 500 milliseconds passed, restarting the animation:':  # noqa
     '以下のコード例ではX座標のアニメーションをスタートし、その1秒後にアニメーションを停止しています。加えて、停止してからさらに500ミリ秒経過した時点でアニメーションを再開しています。',  # noqa

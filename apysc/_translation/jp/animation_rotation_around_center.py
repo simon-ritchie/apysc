@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     'このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`のサブクラスで存在します。',
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets the rotation animation (from 0 to 90 degrees) with the `animation_rotation_around_center` method:':  # noqa
     '以下の例では0度から90度の回転のアニメーションを`animation_rotation_around_center`メソッドを使って設定しています。',  # noqa

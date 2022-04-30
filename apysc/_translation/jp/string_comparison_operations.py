@@ -46,7 +46,7 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\nstring_1: ap.String = ap.String(\'Hello\')\nresult: ap.Boolean = string_1 == \'Hello\'\nassert result\n```',  # noqa
 
     '## Not equal comparison':
-    '## 等値条件の比較',
+    '## 非等値条件の比較',
 
     'You can use the `!=` operator for the not equal comparison:':
     '`!=`のオペレーターを使って非等値条件の比較を行うことができます。',

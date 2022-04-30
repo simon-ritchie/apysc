@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     'このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`のサブクラスで存在します。',
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets the line color animation (from the cyan color `#0af` to magenta one `#f0a`) with the `animation_line_color` method:':  # noqa
     '以下のコード例では`animation_line_color`メソッドを使って線の色をシアン（`#0af`）からマゼンタ（`#f0a`）に変化するアニメーションを設定しています。',  # noqa
@@ -69,6 +69,9 @@ MAPPING: Dict[str, str] = {
     '  - Easing setting.':
     '  - イージング設定。',
 
+    '<hr>':
+    '<hr>',
+
     '**[Returns]**':
     '**[返却値]**',
 
@@ -77,6 +80,9 @@ MAPPING: Dict[str, str] = {
 
     '  - Created animation setting instance.':
     '  - 生成されたアニメーションのインスタンス。',
+
+    '<hr>':
+    '<hr>',
 
     '**[Notes]**':
     '**[特記事項]**',
@@ -89,6 +95,9 @@ MAPPING: Dict[str, str] = {
 
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> sprite.graphics.line_style(\n...     color=\'#fff\', thickness=5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> _ = rectangle.animation_line_color(\n...     line_color=\'#0af\',\n...     duration=1500,\n...     easing=ap.Easing.EASE_OUT_QUINT,\n... ).start()\n```':  # noqa
     '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> sprite.graphics.line_style(\n...     color=\'#fff\', thickness=5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> _ = rectangle.animation_line_color(\n...     line_color=\'#0af\',\n...     duration=1500,\n...     easing=ap.Easing.EASE_OUT_QUINT,\n... ).start()\n```',  # noqa
+
+    '<hr>':
+    '<hr>',
 
     '**[References]**':
     '**[関連資料]**',

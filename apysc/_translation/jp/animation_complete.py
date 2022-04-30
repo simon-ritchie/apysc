@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     'ハンドラの引数には第一引数にイベントのインスタンス（`ap.AnimationEvent`）、第二引数にはオプションのパラメーターとなる辞書が必要になります。',  # noqa
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The `animation_complete` method requires a handler at the first argument and the optional options dictionary at the second argument.':  # noqa
     '`animation_complete`メソッドは第一引数にハンドラが必要となり、第二引数にはオプションのパラメーターの辞書を設定することができます。',  # noqa
@@ -76,7 +76,10 @@ MAPPING: Dict[str, str] = {
     '- `options`: dict or None, default None',
 
     '  - Optional arguments dictionary to be passed to a handler.':
-    '  - オプションとしてのハンドラへ渡される各パラメーターの辞書。',
+    '  - ハンドラに渡される省略が可能な追加のパラメーターとしての辞書。',
+
+    '<hr>':
+    '<hr>',
 
     '**[Returns]**':
     '**[返却値]**',
@@ -87,23 +90,32 @@ MAPPING: Dict[str, str] = {
     '  - This instance.':
     '  - このインスタンス。',
 
+    '<hr>':
+    '<hr>',
+
     '**[Raises]**':
     '**[エラー発生条件]**',
 
     '- Exception: If calling this interface after an animation starts':
     '- Exception: もしアニメーション開始後にこのインターフェイスを呼び出している場合。',
 
+    '<hr>':
+    '<hr>',
+
     '**[Notes]**':
     '**[特記事項]**',
 
     'This interface can only use before an animation starts<hr>':
-    'このインターフェイスはアニメーション開始前にのみ利用することができます。',
+    'このインターフェイスはアニメーション開始前にのみ利用することができます。<hr>',
 
     '**[Examples]**':
     '**[コードサンプル]**',
 
     '```py\n>>> import apysc as ap\n>>> def on_animation_complete(\n...         e: ap.AnimationEvent[ap.Rectangle],\n...         options: dict) -> None:\n...     ap.trace(\'Animation completed!\')\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> _ = rectangle.animation_x(\n...     x=100,\n... ).animation_complete(on_animation_complete).start()\n```':  # noqa
     '```py\n>>> import apysc as ap\n>>> def on_animation_complete(\n...         e: ap.AnimationEvent[ap.Rectangle],\n...         options: dict) -> None:\n...     ap.trace(\'Animation completed!\')\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> _ = rectangle.animation_x(\n...     x=100,\n... ).animation_complete(on_animation_complete).start()\n```',  # noqa
+
+    '<hr>':
+    '<hr>',
 
     '**[References]**':
     '**[関連資料]**',

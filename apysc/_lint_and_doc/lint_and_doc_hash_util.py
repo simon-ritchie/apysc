@@ -40,6 +40,7 @@ class HashType(Enum):
     DOCSTRING_SRC = 'docstring_src'
     DOCSTRING_TO_MARKDOWN = 'docstring_to_markdown'
     TRANSLATION_MAPPING_JP = 'translation_mapping_jp'
+    APPLYING_TRANSLATION_MAPPING = 'applying_translation_mapping'
     INDEX_HTML_LINK_TEXT_MAPPING = 'index_html_link_text_mapping'
 
 

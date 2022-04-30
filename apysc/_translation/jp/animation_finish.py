@@ -22,10 +22,10 @@ MAPPING: Dict[str, str] = {
     '`animation_finish`インターフェイスでは実行されている全てのアニメーションにアニメーションの各属性の最終値を設定しアニメーションを終了させます。',  # noqa
 
     'This interface exists in the instances that have the animation interfaces (such as the `animation_x`\\, `animation_move`).':  # noqa
-    'このインターフェイスは`animation_x`や`animation_move`などのアニメーションのインターフェイスを持つ各クラスのインスタンスに存在します。',  # noqa
+    'このインターフェイスは`animation_x`や`animation_move`などのアニメーション関係のインターフェイスを持つクラスのインスタンス上に存在します。',  # noqa
 
     '## Basic usage':
-    '## 使い方例',
+    '## 基本的な使い方',
 
     'The following example sets the click event to the rectangle. If you click the rectangle, the x-coordinate animation starts. After 2 seconds have passed, the x-coordinate animation finishes and sets the last x-coordinate value of the animation.':  # noqa
     '以下のコード例では四角にクリックイベントを設定しています。四角をクリックするとX座標のアニメーションが開始するようになっています。アニメーション開始後に2秒経過したらアニメーションは終了し、最終値の座標が設定されます。',  # noqa

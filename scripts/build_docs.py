@@ -95,7 +95,7 @@ def _get_build_command(*, lang: Lang) -> str:
         A build command for the given language.
     """
     command: str = (
-        'sphinx-build ./docs_src/source/ ./docs/ '
+        f'sphinx-build ./docs_src/source/ ./docs/{lang.value}/ '
         f'-c ./docs_src/source/conf_{lang.value}/'
     )
     return command
@@ -1012,24 +1012,39 @@ def _move_and_adjust_updated_files() -> None:
     """
     Move and adjust (remove unnecessary string, etc) updated files.
     """
-    if os.path.isdir('./docs/_static/'):
-        logger.info(
-            msg='Replacing `_static` and `_images` paths by `static` '
-                'and `images`...')
-        _replace_static_path_recursively(dir_path='./docs/')
-        logger.info(
-            msg='Removing `# runnable` inline comment from code blocks...')
-        _remove_runnable_inline_comment_from_code_blocks(
-            dir_path='./docs/')
-        logger.info(msg='Copying updated document files...')
-        copy_tree(src='./docs/_static/', dst='./docs/static/')
-        logger.info(msg='Removing unnecessary static files...')
-        shutil.rmtree('./docs/_static/', ignore_errors=True)
-    if os.path.isdir('./docs/_images/'):
-        logger.info(msg='Copying document images...')
-        copy_tree(src='./docs/_images/', dst='./docs/images/')
-        logger.info(msg='Removing unnecessary image files...')
-        shutil.rmtree('./docs/_images/', ignore_errors=True)
+    for lang in Lang:
+        if os.path.isdir(f'./docs/{lang.value}/_static/'):
+            logger.info(
+                msg='Replacing `_static` and `_images` paths by `static` '
+                    'and `images`...')
+            _replace_static_path_recursively(
+                dir_path=f'./docs/{lang.value}/')
+            logger.info(
+                msg='Removing `# runnable` inline comment from code blocks...')
+            _remove_runnable_inline_comment_from_code_blocks(
+                dir_path=f'./docs/{lang.value}/')
+            logger.info(
+                msg=f'Copying {lang.value}\'s updated document files...')
+            copy_tree(
+                src=f'./docs/{lang.value}/_static/',
+                dst=f'./docs/{lang.value}/static/')
+            logger.info(
+                msg=f'Removing {lang.value}\'s unnecessary static files...')
+            shutil.rmtree(
+                f'./docs/{lang.value}/_static/',
+                ignore_errors=True)
+        if os.path.isdir(
+            f'./docs/{lang.value}/_images/'):
+            logger.info(
+                msg=f'Copying {lang.value}\'s document images...')
+            copy_tree(
+                src=f'./docs/{lang.value}/_images/',
+                dst=f'./docs/{lang.value}/images/')
+            logger.info(
+                msg=f'Removing {lang.value}\'s unnecessary image files...')
+            shutil.rmtree(
+                f'./docs/{lang.value}/_images/',
+                ignore_errors=True)
 
 
 def _replace_static_path_recursively(dir_path: str) -> None:

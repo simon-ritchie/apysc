@@ -785,12 +785,12 @@ class Test_IndexMdUnderscoresReplacer:
 def test__get_build_command() -> None:
     command: str = build_docs._get_build_command(lang=Lang.EN)
     assert command == (
-        'sphinx-build ./docs_src/source/ ./docs/ '
+        'sphinx-build ./docs_src/source/ ./docs/en/ '
         '-c ./docs_src/source/conf_en/'
     )
 
     command: str = build_docs._get_build_command(lang=Lang.JP)
     assert command == (
-        'sphinx-build ./docs_src/source/ ./docs/ '
+        'sphinx-build ./docs_src/source/ ./docs/jp/ '
         '-c ./docs_src/source/conf_jp/'
     )

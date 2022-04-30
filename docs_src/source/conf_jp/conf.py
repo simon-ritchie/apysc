@@ -40,6 +40,8 @@ author: Final[str] = 'simonritchie'
 
 # -- General configuration ---------------------------------------------------
 
+root_doc: str = 'jp_index'
+
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.

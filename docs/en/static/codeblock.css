@@ -1,0 +1,32 @@
+/* Code block style settings. */
+
+/* Override normal object and parentheses color. */
+.highlight .nn,
+.highlight .n,
+.highlight .p,
+.highlight .nx,
+.highlight .vm,
+.highlight .fm {
+    color: #ccc !important;
+}
+
+/* Override digit code style. */
+.highlight .mi, .highlight .mf {
+    color: #cc3333 !important;
+}
+
+/* Override string code style. */
+.highlight .s1 {
+    color: #7eca36 !important;
+}
+
+/* Override None or other value style. */
+.highlight .kc,
+.highlight .ow {
+    color: #0088c3 !important;
+}
+
+/* Override JavaScript var keyword or other element style. */
+.highlight .kd {
+    color: #0af !important;
+}

@@ -25,7 +25,7 @@ _EACH_LANG_HEADING_INFO_FORMAT: Dict[Lang, str] = {
     '<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプト'
     'によって出力・同期されています。内容が怪しそうな場合は'
     f'<a href="{_GITHUB_ISSUE_URL}" target="_blank">GitHubに'
-    'issue</a>を追加したり[英語の原文]({source_doc_basename})の'
+    'issue</a>を追加したり[英語の原文]({source_doc_path})の'
     '確認をお願いします。</span>',
 }
 
@@ -535,9 +535,11 @@ def _add_heading_info_if_exists(
         lang, '')
     if heading_info_format == '':
         return translated_doc
-    basename: str = os.path.basename(md_file_path)
+    source_doc_path: str = os.path.basename(md_file_path)
+    source_doc_path = source_doc_path.replace('.md', '.html')
+    source_doc_path = f'../en/{source_doc_path}'
     heading_info_format = heading_info_format.format(
-        source_doc_basename=basename,
+        source_doc_path=source_doc_path,
     )
     translated_doc += heading_info_format
     return translated_doc

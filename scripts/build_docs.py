@@ -29,6 +29,8 @@ from apysc._console import loggers
 from apysc._jslib import jslib_util
 from apysc._lint_and_doc import docstring_util
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
+    add_mapping_blank_data
 
 logger: Logger = loggers.get_info_logger()
 
@@ -48,6 +50,8 @@ def _main() -> None:
 
     index_md_replacer: _IndexMdUnderscoresReplacer = \
         _IndexMdUnderscoresReplacer()
+
+    _apply_translation_mappings()
 
     logger.info(msg='Removing underscores from each index.md file...')
     index_md_replacer.remove_underscores()
@@ -78,6 +82,18 @@ def _main() -> None:
     apply_link_text_mapping_to_index_html.apply()
 
     logger.info(msg='Build completed!')
+
+
+def _apply_translation_mappings() -> None:
+    """
+    Apply each translation mapping.
+    """
+    for lang in Lang:
+        if lang == Lang.EN:
+            continue
+        logger.info(
+            msg=f'Applying {lang.value}\'s translation mappings...')
+        add_mapping_blank_data(lang=lang)
 
 
 def _get_build_command(*, lang: Lang) -> str:

@@ -609,7 +609,4 @@ MAPPING: Dict[str, str] = {
     '- [assert_defined and assert_undefined interfaces](assert_defined_and_undefined.md)':  # noqa
     '- [assert_defined と assert_undefined の各インターフェイス](jp_assert_defined_and_undefined.md)',  # noqa
 
-    '---':
-    '---',
-
 }

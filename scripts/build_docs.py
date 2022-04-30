@@ -53,7 +53,9 @@ def _main() -> None:
 
     logger.info(msg='Sphinx build command started...')
     complete_process: sp.CompletedProcess = sp.run(
-        'sphinx-build ./docs_src/source/ ./docs/', shell=True,
+        'sphinx-build ./docs_src/source/ ./docs/ '
+        '-c ./docs_src/source/conf_en/',
+        shell=True,
         stdout=sp.PIPE, stderr=sp.STDOUT)
     stdout: str = complete_process.stdout.decode('utf-8')
     print(stdout)

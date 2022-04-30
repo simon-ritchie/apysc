@@ -9,10 +9,7 @@ from pathlib import Path
 
 from apysc._lint_and_doc.docs_lang import Lang
 
-SRC_DIR_PATH: str = os.path.join(
-    Path(os.path.abspath(__name__)).parent,
-    'docs_src/source/',
-)
+SRC_DIR_PATH: str = '/mnt/apysc/docs_src/source/'
 
 
 def get_docs_md_file_paths() -> List[str]:

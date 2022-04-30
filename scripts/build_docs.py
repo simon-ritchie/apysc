@@ -63,6 +63,12 @@ def _main() -> None:
 
     logger.info(
         msg='Japanese documents\' Sphinx build command started...')
+    complete_process = sp.run(
+        _get_build_command(lang=Lang.JP),
+        shell=True,
+        stdout=sp.PIPE, stderr=sp.STDOUT)
+    stdout = complete_process.stdout.decode('utf-8')
+    print(stdout)
 
     _move_and_adjust_updated_files()
 

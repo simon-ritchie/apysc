@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>assert_true と assert_false インターフェイス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="_static/base.css" />
+    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="assert_arrays_equal と assert_arrays_not_equal インターフェイス" href="jp_assert_arrays_equal_and_arrays_not_equal.html" />
+    <link rel="prev" title="assert_equal と assert_not_equal インターフェイス" href="jp_assert_equal_and_not_equal.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_assert_arrays_equal_and_arrays_not_equal.html" title="assert_arrays_equal と assert_arrays_not_equal インターフェイス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_assert_equal_and_not_equal.html" title="assert_equal と assert_not_equal インターフェイス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">assert_true と assert_false インターフェイス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="assert_true_and_false">英語の原文</a>の確認をお願いします。</span></p>
+<section id="assert-true-assert-false">
+<h1>assert_true と assert_false インターフェイス<a class="headerlink" href="#assert-true-assert-false" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>と<code class="docutils literal notranslate"><span class="pre">assert_false</span></code>関数の各インターフェイスについて説明します。</p>
+<section id="id1">
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数のインターフェイスは指定された<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値が真（true）であることをチェックします。逆に<code class="docutils literal notranslate"><span class="pre">assert_false</span></code>関数のインターフェイスは指定された<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値が偽（false）であることをチェックします。</p>
+</section>
+<section id="id2">
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_assertion_basic_behavior.html"><span class="doc">JavaScriptの各アサーションのインターフェイスの基本的な挙動</span></a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">assert_true</span></code>と<code class="docutils literal notranslate"><span class="pre">assert_false</span></code>の各インターフェイスは<code class="docutils literal notranslate"><span class="pre">value</span></code>引数を必要とします。<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>と<code class="docutils literal notranslate"><span class="pre">msg</span></code>引数は省略可です。<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>引数のデフォルト値は<code class="docutils literal notranslate"><span class="pre">True</span></code>となります。</p>
+<p>もしも<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>引数に<code class="docutils literal notranslate"><span class="pre">True</span></code>が指定された場合チェック処理はJavaScriptの厳密な型の比較（<code class="docutils literal notranslate"><span class="pre">===</span></code>による比較）によって行われます。たとえばもし<code class="docutils literal notranslate"><span class="pre">value</span></code>引数の値が<code class="docutils literal notranslate"><span class="pre">Int(1)</span></code>で且つ<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>引数が<code class="docutils literal notranslate"><span class="pre">True</span></code>の場合チェック処理は真偽値と整数（<code class="docutils literal notranslate"><span class="pre">Int</span></code>）間の比較となるため失敗します。逆に<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>が<code class="docutils literal notranslate"><span class="pre">False</span></code>で且つ値が<code class="docutils literal notranslate"><span class="pre">Int(1)</span></code>であれば<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数によるチェック処理は通ります。</p>
+<p>これらのインターフェイスによるチェック結果はブラウザ上のコンソールに表示されます。</p>
+<p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Boolean(True)</span></code>の値を使用した処理のコード例ではチェックを通ります:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_true</span><span class="p">(</span><span class="n">bool_1</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Boolean value is not True!&#39;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_true_basic_usage_1/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_true</span><span class="p">]</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">b_3</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span>
+</pre></div>
+</div>
+<iframe src="static/assert_true_basic_usage_1/index.html" width="0" height="0"></iframe><p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>の値を使った処理ではチェックが失敗します:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_true</span><span class="p">(</span><span class="n">bool_1</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Boolean value is not True!&#39;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_true_basic_usage_2/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[assert_true]
+Right-side variable name: b_3
+Left value: true right value: false
+...
+Assertion failed: Boolean value is not True!
+</pre></div>
+</div>
+<iframe src="static/assert_true_basic_usage_2/index.html" width="0" height="0"></iframe><p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Int(1)</span></code>の値を使い、<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>に<code class="docutils literal notranslate"><span class="pre">True</span></code>を指定した例ではチェックが失敗します:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_true</span><span class="p">(</span><span class="n">int_1</span><span class="p">,</span> <span class="n">type_strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Value is not Boolean(True)!&#39;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_true_basic_usage_3/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[assert_true]
+Right-side variable name: i_11
+Left value: true right value: 1
+...
+Assertion failed: Value is not Boolean(True)!
+</pre></div>
+</div>
+<iframe src="static/assert_true_basic_usage_3/index.html" width="0" height="0"></iframe><p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Int(1)</span></code>の値を使い<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>に<code class="docutils literal notranslate"><span class="pre">False</span></code>を設定した処理ではチェックが通ります:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_true</span><span class="p">(</span><span class="n">int_1</span><span class="p">,</span> <span class="n">type_strict</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Value is not True!&#39;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_true_basic_usage_4/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_true</span><span class="p">]</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<iframe src="static/assert_true_basic_usage_4/index.html" width="0" height="0"></iframe><p>以下の<code class="docutils literal notranslate"><span class="pre">assert_false</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>の値を使った処理ではチェックを通ります:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_false</span><span class="p">(</span><span class="n">bool_1</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Value is not False!&#39;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_false_basic_usage_1/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_false</span><span class="p">]</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">b_3</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">false</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">false</span>
+</pre></div>
+</div>
+<iframe src="static/assert_false_basic_usage_1/index.html" width="0" height="0"></iframe></section>
+<section id="assert-true-api">
+<h2>assert_true API<a class="headerlink" href="#assert-true-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">assert_true(value:Any,</span> <span class="pre">*,</span> <span class="pre">type_strict:bool=True,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> JavaScript上の真（true）条件のチェックを行うインターフェイスです。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: *</p>
+<ul>
+<li><p>チェック対象の値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_strict</span></code>: bool, default True</p>
+<ul>
+<li><p>厳密な型でのチェックを行うかどうかの設定です。たとえばtype_strictにTrueを指定した場合は整数の1ではテストは失敗します。逆にtype_strictがFalseの場合整数の1はテストを通過します。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>チェックに失敗した際に表示するメッセージ。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">boolean</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_true</span><span class="p">(</span><span class="n">boolean</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="assert-false-api">
+<h2>assert_false API<a class="headerlink" href="#assert-false-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">assert_false(value:Any,</span> <span class="pre">*,</span> <span class="pre">type_strict:bool=True,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> JavaScript上の偽（false）条件のチェックを行うインターフェイスです。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: *</p>
+<ul>
+<li><p>チェック対象の値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_strict</span></code>: bool, default True</p>
+<ul>
+<li><p>厳密な型でのチェックを行うかどうかの設定です。たとえばtype_strictにTrueを指定した場合は整数の0ではテストは失敗します。逆にtype_strictがFalseの場合整数の0はテストを通過します。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>チェックに失敗した際に表示するメッセージ。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">boolean</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">==</span> <span class="mi">11</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_false</span><span class="p">(</span><span class="n">boolean</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">assert_true と assert_false インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
+<li><a class="reference internal" href="#id2">関連資料</a></li>
+<li><a class="reference internal" href="#id3">基本的な使い方</a></li>
+<li><a class="reference internal" href="#assert-true-api">assert_true API</a></li>
+<li><a class="reference internal" href="#assert-false-api">assert_false API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_assert_equal_and_not_equal.html"
+                        title="previous chapter">assert_equal と assert_not_equal インターフェイス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_assert_arrays_equal_and_arrays_not_equal.html"
+                        title="next chapter">assert_arrays_equal と assert_arrays_not_equal インターフェイス</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_assert_arrays_equal_and_arrays_not_equal.html" title="assert_arrays_equal と assert_arrays_not_equal インターフェイス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_assert_equal_and_not_equal.html" title="assert_equal と assert_not_equal インターフェイス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">assert_true と assert_false インターフェイス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

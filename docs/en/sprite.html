@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Sprite class &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="_static/base.css" />
+    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="save_overall_html interface" href="save_overall_html.html" />
+    <link rel="prev" title="Stage class" href="stage.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="save_overall_html.html" title="save_overall_html interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="stage.html" title="Stage class"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Sprite class</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="sprite-class">
+<h1>Sprite class<a class="headerlink" href="#sprite-class" title="Permalink to this headline">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class.</p>
+<section id="what-is-the-sprite">
+<h2>What is the Sprite?<a class="headerlink" href="#what-is-the-sprite" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is the container of each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. It also has the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class interfaces and can draw each vector graphic.</p>
+</section>
+<section id="note-for-the-automated-addition">
+<h2>Note for the automated addition<a class="headerlink" href="#note-for-the-automated-addition" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance is automated added to the stage (no need to call <code class="docutils literal notranslate"><span class="pre">add_child</span></code> or other related interfaces). However, suppose you want to add to the other instance. In that case, you need to call the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> method manually.</p>
+</section>
+<section id="graphics-attribute-interfaces">
+<h2>graphics attribute interfaces<a class="headerlink" href="#graphics-attribute-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> attribute, and you can draw each vector graphic with it. For example, the following code draws the cyan color rectangle.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_graphics_attribute/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe><p>For more details, please see the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> related documents, for example:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="graphics.html"><span class="doc">Graphics class</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_begin_fill.html"><span class="doc">Graphics begin_fill interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_style.html"><span class="doc">Graphics line_style interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_rect.html"><span class="doc">Graphics draw_rect interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_circle.html"><span class="doc">Graphics draw_circle interface</span></a></p></li>
+</ul>
+</section>
+<section id="move-displayobject-instances-simultaneously">
+<h2>Move DisplayObject instances simultaneously<a class="headerlink" href="#move-displayobject-instances-simultaneously" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is a container, and if you move that coordinates, it changes children’s coordinates simultaneously. For example, the following code changes the sprite y-coordinate when clicking the rectangle.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">def</span> <span class="nf">on_sprite_click</span><span class="p">(</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler that the sprite calls when clicked.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : MouseEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="mi">50</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_sprite_click</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_move_instances_simultaneously/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe><p>The subsequent pages explain the other interfaces, such as the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface.</p>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="add_child_and_remove_child.html"><span class="doc">add_child and remove_child interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="contains.html"><span class="doc">contains interface</span></a></p></li>
+<li><p><a class="reference internal" href="num_children.html"><span class="doc">num_children interface</span></a></p></li>
+<li><p><a class="reference internal" href="get_child_at.html"><span class="doc">get_child_at interface</span></a></p></li>
+</ul>
+</section>
+<section id="sprite-class-constructor-api">
+<h2>Sprite class constructor API<a class="headerlink" href="#sprite-class-constructor-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.sprite.Sprite.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">variable_name:Union[str,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Create a basic display object that can be a parent.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name</span></code>: str or None, default None</p>
+<ul>
+<li><p>Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> subclass.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create the sprite child rectangle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rect</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite_1</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+<span class="go">Boolean(True)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Move the created rectangle to the other sprite</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_2</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+<span class="go">Boolean(False)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_2</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+<span class="go">Boolean(True)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Move the sprite container</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_2</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_2</span><span class="o">.</span><span class="n">x</span>
+<span class="go">Int(50)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Sprite class</a><ul>
+<li><a class="reference internal" href="#what-is-the-sprite">What is the Sprite?</a></li>
+<li><a class="reference internal" href="#note-for-the-automated-addition">Note for the automated addition</a></li>
+<li><a class="reference internal" href="#graphics-attribute-interfaces">graphics attribute interfaces</a></li>
+<li><a class="reference internal" href="#move-displayobject-instances-simultaneously">Move DisplayObject instances simultaneously</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#sprite-class-constructor-api">Sprite class constructor API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stage.html"
+                        title="previous chapter">Stage class</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="save_overall_html.html"
+                        title="next chapter">save_overall_html interface</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="save_overall_html.html" title="save_overall_html interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="stage.html" title="Stage class"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Sprite class</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

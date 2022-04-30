@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>set_debug_mode インターフェイス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="_static/base.css" />
+    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="unset_debug_mode インターフェイス" href="jp_unset_debug_mode.html" />
+    <link rel="prev" title="trace インターフェイス" href="jp_trace.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_unset_debug_mode.html" title="unset_debug_mode インターフェイス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_trace.html" title="trace インターフェイス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">set_debug_mode インターフェイス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="set_debug_mode">英語の原文</a>の確認をお願いします。</span></p>
+<section id="set-debug-mode">
+<h1>set_debug_mode インターフェイス<a class="headerlink" href="#set-debug-mode" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code>関数のインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code>関数のインターフェイスはデバッグモードの設定を有効化します。この設定はデバッグ用の情報（Python上の関数やメソッドの呼び出しと引数情報など）を出力されるHTML上に追加します。</p>
+</section>
+<section id="id2">
+<h2>特記事項<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>デバッグモードの設定は多くの情報をHTML上に追加します。結果として出力時間は長くなり、ファイルサイズも大きくなります。</p>
+<p>また、この設定は<code class="docutils literal notranslate"><span class="pre">minify</span></code>（HTML最小化）の設定も無視します。</p>
+</section>
+<section id="id3">
+<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>ステージのインスタンス後であれば<code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code>関数を使ってデバッグモードを設定ずることができます。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">set_debug_mode</span><span class="p">()</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;set_debug_mode_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>この設定は以下の例の用に出力されたHTML内にPythonの関数やメソッドの呼び出しやそのモジュールやクラス名、引数情報などのJavaScriptのコメントを追加します:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+  <span class="c1">// [__init__ 1] started.</span>
+  <span class="c1">// module name: apysc._display.sprite</span>
+  <span class="c1">// class: Sprite</span>
+  <span class="c1">// arguments and variables:</span>
+  <span class="c1">//    variable_name = None</span>
+  <span class="c1">//    self = Sprite(&#39;&#39;)()</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [__init__ 2] started.</span>
+    <span class="c1">// module name: apysc._type.array</span>
+    <span class="c1">// class: Array</span>
+    <span class="c1">// arguments and variables:</span>
+    <span class="c1">//    value = []</span>
+    <span class="c1">//    self = []()</span>
+      <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+      <span class="c1">// [_append_constructor_expression 2] started.</span>
+      <span class="c1">// module name: apysc._type.array</span>
+      <span class="c1">// class: Array</span>
+      <span class="c1">// arguments and variables:</span>
+      <span class="c1">//    self = [](arr_2)</span>
+        <span class="kd">var</span> <span class="nx">arr_2</span> <span class="o">=</span> <span class="p">[];</span>
+      <span class="c1">// [_append_constructor_expression 2] ended.</span>
+      <span class="c1">// module name: apysc._type.array</span>
+      <span class="c1">// class: Array</span>
+      <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [__init__ 2] ended.</span>
+    <span class="c1">// module name: apysc._type.array</span>
+    <span class="c1">// class: Array</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [__init__ 1] started.</span>
+    <span class="c1">// module name: apysc._display.display_object</span>
+    <span class="c1">// class: DisplayObject</span>
+    <span class="c1">// arguments and variables:</span>
+    <span class="c1">//    variable_name = &#39;sp_1&#39;</span>
+    <span class="c1">//    self = Sprite(&#39;&#39;)()</span>
+    <span class="c1">// [__init__ 1] ended.</span>
+    <span class="c1">// module name: apysc._display.display_object</span>
+    <span class="c1">// class: DisplayObject</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [_append_constructor_expression 1] started.</span>
+    <span class="c1">// module name: apysc._display.sprite</span>
+    <span class="c1">// class: Sprite</span>
+    <span class="c1">// arguments and variables:</span>
+    <span class="c1">//    self = Sprite(&#39;sp_1&#39;)(sp_1)</span>
+      <span class="kd">var</span> <span class="nx">sp_1</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">nested</span><span class="p">();</span>
+    <span class="c1">// [_append_constructor_expression 1] ended.</span>
+    <span class="c1">// module name: apysc._display.sprite</span>
+    <span class="c1">// class: Sprite</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_unset_debug_mode.html"><span class="doc">unset_debug_mode インターフェイス</span></a></p></li>
+</ul>
+</section>
+<section id="set-debug-mode-api">
+<h2>set_debug_mode API<a class="headerlink" href="#set-debug-mode-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_debug_mode()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> HTMLとJavaScriptのデバッグ用にデバッグモードの設定を行います。もしこの関数を呼び出した場合、のインターフェイスは以下の設定を追加します: <br> ・HTMLの最小化（minify）設定を無効化します。 <br> ・各インターフェイスごとのJavaScript上での区切りのための文字列を追加します。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">set_debug_mode</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">set_debug_mode インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">特記事項</a></li>
+<li><a class="reference internal" href="#id3">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id4">関連資料</a></li>
+<li><a class="reference internal" href="#set-debug-mode-api">set_debug_mode API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_trace.html"
+                        title="previous chapter">trace インターフェイス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_unset_debug_mode.html"
+                        title="next chapter">unset_debug_mode インターフェイス</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_unset_debug_mode.html" title="unset_debug_mode インターフェイス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_trace.html" title="trace インターフェイス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">set_debug_mode インターフェイス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

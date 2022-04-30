@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>apysc ドキュメント &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="_static/base.css" />
+    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="apysc ライブラリが現在の実装でできること" href="jp_what_apysc_can_do.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_what_apysc_can_do.html" title="apysc ライブラリが現在の実装でできること"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">apysc ドキュメント</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="index">英語の原文</a>の確認をお願いします。</span></p>
+<section id="apysc">
+<h1>apysc ドキュメント<a class="headerlink" href="#apysc" title="Permalink to this headline">¶</a></h1>
+<p>apyscのドキュメントページへようこそ。apyscはPythonのフロントエンド用のライブラリです（現在開発中であり部分的にのみ動作します）。</p>
+<section id="id1">
+<h2>プロジェクトの関連リンク<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/simon-ritchie/apysc">GitHub</a></p>
+<ul>
+<li><p>もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://twitter.com/apysc">Twitter</a></p>
+<ul>
+<li><p>進捗やアップデートなどはTwitterで告知しています。</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://pypi.org/project/apysc/">PyPI</a></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>クイックスタートガイド<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<section id="table-of-contents">
+<h3>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_what_apysc_can_do.html">apyscが現在の実装で出来ることの概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_quick_start.html">クイックスタートガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_import_conventions.html">import の慣習</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2>コンテナーの各クラス<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Stage</span></code>はapyscの描画領域全体のコンテナーとなり、<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>は通常の各インスタンスのコンテナーのクラスとなります。</p>
+<section id="id4">
+<h3>Table of contents<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_stage.html">Stage クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_sprite.html">Sprite クラス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h2>出力処理<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>以下はHTMLとJavaScriptの出力処理関係の各インターフェイスです。</p>
+<section id="id6">
+<h3>Table of contents<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_save_overall_html.html">save overall html インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_display_on_jupyter.html">display on jupyter インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_display_on_colaboratory.html">display on google colaboratory インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_append_js_expression.html">append js expression インターフェイス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id7">
+<h2>子要素関係の各インターフェイス<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Sprite</span></code>や<code class="docutils literal notranslate"><span class="pre">Stage</span></code>などの親となれる各クラスは以下のインターフェイスを持っています:</p>
+<section id="id8">
+<h3>Table of contents<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_add_child_and_remove_child.html">add child （子の追加）と remove child （子の削除）のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_contains.html">contains インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_num_children.html">num children （子の件数属性）のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_get_child_at.html">get child at （特定位置の子の取得処理）のインターフェイス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id9">
+<h2>apyscの基本的な各データクラス<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<section id="id10">
+<h3>Table of contents<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html">なぜapyscではPythonのビルトインのデータの型を使用していないのか</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_fundamental_data_classes_value_interface.html">基本的なデータクラスの共通の value インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_int_and_number.html">Int と Number の各クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_int_and_number_arithmetic_operations.html">Int と Number クラスの共通の計算制御</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_int_and_number_comparison_operations.html">Int と Number クラスの共通の比較制御</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_string.html">String クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_string_comparison_operations.html">String クラスの比較制御</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_string_addition_and_multiplication.html">String クラスの加算と乗算の制御</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_boolean.html">Boolean クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array.html">Array クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_append_and_push.html">Array クラスの append と push のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_extend_and_concat.html">Array クラスの extend と concat のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_insert_and_insert_at.html">Array クラスの insert と insert at のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_pop.html">Array クラスの pop インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_remove_and_remove_at.html">Array クラスの remove と remove at のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_sort.html">Array クラスの sort インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_reverse.html">Array クラスの reverse インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_slice.html">Array クラスの slice インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_length.html">Array クラスの length (配列の長さ取得) のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_join.html">Array クラスの join (値の連結文字列生成) のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_index_of.html">Array クラスの index of (値のインデックス取得) のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_array_comparison.html">Array クラスの比較の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_dictionary.html">Dictionary クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_dictionary_generic.html">Dictionary クラスのジェネリックの型設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_dictionary_get.html">Dictionary クラスの get インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_dictionary_length.html">Dictionary クラスの length インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_point2d.html">Point2D クラス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="displayobject-graphicsbase">
+<h2>DisplayObject と GraphicsBase の各クラス<a class="headerlink" href="#displayobject-graphicsbase" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスは各表示用のオブジェクトの基底クラスです。<code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のサブクラスであり、且つ<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>などの各グラフィックスの基底クラスとなります。</p>
+<section id="id11">
+<h3>Table of contents<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_display_object.html">DisplayObject クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_display_object_and_graphics_base_prop_abstract.html">DisplayObject と GraphicsBase の各クラスの基本的な各属性の概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_display_object_x_and_y.html">DisplayObject クラスの x と y インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_display_object_parent.html">DisplayObjectクラス parent （親要素属性）のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_display_object_visible.html">DisplayObject クラスの visible (表示・非表示) のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_display_object_get_and_set_css.html">DisplayObject クラスの get css と set css の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_display_object_mouse_event.html">DisplayObject クラスのマウスイベント設定の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_base_rotation_around_center.html">GraphicsBase クラスの rotation around center (中央座標基準の回転) インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_base_rotation_around_point.html">GraphicsBase クラスの rotation around point (指定座標基準の回転) の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_base_scale_from_center.html">GraphicsBase クラスの scale from center (中央座標基準の拡縮) の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_base_scale_from_point.html">GraphicsBase クラスの scale from point (指定座標基準の拡縮) の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_base_flip_interfaces.html">GraphicsBase クラスの flip x (横軸の反転) と flip y (縦軸の反転) のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_base_skew.html">GraphicsBase クラスの skew x (X軸の歪み) と skew y (Y軸の歪み) のインターフェイス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="graphics">
+<h2>Graphics クラス<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h2>
+<section id="id12">
+<h3>Table of contents<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスは各ベクターグラフィックスの描画処理を扱います。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_draw_interfaces_abstract.html">描画の各インターフェイスの概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics.html">Graphics クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_begin_fill.html">Graphics クラスの begin fill (塗りの設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_line_style.html">Graphics クラスの line style (線のスタイル設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_rect.html">Graphics クラスの draw rect (四角の描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_round_rect.html">Graphics クラスの draw round rect (角丸の四角の描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_circle.html">Graphics クラスの draw circle (円の描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_ellipse.html">Graphics クラスの draw ellipse (楕円描画) のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_move_to_and_line_to.html">Graphics クラスの move to (線の描画位置の変更)と line to (指定座標への線の描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_line.html">Graphics クラスの draw line (線の描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_dotted_line.html">Graphics クラスの draw dotted line (点線の描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_dashed_line.html">Graphics クラスの draw dashed line (破線の描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_round_dotted_line.html">Graphics クラスの draw round dotted line (点線(丸)の描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_dash_dotted_line.html">Graphics クラスの draw dash dotted line (一点鎖線の描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_draw_polygon.html">Graphics クラスの draw polygon (多角形描画)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_fill_color.html">Graphics クラスの fill color (塗り設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_fill_alpha.html">Graphics クラスの fill alpha (塗りの透明度設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_line_color.html">Graphics クラスの line color (線の色設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_line_alpha.html">Graphics クラスの line color (線の透明度設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_line_thickness.html">Graphics クラスの line color (線幅設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_line_dot_setting.html">Graphics クラスの line dot setting (点線設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_line_dash_setting.html">Graphics クラスの line dash setting (破線設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_line_round_dot_setting.html">Graphics クラスの line round dot setting (点線(丸)設定)のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_graphics_line_dash_dot_setting.html">Graphics クラスの line dash dot setting (一点鎖線設定)のインターフェイス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id13">
+<h2>イベントの共通の各インターフェイス<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<section id="id14">
+<h3>Table of contents<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_about_handler_options_type.html">ハンドラの options パラメーターの型について</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_event_prevent_default_and_stop_propagation.html">Event クラスの prevent default と stop propagation の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_bind_and_trigger_custom_event.html">bind custom event と trigger custom event の各インターフェイス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mouseevent">
+<h2>MouseEvent クラスとマウスイベントの設定<a class="headerlink" href="#mouseevent" title="Permalink to this headline">¶</a></h2>
+<section id="id15">
+<h3>Table of contents<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_mouse_event_abstract.html">MouseEvent クラスの各インターフェイスの概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_mouse_event_basic.html">基本的なマウスイベントの各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_click.html">click インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_dblclick.html">dblclick インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_mousedown_and_mouseup.html">mousedown と mouseup のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_mouseover_and_mouseout.html">mouseover と mouseout のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_mousemove.html">mousemove インターフェイス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id16">
+<h2>条件分岐の制御<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<section id="id17">
+<h3>Table of contents<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_if.html">If クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_elif.html">Elif クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_else.html">Else クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_branch_instruction_variables_reverting_setting.html">各条件分岐のクラスのスコープ内の変数値の復元設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_return.html">Return クラス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id18">
+<h2>ループ<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<section id="id19">
+<h3>Table of contents<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_for.html">ループ用の For クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_continue.html">Continue クラス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id20">
+<h2>タイマー<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<section id="id21">
+<h3>Table of contents<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_timer.html">Timer クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_timer_event.html">TimerEvent クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_timer_delay.html">Timer クラスの delay 設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_fps.html">FPS の enum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_timer_repeat_count.html">Timer クラスの repeat count 設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_timer_start_and_stop.html">Timer クラスの start と stop の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_timer_complete.html">Timer クラスの timer complete インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_timer_reset.html">Timer クラスの reset インターフェイス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id22">
+<h2>アニメーション<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<section id="id23">
+<h3>Table of contents<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_interfaces_abstract.html">アニメーションの各インターフェイスの概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_event.html">AnimationEvent クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_duration.html">Animation クラスの duration 設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_delay.html">Animation クラスの delay 設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_return_value.html">アニメーションの各インターフェイスの返却値について</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_base_start.html">AnimationBase クラスの start インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_complete.html">AnimationBase クラスの animation complete インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_method_chaining.html">AnimationBase クラスの各インターフェイスのメソッドチェーンについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_base_target.html">AnimationBase クラスの target 属性</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_pause_and_play.html">アニメーションの pause と play の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_reset.html">アニメーションの reset インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_finish.html">アニメーションの finish インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_reverse.html">アニメーションの reverse インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_time.html">animation time インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_easing_enum.html">イージングの enum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_sequential_animation.html">連続したアニメーション設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_parallel.html">animation parallel インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_move.html">animation move インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_x.html">animation x インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_y.html">animation y インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_width_and_height.html">animation width と animation height の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_fill_color.html">animation fill color インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_fill_alpha.html">animation fill alpha インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_line_color.html">animation line color インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_line_alpha.html">animation line alpha インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_line_thickness.html">animation line thickness インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_radius.html">animation radius インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_rotation_around_center.html">animation rotation around center インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_rotation_around_point.html">animation rotation around point インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_scale_x_and_y_from_center.html">animation scale x from center と animation scale y from center の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_scale_x_and_y_from_point.html">animation scale x from point と animation scale y from point の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_animation_skew_x.html">animation skew x インターフェイス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id24">
+<h2>デバッグ<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<section id="id25">
+<h3>Table of contents<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_trace.html">trace 関数のインターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_set_debug_mode.html">set debug mode インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_unset_debug_mode.html">unset debug mode インターフェイス</a></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id26">
+<h2>テスト<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<section id="id27">
+<h3>Table of contents<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jp_assertion_basic_behavior.html">JavaScriptの各アサーションのインターフェイスの基本的な挙動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_assert_equal_and_not_equal.html">assert equal と assert not equal の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_assert_true_and_false.html">assert true と assert false の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_assert_arrays_equal_and_arrays_not_equal.html">assert arrays equal と assert arrays not equal の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_assert_dicts_equal_and_dicts_not_equal.html">assert dicts equal と assert dicts not equal の各インターフェイス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jp_assert_defined_and_undefined.html">assert defined と assert undefined の各インターフェイス</a></li>
+</ul>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">apysc ドキュメント</a><ul>
+<li><a class="reference internal" href="#id1">プロジェクトの関連リンク</a></li>
+<li><a class="reference internal" href="#id2">クイックスタートガイド</a><ul>
+<li><a class="reference internal" href="#table-of-contents">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">コンテナーの各クラス</a><ul>
+<li><a class="reference internal" href="#id4">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">出力処理</a><ul>
+<li><a class="reference internal" href="#id6">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">子要素関係の各インターフェイス</a><ul>
+<li><a class="reference internal" href="#id8">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9">apyscの基本的な各データクラス</a><ul>
+<li><a class="reference internal" href="#id10">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#displayobject-graphicsbase">DisplayObject と GraphicsBase の各クラス</a><ul>
+<li><a class="reference internal" href="#id11">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#graphics">Graphics クラス</a><ul>
+<li><a class="reference internal" href="#id12">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">イベントの共通の各インターフェイス</a><ul>
+<li><a class="reference internal" href="#id14">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mouseevent">MouseEvent クラスとマウスイベントの設定</a><ul>
+<li><a class="reference internal" href="#id15">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id16">条件分岐の制御</a><ul>
+<li><a class="reference internal" href="#id17">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id18">ループ</a><ul>
+<li><a class="reference internal" href="#id19">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id20">タイマー</a><ul>
+<li><a class="reference internal" href="#id21">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id22">アニメーション</a><ul>
+<li><a class="reference internal" href="#id23">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id24">デバッグ</a><ul>
+<li><a class="reference internal" href="#id25">Table of contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id26">テスト</a><ul>
+<li><a class="reference internal" href="#id27">Table of contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_what_apysc_can_do.html"
+                        title="next chapter">apysc ライブラリが現在の実装でできること</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_what_apysc_can_do.html" title="apysc ライブラリが現在の実装でできること"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">apysc ドキュメント</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

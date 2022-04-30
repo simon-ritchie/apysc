@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>String クラス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="_static/base.css" />
+    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="String クラスの比較の各オペレーション" href="jp_string_comparison_operations.html" />
+    <link rel="prev" title="Int と Number クラスの基本的な比較制御" href="jp_int_and_number_comparison_operations.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_string_comparison_operations.html" title="String クラスの比較の各オペレーション"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_int_and_number_comparison_operations.html" title="Int と Number クラスの基本的な比較制御"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">String クラス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="string">英語の原文</a>の確認をお願いします。</span></p>
+<section id="string">
+<h1>String クラス<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">String</span></code>クラスについて説明します。</p>
+<p>事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
+</ul>
+<section id="id1">
+<h2>String クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">String</span></code>クラスはapyscの文字列用のクラスです。このクラスは以下のコード例のようにコンストラクタの引数に<code class="docutils literal notranslate"><span class="pre">str</span></code>もしくは<code class="docutils literal notranslate"><span class="pre">String</span></code>型の値を受け付けます:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
+
+<span class="n">string_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">string_1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">string_2</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>String クラスの各インターフェイス<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">String</span></code>クラスの各インターフェイスの詳細については以下の資料などをご確認ください:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_string_comparison_operations.html"><span class="doc">String クラスの比較制御</span></a></p></li>
+<li><p><a class="reference internal" href="jp_string_addition_and_multiplication.html"><span class="doc">String クラスの加算と乗算の制御</span></a></p></li>
+</ul>
+</section>
+<section id="string-api">
+<h2>String クラスのコンストラクタのAPI<a class="headerlink" href="#string-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[str,</span> <span class="pre">_ForwardRef('String')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> apyscライブラリにおける文字列用のクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: String or str</p>
+<ul>
+<li><p>文字列の値の初期値。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
+<span class="go">String(&#39;Hello&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">+=</span> <span class="s1">&#39; World!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
+<span class="go">String(&#39;Hello World!&#39;)</span>
+</pre></div>
+</div>
+<hr><p><strong>[関連資料]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_string_comparison_operations.html">String クラスの比較制御</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_string_addition_and_multiplication.html">String クラスの加算と乗算の制御</a></p></li>
+</ul>
+</section>
+<section id="value-api">
+<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong> 現在の文字列の値を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: str</p>
+<ul>
+<li><p>現在の文字列の値。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;World!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">value</span>
+<span class="go">&#39;World!&#39;</span>
+</pre></div>
+</div>
+<hr><p><strong>[関連資料]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_fundamental_data_classes_value_interface.html">apyscの基本的なデータクラスの value インターフェイス</a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">String クラス</a><ul>
+<li><a class="reference internal" href="#id1">String クラスの概要</a></li>
+<li><a class="reference internal" href="#id2">String クラスの各インターフェイス</a></li>
+<li><a class="reference internal" href="#string-api">String クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#value-api">value 属性のAPI</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_int_and_number_comparison_operations.html"
+                        title="previous chapter">Int と Number クラスの基本的な比較制御</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_string_comparison_operations.html"
+                        title="next chapter">String クラスの比較の各オペレーション</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_string_comparison_operations.html" title="String クラスの比較の各オペレーション"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_int_and_number_comparison_operations.html" title="Int と Number クラスの基本的な比較制御"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">String クラス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

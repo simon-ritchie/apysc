@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>apysc ライブラリが現在の実装でできること &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="_static/base.css" />
+    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="クイックスタートガイド" href="jp_quick_start.html" />
+    <link rel="prev" title="apysc ドキュメント" href="jp_index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_quick_start.html" title="クイックスタートガイド"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_index.html" title="apysc ドキュメント"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">apysc ライブラリが現在の実装でできること</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="what_apysc_can_do">英語の原文</a>の確認をお願いします。</span></p>
+<section id="apysc">
+<h1>apysc ライブラリが現在の実装でできること<a class="headerlink" href="#apysc" title="Permalink to this headline">¶</a></h1>
+<p>このページでは apysc ライブパリの現在の実装と機能の概要について説明します。</p>
+<section id="pythonhtmljupyter">
+<h2>Pythonを使って書き、それをHTMLへ出力・もしくはJupyter上で利用する<a class="headerlink" href="#pythonhtmljupyter" title="Permalink to this headline">¶</a></h2>
+<p>apysc ライブラリではフロントエンドをPythonを使って書くことができ、結果をHTMLに出力したりもしくはJupyter notebookやJupyterLab、Google Colaboratory上などで表示することができます。</p>
+<p>参考資料:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_save_overall_html.html"><span class="doc">save_overall_html インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_on_jupyter.html"><span class="doc">display_on_jupyter インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_on_colaboratory.html"><span class="doc">display_on_colaboratory インターフェイス</span></a></p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>様々な種類のベクターグラフィックスの描画<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>apysc ライブラリでは四角や円、線などの様々な種類のベクターグラフィックスの描画を行うことができます。</p>
+<details>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">650</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">210</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_round_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ellipse_width</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ellipse_height</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">275</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">375</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_polygon</span><span class="p">(</span>
+    <span class="n">points</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">475</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+    <span class="p">])</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#eee&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">130</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">130</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_dotted_line</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">130</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">130</span><span class="p">,</span> <span class="n">dot_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_round_dotted_line</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="o">=</span><span class="mi">53</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">round_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;what_apysc_can_do_draw_vector_graphics/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe><p>参考資料:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_graphics.html"><span class="doc">Graphics クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_begin_fill.html"><span class="doc">Graphics クラスの begin_fill (塗りの設定)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_line_style.html"><span class="doc">Graphics クラスの line_style (線のスタイル設定)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_rect.html"><span class="doc">Graphics クラスの draw_rect (四角の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_round_rect.html"><span class="doc">Graphics クラスの draw_round_rect (角丸の四角の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_circle.html"><span class="doc">Graphics クラスの draw_circle (円の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_ellipse.html"><span class="doc">Graphics クラスの draw_ellipse (楕円描画) のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_move_to_and_line_to.html"><span class="doc">Graphics クラスの move_to (線の描画位置の変更)と line_to (指定座標への線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_line.html"><span class="doc">Graphics クラスの draw_line (線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_dotted_line.html"><span class="doc">Graphics クラスの draw_dotted_line (点線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_dashed_line.html"><span class="doc">Graphics クラスの draw_dashed_line (破線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_round_dotted_line.html"><span class="doc">Graphics クラスの draw_round_dotted_line (点線(丸)の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_dash_dotted_line.html"><span class="doc">Graphics クラスの draw_dash_dotted_line (一点鎖線の描画)のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_polygon.html"><span class="doc">Graphics クラスの draw_polygon (多角形描画)のインターフェイス</span></a></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>各種マウスイベントの設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>apysc ライブラリではクリックやマウスダウン、マウスオーバー、マウスムーブなどの各種マウスイベントの設定をサポートしています。</p>
+<p>クリックイベントの例（以下の四角をクリックしてご確認ください）:</p>
+<details>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.MouseEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">fill_color</span>
+    <span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;#00aaff&#39;</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#f0a&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Else</span><span class="p">():</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_click</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;what_apysc_can_do_mouse_event_click/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><iframe src="static/what_apysc_can_do_mouse_event_click/index.html" width="150" height="150"></iframe><p>参考資料:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_mouse_event_basic.html"><span class="doc">基本的なマウスイベントの各インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_click.html"><span class="doc">click インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mousedown_and_mouseup.html"><span class="doc">mousedown と mouseup のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mouseover_and_mouseout.html"><span class="doc">mouseover と mouseout のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mousemove.html"><span class="doc">mousemove インターフェイス</span></a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>タイマーのインターフェイスとアニメーション<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>タイマーに関係したインターフェイスを利用することができ、それを使ってアニメーションを設定することができます。</p>
+<details>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">class</span> <span class="nc">_Options</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+    <span class="n">alpha_direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_Options</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler that the timer calls.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
+    <span class="n">alpha_direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;alpha_direction&#39;</span><span class="p">]</span>
+    <span class="n">current_alpha</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_alpha</span>
+    <span class="n">condition_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">current_alpha</span> <span class="o">&lt;</span> <span class="mf">0.0</span>
+    <span class="n">condition_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">current_alpha</span> <span class="o">&gt;</span> <span class="mf">1.0</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition_1</span><span class="p">):</span>
+        <span class="n">alpha_direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Elif</span><span class="p">(</span><span class="n">condition_2</span><span class="p">):</span>
+        <span class="n">alpha_direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_alpha</span> <span class="o">+=</span> <span class="n">alpha_direction</span> <span class="o">*</span> <span class="mf">0.03</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">alpha_direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_Options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">,</span> <span class="s1">&#39;alpha_direction&#39;</span><span class="p">:</span> <span class="n">alpha_direction</span><span class="p">}</span>
+<span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
+    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+<span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;what_apysc_can_do_timer_animation/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe><p>参考資料:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_timer.html"><span class="doc">Timer クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_event.html"><span class="doc">TimerEvent クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_delay.html"><span class="doc">Timer クラスの delay 設定</span></a></p></li>
+<li><p><a class="reference internal" href="jp_fps.html"><span class="doc">FPS の enum</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_repeat_count.html"><span class="doc">Timer クラスの repeat_count 設定</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_start_and_stop.html"><span class="doc">Timer クラスの start と stop の各インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_complete.html"><span class="doc">Timer クラスの timer_complete インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_reset.html"><span class="doc">Timer クラスの reset インターフェイス</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">apysc ライブラリが現在の実装でできること</a><ul>
+<li><a class="reference internal" href="#pythonhtmljupyter">Pythonを使って書き、それをHTMLへ出力・もしくはJupyter上で利用する</a></li>
+<li><a class="reference internal" href="#id1">様々な種類のベクターグラフィックスの描画</a></li>
+<li><a class="reference internal" href="#id2">各種マウスイベントの設定</a></li>
+<li><a class="reference internal" href="#id3">タイマーのインターフェイスとアニメーション</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_index.html"
+                        title="previous chapter">apysc ドキュメント</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_quick_start.html"
+                        title="next chapter">クイックスタートガイド</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_quick_start.html" title="クイックスタートガイド"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_index.html" title="apysc ドキュメント"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">apysc ライブラリが現在の実装でできること</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

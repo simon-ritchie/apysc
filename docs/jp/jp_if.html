@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>If クラス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="_static/base.css" />
+    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Elif クラス" href="jp_elif.html" />
+    <link rel="prev" title="mousemove インターフェイス" href="jp_mousemove.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_elif.html" title="Elif クラス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_mousemove.html" title="mousemove インターフェイス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">If クラス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="if">英語の原文</a>の確認をお願いします。</span></p>
+<section id="if">
+<h1>If クラス<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">If</span></code>クラスについて説明します。</p>
+<p>このページを読み進める前に以下のページを確認しておくと役に立つかもしれません（apyscでは基本的なデータクラスと同様の理由で<code class="docutils literal notranslate"><span class="pre">If</span></code>クラスを使用しています）:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
+</ul>
+<section id="id1">
+<h2>If クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">If</span></code>クラスはapyscの分岐制御のためのクラスです。このクラスはPythonビルトインの<code class="docutils literal notranslate"><span class="pre">if</span></code>キーワードと似たような形で動作します。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">If</span></code>クラスは以下のコード例のように<code class="docutils literal notranslate"><span class="pre">with</span></code>ステートメントと共に使用する必要があります:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">If</span></code>クラスのコンストラクタの引数には条件としての<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値の指定が必要になります。</p>
+</section>
+<section id="id3">
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_elif.html"><span class="doc">Elif クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_else.html"><span class="doc">Else クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_branch_instruction_variables_reverting_setting.html"><span class="doc">分岐条件の各クラスのスコープ内変数の復元設定</span></a></p></li>
+</ul>
+</section>
+<section id="if-api">
+<h2>If クラスのコンストラクタのAPI<a class="headerlink" href="#if-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">condition:Union[apysc._type.boolean.Boolean,</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">locals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None,</span> <span class="pre">globals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> if文の分岐制御の表現を追加するためのクラス。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">condition</span></code>: Boolean or None</p>
+<ul>
+<li><p>判定に使われるBooleanの真偽値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: dict or None, default None</p>
+<ul>
+<li><p>現在のスコープの各ローカル変数。指定する場合にはlocals()関数の値をごの引数に指定してください。もし指定された場合、このインターフェイスは<code class="docutils literal notranslate"><span class="pre">If</span></code>のスコープの終了時に対象のVariableNameInterfaceクラスの各ローカル変数のインスタンスの値をスコープの開始前の時点に復元します。この設定は<code class="docutils literal notranslate"><span class="pre">If</span></code>のスコープ内の処理でPython上の各ローカル変数の値を更新したくない場合などに便利なことがあります。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">globals_</span></code>: dict or None, default None</p>
+<ul>
+<li><p>現在のスコープの各グローバル変数。設定する場合にはglobal()関数の値をこの引数に指定してください。この設定はlocals_引数と同じように動作します。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">&gt;=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">ap</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s1">&#39;Int value is greater than equal 10!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr><p><strong>[関連資料]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp_branch_instruction_variables_reverting_setting.html">分岐条件の各クラスのスコープ内変数の復元設定</a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">If クラス</a><ul>
+<li><a class="reference internal" href="#id1">If クラスの概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">関連資料</a></li>
+<li><a class="reference internal" href="#if-api">If クラスのコンストラクタのAPI</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_mousemove.html"
+                        title="previous chapter">mousemove インターフェイス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_elif.html"
+                        title="next chapter">Elif クラス</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_elif.html" title="Elif クラス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_mousemove.html" title="mousemove インターフェイス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">If クラス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Each branch instruction class’s scope variable reverting setting &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="_static/base.css" />
+    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Return class" href="return.html" />
+    <link rel="prev" title="Else class" href="else.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="return.html" title="Return class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="else.html" title="Else class"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Each branch instruction class’s scope variable reverting setting</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="each-branch-instruction-class-s-scope-variable-reverting-setting">
+<h1>Each branch instruction class’s scope variable reverting setting<a class="headerlink" href="#each-branch-instruction-class-s-scope-variable-reverting-setting" title="Permalink to this headline">¶</a></h1>
+<p>This page explains each branch instruction class (like the <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code>) scope variables reverting setting.</p>
+<section id="these-interfaces-execute-with-statement-code">
+<h2>These interfaces execute with statement code<a class="headerlink" href="#these-interfaces-execute-with-statement-code" title="Permalink to this headline">¶</a></h2>
+<p>These interfaces execute the code in each branch instruction regardless of the condition, and variables are updated.</p>
+<p>For example, the following code of the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>, but the value of int is 20 on the Python:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+    <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">10</span>
+<span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>This condition is skipped in JavaScript (converted code) since the condition is not satisfied.</p>
+</section>
+<section id="scope-variables-reverting-setting">
+<h2>Scope variables reverting setting<a class="headerlink" href="#scope-variables-reverting-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code> classes have the arguments of the <code class="docutils literal notranslate"><span class="pre">locals_</span></code> and <code class="docutils literal notranslate"><span class="pre">globals_</span></code> (basically set the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> and <code class="docutils literal notranslate"><span class="pre">globals()</span></code> built-in functions return value). If these arguments are specified, the scope variables are reverted when ended each scope (e.g., <code class="docutils literal notranslate"><span class="pre">If</span></code> scope).</p>
+<p>This interface is occasionally helpful when you don’t want to update the variables in each branch instruction scope.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">globals_</span><span class="o">=</span><span class="nb">globals</span><span class="p">()):</span>
+    <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">10</span>
+<span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="if.html"><span class="doc">If class</span></a></p></li>
+<li><p><a class="reference internal" href="elif.html"><span class="doc">Elif class</span></a></p></li>
+<li><p><a class="reference internal" href="else.html"><span class="doc">Else class</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Each branch instruction class’s scope variable reverting setting</a><ul>
+<li><a class="reference internal" href="#these-interfaces-execute-with-statement-code">These interfaces execute with statement code</a></li>
+<li><a class="reference internal" href="#scope-variables-reverting-setting">Scope variables reverting setting</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="else.html"
+                        title="previous chapter">Else class</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="return.html"
+                        title="next chapter">Return class</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="return.html" title="Return class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="else.html" title="Else class"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Each branch instruction class’s scope variable reverting setting</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

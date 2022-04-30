@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Graphics クラスの draw_rect インターフェイス &#8212; apysc  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
-    <link rel="stylesheet" type="text/css" href="_static/base.css" />
-    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
-    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Graphics クラスの draw_round_rect インターフェイス" href="jp_graphics_draw_round_rect.html" />
@@ -55,7 +55,7 @@
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_rect</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">x</span></code>、<code class="docutils literal notranslate"><span class="pre">y</span></code>、<code class="docutils literal notranslate"><span class="pre">width</span></code>、<code class="docutils literal notranslate"><span class="pre">height</span></code>の各引数を持っています。<code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>は四角の座標を設定し、<code class="docutils literal notranslate"><span class="pre">width</span></code>と<code class="docutils literal notranslate"><span class="pre">height</span></code>は四角のサイズを決定します。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -73,7 +73,7 @@
 </div>
 <p>前述のコードでは横長の四角を描画しています。</p>
 <iframe src="static/graphics_draw_rect_basic_usage/index.html" width="200" height="150"></iframe><p>特記事項: <code class="docutils literal notranslate"><span class="pre">draw_rect</span></code>のインターフェイスを呼ぶ前に<code class="docutils literal notranslate"><span class="pre">begin_fill</span></code>メソッド（塗りの設定のインターフェイス）を呼んでおく必要があります。もし<code class="docutils literal notranslate"><span class="pre">begin_fill</span></code>の呼び出しがされていない場合画面上に四角が表示されません。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -93,7 +93,7 @@
 <h2>Rectangle インスタンス<a class="headerlink" href="#rectangle" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_rect</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>クラスのインスタンスを変逆します。そのインスタンスに対して各属性の更新やイベントハンドラの登録などを行うことができます。</p>
 <p>例えば以下のコードでは<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>のインスタンスに対してクリックのマウスイベントを登録し、<code class="docutils literal notranslate"><span class="pre">on_click</span></code>のハンドラ内でX座標を更新しています。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
@@ -194,7 +194,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="jp_index.html">
-              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>

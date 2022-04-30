@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Graphics クラスの draw_polygon インターフェイス &#8212; apysc  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
-    <link rel="stylesheet" type="text/css" href="_static/base.css" />
-    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
-    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Graphics クラスの fill_color インターフェイス" href="jp_graphics_fill_color.html" />
@@ -55,7 +55,7 @@
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>インターフェイスは各頂点の座標を決めるための<code class="docutils literal notranslate"><span class="pre">points</span></code>引数を必要とします。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -93,7 +93,7 @@
 <h2>line_to と draw_polygon の各インターフェイスの違いについて<a class="headerlink" href="#line-to-draw-polygon" title="Permalink to this headline">¶</a></h2>
 <p>塗りの色の設定をした場合<code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>と<code class="docutils literal notranslate"><span class="pre">line_to</span></code>（及び<code class="docutils literal notranslate"><span class="pre">move_to</span></code>）のインターフェイスの挙動は少し近くなります。例えば以下のコード例では各インターフェイスでどちらも三角形が描画しています。</p>
 <p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>インターフェイスでは左側の三角形を描画し、<code class="docutils literal notranslate"><span class="pre">move_to</span></code>と<code class="docutils literal notranslate"><span class="pre">line_to</span></code>のインターフェイスでは右側の三角形を描画しています。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -123,7 +123,7 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_draw_polygon_line_to_difference_1/index.html" width="250" height="150"></iframe><p>一方で、各インターフェイスにはパスを閉じる必要があるかどうかの違いがあります。この違いは線の設定を行った場合には顕著になります。<code class="docutils literal notranslate"><span class="pre">line_to</span></code>のインターフェイスでは終点の座標から始点の座標へはパスが自動では繋がりません。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -160,7 +160,7 @@
 <h2>返却値<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Polygon</span></code>クラスのインスタンスを返却します。そのインスタンスは他のグラフィックス系のインスタンスと同様の基本的なインターフェイスを持っています。加えて、<code class="docutils literal notranslate"><span class="pre">Polygon</span></code>クラスは頂点を加えるための<code class="docutils literal notranslate"><span class="pre">append_line_point</span></code>メソッドを持っています。</p>
 <p>例えば以下のコード例では座標の追加を行い三角から四角に変換しています。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -235,7 +235,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="jp_index.html">
-              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>

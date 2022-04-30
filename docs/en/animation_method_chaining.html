@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>AnimationBase class interfaces method chaining &#8212; apysc  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
-    <link rel="stylesheet" type="text/css" href="_static/base.css" />
-    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
-    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="AnimationBase class target property interface" href="animation_base_target.html" />
@@ -50,7 +50,7 @@
 <section id="each-animationbase-related-interface-returns-its-instance">
 <h2>Each AnimationBase related interface returns its instance<a class="headerlink" href="#each-animationbase-related-interface-returns-its-instance" title="Permalink to this headline">¶</a></h2>
 <p>Each <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class-related interface (such as the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>) returns its instance. So that these interfaces can be used with the method chaining, as follows (method chaining of the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>, and <code class="docutils literal notranslate"><span class="pre">start</span></code> methods):</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
@@ -87,7 +87,7 @@
 </div>
 <iframe src="static/animation_method_chaining_basic_usage_1/index.html" width="200" height=150></iframe><p>These method chainings are sometimes useful for code simplicity.</p>
 <p>If you want to chain the methods like JavaScript (e.g., <code class="docutils literal notranslate"><span class="pre">D3.js</span></code>), you can use backslashes at the line end, as follows:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
@@ -133,7 +133,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>

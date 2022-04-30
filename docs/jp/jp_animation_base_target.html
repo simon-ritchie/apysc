@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>AnimationBase クラス target 属性のインターフェイス &#8212; apysc  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
-    <link rel="stylesheet" type="text/css" href="_static/base.css" />
-    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
-    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="animation_pause と animation_play インターフェイス" href="jp_animation_pause_and_play.html" />
@@ -55,7 +55,7 @@
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>クラスの各サブクラス（例: <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code>や<code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>クラスなど）はgetterの<code class="docutils literal notranslate"><span class="pre">target</span></code>属性を持っています。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -74,7 +74,7 @@
 <h2>ジェネリックの型アノテーションについて<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>クラスとその各サブクラスにはジェネリックの型アノテーションを行うことができます。型アノテーションをした場合<code class="docutils literal notranslate"><span class="pre">target</span></code>属性の型はその型のインスタンスとなります。</p>
 <p>以下のコードでは<code class="docutils literal notranslate"><span class="pre">[ap.Rectangle]</span></code>というジェネリックの型アノテーションを行っています。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -89,7 +89,7 @@
 </pre></div>
 </div>
 <p>イベントハンドラの<code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code>のインスタンスへジェネリックの型アノテーションを行うことも有益なケースがあります。この型アノテーションも<code class="docutils literal notranslate"><span class="pre">target</span></code>属性（<code class="docutils literal notranslate"><span class="pre">e.this.target</span></code>）の型に影響します。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
@@ -160,7 +160,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="jp_index.html">
-              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>

@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Dictionary class &#8212; apysc  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
-    <link rel="stylesheet" type="text/css" href="_static/base.css" />
-    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
-    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Dictionary class generic type settings" href="dictionary_generic.html" />
@@ -58,7 +58,7 @@
 <section id="constructor-method">
 <h2>Constructor method<a class="headerlink" href="#constructor-method" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class constructor method requires a Python built-in <code class="docutils literal notranslate"><span class="pre">dict</span></code> or <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">dict_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
@@ -72,7 +72,7 @@
 <section id="value-setter-interface">
 <h2>Value setter interface<a class="headerlink" href="#value-setter-interface" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value can be updated by indexing, like the Python built-in <code class="docutils literal notranslate"><span class="pre">dict</span></code> value:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">dict_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
@@ -84,7 +84,7 @@
 <section id="value-getter-interface">
 <h2>Value getter interface<a class="headerlink" href="#value-getter-interface" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value also can be retrieved by indexing:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -98,7 +98,7 @@
 <section id="notes-of-the-getter-interface">
 <h2>Notes of the getter interface<a class="headerlink" href="#notes-of-the-getter-interface" title="Permalink to this headline">¶</a></h2>
 <p>If a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value doesn’t have the specified key, a retrieved value type becomes the <code class="docutils literal notranslate"><span class="pre">AnyValue</span></code> type. This behavior occasionally is helpful when a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value is updated dynamically (e.g., updating by the JavaScript event handler).</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -111,7 +111,7 @@
 <section id="value-deletion-interface">
 <h2>Value deletion interface<a class="headerlink" href="#value-deletion-interface" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value can be deleted by the <code class="docutils literal notranslate"><span class="pre">del</span></code> statement, as follows:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -188,7 +188,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>

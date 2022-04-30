@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>イージングのenum &#8212; apysc  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
-    <link rel="stylesheet" type="text/css" href="_static/base.css" />
-    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
-    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="連続したアニメーション設定" href="jp_sequential_animation.html" />
@@ -55,7 +55,7 @@
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">animation_move</span></code>や<code class="docutils literal notranslate"><span class="pre">animation_x</span></code>などの各アニメーションのメソッドのインターフェイスでは<code class="docutils literal notranslate"><span class="pre">easing</span></code>引数を持っており、以下のコード例のようにその引数に<code class="docutils literal notranslate"><span class="pre">Easing</span></code>のenumの値を指定することができます:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
@@ -115,7 +115,7 @@
 </pre></div>
 </div>
 <iframe src="static/easing_enum_basic_usage/index.html" width="200" height="200"></iframe><p>もしも<code class="docutils literal notranslate"><span class="pre">easing</span></code>引数の指定を省略した場合、アニメーションは線形（スタートから終了まで一定の変動）のアニメーションとなります。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
@@ -184,7 +184,7 @@
 </ul>
 <p>以下のコード例では差が分かるように<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUINT</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUINT</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUINT</span></code>のそれぞれを表示しています。</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -280,7 +280,7 @@
 <p>この節ではX座標のアニメーションにおける各イーズインの設定による例を表示しています。</p>
 <p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_SINE</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUAD</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_CUBIC</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -372,7 +372,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_1/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUART</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUINT</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_EXPO</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -464,7 +464,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_2/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_CIRC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_BACK</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -549,7 +549,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_3/index.html" width="200" height="250"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_ELASTIC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_BOUNCE</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -638,7 +638,7 @@
 <p>この節ではX座標のアニメーションにおける各イーズアウトの設定による例を表示しています。</p>
 <p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_SINE</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUAD</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_OUT_CUBIC</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -730,7 +730,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_out_1/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUART</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUINT</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_EXPO</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -822,7 +822,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_out_2/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_CIRC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_OUT_BACK</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -907,7 +907,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_out_3/index.html" width="200" height="250"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_ELASTIC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_OUT_BOUNCE</span></code>の各値を設定しています。</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -996,7 +996,7 @@
 <p>この節ではX座標のアニメーションにおける各イーズインアウトの設定による例を表示しています。</p>
 <p>以下の例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_SINE</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUAD</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_CUBIC</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1088,7 +1088,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_out_1/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUART</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUINT</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_EXPO</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1180,7 +1180,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_out_2/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_CIRC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BACK</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1265,7 +1265,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_out_3/index.html" width="200" height="250"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_ELASTIC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BOUNCE</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1359,7 +1359,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="jp_index.html">
-              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>

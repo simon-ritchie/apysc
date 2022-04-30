@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Easing enum &#8212; apysc  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/groundwork.css" />
-    <link rel="stylesheet" type="text/css" href="_static/base.css" />
-    <link rel="stylesheet" type="text/css" href="_static/codeblock.css" />
-    <link rel="stylesheet" type="text/css" href="_static/iframe.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/hide_toctree_heading_and_sidemenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Sequential animation setting" href="sequential_animation.html" />
@@ -54,7 +54,7 @@
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Each animation method interface, such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, has the <code class="docutils literal notranslate"><span class="pre">easing</span></code> argument. You can specify any of the <code class="docutils literal notranslate"><span class="pre">Easing</span></code> enums, as follows:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
@@ -114,7 +114,7 @@
 </pre></div>
 </div>
 <iframe src="static/easing_enum_basic_usage/index.html" width="200" height="200"></iframe><p>If you skip the specification of the <code class="docutils literal notranslate"><span class="pre">easing</span></code> argument, the animation becomes a linear one:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
@@ -183,7 +183,7 @@
 </ul>
 <p>The following example shows the difference between the <code class="docutils literal notranslate"><span class="pre">EASE_IN_QUINT</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUINT</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUINT</span></code>.</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -279,7 +279,7 @@
 <p>This section shows each ease-in setting result with the x-coordinate animation.</p>
 <p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_SINE</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_QUAD</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_IN_CUBIC</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -371,7 +371,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_1/index.html" width="200" height="350"></iframe><p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_QUART</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_QUINT</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_IN_EXPO</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -463,7 +463,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_2/index.html" width="200" height="350"></iframe><p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_CIRC</span></code> and <code class="docutils literal notranslate"><span class="pre">EASE_IN_BACK</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -548,7 +548,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_3/index.html" width="200" height="250"></iframe><p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_ELASTIC</span></code> and <code class="docutils literal notranslate"><span class="pre">EASE_IN_BOUNCE</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -637,7 +637,7 @@
 <p>This section shows each ease-out result with the x-coordinate animation.</p>
 <p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_OUT_SINE</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUAD</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_OUT_CUBIC</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -729,7 +729,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_out_1/index.html" width="200" height="350"></iframe><p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUART</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUINT</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_OUT_EXPO</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -821,7 +821,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_out_2/index.html" width="200" height="350"></iframe><p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_OUT_CIRC</span></code> and <code class="docutils literal notranslate"><span class="pre">EASE_OUT_BACK</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -906,7 +906,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_out_3/index.html" width="200" height="250"></iframe><p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_OUT_ELASTIC</span></code> and <code class="docutils literal notranslate"><span class="pre">EASE_OUT_BOUNCE</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -995,7 +995,7 @@
 <p>This section shows each ease-in-out setting result with the x-coordinate animation.</p>
 <p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_SINE</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUAD</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_CUBIC</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1087,7 +1087,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_out_1/index.html" width="200" height="350"></iframe><p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUART</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUINT</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_EXPO</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1179,7 +1179,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_out_2/index.html" width="200" height="350"></iframe><p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_CIRC</span></code> and <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BACK</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1264,7 +1264,7 @@
 </div>
 </details><iframe src="static/easing_enum_ease_in_out_3/index.html" width="200" height="250"></iframe><p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_ELASTIC</span></code> and <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BOUNCE</span></code>:</p>
 <details>
-<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1358,7 +1358,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/logo_for_document.png" alt="Logo"/>
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>

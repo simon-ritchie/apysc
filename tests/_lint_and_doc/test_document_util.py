@@ -11,14 +11,14 @@ from apysc._lint_and_doc.docs_lang import Lang
 def test_get_docs_md_file_paths() -> None:
     file_paths: List[str] = document_util.get_docs_md_file_paths()
     expected_file_paths: List[str] = [
-        './docs_src/source/index.md',
-        './docs_src/source/sprite.md',
-        './docs_src/source/jp_index.md',
+        '/mnt/apysc/docs_src/source/index.md',
+        '/mnt/apysc/docs_src/source/sprite.md',
+        '/mnt/apysc/docs_src/source/jp_index.md',
     ]
     for expected_file_path in expected_file_paths:
         assert expected_file_path in file_paths
 
-    assert './docs_src/source/conf_en' not in file_paths
+    assert '/mnt/apysc/docs_src/source/conf_en' not in file_paths
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -27,4 +27,5 @@ def test_get_exclude_patterns() -> None:
     assert 'jp_*.md' in patterns
 
     patterns = document_util.get_exclude_patterns(lang=Lang.JP)
-    assert '**/sprite.md' in patterns
+    assert 'sprite.md' in patterns
+    assert 'jp_sprite.md' not in patterns

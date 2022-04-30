@@ -530,7 +530,7 @@ def test__copy_code_block_outputs() -> None:
     tmp_index_path: str = os.path.join(tmp_subdir_path, 'index.html')
     with open(tmp_index_path, 'w') as f:
         f.write('')
-    expected_dir_path: str = './docs/static/tmp_test_build_docs/'
+    expected_dir_path: str = './docs/en/static/tmp_test_build_docs/'
     expected_file_path: str = os.path.join(
         expected_dir_path, 'index.html',
     )
@@ -538,7 +538,6 @@ def test__copy_code_block_outputs() -> None:
     build_docs._copy_code_block_outputs(
         output_dir_path=tmp_test_dir_path)
     assert os.path.isfile(expected_file_path)
-    assert not os.path.isdir(tmp_subdir_path)
 
     shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
     shutil.rmtree(expected_dir_path, ignore_errors=True)

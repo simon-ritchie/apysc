@@ -414,7 +414,7 @@ _CODE_BLOCK_OUTPUT_DIR_PATH: str = './docs_src/source/_static/'
 def _copy_code_block_outputs(
         output_dir_path: str = _CODE_BLOCK_OUTPUT_DIR_PATH) -> None:
     """
-    Move each created output by the code block script execution.
+    Copy each created output by the code block script execution.
 
     Parameters
     ----------
@@ -423,13 +423,14 @@ def _copy_code_block_outputs(
     """
     code_block_outputs_dir_paths: List[str] = \
         _get_code_block_output_dir_paths(output_dir_path=output_dir_path)
-    for src_dir_path in code_block_outputs_dir_paths:
-        dst_dir_path: str = src_dir_path.replace(
-            output_dir_path,
-            './docs/static/',
-            1,
-        )
-        copy_tree(src=src_dir_path, dst=dst_dir_path)
+    for lang in Lang:
+        for src_dir_path in code_block_outputs_dir_paths:
+            dst_dir_path: str = src_dir_path.replace(
+                output_dir_path,
+                f'./docs/{lang.value}/static/',
+                1,
+            )
+            copy_tree(src=src_dir_path, dst=dst_dir_path)
 
 
 def _get_code_block_output_dir_paths(

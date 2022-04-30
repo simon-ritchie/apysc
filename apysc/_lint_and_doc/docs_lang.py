@@ -7,6 +7,7 @@ from enum import Enum
 class Lang(Enum):
     """Translation target languages definitions.
     """
+    EN = 'en'
     JP = 'jp'
 
 

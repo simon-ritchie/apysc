@@ -18,15 +18,21 @@ import warnings
 from datetime import datetime
 from typing import Dict
 from typing import List
+import sys
 
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
 from sphinx.application import Sphinx
 from typing_extensions import Final
 
+sys.path.append('../../../')
+from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc import document_util
+
 # -- Project information -----------------------------------------------------
 
 _now: datetime = datetime.now()
+_lang: Lang = Lang.EN
 project: Final[str] = 'apysc'
 copyright: Final[str] = f'{_now.year}, apysc project'
 author: Final[str] = 'simonritchie'
@@ -48,7 +54,8 @@ templates_path: Final[List[str]] = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns: Final[List[str]] = []
+exclude_patterns: Final[List[str]] = document_util.get_exclude_patterns(
+    lang=_lang)
 
 source_suffix: Final[Dict[str, str]] = {
     '.rst': 'restructuredtext',

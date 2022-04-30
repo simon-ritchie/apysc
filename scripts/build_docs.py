@@ -279,7 +279,7 @@ def _exec_document_lint_and_script(
         p.map(
             func=_replace_docstring_specification,
             iterable=markdown_data_list)
-    _move_code_block_outputs()
+    _copy_code_block_outputs()
     _validate_script_return_data(return_data_list=run_return_data_list)
 
     _save_hashed_val(script_data_list=script_data_list)
@@ -411,7 +411,7 @@ def _remove_none_from_markdown_data_list(
 _CODE_BLOCK_OUTPUT_DIR_PATH: str = './docs_src/source/_static/'
 
 
-def _move_code_block_outputs(
+def _copy_code_block_outputs(
         output_dir_path: str = _CODE_BLOCK_OUTPUT_DIR_PATH) -> None:
     """
     Move each created output by the code block script execution.
@@ -430,7 +430,6 @@ def _move_code_block_outputs(
             1,
         )
         copy_tree(src=src_dir_path, dst=dst_dir_path)
-        shutil.rmtree(src_dir_path, ignore_errors=True)
 
 
 def _get_code_block_output_dir_paths(

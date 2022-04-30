@@ -521,7 +521,7 @@ def test__get_code_block_output_dir_paths() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__move_code_block_outputs() -> None:
+def test__copy_code_block_outputs() -> None:
     tmp_test_dir_path: str = 'tmp/test_build_docs_2/'
     shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
     tmp_subdir_path: str = os.path.join(
@@ -535,7 +535,7 @@ def test__move_code_block_outputs() -> None:
         expected_dir_path, 'index.html',
     )
     shutil.rmtree(expected_dir_path, ignore_errors=True)
-    build_docs._move_code_block_outputs(
+    build_docs._copy_code_block_outputs(
         output_dir_path=tmp_test_dir_path)
     assert os.path.isfile(expected_file_path)
     assert not os.path.isdir(tmp_subdir_path)

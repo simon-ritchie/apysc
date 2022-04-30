@@ -28,6 +28,7 @@ sys.path.append('./')
 from apysc._console import loggers
 from apysc._jslib import jslib_util
 from apysc._lint_and_doc import docstring_util
+from apysc._lint_and_doc.docs_lang import Lang
 
 logger: Logger = loggers.get_info_logger()
 
@@ -51,14 +52,18 @@ def _main() -> None:
     logger.info(msg='Removing underscores from each index.md file...')
     index_md_replacer.remove_underscores()
 
-    logger.info(msg='Sphinx build command started...')
+    logger.info(
+        msg='English documents\' Sphinx build command started...')
     complete_process: sp.CompletedProcess = sp.run(
-        'sphinx-build ./docs_src/source/ ./docs/ '
-        '-c ./docs_src/source/conf_en/',
+        _get_build_command(lang=Lang.EN),
         shell=True,
         stdout=sp.PIPE, stderr=sp.STDOUT)
     stdout: str = complete_process.stdout.decode('utf-8')
     print(stdout)
+
+    logger.info(
+        msg='Japanese documents\' Sphinx build command started...')
+
     _move_and_adjust_updated_files()
 
     logger.info(msg='Reverting each index.md file...')
@@ -67,6 +72,27 @@ def _main() -> None:
     apply_link_text_mapping_to_index_html.apply()
 
     logger.info(msg='Build completed!')
+
+
+def _get_build_command(*, lang: Lang) -> str:
+    """
+    Get a build command for the given language.
+
+    Parameters
+    ----------
+    lang : Lang
+        A target language.
+
+    Returns
+    -------
+    command : str
+        A build command for the given language.
+    """
+    command: str = (
+        'sphinx-build ./docs_src/source/ ./docs/ '
+        f'-c ./docs_src/source/conf_{lang.value}/'
+    )
+    return command
 
 
 class _IndexMdUnderscoresReplacer:

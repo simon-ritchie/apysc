@@ -7,6 +7,7 @@ from typing import List
 from typing import Optional
 
 from retrying import retry
+from apysc._lint_and_doc.docs_lang import Lang
 
 import scripts.build_docs as build_docs
 from apysc._file import file_util
@@ -778,3 +779,18 @@ class Test_IndexMdUnderscoresReplacer:
         replacer.revert()
         txt = file_util.read_txt(file_path='./docs_src/source/index.md')
         assert 'save_overall_html interface' in txt
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_build_command() -> None:
+    command: str = build_docs._get_build_command(lang=Lang.EN)
+    assert command == (
+        'sphinx-build ./docs_src/source/ ./docs/ '
+        '-c ./docs_src/source/conf_en/'
+    )
+
+    command: str = build_docs._get_build_command(lang=Lang.JP)
+    assert command == (
+        'sphinx-build ./docs_src/source/ ./docs/ '
+        '-c ./docs_src/source/conf_jp/'
+    )

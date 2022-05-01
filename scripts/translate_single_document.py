@@ -96,7 +96,8 @@ def _delete_translation_mapping_hash(
     file_util.remove_file_if_exists(file_path=hash_path)
 
     hash_path = lint_and_doc_hash_util.get_target_file_hash_file_path(
-        file_path=src_file_path, hash_type=HashType.APPLYING_TRANSLATION_MAPPING)
+        file_path=src_file_path,
+        hash_type=HashType.APPLYING_TRANSLATION_MAPPING)
     file_util.remove_file_if_exists(file_path=hash_path)
 
 

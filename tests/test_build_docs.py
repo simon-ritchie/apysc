@@ -7,11 +7,11 @@ from typing import List
 from typing import Optional
 
 from retrying import retry
-from apysc._lint_and_doc.docs_lang import Lang
 
 import scripts.build_docs as build_docs
 from apysc._file import file_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_KEYWORD
 from scripts.build_docs import HASHED_VALS_DIR_PATH
 from scripts.build_docs import _CodeBlock
@@ -788,7 +788,7 @@ def test__get_build_command() -> None:
         '-c ./docs_src/source/conf_en/'
     )
 
-    command: str = build_docs._get_build_command(lang=Lang.JP)
+    command = build_docs._get_build_command(lang=Lang.JP)
     assert command == (
         'sphinx-build ./docs_src/source/ ./docs/jp/ '
         '-c ./docs_src/source/conf_jp/'

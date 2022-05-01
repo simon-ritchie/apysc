@@ -27,13 +27,15 @@ sys.path.append('./')
 
 from apysc._console import loggers
 from apysc._jslib import jslib_util
-from apysc._lint_and_doc import docstring_util, document_util
-from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc import docstring_util
+from apysc._lint_and_doc import document_util
+from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
     add_mapping_blank_data
+from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc.docs_translation_converter import \
+    apply_translation_to_doc
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
-from apysc._lint_and_doc import lint_and_doc_hash_util
-from apysc._lint_and_doc.docs_translation_converter import apply_translation_to_doc
 
 logger: Logger = loggers.get_info_logger()
 
@@ -1072,7 +1074,7 @@ def _move_and_adjust_updated_files() -> None:
                 f'./docs/{lang.value}/_static/',
                 ignore_errors=True)
         if os.path.isdir(
-            f'./docs/{lang.value}/_images/'):
+                f'./docs/{lang.value}/_images/'):
             logger.info(
                 msg=f'Copying {lang.value}\'s document images...')
             copy_tree(

@@ -14,11 +14,11 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import sys
 import warnings
 from datetime import datetime
 from typing import Dict
 from typing import List
-import sys
 
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
@@ -26,8 +26,8 @@ from sphinx.application import Sphinx
 from typing_extensions import Final
 
 sys.path.append('../../../')
-from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc import document_util
+from apysc._lint_and_doc.docs_lang import Lang
 
 # -- Project information -----------------------------------------------------
 

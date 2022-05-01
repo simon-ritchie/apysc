@@ -3,9 +3,8 @@ This module is for the common utilities and definitions
 for the documents.
 """
 
-from typing import List
 import os
-from pathlib import Path
+from typing import List
 
 from apysc._lint_and_doc.docs_lang import Lang
 

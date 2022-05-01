@@ -537,7 +537,8 @@ def _add_heading_info_if_exists(
         return translated_doc
     source_doc_path: str = os.path.basename(md_file_path)
     source_doc_path = source_doc_path.replace('.md', '.html')
-    source_doc_path = f'../en/{source_doc_path}'
+    source_doc_path = (
+        f'https://simon-ritchie.github.io/apysc/en/{source_doc_path}')
     heading_info_format = heading_info_format.format(
         source_doc_path=source_doc_path,
     )

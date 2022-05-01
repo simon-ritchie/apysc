@@ -42,6 +42,8 @@ Python 3.6以降のPythonをサポートしています。
 - [display_on_jupyter インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_display_on_jupyter.html)
 - [display_on_colaboratory インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_display_on_colaboratory.html)
 
+---
+
 - **様々な種類のベクターグラフィックスを描画することができます。**
 
 
@@ -59,6 +61,8 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 
 概要のドキュメント: [各描画のインターフェイスの概要](https://simon-ritchie.github.io/apysc/jp/jp_draw_interfaces_abstract.html)
 
+---
+
 - **多くの各ベクターグラフィックスのXや幅、回転量、透明度、楕円のサイズ、拡縮などの更新のインターフェイスがあります。**
 
 部分的なコード例:
@@ -70,6 +74,8 @@ rectangle.x = ap.Int(100)
 ```
 
 概要のドキュメント: [DisplayObject と GraphicsBase クラスの基本的な属性の概要](https://simon-ritchie.github.io/apysc/jp/jp_display_object_and_graphics_base_prop_abstract.html)
+
+---
 
 - **クリックやダブルクリック、マウスダウン、マウスアップ、マウスオーバー、マウスアウト、マウスムーブなどの各マウスイベントを設定することができます。**
 
@@ -89,6 +95,8 @@ rectangle.click(on_click)
 
 概要のドキュメント: [マウスイベントのインターフェイスの概要](https://simon-ritchie.github.io/apysc/jp/jp_mouse_event_abstract.html)
 
+---
+
 - **タイマーの各インターフェイスを使ってアニメーションなどを行うことができます。**
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/rotation_and_alpha_animation.gif)
@@ -107,6 +115,8 @@ ap.Timer(on_timer, delay=1000).start()
 
 ドキュメント: [Timer クラス](https://simon-ritchie.github.io/apysc/jp/jp_timer.html)
 
+---
+
 - **イージングの設定も含めた様々なTweenのアニメーション設定を行うことができます。**
 
 [![](https://github.com/simon-ritchie/apysc/blob/main/assets/animation_interfaces_abstract.gif)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html)
@@ -123,6 +133,8 @@ rectangle.animation_x(
 
 概要のドキュメント: [各アニメーションのインターフェイスの概要](https://simon-ritchie.github.io/apysc/jp/jp_animation_interfaces_abstract.html)
 
+---
+
 - **for文のループやif文による分岐などの基本的な制御を扱うことができます。**
 
 ドキュメント:
@@ -131,6 +143,8 @@ rectangle.animation_x(
 - [Elif](https://simon-ritchie.github.io/apysc/jp/jp_elif.html)
 - [Else](https://simon-ritchie.github.io/apysc/jp/jp_else.html)
 - [For](https://simon-ritchie.github.io/apysc/jp/jp_for.html)
+
+---
 
 その他の詳細については以下の資料をご確認ください。
 

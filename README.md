@@ -48,6 +48,8 @@ Documents:
 - [display_on_jupyter interface](https://simon-ritchie.github.io/apysc/en/display_on_jupyter.html)
 - [display_on_colaboratory interface](https://simon-ritchie.github.io/apysc/en/display_on_colaboratory.html)
 
+---
+
 - **Draw the many types of vector graphics**
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/vector_graphics_samples.png)
@@ -64,6 +66,7 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 
 Abstract document: [Draw interfaces abstract](https://simon-ritchie.github.io/apysc/en/draw_interfaces_abstract.html)
 
+---
 
 - **Lots of the vector graphics updating interfaces, such as the x, width, rotation, alpha (opacity), ellipse size, scale**
 
@@ -76,6 +79,8 @@ rectangle.x = ap.Int(100)
 ```
 
 Abstract document: [DisplayObject and GraphicsBase classes base properties abstract](https://simon-ritchie.github.io/apysc/en/display_object_and_graphics_base_prop_abstract.html)
+
+---
 
 - **Set each mouse event, such as the click, double click, mouse down, mouse up, mouse over, mouse out, mouse move**
 
@@ -95,6 +100,8 @@ rectangle.click(on_click)
 
 Abstract document: [MouseEvent interfaces abstract](https://simon-ritchie.github.io/apysc/en/mouse_event_abstract.html)
 
+---
+
 - **Use the timer interface and animation**
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/rotation_and_alpha_animation.gif)
@@ -113,6 +120,8 @@ ap.Timer(on_timer, delay=1000).start()
 
 Documents: [Timer class](https://simon-ritchie.github.io/apysc/en/timer.html)
 
+---
+
 - **Lots of tween animations, including easing options**
 
 [![](https://github.com/simon-ritchie/apysc/blob/main/assets/animation_interfaces_abstract.gif)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html)
@@ -129,6 +138,7 @@ rectangle.animation_x(
 
 Abstract document: [Animation interfaces abstract (each animation attribute)](https://simon-ritchie.github.io/apysc/en/animation_interfaces_abstract.html)
 
+---
 
 - **Basic control, like the for loop, if branch instruction, and so on**
 
@@ -138,6 +148,8 @@ Documents:
 - [Elif](https://simon-ritchie.github.io/apysc/en/elif.html)
 - [Else](https://simon-ritchie.github.io/apysc/en/else.html)
 - [For](https://simon-ritchie.github.io/apysc/en/for.html)
+
+---
 
 For more details, please see the following document:
 

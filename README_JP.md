@@ -14,7 +14,7 @@
 
 ![logo](https://github.com/simon-ritchie/apysc/blob/main/assets/logo_v1/logo_small_v1.png)
 
-言語: [英語 (English)](https://github.com/simon-ritchie/apysc/) | 日本語
+言語: | [英語 (English)](https://github.com/simon-ritchie/apysc/) | 日本語 |
 
 ※日本語版のREADMEが古く場合には英語版のREADMEを参照してください。
 

@@ -14,7 +14,7 @@
 
 ![logo](https://github.com/simon-ritchie/apysc/blob/main/assets/logo_v1/logo_small_v1.png)
 
-Language: English | [日本語 (Japanese)](https://github.com/simon-ritchie/apysc/README_JP.md)
+Language: | English | [日本語 (Japanese)](https://github.com/simon-ritchie/apysc/README_JP.md) |
 
 apysc (pronounced `æpisk`) is the Python frontend library to create HTML and js files with ActionScript 3 (as3)-like interface.
 

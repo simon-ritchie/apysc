@@ -8,7 +8,20 @@ from typing import List
 
 from apysc._lint_and_doc.docs_lang import Lang
 
-SRC_DIR_PATH: str = '/mnt/apysc/docs_src/source/'
+
+def _get_src_dir_path() -> str:
+    """
+    Get a source directory path.
+
+    Returns
+    -------
+    src_dir_path : str
+        A source directory path.
+    """
+    src_dir_path: str = '/mnt/apysc/docs_src/source/'
+    if os.path.isdir('./docs_src/'):
+        src_dir_path = './docs_src/source/'
+    return src_dir_path
 
 
 def get_docs_md_file_paths() -> List[str]:
@@ -20,10 +33,11 @@ def get_docs_md_file_paths() -> List[str]:
     file_paths : List[str]
         Documenet's markdown file paths.
     """
-    file_names: List[str] = os.listdir(SRC_DIR_PATH)
+    src_dir_path: str = _get_src_dir_path()
+    file_names: List[str] = os.listdir(src_dir_path)
     file_paths: List[str] = []
     for file_name in file_names:
-        file_path: str = os.path.join(SRC_DIR_PATH, file_name)
+        file_path: str = os.path.join(src_dir_path, file_name)
         if not file_path.endswith('.md'):
             continue
         file_paths.append(file_path)

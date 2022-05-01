@@ -43,7 +43,7 @@ def test__get_module_paths() -> None:
     module_paths: List[str] = apply_lints_and_build_docs._get_module_paths()
     expected_paths: List[str] = [
         './apysc/_display/sprite.py',
-        './docs_src/source/conf.py',
+        './docs_src/source/conf_en/conf.py',
         './tests/_display/test_sprite.py',
         './test_projects/draw_rect/main.py',
         './scripts/build.py',

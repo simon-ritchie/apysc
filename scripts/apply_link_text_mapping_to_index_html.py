@@ -18,6 +18,7 @@ from typing import Pattern
 sys.path.append('./')
 
 from apysc._console import loggers
+from apysc._lint_and_doc.docs_lang import Lang
 
 logger: Logger = loggers.get_info_logger()
 
@@ -104,15 +105,17 @@ def _get_target_html_paths() -> List[str]:
     """
     html_paths: List[str] = []
     DIR_PATH: str = './docs/'
-    file_names: List[str] = os.listdir(DIR_PATH)
-    for file_name in file_names:
-        if not file_name.endswith('index.html'):
-            continue
-        html_path: str = os.path.join(
-            DIR_PATH,
-            file_name,
-        )
-        html_paths.append(html_path)
+    for lang in Lang:
+        lang_dir_path: str = os.path.join(DIR_PATH, f'{lang.value}/')
+        file_names: List[str] = os.listdir(lang_dir_path)
+        for file_name in file_names:
+            if not file_name.endswith('index.html'):
+                continue
+            html_path: str = os.path.join(
+                lang_dir_path,
+                file_name,
+            )
+            html_paths.append(html_path)
     return html_paths
 
 

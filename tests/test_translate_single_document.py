@@ -14,10 +14,19 @@ from scripts.translate_single_document import _UndefinedLanguage
 from tests.testing_helper import assert_raises
 
 _TEST_DOC_SRC_PATH: str = './docs_src/source/sprite.md'
-_TEST_HASH_FILE_PATH: str = lint_and_doc_hash_util.\
+_TEST_HASH_FILE_PATH_1: str = lint_and_doc_hash_util.\
     get_target_file_hash_file_path(
         file_path=_TEST_DOC_SRC_PATH,
         hash_type=HashType.TRANSLATION_MAPPING_JP)
+_TEST_HASH_FILE_PATH_2: str = lint_and_doc_hash_util.\
+    get_target_file_hash_file_path(
+        file_path=_TEST_DOC_SRC_PATH,
+        hash_type=HashType.APPLYING_TRANSLATION_MAPPING)
+
+
+def teardown() -> None:
+    os.system(f'git checkout {_TEST_HASH_FILE_PATH_1}')
+    os.system(f'git checkout {_TEST_HASH_FILE_PATH_2}')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -59,9 +68,16 @@ def test__delete_translation_mapping_hash() -> None:
     lint_and_doc_hash_util.save_target_file_hash(
         file_path=_TEST_DOC_SRC_PATH,
         hash_type=HashType.TRANSLATION_MAPPING_JP)
+    lint_and_doc_hash_util.save_target_file_hash(
+        file_path=_TEST_DOC_SRC_PATH,
+        hash_type=HashType.APPLYING_TRANSLATION_MAPPING)
     translate_single_document._delete_translation_mapping_hash(
         lang=Lang.JP, src_file_path=_TEST_DOC_SRC_PATH)
-    assert not os.path.exists(_TEST_HASH_FILE_PATH)
+    assert not os.path.exists(_TEST_HASH_FILE_PATH_1)
+    assert not os.path.exists(_TEST_HASH_FILE_PATH_2)
+
+    os.system(f'git checkout {_TEST_HASH_FILE_PATH_1}')
+    os.system(f'git checkout {_TEST_HASH_FILE_PATH_2}')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -76,4 +92,5 @@ def test__validate_build_doc_command_status_code() -> None:
         kwargs={'status_code': 1},
         match='A document\'s build command status code is not zero: 1')
 
-    os.system(f'git checkout {_TEST_HASH_FILE_PATH}')
+    os.system(f'git checkout {_TEST_HASH_FILE_PATH_1}')
+    os.system(f'git checkout {_TEST_HASH_FILE_PATH_2}')

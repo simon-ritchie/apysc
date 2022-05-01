@@ -33,9 +33,6 @@ def _main() -> None:
     """
     Translate a specified single document file.
     """
-    from apysc._lint_and_doc import docs_translation_converter
-    from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
-        add_mapping_blank_data
     command_options: _CommandOptions = _get_command_options()
     logger.info('Validating command arguments...')
     _validate_src_option(src=command_options['src'])
@@ -45,12 +42,6 @@ def _main() -> None:
     logger.info('Deleting translation mapping hash...')
     _delete_translation_mapping_hash(
         lang=lang, src_file_path=command_options['src'])
-    logger.info('Adding mapping blank data...')
-    add_mapping_blank_data(lang=lang)
-    logger.info('Applying translation...')
-    docs_translation_converter.apply_translation_to_doc(
-        md_file_path=command_options['src'],
-        lang=lang)
     logger.info('Running document build script...')
     status_code: int = os.system('python ./scripts/build_docs.py')
     _validate_build_doc_command_status_code(status_code=status_code)
@@ -102,6 +93,10 @@ def _delete_translation_mapping_hash(
         lang=lang)
     hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
         file_path=src_file_path, hash_type=hash_type)
+    file_util.remove_file_if_exists(file_path=hash_path)
+
+    hash_path = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path=src_file_path, hash_type=HashType.APPLYING_TRANSLATION_MAPPING)
     file_util.remove_file_if_exists(file_path=hash_path)
 
 

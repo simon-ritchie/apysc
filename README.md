@@ -14,6 +14,8 @@
 
 ![logo](https://github.com/simon-ritchie/apysc/blob/main/assets/logo_v1/logo_small_v1.png)
 
+Language: English | [日本語 (Japanese)](https://github.com/simon-ritchie/apysc/README_JP.md)
+
 apysc (pronounced `æpisk`) is the Python frontend library to create HTML and js files with ActionScript 3 (as3)-like interface.
 
 Notes: Currently developing and only works partially.
@@ -42,9 +44,9 @@ Please see [apysc documentation](https://simon-ritchie.github.io/apysc/en/index.
 
 Documents:
 
-- [save_overall_html interface](https://simon-ritchie.github.io/apysc/save_overall_html.html)
-- [display_on_jupyter interface](https://simon-ritchie.github.io/apysc/display_on_jupyter.html)
-- [display_on_colaboratory interface](https://simon-ritchie.github.io/apysc/display_on_colaboratory.html)
+- [save_overall_html interface](https://simon-ritchie.github.io/apysc/en/save_overall_html.html)
+- [display_on_jupyter interface](https://simon-ritchie.github.io/apysc/en/display_on_jupyter.html)
+- [display_on_colaboratory interface](https://simon-ritchie.github.io/apysc/en/display_on_colaboratory.html)
 
 - **Draw the many types of vector graphics**
 
@@ -60,7 +62,7 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...
 ```
 
-Abstract document: [Draw interfaces abstract](https://simon-ritchie.github.io/apysc/draw_interfaces_abstract.html)
+Abstract document: [Draw interfaces abstract](https://simon-ritchie.github.io/apysc/en/draw_interfaces_abstract.html)
 
 
 - **Lots of the vector graphics updating interfaces, such as the x, width, rotation, alpha (opacity), ellipse size, scale**
@@ -73,7 +75,7 @@ rectangle.x = ap.Int(100)
 ...
 ```
 
-Abstract document: [DisplayObject and GraphicsBase classes base properties abstract](https://simon-ritchie.github.io/apysc/display_object_and_graphics_base_prop_abstract.html)
+Abstract document: [DisplayObject and GraphicsBase classes base properties abstract](https://simon-ritchie.github.io/apysc/en/display_object_and_graphics_base_prop_abstract.html)
 
 - **Set each mouse event, such as the click, double click, mouse down, mouse up, mouse over, mouse out, mouse move**
 
@@ -91,7 +93,7 @@ rectangle.click(on_click)
 ...
 ```
 
-Abstract document: [MouseEvent interfaces abstract](https://simon-ritchie.github.io/apysc/mouse_event_abstract.html)
+Abstract document: [MouseEvent interfaces abstract](https://simon-ritchie.github.io/apysc/en/mouse_event_abstract.html)
 
 - **Use the timer interface and animation**
 
@@ -109,7 +111,7 @@ ap.Timer(on_timer, delay=1000).start()
 ...
 ```
 
-Documents: [Timer](https://simon-ritchie.github.io/apysc/timer.html)
+Documents: [Timer class](https://simon-ritchie.github.io/apysc/en/timer.html)
 
 - **Lots of tween animations, including easing options**
 
@@ -125,21 +127,21 @@ rectangle.animation_x(
 ...
 ```
 
-Abstract document: [Animation interfaces abstract (each animation attribute)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html)
+Abstract document: [Animation interfaces abstract (each animation attribute)](https://simon-ritchie.github.io/apysc/en/animation_interfaces_abstract.html)
 
 
 - **Basic control, like the for loop, if branch instruction, and so on**
 
 Documents:
 
-- [If](https://simon-ritchie.github.io/apysc/if.html)
-- [Elif](https://simon-ritchie.github.io/apysc/elif.html)
-- [Else](https://simon-ritchie.github.io/apysc/else.html)
-- [For](https://simon-ritchie.github.io/apysc/for.html)
+- [If](https://simon-ritchie.github.io/apysc/en/if.html)
+- [Elif](https://simon-ritchie.github.io/apysc/en/elif.html)
+- [Else](https://simon-ritchie.github.io/apysc/en/else.html)
+- [For](https://simon-ritchie.github.io/apysc/en/for.html)
 
 For more details, please see the following document:
 
-[What apysc can do in its current implementation](https://simon-ritchie.github.io/apysc/what_apysc_can_do.html)
+[What apysc can do in its current implementation](https://simon-ritchie.github.io/apysc/en/what_apysc_can_do.html)
 
 ## License
 

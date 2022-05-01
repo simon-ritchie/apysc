@@ -30,9 +30,9 @@ $ pip install apysc
 
 ## How to start
 
-Please see [apysc documentation](https://simon-ritchie.github.io/apysc/index.html) and [quick start guide](https://simon-ritchie.github.io/apysc/quick_start.html) page.
+Please see [apysc documentation](https://simon-ritchie.github.io/apysc/en/index.html) and [quick start guide](https://simon-ritchie.github.io/apysc/en/quick_start.html) page.
 
-<a href="https://simon-ritchie.github.io/apysc/index.html"><img src="https://github.com/simon-ritchie/apysc/blob/main/assets/document_index_screenshot.png"></a>
+<a href="https://simon-ritchie.github.io/apysc/en/index.html"><img src="https://github.com/simon-ritchie/apysc/blob/main/assets/document_index_screenshot.png"></a>
 
 ## What apysc can do in its current implementation
 

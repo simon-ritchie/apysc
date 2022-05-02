@@ -2,7 +2,7 @@
 Sphinx's conf.py module.
 """
 
-from typing import List
+from typing import Dict, List
 
 
 PROJECT: str = 'apysc'
@@ -11,3 +11,7 @@ EXTENSIONS: List[str] = [
     'recommonmark',
     'sphinx_markdown_tables',
 ]
+SOURCE_SUFFIX: Dict[str, str] = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}

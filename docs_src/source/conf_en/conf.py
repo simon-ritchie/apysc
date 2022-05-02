@@ -55,10 +55,7 @@ templates_path: Final[List[str]] = ['_templates']
 exclude_patterns: Final[List[str]] = document_util.get_exclude_patterns(
     lang=_lang)
 
-source_suffix: Final[Dict[str, str]] = {
-    '.rst': 'restructuredtext',
-    '.md': 'markdown',
-}
+source_suffix: Final[Dict[str, str]] = conf_common.SOURCE_SUFFIX
 
 source_parsers: Final[Dict[str, type]] = {
     '.md': CommonMarkParser,

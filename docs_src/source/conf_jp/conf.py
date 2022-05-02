@@ -36,7 +36,7 @@ _now: datetime = datetime.now()
 _lang: Lang = Lang.JP
 project: Final[str] = conf_common.PROJECT
 copyright: Final[str] = f'{_now.year}, {project} プロジェクト'
-author: Final[str] = 'simonritchie'
+author: Final[str] = conf_common.AUTHOR
 
 
 # -- General configuration ---------------------------------------------------

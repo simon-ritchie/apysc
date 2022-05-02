@@ -36,7 +36,7 @@ _now: datetime = datetime.now()
 _lang: Lang = Lang.EN
 project: Final[str] = conf_common.PROJECT
 copyright: Final[str] = f'{_now.year}, {project} project'
-author: Final[str] = 'simonritchie'
+author: Final[str] = conf_common.AUTHOR
 
 
 # -- General configuration ---------------------------------------------------

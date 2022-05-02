@@ -3,3 +3,4 @@ Sphinx's conf.py module.
 """
 
 PROJECT: str = 'apysc'
+AUTHOR: str = 'simonritchie'

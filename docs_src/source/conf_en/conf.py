@@ -89,18 +89,4 @@ def setup(sphinx: Sphinx) -> None:
     sphinx : Sphinx
         Sphinx instance.
     """
-    warnings.filterwarnings(
-        action='ignore',
-        category=UserWarning,
-        message=r'.*Container node skipped.*',
-    )
-
-    sphinx.add_config_value(
-        name='recommonmark_config',
-        default={
-            'auto_toc_tree_section': 'Table of contents',
-        },
-        rebuild=True)
-    sphinx.add_transform(AutoStructify)
-
-    sphinx.add_js_file(filename='hide_toctree_heading_and_sidemenu.js')
+    conf_common.setup(sphinx=sphinx)

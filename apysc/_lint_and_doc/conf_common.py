@@ -3,6 +3,7 @@ Sphinx's conf.py module.
 """
 
 from typing import Dict, List
+from recommonmark.parser import CommonMarkParser
 
 
 PROJECT: str = 'apysc'
@@ -14,4 +15,7 @@ EXTENSIONS: List[str] = [
 SOURCE_SUFFIX: Dict[str, str] = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
+}
+SOURCE_PARSERS: Dict[str, type] = {
+    '.md': CommonMarkParser,
 }

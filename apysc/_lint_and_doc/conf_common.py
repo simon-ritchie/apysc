@@ -22,3 +22,8 @@ SOURCE_PARSERS: Dict[str, type] = {
 }
 HTML_THEME: str = 'groundwork'
 HTML_STATIC_PATH: List[str] = ['_static']
+HTML_CSS_FILES: List[str] = [
+    'base.css',
+    'codeblock.css',
+    'iframe.css',
+]

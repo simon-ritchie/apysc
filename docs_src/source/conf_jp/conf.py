@@ -74,11 +74,7 @@ html_theme: Final[str] = conf_common.HTML_THEME
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path: Final[List[str]] = conf_common.HTML_STATIC_PATH
 
-html_css_files: Final[List[str]] = [
-    'base.css',
-    'codeblock.css',
-    'iframe.css',
-]
+html_css_files: Final[List[str]] = conf_common.HTML_CSS_FILES
 
 html_logo: Final[str] = '../_static/logo_for_document.png'
 

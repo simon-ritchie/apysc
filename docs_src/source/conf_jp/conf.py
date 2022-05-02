@@ -28,13 +28,14 @@ from typing_extensions import Final
 sys.path.append('../../../')
 from apysc._lint_and_doc import document_util
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc import conf_common
 
 # -- Project information -----------------------------------------------------
 
 _now: datetime = datetime.now()
 _lang: Lang = Lang.JP
-project: Final[str] = 'apysc'
-copyright: Final[str] = f'{_now.year}, apysc プロジェクト'
+project: Final[str] = conf_common.PROJECT
+copyright: Final[str] = f'{_now.year}, {project} プロジェクト'
 author: Final[str] = 'simonritchie'
 
 

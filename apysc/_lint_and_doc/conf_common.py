@@ -25,12 +25,11 @@ SOURCE_PARSERS: Dict[str, type] = {
     '.md': CommonMarkParser,
 }
 HTML_THEME: str = 'groundwork'
-HTML_STATIC_PATH: List[str] = ['_static']
+HTML_STATIC_PATH: List[str] = ['../_static']
 HTML_CSS_FILES: List[str] = [
     'base.css',
     'codeblock.css',
     'iframe.css',
-    'add_navigation_to_footer.js',
 ]
 HTML_LOGO: str = '../_static/logo_for_document.png'
 HTML_COPY_SOURCE: bool = False
@@ -60,3 +59,4 @@ def setup(*, sphinx: Sphinx) -> None:
     sphinx.add_transform(AutoStructify)
 
     sphinx.add_js_file(filename='hide_toctree_heading_and_sidemenu.js')
+    sphinx.add_js_file(filename='add_navigation_to_footer.js')

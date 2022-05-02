@@ -47,7 +47,7 @@ author: Final[str] = conf_common.AUTHOR
 extensions: Final[List[str]] = conf_common.EXTENSIONS
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path: Final[List[str]] = ['_templates']
+templates_path: Final[List[str]] = conf_common.EXTENSIONS
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.

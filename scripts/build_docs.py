@@ -52,11 +52,10 @@ def _main() -> None:
     logger.info(msg='Documentation build started...')
 
     _exec_document_lint_and_script()
+    _apply_translation_mappings()
 
     index_md_replacer: _IndexMdUnderscoresReplacer = \
         _IndexMdUnderscoresReplacer()
-
-    _apply_translation_mappings()
 
     logger.info(msg='Removing underscores from each index.md file...')
     index_md_replacer.remove_underscores()
@@ -97,7 +96,6 @@ def _apply_translation_mappings() -> None:
     md_file_paths = lint_and_doc_hash_util.remove_not_updated_file_paths(
         file_paths=md_file_paths,
         hash_type=HashType.APPLYING_TRANSLATION_MAPPING)
-    print('Sliced md file paths:', md_file_paths)
     for lang in Lang:
         if lang == Lang.EN:
             continue

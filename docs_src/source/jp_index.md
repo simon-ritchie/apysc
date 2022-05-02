@@ -14,6 +14,8 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 
 - [PyPI](https://pypi.org/project/apysc/)
 
+他の言語のドキュメント: | [英語 (English)](https://simon-ritchie.github.io/apysc/en/index.html) | 日本語 |
+
 ## クイックスタートガイド
 
 ### Table of contents

@@ -10,6 +10,8 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
   - The progress and updates are informed on Twitter. Please follow!
 - [PyPI](https://pypi.org/project/apysc/)
 
+Other languages documentations: | English | [Japanese (日本語)](https://simon-ritchie.github.io/apysc/jp/jp_index.html) |
+
 ## Quick start guide
 
 ### Table of contents

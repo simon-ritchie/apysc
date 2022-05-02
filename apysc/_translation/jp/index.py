@@ -33,6 +33,9 @@ MAPPING: Dict[str, str] = {
     '- [PyPI](https://pypi.org/project/apysc/)':
     '- [PyPI](https://pypi.org/project/apysc/)',
 
+    'Other languages documentations: | English | [Japanese (日本語)](https://simon-ritchie.github.io/apysc/jp/jp_index.html) |':  # noqa
+    '他の言語のドキュメント: | [英語 (English)](https://simon-ritchie.github.io/apysc/en/index.html) | 日本語 |',  # noqa
+
     '## Quick start guide':
     '## クイックスタートガイド',
 

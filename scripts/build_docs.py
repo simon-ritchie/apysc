@@ -97,6 +97,7 @@ def _apply_translation_mappings() -> None:
     md_file_paths = lint_and_doc_hash_util.remove_not_updated_file_paths(
         file_paths=md_file_paths,
         hash_type=HashType.APPLYING_TRANSLATION_MAPPING)
+    print('Sliced md file paths:', md_file_paths)
     for lang in Lang:
         if lang == Lang.EN:
             continue
@@ -118,6 +119,9 @@ def _apply_translation_mappings() -> None:
                 continue
             apply_translation_to_doc(
                 md_file_path=md_file_path, lang=lang)
+    lint_and_doc_hash_util.save_target_files_hash(
+        file_paths=md_file_paths,
+        hash_type=HashType.APPLYING_TRANSLATION_MAPPING)
 
 
 def _get_build_command(*, lang: Lang) -> str:

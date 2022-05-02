@@ -76,7 +76,7 @@ html_static_path: Final[List[str]] = conf_common.HTML_STATIC_PATH
 
 html_css_files: Final[List[str]] = conf_common.HTML_CSS_FILES
 
-html_logo: Final[str] = '../_static/logo_for_document.png'
+html_logo: Final[str] = conf_common.HTML_LOGO
 
 # Disable the `_sources` copying.
 html_copy_source: bool = False

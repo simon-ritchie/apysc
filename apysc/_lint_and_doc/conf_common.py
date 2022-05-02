@@ -27,3 +27,4 @@ HTML_CSS_FILES: List[str] = [
     'codeblock.css',
     'iframe.css',
 ]
+HTML_LOGO: str = '../_static/logo_for_document.png'

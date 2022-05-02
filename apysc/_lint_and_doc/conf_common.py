@@ -20,3 +20,4 @@ SOURCE_SUFFIX: Dict[str, str] = {
 SOURCE_PARSERS: Dict[str, type] = {
     '.md': CommonMarkParser,
 }
+HTML_THEME: str = 'groundwork'

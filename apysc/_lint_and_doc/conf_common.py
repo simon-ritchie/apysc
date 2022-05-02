@@ -3,11 +3,12 @@ Sphinx's conf.py module.
 """
 
 import warnings
-from sphinx.application import Sphinx
-from typing import Dict, List
+from typing import Dict
+from typing import List
+
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
-
+from sphinx.application import Sphinx
 
 PROJECT: str = 'apysc'
 AUTHOR: str = 'simonritchie'
@@ -36,12 +37,12 @@ HTML_COPY_SOURCE: bool = False
 
 def setup(*, sphinx: Sphinx) -> None:
     """
-    Function called when sphinx build is started.
+    The Sphinx calls when it starts building.
 
     Parameters
     ----------
     sphinx : Sphinx
-        Sphinx instance.
+        The Sphinx instance.
     """
     warnings.filterwarnings(
         action='ignore',

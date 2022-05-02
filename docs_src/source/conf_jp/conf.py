@@ -15,20 +15,17 @@
 # sys.path.insert(0, os.path.abspath('.'))
 
 import sys
-import warnings
 from datetime import datetime
 from typing import Dict
 from typing import List
 
-from recommonmark.parser import CommonMarkParser
-from recommonmark.transform import AutoStructify
 from sphinx.application import Sphinx
 from typing_extensions import Final
 
 sys.path.append('../../../')
+from apysc._lint_and_doc import conf_common
 from apysc._lint_and_doc import document_util
 from apysc._lint_and_doc.docs_lang import Lang
-from apysc._lint_and_doc import conf_common
 
 # -- Project information -----------------------------------------------------
 
@@ -84,11 +81,11 @@ html_copy_source: bool = conf_common.HTML_COPY_SOURCE
 
 def setup(sphinx: Sphinx) -> None:
     """
-    Function called when sphinx build is started.
+    The Sphinx calls when it starts building.
 
     Parameters
     ----------
     sphinx : Sphinx
-        Sphinx instance.
+        The Sphinx instance.
     """
     conf_common.setup(sphinx=sphinx)

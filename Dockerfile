@@ -1,4 +1,4 @@
-FROM python:3.6.12-buster
+FROM python:3.7.13-buster
 ARG WORKDIR="/mnt/apysc/"
 RUN mkdir ${WORKDIR}
 WORKDIR "${WORKDIR}"

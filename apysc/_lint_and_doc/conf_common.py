@@ -30,6 +30,7 @@ HTML_CSS_FILES: List[str] = [
     'base.css',
     'codeblock.css',
     'iframe.css',
+    'add_navigation_to_footer.js',
 ]
 HTML_LOGO: str = '../_static/logo_for_document.png'
 HTML_COPY_SOURCE: bool = False

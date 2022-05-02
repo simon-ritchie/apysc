@@ -1,9 +1,0 @@
-{
-  "scripts": {
-    "secretlint": "secretlint '**/*'"
-  },
-  "devDependencies": {
-    "@secretlint/secretlint-rule-preset-recommend": "5.2.0",
-    "secretlint": "5.2.0"
-  }
-}

@@ -28,3 +28,4 @@ HTML_CSS_FILES: List[str] = [
     'iframe.css',
 ]
 HTML_LOGO: str = '../_static/logo_for_document.png'
+HTML_COPY_SOURCE: bool = False

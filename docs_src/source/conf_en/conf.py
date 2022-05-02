@@ -77,7 +77,7 @@ html_css_files: Final[List[str]] = conf_common.HTML_CSS_FILES
 html_logo: Final[str] = conf_common.HTML_LOGO
 
 # Disable the `_sources` copying.
-html_copy_source: bool = False
+html_copy_source: bool = conf_common.HTML_COPY_SOURCE
 
 
 def setup(sphinx: Sphinx) -> None:

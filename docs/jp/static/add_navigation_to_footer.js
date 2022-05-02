@@ -2,7 +2,10 @@
 
 $(document).ready(function() {
     let href = $("[title='next chapter']").attr("href");
-    let linkText = $("[title='next chapter']").text();
+    let linkText = String($("[title='next chapter']").text());
+    if (linkText.trim() === "") {
+        return;
+    }
     $("div.body").append(
-        '<br>Next topic: <a href="' + href + '">' + linkText + '</a>');
+        '<br> Next topic: <a href="' + href + '">' + linkText + '</a>');
 });

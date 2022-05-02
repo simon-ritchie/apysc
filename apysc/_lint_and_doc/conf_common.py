@@ -21,3 +21,4 @@ SOURCE_PARSERS: Dict[str, type] = {
     '.md': CommonMarkParser,
 }
 HTML_THEME: str = 'groundwork'
+HTML_STATIC_PATH: List[str] = ['_static']

@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
-      PYTHON_36_VERSION: 3.6.15
       PYTHON_37_VERSION: 3.7.12
       PYTHON_38_VERSION: 3.8.12
       PYTHON_39_VERSION: 3.9.9
@@ -31,7 +30,6 @@ jobs:
     strategy:
       matrix:
         python-version: [
-          '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
@@ -100,9 +98,9 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}'
+          python-version: '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}'
       - name: Set the flake8 alias
-        run: alias flake8=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/flake8
+        run: alias flake8=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}/x64/bin/flake8
       - name: Run the flake8 command
         run: python ./scripts/run_flake8.py
 
@@ -116,9 +114,9 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
       - name: Set the mypy alias
-        run: alias mypy=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/mypy
+        run: alias mypy=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}/x64/bin/mypy
       - name: Run the mypy command
         run: python ./scripts/run_mypy.py
 
@@ -132,9 +130,9 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
       - name: Set the numdoclint alias
-        run: alias numdoclint=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/numdoclint
+        run: alias numdoclint=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}/x64/bin/numdoclint
       - name: Run the numdoclint command
         run: python ./scripts/run_numdoclint.py
 
@@ -148,9 +146,9 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
       - name: Set the Pyright alias
-        run: alias pyright=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/pyright
+        run: alias pyright=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}/x64/bin/pyright
       - name: Run the Pyright command
         run: python ./scripts/run_pyright.py
 
@@ -164,7 +162,7 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
       - name: Run the checking command
         run: python ./scripts/check_apysc_top_level_import.py
 
@@ -181,9 +179,9 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
       - name: Set the pytest alias
-        run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/pytest
+        run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}/x64/bin/pytest
       - name: Run the test runner command
         run: python ./scripts/run_tests_and_save_coverage_and_num.py
       - name: Set the environment variables from .env file
@@ -233,9 +231,9 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
       - name: Set the pytest alias
-        run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/pytest
+        run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}/x64/bin/pytest
       - name: Run the doctest runner command
         run: python ./scripts/run_doctest_and_save_passing_num.py
       - name: Set the environment variables from .env file
@@ -267,7 +265,7 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
       - name: Execute the Python package build
         run: python ./scripts/build.py
       - name: Upload to PyPI
@@ -297,7 +295,7 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
       - name: Set the apysc version to environment variable
         run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
       - name: Create the release note
@@ -363,7 +361,7 @@ jobs:
         with:
           NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
           LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -373,7 +371,6 @@ jobs:
     strategy:
       matrix:
         python-version: [
-          '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',

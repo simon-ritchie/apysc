@@ -169,7 +169,7 @@ jobs:
   RunTestsAndSaveCoverageAndPassingNum:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     outputs:
       COVERAGE: ${{ steps.set-coverage.outputs.coverage }}
       PASSING_TESTS_NUM: ${{ steps.set-passing-tests-num.outputs.passing-tests-num }}
@@ -179,7 +179,7 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}/x64/bin/pytest
       - name: Run the test runner command

@@ -16,7 +16,7 @@
 
 言語: | [英語 (English)](https://github.com/simon-ritchie/apysc/) | 日本語 |
 
-※日本語版のREADMEが古く場合には英語版のREADMEを参照してください。
+※日本語版のREADMEが古い場合には英語版のREADMEを参照してください。
 
 apysc (アピスクと読みます)はHTMLやjsのファイルを生成するための、ActionScript3 (as3)風のインターフェイスを持つPythonのフロントエンドライブラリです。
 

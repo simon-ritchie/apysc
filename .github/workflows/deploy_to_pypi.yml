@@ -166,7 +166,7 @@ jobs:
       - name: Run the checking command
         run: python ./scripts/check_apysc_top_level_import.py
 
-  RunTestsOnPython36AndSaveCoverageAndPassingNum:
+  RunTestsAndSaveCoverageAndPassingNum:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 20

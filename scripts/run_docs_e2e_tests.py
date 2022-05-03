@@ -5,6 +5,7 @@ $ python ./scripts/run_docs_e2e_tests.py
 """
 
 import os
+
 from playwright.sync_api import sync_playwright
 
 

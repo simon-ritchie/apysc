@@ -169,7 +169,7 @@ jobs:
   RunTestsAndSaveCoverageAndPassingNum:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     outputs:
       COVERAGE: ${{ steps.set-coverage.outputs.coverage }}
       PASSING_TESTS_NUM: ${{ steps.set-passing-tests-num.outputs.passing-tests-num }}
@@ -185,8 +185,8 @@ jobs:
       - name: Run the test runner command
         uses: nick-fields/retry@v2
         with:
-          timeout_seconds: 600
-          max_attempts: 3
+          timeout_seconds: 420
+          max_attempts: 5
           command: python ./scripts/run_tests_and_save_coverage_and_num.py
       - name: Set the environment variables from .env file
         uses: c-py/action-dotenv-to-setenv@v3

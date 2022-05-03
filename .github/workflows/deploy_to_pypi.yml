@@ -10,9 +10,9 @@ jobs:
     timeout-minutes: 10
     outputs:
       PYTHON_37_VERSION: 3.7.13
-      PYTHON_38_VERSION: 3.8.12
+      PYTHON_38_VERSION: 3.8.13
       PYTHON_39_VERSION: 3.9.12
-      PYTHON_310_VERSION: 3.10.0
+      PYTHON_310_VERSION: 3.10.4
       CHECKING_BADGE_COLOR: FFAA00
       PASSING_BADGE_COLOR: 0088FF
       RUNNING_OR_FAILING_STATUS: running or failed

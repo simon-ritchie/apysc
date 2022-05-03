@@ -188,6 +188,10 @@ jobs:
           timeout_seconds: 600
           max_attempts: 3
           command: python ./scripts/run_tests_and_save_coverage_and_num.py
+      - name: Set the environment variables from .env file
+        uses: c-py/action-dotenv-to-setenv@v3
+        with:
+          env-file: .env
       - name: Set the coverage to outputs value
         id: set-coverage
         run: echo '::set-output name=coverage::${{ env.COVERAGE }}'

@@ -43,7 +43,7 @@ ap.display_on_colaboratory(html_file_name='jupyter_test_1.html')
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `display_on_colaboratory(html_file_name:str, *, minify:bool=True) -> None`<hr>
+**[インターフェイスの構造]** `display_on_colaboratory(html_file_name: str, *, minify: bool = True) -> None`<hr>
 
 **[インターフェイス概要]** HTML全体を保存しGoogle Colaboratory上で表示します。<hr>
 

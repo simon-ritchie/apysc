@@ -54,7 +54,7 @@ Also, this interface can use on the JupyterLab:
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `display_on_jupyter(html_file_name:str, *, minify:bool=True) -> None`<hr>
+**[Interface signature]** `display_on_jupyter(html_file_name: str, *, minify: bool = True) -> None`<hr>
 
 **[Interface summary]** Save the overall HTML and display it on the Jupyter.<hr>
 

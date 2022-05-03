@@ -9,9 +9,6 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [GitHub](https://github.com/simon-ritchie/apysc)
   - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。
 
-- [Twitter](https://twitter.com/apysc)
-  - 進捗やアップデートなどはTwitterで告知しています。
-
 - [PyPI](https://pypi.org/project/apysc/)
 
 他の言語のドキュメント: | [英語 (English)](https://simon-ritchie.github.io/apysc/en/index.html) | 日本語 |

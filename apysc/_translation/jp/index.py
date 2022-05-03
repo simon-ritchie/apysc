@@ -24,12 +24,6 @@ MAPPING: Dict[str, str] = {
     '  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!':  # noqa
     '  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。',  # noqa
 
-    '- [Twitter](https://twitter.com/apysc)':
-    '- [Twitter](https://twitter.com/apysc)',
-
-    '  - The progress and updates are informed on Twitter. Please follow!':
-    '  - 進捗やアップデートなどはTwitterで告知しています。',
-
     '- [PyPI](https://pypi.org/project/apysc/)':
     '- [PyPI](https://pypi.org/project/apysc/)',
 

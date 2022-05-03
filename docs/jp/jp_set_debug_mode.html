@@ -76,59 +76,59 @@
 </pre></div>
 </div>
 <p>この設定は以下の例の用に出力されたHTML内にPythonの関数やメソッドの呼び出しやそのモジュールやクラス名、引数情報などのJavaScriptのコメントを追加します:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
-  <span class="c1">//////////////////////////////////////////////////////////////////////</span>
-  <span class="c1">// [__init__ 1] started.</span>
-  <span class="c1">// module name: apysc._display.sprite</span>
-  <span class="c1">// class: Sprite</span>
-  <span class="c1">// arguments and variables:</span>
-  <span class="c1">//    variable_name = None</span>
-  <span class="c1">//    self = Sprite(&#39;&#39;)()</span>
-    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
-    <span class="c1">// [__init__ 2] started.</span>
-    <span class="c1">// module name: apysc._type.array</span>
-    <span class="c1">// class: Array</span>
-    <span class="c1">// arguments and variables:</span>
-    <span class="c1">//    value = []</span>
-    <span class="c1">//    self = []()</span>
-      <span class="c1">//////////////////////////////////////////////////////////////////////</span>
-      <span class="c1">// [_append_constructor_expression 2] started.</span>
-      <span class="c1">// module name: apysc._type.array</span>
-      <span class="c1">// class: Array</span>
-      <span class="c1">// arguments and variables:</span>
-      <span class="c1">//    self = [](arr_2)</span>
-        <span class="kd">var</span> <span class="nx">arr_2</span> <span class="o">=</span> <span class="p">[];</span>
-      <span class="c1">// [_append_constructor_expression 2] ended.</span>
-      <span class="c1">// module name: apysc._type.array</span>
-      <span class="c1">// class: Array</span>
-      <span class="c1">//////////////////////////////////////////////////////////////////////</span>
-    <span class="c1">// [__init__ 2] ended.</span>
-    <span class="c1">// module name: apysc._type.array</span>
-    <span class="c1">// class: Array</span>
-    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
-    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
-    <span class="c1">// [__init__ 1] started.</span>
-    <span class="c1">// module name: apysc._display.display_object</span>
-    <span class="c1">// class: DisplayObject</span>
-    <span class="c1">// arguments and variables:</span>
-    <span class="c1">//    variable_name = &#39;sp_1&#39;</span>
-    <span class="c1">//    self = Sprite(&#39;&#39;)()</span>
-    <span class="c1">// [__init__ 1] ended.</span>
-    <span class="c1">// module name: apysc._display.display_object</span>
-    <span class="c1">// class: DisplayObject</span>
-    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
-    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
-    <span class="c1">// [_append_constructor_expression 1] started.</span>
-    <span class="c1">// module name: apysc._display.sprite</span>
-    <span class="c1">// class: Sprite</span>
-    <span class="c1">// arguments and variables:</span>
-    <span class="c1">//    self = Sprite(&#39;sp_1&#39;)(sp_1)</span>
-      <span class="kd">var</span> <span class="nx">sp_1</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">nested</span><span class="p">();</span>
-    <span class="c1">// [_append_constructor_expression 1] ended.</span>
-    <span class="c1">// module name: apysc._display.sprite</span>
-    <span class="c1">// class: Sprite</span>
-    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
-<span class="p">...</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//////////////////////////////////////////////////////////////////////</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// [__init__ 1] started.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// module name: apysc._display.sprite</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// class: Sprite</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// arguments and variables:</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    variable_name = None</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    self = Sprite(&#39;&#39;)()</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//////////////////////////////////////////////////////////////////////</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// [__init__ 2] started.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// module name: apysc._type.array</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// class: Array</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// arguments and variables:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//    value = []</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//    self = []()</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//////////////////////////////////////////////////////////////////////</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// [_append_constructor_expression 2] started.</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// module name: apysc._type.array</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// class: Array</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// arguments and variables:</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//    self = [](arr_2)</span><span class="w"></span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">arr_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// [_append_constructor_expression 2] ended.</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// module name: apysc._type.array</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// class: Array</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//////////////////////////////////////////////////////////////////////</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// [__init__ 2] ended.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// module name: apysc._type.array</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// class: Array</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//////////////////////////////////////////////////////////////////////</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//////////////////////////////////////////////////////////////////////</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// [__init__ 1] started.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// module name: apysc._display.display_object</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// class: DisplayObject</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// arguments and variables:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//    variable_name = &#39;sp_1&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//    self = Sprite(&#39;&#39;)()</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// [__init__ 1] ended.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// module name: apysc._display.display_object</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// class: DisplayObject</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//////////////////////////////////////////////////////////////////////</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//////////////////////////////////////////////////////////////////////</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// [_append_constructor_expression 1] started.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// module name: apysc._display.sprite</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// class: Sprite</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// arguments and variables:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//    self = Sprite(&#39;sp_1&#39;)(sp_1)</span><span class="w"></span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">sp_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stage</span><span class="p">.</span><span class="nx">nested</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// [_append_constructor_expression 1] ended.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// module name: apysc._display.sprite</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// class: Sprite</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//////////////////////////////////////////////////////////////////////</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

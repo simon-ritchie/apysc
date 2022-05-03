@@ -62,7 +62,9 @@ def _save_passing_tests_num(stdout: str) -> None:
         if match is None:
             continue
         passing_test_num = match.group(1)
-    logger.info('Saving a passing tests number to the .env file.')
+    logger.info(
+        'Saving a passing tests number to the .env file : '
+        f'{passing_test_num}')
     with open('.env', 'a') as f:
         f.write(f'PASSING_TESTS_NUM="{passing_test_num}"\n')
 
@@ -90,7 +92,9 @@ def _save_coverage(stdout: str) -> None:
         missed: int = int(match.group(2))
         coverage_float: float = 100 - (missed / statements) * 100
         coverage = f'{coverage_float:.2f}%'
-    logger.info('Saving a coverage to the .env file.')
+    logger.info(
+        'Saving a coverage to the .env file: '
+        f'{coverage}')
     with open('.env', 'a') as f:
         f.write(f'COVERAGE="{coverage}"\n')
 

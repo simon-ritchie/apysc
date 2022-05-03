@@ -248,6 +248,22 @@ jobs:
         id: set-passing-tests-num
         run: echo '::set-output name=passing-tests-num::${{ env.PASSING_TESTS_NUM }}'
 
+  RunDocE2ETest:
+    needs: [CreateCache, SetGlobalConstants]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}
+      - name: Install playwright and Chromium
+        run: playwright install chromium
+      - name: Run the E2E test runner command
+        run: python ./scripts/run_docs_e2e_tests.py
+
   DeployToPyPI:
     needs: [
       RunFlake8,
@@ -258,6 +274,7 @@ jobs:
       RunTestsAndSaveCoverageAndPassingNum,
       RunTestsOnEachPythonVersion,
       RunDocTest,
+      RunDocE2ETest,
       SetGlobalConstants,
       UpdateReadmeBadgesToCheckingStatus,
     ]
@@ -287,6 +304,7 @@ jobs:
       RunTestsAndSaveCoverageAndPassingNum,
       RunTestsOnEachPythonVersion,
       RunDocTest,
+      RunDocE2ETest,
       SetGlobalConstants,
       UpdateReadmeBadgesToCheckingStatus,
       DeployToPyPI,
@@ -323,6 +341,7 @@ jobs:
       RunTestsAndSaveCoverageAndPassingNum,
       RunTestsOnEachPythonVersion,
       RunDocTest,
+      RunDocE2ETest,
       SetGlobalConstants,
     ]
     runs-on: ubuntu-latest

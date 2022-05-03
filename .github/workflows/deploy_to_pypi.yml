@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
-      PYTHON_37_VERSION: 3.7.12
+      PYTHON_37_VERSION: 3.7.13
       PYTHON_38_VERSION: 3.8.12
       PYTHON_39_VERSION: 3.9.9
       PYTHON_310_VERSION: 3.10.0

@@ -24,11 +24,25 @@ apysc (アピスクと読みます)はHTMLやjsのファイルを生成するた
 
 ## サポートしているPythonバージョン
 
-Python 3.6以降のPythonをサポートしています。
+Python 3.7以降のPythonをサポートしています。
+
+## インストール
+
+pipコマンドでインストールすることができます:
+
+```
+$ pip install apysc
+```
+
+## 新着情報について
+
+主な機能のアップデートや互換性の無いアップデートに関してはDiscussionsのページの[Announcements](https://github.com/simon-ritchie/apysc/discussions/categories/announcements)と[Destructive changes](https://github.com/simon-ritchie/apysc/discussions/categories/destructive-changes)をご確認ください。
 
 ## apyscの始め方
 
 [apysc ドキュメント](https://simon-ritchie.github.io/apysc/jp/jp_index.html)や[クイックスタートガイド](https://simon-ritchie.github.io/apysc/jp/jp_quick_start.html)などをご確認ください。
+
+<a href="https://simon-ritchie.github.io/apysc/jp/jp_index.html"><img src="https://github.com/simon-ritchie/apysc/blob/main/assets/document_index_screenshot.png"></a>
 
 ## apyscが現在の実装で出来ること
 

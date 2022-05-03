@@ -22,13 +22,19 @@ Notes: Currently developing and only works partially.
 
 ## Supported Python Version
 
-Python 3.6 or later.
+Python 3.7 or later.
 
 ## Installing
+
+pip command is available:
 
 ```
 $ pip install apysc
 ```
+
+## What's new
+
+To check the major features updating and destructive changes, please see the Discussions' [Announcements](https://github.com/simon-ritchie/apysc/discussions/categories/announcements) and [Destructive changes](https://github.com/simon-ritchie/apysc/discussions/categories/destructive-changes).
 
 ## How to start
 

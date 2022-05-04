@@ -38,10 +38,26 @@ class _MockConsoleMessage(ConsoleMessage):
 
     @property
     def type(self) -> str:
+        """
+        Get a type text.
+
+        Returns
+        -------
+        type : str
+            A type text.
+        """
         return self._type
 
     @property
     def text(self) -> str:
+        """
+        Get a console text.
+
+        Returns
+        -------
+        text : str
+            A console text.
+        """
         return self._text
 
 

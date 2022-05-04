@@ -6,6 +6,11 @@ import os
 from typing import Callable, List
 from typing import Optional as Op
 from logging import Logger
+import hashlib
+from random import randint
+from datetime import datetime
+import sys
+import traceback
 
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import Playwright, Page, ConsoleMessage, Error, Browser
@@ -45,7 +50,7 @@ def assert_local_file_not_raises_error(
         *, file_path: str,
         expected_assertion_failed_msgs: Op[List[str]] = None) -> None:
     """
-    Asert a specified local file does not raise an error.
+    Assert a specified local file does not raise an error.
 
     Parameters
     ----------
@@ -78,7 +83,7 @@ def assert_local_file_not_raises_error(
             event='pageerror',
             f=_get_local_file_page_err_handler(
                 file_path=file_path))
-    pass
+        page.goto(url=file_path)
 
 
 def _get_local_file_page_err_handler(
@@ -107,11 +112,13 @@ def _get_local_file_page_err_handler(
         err : Error
             _description_
         """
-        raise AssertionError(
+        err_msg: str = (
             'There is an unexpected error in the following '
             f'local file: {file_path}'
             f'\nError message: {err.message}'
-            f'\nStack tace: {err.stack}')
+            f'\nStack tace: {err.stack}'
+        )
+        raise AssertionError(err_msg)
 
     return handler
 
@@ -153,9 +160,11 @@ def _get_local_file_console_event_handler(
                 expected_assert_f_msgs is not None
                 and message.text in expected_assert_f_msgs):
             return
-        raise AssertionError(
+        err_msg: str = (
             'There is an unexpected assertion error in the '
             f'following local file: {file_path}'
-            f'\nError message: {message.text}')
+            f'\nError message: {message.text}'
+        )
+        raise AssertionError(err_msg)
 
     return handler

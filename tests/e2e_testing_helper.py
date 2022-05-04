@@ -5,13 +5,16 @@ and definitions.
 import os
 from typing import Callable, List
 from typing import Optional as Op
+from logging import Logger
 
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import Playwright, Page, ConsoleMessage, Error, Browser
 
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._console import loggers
 
 LOCAL_FILE_PATH_PREFIX: str = f'file://{os.path.abspath("./")}/'
+logger: Logger = loggers.get_info_logger()
 
 
 def get_docs_local_file_path(
@@ -60,6 +63,8 @@ def assert_local_file_not_raises_error(
         If a specified (HTML or JavaScript) file
         raises an exception.
     """
+    logger.info(
+        f'Local file\'s assertion started: {file_path}')
     with sync_playwright() as p:
         browser: Browser = p.chromium.launch()
         page: Page = browser.new_page()
@@ -69,7 +74,46 @@ def assert_local_file_not_raises_error(
                 file_path=file_path,
                 expected_assert_f_msgs=expected_assertion_failed_msgs,
             ))
+        page.on(
+            event='pageerror',
+            f=_get_local_file_page_err_handler(
+                file_path=file_path))
     pass
+
+
+def _get_local_file_page_err_handler(
+        *,
+        file_path: str) -> Callable[[Error], None]:
+    """
+    Get a page error's event handler.
+
+    Parameters
+    ----------
+    file_path : str
+        A target local file path.
+
+    Returns
+    -------
+    halder : Callable
+        A target handler.
+    """
+
+    def handler(err: Error) -> None:
+        """
+        A handler of this event.
+
+        Parameters
+        ----------
+        err : Error
+            _description_
+        """
+        raise AssertionError(
+            'There is an unexpected error in the following '
+            f'local file: {file_path}'
+            f'\nError message: {err.message}'
+            f'\nStack tace: {err.stack}')
+
+    return handler
 
 
 _ConsoleHandler = Callable[[ConsoleMessage], None]

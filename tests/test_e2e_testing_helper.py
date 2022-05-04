@@ -86,3 +86,65 @@ def test__get_local_file_console_event_handler() -> None:
         func_or_method=handler,
         kwargs={'message': message},
         match='There is an unexpected assertion error')
+
+
+class _MockError(Error):
+
+    _message: str
+    _stack: str
+
+    def __init__(self, *, message: str, stack: str) -> None:
+        """
+        The mock class for the Error class.
+
+        Parameters
+        ----------
+        message : str
+            An error message.
+        stack : str
+            A stack trace string.
+        """
+        self._message = message
+        self._stack = stack
+
+    @property
+    def message(self) -> str:
+        """
+        Get an error message.
+
+        Returns
+        -------
+        message : str
+            An error message.
+        """
+        return self._message
+
+    @property
+    def stack(self) -> str:
+        """
+        Get a stack trace string.
+
+        Returns
+        -------
+        stack : str
+            Get a stack trace string.
+        """
+        return self._stack
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_local_file_page_err_handler() -> None:
+    handler: Callable[[Error], None] = e2e_testing_helper.\
+        _get_local_file_page_err_handler(
+            file_path='file://test/path.html')
+    err: Error = _MockError(
+        message='Test error!',
+        stack='Uncaught Error: Test error!\nat <anonymous>:1:7')
+    assert_raises(
+        expected_error_class=AssertionError,
+        func_or_method=handler,
+        kwargs={
+            'err': err,
+        },
+        match='There is an unexpected error',
+    )

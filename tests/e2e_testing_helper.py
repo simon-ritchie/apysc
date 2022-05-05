@@ -85,6 +85,35 @@ def assert_local_file_not_raises_error(
             f=_get_local_file_page_err_handler(
                 file_path=file_path))
         page.goto(url=file_path)
+    _assert_local_file_error_log_not_exits(file_path=file_path)
+
+
+def _assert_local_file_error_log_not_exits(*, file_path: str) -> None:
+    """
+    Assert that local file assertion's an error log does not exist.
+
+    Parameters
+    ----------
+    file_path : str
+        A target file path.
+
+    Raises
+    ------
+    AssertionError
+        If there is an error log file.
+    """
+    from apysc._file import file_util
+    local_file_page_err_file_path: str = _get_local_file_page_err_file_path(
+        file_path=file_path)
+    local_file_assertion_err_file_path: str = \
+        _get_local_file_assertion_err_file_path(file_path=file_path)
+    log_file_paths: List[str] = [
+        local_file_page_err_file_path, local_file_assertion_err_file_path]
+    for log_file_path in log_file_paths:
+        if not os.path.isfile(log_file_path):
+            continue
+        log_txt: str = file_util.read_txt(file_path=log_file_path)
+        raise AssertionError(log_txt)
 
 
 def _delete_local_file_assertion_error_logs(

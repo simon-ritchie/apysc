@@ -199,6 +199,24 @@ def test__delete_local_file_assertion_error_logs() -> None:
     assert not os.path.exists(local_file_assertion_err_file_path)
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__assert_local_file_error_log_not_exits() -> None:
+    file_path: str = 'file://docs/en/index.html'
+    e2e_testing_helper._delete_local_file_assertion_error_logs(
+        file_path=file_path)
+    e2e_testing_helper._assert_local_file_error_log_not_exits(
+        file_path=file_path)
+
+    local_file_page_err_file_path: str = e2e_testing_helper.\
+        _get_local_file_page_err_file_path(file_path=file_path)
+    file_util.save_plain_txt(txt='', file_path=local_file_page_err_file_path)
+    assert_raises(
+        expected_error_class=AssertionError,
+        func_or_method=e2e_testing_helper.
+        _assert_local_file_error_log_not_exits,
+        kwargs={'file_path': file_path})
+
+
 # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 # def test_assert_local_file_not_raises_error() -> None:
 #     file_path: str = e2e_testing_helper.get_docs_local_file_path(

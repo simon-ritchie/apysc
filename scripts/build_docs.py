@@ -11,7 +11,7 @@ import re
 import shutil
 import subprocess as sp
 import sys
-from distutils.dir_util import copy_tree
+import warnings
 from logging import Logger
 from typing import Any
 from typing import Dict
@@ -19,6 +19,10 @@ from typing import List
 from typing import Match
 from typing import Optional as Op
 from typing import Pattern
+
+warnings.filterwarnings(
+    'ignore', message=r'.*The distutils package is deprecated.*')
+from distutils.dir_util import copy_tree
 
 from typing_extensions import Final
 from typing_extensions import TypedDict

@@ -168,6 +168,17 @@ def test__get_local_file_page_err_file_path() -> None:
     )
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_local_file_assertion_err_file_path() -> None:
+    log_file_path: str = e2e_testing_helper.\
+        _get_local_file_assertion_err_file_path(
+            file_path='file://docs/en/index.html')
+    assert log_file_path == (
+        './tmp/e2e_testing_local_file_assertion_error_file'
+        '___docs_en_index_html.log'
+    )
+
+
 # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 # def test_assert_local_file_not_raises_error() -> None:
 #     file_path: str = e2e_testing_helper.get_docs_local_file_path(

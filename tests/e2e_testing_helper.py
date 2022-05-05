@@ -97,18 +97,48 @@ def _delete_local_file_assertion_error_logs(
     file_path : str
         A target local file path.
     """
+    from apysc._file import file_util
     local_file_page_err_file_path: str = _get_local_file_page_err_file_path(
         file_path=file_path)
+    file_util.delete_file_if_exists(file_path=local_file_page_err_file_path)
+
+    local_file_assertion_err_file_path: str = \
+        _get_local_file_assertion_err_file_path(file_path=file_path)
     pass
 
 
 _FILE_PATH_SUFFIX_LOCAL_FILE_PAGE_ERR: str = \
     'e2e_testing_local_file_page_error_'
+_FILE_PATH_SUFFIX_LOCAL_FILE_ASSERT_ERR: str = \
+    'e2e_testing_local_file_assertion_error_'
+
+
+def _get_local_file_assertion_err_file_path(*, file_path: str) -> str:
+    """
+    Get an assertion error log's file path of a local file.
+
+    Parameters
+    ----------
+    file_path : str
+        A target local file path.
+
+    Returns
+    -------
+    log_file_path : str
+        An assertion error log's file path of a local file.
+    """
+    file_path = _replace_paths_symbols_by_underscore(
+        file_path=file_path)
+    os.makedirs('./tmp/', exist_ok=True)
+    log_file_path: str = (
+        f'./tmp/{_FILE_PATH_SUFFIX_LOCAL_FILE_ASSERT_ERR}{file_path}.log'
+    )
+    return log_file_path
 
 
 def _get_local_file_page_err_file_path(*, file_path: str) -> str:
     """
-    Get a page error's log file path of a local file.
+    Get a page error log's file path of a local file.
 
     Parameters
     ----------

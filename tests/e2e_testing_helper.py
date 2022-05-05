@@ -225,6 +225,7 @@ def _get_local_file_page_err_handler(
     halder : Callable
         A target handler.
     """
+    from apysc._file import file_util
 
     def handler(err: Error) -> None:
         """
@@ -235,12 +236,15 @@ def _get_local_file_page_err_handler(
         err : Error
             _description_
         """
+        log_file_path: str = _get_local_file_page_err_file_path(
+            file_path=file_path)
         err_msg: str = (
             'There is an unexpected error in the following '
             f'local file: {file_path}'
             f'\nError message: {err.message}'
             f'\nStack tace: {err.stack}'
         )
+        file_util.save_plain_txt(txt=err_msg, file_path=log_file_path)
         raise AssertionError(err_msg)
 
     return handler
@@ -267,6 +271,7 @@ def _get_local_file_console_event_handler(
     halder : Callable
         A target handler.
     """
+    from apysc._file import file_util
 
     def handler(message: ConsoleMessage) -> None:
         """
@@ -283,11 +288,14 @@ def _get_local_file_console_event_handler(
                 expected_assert_f_msgs is not None
                 and message.text in expected_assert_f_msgs):
             return
+        log_file_path: str = _get_local_file_assertion_err_file_path(
+            file_path=file_path)
         err_msg: str = (
             'There is an unexpected assertion error in the '
             f'following local file: {file_path}'
             f'\nError message: {message.text}'
         )
+        file_util.save_plain_txt(txt=err_msg, file_path=log_file_path)
         raise AssertionError(err_msg)
 
     return handler

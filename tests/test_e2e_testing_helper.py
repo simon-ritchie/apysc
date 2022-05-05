@@ -89,6 +89,12 @@ def test__get_local_file_console_event_handler() -> None:
         kwargs={'message': message},
         match='There is an unexpected assertion error')
 
+    log_file_path: str = e2e_testing_helper.\
+        _get_local_file_assertion_err_file_path(file_path=file_path)
+    assert os.path.exists(log_file_path)
+    e2e_testing_helper._delete_local_file_assertion_error_logs(
+        file_path=file_path)
+
 
 class _MockError(Error):
 
@@ -136,9 +142,10 @@ class _MockError(Error):
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_local_file_page_err_handler() -> None:
+    file_path: str = 'file://test/path.html'
     handler: Callable[[Error], None] = e2e_testing_helper.\
         _get_local_file_page_err_handler(
-            file_path='file://test/path.html')
+            file_path=file_path)
     err: Error = _MockError(
         message='Test error!',
         stack='Uncaught Error: Test error!\nat <anonymous>:1:7')
@@ -150,6 +157,12 @@ def test__get_local_file_page_err_handler() -> None:
         },
         match='There is an unexpected error',
     )
+
+    log_file_path: str = e2e_testing_helper.\
+        _get_local_file_page_err_file_path(file_path=file_path)
+    assert os.path.exists(log_file_path)
+    e2e_testing_helper._delete_local_file_assertion_error_logs(
+        file_path=file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

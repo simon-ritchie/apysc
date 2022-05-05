@@ -128,3 +128,19 @@ def test_count_files_recursively() -> None:
     count = file_util.count_files_recursively(dir_path=tmp_dir_path)
     assert count == 3
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_delete_file_if_exists() -> None:
+    os.makedirs('./tmp/', exist_ok=True)
+    test_file_path: str = './tmp/test_file.txt'
+
+    is_deleted: bool = file_util.delete_file_if_exists(
+        file_path=test_file_path)
+    assert not is_deleted
+
+    file_util.save_plain_txt(txt='', file_path=test_file_path)
+    is_deleted = file_util.delete_file_if_exists(
+        file_path=test_file_path)
+    assert is_deleted
+    assert not os.path.exists(test_file_path)

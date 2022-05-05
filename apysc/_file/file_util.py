@@ -20,6 +20,8 @@ Mainly following interfaces are defined:
     - Get specified extension file paths recursively.
 - count_files_recursively
     - Count the existing files number in a specified directory.
+- delete_file_if_exists
+    - Delete a specified file if it exists.
 """
 
 import os
@@ -225,3 +227,24 @@ def count_files_recursively(dir_path: str) -> int:
         if os.path.isfile(file_or_dir_path):
             count += 1
     return count
+
+
+def delete_file_if_exists(*, file_path: str) -> bool:
+    """
+    Delete a specified file if it exists.
+
+    Parameters
+    ----------
+    file_path : str
+        A target file path.
+
+    Returns
+    -------
+    is_deleted : bool
+        This interface returns True if this interface executes
+        deletion.
+    """
+    if not os.path.isfile(file_path):
+        return False
+    os.remove(file_path)
+    return True

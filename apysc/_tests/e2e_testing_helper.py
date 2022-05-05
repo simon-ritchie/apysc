@@ -3,21 +3,19 @@ and definitions.
 """
 
 import os
-from typing import Callable, List
-from typing import Optional as Op
 from logging import Logger
-import hashlib
-from random import randint
-from datetime import datetime
-import sys
-import traceback
-import time
+from typing import Callable
+from typing import List
+from typing import Optional as Op
 
+from playwright.sync_api import Browser
+from playwright.sync_api import ConsoleMessage
+from playwright.sync_api import Error
+from playwright.sync_api import Page
 from playwright.sync_api import sync_playwright
-from playwright.sync_api import Playwright, Page, ConsoleMessage, Error, Browser
 
-from apysc._lint_and_doc.docs_lang import Lang
 from apysc._console import loggers
+from apysc._lint_and_doc.docs_lang import Lang
 
 LOCAL_FILE_PATH_PREFIX: str = f'file://{os.path.abspath("./")}/'
 logger: Logger = loggers.get_info_logger()

@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Files' common utilities implementation. Mainly following interfaces are defined: <br>・empty_directory <br> ・Empty specified directory. <br>・read_txt <br> ・Read specified file's text. <br>・save_plain_txt <br> ・Save plain text string to file. <br>・append_plain_txt <br> ・Append plain text string to file. <br>・remove_file_if_exists <br> ・Remove a specified file if it exists. <br>・get_abs_directory_path_from_file_path <br> ・Get an absolute directory path of a specified file. <br>・get_abs_module_dir_path <br> ・Get a specified module's absolute directory path. <br>・get_specified_ext_file_paths_recursively <br> ・Get specified extension file paths recursively. <br>・count_files_recursively <br> ・Count the existing files number in a specified directory.
+Files' common utilities implementation. Mainly following interfaces are defined: <br>・empty_directory <br> ・Empty specified directory. <br>・read_txt <br> ・Read specified file's text. <br>・save_plain_txt <br> ・Save plain text string to file. <br>・append_plain_txt <br> ・Append plain text string to file. <br>・remove_file_if_exists <br> ・Remove a specified file if it exists. <br>・get_abs_directory_path_from_file_path <br> ・Get an absolute directory path of a specified file. <br>・get_abs_module_dir_path <br> ・Get a specified module's absolute directory path. <br>・get_specified_ext_file_paths_recursively <br> ・Get specified extension file paths recursively. <br>・count_files_recursively <br> ・Count the existing files number in a specified directory. <br>・delete_file_if_exists <br> ・Delete a specified file if it exists.
 
 ## `append_plain_txt` function docstring
 
@@ -30,6 +30,22 @@ Count the existing files number in a specified directory recursively.<hr>
 
 - `count`: int
   - Existing files count.
+
+## `delete_file_if_exists` function docstring
+
+Delete a specified file if it exists.<hr>
+
+**[Parameters]**
+
+- `file_path`: str
+  - A target file path.
+
+<hr>
+
+**[Returns]**
+
+- `is_deleted`: bool
+  - This interface returns True if this interface executes deletion.
 
 ## `empty_directory` function docstring
 

@@ -4,17 +4,15 @@ Command example:
 $ python ./scripts/run_docs_e2e_tests.py
 """
 
-import os
-from typing import Dict, List, Optional
 import sys
-
-from playwright.sync_api import sync_playwright
-from playwright.sync_api import Playwright, Page, ConsoleMessage, Error
+from typing import Dict
+from typing import List
+from typing import Optional
 
 sys.path.append('./')
 
-from apysc._tests import e2e_testing_helper
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._tests import e2e_testing_helper
 
 _EXPECTED_ASSERTION_FAILED_MSGS: Dict[str, List[str]] = {
     'assert_equal_and_not_equal':

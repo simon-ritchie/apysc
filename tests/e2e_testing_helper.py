@@ -104,7 +104,8 @@ def _delete_local_file_assertion_error_logs(
 
     local_file_assertion_err_file_path: str = \
         _get_local_file_assertion_err_file_path(file_path=file_path)
-    pass
+    file_util.delete_file_if_exists(
+        file_path=local_file_assertion_err_file_path)
 
 
 _FILE_PATH_SUFFIX_LOCAL_FILE_PAGE_ERR: str = \

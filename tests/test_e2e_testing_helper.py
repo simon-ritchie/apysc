@@ -1,8 +1,10 @@
+import os
 from random import randint
 from typing import Callable
 
 from retrying import retry
 from playwright.sync_api import Playwright, Page, ConsoleMessage, Error, Browser
+from apysc._file import file_util
 
 from tests import e2e_testing_helper
 from apysc._lint_and_doc.docs_lang import Lang
@@ -177,6 +179,24 @@ def test__get_local_file_assertion_err_file_path() -> None:
         './tmp/e2e_testing_local_file_assertion_error_file'
         '___docs_en_index_html.log'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__delete_local_file_assertion_error_logs() -> None:
+    file_path: str = 'file://docs/en/index.html'
+    local_file_page_err_file_path: str = e2e_testing_helper.\
+        _get_local_file_page_err_file_path(file_path=file_path)
+    file_util.save_plain_txt(txt='', file_path=local_file_page_err_file_path)
+
+    local_file_assertion_err_file_path: str = e2e_testing_helper.\
+        _get_local_file_assertion_err_file_path(file_path=file_path)
+    file_util.save_plain_txt(
+        txt='', file_path=local_file_assertion_err_file_path)
+
+    e2e_testing_helper._delete_local_file_assertion_error_logs(
+        file_path=file_path)
+    assert not os.path.exists(local_file_page_err_file_path)
+    assert not os.path.exists(local_file_assertion_err_file_path)
 
 
 # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

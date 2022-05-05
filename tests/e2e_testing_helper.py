@@ -102,6 +102,10 @@ def _delete_local_file_assertion_error_logs(
     pass
 
 
+_FILE_PATH_SUFFIX_LOCAL_FILE_PAGE_ERR: str = \
+    'e2e_testing_local_file_page_error_'
+
+
 def _get_local_file_page_err_file_path(*, file_path: str) -> str:
     """
     Get a page error's log file path of a local file.
@@ -118,7 +122,11 @@ def _get_local_file_page_err_file_path(*, file_path: str) -> str:
     """
     file_path = _replace_paths_symbols_by_underscore(
         file_path=file_path)
-    pass
+    os.makedirs('./tmp/', exist_ok=True)
+    log_file_path: str = (
+        f'./tmp/{_FILE_PATH_SUFFIX_LOCAL_FILE_PAGE_ERR}{file_path}.log'
+    )
+    return log_file_path
 
 
 def _replace_paths_symbols_by_underscore(*, file_path: str) -> str:

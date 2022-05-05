@@ -6,7 +6,7 @@ from retrying import retry
 from playwright.sync_api import Playwright, Page, ConsoleMessage, Error, Browser
 from apysc._file import file_util
 
-from tests import e2e_testing_helper
+from apysc._tests import e2e_testing_helper
 from apysc._lint_and_doc.docs_lang import Lang
 from tests.testing_helper import assert_raises
 

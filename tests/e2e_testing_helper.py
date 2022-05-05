@@ -70,6 +70,7 @@ def assert_local_file_not_raises_error(
     """
     logger.info(
         f'Local file\'s assertion started: {file_path}')
+    _delete_local_file_assertion_error_logs(file_path=file_path)
     with sync_playwright() as p:
         browser: Browser = p.chromium.launch()
         page: Page = browser.new_page()
@@ -84,6 +85,60 @@ def assert_local_file_not_raises_error(
             f=_get_local_file_page_err_handler(
                 file_path=file_path))
         page.goto(url=file_path)
+
+
+def _delete_local_file_assertion_error_logs(
+        *, file_path: str) -> None:
+    """
+    Delete local files assertion error logs files if exist.
+
+    Parameters
+    ----------
+    file_path : str
+        A target local file path.
+    """
+    local_file_page_err_file_path: str = _get_local_file_page_err_file_path(
+        file_path=file_path)
+    pass
+
+
+def _get_local_file_page_err_file_path(*, file_path: str) -> str:
+    """
+    Get a page error's log file path of a local file.
+
+    Parameters
+    ----------
+    file_path : str
+        A target local file path.
+
+    Returns
+    -------
+    log_file_path : str
+        A page error's log file path of a local file.
+    """
+    file_path = _replace_paths_symbols_by_underscore(
+        file_path=file_path)
+    pass
+
+
+def _replace_paths_symbols_by_underscore(*, file_path: str) -> str:
+    """
+    Replace path's symbols by the underscore symbol.
+
+    Parameters
+    ----------
+    file_path : str
+        A target file path.
+
+    Returns
+    -------
+    file_path : str
+        A result file path.
+    """
+    symbols: List[str] = [':', '/', '.']
+    for symbol in symbols:
+        file_path = file_path.replace(symbol, '_')
+    return file_path
 
 
 def _get_local_file_page_err_handler(

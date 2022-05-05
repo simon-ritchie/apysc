@@ -150,6 +150,13 @@ def test__get_local_file_page_err_handler() -> None:
     )
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__replace_paths_symbols_by_underscore() -> None:
+    file_path: str = e2e_testing_helper._replace_paths_symbols_by_underscore(
+        file_path='file://docs/en/index.html')
+    assert file_path == 'file___docs_en_index_html'
+
+
 # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 # def test_assert_local_file_not_raises_error() -> None:
 #     file_path: str = e2e_testing_helper.get_docs_local_file_path(

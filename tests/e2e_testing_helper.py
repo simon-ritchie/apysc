@@ -11,6 +11,7 @@ from random import randint
 from datetime import datetime
 import sys
 import traceback
+import time
 
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import Playwright, Page, ConsoleMessage, Error, Browser
@@ -72,20 +73,22 @@ def assert_local_file_not_raises_error(
         f'Local file\'s assertion started: {file_path}')
     _delete_local_file_assertion_error_logs(file_path=file_path)
     with sync_playwright() as p:
-        browser: Browser = p.chromium.launch()
-        page: Page = browser.new_page()
-        page.on(
-            event='console',
-            f=_get_local_file_console_event_handler(
-                file_path=file_path,
-                expected_assert_f_msgs=expected_assertion_failed_msgs,
-            ))
-        page.on(
-            event='pageerror',
-            f=_get_local_file_page_err_handler(
-                file_path=file_path))
-        page.goto(url=file_path)
-    _assert_local_file_error_log_not_exits(file_path=file_path)
+        for _ in range(5):
+            browser: Browser = p.chromium.launch()
+            page: Page = browser.new_page()
+            page.on(
+                event='console',
+                f=_get_local_file_console_event_handler(
+                    file_path=file_path,
+                    expected_assert_f_msgs=expected_assertion_failed_msgs,
+                ))
+            page.on(
+                event='pageerror',
+                f=_get_local_file_page_err_handler(
+                    file_path=file_path))
+            page.goto(url=file_path)
+            _assert_local_file_error_log_not_exits(file_path=file_path)
+    _delete_local_file_assertion_error_logs(file_path=file_path)
 
 
 def _assert_local_file_error_log_not_exits(*, file_path: str) -> None:
@@ -296,6 +299,7 @@ def _get_local_file_console_event_handler(
             f'\nError message: {message.text}'
         )
         file_util.save_plain_txt(txt=err_msg, file_path=log_file_path)
+        print('Saving error log:\n', err_msg)
         raise AssertionError(err_msg)
 
     return handler

@@ -230,22 +230,22 @@ def test__assert_local_file_error_log_not_exits() -> None:
         kwargs={'file_path': file_path})
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-# def test_assert_local_file_not_raises_error() -> None:
-#     file_path: str = e2e_testing_helper.get_docs_local_file_path(
-#         lang=Lang.EN, file_name='index')
-#     e2e_testing_helper.assert_local_file_not_raises_error(
-#         file_path=file_path)
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_assert_local_file_not_raises_error() -> None:
+    file_path: str = e2e_testing_helper.get_docs_local_file_path(
+        lang=Lang.EN, file_name='index')
+    e2e_testing_helper.assert_local_file_not_raises_error(
+        file_path=file_path)
 
-#     file_path = e2e_testing_helper.get_docs_local_file_path(
-#         lang=Lang.EN, file_name='assert_equal_and_not_equal')
-#     assert_raises(
-#         expected_error_class=AssertionError,
-#         func_or_method=e2e_testing_helper.
-#         assert_local_file_not_raises_error,
-#         kwargs={
-#             'file_path': file_path,
-#             'expected_assertion_failed_msgs': ['Test error!'],
-#         },
-#         match='There is an unexpected assertion error',
-#     )
+    file_path = e2e_testing_helper.get_docs_local_file_path(
+        lang=Lang.EN, file_name='assert_equal_and_not_equal')
+    assert_raises(
+        expected_error_class=AssertionError,
+        func_or_method=e2e_testing_helper.
+        assert_local_file_not_raises_error,
+        kwargs={
+            'file_path': file_path,
+            'expected_assertion_failed_msgs': ['Test error!'],
+        },
+        match='There is an unexpected assertion error',
+    )

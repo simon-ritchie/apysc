@@ -182,6 +182,8 @@ jobs:
           python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}/x64/bin/pytest
+      - name: Install playwright and Chromium
+        run: playwright install chromium
       - name: Run the test runner command
         uses: nick-fields/retry@v2
         with:
@@ -220,6 +222,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/pytest
+      - name: Install playwright and Chromium
+        run: playwright install chromium
       - name: Run the test runner command
         run: python ./scripts/run_tests.py
 

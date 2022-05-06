@@ -4,6 +4,7 @@ Command example:
 $ python ./scripts/run_docs_e2e_tests.py
 """
 
+import os
 import sys
 from typing import Dict
 from typing import List
@@ -33,10 +34,7 @@ _EXPECTED_ASSERTION_FAILED_MSGS: Dict[str, List[str]] = {
 def _main() -> None:
     """Entry point of this script.
     """
-    file_names: List[str] = [
-        'index',
-        'assert_equal_and_not_equal',
-    ]
+    file_names: List[str] = _get_file_names()
     for file_name in file_names:
         file_path: str = e2e_testing_helper.get_docs_local_file_path(
             lang=Lang.EN, file_name=file_name)
@@ -45,6 +43,29 @@ def _main() -> None:
         e2e_testing_helper.assert_local_file_not_raises_error(
             file_path=file_path,
             expected_assertion_failed_msgs=expected_assertion_failed_msgs)
+
+
+def _get_file_names() -> List[str]:
+    """
+    Get target document's file names.
+
+    Returns
+    -------
+    file_names : List[str]
+        Target document's file names.'
+    """
+    file_names: List[str] = []
+    for lang in Lang:
+        dir_path: str = f'./docs/{lang.value}/'
+        file_names_: List[str] = os.listdir(dir_path)
+        file_name: str
+        for file_name in file_names_:
+            if not file_name.endswith('.html'):
+                continue
+            file_name = file_name.rsplit(sep='.', maxsplit=1)[0]
+            file_names.append(file_name)
+    return file_names
+
 
 
 if __name__ == '__main__':

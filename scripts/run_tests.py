@@ -7,7 +7,6 @@ $ python ./scripts/run_tests.py
 
 import sys
 from logging import Logger
-from typing import List
 
 sys.path.append('./')
 

@@ -18,13 +18,14 @@ Mainly following interfaces and defined.
 """
 
 import re
-from typing import Any, List
+from typing import Any
+from typing import List
 from typing import TypeVar
 
 
 def escape_str(*, string: str) -> str:
     """
-    Escape special characters (e.g. line breaks of `\n`).
+    Escape special characters (e.g., line breaks of `\n`).
 
     Parameters
     ----------

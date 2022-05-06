@@ -11,7 +11,7 @@ import re
 import shutil
 import subprocess as sp
 import sys
-import warnings
+from distutils.dir_util import copy_tree
 from logging import Logger
 from typing import Any
 from typing import Dict
@@ -19,7 +19,6 @@ from typing import List
 from typing import Match
 from typing import Optional as Op
 from typing import Pattern
-from distutils.dir_util import copy_tree
 
 from typing_extensions import Final
 from typing_extensions import TypedDict

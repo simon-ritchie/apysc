@@ -13,10 +13,12 @@ Mainly following interfaces and defined.
     - Substitute text file by regular expression pattern.
 - replace_double_spaces_to_single_space
     - Replace double spaces with a single space.
+- get_tails_lines_str
+    - Get a tail's lines string from a specified string.
 """
 
 import re
-from typing import Any
+from typing import Any, List
 from typing import TypeVar
 
 
@@ -125,3 +127,24 @@ def replace_double_spaces_to_single_space(*, string: str) -> str:
     while '  ' in string:
         string = string.replace('  ', ' ')
     return string
+
+
+def get_tails_lines_str(*, string: str, n: int) -> str:
+    """
+    Get a tail's lines string from a specified string.
+
+    Parameters
+    ----------
+    string : str
+        A target string.
+    n : int
+        A Lines number.
+
+    Returns
+    -------
+    tails_lines_str : str
+        A tail's lines string
+    """
+    lines: List[str] = string.splitlines()
+    tails_lines_str: str = '\n'.join(lines[-n:])
+    return tails_lines_str

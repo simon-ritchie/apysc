@@ -60,3 +60,21 @@ def test_replace_double_spaces_to_single_space() -> None:
     string = string_util.replace_double_spaces_to_single_space(
         string=string)
     assert string == 'Lorem ipsum dolor sit amet'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_tails_lines_str() -> None:
+    string: str = (
+        'a'
+        '\nb'
+        '\nc'
+        '\nd'
+        '\ne'
+    )
+    tails_lines_str: str = string_util.get_tails_lines_str(
+        string=string, n=3)
+    assert tails_lines_str == (
+        'c'
+        '\nd'
+        '\ne'
+    )

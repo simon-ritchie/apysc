@@ -15,8 +15,18 @@ from apysc._lint_and_doc.docs_lang import Lang
 from apysc._tests import e2e_testing_helper
 
 _EXPECTED_ASSERTION_FAILED_MSGS: Dict[str, List[str]] = {
+    'assertion_basic_behavior':
+    ['', 'Values are not equal!'],
     'assert_equal_and_not_equal':
     ['Values are equal!', 'Values are not equal!'],
+    'assert_true_and_false':
+    ['Boolean value is not True!', 'Value is not Boolean(True)!'],
+    'assert_arrays_equal_and_arrays_not_equal':
+    ['Values are not equal!'],
+    'assert_dicts_equal_and_dicts_not_equal':
+    ['Values are not equal!'],
+    'assert_defined_and_undefined':
+    ['Value is not defined!'],
 }
 
 

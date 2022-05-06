@@ -7,10 +7,10 @@ $ python ./scripts/run_tests.py
 
 import sys
 from logging import Logger
+from typing import List
 
 sys.path.append('./')
 
-import scripts.command_util as command_util
 from apysc._console import loggers
 
 logger: Logger = loggers.get_info_logger()
@@ -25,12 +25,16 @@ def _main() -> None:
     Exception
         If there are any failed tests.
     """
+    import scripts.command_util as command_util
+    from apysc._string import string_util
     logger.info('testing command started.')
     stdout: str = command_util.run_command(
         command=(
             'pytest tests/ -v -s --workers auto'
         ))
-    if ' failed, ' in stdout or 'Traceback' in stdout:
+    tail_stdout: str = string_util.get_tails_lines_str(
+        string=stdout, n=10)
+    if ' failed, ' in tail_stdout:
         raise Exception('There are failed tests.')
 
 

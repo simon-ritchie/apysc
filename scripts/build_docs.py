@@ -19,9 +19,6 @@ from typing import List
 from typing import Match
 from typing import Optional as Op
 from typing import Pattern
-
-warnings.filterwarnings(
-    'ignore', message=r'.*The distutils package is deprecated.*')
 from distutils.dir_util import copy_tree
 
 from typing_extensions import Final

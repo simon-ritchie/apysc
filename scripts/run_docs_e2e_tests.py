@@ -12,7 +12,7 @@ from typing import Optional
 sys.path.append('./')
 
 from apysc._lint_and_doc.docs_lang import Lang
-from apysc._tests import e2e_testing_helper
+from apysc._testing import e2e_testing_helper
 
 _EXPECTED_ASSERTION_FAILED_MSGS: Dict[str, List[str]] = {
     'assertion_basic_behavior':

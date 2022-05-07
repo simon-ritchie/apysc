@@ -1,7 +1,7 @@
 """This module is for the documents' E2E testing.
 
 Command example:
-$ python ./scripts/run_docs_e2e_tests.py
+$ python ./scripts/run_docs_e2e_tests.py --lang en
 """
 
 import os
@@ -13,6 +13,9 @@ from multiprocessing import cpu_count
 from typing import Dict
 from typing import List
 from typing import Optional
+from argparse import ArgumentParser, Namespace
+
+from typing_extensions import TypedDict
 
 sys.path.append('./')
 
@@ -36,10 +39,16 @@ _EXPECTED_ASSERTION_FAILED_MSGS: Dict[str, List[str]] = {
 }
 
 
+class _CommandOptions(TypedDict):
+    lang: Lang
+
+
 def _main() -> None:
     """Entry point of this script.
     """
-    file_names: List[str] = _get_file_names()
+    command_options: _CommandOptions = _get_command_options()
+
+    file_names: List[str] = _get_file_names(lang=command_options['lang'])
     local_file_data_2dim_list: List[List[LocalFileData]] = \
         _create_local_file_data_2dim_list(file_names=file_names)
 
@@ -53,6 +62,29 @@ def _main() -> None:
     completed_futures = futures.as_completed(future_list)
     for future in completed_futures:
         future.result()
+
+
+def _get_command_options() -> _CommandOptions:
+    """
+    Get command's arguments options.
+
+    Returns
+    -------
+    options : _CommandOptions
+        Command's arguments options.
+    """
+    parser: ArgumentParser = ArgumentParser(
+        description='Run the documents\' E2E testing.')
+    parser.add_argument(
+        '-l', '--lang', action='store',
+        choices=[lang.value for lang in Lang],
+        type=str,
+        help='A target language setting (e.g., en).')
+    args: Namespace = parser.parse_args()
+    options: _CommandOptions = {
+        'lang': Lang(args.lang),
+    }
+    return options
 
 
 def _create_local_file_data_2dim_list(
@@ -124,9 +156,14 @@ def _get_expected_assertion_failed_msgs(
     return expected_assertion_failed_msgs
 
 
-def _get_file_names() -> List[str]:
+def _get_file_names(*, lang: Lang) -> List[str]:
     """
     Get target document's file names.
+
+    Parameters
+    ----------
+    lang : Lang
+        A target language.
 
     Returns
     -------
@@ -134,15 +171,14 @@ def _get_file_names() -> List[str]:
         Target document's file names.'
     """
     file_names: List[str] = []
-    for lang in Lang:
-        dir_path: str = f'./docs/{lang.value}/'
-        file_names_: List[str] = os.listdir(dir_path)
-        file_name: str
-        for file_name in file_names_:
-            if not file_name.endswith('.html'):
-                continue
-            file_name = file_name.rsplit(sep='.', maxsplit=1)[0]
-            file_names.append(file_name)
+    dir_path: str = f'./docs/{lang.value}/'
+    file_names_: List[str] = os.listdir(dir_path)
+    file_name: str
+    for file_name in file_names_:
+        if not file_name.endswith('.html'):
+            continue
+        file_name = file_name.rsplit(sep='.', maxsplit=1)[0]
+        file_names.append(file_name)
     return file_names
 
 

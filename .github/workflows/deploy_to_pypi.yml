@@ -255,6 +255,9 @@ jobs:
   RunDocE2ETest:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        lang: ['en', 'jp']
     timeout-minutes: 20
     steps:
       - name: Checkout
@@ -266,7 +269,7 @@ jobs:
       - name: Install playwright and Chromium
         run: playwright install chromium
       - name: Run the E2E test runner command
-        run: python ./scripts/run_docs_e2e_tests.py
+        run: python ./scripts/run_docs_e2e_tests.py --lang ${{ matrix.lang }}
 
   DeployToPyPI:
     needs: [

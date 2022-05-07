@@ -225,7 +225,11 @@ jobs:
       - name: Install playwright and Chromium
         run: playwright install chromium
       - name: Run the test runner command
-        run: python ./scripts/run_tests.py
+        uses: nick-fields/retry@v2
+        with:
+          timeout_seconds: 300
+          max_attempts: 3
+          command: python ./scripts/run_tests.py
 
   RunDocTest:
     needs: [CreateCache, SetGlobalConstants]

@@ -8,6 +8,8 @@ from typing import Callable
 from typing import List
 from typing import Optional as Op
 
+from typing_extensions import TypedDict
+
 from playwright.sync_api import Browser
 from playwright.sync_api import ConsoleMessage
 from playwright.sync_api import Error
@@ -43,50 +45,6 @@ def get_docs_local_file_path(
         f'docs/{lang.value}/{file_name}.html',
     )
     return file_path
-
-
-def assert_local_file_not_raises_error(
-        *, file_path: str,
-        expected_assertion_failed_msgs: Op[List[str]] = None) -> None:
-    """
-    Assert a specified local file does not raise an error.
-
-    Parameters
-    ----------
-    file_path : str
-        A target local file path. This path is necessary to
-        start with the `file://` prefix.
-    expected_assertion_failed_msgs : list of str or None, default None
-        Expected assertion failed messages.
-        If specified, this interface ignores these assertions'
-        error messages.
-
-    Raises
-    ------
-    AssertionError
-        If a specified (HTML or JavaScript) file
-        raises an exception.
-    """
-    logger.info(
-        f'Local file\'s assertion started: {file_path}')
-    _delete_local_file_assertion_error_logs(file_path=file_path)
-    with sync_playwright() as p:
-        for _ in range(5):
-            browser: Browser = p.chromium.launch()
-            page: Page = browser.new_page()
-            page.on(
-                event='console',
-                f=_get_local_file_console_event_handler(
-                    file_path=file_path,
-                    expected_assert_f_msgs=expected_assertion_failed_msgs,
-                ))
-            page.on(
-                event='pageerror',
-                f=_get_local_file_page_err_handler(
-                    file_path=file_path))
-            page.goto(url=file_path)
-            _assert_local_file_error_log_not_exits(file_path=file_path)
-    _delete_local_file_assertion_error_logs(file_path=file_path)
 
 
 def _assert_local_file_error_log_not_exits(*, file_path: str) -> None:
@@ -297,7 +255,50 @@ def _get_local_file_console_event_handler(
             f'\nError message: {message.text}'
         )
         file_util.save_plain_txt(txt=err_msg, file_path=log_file_path)
-        print('Saving error log:\n', err_msg)
         raise AssertionError(err_msg)
 
     return handler
+
+
+class LocalFileData(TypedDict):
+    file_path: str
+    expected_assertion_failed_msgs: Op[List[str]]
+
+
+def assert_local_files_not_raise_error(
+        *, local_file_data_list: List[LocalFileData]) -> None:
+    """
+    Assert specified local files do not raise an error.
+
+    Parameters
+    ----------
+    local_file_data_list : List[LocalFileData]
+        A target local file data list.
+
+    Raises
+    ------
+    AssertionError
+        If specified files raise an exception.
+    """
+    with sync_playwright() as p:
+        browser: Browser = p.chromium.launch()
+        for local_file_data in local_file_data_list:
+            file_path: str = local_file_data['file_path']
+            expected_assert_f_msgs: Op[List[str]] = local_file_data[
+                'expected_assertion_failed_msgs']
+            logger.info(
+                f'Local file\'s assertion started: {file_path}')
+            for _ in range(5):
+                page: Page = browser.new_page()
+                page.on(
+                    event='console',
+                    f=_get_local_file_console_event_handler(
+                        file_path=file_path,
+                        expected_assert_f_msgs=expected_assert_f_msgs,
+                    ))
+                page.on(
+                    event='pageerror',
+                    f=_get_local_file_page_err_handler(
+                        file_path=file_path))
+                page.goto(url=file_path)
+                _assert_local_file_error_log_not_exits(file_path=file_path)

@@ -1,6 +1,6 @@
 import os
 from random import randint
-from typing import Callable
+from typing import Callable, List
 
 from playwright.sync_api import ConsoleMessage
 from playwright.sync_api import Error
@@ -9,6 +9,7 @@ from retrying import retry
 from apysc._file import file_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._testing import e2e_testing_helper
+from apysc._testing.e2e_testing_helper import LocalFileData
 from tests.testing_helper import assert_raises
 
 
@@ -232,21 +233,24 @@ def test__assert_local_file_error_log_not_exits() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_assert_local_file_not_raises_error() -> None:
+def test_assert_local_files_not_raise_error() -> None:
     file_path: str = e2e_testing_helper.get_docs_local_file_path(
         lang=Lang.EN, file_name='index')
-    e2e_testing_helper.assert_local_file_not_raises_error(
-        file_path=file_path)
+    local_file_data_list: List[LocalFileData] = [{
+        'file_path': file_path,
+        'expected_assertion_failed_msgs': None,
+    }]
+    e2e_testing_helper.assert_local_files_not_raise_error(
+        local_file_data_list=local_file_data_list)
 
     file_path = e2e_testing_helper.get_docs_local_file_path(
         lang=Lang.EN, file_name='assert_equal_and_not_equal')
+    local_file_data_list = [{
+        'file_path': file_path,
+        'expected_assertion_failed_msgs': None,
+    }]
     assert_raises(
         expected_error_class=AssertionError,
-        func_or_method=e2e_testing_helper.
-        assert_local_file_not_raises_error,
-        kwargs={
-            'file_path': file_path,
-            'expected_assertion_failed_msgs': ['Test error!'],
-        },
-        match='There is an unexpected assertion error',
+        func_or_method=e2e_testing_helper.assert_local_files_not_raise_error,
+        kwargs={'local_file_data_list': local_file_data_list},
     )

@@ -6,6 +6,8 @@ $ python ./scripts/run_docs_e2e_tests.py --lang en
 
 import os
 import sys
+from argparse import ArgumentParser
+from argparse import Namespace
 from concurrent import futures
 from concurrent.futures import Future
 from concurrent.futures import ThreadPoolExecutor
@@ -13,7 +15,6 @@ from multiprocessing import cpu_count
 from typing import Dict
 from typing import List
 from typing import Optional
-from argparse import ArgumentParser, Namespace
 
 from typing_extensions import TypedDict
 

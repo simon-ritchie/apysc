@@ -8,13 +8,12 @@ from typing import Callable
 from typing import List
 from typing import Optional as Op
 
-from typing_extensions import TypedDict
-
 from playwright.sync_api import Browser
 from playwright.sync_api import ConsoleMessage
 from playwright.sync_api import Error
 from playwright.sync_api import Page
 from playwright.sync_api import sync_playwright
+from typing_extensions import TypedDict
 
 from apysc._console import loggers
 from apysc._lint_and_doc.docs_lang import Lang
@@ -78,7 +77,7 @@ def _assert_local_file_error_log_not_exits(*, file_path: str) -> None:
 def _delete_local_file_assertion_error_logs(
         *, file_path: str) -> None:
     """
-    Delete local files assertion error logs files if exist.
+    Delete local files assertion error logs files if they exist.
 
     Parameters
     ----------
@@ -150,7 +149,7 @@ def _get_local_file_page_err_file_path(*, file_path: str) -> str:
 
 def _replace_paths_symbols_by_underscore(*, file_path: str) -> str:
     """
-    Replace path's symbols by the underscore symbol.
+    Replace the path's symbols with the underscore symbol.
 
     Parameters
     ----------
@@ -181,7 +180,7 @@ def _get_local_file_page_err_handler(
 
     Returns
     -------
-    halder : Callable
+    handler : Callable
         A target handler.
     """
     from apysc._file import file_util
@@ -227,7 +226,7 @@ def _get_local_file_console_event_handler(
 
     Returns
     -------
-    halder : Callable
+    handler : Callable
         A target handler.
     """
     from apysc._file import file_util
@@ -284,6 +283,7 @@ def assert_local_files_not_raise_error(
         browser: Browser = p.chromium.launch()
         for local_file_data in local_file_data_list:
             file_path: str = local_file_data['file_path']
+            _delete_local_file_assertion_error_logs(file_path=file_path)
             expected_assert_f_msgs: Op[List[str]] = local_file_data[
                 'expected_assertion_failed_msgs']
             logger.info(

@@ -1,10 +1,11 @@
 from random import randint
-from typing import List, Optional
+from typing import List
+from typing import Optional
 
 from retrying import retry
 
-from scripts import run_docs_e2e_tests
 from apysc._testing.e2e_testing_helper import LocalFileData
+from scripts import run_docs_e2e_tests
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

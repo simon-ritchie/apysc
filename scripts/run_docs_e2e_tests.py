@@ -6,13 +6,13 @@ $ python ./scripts/run_docs_e2e_tests.py
 
 import os
 import sys
+from concurrent import futures
+from concurrent.futures import Future
+from concurrent.futures import ThreadPoolExecutor
+from multiprocessing import cpu_count
 from typing import Dict
 from typing import List
 from typing import Optional
-from concurrent import futures
-from concurrent.futures import ThreadPoolExecutor, Future
-from multiprocessing import cpu_count
-from multiprocessing import Process
 
 sys.path.append('./')
 
@@ -51,7 +51,6 @@ def _main() -> None:
                 local_file_data_list=local_file_data_list)
             future_list.append(future)
     completed_futures = futures.as_completed(future_list)
-    future: Future
     for future in completed_futures:
         future.result()
 
@@ -145,7 +144,6 @@ def _get_file_names() -> List[str]:
             file_name = file_name.rsplit(sep='.', maxsplit=1)[0]
             file_names.append(file_name)
     return file_names
-
 
 
 if __name__ == '__main__':

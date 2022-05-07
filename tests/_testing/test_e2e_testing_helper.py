@@ -1,6 +1,7 @@
 import os
 from random import randint
-from typing import Callable, List
+from typing import Callable
+from typing import List
 
 from playwright.sync_api import ConsoleMessage
 from playwright.sync_api import Error

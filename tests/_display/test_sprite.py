@@ -7,7 +7,7 @@ import apysc as ap
 from apysc._display.graphics import Graphics
 from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 class TestSprite:

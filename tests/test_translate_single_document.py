@@ -11,7 +11,7 @@ from scripts.translate_single_document import _InvalidDocBuildStatusCode
 from scripts.translate_single_document import _SourceFileIsNotEnglish
 from scripts.translate_single_document import _SourceFileNotFound
 from scripts.translate_single_document import _UndefinedLanguage
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 _TEST_DOC_SRC_PATH: str = './docs_src/source/sprite.md'
 _TEST_HASH_FILE_PATH_1: str = lint_and_doc_hash_util.\

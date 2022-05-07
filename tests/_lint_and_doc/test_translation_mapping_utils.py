@@ -13,7 +13,7 @@ from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

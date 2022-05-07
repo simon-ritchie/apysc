@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_x_interface import AnimationXInterface
 from apysc._expression import expression_data_util
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationXInterface:

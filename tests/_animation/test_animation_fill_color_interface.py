@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_fill_color_interface import \
     AnimationFillColorInterface
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationFillColorInterface:

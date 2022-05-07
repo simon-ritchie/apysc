@@ -6,7 +6,7 @@ import apysc as ap
 from apysc._display.x_interface import XInterface
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationX:

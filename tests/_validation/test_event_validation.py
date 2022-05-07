@@ -1,6 +1,6 @@
 import apysc as ap
 from apysc._validation import event_validation
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 def test_validate_event() -> None:

@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.line_color_interface import LineColorInterface
 from apysc._expression import var_names
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationLineColor:

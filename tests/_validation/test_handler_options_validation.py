@@ -4,7 +4,7 @@ from retrying import retry
 from typing_extensions import TypedDict
 
 from apysc._validation import handler_options_validation
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 class _TestTypedDict(TypedDict):

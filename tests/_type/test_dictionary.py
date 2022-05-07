@@ -13,7 +13,7 @@ from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.any_value import AnyValue
 from apysc._type.expression_string import ExpressionString
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestDictionary:

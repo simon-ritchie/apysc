@@ -8,7 +8,7 @@ from typing import List
 from retrying import retry
 
 from apysc._jslib import jslib_util
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

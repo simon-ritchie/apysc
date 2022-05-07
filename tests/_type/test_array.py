@@ -12,7 +12,7 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 class TestArray:

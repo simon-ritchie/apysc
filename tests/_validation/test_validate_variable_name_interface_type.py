@@ -1,7 +1,7 @@
 import apysc as ap
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import variable_name_validation
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 def test_validate_variable_name_interface_type() -> None:

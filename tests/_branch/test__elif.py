@@ -10,7 +10,7 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestElif:

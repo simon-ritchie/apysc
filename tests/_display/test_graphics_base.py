@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.graphics_base import GraphicsBase
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 class TestGraphicsBase:

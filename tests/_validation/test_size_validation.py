@@ -1,5 +1,5 @@
 from apysc._validation import size_validation
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 def test_validate_size_is_int() -> None:

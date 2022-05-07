@@ -11,7 +11,7 @@ from apysc._file import file_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._testing import e2e_testing_helper
 from apysc._testing.e2e_testing_helper import LocalFileData
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

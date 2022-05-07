@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_height_for_ellipse_interface import \
     AnimationHeightForEllipseInterface
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationHeightForEllipseInterface:

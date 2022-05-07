@@ -6,7 +6,7 @@ import apysc as ap
 from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestReturn:

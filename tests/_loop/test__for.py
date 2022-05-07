@@ -9,7 +9,7 @@ from apysc._expression import last_scope
 from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._loop import loop_count
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 class TestFor:

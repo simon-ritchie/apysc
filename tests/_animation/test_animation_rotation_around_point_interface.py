@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.rotation_around_point_interface import \
     RotationAroundPointInterface
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationRotationAroundPointInterface:

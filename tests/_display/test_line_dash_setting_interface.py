@@ -8,7 +8,7 @@ from retrying import retry
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dash_setting_interface import LineDashSettingInterface
 from apysc._expression import expression_data_util
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestLineDashSettingInterface:

@@ -22,8 +22,8 @@ from scripts.build_docs import _IndexMdUnderscoresReplacer
 from scripts.build_docs import _MarkdownData
 from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
-from tests.testing_helper import assert_attrs
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_raises
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/hashed_vals/stage.md',

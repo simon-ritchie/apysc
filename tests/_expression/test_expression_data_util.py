@@ -12,7 +12,7 @@ from apysc._expression import indent_num
 from apysc._expression.expression_data_util import _LimitClauseCantUseError
 from apysc._expression.indent_num import Indent
 from apysc._type.variable_name_interface import VariableNameInterface
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

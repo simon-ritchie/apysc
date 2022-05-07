@@ -18,8 +18,8 @@ from apysc._lint_and_doc.docstring_util import _DocstringCallableNotExistsError
 from apysc._lint_and_doc.docstring_util import _DocstringPathNotFoundError
 from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
 from apysc._lint_and_doc.docstring_util import _SectionPattern
-from tests.testing_helper import assert_attrs
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -10,8 +10,8 @@ import apysc as ap
 from apysc._display import stage
 from apysc._display.display_object import DisplayObject
 from apysc._expression import expression_data_util
-from tests import testing_helper
-from tests.testing_helper import assert_raises
+from apysc._testing import testing_helper
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestStage:

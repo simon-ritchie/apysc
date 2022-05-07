@@ -13,7 +13,7 @@ from apysc._expression import expression_data_util
 from apysc._expression import indent_num
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 class IfSubClass(IfBase):

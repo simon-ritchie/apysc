@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._validation import path_validation
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

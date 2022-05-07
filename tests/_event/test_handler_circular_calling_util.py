@@ -9,7 +9,7 @@ from apysc._event import handler_circular_calling_util
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._type.variable_name_interface import VariableNameInterface
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

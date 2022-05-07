@@ -1,6 +1,6 @@
 import apysc as ap
 from apysc._time.fps import FPSDefinition
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestFPSDefinition:

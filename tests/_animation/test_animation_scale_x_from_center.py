@@ -7,8 +7,8 @@ from apysc._display.scale_x_from_center_interface import \
     ScaleXFromCenterInterface
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
-from tests.testing_helper import assert_attrs
-from tests.testing_helper import assert_raises
+from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestAnimationScaleXFromCenter:

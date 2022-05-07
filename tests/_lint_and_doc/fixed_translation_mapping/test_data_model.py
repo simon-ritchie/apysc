@@ -12,7 +12,7 @@ from apysc._lint_and_doc.fixed_translation_mapping import data_model
 from apysc._lint_and_doc.fixed_translation_mapping import jp
 from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mapping
 from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mappings
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestMapping:

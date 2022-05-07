@@ -9,7 +9,7 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._html import debug_mode
 from apysc._html.debug_mode import DebugInfo
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

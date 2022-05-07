@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._validation import parent_validation
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

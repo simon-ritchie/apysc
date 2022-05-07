@@ -5,7 +5,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.line_style_interface import LineStyleInterface
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 class TestLineStyleInterface:

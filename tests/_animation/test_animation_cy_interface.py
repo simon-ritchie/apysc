@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._animation.animation_cy_interface import AnimationCyInterface
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationCyInterface:

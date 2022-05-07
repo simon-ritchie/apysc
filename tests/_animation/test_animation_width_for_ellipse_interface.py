@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_width_for_ellipse_interface import \
     AnimationWidthForEllipseInterface
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationWidthForEllipseInterface:

@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.scale_x_from_center_interface import \
     ScaleXFromCenterInterface
-from tests.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationScaleXFromCenterInterface:

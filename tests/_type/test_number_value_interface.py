@@ -13,7 +13,7 @@ from apysc._display.x_interface import XInterface
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.number_value_interface import NumberValueInterface
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 class TestNumberValueInterface:

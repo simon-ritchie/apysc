@@ -9,7 +9,7 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._html import html_util
 from apysc._html.html_util import ScriptLineUtil
-from tests import testing_helper
+from apysc._testing import testing_helper
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -288,7 +288,7 @@ def assert_local_files_not_raise_error(
                 'expected_assertion_failed_msgs']
             logger.info(
                 f'Local file\'s assertion started: {file_path}')
-            for _ in range(5):
+            for _ in range(3):
                 page: Page = browser.new_page()
                 page.on(
                     event='console',

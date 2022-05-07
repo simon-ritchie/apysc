@@ -9,11 +9,16 @@ import sys
 from typing import Dict
 from typing import List
 from typing import Optional
+from concurrent import futures
+from concurrent.futures import ThreadPoolExecutor, Future
+from multiprocessing import cpu_count
+from multiprocessing import Process
 
 sys.path.append('./')
 
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._testing import e2e_testing_helper
+from apysc._testing.e2e_testing_helper import LocalFileData
 
 _EXPECTED_ASSERTION_FAILED_MSGS: Dict[str, List[str]] = {
     'assertion_basic_behavior':
@@ -35,14 +40,63 @@ def _main() -> None:
     """Entry point of this script.
     """
     file_names: List[str] = _get_file_names()
+    local_file_data_2dim_list: List[List[LocalFileData]] = \
+        _create_local_file_data_2dim_list(file_names=file_names)
+
+    future_list: List[Future] = []
+    with ThreadPoolExecutor(max_workers=cpu_count()) as executor:
+        for local_file_data_list in local_file_data_2dim_list:
+            future: Future = executor.submit(
+                e2e_testing_helper.assert_local_files_not_raise_error,
+                local_file_data_list=local_file_data_list)
+            future_list.append(future)
+    completed_futures = futures.as_completed(future_list)
+    future: Future
+    for future in completed_futures:
+        future.result()
+
+
+def _create_local_file_data_2dim_list(
+        *,
+        file_names: List[str],
+        single_list_max_len: int = 30) -> List[List[LocalFileData]]:
+    """
+    Create a local file data's 2-dimensional list.
+
+    Parameters
+    ----------
+    file_names : List[str]
+        A target file names list.
+    single_list_max_len : int, optional
+        A single list's maximum length.
+
+    Returns
+    -------
+    local_file_data_2dim_list : List[List[LocalFileData]]
+        A local file data's 2-dimensional list.
+    """
+    local_file_data_2dim_list: List[List[LocalFileData]] = []
+    count: int = 0
     for file_name in file_names:
+        if count == 0:
+            local_file_data_2dim_list.append([])
+        lang: Lang = Lang.EN
+        for lang_ in Lang:
+            if file_name.startswith(lang_.value):
+                lang = lang_
+                break
         file_path: str = e2e_testing_helper.get_docs_local_file_path(
-            lang=Lang.EN, file_name=file_name)
+            lang=lang, file_name=file_name)
         expected_assertion_failed_msgs: Optional[List[str]] = \
             _get_expected_assertion_failed_msgs(file_name=file_name)
-        e2e_testing_helper.assert_local_file_not_raises_error(
-            file_path=file_path,
-            expected_assertion_failed_msgs=expected_assertion_failed_msgs)
+        local_file_data_2dim_list[-1].append({
+            'file_path': file_path,
+            'expected_assertion_failed_msgs': expected_assertion_failed_msgs,
+        })
+        count += 1
+        if count >= single_list_max_len:
+            count = 0
+    return local_file_data_2dim_list
 
 
 def _get_expected_assertion_failed_msgs(

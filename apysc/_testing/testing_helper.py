@@ -10,8 +10,10 @@ from typing import Type
 
 import pytest
 
+from apysc._file import file_util
 
-def make_blank_file(file_path: str) -> None:
+
+def make_blank_file(*, file_path: str) -> None:
     """
     Make a blank file. If there is no directory of file, also create
     parent directory.
@@ -21,10 +23,7 @@ def make_blank_file(file_path: str) -> None:
     file_path : str
         File path to make.
     """
-    dir_path: str = os.path.dirname(file_path)
-    os.makedirs(dir_path, exist_ok=True)
-    with open(file_path, 'w') as f:
-        f.write(file_path)
+    file_util.save_plain_txt(txt='', file_path=file_path)
 
 
 def _assert_has_attr(any_obj: Any, attr_name: str) -> None:

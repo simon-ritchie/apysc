@@ -75,7 +75,7 @@ def assert_attrs(
 
 
 def assert_attrs_type(
-        expected_types: Dict[str, Type], any_obj: Any) -> None:
+        *, expected_types: Dict[str, Type], any_obj: Any) -> None:
     """
     Check a specified object's attribute types.
 

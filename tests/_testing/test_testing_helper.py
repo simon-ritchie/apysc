@@ -80,3 +80,29 @@ def test_assert_raises() -> None:
         expected_error_class=ValueError,
         func_or_method=_test_func_1,
         match='Test error!')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_assert_attrs_type() -> None:
+
+    class _TestClass:
+
+        a: int = 10
+        b: str = ''
+
+    test_instance: _TestClass = _TestClass()
+    testing_helper.assert_attrs_type(
+        expected_types={
+            'a': int,
+            'b': str,
+        },
+        any_obj=test_instance)
+
+    testing_helper.assert_raises(
+        expected_error_class=AssertionError,
+        func_or_method=testing_helper.assert_attrs_type,
+        kwargs={
+            'expected_types': {'a': int, 'b': int},
+            'any_obj': test_instance,
+        },
+        match='Attribute type is different from expected type.')

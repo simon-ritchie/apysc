@@ -36,3 +36,35 @@ def test__assert_has_attr() -> None:
         func_or_method=testing_helper._assert_has_attr,
         kwargs={'any_obj': test_instance, 'attr_name': 'b'},
         match='Expected attribute does not exists.')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_assert_attrs() -> None:
+
+    class _TestClass:
+
+        a: int = 10
+        b: str = ''
+
+    test_instance: _TestClass = _TestClass()
+    testing_helper.assert_attrs(
+        expected_attrs={'a': 10, 'b': ''},
+        any_obj=test_instance)
+
+    testing_helper.assert_raises(
+        expected_error_class=AssertionError,
+        func_or_method=testing_helper.assert_attrs,
+        kwargs={
+            'expected_attrs': {'c': 20},
+            'any_obj': test_instance,
+        },
+        match='Expected attribute does not exists.')
+
+    testing_helper.assert_raises(
+        expected_error_class=AssertionError,
+        func_or_method=testing_helper.assert_attrs,
+        kwargs={
+            'expected_attrs': {'a': 20},
+            'any_obj': test_instance,
+        },
+        match='Attribute value is different from expected value.')

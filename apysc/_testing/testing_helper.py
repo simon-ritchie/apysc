@@ -44,7 +44,8 @@ def _assert_has_attr(*, any_obj: Any, attr_name: str) -> None:
     assert hasattr(any_obj, attr_name), msg
 
 
-def assert_attrs(expected_attrs: Dict[str, Any], any_obj: Any) -> None:
+def assert_attrs(
+        *, expected_attrs: Dict[str, Any], any_obj: Any) -> None:
     """
     Check a specified object's attributes.
 

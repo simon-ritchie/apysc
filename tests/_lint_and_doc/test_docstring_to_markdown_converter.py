@@ -123,13 +123,23 @@ class _SampleClass(Process):
         ...
 '''
 
-_RANDOM_INT: int = randint(0, 1000000000)
-_TEST_MODULE_DIR_PATH: str = (
-    f'./tmp/test_docstring_to_markdown_converter_{_RANDOM_INT}/'
-)
-_TEST_MODULE_PATH: str = os.path.join(
-    _TEST_MODULE_DIR_PATH, 'test_module_1.py'
-)
+_test_module_dir_path: str = ''
+_test_module_path: str = ''
+
+
+def _update_test_dir_and_module_paths() -> None:
+    """
+    Update test directory and module paths.
+    """
+    global _test_module_dir_path, _test_module_path
+    random_int: int = randint(0, 1000000000)
+    _test_module_dir_path = (
+        f'./tmp/test_docstring_to_markdown_converter_{random_int}/'
+    )
+    _test_module_path = os.path.join(
+        _test_module_dir_path, 'test_module_1.py'
+    )
+
 
 
 def _read_test_module() -> ModuleType:
@@ -141,19 +151,20 @@ def _read_test_module() -> ModuleType:
     module : ModuleType
         Read module.
     """
+    global _test_module_path
     count: int = 0
     while True:
         try:
             _save_test_module()
             module: ModuleType = module_util.read_target_path_module(
-                module_path=_TEST_MODULE_PATH)
+                module_path=_test_module_path)
             importlib.reload(module)
             break
         except Exception:
             traceback_: str = traceback.format_exc()
-            time.sleep(randint(1, 5))
+            time.sleep(randint(1, 2))
             count += 1
-        if count > 10:
+        if count > 3:
             print(traceback_)
             raise Exception('Failed to read a module for testing.')
         continue
@@ -163,22 +174,25 @@ def _read_test_module() -> ModuleType:
 def _save_test_module() -> None:
     """Save the test module.
     """
+    global _test_module_dir_path, _test_module_path
+    _update_test_dir_and_module_paths()
     os.makedirs('./tmp/', exist_ok=True)
     file_util.append_plain_txt(
         txt='',
         file_path='./tmp/__init__.py')
-    os.makedirs(_TEST_MODULE_DIR_PATH, exist_ok=True)
-    init_path: str = os.path.join(_TEST_MODULE_DIR_PATH, '__init__.py')
+    os.makedirs(_test_module_dir_path, exist_ok=True)
+    init_path: str = os.path.join(_test_module_dir_path, '__init__.py')
     file_util.save_plain_txt(txt='', file_path=init_path)
     file_util.save_plain_txt(
-        txt=_MODULE_STR, file_path=_TEST_MODULE_PATH)
+        txt=_MODULE_STR, file_path=_test_module_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def _remove_test_module_dir() -> None:
     """Remove the test modules directory.
     """
-    shutil.rmtree(_TEST_MODULE_DIR_PATH, ignore_errors=True)
+    global _test_module_dir_path
+    shutil.rmtree(_test_module_dir_path, ignore_errors=True)
 
 
 def teardown() -> None:
@@ -339,12 +353,13 @@ def test__append_toplevel_class_docstring_to_markdown() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__convert_module_docstring_to_markdown() -> None:
+    global _test_module_path
     _save_test_module()
     markdown: str = docstring_to_markdown_converter.\
         _convert_module_docstring_to_markdown(
-            module_path=_TEST_MODULE_PATH)
+            module_path=_test_module_path)
     expected_strs: List[str] = [
-        f'# `tmp.test_docstring_to_markdown_converter_{_RANDOM_INT}.'
+        f'# `tmp.test_docstring_to_markdown_converter_',
         'test_module_1` docstrings',
         '## Module summary',
         '## `sample_func_1` function docstring',
@@ -365,9 +380,10 @@ def test__convert_module_docstring_to_markdown() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__save_markdown() -> None:
+    global _test_module_path
     _save_test_module()
     markdown_file_path: str = docstring_to_markdown_converter._save_markdown(
-        module_path=_TEST_MODULE_PATH,
+        module_path=_test_module_path,
     )
     match: Optional[Match] = re.match(
         pattern=(
@@ -391,19 +407,20 @@ def test__save_markdown() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_convert_recursively() -> None:
+    global _test_module_dir_path, _test_module_path
     _save_test_module()
     shutil.rmtree('./docstring_markdowns/tmp/', ignore_errors=True)
     subdir_path: str = os.path.join(
-        _TEST_MODULE_DIR_PATH,
+        _test_module_dir_path,
         'subdir/',
     )
     os.makedirs(subdir_path, exist_ok=True)
     txt_path: str = os.path.join(
-        _TEST_MODULE_DIR_PATH,
+        _test_module_dir_path,
         'test.txt',
     )
     file_util.save_plain_txt(txt='test', file_path=txt_path)
-    init_path: str = os.path.join(_TEST_MODULE_DIR_PATH, '__init__.py')
+    init_path: str = os.path.join(_test_module_dir_path, '__init__.py')
 
     saved_markdown_file_paths: List[str] = docstring_to_markdown_converter.\
         convert_recursively(dir_path='./not/existing/dir/')
@@ -411,7 +428,7 @@ def test_convert_recursively() -> None:
 
     hash_file_path_1: str = \
         lint_and_doc_hash_util.get_target_file_hash_file_path(
-            file_path=_TEST_MODULE_PATH,
+            file_path=_test_module_path,
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
     hash_file_path_2: str = \
         lint_and_doc_hash_util.get_target_file_hash_file_path(
@@ -420,14 +437,14 @@ def test_convert_recursively() -> None:
     for hash_file_path in (hash_file_path_1, hash_file_path_2):
         file_util.remove_file_if_exists(file_path=hash_file_path)
     saved_markdown_file_paths = docstring_to_markdown_converter.\
-        convert_recursively(dir_path=_TEST_MODULE_DIR_PATH)
+        convert_recursively(dir_path=_test_module_dir_path)
     assert len(saved_markdown_file_paths) == 2
     assert (
         'test_module_1.md' in saved_markdown_file_paths[0]
         or 'test_module_1.md' in saved_markdown_file_paths[1])
 
     saved_markdown_file_paths = docstring_to_markdown_converter.\
-        convert_recursively(dir_path=_TEST_MODULE_DIR_PATH)
+        convert_recursively(dir_path=_test_module_dir_path)
     assert saved_markdown_file_paths == []
 
     shutil.rmtree('./docstring_markdowns/tmp/', ignore_errors=True)

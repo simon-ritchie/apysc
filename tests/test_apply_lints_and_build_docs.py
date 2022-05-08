@@ -10,8 +10,8 @@ from retrying import retry
 import scripts.apply_lints_and_build_docs as apply_lints_and_build_docs
 from apysc._file import file_util
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
-from scripts.apply_lints_and_build_docs import LintCommand
 from apysc._testing.testing_helper import assert_raises
+from scripts.apply_lints_and_build_docs import LintCommand
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

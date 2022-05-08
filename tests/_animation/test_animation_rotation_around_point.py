@@ -7,9 +7,9 @@ from apysc._display import rotation_interface_helper
 from apysc._display.rotation_around_point_interface import \
     RotationAroundPointInterface
 from apysc._expression import var_names
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class TestAnimationRotationAroundPoint:

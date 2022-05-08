@@ -4,9 +4,9 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.display_object import DisplayObject
-from apysc._validation import display_validation
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import assert_raises
+from apysc._validation import display_validation
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

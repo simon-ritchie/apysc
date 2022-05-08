@@ -1,6 +1,6 @@
 import apysc as ap
-from apysc._validation import color_validation
 from apysc._testing import testing_helper
+from apysc._validation import color_validation
 
 
 def test_validate_hex_color_code_format() -> None:

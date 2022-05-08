@@ -9,8 +9,8 @@ from apysc._event import handler
 from apysc._event.handler import HandlerData
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._testing import testing_helper
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class _TestClass1(VariableNameInterface):

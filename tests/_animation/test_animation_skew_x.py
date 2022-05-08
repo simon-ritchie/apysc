@@ -5,9 +5,9 @@ from retrying import retry
 import apysc as ap
 from apysc._display.skew_x_interface import SkewXInterface
 from apysc._expression import var_names
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class TestAnimationSkewX:

@@ -1,6 +1,6 @@
 import apysc as ap
-from apysc._validation import geom_validation
 from apysc._testing.testing_helper import assert_raises
+from apysc._validation import geom_validation
 
 
 def test_validate_point_2d_type() -> None:

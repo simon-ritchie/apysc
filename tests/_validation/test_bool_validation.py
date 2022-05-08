@@ -1,5 +1,5 @@
-from apysc._validation import bool_validation
 from apysc._testing import testing_helper
+from apysc._validation import bool_validation
 
 
 def test_validate_bool() -> None:

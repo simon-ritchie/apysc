@@ -6,8 +6,8 @@ import apysc as ap
 from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
 from apysc._expression import var_names
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._testing.testing_helper import assert_attrs
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class TestAnimationHeightForEllipse:

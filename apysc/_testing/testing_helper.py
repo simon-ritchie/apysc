@@ -1,7 +1,6 @@
 """Common testing helper implementations.
 """
 
-import os
 from typing import Any
 from typing import Callable
 from typing import Dict
@@ -15,8 +14,8 @@ from apysc._file import file_util
 
 def make_blank_file(*, file_path: str) -> None:
     """
-    Make a blank file. If there is no directory of file, also create
-    parent directory.
+    Make a blank file. If there is no directory, also create
+    a parent directory.
 
     Parameters
     ----------
@@ -59,7 +58,7 @@ def assert_attrs(
     Raises
     ------
     AssertionError
-        If expected attribute value not exists or different.
+        If an expected attribute value does not exist or differ.
     """
     for attr_name, expected_value in expected_attrs.items():
         _assert_has_attr(any_obj=any_obj, attr_name=attr_name)
@@ -89,7 +88,7 @@ def assert_attrs_type(
     Raises
     ------
     AssertionError
-        If any attribute type different from expected type.
+        If any attribute type differs from an expected type.
     """
     for attr_name, expected_type in expected_types.items():
         _assert_has_attr(any_obj=any_obj, attr_name=attr_name)
@@ -110,7 +109,7 @@ def assert_raises(
         kwargs: Optional[Dict[str, Any]] = None,
         match: Optional[str] = None) -> None:
     """
-    Check that specified callable will raise exception.
+    Check that a specified callable raises exception.
 
     Parameters
     ----------
@@ -126,7 +125,7 @@ def assert_raises(
     Raises
     ------
     AssertionError
-        If specified error not be raised.
+        If a specified interface does not raise an error.
     """
     if kwargs is None:
         kwargs = {}

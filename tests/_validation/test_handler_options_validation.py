@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 from typing_extensions import TypedDict
 
-from apysc._validation import handler_options_validation
 from apysc._testing.testing_helper import assert_raises
+from apysc._validation import handler_options_validation
 
 
 class _TestTypedDict(TypedDict):

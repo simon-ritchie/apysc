@@ -141,7 +141,6 @@ def _update_test_dir_and_module_paths() -> None:
     )
 
 
-
 def _read_test_module() -> ModuleType:
     """
     Read a module for testing.
@@ -359,7 +358,7 @@ def test__convert_module_docstring_to_markdown() -> None:
         _convert_module_docstring_to_markdown(
             module_path=_test_module_path)
     expected_strs: List[str] = [
-        f'# `tmp.test_docstring_to_markdown_converter_',
+        '# `tmp.test_docstring_to_markdown_converter_',
         'test_module_1` docstrings',
         '## Module summary',
         '## `sample_func_1` function docstring',

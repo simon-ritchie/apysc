@@ -105,6 +105,7 @@ def assert_attrs_type(
 
 
 def assert_raises(
+        *,
         expected_error_class: type, func_or_method: Callable,
         kwargs: Optional[Dict[str, Any]] = None,
         match: Optional[str] = None) -> None:

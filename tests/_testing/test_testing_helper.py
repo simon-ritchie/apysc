@@ -68,3 +68,15 @@ def test_assert_attrs() -> None:
             'any_obj': test_instance,
         },
         match='Attribute value is different from expected value.')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_assert_raises() -> None:
+
+    def _test_func_1() -> None:
+        raise ValueError('Test error!')
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=_test_func_1,
+        match='Test error!')

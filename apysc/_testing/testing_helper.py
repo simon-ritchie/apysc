@@ -26,7 +26,7 @@ def make_blank_file(*, file_path: str) -> None:
     file_util.save_plain_txt(txt='', file_path=file_path)
 
 
-def _assert_has_attr(any_obj: Any, attr_name: str) -> None:
+def _assert_has_attr(*, any_obj: Any, attr_name: str) -> None:
     """
     Check object has specified attribute.
 
@@ -38,7 +38,7 @@ def _assert_has_attr(any_obj: Any, attr_name: str) -> None:
         Expected attribute name.
     """
     msg: str = (
-        'Expected attribute not exists.'
+        'Expected attribute does not exists.'
         f'\nAttribute name: {attr_name}'
     )
     assert hasattr(any_obj, attr_name), msg

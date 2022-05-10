@@ -13,6 +13,7 @@ from argparse import ArgumentParser
 from argparse import Namespace
 from string import ascii_lowercase
 
+from tqdm import tqdm
 from typing_extensions import TypedDict
 
 sys.path.append('./')
@@ -32,7 +33,45 @@ def _main() -> None:
     command_options: _CommandOptions = _get_command_options()
     document_file_paths: List[str] = _get_target_document_file_paths(
         alphabets_group=command_options['alphabets_group'])
+    document_file_path: str
+    for document_file_path in tqdm(document_file_paths):
+        _run_document_code_blocks(document_file_path=document_file_path)
     pass
+
+
+class _CodeBlockError(Exception):
+    pass
+
+
+def _run_document_code_blocks(*, document_file_path: str) -> None:
+    """
+    Run a specified document's code blocks and check whether
+    there is no exception.
+
+    Parameters
+    ----------
+    document_file_path : str
+        A target document file path.
+
+    Raises
+    ------
+    _CodeBlockError
+        If a code block raises an exception.
+    """
+    from scripts.build_docs import get_runnable_scripts_in_md_code_blocks
+    from apysc._file.module_util import save_tmp_module_and_run_script
+    code_blocks: List[str] = get_runnable_scripts_in_md_code_blocks(
+        md_file_path=document_file_path)
+    for code_block in code_blocks:
+        stdout: str = save_tmp_module_and_run_script(script=code_block)
+        print('stdout:', stdout)
+        if 'Traceback' not in stdout:
+            continue
+        raise _CodeBlockError(
+            'There is an exception in the code block execution.'
+            f'\nDocument file path: {document_file_path}'
+            f'\nCode block:\n\n{code_block}'
+            f'\n\nStdout:\n\n{stdout}')
 
 
 def _get_target_document_file_paths(

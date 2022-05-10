@@ -1,10 +1,12 @@
+import os
 from random import randint
 from typing import List
 
 from retrying import retry
+from apysc._file import file_util
 
 from scripts import check_docs_code_block_error
-from scripts.check_docs_code_block_error import _CommandOptions
+from scripts.check_docs_code_block_error import _CommandOptions, _CodeBlockError
 from apysc._testing.testing_helper import assert_raises
 
 
@@ -52,3 +54,27 @@ def test__get_target_document_file_paths() -> None:
     assert './docs_src/source/jp_sprite.md' not in document_file_paths
     assert './docs_src/source/sprite.md' not in document_file_paths
     assert './docs_src/source/_static/' not in document_file_paths
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__run_document_code_blocks() -> None:
+    test_md_file_path: str = './tmp/test_check_docs_code_block_error_1.md'
+    file_util.save_plain_txt(
+        txt=(
+            '```py'
+            '\n# runnable'
+            "\nraise Exception('Test error!')"
+            '\n```'
+        ),
+        file_path=test_md_file_path)
+    assert_raises(
+        expected_error_class=_CodeBlockError,
+        func_or_method=check_docs_code_block_error._run_document_code_blocks,
+        kwargs={
+            'document_file_path': test_md_file_path,
+        },
+        match='There is an exception in the code block execution.')
+    file_util.remove_file_if_exists(file_path=test_md_file_path)
+
+    check_docs_code_block_error._run_document_code_blocks(
+        document_file_path='./docs_src/source/sprite.md')

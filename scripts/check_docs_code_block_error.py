@@ -2,7 +2,7 @@
 each document's code block execution result.
 
 Command examples:
-$ python scripts/check_docs_code_block_error --alphabets_group abcdef
+$ python scripts/check_docs_code_block_error.py --alphabets_group abcdef
 """
 
 import os
@@ -36,7 +36,6 @@ def _main() -> None:
     document_file_path: str
     for document_file_path in tqdm(document_file_paths):
         _run_document_code_blocks(document_file_path=document_file_path)
-    pass
 
 
 class _CodeBlockError(Exception):
@@ -60,11 +59,13 @@ def _run_document_code_blocks(*, document_file_path: str) -> None:
     """
     from scripts.build_docs import get_runnable_scripts_in_md_code_blocks
     from apysc._file.module_util import save_tmp_module_and_run_script
+    logger.info(
+        f'Checking the {os.path.basename(document_file_path)} document\'s '
+        'code blocks...')
     code_blocks: List[str] = get_runnable_scripts_in_md_code_blocks(
         md_file_path=document_file_path)
     for code_block in code_blocks:
         stdout: str = save_tmp_module_and_run_script(script=code_block)
-        print('stdout:', stdout)
         if 'Traceback' not in stdout:
             continue
         raise _CodeBlockError(

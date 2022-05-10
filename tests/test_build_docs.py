@@ -139,9 +139,9 @@ save_overall_html(
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_runnable_scripts_in_md_code_blocks() -> None:
+def test_get_runnable_scripts_in_md_code_blocks() -> None:
     tmp_md_file_path: str = (
-        '../tmp_test__get_runnable_scripts_in_md_code_blocks.md')
+        '../tmp_test_get_runnable_scripts_in_md_code_blocks.md')
     md_txt: str = """Hello
 
 ```py
@@ -165,7 +165,7 @@ print(300)
     with open(tmp_md_file_path, 'w') as f:
         f.write(md_txt)
     runnable_scripts: List[str] = \
-        build_docs._get_runnable_scripts_in_md_code_blocks(
+        build_docs.get_runnable_scripts_in_md_code_blocks(
             md_file_path=tmp_md_file_path)
     assert len(runnable_scripts) == 1
     assert runnable_scripts == (

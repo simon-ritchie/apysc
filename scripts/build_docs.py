@@ -713,7 +713,7 @@ def _make_script_data_list(
     is_limit: bool = False
     script_data_list: List[_ScriptData] = []
     for markdown_data in markdown_data_list:
-        runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
+        runnable_scripts: List[str] = get_runnable_scripts_in_md_code_blocks(
             md_file_path=markdown_data['md_file_path'])
         for runnable_script in runnable_scripts:
             script_data_list.append({
@@ -901,7 +901,7 @@ class _CodeBlock:
         self.runnable = runnable
 
 
-def _get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
+def get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
     """
     Get runnable Python scripts in the markdown code blocks.
 

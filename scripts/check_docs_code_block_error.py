@@ -7,11 +7,11 @@ $ python scripts/check_docs_code_block_error.py --alphabets_group abcdef
 
 import os
 import sys
-from logging import Logger
-from typing import List
 from argparse import ArgumentParser
 from argparse import Namespace
+from logging import Logger
 from string import ascii_lowercase
+from typing import List
 
 from tqdm import tqdm
 from typing_extensions import TypedDict
@@ -57,8 +57,8 @@ def _run_document_code_blocks(*, document_file_path: str) -> None:
     _CodeBlockError
         If a code block raises an exception.
     """
-    from scripts.build_docs import get_runnable_scripts_in_md_code_blocks
     from apysc._file.module_util import save_tmp_module_and_run_script
+    from scripts.build_docs import get_runnable_scripts_in_md_code_blocks
     logger.info(
         f'Checking the {os.path.basename(document_file_path)} document\'s '
         'code blocks...')

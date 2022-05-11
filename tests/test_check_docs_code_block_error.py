@@ -1,13 +1,12 @@
-import os
 from random import randint
 from typing import List
 
 from retrying import retry
-from apysc._file import file_util
 
-from scripts import check_docs_code_block_error
-from scripts.check_docs_code_block_error import _CommandOptions, _CodeBlockError
+from apysc._file import file_util
 from apysc._testing.testing_helper import assert_raises
+from scripts import check_docs_code_block_error
+from scripts.check_docs_code_block_error import _CodeBlockError
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

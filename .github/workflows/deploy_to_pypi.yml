@@ -230,7 +230,7 @@ jobs:
           command: python ./scripts/run_tests.py
 
   CheckDocsCodeBlockError:
-    needs: ['RunTestsOnEachPythonVersion']
+    needs: [CreateCache, SetGlobalConstants, RunTestsOnEachPythonVersion]
     runs-on: ubuntu-latest
     strategy:
       matrix:

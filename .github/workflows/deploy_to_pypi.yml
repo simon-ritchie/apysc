@@ -220,8 +220,6 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Set the pytest alias
-        run: alias pytest=/opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/pytest
       - name: Install playwright and Chromium
         run: playwright install chromium
       - name: Run the test runner command
@@ -230,6 +228,28 @@ jobs:
           timeout_seconds: 300
           max_attempts: 3
           command: python ./scripts/run_tests.py
+
+  CheckDocsCodeBlockError:
+    needs: ['RunTestsOnEachPythonVersion']
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        alphabets-group: [
+          'a',
+          'bcdef',
+          'g',
+          'hijklmnopqrstuvwxyz',
+        ]
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run the checking command
+        run: python ./scripts/check_docs_code_block_error.py --alphabets_group ${{ matrix.alphabets-group }}
 
   RunDocTest:
     needs: [CreateCache, SetGlobalConstants]
@@ -283,7 +303,7 @@ jobs:
       RunPyright,
       RunCheckingApyscTopLevelImporting,
       RunTestsAndSaveCoverageAndPassingNum,
-      RunTestsOnEachPythonVersion,
+      CheckDocsCodeBlockError,
       RunDocTest,
       RunDocE2ETest,
       SetGlobalConstants,
@@ -313,7 +333,7 @@ jobs:
       RunPyright,
       RunCheckingApyscTopLevelImporting,
       RunTestsAndSaveCoverageAndPassingNum,
-      RunTestsOnEachPythonVersion,
+      CheckDocsCodeBlockError,
       RunDocTest,
       RunDocE2ETest,
       SetGlobalConstants,
@@ -350,7 +370,7 @@ jobs:
       RunCheckingApyscTopLevelImporting,
       UpdateReadmeBadgesToCheckingStatus,
       RunTestsAndSaveCoverageAndPassingNum,
-      RunTestsOnEachPythonVersion,
+      CheckDocsCodeBlockError,
       RunDocTest,
       RunDocE2ETest,
       SetGlobalConstants,

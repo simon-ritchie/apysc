@@ -247,7 +247,7 @@ jobs:
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}
       - name: Run the checking command
         run: python ./scripts/check_docs_code_block_error.py --alphabets_group ${{ matrix.alphabets-group }}
 

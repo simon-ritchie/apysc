@@ -6,6 +6,7 @@ interfaces and definitions.
 from typing import Any, Dict, List
 from argparse import ArgumentParser
 from argparse import Namespace
+from string import ascii_lowercase
 
 
 def add_alphabets_group_arg_to_parser(
@@ -30,3 +31,43 @@ def add_alphabets_group_arg_to_parser(
         'the file or directory that a name starts with `a` or `b` or `c` '
         'becomes target one.',
     )
+
+
+def split_alphabets_group_str(
+        *, alphabets_group_str: str) -> List[str]:
+    """
+    Split an alphabets group string to a list.
+
+    Parameters
+    ----------
+    alphabets_group_str : str
+        A target alphabets group string.
+
+    Returns
+    -------
+    alphabets_group : List[str]
+        A splitted alphabets' list.
+
+    Raises
+    ------
+    ValueError
+        - If a specified string is blank.
+        - If a specified string contains non-alphabets characters.
+        - If there is a duplicated alphabets in a specified string.
+    """
+    if alphabets_group_str == '':
+        raise ValueError(
+            'An `--alphabets_group` argument\' value cannot be blank.')
+    alphabets_group: List[str] = []
+    for alphabet in alphabets_group_str:
+        alphabet = alphabet.lower()
+        if alphabet not in ascii_lowercase:
+            raise ValueError(
+                'There is a non-alphabet character in a specified '
+                f'`--alphabets_group` argument\'s value: {alphabet}')
+        alphabets_group.append(alphabet)
+    if len(alphabets_group) != len(set(alphabets_group)):
+        raise ValueError(
+            'There are duplicated alphabets in a specified '
+            f'`--alphabets_group` argument\'s value: {alphabets_group}')
+    return alphabets_group

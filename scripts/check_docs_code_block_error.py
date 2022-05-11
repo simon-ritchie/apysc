@@ -10,7 +10,6 @@ import sys
 from argparse import ArgumentParser
 from argparse import Namespace
 from logging import Logger
-from string import ascii_lowercase
 from typing import List
 
 from tqdm import tqdm
@@ -148,52 +147,12 @@ def _get_command_options() -> _CommandOptions:
         'error in each document\'s code block execution result.')
     alphabets_group_param.add_alphabets_group_arg_to_parser(parser=parser)
     args: Namespace = parser.parse_args()
-    alphabets_group: List[str] = _split_alphabets_group_str(
-        alphabets_group_str=args.alphabets_group)
+    alphabets_group: List[str] = alphabets_group_param.\
+        split_alphabets_group_str(alphabets_group_str=args.alphabets_group)
     options: _CommandOptions = {
         'alphabets_group': alphabets_group,
     }
     return options
-
-
-def _split_alphabets_group_str(
-        *, alphabets_group_str: str) -> List[str]:
-    """
-    Split an alphabets group string to a list.
-
-    Parameters
-    ----------
-    alphabets_group_str : str
-        A target alphabets group string.
-
-    Returns
-    -------
-    alphabets_group : List[str]
-        A splitted alphabets' list.
-
-    Raises
-    ------
-    ValueError
-        - If a specified string is blank.
-        - If a specified string contains non-alphabets characters.
-        - If there is a duplicated alphabets in a specified string.
-    """
-    if alphabets_group_str == '':
-        raise ValueError(
-            'An `--alphabets_group` argument\' value cannot be blank.')
-    alphabets_group: List[str] = []
-    for alphabet in alphabets_group_str:
-        alphabet = alphabet.lower()
-        if alphabet not in ascii_lowercase:
-            raise ValueError(
-                'There is a non-alphabet character in a specified '
-                f'`--alphabets_group` argument\'s value: {alphabet}')
-        alphabets_group.append(alphabet)
-    if len(alphabets_group) != len(set(alphabets_group)):
-        raise ValueError(
-            'There are duplicated alphabets in a specified '
-            f'`--alphabets_group` argument\'s value: {alphabets_group}')
-    return alphabets_group
 
 
 if __name__ == '__main__':

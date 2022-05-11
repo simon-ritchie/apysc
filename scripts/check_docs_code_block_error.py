@@ -19,6 +19,7 @@ from typing_extensions import TypedDict
 sys.path.append('./')
 
 from apysc._console import loggers
+from scripts import alphabets_group_param
 
 logger: Logger = loggers.get_info_logger()
 
@@ -145,17 +146,7 @@ def _get_command_options() -> _CommandOptions:
     parser: ArgumentParser = ArgumentParser(
         description='The command for checking whether there is no '
         'error in each document\'s code block execution result.')
-    parser.add_argument(
-        '-a',
-        '--alphabets_group',
-        action='store',
-        type=str,
-        default='',
-        help='An alphabets group string. This command uses this argument '
-        'to split target documents. For instance, if `abc` is specified, '
-        'the document that a file name starts with `a` or `b` or `c` '
-        'becomes checking target.',
-    )
+    alphabets_group_param.add_alphabets_group_arg_to_parser(parser=parser)
     args: Namespace = parser.parse_args()
     alphabets_group: List[str] = _split_alphabets_group_str(
         alphabets_group_str=args.alphabets_group)

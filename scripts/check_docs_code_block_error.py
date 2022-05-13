@@ -18,7 +18,6 @@ from typing_extensions import TypedDict
 sys.path.append('./')
 
 from apysc._console import loggers
-from scripts import alphabets_group_param
 
 logger: Logger = loggers.get_info_logger()
 
@@ -142,6 +141,7 @@ def _get_command_options() -> _CommandOptions:
     options : _CommandOptions
         Command argument values and options.
     """
+    from scripts import alphabets_group_param
     parser: ArgumentParser = ArgumentParser(
         description='The command for checking whether there is no '
         'error in each document\'s code block execution result.')

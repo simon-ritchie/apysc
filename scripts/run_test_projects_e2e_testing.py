@@ -15,6 +15,8 @@ from typing import List
 from tqdm import tqdm
 from typing_extensions import TypedDict
 
+from tqdm import tqdm
+
 sys.path.append('./')
 
 from apysc._console import loggers
@@ -32,7 +34,29 @@ def _main() -> None:
     command_options: _CommandOptions = _get_command_options()
     main_module_paths: List[str] = _get_target_test_project_main_module_paths(
         alphabets_group=command_options['alphabets_group'])
+    for main_module_path in main_module_paths:
+        _run_test_project_command(main_module_path=main_module_path)
+        pass
     pass
+
+
+def _run_test_project_command(*, main_module_path: str) -> None:
+    """
+    Run a specified main.py module's test project command.
+
+    Parameters
+    ----------
+    main_module_path : str
+        A target main.py module's path.
+    """
+    from scripts import command_util
+    stdout: str = command_util.run_command(
+        command=f'python {main_module_path}')
+    if 'Traceback' in stdout:
+        raise Exception(
+            'There is an error in a test project\'s command.'
+            f'\nTarget module path: {main_module_path}'
+            f'\nStdout:\n\n{stdout}')
 
 
 def _get_target_test_project_main_module_paths(

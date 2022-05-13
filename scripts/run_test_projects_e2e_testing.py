@@ -30,7 +30,41 @@ def _main() -> None:
     """Entry point of this command.
     """
     command_options: _CommandOptions = _get_command_options()
+    main_module_paths: List[str] = _get_target_test_project_main_module_paths(
+        alphabets_group=command_options['alphabets_group'])
     pass
+
+
+def _get_target_test_project_main_module_paths(
+        *, alphabets_group: List[str]) -> List[str]:
+    """
+    Get target test projects' main.py module paths.
+
+    Parameters
+    ----------
+    alphabets_group : List[str]
+        A target alphabets group characters' list.
+
+    Returns
+    -------
+    main_module_paths : List[str]
+        Target test projects' main.py module paths.
+    """
+    main_module_paths: List[str] = []
+    project_dir_names: List[str] = os.listdir('./test_projects/')
+    for project_dir_name in project_dir_names:
+        first_lower_char: str = project_dir_name[0].lower()
+        if first_lower_char not in alphabets_group:
+            continue
+        project_dir_path: str = os.path.join(
+            './test_projects/', f'{project_dir_name}/')
+        if not os.path.isdir(project_dir_path):
+            continue
+        main_module_path: str = os.path.join(project_dir_path, 'main.py')
+        if not os.path.exists(main_module_path):
+            continue
+        main_module_paths.append(main_module_path)
+    return main_module_paths
 
 
 def _get_command_options() -> _CommandOptions:

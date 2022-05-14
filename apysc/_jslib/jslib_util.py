@@ -19,7 +19,6 @@ import sys
 from types import ModuleType
 from typing import List
 
-
 _HIGH_PRIORITY_FILE_ORDERS: List[str] = [
     'jquery.min.js',
 ]

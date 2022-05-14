@@ -4,6 +4,22 @@
 
 Common JavaScript library utility implementations. Mainly the following interfaces are defined: <br>・get_jslib_file_names Get the JavaScript libraries file's names. <br>・get_jslib_abs_dir_path Get the Javascript library's absolute directory path. This interface returns this module's directory. <br>・export_jslib_to_specified_dir Export a JavaScript library to a specified directory. <br>・read_jslib_str Read a JavaScript library file str.
 
+## `_sort_js_file_names_with_priority_setting` function docstring
+
+Sort a JavaScript libraries' file names list with the priority setting.<hr>
+
+**[Parameters]**
+
+- `jslib_file_names`: List[str]
+  - A target list to sort.
+
+<hr>
+
+**[Returns]**
+
+- `sorted_jslib_file_names`: List[str]
+  - A sorted list.
+
 ## `export_jslib_to_specified_dir` function docstring
 
 Export a JavaScript library to a specified directory.<hr>

@@ -31,7 +31,7 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `slice(self, *, start:Union[int, apysc._type.int.Int, NoneType]=None, end:Union[int, apysc._type.int.Int, NoneType]=None) -> 'Array'`<hr>
+**[Interface signature]** `slice(self, *, start: Union[int, apysc._type.int.Int, NoneType] = None, end: Union[int, apysc._type.int.Int, NoneType] = None) -> 'Array'`<hr>
 
 **[Interface summary]** Slice this array by specified start and end indexes.<hr>
 

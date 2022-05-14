@@ -54,7 +54,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `trace(*args:Any) -> None`<hr>
+**[Interface signature]** `trace(*args: Any) -> None`<hr>
 
 **[Interface summary]** Display arguments information to console. This function saves a JavaScript `console.log` expression.<hr>
 

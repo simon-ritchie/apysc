@@ -68,7 +68,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_css(self, name:Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
+**[Interface signature]** `get_css(self, name: Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
 
 **[Interface summary]** Get a CSS value string.<hr>
 
@@ -104,7 +104,7 @@ String('none')
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `set_css(self, name:Union[str, apysc._type.string.String], value:Union[str, apysc._type.string.String]) -> None`<hr>
+**[Interface signature]** `set_css(self, name: Union[str, apysc._type.string.String], value: Union[str, apysc._type.string.String]) -> None`<hr>
 
 **[Interface summary]** Set a specified value string to the CSS.<hr>
 

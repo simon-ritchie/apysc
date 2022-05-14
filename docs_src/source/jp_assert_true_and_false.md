@@ -153,7 +153,7 @@ Left value: false right value: false
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `assert_true(value:Any, *, type_strict:bool=True, msg:str='') -> None`<hr>
+**[インターフェイスの構造]** `assert_true(value: Any, *, type_strict: bool = True, msg: str = '') -> None`<hr>
 
 **[インターフェイス概要]** JavaScript上の真（true）条件のチェックを行うインターフェイスです。<hr>
 
@@ -183,7 +183,7 @@ Left value: false right value: false
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `assert_false(value:Any, *, type_strict:bool=True, msg:str='') -> None`<hr>
+**[インターフェイスの構造]** `assert_false(value: Any, *, type_strict: bool = True, msg: str = '') -> None`<hr>
 
 **[インターフェイス概要]** JavaScript上の偽（false）条件のチェックを行うインターフェイスです。<hr>
 

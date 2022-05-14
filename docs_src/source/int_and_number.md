@@ -88,7 +88,7 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value:Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`<hr>
 
 **[Interface summary]** Integer class for apysc library.<hr>
 
@@ -138,7 +138,7 @@ Int(10)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value:Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`<hr>
 
 **[Interface summary]** Floating point number class for apysc library.<hr>
 

@@ -164,7 +164,7 @@ animation_move.start()
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `animation_complete(self, handler:Callable[[_ForwardRef('animation_event.AnimationEvent'), ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> 'AnimationBase'`<hr>
+**[インターフェイスの構造]** `animation_complete(self, handler: Callable[[ForwardRef('animation_event.AnimationEvent'), ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> 'AnimationBase'`<hr>
 
 **[インターフェイス概要]** アニメーション終了時のイベントリスナーの設定を追加します。<hr>
 

@@ -33,7 +33,7 @@ assert got_val_3 is None
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `get(self, key:Union[~_K, apysc._type.expression_string.ExpressionString], *, default:~DefaultType=None) -> ~DefaultType`<hr>
+**[インターフェイスの構造]** `get(self, key: Union[~_K, apysc._type.expression_string.ExpressionString], *, default: ~DefaultType = None) -> ~DefaultType`<hr>
 
 **[インターフェイス概要]** 指定されたキーの辞書の値を取得します。もし辞書が指定されたキーを持っていない場合はデフォルト値を返却します。<hr>
 

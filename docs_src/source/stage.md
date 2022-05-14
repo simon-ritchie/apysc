@@ -81,7 +81,7 @@ This option is useful when using the apysc project multiple times (for an easily
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, stage_width:int=300, stage_height:int=185, background_color:str='#ffffff', add_to:str='body', stage_elem_id:Union[str, NoneType]=None) -> None`<hr>
+**[Interface signature]** `__init__(self, *, stage_width: int = 300, stage_height: int = 185, background_color: str = '#ffffff', add_to: str = 'body', stage_elem_id: Union[str, NoneType] = None) -> None`<hr>
 
 **[Interface summary]** Create Stage (overall viewport) instance.<hr>
 
@@ -141,7 +141,7 @@ This option is useful when using the apysc project multiple times (for an easily
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `add_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
+**[Interface signature]** `add_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
 **[Interface summary]** Add display object child to this instance.<hr>
 
@@ -177,7 +177,7 @@ This option is useful when using the apysc project multiple times (for an easily
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `remove_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
+**[Interface signature]** `remove_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
 **[Interface summary]** Remove display object child from this instance.<hr>
 
@@ -214,7 +214,7 @@ None
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `contains(self, child:apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`<hr>
+**[Interface signature]** `contains(self, child: apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`<hr>
 
 **[Interface summary]** Get a boolean whether this instance contains a specified child.<hr>
 
@@ -297,7 +297,7 @@ Int(2)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_child_at(self, index:Union[int, apysc._type.int.Int]) -> apysc._display.display_object.DisplayObject`<hr>
+**[Interface signature]** `get_child_at(self, index: Union[int, apysc._type.int.Int]) -> apysc._display.display_object.DisplayObject`<hr>
 
 **[Interface summary]** Get child at a specified index.<hr>
 

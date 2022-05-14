@@ -102,7 +102,7 @@ assert bool_3
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value:Union[int, apysc._type.int.Int, _ForwardRef('Boolean')]) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[bool, int, apysc._type.int.Int, ForwardRef('Boolean')]) -> None`<hr>
 
 **[Interface summary]** Boolean class for apysc library.<hr>
 

@@ -88,7 +88,7 @@ assert dict_1 == {}
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value:Union[Dict[~_K, ~_V], _ForwardRef('Dictionary')]) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[Dict[~_K, ~_V], ForwardRef('Dictionary')]) -> None`<hr>
 
 **[Interface summary]** Dictionary class for the apysc library.<hr>
 

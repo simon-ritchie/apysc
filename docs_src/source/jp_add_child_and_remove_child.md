@@ -141,7 +141,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `add_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
+**[インターフェイスの構造]** `add_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
 **[インターフェイス概要]** 表示オブジェクトの子をこのインスタンスへと追加します。<hr>
 
@@ -169,7 +169,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `remove_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
+**[インターフェイスの構造]** `remove_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
 **[インターフェイス概要]** このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr>
 

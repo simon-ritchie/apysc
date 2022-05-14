@@ -36,7 +36,7 @@ assert arr == [1, 3]
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `remove(self, value:~T) -> None`<hr>
+**[インターフェイスの構造]** `remove(self, value: ~T) -> None`<hr>
 
 **[インターフェイス概要]** 指定された値をこの配列から取り除きます。<hr>
 
@@ -61,7 +61,7 @@ Array([1, 5])
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `remove_at(self, index:Union[int, apysc._type.int.Int]) -> None`<hr>
+**[インターフェイスの構造]** `remove_at(self, index: Union[int, apysc._type.int.Int]) -> None`<hr>
 
 **[インターフェイス概要]** 指定されたインデックスの位置の値を配列から取り除きます。<hr>
 

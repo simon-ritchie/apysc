@@ -166,7 +166,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `get_scale_x_from_point(self, x:apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+**[インターフェイスの構造]** `get_scale_x_from_point(self, x: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
 
 **[インターフェイス概要]** 指定されたX座標を基準として水平方向の拡縮の値を取得します。<hr>
 
@@ -203,7 +203,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `set_scale_x_from_point(self, scale_x:apysc._type.number.Number, x:apysc._type.int.Int) -> None`<hr>
+**[インターフェイスの構造]** `set_scale_x_from_point(self, scale_x: apysc._type.number.Number, x: apysc._type.int.Int) -> None`<hr>
 
 **[インターフェイス概要]** 指定されたX座病を基準とした水平方向の拡縮値を更新します。<hr>
 
@@ -236,7 +236,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `get_scale_y_from_point(self, y:apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+**[インターフェイスの構造]** `get_scale_y_from_point(self, y: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
 
 **[インターフェイス概要]** 指定されたY座標を基準とした垂直方向の拡縮の値を取得します。<hr>
 
@@ -273,7 +273,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `set_scale_y_from_point(self, scale_y:apysc._type.number.Number, y:apysc._type.int.Int) -> None`<hr>
+**[インターフェイスの構造]** `set_scale_y_from_point(self, scale_y: apysc._type.number.Number, y: apysc._type.int.Int) -> None`<hr>
 
 **[インターフェイス概要]** 指定されたY座標を基準とした垂直方向の拡縮値を更新します。<hr>
 

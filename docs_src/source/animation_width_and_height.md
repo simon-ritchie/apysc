@@ -171,7 +171,7 @@ animation_width.start()
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `animation_width(self, width:Union[int, apysc._type.int.Int], *, duration:Union[int, apysc._type.int.Int]=3000, delay:Union[int, apysc._type.int.Int]=0, easing:apysc._animation.easing.Easing=<Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_width.AnimationWidth`<hr>
+**[Interface signature]** `animation_width(self, width: Union[int, apysc._type.int.Int], *, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_width.AnimationWidth`<hr>
 
 **[Interface summary]** Set the width animation setting.<hr>
 
@@ -232,7 +232,7 @@ To start this animation, you need to call the `start` method of the returned ins
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `animation_height(self, height:Union[int, apysc._type.int.Int], *, duration:Union[int, apysc._type.int.Int]=3000, delay:Union[int, apysc._type.int.Int]=0, easing:apysc._animation.easing.Easing=<Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_height.AnimationHeight`<hr>
+**[Interface signature]** `animation_height(self, height: Union[int, apysc._type.int.Int], *, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_height.AnimationHeight`<hr>
 
 **[Interface summary]** Set the height animation setting.<hr>
 

@@ -101,7 +101,7 @@ assert bool_3
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, value:Union[int, apysc._type.int.Int, _ForwardRef('Boolean')]) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, value: Union[bool, int, apysc._type.int.Int, ForwardRef('Boolean')]) -> None`<hr>
 
 **[インターフェイス概要]** apyscライブラリ用の真偽値のクラスです。<hr>
 

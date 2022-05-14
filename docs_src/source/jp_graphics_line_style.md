@@ -476,7 +476,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `line_style(self, color:~StrOrString, *, thickness:Union[int, apysc._type.int.Int]=1, alpha:Union[float, apysc._type.number.Number]=1.0, cap:Union[apysc._display.line_caps.LineCaps, NoneType]=None, joints:Union[apysc._display.line_joints.LineJoints, NoneType]=None, dot_setting:Union[apysc._display.line_dot_setting.LineDotSetting, NoneType]=None, dash_setting:Union[apysc._display.line_dash_setting.LineDashSetting, NoneType]=None, round_dot_setting:Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType]=None, dash_dot_setting:Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType]=None) -> None`<hr>
+**[インターフェイスの構造]** `line_style(self, color: ~StrOrString, *, thickness: Union[int, apysc._type.int.Int] = 1, alpha: Union[float, apysc._type.number.Number] = 1.0, cap: Union[apysc._display.line_caps.LineCaps, NoneType] = None, joints: Union[apysc._display.line_joints.LineJoints, NoneType] = None, dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None) -> None`<hr>
 
 **[インターフェイス概要]** 線のスタイルを設定します。<hr>
 

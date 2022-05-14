@@ -129,7 +129,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `bind_custom_event(self, custom_event_type:Union[apysc._event.custom_event_type.CustomEventType, str], handler:Callable[[Any, Any], NoneType], e:apysc._event.event.Event, *, options:Union[Any, NoneType]=None, in_handler_head_expression:str='') -> str`<hr>
+**[Interface signature]** `bind_custom_event(self, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str], handler: Callable[[Any, Any], NoneType], e: apysc._event.event.Event, *, options: Union[Any, NoneType] = None, in_handler_head_expression: str = '') -> str`<hr>
 
 **[Interface summary]** Add a custom event listener setting.<hr>
 
@@ -189,7 +189,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `trigger_custom_event(self, custom_event_type:Union[apysc._event.custom_event_type.CustomEventType, str]) -> None`<hr>
+**[Interface signature]** `trigger_custom_event(self, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str]) -> None`<hr>
 
 **[Interface summary]** Add a custom event trigger setting.<hr>
 

@@ -40,7 +40,7 @@ assert arr == [5, 3, 1]
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `sort(self, *, ascending:bool=True) -> None`<hr>
+**[インターフェイスの構造]** `sort(self, *, ascending: bool = True) -> None`<hr>
 
 **[インターフェイス概要]** この配列の値を直接更新する形でソートを行います。<hr>
 

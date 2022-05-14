@@ -56,7 +56,7 @@ If you click the following rectangle, the handler displays the `The rectangle is
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `append_js_expression(expression:str) -> None`<hr>
+**[Interface signature]** `append_js_expression(expression: str) -> None`<hr>
 
 **[Interface summary]** Append js expression.<hr>
 

@@ -159,7 +159,7 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `mouseover(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> str`<hr>
+**[Interface signature]** `mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
 **[Interface summary]** Add mouse over event listener setting.<hr>
 
@@ -207,7 +207,7 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `unbind_mouseover(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+**[Interface signature]** `unbind_mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
 **[Interface summary]** Unbind a specified handler's mouseover event.<hr>
 
@@ -268,7 +268,7 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `mouseout(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> str`<hr>
+**[Interface signature]** `mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
 **[Interface summary]** Add mouse out event listener setting.<hr>
 
@@ -316,7 +316,7 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `unbind_mouseout(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+**[Interface signature]** `unbind_mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
 **[Interface summary]** Unbind a specified handler's mouse-out event.<hr>
 

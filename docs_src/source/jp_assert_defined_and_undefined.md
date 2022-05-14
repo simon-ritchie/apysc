@@ -104,7 +104,7 @@ Left value: undefined right value: undefined
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `assert_defined(value:Any, *, msg:str='') -> None`<hr>
+**[インターフェイスの構造]** `assert_defined(value: Any, *, msg: str = '') -> None`<hr>
 
 **[Interface summary]** JavaScriptでの値が定義済みかどうかのチェックを行うインターフェイスです。<hr>
 
@@ -130,7 +130,7 @@ Left value: undefined right value: undefined
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `assert_undefined(value:Any, *, msg:str='') -> None`<hr>
+**[インターフェイスの構造]** `assert_undefined(value: Any, *, msg: str = '') -> None`<hr>
 
 **[インターフェイス概要]** JavaScriptでの値が未定義かどうかのチェックを行うインターフェイスです。<hr>
 

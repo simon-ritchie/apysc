@@ -83,7 +83,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int]) -> None`<hr>
+**[Interface signature]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int]) -> None`<hr>
 
 **[Interface summary]** 2-dimensional geometry point.<hr>
 

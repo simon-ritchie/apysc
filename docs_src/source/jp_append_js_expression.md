@@ -56,7 +56,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `append_js_expression(expression:str) -> None`<hr>
+**[インターフェイスの構造]** `append_js_expression(expression: str) -> None`<hr>
 
 **[インターフェイス概要]** JavaScriptのコード表現の記述を結果のHTMLへ追加します。<hr>
 

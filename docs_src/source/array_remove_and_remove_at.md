@@ -37,7 +37,7 @@ assert arr == [1, 3]
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `remove(self, value:~T) -> None`<hr>
+**[Interface signature]** `remove(self, value: ~T) -> None`<hr>
 
 **[Interface summary]** Remove a specified value from this array.<hr>
 
@@ -64,7 +64,7 @@ Array([1, 5])
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `remove_at(self, index:Union[int, apysc._type.int.Int]) -> None`<hr>
+**[Interface signature]** `remove_at(self, index: Union[int, apysc._type.int.Int]) -> None`<hr>
 
 **[Interface summary]** Remove a specified index value from this array.<hr>
 

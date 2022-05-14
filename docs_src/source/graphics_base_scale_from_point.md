@@ -167,7 +167,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_scale_x_from_point(self, x:apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+**[Interface signature]** `get_scale_x_from_point(self, x: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
 
 **[Interface summary]** Get a scale-x value from the given x-coordinate.<hr>
 
@@ -206,7 +206,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `set_scale_x_from_point(self, scale_x:apysc._type.number.Number, x:apysc._type.int.Int) -> None`<hr>
+**[Interface signature]** `set_scale_x_from_point(self, scale_x: apysc._type.number.Number, x: apysc._type.int.Int) -> None`<hr>
 
 **[Interface summary]** Update a scale-x value from the given x-coordinate.<hr>
 
@@ -240,7 +240,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_scale_y_from_point(self, y:apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+**[Interface signature]** `get_scale_y_from_point(self, y: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
 
 **[Interface summary]** Get a scale-y value from the given y-coordinate.<hr>
 
@@ -279,7 +279,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `set_scale_y_from_point(self, scale_y:apysc._type.number.Number, y:apysc._type.int.Int) -> None`<hr>
+**[Interface signature]** `set_scale_y_from_point(self, scale_y: apysc._type.number.Number, y: apysc._type.int.Int) -> None`<hr>
 
 **[Interface summary]** Update a scale-y value from the given y-coordinate.<hr>
 

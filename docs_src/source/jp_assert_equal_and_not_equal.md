@@ -74,7 +74,7 @@ Assertion failed: Values are equal!
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `assert_equal(left:Any, right:Any, *, msg:str='') -> None`<hr>
+**[インターフェイスの構造]** `assert_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
 
 **[インターフェイス概要]** JavaScript上の等値条件のチェック用のインターフェイスです。<hr>
 
@@ -108,7 +108,7 @@ Assertion failed: Values are equal!
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `assert_not_equal(left:Any, right:Any, *, msg:str='') -> None`<hr>
+**[インターフェイスの構造]** `assert_not_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
 
 **[インターフェイス概要]** JavaScript上の非等値条件のチェック用のインターフェイスです。<hr>
 

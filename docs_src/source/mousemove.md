@@ -127,7 +127,7 @@ There are also existing the `unbind_mousemove_all` interface. This interface unb
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `mousemove(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> str`<hr>
+**[Interface signature]** `mousemove(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
 **[Interface summary]** Add mouse move event listener setting.<hr>
 
@@ -175,7 +175,7 @@ There are also existing the `unbind_mousemove_all` interface. This interface unb
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `unbind_mousemove(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+**[Interface signature]** `unbind_mousemove(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
 **[Interface summary]** Unbind a specified handler's mouse move event.<hr>
 

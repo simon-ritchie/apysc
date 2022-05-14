@@ -37,7 +37,7 @@ assert index == -1
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `index_of(self, value:~T) -> apysc._type.int.Int`<hr>
+**[Interface signature]** `index_of(self, value: ~T) -> apysc._type.int.Int`<hr>
 
 **[Interface summary]** Search specified value's index and return it.<hr>
 

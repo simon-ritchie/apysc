@@ -98,7 +98,7 @@ Get a representation string of this instance.<hr>
 
 ### `_append_cast_expression` method docstring
 
-Append integer cast (parseInt) expression.<hr>
+Append integer cast (Math.trunc) expression.<hr>
 
 **[Parameters]**
 

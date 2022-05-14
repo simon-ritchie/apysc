@@ -63,7 +63,7 @@ ValueError: Else interface can only use right after If or Elif interfaces.
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, locals_:Union[Dict[str, Any], NoneType]=None, globals_:Union[Dict[str, Any], NoneType]=None) -> None`<hr>
+**[Interface signature]** `__init__(self, *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None) -> None`<hr>
 
 **[Interface summary]** A class to append else branch instruction expression.<hr>
 

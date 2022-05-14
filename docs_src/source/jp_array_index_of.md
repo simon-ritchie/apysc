@@ -36,7 +36,7 @@ assert index == -1
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `index_of(self, value:~T) -> apysc._type.int.Int`<hr>
+**[インターフェイスの構造]** `index_of(self, value: ~T) -> apysc._type.int.Int`<hr>
 
 **[インターフェイス概要]** 指定された値を検索し、その値のインデックスを返却します。<hr>
 

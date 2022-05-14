@@ -63,7 +63,7 @@ ValueError: Else interface can only use right after If or Elif interfaces.
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, locals_:Union[Dict[str, Any], NoneType]=None, globals_:Union[Dict[str, Any], NoneType]=None) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None) -> None`<hr>
 
 **[インターフェイス概要]** elseの条件分岐のコード表現を追加するためのクラスです。<hr>
 

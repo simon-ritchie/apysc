@@ -65,7 +65,7 @@ assert isinstance(int_val, int)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value:Union[List[~T], tuple, range, _ForwardRef('Array')]) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[List[~T], tuple, range, ForwardRef('Array')]) -> None`<hr>
 
 **[Interface summary]** Array class for the apysc library.<hr>
 

@@ -38,7 +38,7 @@ The `If` class requires passing the `Boolean` value as the condition.
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, condition:Union[apysc._type.boolean.Boolean, NoneType], *, locals_:Union[Dict[str, Any], NoneType]=None, globals_:Union[Dict[str, Any], NoneType]=None) -> None`<hr>
+**[Interface signature]** `__init__(self, condition: Union[apysc._type.boolean.Boolean, NoneType], *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None) -> None`<hr>
 
 **[Interface summary]** A class to append if branch instruction expression.<hr>
 

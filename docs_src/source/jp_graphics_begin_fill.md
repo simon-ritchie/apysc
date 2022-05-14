@@ -182,7 +182,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `begin_fill(self, color:~StrOrString, *, alpha:Union[float, apysc._type.number.Number]=1.0) -> None`<hr>
+**[インターフェイスの構造]** `begin_fill(self, color: ~StrOrString, *, alpha: Union[float, apysc._type.number.Number] = 1.0) -> None`<hr>
 
 **[インターフェイス概要]** 塗りのための単一の色の設定を行います。<hr>
 

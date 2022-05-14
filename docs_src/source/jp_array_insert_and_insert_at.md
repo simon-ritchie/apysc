@@ -29,7 +29,7 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `insert(self, index:Union[int, apysc._type.int.Int], value:~T) -> None`<hr>
+**[インターフェイスの構造]** `insert(self, index: Union[int, apysc._type.int.Int], value: ~T) -> None`<hr>
 
 **[インターフェイス概要]** 任意の値をこの配列の指定されたインデックスの位置へと追加します。このインターフェイスは`insert_at`メソッドと同じ挙動をします。<hr>
 
@@ -57,7 +57,7 @@ Array([1, 2, 3])
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `insert_at(self, index:Union[int, apysc._type.int.Int], value:~T) -> None`<hr>
+**[インターフェイスの構造]** `insert_at(self, index: Union[int, apysc._type.int.Int], value: ~T) -> None`<hr>
 
 **[インターフェイス概要]** 任意の値をこの配列の指定されたインデックスの位置へと追加します。このインターフェイスは`insert`メソッドと同じ挙動をします。<hr>
 

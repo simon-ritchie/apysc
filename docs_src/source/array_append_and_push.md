@@ -29,7 +29,7 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `append(self, value:~T) -> None`<hr>
+**[Interface signature]** `append(self, value: ~T) -> None`<hr>
 
 **[Interface summary]** Add any value to the end of this array. This method behaves the same `push` method.<hr>
 
@@ -56,7 +56,7 @@ Array([1, 2, 3, 4])
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `push(self, value:~T) -> None`<hr>
+**[Interface signature]** `push(self, value: ~T) -> None`<hr>
 
 **[Interface summary]** Add any value to the end of this array. This interface behaves the same as the `append` method.<hr>
 

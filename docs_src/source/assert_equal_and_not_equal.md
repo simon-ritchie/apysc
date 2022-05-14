@@ -75,7 +75,7 @@ Assertion failed: Values are equal!
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `assert_equal(left:Any, right:Any, *, msg:str='') -> None`<hr>
+**[Interface signature]** `assert_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
 
 **[Interface summary]** JavaScript assertion interface for equal condition.<hr>
 
@@ -109,7 +109,7 @@ Assertion failed: Values are equal!
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `assert_not_equal(left:Any, right:Any, *, msg:str='') -> None`<hr>
+**[Interface signature]** `assert_not_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
 
 **[Interface summary]** JavaScript assertion interface for not equal condition.<hr>
 

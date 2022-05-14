@@ -141,7 +141,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `add_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
+**[Interface signature]** `add_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
 **[Interface summary]** Add display object child to this instance.<hr>
 
@@ -171,7 +171,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `remove_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
+**[Interface signature]** `remove_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
 **[Interface summary]** Remove display object child from this instance.<hr>
 

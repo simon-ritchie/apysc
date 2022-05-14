@@ -100,7 +100,7 @@ The subsequent pages explain the other interfaces, such as the `add_child` inter
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, variable_name:Union[str, NoneType]=None) -> None`<hr>
+**[Interface signature]** `__init__(self, *, variable_name: Union[str, NoneType] = None) -> None`<hr>
 
 **[Interface summary]** Create a basic display object that can be a parent.<hr>
 

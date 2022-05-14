@@ -25,7 +25,7 @@ assert joined == '1,2,3'
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `join(self, sep:Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
+**[インターフェイスの構造]** `join(self, sep: Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
 
 **[インターフェイス概要]** 指定された区切り文字を使ってこの配列の値を連結した文字列を生成します。<hr>
 

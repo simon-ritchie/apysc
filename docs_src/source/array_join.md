@@ -26,7 +26,7 @@ assert joined == '1,2,3'
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `join(self, sep:Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
+**[Interface signature]** `join(self, sep: Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
 
 **[Interface summary]** Join this array value with a specified separator string.<hr>
 

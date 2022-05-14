@@ -67,7 +67,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `get_css(self, name:Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
+**[インターフェイスの構造]** `get_css(self, name: Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
 
 **[インターフェイス概要]** Get a CSS value string.<hr>
 
@@ -101,7 +101,7 @@ String('none')
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `set_css(self, name:Union[str, apysc._type.string.String], value:Union[str, apysc._type.string.String]) -> None`<hr>
+**[インターフェイスの構造]** `set_css(self, name: Union[str, apysc._type.string.String], value: Union[str, apysc._type.string.String]) -> None`<hr>
 
 **[インターフェイス概要]** 特定のCSSの値を設定します。<hr>
 

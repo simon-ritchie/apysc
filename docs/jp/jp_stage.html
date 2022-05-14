@@ -113,7 +113,7 @@
 <section id="stage-api">
 <h2>Stage クラスのコンストラクタのAPI<a class="headerlink" href="#stage-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">stage_width:int=300,</span> <span class="pre">stage_height:int=185,</span> <span class="pre">background_color:str='#ffffff',</span> <span class="pre">add_to:str='body',</span> <span class="pre">stage_elem_id:Union[str,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">stage_width:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">300,</span> <span class="pre">stage_height:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">185,</span> <span class="pre">background_color:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'#ffffff',</span> <span class="pre">add_to:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'body',</span> <span class="pre">stage_elem_id:</span> <span class="pre">Union[str,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong> ステージ（描画領域全体）のインスタンスを生成します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
@@ -176,7 +176,7 @@
 <section id="add-child-api">
 <h2>add_child API<a class="headerlink" href="#add-child-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">add_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">add_child(self,</span> <span class="pre">child:</span> <span class="pre">apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong> 表示オブジェクトの子をこのインスタンスへと追加します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
@@ -205,7 +205,7 @@
 <section id="remove-child-api">
 <h2>remove_child API<a class="headerlink" href="#remove-child-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">remove_child(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">remove_child(self,</span> <span class="pre">child:</span> <span class="pre">apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong> このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
@@ -235,7 +235,7 @@
 <section id="contains-api">
 <h2>contains API<a class="headerlink" href="#contains-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">contains(self,</span> <span class="pre">child:apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.boolean.Boolean</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">contains(self,</span> <span class="pre">child:</span> <span class="pre">apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.boolean.Boolean</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong> 指定された子のインスタンスを持っているかどうかの真偽値を取得します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
@@ -306,7 +306,7 @@
 <section id="get-child-at-api">
 <h2>get_child_at API<a class="headerlink" href="#get-child-at-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_child_at(self,</span> <span class="pre">index:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.display_object.DisplayObject</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_child_at(self,</span> <span class="pre">index:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.display_object.DisplayObject</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong> 指定されたインデックス位置の子を取得します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">

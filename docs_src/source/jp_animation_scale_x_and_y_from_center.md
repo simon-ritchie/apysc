@@ -145,7 +145,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `animation_scale_x_from_center(self, scale_x_from_center:Union[float, apysc._type.number.Number], *, duration:Union[int, apysc._type.int.Int]=3000, delay:Union[int, apysc._type.int.Int]=0, easing:apysc._animation.easing.Easing=<Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_scale_x_from_center.AnimationScaleXFromCenter`<hr>
+**[インターフェイスの構造]** `animation_scale_x_from_center(self, scale_x_from_center: Union[float, apysc._type.number.Number], *, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_scale_x_from_center.AnimationScaleXFromCenter`<hr>
 
 **[インターフェイス概要]** 中央座標を基準としたX軸の拡縮アニメーションを設定します。<hr>
 
@@ -209,7 +209,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `animation_scale_y_from_center(self, scale_y_from_center:Union[float, apysc._type.number.Number], *, duration:Union[int, apysc._type.int.Int]=3000, delay:Union[int, apysc._type.int.Int]=0, easing:apysc._animation.easing.Easing=<Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_scale_y_from_center.AnimationScaleYFromCenter`<hr>
+**[インターフェイスの構造]** `animation_scale_y_from_center(self, scale_y_from_center: Union[float, apysc._type.number.Number], *, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_scale_y_from_center.AnimationScaleYFromCenter`<hr>
 
 **[インターフェイス概要]** 中央座標を基準としたY軸の拡縮アニメーションを設定します。<hr>
 

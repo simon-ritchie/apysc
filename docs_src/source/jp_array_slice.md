@@ -30,7 +30,7 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `slice(self, *, start:Union[int, apysc._type.int.Int, NoneType]=None, end:Union[int, apysc._type.int.Int, NoneType]=None) -> 'Array'`<hr>
+**[インターフェイスの構造]** `slice(self, *, start: Union[int, apysc._type.int.Int, NoneType] = None, end: Union[int, apysc._type.int.Int, NoneType] = None) -> 'Array'`<hr>
 
 **[インターフェイス概要]** 与えられた開始と終了のインデックスに応じて配列をスライスします。<hr>
 

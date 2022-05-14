@@ -165,7 +165,7 @@ animation_move.start()
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `animation_complete(self, handler:Callable[[_ForwardRef('animation_event.AnimationEvent'), ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> 'AnimationBase'`<hr>
+**[Interface signature]** `animation_complete(self, handler: Callable[[ForwardRef('animation_event.AnimationEvent'), ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> 'AnimationBase'`<hr>
 
 **[Interface summary]** Add an animation complete event listener setting.<hr>
 

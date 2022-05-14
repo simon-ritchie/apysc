@@ -168,7 +168,7 @@ If you click the following line, line style will be updated:
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `move_to(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
+**[Interface signature]** `move_to(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
 
 **[Interface summary]** Move a line position to a specified point.<hr>
 
@@ -213,7 +213,7 @@ Int(5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `line_to(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
+**[Interface signature]** `line_to(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
 
 **[Interface summary]** Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr>
 

@@ -35,7 +35,7 @@ For more details about the `String` class each interface, please see the followi
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value:Union[str, _ForwardRef('String')]) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[str, ForwardRef('String')]) -> None`<hr>
 
 **[Interface summary]** String class for apysc library.<hr>
 

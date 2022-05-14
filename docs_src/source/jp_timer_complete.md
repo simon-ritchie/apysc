@@ -112,7 +112,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `timer_complete(self, handler:Callable[[_ForwardRef('timer_event.TimerEvent'), ~_O2], NoneType], *, options:Union[~_O2, NoneType]=None) -> str`<hr>
+**[インターフェイスの構造]** `timer_complete(self, handler: Callable[[ForwardRef('timer_event.TimerEvent'), ~_O2], NoneType], *, options: Union[~_O2, NoneType] = None) -> str`<hr>
 
 **[インターフェイス概要]** タイマー終了時のイベントハンドラの設定を追加します。<hr>
 

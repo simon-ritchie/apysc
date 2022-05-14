@@ -154,7 +154,7 @@ Left value: false right value: false
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `assert_true(value:Any, *, type_strict:bool=True, msg:str='') -> None`<hr>
+**[Interface signature]** `assert_true(value: Any, *, type_strict: bool = True, msg: str = '') -> None`<hr>
 
 **[Interface summary]** JavaScript assertion interface for true condition.<hr>
 
@@ -184,7 +184,7 @@ Left value: false right value: false
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `assert_false(value:Any, *, type_strict:bool=True, msg:str='') -> None`<hr>
+**[Interface signature]** `assert_false(value: Any, *, type_strict: bool = True, msg: str = '') -> None`<hr>
 
 **[Interface summary]** JavaScript assertion interface for false condition.<hr>
 

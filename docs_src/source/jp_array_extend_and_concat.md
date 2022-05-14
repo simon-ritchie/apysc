@@ -31,7 +31,7 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `extend(self, other_arr:Union[List[~T], tuple, _ForwardRef('Array')]) -> None`<hr>
+**[インターフェイスの構造]** `extend(self, other_arr: Union[List[~T], tuple, ForwardRef('Array')]) -> None`<hr>
 
 **[インターフェイス概要]** 引数に指定された配列のこの配列へ連結します。このインターフェイスは引数に指定された配列の値をこの配列の値の後に配置します。このメソッドはconcatメソッドと似た挙動をしますが、extendメソッドはこの配列自体を更新するのに対してconcatメソッドは別の配列として値を返却するという違いがあります。<hr>
 
@@ -56,7 +56,7 @@ Array([1, 2, 3, 4, 5, 6])
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `concat(self, other_arr:Union[List[~T], tuple, _ForwardRef('Array')]) -> 'Array'`<hr>
+**[インターフェイスの構造]** `concat(self, other_arr: Union[List[~T], tuple, ForwardRef('Array')]) -> 'Array'`<hr>
 
 **[インターフェイス概要]** この配列の値と引数に指定された配列の値を連結した配列を作成します。このインターフェイスでは引数に指定された配列の値をこの配列の値の後に配置します。このメソッドはextendメソッドと似ていますが、extendメソッドが配列自体を更新するのに対してconcatメソッドは連結した別の配列の結果を返却するという違いがあります。<hr>
 

@@ -73,7 +73,7 @@
 <section id="extend-api">
 <h2>extend API<a class="headerlink" href="#extend-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">extend(self,</span> <span class="pre">other_arr:Union[List[~T],</span> <span class="pre">tuple,</span> <span class="pre">_ForwardRef('Array')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">extend(self,</span> <span class="pre">other_arr:</span> <span class="pre">Union[List[~T],</span> <span class="pre">tuple,</span> <span class="pre">ForwardRef('Array')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong> 引数に指定された配列のこの配列へ連結します。このインターフェイスは引数に指定された配列の値をこの配列の値の後に配置します。このメソッドはconcatメソッドと似た挙動をしますが、extendメソッドはこの配列自体を更新するのに対してconcatメソッドは別の配列として値を返却するという違いがあります。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
@@ -95,7 +95,7 @@
 <section id="concat-api">
 <h2>concat API<a class="headerlink" href="#concat-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">concat(self,</span> <span class="pre">other_arr:Union[List[~T],</span> <span class="pre">tuple,</span> <span class="pre">_ForwardRef('Array')])</span> <span class="pre">-&gt;</span> <span class="pre">'Array'</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">concat(self,</span> <span class="pre">other_arr:</span> <span class="pre">Union[List[~T],</span> <span class="pre">tuple,</span> <span class="pre">ForwardRef('Array')])</span> <span class="pre">-&gt;</span> <span class="pre">'Array'</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong> この配列の値と引数に指定された配列の値を連結した配列を作成します。このインターフェイスでは引数に指定された配列の値をこの配列の値の後に配置します。このメソッドはextendメソッドと似ていますが、extendメソッドが配列自体を更新するのに対してconcatメソッドは連結した別の配列の結果を返却するという違いがあります。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">

@@ -93,19 +93,19 @@ class TestInt:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{int_val.variable_name} = '
-            f'parseInt({int_val.variable_name}, 10);'
+            f'Math.trunc({int_val.variable_name}, 10);'
         )
         assert expected in expression
 
         expression_data_util.empty_expression()
         int_val = ap.Int(value=100)
         expression = expression_data_util.get_current_expression()
-        assert 'parseInt' not in expression
+        assert 'Math.trunc' not in expression
 
         expression_data_util.empty_expression()
         int_val = ap.Int(value=100.5)
         expression = expression_data_util.get_current_expression()
-        assert 'parseInt' not in expression
+        assert 'Math.trunc' not in expression
         expected = f'{int_val.variable_name} = 100;'
         assert expected in expression
 

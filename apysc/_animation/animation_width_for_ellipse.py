@@ -108,7 +108,7 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
         from apysc._type import value_util
         width_str: str = value_util.get_value_str_for_expression(
             value=self._width)
-        return f'\n  .attr({{rx: parseInt({width_str} / 2)}});'
+        return f'\n  .attr({{rx: Math.trunc({width_str} / 2)}});'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """

@@ -108,7 +108,7 @@ class AnimationHeightForEllipse(AnimationBase[_T], Generic[_T]):
         from apysc._type import value_util
         height_str: str = value_util.get_value_str_for_expression(
             value=self._height)
-        return f'\n  .attr({{ry: parseInt({height_str} / 2)}});'
+        return f'\n  .attr({{ry: Math.trunc({height_str} / 2)}});'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """

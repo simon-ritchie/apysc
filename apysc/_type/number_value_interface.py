@@ -412,7 +412,7 @@ class NumberValueInterface(
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = '
-            f'parseInt({self.variable_name} / {right_value});'
+            f'Math.trunc({self.variable_name} / {right_value});'
         )
         ap.append_js_expression(expression=expression)
 

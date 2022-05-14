@@ -66,8 +66,8 @@ class TestWidthAndHeightInterfacesForEllipse:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface.variable_name}.radius('
-            f'parseInt({width.variable_name} / 2), '
-            f'parseInt({height.variable_name}) / 2);'
+            f'Math.trunc({width.variable_name} / 2), '
+            f'Math.trunc({height.variable_name}) / 2);'
         )
         assert expected in expression
 

@@ -175,7 +175,7 @@ class TestAnyValue:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
-            f'parseInt({any_value.variable_name} / {int_1.variable_name});'
+            f'Math.trunc({any_value.variable_name} / {int_1.variable_name});'
         )
         assert expected in expression
 

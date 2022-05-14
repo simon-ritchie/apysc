@@ -45,7 +45,7 @@ class TestAnimationWidthForEllipse:
         expression: str = \
             animation_width_for_ellipse._get_animation_func_expression()
         assert expression == (
-            '\n  .attr({rx: parseInt('
+            '\n  .attr({rx: Math.trunc('
             f'{animation_width_for_ellipse._width.variable_name} / 2)}});')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

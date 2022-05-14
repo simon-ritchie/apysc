@@ -42,7 +42,7 @@ class TestAnimationHeightForEllipse:
         expression: str = animation_height_for_ellipse.\
             _get_animation_func_expression()
         assert expression == (
-            '\n  .attr({ry: parseInt'
+            '\n  .attr({ry: Math.trunc'
             f'({animation_height_for_ellipse._height.variable_name} / 2)}});')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

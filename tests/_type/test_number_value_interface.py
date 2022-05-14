@@ -307,7 +307,7 @@ class TestNumberValueInterface:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface_2.variable_name} = '
-            f'parseInt({interface_1.variable_name} / 4);'
+            f'Math.trunc({interface_1.variable_name} / 4);'
         )
         assert expected in expression
 
@@ -318,7 +318,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
         expected = (
-            f'{interface_3.variable_name} = parseInt('
+            f'{interface_3.variable_name} = Math.trunc('
             f'{interface_1.variable_name} / {interface_2.variable_name});'
         )
         assert expected in expression

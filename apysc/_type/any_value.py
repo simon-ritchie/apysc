@@ -273,7 +273,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = '
-            f'parseInt({self.variable_name} / {value_str});'
+            f'Math.trunc({self.variable_name} / {value_str});'
         )
         ap.append_js_expression(expression=expression)
         return result

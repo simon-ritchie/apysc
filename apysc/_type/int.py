@@ -114,7 +114,7 @@ class Int(NumberValueInterface[int, 'Int']):
     def _append_cast_expression(
             self, *, is_number_specified: bool) -> None:
         """
-        Append integer cast (parseInt) expression.
+        Append integer cast (Math.trunc) expression.
 
         Parameters
         ----------
@@ -126,7 +126,7 @@ class Int(NumberValueInterface[int, 'Int']):
         if not is_number_specified:
             return
         expression: str = (
-            f'{self.variable_name} = parseInt({self.variable_name}, 10);'
+            f'{self.variable_name} = Math.trunc({self.variable_name}, 10);'
         )
         ap.append_js_expression(expression=expression)
 

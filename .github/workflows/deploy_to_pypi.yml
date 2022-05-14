@@ -251,6 +251,28 @@ jobs:
       - name: Run the checking command
         run: python ./scripts/check_docs_code_block_error.py --alphabets_group ${{ matrix.alphabets-group }}
 
+  RunTestProjectsE2ETesting:
+    needs: [CreateCache, SetGlobalConstants, RunTestsOnEachPythonVersion]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        alphabets-group: [
+          'a',
+          'bcdefghijklmno',
+          'pqrs',
+          'tuvwxyz',
+        ]
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}
+      - name: Run the E2E testing command
+        run: python ./scripts/run_test_projects_e2e_testing.py --alphabets_group ${{ matrix.alphabets-group }}
+
   RunDocTest:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest

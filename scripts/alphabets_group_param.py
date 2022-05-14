@@ -3,10 +3,9 @@ interfaces and definitions.
 """
 
 
-from typing import Any, Dict, List
 from argparse import ArgumentParser
-from argparse import Namespace
 from string import ascii_lowercase
+from typing import List
 
 
 def add_alphabets_group_arg_to_parser(

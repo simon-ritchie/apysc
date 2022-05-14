@@ -3,10 +3,10 @@ from random import randint
 from typing import List
 
 from retrying import retry
-from apysc._file import file_util
 
-from scripts import run_test_projects_e2e_testing
+from apysc._file import file_util
 from apysc._testing.testing_helper import assert_raises
+from scripts import run_test_projects_e2e_testing
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

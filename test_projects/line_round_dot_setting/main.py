@@ -48,7 +48,7 @@ def main() -> None:
     sprite.graphics.line_style(
         color='#0af',
         round_dot_setting=ap.LineRoundDotSetting(
-            round_size=20, space_size=0))
+            round_size=20, space_size=2))
     sprite.graphics.move_to(x=50, y=90)
     sprite.graphics.line_to(x=450, y=90)
 

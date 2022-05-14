@@ -60,7 +60,7 @@ def on_animation_complete_1(
     """
     rectangle: ap.Rectangle = e.this.target
     ap.assert_equal(100, rectangle.get_rotation_around_point(
-        x=ap.Int(50), y=ap.Int(50)))
+        x=ap.Int(100), y=ap.Int(100)))
     rectangle.animation_rotation_around_point(
         rotation_around_point=0,
         x=100,
@@ -85,7 +85,7 @@ def on_animation_complete_2(
     """
     rectangle: ap.Rectangle = e.this.target
     ap.assert_equal(0, rectangle.get_rotation_around_point(
-        x=ap.Int(50), y=ap.Int(50)))
+        x=ap.Int(100), y=ap.Int(100)))
     rectangle.animation_rotation_around_point(
         rotation_around_point=100,
         x=100,

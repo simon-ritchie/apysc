@@ -96,9 +96,7 @@ def main() -> None:
     ap.assert_false(result)
 
     ap.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH,
-        embed_js_libs=True,
-        skip_js_lib_exporting=True)
+        dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

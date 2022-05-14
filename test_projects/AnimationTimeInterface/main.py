@@ -51,9 +51,7 @@ def main() -> None:
     timer.start()
 
     ap.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH, minify=False,
-        embed_js_libs=True,
-        skip_js_lib_exporting=True)
+        dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:

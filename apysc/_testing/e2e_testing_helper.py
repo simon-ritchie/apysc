@@ -200,7 +200,7 @@ def _get_local_file_page_err_handler(
             'There is an unexpected error in the following '
             f'local file: {file_path}'
             f'\nError message: {err.message}'
-            f'\nStack tace: {err.stack}'
+            f'\nStack trace: {err.stack}'
         )
         file_util.save_plain_txt(txt=err_msg, file_path=log_file_path)
         raise AssertionError(err_msg)

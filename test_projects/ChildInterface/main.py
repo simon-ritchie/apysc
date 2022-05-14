@@ -32,21 +32,21 @@ def main() -> None:
     sprite_2: ap.Sprite = ap.Sprite()
     sprite_1.add_child(sprite_2)
     bool_1: ap.Boolean = stage.contains(child=sprite_1)
-    ap.assert_true(value=bool_1)
+    ap.assert_true(value=bool_1, msg='assertion_0001')
     bool_2: ap.Boolean = sprite_1.contains(child=sprite_2)
-    ap.assert_true(value=bool_2)
+    ap.assert_true(value=bool_2, msg='assertion_0002')
     bool_3: ap.Boolean = stage.contains(child=sprite_2)
-    ap.assert_false(value=bool_3)
+    ap.assert_false(value=bool_3, msg='assertion_0003')
 
     num_children: ap.Int = sprite_1.num_children
-    ap.assert_equal(left=1, right=num_children)
+    ap.assert_equal(left=2, right=num_children, msg='assertion_0101')
 
     child_1: ap.DisplayObject = sprite_1.get_child_at(index=0)
-    ap.assert_defined(value=child_1)
-    child_2: ap.DisplayObject = sprite_1.get_child_at(index=1)
-    ap.assert_undefined(value=child_2)
+    ap.assert_defined(value=child_1, msg='assertion_0201')
+    child_2: ap.DisplayObject = sprite_1.get_child_at(index=2)
+    ap.assert_undefined(value=child_2, msg='assertion_0202')
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 if __name__ == '__main__':

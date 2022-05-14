@@ -43,6 +43,10 @@ def validate_not_empty_string(*, string: Union[str, String]) -> None:
         - If specified value is not str type.
     """
     validate_string_type(string=string)
-    if string != '':
-        return
+    if isinstance(string, str):
+        if string != '':
+            return
+    elif isinstance(string, String):
+        if string._value != '':
+            return
     raise ValueError('Empty string is not acceptable.')

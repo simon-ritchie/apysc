@@ -24,3 +24,10 @@ def test_validate_not_empty_string() -> None:
         expected_error_class=ValueError,
         func_or_method=string_validation.validate_not_empty_string,
         kwargs={'string': ''})
+
+    string_validation.validate_not_empty_string(
+        string=ap.String('Hello!'))
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=string_validation.validate_not_empty_string,
+        kwargs={'string': ap.String('')})

@@ -34,11 +34,36 @@ def _main() -> None:
     command_options: _CommandOptions = _get_command_options()
     main_module_paths: List[str] = _get_target_test_project_main_module_paths(
         alphabets_group=command_options['alphabets_group'])
+    index_file_paths: List[str] = []
     for main_module_path in main_module_paths:
         _run_test_project_command(main_module_path=main_module_path)
         index_file_path: str = _get_index_file_path(
             main_module_path=main_module_path)
-    pass
+        if not os.path.isfile(index_file_path):
+            continue
+        index_file_paths.append(index_file_path)
+    _run_e2e_testing(index_file_paths=index_file_paths)
+
+
+def _run_e2e_testing(*, index_file_paths: List[str]) -> None:
+    """
+    Run an E2E testing of specified index.html's file paths.
+
+    Parameters
+    ----------
+    index_file_paths : List[str]
+        Target index.html's file paths.
+    """
+    from apysc._testing.e2e_testing_helper import assert_local_files_not_raise_error, LocalFileData
+    local_file_data_list: List[LocalFileData] = []
+    for index_file_path in index_file_paths:
+        file_path: str = f'file://{os.path.abspath(index_file_path)}'
+        local_file_data_list.append({
+            'file_path': file_path,
+            'expected_assertion_failed_msgs': None,
+        })
+    assert_local_files_not_raise_error(
+        local_file_data_list=local_file_data_list)
 
 
 def _get_index_file_path(*, main_module_path: str) -> str:

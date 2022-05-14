@@ -38,7 +38,10 @@ def main() -> None:
     animation_cx.animation_complete(on_animation_complete_1)
     animation_cx.start()
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
+    ap.save_overall_html(
+        dest_dir_path=_DEST_DIR_PATH, minify=False,
+        embed_js_libs=True,
+        skip_js_lib_exporting=True)
 
 
 def on_animation_complete_1(

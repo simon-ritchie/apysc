@@ -53,7 +53,10 @@ def main() -> None:
     ap.assert_not_equal(
         left={'a': 10}, right=ap.Dictionary({'a': 11}))
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(
+        dest_dir_path=_DEST_DIR_PATH,
+        embed_js_libs=True,
+        skip_js_lib_exporting=True)
 
 
 if __name__ == '__main__':

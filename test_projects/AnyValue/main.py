@@ -95,7 +95,10 @@ def main() -> None:
     result = any_value_10 >= 11
     ap.assert_false(result)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(
+        dest_dir_path=_DEST_DIR_PATH,
+        embed_js_libs=True,
+        skip_js_lib_exporting=True)
 
 
 if __name__ == '__main__':

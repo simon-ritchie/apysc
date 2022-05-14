@@ -149,7 +149,10 @@ def main() -> None:
     options: _Array28Options = {'array_28': array_28}
     stage.click(on_stage_clicked, options=options)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(
+        dest_dir_path=_DEST_DIR_PATH,
+        embed_js_libs=True,
+        skip_js_lib_exporting=True)
 
 
 def on_stage_clicked(e: ap.MouseEvent, options: _Array28Options) -> None:

@@ -43,7 +43,10 @@ def main() -> None:
     ap.assert_equal(x, 200)
     ap.assert_not_equal(x, rectangle.x)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
+    ap.save_overall_html(
+        dest_dir_path=_DEST_DIR_PATH, minify=False,
+        embed_js_libs=True,
+        skip_js_lib_exporting=True)
 
 
 if __name__ == '__main__':

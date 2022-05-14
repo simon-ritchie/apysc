@@ -196,7 +196,11 @@ def _get_local_file_page_err_handler(
         """
         log_file_path: str = _get_local_file_page_err_file_path(
             file_path=file_path)
-        file_txt: str = file_util.read_txt(file_path=file_path)
+
+        file_path_: str = file_path.replace('file://', '', 1)
+        file_txt: str = ''
+        if os.path.isfile(file_path_):
+            file_txt = file_util.read_txt(file_path=file_path_)
         err_msg: str = (
             'There is an unexpected error in the following '
             f'Local file: {file_path}'

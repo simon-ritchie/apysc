@@ -27,7 +27,9 @@ def validate_string_type(*, string: Union[str, String]) -> None:
     raise ValueError(f'Specified value is not str type: {type(string)}')
 
 
-def validate_not_empty_string(*, string: Union[str, String]) -> None:
+def validate_not_empty_string(
+        *, string: Union[str, String],
+        additional_err_msg: str = '') -> None:
     """
     Validate whether a specified string is not empty.
 
@@ -35,6 +37,8 @@ def validate_not_empty_string(*, string: Union[str, String]) -> None:
     ----------
     string : String or str
         String to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
@@ -49,4 +53,7 @@ def validate_not_empty_string(*, string: Union[str, String]) -> None:
     elif isinstance(string, String):
         if string._value != '':
             return
-    raise ValueError('Empty string is not acceptable.')
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
+    raise ValueError(
+        f'Empty string is not acceptable.{additional_err_msg}')

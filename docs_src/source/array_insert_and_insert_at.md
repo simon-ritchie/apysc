@@ -59,7 +59,7 @@ Array([1, 2, 3])
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `insert_at(self, index: Union[int, apysc._type.int.Int], value: ~T) -> None`<hr>
+**[Interface signature]** `insert_at(self, *, index: Union[int, apysc._type.int.Int], value: ~T) -> None`<hr>
 
 **[Interface summary]** Insert value to this array at a specified index. This interface behaves the same `insert` method.<hr>
 

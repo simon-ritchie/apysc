@@ -85,7 +85,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `animation_rotation_around_center(self, rotation_around_center: Union[int, apysc._type.int.Int], *, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_rotation_around_center.AnimationRotationAroundCenter`<hr>
+**[Interface signature]** `animation_rotation_around_center(self, *, rotation_around_center: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_rotation_around_center.AnimationRotationAroundCenter`<hr>
 
 **[Interface summary]** Set the rotation around the center animation setting.<hr>
 

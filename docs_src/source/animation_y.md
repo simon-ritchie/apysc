@@ -101,7 +101,7 @@ animation_cy: ap.AnimationCy = circle.animation_y(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `animation_y(self, y: Union[int, apysc._type.int.Int], *, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_y.AnimationY`<hr>
+**[Interface signature]** `animation_y(self, *, y: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_y.AnimationY`<hr>
 
 **[Interface summary]** Set the y-coordinate animation setting.<hr>
 

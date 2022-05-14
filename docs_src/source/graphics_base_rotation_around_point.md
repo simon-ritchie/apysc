@@ -82,7 +82,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_rotation_around_point(self, x: apysc._type.int.Int, y: apysc._type.int.Int) -> apysc._type.int.Int`<hr>
+**[Interface signature]** `get_rotation_around_point(self, *, x: apysc._type.int.Int, y: apysc._type.int.Int) -> apysc._type.int.Int`<hr>
 
 **[Interface summary]** Get a rotation value around the given coordinates.<hr>
 
@@ -125,7 +125,7 @@ Int(45)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `set_rotation_around_point(self, rotation: apysc._type.int.Int, x: apysc._type.int.Int, y: apysc._type.int.Int) -> None`<hr>
+**[Interface signature]** `set_rotation_around_point(self, *, rotation: apysc._type.int.Int, x: apysc._type.int.Int, y: apysc._type.int.Int) -> None`<hr>
 
 **[Interface summary]** Update a rotation value around the given coordinates.<hr>
 

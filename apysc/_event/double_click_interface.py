@@ -23,8 +23,8 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         module_name=__name__, class_name='DoubleClickInterface')
     def dblclick(
             self,
-            *,
             handler: _Handler[_O],
+            *,
             options: Optional[_O] = None) -> str:
         """
         Add a double-click event listener setting.
@@ -100,7 +100,6 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         module_name=__name__, class_name='DoubleClickInterface')
     def unbind_dblclick(
             self,
-            *,
             handler: _Handler[_O]) -> None:
         """
         Unbind a specified handler's double click event.

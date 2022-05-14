@@ -127,7 +127,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, this: 'timer.Timer') -> None`<hr>
+**[Interface signature]** `__init__(self, *, this: 'timer.Timer') -> None`<hr>
 
 **[Interface summary]** Timer event class.<hr>
 

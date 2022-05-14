@@ -128,7 +128,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `bind_custom_event(self, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str], handler: Callable[[Any, Any], NoneType], e: apysc._event.event.Event, *, options: Union[Any, NoneType] = None, in_handler_head_expression: str = '') -> str`<hr>
+**[インターフェイスの構造]** `bind_custom_event(self, *, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str], handler: Callable[[Any, Any], NoneType], e: apysc._event.event.Event, options: Union[Any, NoneType] = None, in_handler_head_expression: str = '') -> str`<hr>
 
 **[インターフェイス概要]** 独自のイベント設定を追加します。<hr>
 
@@ -190,7 +190,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `trigger_custom_event(self, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str]) -> None`<hr>
+**[インターフェイスの構造]** `trigger_custom_event(self, *, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str]) -> None`<hr>
 
 **[インターフェイス概要]** 独自のイベントの発生（発火）制御の設定を追加します。<hr>
 

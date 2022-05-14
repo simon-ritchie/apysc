@@ -45,7 +45,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `draw_dotted_line(self, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], dot_size: Union[int, apysc._type.int.Int]) -> '_line.Line'`<hr>
+**[インターフェイスの構造]** `draw_dotted_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], dot_size: Union[int, apysc._type.int.Int]) -> '_line.Line'`<hr>
 
 **[インターフェイス概要]** 点線のベクターグラフィックスを描画します。<hr>
 

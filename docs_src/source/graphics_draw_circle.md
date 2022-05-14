@@ -81,7 +81,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_circle(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], radius: Union[int, apysc._type.int.Int]) -> '_circle.Circle'`<hr>
+**[Interface signature]** `draw_circle(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], radius: Union[int, apysc._type.int.Int]) -> '_circle.Circle'`<hr>
 
 **[Interface summary]** Draw a circle vector graphics.<hr>
 

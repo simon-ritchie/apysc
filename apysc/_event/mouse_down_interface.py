@@ -22,8 +22,9 @@ class MouseDownInterface(MouseEventInterfaceBase):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='MouseDownInterface')
     def mousedown(
-            self, *,
+            self,
             handler: _Handler[_O],
+            *,
             options: Optional[_O] = None) -> str:
         """
         Add mouse down event listener setting.

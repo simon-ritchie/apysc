@@ -92,7 +92,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, handler: Callable[[ForwardRef('timer_event.TimerEvent'), ~_O1], NoneType], delay: Union[int, float, apysc._type.number_value_interface.NumberValueInterface, apysc._time.fps.FPS], *, repeat_count: Union[int, apysc._type.int.Int] = 0, options: Union[~_O1, NoneType] = None) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, handler: Callable[[ForwardRef('timer_event.TimerEvent'), ~_O1], NoneType], *, delay: Union[int, float, apysc._type.number_value_interface.NumberValueInterface, apysc._time.fps.FPS], repeat_count: Union[int, apysc._type.int.Int] = 0, options: Union[~_O1, NoneType] = None) -> None`<hr>
 
 **[インターフェイス概要]** 一定間隔ごとにハンドラの関数を実行するためのタイマーのクラスです。<hr>
 

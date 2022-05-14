@@ -81,7 +81,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `get_rotation_around_point(self, x: apysc._type.int.Int, y: apysc._type.int.Int) -> apysc._type.int.Int`<hr>
+**[インターフェイスの構造]** `get_rotation_around_point(self, *, x: apysc._type.int.Int, y: apysc._type.int.Int) -> apysc._type.int.Int`<hr>
 
 **[インターフェイス概要]** Get a rotation value around the given coordinates.<hr>
 
@@ -123,7 +123,7 @@ Int(45)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `set_rotation_around_point(self, rotation: apysc._type.int.Int, x: apysc._type.int.Int, y: apysc._type.int.Int) -> None`<hr>
+**[インターフェイスの構造]** `set_rotation_around_point(self, *, rotation: apysc._type.int.Int, x: apysc._type.int.Int, y: apysc._type.int.Int) -> None`<hr>
 
 **[インターフェイス概要]** 指定された座標基準の回転量を更新します。<hr>
 

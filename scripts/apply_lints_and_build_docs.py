@@ -3,6 +3,8 @@
 Command examples:
 $ python scripts/apply_lints_and_build_docs.py
 $ python scripts/apply_lints_and_build_docs.py --skip_overall_docs_build
+$ python scripts/apply_lints_and_build_docs.py --skip_overall_docs_build \
+    --skip_docs_build
 """
 
 import multiprocessing as mp
@@ -101,6 +103,7 @@ def _get_module_paths() -> List[str]:
 
 class _CommandOptions(TypedDict):
     skip_overall_docs_build: bool
+    skip_docs_build: bool
 
 
 def _main() -> None:
@@ -115,9 +118,11 @@ def _main() -> None:
         _update_doc_files_timestamp()
     _remove_tmp_py_module()
 
-    logger.info(msg='Documentation build started.')
-    build_doc_process: sp.Popen = _start_subprocess(
-        command_strs=['python', './scripts/build_docs.py'])
+    build_doc_process: Optional[sp.Popen] = None
+    if not options['skip_docs_build']:
+        logger.info(msg='Documentation build started.')
+        build_doc_process = _start_subprocess(
+            command_strs=['python', './scripts/build_docs.py'])
 
     logger.info(msg='numdoclint command started.')
     numdoclint_processes: List[sp.Popen] = _start_numdoclint_processes()
@@ -390,13 +395,14 @@ class _DocumentBuildError(Exception):
     pass
 
 
-def _check_build_doc_process(build_doc_process: sp.Popen) -> None:
+def _check_build_doc_process(
+        *, build_doc_process: Optional[sp.Popen]) -> None:
     """
     Check the documentation build process result.
 
     Parameters
     ----------
-    build_doc_process : Popen
+    build_doc_process : Popen or None
         Target documentation build process.
 
     Raises
@@ -404,6 +410,8 @@ def _check_build_doc_process(build_doc_process: sp.Popen) -> None:
     _DocumentBuildError
         If there is a documentation build error.
     """
+    if build_doc_process is None:
+        return
     stdout: bytes
     logger.info(msg='Waiting documentation build completion...')
     stdout, _ = build_doc_process.communicate()
@@ -630,9 +638,14 @@ def _get_command_options() -> _CommandOptions:
         help='If specified, build the overall documentation. If not '
         'specified, only updated document will be built.',
     )
+    parser.add_argument(
+        '-d', '--skip_docs_build', action='store_true',
+        help='If specified, skip the documents build script.')
+
     args: Namespace = parser.parse_args()
     options: _CommandOptions = {
         'skip_overall_docs_build': args.skip_overall_docs_build,
+        'skip_docs_build': args.skip_docs_build,
     }
     return options
 

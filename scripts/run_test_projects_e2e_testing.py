@@ -36,8 +36,30 @@ def _main() -> None:
         alphabets_group=command_options['alphabets_group'])
     for main_module_path in main_module_paths:
         _run_test_project_command(main_module_path=main_module_path)
-        pass
+        index_file_path: str = _get_index_file_path(
+            main_module_path=main_module_path)
     pass
+
+
+def _get_index_file_path(*, main_module_path: str) -> str:
+    """
+    Get a index.html's file path.
+
+    Parameters
+    ----------
+    main_module_path : str
+        A target main.py module path.
+
+    Returns
+    -------
+    index_file_path : str
+        A target index.html's file path.'
+    """
+    dir_path: str = os.path.dirname(main_module_path)
+    index_file_path: str = os.path.join(
+        dir_path, 'test_output/index.html')
+    return index_file_path
+
 
 
 def _run_test_project_command(*, main_module_path: str) -> None:
@@ -104,6 +126,7 @@ def _get_command_options() -> _CommandOptions:
     parser: ArgumentParser = ArgumentParser(
         description='The command for running the test projects\' '
         'E2E testing.')
+    alphabets_group_param.add_alphabets_group_arg_to_parser(parser=parser)
     args: Namespace = parser.parse_args()
     alphabets_group: List[str] = alphabets_group_param.\
         split_alphabets_group_str(alphabets_group_str=args.alphabets_group)

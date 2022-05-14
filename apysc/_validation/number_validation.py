@@ -26,7 +26,7 @@ from apysc._type.number import Number
 
 
 def validate_num(
-        num: Union[int, float, Int, Number]) -> None:
+        *, num: Union[int, float, Int, Number]) -> None:
     """
     Validate a specified value is an integer or float type.
 
@@ -50,7 +50,7 @@ def validate_num(
         f'({type(num)})')
 
 
-def validate_integer(integer: Union[int, Int]) -> None:
+def validate_integer(*, integer: Union[int, Int]) -> None:
     """
     Validate whether a specified value is an integer or not.
 
@@ -70,7 +70,7 @@ def validate_integer(integer: Union[int, Int]) -> None:
         f'Specified value is not integer: {integer}({type(integer)})')
 
 
-def validate_int_is_zero_or_one(integer: Union[int, Int]) -> None:
+def validate_int_is_zero_or_one(*, integer: Union[int, Int]) -> None:
     """
     Validate specified integer value is zero or one.
 
@@ -98,7 +98,7 @@ def validate_int_is_zero_or_one(integer: Union[int, Int]) -> None:
 
 
 def validate_num_is_gt_zero(
-        num: Union[int, float, Int, Number]) -> None:
+        *, num: Union[int, float, Int, Number]) -> None:
     """
     Validate specified value is greater than zero.
 
@@ -118,7 +118,7 @@ def validate_num_is_gt_zero(
 
 
 def validate_num_is_gte_zero(
-        num: Union[int, float, Int, Number]) -> None:
+        *, num: Union[int, float, Int, Number]) -> None:
     """
     Validate whether a specified value is greater than or equal to zero.
 
@@ -137,7 +137,7 @@ def validate_num_is_gte_zero(
     raise ValueError(f'Specified values is less than zero: {num}')
 
 
-def validate_nums_are_int_and_gt_zero(nums: List[Union[int, Int]]) -> None:
+def validate_nums_are_int_and_gt_zero(*, nums: List[Union[int, Int]]) -> None:
     """
     Validate specified number values are greater integer and
     greater than zero.

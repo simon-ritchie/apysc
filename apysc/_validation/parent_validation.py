@@ -5,7 +5,7 @@ from typing import Any
 from typing import Optional
 
 
-def validate_parent_instance(parent: Optional[Any]) -> None:
+def validate_parent_instance(*, parent: Optional[Any]) -> None:
     """
     Validate specified parent is `ChildInterface` instance.
 
@@ -31,7 +31,7 @@ def validate_parent_instance(parent: Optional[Any]) -> None:
 
 
 def validate_parent_contains_child(
-        parent: Optional[Any], child: Any) -> None:
+        *, parent: Optional[Any], child: Any) -> None:
     """
     Validate whether a parent contains a specified child.
 

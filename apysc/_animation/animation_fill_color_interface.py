@@ -17,8 +17,8 @@ class AnimationFillColorInterface(AnimationInterfaceBase):
 
     def animation_fill_color(
             self,
-            fill_color: StrOrString,
             *,
+            fill_color: StrOrString,
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationFillColor:

@@ -40,8 +40,9 @@ class LineStyleInterface(RevertInterface):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineStyleInterface')
     def line_style(
-            self, color: StrOrString,
+            self,
             *,
+            color: StrOrString,
             thickness: Union[int, Int] = 1,
             alpha: Union[float, Number] = 1.0,
             cap: Optional[LineCaps] = None,

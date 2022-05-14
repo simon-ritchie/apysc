@@ -13,8 +13,8 @@ class AnimationRadiusInterface(AnimationInterfaceBase):
 
     def animation_radius(
             self,
-            radius: Union[int, Int],
             *,
+            radius: Union[int, Int],
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationRadius:

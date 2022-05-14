@@ -38,7 +38,7 @@ class LineRoundDotSetting(Dictionary[str, Int]):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineRoundDotSetting')
     def __init__(
-            self, round_size: Union[int, Int],
+            self, *, round_size: Union[int, Int],
             space_size: Union[int, Int]) -> None:
         """
         Round dot setting class for line.

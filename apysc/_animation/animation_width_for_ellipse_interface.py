@@ -14,8 +14,8 @@ class AnimationWidthForEllipseInterface(AnimationInterfaceBase):
 
     def animation_width(
             self,
-            width: Union[int, Int],
             *,
+            width: Union[int, Int],
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationWidthForEllipse:

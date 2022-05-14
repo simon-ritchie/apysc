@@ -377,7 +377,8 @@ _F = TypeVar('_F', bound=Callable)
 
 
 def add_debug_info_setting(
-        module_name: str, *,
+        *,
+        module_name: str,
         class_name: Optional[str] = None) -> _F:
     """
     Set a debug information setting to a target

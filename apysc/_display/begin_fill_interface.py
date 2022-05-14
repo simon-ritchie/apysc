@@ -26,8 +26,7 @@ class BeginFillInterface(RevertInterface):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='BeginFillInterface')
     def begin_fill(
-            self, color: StrOrString,
-            *,
+            self, *, color: StrOrString,
             alpha: Union[float, Number] = 1.0) -> None:
         """
         Set single color value for fill.

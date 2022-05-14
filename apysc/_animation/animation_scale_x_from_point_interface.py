@@ -16,9 +16,9 @@ class AnimationScaleXFromPointInterface(AnimationInterfaceBase):
 
     def animation_scale_x_from_point(
             self,
+            *,
             scale_x_from_point: Union[float, Number],
             x: Union[int, Int],
-            *,
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationScaleXFromPoint:

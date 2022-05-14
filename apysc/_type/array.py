@@ -525,7 +525,7 @@ class Array(
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Array')
-    def insert_at(self, index: Union[int, Int], value: T) -> None:
+    def insert_at(self, *, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
         This interface behaves the same `insert` method.

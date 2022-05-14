@@ -6,7 +6,7 @@ from typing import Union
 from apysc._type.string import String
 
 
-def validate_string_type(string: Union[str, String]) -> None:
+def validate_string_type(*, string: Union[str, String]) -> None:
     """
     Validate specified string's type is str.
 
@@ -27,7 +27,7 @@ def validate_string_type(string: Union[str, String]) -> None:
     raise ValueError(f'Specified value is not str type: {type(string)}')
 
 
-def validate_not_empty_string(string: Union[str, String]) -> None:
+def validate_not_empty_string(*, string: Union[str, String]) -> None:
     """
     Validate whether a specified string is not empty.
 

@@ -30,7 +30,7 @@ class ScaleYFromPointInterface(
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='ScaleYFromPointInterface')
-    def get_scale_y_from_point(self, y: Int) -> Number:
+    def get_scale_y_from_point(self, *, y: Int) -> Number:
         """
         Get a scale-y value from the given y-coordinate.
 
@@ -76,7 +76,7 @@ class ScaleYFromPointInterface(
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='ScaleYFromPointInterface')
-    def set_scale_y_from_point(self, scale_y: Number, y: Int) -> None:
+    def set_scale_y_from_point(self, *, scale_y: Number, y: Int) -> None:
         """
         Update a scale-y value from the given y-coordinate.
 

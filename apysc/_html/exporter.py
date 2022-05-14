@@ -17,8 +17,8 @@ info_logger: Logger = loggers.get_info_logger()
 
 
 def save_overall_html(
-        dest_dir_path: str,
         *,
+        dest_dir_path: str,
         html_file_name: str = 'index.html',
         minify: bool = True,
         js_lib_dir_path: str = './',

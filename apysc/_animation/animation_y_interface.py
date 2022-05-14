@@ -13,8 +13,8 @@ class AnimationYInterface(AnimationInterfaceBase):
 
     def animation_y(
             self,
-            y: Union[int, Int],
             *,
+            y: Union[int, Int],
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationY:

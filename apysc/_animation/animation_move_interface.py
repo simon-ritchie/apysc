@@ -13,9 +13,9 @@ class AnimationMoveInterface(AnimationInterfaceBase):
 
     def animation_move(
             self,
+            *,
             x: Union[int, Int],
             y: Union[int, Int],
-            *,
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationMove:

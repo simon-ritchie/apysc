@@ -14,8 +14,8 @@ class AnimationFillAlphaInterface(AnimationInterfaceBase):
 
     def animation_fill_alpha(
             self,
-            alpha: Union[float, Number],
             *,
+            alpha: Union[float, Number],
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationFillAlpha:

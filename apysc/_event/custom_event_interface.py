@@ -113,10 +113,11 @@ class CustomEventInterface(BlankObjectInterface):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CustomEventInterface')
     def bind_custom_event(
-            self, custom_event_type: Union[CustomEventType, str],
+            self,
+            *,
+            custom_event_type: Union[CustomEventType, str],
             handler: _Handler,
             e: Event,
-            *,
             options: Optional[Any] = None,
             in_handler_head_expression: str = '') -> str:
         """
@@ -215,7 +216,9 @@ class CustomEventInterface(BlankObjectInterface):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CustomEventInterface')
     def trigger_custom_event(
-            self, custom_event_type: Union[CustomEventType, str]) -> None:
+            self,
+            *,
+            custom_event_type: Union[CustomEventType, str]) -> None:
         """
         Add a custom event trigger setting.
 
@@ -263,6 +266,7 @@ class CustomEventInterface(BlankObjectInterface):
         module_name=__name__, class_name='CustomEventInterface')
     def unbind_custom_event(
             self,
+            *,
             custom_event_type: Union[CustomEventType, str],
             handler: _Handler) -> str:
         """
@@ -339,7 +343,9 @@ class CustomEventInterface(BlankObjectInterface):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CustomEventInterface')
     def unbind_custom_event_all(
-            self, custom_event_type: Union[CustomEventType, str]) -> None:
+            self,
+            *,
+            custom_event_type: Union[CustomEventType, str]) -> None:
         """
         Unbind (remove) custom event listener settings.
 

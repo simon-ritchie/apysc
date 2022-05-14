@@ -96,7 +96,7 @@ class Graphics(
         self._line_thickness = ap.Int(1.0)
         self._children = ap.Array([])
         self._append_constructor_expression()
-        self.parent_sprite.add_child(self)
+        self.parent_sprite.add_child(child=self)
         self._set_overflow_visible_setting()
 
     @add_debug_info_setting(  # type: ignore[misc]
@@ -115,7 +115,7 @@ class Graphics(
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_rect(
-            self, x: Union[int, Int],
+            self, *, x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
             height: Union[int, Int]) -> Rectangle:
@@ -168,7 +168,7 @@ class Graphics(
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_round_rect(
-            self, x: Union[int, Int],
+            self, *, x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
             height: Union[int, Int],
@@ -233,6 +233,7 @@ class Graphics(
         module_name=__name__, class_name='Graphics')
     def draw_circle(
             self,
+            *,
             x: Union[int, Int],
             y: Union[int, Int],
             radius: Union[int, Int]) -> '_circle.Circle':
@@ -287,6 +288,7 @@ class Graphics(
         module_name=__name__, class_name='Graphics')
     def draw_ellipse(
             self,
+            *,
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
@@ -346,7 +348,7 @@ class Graphics(
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def line_to(
-            self, x: Union[int, Int],
+            self, *, x: Union[int, Int],
             y: Union[int, Int]) -> '_polyline.Polyline':
         """
         Draw a line from previous point to specified point (initial
@@ -392,7 +394,7 @@ class Graphics(
             self._current_line = _polyline.Polyline(
                 parent=self,
                 points=ap.Array([Point2D(x=0, y=0), Point2D(x=x, y=y)]))
-            self.add_child(self._current_line)
+            self.add_child(child=self._current_line)
         else:
             self._current_line.append_line_point(x=x, y=y)
         return self._current_line
@@ -401,6 +403,7 @@ class Graphics(
         module_name=__name__, class_name='Graphics')
     def move_to(
             self,
+            *,
             x: Union[int, Int],
             y: Union[int, Int]) -> '_polyline.Polyline':
         """
@@ -464,6 +467,7 @@ class Graphics(
         module_name=__name__, class_name='Graphics')
     def draw_line(
             self,
+            *,
             x_start: Union[int, Int],
             y_start: Union[int, Int],
             x_end: Union[int, Int],
@@ -526,6 +530,7 @@ class Graphics(
         module_name=__name__, class_name='Graphics')
     def draw_dotted_line(
             self,
+            *,
             x_start: Union[int, Int],
             y_start: Union[int, Int],
             x_end: Union[int, Int],
@@ -596,6 +601,7 @@ class Graphics(
         module_name=__name__, class_name='Graphics')
     def draw_dashed_line(
             self,
+            *,
             x_start: Union[int, Int],
             y_start: Union[int, Int],
             x_end: Union[int, Int],
@@ -671,6 +677,7 @@ class Graphics(
         module_name=__name__, class_name='Graphics')
     def draw_round_dotted_line(
             self,
+            *,
             x_start: Union[int, Int],
             y_start: Union[int, Int],
             x_end: Union[int, Int],
@@ -746,6 +753,7 @@ class Graphics(
         module_name=__name__, class_name='Graphics')
     def draw_dash_dotted_line(
             self,
+            *,
             x_start: Union[int, Int],
             y_start: Union[int, Int],
             x_end: Union[int, Int],
@@ -824,6 +832,7 @@ class Graphics(
         module_name=__name__, class_name='Graphics')
     def draw_polygon(
             self,
+            *,
             points: Union[List[Point2D], Array[Point2D]]) -> '_polyg.Polygon':
         """
         Draw a polygon vector graphic. This interface is similar
@@ -866,13 +875,14 @@ class Graphics(
             points = ap.Array(points)
         polygon: _polyg.Polygon = _polyg.Polygon(
             parent=self, points=points)
-        self.add_child(polygon)
+        self.add_child(child=polygon)
         return polygon
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Graphics')
     def draw_path(
-            self, path_data_list: List[PathDataBase]) -> '_path.Path':
+            self, *,
+            path_data_list: List[PathDataBase]) -> '_path.Path':
         """
         Draw a path vector graphics.
 
@@ -902,7 +912,7 @@ class Graphics(
         """
         path: _path.Path = _path.Path(
             parent=self, path_data_list=path_data_list)
-        self.add_child(path)
+        self.add_child(child=path)
         return path
 
     def __repr__(self) -> str:

@@ -37,7 +37,7 @@ class LineDashSetting(Dictionary[str, Int]):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineDashSetting')
     def __init__(
-            self, dash_size: Union[int, Int],
+            self, *, dash_size: Union[int, Int],
             space_size: Union[int, Int]) -> None:
         """
         Dash setting class for a line.

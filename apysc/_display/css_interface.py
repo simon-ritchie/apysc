@@ -25,7 +25,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CssInterface')
-    def get_css(self, name: Union[str, String]) -> String:
+    def get_css(self, *, name: Union[str, String]) -> String:
         """
         Get a CSS value string.
 
@@ -95,7 +95,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='CssInterface')
     def set_css(
-            self, name: Union[str, String],
+            self, *, name: Union[str, String],
             value: Union[str, String]) -> None:
         """
         Set a specified value string to the CSS.

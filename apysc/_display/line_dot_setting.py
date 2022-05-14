@@ -32,7 +32,7 @@ class LineDotSetting(Dictionary[str, Int]):
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='LineDotSetting')
-    def __init__(self, dot_size: Union[int, Int]) -> None:
+    def __init__(self, *, dot_size: Union[int, Int]) -> None:
         """
         Dot setting class for a line.
 

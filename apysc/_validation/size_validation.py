@@ -9,7 +9,7 @@ from apysc._type.int import Int
 
 
 def validate_size_is_int(
-        size: Union[int, Int], err_msg: Optional[str] = None) -> None:
+        *, size: Union[int, Int], err_msg: Optional[str] = None) -> None:
     """
     Check whether a specified size is an integer or not.
 
@@ -35,7 +35,7 @@ def validate_size_is_int(
 
 
 def validate_size_is_gt_zero(
-        size: Union[int, Int], err_msg: Optional[str] = None) -> None:
+        *, size: Union[int, Int], err_msg: Optional[str] = None) -> None:
     """
     Check whether a specified size is greater than zero or not.
 
@@ -61,7 +61,7 @@ def validate_size_is_gt_zero(
 
 
 def validate_size_is_gte_zero(
-        size: Union[int, Int], err_msg: Optional[str] = None) -> None:
+        *, size: Union[int, Int], err_msg: Optional[str] = None) -> None:
     """
     Check whether a specified size is greater than or equal
     to zero or not.

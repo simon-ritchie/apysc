@@ -29,7 +29,7 @@ class ScaleXFromPointInterface(
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='ScaleXFromPointInterface')
-    def get_scale_x_from_point(self, x: Int) -> Number:
+    def get_scale_x_from_point(self, *, x: Int) -> Number:
         """
         Get a scale-x value from the given x-coordinate.
 
@@ -76,7 +76,7 @@ class ScaleXFromPointInterface(
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='ScaleXFromPointInterface')
-    def set_scale_x_from_point(self, scale_x: Number, x: Int) -> None:
+    def set_scale_x_from_point(self, *, scale_x: Number, x: Int) -> None:
         """
         Update a scale-x value from the given x-coordinate.
 

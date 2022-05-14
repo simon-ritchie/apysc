@@ -200,7 +200,7 @@ def get_specified_ext_file_paths_recursively(
     return file_paths
 
 
-def count_files_recursively(dir_path: str) -> int:
+def count_files_recursively(*, dir_path: str) -> int:
     """
     Count the existing files number in a specified directory
     recursively.
@@ -222,7 +222,8 @@ def count_files_recursively(dir_path: str) -> int:
     for file_or_dir_name in file_or_dir_names:
         file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
         if os.path.isdir(file_or_dir_path):
-            count += count_files_recursively(file_or_dir_path)
+            count += count_files_recursively(
+                dir_path=file_or_dir_path)
             continue
         if os.path.isfile(file_or_dir_path):
             count += 1

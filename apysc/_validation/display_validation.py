@@ -25,7 +25,7 @@ from typing import Any
 from typing import List
 
 
-def validate_stage(stage: Any) -> None:
+def validate_stage(*, stage: Any) -> None:
     """
     Validate whether the specified instance is Stage type or not.
 
@@ -46,7 +46,7 @@ def validate_stage(stage: Any) -> None:
         f'Specified instance is not Stage type: {type(stage)}')
 
 
-def validate_display_object(display_object: Any) -> None:
+def validate_display_object(*, display_object: Any) -> None:
     """
     Validate whether a  specified instance is the
     `DisplayObject` type or its subclass type (e.g., Sprite).
@@ -70,7 +70,7 @@ def validate_display_object(display_object: Any) -> None:
         f'{type(display_object)}')
 
 
-def validate_sprite(sprite: Any) -> None:
+def validate_sprite(*, sprite: Any) -> None:
     """
     Validate specified instance is Sprite type.
 
@@ -91,7 +91,7 @@ def validate_sprite(sprite: Any) -> None:
         f'Specified instance is not Sprite type: {type(sprite)}')
 
 
-def validate_graphics(graphics: Any) -> None:
+def validate_graphics(*, graphics: Any) -> None:
     """
     Validate specified instance is Graphics type.
 
@@ -112,7 +112,7 @@ def validate_graphics(graphics: Any) -> None:
         f'Specified instance is not Graphics type: {type(graphics)}')
 
 
-def validate_line_cap(cap: Any) -> None:
+def validate_line_cap(*, cap: Any) -> None:
     """
     Validate specified line cap style setting.
 
@@ -142,7 +142,7 @@ def validate_line_cap(cap: Any) -> None:
     )
 
 
-def validate_line_joints(joints: Any) -> None:
+def validate_line_joints(*, joints: Any) -> None:
     """
     Validate specified line joints style setting.
 
@@ -173,7 +173,8 @@ def validate_line_joints(joints: Any) -> None:
     )
 
 
-def validate_multiple_line_settings_isnt_set(any_instance: Any) -> None:
+def validate_multiple_line_settings_isnt_set(
+        *, any_instance: Any) -> None:
     """
     Validate that there are no multiple line settings
     (dotted, dashed, and so on).

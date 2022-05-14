@@ -14,8 +14,8 @@ class AnimationCxInterface(AnimationInterfaceBase):
 
     def animation_x(
             self,
-            x: Union[int, Int],
             *,
+            x: Union[int, Int],
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationCx:

@@ -7,7 +7,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 def validate_variable_name_interface_type(
-        instance: Any) -> VariableNameInterface:
+        *, instance: Any) -> VariableNameInterface:
     """
     Validate specified instance type is VariableNameInterface.
 

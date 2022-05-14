@@ -76,8 +76,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
     def __init__(
             self,
             handler: _Handler[_O1],
-            delay: Union[int, float, NumberValueInterface, FPS],
             *,
+            delay: Union[int, float, NumberValueInterface, FPS],
             repeat_count: Union[int, Int] = 0,
             options: Optional[_O1] = None) -> None:
         """

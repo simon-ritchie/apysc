@@ -42,7 +42,7 @@ class TimerEvent(Event):
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='TimerEvent')
-    def __init__(self, this: 'timer.Timer') -> None:
+    def __init__(self, *, this: 'timer.Timer') -> None:
         """
         Timer event class.
 

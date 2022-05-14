@@ -15,10 +15,10 @@ class AnimationRotationAroundPointInterface(AnimationInterfaceBase):
 
     def animation_rotation_around_point(
             self,
+            *,
             rotation_around_point: Union[int, Int],
             x: Union[int, Int],
             y: Union[int, Int],
-            *,
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationRotationAroundPoint:

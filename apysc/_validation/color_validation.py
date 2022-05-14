@@ -12,7 +12,8 @@ from apysc._type.string import String
 StrOrString = TypeVar('StrOrString', str, String)
 
 
-def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
+def validate_hex_color_code_format(
+        *, hex_color_code: StrOrString) -> None:
     """
     Validate a specified hexadecimal color code format.
 
@@ -55,7 +56,7 @@ def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
 
 
 def validate_alpha_range(
-        alpha: Union[float, NumberValueInterface]) -> None:
+        *, alpha: Union[float, NumberValueInterface]) -> None:
     """
     Validate specified alpha (opacity) value's range.
 

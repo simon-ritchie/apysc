@@ -14,8 +14,8 @@ class AnimationHeightForEllipseInterface(AnimationInterfaceBase):
 
     def animation_height(
             self,
-            height: Union[int, Int],
             *,
+            height: Union[int, Int],
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationHeightForEllipse:

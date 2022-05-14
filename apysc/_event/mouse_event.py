@@ -43,7 +43,7 @@ class MouseEvent(
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='MouseEvent')
-    def __init__(self, this: T) -> None:
+    def __init__(self, *, this: T) -> None:
         """
         Mouse event class.
 

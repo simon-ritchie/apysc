@@ -6,7 +6,7 @@ helper interfaces.
 from typing import Any
 
 
-def validate_point_2d_type(point: Any) -> None:
+def validate_point_2d_type(*, point: Any) -> None:
     """
     Validate specified value's type is Point2D.
 

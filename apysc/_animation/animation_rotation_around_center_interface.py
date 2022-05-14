@@ -15,8 +15,8 @@ class AnimationRotationAroundCenterInterface(AnimationInterfaceBase):
 
     def animation_rotation_around_center(
             self,
-            rotation_around_center: Union[int, Int],
             *,
+            rotation_around_center: Union[int, Int],
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationRotationAroundCenter:

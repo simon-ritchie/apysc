@@ -20,8 +20,8 @@ _Handler = Callable[[WheelEvent, _O], None]
 @add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
 def bind_wheel_event_to_document(
-        handler: _Handler[_O],
         *,
+        handler: _Handler[_O],
         options: Optional[_O] = None) -> str:
     """
     Bind wheel event to document (overall window).
@@ -70,7 +70,9 @@ def bind_wheel_event_to_document(
 
 @add_debug_info_setting(  # type: ignore[misc]
     module_name=__name__)
-def unbind_wheel_event_from_document(handler: _Handler[_O]) -> None:
+def unbind_wheel_event_from_document(
+        *,
+        handler: _Handler[_O]) -> None:
     """
     Unbind a specified handler's wheel event from a document
     (overall window).

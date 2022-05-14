@@ -15,7 +15,7 @@ class AppendLinePointInterface(Points2DInterface):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='AppendLinePointInterface')
     def append_line_point(
-            self, x: Union[int, Int], y: Union[int, Int]) -> None:
+            self, *, x: Union[int, Int], y: Union[int, Int]) -> None:
         """
         Append line point at the end.
 

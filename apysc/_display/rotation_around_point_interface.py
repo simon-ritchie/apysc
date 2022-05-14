@@ -28,7 +28,7 @@ class RotationAroundPointInterface(
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='RotationAroundPointInterface')
-    def get_rotation_around_point(self, x: Int, y: Int) -> Int:
+    def get_rotation_around_point(self, *, x: Int, y: Int) -> Int:
         """
         Get a rotation value around the given coordinates.
 
@@ -82,7 +82,7 @@ class RotationAroundPointInterface(
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='RotationAroundPointInterface')
     def set_rotation_around_point(
-            self, rotation: Int, x: Int, y: Int) -> None:
+            self, *, rotation: Int, x: Int, y: Int) -> None:
         """
         Update a rotation value around the given coordinates.
 

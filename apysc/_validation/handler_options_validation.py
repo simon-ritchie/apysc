@@ -5,7 +5,7 @@ validation implementations.
 from typing import Any
 
 
-def validate_options_type(options: Any) -> None:
+def validate_options_type(*, options: Any) -> None:
     """
     Validate a specified options type.
 

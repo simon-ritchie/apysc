@@ -16,8 +16,8 @@ class AnimationScaleYFromCenterInterface(AnimationInterfaceBase):
 
     def animation_scale_y_from_center(
             self,
-            scale_y_from_center: Union[float, Number],
             *,
+            scale_y_from_center: Union[float, Number],
             duration: Union[int, Int] = 3000,
             delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationScaleYFromCenter:

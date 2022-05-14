@@ -284,7 +284,7 @@ def get_stage_elem_str() -> str:
     return stage_elem_str
 
 
-def _save_stage_id_to_db(stage: Stage) -> None:
+def _save_stage_id_to_db(*, stage: Stage) -> None:
     """
     Save a stage's memory address (id) to the database.
 

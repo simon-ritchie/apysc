@@ -11,7 +11,7 @@ from apysc._geom.path_data_base import PathDataBase
 
 
 def validate_path_data_list(
-        path_data_list: List[PathDataBase]) -> None:
+        *, path_data_list: List[PathDataBase]) -> None:
     """
     Validate a specified path data list.
 
@@ -37,7 +37,7 @@ def validate_path_data_list(
 
 
 def _validate_bezier_3d_continual_pre_data(
-        path_data_list: List[PathDataBase]) -> None:
+        *, path_data_list: List[PathDataBase]) -> None:
     """
     Validate a preceding data of `PathBezier3DContinual` instance
     in list is a `PathBezier3D` or `PathBezier3DContinual`.
@@ -74,7 +74,7 @@ def _validate_bezier_3d_continual_pre_data(
 
 
 def _validate_bezier_2d_continual_pre_data(
-        path_data_list: List[PathDataBase]) -> None:
+        *, path_data_list: List[PathDataBase]) -> None:
     """
     Validate a preceding data of `PathBezier2DContinual` instance
     in list is a `PathBezier2D` or `PathBezier2DContinual`.

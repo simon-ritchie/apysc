@@ -41,8 +41,9 @@ class Event(Generic[T], VariableNameInterface):
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='Event')
     def __init__(
-            self, this: T,
+            self,
             *,
+            this: T,
             type_name: Optional[str] = None) -> None:
         """
         Basic event class.

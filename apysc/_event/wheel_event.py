@@ -14,7 +14,7 @@ class WheelEvent(Event):
 
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='WheelEvent')
-    def __init__(self, this: VariableNameInterface) -> None:
+    def __init__(self, *, this: VariableNameInterface) -> None:
         """
         Mouse wheel event class.
 

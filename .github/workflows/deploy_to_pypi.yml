@@ -258,9 +258,6 @@ jobs:
       matrix:
         alphabets-group: [
           'a',
-          'bcdefghijklmno',
-          'pqrs',
-          'tuvwxyz',
         ]
     timeout-minutes: 10
     steps:

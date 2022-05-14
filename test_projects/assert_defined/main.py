@@ -32,10 +32,10 @@ def main() -> None:
     ap.assert_defined(value=int_1)
 
     sprite_1: ap.Sprite = ap.Sprite()
-    child_1: ap.DisplayObject = sprite_1.get_child_at(index=0)
+    child_1: ap.DisplayObject = sprite_1.get_child_at(index=1)
     ap.assert_undefined(value=child_1)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 if __name__ == '__main__':

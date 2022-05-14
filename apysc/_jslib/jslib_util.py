@@ -20,6 +20,11 @@ from types import ModuleType
 from typing import List
 
 
+_HIGH_PRIORITY_FILE_ORDERS: List[str] = [
+    'jquery.min.js',
+]
+
+
 def get_jslib_file_names() -> List[str]:
     """
     Get the JavaScript libraries file's names.
@@ -38,7 +43,34 @@ def get_jslib_file_names() -> List[str]:
         if not file_name.endswith('.js'):
             continue
         jslib_file_names.append(file_name)
+    jslib_file_names = _sort_js_file_names_with_priority_setting(
+        jslib_file_names=jslib_file_names)
     return jslib_file_names
+
+
+def _sort_js_file_names_with_priority_setting(
+        *, jslib_file_names: List[str]) -> List[str]:
+    """
+    Sort a JavaScript libraries' file names list
+    with the priority setting.
+
+    Parameters
+    ----------
+    jslib_file_names : List[str]
+        A target list to sort.
+
+    Returns
+    -------
+    sorted_jslib_file_names : List[str]
+        A sorted list.
+    """
+    jslib_file_names.sort()
+    sorted_jslib_file_names: List[str] = _HIGH_PRIORITY_FILE_ORDERS.copy()
+    for jslib_file_name in jslib_file_names:
+        if jslib_file_name in _HIGH_PRIORITY_FILE_ORDERS:
+            continue
+        sorted_jslib_file_names.append(jslib_file_name)
+    return sorted_jslib_file_names
 
 
 def get_jslib_abs_dir_path() -> str:

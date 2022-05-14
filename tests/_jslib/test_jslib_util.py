@@ -54,3 +54,19 @@ def test_export_jslib_to_specified_dir() -> None:
 def test_read_jslib_str() -> None:
     jslib_str: str = 'jquery.min.js'
     assert jslib_str != ''
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__sort_js_file_names_with_priority_setting() -> None:
+    sorted_jslib_file_names: List[str] = jslib_util.\
+        _sort_js_file_names_with_priority_setting(
+            jslib_file_names=[
+                'svg.min.js',
+                'jquery.mousewheel.min.js',
+                'jquery.min.js',
+            ])
+    assert sorted_jslib_file_names == [
+        'jquery.min.js',
+        'jquery.mousewheel.min.js',
+        'svg.min.js',
+    ]

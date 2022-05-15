@@ -400,13 +400,14 @@ def add_debug_info_setting(
     Notes
     -----
     Currently, this interface raises a mypy error under
-    some mypy settings. Please set `type: ignore` comment
+    some mypy settings. Please set `type: ignore[misc]` comment
+    or `--disable-error-code misc` mypy's command argument
     if encountered its mypy error.
 
     Examples
     --------
     >>> import apysc as ap
-    >>> @ap.add_debug_info_setting(  # type: ignore
+    >>> @ap.add_debug_info_setting(  # type: ignore[misc]
     ...     module_name=__name__)
     ... def sample_method(a: int) -> None:
     ...     ...

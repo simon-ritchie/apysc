@@ -53,7 +53,7 @@ class AnimationWidth(AnimationBase[_T], Generic[_T]):
 
     _width: Int
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='AnimationWidth')
     def __init__(
             self,

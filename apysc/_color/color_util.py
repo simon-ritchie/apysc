@@ -10,8 +10,7 @@ from apysc._type.string import String
 StrOrString = TypeVar('StrOrString', str, String)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def complement_hex_color(
         *, hex_color_code: StrOrString) -> StrOrString:
     """
@@ -60,8 +59,7 @@ def complement_hex_color(
     return hex_color_code  # type: ignore
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def _append_complement_hex_color_expression(
         *, hex_color_code: Any) -> None:
     """

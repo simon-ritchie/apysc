@@ -53,7 +53,7 @@ class AnimationHeightForEllipse(AnimationBase[_T], Generic[_T]):
 
     _height: Int
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='AnimationHeightForEllipse')
     def __init__(
             self,

@@ -26,7 +26,7 @@ class FlipXInterface(
 
         self._append_flip_x_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='FlipXInterface')
     def _append_flip_x_attr_linking_setting(self) -> None:
         """
@@ -37,8 +37,8 @@ class FlipXInterface(
         self._append_attr_to_linking_stack(
             attr=self._flip_x, attr_name='flip_x')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='FlipXInterface')
     def flip_x(self) -> Boolean:
         """
@@ -103,7 +103,7 @@ class FlipXInterface(
 
             self._append_flip_x_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='FlipXInterface')
     def _append_flip_x_update_expression(
             self, *, before_value: Boolean) -> None:

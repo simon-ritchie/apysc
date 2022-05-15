@@ -13,7 +13,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 empty = inspect.Signature.empty
 
 
-@add_debug_info_setting(  # type: ignore[misc]
+@add_debug_info_setting(
     module_name=__name__)
 def get_func_default_vals(*, func: Callable) -> Dict[str, Any]:
     """
@@ -39,8 +39,7 @@ def get_func_default_vals(*, func: Callable) -> Dict[str, Any]:
     return default_vals
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def get_arg_name_at(*, func: Callable, index: int) -> str:
     """
     Get specified index argument name from function.
@@ -67,8 +66,7 @@ def get_arg_name_at(*, func: Callable, index: int) -> str:
     return arg_name
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def get_name_and_arg_value_dict_from_args(
         *, func: Callable, args: list, kwargs: dict) -> Dict[str, Any]:
     """
@@ -98,8 +96,7 @@ def get_name_and_arg_value_dict_from_args(
     return name_and_arg_value_dict
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def get_method_class_name(*, method: Callable) -> str:
     """
     Get a specified method's class name.

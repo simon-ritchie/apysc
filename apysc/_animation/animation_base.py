@@ -105,7 +105,7 @@ class AnimationBase(
         expression += self._get_animation_complete_handler_expression()
         return expression
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='AnimationBase')
     def start(self) -> 'AnimationBase':
         """
@@ -165,7 +165,7 @@ class AnimationBase(
             expression += f'\n  .after({handler_name})'
         return expression
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='AnimationBase')
     def animation_complete(
             self, handler: _Handler[_O], *,

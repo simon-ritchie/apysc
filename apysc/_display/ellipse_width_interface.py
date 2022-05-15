@@ -26,7 +26,7 @@ class EllipseWidthInterface(
 
         self._append_ellipse_width_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='EllipseWidthInterface')
     def _append_ellipse_width_attr_linking_setting(self) -> None:
         """
@@ -37,8 +37,8 @@ class EllipseWidthInterface(
         self._append_attr_to_linking_stack(
             attr=self._ellipse_width, attr_name='ellipse_width')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='EllipseWidthInterface')
     def ellipse_width(self) -> Int:
         """
@@ -93,7 +93,7 @@ class EllipseWidthInterface(
 
             self._append_ellipse_width_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='EllipseWidthInterface')
     def _append_ellipse_width_update_expression(self) -> None:
         """

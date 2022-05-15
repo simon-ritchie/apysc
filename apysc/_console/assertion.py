@@ -32,8 +32,7 @@ from typing import Tuple
 from apysc._html.debug_mode import add_debug_info_setting
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_equal(
         left: Any, right: Any, *, msg: str = '') -> None:
     """
@@ -92,8 +91,7 @@ def assert_equal(
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_not_equal(
         left: Any, right: Any, *, msg: str = '') -> None:
     """
@@ -154,8 +152,7 @@ def assert_not_equal(
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_true(
         value: Any, *, type_strict: bool = True, msg: str = '') -> None:
     """
@@ -202,8 +199,7 @@ def assert_true(
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_false(
         value: Any, *, type_strict: bool = True, msg: str = '') -> None:
     """
@@ -250,8 +246,7 @@ def assert_false(
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_arrays_equal(
         left: Any, right: Any, *, msg: str = '') -> None:
     """
@@ -295,8 +290,7 @@ def assert_arrays_equal(
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_arrays_not_equal(
         left: Any, right: Any, *, msg: str = '') -> None:
     """
@@ -340,8 +334,7 @@ def assert_arrays_not_equal(
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for Dictionary values equal
@@ -385,8 +378,7 @@ def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_dicts_not_equal(
         left: Any, right: Any, *, msg: str = '') -> None:
     """
@@ -431,8 +423,7 @@ def assert_dicts_not_equal(
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_defined(value: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for defined (not undefined)
@@ -471,8 +462,7 @@ def assert_defined(value: Any, *, msg: str = '') -> None:
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def assert_undefined(value: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for undefined value condition.
@@ -512,8 +502,7 @@ def assert_undefined(value: Any, *, msg: str = '') -> None:
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def _make_arrays_or_dicts_comparison_expression(
         *, left: Any, right: Any, msg: str,
         not_condition: bool) -> str:
@@ -557,8 +546,7 @@ def _make_arrays_or_dicts_comparison_expression(
     return expression
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def _trace_arrays_or_dicts_assertion_info(
         *, interface_label: str, left: Any, right: Any) -> None:
     """
@@ -695,8 +683,7 @@ def _get_left_and_right_strs(
     return left_str, right_str
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def _trace_info(*, interface_label: str, left: Any, right: Any) -> None:
     """
     Append trace expression of specified values.

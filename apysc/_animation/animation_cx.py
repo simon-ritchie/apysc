@@ -53,7 +53,7 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
 
     _cx: Int
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='AnimationCx')
     def __init__(
             self,

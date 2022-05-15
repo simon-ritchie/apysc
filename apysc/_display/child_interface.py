@@ -24,7 +24,7 @@ class ChildInterface(RevertInterface):
     _variable_name: str
     stage: 'Stage'
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ChildInterface')
     def add_child(self, child: DisplayObject) -> None:
         """
@@ -69,7 +69,7 @@ class ChildInterface(RevertInterface):
             return
         self._children = Array([])
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ChildInterface')
     def remove_child(self, child: DisplayObject) -> None:
         """
@@ -106,7 +106,7 @@ class ChildInterface(RevertInterface):
             child.parent = None
             return
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ChildInterface')
     def contains(self, child: DisplayObject) -> Boolean:
         """
@@ -172,8 +172,8 @@ class ChildInterface(RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='ChildInterface')
     def num_children(self) -> Int:
         """
@@ -225,7 +225,7 @@ class ChildInterface(RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ChildInterface')
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """
@@ -338,8 +338,7 @@ class ChildInterface(RevertInterface):
             child._run_all_revert_methods(snapshot_name=snapshot_name)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def append_expression_of_add_child(*, child: DisplayObject) -> None:
     """
     Append expression of add_child (add).
@@ -358,8 +357,7 @@ def append_expression_of_add_child(*, child: DisplayObject) -> None:
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def append_expression_of_remove_child(*, child: DisplayObject) -> None:
     """
     Append expression of remove_child (removeElement).

@@ -60,7 +60,8 @@ NUMDOCLINT_COMMAND: Final[str] = (
 MYPY_NO_PATH_COMMAND: Final[str] = (
     'mypy --ignore-missing-imports --follow-imports skip '
     '--disallow-untyped-calls --disallow-untyped-defs '
-    '--strict-optional --strict-equality --show-error-codes'
+    '--strict-optional --strict-equality --show-error-codes '
+    '--disable-error-code misc'
 )
 
 MYPY_COMMAND: Final[str] = (

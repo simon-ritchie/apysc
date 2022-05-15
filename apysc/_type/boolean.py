@@ -45,7 +45,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
     _initial_value: Union[bool, int, Int, 'Boolean']
     _value: bool
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def __init__(self, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
@@ -95,7 +95,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
                 get_next_variable_name(type_name=TYPE_NAME)
             self._append_constructor_expression()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def _get_bool_from_arg_value(
             self, *, value: Union[bool, int, Int, 'Boolean']) -> bool:
@@ -126,7 +126,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         bool_validation.validate_bool(value=result)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def _append_constructor_expression(self) -> None:
         """
@@ -143,8 +143,8 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             expression += 'false;'
         ap.append_js_expression(expression=expression)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def value(self) -> Union[bool, int, Int, 'Boolean']:
         """
@@ -202,7 +202,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             else:
                 self._append_value_setter_expression(value=self._value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def _append_value_setter_expression(
             self, *, value: Union[bool, int, Int, 'Boolean']) -> None:
@@ -292,7 +292,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             return
         self._value = self._value_snapshots[snapshot_name]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def __eq__(self, other: Any) -> Any:
         """
@@ -349,7 +349,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             f'{type(other)}, {other}'
             f'\nAcceptable value types are: {ACCEPTABLE_TYPES}')
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def _append_eq_expression(
             self, *, result: VariableNameInterface,
@@ -374,7 +374,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def __ne__(self, other: Any) -> Any:
         """
@@ -397,7 +397,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_ne_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def _append_ne_expression(
             self, *, result: VariableNameInterface,
@@ -422,8 +422,8 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def not_(self) -> 'Boolean':
         """
@@ -449,7 +449,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         self._append_not_prop_expression(result=result)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')
     def _append_not_prop_expression(
             self, *, result: VariableNameInterface) -> None:

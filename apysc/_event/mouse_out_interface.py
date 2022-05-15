@@ -19,7 +19,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
 
     _mouse_out_handlers: Dict[str, HandlerData]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseOutInterface')
     def mouseout(
             self, handler: _Handler[_O], *,
@@ -92,7 +92,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
             return
         self._mouse_out_handlers = {}
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseOutInterface')
     def unbind_mouseout(self, handler: _Handler[_O]) -> None:
         """
@@ -129,7 +129,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.MOUSEOUT,
             handlers_dict=self._mouse_out_handlers)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseOutInterface')
     def unbind_mouseout_all(self) -> None:
         """

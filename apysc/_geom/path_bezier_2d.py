@@ -36,7 +36,7 @@ class PathBezier2D(
     ...     ])
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier2D')
     def __init__(
             self,
@@ -90,7 +90,7 @@ class PathBezier2D(
         self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
         self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier2D')
     def _get_svg_str(self) -> str:
         """
@@ -121,7 +121,7 @@ class PathBezier2D(
         )
         return svg_str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier2D')
     def update_path_data(
             self,
@@ -182,7 +182,7 @@ class PathBezier2D(
         self.relative = get_copied_boolean_from_builtin_val(
             bool_val=relative)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier2D')
     def __eq__(self, other: Any) -> Any:
         """
@@ -209,7 +209,7 @@ class PathBezier2D(
             and self.dest_y == other.dest_y
             and self.relative == other.relative)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier2D')
     def __ne__(self, other: Any) -> Any:
         """

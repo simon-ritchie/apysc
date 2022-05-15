@@ -31,7 +31,7 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
     ...     ])
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathMoveTo')
     def __init__(
             self, x: Union[int, Int], y: Union[int, Int], *,
@@ -70,7 +70,7 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
         self.x = get_copied_int_from_builtin_val(integer=x)
         self.y = get_copied_int_from_builtin_val(integer=y)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathMoveTo')
     def _get_svg_str(self) -> str:
         """
@@ -94,7 +94,7 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
             f'{svg_char_str} + String({x_str}) + " " + String({y_str})')
         return svg_str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathMoveTo')
     def update_path_data(
             self, x: Union[int, Int], y: Union[int, Int],
@@ -133,7 +133,7 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
         self.relative = get_copied_boolean_from_builtin_val(
             bool_val=relative)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathMoveTo')
     def __eq__(self, other: Any) -> Any:
         """
@@ -158,7 +158,7 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
             and self.y == other.y
             and self.relative == other.relative)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathMoveTo')
     def __ne__(self, other: Any) -> Any:
         """

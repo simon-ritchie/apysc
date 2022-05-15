@@ -11,7 +11,7 @@ class BlankObjectInterface:
     _is_blank_object_initialized: bool = False
     _blank_object_variable_name: str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='BlankObjectInterface')
     def _initialize_blank_object_if_not_initialized(self) -> None:
         """
@@ -35,8 +35,8 @@ class BlankObjectInterface:
                 expression=expression)
             self._is_blank_object_initialized = True
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='BlankObjectInterface')
     def blank_object_variable_name(self) -> str:
         """

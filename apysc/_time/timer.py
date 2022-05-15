@@ -71,7 +71,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
     _handler_name: str
     _running: Boolean
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def __init__(
             self,
@@ -171,7 +171,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             ap.append_js_expression(
                 expression=f'var {self.variable_name};')
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def _convert_delay_to_number(
             self, *,
@@ -201,8 +201,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
             delay_ = delay
         return delay_
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def delay(self) -> Number:
         """
@@ -231,8 +231,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._type import value_util
         return value_util.get_copy(value=self._delay)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def repeat_count(self) -> Int:
         """
@@ -262,8 +262,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._type import value_util
         return value_util.get_copy(value=self._repeat_count)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def running(self) -> Boolean:
         """
@@ -291,8 +291,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._type import value_util
         return value_util.get_copy(value=self._running)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def current_count(self) -> Int:
         """
@@ -315,7 +315,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._type import value_util
         return value_util.get_copy(value=self._current_count)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def start(self) -> None:
         """
@@ -401,7 +401,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
         return wrapped
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def _append_count_branch_expression(self) -> None:
         """
@@ -431,7 +431,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         expression = '\n}'
         expression_data_util.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def stop(self) -> None:
         """
@@ -468,7 +468,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         expression: str = self._get_stop_expression(indent_num=0)
         expression_data_util.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def _get_stop_expression(self, *, indent_num: int) -> str:
         """
@@ -495,7 +495,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             expression=expression, indent_num=indent_num)
         return expression
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def reset(self) -> None:
         """
@@ -530,7 +530,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         self.stop()
         self._current_count.value = 0
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def timer_complete(
             self, handler: _Handler[_O2], *,

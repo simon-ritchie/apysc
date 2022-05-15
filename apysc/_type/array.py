@@ -68,7 +68,7 @@ class Array(
     _initial_value: Union[List[Any], tuple, 'Array']
     _value: List[Any]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def __init__(
             self,
@@ -146,7 +146,7 @@ class Array(
             return list(value)
         return value
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_constructor_expression(self) -> None:
         """
@@ -259,7 +259,7 @@ class Array(
             self._value = self._get_list_value(value=value)
             self._append_value_setter_expression(value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_value_setter_expression(
             self, *, value: Union[List[Any], tuple, 'Array']) -> None:
@@ -282,7 +282,7 @@ class Array(
             expression += f'{value_str};'
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def append(self, value: T) -> None:
         """
@@ -310,7 +310,7 @@ class Array(
         self._value.append(value)
         self._append_push_and_append_expression(value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def push(self, value: T) -> None:
         """
@@ -337,7 +337,7 @@ class Array(
         """
         self.append(value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_push_and_append_expression(
             self, *, value: T) -> None:
@@ -358,7 +358,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def extend(self, other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
@@ -393,7 +393,7 @@ class Array(
             self._value.extend(list(other_arr))  # type: ignore[arg-type]
         self._append_extend_expression(other_arr=other_arr)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_extend_expression(
             self, *, other_arr: Union[List[T], tuple, 'Array']) -> None:
@@ -414,7 +414,7 @@ class Array(
             f'.concat({value_str});')
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def concat(
             self, other_arr: Union[List[T], tuple, 'Array']) -> 'Array':
@@ -455,7 +455,7 @@ class Array(
             concatenated=concatenated, other_arr=other_arr)
         return concatenated
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_concat_expression(
             self, *, concatenated: VariableNameInterface,
@@ -480,7 +480,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def insert(
             self, index: Union[int, Int], value: T) -> None:
@@ -523,7 +523,7 @@ class Array(
         self._value.insert(index_, value_)
         self._append_insert_expression(index=index, value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def insert_at(self, *, index: Union[int, Int], value: T) -> None:
         """
@@ -552,7 +552,7 @@ class Array(
         """
         self.insert(index=index, value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_insert_expression(
             self, *, index: Union[int, Int], value: T) -> None:
@@ -577,7 +577,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def pop(self) -> T:
         """
@@ -608,7 +608,7 @@ class Array(
         self._append_pop_expression(value=value)
         return value
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_pop_expression(self, *, value: T) -> None:
         """
@@ -625,7 +625,7 @@ class Array(
             expression = f'{value.variable_name} = {expression}'
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def remove(self, value: T) -> None:
         """
@@ -652,7 +652,7 @@ class Array(
         self._value.remove(value)
         self._append_remove_expression(value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_remove_expression(self, *, value: T) -> None:
         """
@@ -677,7 +677,7 @@ class Array(
             f'\n{self.variable_name}.splice({index_var_name}, 1);')
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def remove_at(self, index: Union[int, Int]) -> None:
         """
@@ -711,7 +711,7 @@ class Array(
             del self._value[index_]
         self._append_remove_at_expression(index=index)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_remove_at_expression(
             self, *, index: Union[int, Int]) -> None:
@@ -732,7 +732,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def reverse(self) -> None:
         """
@@ -754,7 +754,7 @@ class Array(
         self._value.reverse()
         self._append_reverse_expression()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_reverse_expression(self) -> None:
         """
@@ -766,7 +766,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def sort(self, *, ascending: bool = True) -> None:
         """
@@ -800,7 +800,7 @@ class Array(
         if not ascending:
             self.reverse()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_sort_expression(self) -> None:
         """
@@ -812,7 +812,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def slice(
             self,
@@ -868,7 +868,7 @@ class Array(
             sliced_arr=sliced_arr, start=start, end=end)
         return sliced_arr
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_slice_expression(
             self,
@@ -901,7 +901,7 @@ class Array(
         expression += ');'
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def __getitem__(self, index: Union[int, Int]) -> T:
         """
@@ -976,7 +976,7 @@ class Array(
             'Currently indexing is only supported int or Int types.'
             ' If you need to slice array please use slice method.')
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_getitem_expression(
             self, *, index: Union[int, Int],
@@ -1006,7 +1006,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def __setitem__(self, index: Union[int, Int], value: T) -> None:
         """
@@ -1031,7 +1031,7 @@ class Array(
         self._value[index_] = value
         self._append_setitem_expression(index=index, value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_setitem_expression(
             self, *, index: Union[int, Int], value: T) -> None:
@@ -1058,7 +1058,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def __delitem__(self, index: Union[int, Int]) -> None:
         """
@@ -1078,8 +1078,8 @@ class Array(
         """
         self.remove_at(index=index)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def length(self) -> Int:
         """
@@ -1107,7 +1107,7 @@ class Array(
         self._append_length_expression(length=length)
         return length
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_length_expression(self, *, length: Int) -> None:
         """
@@ -1133,7 +1133,7 @@ class Array(
             'Array instance can\'t apply len function.'
             ' Please use length property instead.')
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def join(self, sep: Union[str, String]) -> String:
         """
@@ -1171,7 +1171,7 @@ class Array(
         self._append_join_expression(joined=joined, sep=sep)
         return joined
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_join_expression(
             self, *, joined: String, sep: Union[str, String]) -> None:
@@ -1222,7 +1222,7 @@ class Array(
             repr_str = f'Array({repr(self._value)})'
         return repr_str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def index_of(self, value: T) -> Int:
         """
@@ -1261,7 +1261,7 @@ class Array(
         self._append_index_of_expression(index=index, value=value)
         return index
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_index_of_expression(
             self, *, index: Int, value: T) -> None:
@@ -1286,7 +1286,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def __eq__(self, other: Any) -> Any:
         """
@@ -1314,7 +1314,7 @@ class Array(
             self._append_eq_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _convert_other_val_to_array(self, *, other: Any) -> Any:
         """
@@ -1337,7 +1337,7 @@ class Array(
             return Array(other)
         return other
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_eq_expression(
             self, *, result: Boolean,
@@ -1359,7 +1359,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def __ne__(self, other: Any) -> Any:
         """
@@ -1384,7 +1384,7 @@ class Array(
             self._append_ne_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def _append_ne_expression(
             self, *, result: Boolean,

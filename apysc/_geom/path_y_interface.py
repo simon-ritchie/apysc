@@ -24,7 +24,7 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
 
         self._append_y_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathYInterface')
     def _append_y_linking_setting(self) -> None:
         """
@@ -35,8 +35,8 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
         self._append_attr_to_linking_stack(
             attr=self._y, attr_name='y')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathYInterface')
     def y(self) -> Int:
         """

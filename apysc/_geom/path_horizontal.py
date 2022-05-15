@@ -30,7 +30,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
     ...     ])
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathHorizontal')
     def __init__(
             self, x: Union[int, Int], *,
@@ -66,7 +66,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
             relative=relative)
         self.x = get_copied_int_from_builtin_val(integer=x)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathHorizontal')
     def _get_svg_str(self) -> str:
         """
@@ -86,7 +86,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         svg_str: str = f'{svg_char_str} + String({x_str})'
         return svg_str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathHorizontal')
     def update_path_data(
             self, x: Union[int, Int],
@@ -119,7 +119,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         self.relative = get_copied_boolean_from_builtin_val(
             bool_val=relative)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathHorizontal')
     def __eq__(self, other: Any) -> Any:
         """
@@ -141,7 +141,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
             return result
         return self.x == other.x and self.relative == other.relative
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathHorizontal')
     def __ne__(self, other: Any) -> Any:
         """

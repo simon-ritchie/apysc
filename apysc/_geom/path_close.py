@@ -26,7 +26,7 @@ class PathClose(PathDataBase):
     ...     ])
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathClose')
     def __init__(self) -> None:
         """
@@ -51,7 +51,7 @@ class PathClose(PathDataBase):
             path_label=PathLabel.CLOSE,
             relative=False)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathClose')
     def _get_svg_str(self) -> str:
         """

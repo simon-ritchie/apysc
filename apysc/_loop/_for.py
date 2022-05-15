@@ -42,7 +42,7 @@ class For(Generic[T]):
     _snapshot_name: str
     _indent: Indent
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='For')
     def __init__(
             self, arr_or_dict: Union[Array, Dictionary],
@@ -111,7 +111,7 @@ class For(Generic[T]):
             'Specified value type is neither Array nor Dictionary: '
             f'{type(arr_or_dict)}')
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='For')
     def __enter__(self) -> T:
         """
@@ -143,7 +143,7 @@ class For(Generic[T]):
         self._indent.__enter__()
         return i_or_key  # type: ignore
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='For')
     def __exit__(self, *args: Any) -> None:
         """
@@ -162,7 +162,7 @@ class For(Generic[T]):
         ap.append_js_expression(expression='}')
         last_scope.set_last_scope(value=LastScope.FOR)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='For')
     def _append_arr_enter_expression(self, *, i: Int) -> None:
         """
@@ -181,7 +181,7 @@ class For(Generic[T]):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='For')
     def _append_dict_enter_expression(self, *, key: String) -> None:
         """

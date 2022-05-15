@@ -49,7 +49,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
     _initial_value: Union[str, 'String']
     _value: str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __init__(self, value: Union[str, 'String']) -> None:
         """
@@ -95,7 +95,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
                 get_next_variable_name(type_name=TYPE_NAME)
             self._append_constructor_expression()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_constructor_expression(self) -> None:
         """
@@ -177,7 +177,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._value = self._get_str_value(value=value)
             self._append_value_setter_expression(value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_value_setter_expression(
             self, *, value: Union[str, 'String']) -> None:
@@ -197,7 +197,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             expression += f'"{value}";'
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __add__(self, other: Union[str, 'String']) -> 'String':
         """
@@ -224,7 +224,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         self._append_addition_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_addition_expression(
             self, *, result: VariableNameInterface,
@@ -248,7 +248,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __mul__(self, other: Union[int, Any]) -> 'String':
         """
@@ -276,7 +276,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         self._append_multiplication_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_multiplication_expression(
             self, *, result: VariableNameInterface,
@@ -304,7 +304,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         expression += '\n}'
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __iadd__(self, other: Union[str, 'String']) -> Any:
         """
@@ -327,7 +327,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         result.variable_name = self.variable_name
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __imul__(self, other: Union[int, Any]) -> Any:
         """
@@ -363,7 +363,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return ''
         return self._value
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __eq__(self, other: Any) -> Any:
         """
@@ -414,7 +414,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return String(other)
         return other
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_eq_expression(
             self, *, result: VariableNameInterface,
@@ -436,7 +436,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __ne__(self, other: Any) -> Any:
         """
@@ -466,7 +466,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_ne_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_ne_expression(
             self, *, result: VariableNameInterface,
@@ -488,7 +488,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __lt__(self, other: Union[str, Any]) -> Any:
         """
@@ -514,7 +514,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_lt_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_lt_expression(
             self, *, result: VariableNameInterface,
@@ -536,7 +536,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __le__(self, other: Union[str, Any]) -> Any:
         """
@@ -562,7 +562,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_le_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_le_expression(
             self, *, result: VariableNameInterface,
@@ -584,7 +584,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __gt__(self, other: Union[str, Any]) -> Any:
         """
@@ -610,7 +610,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_gt_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_gt_expression(
             self, *, result: VariableNameInterface,
@@ -632,7 +632,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __ge__(self, other: Union[str, Any]) -> Any:
         """
@@ -658,7 +658,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_ge_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def _append_ge_expression(
             self, *, result: VariableNameInterface,

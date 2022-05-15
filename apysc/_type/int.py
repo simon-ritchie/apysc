@@ -45,7 +45,7 @@ class Int(NumberValueInterface[int, 'Int']):
     Int(10)
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Int')
     def __init__(
             self, value: Union[int, float, NumberValueInterface]) -> None:
@@ -109,7 +109,7 @@ class Int(NumberValueInterface[int, 'Int']):
             self._append_cast_expression(
                 is_number_specified=is_number_specified)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Int')
     def _append_cast_expression(
             self, *, is_number_specified: bool) -> None:

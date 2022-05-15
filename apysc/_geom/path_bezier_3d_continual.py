@@ -41,7 +41,7 @@ class PathBezier3DContinual(
     ...     ])
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier3DContinual')
     def __init__(
             self,
@@ -99,7 +99,7 @@ class PathBezier3DContinual(
         self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
         self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier3DContinual')
     def _get_svg_str(self) -> str:
         """
@@ -129,7 +129,7 @@ class PathBezier3DContinual(
         )
         return svg_str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier3DContinual')
     def update_path_data(
             self,
@@ -190,7 +190,7 @@ class PathBezier3DContinual(
         self.relative = get_copied_boolean_from_builtin_val(
             bool_val=relative)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier3DContinual')
     def __eq__(self, other: Any) -> Any:
         """
@@ -217,7 +217,7 @@ class PathBezier3DContinual(
             and self.dest_y == other.dest_y
             and self.relative == other.relative)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier3DContinual')
     def __ne__(self, other: Any) -> Any:
         """

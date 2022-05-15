@@ -21,7 +21,7 @@ class PathDataBase(RelativeInterface, ABC):
 
     _path_label: PathLabel
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathDataBase')
     def __init__(
             self, *, path_label: PathLabel,
@@ -43,7 +43,7 @@ class PathDataBase(RelativeInterface, ABC):
         self.relative = get_copied_boolean_from_builtin_val(
             bool_val=relative)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathDataBase')
     def _get_svg_char(self) -> String:
         """

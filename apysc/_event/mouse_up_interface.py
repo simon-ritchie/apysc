@@ -19,7 +19,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
 
     _mouse_up_handlers: Dict[str, HandlerData]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseUpInterface')
     def mouseup(
             self, handler: _Handler[_O], *,
@@ -92,7 +92,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
             return
         self._mouse_up_handlers = {}
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseUpInterface')
     def unbind_mouseup(self, handler: _Handler[_O]) -> None:
         """
@@ -129,7 +129,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.MOUSEUP,
             handlers_dict=self._mouse_up_handlers)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseUpInterface')
     def unbind_mouseup_all(self) -> None:
         """

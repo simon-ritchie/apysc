@@ -47,7 +47,7 @@ class Number(NumberValueInterface[float, 'Number']):
     Number(20.8)
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Number')
     def __init__(
             self,

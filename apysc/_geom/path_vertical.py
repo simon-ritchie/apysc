@@ -30,7 +30,7 @@ class PathVertical(PathDataBase, PathYInterface):
     ...     ])
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathVertical')
     def __init__(
             self, y: Union[int, Int], *,
@@ -66,7 +66,7 @@ class PathVertical(PathDataBase, PathYInterface):
             relative=relative)
         self.y = get_copied_int_from_builtin_val(integer=y)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathVertical')
     def _get_svg_str(self) -> str:
         """
@@ -86,7 +86,7 @@ class PathVertical(PathDataBase, PathYInterface):
         svg_str: str = f'{svg_char_str} + String({y_str})'
         return svg_str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathVertical')
     def update_path_data(
             self, y: Union[int, Int],
@@ -119,7 +119,7 @@ class PathVertical(PathDataBase, PathYInterface):
         self.relative = get_copied_boolean_from_builtin_val(
             bool_val=relative)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathVertical')
     def __eq__(self, other: Any) -> Any:
         """
@@ -141,7 +141,7 @@ class PathVertical(PathDataBase, PathYInterface):
             return result
         return self.y == other.y and self.relative == other.relative
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathVertical')
     def __ne__(self, other: Any) -> Any:
         """

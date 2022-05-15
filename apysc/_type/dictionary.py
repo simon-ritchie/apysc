@@ -66,7 +66,7 @@ class Dictionary(
     _initial_value: Union[Dict[_K, _V], 'Dictionary']
     _value: Dict[_K, _V]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def __init__(self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
@@ -112,7 +112,7 @@ class Dictionary(
                 get_next_variable_name(type_name=TYPE_NAME)
             self._append_constructor_expression()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def _append_constructor_expression(self) -> None:
         """
@@ -219,7 +219,7 @@ class Dictionary(
             self._value = self._get_dict_value(value=value)
             self._append_value_setter_expression(value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def _append_value_setter_expression(
             self, *, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
@@ -294,8 +294,8 @@ class Dictionary(
             repr_str = f'Dictionary({self._value})'
         return repr_str
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def length(self) -> Int:
         """
@@ -323,7 +323,7 @@ class Dictionary(
         self._append_length_expression(length=length)
         return length
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def _append_length_expression(self, *, length: Int) -> None:
         """
@@ -350,7 +350,7 @@ class Dictionary(
             'Dictionary instance can\'t apply len function.'
             ' Please use length property instead.')
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def __getitem__(self, key: Union[_K, ExpressionString]) -> _V:
         """
@@ -400,7 +400,7 @@ class Dictionary(
         key_: _BuiltinKeys = key  # type: ignore
         return key_
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def _append_getitem_expression(
             self, *, key: Union[_K, ExpressionString], value: Any) -> None:
@@ -451,7 +451,7 @@ class Dictionary(
             f'Unsupported key type is specified: {type(key)}, {key}'
             f'\nSuppoting types are: str, String, int, Int')
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def __setitem__(
             self, key: Union[_K, ExpressionString], value: _V) -> None:
@@ -469,7 +469,7 @@ class Dictionary(
         self._value[key_] = value  # type: ignore
         self._append_setitem_expression(key=key, value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def _append_setitem_expression(
             self, *, key: Union[_K, ExpressionString], value: _V) -> None:
@@ -493,7 +493,7 @@ class Dictionary(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def __delitem__(self, key: Union[_K, ExpressionString]) -> None:
         """
@@ -509,7 +509,7 @@ class Dictionary(
             del self._value[key_]  # type: ignore
         self._append_delitem_expression(key=key)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def _append_delitem_expression(
             self, *, key: Union[_K, ExpressionString]) -> None:
@@ -529,7 +529,7 @@ class Dictionary(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def __eq__(self, other: Any) -> Any:
         """
@@ -557,7 +557,7 @@ class Dictionary(
             self._append_eq_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def _append_eq_expression(
             self, *, result: Boolean,
@@ -579,7 +579,7 @@ class Dictionary(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def __ne__(self, other: Any) -> Any:
         """
@@ -605,7 +605,7 @@ class Dictionary(
             self._append_ne_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def _append_ne_expression(
             self, *, result: Boolean,
@@ -627,7 +627,7 @@ class Dictionary(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def get(
             self, key: Union[_K, ExpressionString],
@@ -681,7 +681,7 @@ class Dictionary(
             key=key, result_value=result_value, default=default)
         return result_value
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')
     def _append_get_expression(
             self, *, key: Union[_K, ExpressionString],

@@ -27,7 +27,7 @@ class Continue:
     ...         _ = ap.Continue()
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Continue')
     def __init__(self) -> None:
         """

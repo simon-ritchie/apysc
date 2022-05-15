@@ -141,8 +141,7 @@ def _get_value_str_from_iterable(
 T = TypeVar('T')
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def get_copy(*, value: T) -> T:
     """
     Get a copy of a specified instance if it is an instance

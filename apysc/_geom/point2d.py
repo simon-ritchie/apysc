@@ -45,7 +45,7 @@ class Point2D(
     _x: Int
     _y: Int
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def __init__(self, x: _Int, y: _Int) -> None:
         """
@@ -92,7 +92,7 @@ class Point2D(
                 type_name=var_names.POINT2D)
         self._append_constructor_expression()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def _append_constructor_expression(self) -> None:
         """
@@ -105,8 +105,8 @@ class Point2D(
             f'"y": {self._y.variable_name}}};')
         ap.append_js_expression(expression=expression)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def x(self) -> Int:
         """
@@ -154,7 +154,7 @@ class Point2D(
             self._x._append_incremental_calc_substitution_expression()
             self._append_x_setter_expression(value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def _append_x_getter_expression(self, *, x: Int) -> None:
         """
@@ -172,7 +172,7 @@ class Point2D(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def _append_x_setter_expression(self, *, value: Int) -> None:
         """
@@ -189,8 +189,8 @@ class Point2D(
         )
         ap.append_js_expression(expression=expression)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def y(self) -> Int:
         """
@@ -238,7 +238,7 @@ class Point2D(
             self._y._append_incremental_calc_substitution_expression()
             self._append_y_setter_expression(value=value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def _append_y_getter_expression(self, *, y: Int) -> None:
         """
@@ -256,7 +256,7 @@ class Point2D(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def _append_y_setter_expression(self, *, value: Int) -> None:
         """
@@ -273,7 +273,7 @@ class Point2D(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def __eq__(self, other: Any) -> Any:
         """
@@ -296,7 +296,7 @@ class Point2D(
             return result
         return other.x == self.x and other.y == self.y
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def __ne__(self, other: Any) -> Any:
         """

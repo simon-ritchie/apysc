@@ -11,7 +11,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class CopyInterface(TypeNameInterface, VariableNameInterface):
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='CopyInterface')
     def _copy(self) -> Any:
         """
@@ -36,7 +36,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
             result_variable_name=result.variable_name)
         return result
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='CopyInterface')
     def _append_value_updating_cpy_exp_to_handler_scope(
             self, *, result_variable_name: str) -> None:
@@ -67,7 +67,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
             )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='CopyInterface')
     def _append_copy_expression(self, *, result_variable_name: str) -> None:
         """

@@ -19,7 +19,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
 
     _mouse_over_handlers: Dict[str, HandlerData]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseOverInterface')
     def mouseover(
             self, handler: _Handler[_O], *,
@@ -92,7 +92,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
             return
         self._mouse_over_handlers = {}
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseOverInterface')
     def unbind_mouseover(self, handler: _Handler[_O]) -> None:
         """
@@ -129,7 +129,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.MOUSEOVER,
             handlers_dict=self._mouse_over_handlers)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseOverInterface')
     def unbind_mouseover_all(self) -> None:
         """

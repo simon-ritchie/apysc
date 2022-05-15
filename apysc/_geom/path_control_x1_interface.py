@@ -24,7 +24,7 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
 
         self._append_control_x1_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathControlX1Interface')
     def _append_control_x1_linking_setting(self) -> None:
         """
@@ -35,8 +35,8 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
         self._append_attr_to_linking_stack(
             attr=self._control_x1, attr_name='control_x1')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='PathControlX1Interface')
     def control_x1(self) -> Int:
         """

@@ -80,21 +80,3 @@ def not_empty_string(
         return inner_wrapped  # type: ignore
 
     return wrapped  # type: ignore
-
-
-def handler_args_num(*, arg_name: str) -> _F:
-    """
-    Set the validation to check specified handler argument's
-    number.
-
-    Parameters
-    ----------
-    arg_name : str
-        A target argument name to validate.
-
-    Returns
-    -------
-    _wrapped : Callable
-        Wrapped callable object.
-    """
-    pass

@@ -33,7 +33,7 @@ class AnimationBase(
     _started: Boolean
 
     @arg_validation_decos.not_empty_string(  # type: ignore[misc]
-        arg_name='variable_name')
+        arg_position_index=1, arg_name='variable_name')
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='AnimationBase')
     def __init__(self, *, variable_name: str) -> None:

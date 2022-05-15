@@ -2,7 +2,7 @@
 """
 
 import functools
-from typing import Any
+from typing import Any, Optional
 from typing import Callable
 from typing import TypeVar
 from typing import Union
@@ -11,19 +11,16 @@ from typing import Union
 _F = TypeVar('_F', bound=Callable)
 
 
-def not_empty_string(*, arg_name: str) -> _F:
+def not_empty_string(
+        *, arg_position_index: int, arg_name: str) -> _F:
     """
     Set the validation to check a specified argument's string
     is not empty.
 
-    Notes
-    -----
-    This decorator function checks when a code passes an argument
-    as a keyword argument.
-
-
     Parameters
     ----------
+    arg_position_index : int
+        A target argument position index.
     arg_name : str
         A target argument name to check.
 
@@ -68,8 +65,13 @@ def not_empty_string(*, arg_name: str) -> _F:
             from apysc._type.string import String
             from apysc._validation.string_validation import \
                 validate_not_empty_string
+            string: Optional[Union[str, String]] = None
             if arg_name in kwargs:
-                string: Union[str, String] = kwargs.get(arg_name, '')
+                string = kwargs.get(arg_name, '')
+            elif len(args) - 1 >= arg_position_index:
+                string = args[arg_position_index]
+
+            if string is not None:
                 validate_not_empty_string(string=string)
             result: Any = func(*args, **kwargs)
             return result

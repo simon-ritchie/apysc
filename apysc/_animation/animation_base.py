@@ -220,8 +220,7 @@ class AnimationBase(
         """
         import apysc as ap
         from apysc._event.custom_event_type import CustomEventType
-        from apysc._validation.handler_validation import \
-            validate_options_type
+        from apysc._validation.handler_validation import validate_options_type
         self._validate_animation_not_started()
         validate_options_type(options=options)
         e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)

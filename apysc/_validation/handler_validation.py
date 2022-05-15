@@ -4,7 +4,9 @@ validation implementations.
 
 import inspect
 from inspect import Signature
-from typing import Any, Callable, List
+from typing import Any
+from typing import Callable
+from typing import List
 
 
 def validate_options_type(*, options: Any) -> None:

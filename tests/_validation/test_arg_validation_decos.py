@@ -2,10 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apysc._validation import arg_validation_decos
 from apysc._testing.testing_helper import assert_raises
+from apysc._validation import arg_validation_decos
 
-@arg_validation_decos.not_empty_string(
+
+@arg_validation_decos.not_empty_string(  # type: ignore[misc]
     arg_position_index=0, arg_name='a')
 def _test_func_1(a: str) -> None:
     ...
@@ -13,12 +14,12 @@ def _test_func_1(a: str) -> None:
 
 class _TestClass1:
 
-    @arg_validation_decos.not_empty_string(
+    @arg_validation_decos.not_empty_string(  # type: ignore[misc]
         arg_position_index=2, arg_name='a')
     def _test_method_1(self, *, a: str) -> None:
         ...
 
-    @arg_validation_decos.not_empty_string(
+    @arg_validation_decos.not_empty_string(  # type: ignore[misc]
         arg_position_index=1, arg_name='a')
     def _test_method_2(self, a: str) -> None:
         ...

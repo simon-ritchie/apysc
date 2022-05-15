@@ -140,8 +140,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         from apysc._validation import number_validation
-        from apysc._validation.handler_validation import \
-            validate_options_type
+        from apysc._validation.handler_validation import validate_options_type
         with TemporaryNotHandlerScope():
             validate_options_type(options=options)
             self.variable_name = \
@@ -583,8 +582,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         """
         import apysc as ap
         from apysc._event.custom_event_type import CustomEventType
-        from apysc._validation.handler_validation import \
-            validate_options_type
+        from apysc._validation.handler_validation import validate_options_type
         validate_options_type(options=options)
         e: ap.TimerEvent = ap.TimerEvent(this=self)
         name: str = self.bind_custom_event(

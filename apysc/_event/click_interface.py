@@ -64,8 +64,7 @@ class ClickInterface(MouseEventInterfaceBase):
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._type.variable_name_interface import VariableNameInterface
-        from apysc._validation.handler_validation import \
-            validate_options_type
+        from apysc._validation.handler_validation import validate_options_type
         from apysc._validation.variable_name_validation import \
             validate_variable_name_interface_type
         self_instance: VariableNameInterface = \

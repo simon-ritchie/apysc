@@ -1,11 +1,12 @@
 from random import randint
+from typing import Any
 
 from retrying import retry
 from typing_extensions import TypedDict
 
+import apysc as ap
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import handler_validation
-import apysc as ap
 
 
 class _TestTypedDict(TypedDict):
@@ -37,7 +38,7 @@ def _test_handler_2(*, e: ap.Event, options: dict) -> None:
     ...
 
 
-def _test_handler_3(self, *, e: ap.Event, options: dict) -> None:
+def _test_handler_3(self: Any, *, e: ap.Event, options: dict) -> None:
     ...
 
 

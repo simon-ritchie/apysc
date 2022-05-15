@@ -12,6 +12,8 @@ Validate whether a specified string is not empty.<hr>
 
 - `string`: String or str
   - String to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

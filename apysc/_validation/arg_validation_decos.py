@@ -2,8 +2,9 @@
 """
 
 import functools
-from typing import Any, Optional
+from typing import Any
 from typing import Callable
+from typing import Optional
 from typing import TypeVar
 from typing import Union
 
@@ -14,7 +15,7 @@ _F = TypeVar('_F', bound=Callable)
 def not_empty_string(
         *, arg_position_index: int, arg_name: str) -> _F:
     """
-    Set the validation to check a specified argument's string
+    Set the validation to check that a specified argument's string
     is not empty.
 
     Parameters

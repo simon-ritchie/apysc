@@ -47,8 +47,7 @@ def bind_wheel_event_to_document(
     from apysc._event.handler import HandlerData
     from apysc._event.handler import append_handler_expression
     from apysc._event.handler import get_handler_name
-    from apysc._validation.handler_validation import \
-        validate_options_type
+    from apysc._validation.handler_validation import validate_options_type
     validate_options_type(options=options)
     name: str = get_handler_name(handler=handler, instance=ap.document)
     expression: str = (

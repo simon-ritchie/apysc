@@ -1,4 +1,4 @@
-"""This module is for the handler's option value
+"""This module is for the handler interfaces'
 validation implementations.
 """
 

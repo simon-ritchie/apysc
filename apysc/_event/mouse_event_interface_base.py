@@ -36,7 +36,7 @@ class MouseEventInterfaceBase:
             to a handler.
         """
         from apysc._event.handler import get_handler_name
-        from apysc._validation.handler_options_validation import \
+        from apysc._validation.handler_validation import \
             validate_options_type
         validate_options_type(options=options)
         name: str = get_handler_name(handler=handler, instance=self)

@@ -16,7 +16,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._validation import arg_validation_decorators
+from apysc._validation import arg_validation_decos
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 _O = TypeVar('_O')
@@ -32,7 +32,8 @@ class AnimationBase(
     _easing: Easing
     _started: Boolean
 
-    @arg_validation_decorators.not_empty_string(arg_name='variable_name')
+    @arg_validation_decos.not_empty_string(  # type: ignore[misc]
+        arg_name='variable_name')
     @add_debug_info_setting(  # type: ignore[misc]
         module_name=__name__, class_name='AnimationBase')
     def __init__(self, *, variable_name: str) -> None:

@@ -1,9 +1,11 @@
 """This module is for the argument validations' decorators.
 """
 
-from typing import Any, TypeVar, Callable, Union
 import functools
-
+from typing import Any
+from typing import Callable
+from typing import TypeVar
+from typing import Union
 
 # pyright: reportInvalidTypeVarUse=false
 _F = TypeVar('_F', bound=Callable)
@@ -63,11 +65,12 @@ def not_empty_string(*, arg_name: str) -> _F:
             result : Any
                 A return value(s) of a callable execution result.
             """
+            from apysc._type.string import String
             from apysc._validation.string_validation import \
                 validate_not_empty_string
-            from apysc._type.string import String
-            string: Union[str, String] = kwargs.get(arg_name, '')
-            validate_not_empty_string(string=string)
+            if arg_name in kwargs:
+                string: Union[str, String] = kwargs.get(arg_name, '')
+                validate_not_empty_string(string=string)
             result: Any = func(*args, **kwargs)
             return result
 

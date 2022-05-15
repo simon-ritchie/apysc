@@ -32,7 +32,9 @@ def validate_options_type(*, options: Any) -> None:
         f'\n{options}')
 
 
-def validate_handler_args_num(*, handler: Callable) -> None:
+def validate_handler_args_num(
+        *, handler: Callable,
+        additional_err_msg: str = '') -> None:
     """
     Validate specified handler's arguments number.
 
@@ -40,6 +42,8 @@ def validate_handler_args_num(*, handler: Callable) -> None:
     ----------
     handler : Callable
         A target handler to validate.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
@@ -56,9 +60,12 @@ def validate_handler_args_num(*, handler: Callable) -> None:
         args_num += 1
         arg_names.append(parameter)
     if args_num != 2:
+        if additional_err_msg != '':
+            additional_err_msg = f'\n{additional_err_msg}'
         raise ValueError(
             'A specified handler\'s arguments number must be 2 '
             f'(actual: {args_num})'
             f'\nTarget argument names: {arg_names}'
             '\n\nThe first argument becomes event instance and the second '
-            'one becomes the handler\'s option parameters.')
+            'one becomes the handler\'s option parameters.'
+            f'{additional_err_msg}')

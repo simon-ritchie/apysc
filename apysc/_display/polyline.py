@@ -34,7 +34,7 @@ class Polyline(LineBase, AppendLinePointInterface):
     Int(5)
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Polyline')
     def __init__(
             self, *, parent: 'graphics.Graphics',
@@ -98,7 +98,7 @@ class Polyline(LineBase, AppendLinePointInterface):
         repr_str: str = f"Polyline('{self.variable_name}')"
         return repr_str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Polyline')
     def _append_constructor_expression(self) -> None:
         """

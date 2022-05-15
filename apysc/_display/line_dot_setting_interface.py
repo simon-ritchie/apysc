@@ -23,8 +23,8 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
             return
         self._line_dot_setting = None
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDotSettingInterface')
     def line_dot_setting(self) -> Optional[LineDotSetting]:
         """
@@ -98,7 +98,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
                 '\nAcceptable ones are: LineDotSetting or None.')
         self._line_dot_setting = value
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDotSettingInterface')
     def _append_line_dot_setting_update_expression(self) -> None:
         """

@@ -35,7 +35,7 @@ class LineRoundDotSetting(Dictionary[str, Int]):
     Int(5)
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineRoundDotSetting')
     def __init__(
             self, *, round_size: Union[int, Int],
@@ -86,8 +86,8 @@ class LineRoundDotSetting(Dictionary[str, Int]):
             'space_size': space_size_,
         })
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineRoundDotSetting')
     def round_size(self) -> Int:
         """
@@ -113,8 +113,8 @@ class LineRoundDotSetting(Dictionary[str, Int]):
         """
         return self['round_size']
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineRoundDotSetting')
     def space_size(self) -> Int:
         """

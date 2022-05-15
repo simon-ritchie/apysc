@@ -27,7 +27,7 @@ class ScaleXFromPointInterface(
             return
         self._scale_x_from_point = Dictionary({})
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleXFromPointInterface')
     def get_scale_x_from_point(self, *, x: Int) -> Number:
         """
@@ -74,7 +74,7 @@ class ScaleXFromPointInterface(
             key=key_exp_str, default=default_val)
         return scale_x
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleXFromPointInterface')
     def set_scale_x_from_point(self, *, scale_x: Number, x: Int) -> None:
         """
@@ -116,7 +116,7 @@ class ScaleXFromPointInterface(
         self._scale_x_from_point._value[key_exp_str.value] = scale_x
         self._append_scale_x_from_point_update_expression(x=x)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleXFromPointInterface')
     def _append_scale_x_from_point_update_expression(
             self, *, x: Int) -> None:

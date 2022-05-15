@@ -19,7 +19,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
 
     _mouse_move_handlers: Dict[str, HandlerData]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseMoveInterface')
     def mousemove(
             self, handler: _Handler[_O], *,
@@ -92,7 +92,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
             return
         self._mouse_move_handlers = {}
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseMoveInterface')
     def unbind_mousemove(self, handler: _Handler[_O]) -> None:
         """
@@ -133,7 +133,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.MOUSEMOVE,
             handlers_dict=self._mouse_move_handlers)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseMoveInterface')
     def unbind_mousemove_all(self) -> None:
         """

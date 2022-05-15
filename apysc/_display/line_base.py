@@ -34,7 +34,7 @@ class LineBase(
         debugging).
         """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineBase')
     def _set_line_setting_if_not_none_value_exists(
             self, *, parent_graphics: 'graphics.Graphics') -> None:
@@ -64,7 +64,7 @@ class LineBase(
                 parent_graphics_.line_dash_dot_setting
             return
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineBase')
     def _set_initial_basic_values(
             self, *, parent: 'graphics.Graphics') -> None:
@@ -121,7 +121,7 @@ class LineBase(
         self._append_attr_to_linking_stack(
             attr=self._line_thickness, attr_name='line_thickness')
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineBase')
     def _append_basic_vals_expression(
             self, *, expression: str, indent_num: int) -> str:

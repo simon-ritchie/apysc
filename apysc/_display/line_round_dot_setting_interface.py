@@ -24,8 +24,8 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             return
         self._line_round_dot_setting = None
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineRoundDotSettingInterface')
     def line_round_dot_setting(self) -> Optional[LineRoundDotSetting]:
         """
@@ -111,7 +111,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
                 '\nAcceptable ones are: LineRoundDotSetting or None.')
         self._line_round_dot_setting = value
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineRoundDotSettingInterface')
     def _append_line_round_dot_setting_update_expression(self) -> None:
         """

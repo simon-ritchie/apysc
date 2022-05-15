@@ -19,7 +19,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
 
     _dblclick_handlers: Dict[str, HandlerData]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='DoubleClickInterface')
     def dblclick(
             self,
@@ -95,7 +95,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             return
         self._dblclick_handlers = {}
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='DoubleClickInterface')
     def unbind_dblclick(
             self,
@@ -129,7 +129,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.DBLCLICK,
             handlers_dict=self._dblclick_handlers)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='DoubleClickInterface')
     def unbind_dblclick_all(self) -> None:
         """

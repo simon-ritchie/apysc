@@ -110,7 +110,7 @@ class CustomEventInterface(BlankObjectInterface):
             return
         del self._custom_event_handlers[custom_event_type_str][name]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='CustomEventInterface')
     def bind_custom_event(
             self,
@@ -189,7 +189,7 @@ class CustomEventInterface(BlankObjectInterface):
             in_handler_head_expression=in_handler_head_expression)
         return name
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='CustomEventInterface')
     def _append_custom_event_binding_expression(
             self, *, custom_event_type_str: str, name: str) -> None:
@@ -213,7 +213,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='CustomEventInterface')
     def trigger_custom_event(
             self,
@@ -262,7 +262,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='CustomEventInterface')
     def unbind_custom_event(
             self,
@@ -319,7 +319,7 @@ class CustomEventInterface(BlankObjectInterface):
             custom_event_type_str=custom_event_type_str, name=name)
         return name
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='CustomEventInterface')
     def _append_custom_event_unbinding_expression(
             self, *, custom_event_type_str: str, name: str) -> None:
@@ -340,7 +340,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='CustomEventInterface')
     def unbind_custom_event_all(
             self,

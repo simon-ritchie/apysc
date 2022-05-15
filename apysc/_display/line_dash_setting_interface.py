@@ -23,8 +23,8 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
             return
         self._line_dash_setting = None
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDashSettingInterface')
     def line_dash_setting(self) -> Optional[LineDashSetting]:
         """
@@ -102,7 +102,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
                 '\nAcceptable ones are: LineDashSetting or None.')
         self._line_dash_setting = value
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDashSettingInterface')
     def _append_line_dash_setting_update_expression(self) -> None:
         """

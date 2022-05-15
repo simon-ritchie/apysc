@@ -19,7 +19,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
 
     _mouse_down_handlers: Dict[str, HandlerData]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseDownInterface')
     def mousedown(
             self,
@@ -95,7 +95,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
             return
         self._mouse_down_handlers = {}
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseDownInterface')
     def unbind_mousedown(self, handler: _Handler[_O]) -> None:
         """
@@ -132,7 +132,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.MOUSEDOWN,
             handlers_dict=self._mouse_down_handlers)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseDownInterface')
     def unbind_mousedown_all(self) -> None:
         """

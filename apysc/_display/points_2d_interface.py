@@ -24,8 +24,8 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
             return
         self._points = Array([])
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='Points2DInterface')
     def points(self) -> Array[Point2D]:
         """
@@ -117,7 +117,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         )
         return variable_name, expression
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Points2DInterface')
     def _append_points_update_expression(self, *, value: Array) -> None:
         """

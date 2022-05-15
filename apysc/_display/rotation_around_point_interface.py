@@ -26,7 +26,7 @@ class RotationAroundPointInterface(
             return
         self._rotation_around_point = Dictionary({})
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='RotationAroundPointInterface')
     def get_rotation_around_point(self, *, x: Int, y: Int) -> Int:
         """
@@ -79,7 +79,7 @@ class RotationAroundPointInterface(
             key=key_exp_str, default=default_val)
         return rotation
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='RotationAroundPointInterface')
     def set_rotation_around_point(
             self, *, rotation: Int, x: Int, y: Int) -> None:
@@ -114,7 +114,7 @@ class RotationAroundPointInterface(
         self._append_rotation_around_point_update_expression(
             rotation=rotation, x=x, y=y)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='RotationAroundPointInterface')
     def _append_rotation_around_point_update_expression(
             self, *, rotation: Int, x: Int, y: Int) -> None:

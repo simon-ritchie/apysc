@@ -37,7 +37,7 @@ class LineStyleInterface(RevertInterface):
     _line_round_dot_setting: Optional[LineRoundDotSetting]
     _line_dash_dot_setting: Optional[LineDashDotSetting]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def line_style(
             self,
@@ -150,7 +150,7 @@ class LineStyleInterface(RevertInterface):
         display_validation.validate_multiple_line_settings_isnt_set(
             any_instance=self)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def _set_line_joints(self, *, joints: Optional[LineJoints]) -> None:
         """
@@ -168,7 +168,7 @@ class LineStyleInterface(RevertInterface):
         validate_line_joints(joints=joints)
         self._line_joints = ap.String(joints.value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def _set_line_cap(self, *, cap: Optional[LineCaps]) -> None:
         """
@@ -267,8 +267,8 @@ class LineStyleInterface(RevertInterface):
             return
         self._line_dash_dot_setting = None
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def line_color(self) -> String:
         """
@@ -295,8 +295,8 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_color_if_not_initialized()
         return value_util.get_copy(value=self._line_color)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def line_thickness(self) -> Int:
         """
@@ -321,8 +321,8 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_thickness_if_not_initialized()
         return value_util.get_copy(value=self._line_thickness)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def line_alpha(self) -> Number:
         """
@@ -348,8 +348,8 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_alpha_if_not_initialized()
         return value_util.get_copy(value=self._line_alpha)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def line_cap(self) -> String:
         """
@@ -374,8 +374,8 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_cap_if_not_initialized()
         return self._line_cap
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def line_joints(self) -> String:
         """
@@ -400,8 +400,8 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_joints_if_not_initialized()
         return self._line_joints
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def line_dot_setting(self) -> Optional[LineDotSetting]:
         """
@@ -426,8 +426,8 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_dot_setting_if_not_initialized()
         return self._line_dot_setting
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def line_dash_setting(self) -> Optional[LineDashSetting]:
         """
@@ -456,8 +456,8 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_dash_setting_if_not_initialized()
         return self._line_dash_setting
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineRoundDotSetting')
     def line_round_dot_setting(self) -> Optional[LineRoundDotSetting]:
         """
@@ -486,8 +486,8 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_round_dot_setting_if_not_initialized()
         return self._line_round_dot_setting
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineRoundDotSetting')
     def line_dash_dot_setting(self) -> Optional[LineDashDotSetting]:
         """

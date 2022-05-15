@@ -28,7 +28,7 @@ class XInterface(
 
         self._append_x_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='XInterface')
     def _append_x_attr_linking_setting(self) -> None:
         """
@@ -39,8 +39,8 @@ class XInterface(
         self._append_attr_to_linking_stack(
             attr=self._x, attr_name='x')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='XInterface')
     def x(self) -> Int:
         """
@@ -106,7 +106,7 @@ class XInterface(
 
             self._append_x_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='XInterface')
     def _append_x_update_expression(self) -> None:
         """

@@ -30,7 +30,7 @@ class LineThicknessInterface(
 
         self._append_line_thickness_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineThicknessInterface')
     def _append_line_thickness_attr_linking_setting(self) -> None:
         """
@@ -41,8 +41,8 @@ class LineThicknessInterface(
         self._append_attr_to_linking_stack(
             attr=self._line_thickness, attr_name='line_thickness')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineThicknessInterface')
     def line_thickness(self) -> Int:
         """
@@ -100,7 +100,7 @@ class LineThicknessInterface(
 
             self._append_line_thickness_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineThicknessInterface')
     def _append_line_thickness_update_expression(self) -> None:
         """

@@ -48,7 +48,7 @@ class Rectangle(
     String('#00aaff')
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Rectangle')
     def __init__(
             self, *, parent: 'graphics.Graphics',
@@ -133,7 +133,7 @@ class Rectangle(
         repr_str: str = f"Rectangle('{self.variable_name}')"
         return repr_str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Rectangle')
     def _append_constructor_expression(self) -> None:
         """

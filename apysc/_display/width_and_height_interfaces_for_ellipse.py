@@ -39,7 +39,7 @@ class WidthAndHeightInterfacesForEllipse(
             self._height = Int(0)
             self._append_height_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def _append_width_attr_linking_setting(self) -> None:
         """
@@ -50,7 +50,7 @@ class WidthAndHeightInterfacesForEllipse(
         self._append_attr_to_linking_stack(
             attr=self._width, attr_name='width')
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def _append_height_attr_linking_setting(self) -> None:
         """
@@ -61,8 +61,8 @@ class WidthAndHeightInterfacesForEllipse(
         self._append_attr_to_linking_stack(
             attr=self._height, attr_name='height')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def width(self) -> Int:
         """
@@ -115,8 +115,8 @@ class WidthAndHeightInterfacesForEllipse(
 
             self._append_width_attr_linking_setting()
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def height(self) -> Int:
         """
@@ -169,7 +169,7 @@ class WidthAndHeightInterfacesForEllipse(
 
             self._append_height_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
     def _append_ellipse_width_and_height_update_expression(self) -> None:
         """

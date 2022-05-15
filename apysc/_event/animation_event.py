@@ -34,7 +34,7 @@ class AnimationEvent(Event, Generic[_T]):
 
     _this: 'animation_base.AnimationBase[_T]'
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='AnimationEvent')
     def __init__(
             self, *,
@@ -67,8 +67,8 @@ class AnimationEvent(Event, Generic[_T]):
         super(AnimationEvent, self).__init__(
             this=this, type_name=var_names.ANIMATION_EVENT)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='AnimationEvent')
     def this(self) -> 'animation_base.AnimationBase[_T]':
         """

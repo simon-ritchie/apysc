@@ -35,7 +35,7 @@ class Polygon(LineBase, AppendLinePointInterface):
     String('#00aaff')
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Polygon')
     def __init__(
             self, *, parent: 'graphics.Graphics',
@@ -101,7 +101,7 @@ class Polygon(LineBase, AppendLinePointInterface):
         repr_str: str = f"Polygon('{self.variable_name}')"
         return repr_str
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Polygon')
     def _append_constructor_expression(self) -> None:
         """

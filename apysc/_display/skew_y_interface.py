@@ -26,7 +26,7 @@ class SkewYInterface(
 
         self._append_skew_y_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='SkewYInterface')
     def _append_skew_y_attr_linking_setting(self) -> None:
         """
@@ -37,8 +37,8 @@ class SkewYInterface(
         self._append_attr_to_linking_stack(
             attr=self._skew_y, attr_name='skew_y')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='SkewYInterface')
     def skew_y(self) -> Int:
         """
@@ -100,7 +100,7 @@ class SkewYInterface(
 
             self._append_skew_y_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='SkewYInterface')
     def _append_skew_y_update_expression(
             self, *, before_value: Int) -> None:

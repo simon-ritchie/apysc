@@ -27,7 +27,7 @@ class WidthInterface(
 
         self._append_width_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='WidthInterface')
     def _append_width_attr_linking_setting(self) -> None:
         """
@@ -38,8 +38,8 @@ class WidthInterface(
         self._append_attr_to_linking_stack(
             attr=self._width, attr_name='width')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='WidthInterface')
     def width(self) -> Int:
         """
@@ -89,7 +89,7 @@ class WidthInterface(
 
             self._append_width_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='WidthInterface')
     def _append_width_update_expression(self) -> None:
         """

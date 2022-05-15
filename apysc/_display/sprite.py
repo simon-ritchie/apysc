@@ -48,7 +48,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
 
     graphics: 'graphics.Graphics'
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Sprite')
     def __init__(
             self, *,
@@ -107,7 +107,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         stage.add_child(child=self)
         self._set_overflow_visible_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Sprite')
     def _append_constructor_expression(self) -> bool:
         """

@@ -17,8 +17,7 @@ _O = TypeVar('_O')
 _Handler = Callable[[WheelEvent, _O], None]
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def bind_wheel_event_to_document(
         *,
         handler: _Handler[_O],
@@ -67,8 +66,7 @@ def bind_wheel_event_to_document(
     return name
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def unbind_wheel_event_from_document(
         *,
         handler: _Handler[_O]) -> None:
@@ -90,8 +88,7 @@ def unbind_wheel_event_from_document(
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def unbind_wheel_event_all_from_document() -> None:
     """
     Unbind all wheels event from the document (overall window).

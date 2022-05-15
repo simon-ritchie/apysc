@@ -38,7 +38,7 @@ class Event(Generic[T], VariableNameInterface):
 
     _this: T
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Event')
     def __init__(
             self,

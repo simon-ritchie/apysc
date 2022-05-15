@@ -24,8 +24,8 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             return
         self._line_joints = String(LineJoints.MITER.value)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineJointsInterface')
     def line_joints(self) -> Union[String, LineJoints]:
         """
@@ -92,7 +92,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         else:
             self._line_joints = String(value.value)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineJointsInterface')
     def _append_line_joints_update_expression(self) -> None:
         """

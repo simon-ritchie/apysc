@@ -37,7 +37,7 @@ class LineDashDotSetting(Dictionary[str, Int]):
     Int(3)
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDashDotSetting')
     def __init__(
             self, *, dot_size: Union[int, Int],
@@ -96,8 +96,8 @@ class LineDashDotSetting(Dictionary[str, Int]):
             'space_size': space_size_,
         })
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDashDotSetting')
     def dot_size(self) -> Int:
         """
@@ -123,8 +123,8 @@ class LineDashDotSetting(Dictionary[str, Int]):
         """
         return self['dot_size']
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDashDotSetting')
     def dash_size(self) -> Int:
         """
@@ -150,8 +150,8 @@ class LineDashDotSetting(Dictionary[str, Int]):
         """
         return self['dash_size']
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDashDotSetting')
     def space_size(self) -> Int:
         """

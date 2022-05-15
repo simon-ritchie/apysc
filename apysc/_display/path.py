@@ -30,7 +30,7 @@ class Path(LineBase):
 
     _path_data_list: List[PathDataBase]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Path')
     def __init__(
             self,
@@ -79,7 +79,7 @@ class Path(LineBase):
             parent_graphics=parent_graphics)
         self._set_overflow_visible_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Path')
     def _append_constructor_expression(self) -> None:
         """

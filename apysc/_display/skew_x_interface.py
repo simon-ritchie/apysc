@@ -26,7 +26,7 @@ class SkewXInterface(
 
         self._append_skew_x_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='SkewXInterface')
     def _append_skew_x_attr_linking_setting(self) -> None:
         """
@@ -37,8 +37,8 @@ class SkewXInterface(
         self._append_attr_to_linking_stack(
             attr=self._skew_x, attr_name='skew_x')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='SkewXInterface')
     def skew_x(self) -> Int:
         """
@@ -100,7 +100,7 @@ class SkewXInterface(
 
             self._append_skew_x_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='SkewXInterface')
     def _append_skew_x_update_expression(
             self, *, before_value: Int) -> None:

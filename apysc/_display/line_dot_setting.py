@@ -30,7 +30,7 @@ class LineDotSetting(Dictionary[str, Int]):
     Int(5)
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDotSetting')
     def __init__(self, *, dot_size: Union[int, Int]) -> None:
         """
@@ -68,8 +68,8 @@ class LineDotSetting(Dictionary[str, Int]):
             integer=dot_size)
         super(LineDotSetting, self).__init__({'dot_size': dot_size_})
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='LineDotSetting')
     def dot_size(self) -> Int:
         """

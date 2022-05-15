@@ -17,7 +17,7 @@ class ScaleXFromCenterInterface(
 
     _scale_x_from_center: Number
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleXFromCenterInterface')
     def _initialize_scale_x_from_center_if_not_initialized(self) -> None:
         """
@@ -31,7 +31,7 @@ class ScaleXFromCenterInterface(
 
         self._append_scale_x_from_center_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleXFromCenterInterface')
     def _append_scale_x_from_center_attr_linking_setting(self) -> None:
         """
@@ -44,8 +44,8 @@ class ScaleXFromCenterInterface(
             attr=self._scale_x_from_center,
             attr_name='scale_x_from_center')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleXFromCenterInterface')
     def scale_x_from_center(self) -> Number:
         """
@@ -110,7 +110,7 @@ class ScaleXFromCenterInterface(
 
             self._append_scale_x_from_center_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleXFromCenterInterface')
     def _append_scale_x_from_center_update_expression(
             self, *, before_value: Number) -> None:

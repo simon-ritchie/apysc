@@ -29,7 +29,7 @@ class RotationAroundCenterInterface(
 
         self._append_rotation_around_center_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='RotationAroundCenterInterface')
     def _append_rotation_around_center_attr_linking_setting(self) -> None:
         """
@@ -42,8 +42,8 @@ class RotationAroundCenterInterface(
             attr=self._rotation_around_center,
             attr_name='rotation_around_center')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='RotationAroundCenterInterface')
     def rotation_around_center(self) -> Int:
         """
@@ -108,7 +108,7 @@ class RotationAroundCenterInterface(
 
             self._append_rotation_around_center_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='RotationAroundCenterInterface')
     def _append_rotation_around_center_update_expression(
             self, *, before_value: Int) -> None:

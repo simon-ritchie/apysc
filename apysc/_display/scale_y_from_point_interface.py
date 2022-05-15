@@ -28,7 +28,7 @@ class ScaleYFromPointInterface(
             return
         self._scale_y_from_point = Dictionary({})
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleYFromPointInterface')
     def get_scale_y_from_point(self, *, y: Int) -> Number:
         """
@@ -74,7 +74,7 @@ class ScaleYFromPointInterface(
             key=key_exp_str, default=default_val)
         return scale_y
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleYFromPointInterface')
     def set_scale_y_from_point(self, *, scale_y: Number, y: Int) -> None:
         """
@@ -115,7 +115,7 @@ class ScaleYFromPointInterface(
         self._scale_y_from_point._value[key_exp_str.value] = scale_y
         self._append_scale_y_from_point_update_expression(y=y)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ScaleYFromPointInterface')
     def _append_scale_y_from_point_update_expression(
             self, *, y: Int) -> None:

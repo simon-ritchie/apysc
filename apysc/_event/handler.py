@@ -57,8 +57,7 @@ def get_handler_name(
     return handler_name
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def append_handler_expression(
         *,
         handler_data: HandlerData,
@@ -115,8 +114,7 @@ def append_handler_expression(
         snapshot_name=snapshot_name, variables=variables)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def _append_in_handler_head_expression(
         *, in_handler_head_expression: str) -> None:
     """
@@ -134,8 +132,7 @@ def _append_in_handler_head_expression(
     ap.append_js_expression(expression=in_handler_head_expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def append_unbinding_expression(
         *, this: VariableNameInterface, handler_name: str,
         mouse_event_type: MouseEventType) -> None:
@@ -162,8 +159,7 @@ def append_unbinding_expression(
     ap.append_js_expression(expression=expression)
 
 
-@add_debug_info_setting(  # type: ignore[misc]
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def append_unbinding_all_expression(
         *, this: VariableNameInterface,
         mouse_event_type: MouseEventType) -> None:

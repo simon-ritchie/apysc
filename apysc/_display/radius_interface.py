@@ -28,7 +28,7 @@ class RadiusInterface(
 
         self._append_raidus_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='RadiusInterface')
     def _append_raidus_attr_linking_setting(self) -> None:
         """
@@ -39,8 +39,8 @@ class RadiusInterface(
         self._append_attr_to_linking_stack(
             attr=self._radius, attr_name='radius')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='RadiusInterface')
     def radius(self) -> Int:
         """
@@ -91,7 +91,7 @@ class RadiusInterface(
 
             self._append_raidus_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='RadiusInterface')
     def _get_converted_radius_int(
             self, *, radius: Union[int, Int]) -> Int:
@@ -113,7 +113,7 @@ class RadiusInterface(
             return ap.Int(radius)
         return radius
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='RadiusInterface')
     def _append_radius_update_expression(self) -> None:
         """

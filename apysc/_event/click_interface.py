@@ -19,7 +19,7 @@ class ClickInterface(MouseEventInterfaceBase):
 
     _click_handlers: Dict[str, HandlerData]
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ClickInterface')
     def click(
             self, handler: _Handler[_O], *,
@@ -92,7 +92,7 @@ class ClickInterface(MouseEventInterfaceBase):
             return
         self._click_handlers = {}
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ClickInterface')
     def unbind_click(self, handler: _Handler[_O]) -> None:
         """
@@ -129,7 +129,7 @@ class ClickInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.CLICK,
             handlers_dict=self._click_handlers)
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='ClickInterface')
     def unbind_click_all(self) -> None:
         """

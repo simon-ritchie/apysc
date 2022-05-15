@@ -43,7 +43,7 @@ class Line(LineBase):
     _start_point: 'point2d.Point2D'
     _end_point: 'point2d.Point2D'
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Line')
     def __init__(
             self, *, parent: 'graphics.Graphics',
@@ -107,7 +107,7 @@ class Line(LineBase):
             parent_graphics=parent_graphics)
         self._set_overflow_visible_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='Line')
     def _append_constructor_expression(self) -> None:
         """

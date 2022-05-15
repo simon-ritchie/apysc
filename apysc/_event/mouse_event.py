@@ -41,7 +41,7 @@ class MouseEvent(
     >>> _ = rectangle.mousedown(on_mousedown)
     """
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def __init__(self, *, this: T) -> None:
         """
@@ -71,8 +71,8 @@ class MouseEvent(
         super(MouseEvent, self).__init__(
             this=this, type_name=var_names.MOUSE_EVENT)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def stage_x(self) -> Int:
         """
@@ -107,7 +107,7 @@ class MouseEvent(
         self._append_stage_x_getter_expression(x=x)
         return x
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def _append_stage_x_getter_expression(self, *, x: Int) -> None:
         """
@@ -126,8 +126,8 @@ class MouseEvent(
         )
         ap.append_js_expression(expression=expression)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def stage_y(self) -> Int:
         """
@@ -162,7 +162,7 @@ class MouseEvent(
         self._append_stage_y_getter_expression(y=y)
         return y
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def _append_stage_y_getter_expression(self, *, y: Int) -> None:
         """
@@ -181,8 +181,8 @@ class MouseEvent(
         )
         ap.append_js_expression(expression=expression)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def local_x(self) -> Int:
         """
@@ -219,7 +219,7 @@ class MouseEvent(
         self._append_local_x_getter_expression(x=x)
         return x
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def _append_local_x_getter_expression(self, *, x: Int) -> None:
         """
@@ -239,8 +239,8 @@ class MouseEvent(
         )
         ap.append_js_expression(expression=expression)
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def local_y(self) -> Int:
         """
@@ -277,7 +277,7 @@ class MouseEvent(
         self._append_local_y_getter_expression(y=y)
         return y
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def _append_local_y_getter_expression(self, *, y: Int) -> None:
         """

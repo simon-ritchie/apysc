@@ -26,7 +26,7 @@ class VisibleInterface(
 
         self._append_visible_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='VisibleInterface')
     def _append_visible_attr_linking_setting(self) -> None:
         """
@@ -37,8 +37,8 @@ class VisibleInterface(
         self._append_attr_to_linking_stack(
             attr=self._visible, attr_name='visible')
 
-    @property  # type: ignore[misc]
-    @add_debug_info_setting(  # type: ignore[misc]
+    @property
+    @add_debug_info_setting(
         module_name=__name__, class_name='VisibleInterface')
     def visible(self) -> Boolean:
         """
@@ -90,7 +90,7 @@ class VisibleInterface(
 
             self._append_visible_attr_linking_setting()
 
-    @add_debug_info_setting(  # type: ignore[misc]
+    @add_debug_info_setting(
         module_name=__name__, class_name='VisibleInterface')
     def _append_visible_update_expression(self) -> None:
         """

@@ -2,7 +2,7 @@
 """
 
 import functools
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Type
 from typing import Callable
 from typing import Optional
 from typing import TypeVar
@@ -178,8 +178,80 @@ def handler_args_num(
                 validate_handler_args_num(
                     handler=handler,
                     additional_err_msg=(
-                        f'Target Callable name: {func.__name__}'
+                        f'Target callable name: {func.__name__}'
+                        f'\nTarget argument name: {arg_name}'
                     ))
+            result: Any = func(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def handler_options_type(
+        *, arg_position_index: int, arg_name: str) -> _F:
+    """
+    Set the validation to check a specified handler-options
+    argument's type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    arg_name : str
+        A target argument name to validate.
+
+    Returns
+    -------
+    _wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(func: _F) -> _F:
+        """
+        Wrapping function for a decorator setting.
+
+        Parameters
+        ----------
+        func : Callable
+            A target function or method to wrap.
+
+        Returns
+        -------
+        inner_wrapped : Callable
+            Wrapped callable object.
+        """
+
+        @functools.wraps(func)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            """
+            Wrapping function for a decorator setting.
+
+            Parameters
+            ----------
+            *args : list
+                Target positional arguments.
+            **kwargs : dict
+                Target keyword arguments.
+
+            Returns
+            -------
+            result : Any
+                A return value(s) of a callable execution result.
+            """
+            from apysc._validation.handler_validation import \
+                validate_options_type
+            options: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, arg_name=arg_name)
+            validate_options_type(
+                options=options,
+                additional_err_msg=(
+                    f'\nTarget callable name: {func.__name__}'
+                    f'\nTarget argument name: {arg_name}'
+                ))
+
             result: Any = func(*args, **kwargs)
             return result
 

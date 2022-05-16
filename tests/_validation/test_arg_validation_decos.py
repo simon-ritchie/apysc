@@ -39,6 +39,12 @@ def _test_func_3() -> None:
     ...
 
 
+@arg_validation_decos.handler_options_type(
+    arg_position_index=0, arg_name='options')
+def _test_func_4(*, options: dict) -> None:
+    ...
+
+
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_not_empty_string() -> None:
     assert_raises(
@@ -105,7 +111,7 @@ def test_handler_args_num() -> None:
         expected_error_class=ValueError,
         func_or_method=_test_func_2,
         kwargs={'handler': _test_handler_1},
-        match='Target Callable name: _test_func_2',
+        match='Target callable name: _test_func_2',
     )
 
     _test_func_3()
@@ -114,3 +120,13 @@ def test_handler_args_num() -> None:
         ...
 
     _test_func_2(handler=_test_handler_2)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_handler_options_type() -> None:
+    assert_raises(
+        expected_error_class=TypeError,
+        func_or_method=_test_func_4,
+        kwargs={'options': 10})
+
+    _test_func_4(options={'msg': 'Hello!'})

@@ -165,6 +165,8 @@ class AnimationBase(
             expression += f'\n  .after({handler_name})'
         return expression
 
+    @arg_validation_decos.handler_args_num(
+        arg_position_index=1, arg_name='handler')
     @add_debug_info_setting(
         module_name=__name__, class_name='AnimationBase')
     def animation_complete(

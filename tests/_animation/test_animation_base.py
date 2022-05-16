@@ -156,6 +156,10 @@ class TestAnimationBase:
         assert animation._custom_event_handlers[
             event_type][handler_name]['options'] == {'value': 10}
 
+        animation.animation_complete(
+            self.on_animation_complete_1,
+            options={'value': 10})
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_complete_handler_expression(self) -> None:
         animation: _TestAnimation = _TestAnimation()

@@ -9,7 +9,9 @@ from typing import Callable
 from typing import List
 
 
-def validate_options_type(*, options: Any) -> None:
+def validate_options_type(
+        *, options: Any,
+        additional_err_msg: str = '') -> None:
     """
     Validate a specified options type.
 
@@ -17,6 +19,8 @@ def validate_options_type(*, options: Any) -> None:
     ----------
     options : Any
         Target options value.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
@@ -27,9 +31,11 @@ def validate_options_type(*, options: Any) -> None:
         return
     if isinstance(options, dict):
         return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
     raise TypeError(
         f"Handler's options argument must be a dictionary: {type(options)}"
-        f'\n{options}')
+        f'\n{options}{additional_err_msg}')
 
 
 def validate_handler_args_num(

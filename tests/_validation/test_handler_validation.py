@@ -28,6 +28,11 @@ def test_validate_options_type() -> None:
         func_or_method=handler_validation.validate_options_type,
         kwargs={'options': [10]},
         match="Handler's options argument must be a dictionary")
+    assert_raises(
+        expected_error_class=TypeError,
+        func_or_method=handler_validation.validate_options_type,
+        kwargs={'options': [10], 'additional_err_msg': 'Test error!'},
+        match="\nTest error!")
 
 
 def _test_handler_1(*, e: ap.Event) -> None:

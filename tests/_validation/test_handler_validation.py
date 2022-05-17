@@ -50,6 +50,14 @@ def _test_handler_3(self: Any, *, e: ap.Event, options: dict) -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_handler_args_num() -> None:
     assert_raises(
+        expected_error_class=TypeError,
+        func_or_method=handler_validation.validate_handler_args_num,
+        kwargs={
+            'handler': 100,
+        },
+        match='A specified handler\'s argument is not callable:')
+
+    assert_raises(
         expected_error_class=ValueError,
         func_or_method=handler_validation.validate_handler_args_num,
         kwargs={'handler': _test_handler_1},

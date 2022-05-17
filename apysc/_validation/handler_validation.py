@@ -55,7 +55,14 @@ def validate_handler_args_num(
     ------
     ValueError
         - If handler's arguments number is not 2.
+    TypeError
+        - If a specified handler is not callable.
     """
+    if not callable(handler):
+        raise TypeError(
+            'A specified handler\'s argument is not callable: '
+            f'{type(handler)}'
+        )
     signature: Signature = inspect.signature(obj=handler)
     args_num: int = 0
     skipping_arg_names: List[str] = ['*', '**', 'self', 'cls']

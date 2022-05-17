@@ -50,7 +50,9 @@ def validate_num(
         f'({type(num)})')
 
 
-def validate_integer(*, integer: Union[int, Int]) -> None:
+def validate_integer(
+        *, integer: Union[int, Int],
+        additional_err_msg: str = '') -> None:
     """
     Validate whether a specified value is an integer or not.
 
@@ -58,6 +60,8 @@ def validate_integer(*, integer: Union[int, Int]) -> None:
     ----------
     integer : Int or int
         Integer value to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
@@ -66,8 +70,11 @@ def validate_integer(*, integer: Union[int, Int]) -> None:
     """
     if isinstance(integer, (int, Int)):
         return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
     raise ValueError(
-        f'Specified value is not integer: {integer}({type(integer)})')
+        f'Specified value is not integer: {integer}({type(integer)})'
+        f'{additional_err_msg}')
 
 
 def validate_int_is_zero_or_one(*, integer: Union[int, Int]) -> None:

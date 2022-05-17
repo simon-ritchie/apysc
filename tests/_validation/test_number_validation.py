@@ -25,7 +25,8 @@ def test_validate_integer() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_integer,
-        kwargs={'integer': 10.5})
+        kwargs={'integer': 10.5, 'additional_err_msg': 'Test error!'},
+        match='\nTest error!')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

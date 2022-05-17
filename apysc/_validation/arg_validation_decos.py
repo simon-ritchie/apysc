@@ -132,14 +132,13 @@ def not_empty_string(*, arg_position_index: int) -> _F:
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, arg_name=arg_name)
 
-            if string is not None:
-                validate_not_empty_string(
-                    string=string,
-                    additional_err_msg=(
-                        'An argument\'s string value must not be empty.'
-                        f'\nTarget callable name: {func.__name__}'
-                        f'\nTarget argument name: {arg_name}'
-                    ))
+            validate_not_empty_string(
+                string=string,
+                additional_err_msg=(
+                    'An argument\'s string value must not be empty.'
+                    f'\nTarget callable name: {func.__name__}'
+                    f'\nTarget argument name: {arg_name}'
+                ))
             result: Any = func(*args, **kwargs)
             return result
 
@@ -204,13 +203,12 @@ def handler_args_num(*, arg_position_index: int) -> _F:
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index,
                 arg_name=arg_name)
-            if handler is not None:
-                validate_handler_args_num(
-                    handler=handler,
-                    additional_err_msg=(
-                        f'Target callable name: {func.__name__}'
-                        f'\nTarget argument name: {arg_name}'
-                    ))
+            validate_handler_args_num(
+                handler=handler,
+                additional_err_msg=(
+                    f'Target callable name: {func.__name__}'
+                    f'\nTarget argument name: {arg_name}'
+                ))
             result: Any = func(*args, **kwargs)
             return result
 

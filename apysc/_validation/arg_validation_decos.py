@@ -75,6 +75,31 @@ def _get_arg_name_by_index(
     return arg_name
 
 
+def _get_callable_and_arg_names_msg(
+        *, callable_: Callable, arg_name: str) -> str:
+    """
+    Get a function or method and argument names' message
+    for a additional error message.
+
+    Parameters
+    ----------
+    callable_ : Callable
+        A target function or method.
+    arg_name : str
+        A target argument name.
+
+    Returns
+    -------
+    callable_and_arg_names_msg : str
+        A function or method and argument names' message.
+    """
+    callable_and_arg_names_msg: str = (
+        f'Target callable name: {callable_.__name__}'
+        f'\nTarget argument name: {arg_name}'
+    )
+    return callable_and_arg_names_msg
+
+
 def not_empty_string(*, arg_position_index: int) -> _F:
     """
     Set the validation to check that a specified argument's string
@@ -132,12 +157,13 @@ def not_empty_string(*, arg_position_index: int) -> _F:
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, arg_name=arg_name)
 
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_name=arg_name)
             validate_not_empty_string(
                 string=string,
                 additional_err_msg=(
                     'An argument\'s string value must not be empty.'
-                    f'\nTarget callable name: {callable_.__name__}'
-                    f'\nTarget argument name: {arg_name}'
+                    f'\n{callable_and_arg_names_msg}'
                 ))
             result: Any = callable_(*args, **kwargs)
             return result
@@ -203,12 +229,11 @@ def handler_args_num(*, arg_position_index: int) -> _F:
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index,
                 arg_name=arg_name)
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_name=arg_name)
             validate_handler_args_num(
                 handler=handler,
-                additional_err_msg=(
-                    f'Target callable name: {callable_.__name__}'
-                    f'\nTarget argument name: {arg_name}'
-                ))
+                additional_err_msg=callable_and_arg_names_msg)
             result: Any = callable_(*args, **kwargs)
             return result
 
@@ -272,12 +297,11 @@ def handler_options_type(*, arg_position_index: int) -> _F:
             options: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, arg_name=arg_name)
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_name=arg_name)
             validate_options_type(
                 options=options,
-                additional_err_msg=(
-                    f'\nTarget callable name: {callable_.__name__}'
-                    f'\nTarget argument name: {arg_name}'
-                ))
+                additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)
             return result

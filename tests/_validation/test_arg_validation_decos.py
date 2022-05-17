@@ -139,3 +139,18 @@ def test__get_arg_name_by_index() -> None:
     arg_name: str = arg_validation_decos._get_arg_name_by_index(
         callable_=_test_func_2, arg_position_index=0)
     assert arg_name == 'a'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_callable_and_arg_names_msg() -> None:
+
+    def _test_func(a: int) -> None:
+        ...
+
+    callable_and_arg_names_msg: str = arg_validation_decos.\
+        _get_callable_and_arg_names_msg(
+            callable_=_test_func, arg_name='a')
+    assert callable_and_arg_names_msg == (
+        'Target callable name: _test_func'
+        '\nTarget argument name: a'
+    )

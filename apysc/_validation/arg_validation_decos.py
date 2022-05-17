@@ -1,4 +1,16 @@
 """This module is for the argument validations' decorators.
+
+Mainly the following decorators exist.
+
+- not_empty_string
+    - Set the validation to check that a specified argument's string
+        is not empty.
+- handler_args_num
+    - Set the validation to check specified handler argument's
+        number.
+- handler_options_type
+    - Set the validation to check a specified handler-options
+        argument's type.
 """
 
 import functools

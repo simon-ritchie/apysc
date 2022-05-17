@@ -1,16 +1,11 @@
 from random import randint
-from typing import Any, Callable
+from typing import Any, Callable, Union
 
 from retrying import retry
 
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import arg_validation_decos
 import apysc as ap
-
-
-@arg_validation_decos.not_empty_string(arg_position_index=0)
-def _test_func_1(a: str) -> None:
-    ...
 
 
 class _TestClass1:
@@ -29,26 +24,25 @@ def _test_func_2(*, handler: Callable) -> None:
     ...
 
 
-
-@arg_validation_decos.handler_options_type(arg_position_index=0)
-def _test_func_3(*, options: dict) -> None:
-    ...
-
-
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_not_empty_string() -> None:
+
+    @arg_validation_decos.not_empty_string(arg_position_index=0)
+    def _test_func(a: str) -> None:
+        ...
+
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func_1,
+        func_or_method=_test_func,
         kwargs={'a': ''},
         match='An argument\'s string value must not be empty.')
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func_1,
+        func_or_method=_test_func,
         kwargs={'a': 10})
 
-    _test_func_1('Hello')
-    _test_func_1(a='Hello')
+    _test_func('Hello')
+    _test_func(a='Hello')
 
     test_instance: _TestClass1 = _TestClass1()
     assert_raises(
@@ -112,25 +106,30 @@ def test_handler_args_num() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_handler_options_type() -> None:
+
+    @arg_validation_decos.handler_options_type(arg_position_index=0)
+    def _test_func(*, options: dict) -> None:
+        ...
+
     assert_raises(
         expected_error_class=TypeError,
-        func_or_method=_test_func_3,
+        func_or_method=_test_func,
         kwargs={'options': 10})
 
-    _test_func_3(options={'msg': 'Hello!'})
+    _test_func(options={'msg': 'Hello!'})
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_arg_name_by_index() -> None:
 
-    def _test_func_1(*, a: int, b: str) -> None:
+    def _test_func(*, a: int, b: str) -> None:
         ...
 
     arg_name: str = arg_validation_decos._get_arg_name_by_index(
-        callable_=_test_func_1, arg_position_index=0)
+        callable_=_test_func, arg_position_index=0)
     assert arg_name == 'a'
     arg_name = arg_validation_decos._get_arg_name_by_index(
-        callable_=_test_func_1, arg_position_index=1)
+        callable_=_test_func, arg_position_index=1)
     assert arg_name == 'b'
 
     def _test_func_2(a: int, b: str) -> None:
@@ -154,3 +153,19 @@ def test__get_callable_and_arg_names_msg() -> None:
         'Target callable name: _test_func'
         '\nTarget argument name: a'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_integer() -> None:
+
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    def _test_func(*, a: str, b: Union[int, ap.Int]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=_test_func,
+        kwargs={'a': 'Hello!', 'b': 'World!'})
+
+    _test_func(a='Hello!', b=10)
+    _test_func(a='Hello!', b=ap.Int(10))

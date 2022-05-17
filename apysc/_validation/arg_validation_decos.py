@@ -75,8 +75,7 @@ def _get_arg_name_by_index(
     return arg_name
 
 
-def not_empty_string(
-        *, arg_position_index: int, arg_name: str) -> _F:
+def not_empty_string(*, arg_position_index: int) -> _F:
     """
     Set the validation to check that a specified argument's string
     is not empty.
@@ -85,8 +84,6 @@ def not_empty_string(
     ----------
     arg_position_index : int
         A target argument position index.
-    arg_name : str
-        A target argument name to check.
 
     Returns
     -------
@@ -129,6 +126,8 @@ def not_empty_string(
             from apysc._type.string import String
             from apysc._validation.string_validation import \
                 validate_not_empty_string
+            arg_name: str = _get_arg_name_by_index(
+                func=func, arg_position_index=arg_position_index)
             string: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, arg_name=arg_name)
@@ -149,8 +148,7 @@ def not_empty_string(
     return wrapped  # type: ignore
 
 
-def handler_args_num(
-        *, arg_position_index: int, arg_name: str) -> _F:
+def handler_args_num(*, arg_position_index: int) -> _F:
     """
     Set the validation to check specified handler argument's
     number.
@@ -159,8 +157,6 @@ def handler_args_num(
     ----------
     arg_position_index : int
         A target argument position index.
-    arg_name : str
-        A target argument name to validate.
 
     Returns
     -------
@@ -202,6 +198,8 @@ def handler_args_num(
             """
             from apysc._validation.handler_validation import \
                 validate_handler_args_num
+            arg_name: str = _get_arg_name_by_index(
+                func=func, arg_position_index=arg_position_index)
             handler: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index,
@@ -221,8 +219,7 @@ def handler_args_num(
     return wrapped  # type: ignore
 
 
-def handler_options_type(
-        *, arg_position_index: int, arg_name: str) -> _F:
+def handler_options_type(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified handler-options
     argument's type.
@@ -231,8 +228,6 @@ def handler_options_type(
     ----------
     arg_position_index : int
         A target argument position index.
-    arg_name : str
-        A target argument name to validate.
 
     Returns
     -------
@@ -274,6 +269,8 @@ def handler_options_type(
             """
             from apysc._validation.handler_validation import \
                 validate_options_type
+            arg_name: str = _get_arg_name_by_index(
+                func=func, arg_position_index=arg_position_index)
             options: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, arg_name=arg_name)

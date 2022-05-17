@@ -8,40 +8,30 @@ from apysc._validation import arg_validation_decos
 import apysc as ap
 
 
-@arg_validation_decos.not_empty_string(
-    arg_position_index=0, arg_name='a')
+@arg_validation_decos.not_empty_string(arg_position_index=0)
 def _test_func_1(a: str) -> None:
     ...
 
 
 class _TestClass1:
 
-    @arg_validation_decos.not_empty_string(
-        arg_position_index=2, arg_name='a')
+    @arg_validation_decos.not_empty_string(arg_position_index=1)
     def _test_method_1(self, *, a: str) -> None:
         ...
 
-    @arg_validation_decos.not_empty_string(
-        arg_position_index=1, arg_name='a')
+    @arg_validation_decos.not_empty_string(arg_position_index=1)
     def _test_method_2(self, a: str) -> None:
         ...
 
 
-@arg_validation_decos.handler_args_num(
-    arg_position_index=0, arg_name='handler')
+@arg_validation_decos.handler_args_num(arg_position_index=0)
 def _test_func_2(*, handler: Callable) -> None:
     ...
 
 
-@arg_validation_decos.handler_args_num(
-    arg_position_index=0, arg_name='handler')
-def _test_func_3() -> None:
-    ...
 
-
-@arg_validation_decos.handler_options_type(
-    arg_position_index=0, arg_name='options')
-def _test_func_4(*, options: dict) -> None:
+@arg_validation_decos.handler_options_type(arg_position_index=0)
+def _test_func_3(*, options: dict) -> None:
     ...
 
 
@@ -114,8 +104,6 @@ def test_handler_args_num() -> None:
         match='Target callable name: _test_func_2',
     )
 
-    _test_func_3()
-
     def _test_handler_2(e: ap.Event, options: dict) -> None:
         ...
 
@@ -126,10 +114,10 @@ def test_handler_args_num() -> None:
 def test_handler_options_type() -> None:
     assert_raises(
         expected_error_class=TypeError,
-        func_or_method=_test_func_4,
+        func_or_method=_test_func_3,
         kwargs={'options': 10})
 
-    _test_func_4(options={'msg': 'Hello!'})
+    _test_func_3(options={'msg': 'Hello!'})
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

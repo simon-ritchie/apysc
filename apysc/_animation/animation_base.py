@@ -32,8 +32,7 @@ class AnimationBase(
     _easing: Easing
     _started: Boolean
 
-    @arg_validation_decos.not_empty_string(
-        arg_position_index=1, arg_name='variable_name')
+    @arg_validation_decos.not_empty_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='AnimationBase')
     def __init__(self, *, variable_name: str) -> None:
@@ -165,8 +164,7 @@ class AnimationBase(
             expression += f'\n  .after({handler_name})'
         return expression
 
-    @arg_validation_decos.handler_args_num(
-        arg_position_index=1, arg_name='handler')
+    @arg_validation_decos.handler_args_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='AnimationBase')
     def animation_complete(

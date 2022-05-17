@@ -165,6 +165,7 @@ class AnimationBase(
         return expression
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='AnimationBase')
     def animation_complete(
@@ -220,9 +221,7 @@ class AnimationBase(
         """
         import apysc as ap
         from apysc._event.custom_event_type import CustomEventType
-        from apysc._validation.handler_validation import validate_options_type
         self._validate_animation_not_started()
-        validate_options_type(options=options)
         e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
         in_handler_head_expression: str = \
             self._get_complete_event_in_handler_head_expression()

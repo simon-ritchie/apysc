@@ -130,3 +130,24 @@ def test_handler_options_type() -> None:
         kwargs={'options': 10})
 
     _test_func_4(options={'msg': 'Hello!'})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_arg_name_by_index() -> None:
+
+    def _test_func_1(*, a: int, b: str) -> None:
+        ...
+
+    arg_name: str = arg_validation_decos._get_arg_name_by_index(
+        func=_test_func_1, arg_position_index=0)
+    assert arg_name == 'a'
+    arg_name = arg_validation_decos._get_arg_name_by_index(
+        func=_test_func_1, arg_position_index=1)
+    assert arg_name == 'b'
+
+    def _test_func_2(a: int, b: str) -> None:
+        ...
+
+    arg_name: str = arg_validation_decos._get_arg_name_by_index(
+        func=_test_func_2, arg_position_index=0)
+    assert arg_name == 'a'

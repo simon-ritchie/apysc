@@ -7,6 +7,8 @@ from typing import Callable
 from typing import Optional
 from typing import TypeVar
 from typing import Union
+from inspect import Signature
+import inspect
 
 # pyright: reportInvalidTypeVarUse=false
 _F = TypeVar('_F', bound=Callable)
@@ -41,6 +43,36 @@ def _extract_arg_value(
     elif len(args) - 1 >= arg_position_index:
         value = args[arg_position_index]
     return value
+
+
+def _get_arg_name_by_index(
+        *, func: Callable, arg_position_index: int) -> str:
+    """
+    Get an argument name from a specified argument position index.
+
+    Parameters
+    ----------
+    func : Callable
+        A target function (or method).
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    arg_name : str
+        A target argument name.
+    """
+    signature: Signature = inspect.signature(func)
+    if len(signature.parameters) -1 < arg_position_index:
+        raise IndexError(
+            'A specified function has no argument parameter '
+            f'at the index of {arg_position_index}'
+            f'\nActual argument length: {len(signature.parameters)}')
+    arg_name: str = ''
+    for i, (arg_name_, _) in enumerate(signature.parameters.items()):
+        if i == arg_position_index:
+            arg_name = arg_name_
+    return arg_name
 
 
 def not_empty_string(

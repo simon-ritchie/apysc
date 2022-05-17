@@ -46,14 +46,14 @@ def _extract_arg_value(
 
 
 def _get_arg_name_by_index(
-        *, func: Callable, arg_position_index: int) -> str:
+        *, callable_: Callable, arg_position_index: int) -> str:
     """
     Get an argument name from a specified argument position index.
 
     Parameters
     ----------
-    func : Callable
-        A target function (or method).
+    callable_ : Callable
+        A target function or method.
     arg_position_index : int
         A target argument position index.
 
@@ -62,7 +62,7 @@ def _get_arg_name_by_index(
     arg_name : str
         A target argument name.
     """
-    signature: Signature = inspect.signature(func)
+    signature: Signature = inspect.signature(callable_)
     if len(signature.parameters) -1 < arg_position_index:
         raise IndexError(
             'A specified function has no argument parameter '
@@ -91,13 +91,13 @@ def not_empty_string(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(func: _F) -> _F:
+    def wrapped(callable_: _F) -> _F:
         """
         Wrapping function for a decorator setting.
 
         Parameters
         ----------
-        func : Callable
+        callable_ : Callable
             A target function or method to wrap.
 
         Returns
@@ -106,7 +106,7 @@ def not_empty_string(*, arg_position_index: int) -> _F:
             Wrapped callable object.
         """
 
-        @functools.wraps(func)
+        @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             """
             Wrapping function for a decorator setting.
@@ -127,7 +127,7 @@ def not_empty_string(*, arg_position_index: int) -> _F:
             from apysc._validation.string_validation import \
                 validate_not_empty_string
             arg_name: str = _get_arg_name_by_index(
-                func=func, arg_position_index=arg_position_index)
+                callable_=callable_, arg_position_index=arg_position_index)
             string: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, arg_name=arg_name)
@@ -136,10 +136,10 @@ def not_empty_string(*, arg_position_index: int) -> _F:
                 string=string,
                 additional_err_msg=(
                     'An argument\'s string value must not be empty.'
-                    f'\nTarget callable name: {func.__name__}'
+                    f'\nTarget callable name: {callable_.__name__}'
                     f'\nTarget argument name: {arg_name}'
                 ))
-            result: Any = func(*args, **kwargs)
+            result: Any = callable_(*args, **kwargs)
             return result
 
         return inner_wrapped  # type: ignore
@@ -163,13 +163,13 @@ def handler_args_num(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(func: _F) -> _F:
+    def wrapped(callable_: _F) -> _F:
         """
         Wrapping function for a decorator setting.
 
         Parameters
         ----------
-        func : Callable
+        callable_ : Callable
             A target function or method to wrap.
 
         Returns
@@ -178,7 +178,7 @@ def handler_args_num(*, arg_position_index: int) -> _F:
             Wrapped callable object.
         """
 
-        @functools.wraps(func)
+        @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             """
             Wrapping function for a decorator setting.
@@ -198,7 +198,7 @@ def handler_args_num(*, arg_position_index: int) -> _F:
             from apysc._validation.handler_validation import \
                 validate_handler_args_num
             arg_name: str = _get_arg_name_by_index(
-                func=func, arg_position_index=arg_position_index)
+                callable_=callable_, arg_position_index=arg_position_index)
             handler: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index,
@@ -206,10 +206,10 @@ def handler_args_num(*, arg_position_index: int) -> _F:
             validate_handler_args_num(
                 handler=handler,
                 additional_err_msg=(
-                    f'Target callable name: {func.__name__}'
+                    f'Target callable name: {callable_.__name__}'
                     f'\nTarget argument name: {arg_name}'
                 ))
-            result: Any = func(*args, **kwargs)
+            result: Any = callable_(*args, **kwargs)
             return result
 
         return inner_wrapped  # type: ignore
@@ -233,13 +233,13 @@ def handler_options_type(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(func: _F) -> _F:
+    def wrapped(callable_: _F) -> _F:
         """
         Wrapping function for a decorator setting.
 
         Parameters
         ----------
-        func : Callable
+        callable_ : Callable
             A target function or method to wrap.
 
         Returns
@@ -248,7 +248,7 @@ def handler_options_type(*, arg_position_index: int) -> _F:
             Wrapped callable object.
         """
 
-        @functools.wraps(func)
+        @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             """
             Wrapping function for a decorator setting.
@@ -268,18 +268,18 @@ def handler_options_type(*, arg_position_index: int) -> _F:
             from apysc._validation.handler_validation import \
                 validate_options_type
             arg_name: str = _get_arg_name_by_index(
-                func=func, arg_position_index=arg_position_index)
+                callable_=callable_, arg_position_index=arg_position_index)
             options: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, arg_name=arg_name)
             validate_options_type(
                 options=options,
                 additional_err_msg=(
-                    f'\nTarget callable name: {func.__name__}'
+                    f'\nTarget callable name: {callable_.__name__}'
                     f'\nTarget argument name: {arg_name}'
                 ))
 
-            result: Any = func(*args, **kwargs)
+            result: Any = callable_(*args, **kwargs)
             return result
 
         return inner_wrapped  # type: ignore

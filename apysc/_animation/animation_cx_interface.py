@@ -15,6 +15,7 @@ class AnimationCxInterface(AnimationInterfaceBase):
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     def animation_x(
             self,

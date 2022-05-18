@@ -184,3 +184,19 @@ def test_num_is_gt_zero() -> None:
         expected_error_class=ValueError,
         func_or_method=_test_func,
         kwargs={'a': 0})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_easing() -> None:
+
+    @arg_validation_decos.is_easing(arg_position_index=0)
+    def _test_func(*, easing: ap.Easing) -> None:
+        ...
+
+    _test_func(easing=ap.Easing.EASE_IN_SINE)
+    _test_func(easing=ap.Easing.EASE_OUT_QUAD)
+    assert_raises(
+        expected_error_class=TypeError,
+        func_or_method=_test_func,
+        kwargs={'easing': 10},
+        match=r"A specified easing argument\'s type is not the ap\.Easing\: ")

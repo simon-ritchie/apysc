@@ -105,7 +105,8 @@ def validate_int_is_zero_or_one(*, integer: Union[int, Int]) -> None:
 
 
 def validate_num_is_gt_zero(
-        *, num: Union[int, float, Int, Number]) -> None:
+        *, num: Union[int, float, Int, Number],
+        additional_err_msg: str = '') -> None:
     """
     Validate specified value is greater than zero.
 
@@ -113,15 +114,25 @@ def validate_num_is_gt_zero(
     ----------
     num : int or float or Int or Number
         Number value to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
     ValueError
         If specified value is less than or equal to zero.
     """
-    if num > 0:
+    from apysc._type.number_value_interface import NumberValueInterface
+    if isinstance(num, NumberValueInterface):
+        if num._value > 0:
+            return
+    elif num > 0:
         return
-    raise ValueError(f'Specified values is less than or equal to zero: {num}')
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
+    raise ValueError(
+        f'Specified values is less than or equal to zero: {num}'
+        f'{additional_err_msg}')
 
 
 def validate_num_is_gte_zero(

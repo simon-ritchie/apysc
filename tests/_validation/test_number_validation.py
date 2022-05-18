@@ -32,10 +32,16 @@ def test_validate_integer() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_num_is_gt_zero() -> None:
     number_validation.validate_num_is_gt_zero(num=1)
+    number_validation.validate_num_is_gt_zero(num=ap.Int(1))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_num_is_gt_zero,
-        kwargs={'num': 0})
+        kwargs={'num': 0, 'additional_err_msg': 'Test error!'},
+        match='\nTest error!')
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=number_validation.validate_num_is_gt_zero,
+        kwargs={'num': ap.Int(0)})
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -169,3 +169,18 @@ def test_is_integer() -> None:
 
     _test_func(a='Hello!', b=10)
     _test_func(a='Hello!', b=ap.Int(10))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_num_is_gt_zero() -> None:
+
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=0)
+    def _test_func(*, a: Union[int, ap.Int]) -> None:
+        ...
+
+    _test_func(a=1)
+    _test_func(a=ap.Int(1))
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=_test_func,
+        kwargs={'a': 0})

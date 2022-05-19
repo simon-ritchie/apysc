@@ -23,3 +23,6 @@ class TestAnimationCxInterface:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_cx)
+
+        interface.animation_x(
+            x=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)

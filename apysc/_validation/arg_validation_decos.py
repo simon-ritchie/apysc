@@ -36,7 +36,8 @@ _F = TypeVar('_F', bound=Callable)
 
 def _extract_arg_value(
         *, args: Any, kwargs: Dict[str, Any],
-        arg_position_index: int, arg_name: str) -> Any:
+        arg_position_index: int, arg_name: str,
+        default_val: Any) -> Any:
     """
     Extract an argument value from a specified arguments' dictionary
     or list.
@@ -51,6 +52,8 @@ def _extract_arg_value(
         A target argument position index.
     arg_name : str
         A target argument name to check.
+    default_val : Any
+        A default value of a target argument.
 
     Returns
     -------
@@ -62,6 +65,8 @@ def _extract_arg_value(
         value = kwargs[arg_name]
     elif len(args) - 1 >= arg_position_index:
         value = args[arg_position_index]
+    if value is None and default_val is not None:
+        return default_val
     return value
 
 
@@ -205,7 +210,8 @@ def not_empty_string(*, arg_position_index: int) -> _F:
                 callable_=callable_, arg_name=arg_name)
             string: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
-                arg_position_index=arg_position_index, arg_name=arg_name)
+                arg_position_index=arg_position_index, arg_name=arg_name,
+                default_val=default_val)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_name=arg_name)
@@ -275,10 +281,12 @@ def handler_args_num(*, arg_position_index: int) -> _F:
                 validate_handler_args_num
             arg_name: str = _get_arg_name_by_index(
                 callable_=callable_, arg_position_index=arg_position_index)
+            default_val: Any = _get_default_val_by_arg_name(
+                callable_=callable_, arg_name=arg_name)
             handler: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index,
-                arg_name=arg_name)
+                arg_name=arg_name, default_val=default_val)
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_name=arg_name)
             validate_handler_args_num(
@@ -344,9 +352,12 @@ def handler_options_type(*, arg_position_index: int) -> _F:
                 validate_options_type
             arg_name: str = _get_arg_name_by_index(
                 callable_=callable_, arg_position_index=arg_position_index)
+            default_val: Any = _get_default_val_by_arg_name(
+                callable_=callable_, arg_name=arg_name)
             options: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
-                arg_position_index=arg_position_index, arg_name=arg_name)
+                arg_position_index=arg_position_index, arg_name=arg_name,
+                default_val=default_val)
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_name=arg_name)
             validate_options_type(
@@ -412,9 +423,12 @@ def is_integer(*, arg_position_index: int) -> _F:
             from apysc._validation.number_validation import validate_integer
             arg_name: str = _get_arg_name_by_index(
                 callable_=callable_, arg_position_index=arg_position_index)
+            default_val: Any = _get_default_val_by_arg_name(
+                callable_=callable_, arg_name=arg_name)
             integer: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
-                arg_position_index=arg_position_index, arg_name=arg_name)
+                arg_position_index=arg_position_index, arg_name=arg_name,
+                default_val=default_val)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_name=arg_name)
@@ -482,9 +496,12 @@ def num_is_gt_zero(*, arg_position_index: int) -> _F:
                 validate_num_is_gt_zero
             arg_name: str = _get_arg_name_by_index(
                 callable_=callable_, arg_position_index=arg_position_index)
+            default_val: Any = _get_default_val_by_arg_name(
+                callable_=callable_, arg_name=arg_name)
             num: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
-                arg_position_index=arg_position_index, arg_name=arg_name)
+                arg_position_index=arg_position_index, arg_name=arg_name,
+                default_val=default_val)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_name=arg_name)
@@ -550,10 +567,12 @@ def is_easing(*, arg_position_index: int) -> _F:
             import apysc as ap
             arg_name: str = _get_arg_name_by_index(
                 callable_=callable_, arg_position_index=arg_position_index)
+            default_val: Any = _get_default_val_by_arg_name(
+                callable_=callable_, arg_name=arg_name)
             easing: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index,
-                arg_name=arg_name)
+                arg_name=arg_name, default_val=default_val)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_name=arg_name)

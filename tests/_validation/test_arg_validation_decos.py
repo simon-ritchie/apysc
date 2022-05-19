@@ -69,22 +69,33 @@ def test__extract_arg_value() -> None:
         args=[],
         kwargs={'a': 'Test message 1'},
         arg_position_index=0,
-        arg_name='a')
+        arg_name='a',
+        default_val=None)
     assert value == 'Test message 1'
 
     value = arg_validation_decos._extract_arg_value(
         args=['Test message 2'],
         kwargs={},
         arg_position_index=0,
-        arg_name='a')
+        arg_name='a',
+        default_val=None)
     assert value == 'Test message 2'
 
     value = arg_validation_decos._extract_arg_value(
         args=[],
         kwargs={},
         arg_position_index=0,
-        arg_name='a')
+        arg_name='a',
+        default_val=None)
     assert value is None
+
+    value = arg_validation_decos._extract_arg_value(
+        args=[],
+        kwargs={},
+        arg_position_index=0,
+        arg_name='a',
+        default_val='Hello!')
+    assert value == 'Hello!'
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

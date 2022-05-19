@@ -120,6 +120,35 @@ def _get_callable_and_arg_names_msg(
     return callable_and_arg_names_msg
 
 
+def _get_default_val_by_arg_name(
+        *, callable_: Callable, arg_name: str) -> Any:
+    """
+    Get a default value of a given name's argument.
+
+    Parameters
+    ----------
+    callable_ : Callable
+        A target function or method.
+    arg_name : str
+        A target argument name.
+
+    Returns
+    -------
+    default_val : Any
+        A default value of a given name's argument.
+    """
+    default_val: Any = None
+    signature: Signature = inspect.signature(callable_)
+    for target_arg_name, parameter in signature.parameters.items():
+        if target_arg_name != arg_name:
+            continue
+        default_val = parameter.default
+        break
+    if default_val == inspect.Signature.empty:
+        return None
+    return default_val
+
+
 def not_empty_string(*, arg_position_index: int) -> _F:
     """
     Set the validation to check that a specified argument's string
@@ -172,6 +201,8 @@ def not_empty_string(*, arg_position_index: int) -> _F:
                 validate_not_empty_string
             arg_name: str = _get_arg_name_by_index(
                 callable_=callable_, arg_position_index=arg_position_index)
+            default_val: Any = _get_default_val_by_arg_name(
+                callable_=callable_, arg_name=arg_name)
             string: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, arg_name=arg_name)

@@ -202,3 +202,18 @@ def test_is_easing() -> None:
         func_or_method=_test_func,
         kwargs={'easing': 10},
         match=r"A specified easing argument\'s type is not the ap\.Easing\: ")
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_default_val_by_arg_name() -> None:
+
+    def _test_func(*, a: int, b: str = 'Hello!') -> None:
+        ...
+
+    default_val: Any = arg_validation_decos._get_default_val_by_arg_name(
+        callable_=_test_func, arg_name='a')
+    assert default_val is None
+
+    default_val: Any = arg_validation_decos._get_default_val_by_arg_name(
+        callable_=_test_func, arg_name='b')
+    assert default_val == 'Hello!'

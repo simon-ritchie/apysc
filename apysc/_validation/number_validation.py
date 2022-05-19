@@ -6,6 +6,9 @@ Mainly following interfaces are defined:
     Validate a specified value is an integer or float type.
 - validate_integer
     Validate whether a specified value is an integer or not.
+- validate_float
+    Validate whether a specified value is an floating point number
+    or not.
 - validate_int_is_zero_or_one
     Validate specified integer value is zero or one.
 - validate_num_is_gt_zero
@@ -73,8 +76,36 @@ def validate_integer(
     if additional_err_msg != '':
         additional_err_msg = f'\n{additional_err_msg}'
     raise ValueError(
-        f'Specified value is not integer: {integer}({type(integer)})'
+        f'A specified value is not integer: {integer}({type(integer)})'
         f'{additional_err_msg}')
+
+
+def validate_float(
+        *, float_: Union[float, Number],
+        additional_err_msg: str = '') -> None:
+    """
+    Validate whether a specified value is an floating point number
+    or not.
+
+    Parameters
+    ----------
+    float_ : Union[float, Number]
+        Floating point number to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
+
+    Raises
+    ------
+    ValueError
+        If a specified value is not a floating point number.
+    """
+    if isinstance(float_, (float, Number)):
+        return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
+    raise ValueError(
+        'A specified value is not a floating point number: '
+        f'{float_}({type(float_)}){additional_err_msg}')
 
 
 def validate_int_is_zero_or_one(*, integer: Union[int, Int]) -> None:

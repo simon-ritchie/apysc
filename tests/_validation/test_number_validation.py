@@ -84,3 +84,15 @@ def test_validate_nums_are_int_and_gt_zero() -> None:
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_nums_are_int_and_gt_zero,
         kwargs={'nums': [0]})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_float() -> None:
+    number_validation.validate_float(float_=10.5)
+    number_validation.validate_float(float_=ap.Number(10.5))
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=number_validation.validate_float,
+        kwargs={'float_': 'Hello!', 'additional_err_msg': 'Test error!'},
+        match='\nTest error!')

@@ -1,11 +1,13 @@
 from random import randint
-from typing import Any, Callable, Union
+from typing import Any
+from typing import Callable
+from typing import Union
 
 from retrying import retry
 
+import apysc as ap
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import arg_validation_decos
-import apysc as ap
 
 
 class _TestClass1:
@@ -135,7 +137,7 @@ def test__get_arg_name_by_index() -> None:
     def _test_func_2(a: int, b: str) -> None:
         ...
 
-    arg_name: str = arg_validation_decos._get_arg_name_by_index(
+    arg_name = arg_validation_decos._get_arg_name_by_index(
         callable_=_test_func_2, arg_position_index=0)
     assert arg_name == 'a'
 

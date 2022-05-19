@@ -12,12 +12,15 @@ Validate specified handler's arguments number.<hr>
 
 - `handler`: Callable
   - A target handler to validate.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 
 **[Raises]**
 
 - ValueError: <br> ・If handler's arguments number is not 2.
+- TypeError: <br> ・If a specified handler is not callable.
 
 ## `validate_options_type` function docstring
 
@@ -27,6 +30,8 @@ Validate a specified options type.<hr>
 
 - `options`: Any
   - Target options value.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

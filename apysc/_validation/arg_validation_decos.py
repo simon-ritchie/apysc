@@ -6,7 +6,7 @@ Mainly the following decorators exist.
     - Set the validation to check that a specified argument's string
         is not empty.
 - handler_args_num
-    - Set the validation to check specified handler argument's
+    - Set the validation to check a specified handler argument's
         number.
 - handler_options_type
     - Set the validation to check a specified handler-options
@@ -15,7 +15,7 @@ Mainly the following decorators exist.
     - Set the validation to check a specified argument's type
         is the `int` or `ap.Int`.
 - num_is_gt_zero
-    - Set the validation to check a specified argument's value
+    - Set the validation to check that a specified argument's value
         is greater than zero.
 - is_easing
     - Set the validation to check a specified argument's type
@@ -23,13 +23,12 @@ Mainly the following decorators exist.
 """
 
 import functools
-from typing import Any, Dict, List, Type
-from typing import Callable
-from typing import Optional
-from typing import TypeVar
-from typing import Union
-from inspect import Signature
 import inspect
+from inspect import Signature
+from typing import Any
+from typing import Callable
+from typing import Dict
+from typing import TypeVar
 
 # pyright: reportInvalidTypeVarUse=false
 _F = TypeVar('_F', bound=Callable)
@@ -84,7 +83,7 @@ def _get_arg_name_by_index(
         A target argument name.
     """
     signature: Signature = inspect.signature(callable_)
-    if len(signature.parameters) -1 < arg_position_index:
+    if len(signature.parameters) - 1 < arg_position_index:
         raise IndexError(
             'A specified function has no argument parameter '
             f'at the index of {arg_position_index}'
@@ -100,7 +99,7 @@ def _get_callable_and_arg_names_msg(
         *, callable_: Callable, arg_name: str) -> str:
     """
     Get a function or method and argument names' message
-    for a additional error message.
+    for an additional error message.
 
     Parameters
     ----------
@@ -195,7 +194,7 @@ def not_empty_string(*, arg_position_index: int) -> _F:
 
 def handler_args_num(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check specified handler argument's
+    Set the validation to check a specified handler argument's
     number.
 
     Parameters
@@ -379,8 +378,7 @@ def is_integer(*, arg_position_index: int) -> _F:
             result : Any
                 A return value(s) of a callable execution result.
             """
-            from apysc._validation.number_validation import \
-                validate_integer
+            from apysc._validation.number_validation import validate_integer
             arg_name: str = _get_arg_name_by_index(
                 callable_=callable_, arg_position_index=arg_position_index)
             integer: Any = _extract_arg_value(
@@ -403,7 +401,7 @@ def is_integer(*, arg_position_index: int) -> _F:
 
 def num_is_gt_zero(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set the validation to check that a specified argument's value
     is greater than zero.
 
     Parameters

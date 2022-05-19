@@ -38,7 +38,7 @@ def validate_num(
     Raises
     ------
     ValueError
-        If specified value is not an integer and float value.
+        If a specified value is not an integer and float value.
     """
     from apysc._type.number_value_interface import NumberValueInterface
     if isinstance(
@@ -120,7 +120,7 @@ def validate_num_is_gt_zero(
     Raises
     ------
     ValueError
-        If specified value is less than or equal to zero.
+        If a specified value is less than or equal to zero.
     """
     from apysc._type.number_value_interface import NumberValueInterface
     if isinstance(num, NumberValueInterface):
@@ -148,7 +148,7 @@ def validate_num_is_gte_zero(
     Raises
     ------
     ValueError
-        If specified value is less than zero.
+        If a specified value is less than zero.
     """
     if num >= 0:
         return

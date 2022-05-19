@@ -33,6 +33,8 @@ Validate whether a specified value is an integer or not.<hr>
 
 - `integer`: Int or int
   - Integer value to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 
@@ -53,7 +55,7 @@ Validate a specified value is an integer or float type.<hr>
 
 **[Raises]**
 
-- ValueError: If specified value is not an integer and float value.
+- ValueError: If a specified value is not an integer and float value.
 
 ## `validate_num_is_gt_zero` function docstring
 
@@ -63,12 +65,14 @@ Validate specified value is greater than zero.<hr>
 
 - `num`: int or float or Int or Number
   - Number value to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 
 **[Raises]**
 
-- ValueError: If specified value is less than or equal to zero.
+- ValueError: If a specified value is less than or equal to zero.
 
 ## `validate_num_is_gte_zero` function docstring
 
@@ -83,7 +87,7 @@ Validate whether a specified value is greater than or equal to zero.<hr>
 
 **[Raises]**
 
-- ValueError: If specified value is less than zero.
+- ValueError: If a specified value is less than zero.
 
 ## `validate_nums_are_int_and_gt_zero` function docstring
 

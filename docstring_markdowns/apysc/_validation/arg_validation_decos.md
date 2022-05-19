@@ -18,6 +18,8 @@ Extract an argument value from a specified arguments' dictionary or list.<hr>
   - A target argument position index.
 - `arg_name`: str
   - A target argument name to check.
+- `default_val`: Any
+  - A default value of a target argument.
 
 <hr>
 
@@ -61,6 +63,24 @@ Get a function or method and argument names' message for an additional error mes
 
 - `callable_and_arg_names_msg`: str
   - A function or method and argument names' message.
+
+## `_get_default_val_by_arg_name` function docstring
+
+Get a default value of a given name's argument.<hr>
+
+**[Parameters]**
+
+- `callable_`: Callable
+  - A target function or method.
+- `arg_name`: str
+  - A target argument name.
+
+<hr>
+
+**[Returns]**
+
+- `default_val`: Any
+  - A default value of a given name's argument.
 
 ## `handler_args_num` function docstring
 

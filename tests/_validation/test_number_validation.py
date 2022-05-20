@@ -49,10 +49,12 @@ def test_validate_num_is_gt_zero() -> None:
 def test_validate_num_is_gte_zero() -> None:
     number_validation.validate_num_is_gte_zero(num=0)
     number_validation.validate_num_is_gte_zero(num=1)
+    number_validation.validate_num_is_gte_zero(num=ap.Int(0))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_num_is_gte_zero,
-        kwargs={'num': -0.1})
+        kwargs={'num': -0.1, 'additional_err_msg': 'Test error!'},
+        match='\nTest error!')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

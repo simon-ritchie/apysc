@@ -1,13 +1,19 @@
+from random import randint
+
+from retrying import retry
+
 import apysc as ap
 from apysc._testing import testing_helper
 from apysc._validation import color_validation
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_hex_color_code_format() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=color_validation.validate_hex_color_code_format,
-        kwargs={'hex_color_code': 10})
+        kwargs={'hex_color_code': 10, 'additional_err_msg': 'Test error!'},
+        match='\nTest error!')
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
@@ -25,6 +31,7 @@ def test_validate_hex_color_code_format() -> None:
         hex_color_code=ap.String('333'))
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_alpha_range() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,

@@ -13,7 +13,8 @@ StrOrString = TypeVar('StrOrString', str, String)
 
 
 def validate_hex_color_code_format(
-        *, hex_color_code: StrOrString) -> None:
+        *, hex_color_code: StrOrString,
+        additional_err_msg: str = '') -> None:
     """
     Validate a specified hexadecimal color code format.
 
@@ -22,16 +23,20 @@ def validate_hex_color_code_format(
     hex_color_code : str
         Hexadecimal color code (not including '#').
         e.g., 'ff0000', '666', '0'
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
     ValueError
         If invalid hex color code specified.
     """
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
     if not isinstance(hex_color_code, (str, String)):
         raise ValueError(
             'Hex color code only supports str type, specified: '
-            f'{type(hex_color_code)}')
+            f'{type(hex_color_code)}{additional_err_msg}')
 
     if isinstance(hex_color_code, String):
         value_: str = hex_color_code._value
@@ -44,7 +49,8 @@ def validate_hex_color_code_format(
         raise ValueError(
             'Not supported hex color code number of digits is specified.'
             f'\nSupported number of digits are: {expected_char_lengths}'
-            f'\nSpecified: {hex_color_code} ({char_len} digits)')
+            f'\nSpecified: {hex_color_code} ({char_len} digits)'
+            f'{additional_err_msg}')
 
     for char in value_:
         if char in hexdigits:
@@ -52,7 +58,8 @@ def validate_hex_color_code_format(
         raise ValueError(
             'Invalid hexadecimal character is specified.'
             f'\nTarget character: {char}'
-            f'\nSupported characters: {hexdigits}')
+            f'\nSupported characters: {hexdigits}'
+            f'{additional_err_msg}')
 
 
 def validate_alpha_range(

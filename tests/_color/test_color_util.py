@@ -1,3 +1,7 @@
+from random import randint
+
+from retrying import retry
+
 import re
 from random import randint
 from typing import List
@@ -7,14 +11,19 @@ from typing import Optional
 from retrying import retry
 
 from apysc._color import color_util
+import apysc as ap
+from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import assert_raises
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__fill_one_digit_hex_color_code() -> None:
     filled_color_code: str = color_util._fill_one_digit_hex_color_code(
         hex_color_code='a')
     assert filled_color_code == '00000a'
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__fill_three_digit_hex_color_code() -> None:
     filled_color_code: str = color_util._fill_three_digit_hex_color_code(
         hex_color_code='a03')
@@ -49,8 +58,6 @@ def test_complement_hex_color() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_complement_hex_color_expression() -> None:
-    import apysc as ap
-    from apysc._expression import expression_data_util
     expression_data_util.empty_expression()
 
     string_1: ap.String = ap.String('#333')
@@ -75,3 +82,39 @@ def test__append_complement_hex_color_expression() -> None:
             string=expression,
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None, expected_pattern
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_remove_color_code_sharp_symbol_expression() -> None:
+    expression_data_util.empty_expression()
+
+    hex_color_code: ap.String = ap.String('#00aaff')
+    color_util._append_remove_color_code_sharp_symbol_expression(
+        hex_color_code=hex_color_code)
+    var_name: str = hex_color_code.variable_name
+    expression: str = expression_data_util.get_current_expression()
+    expected: str = (
+        f'var first_char = {var_name}.slice(0, 1);'
+        '\nif (first_char === "#") {'
+        f'\n  {var_name} = {var_name}.slice(1);'
+        '\n}'
+    )
+    assert expected in expression
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_remove_color_code_sharp_symbol() -> None:
+    hex_color_code_1: str = color_util.remove_color_code_sharp_symbol(
+        hex_color_code='#00aaff')
+    assert hex_color_code_1 == '00aaff'
+
+    hex_color_code_2: ap.String = ap.String('#00aaff')
+    hex_color_code_3: ap.String = color_util.remove_color_code_sharp_symbol(
+        hex_color_code=hex_color_code_2)
+    assert hex_color_code_3 == '00aaff'
+    assert hex_color_code_2.variable_name != hex_color_code_3.variable_name
+
+    assert_raises(
+        expected_error_class=TypeError,
+        func_or_method=color_util.remove_color_code_sharp_symbol,
+        kwargs={'hex_color_code': 100})

@@ -29,10 +29,9 @@ def complement_hex_color(
         Result hex color code. e.g., '#ff0000', '#666666, '#000000'
     """
     import apysc as ap
-    from apysc._html import html_util
     from apysc._validation import color_validation
-    hex_color_code = html_util.remove_first_selector_symbol_char(
-        str_val=hex_color_code)
+    hex_color_code = remove_color_code_sharp_symbol(
+        hex_color_code=hex_color_code)
 
     color_validation.validate_hex_color_code_format(
         hex_color_code=hex_color_code)
@@ -57,6 +56,64 @@ def complement_hex_color(
     else:
         hex_color_code = value_  # type: ignore
     return hex_color_code  # type: ignore
+
+
+def remove_color_code_sharp_symbol(
+        *, hex_color_code: StrOrString) -> StrOrString:
+    """
+    Remove a sharp symbol from a specified hexadecimal color code
+    string.
+
+    Parameters
+    ----------
+    hex_color_code : StrOrString
+        A targert hexadecimal color code string.
+
+    Returns
+    -------
+    hex_color_code : StrOrString
+        A result string.
+    """
+    from apysc._type import value_util
+    if isinstance(hex_color_code, str):
+        if hex_color_code.startswith('#'):
+            hex_color_code = hex_color_code[1:]
+        return hex_color_code
+
+    if isinstance(hex_color_code, String):
+        hex_color_code_: String = value_util.get_copy(
+            value=hex_color_code)
+        if hex_color_code_._value.startswith('#'):
+            hex_color_code_._value = hex_color_code_._value[1:]
+        _append_remove_color_code_sharp_symbol_expression(
+            hex_color_code=hex_color_code_)
+        return hex_color_code_
+
+    raise TypeError(
+        'Other than str or String type value is specified: '
+        f'{type(hex_color_code)}')
+
+
+def _append_remove_color_code_sharp_symbol_expression(
+        *, hex_color_code: String) -> None:
+    """
+    Append the remove_color_code_sharp_symbol function's
+    expression.
+
+    Parameters
+    ----------
+    hex_color_code : String
+        A sharp symbol removed string instance.
+    """
+    import apysc as ap
+    var_name: str = hex_color_code.variable_name
+    expression: str = (
+        f'var first_char = {var_name}.slice(0, 1);'
+        '\nif (first_char === "#") {'
+        f'\n  {var_name} = {var_name}.slice(1);'
+        '\n}'
+    )
+    ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)

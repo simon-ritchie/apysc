@@ -247,3 +247,23 @@ def test_is_num() -> None:
         expected_error_class=ValueError,
         func_or_method=_test_func_1,
         kwargs={'a': 'Hello!'})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_hex_color_code_format() -> None:
+
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=0)
+    def _test_func(*, a: str) -> None:
+        ...
+
+    _test_func(a='#a')
+    _test_func(a='0af')
+    _test_func(a='#0af')
+    _test_func(a='#00aaff')
+
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=_test_func,
+        kwargs={
+            'a': 'Hello!',
+        })

@@ -228,3 +228,22 @@ def test__get_default_val_by_arg_name() -> None:
     default_val = arg_validation_decos._get_default_val_by_arg_name(
         callable_=_test_func, arg_name='b')
     assert default_val == 'Hello!'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_num() -> None:
+
+    @arg_validation_decos.is_num(arg_position_index=0)
+    def _test_func_1(
+            *, a: Union[int, float, ap.Int, ap.Number]) -> None:
+        ...
+
+    _test_func_1(a=1.5)
+    _test_func_1(a=1)
+    _test_func_1(a=ap.Int(1))
+    _test_func_1(a=ap.Number(1.5))
+
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=_test_func_1,
+        kwargs={'a': 'Hello!'})

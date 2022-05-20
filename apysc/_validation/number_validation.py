@@ -26,7 +26,8 @@ from apysc._type.number import Number
 
 
 def validate_num(
-        *, num: Union[int, float, Int, Number]) -> None:
+        *, num: Union[int, float, Int, Number],
+        additional_err_msg: str = '') -> None:
     """
     Validate a specified value is an integer or float type.
 
@@ -34,6 +35,8 @@ def validate_num(
     ----------
     num : int or float or Int or Number
         Number value to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
@@ -45,9 +48,11 @@ def validate_num(
             num,
             (int, float, NumberValueInterface)):
         return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
     raise ValueError(
         f'Specified value is not iteger or float type: {num}'
-        f'({type(num)})')
+        f'({type(num)}){additional_err_msg}')
 
 
 def validate_integer(

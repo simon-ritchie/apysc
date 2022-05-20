@@ -15,7 +15,8 @@ def test_validate_num() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_num,
-        kwargs={'num': 'Hello!'})
+        kwargs={'num': 'Hello!', 'additional_err_msg': 'Test error!'},
+        match='\nTest error!')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

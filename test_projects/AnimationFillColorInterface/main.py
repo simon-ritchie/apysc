@@ -31,14 +31,20 @@ def main() -> None:
         stage_width=1000, stage_height=500, stage_elem_id='stage')
     sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.begin_fill(color='#00aaff')
-    rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    animation_fill_color: ap.AnimationFillColor = rectangle.\
+    animation_fill_color: ap.AnimationFillColor = rectangle_1.\
         animation_fill_color(
             fill_color='0af', duration=1000, delay=500,
             easing=ap.Easing.EASE_OUT_QUINT)
     animation_fill_color.animation_complete(on_animation_complete_1)
     animation_fill_color.start()
+
+    rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
+        x=150, y=50, width=50, height=50)
+    rectangle_2.animation_fill_color(
+        fill_color=ap.String('#f0a'), duration=1000,
+    ).start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

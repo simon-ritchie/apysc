@@ -281,3 +281,23 @@ def test_num_is_gte_zero() -> None:
         expected_error_class=ValueError,
         callable_=_test_func,
         a=-1)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_num_is_0_to_1_range() -> None:
+
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=0)
+    def _test_func(*, a: float) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        a=-0.1)
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        a=1.1)
+
+    _test_func(a=0.0)
+    _test_func(a=1.0)

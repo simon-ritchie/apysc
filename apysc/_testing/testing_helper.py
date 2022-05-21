@@ -110,7 +110,7 @@ def assert_raises(
         kwargs: Optional[Dict[str, Any]] = None,
         match: Optional[str] = None) -> None:
     """
-    Check that a specified callable raises exception.
+    Check that a specified callable raises an exception.
 
     Parameters
     ----------

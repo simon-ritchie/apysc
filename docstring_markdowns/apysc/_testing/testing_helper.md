@@ -51,13 +51,13 @@ Check a specified object's attribute types.<hr>
 
 ## `assert_raises` function docstring
 
-Check that a specified callable raises exception.<hr>
+Check that a specified callable raises an exception.<hr>
 
 **[Parameters]**
 
 - `expected_error_class`: type
   - Expected error class, for instance, ValueError, Exception, etc.
-- `func_or_method`: callable
+- `callable_`: callable
   - Target function or method.
 - `kwargs`: dict, optional
   - Keyword arguments to pass to the function or method.

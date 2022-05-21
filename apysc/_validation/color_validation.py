@@ -77,9 +77,15 @@ def validate_alpha_range(
     ValueError
         If a specified opacity is out of the 0.0 to 1.0 range.
     """
-    if alpha < 0.0:
-        raise ValueError(
-            f'Can\'t specify alpha value less than 0.0: {alpha}')
-    if alpha > 1.0:
-        raise ValueError(
-            f'Can\'t specify alpha value greater than 1.0: {alpha}')
+    lt_err_msg: str = 'Can\'t specify alpha value less than 0.0: '
+    gt_err_msg: str = 'Can\'t specify alpha value greater than 1.0: '
+    if isinstance(alpha, NumberValueInterface):
+        if alpha._value < 0.0:
+            raise ValueError(f'{lt_err_msg}{alpha}')
+        if alpha._value > 1.0:
+            raise ValueError(f'{gt_err_msg}{alpha}')
+    else:
+        if alpha < 0.0:
+            raise ValueError(f'{lt_err_msg}{alpha}')
+        if alpha > 1.0:
+            raise ValueError(f'{gt_err_msg}{alpha}')

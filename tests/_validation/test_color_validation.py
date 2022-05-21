@@ -38,11 +38,22 @@ def test_validate_alpha_range() -> None:
         expected_error_class=ValueError,
         callable_=color_validation.validate_alpha_range,
         alpha=-0.1)
-
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=color_validation.validate_alpha_range,
         alpha=1.1)
 
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=color_validation.validate_alpha_range,
+        alpha=ap.Number(-0.1))
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=color_validation.validate_alpha_range,
+        alpha=ap.Number(1.1))
+
     color_validation.validate_alpha_range(alpha=0.0)
     color_validation.validate_alpha_range(alpha=1.0)
+
+    color_validation.validate_alpha_range(alpha=ap.Number(0.0))
+    color_validation.validate_alpha_range(alpha=ap.Number(1.0))

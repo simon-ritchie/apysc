@@ -17,7 +17,7 @@ def test_validate_stage() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_stage,
-        kwargs={'stage': sprite})
+        stage=sprite)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -26,7 +26,7 @@ def test_validate_display_object() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_display_object,
-        kwargs={'display_object': stage})
+        display_object=stage)
 
     sprite: ap.Sprite = ap.Sprite()
     display_validation.validate_display_object(display_object=sprite)
@@ -45,7 +45,7 @@ def test_validate_graphics() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_graphics,
-        kwargs={'graphics': sprite})
+        graphics=sprite)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -57,7 +57,7 @@ def test_validate_sprite() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_sprite,
-        kwargs={'sprite': stage})
+        sprite=stage)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -71,13 +71,13 @@ def test_validate_line_cap() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_line_cap,
-        kwargs={'cap': ap.String('not_defined_cap')},
-        match='Not defined cap string is specified:')
+        match='Not defined cap string is specified:',
+        cap=ap.String('not_defined_cap'),)
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_line_cap,
-        kwargs={'cap': 'square'},
-        match='Specified cap style type is not LineCaps or String one: ')
+        match='Specified cap style type is not LineCaps or String one: ',
+        cap='square')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -91,13 +91,13 @@ def test_validate_line_joints() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_line_joints,
-        kwargs={'joints': ap.String('not_defined_joints')},
-        match=r'Not defined joints string is specified: ')
+        match=r'Not defined joints string is specified: ',
+        joints=ap.String('not_defined_joints'))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_line_joints,
-        kwargs={'joints': 'miter'},
-        match=r'Specified joints type is not LineJoints or String one: ')
+        match=r'Specified joints type is not LineJoints or String one: ',
+        joints='miter')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -117,8 +117,8 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         expected_error_class=ValueError,
         callable_=display_validation.
         validate_multiple_line_settings_isnt_set,
-        kwargs={'any_instance': sprite.graphics},
-        match=r"'LineDotSetting', 'LineDashSetting'")
+        match=r"'LineDotSetting', 'LineDashSetting'",
+        any_instance=sprite.graphics)
     delattr(sprite.graphics, '_line_dot_setting')
 
     sprite.graphics._line_round_dot_setting = ap.LineRoundDotSetting(
@@ -127,8 +127,8 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         expected_error_class=ValueError,
         callable_=display_validation.
         validate_multiple_line_settings_isnt_set,
-        kwargs={'any_instance': sprite.graphics},
-        match=r"'LineDashSetting', 'LineRoundDotSetting'")
+        match=r"'LineDashSetting', 'LineRoundDotSetting'",
+        any_instance=sprite.graphics)
     delattr(sprite.graphics, '_line_dash_setting')
 
     sprite.graphics._line_dash_dot_setting = ap.LineDashDotSetting(
@@ -137,6 +137,6 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         expected_error_class=ValueError,
         callable_=display_validation.
         validate_multiple_line_settings_isnt_set,
-        kwargs={'any_instance': sprite.graphics},
-        match=r"'LineRoundDotSetting', 'LineDashDotSetting'")
+        match=r"'LineRoundDotSetting', 'LineDashDotSetting'",
+        any_instance=sprite.graphics,)
     delattr(sprite.graphics, '_line_round_dot_setting')

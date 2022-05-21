@@ -20,8 +20,9 @@ class TestAppendLinePointInterface:
         assert_raises(
             expected_error_class=AttributeError,
             callable_=interface.append_line_point,
-            kwargs={'x': x, 'y': y},
             match=r'_points_var_name attribute is not set.',
+            x=x,
+            y=y,
         )
 
         interface._points_var_name = 'test_points'

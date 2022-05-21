@@ -117,5 +117,5 @@ class TestFor:
         testing_helper.assert_raises(
             expected_error_class=TypeError,
             callable_=ap.For,
-            kwargs={'arr_or_dict': 'Hello!'},
-            match='Specified value type is neither Array nor Dictionary: ')
+            match='Specified value type is neither Array nor Dictionary: ',
+            arr_or_dict='Hello!')

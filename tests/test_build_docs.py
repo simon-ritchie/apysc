@@ -386,12 +386,12 @@ def test__validate_script_return_data() -> None:
     assert_raises(
         expected_error_class=Exception,
         callable_=build_docs._validate_script_return_data,
-        kwargs={'return_data_list': [{
+        match='Error occurred while executing the document codeblock.',
+        return_data_list=[{
             'md_file_path': 'test.md',
             'runnable_script': 'print(100)',
             'stdout': 'Traceback: most recent call ...'
-        }]},
-        match='Error occurred while executing the document codeblock.')
+        }],)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -421,9 +421,9 @@ def test__check_code_block_with_flake8() -> None:
     assert_raises(
         expected_error_class=_CodeBlockFlake8Error,
         callable_=build_docs._check_code_block_with_flake8,
-        kwargs={'script_data': script_data},
         match=r'There is a flake8 error in the following document '
-              r'code block:')
+              r'code block:',
+        script_data=script_data,)
 
     script_data = {
         'md_file_path': './tmp.py',
@@ -445,9 +445,9 @@ def test__check_code_block_with_numdoclint() -> None:
     assert_raises(
         expected_error_class=_CodeBlockNumdoclintError,
         callable_=build_docs._check_code_block_with_numdoclint,
-        kwargs={'script_data': script_data},
         match=r'There is a numdoclint error in the following '
-              r'document code block')
+              r'document code block',
+        script_data=script_data)
 
     script_data = {
         'md_file_path': './tmp.py',
@@ -479,8 +479,8 @@ def test__check_code_block_with_mypy() -> None:
     assert_raises(
         expected_error_class=_CodeBlockMypyError,
         callable_=build_docs._check_code_block_with_mypy,
-        kwargs={'script_data': script_data},
-        match='There is a mypy error in the following document code block')
+        match='There is a mypy error in the following document code block',
+        script_data=script_data)
 
     script_data = {
         'md_file_path': './tmp.py',

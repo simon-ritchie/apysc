@@ -50,8 +50,8 @@ class TestLineDashSettingInterface:
             expected_error_class=TypeError,
             callable_=interface.
             _update_line_dash_setting_and_skip_appending_exp,
-            kwargs={'value': 'dash'},
-            match='Not supported line_dash_setting type specified: ')
+            match='Not supported line_dash_setting type specified: ',
+            value='dash')
 
         interface._update_line_dash_setting_and_skip_appending_exp(
             value=LineDashSetting(dash_size=10, space_size=5))

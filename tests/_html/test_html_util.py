@@ -39,7 +39,7 @@ def test_remove_first_selector_symbol_char() -> None:
     testing_helper.assert_raises(
         expected_error_class=TypeError,
         callable_=html_util.remove_first_selector_symbol_char,
-        kwargs={'str_val': 100})
+        str_val=100)
 
 
 def test_append_html_to_str() -> None:

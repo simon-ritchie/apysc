@@ -36,7 +36,7 @@ class TestGraphics:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=graphics.begin_fill,
-            kwargs={'color': 'red'})
+            color='red')
 
         graphics.begin_fill(color='#0af')
         testing_helper.assert_attrs(

@@ -81,8 +81,8 @@ def test__validate_dict_key_type() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=value_util._validate_dict_key_type,
-        kwargs={'key': ap.Int(10)},
-        match='Dictionary key type only supports str and int')
+        match='Dictionary key type only supports str and int',
+        key=ap.Int(10))
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

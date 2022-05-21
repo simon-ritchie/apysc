@@ -80,7 +80,7 @@ class TestBoolean:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=boolean_1._get_bool_from_arg_value,
-            kwargs={'value': 'Hello!'})
+            value='Hello!')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_value_and_skip_expression_appending(self) -> None:
@@ -293,7 +293,7 @@ class TestBoolean:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=bool_1._validate_comparison_other_type,
-            kwargs={'other': 'Hello!'})
+            other='Hello!')
 
 
 class TestBool:

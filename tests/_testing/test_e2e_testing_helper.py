@@ -89,8 +89,8 @@ def test__get_local_file_console_event_handler() -> None:
     assert_raises(
         expected_error_class=AssertionError,
         callable_=handler,
-        kwargs={'message': message},
-        match='There is an unexpected assertion error')
+        match='There is an unexpected assertion error',
+        message=message)
 
     log_file_path: str = e2e_testing_helper.\
         _get_local_file_assertion_err_file_path(file_path=file_path)
@@ -155,10 +155,8 @@ def test__get_local_file_page_err_handler() -> None:
     assert_raises(
         expected_error_class=AssertionError,
         callable_=handler,
-        kwargs={
-            'err': err,
-        },
         match='There is an unexpected error',
+        err=err,
     )
 
     log_file_path: str = e2e_testing_helper.\
@@ -230,7 +228,7 @@ def test__assert_local_file_error_log_not_exits() -> None:
         expected_error_class=AssertionError,
         callable_=e2e_testing_helper.
         _assert_local_file_error_log_not_exits,
-        kwargs={'file_path': file_path})
+        file_path=file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -253,5 +251,5 @@ def test_assert_local_files_not_raise_error() -> None:
     assert_raises(
         expected_error_class=AssertionError,
         callable_=e2e_testing_helper.assert_local_files_not_raise_error,
-        kwargs={'local_file_data_list': local_file_data_list},
+        local_file_data_list=local_file_data_list,
     )

@@ -15,8 +15,9 @@ def test_validate_num() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num,
-        kwargs={'num': 'Hello!', 'additional_err_msg': 'Test error!'},
-        match='\nTest error!')
+        match='\nTest error!',
+        num='Hello!',
+        additional_err_msg='Test error!',)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -26,7 +27,8 @@ def test_validate_integer() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_integer,
-        kwargs={'integer': 10.5, 'additional_err_msg': 'Test error!'},
+        integer=10.5,
+        additional_err_msg='Test error!',
         match='\nTest error!')
 
 
@@ -37,12 +39,13 @@ def test_validate_num_is_gt_zero() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_gt_zero,
-        kwargs={'num': 0, 'additional_err_msg': 'Test error!'},
-        match='\nTest error!')
+        match='\nTest error!',
+        num=0,
+        additional_err_msg='Test error!')
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_gt_zero,
-        kwargs={'num': ap.Int(0)})
+        num=ap.Int(0))
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -53,8 +56,9 @@ def test_validate_num_is_gte_zero() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_gte_zero,
-        kwargs={'num': -0.1, 'additional_err_msg': 'Test error!'},
-        match='\nTest error!')
+        match='\nTest error!',
+        num=-0.1,
+        additional_err_msg='Test error!')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -72,7 +76,7 @@ def test_validate_int_is_zero_or_one() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_int_is_zero_or_one,
-        kwargs={'integer': ap.Int(2)})
+        integer=ap.Int(2))
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -82,8 +86,8 @@ def test_validate_nums_are_int_and_gt_zero() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_nums_are_int_and_gt_zero,
-        kwargs={'nums': [10.5]})
+        nums=[10.5])
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_nums_are_int_and_gt_zero,
-        kwargs={'nums': [0]})
+        nums=[0])

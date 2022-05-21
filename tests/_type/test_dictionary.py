@@ -26,8 +26,8 @@ class TestDictionary:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.Dictionary,
-            kwargs={'value': 10},
-            match='Not acceptable value type is specified')
+            match='Not acceptable value type is specified',
+            value=10)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_dict_value(self) -> None:
@@ -62,8 +62,8 @@ class TestDictionary:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.Dictionary,
-            kwargs={'value': 10},
-            match='Not acceptable value type is specified.')
+            match='Not acceptable value type is specified.',
+            value=10)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
@@ -161,8 +161,8 @@ class TestDictionary:
         assert_raises(
             expected_error_class=ValueError,
             callable_=dict_1._validate_key_type_is_str_or_numeric,
-            kwargs={'key': ap.Boolean(True)},
-            match='Unsupported key type is specified')
+            match='Unsupported key type is specified',
+            key=ap.Boolean(True))
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___getitem__(self) -> None:

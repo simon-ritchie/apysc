@@ -258,7 +258,7 @@ def test__check_build_doc_process() -> None:
     assert_raises(
         expected_error_class=apply_lints_and_build_docs._DocumentBuildError,
         callable_=apply_lints_and_build_docs._check_build_doc_process,
-        kwargs={'build_doc_process': build_doc_process})
+        build_doc_process=build_doc_process)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -274,7 +274,7 @@ def test__check_flake8_process() -> None:
     assert_raises(
         expected_error_class=apply_lints_and_build_docs._Flake8Error,
         callable_=apply_lints_and_build_docs._check_flake8_process,
-        kwargs={'flake8_process': flake8_process})
+        flake8_process=flake8_process)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -290,7 +290,7 @@ def test__check_numdoclint_process() -> None:
     assert_raises(
         expected_error_class=apply_lints_and_build_docs._NumdoclintError,
         callable_=apply_lints_and_build_docs._check_numdoclint_process,
-        kwargs={'numdoclint_processes': [numdoclint_process]})
+        numdoclint_processes=[numdoclint_process])
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -308,7 +308,7 @@ def test__check_mypy_process() -> None:
     assert_raises(
         expected_error_class=apply_lints_and_build_docs._MypyError,
         callable_=apply_lints_and_build_docs._check_mypy_process,
-        kwargs={'mypy_process': mypy_process})
+        mypy_process=mypy_process)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

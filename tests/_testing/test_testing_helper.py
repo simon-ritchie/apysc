@@ -34,8 +34,9 @@ def test__assert_has_attr() -> None:
     testing_helper.assert_raises(
         expected_error_class=AssertionError,
         callable_=testing_helper._assert_has_attr,
-        kwargs={'any_obj': test_instance, 'attr_name': 'b'},
-        match='Expected attribute does not exists.')
+        match='Expected attribute does not exists.',
+        any_obj=test_instance,
+        attr_name='b')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -54,19 +55,15 @@ def test_assert_attrs() -> None:
     testing_helper.assert_raises(
         expected_error_class=AssertionError,
         callable_=testing_helper.assert_attrs,
-        kwargs={
-            'expected_attrs': {'c': 20},
-            'any_obj': test_instance,
-        },
+        expected_attrs={'c': 20},
+        any_obj=test_instance,
         match='Expected attribute does not exists.')
 
     testing_helper.assert_raises(
         expected_error_class=AssertionError,
         callable_=testing_helper.assert_attrs,
-        kwargs={
-            'expected_attrs': {'a': 20},
-            'any_obj': test_instance,
-        },
+        expected_attrs={'a': 20},
+        any_obj=test_instance,
         match='Attribute value is different from expected value.')
 
 
@@ -101,8 +98,6 @@ def test_assert_attrs_type() -> None:
     testing_helper.assert_raises(
         expected_error_class=AssertionError,
         callable_=testing_helper.assert_attrs_type,
-        kwargs={
-            'expected_types': {'a': int, 'b': int},
-            'any_obj': test_instance,
-        },
-        match='Attribute type is different from expected type.')
+        match='Attribute type is different from expected type.',
+        expected_types={'a': int, 'b': int},
+        any_obj=test_instance)

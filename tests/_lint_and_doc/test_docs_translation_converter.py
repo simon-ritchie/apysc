@@ -34,12 +34,10 @@ def test__validate_translated_str_is_not_blank() -> None:
         expected_error_class=_TranslationMappingNotFound,
         callable_=docs_translation_converter.
         _validate_translated_str_is_not_blank,
-        kwargs={
-            'translated_str': '',
-            'key': 'Test key.',
-            'md_file_path': './test/file/path.md',
-        },
-        match='There is no translation mapping.')
+        match='There is no translation mapping.',
+        translated_str='',
+        key='Test key.',
+        md_file_path='./test/file/path.md',)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -134,15 +132,13 @@ def test__validate_sharp_heading_symbol_num_are_same() -> None:
         expected_error_class=_InvalidHeadingSharpSymbolNumber,
         callable_=docs_translation_converter.
         _validate_sharp_heading_symbol_num_are_same,
-        kwargs={
-            'translated_str': 'テストテキスト',
-            'key': '## Lorem ipsum',
-            'md_file_path': './test/source/path.md',
-        },
-        match='There is a difference between source document')
+        match='There is a difference between source document',
+        translated_str='テストテキスト',
+        key='## Lorem ipsum',
+        md_file_path='./test/source/path.md')
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__remove_unnecessary_line_break_between_list() -> None:
     translated_doc: str = (
         '# テスト見出し1'
@@ -189,12 +185,10 @@ def test__validate_first_spaces_nums_are_same() -> None:
         expected_error_class=_FirstSpacesNumAreDifferent,
         callable_=docs_translation_converter.
         _validate_first_spaces_nums_are_same,
-        kwargs={
-            'translated_str': '    - Lorem ipsum',
-            'key': '   - テストテキスト',
-            'md_file_path': 'test/path_1.md',
-        },
-        match='First spaces numbers are not the same')
+        match='First spaces numbers are not the same',
+        translated_str='    - Lorem ipsum',
+        key='   - テストテキスト',
+        md_file_path='test/path_1.md')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -215,12 +209,10 @@ def test__validate_markdown_list_hyphen_symbols_are_same() -> None:
         expected_error_class=_MarkdownListHyphenSymbolsAreNotSame,
         callable_=docs_translation_converter.
         _validate_markdown_list_hyphen_symbols_are_same,
-        kwargs={
-            'translated_str': 'テストテキスト',
-            'key': '- Lorem ipsum',
-            'md_file_path': 'test/path.md',
-        },
-        match='First character of list\'s hyphen symbols are not the same.')
+        match='First character of list\'s hyphen symbols are not the same.',
+        translated_str='テストテキスト',
+        key='- Lorem ipsum',
+        md_file_path='test/path.md')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -238,12 +230,10 @@ def test__validate_tail_hr_tag() -> None:
     assert_raises(
         expected_error_class=_InvalidTailsHrTag,
         callable_=docs_translation_converter._validate_tail_hr_tag,
-        kwargs={
-            'translated_str': 'テストテキスト。',
-            'key': 'Lorem ipsum.<hr>',
-            'md_file_path': 'test/path.md',
-        },
-        match='End of a translated string is not the `<hr>` tag.')
+        match='End of a translated string is not the `<hr>` tag.',
+        translated_str='テストテキスト。',
+        key='Lorem ipsum.<hr>',
+        md_file_path='test/path.md',)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -281,12 +271,10 @@ def test__validate_first_br_tags_and_list_symbols_are_same() -> None:
         expected_error_class=_BrTagsAndListSymbolsAreNotSame,
         callable_=docs_translation_converter.
         _validate_first_br_tags_and_list_symbols_are_same,
-        kwargs={
-            'translated_str': 'テストテキスト',
-            'key': '<br> ・Lorem ipsum',
-            'md_file_path': 'test/path.md'
-        },
-        match='First break tags and list symbols are not the same:')
+        match='First break tags and list symbols are not the same:',
+        translated_str='テストテキスト',
+        key='<br> ・Lorem ipsum',
+        md_file_path='test/path.md')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -307,13 +295,11 @@ def test__validate_first_full_width_list_symbols_are_same() -> None:
         expected_error_class=_FirstFullWidthListSymbolsAreNotSame,
         callable_=docs_translation_converter.
         _validate_first_full_width_list_symbols_are_same,
-        kwargs={
-            'translated_str': 'テストテキスト',
-            'key': '・Lorem ipsum',
-            'md_file_path': 'test/path.md',
-        },
         match='Specified strings\' first full-width list '
-              'symbols are not the same:')
+              'symbols are not the same:',
+        translated_str='テストテキスト',
+        key='・Lorem ipsum',
+        md_file_path='test/path.md')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

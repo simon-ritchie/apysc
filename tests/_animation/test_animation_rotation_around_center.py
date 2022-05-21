@@ -44,12 +44,10 @@ class TestAnimationRotationAroundCenter:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationRotationAroundCenter,
-            kwargs={
-                'target': target_2,
-                'rotation_around_center': 50,
-            },
             match='Specified `target` argument is not a '
-                  'RotationAroundCenterInterface')
+                  'RotationAroundCenterInterface',
+            target=target_2,
+            rotation_around_center=50,)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:

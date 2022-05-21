@@ -90,8 +90,8 @@ class TestLineDotSettingInterface:
             expected_error_class=TypeError,
             callable_=interface.
             _update_line_dot_setting_and_skip_appending_exp,
-            kwargs={'value': 10},
-            match='Not supported line_dot_setting type specified: ')
+            match='Not supported line_dot_setting type specified: ',
+            value=10)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:

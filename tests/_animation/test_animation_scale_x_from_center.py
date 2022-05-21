@@ -44,12 +44,10 @@ class TestAnimationScaleXFromCenter:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationScaleXFromCenter,
-            kwargs={
-                'target': target_2,
-                'scale_x_from_center': 2.0,
-            },
             match='Specified `target` argument is not a '
-                  'ScaleXFromCenterInterface')
+                  'ScaleXFromCenterInterface',
+            target=target_2,
+            scale_x_from_center=2.0)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:

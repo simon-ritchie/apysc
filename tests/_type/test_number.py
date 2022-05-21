@@ -38,7 +38,7 @@ class TestNumber:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=ap.Number,
-            kwargs={'value': 'Hello!'})
+            value='Hello!')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:

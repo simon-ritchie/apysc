@@ -49,14 +49,12 @@ class TestAnimationRotationAroundPoint:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationRotationAroundPoint,
-            kwargs={
-                'target': target_2,
-                'rotation_around_point': 100,
-                'x': 200,
-                'y': 300,
-            },
             match='Specified `target` argument is not a '
-                  'RotationAroundPointInterface')
+                  'RotationAroundPointInterface',
+            target=target_2,
+            rotation_around_point=100,
+            x=200,
+            y=300)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:

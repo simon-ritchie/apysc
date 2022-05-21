@@ -9,8 +9,8 @@ def test_validate_variable_name_interface_type() -> None:
         expected_error_class=TypeError,
         callable_=variable_name_validation.
         validate_variable_name_interface_type,
-        kwargs={'instance': 10},
-        match='Specified instance type is not VariableNameInterface')
+        match='Specified instance type is not VariableNameInterface',
+        instance=10)
 
     int_1: ap.Int = ap.Int(10)
     instance: VariableNameInterface = variable_name_validation.\

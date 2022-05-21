@@ -45,7 +45,7 @@ def test__run_test_project_command() -> None:
         expected_error_class=Exception,
         callable_=run_test_projects_e2e_testing.
         _run_test_project_command,
-        kwargs={'main_module_path': tmp_module_path})
+        main_module_path=tmp_module_path)
 
     file_util.delete_file_if_exists(file_path=tmp_module_path)
 

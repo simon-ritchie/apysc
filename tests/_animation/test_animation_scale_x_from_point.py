@@ -45,13 +45,11 @@ class TestAnimationScaleXFromPoint:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationScaleXFromPoint,
-            kwargs={
-                'target': target_2,
-                'scale_x_from_point': 2.0,
-                'x': 50,
-            },
             match='Specified `target` argument is not a '
-                  'ScaleXFromPointInterface'
+                  'ScaleXFromPointInterface',
+            target=target_2,
+            scale_x_from_point=2.0,
+            x=50,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

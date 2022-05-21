@@ -217,7 +217,7 @@ def test_get_hash_type_from_lang() -> None:
         expected_error_class=ValueError,
         callable_=translation_mapping_utils.
         get_hash_type_from_lang,
-        kwargs={'lang': None})
+        lang=None)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

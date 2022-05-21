@@ -18,17 +18,17 @@ def test__validate_bezier_2d_continual_pre_data() -> None:
     assert_raises(
         expected_error_class=ValueError,
         callable_=path_validation._validate_bezier_2d_continual_pre_data,
-        kwargs={'path_data_list': [bezier_2d_continual]},
         match='`PathBezier2DContinual` instance can not be set '
-              'at the first position of `path_data_list`.')
+              'at the first position of `path_data_list`.',
+        path_data_list=[bezier_2d_continual])
 
     assert_raises(
         expected_error_class=ValueError,
         callable_=path_validation._validate_bezier_2d_continual_pre_data,
-        kwargs={'path_data_list': [move_to, bezier_2d_continual]},
         match='`PathBezier2DContinual` instance in a '
               '`path_data_list` argument can set only after a '
-              '`PathBezier2D` or `PathBezier2DContinual` one.')
+              '`PathBezier2D` or `PathBezier2DContinual` one.',
+        path_data_list=[move_to, bezier_2d_continual])
 
     path_validation._validate_bezier_2d_continual_pre_data(
         path_data_list=[
@@ -51,17 +51,17 @@ def test__validate_bezier_3d_continual_pre_data() -> None:
     assert_raises(
         expected_error_class=ValueError,
         callable_=path_validation._validate_bezier_3d_continual_pre_data,
-        kwargs={'path_data_list': [bezier_3d_continual]},
         match='`PathBezier3DContinual` instance can not be set '
-              'at the first position of `path_data_list`.')
+              'at the first position of `path_data_list`.',
+        path_data_list=[bezier_3d_continual])
 
     assert_raises(
         expected_error_class=ValueError,
         callable_=path_validation._validate_bezier_3d_continual_pre_data,
-        kwargs={'path_data_list': [move_to, bezier_3d_continual]},
         match='`PathBezier3DContinual` instance in a '
               '`path_data_list` argument can set only after a '
-              '`PathBezier3D` or `PathBezier3DContinual` one.')
+              '`PathBezier3D` or `PathBezier3DContinual` one.',
+        path_data_list=[move_to, bezier_3d_continual],)
 
     path_validation._validate_bezier_3d_continual_pre_data(
         path_data_list=[
@@ -82,18 +82,18 @@ def test_validate_path_data_list() -> None:
     assert_raises(
         expected_error_class=ValueError,
         callable_=path_validation.validate_path_data_list,
-        kwargs={'path_data_list': []},
         match='`path_data_list` argument can not be empty.',
+        path_data_list=[],
     )
     assert_raises(
         expected_error_class=ValueError,
         callable_=path_validation.validate_path_data_list,
-        kwargs={'path_data_list': [bezier_2d_continual]},
+        path_data_list=[bezier_2d_continual],
     )
     assert_raises(
         expected_error_class=ValueError,
         callable_=path_validation.validate_path_data_list,
-        kwargs={'path_data_list': [bezier_3d_continual]},
+        path_data_list=[bezier_3d_continual],
     )
 
     path_validation.validate_path_data_list(

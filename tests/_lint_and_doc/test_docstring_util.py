@@ -535,8 +535,8 @@ def test__get_params_or_rtns_section_pattern_by_type() -> None:
         expected_error_class=ValueError,
         callable_=docstring_util.
         _get_params_or_rtns_section_pattern_by_type,
-        kwargs={'target_type': 10},
         match='Invalid type argument is provided: ',
+        target_type=10,
     )
 
 
@@ -1134,21 +1134,17 @@ def test__get_callable_from_package_path_and_callable_name() -> None:
         expected_error_class=_DocstringPathNotFoundError,
         callable_=docstring_util.
         _get_callable_from_package_path_and_callable_name,
-        kwargs={
-            'module_or_class_package_path': 'not.existing.package.path',
-            'callable_name': '__init__',
-        },
-        match='Module or class package path: not.existing.package.path')
+        match='Module or class package path: not.existing.package.path',
+        module_or_class_package_path='not.existing.package.path',
+        callable_name='__init__',)
 
     assert_raises(
         expected_error_class=_DocstringCallableNotExistsError,
         callable_=docstring_util.
         _get_callable_from_package_path_and_callable_name,
-        kwargs={
-            'module_or_class_package_path': 'apysc._display.sprite.Sprite',
-            'callable_name': 'not_existing_method',
-        },
-        match='Callable name: not_existing_method')
+        match='Callable name: not_existing_method',
+        module_or_class_package_path='apysc._display.sprite.Sprite',
+        callable_name='not_existing_method')
 
     callable_: Callable = docstring_util.\
         _get_callable_from_package_path_and_callable_name(

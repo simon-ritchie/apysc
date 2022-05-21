@@ -42,12 +42,10 @@ class TestAnimationScaleYFromCenter:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationScaleYFromCenter,
-            kwargs={
-                'target': target_2,
-                'scale_y_from_center': 2.0,
-            },
             match='Specified `target` argument is not a '
-                  'ScaleYFromCenterInterface'
+                  'ScaleYFromCenterInterface',
+            target=target_2,
+            scale_y_from_center=2.0,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

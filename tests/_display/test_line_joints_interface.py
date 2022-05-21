@@ -42,8 +42,8 @@ class TestLineJointsInterface:
             expected_error_class=TypeError,
             callable_=interface.
             _update_line_joints_and_skip_appending_exp,
-            kwargs={'value': 'miter'},
-            match=r'Not supported line_joints type specified: ')
+            match=r'Not supported line_joints type specified: ',
+            value='miter')
 
         interface._update_line_joints_and_skip_appending_exp(
             value=ap.String(ap.LineJoints.BEVEL.value))

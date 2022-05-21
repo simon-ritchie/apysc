@@ -14,7 +14,7 @@ def test_validate_string_type() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=string_validation.validate_string_type,
-        kwargs={'string': 100})
+        string=100)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -23,9 +23,8 @@ def test_validate_not_empty_string() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=string_validation.validate_not_empty_string,
-        kwargs={
-            'string': '',
-            'additional_err_msg': 'Test error!'},
+        string='',
+        additional_err_msg='Test error!',
         match='\nTest error!')
 
     string_validation.validate_not_empty_string(
@@ -33,4 +32,4 @@ def test_validate_not_empty_string() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=string_validation.validate_not_empty_string,
-        kwargs={'string': ap.String('')})
+        string=ap.String(''))

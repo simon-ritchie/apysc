@@ -223,8 +223,8 @@ def test__get_same_name_prev_data() -> None:
             expected_error_class=ValueError,
             callable_=handler_circular_calling_util.
             _get_same_name_prev_hadler_name,
-            kwargs={'handler_name': 'test_handler_a_1'},
-            match='Previous same name handler does not exitst in the SQLite.')
+            match='Previous same name handler does not exitst in the SQLite.',
+            handler_name='test_handler_a_1')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

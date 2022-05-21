@@ -305,8 +305,8 @@ def test__validate_limit_clause() -> None:
         assert_raises(
             expected_error_class=_LimitClauseCantUseError,
             callable_=expression_data_util._validate_limit_clause,
-            kwargs={'sql': sql},
             match='LIMIT clause cannot use in the UPDATE or DELETE sql',
+            sql=sql,
         )
 
     expression_data_util._validate_limit_clause(

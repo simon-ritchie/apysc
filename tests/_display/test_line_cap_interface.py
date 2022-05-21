@@ -98,5 +98,5 @@ class TestLineCapInterface:
         assert_raises(
             expected_error_class=TypeError,
             callable_=interface._update_line_cap_and_skip_appending_exp,
-            kwargs={'value': 'round'},
-            match=r'Not supported line_cap type specified: ')
+            match=r'Not supported line_cap type specified: ',
+            value='round')

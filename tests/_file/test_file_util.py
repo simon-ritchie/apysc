@@ -40,7 +40,7 @@ def test_read_txt() -> None:
     testing_helper.assert_raises(
         expected_error_class=Exception,
         callable_=file_util.read_txt,
-        kwargs={'file_path': tmp_file_path})
+        file_path=tmp_file_path)
     os.remove(tmp_file_path)
 
 

@@ -59,8 +59,8 @@ class TestLineDashDotSettingInterface:
             expected_error_class=TypeError,
             callable_=interface.
             _update_line_dash_dot_setting_and_skip_appending_exp,
-            kwargs={'value': 10},
-            match='Not supported line_dash_dot_setting type specified: ')
+            match='Not supported line_dash_dot_setting type specified: ',
+            value=10)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_dash_dot_setting_update_expression(self) -> None:

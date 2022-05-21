@@ -41,7 +41,7 @@ class TestArray:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=ap.Array,
-            kwargs={'value': 100})
+            value=100)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_list_value(self) -> None:
@@ -393,7 +393,7 @@ class TestArray:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=array_1.__getitem__,
-            kwargs={'index': (0, 1)})
+            index=(0, 1))
 
         value_1: int = array_1[2]
         assert value_1 == 3
@@ -445,7 +445,7 @@ class TestArray:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=array_1._validate_index_type_is_int,
-            kwargs={'index': 'Hello!'})
+            index='Hello!')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_builtin_int_from_index(self) -> None:

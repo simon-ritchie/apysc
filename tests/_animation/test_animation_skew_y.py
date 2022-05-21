@@ -40,11 +40,9 @@ class TestAnimationSkewY:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationSkewY,
-            kwargs={
-                'target': target_2,
-                'skew_y': 50,
-            },
             match='Specified `target` argument is not a SkewYInterface',
+            target=target_2,
+            skew_y=50,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

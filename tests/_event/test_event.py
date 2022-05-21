@@ -39,16 +39,12 @@ class TestEvent:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=ap.Event,
-            kwargs={
-                'this': int_1,
-                'type_name': 'any_event',
-            })
+            this=int_1,
+            type_name='any_event')
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=AnyEvent,
-            kwargs={
-                'this': int_1,
-            })
+            this=int_1)
 
         _ = ap.Event(this=int_1)
         _ = AnyEvent(this=int_1, type_name='any_event')

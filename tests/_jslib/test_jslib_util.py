@@ -38,14 +38,11 @@ def test_export_jslib_to_specified_dir() -> None:
     assert dest_file_path.endswith('jquery.min.js')
     assert os.path.isfile(dest_file_path)
 
-    kwargs: Dict[str, Any] = {
-        'dest_dir_path': tmp_dir_path,
-        'jslib_name': 'not_existing_lib.js',
-    }
     testing_helper.assert_raises(
         expected_error_class=FileNotFoundError,
         callable_=jslib_util.export_jslib_to_specified_dir,
-        kwargs=kwargs)
+        dest_dir_path=tmp_dir_path,
+        jslib_name='not_existing_lib.js')
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 

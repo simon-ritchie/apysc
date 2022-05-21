@@ -44,10 +44,8 @@ def test__run_document_code_blocks() -> None:
     assert_raises(
         expected_error_class=_CodeBlockError,
         callable_=check_docs_code_block_error._run_document_code_blocks,
-        kwargs={
-            'document_file_path': test_md_file_path,
-        },
-        match='There is an exception in the code block execution.')
+        match='There is an exception in the code block execution.',
+        document_file_path=test_md_file_path,)
     file_util.remove_file_if_exists(file_path=test_md_file_path)
 
     check_docs_code_block_error._run_document_code_blocks(

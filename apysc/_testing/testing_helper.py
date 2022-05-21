@@ -107,8 +107,8 @@ def assert_raises(
         *,
         expected_error_class: type,
         callable_: Callable,
-        kwargs: Optional[Dict[str, Any]] = None,
-        match: Optional[str] = None) -> None:
+        match: Optional[str] = None,
+        **kwargs: Any) -> None:
     """
     Check that a specified callable raises an exception.
 
@@ -118,18 +118,16 @@ def assert_raises(
         Expected error class, for instance, ValueError, Exception, etc.
     callable_ : callable
         Target function or method.
-    kwargs : dict, optional
-        Keyword arguments to pass to the function or method.
     match : str or None, default None
         Error message's regular expression match pattern.
+    **kwargs : dict, optional
+        Keyword arguments to pass to the function or method.
 
     Raises
     ------
     AssertionError
         If a specified interface does not raise an error.
     """
-    if kwargs is None:
-        kwargs = {}
     _kwargs: Dict[str, Any] = {}
     if match is not None:
         _kwargs['match'] = match

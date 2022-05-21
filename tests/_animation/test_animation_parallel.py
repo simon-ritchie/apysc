@@ -107,10 +107,8 @@ class TestAnimationParallel:
         assert_raises(
             expected_error_class=ValueError,
             callable_=rectangle_1.animation_parallel,
-            kwargs={
-                'animations': animations,
-            },
-            match='There is not unified animation target instance:')
+            match='There is not unified animation target instance:',
+            animations=animations)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_animations_duration_are_default_vals(self) -> None:
@@ -129,13 +127,11 @@ class TestAnimationParallel:
         assert_raises(
             expected_error_class=ValueError,
             callable_=rectangle.animation_parallel,
-            kwargs={
-                'animations': animations,
-            },
             match=(
                 'There is an animation target that is changed '
                 'duration setting:'
             ),
+            animations=animations,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -155,13 +151,11 @@ class TestAnimationParallel:
         assert_raises(
             expected_error_class=ValueError,
             callable_=rectangle.animation_parallel,
-            kwargs={
-                'animations': animations,
-            },
             match=(
                 'There is an animation target that is changed '
                 'delay setting:'
             ),
+            animations=animations,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -181,13 +175,11 @@ class TestAnimationParallel:
         assert_raises(
             expected_error_class=ValueError,
             callable_=rectangle.animation_parallel,
-            kwargs={
-                'animations': animations,
-            },
             match=(
                 'There is an animation target that is changed '
                 'easing setting:'
             ),
+            animations=animations,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

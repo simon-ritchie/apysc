@@ -28,7 +28,7 @@ class TestString:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=ap.String,
-            kwargs={'value': 100})
+            value=100)
 
         string_1: ap.String = ap.String(value='Hello!')
         expected_attrs: Dict[str, Any] = {

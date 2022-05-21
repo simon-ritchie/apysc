@@ -34,19 +34,19 @@ def test__validate_src_option() -> None:
     assert_raises(
         expected_error_class=_SourceFileNotFound,
         callable_=translate_single_document._validate_src_option,
-        kwargs={'src': 'docs_src/source/not_existing_doc.md'},
         match=(
             'There is no such source file: '
             'docs_src/source/not_existing_doc.md'
-        ))
+        ),
+        src='docs_src/source/not_existing_doc.md')
 
     assert_raises(
         expected_error_class=_SourceFileIsNotEnglish,
         callable_=translate_single_document._validate_src_option,
-        kwargs={'src': 'docs_src/source/jp_sprite.md'},
         match=(
             'not an English document: docs_src/source/jp_sprite.md'
-        ))
+        ),
+        src='docs_src/source/jp_sprite.md',)
 
     translate_single_document._validate_src_option(
         src='docs_src/source/sprite.md')
@@ -59,8 +59,8 @@ def test__validate_lang_option() -> None:
     assert_raises(
         expected_error_class=_UndefinedLanguage,
         callable_=translate_single_document._validate_lang_option,
-        kwargs={'lang': 'invalid_lang'},
-        match='A specified language string is undefined')
+        match='A specified language string is undefined',
+        lang='invalid_lang',)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -89,8 +89,8 @@ def test__validate_build_doc_command_status_code() -> None:
         expected_error_class=_InvalidDocBuildStatusCode,
         callable_=translate_single_document.
         _validate_build_doc_command_status_code,
-        kwargs={'status_code': 1},
-        match='A document\'s build command status code is not zero: 1')
+        match='A document\'s build command status code is not zero: 1',
+        status_code=1)
 
     os.system(f'git checkout {_TEST_HASH_FILE_PATH_1}')
     os.system(f'git checkout {_TEST_HASH_FILE_PATH_2}')

@@ -46,13 +46,11 @@ class TestAnimationScaleYFromPoint:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationScaleYFromPoint,
-            kwargs={
-                'target': target_2,
-                'scale_y_from_point': 2.0,
-                'y': 100,
-            },
             match='Specified `target` argument is not a '
-                  'ScaleYFromPointInterface')
+                  'ScaleYFromPointInterface',
+            target=target_2,
+            scale_y_from_point=2.0,
+            y=100,)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:

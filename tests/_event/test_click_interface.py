@@ -71,7 +71,7 @@ class TestClickInterface:
         testing_helper.assert_raises(
             expected_error_class=TypeError,
             callable_=interface_3.click,
-            kwargs={'handler': self.on_click_1})
+            handler=self.on_click_1)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_click_handlers_if_not_initialized(self) -> None:
@@ -88,7 +88,7 @@ class TestClickInterface:
         testing_helper.assert_raises(
             expected_error_class=TypeError,
             callable_=interface_1.unbind_click,
-            kwargs={'handler': self.on_click_1})
+            handler=self.on_click_1)
 
         interface_2: _TestClickInterface = _TestClickInterface()
         interface_2.click(handler=self.on_click_1)

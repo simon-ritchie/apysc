@@ -246,11 +246,9 @@ class TestLineStyleInterface:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=line_style_interface.line_style,
-            kwargs={
-                'color': '#333',
-                'cap': 'round',
-            },
-            match=r'Specified cap style type is not LineCaps or String one: ')
+            match=r'Specified cap style type is not LineCaps or String one: ',
+            color='#333',
+            cap='round')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_cap(self) -> None:

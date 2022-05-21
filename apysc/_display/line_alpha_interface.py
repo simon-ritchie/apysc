@@ -128,7 +128,7 @@ class LineAlphaInterface(
         from apysc._validation import color_validation
         from apysc._validation import number_validation
         number_validation.validate_num(num=value)
-        number_validation.validate_num_is_0_to_1_range(alpha=value)
+        number_validation.validate_num_is_0_to_1_range(num=value)
         if isinstance(value, ap.Number):
             value_: ap.Number = value
         else:

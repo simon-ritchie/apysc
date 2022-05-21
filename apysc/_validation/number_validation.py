@@ -191,15 +191,15 @@ def validate_nums_are_int_and_gt_zero(*, nums: List[Union[int, Int]]) -> None:
 
 
 def validate_num_is_0_to_1_range(
-        *, alpha: Union[float, NumberValueInterface],
+        *, num: Union[float, NumberValueInterface],
         additional_err_msg: str = '') -> None:
     """
     Validate whether a specified number is from 0.0 to 1.0.
 
     Parameters
     ----------
-    alpha : float or Number
-        Opacity value to check.
+    num : float or Number
+        A number value to check.
     additional_err_msg : str, optional
         An additional error message to display.
 
@@ -208,17 +208,17 @@ def validate_num_is_0_to_1_range(
     ValueError
         If a specified opacity is out of the 0.0 to 1.0 range.
     """
-    lt_err_msg: str = 'Can\'t specify alpha value less than 0.0: '
-    gt_err_msg: str = 'Can\'t specify alpha value greater than 1.0: '
+    lt_err_msg: str = 'Can\'t specify number value less than 0.0: '
+    gt_err_msg: str = 'Can\'t specify number value greater than 1.0: '
     if additional_err_msg != '':
         additional_err_msg = f'\n{additional_err_msg}'
-    if isinstance(alpha, NumberValueInterface):
-        if alpha._value < 0.0:
-            raise ValueError(f'{lt_err_msg}{alpha}{additional_err_msg}')
-        if alpha._value > 1.0:
-            raise ValueError(f'{gt_err_msg}{alpha}{additional_err_msg}')
+    if isinstance(num, NumberValueInterface):
+        if num._value < 0.0:
+            raise ValueError(f'{lt_err_msg}{num}{additional_err_msg}')
+        if num._value > 1.0:
+            raise ValueError(f'{gt_err_msg}{num}{additional_err_msg}')
     else:
-        if alpha < 0.0:
-            raise ValueError(f'{lt_err_msg}{alpha}{additional_err_msg}')
-        if alpha > 1.0:
-            raise ValueError(f'{gt_err_msg}{alpha}{additional_err_msg}')
+        if num < 0.0:
+            raise ValueError(f'{lt_err_msg}{num}{additional_err_msg}')
+        if num > 1.0:
+            raise ValueError(f'{gt_err_msg}{num}{additional_err_msg}')

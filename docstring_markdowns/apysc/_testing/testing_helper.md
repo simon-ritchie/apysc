@@ -59,10 +59,10 @@ Check that a specified callable raises an exception.<hr>
   - Expected error class, for instance, ValueError, Exception, etc.
 - `callable_`: callable
   - Target function or method.
-- `kwargs`: dict, optional
-  - Keyword arguments to pass to the function or method.
 - `match`: str or None, default None
   - Error message's regular expression match pattern.
+- `**kwargs`: dict, optional
+  - Keyword arguments to pass to the function or method.
 
 <hr>
 

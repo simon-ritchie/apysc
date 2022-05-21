@@ -13,6 +13,15 @@ Append complement_hex_color function's expression.<hr>
 - `hex_color_code`: String
   - Complemented hex color code string.
 
+## `_append_remove_color_code_sharp_symbol_expression` function docstring
+
+Append the remove_color_code_sharp_symbol function's expression.<hr>
+
+**[Parameters]**
+
+- `hex_color_code`: String
+  - A sharp symbol removed string instance.
+
 ## `_fill_one_digit_hex_color_code` function docstring
 
 Fill 1 digit hexadecimal color code until it becomes 6 digits.<hr>
@@ -60,3 +69,19 @@ Complement hex color for convenience; for instance, add # prefix or three digits
 
 - `complemented_hex_color_code`: str or String
   - Result hex color code. e.g., '#ff0000', '#666666, '#000000'
+
+## `remove_color_code_sharp_symbol` function docstring
+
+Remove a sharp symbol from a specified hexadecimal color code string.<hr>
+
+**[Parameters]**
+
+- `hex_color_code`: StrOrString
+  - A targert hexadecimal color code string.
+
+<hr>
+
+**[Returns]**
+
+- `hex_color_code`: StrOrString
+  - A result string.

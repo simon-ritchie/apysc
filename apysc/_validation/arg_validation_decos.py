@@ -429,8 +429,7 @@ def is_num(*, arg_position_index: int) -> _F:
             result : Any
                 A return value(s) of a callable execution result.
             """
-            from apysc._validation.number_validation import \
-                validate_num
+            from apysc._validation.number_validation import validate_num
             arg_name: str = _get_arg_name_by_index(
                 callable_=callable_, arg_position_index=arg_position_index)
             default_val: Any = _get_default_val_by_arg_name(
@@ -747,7 +746,7 @@ def is_easing(*, arg_position_index: int) -> _F:
 def is_hex_color_code_format(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's value
-    is a hexadecimal color code format.
+    in a hexadecimal color code format.
 
     Parameters
     ----------
@@ -792,9 +791,9 @@ def is_hex_color_code_format(*, arg_position_index: int) -> _F:
             result : Any
                 A return value(s) of a callable execution result.
             """
+            from apysc._color import color_util
             from apysc._validation.color_validation import \
                 validate_hex_color_code_format
-            from apysc._color import color_util
             arg_name: str = _get_arg_name_by_index(
                 callable_=callable_, arg_position_index=arg_position_index)
             default_val: Any = _get_default_val_by_arg_name(

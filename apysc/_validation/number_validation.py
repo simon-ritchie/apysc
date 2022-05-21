@@ -3,7 +3,7 @@
 Mainly following interfaces are defined:
 
 - validate_num
-    Validate a specified value is an integer or float type.
+    Validate a specified value as an integer or float type.
 - validate_integer
     Validate whether a specified value is an integer or not.
 - validate_int_is_zero_or_one
@@ -29,7 +29,7 @@ def validate_num(
         *, num: Union[int, float, Int, Number],
         additional_err_msg: str = '') -> None:
     """
-    Validate a specified value is an integer or float type.
+    Validate a specified value as an integer or float type.
 
     Parameters
     ----------

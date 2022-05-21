@@ -76,18 +76,19 @@ def remove_color_code_sharp_symbol(
     """
     from apysc._type import value_util
     if isinstance(hex_color_code, str):
-        if hex_color_code.startswith('#'):
-            hex_color_code = hex_color_code[1:]
-        return hex_color_code
+        hex_color_code_: str = hex_color_code  # type: ignore
+        if hex_color_code_.startswith('#'):
+            hex_color_code_ = hex_color_code_[1:]
+        return hex_color_code_  # type: ignore
 
     if isinstance(hex_color_code, String):
-        hex_color_code_: String = value_util.get_copy(
+        hex_color_code__: String = value_util.get_copy(
             value=hex_color_code)
-        if hex_color_code_._value.startswith('#'):
-            hex_color_code_._value = hex_color_code_._value[1:]
+        if hex_color_code__._value.startswith('#'):
+            hex_color_code__._value = hex_color_code__._value[1:]
         _append_remove_color_code_sharp_symbol_expression(
-            hex_color_code=hex_color_code_)
-        return hex_color_code_
+            hex_color_code=hex_color_code__)
+        return hex_color_code__  # type: ignore
 
     raise TypeError(
         'Other than str or String type value is specified: '

@@ -27,6 +27,8 @@ Validate a specified hexadecimal color code format.<hr>
 
 - `hex_color_code`: str
   - Hexadecimal color code (not including '#'). e.g., 'ff0000', '666', '0'
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

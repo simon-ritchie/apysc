@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Number validation implementations. Mainly following interfaces are defined: <br>・validate_num Validate a specified value is an integer or float type. <br>・validate_integer Validate whether a specified value is an integer or not. <br>・validate_int_is_zero_or_one Validate specified integer value is zero or one. <br>・validate_num_is_gt_zero Validate specified value is greater than zero. <br>・validate_num_is_gte_zero Validate whether a specified value is greater than or equal to zero. <br>・validate_nums_are_int_and_gt_zero Validate specified number values are greater integer and greater than zero.
+Number validation implementations. Mainly following interfaces are defined: <br>・validate_num Validate a specified value as an integer or float type. <br>・validate_integer Validate whether a specified value is an integer or not. <br>・validate_int_is_zero_or_one Validate specified integer value is zero or one. <br>・validate_num_is_gt_zero Validate specified value is greater than zero. <br>・validate_num_is_gte_zero Validate whether a specified value is greater than or equal to zero. <br>・validate_nums_are_int_and_gt_zero Validate specified number values are greater integer and greater than zero.
 
 ## `validate_int_is_zero_or_one` function docstring
 
@@ -44,12 +44,14 @@ Validate whether a specified value is an integer or not.<hr>
 
 ## `validate_num` function docstring
 
-Validate a specified value is an integer or float type.<hr>
+Validate a specified value as an integer or float type.<hr>
 
 **[Parameters]**
 
 - `num`: int or float or Int or Number
   - Number value to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 
@@ -82,6 +84,8 @@ Validate whether a specified value is greater than or equal to zero.<hr>
 
 - `num`: int or float or Int or Number
   - Number value to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import re
 from random import randint
 from typing import List
@@ -10,8 +6,8 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc._color import color_util
 import apysc as ap
+from apysc._color import color_util
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_raises
 

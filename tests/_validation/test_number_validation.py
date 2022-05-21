@@ -98,20 +98,28 @@ def test_validate_number_is_0_to_1_range() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_0_to_1_range,
-        alpha=-0.1)
+        match='\nTest error!',
+        alpha=-0.1,
+        additional_err_msg='Test error!')
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_0_to_1_range,
-        alpha=1.1)
+        match='\nTest error!',
+        alpha=1.1,
+        additional_err_msg='Test error!')
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_0_to_1_range,
-        alpha=ap.Number(-0.1))
+        match='\nTest error!',
+        alpha=ap.Number(-0.1),
+        additional_err_msg='Test error!')
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_0_to_1_range,
-        alpha=ap.Number(1.1))
+        match='\nTest error!',
+        alpha=ap.Number(1.1),
+        additional_err_msg='Test error!')
 
     number_validation.validate_num_is_0_to_1_range(alpha=0.0)
     number_validation.validate_num_is_0_to_1_range(alpha=1.0)

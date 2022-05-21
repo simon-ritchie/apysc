@@ -23,6 +23,9 @@ Mainly the following decorators exist.
 - num_is_gte_zero
     - Set the validation to check that a specified argument's value
         is greater than or equal to zero.
+- num_is_0_to_1_range
+    - Set the validation to check that a specified argument's value
+        is 0.0 to 1.0 range.
 - is_easing
     - Set the validation to check a specified argument's type
         is the `ap.Easing`.
@@ -667,6 +670,23 @@ def num_is_gte_zero(*, arg_position_index: int) -> _F:
         return inner_wrapped  # type: ignore
 
     return wrapped  # type: ignore
+
+
+def num_is_0_to_1_range(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check that a specified argument's value
+    is 0.0 to 1.0 range.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
 
 
 def is_easing(*, arg_position_index: int) -> _F:

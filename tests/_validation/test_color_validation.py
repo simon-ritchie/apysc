@@ -25,7 +25,7 @@ def test_validate_hex_color_code_format() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=color_validation.validate_hex_color_code_format,
-        kwargs={'hex_color_code': 'gggggg'})
+        hex_color_code='gggggg')
 
     color_validation.validate_hex_color_code_format(hex_color_code='333')
     color_validation.validate_hex_color_code_format(

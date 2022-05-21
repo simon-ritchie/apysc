@@ -72,7 +72,7 @@ def test_validate_int_is_zero_or_one() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_int_is_zero_or_one,
-        kwargs={'integer': 2})
+        integer=2)
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_int_is_zero_or_one,

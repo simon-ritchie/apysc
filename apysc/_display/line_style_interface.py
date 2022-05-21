@@ -139,7 +139,7 @@ class LineStyleInterface(RevertInterface):
             alpha_: ap.Number = alpha
         else:
             alpha_ = ap.Number(alpha)
-        color_validation.validate_alpha_range(alpha=alpha)
+        number_validation.validate_num_is_0_to_1_range(alpha=alpha)
         self._line_alpha = alpha_
         self._set_line_cap(cap=cap)
         self._set_line_joints(joints=joints)

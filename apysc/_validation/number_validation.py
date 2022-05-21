@@ -16,8 +16,8 @@ Mainly following interfaces are defined:
 - validate_nums_are_int_and_gt_zero
     - Validate specified number values are greater integer and
     greater than zero.
-- validate_number_is_0_to_1_range
-    - Validate a specified number range from 0.0 to 1.0.
+- validate_num_is_0_to_1_range
+    - Validate whether a specified number is from 0.0 to 1.0.
 """
 
 from typing import List
@@ -190,7 +190,7 @@ def validate_nums_are_int_and_gt_zero(*, nums: List[Union[int, Int]]) -> None:
         validate_num_is_gt_zero(num=num)
 
 
-def validate_number_is_0_to_1_range(
+def validate_num_is_0_to_1_range(
         *, alpha: Union[float, NumberValueInterface]) -> None:
     """
     Validate whether a specified number is from 0.0 to 1.0.

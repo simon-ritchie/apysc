@@ -137,9 +137,9 @@ class FillAlphaInterface(
         number_validation.validate_num(num=value)
         if not isinstance(value, Number):
             value = cast.to_float_from_int(int_or_float=value)
-            color_validation.validate_alpha_range(alpha=value)
+            number_validation.validate_num_is_0_to_1_range(alpha=value)
             value = Number(value=value)
-        color_validation.validate_alpha_range(alpha=value.value)
+        number_validation.validate_num_is_0_to_1_range(alpha=value.value)
         self._fill_alpha = value
 
     _fill_alpha_snapshots: Dict[str, float]

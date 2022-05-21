@@ -20,6 +20,9 @@ Mainly the following decorators exist.
 - num_is_gt_zero
     - Set the validation to check that a specified argument's value
         is greater than zero.
+- num_is_gte_zero
+    - Set the validation to check that a specified argument's value
+        is greater than or equal to zero.
 - is_easing
     - Set the validation to check a specified argument's type
         is the `ap.Easing`.
@@ -585,6 +588,78 @@ def num_is_gt_zero(*, arg_position_index: int) -> _F:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_name=arg_name)
             validate_num_is_gt_zero(
+                num=num, additional_err_msg=callable_and_arg_names_msg)
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def num_is_gte_zero(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check that a specified argument's value
+    is greater than or equal to zero.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        """
+        Wrapping function for a decorator setting.
+
+        Parameters
+        ----------
+        callable_ : Callable
+            A target function or method to wrap.
+
+        Returns
+        -------
+        inner_wrapped : Callable
+            Wrapped callable object.
+        """
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            """
+            Wrapping function for a decorator setting.
+
+            Parameters
+            ----------
+            *args : list
+                Target positional arguments.
+            **kwargs : dict
+                Target keyword arguments.
+
+            Returns
+            -------
+            result : Any
+                A return value(s) of a callable execution result.
+            """
+            from apysc._validation.number_validation import \
+                validate_num_is_gte_zero
+            arg_name: str = _get_arg_name_by_index(
+                callable_=callable_, arg_position_index=arg_position_index)
+            default_val: Any = _get_default_val_by_arg_name(
+                callable_=callable_, arg_name=arg_name)
+            num: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, arg_name=arg_name,
+                default_val=default_val)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_name=arg_name)
+            validate_num_is_gte_zero(
                 num=num, additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)

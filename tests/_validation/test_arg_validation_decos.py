@@ -267,3 +267,18 @@ def test_is_hex_color_code_format() -> None:
         kwargs={
             'a': 'Hello!',
         })
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_num_is_gte_zero() -> None:
+
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=0)
+    def _test_func(*, a: int) -> None:
+        ...
+
+    _test_func(a=0)
+    _test_func(a=1)
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=_test_func,
+        kwargs={'a': -1})

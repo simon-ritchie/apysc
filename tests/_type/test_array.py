@@ -40,7 +40,7 @@ class TestArray:
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            func_or_method=ap.Array,
+            callable_=ap.Array,
             kwargs={'value': 100})
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -392,7 +392,7 @@ class TestArray:
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            func_or_method=array_1.__getitem__,
+            callable_=array_1.__getitem__,
             kwargs={'index': (0, 1)})
 
         value_1: int = array_1[2]
@@ -444,7 +444,7 @@ class TestArray:
         array_1._validate_index_type_is_int(index=ap.Int(1))
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            func_or_method=array_1._validate_index_type_is_int,
+            callable_=array_1._validate_index_type_is_int,
             kwargs={'index': 'Hello!'})
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

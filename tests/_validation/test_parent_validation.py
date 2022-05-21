@@ -14,7 +14,7 @@ def test_validate_parent_instance() -> None:
     parent_validation.validate_parent_instance(parent=stage)
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=parent_validation.validate_parent_instance,
+        callable_=parent_validation.validate_parent_instance,
         kwargs={
             'parent': 100,
         })
@@ -30,7 +30,7 @@ def test_validate_parent_contains_chils() -> None:
     sprite_2: ap.Sprite = ap.Sprite()
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=parent_validation.validate_parent_contains_child,
+        callable_=parent_validation.validate_parent_contains_child,
         kwargs={
             'parent': sprite_1,
             'child': sprite_2,

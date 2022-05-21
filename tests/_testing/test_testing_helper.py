@@ -33,7 +33,7 @@ def test__assert_has_attr() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=AssertionError,
-        func_or_method=testing_helper._assert_has_attr,
+        callable_=testing_helper._assert_has_attr,
         kwargs={'any_obj': test_instance, 'attr_name': 'b'},
         match='Expected attribute does not exists.')
 
@@ -53,7 +53,7 @@ def test_assert_attrs() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=AssertionError,
-        func_or_method=testing_helper.assert_attrs,
+        callable_=testing_helper.assert_attrs,
         kwargs={
             'expected_attrs': {'c': 20},
             'any_obj': test_instance,
@@ -62,7 +62,7 @@ def test_assert_attrs() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=AssertionError,
-        func_or_method=testing_helper.assert_attrs,
+        callable_=testing_helper.assert_attrs,
         kwargs={
             'expected_attrs': {'a': 20},
             'any_obj': test_instance,
@@ -78,7 +78,7 @@ def test_assert_raises() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func_1,
+        callable_=_test_func_1,
         match='Test error!')
 
 
@@ -100,7 +100,7 @@ def test_assert_attrs_type() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=AssertionError,
-        func_or_method=testing_helper.assert_attrs_type,
+        callable_=testing_helper.assert_attrs_type,
         kwargs={
             'expected_types': {'a': int, 'b': int},
             'any_obj': test_instance,

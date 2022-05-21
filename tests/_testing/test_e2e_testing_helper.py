@@ -88,7 +88,7 @@ def test__get_local_file_console_event_handler() -> None:
         type='assert', text='Test message 2.')
     assert_raises(
         expected_error_class=AssertionError,
-        func_or_method=handler,
+        callable_=handler,
         kwargs={'message': message},
         match='There is an unexpected assertion error')
 
@@ -154,7 +154,7 @@ def test__get_local_file_page_err_handler() -> None:
         stack='Uncaught Error: Test error!\nat <anonymous>:1:7')
     assert_raises(
         expected_error_class=AssertionError,
-        func_or_method=handler,
+        callable_=handler,
         kwargs={
             'err': err,
         },
@@ -228,7 +228,7 @@ def test__assert_local_file_error_log_not_exits() -> None:
     file_util.save_plain_txt(txt='', file_path=local_file_page_err_file_path)
     assert_raises(
         expected_error_class=AssertionError,
-        func_or_method=e2e_testing_helper.
+        callable_=e2e_testing_helper.
         _assert_local_file_error_log_not_exits,
         kwargs={'file_path': file_path})
 
@@ -252,6 +252,6 @@ def test_assert_local_files_not_raise_error() -> None:
     }]
     assert_raises(
         expected_error_class=AssertionError,
-        func_or_method=e2e_testing_helper.assert_local_files_not_raise_error,
+        callable_=e2e_testing_helper.assert_local_files_not_raise_error,
         kwargs={'local_file_data_list': local_file_data_list},
     )

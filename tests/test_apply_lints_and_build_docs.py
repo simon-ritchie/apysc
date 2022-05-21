@@ -257,7 +257,7 @@ def test__check_build_doc_process() -> None:
         command_strs=['python', '-c', 'raise Exception("Build failed!")'])
     assert_raises(
         expected_error_class=apply_lints_and_build_docs._DocumentBuildError,
-        func_or_method=apply_lints_and_build_docs._check_build_doc_process,
+        callable_=apply_lints_and_build_docs._check_build_doc_process,
         kwargs={'build_doc_process': build_doc_process})
 
 
@@ -273,7 +273,7 @@ def test__check_flake8_process() -> None:
             'python', '-c', 'print("F401 module imported but unused")'])
     assert_raises(
         expected_error_class=apply_lints_and_build_docs._Flake8Error,
-        func_or_method=apply_lints_and_build_docs._check_flake8_process,
+        callable_=apply_lints_and_build_docs._check_flake8_process,
         kwargs={'flake8_process': flake8_process})
 
 
@@ -289,7 +289,7 @@ def test__check_numdoclint_process() -> None:
         command_strs=['python', '-c', 'print("[...]")'])
     assert_raises(
         expected_error_class=apply_lints_and_build_docs._NumdoclintError,
-        func_or_method=apply_lints_and_build_docs._check_numdoclint_process,
+        callable_=apply_lints_and_build_docs._check_numdoclint_process,
         kwargs={'numdoclint_processes': [numdoclint_process]})
 
 
@@ -307,7 +307,7 @@ def test__check_mypy_process() -> None:
             'print("Found 1 error in 1 file (checked 710 source files)")'])
     assert_raises(
         expected_error_class=apply_lints_and_build_docs._MypyError,
-        func_or_method=apply_lints_and_build_docs._check_mypy_process,
+        callable_=apply_lints_and_build_docs._check_mypy_process,
         kwargs={'mypy_process': mypy_process})
 
 

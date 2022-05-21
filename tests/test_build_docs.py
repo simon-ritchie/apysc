@@ -385,7 +385,7 @@ def test__validate_script_return_data() -> None:
 
     assert_raises(
         expected_error_class=Exception,
-        func_or_method=build_docs._validate_script_return_data,
+        callable_=build_docs._validate_script_return_data,
         kwargs={'return_data_list': [{
             'md_file_path': 'test.md',
             'runnable_script': 'print(100)',
@@ -420,7 +420,7 @@ def test__check_code_block_with_flake8() -> None:
     }
     assert_raises(
         expected_error_class=_CodeBlockFlake8Error,
-        func_or_method=build_docs._check_code_block_with_flake8,
+        callable_=build_docs._check_code_block_with_flake8,
         kwargs={'script_data': script_data},
         match=r'There is a flake8 error in the following document '
               r'code block:')
@@ -444,7 +444,7 @@ def test__check_code_block_with_numdoclint() -> None:
     }
     assert_raises(
         expected_error_class=_CodeBlockNumdoclintError,
-        func_or_method=build_docs._check_code_block_with_numdoclint,
+        callable_=build_docs._check_code_block_with_numdoclint,
         kwargs={'script_data': script_data},
         match=r'There is a numdoclint error in the following '
               r'document code block')
@@ -478,7 +478,7 @@ def test__check_code_block_with_mypy() -> None:
     }
     assert_raises(
         expected_error_class=_CodeBlockMypyError,
-        func_or_method=build_docs._check_code_block_with_mypy,
+        callable_=build_docs._check_code_block_with_mypy,
         kwargs={'script_data': script_data},
         match='There is a mypy error in the following document code block')
 

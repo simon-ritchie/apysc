@@ -41,7 +41,7 @@ class TestAnimationScaleYFromCenter:
         target_2: VariableNameInterface = VariableNameInterface()
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=ap.AnimationScaleYFromCenter,
+            callable_=ap.AnimationScaleYFromCenter,
             kwargs={
                 'target': target_2,
                 'scale_y_from_center': 2.0,

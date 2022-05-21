@@ -106,7 +106,7 @@ class TestAnimationParallel:
         ]
         assert_raises(
             expected_error_class=ValueError,
-            func_or_method=rectangle_1.animation_parallel,
+            callable_=rectangle_1.animation_parallel,
             kwargs={
                 'animations': animations,
             },
@@ -128,7 +128,7 @@ class TestAnimationParallel:
         ]
         assert_raises(
             expected_error_class=ValueError,
-            func_or_method=rectangle.animation_parallel,
+            callable_=rectangle.animation_parallel,
             kwargs={
                 'animations': animations,
             },
@@ -154,7 +154,7 @@ class TestAnimationParallel:
         ]
         assert_raises(
             expected_error_class=ValueError,
-            func_or_method=rectangle.animation_parallel,
+            callable_=rectangle.animation_parallel,
             kwargs={
                 'animations': animations,
             },
@@ -180,7 +180,7 @@ class TestAnimationParallel:
         ]
         assert_raises(
             expected_error_class=ValueError,
-            func_or_method=rectangle.animation_parallel,
+            callable_=rectangle.animation_parallel,
             kwargs={
                 'animations': animations,
             },

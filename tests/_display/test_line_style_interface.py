@@ -245,7 +245,7 @@ class TestLineStyleInterface:
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            func_or_method=line_style_interface.line_style,
+            callable_=line_style_interface.line_style,
             kwargs={
                 'color': '#333',
                 'cap': 'round',

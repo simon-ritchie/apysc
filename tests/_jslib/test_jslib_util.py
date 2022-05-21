@@ -44,7 +44,7 @@ def test_export_jslib_to_specified_dir() -> None:
     }
     testing_helper.assert_raises(
         expected_error_class=FileNotFoundError,
-        func_or_method=jslib_util.export_jslib_to_specified_dir,
+        callable_=jslib_util.export_jslib_to_specified_dir,
         kwargs=kwargs)
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)

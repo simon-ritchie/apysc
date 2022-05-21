@@ -39,7 +39,7 @@ def test_read_txt() -> None:
         f.write('猫')
     testing_helper.assert_raises(
         expected_error_class=Exception,
-        func_or_method=file_util.read_txt,
+        callable_=file_util.read_txt,
         kwargs={'file_path': tmp_file_path})
     os.remove(tmp_file_path)
 

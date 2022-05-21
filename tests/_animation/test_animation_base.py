@@ -191,7 +191,7 @@ class TestAnimationBase:
         animation.start()
         assert_raises(
             expected_error_class=Exception,
-            func_or_method=animation.animation_complete,
+            callable_=animation.animation_complete,
             kwargs={'handler': self.on_animation_complete_2})
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

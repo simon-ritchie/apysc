@@ -116,6 +116,6 @@ class TestFor:
         ap.For(ap.Dictionary({'a': 10}))
         testing_helper.assert_raises(
             expected_error_class=TypeError,
-            func_or_method=ap.For,
+            callable_=ap.For,
             kwargs={'arr_or_dict': 'Hello!'},
             match='Specified value type is neither Array nor Dictionary: ')

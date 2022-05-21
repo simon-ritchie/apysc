@@ -16,7 +16,7 @@ def test_validate_stage() -> None:
     sprite: ap.Sprite = ap.Sprite()
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.validate_stage,
+        callable_=display_validation.validate_stage,
         kwargs={'stage': sprite})
 
 
@@ -25,7 +25,7 @@ def test_validate_display_object() -> None:
     stage: ap.Stage = ap.Stage()
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.validate_display_object,
+        callable_=display_validation.validate_display_object,
         kwargs={'display_object': stage})
 
     sprite: ap.Sprite = ap.Sprite()
@@ -44,7 +44,7 @@ def test_validate_graphics() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.validate_graphics,
+        callable_=display_validation.validate_graphics,
         kwargs={'graphics': sprite})
 
 
@@ -56,7 +56,7 @@ def test_validate_sprite() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.validate_sprite,
+        callable_=display_validation.validate_sprite,
         kwargs={'sprite': stage})
 
 
@@ -70,12 +70,12 @@ def test_validate_line_cap() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.validate_line_cap,
+        callable_=display_validation.validate_line_cap,
         kwargs={'cap': ap.String('not_defined_cap')},
         match='Not defined cap string is specified:')
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.validate_line_cap,
+        callable_=display_validation.validate_line_cap,
         kwargs={'cap': 'square'},
         match='Specified cap style type is not LineCaps or String one: ')
 
@@ -90,12 +90,12 @@ def test_validate_line_joints() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.validate_line_joints,
+        callable_=display_validation.validate_line_joints,
         kwargs={'joints': ap.String('not_defined_joints')},
         match=r'Not defined joints string is specified: ')
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.validate_line_joints,
+        callable_=display_validation.validate_line_joints,
         kwargs={'joints': 'miter'},
         match=r'Specified joints type is not LineJoints or String one: ')
 
@@ -115,7 +115,7 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         dash_size=10, space_size=5)
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.
+        callable_=display_validation.
         validate_multiple_line_settings_isnt_set,
         kwargs={'any_instance': sprite.graphics},
         match=r"'LineDotSetting', 'LineDashSetting'")
@@ -125,7 +125,7 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         round_size=5, space_size=5)
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.
+        callable_=display_validation.
         validate_multiple_line_settings_isnt_set,
         kwargs={'any_instance': sprite.graphics},
         match=r"'LineDashSetting', 'LineRoundDotSetting'")
@@ -135,7 +135,7 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         dot_size=5, dash_size=10, space_size=7)
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=display_validation.
+        callable_=display_validation.
         validate_multiple_line_settings_isnt_set,
         kwargs={'any_instance': sprite.graphics},
         match=r"'LineRoundDotSetting', 'LineDashDotSetting'")

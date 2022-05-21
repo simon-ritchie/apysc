@@ -80,7 +80,7 @@ def test__validate_dict_key_type() -> None:
     value_util._validate_dict_key_type(key='Hello')
     assert_raises(
         expected_error_class=TypeError,
-        func_or_method=value_util._validate_dict_key_type,
+        callable_=value_util._validate_dict_key_type,
         kwargs={'key': ap.Int(10)},
         match='Dictionary key type only supports str and int')
 

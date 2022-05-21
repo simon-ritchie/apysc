@@ -44,7 +44,7 @@ class TestAnimationScaleXFromPoint:
         target_2.variable_name = 'test_animation_scale_x_from_point'
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=ap.AnimationScaleXFromPoint,
+            callable_=ap.AnimationScaleXFromPoint,
             kwargs={
                 'target': target_2,
                 'scale_x_from_point': 2.0,

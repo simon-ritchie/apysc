@@ -43,7 +43,7 @@ class TestAnimationRotationAroundCenter:
         target_2: VariableNameInterface = VariableNameInterface()
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=ap.AnimationRotationAroundCenter,
+            callable_=ap.AnimationRotationAroundCenter,
             kwargs={
                 'target': target_2,
                 'rotation_around_center': 50,

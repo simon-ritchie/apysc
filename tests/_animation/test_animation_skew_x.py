@@ -43,7 +43,7 @@ class TestAnimationSkewX:
         target_2.variable_name = 'test_animation_skew_x'
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=ap.AnimationSkewX,
+            callable_=ap.AnimationSkewX,
             kwargs={
                 'target': target_2,
                 'skew_x': 50,

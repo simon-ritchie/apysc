@@ -43,7 +43,7 @@ def test__run_document_code_blocks() -> None:
         file_path=test_md_file_path)
     assert_raises(
         expected_error_class=_CodeBlockError,
-        func_or_method=check_docs_code_block_error._run_document_code_blocks,
+        callable_=check_docs_code_block_error._run_document_code_blocks,
         kwargs={
             'document_file_path': test_md_file_path,
         },

@@ -7,7 +7,7 @@ from apysc._validation import variable_name_validation
 def test_validate_variable_name_interface_type() -> None:
     assert_raises(
         expected_error_class=TypeError,
-        func_or_method=variable_name_validation.
+        callable_=variable_name_validation.
         validate_variable_name_interface_type,
         kwargs={'instance': 10},
         match='Specified instance type is not VariableNameInterface')

@@ -88,7 +88,7 @@ class TestLineDotSettingInterface:
 
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=interface.
+            callable_=interface.
             _update_line_dot_setting_and_skip_appending_exp,
             kwargs={'value': 10},
             match='Not supported line_dot_setting type specified: ')

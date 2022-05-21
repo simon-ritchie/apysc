@@ -70,7 +70,7 @@ class TestClickInterface:
         interface_3: ClickInterface = ClickInterface()
         testing_helper.assert_raises(
             expected_error_class=TypeError,
-            func_or_method=interface_3.click,
+            callable_=interface_3.click,
             kwargs={'handler': self.on_click_1})
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -87,7 +87,7 @@ class TestClickInterface:
         interface_1: ClickInterface = ClickInterface()
         testing_helper.assert_raises(
             expected_error_class=TypeError,
-            func_or_method=interface_1.unbind_click,
+            callable_=interface_1.unbind_click,
             kwargs={'handler': self.on_click_1})
 
         interface_2: _TestClickInterface = _TestClickInterface()
@@ -109,7 +109,7 @@ class TestClickInterface:
         interface_1: ClickInterface = ClickInterface()
         testing_helper.assert_raises(
             expected_error_class=TypeError,
-            func_or_method=interface_1.unbind_click_all)
+            callable_=interface_1.unbind_click_all)
 
         interface_2: _TestClickInterface = _TestClickInterface()
         interface_2.click(handler=self.on_click_1)

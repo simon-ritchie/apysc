@@ -151,7 +151,7 @@ def test_get_stage() -> None:
     expression_data_util.exec_query(sql=query)
     assert_raises(
         expected_error_class=stage._StageNotCreatedError,
-        func_or_method=stage.get_stage)
+        callable_=stage.get_stage)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

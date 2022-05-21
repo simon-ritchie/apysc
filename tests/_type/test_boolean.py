@@ -79,7 +79,7 @@ class TestBoolean:
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            func_or_method=boolean_1._get_bool_from_arg_value,
+            callable_=boolean_1._get_bool_from_arg_value,
             kwargs={'value': 'Hello!'})
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -292,7 +292,7 @@ class TestBoolean:
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            func_or_method=bool_1._validate_comparison_other_type,
+            callable_=bool_1._validate_comparison_other_type,
             kwargs={'other': 'Hello!'})
 
 

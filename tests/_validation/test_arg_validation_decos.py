@@ -35,12 +35,12 @@ def test_not_empty_string() -> None:
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func,
+        callable_=_test_func,
         kwargs={'a': ''},
         match='An argument\'s string value must not be empty.')
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func,
+        callable_=_test_func,
         kwargs={'a': 10})
 
     _test_func('Hello')
@@ -49,12 +49,12 @@ def test_not_empty_string() -> None:
     test_instance: _TestClass1 = _TestClass1()
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=test_instance._test_method_1,
+        callable_=test_instance._test_method_1,
         kwargs={'a': ''},
         match='An argument\'s string value must not be empty.')
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=test_instance._test_method_2,
+        callable_=test_instance._test_method_2,
         kwargs={'a': ''},
         match='An argument\'s string value must not be empty.')
 
@@ -106,7 +106,7 @@ def test_handler_args_num() -> None:
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func_2,
+        callable_=_test_func_2,
         kwargs={'handler': _test_handler_1},
         match='Target callable name: _test_func_2',
     )
@@ -126,7 +126,7 @@ def test_handler_options_type() -> None:
 
     assert_raises(
         expected_error_class=TypeError,
-        func_or_method=_test_func,
+        callable_=_test_func,
         kwargs={'options': 10})
 
     _test_func(options={'msg': 'Hello!'})
@@ -177,7 +177,7 @@ def test_is_integer() -> None:
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func,
+        callable_=_test_func,
         kwargs={'a': 'Hello!', 'b': 'World!'})
 
     _test_func(a='Hello!', b=10)
@@ -195,7 +195,7 @@ def test_num_is_gt_zero() -> None:
     _test_func(a=ap.Int(1))
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func,
+        callable_=_test_func,
         kwargs={'a': 0})
 
 
@@ -210,7 +210,7 @@ def test_is_easing() -> None:
     _test_func(easing=ap.Easing.EASE_OUT_QUAD)
     assert_raises(
         expected_error_class=TypeError,
-        func_or_method=_test_func,
+        callable_=_test_func,
         kwargs={'easing': 10},
         match=r"A specified easing argument\'s type is not the ap\.Easing\: ")
 
@@ -245,7 +245,7 @@ def test_is_num() -> None:
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func_1,
+        callable_=_test_func_1,
         kwargs={'a': 'Hello!'})
 
 
@@ -263,7 +263,7 @@ def test_is_hex_color_code_format() -> None:
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func,
+        callable_=_test_func,
         kwargs={
             'a': 'Hello!',
         })
@@ -280,5 +280,5 @@ def test_num_is_gte_zero() -> None:
     _test_func(a=1)
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=_test_func,
+        callable_=_test_func,
         kwargs={'a': -1})

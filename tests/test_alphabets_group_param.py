@@ -11,19 +11,19 @@ from scripts import alphabets_group_param
 def test__split_alphabets_group_str() -> None:
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=alphabets_group_param.split_alphabets_group_str,
+        callable_=alphabets_group_param.split_alphabets_group_str,
         kwargs={'alphabets_group_str': ''},
         match='An `--alphabets_group` argument\' value cannot be blank.')
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=alphabets_group_param.split_alphabets_group_str,
+        callable_=alphabets_group_param.split_alphabets_group_str,
         kwargs={'alphabets_group_str': 'a3c'},
         match='There is a non-alphabet character')
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=alphabets_group_param.split_alphabets_group_str,
+        callable_=alphabets_group_param.split_alphabets_group_str,
         kwargs={'alphabets_group_str': 'aba'},
         match='There are duplicated alphabets')
 

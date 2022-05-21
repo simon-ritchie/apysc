@@ -17,14 +17,14 @@ def test__validate_bezier_2d_continual_pre_data() -> None:
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=path_validation._validate_bezier_2d_continual_pre_data,
+        callable_=path_validation._validate_bezier_2d_continual_pre_data,
         kwargs={'path_data_list': [bezier_2d_continual]},
         match='`PathBezier2DContinual` instance can not be set '
               'at the first position of `path_data_list`.')
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=path_validation._validate_bezier_2d_continual_pre_data,
+        callable_=path_validation._validate_bezier_2d_continual_pre_data,
         kwargs={'path_data_list': [move_to, bezier_2d_continual]},
         match='`PathBezier2DContinual` instance in a '
               '`path_data_list` argument can set only after a '
@@ -50,14 +50,14 @@ def test__validate_bezier_3d_continual_pre_data() -> None:
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=path_validation._validate_bezier_3d_continual_pre_data,
+        callable_=path_validation._validate_bezier_3d_continual_pre_data,
         kwargs={'path_data_list': [bezier_3d_continual]},
         match='`PathBezier3DContinual` instance can not be set '
               'at the first position of `path_data_list`.')
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=path_validation._validate_bezier_3d_continual_pre_data,
+        callable_=path_validation._validate_bezier_3d_continual_pre_data,
         kwargs={'path_data_list': [move_to, bezier_3d_continual]},
         match='`PathBezier3DContinual` instance in a '
               '`path_data_list` argument can set only after a '
@@ -81,18 +81,18 @@ def test_validate_path_data_list() -> None:
         control_x=200, control_y=200, dest_x=250, dest_y=100)
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=path_validation.validate_path_data_list,
+        callable_=path_validation.validate_path_data_list,
         kwargs={'path_data_list': []},
         match='`path_data_list` argument can not be empty.',
     )
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=path_validation.validate_path_data_list,
+        callable_=path_validation.validate_path_data_list,
         kwargs={'path_data_list': [bezier_2d_continual]},
     )
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=path_validation.validate_path_data_list,
+        callable_=path_validation.validate_path_data_list,
         kwargs={'path_data_list': [bezier_3d_continual]},
     )
 

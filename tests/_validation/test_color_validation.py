@@ -11,19 +11,19 @@ from apysc._validation import color_validation
 def test_validate_hex_color_code_format() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=color_validation.validate_hex_color_code_format,
+        callable_=color_validation.validate_hex_color_code_format,
         kwargs={'hex_color_code': 10, 'additional_err_msg': 'Test error!'},
         match='\nTest error!')
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=color_validation.validate_hex_color_code_format,
+        callable_=color_validation.validate_hex_color_code_format,
         kwargs={'hex_color_code': '33'}
     )
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=color_validation.validate_hex_color_code_format,
+        callable_=color_validation.validate_hex_color_code_format,
         kwargs={'hex_color_code': 'gggggg'})
 
     color_validation.validate_hex_color_code_format(hex_color_code='333')
@@ -35,12 +35,12 @@ def test_validate_hex_color_code_format() -> None:
 def test_validate_alpha_range() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=color_validation.validate_alpha_range,
+        callable_=color_validation.validate_alpha_range,
         kwargs={'alpha': -0.1})
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=color_validation.validate_alpha_range,
+        callable_=color_validation.validate_alpha_range,
         kwargs={'alpha': 1.1})
 
     color_validation.validate_alpha_range(alpha=0.0)

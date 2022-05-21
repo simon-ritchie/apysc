@@ -215,7 +215,7 @@ def test_get_hash_type_from_lang() -> None:
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=translation_mapping_utils.
+        callable_=translation_mapping_utils.
         get_hash_type_from_lang,
         kwargs={'lang': None})
 

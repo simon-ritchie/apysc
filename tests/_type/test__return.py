@@ -18,7 +18,7 @@ class TestReturn:
         instance.variable_name = 'test_instance'
         assert_raises(
             expected_error_class=Exception,
-            func_or_method=ap.Return,
+            callable_=ap.Return,
             match=(
                 'The `Return` class can be instantiated only in an event '
                 'handler scope.'))

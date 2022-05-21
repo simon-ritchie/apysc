@@ -19,7 +19,7 @@ class TestAppendLinePointInterface:
         y: ap.Int = ap.Int(100)
         assert_raises(
             expected_error_class=AttributeError,
-            func_or_method=interface.append_line_point,
+            callable_=interface.append_line_point,
             kwargs={'x': x, 'y': y},
             match=r'_points_var_name attribute is not set.',
         )

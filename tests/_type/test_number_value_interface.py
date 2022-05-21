@@ -43,7 +43,7 @@ class TestNumberValueInterface:
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            func_or_method=NumberValueInterface,
+            callable_=NumberValueInterface,
             kwargs={'value': 'Hello!', 'type_name': 'test_interface'})
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

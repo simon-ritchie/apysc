@@ -48,7 +48,7 @@ class TestLineDashSettingInterface:
         interface: LineDashSettingInterface = LineDashSettingInterface()
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=interface.
+            callable_=interface.
             _update_line_dash_setting_and_skip_appending_exp,
             kwargs={'value': 'dash'},
             match='Not supported line_dash_setting type specified: ')

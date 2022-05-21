@@ -48,7 +48,7 @@ class TestAnimationRotationAroundPoint:
         target_2.variable_name = 'test_animation_rotation_around_point'
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=ap.AnimationRotationAroundPoint,
+            callable_=ap.AnimationRotationAroundPoint,
             kwargs={
                 'target': target_2,
                 'rotation_around_point': 100,

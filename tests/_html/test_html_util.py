@@ -38,7 +38,7 @@ def test_remove_first_selector_symbol_char() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=TypeError,
-        func_or_method=html_util.remove_first_selector_symbol_char,
+        callable_=html_util.remove_first_selector_symbol_char,
         kwargs={'str_val': 100})
 
 

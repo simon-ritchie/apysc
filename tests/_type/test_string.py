@@ -27,7 +27,7 @@ class TestString:
     def test___init__(self) -> None:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            func_or_method=ap.String,
+            callable_=ap.String,
             kwargs={'value': 100})
 
         string_1: ap.String = ap.String(value='Hello!')

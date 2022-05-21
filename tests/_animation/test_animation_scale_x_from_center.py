@@ -43,7 +43,7 @@ class TestAnimationScaleXFromCenter:
         target_2.variable_name = 'test_animation_scale_x_from_center'
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=ap.AnimationScaleXFromCenter,
+            callable_=ap.AnimationScaleXFromCenter,
             kwargs={
                 'target': target_2,
                 'scale_x_from_center': 2.0,

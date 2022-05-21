@@ -112,5 +112,5 @@ def test_remove_color_code_sharp_symbol() -> None:
 
     assert_raises(
         expected_error_class=TypeError,
-        func_or_method=color_util.remove_color_code_sharp_symbol,
+        callable_=color_util.remove_color_code_sharp_symbol,
         kwargs={'hex_color_code': 100})

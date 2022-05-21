@@ -533,7 +533,7 @@ def test__get_params_or_rtns_section_pattern_by_type() -> None:
 
     assert_raises(
         expected_error_class=ValueError,
-        func_or_method=docstring_util.
+        callable_=docstring_util.
         _get_params_or_rtns_section_pattern_by_type,
         kwargs={'target_type': 10},
         match='Invalid type argument is provided: ',
@@ -1132,7 +1132,7 @@ def test_replace_docstring_path_specification() -> None:
 def test__get_callable_from_package_path_and_callable_name() -> None:
     assert_raises(
         expected_error_class=_DocstringPathNotFoundError,
-        func_or_method=docstring_util.
+        callable_=docstring_util.
         _get_callable_from_package_path_and_callable_name,
         kwargs={
             'module_or_class_package_path': 'not.existing.package.path',
@@ -1142,7 +1142,7 @@ def test__get_callable_from_package_path_and_callable_name() -> None:
 
     assert_raises(
         expected_error_class=_DocstringCallableNotExistsError,
-        func_or_method=docstring_util.
+        callable_=docstring_util.
         _get_callable_from_package_path_and_callable_name,
         kwargs={
             'module_or_class_package_path': 'apysc._display.sprite.Sprite',

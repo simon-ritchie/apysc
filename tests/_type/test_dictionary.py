@@ -25,7 +25,7 @@ class TestDictionary:
 
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=ap.Dictionary,
+            callable_=ap.Dictionary,
             kwargs={'value': 10},
             match='Not acceptable value type is specified')
 
@@ -61,7 +61,7 @@ class TestDictionary:
 
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=ap.Dictionary,
+            callable_=ap.Dictionary,
             kwargs={'value': 10},
             match='Not acceptable value type is specified.')
 
@@ -148,7 +148,7 @@ class TestDictionary:
         dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10, 'b': 20})
         assert_raises(
             expected_error_class=Exception,
-            func_or_method=dict_1.__len__,
+            callable_=dict_1.__len__,
             match='Dictionary instance can\'t apply len function.')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -160,7 +160,7 @@ class TestDictionary:
             dict_1._validate_key_type_is_str_or_numeric(key=acceptable)
         assert_raises(
             expected_error_class=ValueError,
-            func_or_method=dict_1._validate_key_type_is_str_or_numeric,
+            callable_=dict_1._validate_key_type_is_str_or_numeric,
             kwargs={'key': ap.Boolean(True)},
             match='Unsupported key type is specified')
 

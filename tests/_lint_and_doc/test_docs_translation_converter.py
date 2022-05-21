@@ -32,7 +32,7 @@ def test__validate_translated_str_is_not_blank() -> None:
 
     assert_raises(
         expected_error_class=_TranslationMappingNotFound,
-        func_or_method=docs_translation_converter.
+        callable_=docs_translation_converter.
         _validate_translated_str_is_not_blank,
         kwargs={
             'translated_str': '',
@@ -132,7 +132,7 @@ def test__validate_sharp_heading_symbol_num_are_same() -> None:
 
     assert_raises(
         expected_error_class=_InvalidHeadingSharpSymbolNumber,
-        func_or_method=docs_translation_converter.
+        callable_=docs_translation_converter.
         _validate_sharp_heading_symbol_num_are_same,
         kwargs={
             'translated_str': 'テストテキスト',
@@ -187,7 +187,7 @@ def test__validate_first_spaces_nums_are_same() -> None:
 
     assert_raises(
         expected_error_class=_FirstSpacesNumAreDifferent,
-        func_or_method=docs_translation_converter.
+        callable_=docs_translation_converter.
         _validate_first_spaces_nums_are_same,
         kwargs={
             'translated_str': '    - Lorem ipsum',
@@ -213,7 +213,7 @@ def test__validate_markdown_list_hyphen_symbols_are_same() -> None:
 
     assert_raises(
         expected_error_class=_MarkdownListHyphenSymbolsAreNotSame,
-        func_or_method=docs_translation_converter.
+        callable_=docs_translation_converter.
         _validate_markdown_list_hyphen_symbols_are_same,
         kwargs={
             'translated_str': 'テストテキスト',
@@ -237,7 +237,7 @@ def test__validate_tail_hr_tag() -> None:
 
     assert_raises(
         expected_error_class=_InvalidTailsHrTag,
-        func_or_method=docs_translation_converter._validate_tail_hr_tag,
+        callable_=docs_translation_converter._validate_tail_hr_tag,
         kwargs={
             'translated_str': 'テストテキスト。',
             'key': 'Lorem ipsum.<hr>',
@@ -279,7 +279,7 @@ def test__validate_first_br_tags_and_list_symbols_are_same() -> None:
 
     assert_raises(
         expected_error_class=_BrTagsAndListSymbolsAreNotSame,
-        func_or_method=docs_translation_converter.
+        callable_=docs_translation_converter.
         _validate_first_br_tags_and_list_symbols_are_same,
         kwargs={
             'translated_str': 'テストテキスト',
@@ -305,7 +305,7 @@ def test__validate_first_full_width_list_symbols_are_same() -> None:
 
     assert_raises(
         expected_error_class=_FirstFullWidthListSymbolsAreNotSame,
-        func_or_method=docs_translation_converter.
+        callable_=docs_translation_converter.
         _validate_first_full_width_list_symbols_are_same,
         kwargs={
             'translated_str': 'テストテキスト',

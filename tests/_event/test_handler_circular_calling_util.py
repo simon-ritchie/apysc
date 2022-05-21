@@ -221,7 +221,7 @@ def test__get_same_name_prev_data() -> None:
     with HandlerScope(handler_name='test_handler_a_1', instance=instance_1):
         assert_raises(
             expected_error_class=ValueError,
-            func_or_method=handler_circular_calling_util.
+            callable_=handler_circular_calling_util.
             _get_same_name_prev_hadler_name,
             kwargs={'handler_name': 'test_handler_a_1'},
             match='Previous same name handler does not exitst in the SQLite.')

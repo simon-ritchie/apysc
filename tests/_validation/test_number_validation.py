@@ -14,7 +14,7 @@ def test_validate_num() -> None:
     number_validation.validate_num(num=ap.Int(value=100))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=number_validation.validate_num,
+        callable_=number_validation.validate_num,
         kwargs={'num': 'Hello!', 'additional_err_msg': 'Test error!'},
         match='\nTest error!')
 
@@ -25,7 +25,7 @@ def test_validate_integer() -> None:
     number_validation.validate_integer(integer=ap.Int(10))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=number_validation.validate_integer,
+        callable_=number_validation.validate_integer,
         kwargs={'integer': 10.5, 'additional_err_msg': 'Test error!'},
         match='\nTest error!')
 
@@ -36,12 +36,12 @@ def test_validate_num_is_gt_zero() -> None:
     number_validation.validate_num_is_gt_zero(num=ap.Int(1))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=number_validation.validate_num_is_gt_zero,
+        callable_=number_validation.validate_num_is_gt_zero,
         kwargs={'num': 0, 'additional_err_msg': 'Test error!'},
         match='\nTest error!')
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=number_validation.validate_num_is_gt_zero,
+        callable_=number_validation.validate_num_is_gt_zero,
         kwargs={'num': ap.Int(0)})
 
 
@@ -52,7 +52,7 @@ def test_validate_num_is_gte_zero() -> None:
     number_validation.validate_num_is_gte_zero(num=ap.Int(0))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=number_validation.validate_num_is_gte_zero,
+        callable_=number_validation.validate_num_is_gte_zero,
         kwargs={'num': -0.1, 'additional_err_msg': 'Test error!'},
         match='\nTest error!')
 
@@ -67,11 +67,11 @@ def test_validate_int_is_zero_or_one() -> None:
     number_validation.validate_int_is_zero_or_one(integer=ap.Int(1))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=number_validation.validate_int_is_zero_or_one,
+        callable_=number_validation.validate_int_is_zero_or_one,
         kwargs={'integer': 2})
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=number_validation.validate_int_is_zero_or_one,
+        callable_=number_validation.validate_int_is_zero_or_one,
         kwargs={'integer': ap.Int(2)})
 
 
@@ -81,9 +81,9 @@ def test_validate_nums_are_int_and_gt_zero() -> None:
         nums=[1, ap.Int(1)])
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=number_validation.validate_nums_are_int_and_gt_zero,
+        callable_=number_validation.validate_nums_are_int_and_gt_zero,
         kwargs={'nums': [10.5]})
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=number_validation.validate_nums_are_int_and_gt_zero,
+        callable_=number_validation.validate_nums_are_int_and_gt_zero,
         kwargs={'nums': [0]})

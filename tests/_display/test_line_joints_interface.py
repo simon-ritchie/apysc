@@ -40,7 +40,7 @@ class TestLineJointsInterface:
         interface.variable_name = 'test_line_joints_interface'
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=interface.
+            callable_=interface.
             _update_line_joints_and_skip_appending_exp,
             kwargs={'value': 'miter'},
             match=r'Not supported line_joints type specified: ')

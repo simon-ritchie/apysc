@@ -6,7 +6,7 @@ from apysc._validation import event_validation
 def test_validate_event() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=event_validation.validate_event,
+        callable_=event_validation.validate_event,
         kwargs={'e': 100})
 
     int_1: ap.Int = ap.Int(10)
@@ -18,7 +18,7 @@ def test_validate_event() -> None:
 def test_validate_event_type() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=event_validation.validate_event_type,
+        callable_=event_validation.validate_event_type,
         kwargs={'mouse_event_type': 100})
 
     mouse_event_type: ap.MouseEventType = event_validation.validate_event_type(

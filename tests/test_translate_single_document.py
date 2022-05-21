@@ -33,7 +33,7 @@ def teardown() -> None:
 def test__validate_src_option() -> None:
     assert_raises(
         expected_error_class=_SourceFileNotFound,
-        func_or_method=translate_single_document._validate_src_option,
+        callable_=translate_single_document._validate_src_option,
         kwargs={'src': 'docs_src/source/not_existing_doc.md'},
         match=(
             'There is no such source file: '
@@ -42,7 +42,7 @@ def test__validate_src_option() -> None:
 
     assert_raises(
         expected_error_class=_SourceFileIsNotEnglish,
-        func_or_method=translate_single_document._validate_src_option,
+        callable_=translate_single_document._validate_src_option,
         kwargs={'src': 'docs_src/source/jp_sprite.md'},
         match=(
             'not an English document: docs_src/source/jp_sprite.md'
@@ -58,7 +58,7 @@ def test__validate_lang_option() -> None:
 
     assert_raises(
         expected_error_class=_UndefinedLanguage,
-        func_or_method=translate_single_document._validate_lang_option,
+        callable_=translate_single_document._validate_lang_option,
         kwargs={'lang': 'invalid_lang'},
         match='A specified language string is undefined')
 
@@ -87,7 +87,7 @@ def test__validate_build_doc_command_status_code() -> None:
 
     assert_raises(
         expected_error_class=_InvalidDocBuildStatusCode,
-        func_or_method=translate_single_document.
+        callable_=translate_single_document.
         _validate_build_doc_command_status_code,
         kwargs={'status_code': 1},
         match='A document\'s build command status code is not zero: 1')

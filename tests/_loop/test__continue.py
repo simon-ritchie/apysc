@@ -14,7 +14,7 @@ class TestContinue:
         expression_data_util.empty_expression()
         assert_raises(
             expected_error_class=Exception,
-            func_or_method=ap.Continue,
+            callable_=ap.Continue,
         )
 
         arr: ap.Array = ap.Array([1, 2, 3])

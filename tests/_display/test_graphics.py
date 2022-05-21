@@ -35,7 +35,7 @@ class TestGraphics:
         graphics: Graphics = Graphics(parent=sprite)
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            func_or_method=graphics.begin_fill,
+            callable_=graphics.begin_fill,
             kwargs={'color': 'red'})
 
         graphics.begin_fill(color='#0af')

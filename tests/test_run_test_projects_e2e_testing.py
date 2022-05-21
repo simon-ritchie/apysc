@@ -43,7 +43,7 @@ def test__run_test_project_command() -> None:
         file_path=tmp_module_path)
     assert_raises(
         expected_error_class=Exception,
-        func_or_method=run_test_projects_e2e_testing.
+        callable_=run_test_projects_e2e_testing.
         _run_test_project_command,
         kwargs={'main_module_path': tmp_module_path})
 

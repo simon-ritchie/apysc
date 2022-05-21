@@ -87,7 +87,7 @@ def test_append_handler_expression() -> None:
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=handler.append_handler_expression,
+        callable_=handler.append_handler_expression,
         kwargs={
             'handler_data': handler_data,
             'handler_name': handler_name,

@@ -3,19 +3,21 @@
 Mainly following interfaces are defined:
 
 - validate_num
-    Validate a specified value as an integer or float type.
+    - Validate a specified value as an integer or float type.
 - validate_integer
-    Validate whether a specified value is an integer or not.
+    - Validate whether a specified value is an integer or not.
 - validate_int_is_zero_or_one
-    Validate specified integer value is zero or one.
+    - Validate specified integer value is zero or one.
 - validate_num_is_gt_zero
-    Validate specified value is greater than zero.
+    - Validate specified value is greater than zero.
 - validate_num_is_gte_zero
-    Validate whether a specified value is greater than or
+    - Validate whether a specified value is greater than or
     equal to zero.
 - validate_nums_are_int_and_gt_zero
-    Validate specified number values are greater integer and
+    - Validate specified number values are greater integer and
     greater than zero.
+- validate_number_is_0_to_1_range
+    - Validate a specified number range from 0.0 to 1.0.
 """
 
 from typing import List
@@ -23,6 +25,7 @@ from typing import Union
 
 from apysc._type.int import Int
 from apysc._type.number import Number
+from apysc._type.number_value_interface import NumberValueInterface
 
 
 def validate_num(
@@ -43,7 +46,6 @@ def validate_num(
     ValueError
         If a specified value is not an integer and float value.
     """
-    from apysc._type.number_value_interface import NumberValueInterface
     if isinstance(
             num,
             (int, float, NumberValueInterface)):
@@ -127,7 +129,6 @@ def validate_num_is_gt_zero(
     ValueError
         If a specified value is less than or equal to zero.
     """
-    from apysc._type.number_value_interface import NumberValueInterface
     if isinstance(num, NumberValueInterface):
         if num._value > 0:
             return
@@ -158,7 +159,6 @@ def validate_num_is_gte_zero(
     ValueError
         If a specified value is less than zero.
     """
-    from apysc._type.number_value_interface import NumberValueInterface
     if isinstance(num, NumberValueInterface):
         if num._value >= 0:
             return
@@ -188,3 +188,32 @@ def validate_nums_are_int_and_gt_zero(*, nums: List[Union[int, Int]]) -> None:
     for num in nums:
         validate_integer(integer=num)
         validate_num_is_gt_zero(num=num)
+
+
+def validate_number_is_0_to_1_range(
+        *, alpha: Union[float, NumberValueInterface]) -> None:
+    """
+    Validate whether a specified number is from 0.0 to 1.0.
+
+    Parameters
+    ----------
+    alpha : float or Number
+        Opacity value to check.
+
+    Raises
+    ------
+    ValueError
+        If a specified opacity is out of the 0.0 to 1.0 range.
+    """
+    lt_err_msg: str = 'Can\'t specify alpha value less than 0.0: '
+    gt_err_msg: str = 'Can\'t specify alpha value greater than 1.0: '
+    if isinstance(alpha, NumberValueInterface):
+        if alpha._value < 0.0:
+            raise ValueError(f'{lt_err_msg}{alpha}')
+        if alpha._value > 1.0:
+            raise ValueError(f'{gt_err_msg}{alpha}')
+    else:
+        if alpha < 0.0:
+            raise ValueError(f'{lt_err_msg}{alpha}')
+        if alpha > 1.0:
+            raise ValueError(f'{gt_err_msg}{alpha}')

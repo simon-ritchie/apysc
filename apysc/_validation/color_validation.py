@@ -60,32 +60,3 @@ def validate_hex_color_code_format(
             f'\nTarget character: {char}'
             f'\nSupported characters: {hexdigits}'
             f'{additional_err_msg}')
-
-
-def validate_alpha_range(
-        *, alpha: Union[float, NumberValueInterface]) -> None:
-    """
-    Validate specified alpha (opacity) value's range.
-
-    Parameters
-    ----------
-    alpha : float or Number
-        Opacity value to check.
-
-    Raises
-    ------
-    ValueError
-        If a specified opacity is out of the 0.0 to 1.0 range.
-    """
-    lt_err_msg: str = 'Can\'t specify alpha value less than 0.0: '
-    gt_err_msg: str = 'Can\'t specify alpha value greater than 1.0: '
-    if isinstance(alpha, NumberValueInterface):
-        if alpha._value < 0.0:
-            raise ValueError(f'{lt_err_msg}{alpha}')
-        if alpha._value > 1.0:
-            raise ValueError(f'{gt_err_msg}{alpha}')
-    else:
-        if alpha < 0.0:
-            raise ValueError(f'{lt_err_msg}{alpha}')
-        if alpha > 1.0:
-            raise ValueError(f'{gt_err_msg}{alpha}')

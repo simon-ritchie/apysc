@@ -68,7 +68,7 @@ class BeginFillInterface(RevertInterface):
         number_validation.validate_num(num=alpha)
         if not isinstance(alpha, ap.Number):
             alpha = cast.to_float_from_int(int_or_float=alpha)
-        color_validation.validate_alpha_range(alpha=alpha)
+        number_validation.validate_number_is_0_to_1_range(alpha=alpha)
         if isinstance(alpha, ap.Number):
             self._fill_alpha.value = alpha.value
         else:

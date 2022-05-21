@@ -91,3 +91,30 @@ def test_validate_nums_are_int_and_gt_zero() -> None:
         expected_error_class=ValueError,
         callable_=number_validation.validate_nums_are_int_and_gt_zero,
         nums=[0])
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_number_is_0_to_1_range() -> None:
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=number_validation.validate_number_is_0_to_1_range,
+        alpha=-0.1)
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=number_validation.validate_number_is_0_to_1_range,
+        alpha=1.1)
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=number_validation.validate_number_is_0_to_1_range,
+        alpha=ap.Number(-0.1))
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=number_validation.validate_number_is_0_to_1_range,
+        alpha=ap.Number(1.1))
+
+    number_validation.validate_number_is_0_to_1_range(alpha=0.0)
+    number_validation.validate_number_is_0_to_1_range(alpha=1.0)
+
+    number_validation.validate_number_is_0_to_1_range(alpha=ap.Number(0.0))
+    number_validation.validate_number_is_0_to_1_range(alpha=ap.Number(1.0))

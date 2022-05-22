@@ -38,6 +38,9 @@ Mainly the following decorators exist.
 - is_animations
     - Set the validation to check a specified argument's type
         is the list of `ap.AnimationBase`.
+- is_vars_dict
+    - Set the validation to check a specified argument's value
+        is a variables' dictionary.
 """
 
 import functools
@@ -996,6 +999,95 @@ def is_animations(*, arg_position_index: int) -> _F:
                     f'non-animation instance: {type(animation)}'
                     f'Invalid index: {i}'
                     f'\n{callable_and_arg_names_msg}')
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_vars_dict(
+        *, arg_position_index: int, optional: bool = True) -> _F:
+    """
+    Set the validation to check a specified argument's value
+    is a variables' dictionary.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    optional : bool, optional
+        A boolean indicating whether a target argument accepts
+        optional None value or not.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        """
+        Wrapping function for a decorator setting.
+
+        Parameters
+        ----------
+        callable_ : Callable
+            A target function or method to wrap.
+
+        Returns
+        -------
+        inner_wrapped : Callable
+            Wrapped callable object.
+        """
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            """
+            Wrapping function for a decorator setting.
+
+            Parameters
+            ----------
+            *args : list
+                Target positional arguments.
+            **kwargs : dict
+                Target keyword arguments.
+
+            Returns
+            -------
+            result : Any
+                A return value(s) of a callable execution result.
+            """
+            vars_dict: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+
+            if optional and not (isinstance(vars_dict, dict) or vars_dict is None):
+                raise TypeError(
+                    'A specified variables argument value is not a dictionary '
+                    f'or None: {type(vars_dict)}'
+                    f'\nDictionary value: {vars_dict}'
+                    f'\n{callable_and_arg_names_msg}')
+
+            if not optional and not isinstance(vars_dict, dict):
+                raise TypeError(
+                    'A specified variables argument value is not '
+                    f'a dictionary: {vars_dict}'
+                    f'\n{callable_and_arg_names_msg}')
+
+            if isinstance(vars_dict, dict):
+                for key in vars_dict.keys():
+                    if isinstance(key, str):
+                        continue
+                    raise ValueError(
+                        'A specified variables argument dictionary\'s '
+                        f'key cannot contain a non-str value: {type(key)}'
+                        f', {key}'
+                        f'\n{callable_and_arg_names_msg}')
 
             result: Any = callable_(*args, **kwargs)
             return result

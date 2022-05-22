@@ -1,5 +1,5 @@
 from random import randint
-from typing import Any
+from typing import Any, Dict, Optional
 from typing import Callable
 from typing import List
 from typing import Union
@@ -348,3 +348,41 @@ def test_is_apysc_boolean() -> None:
         a=True)
 
     _test_func(a=ap.Boolean(True))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_vars_dict() -> None:
+
+    @arg_validation_decos.is_vars_dict(arg_position_index=0)
+    def _test_func_1(*, a: Optional[Dict[str, Any]]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError, callable_=_test_func_1,
+        match='A specified variables argument value is not a '
+        'dictionary or None',
+        a=10)
+    assert_raises(
+        expected_error_class=ValueError, callable_=_test_func_1,
+        match='A specified variables argument dictionary\'s '
+        'key cannot contain a non-str value:',
+        a={10: 20})
+    _test_func_1(a=None)
+    _test_func_1(a={'b': 10})
+
+    @arg_validation_decos.is_vars_dict(arg_position_index=0, optional=False)
+    def _test_func_2(*, a: Dict[str, Any]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError, callable_=_test_func_2,
+        match='A specified variables argument value is not '
+        'a dictionary:',
+        a=None)
+    assert_raises(
+        expected_error_class=TypeError, callable_=_test_func_2,
+        match='A specified variables argument value is not '
+        'a dictionary:',
+        a=10)
+    _test_func_2(a={'b': 10})
+

@@ -7,6 +7,7 @@ from typing import Optional
 
 from apysc._branch.if_base import IfBase
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 
 class Else(IfBase):
@@ -35,6 +36,8 @@ class Else(IfBase):
     ...     ap.trace('Value is less than 11.')
     """
 
+    @arg_validation_decos.is_vars_dict(arg_position_index=1)
+    @arg_validation_decos.is_vars_dict(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='Else')
     def __init__(

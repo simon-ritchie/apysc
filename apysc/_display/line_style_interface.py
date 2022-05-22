@@ -119,7 +119,6 @@ class LineStyleInterface(RevertInterface):
         """
         import apysc as ap
         from apysc._color import color_util
-        from apysc._validation import color_validation
         from apysc._validation import display_validation
         from apysc._validation import number_validation
 

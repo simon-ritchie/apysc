@@ -4,21 +4,6 @@
 
 Validations related to color.
 
-## `validate_alpha_range` function docstring
-
-Validate specified alpha (opacity) value's range.<hr>
-
-**[Parameters]**
-
-- `alpha`: float or Number
-  - Opacity value to check.
-
-<hr>
-
-**[Raises]**
-
-- ValueError: If a specified opacity is out of the 0.0 to 1.0 range.
-
 ## `validate_hex_color_code_format` function docstring
 
 Validate a specified hexadecimal color code format.<hr>

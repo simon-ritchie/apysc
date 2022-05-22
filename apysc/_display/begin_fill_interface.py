@@ -57,7 +57,6 @@ class BeginFillInterface(RevertInterface):
         import apysc as ap
         from apysc._color import color_util
         from apysc._converter import cast
-        from apysc._validation import color_validation
         from apysc._validation import number_validation
         self._initialize_fill_color_if_not_initialized()
         self._initialize_fill_alpha_if_not_initialized()

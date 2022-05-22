@@ -125,7 +125,6 @@ class LineAlphaInterface(
             Line alpha (opacity) to set.
         """
         import apysc as ap
-        from apysc._validation import color_validation
         from apysc._validation import number_validation
         number_validation.validate_num(num=value)
         number_validation.validate_num_is_0_to_1_range(num=value)

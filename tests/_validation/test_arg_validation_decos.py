@@ -332,3 +332,19 @@ def test_is_animations() -> None:
         a=[
             sprite.animation_x(x=10),
         ])
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_apysc_boolean() -> None:
+
+    @arg_validation_decos.is_apysc_boolean(arg_position_index=0)
+    def _test_func(*, a: ap.Boolean) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        match='A specified argument value is not a `Boolean` type: ',
+        a=True)
+
+    _test_func(a=ap.Boolean(True))

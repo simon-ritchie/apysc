@@ -86,10 +86,6 @@ class TestIf:
         )
         assert expected in expression
 
-        with pytest.raises(ValueError):  # type: ignore
-            with ap.If(None, locals_=locals(), globals_=globals()):
-                pass
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_exit_expression(self) -> None:
         expression_data_util.empty_expression()

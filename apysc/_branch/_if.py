@@ -8,6 +8,7 @@ from typing import Optional
 from apysc._branch.if_base import IfBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
+from apysc._validation import arg_validation_decos
 
 
 class If(IfBase):
@@ -30,6 +31,9 @@ class If(IfBase):
     ...     ap.trace('Int value is greater than equal 10!')
     """
 
+    @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
+    @arg_validation_decos.is_vars_dict(arg_position_index=2)
+    @arg_validation_decos.is_vars_dict(arg_position_index=3)
     @add_debug_info_setting(
         module_name=__name__, class_name='If')
     def __init__(

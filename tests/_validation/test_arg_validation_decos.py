@@ -65,36 +65,39 @@ def test_not_empty_string() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_arg_value() -> None:
+
+    def _test_func_1(*, a: int) -> None:
+        ...
+
     value: Any = arg_validation_decos._extract_arg_value(
         args=[],
         kwargs={'a': 'Test message 1'},
         arg_position_index=0,
-        arg_name='a',
-        default_val=None)
+        callable_=_test_func_1)
     assert value == 'Test message 1'
 
     value = arg_validation_decos._extract_arg_value(
         args=['Test message 2'],
         kwargs={},
         arg_position_index=0,
-        arg_name='a',
-        default_val=None)
+        callable_=_test_func_1)
     assert value == 'Test message 2'
 
     value = arg_validation_decos._extract_arg_value(
         args=[],
         kwargs={},
         arg_position_index=0,
-        arg_name='a',
-        default_val=None)
+        callable_=_test_func_1)
     assert value is None
+
+    def _test_func_2(*, a: str = 'Hello!') -> None:
+        ...
 
     value = arg_validation_decos._extract_arg_value(
         args=[],
         kwargs={},
         arg_position_index=0,
-        arg_name='a',
-        default_val='Hello!')
+        callable_=_test_func_2)
     assert value == 'Hello!'
 
 
@@ -161,7 +164,7 @@ def test__get_callable_and_arg_names_msg() -> None:
 
     callable_and_arg_names_msg: str = arg_validation_decos.\
         _get_callable_and_arg_names_msg(
-            callable_=_test_func, arg_name='a')
+            callable_=_test_func, arg_position_index=0)
     assert callable_and_arg_names_msg == (
         'Target callable name: _test_func'
         '\nTarget argument name: a'

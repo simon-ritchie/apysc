@@ -1,5 +1,5 @@
 from random import randint
-from typing import Any
+from typing import Any, List
 from typing import Callable
 from typing import Union
 
@@ -304,3 +304,30 @@ def test_num_is_0_to_1_range() -> None:
 
     _test_func(a=0.0)
     _test_func(a=1.0)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_animations() -> None:
+
+    @arg_validation_decos.is_animations(arg_position_index=0)
+    def _test_func(*, a: List[ap.AnimationBase]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        match='A specified animations list must be a list:',
+        a=10)
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        match='A specified animations\' list cannot contain '
+        'non-animation instance:',
+        a=[10, 20])
+
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
+    _test_func(
+        a=[
+            sprite.animation_x(x=10),
+        ])

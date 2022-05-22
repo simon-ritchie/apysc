@@ -7,10 +7,17 @@ from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_move import AnimationMove
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class AnimationMoveInterface(AnimationInterfaceBase):
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_easing(arg_position_index=5)
     def animation_move(
             self,
             *,

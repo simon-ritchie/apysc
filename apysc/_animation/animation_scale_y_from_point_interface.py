@@ -10,10 +10,17 @@ from apysc._animation.animation_scale_y_from_point import \
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.number import Number
+from apysc._validation import arg_validation_decos
 
 
 class AnimationScaleYFromPointInterface(AnimationInterfaceBase):
 
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_easing(arg_position_index=5)
     def animation_scale_y_from_point(
             self,
             *,

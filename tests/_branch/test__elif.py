@@ -43,12 +43,6 @@ class TestElif:
 
         with ap.If(boolean_1, locals_=locals(), globals_=globals()):
             pass
-        with pytest.raises(
-                ValueError,
-                match=r'Elif expression\'s condition argument '
-                      r'can\'t be set None.'):  # type: ignore
-            with ap.Elif(None, locals_=locals(), globals_=globals()):
-                pass
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_last_scope(self) -> None:

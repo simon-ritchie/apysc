@@ -9,10 +9,16 @@ from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_parallel import AnimationParallel
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class AnimationParallelInterface(AnimationInterfaceBase):
 
+    @arg_validation_decos.is_animations(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_parallel(
             self,
             *,

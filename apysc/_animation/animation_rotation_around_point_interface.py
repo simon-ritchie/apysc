@@ -9,10 +9,18 @@ from apysc._animation.animation_rotation_around_point import \
     AnimationRotationAroundPoint
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class AnimationRotationAroundPointInterface(AnimationInterfaceBase):
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=4)
+    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.is_easing(arg_position_index=6)
     def animation_rotation_around_point(
             self,
             *,

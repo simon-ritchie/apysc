@@ -9,10 +9,16 @@ from apysc._animation.animation_rotation_around_center import \
     AnimationRotationAroundCenter
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class AnimationRotationAroundCenterInterface(AnimationInterfaceBase):
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_rotation_around_center(
             self,
             *,

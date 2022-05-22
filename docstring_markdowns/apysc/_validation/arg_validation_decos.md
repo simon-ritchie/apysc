@@ -2,7 +2,7 @@
 
 ## Module summary
 
-This module is for the argument validations' decorators. Mainly the following decorators exist. <br>・not_empty_string <br> ・Set the validation to check that a specified argument's string is not empty. <br>・handler_args_num <br> ・Set the validation to check a specified handler argument's number. <br>・handler_options_type <br> ・Set the validation to check a specified handler-options argument's type. <br>・is_num <br> ・Set the validation to check a specified argument's type is the number-related type. <br>・is_integer <br> ・Set the validation to check a specified argument's type is the `int` or `ap.Int`. <br>・num_is_gt_zero <br> ・Set the validation to check that a specified argument's value is greater than zero. <br>・num_is_gte_zero <br> ・Set the validation to check that a specified argument's value is greater than or equal to zero. <br>・num_is_0_to_1_range <br> ・Set the validation to check that a specified argument's value is 0.0 to 1.0 range. <br>・is_easing <br> ・Set the validation to check a specified argument's type is the `ap.Easing`. <br>・is_hex_color_code_format <br> ・Set the validation to check a specified argument's value is a hexadecimal color code format.
+This module is for the argument validations' decorators. Mainly the following decorators exist. <br>・not_empty_string <br> ・Set the validation to check that a specified argument's string is not empty. <br>・handler_args_num <br> ・Set the validation to check a specified handler argument's number. <br>・handler_options_type <br> ・Set the validation to check a specified handler-options argument's type. <br>・is_num <br> ・Set the validation to check a specified argument's type is the number-related type. <br>・is_integer <br> ・Set the validation to check a specified argument's type is the `int` or `ap.Int`. <br>・num_is_gt_zero <br> ・Set the validation to check that a specified argument's value is greater than zero. <br>・num_is_gte_zero <br> ・Set the validation to check that a specified argument's value is greater than or equal to zero. <br>・num_is_0_to_1_range <br> ・Set the validation to check that a specified argument's value is 0.0 to 1.0 range. <br>・is_easing <br> ・Set the validation to check a specified argument's type is the `ap.Easing`. <br>・is_hex_color_code_format <br> ・Set the validation to check a specified argument's value is a hexadecimal color code format. <br>・is_animations <br> ・Set the validation to check a specified argument's type is the list of `ap.AnimationBase`.
 
 ## `_extract_arg_value` function docstring
 
@@ -99,6 +99,22 @@ Set the validation to check a specified handler argument's number.<hr>
 ## `handler_options_type` function docstring
 
 Set the validation to check a specified handler-options argument's type.<hr>
+
+**[Parameters]**
+
+- `arg_position_index`: int
+  - A target argument position index.
+
+<hr>
+
+**[Returns]**
+
+- `wrapped`: Callable
+  - Wrapped callable object.
+
+## `is_animations` function docstring
+
+Set the validation to check a specified argument's type is the list of `ap.AnimationBase`.<hr>
 
 **[Parameters]**
 

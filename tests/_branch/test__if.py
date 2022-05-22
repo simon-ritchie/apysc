@@ -2,7 +2,6 @@ from random import randint
 from typing import Any
 from typing import Dict
 
-import pytest
 from retrying import retry
 
 import apysc as ap

@@ -1,7 +1,9 @@
 from random import randint
-from typing import Any, Dict, Optional
+from typing import Any
 from typing import Callable
+from typing import Dict
 from typing import List
+from typing import Optional
 from typing import Union
 
 from retrying import retry
@@ -385,4 +387,3 @@ def test_is_vars_dict() -> None:
         'a dictionary:',
         a=10)
     _test_func_2(a={'b': 10})
-

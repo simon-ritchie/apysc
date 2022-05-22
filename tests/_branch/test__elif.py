@@ -2,7 +2,6 @@ from random import randint
 from typing import Any
 from typing import Dict
 
-import pytest
 from pytest import raises
 from retrying import retry
 

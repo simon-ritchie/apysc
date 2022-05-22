@@ -1066,7 +1066,10 @@ def is_vars_dict(
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index)
 
-            if optional and not (isinstance(vars_dict, dict) or vars_dict is None):
+            if optional and not (
+                isinstance(
+                    vars_dict,
+                    dict) or vars_dict is None):
                 raise TypeError(
                     'A specified variables argument value is not a dictionary '
                     f'or None: {type(vars_dict)}'

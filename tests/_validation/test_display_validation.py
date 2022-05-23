@@ -142,3 +142,22 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         match=r"'LineRoundDotSetting', 'LineDashDotSetting'",
         any_instance=sprite.graphics,)
     delattr(sprite.graphics, '_line_round_dot_setting')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_display_object_container() -> None:
+    stage: ap.Stage = ap.Stage()
+    display_validation.validate_display_object_container(
+        container_object=stage)
+    sprite: ap.Sprite = ap.Sprite()
+    display_validation.validate_display_object_container(
+        container_object=sprite)
+
+    rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        x=0, y=0, width=50, height=50)
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=display_validation.validate_display_object_container,
+        match='\nTest error!',
+        container_object=rectangle,
+        additional_err_msg='Test error!')

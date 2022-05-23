@@ -5,8 +5,11 @@ Mainly following interfaces are defined:
 - validate_stage
     Validate whether the specified instance is Stage type or not.
 - validate_display_object
-    Validate whether a  specified instance is the
-    `DisplayObject` type or its subclass type (e.g., Sprite).
+    Validate whether a specified instance is the
+    `DisplayObject` type or its subclass type (e.g., `Sprite`).
+- validate_display_object_container
+    Validate whether a specified instance is a container type
+    of a `DisplayObject` instance (e.g., `Sprite`, `Stage`).
 - validate_sprite
     Validate specified instance is Sprite type.
 - validate_graphics
@@ -56,14 +59,14 @@ def validate_display_object(
     Parameters
     ----------
     display_object : DisplayObject
-        DisplayObject instance to check.
+        A `DisplayObject` instance to check.
     additional_err_msg : str, optional
         An additional error message to display.
 
     Raises
     ------
     ValueError
-        If a specified instance is not DisplayObject type
+        If a specified instance is not `DisplayObject` type
         or its subclass type.
     """
     from apysc._display.display_object import DisplayObject
@@ -72,8 +75,38 @@ def validate_display_object(
     if additional_err_msg != '':
         additional_err_msg = f'\n{additional_err_msg}'
     raise ValueError(
-        'Specified instance is not DisplayObject or it\'s subclass type: '
+        'A specified instance is not DisplayObject or it\'s subclass type: '
         f'{type(display_object)}{additional_err_msg}')
+
+
+def validate_display_object_container(
+        *, container_object: Any,
+        additional_err_msg: str = '') -> None:
+    """
+    Validate whether a specified instance is a container type
+    of a `DisplayObject` instance (e.g., `Sprite`, `Stage`).
+
+    Parameters
+    ----------
+    container_object : Any
+        A target container instance to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
+
+    Raises
+    ------
+    ValueError
+        If a specified instance is not a container type instance.
+    """
+    from apysc._display.child_interface import ChildInterface
+    if isinstance(container_object, ChildInterface):
+        return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
+    raise ValueError(
+        'A specified instance is not a container type (e.g., '
+        f'`Sprite`, `Stage`) instance: {type(container_object)}'
+        f'{additional_err_msg}')
 
 
 def validate_sprite(*, sprite: Any) -> None:

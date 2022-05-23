@@ -13,6 +13,7 @@ from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage
@@ -24,6 +25,7 @@ class ChildInterface(RevertInterface):
     _variable_name: str
     stage: 'Stage'
 
+    @arg_validation_decos.is_display_object(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='ChildInterface')
     def add_child(self, child: DisplayObject) -> None:
@@ -69,6 +71,7 @@ class ChildInterface(RevertInterface):
             return
         self._children = Array([])
 
+    @arg_validation_decos.is_display_object(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='ChildInterface')
     def remove_child(self, child: DisplayObject) -> None:
@@ -106,6 +109,7 @@ class ChildInterface(RevertInterface):
             child.parent = None
             return
 
+    @arg_validation_decos.is_display_object(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='ChildInterface')
     def contains(self, child: DisplayObject) -> Boolean:
@@ -225,6 +229,7 @@ class ChildInterface(RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='ChildInterface')
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:

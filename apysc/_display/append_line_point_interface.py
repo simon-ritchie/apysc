@@ -6,12 +6,15 @@ from typing import Union
 from apysc._display.points_2d_interface import Points2DInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class AppendLinePointInterface(Points2DInterface):
 
     _points_var_name: str
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='AppendLinePointInterface')
     def append_line_point(

@@ -14,6 +14,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -23,6 +24,9 @@ class BeginFillInterface(RevertInterface):
     _fill_color: String
     _fill_alpha: Number
 
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='BeginFillInterface')
     def begin_fill(

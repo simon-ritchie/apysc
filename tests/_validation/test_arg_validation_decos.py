@@ -387,3 +387,20 @@ def test_is_vars_dict() -> None:
         'a dictionary:',
         a=10)
     _test_func_2(a={'b': 10})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_display_object() -> None:
+
+    @arg_validation_decos.is_display_object(arg_position_index=0)
+    def _test_func(*, a: ap.DisplayObject) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        a=100)
+
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
+    _test_func(a=sprite)

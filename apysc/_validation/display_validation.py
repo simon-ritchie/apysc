@@ -46,7 +46,9 @@ def validate_stage(*, stage: Any) -> None:
         f'Specified instance is not Stage type: {type(stage)}')
 
 
-def validate_display_object(*, display_object: Any) -> None:
+def validate_display_object(
+        *, display_object: Any,
+        additional_err_msg: str = '') -> None:
     """
     Validate whether a  specified instance is the
     `DisplayObject` type or its subclass type (e.g., Sprite).
@@ -55,6 +57,8 @@ def validate_display_object(*, display_object: Any) -> None:
     ----------
     display_object : DisplayObject
         DisplayObject instance to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
@@ -65,9 +69,11 @@ def validate_display_object(*, display_object: Any) -> None:
     from apysc._display.display_object import DisplayObject
     if isinstance(display_object, DisplayObject):
         return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
     raise ValueError(
         'Specified instance is not DisplayObject or it\'s subclass type: '
-        f'{type(display_object)}')
+        f'{type(display_object)}{additional_err_msg}')
 
 
 def validate_sprite(*, sprite: Any) -> None:

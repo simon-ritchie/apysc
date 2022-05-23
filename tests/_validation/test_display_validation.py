@@ -26,7 +26,9 @@ def test_validate_display_object() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_display_object,
-        display_object=stage)
+        match='\nTest error!',
+        display_object=stage,
+        additional_err_msg='Test error!')
 
     sprite: ap.Sprite = ap.Sprite()
     display_validation.validate_display_object(display_object=sprite)

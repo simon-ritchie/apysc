@@ -422,3 +422,20 @@ def test_is_display_object_container() -> None:
         expected_error_class=ValueError,
         callable_=_test_func,
         a=100)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_string() -> None:
+
+    @arg_validation_decos.is_string(arg_position_index=0)
+    def _test_func(*, a: Union[str, ap.String]) -> None:
+        ...
+
+    _test_func(a='Hello!')
+    _test_func(a=ap.String('Hello!'))
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        a=100,
+    )

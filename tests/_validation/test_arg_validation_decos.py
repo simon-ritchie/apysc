@@ -439,3 +439,20 @@ def test_is_string() -> None:
         callable_=_test_func,
         a=100,
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_apysc_num() -> None:
+
+    @arg_validation_decos.is_apysc_num(arg_position_index=0)
+    def _test_func(*, a: Union[ap.Int, ap.Number]) -> None:
+        ...
+
+    _test_func(a=ap.Int(10))
+    _test_func(a=ap.Number(10))
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=10,
+    )

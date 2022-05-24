@@ -404,3 +404,21 @@ def test_is_display_object() -> None:
     ap.Stage()
     sprite: ap.Sprite = ap.Sprite()
     _test_func(a=sprite)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_display_object_container() -> None:
+
+    @arg_validation_decos.is_display_object_container(arg_position_index=0)
+    def _test_func(*, a: Union[ap.Sprite, ap.Stage]) -> None:
+        ...
+
+    stage: ap.Stage = ap.Stage()
+    _test_func(a=stage)
+    sprite: ap.Sprite = ap.Sprite()
+    _test_func(a=sprite)
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        a=100)

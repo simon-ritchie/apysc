@@ -8,6 +8,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class CssInterface(VariableNameInterface, RevertInterface):
@@ -23,6 +24,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             return
         self._css = {}
 
+    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='CssInterface')
     def get_css(self, *, name: Union[str, String]) -> String:
@@ -92,6 +94,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='CssInterface')
     def set_css(

@@ -14,7 +14,9 @@ def test_validate_string_type() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=string_validation.validate_string_type,
-        string=100)
+        match='\nTest error!',
+        string=100,
+        additional_err_msg='Test error!')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

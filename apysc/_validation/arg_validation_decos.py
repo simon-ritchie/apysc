@@ -899,6 +899,7 @@ def is_string(*, arg_position_index: int) -> _F:
             Wrapped callable object.
         """
 
+        @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             """
             Wrapping function for a decorator setting.

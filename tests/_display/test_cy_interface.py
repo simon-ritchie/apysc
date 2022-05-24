@@ -28,9 +28,6 @@ class TestCyInterface:
         interface.y = ap.Int(10)
         assert interface.y == 10
 
-        interface.y = 20  # type: ignore
-        assert interface.y == 20
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_cy_update_expression(self) -> None:
         expression_data_util.empty_expression()

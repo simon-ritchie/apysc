@@ -78,7 +78,7 @@ class CxInterface(
 
         Parameters
         ----------
-        value : int or Int
+        value : Int
             Center x-coordinate value.
 
         References
@@ -91,11 +91,6 @@ class CxInterface(
                 callable_='x', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=CxInterface.__name__):
-            import apysc as ap
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=value)
-            if not isinstance(value, ap.Int):
-                value = ap.Int(value)
             self._cx = value
             self._cx._append_incremental_calc_substitution_expression()
             self._append_cx_update_expression()

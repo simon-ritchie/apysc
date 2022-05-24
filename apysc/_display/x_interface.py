@@ -81,7 +81,7 @@ class XInterface(
 
         Parameters
         ----------
-        value : int or Int
+        value : Int
             X-coordinate value.
 
         References
@@ -94,12 +94,6 @@ class XInterface(
                 callable_='x', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=XInterface.__name__):
-            import apysc as ap
-            from apysc._type.number_value_interface import NumberValueInterface
-            from apysc._validation import number_validation
-            if not isinstance(value, NumberValueInterface):
-                number_validation.validate_integer(integer=value)
-                value = ap.Int(value=value)
             self._x = value
             self._x._append_incremental_calc_substitution_expression()
             self._append_x_update_expression()

@@ -30,9 +30,6 @@ class TestCxInterface:
         interface.x = ap.Int(10)
         assert interface.x == 10
 
-        interface.x = 20  # type: ignore
-        assert interface.x == 20
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_cx_update_expression(self) -> None:
         expression_data_util.empty_expression()

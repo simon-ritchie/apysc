@@ -78,7 +78,7 @@ class CyInterface(
 
         Parameters
         ----------
-        value : int or Int
+        value : Int
             Center y-coordinate value.
 
         References
@@ -91,11 +91,6 @@ class CyInterface(
                 callable_='y', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=CyInterface.__name__):
-            import apysc as ap
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=value)
-            if not isinstance(value, ap.Int):
-                value = ap.Int(value)
             self._cy = value
             self._cy._append_incremental_calc_substitution_expression()
             self._append_cy_update_expression()

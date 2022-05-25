@@ -76,7 +76,7 @@ class YInterface(
         return y
 
     @y.setter
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def y(self, value: Int) -> None:
         """
         Update y-coordinate.

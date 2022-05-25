@@ -24,6 +24,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class Graphics(
@@ -112,10 +113,17 @@ class Graphics(
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_rect(
-            self, *, x: Union[int, Int],
+            self, *,
+            x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
             height: Union[int, Int]) -> Rectangle:
@@ -165,10 +173,21 @@ class Graphics(
         self.add_child(child=rectangle)
         return rectangle
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
+    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
+    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_round_rect(
-            self, *, x: Union[int, Int],
+            self, *,
+            x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
             height: Union[int, Int],
@@ -229,6 +248,10 @@ class Graphics(
         self.add_child(child=rectangle)
         return rectangle
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_circle(
@@ -284,6 +307,12 @@ class Graphics(
         self.add_child(child=circle)
         return circle
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_ellipse(
@@ -345,10 +374,13 @@ class Graphics(
         self.add_child(child=ellipse)
         return ellipse
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def line_to(
-            self, *, x: Union[int, Int],
+            self, *,
+            x: Union[int, Int],
             y: Union[int, Int]) -> '_polyline.Polyline':
         """
         Draw a line from previous point to specified point (initial
@@ -399,6 +431,8 @@ class Graphics(
             self._current_line.append_line_point(x=x, y=y)
         return self._current_line
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def move_to(
@@ -463,6 +497,10 @@ class Graphics(
         self._line_round_dot_setting = None
         self._line_dash_dot_setting = None
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_line(
@@ -526,6 +564,12 @@ class Graphics(
         self.add_child(child=line)
         return line
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_dotted_line(
@@ -597,6 +641,14 @@ class Graphics(
         self.add_child(child=line)
         return line
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
+    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_dashed_line(
@@ -673,6 +725,14 @@ class Graphics(
         self.add_child(child=line)
         return line
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
+    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_round_dotted_line(
@@ -749,6 +809,16 @@ class Graphics(
         self.add_child(child=line)
         return line
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
+    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
+    @arg_validation_decos.is_integer(arg_position_index=7)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=7)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_dash_dotted_line(

@@ -10,6 +10,7 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class FillAlphaInterface(
@@ -76,6 +77,8 @@ class FillAlphaInterface(
         return fill_alpha
 
     @fill_alpha.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)
     def fill_alpha(
             self, value: Number) -> None:
         """
@@ -83,7 +86,7 @@ class FillAlphaInterface(
 
         Parameters
         ----------
-        value : float or Number
+        value : Number
             Fill opacity to set.
 
         References
@@ -96,9 +99,6 @@ class FillAlphaInterface(
                 callable_='fill_alpha', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=FillAlphaInterface.__name__):
-            import apysc as ap
-            if not isinstance(value, NumberValueInterface):
-                value = ap.Number(value=value)
             self._update_fill_alpha_and_skip_appending_exp(value=value)
             self._fill_alpha._append_incremental_calc_substitution_expression()
             self._append_fill_alpha_update_expression()

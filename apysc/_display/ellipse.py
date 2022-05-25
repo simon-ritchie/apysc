@@ -11,6 +11,7 @@ from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class Ellipse(  # type: ignore
@@ -48,6 +49,13 @@ class Ellipse(  # type: ignore
     String('#00aaff')
     """
 
+    @arg_validation_decos.is_display_object_container(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
+    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     @add_debug_info_setting(
         module_name=__name__, class_name='Ellipse')
     def __init__(
@@ -106,13 +114,10 @@ class Ellipse(  # type: ignore
             get_copied_int_from_builtin_val
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._validation import size_validation
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.ELLIPSE)
         super(Ellipse, self).__init__(
             parent=parent, x=0, y=0, variable_name=variable_name)
-        size_validation.validate_size_is_gt_zero(size=width)
-        size_validation.validate_size_is_gt_zero(size=height)
         self._width = get_copied_int_from_builtin_val(integer=width)
         self._height = get_copied_int_from_builtin_val(integer=height)
         self._set_initial_basic_values(parent=parent)

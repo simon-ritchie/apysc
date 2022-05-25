@@ -8,6 +8,7 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class EllipseWidthInterface(
@@ -67,6 +68,7 @@ class EllipseWidthInterface(
         return value_util.get_copy(value=self._ellipse_width)
 
     @ellipse_width.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def ellipse_width(self, value: Int) -> None:
         """
         Update ellipse width value.
@@ -81,11 +83,6 @@ class EllipseWidthInterface(
                 callable_='ellipse_height', args=[], kwargs={},
                 module_name=__name__,
                 class_name=EllipseWidthInterface.__name__):
-            import apysc as ap
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=value)
-            if isinstance(value, int):
-                value = ap.Int(value)
             self._ellipse_width = value
             self._ellipse_width.\
                 _append_incremental_calc_substitution_expression()

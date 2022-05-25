@@ -28,9 +28,6 @@ class TestEllipseWidthInterface:
         interface.ellipse_width = ap.Int(10)
         assert interface.ellipse_width == 10
 
-        interface.ellipse_width = 20  # type: ignore
-        assert interface.ellipse_width == 20
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_width_update_expression(self) -> None:
         expression_data_util.empty_expression()

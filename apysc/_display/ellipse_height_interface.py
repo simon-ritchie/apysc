@@ -8,6 +8,7 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class EllipseHeightInterface(
@@ -67,13 +68,14 @@ class EllipseHeightInterface(
         return value_util.get_copy(value=self._ellipse_height)
 
     @ellipse_height.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def ellipse_height(self, value: Int) -> None:
         """
         Update ellipse height value.
 
         Parameters
         ----------
-        value : int or Int
+        value : Int
             Ellipse height value.
         """
         from apysc._html.debug_mode import DebugInfo
@@ -81,11 +83,6 @@ class EllipseHeightInterface(
                 callable_='ellipse_height', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=EllipseHeightInterface.__name__):
-            import apysc as ap
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=value)
-            if isinstance(value, int):
-                value = ap.Int(value)
             self._ellipse_height = value
             self._ellipse_height.\
                 _append_incremental_calc_substitution_expression()

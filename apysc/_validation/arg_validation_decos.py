@@ -513,8 +513,7 @@ def is_apysc_num(*, arg_position_index: int) -> _F:
             result : Any
                 A return value(s) of a callable execution result.
             """
-            from apysc._type.number_value_interface import \
-                NumberValueInterface
+            from apysc._type.number_value_interface import NumberValueInterface
             num: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, callable_=callable_)

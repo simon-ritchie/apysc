@@ -163,7 +163,7 @@ def validate_line_cap(*, cap: Any) -> None:
     Raises
     ------
     ValueError
-        If specified cap setting type is not LineCaps or not defined
+        If a specified cap setting type is not LineCaps or not defined
         string value.
     """
     import apysc as ap

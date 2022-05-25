@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Each display's validation implementations. Mainly following interfaces are defined: <br>・validate_stage Validate whether the specified instance is Stage type or not. <br>・validate_display_object Validate whether a specified instance is the `DisplayObject` type or its subclass type (e.g., Sprite). <br>・validate_sprite Validate specified instance is Sprite type. <br>・validate_graphics Validate specified instance is Graphics type. <br>・validate_line_cap Validate specified line cap style setting. <br>・validate_line_joints Validate specified line joints style setting. <br>・validate_multiple_line_settings_isnt_set Validate that there are no multiple line settings (dotted, dashed, and so on).
+Each display's validation implementations. Mainly following interfaces are defined: <br>・validate_stage Validate whether the specified instance is Stage type or not. <br>・validate_display_object Validate whether a specified instance is the `DisplayObject` type or its subclass type (e.g., `Sprite`). <br>・validate_display_object_container Validate whether a specified instance is a container type of a `DisplayObject` instance (e.g., `Sprite`, `Stage`). <br>・validate_sprite Validate specified instance is Sprite type. <br>・validate_graphics Validate specified instance is Graphics type. <br>・validate_line_cap Validate specified line cap style setting. <br>・validate_line_joints Validate specified line joints style setting. <br>・validate_multiple_line_settings_isnt_set Validate that there are no multiple line settings (dotted, dashed, and so on).
 
 ## `validate_display_object` function docstring
 
@@ -11,13 +11,32 @@ Validate whether a specified instance is the `DisplayObject` type or its subclas
 **[Parameters]**
 
 - `display_object`: DisplayObject
-  - DisplayObject instance to check.
+  - A `DisplayObject` instance to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 
 **[Raises]**
 
-- ValueError: If a specified instance is not DisplayObject type or its subclass type.
+- ValueError: If a specified instance is not `DisplayObject` type or its subclass type.
+
+## `validate_display_object_container` function docstring
+
+Validate whether a specified instance is a container type of a `DisplayObject` instance (e.g., `Sprite`, `Stage`).<hr>
+
+**[Parameters]**
+
+- `container_object`: Any
+  - A target container instance to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
+
+<hr>
+
+**[Raises]**
+
+- ValueError: If a specified instance is not a container type instance.
 
 ## `validate_graphics` function docstring
 
@@ -47,7 +66,7 @@ Validate specified line cap style setting.<hr>
 
 **[Raises]**
 
-- ValueError: If specified cap setting type is not LineCaps or not defined string value.
+- ValueError: If a specified cap setting type is not LineCaps or not defined string value.
 
 ## `validate_line_joints` function docstring
 

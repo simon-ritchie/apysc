@@ -10,6 +10,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class FillColorInterface(
@@ -54,6 +55,7 @@ class FillColorInterface(
         return fill_color
 
     @fill_color.setter
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
     def fill_color(self, value: String) -> None:
         """
         Update this instance's fill color.

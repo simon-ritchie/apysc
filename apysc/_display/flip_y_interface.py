@@ -8,6 +8,7 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class FlipYInterface(
@@ -75,6 +76,7 @@ class FlipYInterface(
         return value_util.get_copy(value=self._flip_y)
 
     @flip_y.setter
+    @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
     def flip_y(self, value: Boolean) -> None:
         """
         Update a y-axis flipping value.

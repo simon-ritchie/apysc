@@ -949,6 +949,7 @@ class Graphics(
         self.add_child(child=polygon)
         return polygon
 
+    @arg_validation_decos.is_path_data_list(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_path(

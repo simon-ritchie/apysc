@@ -64,9 +64,10 @@ Mainly the following decorators exist.
 import functools
 import inspect
 from inspect import Signature
-from typing import Any, List
+from typing import Any
 from typing import Callable
 from typing import Dict
+from typing import List
 from typing import TypeVar
 
 # pyright: reportInvalidTypeVarUse=false

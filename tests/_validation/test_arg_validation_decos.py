@@ -456,3 +456,32 @@ def test_is_apysc_num() -> None:
         callable_=_test_func,
         a=10,
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_points() -> None:
+
+    @arg_validation_decos.is_points(arg_position_index=0)
+    def _test_func(
+            *, a: Union[List[ap.Point2D], ap.Array[ap.Point2D]]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=100,
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=[100, ap.Point2D(x=10, y=20)],
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=ap.Array([100, ap.Point2D(x=10, y=20)]),
+    )
+
+    _test_func(a=[ap.Point2D(x=10, y=20), ap.Point2D(x=30, y=40)])
+    _test_func(
+        a=ap.Array([ap.Point2D(x=10, y=20), ap.Point2D(x=30, y=40)]))

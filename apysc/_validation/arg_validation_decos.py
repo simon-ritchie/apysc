@@ -53,12 +53,15 @@ Mainly the following decorators exist.
 - is_display_object_container
     - Set the validation to check a specified argument's type
         is a container of a display object instance.
+- is_points
+    - Set the validation to check a specified argument's type
+        is the list of `ap.Point`.
 """
 
 import functools
 import inspect
 from inspect import Signature
-from typing import Any
+from typing import Any, List
 from typing import Callable
 from typing import Dict
 from typing import TypeVar
@@ -1375,6 +1378,89 @@ def is_display_object_container(*, arg_position_index: int) -> _F:
             validate_display_object_container(
                 container_object=container_object,
                 additional_err_msg=callable_and_arg_names_msg)
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_points(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the list of `ap.Point`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        """
+        Wrapping function for a decorator setting.
+
+        Parameters
+        ----------
+        callable_ : Callable
+            A target function or method to wrap.
+
+        Returns
+        -------
+        inner_wrapped : Callable
+            Wrapped callable object.
+        """
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            """
+            Wrapping function for a decorator setting.
+
+            Parameters
+            ----------
+            *args : list
+                Target positional arguments.
+            **kwargs : dict
+                Target keyword arguments.
+
+            Returns
+            -------
+            result : Any
+                A return value(s) of a callable execution result.
+            """
+            import apysc as ap
+            points: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            if (
+                    not isinstance(points, list)
+                    and not isinstance(points, ap.Array)):
+                raise TypeError(
+                    'A specified points argument type is not the list or '
+                    f'ap.Array: {type(points)}'
+                    f'\n{callable_and_arg_names_msg}')
+
+            value: List[ap.Point2D] = []
+            if isinstance(points, list):
+                value = points
+            elif isinstance(points, ap.Array):
+                value = points._value
+            for point in value:
+                if isinstance(point, ap.Point2D):
+                    continue
+                raise TypeError(
+                    'A value in a points argument is a non-Point2D type: '
+                    f'{type(value)}'
+                    f'\n{callable_and_arg_names_msg}')
 
             result: Any = callable_(*args, **kwargs)
             return result

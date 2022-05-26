@@ -56,6 +56,9 @@ Mainly the following decorators exist.
 - is_points
     - Set the validation to check a specified argument's type
         is the list of `ap.Point`.
+- is_path_data_list
+    - Set the validation to check a specified argument's type
+        is the list of `ap.PathDataBase`.
 """
 
 import functools
@@ -1461,6 +1464,84 @@ def is_points(*, arg_position_index: int) -> _F:
                     'A value in a points argument is a non-Point2D type: '
                     f'{type(value)}'
                     f'\n{callable_and_arg_names_msg}')
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_path_data_list(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the list of `ap.PathDataBase`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        """
+        Wrapping function for a decorator setting.
+
+        Parameters
+        ----------
+        callable_ : Callable
+            A target function or method to wrap.
+
+        Returns
+        -------
+        inner_wrapped : Callable
+            Wrapped callable object.
+        """
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            """
+            Wrapping function for a decorator setting.
+
+            Parameters
+            ----------
+            *args : list
+                Target positional arguments.
+            **kwargs : dict
+                Target keyword arguments.
+
+            Returns
+            -------
+            result : Any
+                A return value(s) of a callable execution result.
+            """
+            import apysc as ap
+            path_data_list = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+
+            if not isinstance(path_data_list, list):
+                raise TypeError(
+                    'A specified `path_data_list`\'s type is not the '
+                    f'list: {type(path_data_list)}'
+                    f'\n{callable_and_arg_names_msg}')
+
+            for path_data in path_data_list:
+                if isinstance(path_data, ap.PathDataBase):
+                    continue
+                raise TypeError(
+                    'A value of path_data_list argument is not a '
+                    'type of `ap.PathDataBase`\'s subclass: '
+                    f'{type(path_data)}')
 
             result: Any = callable_(*args, **kwargs)
             return result

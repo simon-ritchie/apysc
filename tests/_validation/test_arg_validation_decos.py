@@ -485,3 +485,25 @@ def test_is_points() -> None:
     _test_func(a=[ap.Point2D(x=10, y=20), ap.Point2D(x=30, y=40)])
     _test_func(
         a=ap.Array([ap.Point2D(x=10, y=20), ap.Point2D(x=30, y=40)]))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_path_data_list() -> None:
+
+    @arg_validation_decos.is_path_data_list(arg_position_index=0)
+    def _test_func(*, a: List[ap.PathDataBase]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=100,
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=[100],
+    )
+
+    _test_func(
+        a=[ap.PathMoveTo(x=50, y=50), ap.PathLineTo(x=100, y=100)])

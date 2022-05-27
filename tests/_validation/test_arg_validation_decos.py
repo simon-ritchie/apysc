@@ -527,3 +527,31 @@ def test_is_line_cap() -> None:
 
     _test_func(a=ap.LineCaps.ROUND)
     _test_func(a=ap.String(ap.LineCaps.BUTT.value))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_multiple_line_settings_are_not_set() -> None:
+
+    @arg_validation_decos.multiple_line_settings_are_not_set(
+        arg_position_index=0)
+    def _test_func_1(*, rectangle: ap.Rectangle) -> None:
+        rectangle.line_dot_setting = ap.LineDotSetting(dot_size=10)
+
+    @arg_validation_decos.multiple_line_settings_are_not_set(
+        arg_position_index=0)
+    def _test_func_2(*, rectangle: ap.Rectangle) -> None:
+        rectangle.line_dot_setting = ap.LineDotSetting(dot_size=10)
+        rectangle.line_dash_setting = ap.LineDashSetting(
+            dash_size=10, space_size=5)
+
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
+    rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        x=50, y=50, width=50, height=50)
+    _test_func_1(rectangle=rectangle)
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_2,
+        rectangle=rectangle,
+    )

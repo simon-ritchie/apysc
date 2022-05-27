@@ -146,7 +146,7 @@ class LineStyleInterface(RevertInterface):
         self._line_dash_setting = dash_setting
         self._line_round_dot_setting = round_dot_setting
         self._line_dash_dot_setting = dash_dot_setting
-        display_validation.validate_multiple_line_settings_isnt_set(
+        display_validation.validate_multiple_line_settings_are_not_set(
             any_instance=self)
 
     @add_debug_info_setting(

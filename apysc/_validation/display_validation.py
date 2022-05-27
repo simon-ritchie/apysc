@@ -18,7 +18,7 @@ Mainly following interfaces are defined:
     Validate specified line cap style setting.
 - validate_line_joints
     Validate specified line joints style setting.
-- validate_multiple_line_settings_isnt_set
+- validate_multiple_line_settings_are_not_set
     Validate that there are no multiple line settings
     (dotted, dashed, and so on).
 """
@@ -220,7 +220,7 @@ def validate_line_joints(*, joints: Any) -> None:
     )
 
 
-def validate_multiple_line_settings_isnt_set(
+def validate_multiple_line_settings_are_not_set(
         *, any_instance: Any) -> None:
     """
     Validate that there are no multiple line settings

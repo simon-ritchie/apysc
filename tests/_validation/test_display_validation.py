@@ -115,14 +115,14 @@ def test_validate_line_joints() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_validate_multiple_line_settings_isnt_set() -> None:
+def test_validate_multiple_line_settings_are_not_set() -> None:
     ap.Stage()
     sprite: ap.Sprite = ap.Sprite()
-    display_validation.validate_multiple_line_settings_isnt_set(
+    display_validation.validate_multiple_line_settings_are_not_set(
         any_instance=sprite.graphics)
 
     sprite.graphics._line_dot_setting = ap.LineDotSetting(dot_size=5)
-    display_validation.validate_multiple_line_settings_isnt_set(
+    display_validation.validate_multiple_line_settings_are_not_set(
         any_instance=sprite.graphics)
 
     sprite.graphics._line_dash_setting = ap.LineDashSetting(
@@ -130,7 +130,7 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
     assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.
-        validate_multiple_line_settings_isnt_set,
+        validate_multiple_line_settings_are_not_set,
         match=r"'LineDotSetting', 'LineDashSetting'",
         any_instance=sprite.graphics)
     delattr(sprite.graphics, '_line_dot_setting')
@@ -140,7 +140,7 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
     assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.
-        validate_multiple_line_settings_isnt_set,
+        validate_multiple_line_settings_are_not_set,
         match=r"'LineDashSetting', 'LineRoundDotSetting'",
         any_instance=sprite.graphics)
     delattr(sprite.graphics, '_line_dash_setting')
@@ -150,7 +150,7 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
     assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.
-        validate_multiple_line_settings_isnt_set,
+        validate_multiple_line_settings_are_not_set,
         match=r"'LineRoundDotSetting', 'LineDashDotSetting'",
         any_instance=sprite.graphics,)
     delattr(sprite.graphics, '_line_round_dot_setting')

@@ -9,6 +9,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class LineCapInterface(VariableNameInterface, RevertInterface):
@@ -52,6 +53,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         return self._line_cap._copy()
 
     @line_cap.setter
+    @arg_validation_decos.is_line_cap(arg_position_index=1)
     def line_cap(self, value: Union[String, LineCaps]) -> None:
         """
         Set line cap style setting.
@@ -94,13 +96,6 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         value : String or LineCaps
             Line cap style setting to set.
         """
-        from apysc._validation.display_validation import validate_line_cap
-        if not isinstance(value, (String, LineCaps)):
-            raise TypeError(
-                'Not supported line_cap type specified: '
-                f'{type(value)}'
-                '\nAcceptable ones are: String or LineCaps.')
-        validate_line_cap(cap=value)
         if isinstance(value, String):
             self._line_cap = value._copy()
         else:

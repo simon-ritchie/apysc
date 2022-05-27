@@ -94,9 +94,3 @@ class TestLineCapInterface:
         assert interface.line_cap == ap.LineCaps.BUTT.value
         expression: str = expression_data_util.get_current_expression()
         assert f'{interface.variable_name}.attr' not in expression
-
-        assert_raises(
-            expected_error_class=TypeError,
-            callable_=interface._update_line_cap_and_skip_appending_exp,
-            match=r'Not supported line_cap type specified: ',
-            value='round')

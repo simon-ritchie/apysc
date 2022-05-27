@@ -9,7 +9,6 @@ import apysc as ap
 from apysc._display.line_cap_interface import LineCapInterface
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from apysc._testing.testing_helper import assert_raises
 
 
 class TestLineCapInterface:

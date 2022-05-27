@@ -61,6 +61,8 @@ Validate specified line cap style setting.<hr>
 
 - `cap`: LineCaps or String
   - Target line cap style setting to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

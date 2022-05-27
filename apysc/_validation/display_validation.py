@@ -161,6 +161,8 @@ def validate_line_cap(
     ----------
     cap : LineCaps or String
         Target line cap style setting to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------

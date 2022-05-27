@@ -151,7 +151,9 @@ def validate_graphics(*, graphics: Any) -> None:
         f'Specified instance is not Graphics type: {type(graphics)}')
 
 
-def validate_line_cap(*, cap: Any) -> None:
+def validate_line_cap(
+        *, cap: Any,
+        additional_err_msg: str = '') -> None:
     """
     Validate specified line cap style setting.
 
@@ -169,15 +171,19 @@ def validate_line_cap(*, cap: Any) -> None:
     import apysc as ap
     if isinstance(cap, ap.LineCaps):
         return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
     if isinstance(cap, ap.String):
         for line_cap in ap.LineCaps:
-            if line_cap.value == cap:
+            if line_cap.value == cap._value:
                 return
         raise ValueError(
             f'Not defined cap string is specified: {cap}'
-            f'\nPlease see definitions of LineCaps.')
+            '\nPlease see definitions of LineCaps.'
+            f'{additional_err_msg}')
     raise ValueError(
         f'Specified cap style type is not LineCaps or String one: {type(cap)}'
+        f'{additional_err_msg}'
     )
 
 

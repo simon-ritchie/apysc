@@ -74,12 +74,24 @@ def test_validate_line_cap() -> None:
         expected_error_class=ValueError,
         callable_=display_validation.validate_line_cap,
         match='Not defined cap string is specified:',
-        cap=ap.String('not_defined_cap'),)
+        cap=ap.String('not_defined_cap'))
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=display_validation.validate_line_cap,
+        match='\nTest error!',
+        cap=ap.String('not_defined_cap'),
+        additional_err_msg='Test error!')
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_line_cap,
         match='Specified cap style type is not LineCaps or String one: ',
         cap='square')
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=display_validation.validate_line_cap,
+        match='\nTest error!',
+        cap='square',
+        additional_err_msg='Test error!')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

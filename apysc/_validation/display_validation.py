@@ -221,7 +221,8 @@ def validate_line_joints(*, joints: Any) -> None:
 
 
 def validate_multiple_line_settings_are_not_set(
-        *, any_instance: Any) -> None:
+        *, any_instance: Any,
+        additional_err_msg: str = '') -> None:
     """
     Validate that there are no multiple line settings
     (dotted, dashed, and so on).
@@ -230,6 +231,8 @@ def validate_multiple_line_settings_are_not_set(
     ----------
     any_instance : Any
         Any instance to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
@@ -268,6 +271,9 @@ def validate_multiple_line_settings_are_not_set(
             valid_setting_names.append('LineDashDotSetting')
     if len(valid_setting_names) < 2:
         return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
     raise ValueError(
         'Multiple line settings can not be set.'
-        f' Current settings: {valid_setting_names}')
+        f' Current settings: {valid_setting_names}'
+        f'{additional_err_msg}')

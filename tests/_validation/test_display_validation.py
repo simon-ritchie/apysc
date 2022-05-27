@@ -152,7 +152,14 @@ def test_validate_multiple_line_settings_are_not_set() -> None:
         callable_=display_validation.
         validate_multiple_line_settings_are_not_set,
         match=r"'LineRoundDotSetting', 'LineDashDotSetting'",
-        any_instance=sprite.graphics,)
+        any_instance=sprite.graphics)
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=display_validation.
+        validate_multiple_line_settings_are_not_set,
+        match=r'\nTest error!',
+        any_instance=sprite.graphics,
+        additional_err_msg='Test error!')
     delattr(sprite.graphics, '_line_round_dot_setting')
 
 

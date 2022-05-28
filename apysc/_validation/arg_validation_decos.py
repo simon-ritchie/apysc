@@ -65,6 +65,9 @@ Mainly the following decorators exist.
 - multiple_line_settings_are_not_set
     - Set the validation to check a specified argument's instance
         does not have multiple line settings.
+- is_line_dash_dot_setting
+    - Set the validation to check a specified argument's type
+        is the `ap.LineDashDotSetting`.
 """
 
 import functools
@@ -1686,6 +1689,89 @@ def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _F:
                 any_instance=instance,
                 additional_err_msg=callable_and_arg_names_msg)
 
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_line_dash_dot_setting(
+        *, arg_position_index: int, optional: bool) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the `ap.LineDashDotSetting`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    optional : bool
+        A boolean indicating whether a specified argument
+        can become the `None` or not.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        """
+        Wrapping function for a decorator setting.
+
+        Parameters
+        ----------
+        callable_ : Callable
+            A target function or method to wrap.
+
+        Returns
+        -------
+        inner_wrapped : Callable
+            Wrapped callable object.
+        """
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            """
+            Wrapping function for a decorator setting.
+
+            Parameters
+            ----------
+            *args : list
+                Target positional arguments.
+            **kwargs : dict
+                Target keyword arguments.
+
+            Returns
+            -------
+            result : Any
+                A return value(s) of a callable execution result.
+            """
+            import apysc as ap
+            setting: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            if optional:
+                if not isinstance(
+                        setting, (type(None), ap.LineDashDotSetting)):
+                    raise TypeError(
+                        'A specified setting is not the '
+                        '`ap.LineDashDotSetting` type or None: '
+                        f'{type(setting)}'
+                        f'\n{callable_and_arg_names_msg}')
+
+            else:
+                if not isinstance(setting, ap.LineDashDotSetting):
+                    raise TypeError(
+                        'A specified setting is not the '
+                        f'`ap.LineDashDotSetting` type: {type(setting)}'
+                        f'\n{callable_and_arg_names_msg}')
+
+            result: Any = callable_(*args, **kwargs)
             return result
 
         return inner_wrapped  # type: ignore

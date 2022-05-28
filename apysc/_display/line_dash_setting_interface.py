@@ -8,6 +8,7 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class LineDashSettingInterface(VariableNameInterface, RevertInterface):
@@ -60,6 +61,10 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         return self._line_dash_setting
 
     @line_dash_setting.setter
+    @arg_validation_decos.multiple_line_settings_are_not_set(
+        arg_position_index=0)
+    @arg_validation_decos.is_line_dash_setting(
+        arg_position_index=1, optional=True)
     def line_dash_setting(self, value: Optional[LineDashSetting]) -> None:
         """
         Set line dash setting.

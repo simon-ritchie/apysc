@@ -64,6 +64,10 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         return self._line_dash_dot_setting
 
     @line_dash_dot_setting.setter
+    @arg_validation_decos.multiple_line_settings_are_not_set(
+        arg_position_index=0)
+    @arg_validation_decos.is_line_dash_dot_setting(
+        arg_position_index=1, optional=True)
     def line_dash_dot_setting(
             self, value: Optional[LineDashDotSetting]) -> None:
         """
@@ -84,12 +88,9 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
                 callable_='line_dash_dot_setting', args=[], kwargs={},
                 module_name=__name__,
                 class_name=LineDashDotSettingInterface.__name__):
-            from apysc._validation import display_validation
             self._update_line_dash_dot_setting_and_skip_appending_exp(
                 value=value)
             self._append_line_dash_dot_setting_update_expression()
-            display_validation.validate_multiple_line_settings_are_not_set(
-                any_instance=self)
 
     def _update_line_dash_dot_setting_and_skip_appending_exp(
             self, *, value: Optional[LineDashDotSetting]) -> None:

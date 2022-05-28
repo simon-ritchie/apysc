@@ -6,6 +6,7 @@ from typing import Union
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class LineDashDotSetting(Dictionary[str, Int]):
@@ -37,6 +38,12 @@ class LineDashDotSetting(Dictionary[str, Int]):
     Int(3)
     """
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     @add_debug_info_setting(
         module_name=__name__, class_name='LineDashDotSetting')
     def __init__(
@@ -81,9 +88,6 @@ class LineDashDotSetting(Dictionary[str, Int]):
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val
-        from apysc._validation import number_validation
-        number_validation.validate_nums_are_int_and_gt_zero(
-            nums=[dot_size, dash_size, space_size])
         dot_size_: Int = get_copied_int_from_builtin_val(
             integer=dot_size)
         dash_size_: Int = get_copied_int_from_builtin_val(

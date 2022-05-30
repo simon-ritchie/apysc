@@ -65,6 +65,9 @@ Mainly the following decorators exist.
 - multiple_line_settings_are_not_set
     - Set the validation to check a specified argument's instance
         does not have multiple line settings.
+- is_line_dot_setting
+    - Set the validation to check a specified argument's type
+        is the `ap.LineDotSetting`.
 - is_line_dash_setting
     - Set the validation to check a specified argument's type
         is the `ap.LineDashSetting`.
@@ -1104,6 +1107,46 @@ def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _F:
                 any_instance=instance,
                 additional_err_msg=callable_and_arg_names_msg)
 
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_line_dot_setting(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the `ap.LineDashSetting`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _F) -> _F:
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+            setting: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            if not isinstance(setting, (type(None), ap.LineDotSetting)):
+                raise TypeError(
+                    'A specified setting is not the `ap.LineDashSetting` '
+                    f'type or None: {type(setting)}'
+                    f'\n{callable_and_arg_names_msg}')
+
+            result: Any = callable_(*args, **kwargs)
             return result
 
         return inner_wrapped  # type: ignore

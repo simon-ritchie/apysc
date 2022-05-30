@@ -611,3 +611,18 @@ def test_is_line_dash_setting() -> None:
         callable_=_test_func_2,
         a=None)
     _test_func_2(a=ap.LineDashSetting(dash_size=10, space_size=5))
+
+
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_line_dot_setting() -> None:
+
+    @arg_validation_decos.is_line_dot_setting(arg_position_index=0)
+    def _test_func(*, a: Optional[ap.LineDotSetting]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=100)
+    _test_func(a=None)
+    _test_func(a=ap.LineDotSetting(dot_size=5))

@@ -590,30 +590,20 @@ def test_is_line_dash_dot_setting() -> None:
 def test_is_line_dash_setting() -> None:
 
     @arg_validation_decos.is_line_dash_setting(
-        arg_position_index=0, optional=True)
-    def _test_func_1(*, a: Optional[ap.LineDashSetting]) -> None:
+        arg_position_index=0)
+    def _test_func(*, a: Optional[ap.LineDashSetting]) -> None:
         ...
 
     assert_raises(
         expected_error_class=TypeError,
-        callable_=_test_func_1,
+        callable_=_test_func,
         a=100)
-    _test_func_1(a=None)
-    _test_func_1(a=ap.LineDashSetting(dash_size=10, space_size=5))
-
-    @arg_validation_decos.is_line_dash_setting(
-        arg_position_index=0, optional=False)
-    def _test_func_2(*, a: Optional[ap.LineDashSetting]) -> None:
-        ...
-
-    assert_raises(
-        expected_error_class=TypeError,
-        callable_=_test_func_2,
-        a=None)
-    _test_func_2(a=ap.LineDashSetting(dash_size=10, space_size=5))
+    _test_func(a=None)
+    _test_func(a=ap.LineDashSetting(dash_size=10, space_size=5))
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_line_dot_setting() -> None:
 
     @arg_validation_decos.is_line_dot_setting(arg_position_index=0)

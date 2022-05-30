@@ -1195,8 +1195,7 @@ def is_line_dash_setting(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_line_dash_dot_setting(
-        *, arg_position_index: int, optional: bool) -> _F:
+def is_line_dash_dot_setting(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's type
     is the `ap.LineDashDotSetting`.
@@ -1205,9 +1204,6 @@ def is_line_dash_dot_setting(
     ----------
     arg_position_index : int
         A target argument position index.
-    optional : bool
-        A boolean indicates whether a specified argument can become
-        the None.
 
     Returns
     -------
@@ -1226,21 +1222,13 @@ def is_line_dash_dot_setting(
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index)
-            if optional:
-                if not isinstance(
-                        setting, (type(None), ap.LineDashDotSetting)):
-                    raise TypeError(
-                        'A specified setting is not the '
-                        '`ap.LineDashDotSetting` type or None: '
-                        f'{type(setting)}'
-                        f'\n{callable_and_arg_names_msg}')
-
-            else:
-                if not isinstance(setting, ap.LineDashDotSetting):
-                    raise TypeError(
-                        'A specified setting is not the '
-                        f'`ap.LineDashDotSetting` type: {type(setting)}'
-                        f'\n{callable_and_arg_names_msg}')
+            if not isinstance(
+                    setting, (type(None), ap.LineDashDotSetting)):
+                raise TypeError(
+                    'A specified setting is not the '
+                    '`ap.LineDashDotSetting` type or None: '
+                    f'{type(setting)}'
+                    f'\n{callable_and_arg_names_msg}')
 
             result: Any = callable_(*args, **kwargs)
             return result

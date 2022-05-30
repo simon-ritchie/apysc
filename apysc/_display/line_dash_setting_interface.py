@@ -63,8 +63,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
     @line_dash_setting.setter
     @arg_validation_decos.multiple_line_settings_are_not_set(
         arg_position_index=0)
-    @arg_validation_decos.is_line_dash_setting(
-        arg_position_index=1)
+    @arg_validation_decos.is_line_dash_setting(arg_position_index=1)
     def line_dash_setting(self, value: Optional[LineDashSetting]) -> None:
         """
         Set line dash setting.

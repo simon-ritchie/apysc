@@ -227,37 +227,9 @@ def not_empty_string(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.string_validation import \
                 validate_not_empty_string
             string: Any = _extract_arg_value(
@@ -298,37 +270,9 @@ def handler_args_num(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.handler_validation import \
                 validate_handler_args_num
             handler: Any = _extract_arg_value(
@@ -366,37 +310,9 @@ def handler_options_type(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.handler_validation import \
                 validate_options_type
             options: Any = _extract_arg_value(
@@ -434,37 +350,9 @@ def is_num(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.number_validation import validate_num
             num: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -501,37 +389,9 @@ def is_apysc_num(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._type.number_value_interface import NumberValueInterface
             num: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -570,37 +430,9 @@ def is_integer(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.number_validation import validate_integer
             integer: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -637,37 +469,9 @@ def num_is_gt_zero(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.number_validation import \
                 validate_num_is_gt_zero
             num: Any = _extract_arg_value(
@@ -704,37 +508,9 @@ def num_is_gte_zero(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.number_validation import \
                 validate_num_is_gte_zero
             num: Any = _extract_arg_value(
@@ -771,37 +547,9 @@ def num_is_0_to_1_range(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.number_validation import \
                 validate_num_is_0_to_1_range
             num: Any = _extract_arg_value(
@@ -838,37 +586,9 @@ def is_apysc_boolean(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             import apysc as ap
             boolean: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -907,37 +627,9 @@ def is_easing(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             import apysc as ap
             easing: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -976,37 +668,9 @@ def is_string(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.string_validation import \
                 validate_string_type
             string: Any = _extract_arg_value(
@@ -1043,37 +707,9 @@ def is_hex_color_code_format(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._color import color_util
             from apysc._validation.color_validation import \
                 validate_hex_color_code_format
@@ -1114,37 +750,9 @@ def is_animations(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             import apysc as ap
             animations: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -1196,37 +804,9 @@ def is_vars_dict(
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             vars_dict: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, callable_=callable_)
@@ -1284,37 +864,9 @@ def is_display_object(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.display_validation import \
                 validate_display_object
             display_object: Any = _extract_arg_value(
@@ -1352,37 +904,9 @@ def is_display_object_container(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.display_validation import \
                 validate_display_object_container
             container_object: Any = _extract_arg_value(
@@ -1420,37 +944,9 @@ def is_points(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             import apysc as ap
             points: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -1503,37 +999,9 @@ def is_path_data_list(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             import apysc as ap
             path_data_list = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -1581,37 +1049,9 @@ def is_line_cap(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.display_validation import validate_line_cap
             cap: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -1647,37 +1087,9 @@ def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             from apysc._validation.display_validation import \
                 validate_multiple_line_settings_are_not_set
             instance: Any = _extract_arg_value(
@@ -1719,37 +1131,9 @@ def is_line_dash_setting(*, arg_position_index: int, optional: bool) -> _F:
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             import apysc as ap
             setting: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
@@ -1800,37 +1184,9 @@ def is_line_dash_dot_setting(
     """
 
     def wrapped(callable_: _F) -> _F:
-        """
-        Wrapping function for a decorator setting.
-
-        Parameters
-        ----------
-        callable_ : Callable
-            A target function or method to wrap.
-
-        Returns
-        -------
-        inner_wrapped : Callable
-            Wrapped callable object.
-        """
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            """
-            Wrapping function for a decorator setting.
-
-            Parameters
-            ----------
-            *args : list
-                Target positional arguments.
-            **kwargs : dict
-                Target keyword arguments.
-
-            Returns
-            -------
-            result : Any
-                A return value(s) of a callable execution result.
-            """
             import apysc as ap
             setting: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,

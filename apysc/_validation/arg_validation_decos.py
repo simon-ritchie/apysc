@@ -62,6 +62,9 @@ Mainly the following decorators exist.
 - is_line_cap
     - Set the validation to check a specified argument's type
         is a line cap-related type.
+- is_line_joints
+    - Set the validation to check a specified argument's type
+        is a line joints-related type.
 - multiple_line_settings_are_not_set
     - Set the validation to check a specified argument's instance
         does not have multiple line settings.
@@ -1064,6 +1067,45 @@ def is_line_cap(*, arg_position_index: int) -> _F:
                 callable_=callable_, arg_position_index=arg_position_index)
             validate_line_cap(
                 cap=cap, additional_err_msg=callable_and_arg_names_msg)
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_line_joints(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is a line joints-related type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._validation.display_validation import \
+                validate_line_joints
+            joints: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            validate_line_joints(
+                joints=joints, additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)
             return result

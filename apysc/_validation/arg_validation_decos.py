@@ -1121,8 +1121,8 @@ def is_line_dash_setting(*, arg_position_index: int, optional: bool) -> _F:
     arg_position_index : int
         A target argument position index.
     optional : bool
-        A boolean indicating whether a specified argument
-        can become the `None` or not.
+        A boolean indicates whether a specified argument can
+        become the None.
 
     Returns
     -------
@@ -1174,8 +1174,8 @@ def is_line_dash_dot_setting(
     arg_position_index : int
         A target argument position index.
     optional : bool
-        A boolean indicating whether a specified argument
-        can become the `None` or not.
+        A boolean indicates whether a specified argument can become
+        the None.
 
     Returns
     -------

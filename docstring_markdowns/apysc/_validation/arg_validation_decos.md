@@ -2,7 +2,7 @@
 
 ## Module summary
 
-This module is for the argument validations' decorators. Mainly the following decorators exist. <br>・not_empty_string <br> ・Set the validation to check that a specified argument's string is not empty. <br>・handler_args_num <br> ・Set the validation to check a specified handler argument's number. <br>・handler_options_type <br> ・Set the validation to check a specified handler-options argument's type. <br>・is_num <br> ・Set the validation to check a specified argument's type is the number-related type. <br>・is_apysc_num <br> ・Set the validation to check a specified argument's type is the `ap.Int` or `ap.Number` type. <br>・is_integer <br> ・Set the validation to check a specified argument's type is the `int` or `ap.Int`. <br>・num_is_gt_zero <br> ・Set the validation to check that a specified argument's value is greater than zero. <br>・num_is_gte_zero <br> ・Set the validation to check that a specified argument's value is greater than or equal to zero. <br>・num_is_0_to_1_range <br> ・Set the validation to check that a specified argument's value is 0.0 to 1.0 range. <br>・is_apysc_boolean <br> ・Set the validation to check that a specified argument's type is the `ap.Boolean`. <br>・is_easing <br> ・Set the validation to check a specified argument's type is the `ap.Easing`. <br>・is_string <br> ・Set the validation to check a specified argument's type is the str or `ap.String`. <br>・is_hex_color_code_format <br> ・Set the validation to check a specified argument's value is a hexadecimal color code format. <br>・is_animations <br> ・Set the validation to check a specified argument's type is the list of `ap.AnimationBase`. <br>・is_vars_dict <br> ・Set the validation to check a specified argument's value is a variables' dictionary. <br>・is_display_object <br> ・Set the validation to check a specified argument's type is the `ap.DisplayObject` or its subclass type. <br>・is_display_object_container <br> ・Set the validation to check a specified argument's type is a container of a display object instance. <br>・is_points <br> ・Set the validation to check a specified argument's type is the list of `ap.Point`. <br>・is_path_data_list <br> ・Set the validation to check a specified argument's type is the list of `ap.PathDataBase`. <br>・is_line_cap <br> ・Set the validation to check a specified argument's type is a line cap-related type.
+This module is for the argument validations' decorators. Mainly the following decorators exist. <br>・not_empty_string <br> ・Set the validation to check that a specified argument's string is not empty. <br>・handler_args_num <br> ・Set the validation to check a specified handler argument's number. <br>・handler_options_type <br> ・Set the validation to check a specified handler-options argument's type. <br>・is_num <br> ・Set the validation to check a specified argument's type is the number-related type. <br>・is_apysc_num <br> ・Set the validation to check a specified argument's type is the `ap.Int` or `ap.Number` type. <br>・is_integer <br> ・Set the validation to check a specified argument's type is the `int` or `ap.Int`. <br>・num_is_gt_zero <br> ・Set the validation to check that a specified argument's value is greater than zero. <br>・num_is_gte_zero <br> ・Set the validation to check that a specified argument's value is greater than or equal to zero. <br>・num_is_0_to_1_range <br> ・Set the validation to check that a specified argument's value is 0.0 to 1.0 range. <br>・is_apysc_boolean <br> ・Set the validation to check that a specified argument's type is the `ap.Boolean`. <br>・is_easing <br> ・Set the validation to check a specified argument's type is the `ap.Easing`. <br>・is_string <br> ・Set the validation to check a specified argument's type is the str or `ap.String`. <br>・is_hex_color_code_format <br> ・Set the validation to check a specified argument's value is a hexadecimal color code format. <br>・is_animations <br> ・Set the validation to check a specified argument's type is the list of `ap.AnimationBase`. <br>・is_vars_dict <br> ・Set the validation to check a specified argument's value is a variables' dictionary. <br>・is_display_object <br> ・Set the validation to check a specified argument's type is the `ap.DisplayObject` or its subclass type. <br>・is_display_object_container <br> ・Set the validation to check a specified argument's type is a container of a display object instance. <br>・is_points <br> ・Set the validation to check a specified argument's type is the list of `ap.Point`. <br>・is_path_data_list <br> ・Set the validation to check a specified argument's type is the list of `ap.PathDataBase`. <br>・is_line_cap <br> ・Set the validation to check a specified argument's type is a line cap-related type. <br>・multiple_line_settings_are_not_set <br> ・Set the validation to check a specified argument's instance does not have multiple line settings. <br>・is_line_dash_setting <br> ・Set the validation to check a specified argument's type is the `ap.LineDashSetting`. <br>・is_line_dash_dot_setting <br> ・Set the validation to check a specified argument's type is the `ap.LineDashDotSetting`.
 
 ## `_extract_arg_value` function docstring
 
@@ -256,6 +256,42 @@ Set the validation to check a specified argument's type is a line cap-related ty
 - `wrapped`: Callable
   - Wrapped callable object.
 
+## `is_line_dash_dot_setting` function docstring
+
+Set the validation to check a specified argument's type is the `ap.LineDashDotSetting`.<hr>
+
+**[Parameters]**
+
+- `arg_position_index`: int
+  - A target argument position index.
+- `optional`: bool
+  - A boolean indicates whether a specified argument can become the None.
+
+<hr>
+
+**[Returns]**
+
+- `wrapped`: Callable
+  - Wrapped callable object.
+
+## `is_line_dash_setting` function docstring
+
+Set the validation to check a specified argument's type is the `ap.LineDashSetting`.<hr>
+
+**[Parameters]**
+
+- `arg_position_index`: int
+  - A target argument position index.
+- `optional`: bool
+  - A boolean indicates whether a specified argument can become the None.
+
+<hr>
+
+**[Returns]**
+
+- `wrapped`: Callable
+  - Wrapped callable object.
+
 ## `is_num` function docstring
 
 Set the validation to check a specified argument's type is the number-related type.<hr>
@@ -330,6 +366,22 @@ Set the validation to check a specified argument's value is a variables' diction
   - A target argument position index.
 - `optional`: bool, optional
   - A boolean indicating whether a target argument accepts optional None value or not.
+
+<hr>
+
+**[Returns]**
+
+- `wrapped`: Callable
+  - Wrapped callable object.
+
+## `multiple_line_settings_are_not_set` function docstring
+
+Set the validation to check a specified argument's instance does not have multiple line settings.<hr>
+
+**[Parameters]**
+
+- `arg_position_index`: int
+  - A target argument position index.
 
 <hr>
 

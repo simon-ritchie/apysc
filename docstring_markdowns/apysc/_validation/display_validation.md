@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Each display's validation implementations. Mainly following interfaces are defined: <br>・validate_stage Validate whether the specified instance is Stage type or not. <br>・validate_display_object Validate whether a specified instance is the `DisplayObject` type or its subclass type (e.g., `Sprite`). <br>・validate_display_object_container Validate whether a specified instance is a container type of a `DisplayObject` instance (e.g., `Sprite`, `Stage`). <br>・validate_sprite Validate specified instance is Sprite type. <br>・validate_graphics Validate specified instance is Graphics type. <br>・validate_line_cap Validate specified line cap style setting. <br>・validate_line_joints Validate specified line joints style setting. <br>・validate_multiple_line_settings_isnt_set Validate that there are no multiple line settings (dotted, dashed, and so on).
+Each display's validation implementations. Mainly following interfaces are defined: <br>・validate_stage Validate whether the specified instance is Stage type or not. <br>・validate_display_object Validate whether a specified instance is the `DisplayObject` type or its subclass type (e.g., `Sprite`). <br>・validate_display_object_container Validate whether a specified instance is a container type of a `DisplayObject` instance (e.g., `Sprite`, `Stage`). <br>・validate_sprite Validate specified instance is Sprite type. <br>・validate_graphics Validate specified instance is Graphics type. <br>・validate_line_cap Validate specified line cap style setting. <br>・validate_line_joints Validate specified line joints style setting. <br>・validate_multiple_line_settings_are_not_set Validate that there are no multiple line settings (dotted, dashed, and so on).
 
 ## `validate_display_object` function docstring
 
@@ -85,7 +85,7 @@ Validate specified line joints style setting.<hr>
 
 - ValueError: If specified joints setting type is not LineJoints or not defined string value.
 
-## `validate_multiple_line_settings_isnt_set` function docstring
+## `validate_multiple_line_settings_are_not_set` function docstring
 
 Validate that there are no multiple line settings (dotted, dashed, and so on).<hr>
 
@@ -93,6 +93,8 @@ Validate that there are no multiple line settings (dotted, dashed, and so on).<h
 
 - `any_instance`: Any
   - Any instance to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

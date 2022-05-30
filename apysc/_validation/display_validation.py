@@ -189,7 +189,9 @@ def validate_line_cap(
     )
 
 
-def validate_line_joints(*, joints: Any) -> None:
+def validate_line_joints(
+        *, joints: Any,
+        additional_err_msg: str = '') -> None:
     """
     Validate specified line joints style setting.
 
@@ -197,6 +199,8 @@ def validate_line_joints(*, joints: Any) -> None:
     ----------
     joints : LineJoints or String
         Target line joints style setting to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
@@ -207,16 +211,20 @@ def validate_line_joints(*, joints: Any) -> None:
     import apysc as ap
     if isinstance(joints, ap.LineJoints):
         return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
     if isinstance(joints, ap.String):
         for line_joints in ap.LineJoints:
-            if line_joints.value == joints:
+            if line_joints.value == joints._value:
                 return
         raise ValueError(
             f'Not defined joints string is specified: {joints}'
-            f'\nPlease see definitions of LineJoints.')
+            f'\nPlease see definitions of LineJoints.'
+            f'\n{additional_err_msg}')
     raise ValueError(
         'Specified joints type is not LineJoints or String one: '
         f'{type(joints)}'
+        f'\n{additional_err_msg}'
     )
 
 

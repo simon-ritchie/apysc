@@ -110,8 +110,21 @@ def test_validate_line_joints() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=display_validation.validate_line_joints,
+        match=r'\nTest error!',
+        joints=ap.String('not_defined_joints'),
+        additional_err_msg='Test error!')
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=display_validation.validate_line_joints,
         match=r'Specified joints type is not LineJoints or String one: ',
         joints='miter')
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=display_validation.validate_line_joints,
+        match=r'\nTest error!',
+        joints='miter',
+        additional_err_msg='Test error!')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

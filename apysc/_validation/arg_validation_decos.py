@@ -20,6 +20,9 @@ Mainly the following decorators exist.
 - is_integer
     - Set the validation to check a specified argument's type
         is the `int` or `ap.Int`.
+- is_apysc_integer
+    - Set the validation to check a specified argument's type
+        is the `ap.Int`.
 - num_is_gt_zero
     - Set the validation to check that a specified argument's value
         is greater than zero.
@@ -410,8 +413,8 @@ def is_apysc_num(*, arg_position_index: int) -> _F:
                 callable_=callable_, arg_position_index=arg_position_index)
             if not isinstance(num, NumberValueInterface):
                 raise TypeError(
-                    'A specified argument value is not the `Int` or `Number` '
-                    f'type: {type(num)}'
+                    'A specified argument value is not the `ap.Int` or '
+                    f'`ap.Number` type: {type(num)}'
                     f'\n{callable_and_arg_names_msg}')
 
             result: Any = callable_(*args, **kwargs)
@@ -452,6 +455,47 @@ def is_integer(*, arg_position_index: int) -> _F:
             validate_integer(
                 integer=integer,
                 additional_err_msg=callable_and_arg_names_msg)
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_apysc_integer(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the `ap.Int`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+            integer: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            if not isinstance(integer, ap.Int):
+                raise TypeError(
+                    'A specified argument value is not the `ap.Int` '
+                    f'type: {type(integer)}'
+                    f'\n{callable_and_arg_names_msg}')
 
             result: Any = callable_(*args, **kwargs)
             return result

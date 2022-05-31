@@ -660,3 +660,17 @@ def test_is_line_round_dot_setting() -> None:
         a=100)
     _test_func(a=None)
     _test_func(a=ap.LineRoundDotSetting(round_size=10, space_size=5))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_apysc_integer() -> None:
+
+    @arg_validation_decos.is_apysc_integer(arg_position_index=0)
+    def _test_func(*, a: ap.Int) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=100)
+    _test_func(a=ap.Int(100))

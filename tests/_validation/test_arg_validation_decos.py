@@ -619,3 +619,18 @@ def test_is_line_joints() -> None:
         a=100)
     _test_func(a=ap.LineJoints.BEVEL)
     _test_func(a=ap.String(ap.LineJoints.BEVEL.value))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_line_round_dot_setting() -> None:
+
+    @arg_validation_decos.is_line_round_dot_setting(arg_position_index=0)
+    def _test_func(*, a: Optional[ap.LineRoundDotSetting]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=100)
+    _test_func(a=None)
+    _test_func(a=ap.LineRoundDotSetting(round_size=10, space_size=5))

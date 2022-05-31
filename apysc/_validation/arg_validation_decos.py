@@ -77,6 +77,9 @@ Mainly the following decorators exist.
 - is_line_dash_dot_setting
     - Set the validation to check a specified argument's type
         is the `ap.LineDashDotSetting`.
+- is_line_round_dot_setting
+    - Set the validation to check a specified argument's type
+        is the `ap.LineRoundDotSetting`.
 """
 
 import functools
@@ -1270,6 +1273,47 @@ def is_line_dash_dot_setting(*, arg_position_index: int) -> _F:
                     'A specified setting is not the '
                     '`ap.LineDashDotSetting` type or None: '
                     f'{type(setting)}'
+                    f'\n{callable_and_arg_names_msg}')
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_line_round_dot_setting(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the `ap.LineRoundDotSetting`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+            setting: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            if not isinstance(setting, (type(None), ap.LineRoundDotSetting)):
+                raise TypeError(
+                    'A specified setting is not the `ap.LineRoundDotSetting` '
+                    f'type or None: {type(setting)}'
                     f'\n{callable_and_arg_names_msg}')
 
             result: Any = callable_(*args, **kwargs)

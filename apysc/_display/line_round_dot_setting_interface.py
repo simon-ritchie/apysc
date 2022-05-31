@@ -9,6 +9,8 @@ from apysc._display.line_cap_interface import LineCapInterface
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.line_thickness_interface import LineThicknessInterface
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
+
 
 
 class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
@@ -61,6 +63,9 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         return self._line_round_dot_setting
 
     @line_round_dot_setting.setter
+    @arg_validation_decos.multiple_line_settings_are_not_set(
+        arg_position_index=0)
+    @arg_validation_decos.is_line_round_dot_setting(arg_position_index=1)
     def line_round_dot_setting(
             self, value: Optional[LineRoundDotSetting]) -> None:
         """

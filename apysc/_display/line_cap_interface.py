@@ -53,7 +53,8 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         return self._line_cap._copy()
 
     @line_cap.setter
-    @arg_validation_decos.is_line_cap(arg_position_index=1)
+    @arg_validation_decos.is_line_cap(
+        arg_position_index=1, optional=False)
     def line_cap(self, value: Union[String, LineCaps]) -> None:
         """
         Set line cap style setting.

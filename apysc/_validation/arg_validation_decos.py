@@ -1041,7 +1041,9 @@ def is_path_data_list(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_line_cap(*, arg_position_index: int) -> _F:
+def is_line_cap(
+        *, arg_position_index: int,
+        optional: bool) -> _F:
     """
     Set the validation to check a specified argument's type
     is a line cap-related type.
@@ -1050,6 +1052,9 @@ def is_line_cap(*, arg_position_index: int) -> _F:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool
+        A boolean indicating whether a specified argument can be
+        the `None`.
 
     Returns
     -------
@@ -1068,7 +1073,10 @@ def is_line_cap(*, arg_position_index: int) -> _F:
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index)
-            if cap is not None:
+            if not optional:
+                validate_line_cap(
+                    cap=cap, additional_err_msg=callable_and_arg_names_msg)
+            elif cap is not None:
                 validate_line_cap(
                     cap=cap, additional_err_msg=callable_and_arg_names_msg)
 

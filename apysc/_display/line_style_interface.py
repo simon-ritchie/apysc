@@ -44,7 +44,8 @@ class LineStyleInterface(RevertInterface):
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_num(arg_position_index=3)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=3)
-    @arg_validation_decos.is_line_cap(arg_position_index=4)
+    @arg_validation_decos.is_line_cap(
+        arg_position_index=4, optional=True)
     @arg_validation_decos.is_line_joints(arg_position_index=5)
     @arg_validation_decos.is_line_dot_setting(arg_position_index=6)
     @arg_validation_decos.is_line_dash_setting(arg_position_index=7)

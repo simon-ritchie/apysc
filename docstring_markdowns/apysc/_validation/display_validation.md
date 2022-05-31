@@ -78,6 +78,8 @@ Validate specified line joints style setting.<hr>
 
 - `joints`: LineJoints or String
   - Target line joints style setting to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

@@ -513,7 +513,7 @@ def test_is_path_data_list() -> None:
 def test_is_line_cap() -> None:
 
     @arg_validation_decos.is_line_cap(
-            arg_position_index=0, optional=True)
+        arg_position_index=0, optional=True)
     def _test_func_1(
             *, a: Optional[Union[ap.String, ap.LineCaps]]) -> None:
         ...
@@ -531,7 +531,7 @@ def test_is_line_cap() -> None:
     _test_func_1(a=ap.String(ap.LineCaps.BUTT.value))
 
     @arg_validation_decos.is_line_cap(
-            arg_position_index=0, optional=False)
+        arg_position_index=0, optional=False)
     def _test_func_2(
             *, a: Optional[Union[ap.String, ap.LineCaps]]) -> None:
         ...
@@ -602,7 +602,6 @@ def test_is_line_dash_setting() -> None:
         a=100)
     _test_func(a=None)
     _test_func(a=ap.LineDashSetting(dash_size=10, space_size=5))
-
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

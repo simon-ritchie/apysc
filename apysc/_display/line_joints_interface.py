@@ -54,7 +54,8 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         return self._line_joints._copy()
 
     @line_joints.setter
-    @arg_validation_decos.is_line_joints(arg_position_index=1)
+    @arg_validation_decos.is_line_joints(
+        arg_position_index=1, optional=False)
     def line_joints(self, value: Union[String, LineJoints]) -> None:
         """
         Set line joints style setting.

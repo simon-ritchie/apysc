@@ -623,18 +623,29 @@ def test_is_line_dot_setting() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_line_joints() -> None:
 
-    @arg_validation_decos.is_line_joints(arg_position_index=0)
-    def _test_func(
+    @arg_validation_decos.is_line_joints(arg_position_index=0, optional=True)
+    def _test_func_1(
             *, a: Optional[Union[ap.LineJoints, ap.String]]) -> None:
         ...
 
     assert_raises(
         expected_error_class=ValueError,
-        callable_=_test_func,
+        callable_=_test_func_1,
         a=100)
-    _test_func(a=ap.LineJoints.BEVEL)
-    _test_func(a=None)
-    _test_func(a=ap.String(ap.LineJoints.BEVEL.value))
+    _test_func_1(a=ap.LineJoints.BEVEL)
+    _test_func_1(a=None)
+    _test_func_1(a=ap.String(ap.LineJoints.BEVEL.value))
+
+    @arg_validation_decos.is_line_joints(arg_position_index=0, optional=False)
+    def _test_func_2(
+            *, a: Optional[Union[ap.LineJoints, ap.String]]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_2,
+        a=None)
+    _test_func_2(a=ap.LineJoints.BEVEL)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

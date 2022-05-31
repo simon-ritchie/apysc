@@ -1088,7 +1088,9 @@ def is_line_cap(
     return wrapped  # type: ignore
 
 
-def is_line_joints(*, arg_position_index: int) -> _F:
+def is_line_joints(
+        *, arg_position_index: int,
+        optional: bool) -> _F:
     """
     Set the validation to check a specified argument's type
     is a line joints-related type.
@@ -1097,6 +1099,9 @@ def is_line_joints(*, arg_position_index: int) -> _F:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool
+        A boolean indicating whether a specified argument can be
+        the `None`.
 
     Returns
     -------
@@ -1116,7 +1121,11 @@ def is_line_joints(*, arg_position_index: int) -> _F:
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index)
-            if joints is not None:
+            if not optional:
+                validate_line_joints(
+                    joints=joints,
+                    additional_err_msg=callable_and_arg_names_msg)
+            elif joints is not None:
                 validate_line_joints(
                     joints=joints,
                     additional_err_msg=callable_and_arg_names_msg)

@@ -87,7 +87,6 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
                 module_name=__name__,
                 class_name=LineRoundDotSettingInterface.__name__):
             import apysc as ap
-            from apysc._validation import display_validation
             self._update_line_round_dot_setting_and_skip_appending_exp(
                 value=value)
             if value is not None:
@@ -96,8 +95,6 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             else:
                 self.line_cap = ap.LineCaps.BUTT
             self._append_line_round_dot_setting_update_expression()
-            display_validation.validate_multiple_line_settings_are_not_set(
-                any_instance=self)
 
     def _update_line_round_dot_setting_and_skip_appending_exp(
             self, *, value: Optional[LineRoundDotSetting]) -> None:

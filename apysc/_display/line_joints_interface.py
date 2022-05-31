@@ -82,13 +82,11 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         value : STring or LineJoints
             Line joints style setting to set.
         """
-        from apysc._validation.display_validation import validate_line_joints
         if not isinstance(value, (String, LineJoints)):
             raise TypeError(
                 'Not supported line_joints type specified: '
                 f'{type(value)}'
                 '\nAcceptable ones are: String or LineJoints.')
-        validate_line_joints(joints=value)
         if isinstance(value, String):
             self._line_joints = value._copy()
         else:

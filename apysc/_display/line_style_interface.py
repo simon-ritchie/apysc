@@ -21,6 +21,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -37,6 +38,18 @@ class LineStyleInterface(RevertInterface):
     _line_round_dot_setting: Optional[LineRoundDotSetting]
     _line_dash_dot_setting: Optional[LineDashDotSetting]
 
+    @arg_validation_decos.multiple_line_settings_are_not_set(
+        arg_position_index=0)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=3)
+    @arg_validation_decos.is_line_cap(arg_position_index=4)
+    @arg_validation_decos.is_line_joints(arg_position_index=5)
+    @arg_validation_decos.is_line_dot_setting(arg_position_index=6)
+    @arg_validation_decos.is_line_dash_setting(arg_position_index=7)
+    @arg_validation_decos.is_line_round_dot_setting(arg_position_index=8)
+    @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=9)
     @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
     def line_style(
@@ -119,8 +132,6 @@ class LineStyleInterface(RevertInterface):
         """
         import apysc as ap
         from apysc._color import color_util
-        from apysc._validation import display_validation
-        from apysc._validation import number_validation
 
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()
@@ -130,15 +141,11 @@ class LineStyleInterface(RevertInterface):
             color = color_util.complement_hex_color(
                 hex_color_code=color)
         self._line_color.value = color
-        number_validation.validate_integer(integer=thickness)
-        number_validation.validate_num_is_gt_zero(num=thickness)
         self._line_thickness = ap.Int(thickness)
-        number_validation.validate_num(num=alpha)
         if isinstance(alpha, ap.Number):
-            alpha_: ap.Number = alpha
+            alpha_: ap.Number = alpha._copy()
         else:
             alpha_ = ap.Number(alpha)
-        number_validation.validate_num_is_0_to_1_range(num=alpha)
         self._line_alpha = alpha_
         self._set_line_cap(cap=cap)
         self._set_line_joints(joints=joints)
@@ -146,8 +153,6 @@ class LineStyleInterface(RevertInterface):
         self._line_dash_setting = dash_setting
         self._line_round_dot_setting = round_dot_setting
         self._line_dash_dot_setting = dash_dot_setting
-        display_validation.validate_multiple_line_settings_are_not_set(
-            any_instance=self)
 
     @add_debug_info_setting(
         module_name=__name__, class_name='LineStyleInterface')
@@ -161,10 +166,8 @@ class LineStyleInterface(RevertInterface):
             Line vertices (joints) style setting.
         """
         import apysc as ap
-        from apysc._validation.display_validation import validate_line_joints
         if joints is None:
             joints = LineJoints.MITER
-        validate_line_joints(joints=joints)
         self._line_joints = ap.String(joints.value)
 
     @add_debug_info_setting(
@@ -179,10 +182,8 @@ class LineStyleInterface(RevertInterface):
             Line cap (edge style) setting.
         """
         import apysc as ap
-        from apysc._validation.display_validation import validate_line_cap
         if cap is None:
             cap = LineCaps.BUTT
-        validate_line_cap(cap=cap)
         self._line_cap = ap.String(cap.value)
 
     def _initialize_line_color_if_not_initialized(self) -> None:

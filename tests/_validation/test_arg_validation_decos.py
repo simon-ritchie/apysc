@@ -513,7 +513,8 @@ def test_is_path_data_list() -> None:
 def test_is_line_cap() -> None:
 
     @arg_validation_decos.is_line_cap(arg_position_index=0)
-    def _test_func(*, a: Union[ap.String, ap.LineCaps]) -> None:
+    def _test_func(
+            *, a: Optional[Union[ap.String, ap.LineCaps]]) -> None:
         ...
 
     assert_raises(
@@ -526,6 +527,7 @@ def test_is_line_cap() -> None:
         a=ap.String('Hello'))
 
     _test_func(a=ap.LineCaps.ROUND)
+    _test_func(a=None)
     _test_func(a=ap.String(ap.LineCaps.BUTT.value))
 
 
@@ -610,7 +612,8 @@ def test_is_line_dot_setting() -> None:
 def test_is_line_joints() -> None:
 
     @arg_validation_decos.is_line_joints(arg_position_index=0)
-    def _test_func(*, a: Union[ap.LineJoints, ap.String]) -> None:
+    def _test_func(
+            *, a: Optional[Union[ap.LineJoints, ap.String]]) -> None:
         ...
 
     assert_raises(
@@ -618,6 +621,7 @@ def test_is_line_joints() -> None:
         callable_=_test_func,
         a=100)
     _test_func(a=ap.LineJoints.BEVEL)
+    _test_func(a=None)
     _test_func(a=ap.String(ap.LineJoints.BEVEL.value))
 
 

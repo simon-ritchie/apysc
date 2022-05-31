@@ -1068,8 +1068,9 @@ def is_line_cap(*, arg_position_index: int) -> _F:
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index)
-            validate_line_cap(
-                cap=cap, additional_err_msg=callable_and_arg_names_msg)
+            if cap is not None:
+                validate_line_cap(
+                    cap=cap, additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)
             return result
@@ -1107,8 +1108,10 @@ def is_line_joints(*, arg_position_index: int) -> _F:
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index)
-            validate_line_joints(
-                joints=joints, additional_err_msg=callable_and_arg_names_msg)
+            if joints is not None:
+                validate_line_joints(
+                    joints=joints,
+                    additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)
             return result

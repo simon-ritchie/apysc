@@ -898,7 +898,7 @@ class Graphics(
         self.add_child(child=line)
         return line
 
-    @arg_validation_decos.is_points(arg_position_index=1)
+    @arg_validation_decos.is_point_2ds(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='Graphics')
     def draw_polygon(

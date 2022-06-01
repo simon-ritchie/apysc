@@ -459,9 +459,9 @@ def test_is_apysc_num() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_is_points() -> None:
+def test_is_point_2ds() -> None:
 
-    @arg_validation_decos.is_points(arg_position_index=0)
+    @arg_validation_decos.is_point_2ds(arg_position_index=0)
     def _test_func(
             *, a: Union[List[ap.Point2D], ap.Array[ap.Point2D]]) -> None:
         ...

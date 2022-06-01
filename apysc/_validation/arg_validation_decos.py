@@ -59,7 +59,7 @@ Mainly the following decorators exist.
 - is_point_2d
     - Set the validation to check a specified argument's type
         is the `ap.Point2D`.
-- is_points
+- is_point_2ds
     - Set the validation to check a specified argument's type
         is the list of `ap.Point2D`.
 - is_path_data_list
@@ -1021,7 +1021,7 @@ def is_point_2d(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_points(*, arg_position_index: int) -> _F:
+def is_point_2ds(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's type
     is the list of `ap.Point`.

@@ -44,7 +44,8 @@ class Line(LineBase):
     _start_point: 'point2d.Point2D'
     _end_point: 'point2d.Point2D'
 
-    @arg_validation_decos.is_display_object_container(arg_position_index=1)
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=1, optional=False)
     @arg_validation_decos.is_point_2d(arg_position_index=2)
     @arg_validation_decos.is_point_2d(arg_position_index=3)
     @add_debug_info_setting(

@@ -44,7 +44,8 @@ class Circle(  # type: ignore
     String('#00aaff')
     """
 
-    @arg_validation_decos.is_display_object_container(arg_position_index=1)
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=1, optional=False)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)

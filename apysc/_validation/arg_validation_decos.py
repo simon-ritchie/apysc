@@ -943,7 +943,9 @@ def is_display_object(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_display_object_container(*, arg_position_index: int) -> _F:
+def is_display_object_container(
+        *, arg_position_index: int,
+        optional: bool) -> _F:
     """
     Set the validation to check a specified argument's type
     is a container of a display object instance.
@@ -952,6 +954,9 @@ def is_display_object_container(*, arg_position_index: int) -> _F:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool, optional
+        A boolean indicating whether a target argument accepts
+        optional None value or not.
 
     Returns
     -------
@@ -971,9 +976,14 @@ def is_display_object_container(*, arg_position_index: int) -> _F:
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index)
-            validate_display_object_container(
-                container_object=container_object,
-                additional_err_msg=callable_and_arg_names_msg)
+            if not optional:
+                validate_display_object_container(
+                    container_object=container_object,
+                    additional_err_msg=callable_and_arg_names_msg)
+            elif container_object is not None:
+                validate_display_object_container(
+                    container_object=container_object,
+                    additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)
             return result

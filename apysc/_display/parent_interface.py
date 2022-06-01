@@ -7,6 +7,7 @@ from typing import Optional
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class ParentInterface(RevertInterface):
@@ -47,6 +48,8 @@ class ParentInterface(RevertInterface):
         return self._parent
 
     @parent.setter
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=1, optional=True)
     def parent(self, value: Optional[Any]) -> None:
         """
         Set parent instance.

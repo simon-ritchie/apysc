@@ -10,6 +10,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class RadiusInterface(
@@ -68,13 +69,14 @@ class RadiusInterface(
         return value_util.get_copy(value=self._radius)
 
     @radius.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def radius(self, value: Int) -> None:
         """
         Update radius value.
 
         Parameters
         ----------
-        value : int or Int
+        value : Int
             Radius value.
         """
         from apysc._html.debug_mode import DebugInfo
@@ -82,9 +84,6 @@ class RadiusInterface(
                 callable_='points', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=RadiusInterface.__name__):
-            from apysc._validation import number_validation
-            number_validation.validate_integer(integer=value)
-            value = self._get_converted_radius_int(radius=value)
             self._radius = value
             self._radius._append_incremental_calc_substitution_expression()
             self._append_radius_update_expression()

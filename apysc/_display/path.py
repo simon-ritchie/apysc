@@ -7,6 +7,7 @@ from apysc._display import graphics
 from apysc._display.line_base import LineBase
 from apysc._geom.path_data_base import PathDataBase
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 
 class Path(LineBase):
@@ -30,6 +31,9 @@ class Path(LineBase):
 
     _path_data_list: List[PathDataBase]
 
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=1, optional=False)
+    @arg_validation_decos.is_path_data_list(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='Path')
     def __init__(
@@ -64,9 +68,6 @@ class Path(LineBase):
         from apysc._display.graphics import Graphics
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._validation import path_validation
-        path_validation.validate_path_data_list(
-            path_data_list=path_data_list)
         parent_graphics: Graphics = parent
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.PATH)

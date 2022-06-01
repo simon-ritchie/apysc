@@ -9,6 +9,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class Points2DInterface(VariableNameInterface, RevertInterface):
@@ -54,6 +55,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         return self._points
 
     @points.setter
+    @arg_validation_decos.is_point_2ds(arg_position_index=1)
     def points(self, value: Array[Point2D]) -> None:
         """
         Update points value.
@@ -73,12 +75,6 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
                 callable_='points', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=Points2DInterface.__name__):
-            for point in value.value:  # type: ignore
-                if isinstance(point, Point2D):
-                    continue
-                raise ValueError(
-                    'Specified array contains not Point2D value: '
-                    f'{type(point)}')
             self._initialize_points_if_not_initialized()
             self._append_points_update_expression(value=value)
             self._points = value

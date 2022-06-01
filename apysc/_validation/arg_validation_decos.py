@@ -998,23 +998,20 @@ def is_point_2d(*, arg_position_index: int) -> _F:
     wrapped : Callable
         Wrapped callable object.
     """
+    from apysc._validation.geom_validation import validate_point_2d_type
 
     def wrapped(callable_: _F) -> _F:
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
             point: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, callable_=callable_)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index)
-            if not isinstance(point, ap.Point2D):
-                raise TypeError(
-                    'A specified argument value is not the `ap.Point2D` '
-                    f'type: {type(point)}'
-                    f'\n{callable_and_arg_names_msg}')
+            validate_point_2d_type(
+                point=point, additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)
             return result
@@ -1039,6 +1036,7 @@ def is_points(*, arg_position_index: int) -> _F:
     wrapped : Callable
         Wrapped callable object.
     """
+    from apysc._validation.geom_validation import validate_point_2d_type
 
     def wrapped(callable_: _F) -> _F:
 
@@ -1064,12 +1062,9 @@ def is_points(*, arg_position_index: int) -> _F:
             elif isinstance(points, ap.Array):
                 value = points._value
             for point in value:
-                if isinstance(point, ap.Point2D):
-                    continue
-                raise TypeError(
-                    'A value in a points argument is a non-Point2D type: '
-                    f'{type(value)}'
-                    f'\n{callable_and_arg_names_msg}')
+                validate_point_2d_type(
+                    point=point,
+                    additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)
             return result

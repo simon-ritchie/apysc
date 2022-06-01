@@ -472,12 +472,12 @@ def test_is_points() -> None:
         a=100,
     )
     assert_raises(
-        expected_error_class=TypeError,
+        expected_error_class=ValueError,
         callable_=_test_func,
         a=[100, ap.Point2D(x=10, y=20)],
     )
     assert_raises(
-        expected_error_class=TypeError,
+        expected_error_class=ValueError,
         callable_=_test_func,
         a=ap.Array([100, ap.Point2D(x=10, y=20)]),
     )
@@ -684,7 +684,7 @@ def test_is_point_2d() -> None:
         ...
 
     assert_raises(
-        expected_error_class=TypeError,
+        expected_error_class=ValueError,
         callable_=_test_func,
         a=100,
     )

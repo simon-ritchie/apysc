@@ -6,6 +6,7 @@ from apysc._display import graphics
 from apysc._display.line_base import LineBase
 from apysc._geom import point2d
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 
 class Line(LineBase):
@@ -43,6 +44,9 @@ class Line(LineBase):
     _start_point: 'point2d.Point2D'
     _end_point: 'point2d.Point2D'
 
+    @arg_validation_decos.is_display_object_container(arg_position_index=1)
+    @arg_validation_decos.is_point_2d(arg_position_index=2)
+    @arg_validation_decos.is_point_2d(arg_position_index=3)
     @add_debug_info_setting(
         module_name=__name__, class_name='Line')
     def __init__(
@@ -91,9 +95,6 @@ class Line(LineBase):
         from apysc._display.graphics import Graphics
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._validation import geom_validation
-        geom_validation.validate_point_2d_type(point=start_point)
-        geom_validation.validate_point_2d_type(point=end_point)
         parent_graphics: Graphics = parent
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.LINE)

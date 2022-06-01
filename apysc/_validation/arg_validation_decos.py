@@ -56,9 +56,12 @@ Mainly the following decorators exist.
 - is_display_object_container
     - Set the validation to check a specified argument's type
         is a container of a display object instance.
+- is_point_2d
+    - Set the validation to check a specified argument's type
+        is the `ap.Point2D`.
 - is_points
     - Set the validation to check a specified argument's type
-        is the list of `ap.Point`.
+        is the list of `ap.Point2D`.
 - is_path_data_list
     - Set the validation to check a specified argument's type
         is the list of `ap.PathDataBase`.
@@ -971,6 +974,47 @@ def is_display_object_container(*, arg_position_index: int) -> _F:
             validate_display_object_container(
                 container_object=container_object,
                 additional_err_msg=callable_and_arg_names_msg)
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_point_2d(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the `ap.Point2D`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+            point: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            if not isinstance(point, ap.Point2D):
+                raise TypeError(
+                    'A specified argument value is not the `ap.Point2D` '
+                    f'type: {type(point)}'
+                    f'\n{callable_and_arg_names_msg}')
 
             result: Any = callable_(*args, **kwargs)
             return result

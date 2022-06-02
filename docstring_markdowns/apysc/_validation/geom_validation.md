@@ -12,6 +12,8 @@ Validate specified value's type is Point2D.<hr>
 
 - `point`: Point2D
   - Point2D instance to be checked.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

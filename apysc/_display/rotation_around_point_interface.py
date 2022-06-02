@@ -10,6 +10,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class RotationAroundPointInterface(
@@ -26,6 +27,8 @@ class RotationAroundPointInterface(
             return
         self._rotation_around_point = Dictionary({})
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='RotationAroundPointInterface')
     def get_rotation_around_point(self, *, x: Int, y: Int) -> Int:
@@ -67,9 +70,6 @@ class RotationAroundPointInterface(
         import apysc as ap
         from apysc._display import rotation_interface_helper
         from apysc._type.expression_string import ExpressionString
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=x)
-        number_validation.validate_integer(integer=y)
         self._initialize_rotation_around_point_if_not_initialized()
         default_val: ap.Int = ap.Int(0)
         key_exp_str: ExpressionString = rotation_interface_helper.\
@@ -79,6 +79,9 @@ class RotationAroundPointInterface(
             key=key_exp_str, default=default_val)
         return rotation
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
     @add_debug_info_setting(
         module_name=__name__, class_name='RotationAroundPointInterface')
     def set_rotation_around_point(
@@ -102,10 +105,6 @@ class RotationAroundPointInterface(
         """
         from apysc._display import rotation_interface_helper
         from apysc._type.expression_string import ExpressionString
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=rotation)
-        number_validation.validate_integer(integer=x)
-        number_validation.validate_integer(integer=y)
         self._initialize_rotation_around_point_if_not_initialized()
         key_exp_str: ExpressionString = rotation_interface_helper.\
             get_coordinates_key_for_expression(

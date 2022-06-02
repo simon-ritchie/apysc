@@ -112,14 +112,11 @@ class Rectangle(
         from apysc._display.graphics import Graphics
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._validation import size_validation
         parent_graphics: Graphics = parent
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.RECTANGLE)
         super(Rectangle, self).__init__(
             parent=parent, x=x, y=y, variable_name=variable_name)
-        size_validation.validate_size_is_gte_zero(size=width)
-        size_validation.validate_size_is_gte_zero(size=height)
         self._update_width_and_skip_appending_exp(value=width)
         self._update_height_and_skip_appending_exp(value=height)
         self._set_initial_basic_values(parent=parent)

@@ -10,6 +10,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class RotationAroundCenterInterface(
@@ -76,13 +77,14 @@ class RotationAroundCenterInterface(
         return value_util.get_copy(value=self._rotation_around_center)
 
     @rotation_around_center.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def rotation_around_center(self, value: Int) -> None:
         """
         Update a rotation value around the center of this instance.
 
         Parameters
         ----------
-        value : int or Int
+        value : Int
             Rotation value around the center of this instance.
 
         References
@@ -96,11 +98,7 @@ class RotationAroundCenterInterface(
                 module_name=__name__,
                 class_name=RotationAroundCenterInterface.__name__):
             import apysc as ap
-            from apysc._validation import number_validation
             self._initialize_rotation_around_center_if_not_initialized()
-            number_validation.validate_integer(integer=value)
-            if not isinstance(value, ap.Int):
-                value = ap.Int(value)
             before_value: ap.Int = self._rotation_around_center
             self._rotation_around_center = value
             self._append_rotation_around_center_update_expression(

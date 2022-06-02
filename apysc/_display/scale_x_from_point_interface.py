@@ -11,6 +11,7 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class ScaleXFromPointInterface(
@@ -27,6 +28,7 @@ class ScaleXFromPointInterface(
             return
         self._scale_x_from_point = Dictionary({})
 
+    @arg_validation_decos.is_apysc_integer(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='ScaleXFromPointInterface')
     def get_scale_x_from_point(self, *, x: Int) -> Number:
@@ -64,8 +66,6 @@ class ScaleXFromPointInterface(
         import apysc as ap
         from apysc._display import scale_interface_helper
         from apysc._type.expression_string import ExpressionString
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=x)
         self._initialize_scale_x_from_point_if_not_initialized()
         default_val: ap.Number = ap.Number(1.0)
         key_exp_str: ExpressionString = scale_interface_helper.\
@@ -74,6 +74,8 @@ class ScaleXFromPointInterface(
             key=key_exp_str, default=default_val)
         return scale_x
 
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @arg_validation_decos.is_apysc_integer(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='ScaleXFromPointInterface')
     def set_scale_x_from_point(self, *, scale_x: Number, x: Int) -> None:
@@ -107,9 +109,6 @@ class ScaleXFromPointInterface(
         """
         from apysc._display import scale_interface_helper
         from apysc._type.expression_string import ExpressionString
-        from apysc._validation import number_validation
-        number_validation.validate_num(num=scale_x)
-        number_validation.validate_integer(integer=x)
         self._initialize_scale_x_from_point_if_not_initialized()
         key_exp_str: ExpressionString = scale_interface_helper.\
             get_coordinate_key_for_expression(coordinate=int(x._value))

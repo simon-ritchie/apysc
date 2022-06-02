@@ -8,6 +8,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class SkewYInterface(
@@ -71,6 +72,7 @@ class SkewYInterface(
         return value_util.get_copy(value=self._skew_y)
 
     @skew_y.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def skew_y(self, value: Int) -> None:
         """
         Update a skew y value of this instance.
@@ -91,9 +93,7 @@ class SkewYInterface(
                 module_name=__name__,
                 class_name=SkewYInterface.__name__):
             import apysc as ap
-            from apysc._validation import number_validation
             self._initialize_skew_y_if_not_initialized()
-            number_validation.validate_integer(integer=value)
             before_value: ap.Int = self._skew_y
             self._skew_y = value
             self._append_skew_y_update_expression(before_value=before_value)

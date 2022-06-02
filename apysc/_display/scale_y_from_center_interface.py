@@ -9,6 +9,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class ScaleYFromCenterInterface(
@@ -78,6 +79,7 @@ class ScaleYFromCenterInterface(
         return value_util.get_copy(value=self._scale_y_from_center)
 
     @scale_y_from_center.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def scale_y_from_center(self, value: Number) -> None:
         """
         Update a scale-y value from the center of this instance.
@@ -98,11 +100,7 @@ class ScaleYFromCenterInterface(
                 module_name=__name__,
                 class_name=ScaleYFromCenterInterface.__name__):
             import apysc as ap
-            from apysc._validation import number_validation
             self._initialize_scale_y_from_center_if_not_initialized()
-            number_validation.validate_num(num=value)
-            if not isinstance(value, ap.Number):
-                value = ap.Number(value)
             before_value: ap.Number = self._scale_y_from_center
             self._scale_y_from_center = value
             self._append_scale_y_from_center_update_expression(

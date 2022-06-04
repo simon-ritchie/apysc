@@ -8,6 +8,7 @@ from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class Sprite(DisplayObject, ChildInterface, RevertInterface):
@@ -48,6 +49,8 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
 
     graphics: 'graphics.Graphics'
 
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=1, optional=True)
     @add_debug_info_setting(
         module_name=__name__, class_name='Sprite')
     def __init__(

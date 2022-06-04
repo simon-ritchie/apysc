@@ -6,6 +6,8 @@ Mainly following interfaces are defined:
     - Validate a specified value as an integer or float type.
 - validate_integer
     - Validate whether a specified value is an integer or not.
+- validate_builtin_integer
+    - Validate whether a specified value is a built-in integer or not.
 - validate_int_is_zero_or_one
     - Validate specified integer value is zero or one.
 - validate_num_is_gt_zero
@@ -80,7 +82,34 @@ def validate_integer(
     if additional_err_msg != '':
         additional_err_msg = f'\n{additional_err_msg}'
     raise ValueError(
-        f'A specified value is not integer: {integer}({type(integer)})'
+        f'A specified value is not an integer: {integer}({type(integer)})'
+        f'{additional_err_msg}')
+
+
+def validate_builtin_integer(
+        *, integer: int, additional_err_msg: str = '') -> None:
+    """
+    Validate whether a specified value is a built-in integer or not.
+
+    Parameters
+    ----------
+    integer : int
+        A target integer to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
+
+    Raises
+    ------
+    ValueError
+        If a specified value is not a built-in integer.
+    """
+    if isinstance(integer, int):
+        return
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
+    raise ValueError(
+        'A specified value is not a built-in integer: '
+        f'{integer}({type(integer)})'
         f'{additional_err_msg}')
 
 

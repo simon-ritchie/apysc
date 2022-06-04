@@ -126,3 +126,15 @@ def test_validate_number_is_0_to_1_range() -> None:
 
     number_validation.validate_num_is_0_to_1_range(num=ap.Number(0.0))
     number_validation.validate_num_is_0_to_1_range(num=ap.Number(1.0))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_builtin_integer() -> None:
+    number_validation.validate_builtin_integer(integer=100)
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=number_validation.validate_builtin_integer,
+        match='\nTest error!',
+        integer=ap.Int(100),
+        additional_err_msg='Test error!',
+    )

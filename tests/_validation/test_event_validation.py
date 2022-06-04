@@ -7,7 +7,9 @@ def test_validate_event() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=event_validation.validate_event,
-        e=100)
+        match='\nTest error!',
+        e=100,
+        additional_err_msg='Test error!')
 
     int_1: ap.Int = ap.Int(10)
     e: ap.Event = ap.Event(this=int_1)

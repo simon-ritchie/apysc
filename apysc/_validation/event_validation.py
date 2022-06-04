@@ -12,7 +12,9 @@ from apysc._event.event import Event
 from apysc._event.mouse_event_type import MouseEventType
 
 
-def validate_event(*, e: Any) -> Event:
+def validate_event(
+        *, e: Any,
+        additional_err_msg: str = '') -> Event:
     """
     Validate whether a specified instance is the
     `Event` class or not.
@@ -21,6 +23,8 @@ def validate_event(*, e: Any) -> Event:
     ----------
     e : Event
         Event instance to check.
+    additional_err_msg : str, optional
+        An additional error message to display.
 
     Raises
     ------
@@ -35,8 +39,11 @@ def validate_event(*, e: Any) -> Event:
     """
     if isinstance(e, Event):
         return e
+    if additional_err_msg != '':
+        additional_err_msg = f'\n{additional_err_msg}'
     raise ValueError(
-        f'Specified instance is not Event type: {type(e)}')
+        f'Specified instance is not Event type: {type(e)}'
+        f'{additional_err_msg}')
 
 
 def validate_event_type(*, mouse_event_type: Any) -> MouseEventType:

@@ -17,6 +17,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class WidthAndHeightInterfacesForEllipse(
@@ -90,13 +91,15 @@ class WidthAndHeightInterfacesForEllipse(
         return value_util.get_copy(value=self._width)
 
     @width.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
     def width(self, value: Int) -> None:
         """
         Update a ellipse width value.
 
         Parameters
         ----------
-        value : int or Int
+        value : Int
             Ellipse width value.
         """
         from apysc._html.debug_mode import DebugInfo
@@ -104,11 +107,6 @@ class WidthAndHeightInterfacesForEllipse(
                 callable_='width', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=WidthAndHeightInterfacesForEllipse.__name__):
-            import apysc as ap
-            from apysc._validation import number_validation
-            if not isinstance(value, ap.Int):
-                number_validation.validate_integer(integer=value)
-                value = ap.Int(value)
             self._width = value
             self._width._append_incremental_calc_substitution_expression()
             self._append_ellipse_width_and_height_update_expression()
@@ -144,6 +142,8 @@ class WidthAndHeightInterfacesForEllipse(
         return value_util.get_copy(value=self._height)
 
     @height.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
     def height(self, value: Int) -> None:
         """
         Update a ellipse height value.
@@ -158,11 +158,6 @@ class WidthAndHeightInterfacesForEllipse(
                 callable_='height', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=WidthAndHeightInterfacesForEllipse.__name__):
-            import apysc as ap
-            from apysc._validation import number_validation
-            if not isinstance(value, ap.Int):
-                number_validation.validate_integer(integer=value)
-                value = ap.Int(value)
             self._height = value
             self._height._append_incremental_calc_substitution_expression()
             self._append_ellipse_width_and_height_update_expression()

@@ -35,9 +35,6 @@ class TestWidthAndHeightInterfacesForEllipse:
         interface.width = ap.Int(10)
         assert interface.width == 10
 
-        interface.width = 20  # type: ignore
-        assert interface.width == 20
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_height(self) -> None:
         interface: WidthAndHeightInterfacesForEllipse = \
@@ -48,9 +45,6 @@ class TestWidthAndHeightInterfacesForEllipse:
 
         interface.height = ap.Int(10)
         assert interface.height == 10
-
-        interface.height = 20  # type: ignore
-        assert interface.height == 20
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_width_and_height_update_expression(self) -> None:

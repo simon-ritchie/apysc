@@ -739,3 +739,18 @@ def test_is_builtin_string() -> None:
     )
     _test_func_2(a=None)
     _test_func_2(a='Hello!')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_builtin_integer() -> None:
+
+    @arg_validation_decos.is_builtin_integer(arg_position_index=0)
+    def _test_func(*, a: int) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        a=ap.Int(100),
+    )
+    _test_func(a=100)

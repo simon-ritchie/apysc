@@ -754,3 +754,18 @@ def test_is_builtin_integer() -> None:
         a=ap.Int(100),
     )
     _test_func(a=100)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_variable_name_interface_type() -> None:
+
+    @arg_validation_decos.is_variable_name_interface_type(
+        arg_position_index=0)
+    def _test_func(*, a: ap.Int) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a=100)
+    _test_func(a=ap.Int(100))

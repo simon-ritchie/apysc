@@ -92,6 +92,9 @@ Mainly the following decorators exist.
 - is_line_round_dot_setting
     - Set the validation to check a specified argument's type
         is the `ap.LineRoundDotSetting`.
+- is_variable_name_interface_type
+    - Set the validation to check a specified argument's type
+        is the `ap.VariableNameInterface` or its subclass type.
 """
 
 import functools
@@ -1522,6 +1525,46 @@ def is_line_round_dot_setting(*, arg_position_index: int) -> _F:
                     'A specified setting is not the `ap.LineRoundDotSetting` '
                     f'type or None: {type(setting)}'
                     f'\n{callable_and_arg_names_msg}')
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_variable_name_interface_type(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the `ap.VariableNameInterface` or its subclass type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._validation.variable_name_validation import \
+                validate_variable_name_interface_type
+            instance: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            validate_variable_name_interface_type(
+                instance=instance,
+                additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)
             return result

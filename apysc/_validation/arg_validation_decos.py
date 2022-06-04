@@ -840,7 +840,6 @@ def is_builtin_string(*, arg_position_index: int, optional: bool) -> _F:
     return wrapped  # type: ignore
 
 
-
 def is_hex_color_code_format(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's value

@@ -2,7 +2,24 @@
 
 ## Module summary
 
-Number validation implementations. Mainly following interfaces are defined: <br>・validate_num <br> ・Validate a specified value as an integer or float type. <br>・validate_integer <br> ・Validate whether a specified value is an integer or not. <br>・validate_int_is_zero_or_one <br> ・Validate specified integer value is zero or one. <br>・validate_num_is_gt_zero <br> ・Validate specified value is greater than zero. <br>・validate_num_is_gte_zero <br> ・Validate whether a specified value is greater than or equal to zero. <br>・validate_nums_are_int_and_gt_zero <br> ・Validate specified number values are greater integer and greater than zero. <br>・validate_num_is_0_to_1_range <br> ・Validate whether a specified number is from 0.0 to 1.0.
+Number validation implementations. Mainly following interfaces are defined: <br>・validate_num <br> ・Validate a specified value as an integer or float type. <br>・validate_integer <br> ・Validate whether a specified value is an integer or not. <br>・validate_builtin_integer <br> ・Validate whether a specified value is a built-in integer or not. <br>・validate_int_is_zero_or_one <br> ・Validate specified integer value is zero or one. <br>・validate_num_is_gt_zero <br> ・Validate specified value is greater than zero. <br>・validate_num_is_gte_zero <br> ・Validate whether a specified value is greater than or equal to zero. <br>・validate_nums_are_int_and_gt_zero <br> ・Validate specified number values are greater integer and greater than zero. <br>・validate_num_is_0_to_1_range <br> ・Validate whether a specified number is from 0.0 to 1.0.
+
+## `validate_builtin_integer` function docstring
+
+Validate whether a specified value is a built-in integer or not.<hr>
+
+**[Parameters]**
+
+- `integer`: int
+  - A target integer to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
+
+<hr>
+
+**[Raises]**
+
+- ValueError: If a specified value is not a built-in integer.
 
 ## `validate_int_is_zero_or_one` function docstring
 

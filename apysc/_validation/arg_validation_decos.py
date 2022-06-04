@@ -41,6 +41,9 @@ Mainly the following decorators exist.
 - is_string
     - Set the validation to check a specified argument's type
         is the str or `ap.String`.
+- is_builtin_string
+    - Set the validation to check a specified argument's type
+        is the Python built-in's `str`.
 - is_hex_color_code_format
     - Set the validation to check a specified argument's value
         is a hexadecimal color code format.
@@ -744,6 +747,55 @@ def is_string(*, arg_position_index: int) -> _F:
         return inner_wrapped  # type: ignore
 
     return wrapped  # type: ignore
+
+
+def is_builtin_string(*, arg_position_index: int, optional: bool) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the Python built-in's `str`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    optional : bool, optional
+        A boolean indicating whether a target argument accepts
+        optional None value or not.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._validation.string_validation import \
+                validate_builtin_string_type
+            string: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            if not optional:
+                validate_builtin_string_type(
+                    string=string,
+                    additional_err_msg=callable_and_arg_names_msg)
+            elif string is not None:
+                validate_builtin_string_type(
+                    string=string,
+                    additional_err_msg=callable_and_arg_names_msg)
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
 
 
 def is_hex_color_code_format(*, arg_position_index: int) -> _F:

@@ -705,3 +705,37 @@ def test_is_point_2d() -> None:
         a=100,
     )
     _test_func(a=ap.Point2D(x=50, y=100))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_builtin_string() -> None:
+
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=0, optional=False)
+    def _test_func_1(*, a: str) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        a=None,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        a=ap.String('Hello!'),
+    )
+    _test_func_1(a='Hello!')
+
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=0, optional=True)
+    def _test_func_2(*, a: Optional[str]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_2,
+        a=ap.String('Hello!'),
+    )
+    _test_func_2(a=None)
+    _test_func_2(a='Hello!')

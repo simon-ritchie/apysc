@@ -18,6 +18,7 @@ from apysc._display.width_interface import WidthInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 # This is used only for avoiding gabage collection.
 _current_stage: 'Stage'
@@ -48,8 +49,17 @@ class Stage(
     _stage_elem_id: str
     stage: 'Stage'
 
+    @arg_validation_decos.is_builtin_integer(arg_position_index=1)
+    @arg_validation_decos.is_builtin_integer(arg_position_index=2)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=3)
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=4, optional=False)
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=5, optional=True)
     def __init__(
-            self, *, stage_width: int = 300, stage_height: int = 185,
+            self, *,
+            stage_width: int = 300,
+            stage_height: int = 185,
             background_color: str = '#ffffff',
             add_to: str = 'body',
             stage_elem_id: Optional[str] = None) -> None:

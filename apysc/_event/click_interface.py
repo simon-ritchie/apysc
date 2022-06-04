@@ -10,6 +10,7 @@ from apysc._event.handler import HandlerData
 from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 _O = TypeVar('_O')
 _Handler = Callable[[MouseEvent, _O], None]
@@ -19,6 +20,8 @@ class ClickInterface(MouseEventInterfaceBase):
 
     _click_handlers: Dict[str, HandlerData]
 
+    @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='ClickInterface')
     def click(
@@ -64,12 +67,10 @@ class ClickInterface(MouseEventInterfaceBase):
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._type.variable_name_interface import VariableNameInterface
-        from apysc._validation.handler_validation import validate_options_type
         from apysc._validation.variable_name_validation import \
             validate_variable_name_interface_type
         self_instance: VariableNameInterface = \
             validate_variable_name_interface_type(instance=self)
-        validate_options_type(options=options)
         self._initialize_click_handlers_if_not_initialized()
         name: str = get_handler_name(handler=handler, instance=self)
         self._set_mouse_event_handler_data(
@@ -92,6 +93,7 @@ class ClickInterface(MouseEventInterfaceBase):
             return
         self._click_handlers = {}
 
+    @arg_validation_decos.handler_args_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='ClickInterface')
     def unbind_click(self, handler: _Handler[_O]) -> None:

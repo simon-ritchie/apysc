@@ -8,6 +8,7 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class VisibleInterface(
@@ -66,6 +67,7 @@ class VisibleInterface(
         return value_util.get_copy(value=self._visible)
 
     @visible.setter
+    @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
     def visible(self, value: Boolean) -> None:
         """
         Update a visibility value of this instance.
@@ -80,11 +82,6 @@ class VisibleInterface(
                 callable_='visible', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=VisibleInterface.__name__):
-            import apysc as ap
-            from apysc._validation import bool_validation
-            bool_validation.validate_bool(value=value)
-            if isinstance(value, bool):
-                value = ap.Boolean(value)
             self._visible = value
             self._append_visible_update_expression()
 

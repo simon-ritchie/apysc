@@ -40,9 +40,6 @@ class TestVisibleInterface:
         assert not interface_1.visible
         assert interface_1._visible.variable_name == bool_1.variable_name
 
-        interface_1.visible = True  # type: ignore
-        assert interface_1.visible
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_visible_update_expression(self) -> None:
         expression_data_util.empty_expression()

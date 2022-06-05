@@ -19,6 +19,8 @@ from typing import Optional
 from typing import Tuple
 from typing import TypeVar
 
+from apysc._validation import arg_validation_decos
+
 
 class TableName(Enum):
     NOT_EXISTING = 'not_existing'
@@ -378,6 +380,8 @@ def empty_expression() -> None:
     connection.commit()
 
 
+@arg_validation_decos.is_builtin_string(
+    arg_position_index=0, optional=False)
 def append_js_expression(expression: str) -> None:
     """
     Append js expression.

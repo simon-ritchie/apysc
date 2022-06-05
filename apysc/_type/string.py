@@ -10,6 +10,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 
 class String(CopyInterface, RevertInterface, CustomEventInterface):
@@ -49,6 +50,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
     _initial_value: Union[str, 'String']
     _value: str
 
+    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __init__(self, value: Union[str, 'String']) -> None:
@@ -84,10 +86,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
-        from apysc._validation import string_validation
         with TemporaryNotHandlerScope():
             TYPE_NAME: str = var_names.STRING
-            string_validation.validate_string_type(string=value)
             self._initial_value = value
             self._type_name = TYPE_NAME
             self._value = self._get_str_value(value=value)
@@ -153,6 +153,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         return self._value
 
     @value.setter
+    @arg_validation_decos.is_string(arg_position_index=1)
     def value(self, value: Union[str, 'String']) -> None:
         """
         Set string value.
@@ -172,8 +173,6 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
                 callable_='value', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=String.__name__):
-            from apysc._validation import string_validation
-            string_validation.validate_string_type(string=value)
             self._value = self._get_str_value(value=value)
             self._append_value_setter_expression(value=value)
 
@@ -197,6 +196,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             expression += f'"{value}";'
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __add__(self, other: Union[str, 'String']) -> 'String':
@@ -213,8 +213,6 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         result : String
             Concatenated result string.
         """
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
         if isinstance(other, String):
             value: str = self._value + other._value
         else:
@@ -248,6 +246,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __mul__(self, other: Union[int, Any]) -> 'String':
@@ -265,8 +264,6 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Repeated result string.
         """
         import apysc as ap
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=other)
         if isinstance(other, ap.Int):
             value: int = other.value  # type: ignore
         else:
@@ -304,6 +301,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         expression += '\n}'
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __iadd__(self, other: Union[str, 'String']) -> Any:
@@ -327,6 +325,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         result.variable_name = self.variable_name
         return result
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __imul__(self, other: Union[int, Any]) -> Any:
@@ -488,6 +487,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __lt__(self, other: Union[str, Any]) -> Any:
@@ -505,8 +505,6 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result.
         """
         import apysc as ap
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         result: ap.Boolean = ap.Boolean(self._value < value)
         other = self._convert_other_val_to_string(other=other)
@@ -536,6 +534,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __le__(self, other: Union[str, Any]) -> Any:
@@ -553,8 +552,6 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result.
         """
         import apysc as ap
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         result: ap.Boolean = ap.Boolean(self._value <= value)
         other = self._convert_other_val_to_string(other=other)
@@ -584,6 +581,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __gt__(self, other: Union[str, Any]) -> Any:
@@ -601,8 +599,6 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result.
         """
         import apysc as ap
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         result: ap.Boolean = ap.Boolean(self._value > value)
         other = self._convert_other_val_to_string(other=other)
@@ -632,6 +628,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='String')
     def __ge__(self, other: Union[str, Any]) -> Any:
@@ -649,8 +646,6 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result.
         """
         import apysc as ap
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         result: ap.Boolean = ap.Boolean(self._value >= value)
         other = self._convert_other_val_to_string(other=other)

@@ -3,6 +3,8 @@
 
 from typing import List
 
+from apysc._validation import arg_validation_decos
+
 
 class VariableNameInterface:
 
@@ -24,6 +26,8 @@ class VariableNameInterface:
         return self._variable_name
 
     @variable_name.setter
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=1, optional=False)
     def variable_name(self, variable_name: str) -> None:
         """
         Set a js variable name of this instance.

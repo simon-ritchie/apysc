@@ -6,6 +6,7 @@ from typing import Union
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number_value_interface import NumberValueInterface
+from apysc._validation import arg_validation_decos
 
 
 class Number(NumberValueInterface[float, 'Number']):
@@ -47,6 +48,7 @@ class Number(NumberValueInterface[float, 'Number']):
     Number(20.8)
     """
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='Number')
     def __init__(

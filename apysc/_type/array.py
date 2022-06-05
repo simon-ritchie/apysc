@@ -17,6 +17,7 @@ from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 T = TypeVar('T')
 
@@ -766,6 +767,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_builtin_boolean(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def sort(self, *, ascending: bool = True) -> None:
@@ -1133,6 +1135,7 @@ class Array(
             'Array instance can\'t apply len function.'
             ' Please use length property instead.')
 
+    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def join(self, sep: Union[str, String]) -> String:

@@ -12,6 +12,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 _NumType = Union[int, float, 'NumberValueInterface']
 _V = TypeVar('_V', int, float)
@@ -103,6 +104,7 @@ class NumberValueInterface(
         return self._value
 
     @value.setter
+    @arg_validation_decos.is_num(arg_position_index=1)
     def value(self, value: _NumType) -> None:
         """
         Set number value.
@@ -169,6 +171,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __add__(self, other: _NumType) -> Any:
@@ -218,6 +221,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __sub__(self, other: _NumType) -> Any:
@@ -267,6 +271,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __mul__(self, other: _NumType) -> _T:
@@ -316,6 +321,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __truediv__(self, other: _NumType) -> Any:
@@ -366,6 +372,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __floordiv__(self, other: _NumType) -> Any:
@@ -432,6 +439,7 @@ class NumberValueInterface(
                 right_variable_name=self.variable_name)
         self._incremental_calc_prev_name = ''
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __iadd__(self, other: _NumType) -> _T:
@@ -457,6 +465,7 @@ class NumberValueInterface(
         result.variable_name = self.variable_name
         return result
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __isub__(self, other: _NumType) -> Any:
@@ -482,6 +491,7 @@ class NumberValueInterface(
         result.variable_name = self.variable_name
         return result
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __imul__(self, other: _NumType) -> _T:
@@ -507,6 +517,7 @@ class NumberValueInterface(
         result.variable_name = self.variable_name
         return result
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __itruediv__(self, other: _NumType) -> Any:
@@ -534,6 +545,7 @@ class NumberValueInterface(
         result.variable_name = self.variable_name
         return result
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __mod__(self, other: _NumType) -> _T:

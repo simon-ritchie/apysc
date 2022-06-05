@@ -5,6 +5,7 @@ from typing import Union
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number_value_interface import NumberValueInterface
+from apysc._validation import arg_validation_decos
 
 
 class Int(NumberValueInterface[int, 'Int']):
@@ -45,6 +46,7 @@ class Int(NumberValueInterface[int, 'Int']):
     Int(10)
     """
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='Int')
     def __init__(
@@ -143,8 +145,6 @@ class Int(NumberValueInterface[int, 'Int']):
             value to an integer if float or number value is specified.
         """
         from apysc._converter import cast
-        from apysc._validation import number_validation
-        number_validation.validate_num(num=value)  # type: ignore
         if isinstance(value, NumberValueInterface):
             value._value = cast.to_int_from_float(int_or_float=value._value)
             value_: Union[int, float, NumberValueInterface] = value._value

@@ -12,6 +12,7 @@ from apysc._event.event import Event
 from apysc._event.handler import HandlerData
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.blank_object_interface import BlankObjectInterface
+from apysc._validation import arg_validation_decos
 
 _CustomEventType = str
 _HandlerName = str
@@ -110,6 +111,11 @@ class CustomEventInterface(BlankObjectInterface):
             return
         del self._custom_event_handlers[custom_event_type_str][name]
 
+    @arg_validation_decos.handler_args_num(arg_position_index=2)
+    @arg_validation_decos.is_event(arg_position_index=3)
+    @arg_validation_decos.handler_options_type(arg_position_index=4)
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=5, optional=False)
     @add_debug_info_setting(
         module_name=__name__, class_name='CustomEventInterface')
     def bind_custom_event(
@@ -262,6 +268,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.handler_args_num(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='CustomEventInterface')
     def unbind_custom_event(

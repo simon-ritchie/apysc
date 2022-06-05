@@ -12,11 +12,14 @@ from typing import TypeVar
 
 from apysc._event.wheel_event import WheelEvent
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 _O = TypeVar('_O')
 _Handler = Callable[[WheelEvent, _O], None]
 
 
+@arg_validation_decos.handler_args_num(arg_position_index=0)
+@arg_validation_decos.handler_options_type(arg_position_index=1)
 @add_debug_info_setting(module_name=__name__)
 def bind_wheel_event_to_document(
         *,
@@ -66,6 +69,7 @@ def bind_wheel_event_to_document(
     return name
 
 
+@arg_validation_decos.handler_args_num(arg_position_index=0)
 @add_debug_info_setting(module_name=__name__)
 def unbind_wheel_event_from_document(
         *,

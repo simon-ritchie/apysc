@@ -11,6 +11,7 @@ from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 _Int = Union[int, Int]
 
@@ -45,6 +46,8 @@ class Point2D(
     _x: Int
     _y: Int
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
     def __init__(self, x: _Int, y: _Int) -> None:
@@ -131,6 +134,7 @@ class Point2D(
         return x
 
     @x.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def x(self, value: Int) -> None:
         """
         Update x-coordinate property.
@@ -145,11 +149,6 @@ class Point2D(
                 callable_='x', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=Point2D.__name__):
-            import apysc as ap
-            from apysc._validation.number_validation import validate_integer
-            validate_integer(integer=value)
-            if isinstance(value, int):
-                value = ap.Int(value)
             self._x = value
             self._x._append_incremental_calc_substitution_expression()
             self._append_x_setter_expression(value=value)
@@ -215,6 +214,7 @@ class Point2D(
         return y
 
     @y.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def y(self, value: Int) -> None:
         """
         Update y-coordinate property.

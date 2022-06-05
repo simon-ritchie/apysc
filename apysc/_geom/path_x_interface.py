@@ -7,6 +7,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class PathXInterface(RevertInterface, AttrLinkingInterface):
@@ -59,6 +60,7 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
         return self._x._copy()
 
     @x.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def x(self, value: Int) -> None:
         """
         Set a x-coordinate of the destination point.

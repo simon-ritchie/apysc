@@ -11,6 +11,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class PathHorizontal(PathDataBase, PathXInterface):
@@ -30,6 +31,8 @@ class PathHorizontal(PathDataBase, PathXInterface):
     ...     ])
     """
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_boolean(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='PathHorizontal')
     def __init__(
@@ -86,6 +89,8 @@ class PathHorizontal(PathDataBase, PathXInterface):
         svg_str: str = f'{svg_char_str} + String({x_str})'
         return svg_str
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_boolean(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='PathHorizontal')
     def update_path_data(

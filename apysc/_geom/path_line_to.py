@@ -12,6 +12,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
@@ -31,6 +32,9 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
     ...     ])
     """
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_boolean(arg_position_index=3)
     @add_debug_info_setting(
         module_name=__name__, class_name='PathLineTo')
     def __init__(
@@ -94,6 +98,9 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
         )
         return svg_str
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_boolean(arg_position_index=3)
     @add_debug_info_setting(
         module_name=__name__, class_name='PathLineTo')
     def update_path_data(

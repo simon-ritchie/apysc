@@ -7,6 +7,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class PathControlX2Interface(RevertInterface, AttrLinkingInterface):
@@ -62,6 +63,7 @@ class PathControlX2Interface(RevertInterface, AttrLinkingInterface):
         return self._control_x2._copy()
 
     @control_x2.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     def control_x2(self, value: Int) -> None:
         """
         Set a second x-coordinate of the control point.

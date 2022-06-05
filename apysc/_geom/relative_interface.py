@@ -5,6 +5,7 @@ from typing import Dict
 
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
+from apysc._validation import arg_validation_decos
 
 
 class RelativeInterface(RevertInterface):
@@ -45,6 +46,7 @@ class RelativeInterface(RevertInterface):
         return self._relative._copy()
 
     @relative.setter
+    @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
     def relative(self, value: Boolean) -> None:
         """
         Set a boolean value indicating whether path a path data

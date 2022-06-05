@@ -40,18 +40,12 @@ class TestPoint2D:
         assert isinstance(x, ap.Int)
         assert x == 10
 
-        point.x = 20  # type: ignore
-        assert point.x == 20
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_y(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         y: ap.Int = point.y
         assert isinstance(y, ap.Int)
         assert y == 20
-
-        point.y = 30  # type: ignore
-        assert point.y == 30
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
@@ -147,8 +141,8 @@ class TestPoint2D:
         assert point._x_snapshots == {snapshot_name: 10}
         assert point._y_snapshots == {snapshot_name: 20}
 
-        point.x = 30  # type: ignore
-        point.y = 40  # type: ignore
+        point.x = ap.Int(30)
+        point.y = ap.Int(40)
         point._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert point._x_snapshots == {snapshot_name: 10}
         assert point._y_snapshots == {snapshot_name: 20}
@@ -160,8 +154,8 @@ class TestPoint2D:
         point._run_all_revert_methods(snapshot_name=snapshot_name)
 
         point._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        point.x = 30  # type: ignore
-        point.y = 40  # type: ignore
+        point.x = ap.Int(30)
+        point.y = ap.Int(40)
         point._run_all_revert_methods(snapshot_name=snapshot_name)
         assert point.x == 10
         assert point.y == 20

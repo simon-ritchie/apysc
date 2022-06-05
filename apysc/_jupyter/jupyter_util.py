@@ -15,6 +15,8 @@ import shutil
 from datetime import datetime
 from random import randint
 
+from apysc._validation import arg_validation_decos
+
 _TMP_ROOT_DIR_PATH: str = './'
 
 
@@ -46,6 +48,9 @@ def _save_overall_html(*, html_file_name: str, minify: bool) -> None:
     shutil.rmtree(dest_dir_path, ignore_errors=True)
 
 
+@arg_validation_decos.is_builtin_string(
+    arg_position_index=0, optional=False)
+@arg_validation_decos.is_builtin_boolean(arg_position_index=1)
 def display_on_jupyter(
         html_file_name: str,
         *,
@@ -86,6 +91,9 @@ def display_on_jupyter(
                width=stage._width._value, height=stage._height._value))
 
 
+@arg_validation_decos.is_builtin_string(
+    arg_position_index=0, optional=False)
+@arg_validation_decos.is_builtin_boolean(arg_position_index=1)
 def display_on_colaboratory(
         html_file_name: str, *,
         minify: bool = True) -> None:

@@ -11,6 +11,9 @@ Mainly the following decorators exist.
 - handler_options_type
     - Set the validation to check a specified handler-options
         argument's type.
+- is_event
+    - Set the validation to check a specified argument's type
+        is the `ap.Event` or its subclass type.
 - is_num
     - Set the validation to check a specified argument's type
         is the number-related type.
@@ -348,6 +351,45 @@ def handler_options_type(*, arg_position_index: int) -> _F:
             validate_options_type(
                 options=options,
                 additional_err_msg=callable_and_arg_names_msg)
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_event(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the `ap.Event` or its subclass type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        _description_
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._validation.event_validation import \
+                validate_event
+            event: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            validate_event(
+                e=event, additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)
             return result

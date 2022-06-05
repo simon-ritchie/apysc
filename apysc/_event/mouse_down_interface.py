@@ -10,6 +10,7 @@ from apysc._event.handler import HandlerData
 from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 _O = TypeVar('_O')
 _Handler = Callable[[MouseEvent, _O], None]
@@ -19,6 +20,8 @@ class MouseDownInterface(MouseEventInterfaceBase):
 
     _mouse_down_handlers: Dict[str, HandlerData]
 
+    @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='MouseDownInterface')
     def mousedown(
@@ -95,6 +98,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
             return
         self._mouse_down_handlers = {}
 
+    @arg_validation_decos.handler_args_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='MouseDownInterface')
     def unbind_mousedown(self, handler: _Handler[_O]) -> None:

@@ -149,6 +149,9 @@ class Point2D(
                 callable_='x', args=[value], kwargs={},
                 module_name=__name__,
                 class_name=Point2D.__name__):
+            import apysc as ap
+            if not isinstance(value, ap.Int):
+                value = ap.Int(value)
             self._x = value
             self._x._append_incremental_calc_substitution_expression()
             self._append_x_setter_expression(value=value)
@@ -230,9 +233,7 @@ class Point2D(
                 module_name=__name__,
                 class_name=Point2D.__name__):
             import apysc as ap
-            from apysc._validation.number_validation import validate_integer
-            validate_integer(integer=value)
-            if isinstance(value, int):
+            if not isinstance(value, ap.Int):
                 value = ap.Int(value)
             self._y = value
             self._y._append_incremental_calc_substitution_expression()

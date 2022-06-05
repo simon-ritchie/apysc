@@ -37,9 +37,10 @@ def main() -> None:
     ap.assert_equal(left=30, right=point.x)
     ap.assert_equal(left=40, right=point.y)
 
-    point.x = 50  # type: ignore
-    point.y = 60  # type: ignore
+    point.x += 20
     ap.assert_equal(left=50, right=point.x)
+
+    point.y += 20
     ap.assert_equal(left=60, right=point.y)
 
     x.value = 70

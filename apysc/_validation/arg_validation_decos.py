@@ -41,6 +41,9 @@ Mainly the following decorators exist.
 - is_boolean
     - Set the validation to check that a specified argument's type
         is the `bool` or `ap.Boolean`.
+- is_builtin_boolean
+    - Set the validation to check that a specified argument's type
+        is the built-in `bool`.
 - is_apysc_boolean
     - Set the validation to check that a specified argument's type
         is the `ap.Boolean`.
@@ -746,6 +749,46 @@ def is_boolean(*, arg_position_index: int) -> _F:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index)
             validate_bool(
+                value=boolean, additional_err_msg=callable_and_arg_names_msg)
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+
+def is_builtin_boolean(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check that a specified argument's type
+    is the built-in `bool`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._validation.bool_validation import \
+                validate_builtin_bool
+            boolean: Any = _extract_arg_value(
+                args=args, kwargs=kwargs,
+                arg_position_index=arg_position_index, callable_=callable_)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index)
+            validate_builtin_bool(
                 value=boolean, additional_err_msg=callable_and_arg_names_msg)
 
             result: Any = callable_(*args, **kwargs)

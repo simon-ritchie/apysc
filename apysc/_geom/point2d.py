@@ -134,7 +134,7 @@ class Point2D(
         return x
 
     @x.setter
-    @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     def x(self, value: Int) -> None:
         """
         Update x-coordinate property.
@@ -214,7 +214,7 @@ class Point2D(
         return y
 
     @y.setter
-    @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     def y(self, value: Int) -> None:
         """
         Update y-coordinate property.

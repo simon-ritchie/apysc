@@ -12,6 +12,8 @@ Validate specified value is bool or Boolean type.<hr>
 
 - `value`: bool or Boolean
   - Boolean value to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

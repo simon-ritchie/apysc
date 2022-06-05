@@ -12,6 +12,8 @@ Validate specified instance type is VariableNameInterface.<hr>
 
 - `instance`: *
   - Instance to be checked.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

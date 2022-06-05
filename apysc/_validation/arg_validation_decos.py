@@ -383,8 +383,7 @@ def is_event(*, arg_position_index: int) -> _F:
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._validation.event_validation import \
-                validate_event
+            from apysc._validation.event_validation import validate_event
             event: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, callable_=callable_)

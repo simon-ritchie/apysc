@@ -12,6 +12,8 @@ Validate whether a specified instance is the `Event` class or not.<hr>
 
 - `e`: Event
   - Event instance to check.
+- `additional_err_msg`: str, optional
+  - An additional error message to display.
 
 <hr>
 

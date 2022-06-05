@@ -7,4 +7,6 @@ def test_validate_bool() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=bool_validation.validate_bool,
-        value=1)
+        match='\nTest error!',
+        value=1,
+        additional_err_msg='Test error!')

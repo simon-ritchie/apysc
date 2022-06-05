@@ -17,6 +17,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 _O1 = TypeVar('_O1')
 _O2 = TypeVar('_O2')
@@ -71,6 +72,10 @@ class Timer(VariableNameInterface, CustomEventInterface):
     _handler_name: str
     _running: Boolean
 
+    @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
+    @arg_validation_decos.handler_options_type(arg_position_index=4)
     @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def __init__(
@@ -140,9 +145,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         from apysc._validation import number_validation
-        from apysc._validation.handler_validation import validate_options_type
         with TemporaryNotHandlerScope():
-            validate_options_type(options=options)
             self.variable_name = \
                 expression_variables_util.get_next_variable_name(
                     type_name=var_names.TIMER)
@@ -158,7 +161,6 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 repeat_count_: ap.Int = repeat_count
             else:
                 repeat_count_ = ap.Int(repeat_count)
-            number_validation.validate_num_is_gte_zero(num=repeat_count)
             self._repeat_count = repeat_count_
             self._running = ap.Boolean(False)
             self._current_count = ap.Int(0)
@@ -530,6 +532,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
         self.stop()
         self._current_count.value = 0
 
+    @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='Timer')
     def timer_complete(

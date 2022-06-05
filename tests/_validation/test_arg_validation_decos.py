@@ -786,3 +786,18 @@ def test_is_event() -> None:
     stage: ap.Stage = ap.Stage()
     e: ap.Event = ap.Event(this=stage)
     _test_func(a=e)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_boolean() -> None:
+
+    @arg_validation_decos.is_boolean(arg_position_index=0)
+    def _test_func(*, a: Union[bool, ap.Boolean]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        a=100)
+    _test_func(a=True)
+    _test_func(a=ap.Boolean(True))

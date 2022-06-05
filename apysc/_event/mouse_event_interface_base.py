@@ -11,6 +11,7 @@ from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 _O = TypeVar('_O')
 _Handler = Callable[[MouseEvent, _O], None]
@@ -18,6 +19,8 @@ _Handler = Callable[[MouseEvent, _O], None]
 
 class MouseEventInterfaceBase:
 
+    @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @arg_validation_decos.handler_options_type(arg_position_index=3)
     def _set_mouse_event_handler_data(
             self, *, handler: _Handler[_O],
             handlers_dict: Dict[str, HandlerData],
@@ -36,8 +39,6 @@ class MouseEventInterfaceBase:
             to a handler.
         """
         from apysc._event.handler import get_handler_name
-        from apysc._validation.handler_validation import validate_options_type
-        validate_options_type(options=options)
         name: str = get_handler_name(handler=handler, instance=self)
         if options is None:
             options = {}  # type: ignore

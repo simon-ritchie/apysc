@@ -13,6 +13,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class PathBezier2D(
@@ -36,6 +37,11 @@ class PathBezier2D(
     ...     ])
     """
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_boolean(arg_position_index=5)
     @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier2D')
     def __init__(
@@ -121,6 +127,11 @@ class PathBezier2D(
         )
         return svg_str
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_boolean(arg_position_index=5)
     @add_debug_info_setting(
         module_name=__name__, class_name='PathBezier2D')
     def update_path_data(

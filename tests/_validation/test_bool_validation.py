@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
+import apysc as ap
 from apysc._testing import testing_helper
 from apysc._validation import bool_validation
-import apysc as ap
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

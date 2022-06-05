@@ -759,7 +759,6 @@ def is_boolean(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-
 def is_builtin_boolean(*, arg_position_index: int) -> _F:
     """
     Set the validation to check that a specified argument's type
@@ -780,8 +779,7 @@ def is_builtin_boolean(*, arg_position_index: int) -> _F:
 
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._validation.bool_validation import \
-                validate_builtin_bool
+            from apysc._validation.bool_validation import validate_builtin_bool
             boolean: Any = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, callable_=callable_)

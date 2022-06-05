@@ -10,6 +10,7 @@ from apysc._event.stop_propagation_interface import StopPropagationInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 T = TypeVar('T', bound=VariableNameInterface)
 
@@ -41,6 +42,8 @@ class MouseEvent(
     >>> _ = rectangle.mousedown(on_mousedown)
     """
 
+    @arg_validation_decos.is_variable_name_interface_type(
+        arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='MouseEvent')
     def __init__(self, *, this: T) -> None:

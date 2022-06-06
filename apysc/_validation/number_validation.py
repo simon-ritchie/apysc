@@ -19,7 +19,6 @@ Mainly following interfaces are defined:
     - Validate whether a specified number is from 0.0 to 1.0.
 """
 
-from typing import List
 from typing import Union
 
 from apysc._type.int import Int

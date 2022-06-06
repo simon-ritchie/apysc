@@ -80,20 +80,6 @@ def test_validate_int_is_zero_or_one() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_validate_nums_are_int_and_gt_zero() -> None:
-    number_validation.validate_nums_are_int_and_gt_zero(
-        nums=[1, ap.Int(1)])
-    testing_helper.assert_raises(
-        expected_error_class=ValueError,
-        callable_=number_validation.validate_nums_are_int_and_gt_zero,
-        nums=[10.5])
-    testing_helper.assert_raises(
-        expected_error_class=ValueError,
-        callable_=number_validation.validate_nums_are_int_and_gt_zero,
-        nums=[0])
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_number_is_0_to_1_range() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,

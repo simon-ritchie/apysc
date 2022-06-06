@@ -15,9 +15,6 @@ Mainly following interfaces are defined:
 - validate_num_is_gte_zero
     - Validate whether a specified value is greater than or
     equal to zero.
-- validate_nums_are_int_and_gt_zero
-    - Validate specified number values are greater integer and
-    greater than zero.
 - validate_num_is_0_to_1_range
     - Validate whether a specified number is from 0.0 to 1.0.
 """
@@ -197,26 +194,6 @@ def validate_num_is_gte_zero(
         additional_err_msg = f'\n{additional_err_msg}'
     raise ValueError(
         f'Specified values is less than zero: {num}{additional_err_msg}')
-
-
-def validate_nums_are_int_and_gt_zero(*, nums: List[Union[int, Int]]) -> None:
-    """
-    Validate specified number values are greater integer and
-    greater than zero.
-
-    Parameters
-    ----------
-    nums : list
-        Integer values to check.
-
-    Raises
-    ------
-    ValueError
-        If any value is not integer type or less than one.
-    """
-    for num in nums:
-        validate_integer(integer=num)
-        validate_num_is_gt_zero(num=num)
 
 
 def validate_num_is_0_to_1_range(

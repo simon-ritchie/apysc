@@ -586,8 +586,6 @@ class Timer(VariableNameInterface, CustomEventInterface):
         """
         import apysc as ap
         from apysc._event.custom_event_type import CustomEventType
-        from apysc._validation.handler_validation import validate_options_type
-        validate_options_type(options=options)
         e: ap.TimerEvent = ap.TimerEvent(this=self)
         name: str = self.bind_custom_event(
             custom_event_type=CustomEventType.TIMER_COMPLETE,

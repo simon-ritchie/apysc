@@ -28,6 +28,7 @@ class VariableNameInterface:
     @variable_name.setter
     @arg_validation_decos.is_builtin_string(
         arg_position_index=1, optional=False)
+    @arg_validation_decos.not_empty_string(arg_position_index=1)
     def variable_name(self, variable_name: str) -> None:
         """
         Set a js variable name of this instance.
@@ -37,8 +38,6 @@ class VariableNameInterface:
         variable_name : str
             Variable name to set.
         """
-        from apysc._validation import string_validation
-        string_validation.validate_not_empty_string(string=variable_name)
         if not hasattr(self, '_variable_name_history'):
             self._variable_name_history = []
         self._variable_name = variable_name

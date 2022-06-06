@@ -23,6 +23,7 @@ from apysc._display.skew_x_interface import SkewXInterface
 from apysc._display.skew_y_interface import SkewYInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class GraphicsBase(
@@ -34,6 +35,9 @@ class GraphicsBase(
 
     _variable_name: str
 
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.not_empty_string(arg_position_index=4)
     @add_debug_info_setting(
         module_name=__name__, class_name='GraphicsBase')
     def __init__(
@@ -61,13 +65,9 @@ class GraphicsBase(
         import apysc as ap
         from apysc._display.graphics import Graphics
         from apysc._validation import display_validation
-        from apysc._validation import number_validation
-        from apysc._validation import string_validation
 
         display_validation.validate_graphics(graphics=parent)
         self.parent_graphics: Graphics = parent
-        number_validation.validate_integer(integer=x)
-        number_validation.validate_integer(integer=y)
         if isinstance(x, ap.Int):
             x_: ap.Int = x
         else:
@@ -78,6 +78,5 @@ class GraphicsBase(
         else:
             y_ = ap.Int(y)
         self._y = y_
-        string_validation.validate_not_empty_string(string=variable_name)
         super(GraphicsBase, self).__init__(
             variable_name=variable_name)

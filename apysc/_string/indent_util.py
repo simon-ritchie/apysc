@@ -10,7 +10,11 @@ Mainly following interfaces are defined:
 
 from typing import List
 
+from apysc._validation import arg_validation_decos
 
+
+@arg_validation_decos.is_builtin_integer(arg_position_index=0)
+@arg_validation_decos.num_is_gte_zero(arg_position_index=0)
 def make_spaces_for_html(*, indent_num: int) -> str:
     """
     Make spaces that multiply 2 to a specified indentation number.
@@ -25,9 +29,6 @@ def make_spaces_for_html(*, indent_num: int) -> str:
     spaces : str
         Result spaces string.
     """
-    from apysc._validation import number_validation
-    number_validation.validate_integer(integer=indent_num)
-    number_validation.validate_num_is_gte_zero(num=indent_num)
     spaces: str = ' ' * (indent_num * 2)
     return spaces
 

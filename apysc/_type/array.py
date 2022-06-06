@@ -481,6 +481,7 @@ class Array(
         )
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_integer(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='Array')
     def insert(
@@ -510,8 +511,6 @@ class Array(
         Array([1, 2, 3])
         """
         import apysc as ap
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=index)
         if isinstance(index, ap.Int):
             index_: int = int(index.value)
         else:

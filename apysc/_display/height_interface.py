@@ -120,11 +120,8 @@ class HeightInterface(
         """
         import apysc as ap
         from apysc._converter import cast
-        from apysc._validation import size_validation
         self._initialize_height_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)
-        size_validation.validate_size_is_int(size=value)
-        size_validation.validate_size_is_gte_zero(size=value)
         if isinstance(value, ap.Int):
             value_: ap.Int = value
         else:

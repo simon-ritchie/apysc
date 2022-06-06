@@ -130,14 +130,10 @@ class FillAlphaInterface(
             Fill opacity to set.
         """
         from apysc._converter import cast
-        from apysc._validation import number_validation
         self._initialize_fill_alpha_if_not_initialized()
-        number_validation.validate_num(num=value)
         if not isinstance(value, Number):
             value = cast.to_float_from_int(int_or_float=value)
-            number_validation.validate_num_is_0_to_1_range(num=value)
             value = Number(value=value)
-        number_validation.validate_num_is_0_to_1_range(num=value.value)
         self._fill_alpha = value
 
     _fill_alpha_snapshots: Dict[str, float]

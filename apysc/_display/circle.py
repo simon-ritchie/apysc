@@ -100,12 +100,10 @@ class Circle(  # type: ignore
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._validation import size_validation
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.CIRCLE)
         super(Circle, self).__init__(
             parent=parent, x=0, y=0, variable_name=variable_name)
-        size_validation.validate_size_is_gt_zero(size=radius)
         self._radius = self._get_converted_radius_int(radius=radius)
         self._set_initial_basic_values(parent=parent)
         self._append_constructor_expression()

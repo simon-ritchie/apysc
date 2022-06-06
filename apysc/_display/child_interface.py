@@ -53,9 +53,7 @@ class ChildInterface(RevertInterface):
         >>> sprite_2: ap.Sprite = ap.Sprite()
         >>> sprite_2.add_child(rectangle)
         """
-        from apysc._validation import display_validation
         self._initialize_children_if_not_initialized()
-        display_validation.validate_display_object(display_object=child)
         if child.parent is not None:
             child.remove_from_parent()
         self._children.append(child)

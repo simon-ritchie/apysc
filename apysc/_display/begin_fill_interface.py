@@ -61,17 +61,14 @@ class BeginFillInterface(RevertInterface):
         import apysc as ap
         from apysc._color import color_util
         from apysc._converter import cast
-        from apysc._validation import number_validation
         self._initialize_fill_color_if_not_initialized()
         self._initialize_fill_alpha_if_not_initialized()
         if color != '':
             color = color_util.complement_hex_color(
                 hex_color_code=color)
         self._fill_color.value = color
-        number_validation.validate_num(num=alpha)
         if not isinstance(alpha, ap.Number):
             alpha = cast.to_float_from_int(int_or_float=alpha)
-        number_validation.validate_num_is_0_to_1_range(num=alpha)
         if isinstance(alpha, ap.Number):
             self._fill_alpha.value = alpha.value
         else:

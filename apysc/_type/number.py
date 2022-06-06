@@ -110,6 +110,7 @@ class Number(NumberValueInterface[float, 'Number']):
             self._value = cast.to_float_from_int(int_or_float=self.value)
             self.append_constructor_expression()
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     def _set_value_and_skip_expression_appending(
             self, *, value: Union[int, float, Any]) -> None:
         """
@@ -123,8 +124,6 @@ class Number(NumberValueInterface[float, 'Number']):
             value to an integer.
         """
         from apysc._converter import cast
-        from apysc._validation import number_validation
-        number_validation.validate_num(num=value)
         if isinstance(value, NumberValueInterface):
             value._value = cast.to_float_from_int(int_or_float=value._value)
             value_ = value._value

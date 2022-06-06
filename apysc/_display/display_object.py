@@ -13,6 +13,7 @@ from apysc._display.y_interface import YInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage
@@ -33,6 +34,7 @@ class DisplayObject(
 
     stage: 'Stage'
 
+    @arg_validation_decos.not_empty_string(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='DisplayObject')
     def __init__(self, *, variable_name: str) -> None:
@@ -51,11 +53,9 @@ class DisplayObject(
             - https://simon-ritchie.github.io/apysc/display_object.html
         """
         import apysc as ap
-        from apysc._validation import string_validation
         stage: ap.Stage = ap.get_stage()
         self.stage: ap.Stage = stage
         self._variable_name = variable_name
-        string_validation.validate_not_empty_string(string=variable_name)
 
     @add_debug_info_setting(
         module_name=__name__, class_name='DisplayObject')

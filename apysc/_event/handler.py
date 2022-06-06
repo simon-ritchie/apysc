@@ -11,6 +11,8 @@ from apysc._event.event import Event
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
+
 
 _Handler = Callable[[Any, Any], None]
 
@@ -57,6 +59,7 @@ def get_handler_name(
     return handler_name
 
 
+@arg_validation_decos.is_event(arg_position_index=2)
 @add_debug_info_setting(module_name=__name__)
 def append_handler_expression(
         *,
@@ -85,10 +88,8 @@ def append_handler_expression(
     from apysc._expression.event_handler_scope import HandlerScope
     from apysc._expression.indent_num import Indent
     from apysc._type import revert_interface
-    from apysc._validation.event_validation import validate_event
     from apysc._validation.variable_name_validation import \
         validate_variable_name_interface_type
-    validate_event(e=e)
     variables: List[Any] = [*handler_data['options'].values()]
     snapshot_name: str = revert_interface.make_variables_snapshots(
         variables=variables)

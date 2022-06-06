@@ -1325,6 +1325,8 @@ def is_path_data_list(*, arg_position_index: int) -> _F:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
+            from apysc._validation.path_validation import \
+                validate_path_data_list
             path_data_list = _extract_arg_value(
                 args=args, kwargs=kwargs,
                 arg_position_index=arg_position_index, callable_=callable_)
@@ -1345,6 +1347,7 @@ def is_path_data_list(*, arg_position_index: int) -> _F:
                     'A value of path_data_list argument is not a '
                     'type of `ap.PathDataBase`\'s subclass: '
                     f'{type(path_data)}')
+            validate_path_data_list(path_data_list=path_data_list)
 
             result: Any = callable_(*args, **kwargs)
             return result

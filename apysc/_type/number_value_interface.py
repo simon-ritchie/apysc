@@ -26,6 +26,7 @@ class NumberValueInterface(
     _initial_value: _NumType
     _value: _V
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(
         module_name=__name__, class_name='NumberValueInterface')
     def __init__(
@@ -41,9 +42,6 @@ class NumberValueInterface(
         type_name : str
             This instance expression's type name (e.g., int, number).
         """
-        from apysc._validation import number_validation
-        number_validation.validate_num(
-            num=value)  # type: ignore
         self._initial_value = value
         if isinstance(value, NumberValueInterface):
             value_: _V = value._value
@@ -130,6 +128,7 @@ class NumberValueInterface(
             else:
                 self._append_value_setter_expression(value=self._value)
 
+    @arg_validation_decos.is_num(arg_position_index=1)
     def _set_value_and_skip_expression_appending(
             self, *, value: _NumType) -> None:
         """
@@ -140,9 +139,6 @@ class NumberValueInterface(
         value : NumberValueInterface or int or float
             Any number value to set.
         """
-        from apysc._validation import number_validation
-        number_validation.validate_num(
-            num=value)  # type: ignore
         if isinstance(value, NumberValueInterface):
             value_: _V = value._value
         else:

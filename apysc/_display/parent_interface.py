@@ -76,7 +76,6 @@ class ParentInterface(RevertInterface):
             - https://simon-ritchie.github.io/apysc/display_object_parent.html  # noqa
         """
         from apysc._validation import parent_validation
-        parent_validation.validate_parent_instance(parent=value)
         parent_validation.validate_parent_contains_child(
             parent=value, child=self)
         self._parent = value

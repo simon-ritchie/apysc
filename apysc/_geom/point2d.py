@@ -77,9 +77,6 @@ class Point2D(
         import apysc as ap
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._validation.number_validation import validate_integer
-        validate_integer(integer=x)
-        validate_integer(integer=y)
         if isinstance(x, ap.Int):
             x_: ap.Int = x
         else:

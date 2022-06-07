@@ -16,7 +16,6 @@ Sphinx==4.0.2
 groundwork-sphinx-theme==1.1.1
 commonmark==0.9.1
 recommonmark==0.7.1
-sphinx-markdown-tables==0.0.15
 notebook==6.4.10
 pyright==0.0.13
 playwright==1.21.0

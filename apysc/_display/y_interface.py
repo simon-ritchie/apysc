@@ -77,6 +77,8 @@ class YInterface(
 
     @y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='YInterface')
     def y(self, value: Int) -> None:
         """
         Update y-coordinate.
@@ -91,16 +93,11 @@ class YInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='y', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=YInterface.__name__):
-            self._y = value
-            self._y._append_incremental_calc_substitution_expression()
-            self._append_y_update_expression()
+        self._y = value
+        self._y._append_incremental_calc_substitution_expression()
+        self._append_y_update_expression()
 
-            self._append_y_attr_linking_setting()
+        self._append_y_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='YInterface')

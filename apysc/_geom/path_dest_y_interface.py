@@ -63,6 +63,8 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
 
     @dest_y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='PathDestYInterface')
     def dest_y(self, value: Int) -> None:
         """
         Set a y-coordinate of the destination point.
@@ -72,15 +74,10 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             Y-coordinate of the destination point
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='dest_y', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=PathDestYInterface.__name__):
-            self._initialize_dest_y_if_not_initialized()
-            self._dest_y.value = value
+        self._initialize_dest_y_if_not_initialized()
+        self._dest_y.value = value
 
-            self._append_dest_y_linking_setting()
+        self._append_dest_y_linking_setting()
 
     _dest_y_snapshots: Dict[str, int]
 

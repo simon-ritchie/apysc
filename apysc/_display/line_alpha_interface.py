@@ -76,6 +76,8 @@ class LineAlphaInterface(
     @line_alpha.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='LineAlphaInterface')
     def line_alpha(self, value: Number) -> None:
         """
         Update this instance's line alpha (opacity).
@@ -90,17 +92,12 @@ class LineAlphaInterface(
         - Graphics line_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='line_alpha', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineAlphaInterface.__name__):
-            self._initialize_line_alpha_if_not_initialized()
-            self._update_line_alpha_and_skip_appending_exp(value=value)
-            self._line_alpha._append_incremental_calc_substitution_expression()
-            self._append_line_alpha_update_expression()
+        self._initialize_line_alpha_if_not_initialized()
+        self._update_line_alpha_and_skip_appending_exp(value=value)
+        self._line_alpha._append_incremental_calc_substitution_expression()
+        self._append_line_alpha_update_expression()
 
-            self._append_line_alpha_attr_linking_setting()
+        self._append_line_alpha_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='LineAlphaInterface')

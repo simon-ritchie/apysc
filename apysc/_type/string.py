@@ -128,6 +128,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         return str(value)
 
     @property
+    @add_debug_info_setting(
+        module_name=__name__, class_name='String')
     def value(self) -> Union[str, 'String']:
         """
         Get a current string value.
@@ -154,6 +156,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     @value.setter
     @arg_validation_decos.is_string(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='String')
     def value(self, value: Union[str, 'String']) -> None:
         """
         Set string value.
@@ -168,13 +172,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         apysc fundamental data classes value interface
             https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='value', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=String.__name__):
-            self._value = self._get_str_value(value=value)
-            self._append_value_setter_expression(value=value)
+        self._value = self._get_str_value(value=value)
+        self._append_value_setter_expression(value=value)
 
     @add_debug_info_setting(
         module_name=__name__, class_name='String')

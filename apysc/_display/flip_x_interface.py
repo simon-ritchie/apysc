@@ -77,6 +77,8 @@ class FlipXInterface(
 
     @flip_x.setter
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='FlipXInterface')
     def flip_x(self, value: Boolean) -> None:
         """
         Update a x-axis flipping value.
@@ -92,18 +94,13 @@ class FlipXInterface(
         - GraphicsBase flip_x and flip_y interfaces document
             - https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='fill_color', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=FlipXInterface.__name__):
-            import apysc as ap
-            self._initialize_flip_x_if_not_initialized()
-            before_value: ap.Boolean = self._flip_x
-            self._flip_x = value
-            self._append_flip_x_update_expression(before_value=before_value)
+        import apysc as ap
+        self._initialize_flip_x_if_not_initialized()
+        before_value: ap.Boolean = self._flip_x
+        self._flip_x = value
+        self._append_flip_x_update_expression(before_value=before_value)
 
-            self._append_flip_x_attr_linking_setting()
+        self._append_flip_x_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='FlipXInterface')

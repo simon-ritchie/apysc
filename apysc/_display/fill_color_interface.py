@@ -56,6 +56,8 @@ class FillColorInterface(
 
     @fill_color.setter
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='FillColorInterface')
     def fill_color(self, value: String) -> None:
         """
         Update this instance's fill color.
@@ -70,18 +72,13 @@ class FillColorInterface(
         - Graphics fill_color interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='fill_color', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=FillColorInterface.__name__):
-            self._update_fill_color_and_skip_appending_exp(value=value)
-            self._append_fill_color_update_expression()
+        self._update_fill_color_and_skip_appending_exp(value=value)
+        self._append_fill_color_update_expression()
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._fill_color, attr_name='fill_color')
-            self._append_attr_to_linking_stack(
-                attr=self._fill_color, attr_name='fill_color')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._fill_color, attr_name='fill_color')
+        self._append_attr_to_linking_stack(
+            attr=self._fill_color, attr_name='fill_color')
 
     @add_debug_info_setting(
         module_name=__name__, class_name='FillColorInterface')

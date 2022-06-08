@@ -212,6 +212,8 @@ class Array(
             '\nAcceptable types: list, tuple, range, and Array')
 
     @property
+    @add_debug_info_setting(
+        module_name=__name__, class_name='Array')
     def value(self) -> Union[List[Any], tuple, 'Array']:
         """
         Get a current array value.
@@ -237,6 +239,8 @@ class Array(
         return self._value
 
     @value.setter
+    @add_debug_info_setting(
+        module_name=__name__, class_name='Array')
     def value(self, value: Union[List[Any], tuple, 'Array']) -> None:
         """
         Set array value.
@@ -251,14 +255,9 @@ class Array(
         apysc fundamental data classes value interface
             https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='value', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=Array.__name__):
-            self._validate_acceptable_value_type(value=value)
-            self._value = self._get_list_value(value=value)
-            self._append_value_setter_expression(value=value)
+        self._validate_acceptable_value_type(value=value)
+        self._value = self._get_list_value(value=value)
+        self._append_value_setter_expression(value=value)
 
     @add_debug_info_setting(
         module_name=__name__, class_name='Array')

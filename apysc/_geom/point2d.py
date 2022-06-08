@@ -132,6 +132,8 @@ class Point2D(
 
     @x.setter
     @arg_validation_decos.is_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='Point2D')
     def x(self, value: Int) -> None:
         """
         Update x-coordinate property.
@@ -141,17 +143,12 @@ class Point2D(
         value : Int
             X-coordinate to set.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='x', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=Point2D.__name__):
-            import apysc as ap
-            if not isinstance(value, ap.Int):
-                value = ap.Int(value)
-            self._x = value
-            self._x._append_incremental_calc_substitution_expression()
-            self._append_x_setter_expression(value=value)
+        import apysc as ap
+        if not isinstance(value, ap.Int):
+            value = ap.Int(value)
+        self._x = value
+        self._x._append_incremental_calc_substitution_expression()
+        self._append_x_setter_expression(value=value)
 
     @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')
@@ -215,6 +212,8 @@ class Point2D(
 
     @y.setter
     @arg_validation_decos.is_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='Point2D')
     def y(self, value: Int) -> None:
         """
         Update y-coordinate property.
@@ -224,17 +223,12 @@ class Point2D(
         value : Int
             Y-coordinate to set.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='y', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=Point2D.__name__):
-            import apysc as ap
-            if not isinstance(value, ap.Int):
-                value = ap.Int(value)
-            self._y = value
-            self._y._append_incremental_calc_substitution_expression()
-            self._append_y_setter_expression(value=value)
+        import apysc as ap
+        if not isinstance(value, ap.Int):
+            value = ap.Int(value)
+        self._y = value
+        self._y._append_incremental_calc_substitution_expression()
+        self._append_y_setter_expression(value=value)
 
     @add_debug_info_setting(
         module_name=__name__, class_name='Point2D')

@@ -72,6 +72,8 @@ class WidthInterface(
     @width.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='WidthInterface')
     def width(self, value: Int) -> None:
         """
         Update this instance's width.
@@ -81,16 +83,11 @@ class WidthInterface(
         value : Int
             Width value to set.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='width', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=WidthInterface.__name__):
-            self._update_width_and_skip_appending_exp(value=value)
-            self._width._append_incremental_calc_substitution_expression()
-            self._append_width_update_expression()
+        self._update_width_and_skip_appending_exp(value=value)
+        self._width._append_incremental_calc_substitution_expression()
+        self._append_width_update_expression()
 
-            self._append_width_attr_linking_setting()
+        self._append_width_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='WidthInterface')

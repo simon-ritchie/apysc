@@ -57,6 +57,8 @@ class LineColorInterface(
 
     @line_color.setter
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='LineColorInterface')
     def line_color(self, value: String) -> None:
         """
         Update this instance's line color.
@@ -71,19 +73,14 @@ class LineColorInterface(
         - Graphics line_color interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_color.html
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='line_color', args=[], kwargs={},
-                module_name=__name__,
-                class_name=LineColorInterface.__name__):
-            self._initialize_line_color_if_not_initialized()
-            self._update_line_color_and_skip_appending_exp(value=value)
-            self._append_line_color_update_expression()
+        self._initialize_line_color_if_not_initialized()
+        self._update_line_color_and_skip_appending_exp(value=value)
+        self._append_line_color_update_expression()
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._line_color, attr_name='line_color')
-            self._append_attr_to_linking_stack(
-                attr=self._line_color, attr_name='line_color')
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._line_color, attr_name='line_color')
+        self._append_attr_to_linking_stack(
+            attr=self._line_color, attr_name='line_color')
 
     @add_debug_info_setting(
         module_name=__name__, class_name='LineColorInterface')

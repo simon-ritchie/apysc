@@ -69,6 +69,8 @@ class EllipseWidthInterface(
 
     @ellipse_width.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='EllipseWidthInterface')
     def ellipse_width(self, value: Int) -> None:
         """
         Update ellipse width value.
@@ -78,17 +80,12 @@ class EllipseWidthInterface(
         value : int or Int
             Ellipse width value.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='ellipse_height', args=[], kwargs={},
-                module_name=__name__,
-                class_name=EllipseWidthInterface.__name__):
-            self._ellipse_width = value
-            self._ellipse_width.\
-                _append_incremental_calc_substitution_expression()
-            self._append_ellipse_width_update_expression()
+        self._ellipse_width = value
+        self._ellipse_width.\
+            _append_incremental_calc_substitution_expression()
+        self._append_ellipse_width_update_expression()
 
-            self._append_ellipse_width_attr_linking_setting()
+        self._append_ellipse_width_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='EllipseWidthInterface')

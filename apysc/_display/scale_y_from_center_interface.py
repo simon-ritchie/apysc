@@ -80,6 +80,8 @@ class ScaleYFromCenterInterface(
 
     @scale_y_from_center.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='ScaleYFromCenterInterface')
     def scale_y_from_center(self, value: Number) -> None:
         """
         Update a scale-y value from the center of this instance.
@@ -94,19 +96,14 @@ class ScaleYFromCenterInterface(
         - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
             - https://simon-ritchie.github.io/apysc/graphics_base_scale_from_center.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='scale_y_from_center', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=ScaleYFromCenterInterface.__name__):
-            import apysc as ap
-            self._initialize_scale_y_from_center_if_not_initialized()
-            before_value: ap.Number = self._scale_y_from_center
-            self._scale_y_from_center = value
-            self._append_scale_y_from_center_update_expression(
-                before_value=before_value)
+        import apysc as ap
+        self._initialize_scale_y_from_center_if_not_initialized()
+        before_value: ap.Number = self._scale_y_from_center
+        self._scale_y_from_center = value
+        self._append_scale_y_from_center_update_expression(
+            before_value=before_value)
 
-            self._append_scale_y_from_center_attr_linking_setting()
+        self._append_scale_y_from_center_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='ScaleYFromCenterInterface')

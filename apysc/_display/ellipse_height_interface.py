@@ -69,6 +69,8 @@ class EllipseHeightInterface(
 
     @ellipse_height.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='EllipseHeightInterface')
     def ellipse_height(self, value: Int) -> None:
         """
         Update ellipse height value.
@@ -78,17 +80,12 @@ class EllipseHeightInterface(
         value : Int
             Ellipse height value.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='ellipse_height', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=EllipseHeightInterface.__name__):
-            self._ellipse_height = value
-            self._ellipse_height.\
-                _append_incremental_calc_substitution_expression()
-            self._append_ellipse_height_update_expression()
+        self._ellipse_height = value
+        self._ellipse_height.\
+            _append_incremental_calc_substitution_expression()
+        self._append_ellipse_height_update_expression()
 
-            self._append_ellipse_height_attr_linking_setting()
+        self._append_ellipse_height_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='EllipseHeightInterface')

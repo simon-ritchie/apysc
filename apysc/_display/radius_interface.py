@@ -70,6 +70,8 @@ class RadiusInterface(
 
     @radius.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='RadiusInterface')
     def radius(self, value: Int) -> None:
         """
         Update radius value.
@@ -79,16 +81,11 @@ class RadiusInterface(
         value : Int
             Radius value.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='points', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=RadiusInterface.__name__):
-            self._radius = value
-            self._radius._append_incremental_calc_substitution_expression()
-            self._append_radius_update_expression()
+        self._radius = value
+        self._radius._append_incremental_calc_substitution_expression()
+        self._append_radius_update_expression()
 
-            self._append_raidus_attr_linking_setting()
+        self._append_raidus_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='RadiusInterface')

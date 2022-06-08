@@ -77,6 +77,8 @@ class LineThicknessInterface(
     @line_thickness.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='LineThicknessInterface')
     def line_thickness(self, value: Int) -> None:
         """
         Update this instance's line thickness.
@@ -91,17 +93,12 @@ class LineThicknessInterface(
         - Graphics line_thickness interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_thickness.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='line_thickness', args=[value],
-                kwargs={}, module_name=__name__,
-                class_name=LineThicknessInterface.__name__):
-            self._update_line_thickness_and_skip_appending_exp(value=value)
-            self._line_thickness.\
-                _append_incremental_calc_substitution_expression()
-            self._append_line_thickness_update_expression()
+        self._update_line_thickness_and_skip_appending_exp(value=value)
+        self._line_thickness.\
+            _append_incremental_calc_substitution_expression()
+        self._append_line_thickness_update_expression()
 
-            self._append_line_thickness_attr_linking_setting()
+        self._append_line_thickness_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='LineThicknessInterface')

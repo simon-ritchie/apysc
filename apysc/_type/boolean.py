@@ -175,6 +175,8 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         return self._value
 
     @value.setter
+    @add_debug_info_setting(
+        module_name=__name__, class_name='Boolean')
     def value(self, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
         Set boolean value.
@@ -189,18 +191,13 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         apysc fundamental data classes value interface
             https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='value', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=Boolean.__name__):
-            from apysc._type.variable_name_interface import \
-                VariableNameInterface
-            self._set_value_and_skip_expression_appending(value=value)
-            if isinstance(value, VariableNameInterface):
-                self._append_value_setter_expression(value=value)
-            else:
-                self._append_value_setter_expression(value=self._value)
+        from apysc._type.variable_name_interface import \
+            VariableNameInterface
+        self._set_value_and_skip_expression_appending(value=value)
+        if isinstance(value, VariableNameInterface):
+            self._append_value_setter_expression(value=value)
+        else:
+            self._append_value_setter_expression(value=self._value)
 
     @add_debug_info_setting(
         module_name=__name__, class_name='Boolean')

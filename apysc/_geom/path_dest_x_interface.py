@@ -63,6 +63,8 @@ class PathDestXInterface(RevertInterface, AttrLinkingInterface):
 
     @dest_x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='PathDestXInterface')
     def dest_x(self, value: Int) -> None:
         """
         Set a x-coordinate of the destination point.
@@ -72,15 +74,10 @@ class PathDestXInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             X-coordinate of the destination point.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='dest_x', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=PathDestXInterface.__name__):
-            self._initialize_dest_x_if_not_initialized()
-            self._dest_x.value = value
+        self._initialize_dest_x_if_not_initialized()
+        self._dest_x.value = value
 
-            self._append_dest_x_linking_setting()
+        self._append_dest_x_linking_setting()
 
     _dest_x_snapshots: Dict[str, int]
 

@@ -74,6 +74,8 @@ class CyInterface(
 
     @y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='CyInterface')
     def y(self, value: Int) -> None:
         """
         Update a center y-coordinate.
@@ -88,16 +90,11 @@ class CyInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='y', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=CyInterface.__name__):
-            self._cy = value
-            self._cy._append_incremental_calc_substitution_expression()
-            self._append_cy_update_expression()
+        self._cy = value
+        self._cy._append_incremental_calc_substitution_expression()
+        self._append_cy_update_expression()
 
-            self._append_cy_attr_linking_setting()
+        self._append_cy_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='CyInterface')

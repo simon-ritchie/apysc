@@ -64,6 +64,8 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
     @arg_validation_decos.multiple_line_settings_are_not_set(
         arg_position_index=0)
     @arg_validation_decos.is_line_dash_setting(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='LineDashSettingInterface')
     def line_dash_setting(self, value: Optional[LineDashSetting]) -> None:
         """
         Set line dash setting.
@@ -78,13 +80,8 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         - Graphics line_dash_setting interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_dash_setting.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='line_dash_setting', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=LineDashSettingInterface.__name__):
-            self._update_line_dash_setting_and_skip_appending_exp(value=value)
-            self._append_line_dash_setting_update_expression()
+        self._update_line_dash_setting_and_skip_appending_exp(value=value)
+        self._append_line_dash_setting_update_expression()
 
     def _update_line_dash_setting_and_skip_appending_exp(
             self, *, value: Optional[LineDashSetting]) -> None:

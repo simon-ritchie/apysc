@@ -62,6 +62,8 @@ class PathControlYInterface(RevertInterface, AttrLinkingInterface):
 
     @control_y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='PathControlYInterface')
     def control_y(self, value: Int) -> None:
         """
         Set a Y-coordinate of the control point.
@@ -71,15 +73,10 @@ class PathControlYInterface(RevertInterface, AttrLinkingInterface):
         value : Int
             Y-coordinate of the control point.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='control_y', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=PathControlYInterface.__name__):
-            self._initialize_control_y_if_not_initialized()
-            self._control_y.value = value
+        self._initialize_control_y_if_not_initialized()
+        self._control_y.value = value
 
-            self._append_control_y_linking_setting()
+        self._append_control_y_linking_setting()
 
     _control_y_snapshots: Dict[str, int]
 

@@ -68,6 +68,8 @@ class VisibleInterface(
 
     @visible.setter
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='VisibleInterface')
     def visible(self, value: Boolean) -> None:
         """
         Update a visibility value of this instance.
@@ -77,15 +79,10 @@ class VisibleInterface(
         value : Boolean
             Boolean value to set.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='visible', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=VisibleInterface.__name__):
-            self._visible = value
-            self._append_visible_update_expression()
+        self._visible = value
+        self._append_visible_update_expression()
 
-            self._append_visible_attr_linking_setting()
+        self._append_visible_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='VisibleInterface')

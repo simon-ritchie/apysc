@@ -56,6 +56,8 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
 
     @points.setter
     @arg_validation_decos.is_point_2ds(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='Points2DInterface')
     def points(self, value: Array[Point2D]) -> None:
         """
         Update points value.
@@ -70,14 +72,9 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         ValueError
             If array contains not Point2D value.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='points', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=Points2DInterface.__name__):
-            self._initialize_points_if_not_initialized()
-            self._append_points_update_expression(value=value)
-            self._points = value
+        self._initialize_points_if_not_initialized()
+        self._append_points_update_expression(value=value)
+        self._points = value
 
     def _make_2dim_points_expression(self) -> Tuple[str, str]:
         """

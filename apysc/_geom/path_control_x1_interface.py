@@ -64,6 +64,8 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
 
     @control_x1.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='PathControlX1Interface')
     def control_x1(self, value: Int) -> None:
         """
         Set a first x-coordinate of the control point.
@@ -73,15 +75,10 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
         value : Int
             First x-coordinate of the control point.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='control_x1', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=PathControlX1Interface.__name__):
-            self._initialize_control_x1_if_not_initialized()
-            self._control_x1.value = value
+        self._initialize_control_x1_if_not_initialized()
+        self._control_x1.value = value
 
-            self._append_control_x1_linking_setting()
+        self._append_control_x1_linking_setting()
 
     _control_x1_snapshots: Dict[str, int]
 

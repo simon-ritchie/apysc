@@ -73,6 +73,8 @@ class HeightInterface(
     @height.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='HeightInterface')
     def height(self, value: Int) -> None:
         """
         Update this instance's height.
@@ -82,16 +84,11 @@ class HeightInterface(
         value : int
             Height value to set.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='height', args=[], kwargs={},
-                module_name=__name__,
-                class_name=HeightInterface.__name__):
-            self._update_height_and_skip_appending_exp(value=value)
-            self._height._append_incremental_calc_substitution_expression()
-            self._append_height_update_expression()
+        self._update_height_and_skip_appending_exp(value=value)
+        self._height._append_incremental_calc_substitution_expression()
+        self._append_height_update_expression()
 
-            self._append_height_attr_linking_setting()
+        self._append_height_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='HeightInterface')

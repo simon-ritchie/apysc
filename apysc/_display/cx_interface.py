@@ -74,6 +74,8 @@ class CxInterface(
 
     @x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='CxInterface')
     def x(self, value: Int) -> None:
         """
         Update a center x-coordinate.
@@ -88,16 +90,11 @@ class CxInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='x', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=CxInterface.__name__):
-            self._cx = value
-            self._cx._append_incremental_calc_substitution_expression()
-            self._append_cx_update_expression()
+        self._cx = value
+        self._cx._append_incremental_calc_substitution_expression()
+        self._append_cx_update_expression()
 
-            self._append_cx_attr_linking_setting()
+        self._append_cx_attr_linking_setting()
 
     def _append_cx_update_expression(self) -> None:
         """

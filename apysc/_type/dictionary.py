@@ -171,6 +171,8 @@ class Dictionary(
         )
 
     @property
+    @add_debug_info_setting(
+        module_name=__name__, class_name='Dictionary')
     def value(self) -> Union[Dict[_K, _V], 'Dictionary']:
         """
         Get a current dict value.
@@ -196,6 +198,8 @@ class Dictionary(
         return self._value
 
     @value.setter
+    @add_debug_info_setting(
+        module_name=__name__, class_name='Dictionary')
     def value(self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
         Set dictionary value.
@@ -210,14 +214,9 @@ class Dictionary(
         apysc fundamental data classes value interface
             https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='value', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=Dictionary.__name__):
-            self._validate_acceptable_value_type(value=value)
-            self._value = self._get_dict_value(value=value)
-            self._append_value_setter_expression(value=value)
+        self._validate_acceptable_value_type(value=value)
+        self._value = self._get_dict_value(value=value)
+        self._append_value_setter_expression(value=value)
 
     @add_debug_info_setting(
         module_name=__name__, class_name='Dictionary')

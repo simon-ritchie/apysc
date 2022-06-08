@@ -73,6 +73,8 @@ class SkewYInterface(
 
     @skew_y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='SkewYInterface')
     def skew_y(self, value: Int) -> None:
         """
         Update a skew y value of this instance.
@@ -87,18 +89,13 @@ class SkewYInterface(
         - GraphicsBase skew_x and skew_y interfaces document
             - https://simon-ritchie.github.io/apysc/graphics_base_skew.html
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='skew_y', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=SkewYInterface.__name__):
-            import apysc as ap
-            self._initialize_skew_y_if_not_initialized()
-            before_value: ap.Int = self._skew_y
-            self._skew_y = value
-            self._append_skew_y_update_expression(before_value=before_value)
+        import apysc as ap
+        self._initialize_skew_y_if_not_initialized()
+        before_value: ap.Int = self._skew_y
+        self._skew_y = value
+        self._append_skew_y_update_expression(before_value=before_value)
 
-            self._append_skew_y_attr_linking_setting()
+        self._append_skew_y_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='SkewYInterface')

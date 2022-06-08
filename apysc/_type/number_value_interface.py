@@ -103,6 +103,8 @@ class NumberValueInterface(
 
     @value.setter
     @arg_validation_decos.is_num(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='NumberValueInterface')
     def value(self, value: _NumType) -> None:
         """
         Set number value.
@@ -117,16 +119,11 @@ class NumberValueInterface(
         apysc fundamental data classes value interface
             https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='value', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=NumberValueInterface.__name__):
-            self._set_value_and_skip_expression_appending(value=value)
-            if isinstance(value, NumberValueInterface):
-                self._append_value_setter_expression(value=value)
-            else:
-                self._append_value_setter_expression(value=self._value)
+        self._set_value_and_skip_expression_appending(value=value)
+        if isinstance(value, NumberValueInterface):
+            self._append_value_setter_expression(value=value)
+        else:
+            self._append_value_setter_expression(value=self._value)
 
     @arg_validation_decos.is_num(arg_position_index=1)
     def _set_value_and_skip_expression_appending(

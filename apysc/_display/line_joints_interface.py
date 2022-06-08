@@ -56,6 +56,8 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
     @line_joints.setter
     @arg_validation_decos.is_line_joints(
         arg_position_index=1, optional=False)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='LineJointsInterface')
     def line_joints(self, value: Union[String, LineJoints]) -> None:
         """
         Set line joints style setting.
@@ -65,13 +67,8 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         value : String or LineJoints
             Line joints style setting to set.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='line_joints', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=LineJointsInterface.__name__):
-            self._update_line_joints_and_skip_appending_exp(value=value)
-            self._append_line_joints_update_expression()
+        self._update_line_joints_and_skip_appending_exp(value=value)
+        self._append_line_joints_update_expression()
 
     def _update_line_joints_and_skip_appending_exp(
             self, *, value: Union[String, LineJoints]) -> None:

@@ -101,6 +101,8 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         return self._value
 
     @value.setter
+    @add_debug_info_setting(
+        module_name=__name__, class_name='AnyValue')
     def value(self, value: Any) -> None:
         """
         Set a any value.
@@ -110,13 +112,8 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         value : *
             Any value to set.
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='value', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=AnyValue.__name__):
-            self._value = value
-            self._append_value_setter_expression(value=value)
+        self._value = value
+        self._append_value_setter_expression(value=value)
 
     @add_debug_info_setting(
         module_name=__name__, class_name='AnyValue')

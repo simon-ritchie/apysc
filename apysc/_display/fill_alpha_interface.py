@@ -78,6 +78,8 @@ class FillAlphaInterface(
     @fill_alpha.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)
+    @add_debug_info_setting(
+        module_name=__name__, class_name='FillAlphaInterface')
     def fill_alpha(
             self, value: Number) -> None:
         """
@@ -93,16 +95,11 @@ class FillAlphaInterface(
         - Graphics fill_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_alpha.html
         """
-        from apysc._html.debug_mode import DebugInfo
-        with DebugInfo(
-                callable_='fill_alpha', args=[value], kwargs={},
-                module_name=__name__,
-                class_name=FillAlphaInterface.__name__):
-            self._update_fill_alpha_and_skip_appending_exp(value=value)
-            self._fill_alpha._append_incremental_calc_substitution_expression()
-            self._append_fill_alpha_update_expression()
+        self._update_fill_alpha_and_skip_appending_exp(value=value)
+        self._fill_alpha._append_incremental_calc_substitution_expression()
+        self._append_fill_alpha_update_expression()
 
-            self._append_fill_alpha_attr_linking_setting()
+        self._append_fill_alpha_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='FillAlphaInterface')

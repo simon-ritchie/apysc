@@ -77,8 +77,6 @@ jobs:
           STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Update the passing unit tests Python versions status
         uses: RubbaBoy/BYOB@v1.2.1
         with:

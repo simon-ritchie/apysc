@@ -1,12 +1,13 @@
 import os
-from typing import Type, Union
 from random import randint
 from typing import Any
+from typing import Type
+from typing import Union
 
+from docutils.transforms import Transform  # type: ignore
+from recommonmark.transform import AutoStructify
 from retrying import retry
 from sphinx.application import Sphinx
-from docutils.transforms import Transform
-from recommonmark.transform import AutoStructify
 
 from apysc._lint_and_doc import conf_common
 

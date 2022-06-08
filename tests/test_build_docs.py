@@ -770,6 +770,7 @@ class Test_IndexMdUnderscoresReplacer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_revert(self) -> None:
+        os.system('git checkout -- .')
         replacer: _IndexMdUnderscoresReplacer = _IndexMdUnderscoresReplacer()
         txt: str = file_util.read_txt(file_path='./docs_src/source/index.md')
         if 'save_overall_html interface' not in txt:

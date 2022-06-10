@@ -20,6 +20,8 @@ sys.path.append('./')
 from apysc._console import loggers
 from apysc._lint_and_doc import docs_lang
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc.docs_translation_converter import \
+    apply_translation_to_doc
 
 logger: Logger = loggers.get_info_logger()
 
@@ -42,6 +44,11 @@ def _main() -> None:
     logger.info('Deleting translation mapping hash...')
     _delete_translation_mapping_hash(
         lang=lang, src_file_path=command_options['src'])
+
+    logger.info('Applying translation to a specified document...')
+    apply_translation_to_doc(
+        md_file_path=command_options['src'], lang=lang)
+
     logger.info('Running document build script...')
     status_code: int = os.system('python ./scripts/build_docs.py')
     _validate_build_doc_command_status_code(status_code=status_code)

@@ -17,11 +17,13 @@ $(document).ready(function() {
         return text;
     }
 
-    let href = sanitise($("[title='next chapter']").attr("href"));
-    let linkText = sanitise(String($("[title='next chapter']").text()));
+    let href = $("[title='next chapter']").attr("href");
+    let linkText = String($("[title='next chapter']").text());
     if (linkText.trim() === "") {
         return;
     }
+    href = sanitise(href);
+    linkText = sanitise(linkText);
     $("div.body").append(
         '<br> Next topic: <a href="' + href + '">' + linkText + '</a>');
 });

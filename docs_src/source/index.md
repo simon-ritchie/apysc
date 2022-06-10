@@ -17,6 +17,7 @@ Other languages documentations: | English | [Japanese (日本語)](https://simon
 - [What apysc can do in its current implementation](what_apysc_can_do.md)
 - [Quick start guide](quick_start.md)
 - [import conventions](import_conventions.md)
+- [Recommended type annotation checker settings](recommended_type_checker_settings.md)
 
 ---
 

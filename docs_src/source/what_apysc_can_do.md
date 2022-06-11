@@ -145,7 +145,7 @@ See also:
 
 ## The timer interface and animation
 
-You can use the timer-related interfaces and animate with those.
+You can use the timer-related interfaces and animate with them.
 
 <details>
 <summary>Display the code block:</summary>
@@ -219,3 +219,13 @@ See also:
 - [Timer class start and stop interfaces](timer_start_and_stop.md)
 - [Timer class timer_complete interface](timer_complete.md)
 - [Timer class reset interface](timer_reset.md)
+
+## Animate properties with each animation interface
+
+You can use each animation (tween) interface and animate with them.
+
+<iframe src="static/animation_interfaces_abstract_each_attr/index.html" width="550" height="550"></iframe>
+
+See also:
+
+- [Animation interfaces abstract](animation_interfaces_abstract.md)

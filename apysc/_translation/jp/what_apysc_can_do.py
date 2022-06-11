@@ -132,7 +132,7 @@ MAPPING: Dict[str, str] = {
     '## The timer interface and animation':
     '## タイマーのインターフェイスとアニメーション',
 
-    'You can use the timer-related interfaces and animate with those.':
+    'You can use the timer-related interfaces and animate with them.':
     'タイマーに関係したインターフェイスを利用することができ、それを使ってアニメーションを設定することができます。',
 
     '<details>\n<summary>Display the code block:</summary>':
@@ -170,5 +170,17 @@ MAPPING: Dict[str, str] = {
 
     '- [Timer class reset interface](timer_reset.md)':
     '- [Timer クラスの reset インターフェイス](jp_timer_reset.md)',
+
+    '## Animate properties with each animation interface':
+    '## アニメーションのインターフェイスによる各属性のアニメーション',
+
+    'You can use each animation (tween) interface and animate with them.':
+    '各アニメーション（Tween）のインターフェイスを使ってアニメーションをさせることができます。',
+
+    'See also:':
+    '参考資料:',
+
+    '- [Animation interfaces abstract](animation_interfaces_abstract.md)':
+    '- [アニメーションの各インターフェイスの概要](jp_animation_interfaces_abstract.md)',
 
 }

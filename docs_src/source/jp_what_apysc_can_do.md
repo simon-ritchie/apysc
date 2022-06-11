@@ -233,3 +233,13 @@ ap.save_overall_html(
 
 - [Timer クラスの timer_complete インターフェイス](jp_timer_complete.md)
 - [Timer クラスの reset インターフェイス](jp_timer_reset.md)
+
+## アニメーションのインターフェイスによる各属性のアニメーション
+
+各アニメーション（Tween）のインターフェイスを使ってアニメーションをさせることができます。
+
+<iframe src="static/animation_interfaces_abstract_each_attr/index.html" width="550" height="550"></iframe>
+
+参考資料:
+
+- [アニメーションの各インターフェイスの概要](jp_animation_interfaces_abstract.md)

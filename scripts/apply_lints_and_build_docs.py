@@ -3,8 +3,9 @@
 Command examples:
 $ python scripts/apply_lints_and_build_docs.py
 $ python scripts/apply_lints_and_build_docs.py --skip_overall_docs_build
+$ python scripts/apply_lints_and_build_docs.py --skip_docs_build
 $ python scripts/apply_lints_and_build_docs.py --skip_overall_docs_build \
-    --skip_docs_build
+    --skip_sync_translation
 """
 
 import multiprocessing as mp
@@ -106,6 +107,7 @@ def _get_module_paths() -> List[str]:
 class _CommandOptions(TypedDict):
     skip_overall_docs_build: bool
     skip_docs_build: bool
+    skip_sync_translation: bool
 
 
 def _main() -> None:
@@ -123,8 +125,10 @@ def _main() -> None:
     build_doc_process: Optional[sp.Popen] = None
     if not options['skip_docs_build']:
         logger.info(msg='Documentation build started.')
+        command_strs: List[str] = _make_build_doc_command_strs(
+            skip_sync_translation=options['skip_sync_translation'])
         build_doc_process = _start_subprocess(
-            command_strs=['python', './scripts/build_docs.py'])
+            command_strs=command_strs)
 
     logger.info(msg='numdoclint command started.')
     numdoclint_processes: List[sp.Popen] = _start_numdoclint_processes()
@@ -181,6 +185,28 @@ def _main() -> None:
         process=docstring_to_markdown_process)
 
     logger.info(msg='Ended.')
+
+
+def _make_build_doc_command_strs(
+        *, skip_sync_translation: bool) -> List[str]:
+    """
+    Make a build document command strings' list.
+
+    Parameters
+    ----------
+    skip_sync_translation : bool
+        A boolean indicating whether to skip the translation
+        mappings or not.
+
+    Returns
+    -------
+    command_strs : List[str]
+        A result command strings.
+    """
+    command_strs: List[str] = ['python', './scripts/build_docs.py']
+    if skip_sync_translation:
+        command_strs.append('--skip_sync_translation')
+    return command_strs
 
 
 def _check_docstring_to_markdown_process(
@@ -643,11 +669,15 @@ def _get_command_options() -> _CommandOptions:
     parser.add_argument(
         '-d', '--skip_docs_build', action='store_true',
         help='If specified, skip the documents build script.')
+    parser.add_argument(
+        '-t', '--skip_sync_translation', action='store_true',
+        help='If specified, skip the translation mappings applying.')
 
     args: Namespace = parser.parse_args()
     options: _CommandOptions = {
         'skip_overall_docs_build': args.skip_overall_docs_build,
         'skip_docs_build': args.skip_docs_build,
+        'skip_sync_translation': args.skip_sync_translation,
     }
     return options
 

@@ -362,3 +362,16 @@ def test__update_doc_files_timestamp() -> None:
 
     apply_lints_and_build_docs._SRC_DOCS_DIR_PATH = original_src_doc_dir_path
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__make_build_doc_command_strs() -> None:
+    command_strs: List[str] = apply_lints_and_build_docs.\
+        _make_build_doc_command_strs(skip_sync_translation=True)
+    assert command_strs == [
+        'python', './scripts/build_docs.py', '--skip_sync_translation',
+    ]
+
+    command_strs = apply_lints_and_build_docs.\
+        _make_build_doc_command_strs(skip_sync_translation=False)
+    assert command_strs == ['python', './scripts/build_docs.py']

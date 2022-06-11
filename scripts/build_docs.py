@@ -1,7 +1,8 @@
 """Documentations build script.
 
-Command example:
+Command examples:
 $ python ./scripts/build_docs.py
+$ python ./scripts/build_docs.py --skip_sync_translation
 """
 
 import hashlib
@@ -19,6 +20,8 @@ from typing import List
 from typing import Match
 from typing import Optional as Op
 from typing import Pattern
+from argparse import ArgumentParser
+from argparse import Namespace
 
 from typing_extensions import Final
 from typing_extensions import TypedDict
@@ -44,15 +47,22 @@ _jslib_file_name_keys_dict: Dict[str, Any] = {
     jslib_file_name: None for jslib_file_name in _jslib_file_names}
 
 
+class _CommandOptions(TypedDict):
+    skip_sync_translation: bool
+
+
 def _main() -> None:
     """Entry point of this command.
     """
+    options: _CommandOptions = _get_command_options()
+
     from scripts import apply_link_text_mapping_to_index_html
     print('-' * 20)
     logger.info(msg='Documentation build started...')
 
     _exec_document_lint_and_script()
-    _apply_translation_mappings()
+    if not options['skip_sync_translation']:
+        _apply_translation_mappings()
 
     index_md_replacer: _IndexMdUnderscoresReplacer = \
         _IndexMdUnderscoresReplacer()
@@ -69,14 +79,15 @@ def _main() -> None:
     stdout: str = complete_process.stdout.decode('utf-8')
     print(stdout)
 
-    logger.info(
-        msg='Japanese documents\' Sphinx build command started...')
-    complete_process = sp.run(
-        _get_build_command(lang=Lang.JP),
-        shell=True,
-        stdout=sp.PIPE, stderr=sp.STDOUT)
-    stdout = complete_process.stdout.decode('utf-8')
-    print(stdout)
+    if not options['skip_sync_translation']:
+        logger.info(
+            msg='Japanese documents\' Sphinx build command started...')
+        complete_process = sp.run(
+            _get_build_command(lang=Lang.JP),
+            shell=True,
+            stdout=sp.PIPE, stderr=sp.STDOUT)
+        stdout = complete_process.stdout.decode('utf-8')
+        print(stdout)
 
     _move_and_adjust_updated_files()
 
@@ -86,6 +97,27 @@ def _main() -> None:
     apply_link_text_mapping_to_index_html.apply()
 
     logger.info(msg='Build completed!')
+
+
+def _get_command_options() -> _CommandOptions:
+    """
+    Get a command-line options.
+
+    Returns
+    -------
+    options : _CommandOptions
+        Command argument values and options.
+    """
+    parser: ArgumentParser = ArgumentParser(
+        description='Build updated documents.')
+    parser.add_argument(
+        '-t', '--skip_sync_translation', action='store_true',
+        help='If specified, skip the translation mappings applying.')
+    args: Namespace = parser.parse_args()
+    options: _CommandOptions = {
+        'skip_sync_translation': bool(args.skip_sync_translation),
+    }
+    return options
 
 
 def _apply_translation_mappings() -> None:

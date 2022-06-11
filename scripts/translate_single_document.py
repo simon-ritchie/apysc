@@ -22,6 +22,8 @@ from apysc._lint_and_doc import docs_lang
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import \
     apply_translation_to_doc
+from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import \
+    add_mapping_blank_data
 
 logger: Logger = loggers.get_info_logger()
 
@@ -46,6 +48,7 @@ def _main() -> None:
         lang=lang, src_file_path=command_options['src'])
 
     logger.info('Applying translation to a specified document...')
+    add_mapping_blank_data(lang=lang)
     apply_translation_to_doc(
         md_file_path=command_options['src'], lang=lang)
 

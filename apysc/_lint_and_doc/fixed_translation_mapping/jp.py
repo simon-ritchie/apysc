@@ -2634,4 +2634,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='See also:',
             val='参考資料:'),
+        Mapping(
+            key='Recommended type annotation checker settings',
+            val='推奨される型アノテーションのチェック設定'),
     ])

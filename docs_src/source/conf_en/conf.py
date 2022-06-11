@@ -87,3 +87,4 @@ def setup(sphinx: Sphinx) -> None:
         The Sphinx instance.
     """
     conf_common.setup(sphinx=sphinx)
+    sphinx.add_js_file(filename='add_en_to_ja_link.js')

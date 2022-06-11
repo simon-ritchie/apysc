@@ -21,7 +21,7 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [クイックスタートガイド](jp_quick_start.md)
 
 - [import の慣習](jp_import_conventions.md)
-- [推奨される型アノテーションのチェック設定](recommended_type_checker_settings.md)
+- [推奨される型アノテーションのチェック設定](jp_recommended_type_checker_settings.md)
 
 ---
 

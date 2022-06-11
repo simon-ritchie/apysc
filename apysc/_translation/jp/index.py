@@ -46,7 +46,7 @@ MAPPING: Dict[str, str] = {
     '- [import の慣習](jp_import_conventions.md)',
 
     '- [Recommended type annotation checker settings](recommended_type_checker_settings.md)':  # noqa
-    '- [推奨される型アノテーションのチェック設定](recommended_type_checker_settings.md)',
+    '- [推奨される型アノテーションのチェック設定](jp_recommended_type_checker_settings.md)',
 
     '---':
     '---',

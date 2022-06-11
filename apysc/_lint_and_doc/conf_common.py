@@ -14,7 +14,6 @@ PROJECT: str = 'apysc'
 AUTHOR: str = 'simonritchie'
 EXTENSIONS: List[str] = [
     'recommonmark',
-    'sphinx_markdown_tables',
 ]
 TEMPLATES_PATH: List[str] = ['_templates']
 SOURCE_SUFFIX: Dict[str, str] = {

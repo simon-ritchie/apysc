@@ -5,7 +5,6 @@ $ python ./scripts/build_docs.py
 $ python ./scripts/build_docs.py --skip_sync_translation
 """
 
-import hashlib
 import multiprocessing as mp
 import os
 import re

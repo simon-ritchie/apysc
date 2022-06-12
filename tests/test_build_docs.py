@@ -1,10 +1,8 @@
-import hashlib
 import os
 import re
 import shutil
 from random import randint
 from typing import List
-from typing import Optional
 
 from retrying import retry
 
@@ -13,6 +11,7 @@ from apysc._file import file_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_KEYWORD
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
 from scripts.build_docs import _CodeBlock
@@ -22,7 +21,6 @@ from scripts.build_docs import _CodeBlockNumdoclintError
 from scripts.build_docs import _IndexMdUnderscoresReplacer
 from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
-from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     '.lint_and_doc_hash/.document/docs_src/source/stage',
@@ -196,9 +194,10 @@ print(300)
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__exec_document_lint_and_script() -> None:
-    hash_file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
-        file_path='./docs_src/source/quick_start.md',
-        hash_type=HashType.DOCUMENT)
+    hash_file_path: str = lint_and_doc_hash_util.\
+        get_target_file_hash_file_path(
+            file_path='./docs_src/source/quick_start.md',
+            hash_type=HashType.DOCUMENT)
     file_util.remove_file_if_exists(file_path=hash_file_path)
 
     executed_scripts: List[str] = build_docs._exec_document_lint_and_script(
@@ -509,7 +508,6 @@ def test__remove_document_hash_files_if_docstring_src_modified() -> None:
             md_file_path='./docs_src/source/index.md')
     assert module_paths == []
 
-    md_file_path: str = './docs_src/source/sprite.md'
     docstring_src_hash_file_path: str = lint_and_doc_hash_util.\
         get_target_file_hash_file_path(
             file_path='./apysc/_display/sprite.py',

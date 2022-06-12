@@ -54,14 +54,6 @@ class TestSprite:
                 f'{expected_str}\n-----------------\n{expression}'
         expression_data_util.empty_expression()
 
-        class SubClass(ap.Sprite):
-            pass
-
-        ap.Stage()
-        subclass_instance: SubClass = SubClass()
-        appended: bool = subclass_instance._append_constructor_expression()
-        assert not appended
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         ap.Stage()

@@ -112,34 +112,17 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
 
     @add_debug_info_setting(
         module_name=__name__, class_name='Sprite')
-    def _append_constructor_expression(self) -> bool:
+    def _append_constructor_expression(self) -> None:
         """
         Append Sprite constructor expression.
-
-        Notes
-        -----
-        This interface does not add an expression if this instance is the
-        `Sprite`' subclass.
-
-        Returns
-        -------
-        appended : bool
-            If this interface appends an expression, this interface
-            returns True.
         """
         import apysc as ap
         from apysc._display.stage import get_stage_variable_name
-        from apysc._type import type_util
-        is_same_class_instance: bool = type_util.is_same_class_instance(
-            class_=Sprite, instance=self)
-        if not is_same_class_instance:
-            return False
         stage_variable_name: str = get_stage_variable_name()
         expression: str = (
             f'\nvar {self.variable_name} = {stage_variable_name}.nested();'
         )
         ap.append_js_expression(expression=expression)
-        return True
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

@@ -141,6 +141,8 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 
 ## Graphics クラス
 
+<br><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe>
+
 ### Table of contents
 
 `Graphics`クラスは各ベクターグラフィックスの描画処理を扱います。
@@ -196,6 +198,8 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 
 ## MouseEvent クラスとマウスイベントの設定
 
+<br><iframe src="static/mousemove_basic_usage/index.html" width="200" height="200"></iframe>
+
 ### Table of contents
 
 - [MouseEvent クラスの各インターフェイスの概要](jp_mouse_event_abstract.md)
@@ -236,6 +240,8 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 
 ## タイマー
 
+<br><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe>
+
 ### Table of contents
 
 - [Timer クラス](jp_timer.md)
@@ -253,6 +259,8 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 ---
 
 ## アニメーション
+
+<br><iframe src="static/animation_interfaces_abstract_rotation_around_center/index.html" width="150" height="150"></iframe>
 
 ### Table of contents
 

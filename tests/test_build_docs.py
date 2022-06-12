@@ -279,17 +279,14 @@ def test__make_script_data_list() -> None:
     assert len(script_data_list) == 3
     assert script_data_list[0] == {
         'md_file_path': tmp_file_path_1,
-        'hashed_val': 'abc',
         'runnable_script': 'print(100)',
     }
     assert script_data_list[1] == {
         'md_file_path': tmp_file_path_1,
-        'hashed_val': 'abc',
         'runnable_script': 'print(200)',
     }
     assert script_data_list[2] == {
         'md_file_path': tmp_file_path_2,
-        'hashed_val': 'def',
         'runnable_script': 'print(300)',
     }
 
@@ -311,6 +308,7 @@ def test__run_code_block_script() -> None:
         })
     assert return_data == {
         'md_file_path': 'test.md',
+        'runnable_script': 'print(200)',
         'stdout': '200\n',
     }
 

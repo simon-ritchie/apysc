@@ -26,12 +26,23 @@ from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/hashed_vals/stage.md',
+    'docs_src/source/index.md',
+    'docs_src/source/jp_index.md',
+    'docs/en/index.html',
+    'docs/jp/jp_index.html',
 ]
 
 
 def teardown() -> None:
     """
     The function would be called when the test ended.
+    """
+    _checkout_files()
+
+
+def _checkout_files() -> None:
+    """
+    Run the git's checkout command to revert files.
     """
     for checkout_file_path in _CHECKOUT_FILE_PATHS:
         os.system(f'git checkout {checkout_file_path}')
@@ -575,7 +586,7 @@ class Test_IndexMdUnderscoresReplacer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_revert(self) -> None:
-        os.system('git checkout -- .')
+        _checkout_files()
         replacer: _IndexMdUnderscoresReplacer = _IndexMdUnderscoresReplacer()
         txt: str = file_util.read_txt(file_path='./docs_src/source/index.md')
         if 'save_overall_html interface' not in txt:

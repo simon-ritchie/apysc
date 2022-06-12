@@ -261,6 +261,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [trace function interface](trace.md)
 - [set_debug_mode interface](set_debug_mode.md)
 - [unset_debug_mode interface](unset_debug_mode.md)
+- [add_debug_info_setting decorator interface](add_debug_info_setting.md)
 
 ---
 

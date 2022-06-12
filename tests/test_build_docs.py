@@ -25,11 +25,15 @@ from scripts.build_docs import _ScriptData
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
 _CHECKOUT_FILE_PATHS: List[str] = [
-    'docs_src/hashed_vals/stage.md',
-    'docs_src/source/index.md',
-    'docs_src/source/jp_index.md',
+    '.lint_and_doc_hash/.document/docs_src/source/stage',
+    '.lint_and_doc_hash/.document/docs_src/source/index',
+    '.lint_and_doc_hash/.document/docs_src/source/jp_index',
+    '.lint_and_doc_hash/.document/docs_src/source/sprite',
+    '.lint_and_doc_hash/.document/docs_src/source/sprite',
+    '.lint_and_doc_hash/.docstring_src/apysc/_display/sprite',
     'docs/en/index.html',
     'docs/jp/jp_index.html',
+    'apysc/_display/sprite.py',
 ]
 
 
@@ -497,9 +501,40 @@ def test__replace_docstring_specification() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__remove_document_hash_files_if_docstring_src_modified() -> None:
-    pass
+    _checkout_files()
+
+    module_paths: List[str] = build_docs.\
+        _remove_document_hash_files_if_docstring_src_modified(
+            md_file_path='./docs_src/source/index.md')
+    assert module_paths == []
+
+    md_file_path: str = './docs_src/source/sprite.md'
+    docstring_src_hash_file_path: str = lint_and_doc_hash_util.\
+        get_target_file_hash_file_path(
+            file_path='./apysc/_display/sprite.py',
+            hash_type=HashType.DOCSTRING_SRC)
+    file_util.remove_file_if_exists(file_path=docstring_src_hash_file_path)
+    module_paths = build_docs.\
+        _remove_document_hash_files_if_docstring_src_modified(
+            md_file_path='./docs_src/source/sprite.md')
+    expected_document_hash_file_path: str = lint_and_doc_hash_util.\
+        get_target_file_hash_file_path(
+            file_path='./docs_src/source/sprite.md',
+            hash_type=HashType.DOCUMENT)
+    assert not os.path.exists(expected_document_hash_file_path)
+    assert './apysc/_display/sprite.py' in module_paths
+
+    _checkout_files()
+    lint_and_doc_hash_util.save_target_file_hash(
+        file_path='./apysc/_display/sprite.py',
+        hash_type=HashType.DOCSTRING_SRC)
+    module_paths = build_docs.\
+        _remove_document_hash_files_if_docstring_src_modified(
+            md_file_path='./docs_src/source/sprite.md')
+    assert os.path.exists(expected_document_hash_file_path)
+
+    _checkout_files()
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

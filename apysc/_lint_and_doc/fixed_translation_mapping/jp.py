@@ -2637,4 +2637,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Recommended type annotation checker settings',
             val='推奨される型アノテーションのチェック設定'),
+        Mapping(
+            key='add_debug_info_setting decorator interface',
+            val='add_debug_info_setting のデコレーターのインターフェイス'),
     ])

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>add_debug_info_setting decorator interface &#8212; apysc  documentation</title>
+    <title>add_debug_info_setting のデコレーターのインターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -19,11 +19,10 @@
     <script src="static/common_func.js"></script>
     <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
-    <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="JavaScript assertion interface basic behaviors" href="assertion_basic_behavior.html" />
-    <link rel="prev" title="unset_debug_mode interface" href="unset_debug_mode.html" /> 
+    <link rel="next" title="JavaScript 上のアサーションのインターフェイスの基本的な挙動" href="jp_assertion_basic_behavior.html" />
+    <link rel="prev" title="unset_debug_mode インターフェイス" href="jp_unset_debug_mode.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -32,13 +31,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="assertion_basic_behavior.html" title="JavaScript assertion interface basic behaviors"
+          <a href="jp_assertion_basic_behavior.html" title="JavaScript 上のアサーションのインターフェイスの基本的な挙動"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="unset_debug_mode.html" title="unset_debug_mode interface"
+          <a href="jp_unset_debug_mode.html" title="unset_debug_mode インターフェイス"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">add_debug_info_setting decorator interface</a></li> 
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">add_debug_info_setting のデコレーターのインターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -47,19 +46,20 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="add-debug-info-setting-decorator-interface">
-<h1>add_debug_info_setting decorator interface<a class="headerlink" href="#add-debug-info-setting-decorator-interface" title="Permalink to this headline">¶</a></h1>
-<section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">add_debug_info_setting</span></code> decorator interface sets the debug information settings to a target function or method.</p>
-<p>A decorated function or method exports debug information when you enable the debug mode setting.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/add_debug_info_setting.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="add-debug-info-setting">
+<h1>add_debug_info_setting のデコレーターのインターフェイス<a class="headerlink" href="#add-debug-info-setting" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">add_debug_info_setting</span></code>のデコレーターのインターフェイスは対象の関数もしくはメソッドへとデバッグ情報の設定を行います。</p>
+<p>デコレーターが設定された関数もしくはメソッドでは、デバッグモードを有効にした後の処理では各デバッグ情報を出力するようになります。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>It is necessary to set the debug mode setting with the <code class="docutils literal notranslate"><span class="pre">ap.set_debug_mode()</span></code> function at the first position.</p>
-<p>After that, You can set the <code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code> decorator settings to any function or method.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code> needs to specify the <code class="docutils literal notranslate"><span class="pre">module_name</span></code> (this value becomes <code class="docutils literal notranslate"><span class="pre">__name__</span></code>).</p>
-<p>Optionally it needs to specify the <code class="docutils literal notranslate"><span class="pre">class_name</span></code> argument when you decorate a method.</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>処理の有効にするために最初に<code class="docutils literal notranslate"><span class="pre">ap.set_debug_mode()</span></code>関数でデバッグモードの設定を行っておく必要があります。</p>
+<p>その後、任意の各関数やメソッドに<code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code>のデコレーターの設定を追加することができます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code>の関数は<code class="docutils literal notranslate"><span class="pre">module_name</span></code>引数の指定が必要になります（この引数は基本的に<code class="docutils literal notranslate"><span class="pre">__name__</span></code>の値となります）。</p>
+<p>加えて、もしメソッドに対してデコレーターの設定を行う場合には<code class="docutils literal notranslate"><span class="pre">class_name</span></code>引数の指定も必要になります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -119,7 +119,7 @@
     <span class="n">_main</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The exported HTML contains the following debug information (function and method calling information):</p>
+<p>出力されたHTMLには以下のように関数やメソッドの呼び出しなどのデバッグ情報が含まれるようになります:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
   <span class="o">//////////////////////////////////////////////////////////////////////</span>
   <span class="o">//</span> <span class="p">[</span><span class="n">_draw_rectangle</span> <span class="mi">1</span><span class="p">]</span> <span class="n">started</span><span class="o">.</span>
@@ -135,19 +135,19 @@
 </pre></div>
 </div>
 </section>
-<section id="notes-of-the-mypy-setting">
-<h2>Notes of the mypy setting<a class="headerlink" href="#notes-of-the-mypy-setting" title="Permalink to this headline">¶</a></h2>
-<p>This decorator settings currently raise a mypy error. To avoid this error, please set the <code class="docutils literal notranslate"><span class="pre">--disable-error-code</span> <span class="pre">misc</span></code> option.</p>
-<p>See also:</p>
+<section id="mypy">
+<h2>mypy設定に対する特記事項<a class="headerlink" href="#mypy" title="Permalink to this headline">¶</a></h2>
+<p>このデコレーター設定は現在mypy上でエラーが発生します。ごのエラーを避けるためには<code class="docutils literal notranslate"><span class="pre">--disable-error-code</span> <span class="pre">misc</span></code>オブションの指定の追加を検討してください。</p>
+<p>参考資料:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="recommended_type_checker_settings.html"><span class="doc">Recommended type annotation checker settings</span></a></p></li>
+<li><p><a class="reference internal" href="jp_recommended_type_checker_settings.html"><span class="doc">推奨される型アノテーションのチェック設定</span></a></p></li>
 </ul>
 </section>
-<section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<section id="id3">
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="set_debug_mode.html"><span class="doc">set_debug_mode interface</span></a></p></li>
-<li><p><a class="reference internal" href="unset_debug_mode.html"><span class="doc">unset_debug_mode interface</span></a></p></li>
+<li><p><a class="reference internal" href="jp_set_debug_mode.html"><span class="doc">set_debug_mode インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_unset_debug_mode.html"><span class="doc">unset_debug_mode インターフェイス</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -159,26 +159,26 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
+            <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">add_debug_info_setting decorator interface</a><ul>
-<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#notes-of-the-mypy-setting">Notes of the mypy setting</a></li>
-<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#">add_debug_info_setting のデコレーターのインターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#mypy">mypy設定に対する特記事項</a></li>
+<li><a class="reference internal" href="#id3">関連資料</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="unset_debug_mode.html"
-                        title="previous chapter">unset_debug_mode interface</a></p>
+  <p class="topless"><a href="jp_unset_debug_mode.html"
+                        title="previous chapter">unset_debug_mode インターフェイス</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="assertion_basic_behavior.html"
-                        title="next chapter">JavaScript assertion interface basic behaviors</a></p>
+  <p class="topless"><a href="jp_assertion_basic_behavior.html"
+                        title="next chapter">JavaScript 上のアサーションのインターフェイスの基本的な挙動</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -200,17 +200,17 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="assertion_basic_behavior.html" title="JavaScript assertion interface basic behaviors"
+          <a href="jp_assertion_basic_behavior.html" title="JavaScript 上のアサーションのインターフェイスの基本的な挙動"
              >next</a> |</li>
         <li class="right" >
-          <a href="unset_debug_mode.html" title="unset_debug_mode interface"
+          <a href="jp_unset_debug_mode.html" title="unset_debug_mode インターフェイス"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">add_debug_info_setting decorator interface</a></li> 
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">add_debug_info_setting のデコレーターのインターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, apysc project.
+        &#169; Copyright 2022, apysc プロジェクト.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>

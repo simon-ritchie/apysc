@@ -46,6 +46,8 @@ def _main() -> None:
     logger.info('Deleting translation mapping hash...')
     _delete_translation_mapping_hash(
         lang=lang, src_file_path=command_options['src'])
+    _delete_translation_mapping_hash(
+        lang=lang, src_file_path='docs_src/source/index.md')
 
     logger.info('Applying translation to a specified document...')
     add_mapping_blank_data(lang=lang)

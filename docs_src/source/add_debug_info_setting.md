@@ -100,3 +100,8 @@ This decorator settings currently raise a mypy error. To avoid this error, pleas
 See also:
 
 - [Recommended type annotation checker settings](recommended_type_checker_settings.md)
+
+## See also
+
+- [set_debug_mode interface](set_debug_mode.md)
+- [unset_debug_mode interface](unset_debug_mode.md)

@@ -582,6 +582,9 @@ MAPPING: Dict[str, str] = {
     '- [unset_debug_mode interface](unset_debug_mode.md)':
     '- [unset_debug_mode インターフェイス](jp_unset_debug_mode.md)',
 
+    '- [add_debug_info_setting decorator interface](add_debug_info_setting.md)':  # noqa
+    '- [add_debug_info_setting のデコレーターのインターフェイス](jp_add_debug_info_setting.md)',  # noqa
+
     '---':
     '---',
 

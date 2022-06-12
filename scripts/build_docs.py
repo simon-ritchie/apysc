@@ -59,6 +59,9 @@ def _main() -> None:
     print('-' * 20)
     logger.info(msg='Documentation build started...')
 
+    logger.info(msg='Synchronizing the JavaScript libraries...')
+    _sync_js_libs()
+
     _exec_document_lint_and_script()
     if not options['skip_sync_translation']:
         _apply_translation_mappings()
@@ -96,6 +99,18 @@ def _main() -> None:
     apply_link_text_mapping_to_index_html.apply()
 
     logger.info(msg='Build completed!')
+
+
+def _sync_js_libs() -> None:
+    """
+    Synchronize the JavaScript libraries.
+    """
+    from apysc._jslib import jslib_util
+    js_lib_file_names: List[str] = jslib_util.get_jslib_file_names()
+    for js_lib_file_name in js_lib_file_names:
+        jslib_util.export_jslib_to_specified_dir(
+            dest_dir_path='./docs_src/source/_static/',
+            jslib_name=js_lib_file_name)
 
 
 def _get_command_options() -> _CommandOptions:

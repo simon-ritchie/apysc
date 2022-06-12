@@ -643,3 +643,12 @@ def test__get_build_command() -> None:
         'sphinx-build ./docs_src/source/ ./docs/jp/ '
         '-c ./docs_src/source/conf_jp/'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__sync_js_libs() -> None:
+    test_file_path: str = './docs_src/source/_static/jquery.min.js'
+    file_util.remove_file_if_exists(file_path=test_file_path)
+
+    build_docs._sync_js_libs()
+    assert os.path.exists(test_file_path)

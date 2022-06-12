@@ -616,7 +616,8 @@ def _check_code_block_with_flake8(script_data: _ScriptData) -> None:
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']
     tmp_module_path: str = module_util.save_tmp_module(script=runnable_script)
-    command: str = f'{FLAKE8_NO_PATH_COMMAND},W292,E501 {tmp_module_path}'
+    command: str = (
+        f'{FLAKE8_NO_PATH_COMMAND},W292,E501,E122 {tmp_module_path}')
     stdout: str = run_command(command=command).strip()
     os.remove(tmp_module_path)
     if stdout != '':

@@ -98,18 +98,7 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 
 ### `_append_constructor_expression` method docstring
 
-Append Sprite constructor expression.<hr>
-
-**[Returns]**
-
-- `appended`: bool
-  - If this interface appends an expression, this interface returns True.
-
-<hr>
-
-**[Notes]**
-
-This interface does not add an expression if this instance is the `Sprite`' subclass.
+Append Sprite constructor expression.
 
 ### `_make_snapshot` method docstring
 

@@ -114,11 +114,12 @@ def _main() -> None:
     """Entry point of this command.
     """
     from apysc._lint_and_doc import docstring_to_markdown_converter
-    from scripts.build_docs import HASHED_VALS_DIR_PATH
     options: _CommandOptions = _get_command_options()
     shutil.rmtree('./build/', ignore_errors=True)
     if not options['skip_overall_docs_build']:
-        shutil.rmtree(HASHED_VALS_DIR_PATH, ignore_errors=True)
+        dir_path: str = lint_and_doc_hash_util.get_hash_dir_path(
+            hash_type=lint_and_doc_hash_util.HashType.DOCUMENT)
+        shutil.rmtree(dir_path, ignore_errors=True)
         _update_doc_files_timestamp()
     _remove_tmp_py_module()
 

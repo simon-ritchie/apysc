@@ -276,7 +276,6 @@ def _remove_runnable_inline_comment_from_code_blocks(
 
 class _ScriptData(TypedDict):
     md_file_path: str
-    hashed_val: str
     runnable_script: str
 
 
@@ -319,20 +318,12 @@ def _exec_document_lint_and_script(
             _flatten_2dim_module_paths_and_make_it_unique(
                 docstring_module_paths=docstring_module_paths)
 
-        logger.info(msg='Saving docstring modules hash files...')
-        p.map(
-            func=_save_docstring_module_hash,
-            iterable=docstring_module_paths_)
+        md_file_paths = lint_and_doc_hash_util.remove_not_updated_file_paths(
+            file_paths=md_file_paths, hash_type=HashType.DOCUMENT)
 
         logger.info(msg='Slicing not updated markdown files...')
-        markdown_data_list_: List[Op[_MarkdownData]] = p.map(
-            func=_convert_path_to_markdown_data_with_hashed_val,
-            iterable=md_file_paths)
-        markdown_data_list: List[_MarkdownData] = \
-            _remove_none_from_markdown_data_list(
-                markdown_data_list=markdown_data_list_)
         script_data_list: List[_ScriptData] = _make_script_data_list(
-            markdown_data_list=markdown_data_list,
+            md_file_paths=md_file_paths,
             limit_count=limit_count)
 
         logger.info(msg="Document's code block flake8 checking started...")
@@ -352,11 +343,17 @@ def _exec_document_lint_and_script(
             msg="Replacing docstring path specification in documents...")
         p.map(
             func=_replace_docstring_specification,
-            iterable=markdown_data_list)
+            iterable=md_file_paths)
+
+        logger.info(msg='Saving docstring modules hash files...')
+        p.map(
+            func=_save_docstring_module_hash,
+            iterable=docstring_module_paths_)
     _copy_code_block_outputs()
     _validate_script_return_data(return_data_list=run_return_data_list)
 
-    _save_hashed_val(script_data_list=script_data_list)
+    lint_and_doc_hash_util.save_target_files_hash(
+        file_paths=md_file_paths, hash_type=HashType.DOCUMENT)
     executed_scripts: List[str] = [
         script_data['runnable_script'] for script_data in script_data_list]
     return executed_scripts
@@ -423,63 +420,33 @@ def _remove_document_hash_files_if_docstring_src_modified(
     if not module_paths:
         return []
     for module_path in module_paths:
-        saved_hash: str = lint_and_doc_hash_util.read_saved_hash(
-            file_path=module_path,
-            hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_SRC)
-        current_hash: str = _read_file_and_hash_it(
-            file_path=module_path)
-        if saved_hash == current_hash:
+        is_file_updated: bool = lint_and_doc_hash_util.is_file_updated(
+            file_path=module_path, hash_type=HashType.DOCSTRING_SRC)
+        if not is_file_updated:
             continue
-        hash_file_path: str = _get_doc_hash_file_path(
-            md_file_path=md_file_path)
+        hash_file_path: str = lint_and_doc_hash_util.\
+            get_target_file_hash_file_path(
+                file_path=md_file_path, hash_type=HashType.DOCUMENT)
         file_util.remove_file_if_exists(file_path=hash_file_path)
         break
     return module_paths
 
 
-class _MarkdownData(TypedDict):
-    md_file_path: str
-    hashed_val: str
-
-
 def _replace_docstring_specification(
-        markdown_data: _MarkdownData) -> None:
+        md_file_path: str) -> None:
     """
     Replace a markdown's docstring specification by the
     converted docstring text.
 
     Parameters
     ----------
-    markdown_data : _MarkdownData
-        Target markdown data.
+    md_file_path : str
+        A Target markdown file path.
     """
     docstring_util.reset_replaced_docstring_section(
-        md_file_path=markdown_data['md_file_path'])
+        md_file_path=md_file_path)
     docstring_util.replace_docstring_path_specification(
-        md_file_path=markdown_data['md_file_path'])
-
-
-def _remove_none_from_markdown_data_list(
-        markdown_data_list: List[Op[_MarkdownData]]) -> List[_MarkdownData]:
-    """
-    Remove the None values from the specified markdown data list.
-
-    Parameters
-    ----------
-    markdown_data_list : list of _MarkdownData or None
-        Target list.
-
-    Returns
-    -------
-    markdown_data_list_ : list of _MarkdownData
-        The list after removing the None values.
-    """
-    markdown_data_list_: List[_MarkdownData] = []
-    for markdown_data in markdown_data_list:
-        if markdown_data is None:
-            continue
-        markdown_data_list_.append(markdown_data)
-    return markdown_data_list_
+        md_file_path=md_file_path)
 
 
 _CODE_BLOCK_OUTPUT_DIR_PATH: str = './docs_src/source/_static/'
@@ -647,21 +614,6 @@ def _check_code_block_with_flake8(script_data: _ScriptData) -> None:
         )
 
 
-def _save_hashed_val(script_data_list: List[_ScriptData]) -> None:
-    """
-    Save executed markdown script hashed values to the file.
-
-    Parameters
-    ----------
-    script_data_list : list of _ScriptData
-        Executed script data list.
-    """
-    for script_data in script_data_list:
-        _save_md_hashed_val(
-            md_file_path=script_data['md_file_path'],
-            hashed_val=script_data['hashed_val'])
-
-
 def _validate_script_return_data(
         return_data_list: List[_RunReturnData]) -> None:
     """
@@ -724,15 +676,15 @@ def _run_code_block_script(script_data: _ScriptData) -> _RunReturnData:
 
 
 def _make_script_data_list(
-        markdown_data_list: List[_MarkdownData],
+        md_file_paths: List[str],
         limit_count: Op[int]) -> List[_ScriptData]:
     """
     Make a script data list for the multiprocessing argument.
 
     Parameters
     ----------
-    markdown_data_list : list of _MarkdownData
-        Target markdown data list.
+    md_file_paths : list of str
+        Target markdown file path's list.
     limit_count : int or None
         Limitation of the script execution count.
 
@@ -744,13 +696,12 @@ def _make_script_data_list(
     count: int = 0
     is_limit: bool = False
     script_data_list: List[_ScriptData] = []
-    for markdown_data in markdown_data_list:
+    for md_file_path in md_file_paths:
         runnable_scripts: List[str] = get_runnable_scripts_in_md_code_blocks(
-            md_file_path=markdown_data['md_file_path'])
+            md_file_path=md_file_path)
         for runnable_script in runnable_scripts:
             script_data_list.append({
-                'md_file_path': markdown_data['md_file_path'],
-                'hashed_val': markdown_data['hashed_val'],
+                'md_file_path': md_file_path,
                 'runnable_script': runnable_script,
             })
             count += 1
@@ -760,153 +711,6 @@ def _make_script_data_list(
         if is_limit:
             break
     return script_data_list
-
-
-def _save_md_hashed_val(md_file_path: str, hashed_val: str) -> None:
-    """
-    Save markdown hashed string value to file.
-
-    Parameters
-    ----------
-    md_file_path : str
-        Original markdown file path.
-    hashed_val : str
-        Hashed markdown text value.
-    """
-    from apysc._file import file_util
-    hash_file_path: str = _get_doc_hash_file_path(
-        md_file_path=md_file_path)
-    file_util.save_plain_txt(txt=hashed_val, file_path=hash_file_path)
-
-
-HASHED_VALS_DIR_PATH: str = './docs_src/hashed_vals/'
-
-
-def _get_doc_hash_file_path(md_file_path: str) -> str:
-    """
-    Get a document hash file path.
-
-    Parameters
-    ----------
-    md_file_path : str
-        Target document markdown file path.
-
-    Returns
-    -------
-    hash_file_path : str
-        A document hash file path.
-    """
-    under_source_file_path: str = _get_md_under_source_file_path(
-        md_file_path=md_file_path)
-    hash_file_path: str = os.path.join(
-        HASHED_VALS_DIR_PATH, under_source_file_path,
-    )
-    return hash_file_path
-
-
-def _convert_path_to_markdown_data_with_hashed_val(
-        md_file_path: str) -> Op[_MarkdownData]:
-    """
-    Convert the markdown path to the markdown data with
-    hashed value.
-
-    Notes
-    -----
-    If the specified markdown isn't updated, this function
-    returns None.
-
-    Parameters
-    ----------
-    md_file_path : str
-        Markdown file path.
-
-    Returns
-    -------
-    markdown_data : _MarkdownData or None
-        Converted markdown data.
-    """
-    if '/hashed_vals/' in md_file_path:
-        return None
-    under_source_file_path: str = _get_md_under_source_file_path(
-        md_file_path=md_file_path)
-    hash_file_path: str = os.path.join(
-        HASHED_VALS_DIR_PATH,
-        under_source_file_path,
-    )
-    hash_file_dir_path: str = os.path.dirname(hash_file_path)
-    os.makedirs(hash_file_dir_path, exist_ok=True)
-    saved_hashed_val: str = _read_md_file_hashed_val_from_file(
-        hash_file_path=hash_file_path)
-    md_hashed_val: str = _read_file_and_hash_it(
-        file_path=md_file_path)
-    if saved_hashed_val == md_hashed_val:
-        return None
-    return {
-        'md_file_path': md_file_path,
-        'hashed_val': md_hashed_val,
-    }
-
-
-def _get_md_under_source_file_path(md_file_path: str) -> str:
-    """
-    Get a markdown file path under the source directory.
-
-    Parameters
-    ----------
-    md_file_path : str
-        Target markdown file path.
-
-    Returns
-    -------
-    under_source_file_path : str
-        File path that under the document source directory,
-        e.g., './doc_src/source/any/path.md' will be 'any/path.md'.
-    """
-    under_source_file_path: str = md_file_path.split('/source/', 1)[1]
-    return under_source_file_path
-
-
-def _read_file_and_hash_it(*, file_path: str) -> str:
-    """
-    Read a text file and hash its text.
-
-    Parameters
-    ----------
-    file_path : str
-        Target file path.
-
-    Returns
-    -------
-    hashed_val : str
-        Hashed string value.
-    """
-    from apysc._file import file_util
-    txt: str = file_util.read_txt(file_path=file_path)
-    hashed_val: str = hashlib.sha1(txt.encode()).hexdigest()
-    return hashed_val
-
-
-def _read_md_file_hashed_val_from_file(hash_file_path: str) -> str:
-    """
-    Read the markdown file hashed value from the saved file.
-
-    Parameters
-    ----------
-    hash_file_path : str
-        Target hash file path.
-
-    Returns
-    -------
-    hashed_val : str
-        Hashed string value. If file does not exist, then blank string
-        will be returned.
-    """
-    from apysc._file import file_util
-    if not os.path.exists(hash_file_path):
-        return ''
-    hashed_val: str = file_util.read_txt(file_path=hash_file_path)
-    hashed_val = hashed_val.strip()
-    return hashed_val
 
 
 class _CodeBlock:

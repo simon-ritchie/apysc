@@ -42,6 +42,7 @@ class HashType(Enum):
     TRANSLATION_MAPPING_JP = 'translation_mapping_jp'
     APPLYING_TRANSLATION_MAPPING = 'applying_translation_mapping'
     INDEX_HTML_LINK_TEXT_MAPPING = 'index_html_link_text_mapping'
+    DOCUMENT = 'document'
 
 
 _HASH_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'

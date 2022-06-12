@@ -15,15 +15,14 @@ from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_KEYWORD
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
-from scripts.build_docs import HASHED_VALS_DIR_PATH
 from scripts.build_docs import _CodeBlock
 from scripts.build_docs import _CodeBlockFlake8Error
 from scripts.build_docs import _CodeBlockMypyError
 from scripts.build_docs import _CodeBlockNumdoclintError
 from scripts.build_docs import _IndexMdUnderscoresReplacer
-from scripts.build_docs import _MarkdownData
 from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/hashed_vals/stage.md',
@@ -182,10 +181,9 @@ print(300)
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__exec_document_lint_and_script() -> None:
-    hash_file_path: str = os.path.join(
-        build_docs.HASHED_VALS_DIR_PATH,
-        'quick_start.md',
-    )
+    hash_file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path='./docs_src/source/quick_start.md',
+        hash_type=HashType.DOCUMENT)
     file_util.remove_file_if_exists(file_path=hash_file_path)
 
     executed_scripts: List[str] = build_docs._exec_document_lint_and_script(
@@ -232,55 +230,6 @@ def test__remove_runnable_inline_comment_from_code_blocks() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__read_md_file_hashed_val_from_file() -> None:
-    tmp_hash_file_path: str = '../tmp_test_build_docs_1.md'
-    file_util.remove_file_if_exists(file_path=tmp_hash_file_path)
-    hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
-        hash_file_path=tmp_hash_file_path)
-    assert hashed_val == ''
-
-    file_util.save_plain_txt(txt='1234567890', file_path=tmp_hash_file_path)
-    hashed_val = build_docs._read_md_file_hashed_val_from_file(
-        hash_file_path=tmp_hash_file_path)
-    assert hashed_val == '1234567890'
-    file_util.remove_file_if_exists(file_path=tmp_hash_file_path)
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__read_file_and_hash_it() -> None:
-    tmp_file_path: str = '../test_build_docs_2.md'
-    file_util.save_plain_txt(
-        txt='1234567890', file_path=tmp_file_path)
-    hashed_val: str = build_docs._read_file_and_hash_it(
-        file_path=tmp_file_path)
-    assert hashed_val == hashlib.sha1('1234567890'.encode()).hexdigest()
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_md_under_source_file_path() -> None:
-    under_source_file_path: str = build_docs._get_md_under_source_file_path(
-        md_file_path='./doc_src/source/any/path.md')
-    assert under_source_file_path == 'any/path.md'
-
-
-def test__save_md_hashed_val() -> None:
-    original_hashed_vals_dir_path: str = build_docs.HASHED_VALS_DIR_PATH
-    build_docs.HASHED_VALS_DIR_PATH = '../tmp_test_build_docs_5/hashed_vals/'
-    expected_file_path: str = os.path.join(
-        build_docs.HASHED_VALS_DIR_PATH,
-        'any/path.md')
-    file_util.remove_file_if_exists(file_path=expected_file_path)
-    build_docs._save_md_hashed_val(
-        md_file_path='./docs_src/source/any/path.md', hashed_val='1234')
-    hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
-        hash_file_path=expected_file_path)
-    assert hashed_val == '1234'
-
-    build_docs.HASHED_VALS_DIR_PATH = original_hashed_vals_dir_path
-    file_util.remove_file_if_exists(file_path=expected_file_path)
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_js_lib_path_and_skip_settings() -> None:
     """_append_js_lib_path_and_skip_settings 関数のテスト。
     """
@@ -323,15 +272,9 @@ def test__make_script_data_list() -> None:
             '\n```'
             '\n'
         )
-    markdown_data_list: List[_MarkdownData] = [{
-        'md_file_path': tmp_file_path_1,
-        'hashed_val': 'abc',
-    }, {
-        'md_file_path': tmp_file_path_2,
-        'hashed_val': 'def',
-    }]
+    md_file_paths: List[str] = [tmp_file_path_1, tmp_file_path_2]
     script_data_list: List[_ScriptData] = build_docs._make_script_data_list(
-        markdown_data_list=markdown_data_list,
+        md_file_paths=md_file_paths,
         limit_count=None)
     assert len(script_data_list) == 3
     assert script_data_list[0] == {
@@ -351,7 +294,7 @@ def test__make_script_data_list() -> None:
     }
 
     script_data_list = build_docs._make_script_data_list(
-        markdown_data_list=markdown_data_list,
+        md_file_paths=md_file_paths,
         limit_count=2)
     assert len(script_data_list) == 2
 
@@ -364,12 +307,10 @@ def test__run_code_block_script() -> None:
     return_data: _RunReturnData = build_docs._run_code_block_script(
         script_data={
             'md_file_path': 'test.md',
-            'hashed_val': 'abc',
             'runnable_script': 'print(200)',
         })
     assert return_data == {
         'md_file_path': 'test.md',
-        'runnable_script': 'print(200)',
         'stdout': '200\n',
     }
 
@@ -391,30 +332,13 @@ def test__validate_script_return_data() -> None:
             'md_file_path': 'test.md',
             'runnable_script': 'print(100)',
             'stdout': 'Traceback: most recent call ...'
-        }],)
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__save_hashed_val() -> None:
-    hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
-        hash_file_path='docs_src/hashed_vals/stage.md')
-    os.remove('docs_src/hashed_vals/stage.md')
-    build_docs._save_hashed_val(
-        script_data_list=[{
-            'md_file_path': 'docs_src/source/stage.md',
-            'hashed_val': hashed_val,
-            'runnable_script': 'print(100)',
         }])
-    saved_hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
-        hash_file_path='docs_src/hashed_vals/stage.md')
-    assert saved_hashed_val == hashed_val
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__check_code_block_with_flake8() -> None:
     script_data: _ScriptData = {
         'md_file_path': './tmp.py',
-        'hashed_val': 'abc',
         'runnable_script':
         'a=10',
     }
@@ -427,7 +351,6 @@ def test__check_code_block_with_flake8() -> None:
 
     script_data = {
         'md_file_path': './tmp.py',
-        'hashed_val': 'abc',
         'runnable_script': 'a = 20',
     }
     build_docs._check_code_block_with_flake8(script_data=script_data)
@@ -437,7 +360,6 @@ def test__check_code_block_with_flake8() -> None:
 def test__check_code_block_with_numdoclint() -> None:
     script_data: _ScriptData = {
         'md_file_path': './tmp.py',
-        'hashed_val': 'abc',
         'runnable_script':
         'def func_1'
         '(a):\n    print(100)',
@@ -451,7 +373,6 @@ def test__check_code_block_with_numdoclint() -> None:
 
     script_data = {
         'md_file_path': './tmp.py',
-        'hashed_val': 'abc',
         'runnable_script':
         'def func_2'
         '(a):'
@@ -471,7 +392,6 @@ def test__check_code_block_with_numdoclint() -> None:
 def test__check_code_block_with_mypy() -> None:
     script_data: _ScriptData = {
         'md_file_path': './tmp.py',
-        'hashed_val': 'abc',
         'runnable_script':
         'def func_1'
         '(a):\n    print(100)',
@@ -484,7 +404,6 @@ def test__check_code_block_with_mypy() -> None:
 
     script_data = {
         'md_file_path': './tmp.py',
-        'hashed_val': 'abc',
         'runnable_script': 'print(100)',
     }
     build_docs._check_code_block_with_mypy(script_data=script_data)
@@ -543,60 +462,6 @@ def test__copy_code_block_outputs() -> None:
     shutil.rmtree(expected_dir_path, ignore_errors=True)
 
 
-def test__convert_path_to_markdown_data_with_hashed_val() -> None:
-    test_md_file_path: str = './docs_src/source/test_build_docs.md'
-    with open(test_md_file_path, 'w') as f:
-        f.write('Hello')
-
-    markdown_data: Optional[_MarkdownData] = build_docs.\
-        _convert_path_to_markdown_data_with_hashed_val(
-            md_file_path='./docs_src/hashed_vals/test_build_docs.md')
-    assert markdown_data is None
-
-    under_source_file_path: str = build_docs._get_md_under_source_file_path(
-        md_file_path=test_md_file_path)
-    hash_file_path: str = os.path.join(
-        HASHED_VALS_DIR_PATH,
-        under_source_file_path,
-    )
-    expected_md_hashed_val: str = build_docs._read_file_and_hash_it(
-        file_path=test_md_file_path)
-    file_util.remove_file_if_exists(file_path=hash_file_path)
-    markdown_data = build_docs._convert_path_to_markdown_data_with_hashed_val(
-        md_file_path=test_md_file_path)
-    assert markdown_data == {
-        'md_file_path': test_md_file_path,
-        'hashed_val': expected_md_hashed_val,
-    }
-
-    with open(hash_file_path, 'w') as f:
-        f.write(expected_md_hashed_val)
-    markdown_data = build_docs._convert_path_to_markdown_data_with_hashed_val(
-        md_file_path=test_md_file_path)
-    assert markdown_data is None
-
-    file_util.remove_file_if_exists(file_path=test_md_file_path)
-    file_util.remove_file_if_exists(file_path=hash_file_path)
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__remove_none_from_markdown_data_list() -> None:
-    markdown_data_list: List[Optional[_MarkdownData]] = [
-        {
-            'md_file_path': 'test_path.md',
-            'hashed_val': 'abc',
-        },
-        None,
-    ]
-    markdown_data_list_: List[_MarkdownData] = build_docs.\
-        _remove_none_from_markdown_data_list(
-            markdown_data_list=markdown_data_list)
-    assert markdown_data_list_ == [{
-        'md_file_path': 'test_path.md',
-        'hashed_val': 'abc',
-    }]
-
-
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__replace_docstring_specification() -> None:
     tmp_dir_path: str = './tmp/'
@@ -617,73 +482,15 @@ def test__replace_docstring_specification() -> None:
         ),
         file_path=tmp_file_path)
     build_docs._replace_docstring_specification(
-        markdown_data={
-            'md_file_path': tmp_file_path,
-            'hashed_val': 'abc',
-        })
+        md_file_path=tmp_file_path)
 
     file_util.remove_file_if_exists(file_path=tmp_file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_doc_hash_file_path() -> None:
-    hash_file_path: str = build_docs._get_doc_hash_file_path(
-        md_file_path='./docs_src/source/any/path.md')
-    assert hash_file_path == './docs_src/hashed_vals/any/path.md'
-
-
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__remove_document_hash_files_if_docstring_src_modified() -> None:
-    tmp_md_file_path: str = './docs_src/source/tmp_test_doc.md'
-    with open(tmp_md_file_path, 'w') as f:
-        f.write('Lorem ipsum.')
-
-    hash_file_path: str = build_docs._get_doc_hash_file_path(
-        md_file_path=tmp_md_file_path)
-    with open(hash_file_path, 'w') as f:
-        f.write('')
-
-    module_paths: List[str] = build_docs.\
-        _remove_document_hash_files_if_docstring_src_modified(
-            md_file_path=tmp_md_file_path)
-    assert os.path.exists(hash_file_path)
-    assert module_paths == []
-
-    with open(tmp_md_file_path, 'w') as f:
-        f.write(
-            'Lorem ipsum.'
-            '\n\n<!-- Docstring:apysc._display.sprite.Sprite.__init__ -->')
-
-    def mock_read_saved_hash(
-            *, file_path: str,
-            hash_type: lint_and_doc_hash_util.HashType) -> str:
-        return 'abc'
-
-    def mock__read_file_and_hash_it_1(*, file_path: str) -> str:
-        return 'abc'
-
-    original_read_saved_hash_func = lint_and_doc_hash_util.read_saved_hash
-    original__read_file_and_hash_it_func = build_docs._read_file_and_hash_it
-    lint_and_doc_hash_util.read_saved_hash = mock_read_saved_hash
-    build_docs._read_file_and_hash_it = mock__read_file_and_hash_it_1
-    module_paths = \
-        build_docs._remove_document_hash_files_if_docstring_src_modified(
-            md_file_path=tmp_md_file_path)
-    assert os.path.exists(hash_file_path)
-    assert module_paths == ['./apysc/_display/sprite.py']
-
-    def mock__read_file_and_hash_it_2(*, file_path: str) -> str:
-        return 'def'
-
-    build_docs._read_file_and_hash_it = mock__read_file_and_hash_it_2
-    _ = build_docs._remove_document_hash_files_if_docstring_src_modified(
-        md_file_path=tmp_md_file_path)
-    assert not os.path.exists(hash_file_path)
-
-    file_util.remove_file_if_exists(file_path=tmp_md_file_path)
-    file_util.remove_file_if_exists(file_path=hash_file_path)
-    lint_and_doc_hash_util.read_saved_hash = original_read_saved_hash_func
-    build_docs._read_file_and_hash_it = original__read_file_and_hash_it_func
+    pass
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

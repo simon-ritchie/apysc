@@ -1,4 +1,42 @@
 """Utility implementations for docstrings.
+
+Mainly the following interfaces are defined:
+
+- get_docstring_src_module_paths
+    - Get docstring source module paths from a specified
+        markdown file path.
+- reset_replaced_docstring_section
+    - Reset converted a markdown's docstring section.
+- replace_docstring_path_specification
+    - Replace a docstring path specification with a converted
+        docstring text in a specified markdown document.
+- remove_trailing_hr_tag
+    - Remove a trailing `<hr>` tag from a specified markdown string.
+- append_summary_to_markdown
+    - Append an interface summary string to a specified
+        markdown string.
+- append_notes_to_markdown
+    - Append a notes string to a specified markdown string.
+- extract_notes_from_docstring
+    - Extract a notes' value from a docstring.
+- append_examples_to_markdown
+    - Append examples to a specified markdown string.
+- extract_example_values_from_docstring
+    - Extract example values from a docstring.
+- append_references_to_markdown
+    - Append references to a specified markdown string.
+- append_raises_to_markdown
+    - Append raises to a specified markdown string.
+- append_params_or_rtns_to_markdown
+    - Append parameters or returns to a specified markdown string.
+- extract_reference_values_from_docstring
+    - Extract reference values from a docstring.
+- extract_raise_values_from_docstring
+    - Extract raise values from a docstring.
+- extract_param_or_rtn_values_from_docstring
+    - Extract parameter or return values from a docstring.
+- extract_summary_from_docstring
+    - Extract a summary text from a docstring.
 """
 
 import inspect

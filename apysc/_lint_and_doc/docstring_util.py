@@ -37,6 +37,8 @@ Mainly the following interfaces are defined:
     - Extract parameter or return values from a docstring.
 - extract_summary_from_docstring
     - Extract a summary text from a docstring.
+- extract_docstrings_from_module
+    - Extract docstrings from a specified module.
 """
 
 import inspect
@@ -44,6 +46,7 @@ import os
 import re
 from enum import Enum
 from inspect import Signature
+from types import ModuleType
 from typing import Any
 from typing import Callable
 from typing import List
@@ -1798,3 +1801,45 @@ def _extract_path_from_docstring_comment(
     path: str = match.group(1)
     path = path.strip()
     return path
+
+
+def extract_docstrings_from_module(
+        *, module: ModuleType) -> List[str]:
+    """
+    Extract docstrings from a specified module.
+
+    Parameters
+    ----------
+    module : ModuleType
+        A target module.
+
+    Returns
+    -------
+    docstrings : List[str]
+        An extracted docstrings list.
+    """
+    docstrings: List[str] = []
+    if module.__doc__ is not None:
+        docstrings.append(module.__doc__)
+
+    function_members: List[Tuple[str, Callable]] = inspect.getmembers(
+        object=module, predicate=inspect.isfunction)
+    function: Callable
+    for _, function in function_members:
+        if function.__doc__ is not None:
+            docstrings.append(function.__doc__)
+
+    class_members: List[Tuple[str, Type]] = inspect.getmembers(
+        object=module, predicate=inspect.isclass)
+    class_: Type
+    for _, class_ in class_members:
+        if class_.__doc__ is not None:
+            docstrings.append(class_.__doc__)
+        method_members: List[Tuple[str, Callable]] = inspect.getmembers(
+            object=class_, predicate=inspect.ismethod)
+        method: Callable
+        for _, method in method_members:
+            if method.__doc__ is not None:
+                docstrings.append(method.__doc)
+
+    return docstrings

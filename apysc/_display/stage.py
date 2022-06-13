@@ -1,4 +1,4 @@
-"""Stage (canvas) implementation.
+"""Stage-related implementations.
 
 References
 ----------
@@ -29,7 +29,7 @@ class Stage(
         VariableNameInterface, MouseEventInterfaces,
         CustomEventInterface):
     """
-    The Stage (overall viewport) class.
+    The Stage (overall viewarea) class.
 
     References
     ----------

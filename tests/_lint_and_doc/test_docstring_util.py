@@ -20,6 +20,7 @@ from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
 from apysc._lint_and_doc.docstring_util import _SectionPattern
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
+from apysc._display import stage
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -1366,3 +1367,21 @@ def test__append_br_tag_and_replace_symbol_if_first_char_is_hyphen() -> None:
         _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
             line='    - Lorem ipsum dolor sit.')
     assert line == '<br>    ・Lorem ipsum dolor sit.'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_extract_docstrings_from_module() -> None:
+    docstrings: List[str] = docstring_util.extract_docstrings_from_module(
+        module=stage)
+    expected_keywords: List[str] = [
+        'Stage-related implementations.',
+        'The Stage (overall viewarea) class.',
+        'Get an already instantiated stage instance.',
+    ]
+    for expected_keyword in expected_keywords:
+        expected_keyword_exists: bool = False
+        for docstring in docstrings:
+            if expected_keyword in docstring:
+                expected_keyword_exists = True
+                break
+        assert expected_keyword_exists, expected_keyword

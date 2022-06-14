@@ -20,3 +20,11 @@ def test__extract_file_names() -> None:
     ]
     for expected_file_name in expected_file_names:
         assert expected_file_name in file_names
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__main() -> None:
+    file_names: List[str] = check_docstring_references_docs_exist._main(
+        dir_path='./apysc/_display/')
+    assert 'sprite.html' in file_names
+    assert 'stage.html' in file_names

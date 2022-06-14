@@ -1840,6 +1840,6 @@ def extract_docstrings_from_module(
         method: Callable
         for _, method in method_members:
             if method.__doc__ is not None:
-                docstrings.append(method.__doc)
+                docstrings.append(method.__doc__)
 
     return docstrings

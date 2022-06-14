@@ -96,7 +96,7 @@ This option is useful when using the apysc project multiple times (for an easily
 - `add_to`: str, default 'body'
   - Specification of element to add stage. Unique tag (e.g., 'body') or ID selector (e.g., '#any-unique-elem') is acceptable.
 - `stage_elem_id`: str or None, optional
-  - ID attribute set to stage html element (e.g., 'line-graph'). If None is set, random integer will be applied.
+  - ID attribute set to stage HTML element (e.g., 'line-graph'). If None is set, a random integer will be applied.
 
 <hr>
 

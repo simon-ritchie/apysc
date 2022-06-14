@@ -29,7 +29,7 @@ class Stage(
         VariableNameInterface, MouseEventInterfaces,
         CustomEventInterface):
     """
-    The Stage (overall viewarea) class.
+    The Stage (overall view-area) class.
 
     References
     ----------
@@ -79,8 +79,8 @@ class Stage(
             Unique tag (e.g., 'body') or ID selector
             (e.g., '#any-unique-elem') is acceptable.
         stage_elem_id : str or None, optional
-            ID attribute set to stage html element (e.g., 'line-graph').
-            If None is set, random integer will be applied.
+            ID attribute set to stage HTML element (e.g., 'line-graph').
+            If None is set, a random integer will be applied.
 
         References
         ----------
@@ -139,7 +139,7 @@ class Stage(
     def _create_stage_elem_id_if_none(
             self, *, stage_elem_id: Optional[str]) -> str:
         """
-        Create random stage element id if a specified id is None.
+        Create a random stage element id if a specified id is None.
 
         Parameters
         ----------
@@ -195,7 +195,7 @@ class Stage(
         Returns
         -------
         style : str
-            Result style string (width, height, etc).
+            Result style string (width, height, etc.).
         """
         style: str = (
             f'width: {self.width}px;'
@@ -243,7 +243,7 @@ class Stage(
 
 def get_stage_elem_id() -> str:
     """
-    Get current stage's element id.
+    Get a current stage's element id.
 
     Returns
     -------
@@ -266,7 +266,7 @@ def get_stage_elem_id() -> str:
 
 def get_stage_variable_name() -> str:
     """
-    Get current stage's global variable name.
+    Get a current stage's global variable name.
 
     Returns
     -------
@@ -282,7 +282,7 @@ def get_stage_variable_name() -> str:
 
 def get_stage_elem_str() -> str:
     """
-    Get current stage's jQuery element string.
+    Get a current stage's jQuery element string.
 
     Returns
     -------

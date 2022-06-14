@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Stage (canvas) implementation.
+Stage-related implementations.
 
 ## `_save_stage_id_to_db` function docstring
 
@@ -30,7 +30,7 @@ Get an already instantiated stage instance.<hr>
 
 ## `get_stage_elem_id` function docstring
 
-Get current stage's element id.<hr>
+Get a current stage's element id.<hr>
 
 **[Returns]**
 
@@ -39,7 +39,7 @@ Get current stage's element id.<hr>
 
 ## `get_stage_elem_str` function docstring
 
-Get current stage's jQuery element string.<hr>
+Get a current stage's jQuery element string.<hr>
 
 **[Returns]**
 
@@ -48,7 +48,7 @@ Get current stage's jQuery element string.<hr>
 
 ## `get_stage_variable_name` function docstring
 
-Get current stage's global variable name.<hr>
+Get a current stage's global variable name.<hr>
 
 **[Returns]**
 
@@ -57,7 +57,7 @@ Get current stage's global variable name.<hr>
 
 ## `Stage` class docstring
 
-The Stage (overall viewport) class.<hr>
+The Stage (overall view-area) class.<hr>
 
 **[Examples]**
 
@@ -89,7 +89,7 @@ Create Stage (overall viewport) instance.<hr>
 - `add_to`: str, default 'body'
   - Specification of element to add stage. Unique tag (e.g., 'body') or ID selector (e.g., '#any-unique-elem') is acceptable.
 - `stage_elem_id`: str or None, optional
-  - ID attribute set to stage html element (e.g., 'line-graph'). If None is set, random integer will be applied.
+  - ID attribute set to stage HTML element (e.g., 'line-graph'). If None is set, a random integer will be applied.
 
 <hr>
 
@@ -123,7 +123,7 @@ Append stage constructor expression.
 
 ### `_create_stage_elem_id_if_none` method docstring
 
-Create random stage element id if a specified id is None.<hr>
+Create a random stage element id if a specified id is None.<hr>
 
 **[Parameters]**
 
@@ -153,7 +153,7 @@ Make a stage's style string.<hr>
 **[Returns]**
 
 - `style`: str
-  - Result style string (width, height, etc).
+  - Result style string (width, height, etc.).
 
 ### `_save_stage_elem_id` method docstring
 

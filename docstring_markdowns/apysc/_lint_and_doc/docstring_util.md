@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Utility implementations for docstrings.
+Utility implementations for docstrings. Mainly the following interfaces are defined: <br>・get_docstring_src_module_paths <br> ・Get docstring source module paths from a specified markdown file path. <br>・reset_replaced_docstring_section <br> ・Reset converted a markdown's docstring section. <br>・replace_docstring_path_specification <br> ・Replace a docstring path specification with a converted docstring text in a specified markdown document. <br>・remove_trailing_hr_tag <br> ・Remove a trailing `<hr>` tag from a specified markdown string. <br>・append_summary_to_markdown <br> ・Append an interface summary string to a specified markdown string. <br>・append_notes_to_markdown <br> ・Append a notes string to a specified markdown string. <br>・extract_notes_from_docstring <br> ・Extract a notes' value from a docstring. <br>・append_examples_to_markdown <br> ・Append examples to a specified markdown string. <br>・extract_example_values_from_docstring <br> ・Extract example values from a docstring. <br>・append_references_to_markdown <br> ・Append references to a specified markdown string. <br>・append_raises_to_markdown <br> ・Append raises to a specified markdown string. <br>・append_params_or_rtns_to_markdown <br> ・Append parameters or returns to a specified markdown string. <br>・extract_reference_values_from_docstring <br> ・Extract reference values from a docstring. <br>・extract_raise_values_from_docstring <br> ・Extract raise values from a docstring. <br>・extract_param_or_rtn_values_from_docstring <br> ・Extract parameter or return values from a docstring. <br>・extract_summary_from_docstring <br> ・Extract a summary text from a docstring. <br>・extract_docstrings_from_module <br> ・Extract docstrings from a specified module.
 
 ## `_append_br_tag_and_replace_symbol_if_first_char_is_hyphen` function docstring
 
@@ -594,6 +594,22 @@ Append an interface summary string to a specified markdown string.<hr>
 
 - `markdown`: str
   - A result markdown string.
+
+## `extract_docstrings_from_module` function docstring
+
+Extract docstrings from a specified module.<hr>
+
+**[Parameters]**
+
+- `module`: ModuleType
+  - A target module.
+
+<hr>
+
+**[Returns]**
+
+- `docstrings`: List[str]
+  - An extracted docstrings list.
 
 ## `extract_example_values_from_docstring` function docstring
 

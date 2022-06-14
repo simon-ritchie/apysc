@@ -7,6 +7,7 @@ from typing import List
 
 from retrying import retry
 
+from apysc._display import stage
 from apysc._file import file_util
 from apysc._lint_and_doc import docstring_util
 from apysc._lint_and_doc.docstring_util import Example
@@ -20,7 +21,6 @@ from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
 from apysc._lint_and_doc.docstring_util import _SectionPattern
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
-from apysc._display import stage
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -108,7 +108,7 @@ MAPPING: Dict[str, str] = {
     '- `stage_elem_id`: str or None, optional':
     '- `stage_elem_id`: str or None, optional',
 
-    '  - ID attribute set to stage html element (e.g., \'line-graph\'). If None is set, random integer will be applied.':  # noqa
+    '  - ID attribute set to stage HTML element (e.g., \'line-graph\'). If None is set, a random integer will be applied.':  # noqa
     '  - ステージのHTML要素に設定されるIDの属性（例 : \'line-graph\'）。もしNoneが設定されている場合、乱数などを使った数値を使った値が設定されます。',  # noqa
 
     '<hr>':

@@ -7,9 +7,9 @@ $ python scripts/check_docstring_references_docs_exist.py
 
 import os
 import sys
-from types import ModuleType
-from typing import List, Optional
 from logging import Logger
+from types import ModuleType
+from typing import List
 
 from tqdm import tqdm
 

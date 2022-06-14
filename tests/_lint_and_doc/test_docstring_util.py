@@ -1375,7 +1375,7 @@ def test_extract_docstrings_from_module() -> None:
         module=stage)
     expected_keywords: List[str] = [
         'Stage-related implementations.',
-        'The Stage (overall viewarea) class.',
+        'The Stage (overall view-area) class.',
         'Get an already instantiated stage instance.',
     ]
     for expected_keyword in expected_keywords:

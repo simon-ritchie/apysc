@@ -317,6 +317,20 @@ jobs:
       - name: Run the E2E test runner command
         run: python ./scripts/run_docs_e2e_tests.py --lang ${{ matrix.lang }}
 
+  CheckReferencesDocumentsExist:
+    needs: [CreateCache, SetGlobalConstants, RunTestsOnEachPythonVersion]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}
+      - name: Run the checking command
+        run: python ./scripts/check_docstring_references_docs_exist.py
+
   DeployToPyPI:
     needs: [
       RunFlake8,
@@ -329,6 +343,7 @@ jobs:
       RunTestProjectsE2ETesting,
       RunDocTest,
       RunDocE2ETest,
+      CheckReferencesDocumentsExist,
       SetGlobalConstants,
       UpdateReadmeBadgesToCheckingStatus,
     ]
@@ -360,6 +375,7 @@ jobs:
       RunTestProjectsE2ETesting,
       RunDocTest,
       RunDocE2ETest,
+      CheckReferencesDocumentsExist,
       SetGlobalConstants,
       UpdateReadmeBadgesToCheckingStatus,
       DeployToPyPI,
@@ -398,6 +414,7 @@ jobs:
       RunTestProjectsE2ETesting,
       RunDocTest,
       RunDocE2ETest,
+      CheckReferencesDocumentsExist,
       SetGlobalConstants,
     ]
     runs-on: ubuntu-latest

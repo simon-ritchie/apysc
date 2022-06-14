@@ -1,0 +1,76 @@
+"""This module is for checking whether docstring references
+sections' document files exist.
+
+Command examples:
+$ python scripts/check_docstring_references_docs_exist.py
+"""
+
+import sys
+from types import ModuleType
+from typing import List, Optional
+from logging import Logger
+
+from tqdm import tqdm
+
+sys.path.append('./')
+
+from apysc._console import loggers
+from apysc._file import module_util
+from apysc._lint_and_doc import docstring_util
+from apysc._lint_and_doc.docstring_util import Reference
+
+logger: Logger = loggers.get_info_logger()
+
+
+def _main() -> None:
+    """Entry point of this command.
+    """
+    module_path: str
+    file_names: List[str] = _extract_file_names()
+    pass
+
+
+_DOC_DOMAIN: str = 'https://simon-ritchie.github.io/apysc/'
+
+
+def _extract_file_names(*, dir_path: str = './apysc/') -> List[str]:
+    """
+    Extract file names from the apysc package modules.
+
+    Parameters
+    ----------
+    dir_path : str, default './apysc'
+        A directory path to search modules recursively.
+
+    Returns
+    -------
+    file_names : List[str]
+        Extracted file names.
+    """
+    file_names: List[str] = []
+    module_paths: List[str] = module_util.get_module_paths_recursively(
+        dir_path=dir_path)
+    for module_path in tqdm(module_paths):
+        try:
+            module: ModuleType = module_util.read_target_path_module(
+                module_path=module_path)
+        except Exception:
+            continue
+        docstrings: List[str] = docstring_util.extract_docstrings_from_module(
+            module=module)
+        for docstring in docstrings:
+            references: List[Reference] = docstring_util.\
+                extract_reference_values_from_docstring(docstring=docstring)
+            for reference in references:
+                if not reference.url.startswith(_DOC_DOMAIN):
+                    continue
+                if not reference.url.endswith('.html'):
+                    continue
+                file_name: str = reference.url.split('/')[-1]
+                file_names.append(file_name)
+    file_names = list(set(file_names))
+    return file_names
+
+
+if __name__ == '__main__':
+    _main()

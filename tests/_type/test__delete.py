@@ -1,6 +1,7 @@
 from random import randint
 
 from retrying import retry
+from apysc._testing.testing_helper import assert_raises
 
 from apysc._type import _delete
 import apysc as ap
@@ -19,3 +20,16 @@ def test__append_delete_expression() -> None:
         f'\n{value.variable_name} = undefined;'
     )
     assert expected in expression
+
+
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_delete() -> None:
+    expression_data_util.empty_expression()
+    value: ap.Int = ap.Int(10)
+    ap.delete(value=value)
+    print(value)
+    # assert_raises(
+    #     expected_error_class=NameError,
+    #     callable_=ap.Int,
+    #     value=value,
+    # )

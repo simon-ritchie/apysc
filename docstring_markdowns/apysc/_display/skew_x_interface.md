@@ -25,7 +25,7 @@ Initialize the _skew_x attribute if this instance does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
-Make a value's snapshot.<hr>
+Make a value snapshot.<hr>
 
 **[Parameters]**
 

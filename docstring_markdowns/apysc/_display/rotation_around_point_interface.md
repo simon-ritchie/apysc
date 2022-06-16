@@ -45,7 +45,7 @@ Initialize the `_rotation_around_point` attribute if this interface does not ini
 
 ### `_make_snapshot` method docstring
 
-Make a value's snapshot.<hr>
+Make a value snapshot.<hr>
 
 **[Parameters]**
 

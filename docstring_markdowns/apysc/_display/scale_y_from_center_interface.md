@@ -25,7 +25,7 @@ Initialize the `_scale_y_from_center` attribute if this instance does not initia
 
 ### `_make_snapshot` method docstring
 
-Make a value's snapshot.<hr>
+Make a value snapshot.<hr>
 
 **[Parameters]**
 

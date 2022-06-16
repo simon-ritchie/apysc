@@ -20,7 +20,7 @@ Initialize _cy attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
-Make a value's snapshot.<hr>
+Make a value snapshot.<hr>
 
 **[Parameters]**
 

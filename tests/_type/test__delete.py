@@ -1,11 +1,11 @@
 from random import randint
 
 from retrying import retry
-from apysc._testing.testing_helper import assert_raises
 
-from apysc._type import _delete
 import apysc as ap
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import assert_raises
+from apysc._type import _delete
 from apysc._type.deleted_object_interface import _DisabledObjectError
 
 

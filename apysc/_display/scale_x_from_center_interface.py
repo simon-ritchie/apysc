@@ -135,7 +135,7 @@ class ScaleXFromCenterInterface(
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
-        Make a value's snapshot.
+        Make a value snapshot.
 
         Parameters
         ----------

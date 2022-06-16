@@ -3,7 +3,12 @@ the `DeletedObjectInterface`.
 """
 
 import inspect
-from typing import Any, Callable, Dict, List, Tuple
+from typing import Any
+from typing import Callable
+from typing import Dict
+from typing import List
+from typing import Tuple
+
 from apysc._type.revert_interface import RevertInterface
 
 _EXCLUDING_TARGET_METHOD_NAMES: List[str] = [
@@ -61,7 +66,7 @@ class DeletedObjectInterface(RevertInterface):
         if value:
             self._disable_each_method()
 
-    def _disabled_method(self, *args, **kwargs) -> None:
+    def _disabled_method(self, *args: Any, **kwargs: Any) -> None:
         """
         The method to replace each method when this object
         becomes deleted object.
@@ -89,7 +94,7 @@ class DeletedObjectInterface(RevertInterface):
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
-        Make a value's snapshot.
+        Make a value snapshot.
 
         Parameters
         ----------

@@ -401,7 +401,7 @@ Get a (Python's) str value from a specified value.<hr>
 
 ### `_make_snapshot` method docstring
 
-Make a value's snapshot.<hr>
+Make a value snapshot.<hr>
 
 **[Parameters]**
 

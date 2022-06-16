@@ -25,7 +25,7 @@ Initialize the `_rotation_around_center` attribute if this interface does not in
 
 ### `_make_snapshot` method docstring
 
-Make a value's snapshot.<hr>
+Make a value snapshot.<hr>
 
 **[Parameters]**
 

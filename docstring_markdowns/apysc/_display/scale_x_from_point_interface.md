@@ -21,7 +21,7 @@ Initialize the `_scale_x_from_point` attribute if this instance does not initial
 
 ### `_make_snapshot` method docstring
 
-Make a value's snapshot.<hr>
+Make a value snapshot.<hr>
 
 **[Parameters]**
 

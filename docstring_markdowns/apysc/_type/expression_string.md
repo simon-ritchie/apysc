@@ -19,7 +19,7 @@ The class for the JavaScript expression string.<hr>
 
 ### `_make_snapshot` method docstring
 
-Make a value's snapshot.<hr>
+Make a value snapshot.<hr>
 
 **[Parameters]**
 

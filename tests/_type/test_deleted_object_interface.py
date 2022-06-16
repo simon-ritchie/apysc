@@ -1,9 +1,10 @@
 from random import randint
 
 from retrying import retry
-from apysc._testing.testing_helper import assert_raises
 
-from apysc._type.deleted_object_interface import DeletedObjectInterface, _DisabledObjectError
+from apysc._testing.testing_helper import assert_raises
+from apysc._type.deleted_object_interface import DeletedObjectInterface
+from apysc._type.deleted_object_interface import _DisabledObjectError
 
 
 class TestDeletedObjectInterface:

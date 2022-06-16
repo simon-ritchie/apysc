@@ -25,9 +25,11 @@ from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._display.x_interface import XInterface
 
 
 class Graphics(
+        XInterface,
         DisplayObject,
         BeginFillInterface, LineStyleInterface, VariableNameInterface,
         GraphicsClearInterface, ChildInterface):

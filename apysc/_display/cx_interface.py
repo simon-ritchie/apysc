@@ -9,10 +9,11 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._display.x_interface_base import XInterfaceBase
 
 
 class CxInterface(
-        AnimationCxInterface, RevertInterface, AttrLinkingInterface):
+        XInterfaceBase, RevertInterface, AttrLinkingInterface):
 
     _cx: Int
 

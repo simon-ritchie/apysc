@@ -9,9 +9,11 @@ from apysc._display.display_object import DisplayObject
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._display.x_interface import XInterface
 
 
-class Sprite(DisplayObject, ChildInterface, RevertInterface):
+class Sprite(
+        XInterface, DisplayObject, ChildInterface, RevertInterface):
     """
     This class is for the basic display object that
     can be a parent.

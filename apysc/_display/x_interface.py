@@ -9,10 +9,12 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._animation.animation_move_interface import AnimationMoveInterface
 
 
 class XInterface(
-        XInterfaceBase, RevertInterface, AttrLinkingInterface):
+        XInterfaceBase, AnimationMoveInterface, RevertInterface,
+        AttrLinkingInterface):
 
     _x: Int
 
@@ -91,6 +93,7 @@ class XInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
+        self._initialize_x_if_not_initialized()
         self._x = value
         self._x._append_incremental_calc_substitution_expression()
         self._append_x_update_expression()

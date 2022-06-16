@@ -12,10 +12,11 @@ from apysc._display.width_interface import WidthInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._display.x_interface import XInterface
 
 
 class Rectangle(
-        LineBase, WidthInterface, HeightInterface,
+        XInterface, LineBase, WidthInterface, HeightInterface,
         EllipseWidthInterface, EllipseHeightInterface):
     """
     The rectangle vector graphics class.

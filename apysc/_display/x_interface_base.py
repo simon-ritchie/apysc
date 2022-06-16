@@ -5,12 +5,11 @@ interfaces.
 from abc import ABC
 from abc import abstractmethod
 
-from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_x_interface import AnimationXInterface
 from apysc._type.int import Int
 
 
-class XInterfaceBase(AnimationXInterface, AnimationMoveInterface, ABC):
+class XInterfaceBase(AnimationXInterface, ABC):
 
     @property
     @abstractmethod

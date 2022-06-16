@@ -89,8 +89,6 @@ class LineBase(
             value=parent_graphics.line_thickness)
         self._update_line_alpha_and_skip_appending_exp(
             value=parent_graphics.line_alpha)
-        self._initialize_x_if_not_initialized()
-        self._initialize_y_if_not_initialized()
         self._update_line_cap_and_skip_appending_exp(
             value=parent_graphics.line_cap)
         self._update_line_joints_and_skip_appending_exp(

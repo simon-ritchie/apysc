@@ -8,9 +8,10 @@ from apysc._display.line_base import LineBase
 from apysc._geom.path_data_base import PathDataBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
+from apysc._display.x_interface import XInterface
 
 
-class Path(LineBase):
+class Path(XInterface, LineBase):
     """
     The path vector graphics class.
 

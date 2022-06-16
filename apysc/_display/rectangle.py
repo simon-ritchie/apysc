@@ -9,10 +9,10 @@ from apysc._display.ellipse_width_interface import EllipseWidthInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.line_base import LineBase
 from apysc._display.width_interface import WidthInterface
+from apysc._display.x_interface import XInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
-from apysc._display.x_interface import XInterface
 
 
 class Rectangle(

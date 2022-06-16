@@ -5,11 +5,11 @@
 from apysc._display import graphics
 from apysc._display.append_line_point_interface import AppendLinePointInterface
 from apysc._display.line_base import LineBase
+from apysc._display.x_interface import XInterface
 from apysc._geom.point2d import Point2D
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._validation import arg_validation_decos
-from apysc._display.x_interface import XInterface
 
 
 class Polyline(XInterface, LineBase, AppendLinePointInterface):

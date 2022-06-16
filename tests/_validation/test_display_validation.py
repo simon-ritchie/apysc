@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.display_object import DisplayObject
+from apysc._display.any_display_object import AnyDisplayObject
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import display_validation
@@ -33,7 +33,7 @@ def test_validate_display_object() -> None:
     sprite: ap.Sprite = ap.Sprite()
     display_validation.validate_display_object(display_object=sprite)
 
-    display_object: DisplayObject = DisplayObject(
+    display_object: AnyDisplayObject = AnyDisplayObject(
         variable_name='test_display_object')
     display_validation.validate_display_object(display_object=display_object)
 

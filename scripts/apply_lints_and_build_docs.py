@@ -3,7 +3,8 @@
 Command examples:
 $ python scripts/apply_lints_and_build_docs.py
 $ python scripts/apply_lints_and_build_docs.py --skip_overall_docs_build
-$ python scripts/apply_lints_and_build_docs.py --skip_docs_build
+$ python scripts/apply_lints_and_build_docs.py --skip_overall_docs_build \
+    --skip_docs_build
 $ python scripts/apply_lints_and_build_docs.py --skip_overall_docs_build \
     --skip_sync_translation
 """

@@ -8,7 +8,6 @@ from apysc._animation.animation_parallel_interface import \
 from apysc._display.css_interface import CssInterface
 from apysc._display.parent_interface import ParentInterface
 from apysc._display.visible_interface import VisibleInterface
-from apysc._display.x_interface import XInterface
 from apysc._display.x_interface_base import XInterfaceBase
 from apysc._display.y_interface import YInterface
 from apysc._event.custom_event_interface import CustomEventInterface

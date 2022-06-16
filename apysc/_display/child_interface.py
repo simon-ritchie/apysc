@@ -264,9 +264,9 @@ class ChildInterface(RevertInterface):
         >>> child_at_index_1 == rectangle_2
         True
         """
+        from apysc._display.any_display_object import AnyDisplayObject
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._display.any_display_object import AnyDisplayObject
         self._initialize_children_if_not_initialized()
         if self.num_children > index:
             child: DisplayObject = self._children[index]

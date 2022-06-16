@@ -8,7 +8,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display import stage
-from apysc._display.display_object import DisplayObject
+from apysc._display.any_display_object import AnyDisplayObject
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import assert_raises
@@ -96,7 +96,7 @@ class TestStage:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_add_child(self) -> None:
         stage: ap.Stage = ap.Stage()
-        display_object: DisplayObject = DisplayObject(
+        display_object: AnyDisplayObject = AnyDisplayObject(
             variable_name='test_display_object_1')
         stage.add_child(child=display_object)
         assert stage._children == ap.Array([display_object])

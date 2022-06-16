@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.graphics_base import GraphicsBase
+from apysc._display.rectangle import Rectangle
 from apysc._testing import testing_helper
 
 
@@ -13,9 +13,9 @@ class TestGraphicsBase:
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
-        graphics_base: GraphicsBase = GraphicsBase(
+        rectangle: Rectangle = Rectangle(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
-            variable_name='test_graphics')
+            width=ap.Int(50), height=ap.Int(50))
         testing_helper.assert_attrs(
             expected_attrs={
                 'parent_graphics': sprite.graphics,
@@ -24,46 +24,35 @@ class TestGraphicsBase:
                 '_variable_name': 'test_graphics',
                 'stage': stage,
             },
-            any_obj=graphics_base)
+            any_obj=rectangle)
 
-        graphics_base = GraphicsBase(
+        rectangle = Rectangle(
             parent=sprite.graphics, x=300, y=400,
-            variable_name='test_graphics')
+            width=50, height=50)
         testing_helper.assert_attrs(
             expected_attrs={
                 'parent_graphics': sprite.graphics,
                 '_x': 300,
                 '_y': 400,
             },
-            any_obj=graphics_base)
+            any_obj=rectangle)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_x(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
-        graphics_base: GraphicsBase = GraphicsBase(
+        rectangle: Rectangle = Rectangle(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
-            variable_name='test_graphics')
-        graphics_base.x = ap.Int(300)
-        assert graphics_base.x == 300
+            width=50, height=50)
+        rectangle.x = ap.Int(300)
+        assert rectangle.x == 300
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_y(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
-        graphics_base: GraphicsBase = GraphicsBase(
+        rectangle: Rectangle = Rectangle(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
-            variable_name='test_graphics')
-        graphics_base.y = ap.Int(400)
-        assert graphics_base.y == 400
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_variable_name(self) -> None:
-        ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
-        graphics_base: GraphicsBase = GraphicsBase(
-            parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
-            variable_name='test_graphics_1')
-        assert graphics_base.variable_name == 'test_graphics_1'
-        graphics_base.variable_name = 'test_graphics_2'
-        assert graphics_base.variable_name == 'test_graphics_2'
+            width=50, height=50)
+        rectangle.y = ap.Int(400)
+        assert rectangle.y == 400

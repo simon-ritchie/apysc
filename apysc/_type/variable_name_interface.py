@@ -4,9 +4,10 @@
 from typing import List
 
 from apysc._validation import arg_validation_decos
+from apysc._type.deleted_object_interface import DeletedObjectInterface
 
 
-class VariableNameInterface:
+class VariableNameInterface(DeletedObjectInterface):
 
     _variable_name: str
     _variable_name_history: List[str]

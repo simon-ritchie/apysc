@@ -10,7 +10,6 @@ from apysc._display.parent_interface import ParentInterface
 from apysc._display.visible_interface import VisibleInterface
 from apysc._display.x_interface_base import XInterfaceBase
 from apysc._display.y_interface_base import YInterfaceBase
-from apysc._display.y_interface import YInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._html.debug_mode import add_debug_info_setting

@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>delete interface &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/add_en_to_ja_link.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trace interface" href="trace.html" />
+    <link rel="prev" title="animation_skew_x interface" href="animation_skew_x.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="trace.html" title="trace interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="animation_skew_x.html" title="animation_skew_x interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">delete interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="delete-interface">
+<h1>delete interface<a class="headerlink" href="#delete-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">delete</span></code> function interface.</p>
+<section id="what-interface-is-this">
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">delete</span></code> function deletes any instance, and it becomes an <code class="docutils literal notranslate"><span class="pre">undefined</span></code> object.</p>
+<p>If an instance is a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance, this interface removes an instance from a stage.</p>
+<p>For example, this interface removes a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> or <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> instance.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>You can specify any apysc instance to the <code class="docutils literal notranslate"><span class="pre">delete</span></code> argument.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">int_val</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If a specified instance is a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance, the <code class="docutils literal notranslate"><span class="pre">delete</span></code> function removes it from a stage.</p>
+<p>Also, it becomes an undefined object.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The click event handler that a sprite calls.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.MouseEvent[ap.Sprite]</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">assert_undefined</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_click</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;delete_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you click the following rectangle, the <code class="docutils literal notranslate"><span class="pre">delete</span></code> function removes it from the stage.</p>
+<iframe src="static/delete_basic_usage/index.html" width="150" height="150"></iframe></section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">delete interface</a><ul>
+<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="animation_skew_x.html"
+                        title="previous chapter">animation_skew_x interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="trace.html"
+                        title="next chapter">trace interface</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="trace.html" title="trace interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="animation_skew_x.html" title="animation_skew_x interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">delete interface</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

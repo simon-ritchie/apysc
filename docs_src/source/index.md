@@ -47,7 +47,7 @@ The HTML and JavaScript exporting interfaces.
 
 ## Child-related interfaces
 
-The parent class, such as the `Sprite` or `Stage` have the following interfaces:
+The parent class, such as the `Sprite` or `Stage`, has the following interfaces:
 
 ### Table of contents
 
@@ -251,6 +251,14 @@ The `Graphics` class handles each vector graphics drawing.
 - [animation_scale_x_from_center and animation_scale_y_from_center interfaces](animation_scale_x_and_y_from_center.md)
 - [animation_scale_x_from_point and animation_scale_y_from_point interfaces](animation_scale_x_and_y_from_point.md)
 - [animation_skew_x interface](animation_skew_x.md)
+
+---
+
+## Other manipulation interfaces
+
+### Table of contents
+
+- [delete interface](delete.md)
 
 ---
 

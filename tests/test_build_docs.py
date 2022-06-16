@@ -32,6 +32,7 @@ _CHECKOUT_FILE_PATHS: List[str] = [
     'docs/en/index.html',
     'docs/jp/jp_index.html',
     'apysc/_display/sprite.py',
+    '.lint_and_doc_hash/.applying_translation_mapping/docs_src/source/sprite',
 ]
 
 

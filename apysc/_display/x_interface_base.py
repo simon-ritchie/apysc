@@ -2,10 +2,12 @@
 interfaces.
 """
 
+from abc import ABC
+from abc import abstractmethod
+
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_x_interface import AnimationXInterface
 from apysc._type.int import Int
-from abc import ABC, abstractmethod
 
 
 class XInterfaceBase(AnimationXInterface, AnimationMoveInterface, ABC):
@@ -15,11 +17,6 @@ class XInterfaceBase(AnimationXInterface, AnimationMoveInterface, ABC):
     def x(self) -> Int:
         """
         Get a x-coordinate.
-
-        Returns
-        -------
-        x : Int
-            X-coordinate.
         """
 
     @x.setter

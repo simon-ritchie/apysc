@@ -8,24 +8,24 @@ from apysc._type.revert_interface import RevertInterface
 
 class DeletedObjectInterface(RevertInterface):
 
-    _is_deleted_object: bool = False
+    __is_deleted_object: bool = False
 
     @property
-    def is_deleted_object(self) -> bool:
+    def _is_deleted_object(self) -> bool:
         """
         Get a boolean indicating whether this object is
         deleted object or not.
 
         Returns
         -------
-        is_deleted_object : bool
+        _is_deleted_object : bool
             A boolean indicating whether this object is
             deleted object or not.
         """
-        return self._is_deleted_object
+        return self.__is_deleted_object
 
-    @is_deleted_object.setter
-    def is_deleted_object(self, value: bool) -> None:
+    @_is_deleted_object.setter
+    def _is_deleted_object(self, value: bool) -> None:
         """
         Set a boolean indicating whether this object is
         deleted object or not.
@@ -35,7 +35,12 @@ class DeletedObjectInterface(RevertInterface):
         value : bool
             A target value to set.
         """
-        self._is_deleted_object = value
+        self.__is_deleted_object = value
+        if value:
+            self._disable_each_methods()
+
+    def _disable_each_methods(self) -> None:
+        pass
 
     _is_deleted_object_snapshot: Dict[str, bool]
 
@@ -50,7 +55,7 @@ class DeletedObjectInterface(RevertInterface):
         """
         self._set_single_snapshot_val_to_dict(
             dict_name='_is_deleted_object_snapshot',
-            value=self._is_deleted_object, snapshot_name=snapshot_name)
+            value=self.__is_deleted_object, snapshot_name=snapshot_name)
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -63,5 +68,5 @@ class DeletedObjectInterface(RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._is_deleted_object = self._is_deleted_object_snapshot[
+        self.__is_deleted_object = self._is_deleted_object_snapshot[
             snapshot_name]

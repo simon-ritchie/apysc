@@ -21,7 +21,6 @@ class TestGraphicsBase:
                 'parent_graphics': sprite.graphics,
                 '_x': 100,
                 '_y': 200,
-                '_variable_name': 'test_graphics',
                 'stage': stage,
             },
             any_obj=rectangle)

@@ -84,28 +84,4 @@ MAPPING: Dict[str, str] = {
     '## Sprite class constructor API':
     '## SpriteクラスのコンストラクタAPI',
 
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
-    '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
-
-    '**[Interface summary]** Create a basic display object that can be a parent.<hr>':  # noqa
-    '**[インターフェイス概要]** 子を持つことのできる基本的な表示要素用のオブジェクトを生成します。<hr>',
-
-    '**[Parameters]**':
-    '**[引数]**',
-
-    '- `variable_name`: str or None, default None':
-    '- `variable_name`: str or None, default None',
-
-    '  - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.':  # noqa
-    '  - このインスタンスの（JavaScript上などで使われる）変数名の設定値。apyscの内部実装で`Sprite`クラスのサブクラスをインスタンス化する時以外は設定は不要です。',  # noqa
-
-    '<hr>':
-    '<hr>',
-
-    '**[Examples]**':
-    '**[コードサンプル]**',
-
-    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> # Create the sprite child rectangle\n>>> sprite_1.graphics.begin_fill(color=\'#0af\')\n>>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_1.graphics.contains(rect)\nBoolean(True)\n\n>>> # Move the created rectangle to the other sprite\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rect)\n>>> sprite_1.graphics.contains(rect)\nBoolean(False)\n\n>>> sprite_2.contains(rect)\nBoolean(True)\n\n>>> # Move the sprite container\n>>> sprite_2.x = ap.Int(50)\n>>> sprite_2.x\nInt(50)\n```':  # noqa
-    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> # Create the sprite child rectangle\n>>> sprite_1.graphics.begin_fill(color=\'#0af\')\n>>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_1.graphics.contains(rect)\nBoolean(True)\n\n>>> # Move the created rectangle to the other sprite\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rect)\n>>> sprite_1.graphics.contains(rect)\nBoolean(False)\n\n>>> sprite_2.contains(rect)\nBoolean(True)\n\n>>> # Move the sprite container\n>>> sprite_2.x = ap.Int(50)\n>>> sprite_2.x\nInt(50)\n```',  # noqa
-
 }

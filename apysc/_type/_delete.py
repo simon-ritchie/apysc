@@ -17,7 +17,7 @@ def delete(value: VariableNameInterface) -> None:
         A target value to delete.
     """
     _append_delete_expression(value=value)
-    del value
+    value._is_deleted_object = True
 
 
 def _append_delete_expression(*, value: VariableNameInterface) -> None:

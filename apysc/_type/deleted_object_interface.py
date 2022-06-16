@@ -2,8 +2,30 @@
 the `DeletedObjectInterface`.
 """
 
-from typing import Dict
+import inspect
+from typing import Any, Callable, Dict, List, Tuple
 from apysc._type.revert_interface import RevertInterface
+
+_EXCLUDING_TARGET_METHOD_NAMES: List[str] = [
+    '_make_snapshot',
+    '_revert',
+    '_set_single_snapshot_val_to_dict',
+    '_snapshot_exists',
+    '_get_next_snapshot_name',
+    '_run_all_make_snapshot_methods',
+    '_run_all_revert_methods',
+    '_delete_snapshot_exists_val',
+    '_run_base_cls_revert_methods_recursively',
+    '_run_base_cls_make_snapshot_methods_recursively',
+    '_set_snapshot_exists_val',
+    '_initialize_ss_exists_val_if_not_initialized',
+    '_disable_each_method',
+    '_disabled_method',
+]
+
+
+class _DisabledObjectError(Exception):
+    pass
 
 
 class DeletedObjectInterface(RevertInterface):
@@ -37,10 +59,31 @@ class DeletedObjectInterface(RevertInterface):
         """
         self.__is_deleted_object = value
         if value:
-            self._disable_each_methods()
+            self._disable_each_method()
 
-    def _disable_each_methods(self) -> None:
-        pass
+    def _disabled_method(self, *args, **kwargs) -> None:
+        """
+        The method to replace each method when this object
+        becomes deleted object.
+
+        Raises
+        ------
+        _DisabledObjectError
+            This interface always raises an exception.
+        """
+        raise _DisabledObjectError(
+            'This object has been deleted and cannot manipulate.')
+
+    def _disable_each_method(self) -> None:
+        """
+        Disable each method of this instance.
+        """
+        method_members: List[Tuple[str, Callable]] = inspect.getmembers(
+            self, predicate=inspect.ismethod)
+        for method_name, _ in method_members:
+            if method_name in _EXCLUDING_TARGET_METHOD_NAMES:
+                continue
+            setattr(self, method_name, self._disabled_method)
 
     _is_deleted_object_snapshot: Dict[str, bool]
 

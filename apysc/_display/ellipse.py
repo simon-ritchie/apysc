@@ -14,7 +14,7 @@ from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
-class Ellipse(  # type: ignore
+class Ellipse(
         CxInterface, CyInterface, LineBase,
         WidthAndHeightInterfacesForEllipse):
     """

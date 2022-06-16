@@ -13,7 +13,7 @@ from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
-class Circle(  # type: ignore
+class Circle(
         CxInterface, CyInterface, LineBase, RadiusInterface):
     """
     The circle vector graphics class.

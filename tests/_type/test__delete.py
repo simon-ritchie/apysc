@@ -33,3 +33,14 @@ def test_delete() -> None:
         callable_=value.unbind_custom_event_all,
         custom_event_type='test_event',
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_from_parent() -> None:
+    int_val: ap.Int = ap.Int(value=10)
+    _delete._remove_from_parent(value=int_val)
+
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
+    _delete._remove_from_parent(value=sprite)
+    assert sprite.parent is None

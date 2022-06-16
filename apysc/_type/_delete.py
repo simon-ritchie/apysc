@@ -16,8 +16,25 @@ def delete(value: VariableNameInterface) -> None:
     value : VariableNameInterface
         A target value to delete.
     """
+    _remove_from_parent(value=value)
     _append_delete_expression(value=value)
     value._is_deleted_object = True
+
+
+def _remove_from_parent(*, value: VariableNameInterface) -> None:
+    """
+    Remove a specified value from a parent if it is the `ParentInterface`
+    instance.
+
+    Parameters
+    ----------
+    value : VariableNameInterface
+        _description_
+    """
+    from apysc._display.parent_interface import ParentInterface
+    if not isinstance(value, ParentInterface):
+        return
+    value.remove_from_parent()
 
 
 def _append_delete_expression(*, value: VariableNameInterface) -> None:

@@ -314,6 +314,14 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 
 ---
 
+## その他の操作関係の各インターフェイス
+
+### Table of contents
+
+- [delete インターフェイス](jp_delete.md)
+
+---
+
 ## デバッグ
 
 ### Table of contents

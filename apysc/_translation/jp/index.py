@@ -96,7 +96,7 @@ MAPPING: Dict[str, str] = {
     '## Child-related interfaces':
     '## 子要素関係の各インターフェイス',
 
-    'The parent class, such as the `Sprite` or `Stage` has the following interfaces:':  # noqa
+    'The parent class, such as the `Sprite` or `Stage`, has the following interfaces:':  # noqa
     '`Sprite`や`Stage`などの親となれる各クラスは以下のインターフェイスを持っています:',
 
     '### Table of contents':
@@ -563,6 +563,18 @@ MAPPING: Dict[str, str] = {
 
     '- [animation_skew_x interface](animation_skew_x.md)':
     '- [animation_skew_x インターフェイス](jp_animation_skew_x.md)',
+
+    '---':
+    '---',
+
+    '## Other manipulation interfaces':
+    '## その他の操作関係の各インターフェイス',
+
+    '### Table of contents':
+    '### Table of contents',
+
+    '- [delete interface](delete.md)':
+    '- [delete インターフェイス](jp_delete.md)',
 
     '---':
     '---',

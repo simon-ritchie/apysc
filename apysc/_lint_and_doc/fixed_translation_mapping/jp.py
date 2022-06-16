@@ -2640,4 +2640,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='add_debug_info_setting decorator interface',
             val='add_debug_info_setting のデコレーターのインターフェイス'),
+        Mapping(
+            key='delete interface',
+            val='delete インターフェイス'),
     ])

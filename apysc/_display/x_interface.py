@@ -14,8 +14,9 @@ from apysc._validation import arg_validation_decos
 
 
 class XInterface(
-        XInterfaceBase, AnimationXInterface, AnimationMoveInterface,
-        RevertInterface, AttrLinkingInterface):
+        XInterfaceBase, AnimationXInterface,
+        AnimationMoveInterface, RevertInterface,
+        AttrLinkingInterface):
 
     _x: Int
 

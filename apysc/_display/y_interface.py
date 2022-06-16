@@ -5,6 +5,7 @@ from typing import Dict
 
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_y_interface import AnimationYInterface
+from apysc._display.y_interface_base import YInterfaceBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
@@ -13,8 +14,8 @@ from apysc._validation import arg_validation_decos
 
 
 class YInterface(
-        AnimationYInterface, AnimationMoveInterface, RevertInterface,
-        AttrLinkingInterface):
+        YInterfaceBase, AnimationYInterface, AnimationMoveInterface,
+        RevertInterface, AttrLinkingInterface):
 
     _y: Int
 

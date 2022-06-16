@@ -19,6 +19,7 @@ from apysc._display.graphics_clear_interface import GraphicsClearInterface
 from apysc._display.line_style_interface import LineStyleInterface
 from apysc._display.rectangle import Rectangle
 from apysc._display.x_interface import XInterface
+from apysc._display.y_interface import YInterface
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.point2d import Point2D
 from apysc._html.debug_mode import add_debug_info_setting
@@ -30,6 +31,7 @@ from apysc._validation import arg_validation_decos
 
 class Graphics(
         XInterface,
+        YInterface,
         DisplayObject,
         BeginFillInterface, LineStyleInterface, VariableNameInterface,
         GraphicsClearInterface, ChildInterface):

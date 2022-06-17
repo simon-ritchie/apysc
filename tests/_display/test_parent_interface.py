@@ -17,7 +17,7 @@ class TestParentInterface:
         assert sprite.parent == stage
 
         with pytest.raises(ValueError):  # type: ignore
-            sprite.parent = 100
+            sprite.parent = 100  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_remove_from_parent(self) -> None:

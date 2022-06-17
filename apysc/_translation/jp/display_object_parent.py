@@ -48,14 +48,14 @@ MAPPING: Dict[str, str] = {
     '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
     '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
 
-    '**[Interface summary]** Get parent instance that has a add_child and remove_child interfaces.<hr>':  # noqa
+    '**[Interface summary]** Get a parent instance that has an add_child and remove_child interfaces.<hr>':  # noqa
     '**[インターフェイス概要]** `add_child`や`remove_child`などのインターフェイスを持っている親のインスタンスを取得します。<hr>',  # noqa
 
     '**[Returns]**':
     '**[返却値]**',
 
-    '- `parent`: any parent instance or None':
-    '- `parent`: any parent instance or None',
+    '- `parent`: any parent instance (ChildInterface) or None':
+    '- `parent`: any parent instance (ChildInterface) or None',
 
     '  - Parent instance with `add_child` and `remove_child` interfaces. If this instance does not have a parent instance (not added child), this interface returns None.':  # noqa
     '  - `add_child`や`remove_child`などのインターフェイスを持っている親のインスタンス。もしこのインスタンスが親を持っていない（画面に追加されていない）場合、このインターフェイスはNoneを返却します。',  # noqa

@@ -1,13 +1,13 @@
 """Class implementation for the parent-related interfaces.
 """
 
+from typing import TYPE_CHECKING
 from typing import Dict
 from typing import Optional
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from apysc._display.child_interface import ChildInterface
@@ -20,7 +20,7 @@ class ParentInterface(RevertInterface):
     @property
     def parent(self) -> Optional['ChildInterface']:
         """
-        Get parent instance that has a add_child and remove_child
+        Get a parent instance that has an add_child and remove_child
         interfaces.
 
         Returns

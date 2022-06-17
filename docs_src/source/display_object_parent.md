@@ -66,11 +66,11 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get parent instance that has a add_child and remove_child interfaces.<hr>
+**[Interface summary]** Get a parent instance that has an add_child and remove_child interfaces.<hr>
 
 **[Returns]**
 
-- `parent`: any parent instance or None
+- `parent`: any parent instance (ChildInterface) or None
   - Parent instance with `add_child` and `remove_child` interfaces. If this instance does not have a parent instance (not added child), this interface returns None.
 
 <hr>

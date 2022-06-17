@@ -1,28 +1,31 @@
 """Class implementation for the parent-related interfaces.
 """
 
-from typing import Any
 from typing import Dict
 from typing import Optional
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from apysc._display.child_interface import ChildInterface
 
 
 class ParentInterface(RevertInterface):
 
-    _parent: Optional[Any] = None
+    _parent: Optional['ChildInterface'] = None
 
     @property
-    def parent(self) -> Optional[Any]:
+    def parent(self) -> Optional['ChildInterface']:
         """
         Get parent instance that has a add_child and remove_child
         interfaces.
 
         Returns
         -------
-        parent : any parent instance or None
+        parent : any parent instance (ChildInterface) or None
             Parent instance with `add_child` and `remove_child`
             interfaces. If this instance does not have a parent
             instance (not added child), this interface returns None.
@@ -50,7 +53,7 @@ class ParentInterface(RevertInterface):
     @parent.setter
     @arg_validation_decos.is_display_object_container(
         arg_position_index=1, optional=True)
-    def parent(self, value: Optional[Any]) -> None:
+    def parent(self, value: Optional['ChildInterface']) -> None:
         """
         Set parent instance.
 
@@ -102,7 +105,7 @@ class ParentInterface(RevertInterface):
         else:
             append_expression_of_remove_child(child=child)
 
-    _parent_snapshots: Dict[str, Optional[Any]]
+    _parent_snapshots: Dict[str, Optional['ChildInterface']]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

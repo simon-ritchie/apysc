@@ -35,6 +35,10 @@ Append contains method expression.<hr>
 - `child`: DisplayObject
   - Child instance to check.
 
+### `_append_expression_of_remove_children` method docstring
+
+Append an expression of the `remove_children` interface.
+
 ### `_append_get_child_at_expression` method docstring
 
 Append get_child_at method expression.<hr>
@@ -219,3 +223,7 @@ None
 **[References]**
 
 - [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html)
+
+### `remove_children` method docstring
+
+Remove all children from this instance.

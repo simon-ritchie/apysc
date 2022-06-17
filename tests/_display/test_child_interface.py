@@ -229,6 +229,7 @@ class TestChildInterface:
         expression: str = expression_data_util.get_current_expression()
         assert '.children()' in expression
 
+
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_expression_of_add_child() -> None:
     stage: ap.Stage = ap.Stage()

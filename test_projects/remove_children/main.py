@@ -4,18 +4,18 @@ Command examples:
 $ python test_projects/remove_children/main.py
 """
 
-import sys
-from typing import Optional
 import os
+import sys
 from types import ModuleType
+from typing import Optional
 
 from typing_extensions import TypedDict
 
 sys.path.append('./')
 
 import apysc as ap
-from apysc._file import file_util
 from apysc._display.child_interface import ChildInterface
+from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
 

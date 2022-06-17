@@ -13,8 +13,8 @@ from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._validation import arg_validation_decos
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage

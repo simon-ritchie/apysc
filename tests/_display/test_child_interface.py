@@ -201,6 +201,33 @@ class TestChildInterface:
         stage._run_all_revert_methods(snapshot_name=snapshot_name_1)
         assert stage._children == [100]
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_expression_of_remove_children(self) -> None:
+        expression_data_util.empty_expression()
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
+        sprite._append_expression_of_remove_children()
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f'var children = {sprite.variable_name}.children();'
+            '\nvar length = children.length;'
+            '\nfor (var i = 0; i < length; i++) {'
+            '\n  var child = children[i];'
+            f'\n  {sprite.variable_name}.remove(child);'
+            '\n}'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_remove_children(self) -> None:
+        expression_data_util.empty_expression()
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
+        sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+        sprite.remove_children()
+        assert sprite._children.length == 0
+        expression: str = expression_data_util.get_current_expression()
+        assert '.children()' in expression
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_expression_of_add_child() -> None:

@@ -14,15 +14,15 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_interface import VariableNameInterface
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage
 
 
-class ChildInterface(RevertInterface):
+class ChildInterface(VariableNameInterface, RevertInterface):
 
     _children: Array[DisplayObject]
-    _variable_name: str
     stage: 'Stage'
 
     @arg_validation_decos.is_display_object(arg_position_index=1)
@@ -100,7 +100,7 @@ class ChildInterface(RevertInterface):
         """
         self._initialize_children_if_not_initialized()
         append_expression_of_remove_child(child=child)
-        for child_ in self._children.value:  # type: ignore
+        for child_ in self._children._value:
             if child_ != child:
                 continue
             self._children.remove(child)
@@ -170,7 +170,7 @@ class ChildInterface(RevertInterface):
         import apysc as ap
         expression: str = (
             f'{result.variable_name} = '
-            f'{self._variable_name}.has({child.variable_name});'
+            f'{self.variable_name}.has({child.variable_name});'
         )
         ap.append_js_expression(expression=expression)
 
@@ -223,7 +223,7 @@ class ChildInterface(RevertInterface):
         import apysc as ap
         expression: str = (
             f'{num_children.variable_name} = '
-            f'{self._variable_name}.children().length;'
+            f'{self.variable_name}.children().length;'
         )
         ap.append_js_expression(expression=expression)
 
@@ -294,8 +294,35 @@ class ChildInterface(RevertInterface):
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
             f'var {child.variable_name} = '
-            f'{self._variable_name}.children()'
+            f'{self.variable_name}.children()'
             f'[{index_str}];'
+        )
+        ap.append_js_expression(expression=expression)
+
+    @add_debug_info_setting(
+        module_name=__name__, class_name='ChildInterface')
+    def remove_children(self) -> None:
+        """
+        Remove all children from this instance.
+        """
+        self._initialize_children_if_not_initialized()
+        self._children = Array([])
+        self._append_expression_of_remove_children()
+
+    @add_debug_info_setting(
+        module_name=__name__, class_name='ChildInterface')
+    def _append_expression_of_remove_children(self) -> None:
+        """
+        Append an expression of the `remove_children` interface.
+        """
+        import apysc as ap
+        expression: str = (
+            f'var children = {self.variable_name}.children();'
+            '\nvar length = children.length;'
+            '\nfor (var i = 0; i < length; i++) {'
+            '\n  var child = children[i];'
+            f'\n  {self.variable_name}.remove(child);'
+            '\n}'
         )
         ap.append_js_expression(expression=expression)
 

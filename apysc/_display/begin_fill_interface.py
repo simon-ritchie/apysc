@@ -175,7 +175,7 @@ class BeginFillInterface(RevertInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert values if snapshot exists.
+        Revert values if a snapshot exists.
 
         Parameters
         ----------

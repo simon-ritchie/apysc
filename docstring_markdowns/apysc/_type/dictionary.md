@@ -293,7 +293,7 @@ Make values' snapthot.<hr>
 
 ### `_revert` method docstring
 
-Revert values if snapshot exists.<hr>
+Revert values if a snapshot exists.<hr>
 
 **[Parameters]**
 

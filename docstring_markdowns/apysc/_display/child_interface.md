@@ -15,7 +15,7 @@ Append expression of add_child (add).<hr>
 
 ## `append_expression_of_remove_child` function docstring
 
-Append expression of remove_child (removeElement).<hr>
+Append expression of remove_child interface.<hr>
 
 **[Parameters]**
 
@@ -41,7 +41,7 @@ Append an expression of the `remove_children` interface.
 
 ### `_append_get_child_at_expression` method docstring
 
-Append get_child_at method expression.<hr>
+Append a get_child_at method expression.<hr>
 
 **[Parameters]**
 
@@ -74,7 +74,7 @@ Make values' snapshot.<hr>
 
 ### `_revert` method docstring
 
-Revert values if snapshot exists.<hr>
+Revert values if a snapshot exists.<hr>
 
 **[Parameters]**
 
@@ -154,7 +154,7 @@ Boolean(False)
 
 ### `get_child_at` method docstring
 
-Get child at a specified index.<hr>
+Get a child at a specified index.<hr>
 
 **[Parameters]**
 

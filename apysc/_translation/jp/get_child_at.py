@@ -36,7 +36,7 @@ MAPPING: Dict[str, str] = {
     '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
     '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
 
-    '**[Interface summary]** Get child at a specified index.<hr>':
+    '**[Interface summary]** Get a child at a specified index.<hr>':
     '**[インターフェイス概要]** 指定されたインデックス位置の子を取得します。<hr>',
 
     '**[Parameters]**':

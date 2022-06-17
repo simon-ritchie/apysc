@@ -232,7 +232,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         module_name=__name__, class_name='ChildInterface')
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """
-        Get child at a specified index.
+        Get a child at a specified index.
 
         Parameters
         ----------
@@ -280,7 +280,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
     def _append_get_child_at_expression(
             self, *, child: DisplayObject, index: Union[int, Int]) -> None:
         """
-        Append get_child_at method expression.
+        Append a get_child_at method expression.
 
         Parameters
         ----------
@@ -352,7 +352,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
-        Revert values if snapshot exists.
+        Revert values if a snapshot exists.
 
         Parameters
         ----------
@@ -391,7 +391,7 @@ def append_expression_of_add_child(*, child: DisplayObject) -> None:
 @add_debug_info_setting(module_name=__name__)
 def append_expression_of_remove_child(*, child: DisplayObject) -> None:
     """
-    Append expression of remove_child (removeElement).
+    Append expression of remove_child interface.
 
     Parameters
     ----------

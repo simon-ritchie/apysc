@@ -34,7 +34,7 @@ class RevertableValue1(RevertInterface):
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert values if snapshot exists.
+        Revert values if a snapshot exists.
 
         Parameters
         ----------
@@ -64,7 +64,7 @@ class RevertableValue2(RevertInterface):
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert values if snapshot exists.
+        Revert values if a snapshot exists.
 
         Parameters
         ----------
@@ -95,7 +95,7 @@ class RevertableValue3(
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert values if snapshot exists.
+        Revert values if a snapshot exists.
 
         Parameters
         ----------

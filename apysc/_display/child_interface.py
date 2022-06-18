@@ -304,6 +304,11 @@ class ChildInterface(VariableNameInterface, RevertInterface):
     def remove_children(self) -> None:
         """
         Remove all children from this instance.
+
+        References
+        ----------
+        - remove_children interface document
+            - https://simon-ritchie.github.io/apysc/remove_children.html
         """
         self._initialize_children_if_not_initialized()
         self._children.clear()

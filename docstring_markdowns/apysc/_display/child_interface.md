@@ -226,4 +226,8 @@ None
 
 ### `remove_children` method docstring
 
-Remove all children from this instance.
+Remove all children from this instance.<hr>
+
+**[References]**
+
+- [remove_children interface document](https://simon-ritchie.github.io/apysc/remove_children.html)

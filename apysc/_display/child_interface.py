@@ -306,7 +306,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         Remove all children from this instance.
         """
         self._initialize_children_if_not_initialized()
-        self._children = Array([])
+        self._children.clear()
         self._append_expression_of_remove_children()
 
     @add_debug_info_setting(

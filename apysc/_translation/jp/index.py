@@ -186,6 +186,9 @@ MAPPING: Dict[str, str] = {
     '- [Array class index_of interface](array_index_of.md)':
     '- [Array クラスの index_of (値のインデックス取得) のインターフェイス](jp_array_index_of.md)',
 
+    '- [Array class clear interface](array_clear.md)':
+    '- [Array クラスの clear インターフェイス](jp_array_clear.md)',
+
     '- [Array class comparison interfaces](array_comparison.md)':
     '- [Array クラスの比較の各インターフェイス](jp_array_comparison.md)',
 

@@ -99,14 +99,15 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [Array クラスの join (値の連結文字列生成) のインターフェイス](jp_array_join.md)
 
 - [Array クラスの index_of (値のインデックス取得) のインターフェイス](jp_array_index_of.md)
+- [Array クラスの clear インターフェイス](jp_array_clear.md)
+
 - [Array クラスの比較の各インターフェイス](jp_array_comparison.md)
-
 - [Dictionary クラス](jp_dictionary.md)
+
 - [Dictionary クラスのジェネリックの型設定](jp_dictionary_generic.md)
-
 - [Dictionary クラスの get インターフェイス](jp_dictionary_get.md)
-- [Dictionary クラスの length インターフェイス](jp_dictionary_length.md)
 
+- [Dictionary クラスの length インターフェイス](jp_dictionary_length.md)
 - [Point2D クラス](jp_point2d.md)
 
 ---

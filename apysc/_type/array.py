@@ -1422,6 +1422,11 @@ class Array(
     def clear(self) -> None:
         """
         Empty this array's value.
+
+        References
+        ----------
+        - Array class clear interface document
+            - https://simon-ritchie.github.io/apysc/array_clear.md
         """
         self._value.clear()
         self._append_clear_expression()

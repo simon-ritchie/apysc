@@ -83,6 +83,7 @@ The parent class, such as the `Sprite` or `Stage`, has the following interfaces:
 - [Array class length interface](array_length.md)
 - [Array class join interface](array_join.md)
 - [Array class index_of interface](array_index_of.md)
+- [Array class clear interface](array_clear.md)
 - [Array class comparison interfaces](array_comparison.md)
 - [Dictionary class](dictionary.md)
 - [Dictionary class generic type settings](dictionary_generic.md)

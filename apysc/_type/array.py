@@ -366,7 +366,7 @@ class Array(
         positions the argument array's values after this array
         values. This method is similar to the concat method.
         Still, there is a difference in whether updating the same
-        variable (extend) or returned as a different variable (concat).
+        variable (extend) or returning as a different variable (concat).
 
         Parameters
         ----------
@@ -423,7 +423,7 @@ class Array(
         positions the argument array's values after this array
         values. This method is similar to extend method,
         but there is a difference in whether updating
-        the same variable (extend) or returned as a different
+        the same variable (extend) or returning as a different
         variable (concat).
 
         Parameters
@@ -487,7 +487,7 @@ class Array(
             self, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
-        This interface behaves the same `insert_at` method.
+        This interface behaves in the same `insert_at` method.
 
         Parameters
         ----------
@@ -527,7 +527,7 @@ class Array(
     def insert_at(self, *, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
-        This interface behaves the same `insert` method.
+        This interface behaves in the same `insert` method.
 
         Parameters
         ----------
@@ -715,7 +715,7 @@ class Array(
     def _append_remove_at_expression(
             self, *, index: Union[int, Int]) -> None:
         """
-        Append remove_at method expression.
+        Append a remove_at method expression.
 
         Parameters
         ----------
@@ -921,7 +921,7 @@ class Array(
         Raises
         ------
         ValueError
-            If specified index type is not the `Int` or `int` type.
+            If a specified index type is not the `Int` or `int` type.
         """
         import apysc as ap
         self._validate_index_type_is_int(index=index)
@@ -1428,7 +1428,7 @@ class Array(
 
     def _append_clear_expression(self) -> None:
         """
-        Append a `clear` interface's expression.
+        Append a `clear` interface expression.
         """
         import apysc as ap
         expression: str = f'{self.variable_name}.splice(0);'

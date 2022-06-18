@@ -50,7 +50,6 @@ def _main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-
 def on_timer(e: ap.TimerEvent, options: _ArrOptions) -> None:
     """
     The timer event handler.
@@ -64,7 +63,6 @@ def on_timer(e: ap.TimerEvent, options: _ArrOptions) -> None:
     """
     options['arr'].clear()
     ap.assert_equal(options['arr'], [])
-
 
 
 if __name__ == '__main__':

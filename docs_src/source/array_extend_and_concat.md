@@ -34,7 +34,7 @@ assert arr == [1, 2, 3, 4]
 
 **[Interface signature]** `extend(self, other_arr: Union[List[~T], tuple, ForwardRef('Array')]) -> None`<hr>
 
-**[Interface summary]** Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr>
+**[Interface summary]** Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>
 
 **[Parameters]**
 
@@ -61,7 +61,7 @@ Array([1, 2, 3, 4, 5, 6])
 
 **[Interface signature]** `concat(self, other_arr: Union[List[~T], tuple, ForwardRef('Array')]) -> 'Array'`<hr>
 
-**[Interface summary]** Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr>
+**[Interface summary]** Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>
 
 **[Parameters]**
 

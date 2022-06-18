@@ -108,7 +108,7 @@ Get a specified index single value.<hr>
 
 **[Raises]**
 
-- ValueError: If specified index type is not the `Int` or `int` type.
+- ValueError: If a specified index type is not the `Int` or `int` type.
 
 ### `__init__` method docstring
 
@@ -205,6 +205,10 @@ String conversion method.<hr>
 
 - `string`: str
   - Converted value string.
+
+### `_append_clear_expression` method docstring
+
+Append a `clear` interface expression.
 
 ### `_append_concat_expression` method docstring
 
@@ -325,7 +329,7 @@ Append push and append method expression.<hr>
 
 ### `_append_remove_at_expression` method docstring
 
-Append remove_at method expression.<hr>
+Append a remove_at method expression.<hr>
 
 **[Parameters]**
 
@@ -521,9 +525,13 @@ Array([1, 2, 3, 4])
 
 - [Array class append and push interfaces document](https://simon-ritchie.github.io/apysc/array_append_and_push.html)
 
+### `clear` method docstring
+
+Empty this array's value.
+
 ### `concat` method docstring
 
-Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr>
+Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>
 
 **[Parameters]**
 
@@ -557,7 +565,7 @@ Array([1, 2, 3, 4, 5, 6])
 
 ### `extend` method docstring
 
-Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr>
+Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>
 
 **[Parameters]**
 
@@ -617,7 +625,7 @@ Int(1)
 
 ### `insert` method docstring
 
-Insert value to this array at a specified index. This interface behaves the same `insert_at` method.<hr>
+Insert value to this array at a specified index. This interface behaves in the same `insert_at` method.<hr>
 
 **[Parameters]**
 
@@ -646,7 +654,7 @@ Array([1, 2, 3])
 
 ### `insert_at` method docstring
 
-Insert value to this array at a specified index. This interface behaves the same `insert` method.<hr>
+Insert value to this array at a specified index. This interface behaves in the same `insert` method.<hr>
 
 **[Parameters]**
 

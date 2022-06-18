@@ -24,7 +24,7 @@ MAPPING: Dict[str, str] = {
     '## Automatic addition of the children':
     '## 子のインスタンスの自動追加について',
 
-    'The apysc appends each `DisplayObject` instance to a parent at the constructor. So, for example, it appends a `Sprite` instance to a parent stage. Similarly, it appends a `graphics` instance to a parent `Sprite` instance.':  # noqa
+    'The apysc appends each `DisplayObject` instance to a parent at the constructor. So, for example, it appends a `Sprite` instance to a parent stage. Similarly, it appends an instance of a graphic to a parent `Sprite` instance.':  # noqa
     'apyscでは各`DisplayObject`のインスタンスはコンストラクタの時点で親のインスタンスへと自動で追加されます。例えば`Sprite`クラスであれば`Stage`クラスのインスタンスを親として追加され、`Sprite`クラスを親として内部で作成される`graphics`プロパティのインスタンスは`Sprite`クラスのインスタンスへと自動で追加されます。',  # noqa
 
     'If you need to adjust a parent, it is necessary to call the `add_child` or `remove_child` interfaces manually (for instance, set a `Sprite` parent to the other `Sprite`).':  # noqa

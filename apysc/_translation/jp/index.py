@@ -105,6 +105,9 @@ MAPPING: Dict[str, str] = {
     '- [add_child and remove_child interfaces](add_child_and_remove_child.md)':  # noqa
     '- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](jp_add_child_and_remove_child.md)',  # noqa
 
+    '- [remove_children interface](remove_children.md)':
+    '- [remove_children インターフェイス](jp_remove_children.md)',
+
     '- [contains interface](contains.md)':
     '- [contains インターフェイス](jp_contains.md)',
 

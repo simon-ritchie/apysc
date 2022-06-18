@@ -57,9 +57,11 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 ### Table of contents
 
 - [add_child （子の追加）と remove_child （子の削除）のインターフェイス](jp_add_child_and_remove_child.md)
-- [contains インターフェイス](jp_contains.md)
+- [remove_children インターフェイス](jp_remove_children.md)
 
+- [contains インターフェイス](jp_contains.md)
 - [num_children （子の件数属性）のインターフェイス](jp_num_children.md)
+
 - [get_child_at （特定位置の子の取得処理）のインターフェイス](jp_get_child_at.md)
 
 ---

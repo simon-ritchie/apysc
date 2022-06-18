@@ -2646,4 +2646,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Array class clear interface',
             val='Array クラスの clear インターフェイス'),
+        Mapping(
+            key='remove_children interface',
+            val='remove_children インターフェイス'),
     ])

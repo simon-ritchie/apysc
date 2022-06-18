@@ -52,6 +52,7 @@ The parent class, such as the `Sprite` or `Stage`, has the following interfaces:
 ### Table of contents
 
 - [add_child and remove_child interfaces](add_child_and_remove_child.md)
+- [remove_children interface](remove_children.md)
 - [contains interface](contains.md)
 - [num_children interface](num_children.md)
 - [get_child_at interface](get_child_at.md)

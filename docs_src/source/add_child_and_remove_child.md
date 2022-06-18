@@ -8,7 +8,7 @@ The `add_child` and `remove_child` add or remove a `DisplayObject` child instanc
 
 ## Automatic addition of the children
 
-The apysc appends each `DisplayObject` instance to a parent at the constructor. So, for example, it appends a `Sprite` instance to a parent stage. Similarly, it appends a `graphics` instance to a parent `Sprite` instance.
+The apysc appends each `DisplayObject` instance to a parent at the constructor. So, for example, it appends a `Sprite` instance to a parent stage. Similarly, it appends an instance of a graphic to a parent `Sprite` instance.
 
 If you need to adjust a parent, it is necessary to call the `add_child` or `remove_child` interfaces manually (for instance, set a `Sprite` parent to the other `Sprite`).
 

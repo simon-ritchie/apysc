@@ -33,7 +33,7 @@ class ParentInterface(RevertInterface):
         References
         ----------
         - Display object parent interfaces document
-            - https://simon-ritchie.github.io/apysc/display_object_parent.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/display_object_parent.html  # noqa
 
         Examples
         --------
@@ -76,7 +76,7 @@ class ParentInterface(RevertInterface):
         References
         ----------
         - Display object parent interfaces document
-            - https://simon-ritchie.github.io/apysc/display_object_parent.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/display_object_parent.html  # noqa
         """
         from apysc._validation import parent_validation
         parent_validation.validate_parent_contains_child(

@@ -23,7 +23,7 @@ class Sprite(
     References
     ----------
     - Sprite document
-        - https://simon-ritchie.github.io/apysc/sprite.html
+        - https://simon-ritchie.github.io/apysc/en/sprite.html
 
     Examples
     --------
@@ -73,7 +73,7 @@ class Sprite(
         References
         ----------
         - Sprite document
-            - https://simon-ritchie.github.io/apysc/sprite.html
+            - https://simon-ritchie.github.io/apysc/en/sprite.html
 
         Examples
         --------

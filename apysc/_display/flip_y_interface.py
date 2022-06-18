@@ -53,7 +53,7 @@ class FlipYInterface(
         References
         ----------
         - GraphicsBase flip_x and flip_y interfaces document
-            - https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_flip_interfaces.html  # noqa
 
         Examples
         --------
@@ -92,7 +92,7 @@ class FlipYInterface(
         References
         ----------
         - GraphicsBase flip_x and flip_y interfaces document
-            - https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_flip_interfaces.html  # noqa
         """
         import apysc as ap
         self._initialize_flip_y_if_not_initialized()

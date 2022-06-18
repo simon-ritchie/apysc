@@ -23,7 +23,7 @@ class Ellipse(
     References
     ----------
     - Graphics draw_ellipse interface
-        - https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html  # noqa
 
     Examples
     --------
@@ -86,7 +86,7 @@ class Ellipse(
         References
         ----------
         - Graphics draw_ellipse interface
-            - https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html  # noqa
 
         Examples
         --------

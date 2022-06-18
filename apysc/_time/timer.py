@@ -31,15 +31,15 @@ class Timer(VariableNameInterface, CustomEventInterface):
     References
     ----------
     - Timer document
-        - https://simon-ritchie.github.io/apysc/timer.html
+        - https://simon-ritchie.github.io/apysc/en/timer.html
     - TimerEvent class document
-        - https://simon-ritchie.github.io/apysc/timer_event.html
+        - https://simon-ritchie.github.io/apysc/en/timer_event.html
     - Timer class delay setting document
-        - https://simon-ritchie.github.io/apysc/timer_delay.html
+        - https://simon-ritchie.github.io/apysc/en/timer_delay.html
     - FPS enum document
-        - https://simon-ritchie.github.io/apysc/fps.html
+        - https://simon-ritchie.github.io/apysc/en/fps.html
     - Timer class repeat_count setting
-        - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
+        - https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html
 
     Examples
     --------
@@ -108,17 +108,17 @@ class Timer(VariableNameInterface, CustomEventInterface):
         References
         ----------
         - Timer document
-            - https://simon-ritchie.github.io/apysc/timer.html
+            - https://simon-ritchie.github.io/apysc/en/timer.html
         - TimerEvent class document
-            - https://simon-ritchie.github.io/apysc/timer_event.html
+            - https://simon-ritchie.github.io/apysc/en/timer_event.html
         - Timer class delay setting document
-            - https://simon-ritchie.github.io/apysc/timer_delay.html
+            - https://simon-ritchie.github.io/apysc/en/timer_delay.html
         - FPS enum document
-            - https://simon-ritchie.github.io/apysc/fps.html
+            - https://simon-ritchie.github.io/apysc/en/fps.html
         - Timer class repeat_count setting
-            - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
+            - https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html
         - About the handler options' type document
-            - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html  # noqa
 
         Examples
         --------
@@ -218,7 +218,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         References
         ----------
         - Timer class delay setting document
-            - https://simon-ritchie.github.io/apysc/timer_delay.html
+            - https://simon-ritchie.github.io/apysc/en/timer_delay.html
 
         Examples
         --------
@@ -249,7 +249,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         References
         ----------
         - Timer class repeat_count setting
-            - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
+            - https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html
 
         Examples
         --------
@@ -326,7 +326,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         References
         ----------
         - Timer class start and stop interfaces
-            - https://simon-ritchie.github.io/apysc/timer_start_and_stop.html
+            - https://simon-ritchie.github.io/apysc/en/timer_start_and_stop.html
 
         Examples
         --------
@@ -442,7 +442,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         References
         ----------
         - Timer class start and stop interfaces document
-            - https://simon-ritchie.github.io/apysc/timer_start_and_stop.html
+            - https://simon-ritchie.github.io/apysc/en/timer_start_and_stop.html
 
         Examples
         --------
@@ -506,7 +506,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         References
         ----------
         - Timer class reset interface document
-            - https://simon-ritchie.github.io/apysc/timer_reset.html
+            - https://simon-ritchie.github.io/apysc/en/timer_reset.html
 
         Examples
         --------
@@ -557,9 +557,9 @@ class Timer(VariableNameInterface, CustomEventInterface):
         References
         ----------
         - Timer class timer_complete interface document
-            - https://simon-ritchie.github.io/apysc/timer_complete.html
+            - https://simon-ritchie.github.io/apysc/en/timer_complete.html
         - About the handler options' type document
-            - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html  # noqa
 
         Examples
         --------

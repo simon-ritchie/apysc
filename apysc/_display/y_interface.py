@@ -56,7 +56,7 @@ class YInterface(
         References
         ----------
         - Display object x and y interfaces document
-            - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/display_object_x_and_y.html  # noqa
 
         Examples
         --------
@@ -92,7 +92,7 @@ class YInterface(
         References
         ----------
         - Display object x and y interfaces document
-            - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/display_object_x_and_y.html  # noqa
         """
         self._initialize_y_if_not_initialized()
         self._y = value

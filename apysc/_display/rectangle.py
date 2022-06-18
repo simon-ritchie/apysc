@@ -25,7 +25,7 @@ class Rectangle(
     References
     ----------
     - Graphics draw_rect interface document
-        - https://simon-ritchie.github.io/apysc/graphics_draw_rect.html
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html
 
     Examples
     --------
@@ -86,7 +86,7 @@ class Rectangle(
         References
         ----------
         - Graphics draw_rect interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_rect.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html
 
         Examples
         --------

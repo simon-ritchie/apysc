@@ -20,11 +20,11 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
     References
     ----------
     - String document
-        - https://simon-ritchie.github.io/apysc/string.html
+        - https://simon-ritchie.github.io/apysc/en/string.html
     - String class comparison operations document
-        - https://simon-ritchie.github.io/apysc/string_comparison_operations.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html  # noqa
     - String class addition and multiplication operations document
-        - https://simon-ritchie.github.io/apysc/string_addition_and_multiplication.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html  # noqa
 
     Examples
     --------
@@ -65,11 +65,11 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         References
         ----------
         - String document
-            - https://simon-ritchie.github.io/apysc/string.html
+            - https://simon-ritchie.github.io/apysc/en/string.html
         - String class comparison operations document
-            - https://simon-ritchie.github.io/apysc/string_comparison_operations.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html  # noqa
         - String class addition and multiplication operations document
-            - https://simon-ritchie.github.io/apysc/string_addition_and_multiplication.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html  # noqa
 
         Examples
         --------
@@ -142,7 +142,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         References
         ----------
         - apysc fundamental data classes value interface
-            - https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
 
         Examples
         --------

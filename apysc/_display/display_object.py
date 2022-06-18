@@ -29,7 +29,7 @@ class DisplayObject(
     References
     ----------
     - DisplayObject document
-        - https://simon-ritchie.github.io/apysc/display_object.html
+        - https://simon-ritchie.github.io/apysc/en/display_object.html
     """
 
     stage: 'Stage'
@@ -50,7 +50,7 @@ class DisplayObject(
         References
         ----------
         - DisplayObject document
-            - https://simon-ritchie.github.io/apysc/display_object.html
+            - https://simon-ritchie.github.io/apysc/en/display_object.html
         """
         import apysc as ap
         stage: ap.Stage = ap.get_stage()

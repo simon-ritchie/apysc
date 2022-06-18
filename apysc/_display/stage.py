@@ -3,7 +3,7 @@
 References
 ----------
 - Stage document
-    - https://simon-ritchie.github.io/apysc/stage.html
+    - https://simon-ritchie.github.io/apysc/en/stage.html
 """
 
 import ctypes

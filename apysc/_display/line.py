@@ -18,15 +18,15 @@ class Line(XInterface, YInterface, LineBase):
     References
     ----------
     - Graphics draw_line interface document
-        - https://simon-ritchie.github.io/apysc/graphics_draw_line.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html  # noqa
     - Graphics draw_dotted_line interface document
-        - https://simon-ritchie.github.io/apysc/graphics_draw_dotted_line.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_dotted_line.html  # noqa
     - Graphics draw_dashed_line interface document
-        - https://simon-ritchie.github.io/apysc/graphics_draw_dashed_line.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_dashed_line.html  # noqa
     - Graphics draw_round_dotted_line interface document
-        - https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_round_dotted_line.html  # noqa
     - Graphics draw_dash_dotted_line interface document
-        - https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html # noqa
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_dash_dotted_line.html # noqa
 
     Examples
     --------
@@ -71,15 +71,15 @@ class Line(XInterface, YInterface, LineBase):
         References
         ----------
         - Graphics draw_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_line.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html  # noqa
         - Graphics draw_dotted_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_dotted_line.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_dotted_line.html  # noqa
         - Graphics draw_dashed_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_dashed_line.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_dashed_line.html  # noqa
         - Graphics draw_round_dotted_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_round_dotted_line.html  # noqa
         - Graphics draw_dash_dotted_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_dash_dotted_line.html # noqa
 
         Examples
         --------

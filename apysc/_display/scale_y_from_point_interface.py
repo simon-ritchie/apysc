@@ -49,7 +49,7 @@ class ScaleYFromPointInterface(
         References
         ----------
         - GraphicsBase scale_from_point interfaces document
-            - https://simon-ritchie.github.io/apysc/graphics_base_scale_from_point.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_point.html  # noqa
 
         Examples
         --------
@@ -92,7 +92,7 @@ class ScaleYFromPointInterface(
         References
         ----------
         - GraphicsBase scale_from_point interfaces document
-            - https://simon-ritchie.github.io/apysc/graphics_base_scale_from_point.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_point.html  # noqa
 
         Examples
         --------

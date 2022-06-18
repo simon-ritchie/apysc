@@ -21,7 +21,7 @@ def trace(*args: Any) -> None:
     References
     ----------
     - Trace interface document
-        - https://simon-ritchie.github.io/apysc/trace.html
+        - https://simon-ritchie.github.io/apysc/en/trace.html
 
     Examples
     --------

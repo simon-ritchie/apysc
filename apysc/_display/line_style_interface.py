@@ -108,7 +108,7 @@ class LineStyleInterface(RevertInterface):
         References
         ----------
         - Graphics line_style interface document
-            - https://simon-ritchie.github.io/apysc/graphics_line_style.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_line_style.html  # noqa
 
         Examples
         --------

@@ -15,11 +15,11 @@ class Int(NumberValueInterface[int, 'Int']):
     References
     ----------
     - Int and Number document
-        - https://simon-ritchie.github.io/apysc/int_and_number.html
+        - https://simon-ritchie.github.io/apysc/en/int_and_number.html
     - Int and Number common arithmetic operations document
-        - https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html  # noqa
     - Int and Number common comparison operations document
-        - https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html  # noqa
 
     Examples
     --------
@@ -63,11 +63,11 @@ class Int(NumberValueInterface[int, 'Int']):
         References
         ----------
         - Int and Number document
-            - https://simon-ritchie.github.io/apysc/int_and_number.html
+            - https://simon-ritchie.github.io/apysc/en/int_and_number.html
         - Int and Number common arithmetic operations document
-            - https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html  # noqa
         - Int and Number common comparison operations document
-            - https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html  # noqa
 
         Examples
         --------

@@ -53,7 +53,7 @@ class SkewYInterface(
         References
         ----------
         - GraphicsBase skew_x and skew_y interfaces document
-            - https://simon-ritchie.github.io/apysc/graphics_base_skew.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_skew.html
 
         Examples
         --------
@@ -87,7 +87,7 @@ class SkewYInterface(
         References
         ----------
         - GraphicsBase skew_x and skew_y interfaces document
-            - https://simon-ritchie.github.io/apysc/graphics_base_skew.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_skew.html
         """
         import apysc as ap
         self._initialize_skew_y_if_not_initialized()

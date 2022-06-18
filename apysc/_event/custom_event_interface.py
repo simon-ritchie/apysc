@@ -152,9 +152,9 @@ class CustomEventInterface(BlankObjectInterface):
         References
         ----------
         - Bind and trigger the custom event document
-            - https://simon-ritchie.github.io/apysc/bind_and_trigger_custom_event.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/bind_and_trigger_custom_event.html  # noqa
         - About the handler options' type document
-            - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html  # noqa
 
         Examples
         --------
@@ -236,7 +236,7 @@ class CustomEventInterface(BlankObjectInterface):
         References
         ----------
         - Bind and trigger the custom event document
-            - https://simon-ritchie.github.io/apysc/bind_and_trigger_custom_event.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/bind_and_trigger_custom_event.html  # noqa
 
         Examples
         --------

@@ -21,7 +21,7 @@ class Circle(
     References
     ----------
     - Graphics draw_circle interface document
-        - https://simon-ritchie.github.io/apysc/graphics_draw_circle.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html  # noqa
 
     Examples
     --------
@@ -76,7 +76,7 @@ class Circle(
         References
         ----------
         - Graphics draw_circle interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_circle.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html  # noqa
 
         Examples
         --------

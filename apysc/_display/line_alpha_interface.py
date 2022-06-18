@@ -55,7 +55,7 @@ class LineAlphaInterface(
         References
         ----------
         - Graphics line_alpha interface document
-            - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_line_alpha.html
 
         Examples
         --------
@@ -90,7 +90,7 @@ class LineAlphaInterface(
         References
         ----------
         - Graphics line_alpha interface document
-            - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_line_alpha.html
         """
         self._initialize_line_alpha_if_not_initialized()
         self._update_line_alpha_and_skip_appending_exp(value=value)

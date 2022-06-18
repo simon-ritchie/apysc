@@ -30,9 +30,9 @@ class Array(
     References
     ----------
     - Array document
-        - https://simon-ritchie.github.io/apysc/array.html
+        - https://simon-ritchie.github.io/apysc/en/array.html
     - Array class comparison interfaces document
-        - https://simon-ritchie.github.io/apysc/array_comparison.html
+        - https://simon-ritchie.github.io/apysc/en/array_comparison.html
 
     Examples
     --------
@@ -85,9 +85,9 @@ class Array(
         References
         ----------
         - Array document
-            - https://simon-ritchie.github.io/apysc/array.html
+            - https://simon-ritchie.github.io/apysc/en/array.html
         - Array class comparison interfaces document
-            - https://simon-ritchie.github.io/apysc/array_comparison.html
+            - https://simon-ritchie.github.io/apysc/en/array_comparison.html
 
         Examples
         --------
@@ -226,7 +226,7 @@ class Array(
         References
         ----------
         - apysc fundamental data classes value interface
-            - https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
 
         Examples
         --------
@@ -297,7 +297,7 @@ class Array(
         References
         ----------
         - Array class append and push interfaces document
-            - https://simon-ritchie.github.io/apysc/array_append_and_push.html
+            - https://simon-ritchie.github.io/apysc/en/array_append_and_push.html
 
         Examples
         --------
@@ -325,7 +325,7 @@ class Array(
         References
         ----------
         - Array class append and push interfaces document
-            - https://simon-ritchie.github.io/apysc/array_append_and_push.html
+            - https://simon-ritchie.github.io/apysc/en/array_append_and_push.html
 
         Examples
         --------
@@ -376,7 +376,7 @@ class Array(
         References
         ----------
         - Array class extend and concat interfaces document
-            - https://simon-ritchie.github.io/apysc/array_extend_and_concat.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/array_extend_and_concat.html  # noqa
 
         Examples
         --------
@@ -439,7 +439,7 @@ class Array(
         References
         ----------
         - Array class extend and concat interfaces document
-            - https://simon-ritchie.github.io/apysc/array_extend_and_concat.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/array_extend_and_concat.html  # noqa
 
         Examples
         --------
@@ -499,7 +499,7 @@ class Array(
         References
         ----------
         - Array class insert and insert_at interfaces document
-            - https://simon-ritchie.github.io/apysc/array_insert_and_insert_at.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/array_insert_and_insert_at.html  # noqa
 
         Examples
         --------
@@ -539,7 +539,7 @@ class Array(
         References
         ----------
         - Array class insert and insert_at interfaces document
-            - https://simon-ritchie.github.io/apysc/array_insert_and_insert_at.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/array_insert_and_insert_at.html  # noqa
 
         Examples
         --------
@@ -590,7 +590,7 @@ class Array(
         References
         ----------
         - Array class pop interface document
-            - https://simon-ritchie.github.io/apysc/array_pop.html
+            - https://simon-ritchie.github.io/apysc/en/array_pop.html
 
         Examples
         --------
@@ -638,7 +638,7 @@ class Array(
         References
         ----------
         - Array class remove and remove_at interfaces document
-            - https://simon-ritchie.github.io/apysc/array_remove_and_remove_at.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/array_remove_and_remove_at.html  # noqa
 
         Examples
         --------
@@ -690,7 +690,7 @@ class Array(
         References
         ----------
         - Array class remove and remove_at interfaces document
-            - https://simon-ritchie.github.io/apysc/array_remove_and_remove_at.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/array_remove_and_remove_at.html  # noqa
 
         Examples
         --------
@@ -740,7 +740,7 @@ class Array(
         References
         ----------
         - Array class reverse interface document
-            - https://simon-ritchie.github.io/apysc/array_reverse.html
+            - https://simon-ritchie.github.io/apysc/en/array_reverse.html
 
         Examples
         --------
@@ -781,7 +781,7 @@ class Array(
         References
         ----------
         - Array class sort interface document
-            - https://simon-ritchie.github.io/apysc/array_sort.html
+            - https://simon-ritchie.github.io/apysc/en/array_sort.html
 
         Examples
         --------
@@ -838,7 +838,7 @@ class Array(
         References
         ----------
         - Array class slice interface document
-            - https://simon-ritchie.github.io/apysc/array_slice.html
+            - https://simon-ritchie.github.io/apysc/en/array_slice.html
 
         Examples
         --------
@@ -1093,7 +1093,7 @@ class Array(
         References
         ----------
         - Array class length interface document
-            - https://simon-ritchie.github.io/apysc/array_length.html
+            - https://simon-ritchie.github.io/apysc/en/array_length.html
 
         Examples
         --------
@@ -1153,7 +1153,7 @@ class Array(
         References
         ----------
         - Array class join interface document
-            - https://simon-ritchie.github.io/apysc/array_join.html
+            - https://simon-ritchie.github.io/apysc/en/array_join.html
 
         Examples
         --------
@@ -1243,7 +1243,7 @@ class Array(
         References
         ----------
         - Array class index_of interface document
-            - https://simon-ritchie.github.io/apysc/array_index_of.html
+            - https://simon-ritchie.github.io/apysc/en/array_index_of.html
 
         Examples
         --------
@@ -1426,7 +1426,7 @@ class Array(
         References
         ----------
         - Array class clear interface document
-            - https://simon-ritchie.github.io/apysc/array_clear.md
+            - https://simon-ritchie.github.io/apysc/en/array_clear.md
         """
         self._value.clear()
         self._append_clear_expression()

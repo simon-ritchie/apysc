@@ -40,7 +40,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - add_child and remove_child interfaces document
-            - https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html  # noqa
 
         Examples
         --------
@@ -84,7 +84,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - add_child and remove_child interfaces document
-            - https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html  # noqa
 
         Examples
         --------
@@ -128,7 +128,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - contains interface document
-            - https://simon-ritchie.github.io/apysc/contains.html
+            - https://simon-ritchie.github.io/apysc/en/contains.html
 
         Examples
         --------
@@ -189,7 +189,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - num_children interface document
-            - https://simon-ritchie.github.io/apysc/num_children.html
+            - https://simon-ritchie.github.io/apysc/en/num_children.html
 
         Examples
         --------
@@ -247,7 +247,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - get_child_at interface document
-            - https://simon-ritchie.github.io/apysc/get_child_at.html
+            - https://simon-ritchie.github.io/apysc/en/get_child_at.html
 
         Examples
         --------
@@ -308,7 +308,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - remove_children interface document
-            - https://simon-ritchie.github.io/apysc/remove_children.html
+            - https://simon-ritchie.github.io/apysc/en/remove_children.html
         """
         self._initialize_children_if_not_initialized()
         self._children.clear()

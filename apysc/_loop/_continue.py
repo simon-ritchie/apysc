@@ -16,7 +16,7 @@ class Continue:
     References
     ----------
     - Continue document
-        - https://simon-ritchie.github.io/apysc/continue.html
+        - https://simon-ritchie.github.io/apysc/en/continue.html
 
     Examples
     --------
@@ -41,7 +41,7 @@ class Continue:
         References
         ----------
         - Continue document
-            - https://simon-ritchie.github.io/apysc/continue.html
+            - https://simon-ritchie.github.io/apysc/en/continue.html
 
         Examples
         --------

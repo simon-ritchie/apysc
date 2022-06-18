@@ -42,7 +42,7 @@ class Graphics(
     References
     ----------
     - Graphics document
-        - https://simon-ritchie.github.io/apysc/graphics.html
+        - https://simon-ritchie.github.io/apysc/en/graphics.html
 
     Examples
     --------
@@ -82,7 +82,7 @@ class Graphics(
         References
         ----------
         - Graphics document
-            - https://simon-ritchie.github.io/apysc/graphics.html
+            - https://simon-ritchie.github.io/apysc/en/graphics.html
         """
         import apysc as ap
         from apysc._expression import expression_variables_util
@@ -154,7 +154,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_rect interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_rect.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html  # noqa
 
         Examples
         --------
@@ -224,7 +224,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_round_rect interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_round_rect.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_round_rect.html  # noqa
 
         Examples
         --------
@@ -285,7 +285,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_circle interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_circle.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html  # noqa
 
         Examples
         --------
@@ -349,7 +349,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_ellipse interface
-            - https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html  # noqa
 
         Examples
         --------
@@ -406,7 +406,7 @@ class Graphics(
         References
         ----------
         - Graphics move_to and line_to interfaces document
-            - https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html  # noqa
 
         Examples
         --------
@@ -463,7 +463,7 @@ class Graphics(
         References
         ----------
         - Graphics move_to and line_to interfaces document
-            - https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html  # noqa
 
         Examples
         --------
@@ -542,7 +542,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_line.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html  # noqa
 
         Examples
         --------
@@ -614,7 +614,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_dotted_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_dotted_line.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_dotted_line.html  # noqa
 
         Examples
         --------
@@ -696,7 +696,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_dashed_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_dashed_line.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_dashed_line.html  # noqa
 
         Examples
         --------
@@ -780,7 +780,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_round_dotted_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_round_dotted_line.html  # noqa
 
         Examples
         --------
@@ -864,7 +864,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_dash_dotted_line interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_dash_dotted_line.html # noqa
 
         Examples
         --------
@@ -929,7 +929,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_polygon interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html  # noqa
 
         Examples
         --------

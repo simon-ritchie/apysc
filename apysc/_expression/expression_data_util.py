@@ -394,7 +394,7 @@ def append_js_expression(expression: str) -> None:
     References
     ----------
     - append_js_expression interface document
-        - https://simon-ritchie.github.io/apysc/append_js_expression.html
+        - https://simon-ritchie.github.io/apysc/en/append_js_expression.html
 
     Examples
     --------

@@ -52,19 +52,19 @@ class AnimationCyInterface(AnimationInterfaceBase):
         References
         ----------
         - animation_y interface document
-            - https://simon-ritchie.github.io/apysc/animation_y.html
+            - https://simon-ritchie.github.io/apysc/en/animation_y.html
         - Animation interfaces duration setting document
-            - https://simon-ritchie.github.io/apysc/animation_duration.html
+            - https://simon-ritchie.github.io/apysc/en/animation_duration.html
         - Animation interfaces delay setting document
-            - https://simon-ritchie.github.io/apysc/animation_delay.html
+            - https://simon-ritchie.github.io/apysc/en/animation_delay.html
         - Each animation interface return value document
-            - https://simon-ritchie.github.io/apysc/animation_return_value.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/animation_return_value.html  # noqa
         - Sequential animation setting document
-            - https://simon-ritchie.github.io/apysc/sequential_animation.html
+            - https://simon-ritchie.github.io/apysc/en/sequential_animation.html
         - animation_parallel interface document
-            - https://simon-ritchie.github.io/apysc/animation_parallel.html
+            - https://simon-ritchie.github.io/apysc/en/animation_parallel.html
         - Easing enum document
-            - https://simon-ritchie.github.io/apysc/easing_enum.html
+            - https://simon-ritchie.github.io/apysc/en/easing_enum.html
 
         Examples
         --------

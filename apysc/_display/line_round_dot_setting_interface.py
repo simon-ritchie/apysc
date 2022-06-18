@@ -40,7 +40,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         References
         ----------
         - Graphics line_round_dot interface document
-            - https://simon-ritchie.github.io/apysc/graphics_line_round_dot_setting.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_line_round_dot_setting.html  # noqa
 
         Examples
         --------

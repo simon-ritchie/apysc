@@ -11,7 +11,7 @@ class Easing(Enum):
     References
     ----------
     - Easing enum document
-        - https://simon-ritchie.github.io/apysc/easing_enum.html
+        - https://simon-ritchie.github.io/apysc/en/easing_enum.html
 
     Examples
     --------

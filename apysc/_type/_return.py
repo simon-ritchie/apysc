@@ -10,7 +10,7 @@ class Return:
     References
     ----------
     - Return document
-        - https://simon-ritchie.github.io/apysc/return.html
+        - https://simon-ritchie.github.io/apysc/en/return.html
     """
 
     def __init__(self) -> None:
@@ -24,7 +24,7 @@ class Return:
         References
         ----------
         - Return document
-            - https://simon-ritchie.github.io/apysc/return.html
+            - https://simon-ritchie.github.io/apysc/en/return.html
 
         Examples
         --------

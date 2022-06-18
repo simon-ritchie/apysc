@@ -48,9 +48,9 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         References
         ----------
         - Double click interface document
-            - https://simon-ritchie.github.io/apysc/dblclick.html
+            - https://simon-ritchie.github.io/apysc/en/dblclick.html
         - About the handler options' type document
-            - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html  # noqa
 
         Examples
         --------

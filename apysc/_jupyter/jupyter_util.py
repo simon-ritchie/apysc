@@ -75,7 +75,7 @@ def display_on_jupyter(
     References
     ----------
     - display_on_jupyter interface document
-        - https://simon-ritchie.github.io/apysc/display_on_jupyter.html
+        - https://simon-ritchie.github.io/apysc/en/display_on_jupyter.html
     """
     from IPython.display import IFrame
     from IPython.display import display

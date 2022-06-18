@@ -21,7 +21,7 @@ class Polyline(
     References
     ----------
     - Graphics move_to and line_to interfaces document
-        - https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html  # noqa
 
     Examples
     --------
@@ -59,7 +59,7 @@ class Polyline(
         References
         ----------
         - Graphics move_to and line_to interfaces document
-            - https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html  # noqa
 
         Examples
         --------

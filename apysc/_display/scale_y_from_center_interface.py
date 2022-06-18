@@ -60,7 +60,7 @@ class ScaleYFromCenterInterface(
         References
         ----------
         - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
-            - https://simon-ritchie.github.io/apysc/graphics_base_scale_from_center.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_center.html  # noqa
 
         Examples
         --------
@@ -94,7 +94,7 @@ class ScaleYFromCenterInterface(
         References
         ----------
         - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
-            - https://simon-ritchie.github.io/apysc/graphics_base_scale_from_center.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_center.html  # noqa
         """
         import apysc as ap
         self._initialize_scale_y_from_center_if_not_initialized()

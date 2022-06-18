@@ -13,7 +13,7 @@ class TimerEvent(Event):
     References
     ----------
     - TimerEvent class document
-        - https://simon-ritchie.github.io/apysc/timer_event.html
+        - https://simon-ritchie.github.io/apysc/en/timer_event.html
 
     Examples
     --------
@@ -54,7 +54,7 @@ class TimerEvent(Event):
         References
         ----------
         - TimerEvent class document
-            - https://simon-ritchie.github.io/apysc/timer_event.html
+            - https://simon-ritchie.github.io/apysc/en/timer_event.html
 
         Examples
         --------
@@ -92,7 +92,7 @@ class TimerEvent(Event):
         References
         ----------
         - TimerEvent class document
-            - https://simon-ritchie.github.io/apysc/timer_event.html
+            - https://simon-ritchie.github.io/apysc/en/timer_event.html
 
         Examples
         --------

@@ -32,9 +32,9 @@ laboris nisi ut aliquip ex ea commodo consequat.
 References
 ----------
 - Duis aute irure dolor in reprehenderit in voluptate
-    - https://simon-ritchie.github.io/apysc/test_doc_1.html
+    - https://simon-ritchie.github.io/apysc/en/test_doc_1.html
 - Velit esse cillum dolore eu fugiat nulla pariatur
-    - https://simon-ritchie.github.io/apysc/test_doc_2.html
+    - https://simon-ritchie.github.io/apysc/en/test_doc_2.html
 """
 
 import os
@@ -82,9 +82,9 @@ def sample_func_1(a: int, b: bool) -> str:
     References
     ----------
     - Duis aute irure dolor in reprehenderit in voluptate
-        - https://simon-ritchie.github.io/apysc/test_doc_3.html
+        - https://simon-ritchie.github.io/apysc/en/test_doc_3.html
     - Velit esse cillum dolore eu fugiat nulla pariatur
-        - https://simon-ritchie.github.io/apysc/test_doc_4.html
+        - https://simon-ritchie.github.io/apysc/en/test_doc_4.html
 
     Raises
     ------

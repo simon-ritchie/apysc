@@ -18,9 +18,9 @@ class Elif(IfBase):
     References
     ----------
     - Elif document
-        - https://simon-ritchie.github.io/apysc/elif.html
+        - https://simon-ritchie.github.io/apysc/en/elif.html
     - Each branch instruction class's scope variables reverting setting
-        - https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # noqa
 
     Notes
     -----
@@ -99,9 +99,9 @@ class Elif(IfBase):
         References
         ----------
         - Elif document
-            - https://simon-ritchie.github.io/apysc/elif.html
+            - https://simon-ritchie.github.io/apysc/en/elif.html
         - Each branch instruction class's scope variables reverting setting
-            - https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # noqa
         """
         super(Elif, self).__init__(
             condition=condition, locals_=locals_, globals_=globals_)

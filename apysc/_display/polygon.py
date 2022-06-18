@@ -21,7 +21,7 @@ class Polygon(
     References
     ----------
     - Graphics draw_polygon interface document
-        - https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html  # noqa
 
     Examples
     --------
@@ -62,7 +62,7 @@ class Polygon(
         References
         ----------
         - Graphics draw_polygon interface document
-            - https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html  # noqa
 
         Examples
         --------

@@ -25,7 +25,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
     References
     ----------
     - Boolean document
-        - https://simon-ritchie.github.io/apysc/boolean.html
+        - https://simon-ritchie.github.io/apysc/en/boolean.html
 
     Examples
     --------
@@ -65,7 +65,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         References
         ----------
         - Boolean document
-            - https://simon-ritchie.github.io/apysc/boolean.html
+            - https://simon-ritchie.github.io/apysc/en/boolean.html
 
         Examples
         --------
@@ -158,7 +158,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         References
         ----------
         - apysc fundamental data classes value interface
-            - https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
 
         Examples
         --------

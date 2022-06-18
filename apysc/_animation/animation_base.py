@@ -118,7 +118,7 @@ class AnimationBase(
         References
         ----------
         - AnimationBase class start interface
-            - https://simon-ritchie.github.io/apysc/animation_base_start.html
+            - https://simon-ritchie.github.io/apysc/en/animation_base_start.html
 
         Examples
         --------
@@ -199,9 +199,9 @@ class AnimationBase(
         References
         ----------
         - AnimationBase class animation_complete interface document
-            - https://simon-ritchie.github.io/apysc/animation_complete.html
+            - https://simon-ritchie.github.io/apysc/en/animation_complete.html
         - About the handler options' type document
-            - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html  # noqa
 
         Examples
         --------
@@ -268,7 +268,7 @@ class AnimationBase(
         References
         ----------
         - AnimationBase class target property interface document
-            - https://simon-ritchie.github.io/apysc/animation_base_target.html
+            - https://simon-ritchie.github.io/apysc/en/animation_base_target.html
 
         Examples
         --------

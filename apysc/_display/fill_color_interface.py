@@ -34,7 +34,7 @@ class FillColorInterface(
         References
         ----------
         - Graphics fill_color interface document
-            - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_fill_color.html
 
         Examples
         --------
@@ -70,7 +70,7 @@ class FillColorInterface(
         References
         ----------
         - Graphics fill_color interface document
-            - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_fill_color.html
         """
         self._update_fill_color_and_skip_appending_exp(value=value)
         self._append_fill_color_update_expression()

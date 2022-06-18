@@ -37,9 +37,9 @@ class Dictionary(
     References
     ----------
     - Dictionary document
-        - https://simon-ritchie.github.io/apysc/dictionary.html
+        - https://simon-ritchie.github.io/apysc/en/dictionary.html
     - Dictionary class generic type settings document
-        - https://simon-ritchie.github.io/apysc/dictionary_generic.html  # noqa
+        - https://simon-ritchie.github.io/apysc/en/dictionary_generic.html  # noqa
 
     Examples
     --------
@@ -80,9 +80,9 @@ class Dictionary(
         References
         ----------
         - Dictionary document
-            - https://simon-ritchie.github.io/apysc/dictionary.html
+            - https://simon-ritchie.github.io/apysc/en/dictionary.html
         - Dictionary class generic type settings document
-            - https://simon-ritchie.github.io/apysc/dictionary_generic.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/dictionary_generic.html  # noqa
 
         Examples
         --------
@@ -185,7 +185,7 @@ class Dictionary(
         References
         ----------
         - apysc fundamental data classes value interface
-            - https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
 
         Examples
         --------
@@ -308,7 +308,7 @@ class Dictionary(
         References
         ----------
         - Dictionary length interface document
-            - https://simon-ritchie.github.io/apysc/dictionary_length.html
+            - https://simon-ritchie.github.io/apysc/en/dictionary_length.html
 
         Examples
         --------
@@ -652,7 +652,7 @@ class Dictionary(
         References
         ----------
         - Dictionary get interface document
-            - https://simon-ritchie.github.io/apysc/dictionary_get.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/dictionary_get.html  # noqa
 
         Examples
         --------

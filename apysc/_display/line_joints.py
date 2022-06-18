@@ -20,7 +20,7 @@ class LineJoints(Enum):
     References
     ----------
     - Graphics line_style interface document
-        - https://simon-ritchie.github.io/apysc/graphics_line_style.html
+        - https://simon-ritchie.github.io/apysc/en/graphics_line_style.html
     """
     MITER = 'miter'
     ROUND = 'round'

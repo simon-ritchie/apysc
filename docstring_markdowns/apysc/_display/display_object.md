@@ -10,7 +10,7 @@ Display object (base) class for the common interfaces.<hr>
 
 **[References]**
 
-- [DisplayObject document](https://simon-ritchie.github.io/apysc/display_object.html)
+- [DisplayObject document](https://simon-ritchie.github.io/apysc/en/display_object.html)
 
 ### `__init__` method docstring
 
@@ -25,7 +25,7 @@ Display object (base) class for the common interfaces.<hr>
 
 **[References]**
 
-- [DisplayObject document](https://simon-ritchie.github.io/apysc/display_object.html)
+- [DisplayObject document](https://simon-ritchie.github.io/apysc/en/display_object.html)
 
 ### `_set_overflow_visible_setting` method docstring
 

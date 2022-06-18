@@ -217,4 +217,4 @@ animation_move.start()
 
 **[関連資料]**
 
-- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html)
+- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)

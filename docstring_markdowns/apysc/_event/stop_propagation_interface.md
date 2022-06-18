@@ -30,4 +30,4 @@ Stop event propagation.<hr>
 
 **[References]**
 
-- [Event class prevent_default and stop_propagation interfaces document](https://simon-ritchie.github.io/apysc/event_prevent_default_and_stop_propagation.html)
+- [Event class prevent_default and stop_propagation interfaces document](https://simon-ritchie.github.io/apysc/en/event_prevent_default_and_stop_propagation.html)

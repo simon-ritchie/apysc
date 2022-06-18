@@ -297,7 +297,7 @@ class Array(
         References
         ----------
         - Array class append and push interfaces document
-            - https://simon-ritchie.github.io/apysc/en/array_append_and_push.html
+            - https://simon-ritchie.github.io/apysc/en/array_append_and_push.html  # noqa
 
         Examples
         --------
@@ -325,7 +325,7 @@ class Array(
         References
         ----------
         - Array class append and push interfaces document
-            - https://simon-ritchie.github.io/apysc/en/array_append_and_push.html
+            - https://simon-ritchie.github.io/apysc/en/array_append_and_push.html  # noqa
 
         Examples
         --------

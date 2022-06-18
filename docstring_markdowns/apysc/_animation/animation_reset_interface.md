@@ -40,4 +40,4 @@ Stop all animations and reset.<hr>
 
 **[References]**
 
-- [animation_reset interface document](https://simon-ritchie.github.io/apysc/animation_reset.html)
+- [animation_reset interface document](https://simon-ritchie.github.io/apysc/en/animation_reset.html)

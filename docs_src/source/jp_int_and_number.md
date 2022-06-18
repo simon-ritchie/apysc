@@ -130,8 +130,8 @@ Int(10)
 
 **[関連資料]**
 
-- [Int と Number クラスの共通の各計算制御](https://simon-ritchie.github.io/apysc/jp_int_and_number_arithmetic_operations.html)
-- [Int と Number クラスの共通の各比較制御](https://simon-ritchie.github.io/apysc/jp_int_and_number_comparison_operations.html)
+- [Int と Number クラスの共通の各計算制御](https://simon-ritchie.github.io/apysc/en/jp_int_and_number_arithmetic_operations.html)
+- [Int と Number クラスの共通の各比較制御](https://simon-ritchie.github.io/apysc/en/jp_int_and_number_comparison_operations.html)
 
 ## Number クラスのコンストラクタのAPI
 
@@ -178,8 +178,8 @@ Number(20.8)
 
 **[関連資料]**
 
-- [Int と Number クラスの共通の各計算制御](https://simon-ritchie.github.io/apysc/jp_int_and_number_arithmetic_operations.html)
-- [Int と Number クラスの共通の各比較制御](https://simon-ritchie.github.io/apysc/jp_int_and_number_comparison_operations.html)
+- [Int と Number クラスの共通の各計算制御](https://simon-ritchie.github.io/apysc/en/jp_int_and_number_arithmetic_operations.html)
+- [Int と Number クラスの共通の各比較制御](https://simon-ritchie.github.io/apysc/en/jp_int_and_number_comparison_operations.html)
 
 ## value 属性のAPI
 
@@ -215,4 +215,4 @@ Number(20.8)
 
 **[関連資料]**
 
-- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/jp_fundamental_data_classes_value_interface.html)
+- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_fundamental_data_classes_value_interface.html)

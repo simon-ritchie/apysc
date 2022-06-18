@@ -163,7 +163,7 @@ True
 
 **[References]**
 
-- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)
+- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)
 
 ## not_ property API
 

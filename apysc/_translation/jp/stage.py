@@ -180,8 +180,8 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html)':  # noqa
-    '- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](https://simon-ritchie.github.io/apysc/jp_add_child_and_remove_child.html)',  # noqa
+    '- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html)':  # noqa
+    '- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](https://simon-ritchie.github.io/apysc/en/jp_add_child_and_remove_child.html)',  # noqa
 
     '## remove_child API':
     '## remove_child API',
@@ -216,8 +216,8 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html)':  # noqa
-    '- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](https://simon-ritchie.github.io/apysc/jp_add_child_and_remove_child.html)',  # noqa
+    '- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html)':  # noqa
+    '- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](https://simon-ritchie.github.io/apysc/en/jp_add_child_and_remove_child.html)',  # noqa
 
     '## contains API':
     '## contains API',
@@ -264,8 +264,8 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [contains interface document](https://simon-ritchie.github.io/apysc/contains.html)':  # noqa
-    '- [contains インターフェイス](https://simon-ritchie.github.io/apysc/jp_contains.html)',  # noqa
+    '- [contains interface document](https://simon-ritchie.github.io/apysc/en/contains.html)':  # noqa
+    '- [contains インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_contains.html)',  # noqa
 
     '## num_children property API':
     '## num_children property API',
@@ -300,8 +300,8 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [num_children interface document](https://simon-ritchie.github.io/apysc/num_children.html)':  # noqa
-    '- [num_children （子の件数属性）のインターフェイス](https://simon-ritchie.github.io/apysc/jp_num_children.html)',  # noqa
+    '- [num_children interface document](https://simon-ritchie.github.io/apysc/en/num_children.html)':  # noqa
+    '- [num_children （子の件数属性）のインターフェイス](https://simon-ritchie.github.io/apysc/en/jp_num_children.html)',  # noqa
 
     '## get_child_at API':
     '## get_child_at API',
@@ -348,7 +348,7 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [get_child_at interface document](https://simon-ritchie.github.io/apysc/get_child_at.html)':  # noqa
-    '- [get_child_at （特定位置の子の取得処理）のインターフェイス](https://simon-ritchie.github.io/apysc/jp_get_child_at.html)',  # noqa
+    '- [get_child_at interface document](https://simon-ritchie.github.io/apysc/en/get_child_at.html)':  # noqa
+    '- [get_child_at （特定位置の子の取得処理）のインターフェイス](https://simon-ritchie.github.io/apysc/en/jp_get_child_at.html)',  # noqa
 
 }

@@ -37,11 +37,11 @@ Timer class to handle function calling at regular intervals.<hr>
 
 **[References]**
 
-- [Timer document](https://simon-ritchie.github.io/apysc/timer.html)
-- [TimerEvent class document](https://simon-ritchie.github.io/apysc/timer_event.html)
-- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/timer_delay.html)
-- [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
-- [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/timer_repeat_count.html)
+- [Timer document](https://simon-ritchie.github.io/apysc/en/timer.html)
+- [TimerEvent class document](https://simon-ritchie.github.io/apysc/en/timer_event.html)
+- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/en/timer_delay.html)
+- [FPS enum document](https://simon-ritchie.github.io/apysc/en/fps.html)
+- [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html)
 
 ### `__init__` method docstring
 
@@ -84,12 +84,12 @@ Timer class to handle function calling at regular intervals.<hr>
 
 **[References]**
 
-- [Timer document](https://simon-ritchie.github.io/apysc/timer.html)
-- [TimerEvent class document](https://simon-ritchie.github.io/apysc/timer_event.html)
-- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/timer_delay.html)
-- [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
-- [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/timer_repeat_count.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [Timer document](https://simon-ritchie.github.io/apysc/en/timer.html)
+- [TimerEvent class document](https://simon-ritchie.github.io/apysc/en/timer_event.html)
+- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/en/timer_delay.html)
+- [FPS enum document](https://simon-ritchie.github.io/apysc/en/fps.html)
+- [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ### `_append_count_branch_expression` method docstring
 
@@ -174,7 +174,7 @@ Reset the timer count and stop this timer.<hr>
 
 **[References]**
 
-- [Timer class reset interface document](https://simon-ritchie.github.io/apysc/timer_reset.html)
+- [Timer class reset interface document](https://simon-ritchie.github.io/apysc/en/timer_reset.html)
 
 ### `start` method docstring
 
@@ -194,7 +194,7 @@ Start this timer.<hr>
 
 **[References]**
 
-- [Timer class start and stop interfaces](https://simon-ritchie.github.io/apysc/timer_start_and_stop.html)
+- [Timer class start and stop interfaces](https://simon-ritchie.github.io/apysc/en/timer_start_and_stop.html)
 
 ### `stop` method docstring
 
@@ -227,7 +227,7 @@ Stop this timer.<hr>
 
 **[References]**
 
-- [Timer class start and stop interfaces document](https://simon-ritchie.github.io/apysc/timer_start_and_stop.html)
+- [Timer class start and stop interfaces document](https://simon-ritchie.github.io/apysc/en/timer_start_and_stop.html)
 
 ### `timer_complete` method docstring
 
@@ -278,5 +278,5 @@ Add a timer complete event listener setting.<hr>
 
 **[References]**
 
-- [Timer class timer_complete interface document](https://simon-ritchie.github.io/apysc/timer_complete.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [Timer class timer_complete interface document](https://simon-ritchie.github.io/apysc/en/timer_complete.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)

@@ -131,10 +131,10 @@ Target animation type: <class 'apysc._animation.animation_x.AnimationX'>
 
 **[関連資料]**
 
-- [各アニメーションインターフェイスの duration （アニメーション時間）設定](https://simon-ritchie.github.io/apysc/jp_animation_duration.html)
-- [各アニメーションインターフェイスの delay （遅延時間）設定](https://simon-ritchie.github.io/apysc/jp_animation_delay.html)
+- [各アニメーションインターフェイスの duration （アニメーション時間）設定](https://simon-ritchie.github.io/apysc/en/jp_animation_duration.html)
+- [各アニメーションインターフェイスの delay （遅延時間）設定](https://simon-ritchie.github.io/apysc/en/jp_animation_delay.html)
 
-- [各アニメーションインターフェイスの返却値](https://simon-ritchie.github.io/apysc/jp_animation_return_value.html)
-- [連続したアニメーション設定](https://simon-ritchie.github.io/apysc/jp_sequential_animation.html)
+- [各アニメーションインターフェイスの返却値](https://simon-ritchie.github.io/apysc/en/jp_animation_return_value.html)
+- [連続したアニメーション設定](https://simon-ritchie.github.io/apysc/en/jp_sequential_animation.html)
 
-- [イージングのenum](https://simon-ritchie.github.io/apysc/jp_easing_enum.html)
+- [イージングのenum](https://simon-ritchie.github.io/apysc/en/jp_easing_enum.html)

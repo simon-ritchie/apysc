@@ -30,7 +30,7 @@ Int(5)
 
 **[References]**
 
-- [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/graphics_line_style.html)
+- [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/en/graphics_line_style.html)
 
 ### `__init__` method docstring
 
@@ -67,4 +67,4 @@ Int(5)
 
 **[References]**
 
-- [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/graphics_line_style.html)
+- [Graphics line_style interface document](https://simon-ritchie.github.io/apysc/en/graphics_line_style.html)

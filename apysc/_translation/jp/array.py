@@ -120,8 +120,8 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/array_comparison.html)':  # noqa
-    '- [Array クラスの比較の各インターフェイス](https://simon-ritchie.github.io/apysc/jp_array_comparison.html)',  # noqa
+    '- [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/en/array_comparison.html)':  # noqa
+    '- [Array クラスの比較の各インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_array_comparison.html)',  # noqa
 
     '## value property API':
     '## value 属性のAPI',
@@ -156,7 +156,7 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)':  # noqa
-    '- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/jp_fundamental_data_classes_value_interface.html)',  # noqa
+    '- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)':  # noqa
+    '- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_fundamental_data_classes_value_interface.html)',  # noqa
 
 }

@@ -28,11 +28,11 @@ Int(5)
 
 **[References]**
 
-- [Graphics draw_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_line.html)
-- [Graphics draw_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dotted_line.html)
-- [Graphics draw_dashed_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dashed_line.html)
-- [Graphics draw_round_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html)
-- [Graphics draw_dash_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html)
+- [Graphics draw_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html)
+- [Graphics draw_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dotted_line.html)
+- [Graphics draw_dashed_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dashed_line.html)
+- [Graphics draw_round_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_round_dotted_line.html)
+- [Graphics draw_dash_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dash_dotted_line.html)
 
 ### `__init__` method docstring
 
@@ -69,11 +69,11 @@ Int(5)
 
 **[References]**
 
-- [Graphics draw_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_line.html)
-- [Graphics draw_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dotted_line.html)
-- [Graphics draw_dashed_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dashed_line.html)
-- [Graphics draw_round_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html)
-- [Graphics draw_dash_dotted_line interface document](https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html)
+- [Graphics draw_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html)
+- [Graphics draw_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dotted_line.html)
+- [Graphics draw_dashed_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dashed_line.html)
+- [Graphics draw_round_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_round_dotted_line.html)
+- [Graphics draw_dash_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dash_dotted_line.html)
 
 ### `__repr__` method docstring
 

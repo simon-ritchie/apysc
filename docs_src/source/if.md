@@ -67,4 +67,4 @@ The `If` class requires passing the `Boolean` value as the condition.
 
 **[References]**
 
-- [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html)
+- [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html)

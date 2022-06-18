@@ -118,7 +118,7 @@ class AnimationBase(
         References
         ----------
         - AnimationBase class start interface
-            - https://simon-ritchie.github.io/apysc/en/animation_base_start.html
+            - https://simon-ritchie.github.io/apysc/en/animation_base_start.html  # noqa
 
         Examples
         --------
@@ -268,7 +268,7 @@ class AnimationBase(
         References
         ----------
         - AnimationBase class target property interface document
-            - https://simon-ritchie.github.io/apysc/en/animation_base_target.html
+            - https://simon-ritchie.github.io/apysc/en/animation_base_target.html  # noqa
 
         Examples
         --------

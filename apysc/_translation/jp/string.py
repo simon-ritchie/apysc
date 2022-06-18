@@ -75,11 +75,11 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [String class comparison operations document](https://simon-ritchie.github.io/apysc/string_comparison_operations.html)':  # noqa
-    '- [String クラスの比較制御](https://simon-ritchie.github.io/apysc/jp_string_comparison_operations.html)',  # noqa
+    '- [String class comparison operations document](https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html)':  # noqa
+    '- [String クラスの比較制御](https://simon-ritchie.github.io/apysc/en/jp_string_comparison_operations.html)',  # noqa
 
-    '- [String class addition and multiplication operations document](https://simon-ritchie.github.io/apysc/string_addition_and_multiplication.html)':  # noqa
-    '- [String クラスの加算と乗算の制御](https://simon-ritchie.github.io/apysc/jp_string_addition_and_multiplication.html)',  # noqa
+    '- [String class addition and multiplication operations document](https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html)':  # noqa
+    '- [String クラスの加算と乗算の制御](https://simon-ritchie.github.io/apysc/en/jp_string_addition_and_multiplication.html)',  # noqa
 
     '## value property API':
     '## value 属性のAPI',
@@ -114,7 +114,7 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)':  # noqa
-    '- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/jp_fundamental_data_classes_value_interface.html)',  # noqa
+    '- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)':  # noqa
+    '- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_fundamental_data_classes_value_interface.html)',  # noqa
 
 }

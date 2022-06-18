@@ -105,8 +105,8 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [Dictionary class generic type settings document](https://simon-ritchie.github.io/apysc/dictionary_generic.html)':  # noqa
-    '- [Dictionary クラスのジェネリックの型設定](https://simon-ritchie.github.io/apysc/jp_dictionary_generic.html)',  # noqa
+    '- [Dictionary class generic type settings document](https://simon-ritchie.github.io/apysc/en/dictionary_generic.html)':  # noqa
+    '- [Dictionary クラスのジェネリックの型設定](https://simon-ritchie.github.io/apysc/en/jp_dictionary_generic.html)',  # noqa
 
     '## value attribute API':
     '## value 属性のAPI',
@@ -141,7 +141,7 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)':  # noqa
-    '- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/jp_fundamental_data_classes_value_interface.html)',  # noqa
+    '- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)':  # noqa
+    '- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_fundamental_data_classes_value_interface.html)',  # noqa
 
 }

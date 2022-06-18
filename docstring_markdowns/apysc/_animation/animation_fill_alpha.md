@@ -29,12 +29,12 @@ The animation class for a fill alpha (opacity).<hr>
 
 **[References]**
 
-- [animation_fill_alpha interface document](https://simon-ritchie.github.io/apysc/animation_fill_alpha.html)
-- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)
-- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)
-- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
-- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
-- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
+- [animation_fill_alpha interface document](https://simon-ritchie.github.io/apysc/en/animation_fill_alpha.html)
+- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/en/animation_duration.html)
+- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/en/animation_return_value.html)
+- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/en/sequential_animation.html)
+- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/en/animation_parallel.html)
+- [Easing enum document](https://simon-ritchie.github.io/apysc/en/easing_enum.html)
 
 ### `__init__` method docstring
 

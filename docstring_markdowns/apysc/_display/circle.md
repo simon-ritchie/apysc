@@ -34,7 +34,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/graphics_draw_circle.html)
+- [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html)
 
 ### `__init__` method docstring
 
@@ -79,7 +79,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/graphics_draw_circle.html)
+- [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html)
 
 ### `__repr__` method docstring
 

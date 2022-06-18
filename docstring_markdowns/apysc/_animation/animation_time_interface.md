@@ -50,4 +50,4 @@ Get an animation elapsed millisecond.<hr>
 
 **[References]**
 
-- [animation_time interface document](https://simon-ritchie.github.io/apysc/animation_time.html)
+- [animation_time interface document](https://simon-ritchie.github.io/apysc/en/animation_time.html)

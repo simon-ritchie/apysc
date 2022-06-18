@@ -27,4 +27,4 @@ Display arguments information to console. This function saves a JavaScript `cons
 
 **[References]**
 
-- [Trace interface document](https://simon-ritchie.github.io/apysc/trace.html)
+- [Trace interface document](https://simon-ritchie.github.io/apysc/en/trace.html)

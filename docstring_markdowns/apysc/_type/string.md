@@ -34,9 +34,9 @@ String('Hello!Hello!Hello!')
 
 **[References]**
 
-- [String document](https://simon-ritchie.github.io/apysc/string.html)
-- [String class comparison operations document](https://simon-ritchie.github.io/apysc/string_comparison_operations.html)
-- [String class addition and multiplication operations document](https://simon-ritchie.github.io/apysc/string_addition_and_multiplication.html)
+- [String document](https://simon-ritchie.github.io/apysc/en/string.html)
+- [String class comparison operations document](https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html)
+- [String class addition and multiplication operations document](https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html)
 
 ### `__add__` method docstring
 
@@ -171,9 +171,9 @@ String('Hello World!')
 
 **[References]**
 
-- [String document](https://simon-ritchie.github.io/apysc/string.html)
-- [String class comparison operations document](https://simon-ritchie.github.io/apysc/string_comparison_operations.html)
-- [String class addition and multiplication operations document](https://simon-ritchie.github.io/apysc/string_addition_and_multiplication.html)
+- [String document](https://simon-ritchie.github.io/apysc/en/string.html)
+- [String class comparison operations document](https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html)
+- [String class addition and multiplication operations document](https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html)
 
 ### `__int__` method docstring
 

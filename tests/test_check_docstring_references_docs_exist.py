@@ -2,8 +2,8 @@ from random import randint
 from typing import List
 
 from retrying import retry
-from apysc._testing.testing_helper import assert_raises
 
+from apysc._testing.testing_helper import assert_raises
 from scripts import check_docstring_references_docs_exist
 
 

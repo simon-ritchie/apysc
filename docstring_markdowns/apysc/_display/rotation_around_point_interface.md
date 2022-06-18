@@ -102,7 +102,7 @@ Int(45)
 
 **[References]**
 
-- [GraphicsBase rotate_around_point interfaces document](https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_point.html)
+- [GraphicsBase rotate_around_point interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_base_rotation_around_point.html)
 
 ### `set_rotation_around_point` method docstring
 
@@ -121,4 +121,4 @@ Update a rotation value around the given coordinates.<hr>
 
 **[References]**
 
-- [GraphicsBase rotate_around_point interfaces document](https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_point.html)
+- [GraphicsBase rotate_around_point interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_base_rotation_around_point.html)

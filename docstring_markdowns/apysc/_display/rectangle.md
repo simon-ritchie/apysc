@@ -37,7 +37,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/graphics_draw_rect.html)
+- [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html)
 
 ### `__init__` method docstring
 
@@ -87,7 +87,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/graphics_draw_rect.html)
+- [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html)
 
 ### `__repr__` method docstring
 

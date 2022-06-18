@@ -29,7 +29,7 @@ Mouse event class.<hr>
 
 **[References]**
 
-- [Basic mouse event interfaces](https://simon-ritchie.github.io/apysc/mouse_event_basic.html)
+- [Basic mouse event interfaces](https://simon-ritchie.github.io/apysc/en/mouse_event_basic.html)
 
 ### `__init__` method docstring
 
@@ -58,7 +58,7 @@ Mouse event class.<hr>
 
 **[References]**
 
-- [Basic mouse event interfaces](https://simon-ritchie.github.io/apysc/mouse_event_basic.html)
+- [Basic mouse event interfaces](https://simon-ritchie.github.io/apysc/en/mouse_event_basic.html)
 
 ### `_append_local_x_getter_expression` method docstring
 

@@ -29,7 +29,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html)
+- [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html)
 
 ### `__init__` method docstring
 
@@ -65,7 +65,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html)
+- [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html)
 
 ### `__repr__` method docstring
 

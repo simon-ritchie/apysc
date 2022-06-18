@@ -50,8 +50,8 @@ Add mouse out event listener setting.<hr>
 
 **[References]**
 
-- [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/en/mouseover_and_mouseout.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ### `unbind_mouseout` method docstring
 
@@ -85,7 +85,7 @@ Unbind a specified handler's mouse-out event.<hr>
 
 **[References]**
 
-- [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html)
+- [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/en/mouseover_and_mouseout.html)
 
 ### `unbind_mouseout_all` method docstring
 
@@ -112,4 +112,4 @@ Unbind all mouse out events.<hr>
 
 **[References]**
 
-- [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html)
+- [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/en/mouseover_and_mouseout.html)

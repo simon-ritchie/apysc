@@ -102,22 +102,22 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)':  # noqa
-    '- [各アニメーションインターフェイスの duration （アニメーション時間）設定](https://simon-ritchie.github.io/apysc/jp_animation_duration.html)',  # noqa
+    '- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/en/animation_duration.html)':  # noqa
+    '- [各アニメーションインターフェイスの duration （アニメーション時間）設定](https://simon-ritchie.github.io/apysc/en/jp_animation_duration.html)',  # noqa
 
-    '- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/animation_delay.html)':  # noqa
-    '- [各アニメーションインターフェイスの delay （遅延時間）設定](https://simon-ritchie.github.io/apysc/jp_animation_delay.html)',  # noqa
+    '- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/en/animation_delay.html)':  # noqa
+    '- [各アニメーションインターフェイスの delay （遅延時間）設定](https://simon-ritchie.github.io/apysc/en/jp_animation_delay.html)',  # noqa
 
-    '- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)':  # noqa
-    '- [各アニメーションインターフェイスの返却値](https://simon-ritchie.github.io/apysc/jp_animation_return_value.html)',  # noqa
+    '- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/en/animation_return_value.html)':  # noqa
+    '- [各アニメーションインターフェイスの返却値](https://simon-ritchie.github.io/apysc/en/jp_animation_return_value.html)',  # noqa
 
-    '- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)':  # noqa
-    '- [連続したアニメーション設定](https://simon-ritchie.github.io/apysc/jp_sequential_animation.html)',  # noqa
+    '- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/en/sequential_animation.html)':  # noqa
+    '- [連続したアニメーション設定](https://simon-ritchie.github.io/apysc/en/jp_sequential_animation.html)',  # noqa
 
-    '- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)':  # noqa
-    '- [animation_parallel （並列アニメーション設定）のインターフェイス](https://simon-ritchie.github.io/apysc/jp_animation_parallel.html)',  # noqa
+    '- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/en/animation_parallel.html)':  # noqa
+    '- [animation_parallel （並列アニメーション設定）のインターフェイス](https://simon-ritchie.github.io/apysc/en/jp_animation_parallel.html)',  # noqa
 
-    '- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)':  # noqa
-    '- [イージングのenum](https://simon-ritchie.github.io/apysc/jp_easing_enum.html)',  # noqa
+    '- [Easing enum document](https://simon-ritchie.github.io/apysc/en/easing_enum.html)':  # noqa
+    '- [イージングのenum](https://simon-ritchie.github.io/apysc/en/jp_easing_enum.html)',  # noqa
 
 }

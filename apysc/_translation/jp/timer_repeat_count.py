@@ -84,20 +84,20 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [Timer document](https://simon-ritchie.github.io/apysc/timer.html)':
-    '- [Timer クラス](https://simon-ritchie.github.io/apysc/jp_timer.html)',
+    '- [Timer document](https://simon-ritchie.github.io/apysc/en/timer.html)':  # noqa
+    '- [Timer クラス](https://simon-ritchie.github.io/apysc/en/jp_timer.html)',
 
-    '- [TimerEvent class document](https://simon-ritchie.github.io/apysc/timer_event.html)':  # noqa
-    '- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/jp_timer_event.html)',  # noqa
+    '- [TimerEvent class document](https://simon-ritchie.github.io/apysc/en/timer_event.html)':  # noqa
+    '- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/en/jp_timer_event.html)',  # noqa
 
-    '- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/timer_delay.html)':  # noqa
-    '- [Timer クラスの delay 設定](https://simon-ritchie.github.io/apysc/jp_timer_delay.html)',  # noqa
+    '- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/en/timer_delay.html)':  # noqa
+    '- [Timer クラスの delay 設定](https://simon-ritchie.github.io/apysc/en/jp_timer_delay.html)',  # noqa
 
-    '- [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)':
-    '- [FPS の enum](https://simon-ritchie.github.io/apysc/jp_fps.html)',
+    '- [FPS enum document](https://simon-ritchie.github.io/apysc/en/fps.html)':  # noqa
+    '- [FPS の enum](https://simon-ritchie.github.io/apysc/en/jp_fps.html)',
 
-    '- [About the handler options\' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)':  # noqa
-    '- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html)',  # noqa
+    '- [About the handler options\' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)':  # noqa
+    '- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)',  # noqa
 
     '## repeat_count property API':
     '## repeat_count 属性のAPI',

@@ -28,7 +28,7 @@ Int(5)
 
 **[References]**
 
-- [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html)
+- [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html)
 
 ### `__init__` method docstring
 
@@ -63,7 +63,7 @@ Int(5)
 
 **[References]**
 
-- [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html)
+- [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html)
 
 ### `__repr__` method docstring
 

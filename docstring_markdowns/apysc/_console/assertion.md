@@ -154,7 +154,7 @@ This interface is used instead of assert_equal for Array class comparison (JavaS
 
 **[References]**
 
-- [assert_arrays_equal and assert_arrays_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_arrays_equal_and_arrays_not_equal.html)
+- [assert_arrays_equal and assert_arrays_not_equal interfaces document](https://simon-ritchie.github.io/apysc/en/assert_arrays_equal_and_arrays_not_equal.html)
 
 ## `assert_arrays_not_equal` function docstring
 
@@ -188,7 +188,7 @@ This interface is used instead of assert_not_equal for Array class comparison (J
 
 **[References]**
 
-- [assert_arrays_equal and assert_arrays_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_arrays_equal_and_arrays_not_equal.html)
+- [assert_arrays_equal and assert_arrays_not_equal interfaces document](https://simon-ritchie.github.io/apysc/en/assert_arrays_equal_and_arrays_not_equal.html)
 
 ## `assert_defined` function docstring
 
@@ -215,7 +215,7 @@ JavaScript assertion interface for defined (not undefined) value condition.<hr>
 
 **[References]**
 
-- [assert_defined and assert_undefined interfaces document](https://simon-ritchie.github.io/apysc/assert_defined_and_undefined.html)
+- [assert_defined and assert_undefined interfaces document](https://simon-ritchie.github.io/apysc/en/assert_defined_and_undefined.html)
 
 ## `assert_dicts_equal` function docstring
 
@@ -249,7 +249,7 @@ This interface is used instead of assert_equal for Dictionary class comparison (
 
 **[References]**
 
-- [assert_dicts_equal and assert_dicts_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_dicts_equal_and_dicts_not_equal.html)
+- [assert_dicts_equal and assert_dicts_not_equal interfaces document](https://simon-ritchie.github.io/apysc/en/assert_dicts_equal_and_dicts_not_equal.html)
 
 ## `assert_dicts_not_equal` function docstring
 
@@ -283,7 +283,7 @@ This interface is used instead of assert_not_equal for Dictionary class comparis
 
 **[References]**
 
-- [assert_dicts_equal and assert_dicts_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_dicts_equal_and_dicts_not_equal.html)
+- [assert_dicts_equal and assert_dicts_not_equal interfaces document](https://simon-ritchie.github.io/apysc/en/assert_dicts_equal_and_dicts_not_equal.html)
 
 ## `assert_equal` function docstring
 
@@ -317,7 +317,7 @@ JavaScript assertion interface for equal condition.<hr>
 
 **[References]**
 
-- [assert_equal and assert_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_equal_and_not_equal.html)
+- [assert_equal and assert_not_equal interfaces document](https://simon-ritchie.github.io/apysc/en/assert_equal_and_not_equal.html)
 
 ## `assert_false` function docstring
 
@@ -347,7 +347,7 @@ JavaScript assertion interface for false condition.<hr>
 
 **[References]**
 
-- [assert_true and assert_false interfaces document](https://simon-ritchie.github.io/apysc/assert_true_and_false.html)
+- [assert_true and assert_false interfaces document](https://simon-ritchie.github.io/apysc/en/assert_true_and_false.html)
 
 ## `assert_not_equal` function docstring
 
@@ -381,7 +381,7 @@ JavaScript assertion interface for not equal condition.<hr>
 
 **[References]**
 
-- [assert_equal and assert_not_equal interfaces document](https://simon-ritchie.github.io/apysc/assert_equal_and_not_equal.html)
+- [assert_equal and assert_not_equal interfaces document](https://simon-ritchie.github.io/apysc/en/assert_equal_and_not_equal.html)
 
 ## `assert_true` function docstring
 
@@ -411,7 +411,7 @@ JavaScript assertion interface for true condition.<hr>
 
 **[References]**
 
-- [assert_true and assert_false interfaces document](https://simon-ritchie.github.io/apysc/assert_true_and_false.html)
+- [assert_true and assert_false interfaces document](https://simon-ritchie.github.io/apysc/en/assert_true_and_false.html)
 
 ## `assert_undefined` function docstring
 
@@ -440,4 +440,4 @@ JavaScript assertion interface for undefined value condition.<hr>
 
 **[References]**
 
-- [assert_defined and assert_undefined interfaces document](https://simon-ritchie.github.io/apysc/assert_defined_and_undefined.html)
+- [assert_defined and assert_undefined interfaces document](https://simon-ritchie.github.io/apysc/en/assert_defined_and_undefined.html)

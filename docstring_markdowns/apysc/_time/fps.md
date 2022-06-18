@@ -21,7 +21,7 @@ Definition of the FPS enum.<hr>
 
 **[References]**
 
-- [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
+- [FPS enum document](https://simon-ritchie.github.io/apysc/en/fps.html)
 
 ## `FPSDefinition` class docstring
 

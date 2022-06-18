@@ -199,7 +199,7 @@ ap.save_overall_html(
 
 **[関連資料]**
 
-- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html)
+- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)
 
 ## unbind_mouseover API
 
@@ -303,7 +303,7 @@ ap.save_overall_html(
 
 **[関連資料]**
 
-- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html)
+- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)
 
 ## unbind_mouseout API
 

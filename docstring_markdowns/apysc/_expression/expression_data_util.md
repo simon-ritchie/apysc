@@ -370,7 +370,7 @@ Append js expression.<hr>
 
 **[References]**
 
-- [append_js_expression interface document](https://simon-ritchie.github.io/apysc/append_js_expression.html)
+- [append_js_expression interface document](https://simon-ritchie.github.io/apysc/en/append_js_expression.html)
 
 ## `empty_expression` function docstring
 

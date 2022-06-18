@@ -10,7 +10,7 @@ Class for the return expression.<hr>
 
 **[References]**
 
-- [Return document](https://simon-ritchie.github.io/apysc/return.html)
+- [Return document](https://simon-ritchie.github.io/apysc/en/return.html)
 
 ### `__init__` method docstring
 
@@ -34,7 +34,7 @@ This class can be instantiated only in an event handler scope.<hr>
 
 **[References]**
 
-- [Return document](https://simon-ritchie.github.io/apysc/return.html)
+- [Return document](https://simon-ritchie.github.io/apysc/en/return.html)
 
 ### `_validate_current_scope_is_event_handler` method docstring
 

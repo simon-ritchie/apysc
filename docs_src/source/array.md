@@ -103,7 +103,7 @@ Array([0, 1, 2])
 
 **[References]**
 
-- [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/array_comparison.html)
+- [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/en/array_comparison.html)
 
 ## value property API
 
@@ -134,4 +134,4 @@ Array([0, 1, 2])
 
 **[References]**
 
-- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)
+- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)

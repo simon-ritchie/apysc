@@ -131,4 +131,4 @@ with Elif(condition, ...):
 
 **[関連資料]**
 
-- [分岐条件の各クラスのスコープ内変数の復元設定](https://simon-ritchie.github.io/apysc/jp_branch_instruction_variables_reverting_setting.html)
+- [分岐条件の各クラスのスコープ内変数の復元設定](https://simon-ritchie.github.io/apysc/en/jp_branch_instruction_variables_reverting_setting.html)

@@ -62,8 +62,8 @@ String('Hello World!')
 
 **[関連資料]**
 
-- [String クラスの比較制御](https://simon-ritchie.github.io/apysc/jp_string_comparison_operations.html)
-- [String クラスの加算と乗算の制御](https://simon-ritchie.github.io/apysc/jp_string_addition_and_multiplication.html)
+- [String クラスの比較制御](https://simon-ritchie.github.io/apysc/en/jp_string_comparison_operations.html)
+- [String クラスの加算と乗算の制御](https://simon-ritchie.github.io/apysc/en/jp_string_addition_and_multiplication.html)
 
 ## value 属性のAPI
 
@@ -92,4 +92,4 @@ String('Hello World!')
 
 **[関連資料]**
 
-- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/jp_fundamental_data_classes_value_interface.html)
+- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_fundamental_data_classes_value_interface.html)

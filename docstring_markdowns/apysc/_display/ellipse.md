@@ -37,7 +37,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_ellipse interface](https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html)
+- [Graphics draw_ellipse interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html)
 
 ### `__init__` method docstring
 
@@ -87,7 +87,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_ellipse interface](https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html)
+- [Graphics draw_ellipse interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html)
 
 ### `__repr__` method docstring
 

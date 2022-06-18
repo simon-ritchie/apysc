@@ -121,11 +121,11 @@ ap.save_overall_html(
 
 **[References]**
 
-- [Timer document](https://simon-ritchie.github.io/apysc/timer.html)
-- [TimerEvent class document](https://simon-ritchie.github.io/apysc/timer_event.html)
-- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/timer_delay.html)
-- [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [Timer document](https://simon-ritchie.github.io/apysc/en/timer.html)
+- [TimerEvent class document](https://simon-ritchie.github.io/apysc/en/timer_event.html)
+- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/en/timer_delay.html)
+- [FPS enum document](https://simon-ritchie.github.io/apysc/en/fps.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ## repeat_count property API
 

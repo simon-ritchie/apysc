@@ -136,10 +136,10 @@ ap.save_overall_html(
 
 **[関連資料]**
 
-- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/jp_timer_event.html)
-- [Timer クラスの delay 設定](https://simon-ritchie.github.io/apysc/jp_timer_delay.html)
+- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/en/jp_timer_event.html)
+- [Timer クラスの delay 設定](https://simon-ritchie.github.io/apysc/en/jp_timer_delay.html)
 
-- [FPS の enum](https://simon-ritchie.github.io/apysc/jp_fps.html)
-- [Timer クラスの repeat_count 設定](https://simon-ritchie.github.io/apysc/jp_timer_repeat_count.html)
+- [FPS の enum](https://simon-ritchie.github.io/apysc/en/jp_fps.html)
+- [Timer クラスの repeat_count 設定](https://simon-ritchie.github.io/apysc/en/jp_timer_repeat_count.html)
 
-- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html)
+- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)

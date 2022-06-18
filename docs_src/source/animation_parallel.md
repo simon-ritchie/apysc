@@ -128,8 +128,8 @@ Target animation type: <class 'apysc._animation.animation_x.AnimationX'>
 
 **[References]**
 
-- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)
-- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/animation_delay.html)
-- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)
-- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
-- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
+- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/en/animation_duration.html)
+- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/en/animation_delay.html)
+- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/en/animation_return_value.html)
+- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/en/sequential_animation.html)
+- [Easing enum document](https://simon-ritchie.github.io/apysc/en/easing_enum.html)

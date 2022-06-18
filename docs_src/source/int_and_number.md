@@ -129,8 +129,8 @@ Int(10)
 
 **[References]**
 
-- [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html)
-- [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html)
+- [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)
+- [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)
 
 ## Number class constructor API
 
@@ -179,8 +179,8 @@ Number(20.8)
 
 **[References]**
 
-- [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html)
-- [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html)
+- [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)
+- [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)
 
 ## value property API
 
@@ -218,4 +218,4 @@ Number(20.8)
 
 **[References]**
 
-- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)
+- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)

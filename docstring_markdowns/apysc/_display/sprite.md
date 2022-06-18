@@ -40,7 +40,7 @@ Int(50)
 
 **[References]**
 
-- [Sprite document](https://simon-ritchie.github.io/apysc/sprite.html)
+- [Sprite document](https://simon-ritchie.github.io/apysc/en/sprite.html)
 
 ### `__init__` method docstring
 
@@ -85,7 +85,7 @@ Int(50)
 
 **[References]**
 
-- [Sprite document](https://simon-ritchie.github.io/apysc/sprite.html)
+- [Sprite document](https://simon-ritchie.github.io/apysc/en/sprite.html)
 
 ### `__repr__` method docstring
 

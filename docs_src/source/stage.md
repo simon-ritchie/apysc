@@ -169,7 +169,7 @@ This option is useful when using the apysc project multiple times (for an easily
 
 **[References]**
 
-- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html)
+- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html)
 
 ## remove_child API
 
@@ -206,7 +206,7 @@ None
 
 **[References]**
 
-- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html)
+- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html)
 
 ## contains API
 
@@ -253,7 +253,7 @@ Boolean(False)
 
 **[References]**
 
-- [contains interface document](https://simon-ritchie.github.io/apysc/contains.html)
+- [contains interface document](https://simon-ritchie.github.io/apysc/en/contains.html)
 
 ## num_children property API
 
@@ -289,7 +289,7 @@ Int(2)
 
 **[References]**
 
-- [num_children interface document](https://simon-ritchie.github.io/apysc/num_children.html)
+- [num_children interface document](https://simon-ritchie.github.io/apysc/en/num_children.html)
 
 ## get_child_at API
 
@@ -336,4 +336,4 @@ True
 
 **[References]**
 
-- [get_child_at interface document](https://simon-ritchie.github.io/apysc/get_child_at.html)
+- [get_child_at interface document](https://simon-ritchie.github.io/apysc/en/get_child_at.html)

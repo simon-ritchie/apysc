@@ -36,7 +36,7 @@ Timer event class.<hr>
 
 **[References]**
 
-- [TimerEvent class document](https://simon-ritchie.github.io/apysc/timer_event.html)
+- [TimerEvent class document](https://simon-ritchie.github.io/apysc/en/timer_event.html)
 
 ### `__init__` method docstring
 
@@ -74,4 +74,4 @@ Timer event class.<hr>
 
 **[References]**
 
-- [TimerEvent class document](https://simon-ritchie.github.io/apysc/timer_event.html)
+- [TimerEvent class document](https://simon-ritchie.github.io/apysc/en/timer_event.html)

@@ -50,8 +50,8 @@ Add mouse up event listener setting.<hr>
 
 **[References]**
 
-- [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/en/mousedown_and_mouseup.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ### `unbind_mouseup` method docstring
 
@@ -85,7 +85,7 @@ Unbind a specified handler's mouse-up event.<hr>
 
 **[References]**
 
-- [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html)
+- [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/en/mousedown_and_mouseup.html)
 
 ### `unbind_mouseup_all` method docstring
 
@@ -112,4 +112,4 @@ Unbind all mouse up events.<hr>
 
 **[References]**
 
-- [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html)
+- [Mousedown and mouseup interfaces document](https://simon-ritchie.github.io/apysc/en/mousedown_and_mouseup.html)

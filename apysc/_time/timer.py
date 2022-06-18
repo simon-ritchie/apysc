@@ -326,7 +326,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         References
         ----------
         - Timer class start and stop interfaces
-            - https://simon-ritchie.github.io/apysc/en/timer_start_and_stop.html
+            - https://simon-ritchie.github.io/apysc/en/timer_start_and_stop.html  # noqa
 
         Examples
         --------
@@ -442,7 +442,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         References
         ----------
         - Timer class start and stop interfaces document
-            - https://simon-ritchie.github.io/apysc/en/timer_start_and_stop.html
+            - https://simon-ritchie.github.io/apysc/en/timer_start_and_stop.html  # noqa
 
         Examples
         --------

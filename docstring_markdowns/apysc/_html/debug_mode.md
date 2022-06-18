@@ -150,7 +150,7 @@ Set the debug mode for the HTML and JavaScript debugging. If calling this functi
 
 **[References]**
 
-- [set_debug_mode interface document](https://simon-ritchie.github.io/apysc/set_debug_mode.html)
+- [set_debug_mode interface document](https://simon-ritchie.github.io/apysc/en/set_debug_mode.html)
 
 ## `unset_debug_mode` function docstring
 
@@ -170,7 +170,7 @@ Unset the debug mode for the HTML and JavaScript debugging.<hr>
 
 **[References]**
 
-- [unset_debug_mode interface document](https://simon-ritchie.github.io/apysc/unset_debug_mode.html)
+- [unset_debug_mode interface document](https://simon-ritchie.github.io/apysc/en/unset_debug_mode.html)
 
 ## `DebugInfo` class docstring
 

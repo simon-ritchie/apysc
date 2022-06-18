@@ -108,8 +108,8 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [About the handler options\' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)':  # noqa
-    '- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html)',  # noqa
+    '- [About the handler options\' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)':  # noqa
+    '- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)',  # noqa
 
     '## unbind_mouseover API':
     '## unbind_mouseover API',
@@ -204,8 +204,8 @@ MAPPING: Dict[str, str] = {
     '**[References]**':
     '**[関連資料]**',
 
-    '- [About the handler options\' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)':  # noqa
-    '- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp_about_handler_options_type.html)',  # noqa
+    '- [About the handler options\' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)':  # noqa
+    '- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)',  # noqa
 
     '## unbind_mouseout API':
     '## unbind_mouseout API',

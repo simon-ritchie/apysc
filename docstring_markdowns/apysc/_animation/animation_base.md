@@ -122,8 +122,8 @@ This interface can only use before an animation starts<hr>
 
 **[References]**
 
-- [AnimationBase class animation_complete interface document](https://simon-ritchie.github.io/apysc/animation_complete.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+- [AnimationBase class animation_complete interface document](https://simon-ritchie.github.io/apysc/en/animation_complete.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ### `start` method docstring
 
@@ -152,4 +152,4 @@ Start an animation with current settings.<hr>
 
 **[References]**
 
-- [AnimationBase class start interface](https://simon-ritchie.github.io/apysc/animation_base_start.html)
+- [AnimationBase class start interface](https://simon-ritchie.github.io/apysc/en/animation_base_start.html)

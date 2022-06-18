@@ -527,7 +527,11 @@ Array([1, 2, 3, 4])
 
 ### `clear` method docstring
 
-Empty this array's value.
+Empty this array's value.<hr>
+
+**[References]**
+
+- [Array class clear interface document](https://simon-ritchie.github.io/apysc/array_clear.md)
 
 ### `concat` method docstring
 

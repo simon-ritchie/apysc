@@ -89,10 +89,29 @@ def _extract_file_names(*, dir_path: str = './apysc/') -> List[str]:
                     continue
                 if not reference.url.endswith('.html'):
                     continue
+                _assert_url_contains_language_path(url=reference.url)
                 file_name: str = reference.url.split('/')[-1]
                 file_names.append(file_name)
     file_names = list(set(file_names))
     return file_names
+
+
+def _assert_url_contains_language_path(*, url: str) -> None:
+    """
+    Assert whether a specified URL contains the language path (en).
+
+    Parameters
+    ----------
+    url : str
+        A target URL to check.
+
+    Raises
+    ------
+    AssertionError
+        If a specified URL does not contain the language path.
+    """
+    language_path: str = url.split('/')[-2]
+    assert language_path == 'en', url
 
 
 if __name__ == '__main__':

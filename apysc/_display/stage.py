@@ -33,8 +33,8 @@ class Stage(
 
     References
     ----------
-    Stage document
-        https://simon-ritchie.github.io/apysc/stage.html
+    - Stage document
+        - https://simon-ritchie.github.io/apysc/en/stage.html
 
     Examples
     --------
@@ -84,8 +84,8 @@ class Stage(
 
         References
         ----------
-        Stage document
-            https://simon-ritchie.github.io/apysc/stage.html
+        - Stage document
+            - https://simon-ritchie.github.io/apysc/en/stage.html
 
         Examples
         --------

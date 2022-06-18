@@ -110,8 +110,8 @@ def display_on_colaboratory(
 
     References
     ----------
-    display_on_colaboratory interface document
-        https://simon-ritchie.github.io/apysc/display_on_colaboratory.html
+    - display_on_colaboratory interface document
+        - https://simon-ritchie.github.io/apysc/en/display_on_colaboratory.html  # noqa
     """
     from IPython.display import HTML
     from IPython.display import display

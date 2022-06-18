@@ -188,8 +188,8 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
         References
         ----------
-        apysc fundamental data classes value interface
-            https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
+        - apysc fundamental data classes value interface
+            - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
         """
         from apysc._type.variable_name_interface import VariableNameInterface
         self._set_value_and_skip_expression_appending(value=value)

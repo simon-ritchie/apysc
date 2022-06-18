@@ -116,8 +116,8 @@ class NumberValueInterface(
 
         References
         ----------
-        apysc fundamental data classes value interface
-            https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
+        - apysc fundamental data classes value interface
+            - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
         """
         self._set_value_and_skip_expression_appending(value=value)
         if isinstance(value, NumberValueInterface):

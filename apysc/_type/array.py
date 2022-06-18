@@ -1419,6 +1419,21 @@ class Array(
         """
         return bool(self._value)
 
+    def clear(self) -> None:
+        """
+        Empty this array's value.
+        """
+        self._value.clear()
+        self._append_clear_expression()
+
+    def _append_clear_expression(self) -> None:
+        """
+        Append a `clear` interface's expression.
+        """
+        import apysc as ap
+        expression: str = f'{self.variable_name}.splice(0);'
+        ap.append_js_expression(expression=expression)
+
     _value_snapshots: Dict[str, List[T]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:

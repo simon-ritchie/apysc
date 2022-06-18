@@ -718,3 +718,28 @@ class TestArray:
 
         array_2: ap.Array = ap.Array((0, 1, 2))
         assert array_2._initial_value == (0, 1, 2)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_clear_expression(self) -> None:
+        expression_data_util.empty_expression()
+        ap.Stage()
+        arr: ap.Array = ap.Array([1, 2, 3])
+        arr._append_clear_expression()
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f'{arr.variable_name}.splice(0);'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_clear(self) -> None:
+        expression_data_util.empty_expression()
+        ap.Stage()
+        arr: ap.Array = ap.Array([1, 2, 3])
+        arr.clear()
+        assert arr._value == []
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f'{arr.variable_name}.splice(0);'
+        )
+        assert expected in expression

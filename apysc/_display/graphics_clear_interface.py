@@ -24,7 +24,6 @@ class GraphicsClearInterface:
     _line_color: String
     _line_thickness: Int
     _line_alpha: Number
-    _children: Array[DisplayObject]
     _current_line: Optional[Polyline]
     _line_cap: String
     _line_joints: String
@@ -89,8 +88,7 @@ class GraphicsClearInterface:
         self._line_alpha.value = 1.0
         if isinstance(self, ChildInterface):
             self._initialize_children_if_not_initialized()
-        while self._children:
-            self._children[0].remove_from_parent()
+            self.remove_children()
         if hasattr(self, '_current_line'):
             self._current_line = None
         if hasattr(self, '_line_cap'):

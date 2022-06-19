@@ -113,7 +113,6 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [GraphicsBase class scale_from_point interfaces](graphics_base_scale_from_point.md)
 - [GraphicsBase class flip_x and flip_y interfaces](graphics_base_flip_interfaces.md)
 - [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md)
-- [GraphicsBase class clear interface](graphics_clear.md)
 
 ---
 
@@ -149,6 +148,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Graphics class line_dash_setting interface](graphics_line_dash_setting.md)
 - [Graphics class line_round_dot_setting interface](graphics_line_round_dot_setting.md)
 - [Graphics class line_dash_dot_setting interface](graphics_line_dash_dot_setting.md)
+- [Graphics class clear interface](graphics_clear.md)
 
 ---
 

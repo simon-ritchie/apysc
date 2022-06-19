@@ -96,7 +96,7 @@ The parent class, such as the `Sprite` or `Stage`, has the following interfaces:
 
 ## DisplayObject and GraphicsBase classes
 
-The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphics class, such as the `Rectangle` class.
+The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphic class, such as the `Rectangle` class.
 
 ### Table of contents
 
@@ -113,6 +113,7 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [GraphicsBase class scale_from_point interfaces](graphics_base_scale_from_point.md)
 - [GraphicsBase class flip_x and flip_y interfaces](graphics_base_flip_interfaces.md)
 - [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md)
+- [GraphicsBase class clear interface](graphics_clear.md)
 
 ---
 

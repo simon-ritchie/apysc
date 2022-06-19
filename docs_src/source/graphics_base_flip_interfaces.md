@@ -1,6 +1,6 @@
 # GraphicsBase flip_x and flip_y interfaces
 
-This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `flip_x` and `flip_y` property interfaces.
+This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `flip_x` and `flip_y` property interfaces.
 
 ## What interfaces are these?
 

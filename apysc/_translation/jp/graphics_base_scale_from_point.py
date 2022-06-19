@@ -12,7 +12,7 @@ MAPPING: Dict[str, str] = {
     '# GraphicsBase get_scale_from_point and set_scale_from_point interfaces':  # noqa
     '# GraphicsBase クラスの get_scale_from_point と set_scale_from_point のインターフェイス',  # noqa
 
-    'This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `get_scale_x_from_point`, `get_scale_y_from_point`, `set_scale_x_from_point`, and `set_scale_y_from_point` method interfaces.':  # noqa
+    'This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `get_scale_x_from_point`, `get_scale_y_from_point`, `set_scale_x_from_point`, and `set_scale_y_from_point` method interfaces.':  # noqa
     'このページでは`GraphicsBase`クラス（`Rectangle`などのグラフィッククラスの基底クラス）の`get_scale_x_from_point`、`get_scale_y_from_point`、`set_scale_x_from_point`、`set_scale_y_from_point`メソッドの各インターフェイスについて説明します。',  # noqa
 
     '## What interfaces are these?':

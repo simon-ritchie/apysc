@@ -12,7 +12,7 @@ MAPPING: Dict[str, str] = {
     '# GraphicsBase scale_x_from_center and scale_y_from_center interfaces':
     '# GraphicsBase クラスの scale_x_from_center と scale_y_from_center インターフェイス',  # noqa
 
-    'This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `scale_x_from_center` and `scale_y_from_center` property interfaces.':  # noqa
+    'This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `scale_x_from_center` and `scale_y_from_center` property interfaces.':  # noqa
     'このページでは`GraphicsBase`クラス（`Rectangle`などの各グラフィッククラスの基底クラス）の`scale_x_from_center`と`scale_y_from_center`属性のインターフェイスについて説明します。',  # noqa
 
     '## What interfaces are these?':

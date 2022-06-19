@@ -14,7 +14,7 @@ $ pip install apysc
 
 ## Create stage and export HTML
 
-`Stage` instance is apysc's space for displaying each graphics. You can set arguments of `stage_width` for width setting, `stage_height` for height setting, and `background_color` for background.
+`Stage` instance is apysc's space for displaying each graphic. You can set arguments of `stage_width` for width setting, `stage_height` for height setting, and `background_color` for background.
 
 ```py
 # runnable

@@ -1,6 +1,6 @@
 # GraphicsBase rotation_around_point interfaces
 
-This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `get_rotation_around_point` and `set_rotation_around_point` method interfaces.
+This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `get_rotation_around_point` and `set_rotation_around_point` method interfaces.
 
 ## What interfaces are these?
 

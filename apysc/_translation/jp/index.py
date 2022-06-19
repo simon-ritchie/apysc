@@ -216,7 +216,7 @@ MAPPING: Dict[str, str] = {
     '## DisplayObject and GraphicsBase classes':
     '## DisplayObject と GraphicsBase の各クラス',
 
-    'The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphics class, such as the `Rectangle` class.':  # noqa
+    'The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphic class, such as the `Rectangle` class.':  # noqa
     '`DisplayObject`クラスは各表示用のオブジェクトの基底クラスです。`GraphicsBase`クラスは`DisplayObject`のサブクラスであり、且つ`Rectangle`などの各グラフィックスの基底クラスとなります。',  # noqa
 
     '### Table of contents':

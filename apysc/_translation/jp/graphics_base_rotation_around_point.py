@@ -12,7 +12,7 @@ MAPPING: Dict[str, str] = {
     '# GraphicsBase rotation_around_point interfaces':
     '# GraphicsBase クラスの rotation_around_point インターフェイス',
 
-    'This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `get_rotation_around_point` and `set_rotation_around_point` method interfaces.':  # noqa
+    'This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `get_rotation_around_point` and `set_rotation_around_point` method interfaces.':  # noqa
     'このページでは`GraphicsBase`クラス（`Rectangle`などの各グラフィックスクラスの基底クラス）の`get_rotation_around_point`と`set_rotation_around_point`の各メソッドのインターフェイスについて説明します。',  # noqa
 
     '## What interfaces are these?':

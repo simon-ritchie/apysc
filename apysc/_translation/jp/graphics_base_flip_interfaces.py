@@ -12,7 +12,7 @@ MAPPING: Dict[str, str] = {
     '# GraphicsBase flip_x and flip_y interfaces':
     '# GraphicsBase クラスの flip_x と flip_y インターフェイス',
 
-    'This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `flip_x` and `flip_y` property interfaces.':  # noqa
+    'This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `flip_x` and `flip_y` property interfaces.':  # noqa
     'このページでは`GraphicsBase`クラス（`Rectangle`などの各グラフィッククラスの基底クラス）の`flip_x`と`flip_y`属性のインターフェイスについて説明します。',  # noqa
 
     '## What interfaces are these?':

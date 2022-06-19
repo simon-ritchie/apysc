@@ -1,6 +1,6 @@
 # GraphicsBase scale_x_from_center and scale_y_from_center interfaces
 
-This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `scale_x_from_center` and `scale_y_from_center` property interfaces.
+This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `scale_x_from_center` and `scale_y_from_center` property interfaces.
 
 ## What interfaces are these?
 

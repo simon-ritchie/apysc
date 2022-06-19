@@ -30,7 +30,7 @@ MAPPING: Dict[str, str] = {
     '## Create stage and export HTML':
     '## Stageのインスタンスを作成し、HTMLを出力する',
 
-    '`Stage` instance is apysc\'s space for displaying each graphics. You can set arguments of `stage_width` for width setting, `stage_height` for height setting, and `background_color` for background.':  # noqa
+    '`Stage` instance is apysc\'s space for displaying each graphic. You can set arguments of `stage_width` for width setting, `stage_height` for height setting, and `background_color` for background.':  # noqa
     '`Stage`のインスタンスはapyscの各グラフィックスを表示する領域となるインスタンスです。幅の設定としての`stage_width`引数、高さの設定としての`stage_height`引数、そして背景色としての`background_color`引数を設定することができます。',  # noqa
 
     '```py\n# runnable\nimport apysc as ap\n\nstage = ap.Stage(stage_width=300, stage_height=180, background_color=\'#333\')\n```':  # noqa

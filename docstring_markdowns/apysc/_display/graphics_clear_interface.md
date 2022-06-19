@@ -34,3 +34,9 @@ Int(0)
 >>> sprite.graphics.fill_color
 String('')
 ```
+
+<hr>
+
+**[References]**
+
+- [Graphics clear interface document](https://simon-ritchie.github.io/apysc/en/graphics_clear.html)

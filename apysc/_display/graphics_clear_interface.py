@@ -58,6 +58,11 @@ class GraphicsClearInterface:
 
         >>> sprite.graphics.fill_color
         String('')
+
+        References
+        ----------
+        - Graphics clear interface document
+            - https://simon-ritchie.github.io/apysc/en/graphics_clear.html
         """
         import apysc as ap
         from apysc._display.begin_fill_interface import BeginFillInterface

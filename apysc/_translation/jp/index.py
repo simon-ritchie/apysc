@@ -345,6 +345,9 @@ MAPPING: Dict[str, str] = {
     '- [Graphics class line_dash_dot_setting interface](graphics_line_dash_dot_setting.md)':  # noqa
     '- [Graphics クラスの line_dash_dot_setting (一点鎖線設定)のインターフェイス](jp_graphics_line_dash_dot_setting.md)',  # noqa
 
+    '- [Graphics class clear interface](graphics_clear.md)':
+    '- [Graphics クラスの clear インターフェイス](jp_graphics_clear.md)',
+
     '---':
     '---',
 

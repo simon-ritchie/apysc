@@ -2649,4 +2649,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='remove_children interface',
             val='remove_children インターフェイス'),
+        Mapping(
+            key='Graphics class clear interface',
+            val='Graphics クラスの clear インターフェイス'),
     ])

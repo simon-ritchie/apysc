@@ -186,6 +186,8 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [Graphics クラスの line_round_dot_setting (点線(丸)設定)のインターフェイス](jp_graphics_line_round_dot_setting.md)
 - [Graphics クラスの line_dash_dot_setting (一点鎖線設定)のインターフェイス](jp_graphics_line_dash_dot_setting.md)
 
+- [Graphics クラスの clear インターフェイス](jp_graphics_clear.md)
+
 ---
 
 ## イベントの共通の各インターフェイス

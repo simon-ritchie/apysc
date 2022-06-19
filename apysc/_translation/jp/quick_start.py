@@ -18,8 +18,8 @@ MAPPING: Dict[str, str] = {
     '## Installing':
     '## インストール',
 
-    'To use apysc library Python 3.6 or the later version is required.':
-    'apyscのライブラリを使うにはPython3.6もしくはそれ以降のPythonバージョンが必要です。',
+    'To use apysc library Python 3.7 or the later version is required.':
+    'apyscのライブラリを使うにはPython3.7もしくはそれ以降のPythonバージョンが必要です。',
 
     'You can use the pip command to install apysc.':
     'apyscはpipのコマンドを使ってインストールすることができます。',

@@ -4,18 +4,22 @@
 from apysc._display.graphics import Graphics
 from apysc._display.graphics_base import GraphicsBase
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.int import Int
+from apysc._type.string import String
+from apysc._type.number import Number
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_fill_expression(
-        *, graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, fill_color: String,
+        expression: str, indent_num: int) -> str:
     """
     Append a fill expression to specified expression's string.
 
     Parameters
     ----------
-    graphics : Graphics
-        Target Graphics instance.
+    fill_color : String
+        A fill-color to use.
     expression : str
         Expression string to be appended fill expression.
     indent_num : int
@@ -28,25 +32,25 @@ def append_fill_expression(
     """
     from apysc._string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    if graphics.fill_color == '':
+    if fill_color._value == '':
         expression += f'\n{spaces}fill: "none",'
         return expression
     expression += (
-        f'\n{spaces}fill: {graphics.fill_color.variable_name},'
+        f'\n{spaces}fill: {fill_color.variable_name},'
     )
     return expression
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_fill_opacity_expression(
-        *, graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, fill_alpha: Number, expression: str, indent_num: int) -> str:
     """
     Append a fill opacity expression to a specified expression's string.
 
     Parameters
     ----------
-    graphics : Graphics
-        Target Graphics instance.
+    fill_alpha : Number
+        A fill-alpha to use.
     expression : str
         Expression string to be appended fill opacity expression.
     indent_num : int
@@ -60,21 +64,21 @@ def append_fill_opacity_expression(
     from apysc._string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}"fill-opacity": {graphics.fill_alpha.variable_name},'
+        f'\n{spaces}"fill-opacity": {fill_alpha.variable_name},'
     )
     return expression
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_x_expression(
-        *, graphic: GraphicsBase, expression: str, indent_num: int) -> str:
+        *, x: Int, expression: str, indent_num: int) -> str:
     """
     Append x position expression to specified expression's string.
 
     Parameters
     ----------
-    graphic : GraphicsBase
-        Target graphic instance, for example, Rectangle.
+    x : Int
+        An x-coordinate to use.
     expression : str
         Expression string to be appended x position expression.
     indent_num : int
@@ -88,21 +92,21 @@ def append_x_expression(
     from apysc._string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}x: {graphic.x.variable_name},'
+        f'\n{spaces}x: {x.variable_name},'
     )
     return expression
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_y_expression(
-        *, graphic: GraphicsBase, expression: str, indent_num: int) -> str:
+        *, y: Int, expression: str, indent_num: int) -> str:
     """
     Append y position expression to specified expression's string.
 
     Parameters
     ----------
-    graphic : GraphicsBase
-        Target graphic instance, for example, Rectangle.
+    y : Int
+        A y-coordinate to use.
     expression : str
         Expression string to be appended y position expression.
     indent_num : int
@@ -116,21 +120,21 @@ def append_y_expression(
     from apysc._string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}y: {graphic.y.variable_name},'
+        f'\n{spaces}y: {y.variable_name},'
     )
     return expression
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_stroke_expression(
-        *, graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, line_color: String, expression: str, indent_num: int) -> str:
     """
     Append stroke expression to specified expression's string.
 
     Parameters
     ----------
-    graphics : Graphics
-        Target Graphics instance.
+    line_color : String
+        A line-color to use.
     expression : str
         Expression string to be appended stroke expression.
     indent_num : int
@@ -142,25 +146,25 @@ def append_stroke_expression(
         After appended expression string.
     """
     from apysc._string import indent_util
-    if graphics.line_color == '':
+    if line_color._value == '':
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}stroke: {graphics.line_color.variable_name},'
+        f'\n{spaces}stroke: {line_color.variable_name},'
     )
     return expression
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_stroke_width_expression(
-        *, graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, line_thickness: Int, expression: str, indent_num: int) -> str:
     """
     Append stroke width expression to specified expression's string.
 
     Parameters
     ----------
-    graphics : Graphics
-        Target Graphics instance.
+    line_thickness : Int
+        A line-thickness to use.
     expression : str
         Expression string to be appended stroke width expression.
     indent_num : int
@@ -175,21 +179,21 @@ def append_stroke_width_expression(
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}"stroke-width": '
-        f'{graphics.line_thickness.variable_name},'
+        f'{line_thickness.variable_name},'
     )
     return expression
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_stroke_opacity_expression(
-        *, graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, line_alpha: Number, expression: str, indent_num: int) -> str:
     """
     Append stroke opacity expression to specified expression's string.
 
     Parameters
     ----------
-    graphics : Graphics
-        Target Graphics instance.
+    line_alpha : Number
+        A line-alpha to use.
     expression : str
         Expression string to be appended stroke opacity expression.
     indent_num : int
@@ -203,21 +207,21 @@ def append_stroke_opacity_expression(
     from apysc._string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}"stroke-opacity": {graphics.line_alpha.variable_name},'
+        f'\n{spaces}"stroke-opacity": {line_alpha.variable_name},'
     )
     return expression
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_stroke_linecap_expression(
-        *, graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, line_cap: String, expression: str, indent_num: int) -> str:
     """
     Append stroke line cap expression to specified expression's string.
 
     Parameters
     ----------
-    graphics : Graphics
-        Target Graphics instance.
+    line_cap : String
+        A line-cap to use.
     expression : str
         Expression string to be appended stroke linecap expression.
     indent_num : int
@@ -230,26 +234,26 @@ def append_stroke_linecap_expression(
     """
     import apysc as ap
     from apysc._string import indent_util
-    if graphics.line_cap == ap.LineCaps.BUTT.value:
+    if line_cap._value == ap.LineCaps.BUTT.value:
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}"stroke-linecap": {graphics.line_cap.variable_name},'
+        f'\n{spaces}"stroke-linecap": {line_cap.variable_name},'
     )
     return expression
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_stroke_linejoin_expression(
-        *, graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, line_joints: String, expression: str, indent_num: int) -> str:
     """
     Append stroke line-join expression to specified
     expression's string.
 
     Parameters
     ----------
-    graphics : Graphics
-        Target Graphics instance.
+    line_joints : String
+        A line-join to use.
     expression : str
         Expression string to be appended stroke linejoin expression.
     indent_num : int
@@ -262,11 +266,11 @@ def append_stroke_linejoin_expression(
     """
     import apysc as ap
     from apysc._string import indent_util
-    if graphics.line_joints == ap.LineJoints.MITER.value:
+    if line_joints._value == ap.LineJoints.MITER.value:
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}"stroke-linejoin": '
-        f'{graphics.line_joints.variable_name},'
+        f'{line_joints.variable_name},'
     )
     return expression

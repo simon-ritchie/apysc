@@ -13,22 +13,20 @@ from apysc._expression import var_names
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_fill_expression() -> None:
-    ap.Stage()
-    sprite: ap.Sprite = ap.Sprite()
-    graphics: Graphics = sprite.graphics
+    fill_color: ap.String = ap.String('')
     expression: str = '.attr({'
     expression = graphics_expression.append_fill_expression(
-        graphics=graphics, expression=expression, indent_num=1)
+        fill_color=fill_color, expression=expression, indent_num=1)
     assert expression == '.attr({\n  fill: "none",'
 
-    graphics.begin_fill(color='#333')
+    fill_color.value = ap.String('#333')
     expression = '.attr({'
     expression = graphics_expression.append_fill_expression(
-        graphics=graphics, expression=expression, indent_num=1)
+        fill_color=fill_color, expression=expression, indent_num=1)
     match: Optional[Match] = re.search(
         pattern=(
             r'\.attr\(\{'
-            rf'\n  fill: {var_names.STRING}.+?,'
+            rf'\n  fill: {fill_color.variable_name},'
         ),
         string=expression,
         flags=re.MULTILINE)
@@ -37,18 +35,14 @@ def test_append_fill_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_x_expression() -> None:
-    ap.Stage()
-    sprite: ap.Sprite = ap.Sprite()
-    rectangle: ap.Rectangle = ap.Rectangle(
-        parent=sprite.graphics,
-        x=100, y=200, width=300, height=400)
     expression: str = '.attr({'
+    x: ap.Int = ap.Int(100)
     expression = graphics_expression.append_x_expression(
-        graphic=rectangle, expression=expression, indent_num=1)
+        x=x, expression=expression, indent_num=1)
     match: Optional[Match] = re.search(
         pattern=(
             r'\.attr\(\{'
-            rf'\n  x: {var_names.INT}.+?,'
+            rf'\n  x: {x.variable_name},'
         ),
         string=expression,
         flags=re.MULTILINE)
@@ -57,35 +51,28 @@ def test_append_x_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_y_expression() -> None:
-    ap.Stage()
-    sprite: ap.Sprite = ap.Sprite()
-    rectangle: ap.Rectangle = ap.Rectangle(
-        parent=sprite.graphics,
-        x=100, y=200, width=300, height=400)
+    y: ap.Int = ap.Int(200)
     expression: str = '.attr({'
     expression = graphics_expression.append_y_expression(
-        graphic=rectangle, expression=expression, indent_num=1)
+        y=y, expression=expression, indent_num=1)
     match: Optional[Match] = re.search(
         pattern=(
             r'\.attr\(\{'
-            rf'\n  y: {var_names.INT}.+?,'),
+            rf'\n  y: {y.variable_name},'),
         string=expression, flags=re.MULTILINE)
     assert match is not None
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_fill_opacity_expression() -> None:
-    ap.Stage()
-    sprite: ap.Sprite = ap.Sprite()
-    graphics: Graphics = sprite.graphics
+    fill_alpha: ap.Number = ap.Number(0.5)
     expression: str = '.attr({'
-    graphics.begin_fill(color='#333', alpha=0.5)
     expression = graphics_expression.append_fill_opacity_expression(
-        graphics=graphics, expression=expression, indent_num=1)
+        fill_alpha=fill_alpha, expression=expression, indent_num=1)
     match: Optional[Match] = re.search(
         pattern=(
             r'\.attr\(\{'
-            rf'\n  "fill-opacity": {var_names.NUMBER}.+?,'),
+            rf'\n  "fill-opacity": {fill_alpha.variable_name},'),
         string=expression,
         flags=re.MULTILINE)
     assert match is not None
@@ -93,21 +80,19 @@ def test_append_fill_opacity_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_expression() -> None:
-    ap.Stage()
-    sprite: ap.Sprite = ap.Sprite()
-    graphics: Graphics = sprite.graphics
+    line_color: ap.String = ap.String('')
     expression: str = '.attr({'
     expression = graphics_expression.append_stroke_expression(
-        graphics=graphics, expression=expression, indent_num=1)
+        line_color=line_color, expression=expression, indent_num=1)
     assert expression == '.attr({'
 
-    graphics.line_style(color='#666')
+    line_color.value = ap.String('#666')
     expression = graphics_expression.append_stroke_expression(
-        graphics=graphics, expression=expression, indent_num=1)
+        line_color=line_color, expression=expression, indent_num=1)
     match: Optional[Match] = re.search(
         pattern=(
             r'\.attr\(\{'
-            rf'\n  stroke: {var_names.STRING}.+?,'
+            rf'\n  stroke: {line_color.variable_name},'
         ),
         string=expression,
         flags=re.MULTILINE)
@@ -116,21 +101,14 @@ def test_append_stroke_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_width_expression() -> None:
-    ap.Stage()
-    sprite: ap.Sprite = ap.Sprite()
-    graphics: Graphics = sprite.graphics
+    line_thickness: ap.Int = ap.Int(3)
     expression: str = '.attr({'
-    expression = graphics_expression.append_stroke_expression(
-        graphics=graphics, expression=expression, indent_num=1)
-    assert expression == '.attr({'
-
-    graphics.line_style(color='#666', thickness=3)
     expression = graphics_expression.append_stroke_width_expression(
-        graphics=graphics, expression=expression, indent_num=1)
+        line_thickness=line_thickness, expression=expression, indent_num=1)
     match: Optional[Match] = re.search(
         pattern=(
             r'\.attr\(\{'
-            rf'\n  "stroke-width": {var_names.INT}.+?,'),
+            rf'\n  "stroke-width": {line_thickness.variable_name},'),
         string=expression,
         flags=re.MULTILINE)
     assert match is not None
@@ -138,21 +116,14 @@ def test_append_stroke_width_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_opacity_expression() -> None:
-    ap.Stage()
-    sprite: ap.Sprite = ap.Sprite()
-    graphics: Graphics = sprite.graphics
+    line_alpha: ap.Number = ap.Number(0.25)
     expression: str = '.attr({'
-    expression = graphics_expression.append_stroke_expression(
-        graphics=graphics, expression=expression, indent_num=1)
-    assert expression == '.attr({'
-
-    graphics.line_style(color='#666', alpha=0.25)
     expression = graphics_expression.append_stroke_opacity_expression(
-        graphics=graphics, expression=expression, indent_num=1)
+        line_alpha=line_alpha, expression=expression, indent_num=1)
     match: Optional[Match] = re.search(
         pattern=(
             r'\.attr\(\{'
-            rf'\n  "stroke-opacity": {var_names.NUMBER}.+?,'),
+            rf'\n  "stroke-opacity": {line_alpha.variable_name},'),
         string=expression,
         flags=re.MULTILINE)
     assert match is not None
@@ -160,23 +131,22 @@ def test_append_stroke_opacity_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_linecap_expression() -> None:
-    ap.Stage()
-    sprite: ap.Sprite = ap.Sprite()
+    line_cap: ap.String = ap.String(ap.LineCaps.BUTT.value)
     expression: str = graphics_expression.append_stroke_linecap_expression(
-        graphics=sprite.graphics,
+        line_cap=line_cap,
         expression='.attr({',
         indent_num=1)
     assert expression == '.attr({'
 
-    sprite.graphics.line_style(color='#0af', cap=ap.LineCaps.ROUND)
+    line_cap = ap.String(ap.LineCaps.ROUND.value)
     expression = graphics_expression.append_stroke_linecap_expression(
-        graphics=sprite.graphics,
+        line_cap=line_cap,
         expression='.attr({',
         indent_num=1)
     match: Optional[Match] = re.search(
         pattern=(
             r'.attr\(\{'
-            rf'\n  "stroke-linecap": {var_names.STRING}_.+,'
+            rf'\n  "stroke-linecap": {line_cap.variable_name},'
         ),
         string=expression, flags=re.MULTILINE)
     assert match is not None
@@ -184,17 +154,15 @@ def test_append_stroke_linecap_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_linejoin_expression() -> None:
-    ap.Stage()
-    sprite: ap.Sprite = ap.Sprite()
     expression: str = graphics_expression.append_stroke_linejoin_expression(
-        graphics=sprite.graphics,
+        line_joints=ap.String(ap.LineJoints.MITER.value),
         expression='.attr({',
         indent_num=1)
     assert expression == '.attr({'
 
-    sprite.graphics.line_style(color='#0af', joints=ap.LineJoints.BEVEL)
+    line_joints: ap.String = ap.String(ap.LineJoints.BEVEL.value)
     expression = graphics_expression.append_stroke_linejoin_expression(
-        graphics=sprite.graphics,
+        line_joints=line_joints,
         expression='.attr({',
         indent_num=1)
     match: Optional[Match] = re.search(

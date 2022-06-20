@@ -6,7 +6,7 @@ from typing import Union
 from apysc._display import graphics
 from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface
-from apysc._display.line_base import LineBase
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
 from apysc._html.debug_mode import add_debug_info_setting
@@ -15,7 +15,7 @@ from apysc._validation import arg_validation_decos
 
 
 class Ellipse(
-        CxInterface, CyInterface, LineBase,
+        CxInterface, CyInterface, GraphicsBase,
         WidthAndHeightInterfacesForEllipse):
     """
     The ellipse vector graphics class.

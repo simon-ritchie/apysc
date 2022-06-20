@@ -1,7 +1,7 @@
 """Class implementation for fill alpha interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc._animation.animation_fill_alpha_interface import \
     AnimationFillAlphaInterface
@@ -117,13 +117,13 @@ class FillAlphaInterface(
         ap.append_js_expression(expression=expression)
 
     def _update_fill_alpha_and_skip_appending_exp(
-            self, *, value: Number) -> None:
+            self, *, value: Union[float, Number]) -> None:
         """
         Update the fill opacity and skip appending expression.
 
         Parameters
         ----------
-        value : Number
+        value : float or Number
             Fill opacity to set.
         """
         from apysc._converter import cast

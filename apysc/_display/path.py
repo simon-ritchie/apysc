@@ -4,7 +4,7 @@
 from typing import List
 
 from apysc._display import graphics
-from apysc._display.line_base import LineBase
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._geom.path_data_base import PathDataBase
@@ -12,7 +12,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
 
-class Path(XInterface, YInterface, LineBase):
+class Path(XInterface, YInterface, GraphicsBase):
     """
     The path vector graphics class.
 

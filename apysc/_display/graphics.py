@@ -173,9 +173,8 @@ class Graphics(
         >>> rectangle.fill_color
         String('#00aaff')
         """
-        rectangle: Rectangle = Rectangle(
-            parent=self, x=x, y=y, width=width, height=height)
-        self.add_child(child=rectangle)
+        rectangle: Rectangle = Rectangle._create_with_graphics(
+            graphics=self, x=x, y=y, width=width, height=height)
         return rectangle
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -242,8 +241,8 @@ class Graphics(
         Int(15)
         """
         import apysc as ap
-        rectangle: Rectangle = Rectangle(
-            parent=self, x=x, y=y, width=width, height=height)
+        rectangle: Rectangle = Rectangle._create_with_graphics(
+            graphics=self, x=x, y=y, width=width, height=height)
         if isinstance(ellipse_width, int):
             ellipse_width = ap.Int(ellipse_width)
         if isinstance(ellipse_height, int):

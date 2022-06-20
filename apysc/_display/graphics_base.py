@@ -1,9 +1,10 @@
 """Class implementation for graphic's base class.
 """
 
-from typing import Union
+from typing import Optional, Union
+from abc import ABC
+from abc import abstractmethod
 
-from apysc._display import graphics
 from apysc._display.display_object import DisplayObject
 from apysc._display.flip_x_interface import FlipXInterface
 from apysc._display.flip_y_interface import FlipYInterface
@@ -24,14 +25,52 @@ from apysc._display.skew_y_interface import SkewYInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._type.string import String
+from apysc._type.number import Number
+from apysc._display.fill_alpha_interface import FillAlphaInterface
+from apysc._display.fill_color_interface import FillColorInterface
+from apysc._display.line_alpha_interface import LineAlphaInterface
+from apysc._display.line_color_interface import LineColorInterface
+from apysc._display.line_dash_dot_setting_interface import \
+    LineDashDotSettingInterface
+from apysc._display.line_dash_setting_interface import LineDashSettingInterface
+from apysc._display.line_dot_setting_interface import LineDotSettingInterface
+from apysc._display.line_joints_interface import LineJointsInterface
+from apysc._display.line_round_dot_setting_interface import \
+    LineRoundDotSettingInterface
+from apysc._display.line_dot_setting import LineDotSetting
+from apysc._display.line_dash_setting import LineDashSetting
+from apysc._display.line_round_dot_setting import LineRoundDotSetting
+from apysc._display.line_dash_dot_setting import LineDashDotSetting
+from apysc._display.child_interface import ChildInterface
+from apysc._display.line_caps import LineCaps
+from apysc._display.line_joints import LineJoints
+from apysc._display.stage import get_stage
+
 
 
 class GraphicsBase(
-        DisplayObject, RotationAroundCenterInterface,
-        RotationAroundPointInterface, ScaleXFromCenterInterface,
-        ScaleYFromCenterInterface, ScaleXFromPointInterface,
-        ScaleYFromPointInterface, FlipXInterface, FlipYInterface,
-        SkewXInterface, SkewYInterface):
+        DisplayObject,
+        RotationAroundCenterInterface,
+        RotationAroundPointInterface,
+        ScaleXFromCenterInterface,
+        ScaleYFromCenterInterface,
+        ScaleXFromPointInterface,
+        ScaleYFromPointInterface,
+        FlipXInterface,
+        FlipYInterface,
+        SkewXInterface,
+        SkewYInterface,
+        FillColorInterface,
+        FillAlphaInterface,
+        LineColorInterface,
+        LineAlphaInterface,
+        LineJointsInterface,
+        LineDotSettingInterface,
+        LineDashSettingInterface,
+        LineRoundDotSettingInterface,
+        LineDashDotSettingInterface,
+        ABC):
 
     _variable_name: str
 
@@ -43,7 +82,7 @@ class GraphicsBase(
     def __init__(
             self,
             *,
-            parent: 'graphics.Graphics',
+            parent: Optional[ChildInterface],
             x: Union[int, Int],
             y: Union[int, Int],
             variable_name: str) -> None:
@@ -52,8 +91,9 @@ class GraphicsBase(
 
         Parameters
         ----------
-        parent : Graphics
-            Parent `Graphics` instance.
+        parent : ChildInterface or None
+            Parent instance. If a specified value is None,
+            this interface uses a stage instance.
         x : int or Int
             X position.
         y : int or Int
@@ -63,11 +103,7 @@ class GraphicsBase(
             js expression.
         """
         import apysc as ap
-        from apysc._display.graphics import Graphics
-        from apysc._validation import display_validation
 
-        display_validation.validate_graphics(graphics=parent)
-        self.parent_graphics: Graphics = parent
         if isinstance(x, ap.Int):
             x_: ap.Int = x
         else:
@@ -80,3 +116,168 @@ class GraphicsBase(
         self._y = y_
         super(GraphicsBase, self).__init__(
             variable_name=variable_name)
+        if parent is None:
+            parent = get_stage()
+        parent.add_child(child=self)
+
+    @add_debug_info_setting(module_name=__name__, class_name='GraphicsBase')
+    def _set_initial_basic_values(
+            self, *,
+            fill_color: Union[str, String],
+            fill_alpha: Union[float, Number],
+            line_color: Union[str, String],
+            line_thickness: Union[int, Int],
+            line_alpha: Union[float, Number],
+            line_cap: Optional[Union[String, LineCaps]],
+            line_joints: Optional[Union[String, LineJoints]]) -> None:
+        """
+        Set initial fundamental values (such as the fill color or
+        line thickness).
+
+        Parameters
+        ----------
+        fill_color : str or String
+            A fill-color value to set.
+        fill_alpha : float or Number
+            A fill-alpha value to set.
+        line_color : str or String
+            A line-color value to set.
+        line_thickness : int or Int
+            A line-thickness value to set.
+        line_alpha : float or Number
+            A line-alpha value to set.
+        line_cap : String or LineCaps or None
+            A line-cap value to set.
+        line_joints : String or LineJoints or None
+            A line-joints value to set.
+        """
+        self._set_initial_fill_color_if_not_blank(
+            fill_color=fill_color)
+        self._update_fill_alpha_and_skip_appending_exp(
+            value=fill_alpha)
+        self._set_initial_line_color_if_not_blank(
+            line_color=line_color)
+        self._update_line_thickness_and_skip_appending_exp(
+            value=line_thickness)
+        self._update_line_alpha_and_skip_appending_exp(
+            value=line_alpha)
+        if line_cap is not None:
+            self._update_line_cap_and_skip_appending_exp(
+                value=line_cap)
+        if line_joints is not None:
+            self._update_line_joints_and_skip_appending_exp(
+                value=line_joints)
+
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._fill_alpha, attr_name='fill_alpha')
+        self._append_attr_to_linking_stack(
+            attr=self._fill_alpha, attr_name='fill_alpha')
+
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._fill_color, attr_name='fill_color')
+        self._append_attr_to_linking_stack(
+            attr=self._fill_color, attr_name='fill_color')
+
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._line_color, attr_name='line_color')
+        self._append_attr_to_linking_stack(
+            attr=self._line_color, attr_name='line_color')
+
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._line_alpha, attr_name='line_alpha')
+        self._append_attr_to_linking_stack(
+            attr=self._line_alpha, attr_name='line_alpha')
+
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._line_thickness, attr_name='line_thickness')
+        self._append_attr_to_linking_stack(
+            attr=self._line_thickness, attr_name='line_thickness')
+
+    @add_debug_info_setting(module_name=__name__, class_name='GraphicsBase')
+    def _set_line_setting_if_not_none_value_exists(
+            self,
+            line_dot_setting: Optional[LineDotSetting],
+            line_dash_setting: Optional[LineDashSetting],
+            line_round_dot_setting: Optional[LineRoundDotSetting],
+            line_dash_dot_setting: Optional[LineDashDotSetting]) -> None:
+        """
+        If a line setting (dot, dash, or something else) with a value
+        other than None exists, set that value to the attribute.
+
+        Parameters
+        ----------
+        line_dot_setting : Optional[LineDotSetting]
+            A dot setting to set.
+        line_dash_setting : Optional[LineDashSetting]
+            A dash setting to set.
+        line_round_dot_setting : Optional[LineRoundDotSetting]
+            A round-dot setting to set.
+        line_dash_dot_setting : Optional[LineDashDotSetting]
+            A dash dot (1-dot chain) setting to set.
+        """
+        if line_dot_setting is not None:
+            self.line_dot_setting = line_dot_setting
+            return
+        if line_dash_setting is not None:
+            self.line_dash_setting = line_dash_setting
+            return
+        if line_round_dot_setting is not None:
+            self.line_round_dot_setting = line_round_dot_setting
+            return
+        if line_dash_dot_setting is not None:
+            self.line_dash_dot_setting = line_dash_dot_setting
+            return
+
+    @add_debug_info_setting(
+        module_name=__name__, class_name='GraphicsBase')
+    def _append_basic_vals_expression(
+            self, *, expression: str, indent_num: int) -> str:
+        """
+        Append basic values expression to a specified one.
+
+        Parameters
+        ----------
+        expression : str
+            Target expression.
+        indent_num : int
+            Indentation number.
+
+        Returns
+        -------
+        expression : str
+            After appending expression.
+        """
+        from apysc._display import graphics_expression
+        expression = graphics_expression.append_fill_expression(
+            fill_color=self._fill_color, expression=expression,
+            indent_num=indent_num)
+        expression = graphics_expression.append_fill_opacity_expression(
+            fill_alpha=self._fill_alpha, expression=expression,
+            indent_num=indent_num)
+        expression = graphics_expression.append_stroke_expression(
+            line_color=self._line_color, expression=expression,
+            indent_num=indent_num)
+        expression = graphics_expression.append_stroke_width_expression(
+            line_thickness=self._line_thickness, expression=expression,
+            indent_num=indent_num)
+        expression = graphics_expression.append_stroke_opacity_expression(
+            line_alpha=self._line_alpha, expression=expression,
+            indent_num=indent_num)
+        expression = graphics_expression.append_stroke_linecap_expression(
+            line_cap=self._line_cap, expression=expression,
+            indent_num=indent_num)
+        expression = graphics_expression.append_stroke_linejoin_expression(
+            line_joints=self._line_joints, expression=expression,
+            indent_num=indent_num)
+        expression = graphics_expression.append_x_expression(
+            x=self._x, expression=expression, indent_num=indent_num)
+        expression = graphics_expression.append_y_expression(
+            y=self._y, expression=expression, indent_num=indent_num)
+        return expression
+
+    @abstractmethod
+    def __repr__(self) -> str:
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+        """

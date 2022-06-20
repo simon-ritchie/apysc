@@ -6,7 +6,7 @@ from typing import Union
 from apysc._display import graphics
 from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface
-from apysc._display.line_base import LineBase
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.radius_interface import RadiusInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
@@ -14,7 +14,7 @@ from apysc._validation import arg_validation_decos
 
 
 class Circle(
-        CxInterface, CyInterface, LineBase, RadiusInterface):
+        CxInterface, CyInterface, GraphicsBase, RadiusInterface):
     """
     The circle vector graphics class.
 

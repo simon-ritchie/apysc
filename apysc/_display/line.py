@@ -3,7 +3,7 @@
 
 
 from apysc._display import graphics
-from apysc._display.line_base import LineBase
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._geom import point2d
@@ -11,7 +11,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
 
-class Line(XInterface, YInterface, LineBase):
+class Line(XInterface, YInterface, GraphicsBase):
     """
     The line vector graphics class.
 

@@ -4,7 +4,7 @@
 
 from apysc._display import graphics
 from apysc._display.append_line_point_interface import AppendLinePointInterface
-from apysc._display.line_base import LineBase
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._geom.point2d import Point2D
@@ -14,7 +14,7 @@ from apysc._validation import arg_validation_decos
 
 
 class Polyline(
-        XInterface, YInterface, LineBase, AppendLinePointInterface):
+        XInterface, YInterface, GraphicsBase, AppendLinePointInterface):
     """
     The polyline vector graphics class.
 

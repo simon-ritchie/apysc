@@ -2,22 +2,32 @@
 """
 
 from typing import Union
+from typing import Optional as Op
 
 from apysc._display import graphics
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
 from apysc._display.ellipse_width_interface import EllipseWidthInterface
 from apysc._display.height_interface import HeightInterface
-from apysc._display.line_base import LineBase
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.width_interface import WidthInterface
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._type.string import String
+from apysc._type.number import Number
+from apysc._display.line_dot_setting import LineDotSetting
+from apysc._display.line_dash_setting import LineDashSetting
+from apysc._display.line_round_dot_setting import LineRoundDotSetting
+from apysc._display.line_dash_dot_setting import LineDashDotSetting
+from apysc._display.line_caps import LineCaps
+from apysc._display.line_joints import LineJoints
+from apysc._display.child_interface import ChildInterface
 
 
 class Rectangle(
-        XInterface, YInterface, LineBase, WidthInterface, HeightInterface,
+        XInterface, YInterface, GraphicsBase, WidthInterface, HeightInterface,
         EllipseWidthInterface, EllipseHeightInterface):
     """
     The rectangle vector graphics class.
@@ -62,17 +72,100 @@ class Rectangle(
     @add_debug_info_setting(
         module_name=__name__, class_name='Rectangle')
     def __init__(
-            self, *, parent: 'graphics.Graphics',
+            self, *,
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
-            height: Union[int, Int]) -> None:
+            height: Union[int, Int],
+            fill_color: Union[str, String] = '',
+            fill_alpha: Union[float, Number] = 1.0,
+            line_color: Union[str, String] = '',
+            line_alpha: Union[float, Number] = 1.0,
+            line_thickness: Union[int, Int] = 1,
+            line_cap: Op[Union[String, LineCaps]] = None,
+            line_joints: Op[Union[String, LineJoints]],
+            line_dot_setting: Op[LineDotSetting] = None,
+            line_dash_setting: Op[LineDashSetting] = None,
+            line_round_dot_setting: Op[LineRoundDotSetting] = None,
+            line_dash_dot_setting: Op[LineDashDotSetting] = None,
+            parent: Op[ChildInterface] = None,) -> None:
         """
         Create a rectangle vector graphic.
 
         Parameters
         ----------
-        parent : Graphics
+        x : Int or int
+            X-coordinate to start drawing.
+        y : Int or int
+            Y-coordinate to start drawing.
+        width : Int or int
+            Rectangle width.
+        height : Int or int
+            Rectangle height.
+        fill_color : str or String, default ''
+            A fill-color to set.
+        fill_alpha : float or Number, default 1.0
+            A fill-alpha to set.
+        line_color : str or String, default ''
+            A line-color to set.
+        line_alpha : float or Number, default 1.0
+            A line-alpha to set.
+        line_thickness : int or Int, default 1
+            A line-thickness (line-width) to set.
+        line_cap : String or LineCaps or None, default None
+            A line-cap setting to set.
+        line_joints : String or LineJoints or None, default None
+            A line-joints setting to set.
+        line_dot_setting : LineDotSetting or None, default None
+            A dot setting to set.
+        line_dash_setting : LineDashSetting or None, default None
+            A dash setting to set.
+        line_round_dot_setting : LineRoundDotSetting or None, default None
+            A round-dot setting to set.
+        line_dash_dot_setting : LineDashDotSetting or None, default None
+            A dash dot (1-dot chain) setting to set.
+        parent : ChildInterface or None, default None
+            A parent instance to add this instance.
+            If a specified value is None, this interface uses
+            a stage instance.
+        """
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        variable_name: str = expression_variables_util.\
+            get_next_variable_name(type_name=var_names.RECTANGLE)
+        self.variable_name = variable_name
+        self._update_width_and_skip_appending_exp(value=width)
+        self._update_height_and_skip_appending_exp(value=height)
+        self._set_initial_basic_values(
+            fill_color=fill_color, fill_alpha=fill_alpha,
+            line_color=line_color, line_thickness=line_thickness,
+            line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
+        self._set_line_setting_if_not_none_value_exists(
+            line_dot_setting=line_dot_setting,
+            line_dash_setting=line_dash_setting,
+            line_round_dot_setting=line_round_dot_setting,
+            line_dash_dot_setting=line_dash_dot_setting)
+        self._set_overflow_visible_setting()
+        self._append_constructor_expression()
+        super(Rectangle, self).__init__(
+            parent=parent, x=x, y=y, variable_name=variable_name)
+
+    @classmethod
+    def _create_with_graphics(
+            cls,
+            *,
+            graphics: 'graphics.Graphics',
+            x: Union[int, Int],
+            y: Union[int, Int],
+            width: Union[int, Int],
+            height: Union[int, Int]) -> 'Rectangle':
+        """
+        Create a rectangle instance with a specified `graphics`
+        instance.
+
+        Parameters
+        ----------
+        graphics : Graphics
             Graphics instance to link this instance.
         x : Int or int
             X-coordinate to start drawing.
@@ -87,6 +180,11 @@ class Rectangle(
         ----------
         - Graphics draw_rect interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html
+
+        Returns
+        -------
+        Rectangle
+            _description_
 
         Examples
         --------
@@ -111,21 +209,23 @@ class Rectangle(
         >>> rectangle.fill_color
         String('#00aaff')
         """
-        from apysc._display.graphics import Graphics
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        parent_graphics: Graphics = parent
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.RECTANGLE)
-        super(Rectangle, self).__init__(
-            parent=parent, x=x, y=y, variable_name=variable_name)
-        self._update_width_and_skip_appending_exp(value=width)
-        self._update_height_and_skip_appending_exp(value=height)
-        self._set_initial_basic_values(parent=parent)
-        self._append_constructor_expression()
-        self._set_line_setting_if_not_none_value_exists(
-            parent_graphics=parent_graphics)
-        self._set_overflow_visible_setting()
+        rectangle: Rectangle = Rectangle(
+            x=x,
+            y=y,
+            width=width,
+            height=height,
+            fill_color=graphics._fill_color,
+            fill_alpha=graphics._fill_alpha,
+            line_color=graphics._line_color,
+            line_alpha=graphics._line_alpha,
+            line_thickness=graphics._line_thickness,
+            line_cap=graphics._line_cap,
+            line_joints=graphics._line_joints,
+            line_dot_setting=graphics._line_dot_setting,
+            line_dash_setting=graphics._line_dash_setting,
+            line_round_dot_setting=graphics._line_round_dot_setting,
+            line_dash_dot_setting=graphics._line_dash_dot_setting)
+        return rectangle
 
     def __repr__(self) -> str:
         """
@@ -156,48 +256,7 @@ class Rectangle(
             f'\n  .rect({self.width.variable_name}, '
             f'{self.height.variable_name})'
         )
-        attrs_str: str = self._make_rect_attrs_expression()
-        expression += f'{attrs_str};'
+        expression = self._append_basic_vals_expression(
+            expression=expression, indent_num=2)
+        expression += '\n  });'
         ap.append_js_expression(expression=expression)
-
-    def _make_rect_attrs_expression(self) -> str:
-        """
-        Make rectangle attributes expression string.
-
-        Returns
-        -------
-        rect_attrs_expression : str
-            Rectangle attributes expression string.
-        """
-        from apysc._display import graphics_expression
-        from apysc._display.graphics import Graphics
-        graphics: Graphics = self.parent_graphics
-        INDENT_NUM: int = 2
-        rect_attrs_expression: str = '\n  .attr({'
-        rect_attrs_expression = graphics_expression.append_fill_expression(
-            graphics=graphics, expression=rect_attrs_expression,
-            indent_num=INDENT_NUM)
-        rect_attrs_expression = \
-            graphics_expression.append_fill_opacity_expression(
-                graphics=graphics, expression=rect_attrs_expression,
-                indent_num=INDENT_NUM)
-        rect_attrs_expression = graphics_expression.append_stroke_expression(
-            graphics=graphics, expression=rect_attrs_expression,
-            indent_num=INDENT_NUM)
-        rect_attrs_expression = \
-            graphics_expression.append_stroke_width_expression(
-                graphics=graphics, expression=rect_attrs_expression,
-                indent_num=INDENT_NUM)
-        rect_attrs_expression = \
-            graphics_expression.append_stroke_opacity_expression(
-                graphics=graphics, expression=rect_attrs_expression,
-                indent_num=INDENT_NUM)
-        rect_attrs_expression = graphics_expression.append_x_expression(
-            graphic=self, expression=rect_attrs_expression,
-            indent_num=INDENT_NUM)
-        rect_attrs_expression = graphics_expression.append_y_expression(
-            graphic=self, expression=rect_attrs_expression,
-            indent_num=INDENT_NUM)
-
-        rect_attrs_expression += '\n  })'
-        return rect_attrs_expression

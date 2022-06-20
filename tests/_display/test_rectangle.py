@@ -66,22 +66,6 @@ class TestRectangle:
         assert repr_str == f"Rectangle('{rectangle_.variable_name}')"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__make_rect_attrs_expression(self) -> None:
-        ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
-        _: ap.Rectangle = ap.Rectangle(
-            parent=sprite.graphics,
-            x=100, y=200,
-            width=150, height=50)
-        expression: str = expression_data_util.get_current_expression()
-        assert '.attr({' in expression
-        assert_fill_opacity_attr_expression_exists(expression=expression)
-        assert_stroke_width_attr_expression_exists(expression=expression)
-        assert_stroke_opacity_attr_expression_exists(expression=expression)
-        assert_x_attr_expression_exists(expression=expression)
-        assert_y_attr_expression_exists(expression=expression)
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_constructor_expression(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

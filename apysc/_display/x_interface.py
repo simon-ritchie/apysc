@@ -1,7 +1,7 @@
 """Class implementation for the x-coordinate interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_x_interface import AnimationXInterface
@@ -17,8 +17,6 @@ class XInterface(
         XInterfaceBase, AnimationXInterface,
         AnimationMoveInterface, RevertInterface,
         AttrLinkingInterface):
-
-    _x: Int
 
     def _initialize_x_if_not_initialized(self) -> None:
         """
@@ -117,6 +115,22 @@ class XInterface(
             f'{self.variable_name}.x({value_str});'
         )
         ap.append_js_expression(expression=expression)
+
+    def _update_x_and_skip_appending_exp(
+            self, *, x: Union[int, Int]) -> None:
+        """
+        Update x-coordinate and skip appending an expression.
+
+        Parameters
+        ----------
+        x : int or Int
+            X-coordinate value
+        """
+        if isinstance(x, Int):
+            x_: Int = x
+        else:
+            x_ = Int(x)
+        self._x = x_
 
     _x_snapshots: Dict[str, int]
 

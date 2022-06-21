@@ -1,7 +1,7 @@
 """Class implementation for the center x-coordinate interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc._animation.animation_cx_interface import AnimationCxInterface
 from apysc._display.x_interface_base import XInterfaceBase
@@ -111,6 +111,22 @@ class CxInterface(
             f'{self.variable_name}.cx({value_str});'
         )
         ap.append_js_expression(expression=expression)
+
+    def _update_x_and_skip_appending_exp(
+            self, *, x: Union[int, Int]) -> None:
+        """
+        Update x-coordinate and skip appending an expression.
+
+        Parameters
+        ----------
+        x : int or Int
+            X-coordinate value
+        """
+        if isinstance(x, Int):
+            x_: Int = x
+        else:
+            x_ = Int(x)
+        self._cx = x_
 
     _cx_snapshots: Dict[str, int]
 

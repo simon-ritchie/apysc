@@ -83,3 +83,14 @@ class TestXInterface:
         x_interface.variable_name = 'test_x_interface'
         x_interface._initialize_x_if_not_initialized()
         assert x_interface._attr_linking_stack['x'] == [ap.Int(0)]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__update_x_and_skip_appending_exp(self) -> None:
+        x_interface = XInterface()
+        x_interface._update_x_and_skip_appending_exp(x=100)
+        assert x_interface.x == 100
+        assert isinstance(x_interface.x, ap.Int)
+
+        x_interface._update_x_and_skip_appending_exp(x=ap.Int(200))
+        assert x_interface.x == 200
+        assert isinstance(x_interface.x, ap.Int)

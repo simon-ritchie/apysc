@@ -77,3 +77,14 @@ class TestCxInterface:
         interface.variable_name = 'test_cx_interface'
         interface._initialize_cx_if_not_initialized()
         interface._attr_linking_stack['cx'] == [ap.Int(0)]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__update_x_and_skip_appending_exp(self) -> None:
+        interface: CxInterface = CxInterface()
+        interface._update_x_and_skip_appending_exp(x=100)
+        assert interface.x == 100
+        assert isinstance(interface.x, ap.Int)
+
+        interface._update_x_and_skip_appending_exp(x=ap.Int(200))
+        assert interface.x == 200
+        assert isinstance(interface.x, ap.Int)

@@ -124,7 +124,7 @@ class XInterface(
         Parameters
         ----------
         x : int or Int
-            X-coordinate value
+            X-coordinate value.
         """
         if isinstance(x, Int):
             x_: Int = x

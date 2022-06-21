@@ -81,3 +81,14 @@ class TestYInterface:
         interface.variable_name = 'test_y_interface'
         interface._initialize_y_if_not_initialized()
         assert interface._attr_linking_stack['y'] == [ap.Int(0)]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__update_y_and_skip_appending_exp(self) -> None:
+        interface: YInterface = YInterface()
+        interface._update_y_and_skip_appending_exp(y=100)
+        assert interface.y == 100
+        assert isinstance(interface.y, ap.Int)
+
+        interface._update_y_and_skip_appending_exp(y=ap.Int(200))
+        assert interface.y == 200
+        assert isinstance(interface.y, ap.Int)

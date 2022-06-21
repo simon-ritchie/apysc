@@ -1,7 +1,7 @@
 """Class implementation for the center y-coordinate interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc._animation.animation_cy_interface import AnimationCyInterface
 from apysc._display.y_interface_base import YInterfaceBase
@@ -113,6 +113,22 @@ class CyInterface(
             f'{self.variable_name}.cy({value_str});'
         )
         ap.append_js_expression(expression=expression)
+
+    def _update_y_and_skip_appending_exp(
+            self, *, y: Union[int, Int]) -> None:
+        """
+        Update y-coordinate and skip appending an expression.
+
+        Parameters
+        ----------
+        y : int or Int
+            Y-coordinate value.
+        """
+        if isinstance(y, Int):
+            y_: Int = y
+        else:
+            y_ = Int(y)
+        self._cy = y_
 
     _cy_snapshots: Dict[str, int]
 

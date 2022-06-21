@@ -39,5 +39,5 @@ class XInterfaceBase(ABC):
         Parameters
         ----------
         x : int or Int
-            X-coordinate value
+            X-coordinate value.
         """

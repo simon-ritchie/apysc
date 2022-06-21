@@ -4,6 +4,7 @@ interfaces.
 
 from abc import ABC
 from abc import abstractmethod
+from typing import Union
 
 from apysc._type.int import Int
 
@@ -27,4 +28,16 @@ class YInterfaceBase(ABC):
         ----------
         value : Int
             y-coordinate value.
+        """
+
+    @abstractmethod
+    def _update_y_and_skip_appending_exp(
+            self, *, y: Union[int, Int]) -> None:
+        """
+        Update y-coordinate and skip appending an expression.
+
+        Parameters
+        ----------
+        y : int or Int
+            Y-coordinate value.
         """

@@ -1,7 +1,7 @@
 """Class implementation for the y-coordinate interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_y_interface import AnimationYInterface
@@ -116,6 +116,22 @@ class YInterface(
             f'{self.variable_name}.y({value_str});'
         )
         ap.append_js_expression(expression=expression)
+
+    def _update_y_and_skip_appending_exp(
+            self, *, y: Union[int, Int]) -> None:
+        """
+        Update y-coordinate and skip appending an expression.
+
+        Parameters
+        ----------
+        y : int or Int
+            Y-coordinate value.
+        """
+        if isinstance(y, Int):
+            y_: Int = y
+        else:
+            y_ = Int(y)
+        self._y = y_
 
     _y_snapshots: Dict[str, int]
 

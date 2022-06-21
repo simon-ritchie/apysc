@@ -48,7 +48,6 @@ from apysc._display.line_joints import LineJoints
 from apysc._display.stage import get_stage
 
 
-
 class GraphicsBase(
         DisplayObject,
         RotationAroundCenterInterface,

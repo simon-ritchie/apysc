@@ -16,28 +16,26 @@ class CxInterface(
         XInterfaceBase, AnimationCxInterface, RevertInterface,
         AttrLinkingInterface):
 
-    _cx: Int
-
-    def _initialize_cx_if_not_initialized(self) -> None:
+    def _initialize_x_if_not_initialized(self) -> None:
         """
-        Initialize _cx attribute if this interface does not
+        Initialize _x attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_cx'):
+        if hasattr(self, '_x'):
             return
-        self._cx = Int(0)
+        self._x = Int(0)
 
-        self._append_cx_attr_linking_setting()
+        self._append_x_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='CxInterface')
-    def _append_cx_attr_linking_setting(self) -> None:
+    def _append_x_attr_linking_setting(self) -> None:
         """
-        Append cx attribute linking settings.
+        Append x attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._cx, attr_name='cx')
-        self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')
+            new_attr=self._x, attr_name='x')
+        self._append_attr_to_linking_stack(attr=self._x, attr_name='x')
 
     @property
     @add_debug_info_setting(
@@ -70,8 +68,8 @@ class CxInterface(
         """
         import apysc as ap
         from apysc._type import value_util
-        self._initialize_cx_if_not_initialized()
-        x: ap.Int = value_util.get_copy(value=self._cx)
+        self._initialize_x_if_not_initialized()
+        x: ap.Int = value_util.get_copy(value=self._x)
         return x
 
     @x.setter
@@ -92,21 +90,21 @@ class CxInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/en/display_object_x_and_y.html  # noqa
         """
-        self._cx = value
-        self._cx._append_incremental_calc_substitution_expression()
-        self._append_cx_update_expression()
+        self._x = value
+        self._x._append_incremental_calc_substitution_expression()
+        self._append_x_update_expression()
 
-        self._append_cx_attr_linking_setting()
+        self._append_x_attr_linking_setting()
 
-    def _append_cx_update_expression(self) -> None:
+    def _append_x_update_expression(self) -> None:
         """
-        Append cx position updating expression.
+        Append x position updating expression.
         """
         import apysc as ap
         from apysc._type import value_util
-        self._initialize_cx_if_not_initialized()
+        self._initialize_x_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
-            value=self._cx)
+            value=self._x)
         expression: str = (
             f'{self.variable_name}.cx({value_str});'
         )
@@ -126,9 +124,9 @@ class CxInterface(
             x_: Int = x
         else:
             x_ = Int(x)
-        self._cx = x_
+        self._x = x_
 
-    _cx_snapshots: Dict[str, int]
+    _x_snapshots: Dict[str, int]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -139,10 +137,10 @@ class CxInterface(
         snapshot_name : str
             Target snapshot name.
         """
-        self._initialize_cx_if_not_initialized()
+        self._initialize_x_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_cx_snapshots',
-            value=int(self._cx._value), snapshot_name=snapshot_name)
+            dict_name='_x_snapshots',
+            value=int(self._x._value), snapshot_name=snapshot_name)
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -155,4 +153,4 @@ class CxInterface(
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._cx._value = self._cx_snapshots[snapshot_name]
+        self._x._value = self._x_snapshots[snapshot_name]

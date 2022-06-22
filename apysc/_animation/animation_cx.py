@@ -121,7 +121,7 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
         from apysc._display.cx_interface import CxInterface
         expression: str = ''
         if isinstance(self._target, CxInterface):
-            self._target._initialize_cx_if_not_initialized()
+            self._target._initialize_x_if_not_initialized()
             expression = (
                 f'{self._target._cx.variable_name} = '
                 f'{self._cx.variable_name};'

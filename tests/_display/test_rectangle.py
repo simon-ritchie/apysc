@@ -30,31 +30,36 @@ class TestRectangle:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color='#333', alpha=0.75)
-        sprite.graphics.line_style(color='#aaa', thickness=3, alpha=0.3)
         rectangle: ap.Rectangle = ap.Rectangle(
-            parent=sprite.graphics,
-            x=100, y=200, width=300, height=400)
+            x=50,
+            y=100,
+            width=150,
+            height=200,
+            fill_color='#0af',
+            fill_alpha=0.5,
+            line_color='fff',
+            line_alpha=0.3,
+            line_thickness=3,
+            line_cap=ap.LineCaps.ROUND,
+            line_joints=ap.LineJoints.BEVEL,
+            line_dot_setting=ap.LineDotSetting(dot_size=10))
         testing_helper.assert_attrs(
             expected_attrs={
-                'parent_graphics': sprite.graphics,
-                '_x': 100,
-                '_y': 200,
-                'width': 300,
-                'height': 400,
-                '_fill_color': '#333333',
-                '_fill_alpha': 0.75,
-                '_line_color': '#aaaaaa',
-                '_line_thickness': 3,
+                '_x': 50,
+                '_y': 100,
+                '_width': 150,
+                '_height': 200,
+                '_fill_color': '#00aaff',
+                '_fill_alpha': 0.5,
+                '_line_color': '#ffffff',
                 '_line_alpha': 0.3,
+                '_line_thickness': 3,
+                '_line_cap': ap.LineCaps.ROUND.value,
+                '_line_joints': ap.LineJoints.BEVEL.value,
+                '_line_dot_setting': ap.LineDotSetting(dot_size=10),
             },
-            any_obj=rectangle)
-
-        sprite.graphics.begin_fill(color='#333', alpha=ap.Number(0.5))
-        rectanble = ap.Rectangle(
-            parent=sprite.graphics, x=100, y=200, width=300, height=400)
-        assert rectanble._fill_alpha == 0.5
+            any_obj=rectangle,
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
@@ -70,9 +75,10 @@ class TestRectangle:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#333', alpha=0.5)
-        sprite.graphics.draw_rect(x=100, y=200, width=300, height=400)
+        rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+            x=100, y=200, width=300, height=400)
         graphics_name: str = sprite.graphics.variable_name
-        rect_name: str = sprite.graphics.get_child_at(index=0).variable_name
+        rect_name: str = rectangle.variable_name
         stage_variable_name: str = get_stage_variable_name()
         expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [
@@ -86,7 +92,7 @@ class TestRectangle:
             match: Optional[Match] = re.search(
                 pattern=expected_pattern, string=expression,
                 flags=re.MULTILINE)
-            assert match is not None
+            assert match is not None, f'{expected_pattern}, \n\n{expression}'
         assert_fill_attr_expression_exists(expression=expression)
         assert_fill_opacity_attr_expression_exists(expression=expression)
         assert_x_attr_expression_exists(expression=expression)

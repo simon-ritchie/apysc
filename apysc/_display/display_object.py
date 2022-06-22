@@ -56,6 +56,7 @@ class DisplayObject(
         stage: ap.Stage = ap.get_stage()
         self.stage: ap.Stage = stage
         self._variable_name = variable_name
+        self._set_overflow_visible_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='DisplayObject')

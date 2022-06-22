@@ -27,8 +27,13 @@ from apysc._display.child_interface import ChildInterface
 
 
 class Rectangle(
-        XInterface, YInterface, GraphicsBase, WidthInterface, HeightInterface,
-        EllipseWidthInterface, EllipseHeightInterface):
+        XInterface,
+        YInterface,
+        GraphicsBase,
+        WidthInterface,
+        HeightInterface,
+        EllipseWidthInterface,
+        EllipseHeightInterface):
     """
     The rectangle vector graphics class.
 
@@ -61,14 +66,64 @@ class Rectangle(
     String('#00aaff')
     """
 
-    @arg_validation_decos.is_display_object_container(
-        arg_position_index=1, optional=False)
+    # self
+    @arg_validation_decos.multiple_line_settings_are_not_set(
+        arg_position_index=0)
+
+    # x
+    @arg_validation_decos.is_integer(arg_position_index=1)
+
+    # y
     @arg_validation_decos.is_integer(arg_position_index=2)
+
+    # width
     @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
+
+    # height
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
-    @arg_validation_decos.is_integer(arg_position_index=5)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
+
+    # fill_color
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=5)
+
+    # fill_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=6)
+
+    # line_color
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=7)
+
+    # line_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=8)
+
+    # line_thickness
+    @arg_validation_decos.is_integer(arg_position_index=9)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=9)
+
+    # line_cap
+    @arg_validation_decos.is_line_cap(
+        arg_position_index=10, optional=True)
+
+    # line_joints
+    @arg_validation_decos.is_line_joints(
+        arg_position_index=11, optional=True)
+
+    # line_dot_setting
+    @arg_validation_decos.is_line_dot_setting(arg_position_index=12)
+
+    # line_dash_setting
+    @arg_validation_decos.is_line_dot_setting(arg_position_index=13)
+
+    # line_round_dot_setting
+    @arg_validation_decos.is_line_dot_setting(arg_position_index=14)
+
+    # line_dash_dot_setting
+    @arg_validation_decos.is_line_dot_setting(arg_position_index=15)
+
+    # parent
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=16, optional=True)
+
     @add_debug_info_setting(
         module_name=__name__, class_name='Rectangle')
     def __init__(
@@ -83,12 +138,12 @@ class Rectangle(
             line_alpha: Union[float, Number] = 1.0,
             line_thickness: Union[int, Int] = 1,
             line_cap: Op[Union[String, LineCaps]] = None,
-            line_joints: Op[Union[String, LineJoints]],
+            line_joints: Op[Union[String, LineJoints]] = None,
             line_dot_setting: Op[LineDotSetting] = None,
             line_dash_setting: Op[LineDashSetting] = None,
             line_round_dot_setting: Op[LineRoundDotSetting] = None,
             line_dash_dot_setting: Op[LineDashDotSetting] = None,
-            parent: Op[ChildInterface] = None,) -> None:
+            parent: Op[ChildInterface] = None) -> None:
         """
         Create a rectangle vector graphic.
 
@@ -134,6 +189,8 @@ class Rectangle(
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.RECTANGLE)
         self.variable_name = variable_name
+        self._update_x_and_skip_appending_exp(x=x)
+        self._update_y_and_skip_appending_exp(y=y)
         self._update_width_and_skip_appending_exp(value=width)
         self._update_height_and_skip_appending_exp(value=height)
         self._set_initial_basic_values(
@@ -145,10 +202,9 @@ class Rectangle(
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
             line_dash_dot_setting=line_dash_dot_setting)
-        self._set_overflow_visible_setting()
         self._append_constructor_expression()
         super(Rectangle, self).__init__(
-            parent=parent, x=x, y=y, variable_name=variable_name)
+            parent=parent, variable_name=variable_name)
 
     @classmethod
     def _create_with_graphics(
@@ -224,7 +280,8 @@ class Rectangle(
             line_dot_setting=graphics._line_dot_setting,
             line_dash_setting=graphics._line_dash_setting,
             line_round_dot_setting=graphics._line_round_dot_setting,
-            line_dash_dot_setting=graphics._line_dash_dot_setting)
+            line_dash_dot_setting=graphics._line_dash_dot_setting,
+            parent=graphics)
         return rectangle
 
     def __repr__(self) -> str:
@@ -255,6 +312,7 @@ class Rectangle(
             f'var {variable_name} = {stage_variable_name}'
             f'\n  .rect({self.width.variable_name}, '
             f'{self.height.variable_name})'
+            '\n  .attr({'
         )
         expression = self._append_basic_vals_expression(
             expression=expression, indent_num=2)

@@ -73,17 +73,15 @@ class GraphicsBase(
 
     _variable_name: str
 
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
-    @arg_validation_decos.not_empty_string(arg_position_index=4)
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=1, optional=True)
+    @arg_validation_decos.not_empty_string(arg_position_index=2)
     @add_debug_info_setting(
         module_name=__name__, class_name='GraphicsBase')
     def __init__(
             self,
             *,
             parent: Optional[ChildInterface],
-            x: Union[int, Int],
-            y: Union[int, Int],
             variable_name: str) -> None:
         """
         Vector graphic base class.
@@ -93,26 +91,10 @@ class GraphicsBase(
         parent : ChildInterface or None
             Parent instance. If a specified value is None,
             this interface uses a stage instance.
-        x : int or Int
-            X position.
-        y : int or Int
-            Y position.
         variable_name : str
             Variable name of this instance. This will be used to
             js expression.
         """
-        import apysc as ap
-
-        if isinstance(x, ap.Int):
-            x_: ap.Int = x
-        else:
-            x_ = ap.Int(x)
-        self._x = x_
-        if isinstance(y, ap.Int):
-            y_: ap.Int = y
-        else:
-            y_ = ap.Int(y)
-        self._y = y_
         super(GraphicsBase, self).__init__(
             variable_name=variable_name)
         if parent is None:

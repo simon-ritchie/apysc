@@ -1,9 +1,9 @@
 from random import randint
+from typing import Union
 
 from retrying import retry
 
 import apysc as ap
-from apysc._display.rectangle import Rectangle
 from apysc._testing import testing_helper
 from apysc._display.graphics_base import GraphicsBase
 from tests._display.test_graphics_expression import \
@@ -83,6 +83,30 @@ class _TestGraphic(GraphicsBase):
         """
         self._y = value
 
+    def _update_x_and_skip_appending_exp(
+            self, *, x: Union[int, ap.Int]) -> None:
+        """
+        Update x-coordinate and skip appending an expression.
+
+        Parameters
+        ----------
+        x : int or Int
+            X-coordinate value.
+        """
+        self._x = ap.Int(x)
+
+    def _update_y_and_skip_appending_exp(
+            self, *, y: Union[int, ap.Int]) -> None:
+        """
+        Update y-coordinate and skip appending an expression.
+
+        Parameters
+        ----------
+        y : int or Int
+            Y-coordinate value.
+        """
+        self._y = ap.Int(y)
+
 
 
 class TestGraphicsBase:
@@ -93,24 +117,20 @@ class TestGraphicsBase:
         sprite: ap.Sprite = ap.Sprite()
 
         graphics: _TestGraphic = _TestGraphic(
-            parent=None, x=100, y=200, variable_name='test_graphics_1')
+            parent=None, variable_name='test_graphics_1')
         testing_helper.assert_attrs(
             expected_attrs={
                 '_parent': stage,
-                '_x': 100,
-                '_y': 200,
                 '_variable_name': 'test_graphics_1',
             },
             any_obj=graphics)
 
         graphics: _TestGraphic = _TestGraphic(
-            parent=sprite, x=ap.Int(300), y=ap.Int(400),
+            parent=sprite,
             variable_name='test_graphics_2')
         testing_helper.assert_attrs(
             expected_attrs={
                 '_parent': sprite,
-                '_x': 300,
-                '_y': 400,
                 '_variable_name': 'test_graphics_2',
             },
             any_obj=graphics)
@@ -119,7 +139,7 @@ class TestGraphicsBase:
     def test__set_initial_basic_values(self) -> None:
         ap.Stage()
         graphics: _TestGraphic = _TestGraphic(
-            parent=None, x=100, y=200, variable_name='test_graphics_1')
+            parent=None, variable_name='test_graphics_1')
         graphics._set_initial_basic_values(
             fill_color='#00aaff',
             fill_alpha=0.5,
@@ -144,7 +164,7 @@ class TestGraphicsBase:
     def test__set_line_setting_if_not_none_value_exists(self) -> None:
         ap.Stage()
         graphics: _TestGraphic = _TestGraphic(
-            parent=None, x=100, y=200, variable_name='test_graphics')
+            parent=None, variable_name='test_graphics')
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=ap.LineDotSetting(dot_size=5),
             line_dash_setting=None,
@@ -153,7 +173,7 @@ class TestGraphicsBase:
         assert graphics.line_dot_setting == ap.LineDotSetting(dot_size=5)
 
         graphics = _TestGraphic(
-            parent=None, x=100, y=200, variable_name='test_graphics')
+            parent=None, variable_name='test_graphics')
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=None,
             line_dash_setting=ap.LineDashSetting(dash_size=10, space_size=5),
@@ -163,7 +183,7 @@ class TestGraphicsBase:
             dash_size=10, space_size=5)
 
         graphics = _TestGraphic(
-            parent=None, x=100, y=200, variable_name='test_graphics')
+            parent=None, variable_name='test_graphics')
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=None,
             line_dash_setting=None,
@@ -174,7 +194,7 @@ class TestGraphicsBase:
             round_size=10, space_size=5)
 
         graphics = _TestGraphic(
-            parent=None, x=100, y=200, variable_name='test_graphics')
+            parent=None, variable_name='test_graphics')
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=None,
             line_dash_setting=None,
@@ -188,7 +208,7 @@ class TestGraphicsBase:
     def test__append_basic_vals_expression(self) -> None:
         ap.Stage()
         graphics: _TestGraphic = _TestGraphic(
-            parent=None, x=100, y=200, variable_name='test_graphics_1')
+            parent=None, variable_name='test_graphics_1')
         graphics._set_initial_basic_values(
             fill_color='#00aaff',
             fill_alpha=0.5,
@@ -197,6 +217,8 @@ class TestGraphicsBase:
             line_alpha=0.3,
             line_cap=ap.LineCaps.ROUND,
             line_joints=ap.LineJoints.BEVEL)
+        graphics._update_x_and_skip_appending_exp(x=50)
+        graphics._update_y_and_skip_appending_exp(y=50)
         expression: str = ''
         expression = graphics._append_basic_vals_expression(
             expression=expression, indent_num=2)

@@ -112,13 +112,13 @@ class Rectangle(
     @arg_validation_decos.is_line_dot_setting(arg_position_index=12)
 
     # line_dash_setting
-    @arg_validation_decos.is_line_dot_setting(arg_position_index=13)
+    @arg_validation_decos.is_line_dash_setting(arg_position_index=13)
 
     # line_round_dot_setting
-    @arg_validation_decos.is_line_dot_setting(arg_position_index=14)
+    @arg_validation_decos.is_line_round_dot_setting(arg_position_index=14)
 
     # line_dash_dot_setting
-    @arg_validation_decos.is_line_dot_setting(arg_position_index=15)
+    @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=15)
 
     # parent
     @arg_validation_decos.is_display_object_container(

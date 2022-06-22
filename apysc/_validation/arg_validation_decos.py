@@ -1498,7 +1498,7 @@ def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _F:
 def is_line_dot_setting(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's type
-    is the `ap.LineDashSetting`.
+    is the `ap.LineDotSetting`.
 
     Parameters
     ----------
@@ -1523,7 +1523,7 @@ def is_line_dot_setting(*, arg_position_index: int) -> _F:
                 callable_=callable_, arg_position_index=arg_position_index)
             if not isinstance(setting, (type(None), ap.LineDotSetting)):
                 raise TypeError(
-                    'A specified setting is not the `ap.LineDashSetting` '
+                    'A specified setting is not the `ap.LineDotSetting` '
                     f'type or None: {type(setting)}'
                     f'\n{callable_and_arg_names_msg}')
 

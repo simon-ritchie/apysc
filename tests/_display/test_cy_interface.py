@@ -10,29 +10,29 @@ from apysc._expression import expression_data_util
 class TestCyInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__initialize_cy_if_not_initialized(self) -> None:
+    def test__initialize_y_if_not_initialized(self) -> None:
         interface: CyInterface = CyInterface()
-        interface._initialize_cy_if_not_initialized()
-        assert interface._cy == 0
+        interface._initialize_y_if_not_initialized()
+        assert interface._y == 0
 
-        interface._cy = ap.Int(10)
-        interface._initialize_cy_if_not_initialized()
-        assert interface._cy == 10
+        interface._y = ap.Int(10)
+        interface._initialize_y_if_not_initialized()
+        assert interface._y == 10
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_y(self) -> None:
         interface: CyInterface = CyInterface()
-        interface.variable_name = 'test_cy_interface'
+        interface.variable_name = 'test_y_interface'
         assert interface.y == 0
 
         interface.y = ap.Int(10)
         assert interface.y == 10
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_cy_update_expression(self) -> None:
+    def test__append_y_update_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: CyInterface = CyInterface()
-        interface.variable_name = 'test_cy_interface'
+        interface.variable_name = 'test_y_interface'
         y: ap.Int = ap.Int(10)
         interface.y = y
         expression: str = expression_data_util.get_current_expression()
@@ -44,20 +44,20 @@ class TestCyInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface: CyInterface = CyInterface()
-        interface.variable_name = 'test_cy_interface'
+        interface.variable_name = 'test_y_interface'
         interface.y = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        assert interface._cy_snapshots[snapshot_name] == 10
+        assert interface._y_snapshots[snapshot_name] == 10
 
         interface.y = ap.Int(20)
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        assert interface._cy_snapshots[snapshot_name] == 10
+        assert interface._y_snapshots[snapshot_name] == 10
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         interface: CyInterface = CyInterface()
-        interface.variable_name = 'test_cy_interface'
+        interface.variable_name = 'test_y_interface'
         interface.y = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -70,11 +70,11 @@ class TestCyInterface:
         assert interface.y == 20
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_cy_attr_linking_setting(self) -> None:
+    def test__append_y_attr_linking_setting(self) -> None:
         interface: CyInterface = CyInterface()
-        interface.variable_name = 'test_cy_interface'
-        interface._initialize_cy_if_not_initialized()
-        assert interface._attr_linking_stack['cy'] == [ap.Int(0)]
+        interface.variable_name = 'test_y_interface'
+        interface._initialize_y_if_not_initialized()
+        assert interface._attr_linking_stack['y'] == [ap.Int(0)]
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_y_and_skip_appending_exp(self) -> None:

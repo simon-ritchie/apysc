@@ -123,7 +123,7 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
         if isinstance(self._target, CxInterface):
             self._target._initialize_x_if_not_initialized()
             expression = (
-                f'{self._target._cx.variable_name} = '
+                f'{self._target._x.variable_name} = '
                 f'{self._cx.variable_name};'
             )
         return expression

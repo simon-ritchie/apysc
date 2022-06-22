@@ -121,9 +121,9 @@ class AnimationCy(AnimationBase[_T], Generic[_T]):
         from apysc._display.cy_interface import CyInterface
         expression: str = ''
         if isinstance(self._target, CyInterface):
-            self._target._initialize_cy_if_not_initialized()
+            self._target._initialize_y_if_not_initialized()
             expression = (
-                f'{self._target._cy.variable_name} = '
+                f'{self._target._y.variable_name} = '
                 f'{self._cy.variable_name};'
             )
         return expression

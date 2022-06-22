@@ -48,7 +48,7 @@ class TestAnimationCy:
         expression: str = animation_cy.\
             _get_complete_event_in_handler_head_expression()
         expected: str = (
-            f'{target._cy.variable_name} = '
+            f'{target._y.variable_name} = '
             f'{animation_cy._cy.variable_name};'
         )
         assert expression == expected

@@ -11,6 +11,8 @@ from apysc._type.int import Int
 
 class YInterfaceBase(ABC):
 
+    _y: Int
+
     @property
     @abstractmethod
     def y(self) -> Int:

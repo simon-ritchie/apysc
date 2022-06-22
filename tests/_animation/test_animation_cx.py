@@ -54,7 +54,7 @@ class TestAnimationCx:
         expression: str = animation_cx.\
             _get_complete_event_in_handler_head_expression()
         expected: str = (
-            f'{target._cx.variable_name} = '
+            f'{target._x.variable_name} = '
             f'{animation_cx._cx.variable_name};'
         )
         assert expression == expected

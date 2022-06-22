@@ -16,28 +16,26 @@ class CyInterface(
         YInterfaceBase, AnimationCyInterface, RevertInterface,
         AttrLinkingInterface):
 
-    _cy: Int
-
-    def _initialize_cy_if_not_initialized(self) -> None:
+    def _initialize_y_if_not_initialized(self) -> None:
         """
-        Initialize _cy attribute if this interface does not
+        Initialize _y attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_cy'):
+        if hasattr(self, '_y'):
             return
-        self._cy = Int(0)
+        self._y = Int(0)
 
-        self._append_cy_attr_linking_setting()
+        self._append_y_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='CyInterface')
-    def _append_cy_attr_linking_setting(self) -> None:
+    def _append_y_attr_linking_setting(self) -> None:
         """
-        Append cy attribute linking settings.
+        Append y attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._cy, attr_name='cy')
-        self._append_attr_to_linking_stack(attr=self._cy, attr_name='cy')
+            new_attr=self._y, attr_name='y')
+        self._append_attr_to_linking_stack(attr=self._y, attr_name='y')
 
     @property
     @add_debug_info_setting(
@@ -70,8 +68,8 @@ class CyInterface(
         """
         import apysc as ap
         from apysc._type import value_util
-        self._initialize_cy_if_not_initialized()
-        y: ap.Int = value_util.get_copy(value=self._cy)
+        self._initialize_y_if_not_initialized()
+        y: ap.Int = value_util.get_copy(value=self._y)
         return y
 
     @y.setter
@@ -92,23 +90,23 @@ class CyInterface(
         - Display object x and y interfaces document
             - https://simon-ritchie.github.io/apysc/en/display_object_x_and_y.html  # noqa
         """
-        self._cy = value
-        self._cy._append_incremental_calc_substitution_expression()
-        self._append_cy_update_expression()
+        self._y = value
+        self._y._append_incremental_calc_substitution_expression()
+        self._append_y_update_expression()
 
-        self._append_cy_attr_linking_setting()
+        self._append_y_attr_linking_setting()
 
     @add_debug_info_setting(
         module_name=__name__, class_name='CyInterface')
-    def _append_cy_update_expression(self) -> None:
+    def _append_y_update_expression(self) -> None:
         """
-        Append cy position updating expression.
+        Append y position updating expression.
         """
         import apysc as ap
         from apysc._type import value_util
-        self._initialize_cy_if_not_initialized()
+        self._initialize_y_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
-            value=self._cy)
+            value=self._y)
         expression: str = (
             f'{self.variable_name}.cy({value_str});'
         )
@@ -128,9 +126,9 @@ class CyInterface(
             y_: Int = y
         else:
             y_ = Int(y)
-        self._cy = y_
+        self._y = y_
 
-    _cy_snapshots: Dict[str, int]
+    _y_snapshots: Dict[str, int]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -141,10 +139,10 @@ class CyInterface(
         snapshot_name : str
             Target snapshot name.
         """
-        self._initialize_cy_if_not_initialized()
+        self._initialize_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_cy_snapshots',
-            value=int(self._cy._value), snapshot_name=snapshot_name)
+            dict_name='_y_snapshots',
+            value=int(self._y._value), snapshot_name=snapshot_name)
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -157,4 +155,4 @@ class CyInterface(
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._cy._value = self._cy_snapshots[snapshot_name]
+        self._y._value = self._y_snapshots[snapshot_name]

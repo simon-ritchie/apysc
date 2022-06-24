@@ -100,6 +100,7 @@ class GraphicsBase(
         if parent is None:
             parent = get_stage()
         parent.add_child(child=self)
+        self._set_overflow_visible_setting()
 
     @add_debug_info_setting(module_name=__name__, class_name='GraphicsBase')
     def _set_initial_basic_values(

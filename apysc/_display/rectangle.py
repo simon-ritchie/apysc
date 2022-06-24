@@ -197,12 +197,12 @@ class Rectangle(
             fill_color=fill_color, fill_alpha=fill_alpha,
             line_color=line_color, line_thickness=line_thickness,
             line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
+        self._append_constructor_expression()
         self._set_line_setting_if_not_none_value_exists(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
             line_dash_dot_setting=line_dash_dot_setting)
-        self._append_constructor_expression()
         super(Rectangle, self).__init__(
             parent=parent, variable_name=variable_name)
 

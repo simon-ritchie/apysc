@@ -43,3 +43,10 @@ class XInterfaceBase(ABC):
         x : int or Int
             X-coordinate value.
         """
+
+    @abstractmethod
+    def _initialize_x_if_not_initialized(self) -> None:
+        """
+        Initialize the _x attribute if this instance does not
+        initialize it yet.
+        """

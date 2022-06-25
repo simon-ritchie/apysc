@@ -43,3 +43,10 @@ class YInterfaceBase(ABC):
         y : int or Int
             Y-coordinate value.
         """
+
+    @abstractmethod
+    def _initialize_y_if_not_initialized(self) -> None:
+        """
+        Initialize the _y attribute if this instance does not
+        initialize it yet.
+        """

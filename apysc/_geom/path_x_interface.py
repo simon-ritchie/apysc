@@ -41,12 +41,12 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
         module_name=__name__, class_name='PathXInterface')
     def x(self) -> Int:
         """
-        Get a x-coordinate of the destination point.
+        Get an x-coordinate of the destination point.
 
         Returns
         -------
         x : Int
-            A x-coordinate of the destination point.
+            An x-coordinate of the destination point.
 
         Examples
         --------
@@ -65,7 +65,7 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
         module_name=__name__, class_name='PathXInterface')
     def x(self, value: Int) -> None:
         """
-        Set a x-coordinate of the destination point.
+        Set an x-coordinate of the destination point.
 
         Parameters
         ----------

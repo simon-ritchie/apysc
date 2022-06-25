@@ -38,7 +38,7 @@ class _TestGraphic(GraphicsBase):
     @property
     def x(self) -> ap.Int:
         """
-        Get a x-coordinate.
+        Get an x-coordinate.
 
         Returns
         -------

@@ -697,7 +697,7 @@ MAPPINGS: Mappings = Mappings(
             key='## x property API',
             val='## x属性のAPI'),
         Mapping(
-            key='**[Interface summary]** Get a x-coordinate.<hr>',
+            key='**[Interface summary]** Get an x-coordinate.<hr>',
             val='**[インターフェイス概要]** X座標を取得します。<hr>'),
         Mapping(
             key='## y property API',

@@ -45,7 +45,7 @@ class XInterface(
         module_name=__name__, class_name='XInterface')
     def x(self) -> Int:
         """
-        Get a x-coordinate.
+        Get an x-coordinate.
 
         Returns
         -------

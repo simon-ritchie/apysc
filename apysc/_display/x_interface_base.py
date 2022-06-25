@@ -17,7 +17,7 @@ class XInterfaceBase(ABC):
     @abstractmethod
     def x(self) -> Int:
         """
-        Get a x-coordinate.
+        Get an x-coordinate.
         """
 
     @x.setter

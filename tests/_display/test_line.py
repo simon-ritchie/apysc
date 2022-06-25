@@ -119,3 +119,30 @@ class TestLine:
         repr_str: str = repr(line)
         expected: str = f"Line('{line.variable_name}')"
         assert repr_str == expected
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_with_graphics(self) -> None:
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
+        sprite.graphics.line_style(
+            color='#fff',
+            thickness=3,
+            alpha=0.3,
+            cap=ap.LineCaps.ROUND,
+            dot_setting=ap.LineDotSetting(dot_size=10))
+        line: ap.Line = ap.Line._create_with_graphics(
+            graphics=sprite.graphics,
+            start_point=ap.Point2D(x=10, y=20),
+            end_point=ap.Point2D(x=30, y=40))
+        assert_attrs(
+            expected_attrs={
+                '_start_point': ap.Point2D(x=10, y=20),
+                '_end_point': ap.Point2D(x=30, y=40),
+                '_line_color': '#ffffff',
+                '_line_thickness': 3,
+                '_line_alpha': 0.3,
+                '_line_cap': ap.LineCaps.ROUND.value,
+                '_line_dot_setting': ap.LineDotSetting(dot_size=10),
+                '_parent': sprite.graphics,
+            },
+            any_obj=line)

@@ -127,7 +127,8 @@ class Rectangle(
     @add_debug_info_setting(
         module_name=__name__, class_name='Rectangle')
     def __init__(
-            self, *,
+            self,
+            *,
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],

@@ -378,9 +378,8 @@ class Graphics(
         >>> ellipse.fill_color
         String('#00aaff')
         """
-        ellipse: _ellipse.Ellipse = _ellipse.Ellipse(
-            parent=self, x=x, y=y, width=width, height=height)
-        self.add_child(child=ellipse)
+        ellipse: _ellipse.Ellipse = _ellipse.Ellipse._create_with_graphics(
+            graphics=self, x=x, y=y, width=width, height=height)
         return ellipse
 
     @arg_validation_decos.is_integer(arg_position_index=1)

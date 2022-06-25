@@ -9,6 +9,7 @@ import apysc as ap
 from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import assert_attrs
 from tests._display.test_graphics_expression import \
     assert_fill_attr_expression_exists
 
@@ -39,19 +40,66 @@ class TestEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.line_style(
-            color='#fff',
-            dot_setting=ap.LineDotSetting(dot_size=5))
+        stage: ap.Stage = ap.Stage()
         ellipse: ap.Ellipse = ap.Ellipse(
-            parent=sprite.graphics, x=50, y=100, width=150, height=200)
-        assert ellipse.variable_name.startswith(f'{var_names.ELLIPSE}_')
-        assert ellipse.width == 150
-        assert ellipse.height == 200
-        assert ellipse.x == 50
-        assert ellipse.y == 100
-        assert isinstance(ellipse.line_dot_setting, ap.LineDotSetting)
+            x=50,
+            y=100,
+            width=150,
+            height=200,
+            fill_color='#0af',
+            fill_alpha=0.5,
+            line_color='fff',
+            line_alpha=0.3,
+            line_thickness=3,
+            line_cap=ap.LineCaps.ROUND,
+            line_joints=ap.LineJoints.BEVEL,
+            line_dot_setting=ap.LineDotSetting(dot_size=10))
+        assert_attrs(
+            expected_attrs={
+                '_x': 50,
+                '_y': 100,
+                '_width': 150,
+                '_height': 200,
+                '_fill_color': '#00aaff',
+                '_fill_alpha': 0.5,
+                '_line_color': '#ffffff',
+                '_line_alpha': 0.3,
+                '_line_thickness': 3,
+                '_line_cap': ap.LineCaps.ROUND.value,
+                '_line_joints': ap.LineJoints.BEVEL.value,
+                '_line_dot_setting': ap.LineDotSetting(dot_size=10),
+                '_parent': stage,
+            },
+            any_obj=ellipse,
+        )
+
+        sprite = ap.Sprite()
+        ellipse = ap.Ellipse(
+            x=50, y=100, width=150, height=200,
+            line_dash_setting=ap.LineDashSetting(
+                dash_size=10, space_size=5),
+            parent=sprite)
+        assert_attrs(
+            expected_attrs={
+                '_line_dash_setting': ap.LineDashSetting(
+                    dash_size=10, space_size=5),
+                '_parent': sprite,
+            },
+            any_obj=ellipse)
+
+        ellipse = ap.Ellipse(
+            x=50, y=100, width=150, height=200,
+            line_round_dot_setting=ap.LineRoundDotSetting(
+                round_size=10, space_size=5))
+        assert ellipse._line_round_dot_setting == ap.LineRoundDotSetting(
+            round_size=10, space_size=5)
+
+        ellipse = ap.Ellipse(
+            x=50, y=100, width=150, height=200,
+            line_dash_dot_setting=ap.LineDashDotSetting(
+                dot_size=5, dash_size=10, space_size=3))
+        assert ellipse._line_dash_dot_setting == ap.LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=3)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:

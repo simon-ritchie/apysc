@@ -232,38 +232,10 @@ class Ellipse(
         height : Int or int
             Ellipse height.
 
-        References
-        ----------
-        - Graphics draw_ellipse interface
-            - https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html  # noqa
-
         Returns
         -------
         Ellipse
             A created ellipse instance.
-
-        Examples
-        --------
-        >>> import apysc as ap
-        >>> stage: ap.Stage = ap.Stage()
-        >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
-        >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
-        ...     x=100, y=100, width=80, height=50)
-        >>> ellipse.x
-        Int(100)
-
-        >>> ellipse.y
-        Int(100)
-
-        >>> ellipse.width
-        Int(80)
-
-        >>> ellipse.height
-        Int(50)
-
-        >>> ellipse.fill_color
-        String('#00aaff')
         """
         ellipse: Ellipse = Ellipse(
             x=x,

@@ -217,35 +217,10 @@ class Circle(
         radius : Int or int
             Circle radius.
 
-        References
-        ----------
-        - Graphics draw_circle interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html  # noqa
-
         Returns
         -------
         circle : Circle
             A created circle instance.
-
-        Examples
-        --------
-        >>> import apysc as ap
-        >>> stage: ap.Stage = ap.Stage()
-        >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
-        >>> circle: ap.Circle = sprite.graphics.draw_circle(
-        ...     x=100, y=100, radius=50)
-        >>> circle.x
-        Int(100)
-
-        >>> circle.y
-        Int(100)
-
-        >>> circle.radius
-        Int(50)
-
-        >>> circle.fill_color
-        String('#00aaff')
         """
         circle: Circle = Circle(
             x=x,

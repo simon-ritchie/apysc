@@ -181,8 +181,8 @@ class Circle(
             fill_color=fill_color, fill_alpha=fill_alpha,
             line_color=line_color, line_thickness=line_thickness,
             line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
-        self._set_center_coordinates(x=x, y=y)
         self._append_constructor_expression()
+        self._set_center_coordinates(x=x, y=y)
         self._set_line_setting_if_not_none_value_exists(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,

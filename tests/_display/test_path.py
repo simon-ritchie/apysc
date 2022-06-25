@@ -16,22 +16,62 @@ class TestPath:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
+        stage: ap.Stage = ap.Stage()
         path_data_list: List[ap.PathDataBase] = [
             ap.PathData.MoveTo(x=500, y=100),
         ]
-        sprite.graphics.begin_fill(color='#0af')
         path: ap.Path = ap.Path(
-            parent=sprite.graphics, path_data_list=path_data_list)
-        assert path.variable_name.startswith(f'{var_names.PATH}_')
+            path_data_list=path_data_list,
+            fill_color='#0af',
+            fill_alpha=0.5,
+            line_color='fff',
+            line_alpha=0.3,
+            line_thickness=3,
+            line_cap=ap.LineCaps.ROUND,
+            line_joints=ap.LineJoints.BEVEL,
+            line_dot_setting=ap.LineDotSetting(dot_size=10))
         assert_attrs(
             expected_attrs={
-                '_fill_color': '#00aaff',
                 '_path_data_list': path_data_list,
+                '_fill_color': '#00aaff',
+                '_fill_alpha': 0.5,
+                '_line_color': '#ffffff',
+                '_line_alpha': 0.3,
+                '_line_thickness': 3,
+                '_line_cap': ap.LineCaps.ROUND.value,
+                '_line_joints': ap.LineJoints.BEVEL.value,
+                '_line_dot_setting': ap.LineDotSetting(dot_size=10),
+                '_parent': stage,
             },
-            any_obj=path,
-        )
+            any_obj=path)
+
+        sprite: ap.Sprite = ap.Sprite()
+        path = ap.Path(
+            path_data_list=path_data_list,
+            line_dash_setting=ap.LineDashSetting(
+                dash_size=10, space_size=5),
+            parent=sprite)
+        assert_attrs(
+            expected_attrs={
+                '_line_dash_setting': ap.LineDashSetting(
+                    dash_size=10, space_size=5),
+                '_parent': sprite,
+            },
+            any_obj=path)
+
+        path = ap.Path(
+            path_data_list=path_data_list,
+            line_round_dot_setting=ap.LineRoundDotSetting(
+                round_size=10, space_size=5))
+        assert path._line_round_dot_setting == ap.LineRoundDotSetting(
+            round_size=10, space_size=5)
+
+        path = ap.Path(
+            path_data_list=path_data_list,
+            line_dash_dot_setting=ap.LineDashDotSetting(
+                dot_size=5, dash_size=10, space_size=3))
+        assert path._line_dash_dot_setting == ap.LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=3)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
@@ -40,8 +80,8 @@ class TestPath:
         path_data_list: List[ap.PathDataBase] = [
             ap.PathData.MoveTo(x=500, y=100),
         ]
-        path: ap.Path = ap.Path(
-            parent=sprite.graphics, path_data_list=path_data_list)
+        path: ap.Path = sprite.graphics.draw_path(
+            path_data_list=path_data_list)
         repr_str: str = repr(path)
         assert repr_str == f"Path('{path.variable_name}')"
 
@@ -51,8 +91,8 @@ class TestPath:
         sprite: ap.Sprite = ap.Sprite()
         path_move_to: ap.PathMoveTo = ap.PathData.MoveTo(x=500, y=100)
         path_data_list: List[ap.PathDataBase] = [path_move_to]
-        path: ap.Path = ap.Path(
-            parent=sprite.graphics, path_data_list=path_data_list)
+        path: ap.Path = sprite.graphics.draw_path(
+            path_data_list=path_data_list)
         expression: str = expression_data_util.get_current_expression()
         expected_epx_patterns: List[str] = [
             rf'var {path.variable_name} = {stage.variable_name}',

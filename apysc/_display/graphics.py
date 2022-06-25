@@ -989,9 +989,8 @@ class Graphics(
         ...             dest_x=100, dest_y=50),
         ...     ])
         """
-        path: _path.Path = _path.Path(
-            parent=self, path_data_list=path_data_list)
-        self.add_child(child=path)
+        path: _path.Path = _path.Path._create_with_graphics(
+            graphics=self, path_data_list=path_data_list)
         return path
 
     def __repr__(self) -> str:

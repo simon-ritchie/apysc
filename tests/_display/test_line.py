@@ -11,26 +11,65 @@ from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests._display.test_graphics_expression import \
     assert_stroke_attr_expression_exists
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestLine:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
-        line_dot_setting: ap.LineDotSetting = ap.LineDotSetting(dot_size=10)
-        sprite.graphics.line_style(
-            color='#0af', dot_setting=line_dot_setting)
+        stage: ap.Stage = ap.Stage()
         line: ap.Line = ap.Line(
-            parent=sprite.graphics,
             start_point=ap.Point2D(x=10, y=20),
-            end_point=ap.Point2D(x=30, y=40))
-        assert line.variable_name.startswith(f'{var_names.LINE}_')
-        assert line._start_point == ap.Point2D(x=10, y=20)
-        assert line._end_point == ap.Point2D(x=30, y=40)
-        assert line.line_color == '#00aaff'
-        assert line.line_dot_setting == line_dot_setting
+            end_point=ap.Point2D(x=30, y=40),
+            line_color='fff',
+            line_alpha=0.3,
+            line_thickness=3,
+            line_cap=ap.LineCaps.ROUND,
+            line_dot_setting=ap.LineDotSetting(dot_size=10))
+        assert_attrs(
+            expected_attrs={
+                '_start_point': ap.Point2D(x=10, y=20),
+                '_end_point': ap.Point2D(x=30, y=40),
+                '_line_color': '#ffffff',
+                '_line_alpha': 0.3,
+                '_line_thickness': 3,
+                '_line_cap': ap.LineCaps.ROUND.value,
+                '_line_dot_setting': ap.LineDotSetting(dot_size=10),
+                '_parent': stage,
+            },
+            any_obj=line)
+
+        sprite: ap.Sprite = ap.Sprite()
+        line = ap.Line(
+            start_point=ap.Point2D(x=10, y=20),
+            end_point=ap.Point2D(x=30, y=40),
+            line_dash_setting=ap.LineDashSetting(
+                dash_size=10, space_size=5),
+            parent=sprite)
+        assert_attrs(
+            expected_attrs={
+                '_line_dash_setting': ap.LineDashSetting(
+                    dash_size=10, space_size=5),
+                '_parent': sprite,
+            },
+            any_obj=line)
+
+        line = ap.Line(
+            start_point=ap.Point2D(x=10, y=20),
+            end_point=ap.Point2D(x=30, y=40),
+            line_round_dot_setting=ap.LineRoundDotSetting(
+                round_size=10, space_size=5))
+        assert line._line_round_dot_setting == ap.LineRoundDotSetting(
+            round_size=10, space_size=5)
+
+        line = ap.Line(
+            start_point=ap.Point2D(x=10, y=20),
+            end_point=ap.Point2D(x=30, y=40),
+            line_dash_dot_setting=ap.LineDashDotSetting(
+                dot_size=5, dash_size=10, space_size=3))
+        assert line._line_dash_dot_setting == ap.LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=3)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_points_expression(self) -> None:
@@ -55,10 +94,8 @@ class TestLine:
         stage_variable_name: str = get_stage_variable_name()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(color='#333', thickness=3)
-        line: ap.Line = ap.Line(
-            parent=sprite.graphics,
-            start_point=ap.Point2D(x=10, y=20),
-            end_point=ap.Point2D(x=30, y=40))
+        line: ap.Line = sprite.graphics.draw_line(
+            x_start=10, y_start=20, x_end=30, y_end=40)
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(

@@ -230,29 +230,47 @@ class GraphicsBase(
             After appending expression.
         """
         from apysc._display import graphics_expression
+
+        self._initialize_fill_color_if_not_initialized()
         expression = graphics_expression.append_fill_expression(
             fill_color=self._fill_color, expression=expression,
             indent_num=indent_num)
+
+        self._initialize_fill_alpha_if_not_initialized()
         expression = graphics_expression.append_fill_opacity_expression(
             fill_alpha=self._fill_alpha, expression=expression,
             indent_num=indent_num)
+
+        self._initialize_line_color_if_not_initialized()
         expression = graphics_expression.append_stroke_expression(
             line_color=self._line_color, expression=expression,
             indent_num=indent_num)
+
+        self._initialize_line_thickness_if_not_initialized()
         expression = graphics_expression.append_stroke_width_expression(
             line_thickness=self._line_thickness, expression=expression,
             indent_num=indent_num)
+
+        self._initialize_line_alpha_if_not_initialized()
         expression = graphics_expression.append_stroke_opacity_expression(
             line_alpha=self._line_alpha, expression=expression,
             indent_num=indent_num)
+
+        self._initialize_line_cap_if_not_initialized()
         expression = graphics_expression.append_stroke_linecap_expression(
             line_cap=self._line_cap, expression=expression,
             indent_num=indent_num)
+
+        self._initialize_line_joints_if_not_initialized()
         expression = graphics_expression.append_stroke_linejoin_expression(
             line_joints=self._line_joints, expression=expression,
             indent_num=indent_num)
+
+        self._initialize_x_if_not_initialized()
         expression = graphics_expression.append_x_expression(
             x=self._x, expression=expression, indent_num=indent_num)
+
+        self._initialize_y_if_not_initialized()
         expression = graphics_expression.append_y_expression(
             y=self._y, expression=expression, indent_num=indent_num)
         return expression

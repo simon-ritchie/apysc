@@ -61,6 +61,27 @@ class TestRectangle:
             any_obj=rectangle,
         )
 
+        rectangle = ap.Rectangle(
+            x=50, y=100, width=150, height=200,
+            line_dash_setting=ap.LineDashSetting(
+                dash_size=10, space_size=5))
+        assert rectangle._line_dash_setting == ap.LineDashSetting(
+            dash_size=10, space_size=5)
+
+        rectangle = ap.Rectangle(
+            x=50, y=100, width=150, height=200,
+            line_round_dot_setting=ap.LineRoundDotSetting(
+                round_size=10, space_size=5))
+        assert rectangle._line_round_dot_setting == ap.LineRoundDotSetting(
+            round_size=10, space_size=5)
+
+        rectangle = ap.Rectangle(
+            x=50, y=100, width=150, height=200,
+            line_dash_dot_setting=ap.LineDashDotSetting(
+                dot_size=3, dash_size=10, space_size=5))
+        assert rectangle._line_dash_dot_setting == ap.LineDashDotSetting(
+            dot_size=3, dash_size=10, space_size=5)
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
         ap.Stage()

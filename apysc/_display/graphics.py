@@ -948,12 +948,8 @@ class Graphics(
         >>> polygon.fill_color
         String('#00aaff')
         """
-        import apysc as ap
-        if isinstance(points, list):
-            points = ap.Array(points)
-        polygon: _polyg.Polygon = _polyg.Polygon(
-            parent=self, points=points)
-        self.add_child(child=polygon)
+        polygon: _polyg.Polygon = _polyg.Polygon._create_with_graphics(
+            graphics=self, points=points)
         return polygon
 
     @arg_validation_decos.is_path_data_list(arg_position_index=1)

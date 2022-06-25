@@ -106,3 +106,32 @@ class TestPath:
                 pattern=expected, string=expression,
                 flags=re.MULTILINE | re.DOTALL)
             assert match is not None, f'{expected}, \n\n{expression}\n\n'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_with_graphics(self) -> None:
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
+        sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+        sprite.graphics.line_style(
+            color='#fff', thickness=3, alpha=0.3,
+            cap=ap.LineCaps.ROUND, joints=ap.LineJoints.BEVEL,
+            dot_setting=ap.LineDotSetting(dot_size=10))
+        path_data_list: List[ap.PathDataBase] = [
+            ap.PathData.MoveTo(x=500, y=100),
+        ]
+        path: ap.Path = ap.Path._create_with_graphics(
+            graphics=sprite.graphics,
+            path_data_list=path_data_list)
+        assert_attrs(
+            expected_attrs={
+                '_path_data_list': path_data_list,
+                '_fill_color': '#00aaff',
+                '_fill_alpha': 0.5,
+                '_line_color': '#ffffff',
+                '_line_alpha': 0.3,
+                '_line_cap': ap.LineCaps.ROUND.value,
+                '_line_joints': ap.LineJoints.BEVEL.value,
+                '_line_dot_setting': ap.LineDotSetting(dot_size=10),
+                '_parent': sprite.graphics,
+            },
+            any_obj=path)

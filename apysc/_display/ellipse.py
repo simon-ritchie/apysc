@@ -187,8 +187,6 @@ class Ellipse(
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.ELLIPSE)
         self.variable_name = variable_name
-        self._update_x_and_skip_appending_exp(x=x)
-        self._update_y_and_skip_appending_exp(y=y)
         self._width = get_copied_int_from_builtin_val(integer=width)
         self._height = get_copied_int_from_builtin_val(integer=height)
         self._append_width_attr_linking_setting()
@@ -198,6 +196,8 @@ class Ellipse(
             line_color=line_color, line_thickness=line_thickness,
             line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
         self._append_constructor_expression()
+        self.x = get_copied_int_from_builtin_val(integer=x)
+        self.y = get_copied_int_from_builtin_val(integer=y)
         self._set_line_setting_if_not_none_value_exists(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,

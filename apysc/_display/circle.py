@@ -174,8 +174,6 @@ class Circle(
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.CIRCLE)
         self.variable_name = variable_name
-        self._update_x_and_skip_appending_exp(x=x)
-        self._update_y_and_skip_appending_exp(y=y)
         self._radius = self._get_converted_radius_int(radius=radius)
         self._set_initial_basic_values(
             fill_color=fill_color, fill_alpha=fill_alpha,

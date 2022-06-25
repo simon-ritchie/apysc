@@ -107,6 +107,23 @@ class _TestGraphic(GraphicsBase):
         """
         self._y = ap.Int(y)
 
+    def _initialize_x_if_not_initialized(self) -> None:
+        """
+        Initialize the _x attribute if this instance does not
+        initialize it yet.
+        """
+        if hasattr(self, '_x'):
+            return
+        self._x = ap.Int(0)
+
+    def _initialize_y_if_not_initialized(self) -> None:
+        """
+        Initialize the _y attribute if this instance does not
+        initialize it yet.
+        """
+        if hasattr(self, '_y'):
+            return
+        self._y = ap.Int(0)
 
 
 class TestGraphicsBase:

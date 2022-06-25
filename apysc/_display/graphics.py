@@ -312,9 +312,8 @@ class Graphics(
         >>> circle.fill_color
         String('#00aaff')
         """
-        circle: _circle.Circle = _circle.Circle(
-            parent=self, x=x, y=y, radius=radius)
-        self.add_child(child=circle)
+        circle: _circle.Circle = _circle.Circle._create_with_graphics(
+            graphics=self, x=x, y=y, radius=radius)
         return circle
 
     @arg_validation_decos.is_integer(arg_position_index=1)

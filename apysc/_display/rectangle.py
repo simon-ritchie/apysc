@@ -240,7 +240,7 @@ class Rectangle(
         Returns
         -------
         Rectangle
-            _description_
+            A created rectangle instance.
 
         Examples
         --------

@@ -8,6 +8,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestCircle:
@@ -36,20 +37,64 @@ class TestCircle:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color='#0af')
-        sprite.graphics.line_style(color='#fff')
+        stage: ap.Stage = ap.Stage()
         circle: ap.Circle = ap.Circle(
-            parent=sprite.graphics,
             x=50,
             y=100,
-            radius=30)
-        assert circle.x == 50
-        assert circle.y == 100
-        assert circle.radius == 30
-        assert circle.fill_color == '#00aaff'
-        assert circle.line_color == '#ffffff'
+            radius=150,
+            fill_color='#0af',
+            fill_alpha=0.5,
+            line_color='fff',
+            line_alpha=0.3,
+            line_thickness=3,
+            line_cap=ap.LineCaps.ROUND,
+            line_joints=ap.LineJoints.BEVEL,
+            line_dot_setting=ap.LineDotSetting(dot_size=10))
+        assert_attrs(
+            expected_attrs={
+                '_x': 50,
+                '_y': 100,
+                '_radius': 150,
+                '_fill_color': '#00aaff',
+                '_fill_alpha': 0.5,
+                '_line_color': '#ffffff',
+                '_line_alpha': 0.3,
+                '_line_thickness': 3,
+                '_line_cap': ap.LineCaps.ROUND.value,
+                '_line_joints': ap.LineJoints.BEVEL.value,
+                '_line_dot_setting': ap.LineDotSetting(dot_size=10),
+                '_parent': stage,
+            },
+            any_obj=circle,
+        )
+
+        sprite: ap.Sprite = ap.Sprite()
+        circle = ap.Circle(
+            x=50, y=100, radius=150,
+            line_dash_setting=ap.LineDashSetting(
+                dash_size=10, space_size=5),
+            parent=sprite)
+        assert_attrs(
+            expected_attrs={
+                '_line_dash_setting': ap.LineDashSetting(
+                    dash_size=10, space_size=5),
+                '_parent': sprite,
+            },
+            any_obj=circle)
+
+        circle = ap.Circle(
+            x=50, y=100, radius=150,
+            line_round_dot_setting=ap.LineRoundDotSetting(
+                round_size=10, space_size=5))
+        assert circle._line_round_dot_setting == ap.LineRoundDotSetting(
+            round_size=10, space_size=5)
+
+        circle = ap.Circle(
+            x=50, y=100, radius=150,
+            line_dash_dot_setting=ap.LineDashDotSetting(
+                dot_size=5, dash_size=10, space_size=5))
+        assert circle._line_dash_dot_setting == ap.LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=5)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:

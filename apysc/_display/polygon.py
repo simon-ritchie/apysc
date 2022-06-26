@@ -1,7 +1,8 @@
 """Implementations of Polygon class.
 """
 
-from typing import List, Optional as Op, Union
+from typing import List, Union
+from typing import Optional as Op
 
 from apysc._display import graphics
 from apysc._display.append_line_point_interface import AppendLinePointInterface

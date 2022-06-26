@@ -255,7 +255,6 @@ class Graphics(
             ellipse_height = ap.Int(ellipse_height)
         rectangle.ellipse_width = ellipse_width
         rectangle.ellipse_height = ellipse_height
-        self.add_child(child=rectangle)
         return rectangle
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -638,12 +637,11 @@ class Graphics(
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
         self._line_dot_setting = ap.LineDotSetting(dot_size=dot_size)
-        line: _line.Line = _line.Line(
-            parent=self,
+        line: _line.Line = _line.Line._create_with_graphics(
+            graphics=self,
             start_point=Point2D(x=x_start, y=y_start),
             end_point=Point2D(x=x_end, y=y_end))
         self._run_all_revert_methods(snapshot_name=snapshot_name)
-        self.add_child(child=line)
         return line
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -722,12 +720,11 @@ class Graphics(
         self._reset_each_line_settings()
         self._line_dash_setting = ap.LineDashSetting(
             dash_size=dash_size, space_size=space_size)
-        line: _line.Line = _line.Line(
-            parent=self,
+        line: _line.Line = _line.Line._create_with_graphics(
+            graphics=self,
             start_point=Point2D(x=x_start, y=y_start),
             end_point=Point2D(x=x_end, y=y_end))
         self._run_all_revert_methods(snapshot_name=snapshot_name)
-        self.add_child(child=line)
         return line
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -806,12 +803,11 @@ class Graphics(
         self._reset_each_line_settings()
         self._line_round_dot_setting = ap.LineRoundDotSetting(
             round_size=round_size, space_size=space_size)
-        line: _line.Line = _line.Line(
-            parent=self,
+        line: _line.Line = _line.Line._create_with_graphics(
+            graphics=self,
             start_point=Point2D(x=x_start, y=y_start),
             end_point=Point2D(x=x_end, y=y_end))
         self._run_all_revert_methods(snapshot_name=snapshot_name)
-        self.add_child(child=line)
         return line
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -895,12 +891,11 @@ class Graphics(
             dot_size=dot_size,
             dash_size=dash_size,
             space_size=space_size)
-        line: _line.Line = _line.Line(
-            parent=self,
+        line: _line.Line = _line.Line._create_with_graphics(
+            graphics=self,
             start_point=Point2D(x=x_start, y=y_start),
             end_point=Point2D(x=x_end, y=y_end))
         self._run_all_revert_methods(snapshot_name=snapshot_name)
-        self.add_child(child=line)
         return line
 
     @arg_validation_decos.is_point_2ds(arg_position_index=1)

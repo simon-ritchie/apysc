@@ -392,7 +392,7 @@ Set the validation to check a specified argument's type is the `ap.LineDashSetti
 
 ## `is_line_dot_setting` function docstring
 
-Set the validation to check a specified argument's type is the `ap.LineDashSetting`.<hr>
+Set the validation to check a specified argument's type is the `ap.LineDotSetting`.<hr>
 
 **[Parameters]**
 

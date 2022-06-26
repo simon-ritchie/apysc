@@ -1,7 +1,8 @@
 """Class implementation for fill alpha interface.
 """
 
-from typing import Dict, Union
+from typing import Dict
+from typing import Union
 
 from apysc._animation.animation_fill_alpha_interface import \
     AnimationFillAlphaInterface
@@ -130,8 +131,10 @@ class FillAlphaInterface(
         self._initialize_fill_alpha_if_not_initialized()
         if not isinstance(value, Number):
             value = cast.to_float_from_int(int_or_float=value)
-            value = Number(value=value)
-        self._fill_alpha = value
+            value_: Number = Number(value=value)
+        else:
+            value_ = value
+        self._fill_alpha = value_
 
     _fill_alpha_snapshots: Dict[str, float]
 

@@ -1,7 +1,8 @@
 """Class implementation for the y-coordinate interface.
 """
 
-from typing import Dict, Union
+from typing import Dict
+from typing import Union
 
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_y_interface import AnimationYInterface

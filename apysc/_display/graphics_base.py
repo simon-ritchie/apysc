@@ -1,13 +1,32 @@
 """Class implementation for graphic's base class.
 """
 
-from typing import Optional, Union
 from abc import ABC
 from abc import abstractmethod
+from typing import Optional
+from typing import Union
 
+from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
+from apysc._display.fill_alpha_interface import FillAlphaInterface
+from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.flip_x_interface import FlipXInterface
 from apysc._display.flip_y_interface import FlipYInterface
+from apysc._display.line_alpha_interface import LineAlphaInterface
+from apysc._display.line_caps import LineCaps
+from apysc._display.line_color_interface import LineColorInterface
+from apysc._display.line_dash_dot_setting import LineDashDotSetting
+from apysc._display.line_dash_dot_setting_interface import \
+    LineDashDotSettingInterface
+from apysc._display.line_dash_setting import LineDashSetting
+from apysc._display.line_dash_setting_interface import LineDashSettingInterface
+from apysc._display.line_dot_setting import LineDotSetting
+from apysc._display.line_dot_setting_interface import LineDotSettingInterface
+from apysc._display.line_joints import LineJoints
+from apysc._display.line_joints_interface import LineJointsInterface
+from apysc._display.line_round_dot_setting import LineRoundDotSetting
+from apysc._display.line_round_dot_setting_interface import \
+    LineRoundDotSettingInterface
 from apysc._display.rotation_around_center_interface import \
     RotationAroundCenterInterface
 from apysc._display.rotation_around_point_interface import \
@@ -22,30 +41,12 @@ from apysc._display.scale_y_from_point_interface import \
     ScaleYFromPointInterface
 from apysc._display.skew_x_interface import SkewXInterface
 from apysc._display.skew_y_interface import SkewYInterface
+from apysc._display.stage import get_stage
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._validation import arg_validation_decos
-from apysc._type.string import String
 from apysc._type.number import Number
-from apysc._display.fill_alpha_interface import FillAlphaInterface
-from apysc._display.fill_color_interface import FillColorInterface
-from apysc._display.line_alpha_interface import LineAlphaInterface
-from apysc._display.line_color_interface import LineColorInterface
-from apysc._display.line_dash_dot_setting_interface import \
-    LineDashDotSettingInterface
-from apysc._display.line_dash_setting_interface import LineDashSettingInterface
-from apysc._display.line_dot_setting_interface import LineDotSettingInterface
-from apysc._display.line_joints_interface import LineJointsInterface
-from apysc._display.line_round_dot_setting_interface import \
-    LineRoundDotSettingInterface
-from apysc._display.line_dot_setting import LineDotSetting
-from apysc._display.line_dash_setting import LineDashSetting
-from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.line_dash_dot_setting import LineDashDotSetting
-from apysc._display.child_interface import ChildInterface
-from apysc._display.line_caps import LineCaps
-from apysc._display.line_joints import LineJoints
-from apysc._display.stage import get_stage
+from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class GraphicsBase(

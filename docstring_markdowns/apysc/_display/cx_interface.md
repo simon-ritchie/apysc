@@ -6,17 +6,17 @@ Class implementation for the center x-coordinate interface.
 
 ## `CxInterface` class docstring
 
-### `_append_cx_attr_linking_setting` method docstring
+### `_append_x_attr_linking_setting` method docstring
 
-Append cx attribute linking settings.
+Append x attribute linking settings.
 
-### `_append_cx_update_expression` method docstring
+### `_append_x_update_expression` method docstring
 
-Append cx position updating expression.
+Append x position updating expression.
 
-### `_initialize_cx_if_not_initialized` method docstring
+### `_initialize_x_if_not_initialized` method docstring
 
-Initialize _cx attribute if this interface does not initialize it yet.
+Initialize _x attribute if this interface does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 
@@ -35,3 +35,12 @@ Revert a value if a snapshot exists.<hr>
 
 - `snapshot_name`: str
   - Target snapshot name.
+
+### `_update_x_and_skip_appending_exp` method docstring
+
+Update x-coordinate and skip appending an expression.<hr>
+
+**[Parameters]**
+
+- `x`: int or Int
+  - X-coordinate value.

@@ -36,34 +36,32 @@ Create a polyline vector graphic.<hr>
 
 **[Parameters]**
 
-- `parent`: Graphics
-  - Graphics instance to link this graphic.
-- `points`: Array of Point2D
+- `points`: Array of Point2D or list of Point2D
   - List of line points.
-
-<hr>
-
-**[Examples]**
-
-```py
->>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color='#fff', thickness=5)
->>> _ = sprite.graphics.move_to(x=50, y=50)
->>> polyline: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
->>> polyline.line_color
-String('#ffffff')
-
->>> polyline.line_thickness
-Int(5)
-```
-
-<hr>
-
-**[References]**
-
-- [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html)
+- `fill_color`: str or String, default ''
+  - A fill-color to set.
+- `fill_alpha`: float or Number, default 1.0
+  - A fill-alpha to set.
+- `line_color`: str or String, default ''
+  - A line-color to set.
+- `line_alpha`: float or Number, default 1.0
+  - A line-alpha to set.
+- `line_thickness`: int or Int, default 1
+  - A line-thickness (line-width) to set.
+- `line_cap`: String or LineCaps or None, default None
+  - A line-cap setting to set.
+- `line_joints`: String or LineJoints or None, default None
+  - A line-joints setting to set.
+- `line_dot_setting`: LineDotSetting or None, default None
+  - A dot setting to set.
+- `line_dash_setting`: LineDashSetting or None, default None
+  - A dash setting to set.
+- `line_round_dot_setting`: LineRoundDotSetting or None, default None
+  - A round-dot setting to set.
+- `line_dash_dot_setting`: LineDashDotSetting or None, default None
+  - A dash dot (1-dot chain) setting to set.
+- `parent`: ChildInterface or None, default None
+  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 
 ### `__repr__` method docstring
 
@@ -77,3 +75,21 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 ### `_append_constructor_expression` method docstring
 
 Append constructor expression.
+
+### `_create_with_graphics` method docstring
+
+Create a polyline instance with the instance of specified graphics.<hr>
+
+**[Parameters]**
+
+- `graphics`: Graphics
+  - Graphics instance to link this instance.
+- `points`: Array of Point2D or list of Point2D
+  - List of line points._description_
+
+<hr>
+
+**[Returns]**
+
+- `polyline`: Polyline
+  - A created polyline instance.

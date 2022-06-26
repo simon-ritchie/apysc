@@ -2,28 +2,29 @@
 """
 
 
-from typing import List, Union
+from typing import List
 from typing import Optional as Op
+from typing import Union
 
 from apysc._display import graphics
 from apysc._display.append_line_point_interface import AppendLinePointInterface
+from apysc._display.child_interface import ChildInterface
 from apysc._display.graphics_base import GraphicsBase
+from apysc._display.line_caps import LineCaps
+from apysc._display.line_dash_dot_setting import LineDashDotSetting
+from apysc._display.line_dash_setting import LineDashSetting
+from apysc._display.line_dot_setting import LineDotSetting
+from apysc._display.line_joints import LineJoints
+from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._geom.point2d import Point2D
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
-from apysc._validation import arg_validation_decos
 from apysc._type.int import Int
-from apysc._type.string import String
 from apysc._type.number import Number
-from apysc._display.line_dot_setting import LineDotSetting
-from apysc._display.line_dash_setting import LineDashSetting
-from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.line_dash_dot_setting import LineDashDotSetting
-from apysc._display.line_caps import LineCaps
-from apysc._display.line_joints import LineJoints
-from apysc._display.child_interface import ChildInterface
+from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class Polyline(
@@ -57,50 +58,36 @@ class Polyline(
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(
         arg_position_index=0)
-
     # points
     @arg_validation_decos.is_point_2ds(arg_position_index=1)
-
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=2)
-
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=3)
-
     # line_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=4)
-
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5)
-
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=6)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
-
     # line_cap
     @arg_validation_decos.is_line_cap(
         arg_position_index=7, optional=True)
-
     # line_joints
     @arg_validation_decos.is_line_joints(
         arg_position_index=8, optional=True)
-
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=9)
-
     # line_dash_setting
     @arg_validation_decos.is_line_dash_setting(arg_position_index=10)
-
     # line_round_dot_setting
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=11)
-
     # line_dash_dot_setting
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=12)
-
     # parent
     @arg_validation_decos.is_display_object_container(
         arg_position_index=13, optional=True)
-
     @add_debug_info_setting(
         module_name=__name__, class_name='Polyline')
     def __init__(
@@ -180,8 +167,8 @@ class Polyline(
             graphics: 'graphics.Graphics',
             points: Union[Array[Point2D], List[Point2D]]) -> 'Polyline':
         """
-        Create a polyline instance with a specified `graphics`
-        instance.
+        Create a polyline instance with the instance of
+        specified graphics.
 
         Parameters
         ----------

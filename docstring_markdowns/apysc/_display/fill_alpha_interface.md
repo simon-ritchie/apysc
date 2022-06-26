@@ -42,5 +42,5 @@ Update the fill opacity and skip appending expression.<hr>
 
 **[Parameters]**
 
-- `value`: Number
+- `value`: float or Number
   - Fill opacity to set.

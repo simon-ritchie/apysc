@@ -35,3 +35,12 @@ Revert a value if a snapshot exists.<hr>
 
 - `snapshot_name`: str
   - Target snapshot name.
+
+### `_update_x_and_skip_appending_exp` method docstring
+
+Update x-coordinate and skip appending an expression.<hr>
+
+**[Parameters]**
+
+- `x`: int or Int
+  - X-coordinate value.

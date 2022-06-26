@@ -4,8 +4,8 @@ from typing import Union
 from retrying import retry
 
 import apysc as ap
-from apysc._testing import testing_helper
 from apysc._display.graphics_base import GraphicsBase
+from apysc._testing import testing_helper
 from tests._display.test_graphics_expression import \
     assert_fill_attr_expression_exists
 from tests._display.test_graphics_expression import \
@@ -32,6 +32,11 @@ class _TestGraphic(GraphicsBase):
         """
         Get a string representation of this instance (for the sake of
         debugging).
+
+        Returns
+        -------
+        repr_str : str
+            A string representation of this instance.
         """
         return f'_TestGraphic({self.variable_name})'
 
@@ -142,7 +147,7 @@ class TestGraphicsBase:
             },
             any_obj=graphics)
 
-        graphics: _TestGraphic = _TestGraphic(
+        graphics = _TestGraphic(
             parent=sprite,
             variable_name='test_graphics_2')
         testing_helper.assert_attrs(

@@ -428,7 +428,6 @@ class Graphics(
         >>> line_1.line_thickness
         Int(5)
         """
-        import apysc as ap
         if self._current_line is None:
             self._current_line = _polyline.Polyline._create_with_graphics(
                 graphics=self, points=[Point2D(x=0, y=0), Point2D(x=x, y=y)])

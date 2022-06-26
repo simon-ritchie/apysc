@@ -9,9 +9,9 @@ import apysc as ap
 from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import assert_attrs
 from tests._display.test_graphics_expression import \
     assert_stroke_attr_expression_exists
-from apysc._testing.testing_helper import assert_attrs
 
 
 class TestLine:

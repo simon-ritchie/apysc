@@ -1,26 +1,26 @@
 """Implementations of Circle class.
 """
 
-from typing import Union
 from typing import Optional as Op
+from typing import Union
 
 from apysc._display import graphics
+from apysc._display.child_interface import ChildInterface
 from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface
 from apysc._display.graphics_base import GraphicsBase
+from apysc._display.line_caps import LineCaps
+from apysc._display.line_dash_dot_setting import LineDashDotSetting
+from apysc._display.line_dash_setting import LineDashSetting
+from apysc._display.line_dot_setting import LineDotSetting
+from apysc._display.line_joints import LineJoints
+from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.radius_interface import RadiusInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._validation import arg_validation_decos
-from apysc._type.string import String
 from apysc._type.number import Number
-from apysc._display.line_dot_setting import LineDotSetting
-from apysc._display.line_dash_setting import LineDashSetting
-from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.line_dash_dot_setting import LineDashDotSetting
-from apysc._display.line_caps import LineCaps
-from apysc._display.line_joints import LineJoints
-from apysc._display.child_interface import ChildInterface
+from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class Circle(
@@ -60,57 +60,41 @@ class Circle(
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(
         arg_position_index=0)
-
     # x
     @arg_validation_decos.is_integer(arg_position_index=1)
-
     # y
     @arg_validation_decos.is_integer(arg_position_index=2)
-
     # radius
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
-
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=4)
-
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5)
-
     # line_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=6)
-
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7)
-
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=8)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=8)
-
     # line_cap
     @arg_validation_decos.is_line_cap(
         arg_position_index=9, optional=True)
-
     # line_joints
     @arg_validation_decos.is_line_joints(
         arg_position_index=10, optional=True)
-
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=11)
-
     # line_dash_setting
     @arg_validation_decos.is_line_dash_setting(arg_position_index=12)
-
     # line_round_dot_setting
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=13)
-
     # line_dash_dot_setting
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=14)
-
     # parent
     @arg_validation_decos.is_display_object_container(
         arg_position_index=15, optional=True)
-
     @add_debug_info_setting(
         module_name=__name__, class_name='Circle')
     def __init__(
@@ -203,8 +187,8 @@ class Circle(
             y: Union[int, Int],
             radius: Union[int, Int]) -> 'Circle':
         """
-        Create a rectangle instance with a specified `graphics`
-        instance.
+        Create a rectangle instance with the instance of
+        specified graphics.
 
         Parameters
         ----------

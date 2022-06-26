@@ -86,7 +86,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a x-coordinate.<hr>
+**[Interface summary]** Get an x-coordinate.<hr>
 
 **[Returns]**
 

@@ -1,29 +1,29 @@
 """Implementations of the Rectangle class.
 """
 
-from typing import Union
 from typing import Optional as Op
+from typing import Union
 
 from apysc._display import graphics
+from apysc._display.child_interface import ChildInterface
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
 from apysc._display.ellipse_width_interface import EllipseWidthInterface
-from apysc._display.height_interface import HeightInterface
 from apysc._display.graphics_base import GraphicsBase
+from apysc._display.height_interface import HeightInterface
+from apysc._display.line_caps import LineCaps
+from apysc._display.line_dash_dot_setting import LineDashDotSetting
+from apysc._display.line_dash_setting import LineDashSetting
+from apysc._display.line_dot_setting import LineDotSetting
+from apysc._display.line_joints import LineJoints
+from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.width_interface import WidthInterface
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._validation import arg_validation_decos
-from apysc._type.string import String
 from apysc._type.number import Number
-from apysc._display.line_dot_setting import LineDotSetting
-from apysc._display.line_dash_setting import LineDashSetting
-from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.line_dash_dot_setting import LineDashDotSetting
-from apysc._display.line_caps import LineCaps
-from apysc._display.line_joints import LineJoints
-from apysc._display.child_interface import ChildInterface
+from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class Rectangle(
@@ -69,61 +69,44 @@ class Rectangle(
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(
         arg_position_index=0)
-
     # x
     @arg_validation_decos.is_integer(arg_position_index=1)
-
     # y
     @arg_validation_decos.is_integer(arg_position_index=2)
-
     # width
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
-
     # height
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
-
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=5)
-
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=6)
-
     # line_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=7)
-
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=8)
-
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=9)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=9)
-
     # line_cap
     @arg_validation_decos.is_line_cap(
         arg_position_index=10, optional=True)
-
     # line_joints
     @arg_validation_decos.is_line_joints(
         arg_position_index=11, optional=True)
-
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=12)
-
     # line_dash_setting
     @arg_validation_decos.is_line_dash_setting(arg_position_index=13)
-
     # line_round_dot_setting
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=14)
-
     # line_dash_dot_setting
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=15)
-
     # parent
     @arg_validation_decos.is_display_object_container(
         arg_position_index=16, optional=True)
-
     @add_debug_info_setting(
         module_name=__name__, class_name='Rectangle')
     def __init__(
@@ -217,8 +200,8 @@ class Rectangle(
             width: Union[int, Int],
             height: Union[int, Int]) -> 'Rectangle':
         """
-        Create a rectangle instance with a specified `graphics`
-        instance.
+        Create a rectangle instance with the instance of
+        specified graphics..
 
         Parameters
         ----------

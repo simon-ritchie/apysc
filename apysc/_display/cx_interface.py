@@ -1,7 +1,8 @@
 """Class implementation for the center x-coordinate interface.
 """
 
-from typing import Dict, Union
+from typing import Dict
+from typing import Union
 
 from apysc._animation.animation_cx_interface import AnimationCxInterface
 from apysc._display.x_interface_base import XInterfaceBase

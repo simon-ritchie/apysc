@@ -1,12 +1,10 @@
 """Graphics class-related expression implementations.
 """
 
-from apysc._display.graphics import Graphics
-from apysc._display.graphics_base import GraphicsBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.string import String
 from apysc._type.number import Number
+from apysc._type.string import String
 
 
 @add_debug_info_setting(module_name=__name__)

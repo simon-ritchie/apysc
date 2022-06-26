@@ -7,7 +7,6 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display import graphics_expression
-from apysc._display.graphics import Graphics
 from apysc._expression import var_names
 
 

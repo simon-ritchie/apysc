@@ -37,35 +37,32 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 
 **[Parameters]**
 
-- `parent`: Graphics
-  - Graphics instance to link this graphic.
-- `points`: Array of Point2D
+- `points`: Array of Point2D or list of Point2D
   - List of polygon vertex points.
-
-<hr>
-
-**[Examples]**
-
-```py
->>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
->>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
-...     points=[
-...         ap.Point2D(x=50, y=50),
-...         ap.Point2D(x=50, y=100),
-...         ap.Point2D(x=100, y=75),
-...     ])
->>> polygon.fill_color
-String('#00aaff')
-```
-
-<hr>
-
-**[References]**
-
-- [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html)
+- `fill_color`: str or String, default ''
+  - A fill-color to set.
+- `fill_alpha`: float or Number, default 1.0
+  - A fill-alpha to set.
+- `line_color`: str or String, default ''
+  - A line-color to set.
+- `line_alpha`: float or Number, default 1.0
+  - A line-alpha to set.
+- `line_thickness`: int or Int, default 1
+  - A line-thickness (line-width) to set.
+- `line_cap`: String or LineCaps or None, default None
+  - A line-cap setting to set.
+- `line_joints`: String or LineJoints or None, default None
+  - A line-joints setting to set.
+- `line_dot_setting`: LineDotSetting or None, default None
+  - A dot setting to set.
+- `line_dash_setting`: LineDashSetting or None, default None
+  - A dash setting to set.
+- `line_round_dot_setting`: LineRoundDotSetting or None, default None
+  - A round-dot setting to set.
+- `line_dash_dot_setting`: LineDashDotSetting or None, default None
+  - A dash dot (1-dot chain) setting to set.
+- `parent`: ChildInterface or None, default None
+  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 
 ### `__repr__` method docstring
 
@@ -79,3 +76,21 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 ### `_append_constructor_expression` method docstring
 
 Append constructor expression.
+
+### `_create_with_graphics` method docstring
+
+Create a polygon instance with the instance of specified graphics.<hr>
+
+**[Parameters]**
+
+- `graphics`: Graphics
+  - Graphics instance to link this instance.
+- `points`: Array[Point2D]
+  - List of polygon vertex points.
+
+<hr>
+
+**[Returns]**
+
+- `polygon`: Polygon
+  - A created polygon instance.

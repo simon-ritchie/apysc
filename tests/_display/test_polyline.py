@@ -36,40 +36,60 @@ class TestPolyline:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color='0af', alpha=0.5)
-        sprite.graphics.line_style(
-            color='f0a', thickness=2, alpha=0.7, cap=ap.LineCaps.ROUND,
-            joints=ap.LineJoints.BEVEL,
-            dot_setting=ap.LineDotSetting(dot_size=10))
-        points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
+        stage: ap.Stage = ap.Stage()
+        points: List[ap.Point2D] = [ap.Point2D(10, 20), ap.Point2D(30, 40)]
         polyline: ap.Polyline = ap.Polyline(
-            parent=sprite.graphics,
-            points=points)
+            points=points,
+            fill_color='#0af',
+            fill_alpha=0.5,
+            line_color='fff',
+            line_alpha=0.3,
+            line_thickness=3,
+            line_cap=ap.LineCaps.ROUND,
+            line_joints=ap.LineJoints.BEVEL,
+            line_dot_setting=ap.LineDotSetting(dot_size=10))
         assert_attrs(
             expected_attrs={
                 '_points': points,
                 '_fill_color': '#00aaff',
                 '_fill_alpha': 0.5,
-                '_line_color': '#ff00aa',
-                '_line_thickness': 2,
-                '_line_alpha': 0.7,
-                '_x': 0,
-                '_y': 0,
+                '_line_color': '#ffffff',
+                '_line_alpha': 0.3,
+                '_line_thickness': 3,
                 '_line_cap': ap.LineCaps.ROUND.value,
                 '_line_joints': ap.LineJoints.BEVEL.value,
+                '_line_dot_setting': ap.LineDotSetting(dot_size=10),
+                '_parent': stage,
             },
             any_obj=polyline)
-        assert polyline.line_dot_setting.dot_size == 10  # type: ignore
 
-        sprite.graphics.line_style(
-            color='f0a',
-            dash_setting=ap.LineDashSetting(dash_size=10, space_size=5))
+        sprite: ap.Sprite = ap.Sprite()
         polyline = ap.Polyline(
-            parent=sprite.graphics,
-            points=points)
-        assert polyline.line_dash_setting.dash_size == 10  # type: ignore
+            points=points,
+            line_dash_setting=ap.LineDashSetting(
+                dash_size=10, space_size=5),
+            parent=sprite)
+        assert_attrs(
+            expected_attrs={
+                '_line_dash_setting': ap.LineDashSetting(
+                    dash_size=10, space_size=5),
+                '_parent': sprite,
+            },
+            any_obj=polyline)
+
+        polyline = ap.Polyline(
+            points=points,
+            line_round_dot_setting=ap.LineRoundDotSetting(
+                round_size=10, space_size=5))
+        assert polyline._line_round_dot_setting == ap.LineRoundDotSetting(
+            round_size=10, space_size=5)
+
+        polyline = ap.Polyline(
+            points=points,
+            line_dash_dot_setting=ap.LineDashDotSetting(
+                dot_size=5, dash_size=10, space_size=3))
+        assert polyline._line_dash_dot_setting == ap.LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=3)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
@@ -94,10 +114,8 @@ class TestPolyline:
         sprite.graphics.line_style(
             color='#f0a', cap=ap.LineCaps.ROUND, joints=ap.LineJoints.BEVEL,
             dot_setting=ap.LineDotSetting(dot_size=10))
-        points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
-        polyline: ap.Polyline = ap.Polyline(
-            parent=sprite.graphics,
-            points=points)
+        polyline: ap.Polyline = sprite.graphics.line_to(
+            x=10, y=20)
         stage_variable_name: str = get_stage_variable_name()
         expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [

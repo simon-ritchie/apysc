@@ -431,10 +431,8 @@ class Graphics(
         """
         import apysc as ap
         if self._current_line is None:
-            self._current_line = _polyline.Polyline(
-                parent=self,
-                points=ap.Array([Point2D(x=0, y=0), Point2D(x=x, y=y)]))
-            self.add_child(child=self._current_line)
+            self._current_line = _polyline.Polyline._create_with_graphics(
+                graphics=self, points=[Point2D(x=0, y=0), Point2D(x=x, y=y)])
         else:
             self._current_line.append_line_point(x=x, y=y)
         return self._current_line
@@ -485,9 +483,9 @@ class Graphics(
         >>> line_1.line_thickness
         Int(5)
         """
-        import apysc as ap
-        polyline: _polyline.Polyline = _polyline.Polyline(
-            parent=self, points=ap.Array([Point2D(x=x, y=y)]))
+        polyline: _polyline.Polyline = \
+            _polyline.Polyline._create_with_graphics(
+                graphics=self, points=[Point2D(x=x, y=y)])
         self._current_line = polyline
         return polyline
 

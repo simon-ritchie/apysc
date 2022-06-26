@@ -59,7 +59,6 @@
 <p>It is necessary to set the debug mode setting with the <code class="docutils literal notranslate"><span class="pre">ap.set_debug_mode()</span></code> function at the first position.</p>
 <p>After that, You can set the <code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code> decorator settings to any function or method.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code> needs to specify the <code class="docutils literal notranslate"><span class="pre">module_name</span></code> (this value becomes <code class="docutils literal notranslate"><span class="pre">__name__</span></code>).</p>
-<p>Optionally it needs to specify the <code class="docutils literal notranslate"><span class="pre">class_name</span></code> argument when you decorate a method.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -96,8 +95,7 @@
 
 <span class="k">class</span> <span class="nc">MySprite</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">):</span>
 
-    <span class="nd">@ap</span><span class="o">.</span><span class="n">add_debug_info_setting</span><span class="p">(</span>
-        <span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="s1">&#39;MySprite&#39;</span><span class="p">)</span>
+    <span class="nd">@ap</span><span class="o">.</span><span class="n">add_debug_info_setting</span><span class="p">(</span><span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">)</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        My rectangle&#39;s sprite container class.</span>

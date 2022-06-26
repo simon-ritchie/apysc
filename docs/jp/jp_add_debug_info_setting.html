@@ -59,7 +59,6 @@
 <p>処理の有効にするために最初に<code class="docutils literal notranslate"><span class="pre">ap.set_debug_mode()</span></code>関数でデバッグモードの設定を行っておく必要があります。</p>
 <p>その後、任意の各関数やメソッドに<code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code>のデコレーターの設定を追加することができます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code>の関数は<code class="docutils literal notranslate"><span class="pre">module_name</span></code>引数の指定が必要になります（この引数は基本的に<code class="docutils literal notranslate"><span class="pre">__name__</span></code>の値となります）。</p>
-<p>加えて、もしメソッドに対してデコレーターの設定を行う場合には<code class="docutils literal notranslate"><span class="pre">class_name</span></code>引数の指定も必要になります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -96,8 +95,7 @@
 
 <span class="k">class</span> <span class="nc">MySprite</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">):</span>
 
-    <span class="nd">@ap</span><span class="o">.</span><span class="n">add_debug_info_setting</span><span class="p">(</span>
-        <span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="s1">&#39;MySprite&#39;</span><span class="p">)</span>
+    <span class="nd">@ap</span><span class="o">.</span><span class="n">add_debug_info_setting</span><span class="p">(</span><span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">)</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        My rectangle&#39;s sprite container class.</span>

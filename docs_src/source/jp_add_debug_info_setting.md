@@ -16,8 +16,6 @@
 
 `@ap.add_debug_info_setting`の関数は`module_name`引数の指定が必要になります（この引数は基本的に`__name__`の値となります）。
 
-加えて、もしメソッドに対してデコレーターの設定を行う場合には`class_name`引数の指定も必要になります。
-
 ```py
 # runnable
 import apysc as ap
@@ -55,8 +53,7 @@ def _draw_rectangle(*, x: int, y: int) -> None:
 
 class MySprite(ap.Sprite):
 
-    @ap.add_debug_info_setting(
-        module_name=__name__, class_name='MySprite')
+    @ap.add_debug_info_setting(module_name=__name__)
     def __init__(self, *, x: int, y: int) -> None:
         """
         My rectangle's sprite container class.

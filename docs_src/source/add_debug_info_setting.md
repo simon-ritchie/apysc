@@ -14,8 +14,6 @@ After that, You can set the `@ap.add_debug_info_setting` decorator settings to a
 
 The `@ap.add_debug_info_setting` needs to specify the `module_name` (this value becomes `__name__`).
 
-Optionally it needs to specify the `class_name` argument when you decorate a method.
-
 ```py
 # runnable
 import apysc as ap
@@ -53,8 +51,7 @@ def _draw_rectangle(*, x: int, y: int) -> None:
 
 class MySprite(ap.Sprite):
 
-    @ap.add_debug_info_setting(
-        module_name=__name__, class_name='MySprite')
+    @ap.add_debug_info_setting(module_name=__name__)
     def __init__(self, *, x: int, y: int) -> None:
         """
         My rectangle's sprite container class.

@@ -81,8 +81,6 @@ Set a debug information setting to a target callable object (decorator function)
 
 - `module_name`: str
   - A target module name.
-- `class_name`: str or None, default None
-  - Target class name. If a target callable is a function, this interface requires None of this argument.
 
 <hr>
 

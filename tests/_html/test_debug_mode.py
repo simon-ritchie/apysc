@@ -2,8 +2,6 @@ import re
 from random import randint
 from typing import Match
 from typing import Optional
-import inspect
-from inspect import Signature
 
 from retrying import retry
 
@@ -107,7 +105,7 @@ def test__get_callable_path_name() -> None:
         'tests__html_test_debug_mode_TestDebugInfo_test___init__'
 
     path_name = debug_mode._get_callable_path_name(
-        callable_=TestDebugInfo.test___init__,module_name=__name__)
+        callable_=TestDebugInfo.test___init__, module_name=__name__)
     assert path_name == \
         'tests__html_test_debug_mode_test___init__'
 
@@ -144,10 +142,10 @@ def test_add_debug_info_setting() -> None:
 
     expression_data_util.empty_expression()
     ap.set_debug_mode()
-    result: int = _TestClass.test_method_2(a=20)
+    result = _TestClass.test_method_2(a=20)
     ap.unset_debug_mode()
     assert result == 60
-    expression: str = expression_data_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     assert 'class: _TestClass' in expression
 
 

@@ -160,3 +160,28 @@ class TestPolyline:
             f'\n{polyline.variable_name}.plot({polyline._points_var_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_with_graphics(self) -> None:
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
+        sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+        sprite.graphics.line_style(
+            color='fff', thickness=3, alpha=0.3,
+            cap=ap.LineCaps.ROUND, joints=ap.LineJoints.BEVEL,
+            dot_setting=ap.LineDotSetting(dot_size=10))
+        polyline: ap.Polyline = sprite.graphics.move_to(x=50, y=100)
+        assert_attrs(
+            expected_attrs={
+                '_points': [ap.Point2D(x=50, y=100)],
+                '_fill_color': '#00aaff',
+                '_fill_alpha': 0.5,
+                '_line_color': '#ffffff',
+                '_line_alpha': 0.3,
+                '_line_thickness': 3,
+                '_line_cap': ap.LineCaps.ROUND.value,
+                '_line_joints': ap.LineJoints.BEVEL.value,
+                '_line_dot_setting': ap.LineDotSetting(dot_size=10),
+                '_parent': sprite.graphics,
+            },
+            any_obj=polyline)

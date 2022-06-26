@@ -83,8 +83,7 @@ class ParentInterface(RevertInterface):
             parent=value, child=self)
         self._parent = value
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ParentInterface')
+    @add_debug_info_setting(module_name=__name__)
     def remove_from_parent(self) -> None:
         """
         Remove this instance from a parent.

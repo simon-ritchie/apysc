@@ -27,8 +27,7 @@ class FlipYInterface(
 
         self._append_flip_y_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FlipYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_flip_y_attr_linking_setting(self) -> None:
         """
         Append a flip-y attribute linking settings.
@@ -39,8 +38,7 @@ class FlipYInterface(
             attr=self._flip_y, attr_name='flip_y')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FlipYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def flip_y(self) -> Boolean:
         """
         Get a boolean value whether the y-axis is flipping or not.
@@ -77,8 +75,7 @@ class FlipYInterface(
 
     @flip_y.setter
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FlipYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def flip_y(self, value: Boolean) -> None:
         """
         Update a y-axis flipping value.
@@ -102,8 +99,7 @@ class FlipYInterface(
 
         self._append_flip_y_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FlipYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_flip_y_update_expression(
             self, *, before_value: Boolean) -> None:
         """

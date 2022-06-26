@@ -15,8 +15,7 @@ class AppendLinePointInterface(Points2DInterface):
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AppendLinePointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def append_line_point(
             self, *, x: Union[int, Int], y: Union[int, Int]) -> None:
         """

@@ -22,8 +22,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='DoubleClickInterface')
+    @add_debug_info_setting(module_name=__name__)
     def dblclick(
             self,
             handler: _Handler[_O],
@@ -97,8 +96,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         self._dblclick_handlers = {}
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='DoubleClickInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_dblclick(
             self,
             handler: _Handler[_O]) -> None:
@@ -131,8 +129,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.DBLCLICK,
             handlers_dict=self._dblclick_handlers)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='DoubleClickInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_dblclick_all(self) -> None:
         """
         Unbind all double click events.

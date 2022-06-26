@@ -22,8 +22,7 @@ class ClickInterface(MouseEventInterfaceBase):
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ClickInterface')
+    @add_debug_info_setting(module_name=__name__)
     def click(
             self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
@@ -94,8 +93,7 @@ class ClickInterface(MouseEventInterfaceBase):
         self._click_handlers = {}
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ClickInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_click(self, handler: _Handler[_O]) -> None:
         """
         Unbind specified handler's click event.
@@ -131,8 +129,7 @@ class ClickInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.CLICK,
             handlers_dict=self._click_handlers)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ClickInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_click_all(self) -> None:
         """
         Unbind all click events.

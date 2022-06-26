@@ -26,8 +26,7 @@ class PathClose(PathDataBase):
     ...     ])
     """
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathClose')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self) -> None:
         """
         Path data class for the SVG's `close path` (Z).
@@ -51,8 +50,7 @@ class PathClose(PathDataBase):
             path_label=PathLabel.CLOSE,
             relative=False)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathClose')
+    @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
         """
         Get a path's SVG string created with the current setting.

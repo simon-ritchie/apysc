@@ -27,8 +27,7 @@ class BeginFillInterface(RevertInterface):
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
     @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='BeginFillInterface')
+    @add_debug_info_setting(module_name=__name__)
     def begin_fill(
             self, *, color: StrOrString,
             alpha: Union[float, Number] = 1.0) -> None:
@@ -75,8 +74,7 @@ class BeginFillInterface(RevertInterface):
             self._fill_alpha.value = alpha
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='BeginFillInterface')
+    @add_debug_info_setting(module_name=__name__)
     def fill_color(self) -> String:
         """
         Get current fill color.
@@ -114,8 +112,7 @@ class BeginFillInterface(RevertInterface):
         self._fill_color = String('')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='BeginFillInterface')
+    @add_debug_info_setting(module_name=__name__)
     def fill_alpha(self) -> Number:
         """
         Get current fill color opacity.

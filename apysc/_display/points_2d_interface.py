@@ -26,8 +26,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         self._points = Array([])
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Points2DInterface')
+    @add_debug_info_setting(module_name=__name__)
     def points(self) -> Array[Point2D]:
         """
         Get current points.
@@ -56,8 +55,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
 
     @points.setter
     @arg_validation_decos.is_point_2ds(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Points2DInterface')
+    @add_debug_info_setting(module_name=__name__)
     def points(self, value: Array[Point2D]) -> None:
         """
         Update points value.
@@ -110,8 +108,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         )
         return variable_name, expression
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Points2DInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_points_update_expression(self, *, value: Array) -> None:
         """
         Append points updating expression.

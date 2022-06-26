@@ -47,8 +47,7 @@ class MouseEventInterfaceBase:
             'options': options,
         }
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEventInterfaceBase')
+    @add_debug_info_setting(module_name=__name__)
     def _unbind_mouse_event(
             self, *, handler: _Handler[_O], mouse_event_type: MouseEventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
@@ -77,8 +76,7 @@ class MouseEventInterfaceBase:
             this=self_instance, handler_name=name,
             mouse_event_type=mouse_event_type)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEventInterfaceBase')
+    @add_debug_info_setting(module_name=__name__)
     def _unbind_all_mouse_events(
             self, *, mouse_event_type: MouseEventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
@@ -101,8 +99,7 @@ class MouseEventInterfaceBase:
         append_unbinding_all_expression(
             this=self_instance, mouse_event_type=mouse_event_type)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEventInterfaceBase')
+    @add_debug_info_setting(module_name=__name__)
     def _append_mouse_event_binding_expression(
             self, *, name: str, mouse_event_type: MouseEventType) -> None:
         """

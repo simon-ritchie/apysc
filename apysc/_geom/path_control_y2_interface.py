@@ -25,8 +25,7 @@ class PathControlY2Interface(RevertInterface, AttrLinkingInterface):
 
         self._append_control_y2_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathControlY2Interface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_control_y2_linking_setting(self) -> None:
         """
         Append a control_y2 attribute linking settings.
@@ -37,8 +36,7 @@ class PathControlY2Interface(RevertInterface, AttrLinkingInterface):
             attr=self._control_y2, attr_name='control_y2')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathControlY2Interface')
+    @add_debug_info_setting(module_name=__name__)
     def control_y2(self) -> Int:
         """
         Get a second y-coordinate of the control point.
@@ -64,8 +62,7 @@ class PathControlY2Interface(RevertInterface, AttrLinkingInterface):
 
     @control_y2.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathControlY2Interface')
+    @add_debug_info_setting(module_name=__name__)
     def control_y2(self, value: Int) -> None:
         """
         Set a second y-coordinate of the control point.

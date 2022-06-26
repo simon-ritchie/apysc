@@ -18,8 +18,7 @@ class ScaleYFromCenterInterface(
 
     _scale_y_from_center: Number
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleYFromCenterInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _initialize_scale_y_from_center_if_not_initialized(self) -> None:
         """
         Initialize the `_scale_y_from_center` attribute if this
@@ -32,8 +31,7 @@ class ScaleYFromCenterInterface(
 
         self._append_scale_y_from_center_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleYFromCenterInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_scale_y_from_center_attr_linking_setting(self) -> None:
         """
         Append a scale-y attribute linking settings.
@@ -46,8 +44,7 @@ class ScaleYFromCenterInterface(
             attr_name='scale_y_from_center')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleYFromCenterInterface')
+    @add_debug_info_setting(module_name=__name__)
     def scale_y_from_center(self) -> Number:
         """
         Get a scale-y value from the center of this instance.
@@ -80,8 +77,7 @@ class ScaleYFromCenterInterface(
 
     @scale_y_from_center.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleYFromCenterInterface')
+    @add_debug_info_setting(module_name=__name__)
     def scale_y_from_center(self, value: Number) -> None:
         """
         Update a scale-y value from the center of this instance.
@@ -105,8 +101,7 @@ class ScaleYFromCenterInterface(
 
         self._append_scale_y_from_center_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleYFromCenterInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_scale_y_from_center_update_expression(
             self, *, before_value: Number) -> None:
         """

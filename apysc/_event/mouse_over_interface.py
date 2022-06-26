@@ -22,8 +22,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseOverInterface')
+    @add_debug_info_setting(module_name=__name__)
     def mouseover(
             self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
@@ -94,8 +93,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
         self._mouse_over_handlers = {}
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseOverInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_mouseover(self, handler: _Handler[_O]) -> None:
         """
         Unbind a specified handler's mouseover event.
@@ -131,8 +129,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.MOUSEOVER,
             handlers_dict=self._mouse_over_handlers)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseOverInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_mouseover_all(self) -> None:
         """
         Unbind all mouseover events.

@@ -57,8 +57,7 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
     _before_rotation_around_center: Int
     _rotation_around_center_diff: Int
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationRotationAroundCenter')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

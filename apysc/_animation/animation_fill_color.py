@@ -56,8 +56,7 @@ class AnimationFillColor(AnimationBase[_T], Generic[_T]):
 
     _fill_color: String
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationFillColor')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

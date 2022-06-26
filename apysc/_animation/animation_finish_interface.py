@@ -7,8 +7,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class AnimationFinishInterface(VariableNameInterface):
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationFinishInterface')
+    @add_debug_info_setting(module_name=__name__)
     def animation_finish(self) -> None:
         """
         Finish all animations (set the animation last value to

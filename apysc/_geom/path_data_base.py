@@ -21,8 +21,7 @@ class PathDataBase(RelativeInterface, ABC):
 
     _path_label: PathLabel
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathDataBase')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self, *, path_label: PathLabel,
             relative: Union[bool, Boolean]) -> None:
@@ -43,8 +42,7 @@ class PathDataBase(RelativeInterface, ABC):
         self.relative = get_copied_boolean_from_builtin_val(
             bool_val=relative)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathDataBase')
+    @add_debug_info_setting(module_name=__name__)
     def _get_svg_char(self) -> String:
         """
         Get a SVG character (e.g., 'M' or 'm') from the

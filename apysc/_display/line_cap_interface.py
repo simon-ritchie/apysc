@@ -26,8 +26,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         self._line_cap = String(LineCaps.BUTT.value)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineCapInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_cap(self) -> Union[String, LineCaps]:
         """
         Get this instance's line cap style setting.
@@ -55,8 +54,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
     @line_cap.setter
     @arg_validation_decos.is_line_cap(
         arg_position_index=1, optional=False)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineCapInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_cap(self, value: Union[String, LineCaps]) -> None:
         """
         Set line cap style setting.
@@ -69,8 +67,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         self._update_line_cap_and_skip_appending_exp(value=value)
         self._append_line_cap_update_expression()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineCapInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_cap_update_expression(self) -> None:
         """
         Append line cap updating expression.

@@ -28,8 +28,7 @@ class CyInterface(
 
         self._append_y_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CyInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_y_attr_linking_setting(self) -> None:
         """
         Append y attribute linking settings.
@@ -39,8 +38,7 @@ class CyInterface(
         self._append_attr_to_linking_stack(attr=self._y, attr_name='y')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CyInterface')
+    @add_debug_info_setting(module_name=__name__)
     def y(self) -> Int:
         """
         Get a center y-coordinate.
@@ -75,8 +73,7 @@ class CyInterface(
 
     @y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CyInterface')
+    @add_debug_info_setting(module_name=__name__)
     def y(self, value: Int) -> None:
         """
         Update a center y-coordinate.
@@ -97,8 +94,7 @@ class CyInterface(
 
         self._append_y_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CyInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_y_update_expression(self) -> None:
         """
         Append y position updating expression.

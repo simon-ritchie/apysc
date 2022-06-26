@@ -55,8 +55,7 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
     _before_skew_x: Int
     _skew_x_diff: Int
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationSkewX')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

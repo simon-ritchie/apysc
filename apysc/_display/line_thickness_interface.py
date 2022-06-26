@@ -31,8 +31,7 @@ class LineThicknessInterface(
 
         self._append_line_thickness_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineThicknessInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_thickness_attr_linking_setting(self) -> None:
         """
         Append a line thickness attribute linking settings.
@@ -43,8 +42,7 @@ class LineThicknessInterface(
             attr=self._line_thickness, attr_name='line_thickness')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineThicknessInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_thickness(self) -> Int:
         """
         Get this instance's line thickness.
@@ -77,8 +75,7 @@ class LineThicknessInterface(
     @line_thickness.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineThicknessInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_thickness(self, value: Int) -> None:
         """
         Update this instance's line thickness.
@@ -100,8 +97,7 @@ class LineThicknessInterface(
 
         self._append_line_thickness_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineThicknessInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_thickness_update_expression(self) -> None:
         """
         Append line thickness update expression.

@@ -26,8 +26,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         self._line_joints = String(LineJoints.MITER.value)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineJointsInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_joints(self) -> Union[String, LineJoints]:
         """
         Get this instance's line joints style setting.
@@ -56,8 +55,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
     @line_joints.setter
     @arg_validation_decos.is_line_joints(
         arg_position_index=1, optional=False)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineJointsInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_joints(self, value: Union[String, LineJoints]) -> None:
         """
         Set line joints style setting.
@@ -90,8 +88,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         else:
             self._line_joints = String(value.value)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineJointsInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_joints_update_expression(self) -> None:
         """
         Append line cap updating expression.

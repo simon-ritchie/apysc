@@ -25,8 +25,7 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
 
         self._append_x_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_x_linking_setting(self) -> None:
         """
         Append an x attribute linking settings.
@@ -37,8 +36,7 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
             attr=self._x, attr_name='x')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def x(self) -> Int:
         """
         Get an x-coordinate of the destination point.
@@ -61,8 +59,7 @@ class PathXInterface(RevertInterface, AttrLinkingInterface):
 
     @x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def x(self, value: Int) -> None:
         """
         Set an x-coordinate of the destination point.

@@ -22,8 +22,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseMoveInterface')
+    @add_debug_info_setting(module_name=__name__)
     def mousemove(
             self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
@@ -94,8 +93,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
         self._mouse_move_handlers = {}
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseMoveInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_mousemove(self, handler: _Handler[_O]) -> None:
         """
         Unbind a specified handler's mouse move event.
@@ -135,8 +133,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.MOUSEMOVE,
             handlers_dict=self._mouse_move_handlers)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseMoveInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_mousemove_all(self) -> None:
         """
         Unbind all mouse move events.

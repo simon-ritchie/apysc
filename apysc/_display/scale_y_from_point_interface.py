@@ -30,8 +30,7 @@ class ScaleYFromPointInterface(
         self._scale_y_from_point = Dictionary({})
 
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleYFromPointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def get_scale_y_from_point(self, *, y: Int) -> Number:
         """
         Get a scale-y value from the given y-coordinate.
@@ -76,8 +75,7 @@ class ScaleYFromPointInterface(
 
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.is_apysc_integer(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleYFromPointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def set_scale_y_from_point(self, *, scale_y: Number, y: Int) -> None:
         """
         Update a scale-y value from the given y-coordinate.
@@ -114,8 +112,7 @@ class ScaleYFromPointInterface(
         self._scale_y_from_point._value[key_exp_str.value] = scale_y
         self._append_scale_y_from_point_update_expression(y=y)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleYFromPointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_scale_y_from_point_update_expression(
             self, *, y: Int) -> None:
         """

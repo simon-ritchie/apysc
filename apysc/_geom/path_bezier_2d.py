@@ -42,8 +42,7 @@ class PathBezier2D(
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.is_boolean(arg_position_index=5)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathBezier2D')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             control_x: Union[int, Int],
@@ -96,8 +95,7 @@ class PathBezier2D(
         self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
         self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathBezier2D')
+    @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
         """
         Get a path's SVG string created with the current setting.
@@ -132,8 +130,7 @@ class PathBezier2D(
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.is_boolean(arg_position_index=5)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathBezier2D')
+    @add_debug_info_setting(module_name=__name__)
     def update_path_data(
             self,
             control_x: Union[int, Int],
@@ -193,8 +190,7 @@ class PathBezier2D(
         self.relative = get_copied_boolean_from_builtin_val(
             bool_val=relative)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathBezier2D')
+    @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
@@ -220,8 +216,7 @@ class PathBezier2D(
             and self.dest_y == other.dest_y
             and self.relative == other.relative)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathBezier2D')
+    @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.

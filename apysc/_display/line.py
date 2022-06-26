@@ -88,8 +88,7 @@ class Line(
     # parent
     @arg_validation_decos.is_display_object_container(
         arg_position_index=11, optional=True)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Line')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,
@@ -193,8 +192,7 @@ class Line(
             parent=graphics)
         return line
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Line')
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append a constructor expression.

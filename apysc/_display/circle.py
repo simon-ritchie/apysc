@@ -95,8 +95,7 @@ class Circle(
     # parent
     @arg_validation_decos.is_display_object_container(
         arg_position_index=15, optional=True)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Circle')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,
@@ -224,8 +223,7 @@ class Circle(
             parent=graphics)
         return circle
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Circle')
+    @add_debug_info_setting(module_name=__name__)
     def _set_center_coordinates(
             self,
             *,
@@ -246,8 +244,7 @@ class Circle(
         self.x = get_copied_int_from_builtin_val(integer=x)
         self.y = get_copied_int_from_builtin_val(integer=y)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Circle')
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append a constructor expression.

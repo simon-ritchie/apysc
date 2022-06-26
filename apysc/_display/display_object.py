@@ -35,8 +35,7 @@ class DisplayObject(
     stage: 'Stage'
 
     @arg_validation_decos.not_empty_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='DisplayObject')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, variable_name: str) -> None:
         """
         Display object (base) class for the common interfaces.
@@ -57,8 +56,7 @@ class DisplayObject(
         self.stage: ap.Stage = stage
         self._variable_name = variable_name
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='DisplayObject')
+    @add_debug_info_setting(module_name=__name__)
     def _set_overflow_visible_setting(self) -> None:
         """
         Set the `visible` value to the `overflow` CSS property.

@@ -29,8 +29,7 @@ class FillAlphaInterface(
 
         self._append_fill_alpha_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FillAlphaInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_fill_alpha_attr_linking_setting(self) -> None:
         """
         Append a scale-y attribute linking settings.
@@ -41,8 +40,7 @@ class FillAlphaInterface(
             attr=self._fill_alpha, attr_name='fill_alpha')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FillAlphaInterface')
+    @add_debug_info_setting(module_name=__name__)
     def fill_alpha(self) -> Number:
         """
         Get this instance's fill opacity.
@@ -79,8 +77,7 @@ class FillAlphaInterface(
     @fill_alpha.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FillAlphaInterface')
+    @add_debug_info_setting(module_name=__name__)
     def fill_alpha(
             self, value: Number) -> None:
         """
@@ -102,8 +99,7 @@ class FillAlphaInterface(
 
         self._append_fill_alpha_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FillAlphaInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_fill_alpha_update_expression(self) -> None:
         """
         Append the fill alpha updating expression.

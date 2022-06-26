@@ -60,8 +60,7 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
     _before_scale_y_from_point: Number
     _scale_y_from_point_diff_ratio: Number
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationScaleYFromPoint')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

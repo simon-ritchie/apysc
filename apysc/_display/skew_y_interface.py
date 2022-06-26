@@ -27,8 +27,7 @@ class SkewYInterface(
 
         self._append_skew_y_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='SkewYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_skew_y_attr_linking_setting(self) -> None:
         """
         Append a skew-y attribute linking settings.
@@ -39,8 +38,7 @@ class SkewYInterface(
             attr=self._skew_y, attr_name='skew_y')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='SkewYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def skew_y(self) -> Int:
         """
         Get a current skew y value of the instance.
@@ -73,8 +71,7 @@ class SkewYInterface(
 
     @skew_y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='SkewYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def skew_y(self, value: Int) -> None:
         """
         Update a skew y value of this instance.
@@ -97,8 +94,7 @@ class SkewYInterface(
 
         self._append_skew_y_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='SkewYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_skew_y_update_expression(
             self, *, before_value: Int) -> None:
         """

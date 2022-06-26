@@ -107,8 +107,7 @@ class Rectangle(
     # parent
     @arg_validation_decos.is_display_object_container(
         arg_position_index=16, optional=True)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Rectangle')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,
@@ -254,8 +253,7 @@ class Rectangle(
         repr_str: str = f"Rectangle('{self.variable_name}')"
         return repr_str
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Rectangle')
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression.

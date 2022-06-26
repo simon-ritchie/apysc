@@ -19,8 +19,7 @@ class FillColorInterface(
     _fill_color: String
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FillColorInterface')
+    @add_debug_info_setting(module_name=__name__)
     def fill_color(self) -> String:
         """
         Get this instance's fill color.
@@ -56,8 +55,7 @@ class FillColorInterface(
 
     @fill_color.setter
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FillColorInterface')
+    @add_debug_info_setting(module_name=__name__)
     def fill_color(self, value: String) -> None:
         """
         Update this instance's fill color.
@@ -80,8 +78,7 @@ class FillColorInterface(
         self._append_attr_to_linking_stack(
             attr=self._fill_color, attr_name='fill_color')
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FillColorInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_fill_color_update_expression(self) -> None:
         """
         Append the fill color updating expression.

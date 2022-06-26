@@ -34,8 +34,7 @@ class AnimationEvent(Event, Generic[_T]):
 
     _this: 'animation_base.AnimationBase[_T]'
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationEvent')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self, *,
             this: 'animation_base.AnimationBase[_T]') -> None:
@@ -68,8 +67,7 @@ class AnimationEvent(Event, Generic[_T]):
             this=this, type_name=var_names.ANIMATION_EVENT)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationEvent')
+    @add_debug_info_setting(module_name=__name__)
     def this(self) -> 'animation_base.AnimationBase[_T]':
         """
         Get an animation setting instance of listening to this event.

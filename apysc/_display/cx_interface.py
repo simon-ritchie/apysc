@@ -28,8 +28,7 @@ class CxInterface(
 
         self._append_x_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CxInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_x_attr_linking_setting(self) -> None:
         """
         Append x attribute linking settings.
@@ -39,8 +38,7 @@ class CxInterface(
         self._append_attr_to_linking_stack(attr=self._x, attr_name='x')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CxInterface')
+    @add_debug_info_setting(module_name=__name__)
     def x(self) -> Int:
         """
         Get a center x-coordinate.
@@ -75,8 +73,7 @@ class CxInterface(
 
     @x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CxInterface')
+    @add_debug_info_setting(module_name=__name__)
     def x(self, value: Int) -> None:
         """
         Update a center x-coordinate.

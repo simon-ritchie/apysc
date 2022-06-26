@@ -53,8 +53,7 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
 
     _width: Int
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationWidthForEllipse')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

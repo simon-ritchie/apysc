@@ -12,8 +12,7 @@ class WheelEvent(Event):
     Mouse wheel event class.
     """
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WheelEvent')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, this: VariableNameInterface) -> None:
         """
         Mouse wheel event class.
@@ -34,8 +33,7 @@ class WheelEvent(Event):
             type_name=var_names.WHEEL_EVENT)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WheelEvent')
+    @add_debug_info_setting(module_name=__name__)
     def delta_x(self) -> Int:
         """
         Horizontal mouse wheel value.
@@ -50,8 +48,7 @@ class WheelEvent(Event):
         self._append_delta_x_getter_expression(delta_x=delta_x)
         return delta_x
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WheelEvent')
+    @add_debug_info_setting(module_name=__name__)
     def _append_delta_x_getter_expression(self, *, delta_x: Int) -> None:
         """
         Append delta_x getter property's expression.
@@ -69,8 +66,7 @@ class WheelEvent(Event):
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WheelEvent')
+    @add_debug_info_setting(module_name=__name__)
     def delta_y(self) -> Int:
         """
         Vertical mouse wheel value.
@@ -85,8 +81,7 @@ class WheelEvent(Event):
         self._append_delta_y_getter_expression(delta_y=delta_y)
         return delta_y
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WheelEvent')
+    @add_debug_info_setting(module_name=__name__)
     def _append_delta_y_getter_expression(self, *, delta_y: Int) -> None:
         """
         Append delta_y getter property's expression.

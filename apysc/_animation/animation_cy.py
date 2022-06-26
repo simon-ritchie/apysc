@@ -53,8 +53,7 @@ class AnimationCy(AnimationBase[_T], Generic[_T]):
 
     _cy: Int
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationCy')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

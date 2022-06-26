@@ -47,8 +47,7 @@ class Elif(IfBase):
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
     @arg_validation_decos.is_vars_dict(arg_position_index=2)
     @arg_validation_decos.is_vars_dict(arg_position_index=3)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Elif')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             condition: Optional[Boolean],

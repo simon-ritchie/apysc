@@ -29,8 +29,7 @@ class HeightInterface(
 
         self._append_height_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='HeightInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_height_attr_linking_setting(self) -> None:
         """
         Append a height attribute linking settings.
@@ -41,8 +40,7 @@ class HeightInterface(
             attr=self._height, attr_name='height')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='HeightInterface')
+    @add_debug_info_setting(module_name=__name__)
     def height(self) -> Int:
         """
         Get this instance's height.
@@ -73,8 +71,7 @@ class HeightInterface(
     @height.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='HeightInterface')
+    @add_debug_info_setting(module_name=__name__)
     def height(self, value: Int) -> None:
         """
         Update this instance's height.
@@ -90,8 +87,7 @@ class HeightInterface(
 
         self._append_height_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='HeightInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_height_update_expression(self) -> None:
         """
         Append height updating expression.

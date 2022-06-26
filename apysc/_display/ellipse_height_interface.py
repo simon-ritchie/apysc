@@ -27,8 +27,7 @@ class EllipseHeightInterface(
 
         self._append_ellipse_height_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='EllipseHeightInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ellipse_height_attr_linking_setting(self) -> None:
         """
         Append ellipse-height attribute linking settings.
@@ -39,8 +38,7 @@ class EllipseHeightInterface(
             attr=self._ellipse_height, attr_name='ellipse_height')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='EllipseHeightInterface')
+    @add_debug_info_setting(module_name=__name__)
     def ellipse_height(self) -> Int:
         """
         Get ellipse height value.
@@ -69,8 +67,7 @@ class EllipseHeightInterface(
 
     @ellipse_height.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='EllipseHeightInterface')
+    @add_debug_info_setting(module_name=__name__)
     def ellipse_height(self, value: Int) -> None:
         """
         Update ellipse height value.
@@ -87,8 +84,7 @@ class EllipseHeightInterface(
 
         self._append_ellipse_height_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='EllipseHeightInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ellipse_height_update_expression(self) -> None:
         """
         Append ellipse height updating expression.

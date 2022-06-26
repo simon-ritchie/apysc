@@ -29,8 +29,7 @@ class RotationAroundPointInterface(
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RotationAroundPointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def get_rotation_around_point(self, *, x: Int, y: Int) -> Int:
         """
         Get a rotation value around the given coordinates.
@@ -82,8 +81,7 @@ class RotationAroundPointInterface(
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RotationAroundPointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def set_rotation_around_point(
             self, *, rotation: Int, x: Int, y: Int) -> None:
         """
@@ -113,8 +111,7 @@ class RotationAroundPointInterface(
         self._append_rotation_around_point_update_expression(
             rotation=rotation, x=x, y=y)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RotationAroundPointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_rotation_around_point_update_expression(
             self, *, rotation: Int, x: Int, y: Int) -> None:
         """

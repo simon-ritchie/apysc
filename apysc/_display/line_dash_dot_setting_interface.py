@@ -25,8 +25,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         self._line_dash_dot_setting = None
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashDotSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_dash_dot_setting(self) -> Optional[LineDashDotSetting]:
         """
         Get current dash dot (1-dot chain) setting.
@@ -67,8 +66,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
     @arg_validation_decos.multiple_line_settings_are_not_set(
         arg_position_index=0)
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashDotSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_dash_dot_setting(
             self, value: Optional[LineDashDotSetting]) -> None:
         """
@@ -106,8 +104,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
                 '\nAcceptable ones are: LineDashDotSetting or None.')
         self._line_dash_dot_setting = value
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashDotSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_dash_dot_setting_update_expression(self) -> None:
         """
         Append line dash-dot setting updating expression.

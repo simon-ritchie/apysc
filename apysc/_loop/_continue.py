@@ -27,8 +27,7 @@ class Continue:
     ...         _ = ap.Continue()
     """
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Continue')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self) -> None:
         """
         The loop continue expression class.

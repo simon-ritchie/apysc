@@ -29,8 +29,7 @@ class RadiusInterface(
 
         self._append_raidus_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RadiusInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_raidus_attr_linking_setting(self) -> None:
         """
         Append a radius attribute linking settings.
@@ -41,8 +40,7 @@ class RadiusInterface(
             attr=self._radius, attr_name='radius')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RadiusInterface')
+    @add_debug_info_setting(module_name=__name__)
     def radius(self) -> Int:
         """
         Get radius value.
@@ -70,8 +68,7 @@ class RadiusInterface(
 
     @radius.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RadiusInterface')
+    @add_debug_info_setting(module_name=__name__)
     def radius(self, value: Int) -> None:
         """
         Update radius value.
@@ -87,8 +84,7 @@ class RadiusInterface(
 
         self._append_raidus_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RadiusInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _get_converted_radius_int(
             self, *, radius: Union[int, Int]) -> Int:
         """
@@ -109,8 +105,7 @@ class RadiusInterface(
             return ap.Int(radius)
         return radius
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RadiusInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_radius_update_expression(self) -> None:
         """
         Append radius value updating expression.

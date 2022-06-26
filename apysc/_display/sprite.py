@@ -55,8 +55,7 @@ class Sprite(
 
     @arg_validation_decos.is_builtin_string(
         arg_position_index=1, optional=True)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Sprite')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self, *,
             variable_name: Optional[str] = None) -> None:
@@ -114,8 +113,7 @@ class Sprite(
         stage.add_child(child=self)
         self._set_overflow_visible_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Sprite')
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append Sprite constructor expression.

@@ -33,8 +33,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathHorizontal')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self, x: Union[int, Int], *,
             relative: Union[bool, Boolean] = False) -> None:
@@ -69,8 +68,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
             relative=relative)
         self.x = get_copied_int_from_builtin_val(integer=x)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathHorizontal')
+    @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
         """
         Get a path's SVG string created with the current setting.
@@ -91,8 +89,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathHorizontal')
+    @add_debug_info_setting(module_name=__name__)
     def update_path_data(
             self, x: Union[int, Int],
             *,
@@ -124,8 +121,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         self.relative = get_copied_boolean_from_builtin_val(
             bool_val=relative)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathHorizontal')
+    @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
@@ -146,8 +142,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
             return result
         return self.x == other.x and self.relative == other.relative
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathHorizontal')
+    @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.

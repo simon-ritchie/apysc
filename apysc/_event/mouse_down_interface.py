@@ -22,8 +22,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseDownInterface')
+    @add_debug_info_setting(module_name=__name__)
     def mousedown(
             self,
             handler: _Handler[_O],
@@ -97,8 +96,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
         self._mouse_down_handlers = {}
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseDownInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_mousedown(self, handler: _Handler[_O]) -> None:
         """
         Unbind a specified handler's mouse down event.
@@ -134,8 +132,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.MOUSEDOWN,
             handlers_dict=self._mouse_down_handlers)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseDownInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_mousedown_all(self) -> None:
         """
         Unbind all mouse down events.

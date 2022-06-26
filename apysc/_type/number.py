@@ -49,8 +49,7 @@ class Number(NumberValueInterface[float, 'Number']):
     """
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Number')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             value: Union[int, float, NumberValueInterface]) -> None:

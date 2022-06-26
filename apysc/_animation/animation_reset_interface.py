@@ -7,8 +7,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class AnimationResetInterface(VariableNameInterface):
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationResetInterface')
+    @add_debug_info_setting(module_name=__name__)
     def animation_reset(self) -> None:
         """
         Stop all animations and reset.

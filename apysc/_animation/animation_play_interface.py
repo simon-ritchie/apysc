@@ -7,8 +7,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class AnimationPlayInterface(VariableNameInterface):
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationPlayInterface')
+    @add_debug_info_setting(module_name=__name__)
     def animation_play(self) -> None:
         """
         Restart all paused animations.

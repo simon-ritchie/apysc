@@ -27,8 +27,7 @@ class SkewXInterface(
 
         self._append_skew_x_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='SkewXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_skew_x_attr_linking_setting(self) -> None:
         """
         Append a skew-x attribute linking settings.
@@ -39,8 +38,7 @@ class SkewXInterface(
             attr=self._skew_x, attr_name='skew_x')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='SkewXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def skew_x(self) -> Int:
         """
         Get a current skew x value of the instance.
@@ -73,8 +71,7 @@ class SkewXInterface(
 
     @skew_x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='SkewXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def skew_x(self, value: Int) -> None:
         """
         Update a skew x value of this instance.
@@ -97,8 +94,7 @@ class SkewXInterface(
 
         self._append_skew_x_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='SkewXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_skew_x_update_expression(
             self, *, before_value: Int) -> None:
         """

@@ -40,8 +40,7 @@ class WidthAndHeightInterfacesForEllipse(
             self._height = Int(0)
             self._append_height_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
+    @add_debug_info_setting(module_name=__name__)
     def _append_width_attr_linking_setting(self) -> None:
         """
         Append a width attribute linking settings.
@@ -51,8 +50,7 @@ class WidthAndHeightInterfacesForEllipse(
         self._append_attr_to_linking_stack(
             attr=self._width, attr_name='width')
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
+    @add_debug_info_setting(module_name=__name__)
     def _append_height_attr_linking_setting(self) -> None:
         """
         Append a height attribute linking settings.
@@ -63,8 +61,7 @@ class WidthAndHeightInterfacesForEllipse(
             attr=self._height, attr_name='height')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
+    @add_debug_info_setting(module_name=__name__)
     def width(self) -> Int:
         """
         Get a ellipse width value.
@@ -93,8 +90,7 @@ class WidthAndHeightInterfacesForEllipse(
     @width.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
+    @add_debug_info_setting(module_name=__name__)
     def width(self, value: Int) -> None:
         """
         Update a ellipse width value.
@@ -111,8 +107,7 @@ class WidthAndHeightInterfacesForEllipse(
         self._append_width_attr_linking_setting()
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
+    @add_debug_info_setting(module_name=__name__)
     def height(self) -> Int:
         """
         Get a ellipse height value.
@@ -141,8 +136,7 @@ class WidthAndHeightInterfacesForEllipse(
     @height.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
+    @add_debug_info_setting(module_name=__name__)
     def height(self, value: Int) -> None:
         """
         Update a ellipse height value.
@@ -158,8 +152,7 @@ class WidthAndHeightInterfacesForEllipse(
 
         self._append_height_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthAndHeightInterfacesForEllipse')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ellipse_width_and_height_update_expression(self) -> None:
         """
         Append an ellipse width and height updating expression.

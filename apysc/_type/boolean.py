@@ -45,8 +45,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
     _initial_value: Union[bool, int, Int, 'Boolean']
     _value: bool
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
         Boolean class for apysc library.
@@ -95,8 +94,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
                 get_next_variable_name(type_name=TYPE_NAME)
             self._append_constructor_expression()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def _get_bool_from_arg_value(
             self, *, value: Union[bool, int, Int, 'Boolean']) -> bool:
         """
@@ -126,8 +124,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         bool_validation.validate_bool(value=result)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression.
@@ -144,8 +141,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def value(self) -> Union[bool, int, Int, 'Boolean']:
         """
         Get a current boolean value.
@@ -175,8 +171,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         return self._value
 
     @value.setter
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def value(self, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
         Set boolean value.
@@ -198,8 +193,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         else:
             self._append_value_setter_expression(value=self._value)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(
             self, *, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
@@ -288,8 +282,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             return
         self._value = self._value_snapshots[snapshot_name]
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
         Comparison method for equal condition.
@@ -345,8 +338,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             f'{type(other)}, {other}'
             f'\nAcceptable value types are: {ACCEPTABLE_TYPES}')
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -370,8 +362,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
         Comparison method for not equal condition.
@@ -393,8 +384,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_ne_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -419,8 +409,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def not_(self) -> 'Boolean':
         """
         Get a not condition Boolean value.
@@ -445,8 +434,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         self._append_not_prop_expression(result=result)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Boolean')
+    @add_debug_info_setting(module_name=__name__)
     def _append_not_prop_expression(
             self, *, result: VariableNameInterface) -> None:
         """

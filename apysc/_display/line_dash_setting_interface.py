@@ -25,8 +25,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         self._line_dash_setting = None
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_dash_setting(self) -> Optional[LineDashSetting]:
         """
         Get current line dash setting.
@@ -64,8 +63,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
     @arg_validation_decos.multiple_line_settings_are_not_set(
         arg_position_index=0)
     @arg_validation_decos.is_line_dash_setting(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_dash_setting(self, value: Optional[LineDashSetting]) -> None:
         """
         Set line dash setting.
@@ -100,8 +98,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
                 '\nAcceptable ones are: LineDashSetting or None.')
         self._line_dash_setting = value
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_dash_setting_update_expression(self) -> None:
         """
         Append line dash setting updating expression.

@@ -77,8 +77,7 @@ class GraphicsBase(
     @arg_validation_decos.is_display_object_container(
         arg_position_index=1, optional=True)
     @arg_validation_decos.not_empty_string(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='GraphicsBase')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,
@@ -103,7 +102,7 @@ class GraphicsBase(
         parent.add_child(child=self)
         self._set_overflow_visible_setting()
 
-    @add_debug_info_setting(module_name=__name__, class_name='GraphicsBase')
+    @add_debug_info_setting(module_name=__name__)
     def _set_initial_basic_values(
             self, *,
             fill_color: Union[str, String],
@@ -176,7 +175,7 @@ class GraphicsBase(
         self._append_attr_to_linking_stack(
             attr=self._line_thickness, attr_name='line_thickness')
 
-    @add_debug_info_setting(module_name=__name__, class_name='GraphicsBase')
+    @add_debug_info_setting(module_name=__name__)
     def _set_line_setting_if_not_none_value_exists(
             self,
             line_dot_setting: Optional[LineDotSetting],
@@ -211,8 +210,7 @@ class GraphicsBase(
             self.line_dash_dot_setting = line_dash_dot_setting
             return
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='GraphicsBase')
+    @add_debug_info_setting(module_name=__name__)
     def _append_basic_vals_expression(
             self, *, expression: str, indent_num: int) -> str:
         """

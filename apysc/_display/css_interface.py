@@ -25,8 +25,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         self._css = {}
 
     @arg_validation_decos.is_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CssInterface')
+    @add_debug_info_setting(module_name=__name__)
     def get_css(self, *, name: Union[str, String]) -> String:
         """
         Get a CSS value string.
@@ -68,8 +67,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         self._append_get_css_expresion(name=name, css=css)
         return css
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CssInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_get_css_expresion(
             self, *, name: Union[str, String], css: String) -> None:
         """
@@ -96,8 +94,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
 
     @arg_validation_decos.is_string(arg_position_index=1)
     @arg_validation_decos.is_string(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CssInterface')
+    @add_debug_info_setting(module_name=__name__)
     def set_css(
             self, *, name: Union[str, String],
             value: Union[str, String]) -> None:
@@ -137,8 +134,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         self._css[name_] = value_
         self._append_set_css_expression(name=name, value=value)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CssInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_set_css_expression(
             self, *, name: Union[str, String],
             value: Union[str, String]) -> None:

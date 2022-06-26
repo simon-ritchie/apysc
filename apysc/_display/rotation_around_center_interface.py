@@ -30,8 +30,7 @@ class RotationAroundCenterInterface(
 
         self._append_rotation_around_center_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RotationAroundCenterInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_rotation_around_center_attr_linking_setting(self) -> None:
         """
         Append a rotation around a center attribute linking setting.
@@ -44,8 +43,7 @@ class RotationAroundCenterInterface(
             attr_name='rotation_around_center')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RotationAroundCenterInterface')
+    @add_debug_info_setting(module_name=__name__)
     def rotation_around_center(self) -> Int:
         """
         Get a rotation value around the center of this instance.
@@ -78,8 +76,7 @@ class RotationAroundCenterInterface(
 
     @rotation_around_center.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RotationAroundCenterInterface')
+    @add_debug_info_setting(module_name=__name__)
     def rotation_around_center(self, value: Int) -> None:
         """
         Update a rotation value around the center of this instance.
@@ -103,8 +100,7 @@ class RotationAroundCenterInterface(
 
         self._append_rotation_around_center_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='RotationAroundCenterInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_rotation_around_center_update_expression(
             self, *, before_value: Int) -> None:
         """

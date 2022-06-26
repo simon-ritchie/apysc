@@ -57,8 +57,7 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
     _before_scale_x_from_center: Number
     _scale_x_from_center_diff_ratio: Number
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationScaleXFromCenter')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

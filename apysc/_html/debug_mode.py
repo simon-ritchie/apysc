@@ -4,6 +4,7 @@ setting interface implementations.
 
 import functools
 import inspect
+from inspect import Signature
 from typing import Any
 from typing import Callable
 from typing import Dict
@@ -378,8 +379,7 @@ _F = TypeVar('_F', bound=Callable)
 
 def add_debug_info_setting(
         *,
-        module_name: str,
-        class_name: Optional[str] = None) -> _F:
+        module_name: str) -> _F:
     """
     Set a debug information setting to a target
     callable object (decorator function).
@@ -388,9 +388,6 @@ def add_debug_info_setting(
     ----------
     module_name : str
         A target module name.
-    class_name : str or None, default None
-        Target class name. If a target callable is a function,
-        this interface requires None of this argument.
 
     Returns
     -------
@@ -445,6 +442,17 @@ def add_debug_info_setting(
             result : Any
                 A return value(s) of a callable execution result.
             """
+            class_name: Optional[str] = None
+            signature: Signature = inspect.signature(func)
+            if len(signature.parameters) != 0:
+                first_arg_name: str = list(signature.parameters.keys())[0]
+                if first_arg_name == 'self':
+                    first_arg_value: Any = args[0]
+                    class_name = type(first_arg_value).__name__
+                elif first_arg_name == 'cls':
+                    first_arg_value = args[0]
+                    class_name = first_arg_value.__name__
+
             with DebugInfo(
                     callable_=func,
                     args=list(args),

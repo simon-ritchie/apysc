@@ -56,8 +56,7 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
 
     _line_alpha: Number
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationLineAlpha')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

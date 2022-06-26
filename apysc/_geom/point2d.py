@@ -48,8 +48,7 @@ class Point2D(
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, x: _Int, y: _Int) -> None:
         """
         2-dimensional geometry point.
@@ -92,8 +91,7 @@ class Point2D(
                 type_name=var_names.POINT2D)
         self._append_constructor_expression()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression.
@@ -106,8 +104,7 @@ class Point2D(
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def x(self) -> Int:
         """
         X-coordinate property.
@@ -132,8 +129,7 @@ class Point2D(
 
     @x.setter
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def x(self, value: Int) -> None:
         """
         Update x-coordinate property.
@@ -150,8 +146,7 @@ class Point2D(
         self._x._append_incremental_calc_substitution_expression()
         self._append_x_setter_expression(value=value)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def _append_x_getter_expression(self, *, x: Int) -> None:
         """
         Append x property getter expression.
@@ -168,8 +163,7 @@ class Point2D(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def _append_x_setter_expression(self, *, value: Int) -> None:
         """
         Append x property setter expression.
@@ -186,8 +180,7 @@ class Point2D(
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def y(self) -> Int:
         """
         Y-coordinate property.
@@ -212,8 +205,7 @@ class Point2D(
 
     @y.setter
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def y(self, value: Int) -> None:
         """
         Update y-coordinate property.
@@ -230,8 +222,7 @@ class Point2D(
         self._y._append_incremental_calc_substitution_expression()
         self._append_y_setter_expression(value=value)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def _append_y_getter_expression(self, *, y: Int) -> None:
         """
         Append y property getter expression.
@@ -248,8 +239,7 @@ class Point2D(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def _append_y_setter_expression(self, *, value: Int) -> None:
         """
         Append y property setter expression.
@@ -265,8 +255,7 @@ class Point2D(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
@@ -288,8 +277,7 @@ class Point2D(
             return result
         return other.x == self.x and other.y == self.y
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Point2D')
+    @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.

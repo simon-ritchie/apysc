@@ -27,8 +27,7 @@ class FlipXInterface(
 
         self._append_flip_x_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FlipXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_flip_x_attr_linking_setting(self) -> None:
         """
         Append a flip-x attribute linking settings.
@@ -39,8 +38,7 @@ class FlipXInterface(
             attr=self._flip_x, attr_name='flip_x')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FlipXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def flip_x(self) -> Boolean:
         """
         Get a boolean value whether the x-axis is flipping or not.
@@ -77,8 +75,7 @@ class FlipXInterface(
 
     @flip_x.setter
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FlipXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def flip_x(self, value: Boolean) -> None:
         """
         Update a x-axis flipping value.
@@ -102,8 +99,7 @@ class FlipXInterface(
 
         self._append_flip_x_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='FlipXInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_flip_x_update_expression(
             self, *, before_value: Boolean) -> None:
         """

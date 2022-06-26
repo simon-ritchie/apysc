@@ -30,8 +30,7 @@ class XInterface(
 
         self._append_x_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='XInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_x_attr_linking_setting(self) -> None:
         """
         Append an x attribute linking settings.
@@ -42,8 +41,7 @@ class XInterface(
             attr=self._x, attr_name='x')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='XInterface')
+    @add_debug_info_setting(module_name=__name__)
     def x(self) -> Int:
         """
         Get an x-coordinate.
@@ -78,8 +76,7 @@ class XInterface(
 
     @x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='XInterface')
+    @add_debug_info_setting(module_name=__name__)
     def x(self, value: Int) -> None:
         """
         Update x-coordinate.
@@ -101,8 +98,7 @@ class XInterface(
 
         self._append_x_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='XInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_x_update_expression(self) -> None:
         """
         Append the x position updating expression.

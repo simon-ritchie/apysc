@@ -29,8 +29,7 @@ class ScaleXFromPointInterface(
         self._scale_x_from_point = Dictionary({})
 
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleXFromPointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def get_scale_x_from_point(self, *, x: Int) -> Number:
         """
         Get a scale-x value from the given x-coordinate.
@@ -76,8 +75,7 @@ class ScaleXFromPointInterface(
 
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.is_apysc_integer(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleXFromPointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def set_scale_x_from_point(self, *, scale_x: Number, x: Int) -> None:
         """
         Update a scale-x value from the given x-coordinate.
@@ -115,8 +113,7 @@ class ScaleXFromPointInterface(
         self._scale_x_from_point._value[key_exp_str.value] = scale_x
         self._append_scale_x_from_point_update_expression(x=x)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ScaleXFromPointInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_scale_x_from_point_update_expression(
             self, *, x: Int) -> None:
         """

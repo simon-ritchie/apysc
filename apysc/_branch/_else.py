@@ -38,8 +38,7 @@ class Else(IfBase):
 
     @arg_validation_decos.is_vars_dict(arg_position_index=1)
     @arg_validation_decos.is_vars_dict(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='Else')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

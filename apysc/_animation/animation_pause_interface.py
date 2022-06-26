@@ -7,8 +7,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class AnimationPauseInterface(VariableNameInterface):
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationPauseInterface')
+    @add_debug_info_setting(module_name=__name__)
     def animation_pause(self) -> None:
         """
         Stop all animations.

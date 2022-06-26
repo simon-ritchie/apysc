@@ -52,8 +52,7 @@ class LineStyleInterface(RevertInterface):
     @arg_validation_decos.is_line_dash_setting(arg_position_index=7)
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=8)
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=9)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_style(
             self,
             *,
@@ -156,8 +155,7 @@ class LineStyleInterface(RevertInterface):
         self._line_round_dot_setting = round_dot_setting
         self._line_dash_dot_setting = dash_dot_setting
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _set_line_joints(self, *, joints: Optional[LineJoints]) -> None:
         """
         Set line joints setting to attribute.
@@ -172,8 +170,7 @@ class LineStyleInterface(RevertInterface):
             joints = LineJoints.MITER
         self._line_joints = ap.String(joints.value)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _set_line_cap(self, *, cap: Optional[LineCaps]) -> None:
         """
         Set line cap setting to attribute.
@@ -270,8 +267,7 @@ class LineStyleInterface(RevertInterface):
         self._line_dash_dot_setting = None
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_color(self) -> String:
         """
         Get current line color.
@@ -298,8 +294,7 @@ class LineStyleInterface(RevertInterface):
         return value_util.get_copy(value=self._line_color)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_thickness(self) -> Int:
         """
         Get current line thickness.
@@ -324,8 +319,7 @@ class LineStyleInterface(RevertInterface):
         return value_util.get_copy(value=self._line_thickness)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_alpha(self) -> Number:
         """
         Get current line color opacity.
@@ -351,8 +345,7 @@ class LineStyleInterface(RevertInterface):
         return value_util.get_copy(value=self._line_alpha)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_cap(self) -> String:
         """
         Get current line cap (edge) style setting.
@@ -377,8 +370,7 @@ class LineStyleInterface(RevertInterface):
         return self._line_cap
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_joints(self) -> String:
         """
         Get current line joints (vertices) style setting.
@@ -403,8 +395,7 @@ class LineStyleInterface(RevertInterface):
         return self._line_joints
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_dot_setting(self) -> Optional[LineDotSetting]:
         """
         Get current line dot setting.
@@ -429,8 +420,7 @@ class LineStyleInterface(RevertInterface):
         return self._line_dot_setting
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineStyleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_dash_setting(self) -> Optional[LineDashSetting]:
         """
         Get current line dash setting.
@@ -459,8 +449,7 @@ class LineStyleInterface(RevertInterface):
         return self._line_dash_setting
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineRoundDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def line_round_dot_setting(self) -> Optional[LineRoundDotSetting]:
         """
         Get current line round dot setting.
@@ -489,8 +478,7 @@ class LineStyleInterface(RevertInterface):
         return self._line_round_dot_setting
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineRoundDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def line_dash_dot_setting(self) -> Optional[LineDashDotSetting]:
         """
         Get current line dash dot setting.

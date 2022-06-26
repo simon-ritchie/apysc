@@ -58,8 +58,7 @@ class AnimationLineColor(AnimationBase[_T], Generic[_T]):
 
     _line_color: String
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationLineColor')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

@@ -40,8 +40,7 @@ class LineRoundDotSetting(Dictionary[str, Int]):
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineRoundDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self, *, round_size: Union[int, Int],
             space_size: Union[int, Int]) -> None:
@@ -89,8 +88,7 @@ class LineRoundDotSetting(Dictionary[str, Int]):
         })
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineRoundDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def round_size(self) -> Int:
         """
         Get a round size setting.
@@ -116,8 +114,7 @@ class LineRoundDotSetting(Dictionary[str, Int]):
         return self['round_size']
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineRoundDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def space_size(self) -> Int:
         """
         Get a space size setting.

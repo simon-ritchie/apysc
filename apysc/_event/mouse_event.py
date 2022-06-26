@@ -44,8 +44,7 @@ class MouseEvent(
 
     @arg_validation_decos.is_variable_name_interface_type(
         arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEvent')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, this: T) -> None:
         """
         Mouse event class.
@@ -75,8 +74,7 @@ class MouseEvent(
             this=this, type_name=var_names.MOUSE_EVENT)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEvent')
+    @add_debug_info_setting(module_name=__name__)
     def stage_x(self) -> Int:
         """
         Get the x-coordinate of the stage reference.
@@ -110,8 +108,7 @@ class MouseEvent(
         self._append_stage_x_getter_expression(x=x)
         return x
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEvent')
+    @add_debug_info_setting(module_name=__name__)
     def _append_stage_x_getter_expression(self, *, x: Int) -> None:
         """
         Append stage_x getter property expression.
@@ -130,8 +127,7 @@ class MouseEvent(
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEvent')
+    @add_debug_info_setting(module_name=__name__)
     def stage_y(self) -> Int:
         """
         Get the y-coordinate of the stage reference.
@@ -165,8 +161,7 @@ class MouseEvent(
         self._append_stage_y_getter_expression(y=y)
         return y
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEvent')
+    @add_debug_info_setting(module_name=__name__)
     def _append_stage_y_getter_expression(self, *, y: Int) -> None:
         """
         Append stage_y getter property expression.
@@ -185,8 +180,7 @@ class MouseEvent(
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEvent')
+    @add_debug_info_setting(module_name=__name__)
     def local_x(self) -> Int:
         """
         Get a local x-coordinate event listening instance.
@@ -222,8 +216,7 @@ class MouseEvent(
         self._append_local_x_getter_expression(x=x)
         return x
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEvent')
+    @add_debug_info_setting(module_name=__name__)
     def _append_local_x_getter_expression(self, *, x: Int) -> None:
         """
         Append local_x getter property expression.
@@ -243,8 +236,7 @@ class MouseEvent(
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEvent')
+    @add_debug_info_setting(module_name=__name__)
     def local_y(self) -> Int:
         """
         Get the local y-coordinate of the event listening instance.
@@ -280,8 +272,7 @@ class MouseEvent(
         self._append_local_y_getter_expression(y=y)
         return y
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseEvent')
+    @add_debug_info_setting(module_name=__name__)
     def _append_local_y_getter_expression(self, *, y: Int) -> None:
         """
         Append local_y getter property expression.

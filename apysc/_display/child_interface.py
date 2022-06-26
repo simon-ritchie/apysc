@@ -26,8 +26,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
     stage: 'Stage'
 
     @arg_validation_decos.is_display_object(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ChildInterface')
+    @add_debug_info_setting(module_name=__name__)
     def add_child(self, child: DisplayObject) -> None:
         """
         Add display object child to this instance.
@@ -70,8 +69,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         self._children = Array([])
 
     @arg_validation_decos.is_display_object(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ChildInterface')
+    @add_debug_info_setting(module_name=__name__)
     def remove_child(self, child: DisplayObject) -> None:
         """
         Remove display object child from this instance.
@@ -108,8 +106,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
             return
 
     @arg_validation_decos.is_display_object(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ChildInterface')
+    @add_debug_info_setting(module_name=__name__)
     def contains(self, child: DisplayObject) -> Boolean:
         """
         Get a boolean whether this instance contains a specified child.
@@ -175,8 +172,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ChildInterface')
+    @add_debug_info_setting(module_name=__name__)
     def num_children(self) -> Int:
         """
         Get a current children's number.
@@ -228,8 +224,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_integer(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ChildInterface')
+    @add_debug_info_setting(module_name=__name__)
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """
         Get a child at a specified index.
@@ -299,8 +294,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ChildInterface')
+    @add_debug_info_setting(module_name=__name__)
     def remove_children(self) -> None:
         """
         Remove all children from this instance.
@@ -314,8 +308,7 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         self._children.clear()
         self._append_expression_of_remove_children()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='ChildInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_expression_of_remove_children(self) -> None:
         """
         Append an expression of the `remove_children` interface.

@@ -8,8 +8,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class AnimationTimeInterface(VariableNameInterface):
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationTimeInterface')
+    @add_debug_info_setting(module_name=__name__)
     def animation_time(self) -> Number:
         """
         Get an animation elapsed millisecond.

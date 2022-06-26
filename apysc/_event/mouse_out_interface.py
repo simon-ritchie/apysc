@@ -22,8 +22,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseOutInterface')
+    @add_debug_info_setting(module_name=__name__)
     def mouseout(
             self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
@@ -94,8 +93,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
         self._mouse_out_handlers = {}
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseOutInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_mouseout(self, handler: _Handler[_O]) -> None:
         """
         Unbind a specified handler's mouse-out event.
@@ -131,8 +129,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
             handler=handler, mouse_event_type=ap.MouseEventType.MOUSEOUT,
             handlers_dict=self._mouse_out_handlers)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='MouseOutInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_mouseout_all(self) -> None:
         """
         Unbind all mouse out events.

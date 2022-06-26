@@ -116,8 +116,7 @@ class CustomEventInterface(BlankObjectInterface):
     @arg_validation_decos.handler_options_type(arg_position_index=4)
     @arg_validation_decos.is_builtin_string(
         arg_position_index=5, optional=False)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CustomEventInterface')
+    @add_debug_info_setting(module_name=__name__)
     def bind_custom_event(
             self,
             *,
@@ -195,8 +194,7 @@ class CustomEventInterface(BlankObjectInterface):
             in_handler_head_expression=in_handler_head_expression)
         return name
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CustomEventInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_custom_event_binding_expression(
             self, *, custom_event_type_str: str, name: str) -> None:
         """
@@ -219,8 +217,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CustomEventInterface')
+    @add_debug_info_setting(module_name=__name__)
     def trigger_custom_event(
             self,
             *,
@@ -269,8 +266,7 @@ class CustomEventInterface(BlankObjectInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.handler_args_num(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CustomEventInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_custom_event(
             self,
             *,
@@ -326,8 +322,7 @@ class CustomEventInterface(BlankObjectInterface):
             custom_event_type_str=custom_event_type_str, name=name)
         return name
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CustomEventInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_custom_event_unbinding_expression(
             self, *, custom_event_type_str: str, name: str) -> None:
         """
@@ -347,8 +342,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='CustomEventInterface')
+    @add_debug_info_setting(module_name=__name__)
     def unbind_custom_event_all(
             self,
             *,

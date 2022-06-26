@@ -33,8 +33,7 @@ class LineDotSetting(Dictionary[str, Int]):
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, dot_size: Union[int, Int]) -> None:
         """
         Dot setting class for a line.
@@ -69,8 +68,7 @@ class LineDotSetting(Dictionary[str, Int]):
         super(LineDotSetting, self).__init__({'dot_size': dot_size_})
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def dot_size(self) -> Int:
         """
         Get a dot size setting.

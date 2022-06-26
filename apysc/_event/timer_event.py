@@ -40,8 +40,7 @@ class TimerEvent(Event):
 
     _this: 'timer.Timer'
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='TimerEvent')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, this: 'timer.Timer') -> None:
         """
         Timer event class.

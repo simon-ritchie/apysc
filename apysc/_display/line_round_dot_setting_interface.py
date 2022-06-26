@@ -26,8 +26,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         self._line_round_dot_setting = None
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineRoundDotSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_round_dot_setting(self) -> Optional[LineRoundDotSetting]:
         """
         Get this instance's line round dot setting.
@@ -65,8 +64,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
     @arg_validation_decos.multiple_line_settings_are_not_set(
         arg_position_index=0)
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineRoundDotSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_round_dot_setting(
             self, value: Optional[LineRoundDotSetting]) -> None:
         """
@@ -109,8 +107,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
                 '\nAcceptable ones are: LineRoundDotSetting or None.')
         self._line_round_dot_setting = value
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineRoundDotSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_round_dot_setting_update_expression(self) -> None:
         """
         Append line round dot setting updating expression.

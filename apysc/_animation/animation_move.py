@@ -54,8 +54,7 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
     _x: Int
     _y: Int
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationMove')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

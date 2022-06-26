@@ -53,8 +53,7 @@ class AnimationRadius(AnimationBase[_T], Generic[_T]):
 
     _radius: Int
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationRadius')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
             *,

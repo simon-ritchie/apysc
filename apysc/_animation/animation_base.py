@@ -33,8 +33,7 @@ class AnimationBase(
     _started: Boolean
 
     @arg_validation_decos.not_empty_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationBase')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, variable_name: str) -> None:
         """
         Base class for each animation setting.
@@ -53,8 +52,7 @@ class AnimationBase(
         Get an animation function expression.
         """
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationBase')
+    @add_debug_info_setting(module_name=__name__)
     def _set_basic_animation_settings(
             self,
             *,
@@ -104,8 +102,7 @@ class AnimationBase(
         expression += self._get_animation_complete_handler_expression()
         return expression
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationBase')
+    @add_debug_info_setting(module_name=__name__)
     def start(self) -> 'AnimationBase':
         """
         Start an animation with current settings.
@@ -166,8 +163,7 @@ class AnimationBase(
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnimationBase')
+    @add_debug_info_setting(module_name=__name__)
     def animation_complete(
             self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> 'AnimationBase':

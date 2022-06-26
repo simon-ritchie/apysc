@@ -27,8 +27,7 @@ class NumberValueInterface(
     _value: _V
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self, *, value: _NumType,
             type_name: str) -> None:
@@ -50,8 +49,7 @@ class NumberValueInterface(
         self._value = value_
         self._type_name = type_name
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def append_constructor_expression(self) -> None:
         """
         Append current value's constructor expression.
@@ -68,8 +66,7 @@ class NumberValueInterface(
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def value(self) -> _NumType:
         """
         Get a current number value.
@@ -103,8 +100,7 @@ class NumberValueInterface(
 
     @value.setter
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def value(self, value: _NumType) -> None:
         """
         Set number value.
@@ -142,8 +138,7 @@ class NumberValueInterface(
             value_ = value  # type: ignore
         self._value = value_
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(
             self, *, value: _NumType) -> None:
         """
@@ -165,8 +160,7 @@ class NumberValueInterface(
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __add__(self, other: _NumType) -> Any:
         """
         Method for addition.
@@ -190,8 +184,7 @@ class NumberValueInterface(
         self._append_addition_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_addition_expression(
             self, *, result: VariableNameInterface,
             other: _NumType) -> None:
@@ -215,8 +208,7 @@ class NumberValueInterface(
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __sub__(self, other: _NumType) -> Any:
         """
         Method for subtraction.
@@ -240,8 +232,7 @@ class NumberValueInterface(
         self._append_subtraction_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_subtraction_expression(
             self, *, result: VariableNameInterface,
             other: _NumType) -> None:
@@ -265,8 +256,7 @@ class NumberValueInterface(
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __mul__(self, other: _NumType) -> _T:
         """
         Method for multiplication.
@@ -290,8 +280,7 @@ class NumberValueInterface(
         self._append_multiplication_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_multiplication_expression(
             self, *, result: VariableNameInterface,
             other: _NumType) -> None:
@@ -315,8 +304,7 @@ class NumberValueInterface(
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __truediv__(self, other: _NumType) -> Any:
         """
         Method for true division (returns floating-point number).
@@ -341,8 +329,7 @@ class NumberValueInterface(
         self._append_true_division_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_true_division_expression(
             self, *, result: VariableNameInterface,
             other: _NumType) -> None:
@@ -366,8 +353,7 @@ class NumberValueInterface(
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __floordiv__(self, other: _NumType) -> Any:
         """
         Method for floor division (return integer).
@@ -392,8 +378,7 @@ class NumberValueInterface(
         self._append_floor_division_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_floor_division_expression(
             self, *, result: VariableNameInterface,
             other: _NumType) -> None:
@@ -418,8 +403,7 @@ class NumberValueInterface(
 
     _incremental_calc_prev_name: str = ''
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_incremental_calc_substitution_expression(self) -> None:
         """
         Append an incremental calculation's substitution expression.
@@ -433,8 +417,7 @@ class NumberValueInterface(
         self._incremental_calc_prev_name = ''
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __iadd__(self, other: _NumType) -> _T:
         """
         Method for incremental addition.
@@ -459,8 +442,7 @@ class NumberValueInterface(
         return result
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __isub__(self, other: _NumType) -> Any:
         """
         Method for incremental subtraction.
@@ -485,8 +467,7 @@ class NumberValueInterface(
         return result
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __imul__(self, other: _NumType) -> _T:
         """
         Method for incremental multiplication.
@@ -511,8 +492,7 @@ class NumberValueInterface(
         return result
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __itruediv__(self, other: _NumType) -> Any:
         """
         Method for incremental true division.
@@ -539,8 +519,7 @@ class NumberValueInterface(
         return result
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __mod__(self, other: _NumType) -> _T:
         """
         Method for the modulo operation.
@@ -564,8 +543,7 @@ class NumberValueInterface(
         self._append_modulo_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_modulo_expression(
             self, *, result: VariableNameInterface,
             other: _NumType) -> None:
@@ -623,8 +601,7 @@ class NumberValueInterface(
         """
         return float(self._value)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
@@ -651,8 +628,7 @@ class NumberValueInterface(
             self._append_eq_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _convert_other_val_to_int_or_number(self, *, other: Any) -> Any:
         """
         Convert a specified other value if comparison
@@ -680,8 +656,7 @@ class NumberValueInterface(
             return ap.Number(other)
         return other
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -702,8 +677,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.
@@ -730,8 +704,7 @@ class NumberValueInterface(
             self._append_ne_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -752,8 +725,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __lt__(self, other: Any) -> Any:
         """
         Less than comparison method.
@@ -780,8 +752,7 @@ class NumberValueInterface(
             self._append_lt_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_lt_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -802,8 +773,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __le__(self, other: Any) -> Any:
         """
         Less than equal comparison method.
@@ -830,8 +800,7 @@ class NumberValueInterface(
             self._append_le_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_le_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -852,8 +821,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __gt__(self, other: Any) -> Any:
         """
         Greater than comparison method.
@@ -880,8 +848,7 @@ class NumberValueInterface(
             self._append_gt_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_gt_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -902,8 +869,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def __ge__(self, other: Any) -> Any:
         """
         Greater than equal comparison method.
@@ -930,8 +896,7 @@ class NumberValueInterface(
             self._append_ge_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='NumberValueInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ge_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:

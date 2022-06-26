@@ -27,8 +27,7 @@ class VisibleInterface(
 
         self._append_visible_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='VisibleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_visible_attr_linking_setting(self) -> None:
         """
         Append a visible attribute linking settings.
@@ -39,8 +38,7 @@ class VisibleInterface(
             attr=self._visible, attr_name='visible')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='VisibleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def visible(self) -> Boolean:
         """
         Get a visibility value of this instance.
@@ -68,8 +66,7 @@ class VisibleInterface(
 
     @visible.setter
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='VisibleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def visible(self, value: Boolean) -> None:
         """
         Update a visibility value of this instance.
@@ -84,8 +81,7 @@ class VisibleInterface(
 
         self._append_visible_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='VisibleInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_visible_update_expression(self) -> None:
         """
         Append visible property updating expression.

@@ -25,8 +25,7 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
 
         self._append_control_x1_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathControlX1Interface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_control_x1_linking_setting(self) -> None:
         """
         Append a control_x1 attribute to the linking setting.
@@ -37,8 +36,7 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
             attr=self._control_x1, attr_name='control_x1')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathControlX1Interface')
+    @add_debug_info_setting(module_name=__name__)
     def control_x1(self) -> Int:
         """
         Get a first x-coordinate of the control point.
@@ -64,8 +62,7 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
 
     @control_x1.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathControlX1Interface')
+    @add_debug_info_setting(module_name=__name__)
     def control_x1(self, value: Int) -> None:
         """
         Set a first x-coordinate of the control point.

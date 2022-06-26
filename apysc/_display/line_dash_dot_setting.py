@@ -44,8 +44,7 @@ class LineDashDotSetting(Dictionary[str, Int]):
     @arg_validation_decos.num_is_gte_zero(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
             self, *, dot_size: Union[int, Int],
             dash_size: Union[int, Int],
@@ -101,8 +100,7 @@ class LineDashDotSetting(Dictionary[str, Int]):
         })
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def dot_size(self) -> Int:
         """
         Get a dot size setting.
@@ -128,8 +126,7 @@ class LineDashDotSetting(Dictionary[str, Int]):
         return self['dot_size']
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def dash_size(self) -> Int:
         """
         Get a dash size setting.
@@ -155,8 +152,7 @@ class LineDashDotSetting(Dictionary[str, Int]):
         return self['dash_size']
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDashDotSetting')
+    @add_debug_info_setting(module_name=__name__)
     def space_size(self) -> Int:
         """
         Get a space size setting.

@@ -19,8 +19,7 @@ class LineColorInterface(
     _line_color: String
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineColorInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_color(self) -> String:
         """
         Get this instance's line color.
@@ -57,8 +56,7 @@ class LineColorInterface(
 
     @line_color.setter
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineColorInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_color(self, value: String) -> None:
         """
         Update this instance's line color.
@@ -82,8 +80,7 @@ class LineColorInterface(
         self._append_attr_to_linking_stack(
             attr=self._line_color, attr_name='line_color')
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineColorInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_color_update_expression(self) -> None:
         """
         Append line color updating expression.

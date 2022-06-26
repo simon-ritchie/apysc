@@ -51,8 +51,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
     _value: str
 
     @arg_validation_decos.is_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, value: Union[str, 'String']) -> None:
         """
         String class for apysc library.
@@ -95,8 +94,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
                 get_next_variable_name(type_name=TYPE_NAME)
             self._append_constructor_expression()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression.
@@ -128,8 +126,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         return str(value)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def value(self) -> Union[str, 'String']:
         """
         Get a current string value.
@@ -156,8 +153,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     @value.setter
     @arg_validation_decos.is_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def value(self, value: Union[str, 'String']) -> None:
         """
         Set string value.
@@ -175,8 +171,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         self._value = self._get_str_value(value=value)
         self._append_value_setter_expression(value=value)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(
             self, *, value: Union[str, 'String']) -> None:
         """
@@ -196,8 +191,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __add__(self, other: Union[str, 'String']) -> 'String':
         """
         Method for addition (string concatenation).
@@ -221,8 +215,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         self._append_addition_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_addition_expression(
             self, *, result: VariableNameInterface,
             other: Union[str, 'String']) -> None:
@@ -246,8 +239,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_integer(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __mul__(self, other: Union[int, Any]) -> 'String':
         """
         Method for multiplication (string repetition).
@@ -272,8 +264,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         self._append_multiplication_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_multiplication_expression(
             self, *, result: VariableNameInterface,
             other: Union[int, Any]) -> None:
@@ -301,8 +292,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __iadd__(self, other: Union[str, 'String']) -> Any:
         """
         Method for incremental addition (string concatenation).
@@ -325,8 +315,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         return result
 
     @arg_validation_decos.is_integer(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __imul__(self, other: Union[int, Any]) -> Any:
         """
         Method for incremental multiplication (string repetition).
@@ -361,8 +350,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return ''
         return self._value
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
         Method for equal comparison.
@@ -412,8 +400,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return String(other)
         return other
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -434,8 +421,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
         Method for not equal comparison.
@@ -464,8 +450,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_ne_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -487,8 +472,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __lt__(self, other: Union[str, Any]) -> Any:
         """
         Method for less than comparison.
@@ -511,8 +495,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_lt_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_lt_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -534,8 +517,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __le__(self, other: Union[str, Any]) -> Any:
         """
         Method for less than or equal comparison.
@@ -558,8 +540,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_le_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_le_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -581,8 +562,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __gt__(self, other: Union[str, Any]) -> Any:
         """
         Method for greater than comparison.
@@ -605,8 +585,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_gt_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_gt_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
@@ -628,8 +607,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_string(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def __ge__(self, other: Union[str, Any]) -> Any:
         """
         Method for greater than or equal comparison.
@@ -652,8 +630,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_ge_expression(result=result, other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='String')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ge_expression(
             self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:

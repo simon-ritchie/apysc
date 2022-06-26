@@ -31,8 +31,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
 
     _value: Any
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __init__(self, value: Any) -> None:
         """
         Class implementation of any value (a value that can't
@@ -59,8 +58,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         self._type_name = TYPE_NAME
         self._append_constructor_expression()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression.
@@ -77,8 +75,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def value(self) -> Any:
         """
         Get a current value.
@@ -101,8 +98,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         return self._value
 
     @value.setter
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def value(self, value: Any) -> None:
         """
         Set a any value.
@@ -115,8 +111,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         self._value = value
         self._append_value_setter_expression(value=value)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(self, *, value: Any) -> None:
         """
         Append value's setter expression.
@@ -134,8 +129,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             expression += f'{value};'
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def _append_arithmetic_operation_expression(
             self, *, other: Any, operator: str) -> VariableNameInterface:
         """
@@ -164,8 +158,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __add__(self, other: Any) -> Any:
         """
         Method for addition.
@@ -185,8 +178,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
                 other=other, operator='+')
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __sub__(self, other: Any) -> Any:
         """
         Method for subtraction.
@@ -206,8 +198,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
                 other=other, operator='-')
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __mul__(self, other: Any) -> Any:
         """
         Method for multiplication.
@@ -227,8 +218,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
                 other=other, operator='*')
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __truediv__(self, other: Any) -> Any:
         """
         Method for true division.
@@ -248,8 +238,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
                 other=other, operator='/')
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __floordiv__(self, other: Any) -> Any:
         """
         Method for floor division.
@@ -275,8 +264,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def _append_incremental_arithmetic_operation_expression(
             self, *, other: Any, operator: str) -> None:
         """
@@ -298,8 +286,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __iadd__(self, other: Any) -> Any:
         """
         Method for incremental addition.
@@ -318,8 +305,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             other=other, operator='+=')
         return self
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __isub__(self, other: Any) -> Any:
         """
         Method for incremental subtraction.
@@ -338,8 +324,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             other=other, operator='-=')
         return self
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __imul__(self, other: Any) -> Any:
         """
         Method for incremental multiplication.
@@ -358,8 +343,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             other=other, operator='*=')
         return self
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __itruediv__(self, other: Any) -> Any:
         """
         Method for incremental true division.
@@ -378,8 +362,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             other=other, operator='/=')
         return self
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def _append_comparison_expression(
             self, *, comparison_operator: str, other: Any) -> Boolean:
         """
@@ -411,8 +394,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         ap.append_js_expression(expression=expression)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
@@ -434,8 +416,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             comparison_operator='===', other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.
@@ -457,8 +438,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             comparison_operator='!==', other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __lt__(self, other: Any) -> Boolean:
         """
         Less than comparison method.
@@ -480,8 +460,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             comparison_operator='<', other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __le__(self, other: Any) -> Boolean:
         """
         Less than equal comparison method.
@@ -503,8 +482,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             comparison_operator='<=', other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __gt__(self, other: Any) -> Boolean:
         """
         Greater than comparison method.
@@ -526,8 +504,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             comparison_operator='>', other=other)
         return result
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='AnyValue')
+    @add_debug_info_setting(module_name=__name__)
     def __ge__(self, other: Any) -> Boolean:
         """
         Greater than equal comparison method.

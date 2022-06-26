@@ -7,8 +7,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class PreventDefaultInterface(VariableNameInterface):
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PreventDefaultInterface')
+    @add_debug_info_setting(module_name=__name__)
     def prevent_default(self) -> None:
         """
         Prevent event's default behavior.

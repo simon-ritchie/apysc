@@ -27,8 +27,7 @@ class EllipseWidthInterface(
 
         self._append_ellipse_width_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='EllipseWidthInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ellipse_width_attr_linking_setting(self) -> None:
         """
         Append an ellipse-height attribute linking settings.
@@ -39,8 +38,7 @@ class EllipseWidthInterface(
             attr=self._ellipse_width, attr_name='ellipse_width')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='EllipseWidthInterface')
+    @add_debug_info_setting(module_name=__name__)
     def ellipse_width(self) -> Int:
         """
         Get ellipse width value.
@@ -69,8 +67,7 @@ class EllipseWidthInterface(
 
     @ellipse_width.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='EllipseWidthInterface')
+    @add_debug_info_setting(module_name=__name__)
     def ellipse_width(self, value: Int) -> None:
         """
         Update ellipse width value.
@@ -87,8 +84,7 @@ class EllipseWidthInterface(
 
         self._append_ellipse_width_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='EllipseWidthInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_ellipse_width_update_expression(self) -> None:
         """
         Append ellipse width updating expression.

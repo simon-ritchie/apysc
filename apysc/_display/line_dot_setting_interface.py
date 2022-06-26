@@ -25,8 +25,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         self._line_dot_setting = None
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDotSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_dot_setting(self) -> Optional[LineDotSetting]:
         """
         Get this instance's line dot setting.
@@ -60,8 +59,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
     @arg_validation_decos.multiple_line_settings_are_not_set(
         arg_position_index=0)
     @arg_validation_decos.is_line_dot_setting(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDotSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_dot_setting(self, value: Optional[LineDotSetting]) -> None:
         """
         Set line dot setting.
@@ -96,8 +94,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
                 '\nAcceptable ones are: LineDotSetting or None.')
         self._line_dot_setting = value
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineDotSettingInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_dot_setting_update_expression(self) -> None:
         """
         Append line dot setting updating expression.

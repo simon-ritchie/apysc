@@ -28,8 +28,7 @@ class WidthInterface(
 
         self._append_width_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_width_attr_linking_setting(self) -> None:
         """
         Append a width attribute linking settings.
@@ -40,8 +39,7 @@ class WidthInterface(
             attr=self._width, attr_name='width')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthInterface')
+    @add_debug_info_setting(module_name=__name__)
     def width(self) -> Int:
         """
         Get this instance's width.
@@ -72,8 +70,7 @@ class WidthInterface(
     @width.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthInterface')
+    @add_debug_info_setting(module_name=__name__)
     def width(self, value: Int) -> None:
         """
         Update this instance's width.
@@ -89,8 +86,7 @@ class WidthInterface(
 
         self._append_width_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='WidthInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_width_update_expression(self) -> None:
         """
         Append width updating expression.

@@ -30,8 +30,7 @@ class GraphicsClearInterface:
     _line_round_dot_setting: Optional[LineRoundDotSetting]
     _line_dash_dot_setting: Optional[LineDashDotSetting]
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='GraphicsClearInterface')
+    @add_debug_info_setting(module_name=__name__)
     def clear(self) -> None:
         """
         Clear all graphics and reset fill and line settings.

@@ -29,8 +29,7 @@ class LineAlphaInterface(
 
         self._append_line_alpha_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineAlphaInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_alpha_attr_linking_setting(self) -> None:
         """
         Append a line alpha attribute linking settings.
@@ -41,8 +40,7 @@ class LineAlphaInterface(
             attr=self._line_alpha, attr_name='line_alpha')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineAlphaInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_alpha(self) -> Number:
         """
         Get this instance's line alpha (opacity).
@@ -76,8 +74,7 @@ class LineAlphaInterface(
     @line_alpha.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineAlphaInterface')
+    @add_debug_info_setting(module_name=__name__)
     def line_alpha(self, value: Number) -> None:
         """
         Update this instance's line alpha (opacity).
@@ -99,8 +96,7 @@ class LineAlphaInterface(
 
         self._append_line_alpha_attr_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='LineAlphaInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_line_alpha_update_expression(self) -> None:
         """
         Append line alpha updating expression.

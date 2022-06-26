@@ -25,8 +25,7 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
 
         self._append_y_linking_setting()
 
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def _append_y_linking_setting(self) -> None:
         """
         Append a y attribute linking settings.
@@ -37,8 +36,7 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
             attr=self._y, attr_name='y')
 
     @property
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def y(self) -> Int:
         """
         Get a y-coordinate of the destination point.
@@ -61,8 +59,7 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
 
     @y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @add_debug_info_setting(
-        module_name=__name__, class_name='PathYInterface')
+    @add_debug_info_setting(module_name=__name__)
     def y(self, value: Int) -> None:
         """
         Set a y-coordinate of the destination point.

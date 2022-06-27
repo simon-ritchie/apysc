@@ -155,25 +155,26 @@ class Circle(
         Examples
         --------
         >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
         >>> circle: ap.Circle = ap.Circle(
         ...     x=100, y=100, radius=50, fill_color='#00aaff')
         >>> circle.x
-        100
+        Int(100)
         >>> circle.y
-        100
+        Int(100)
         >>> circle.radius
-        50
+        Int(50)
         >>> circle.fill_color
-        '#00aaff'
+        String('#00aaff')
 
         >>> circle = ap.Circle(
         ...    x=100, y=100, radius=50,
         ...    line_color='#ffffff', line_thickness=3,
         ...    line_dot_setting=ap.LineDotSetting(dot_size=10))
         >>> circle.line_color
-        '#ffffff'
+        String('#ffffff')
         >>> circle.line_thickness
-        3
+        Int(3)
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

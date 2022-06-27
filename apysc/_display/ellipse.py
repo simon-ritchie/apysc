@@ -161,6 +161,23 @@ class Ellipse(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> ellipse: ap.Ellipse = ap.Ellipse(
+        ...    x=100, y=100, width=100, height=50, fill_color='#00aaff')
+        >>> ellipse.x
+        Int(100)
+        >>> ellipse.y
+        Int(100)
+        >>> ellipse.width
+        Int(100)
+        >>> ellipse.height
+        Int(50)
+        >>> ellipse.fill_color
+        String('#00aaff')
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val

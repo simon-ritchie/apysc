@@ -64,6 +64,24 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 - `parent`: ChildInterface or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> polygon: ap.Polygon = ap.Polygon(
+...     points=[
+...         ap.Point2D(x=50, y=50),
+...         ap.Point2D(x=50, y=100),
+...         ap.Point2D(x=100, y=75),
+...     ],
+...     fill_color='#00aaff')
+>>> polygon.fill_color
+String('#00aaff')
+```
+
 ### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>

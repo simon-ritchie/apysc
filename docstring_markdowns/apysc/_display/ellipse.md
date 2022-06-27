@@ -78,6 +78,31 @@ Create an ellipse vector graphic.<hr>
 - `parent`: ChildInterface or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> ellipse: ap.Ellipse = ap.Ellipse(
+...    x=100, y=100, width=100, height=50, fill_color='#00aaff')
+>>> ellipse.x
+Int(100)
+
+>>> ellipse.y
+Int(100)
+
+>>> ellipse.width
+Int(100)
+
+>>> ellipse.height
+Int(50)
+
+>>> ellipse.fill_color
+String('#00aaff')
+```
+
 ### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>

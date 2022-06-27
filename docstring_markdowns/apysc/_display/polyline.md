@@ -63,6 +63,28 @@ Create a polyline vector graphic.<hr>
 - `parent`: ChildInterface or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> polyline: ap.Polyline = ap.Polyline(
+...     points=[
+...         ap.Point2D(x=50, y=50),
+...         ap.Point2D(x=100, y=100),
+...         ap.Point2D(x=150, y=50),
+...     ],
+...     line_color='#ffffff',
+...     line_thickness=3)
+>>> polyline.line_color
+String('#ffffff')
+
+>>> polyline.line_thickness
+Int(3)
+```
+
 ### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>

@@ -63,6 +63,25 @@ Create a line vector graphic.<hr>
 - `parent`: ChildInterface or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> line: ap.Line = ap.Line(
+...    start_point=ap.Point2D(x=50, y=50),
+...    end_point=ap.Point2D(x=150, y=50),
+...    line_color='#ffffff',
+...    line_thickness=3)
+>>> line.line_color
+String('#ffffff')
+
+>>> line.line_thickness
+Int(3)
+```
+
 ### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>

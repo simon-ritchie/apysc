@@ -78,6 +78,31 @@ Create a rectangle vector graphic.<hr>
 - `parent`: ChildInterface or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> rectangle: ap.Rectangle = ap.Rectangle(
+...     x=50, y=50, width=100, height=100, fill_color='#00aaff')
+>>> rectangle.x
+Int(50)
+
+>>> rectangle.y
+Int(50)
+
+>>> rectangle.width
+Int(100)
+
+>>> rectangle.height
+Int(100)
+
+>>> rectangle.fill_color
+String('#00aaff')
+```
+
 ### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>

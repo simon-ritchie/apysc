@@ -73,6 +73,38 @@ Create a circle vector graphic.<hr>
 - `parent`: ChildInterface or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> circle: ap.Circle = ap.Circle(
+...     x=100, y=100, radius=50, fill_color='#00aaff')
+>>> circle.x
+Int(100)
+
+>>> circle.y
+Int(100)
+
+>>> circle.radius
+Int(50)
+
+>>> circle.fill_color
+String('#00aaff')
+
+>>> circle = ap.Circle(
+...    x=100, y=100, radius=50,
+...    line_color='#ffffff', line_thickness=3,
+...    line_dot_setting=ap.LineDotSetting(dot_size=10))
+>>> circle.line_color
+String('#ffffff')
+
+>>> circle.line_thickness
+Int(3)
+```
+
 ### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>

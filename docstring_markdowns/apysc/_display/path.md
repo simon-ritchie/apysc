@@ -57,6 +57,28 @@ Create a path vector graphic.<hr>
 - `parent`: ChildInterface or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> path: ap.Path = ap.Path(
+...     path_data_list=[
+...         ap.PathMoveTo(x=0, y=50),
+...         ap.PathBezier2D(
+...             control_x=50, control_y=0,
+...             dest_x=100, dest_y=50)],
+...     line_color='#ffffff',
+...     line_thickness=3)
+>>> path.line_color
+String('#ffffff')
+
+>>> path.line_thickness
+Int(3)
+```
+
 ### `__repr__` method docstring
 
 Get a string representation of this instance (for the sake of debugging).<hr>

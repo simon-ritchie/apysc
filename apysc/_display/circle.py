@@ -151,6 +151,29 @@ class Circle(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> circle: ap.Circle = ap.Circle(
+        ...     x=100, y=100, radius=50, fill_color='#00aaff')
+        >>> circle.x
+        100
+        >>> circle.y
+        100
+        >>> circle.radius
+        50
+        >>> circle.fill_color
+        '#00aaff'
+
+        >>> circle = ap.Circle(
+        ...    x=100, y=100, radius=50,
+        ...    line_color='#ffffff', line_thickness=3,
+        ...    line_dot_setting=ap.LineDotSetting(dot_size=10))
+        >>> circle.line_color
+        '#ffffff'
+        >>> circle.line_thickness
+        3
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

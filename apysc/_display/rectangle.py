@@ -166,6 +166,23 @@ class Rectangle(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=50, y=50, width=100, height=100, fill_color='#00aaff')
+        >>> rectangle.x
+        Int(50)
+        >>> rectangle.y
+        Int(50)
+        >>> rectangle.width
+        Int(100)
+        >>> rectangle.height
+        Int(100)
+        >>> rectangle.fill_color
+        String('#00aaff')
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

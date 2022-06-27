@@ -140,6 +140,20 @@ class Polygon(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> polygon: ap.Polygon = ap.Polygon(
+        ...     points=[
+        ...         ap.Point2D(x=50, y=50),
+        ...         ap.Point2D(x=50, y=100),
+        ...         ap.Point2D(x=100, y=75),
+        ...     ],
+        ...     fill_color='#00aaff')
+        >>> polygon.fill_color
+        String('#00aaff')
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

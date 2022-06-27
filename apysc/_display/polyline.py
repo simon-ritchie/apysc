@@ -137,6 +137,23 @@ class Polyline(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> polyline: ap.Polyline = ap.Polyline(
+        ...     points=[
+        ...         ap.Point2D(x=50, y=50),
+        ...         ap.Point2D(x=100, y=100),
+        ...         ap.Point2D(x=150, y=50),
+        ...     ],
+        ...     line_color='#ffffff',
+        ...     line_thickness=3)
+        >>> polyline.line_color
+        String('#ffffff')
+        >>> polyline.line_thickness
+        Int(3)
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

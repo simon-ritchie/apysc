@@ -132,6 +132,20 @@ class Line(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> line: ap.Line = ap.Line(
+        ...    start_point=ap.Point2D(x=50, y=50),
+        ...    end_point=ap.Point2D(x=150, y=50),
+        ...    line_color='#ffffff',
+        ...    line_thickness=3)
+        >>> line.line_color
+        String('#ffffff')
+        >>> line.line_thickness
+        Int(3)
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

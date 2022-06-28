@@ -158,3 +158,21 @@ class TestRectangle:
                 ap.LineDashSetting(dash_size=10, space_size=5),
             },
             any_obj=rectangle)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_ellipse_settings_if_values_are_not_zero(self) -> None:
+        ap.Stage()
+        rectangle: ap.Rectangle = ap.Rectangle(
+            x=0, y=0, width=50, height=50)
+        assert not hasattr(rectangle, '_ellipse_width')
+        assert not hasattr(rectangle, '_ellipse_height')
+
+        rectangle._set_ellipse_settings_if_values_are_not_zero(
+            ellipse_width=ap.Int(0), ellipse_height=ap.Int(0))
+        assert not hasattr(rectangle, '_ellipse_width')
+        assert not hasattr(rectangle, '_ellipse_height')
+
+        rectangle._set_ellipse_settings_if_values_are_not_zero(
+            ellipse_width=10, ellipse_height=15)
+        assert rectangle.ellipse_width == 10
+        assert rectangle.ellipse_height == 15

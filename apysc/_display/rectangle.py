@@ -79,34 +79,40 @@ class Rectangle(
     # height
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
+    # ellipse_width
+    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
+    # ellipse_height
+    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=5)
-    # fill_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=6)
-    # line_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=7)
-    # line_alpha
+    # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=8)
+    # line_color
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=9)
+    # line_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=10)
     # line_thickness
-    @arg_validation_decos.is_integer(arg_position_index=9)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=9)
+    @arg_validation_decos.is_integer(arg_position_index=11)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=11)
     # line_cap
     @arg_validation_decos.is_line_cap(
-        arg_position_index=10, optional=True)
+        arg_position_index=12, optional=True)
     # line_joints
     @arg_validation_decos.is_line_joints(
-        arg_position_index=11, optional=True)
+        arg_position_index=13, optional=True)
     # line_dot_setting
-    @arg_validation_decos.is_line_dot_setting(arg_position_index=12)
+    @arg_validation_decos.is_line_dot_setting(arg_position_index=14)
     # line_dash_setting
-    @arg_validation_decos.is_line_dash_setting(arg_position_index=13)
+    @arg_validation_decos.is_line_dash_setting(arg_position_index=15)
     # line_round_dot_setting
-    @arg_validation_decos.is_line_round_dot_setting(arg_position_index=14)
+    @arg_validation_decos.is_line_round_dot_setting(arg_position_index=16)
     # line_dash_dot_setting
-    @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=15)
+    @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=17)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=16, optional=True)
+        arg_position_index=18, optional=True)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
@@ -115,6 +121,8 @@ class Rectangle(
             y: Union[int, Int],
             width: Union[int, Int],
             height: Union[int, Int],
+            ellipse_width: Union[int, Int] = 0,
+            ellipse_height: Union[int, Int] = 0,
             fill_color: Union[str, String] = '',
             fill_alpha: Union[float, Number] = 1.0,
             line_color: Union[str, String] = '',
@@ -203,8 +211,40 @@ class Rectangle(
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
             line_dash_dot_setting=line_dash_dot_setting)
+        self._set_ellipse_settings_if_values_are_not_zero(
+            ellipse_width=ellipse_width, ellipse_height=ellipse_height)
         super(Rectangle, self).__init__(
             parent=parent, variable_name=variable_name)
+
+    def _set_ellipse_settings_if_values_are_not_zero(
+            self,
+            *,
+            ellipse_width: Union[int, Int],
+            ellipse_height: Union[int, Int]) -> None:
+        """
+        Set ellipse-related settings if values are not zero.
+
+        Parameters
+        ----------
+        ellipse_width : Union[int, Int]
+            Ellipse width to set.
+        ellipse_height : Union[int, Int]
+            Ellipse height to set.
+        """
+        if isinstance(ellipse_width, int) and ellipse_width == 0:
+            return
+        if isinstance(ellipse_height, int) and ellipse_height == 0:
+            return
+        if isinstance(ellipse_width, Int) and ellipse_width._value == 0:
+            return
+        if isinstance(ellipse_height, Int) and ellipse_height._value == 0:
+            return
+        if isinstance(ellipse_width, int):
+            ellipse_width = Int(ellipse_width)
+        if isinstance(ellipse_height, int):
+            ellipse_height = Int(ellipse_height)
+        self.ellipse_width = ellipse_width
+        self.ellipse_height = ellipse_height
 
     @classmethod
     def _create_with_graphics(

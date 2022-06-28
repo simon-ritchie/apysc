@@ -53,6 +53,10 @@ Create a rectangle vector graphic.<hr>
   - Rectangle width.
 - `height`: Int or int
   - Rectangle height.
+- `ellipse_width`: int or Int
+  - Ellipse width.
+- `ellipse_height`: int or Int
+  - Ellipse height.
 - `fill_color`: str or String, default ''
   - A fill-color to set.
 - `fill_alpha`: float or Number, default 1.0
@@ -139,3 +143,14 @@ Create a rectangle instance with the instance of specified graphics..<hr>
 
 - `rectangle`: Rectangle
   - A created rectangle instance.
+
+### `_set_ellipse_settings_if_values_are_not_zero` method docstring
+
+Set ellipse-related settings if values are not zero.<hr>
+
+**[Parameters]**
+
+- `ellipse_width`: Union[int, Int]
+  - Ellipse width to set.
+- `ellipse_height`: Union[int, Int]
+  - Ellipse height to set.

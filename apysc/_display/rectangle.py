@@ -148,6 +148,10 @@ class Rectangle(
             Rectangle width.
         height : Int or int
             Rectangle height.
+        ellipse_width : int or Int
+            Ellipse width.
+        ellipse_height : int or Int
+            Ellipse height.
         fill_color : str or String, default ''
             A fill-color to set.
         fill_alpha : float or Number, default 1.0

@@ -1,10 +1,10 @@
-# Graphics line_dot_setting interface
+# GraphicsBase line_dot_setting interface
 
-This page explains the `Graphics` class `line_dot_setting` property interface.
+This page explains the `GraphicsBase` class `line_dot_setting` property interface.
 
 ## What interface is this?
 
-The `line_dot_setting` property interface updates or gets the instance's current line dot setting.
+The `GraphicsBase` property interface updates or gets the instance's current line dot setting.
 
 ## Basic usage
 

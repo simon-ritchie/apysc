@@ -1,7 +1,7 @@
 """This module is for the translation mapping data of the
 following document:
 
-Document file: graphics_line_dash_dot_setting.md
+Document file: graphics_base_line_dash_dot_setting.md
 Language: jp
 """
 
@@ -9,11 +9,11 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# Graphics line_dash_dot_setting interface':
-    '# Graphics クラスの line_dash_dot_setting インターフェイス',
+    '# GraphicsBase line_dash_dot_setting interface':
+    '# GraphicsBase クラスの line_dash_dot_setting インターフェイス',
 
-    'This page explains the `Graphics` class `line_dash_dot_setting` property interface.':  # noqa
-    'このページでは`Graphics`クラスの`line_dash_dot_setting`属性のインターフェイスについて説明します。',
+    'This page explains the `GraphicsBase` class `line_dash_dot_setting` property interface.':  # noqa
+    'このページでは`GraphicsBase`クラスの`line_dash_dot_setting`属性のインターフェイスについて説明します。',
 
     '## What interface is this?':
     '## インターフェイス概要',

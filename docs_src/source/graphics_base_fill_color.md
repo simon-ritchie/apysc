@@ -1,6 +1,6 @@
-# Graphics fill_color interface
+# GraphicsBase fill_color interface
 
-This page explains the `Graphics` class `fill_color` property interface.
+This page explains the `GraphicsBase` class `fill_color` property interface.
 
 ## What interface is this?
 

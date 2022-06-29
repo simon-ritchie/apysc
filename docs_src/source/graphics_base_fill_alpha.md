@@ -1,6 +1,6 @@
-# Graphics fill_alpha interface
+# GraphicsBase fill_alpha interface
 
-This page explains the `Graphics` class `fill_alpha` property interface.
+This page explains the `GraphicsBase` class `fill_alpha` property interface.
 
 ## What interface is this?
 

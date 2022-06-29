@@ -1,7 +1,7 @@
 """This module is for the translation mapping data of the
 following document:
 
-Document file: graphics_fill_alpha.md
+Document file: graphics_base_fill_alpha.md
 Language: jp
 """
 
@@ -9,11 +9,11 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# Graphics fill_alpha interface':
-    '# Graphics クラスの fill_alpha インターフェイス',
+    '# GraphicsBase fill_alpha interface':
+    '# GraphicsBase クラスの fill_alpha インターフェイス',
 
-    'This page explains the `Graphics` class `fill_alpha` property interface.':  # noqa
-    'このページでは`Graphics`クラスの`fill_alpha`属性のインターフェイスについて説明します。',
+    'This page explains the `GraphicsBase` class `fill_alpha` property interface.':  # noqa
+    'このページでは`GraphicsBase`クラスの`fill_alpha`属性のインターフェイスについて説明します。',
 
     '## What interface is this?':
     '## インターフェイス概要',

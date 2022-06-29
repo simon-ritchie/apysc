@@ -1,6 +1,6 @@
-# Graphics line_dash_dot_setting interface
+# GraphicsBase line_dash_dot_setting interface
 
-This page explains the `Graphics` class `line_dash_dot_setting` property interface.
+This page explains the `GraphicsBase` class `line_dash_dot_setting` property interface.
 
 ## What interface is this?
 

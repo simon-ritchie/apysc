@@ -1,6 +1,6 @@
-# Graphics line_color interface
+# GraphicsBase line_color interface
 
-This page explains the `Graphics` class `line_color` property interface.
+This page explains the `GraphicsBase` class `line_color` property interface.
 
 ## What interface is this?
 

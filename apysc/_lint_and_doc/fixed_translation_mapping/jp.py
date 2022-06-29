@@ -763,40 +763,40 @@ MAPPINGS: Mappings = Mappings(
             val='Graphics クラスの draw_polygon (多角形描画)の'
             'インターフェイス'),
         Mapping(
-            key='Graphics class fill_color interface',
-            val='Graphics クラスの fill_color (塗り設定)の'
+            key='GraphicsBase class fill_color interface',
+            val='GraphicsBase クラスの fill_color (塗り設定)の'
             'インターフェイス'),
         Mapping(
-            key='Graphics class fill_alpha interface',
-            val='Graphics クラスの fill_alpha (塗りの透明度設定)の'
+            key='GraphicsBase class fill_alpha interface',
+            val='GraphicsBase クラスの fill_alpha (塗りの透明度設定)の'
             'インターフェイス'),
         Mapping(
-            key='Graphics class line_color interface',
-            val='Graphics クラスの line_color (線の色設定)の'
+            key='GraphicsBase class line_color interface',
+            val='GraphicsBase クラスの line_color (線の色設定)の'
             'インターフェイス'),
         Mapping(
-            key='Graphics class line_alpha interface',
-            val='Graphics クラスの line_color (線の透明度設定)の'
+            key='GraphicsBase class line_alpha interface',
+            val='GraphicsBase クラスの line_color (線の透明度設定)の'
             'インターフェイス'),
         Mapping(
-            key='Graphics class line_thickness interface',
-            val='Graphics クラスの line_color (線幅設定)の'
+            key='GraphicsBase class line_thickness interface',
+            val='GraphicsBase クラスの line_color (線幅設定)の'
             'インターフェイス'),
         Mapping(
-            key='Graphics class line_dot_setting interface',
-            val='Graphics クラスの line_dot_setting (点線設定)'
+            key='GraphicsBase class line_dot_setting interface',
+            val='GraphicsBase クラスの line_dot_setting (点線設定)'
             'のインターフェイス'),
         Mapping(
-            key='Graphics class line_dash_setting interface',
-            val='Graphics クラスの line_dash_setting (破線設定)'
+            key='GraphicsBase class line_dash_setting interface',
+            val='GraphicsBase クラスの line_dash_setting (破線設定)'
             'のインターフェイス'),
         Mapping(
-            key='Graphics class line_round_dot_setting interface',
-            val='Graphics クラスの line_round_dot_setting (点線(丸)設定)'
+            key='GraphicsBase class line_round_dot_setting interface',
+            val='GraphicsBase クラスの line_round_dot_setting (点線(丸)設定)'
             'のインターフェイス'),
         Mapping(
-            key='Graphics class line_dash_dot_setting interface',
-            val='Graphics クラスの line_dash_dot_setting (一点'
+            key='GraphicsBase class line_dash_dot_setting interface',
+            val='GraphicsBase クラスの line_dash_dot_setting (一点'
             '鎖線設定)のインターフェイス'),
         Mapping(
             key='For more details, please see:',

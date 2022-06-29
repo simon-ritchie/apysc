@@ -52,7 +52,7 @@ class FillAlphaInterface(
 
         References
         ----------
-        - Graphics fill_alpha interface document
+        - GraphicsBase fill_alpha interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_fill_alpha.html
 
         Examples
@@ -90,7 +90,7 @@ class FillAlphaInterface(
 
         References
         ----------
-        - Graphics fill_alpha interface document
+        - GraphicsBase fill_alpha interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_fill_alpha.html
         """
         self._update_fill_alpha_and_skip_appending_exp(value=value)

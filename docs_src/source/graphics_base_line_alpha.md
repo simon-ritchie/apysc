@@ -1,6 +1,6 @@
-# Graphics line_alpha interface
+# GraphicsBase line_alpha interface
 
-This page explains the `Graphics` class `line_alpha` property interface.
+This page explains the `GraphicsBase` class `line_alpha` property interface.
 
 ## What interface is this?
 

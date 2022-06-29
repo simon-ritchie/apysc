@@ -1,7 +1,7 @@
 """This module is for the translation mapping data of the
 following document:
 
-Document file: graphics_line_color.md
+Document file: graphics_base_line_color.md
 Language: jp
 """
 
@@ -9,11 +9,11 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
 
-    '# Graphics line_color interface':
-    '# Graphics クラスの line_color インターフェイス',
+    '# GraphicsBase line_color interface':
+    '# GraphicsBase クラスの line_color インターフェイス',
 
-    'This page explains the `Graphics` class `line_color` property interface.':  # noqa
-    'このページでは`Graphics`クラスの`line_color`属性のインターフェイスについて説明します。',
+    'This page explains the `GraphicsBase` class `line_color` property interface.':  # noqa
+    'このページでは`GraphicsBase`クラスの`line_color`属性のインターフェイスについて説明します。',
 
     '## What interface is this?':
     '## インターフェイス概要',

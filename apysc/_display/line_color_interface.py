@@ -32,7 +32,7 @@ class LineColorInterface(
 
         References
         ----------
-        - Graphics line_color interface document
+        - GraphicsBase line_color interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_line_color.html
 
         Examples
@@ -68,7 +68,7 @@ class LineColorInterface(
 
         References
         ----------
-        - Graphics line_color interface document
+        - GraphicsBase line_color interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_line_color.html
         """
         self._initialize_line_color_if_not_initialized()

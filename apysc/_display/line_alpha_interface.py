@@ -52,7 +52,7 @@ class LineAlphaInterface(
 
         References
         ----------
-        - Graphics line_alpha interface document
+        - GraphicsBase line_alpha interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_line_alpha.html
 
         Examples
@@ -86,7 +86,7 @@ class LineAlphaInterface(
 
         References
         ----------
-        - Graphics line_alpha interface document
+        - GraphicsBase line_alpha interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_line_alpha.html
         """
         self._initialize_line_alpha_if_not_initialized()

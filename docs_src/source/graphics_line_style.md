@@ -1,6 +1,6 @@
-# Graphics line_style interface
+# GraphicsBase line_style interface
 
-This page explains the `Graphics` class `line_style` method interface.
+This page explains the `GraphicsBase` class `line_style` method interface.
 
 ## What interface is this?
 

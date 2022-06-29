@@ -1,8 +1,8 @@
 <span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_line_dash_dot_setting.html)の確認をお願いします。</span>
 
-# Graphics クラスの line_dash_dot_setting インターフェイス
+# GraphicsBase クラスの line_dash_dot_setting インターフェイス
 
-このページでは`Graphics`クラスの`line_dash_dot_setting`属性のインターフェイスについて説明します。
+このページでは`GraphicsBase`クラスの`line_dash_dot_setting`属性のインターフェイスについて説明します。
 
 ## インターフェイス概要
 

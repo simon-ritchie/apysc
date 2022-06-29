@@ -107,12 +107,22 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [DisplayObject class visible interface](display_object_visible.md)
 - [DisplayObject class get_css and set_css interfaces](display_object_get_and_set_css.md)
 - [DisplayObject class mouse event binding interfaces](display_object_mouse_event.md)
+- [GraphicsBase class fill_color interface](graphics_base_fill_color.md)
+- [GraphicsBase class fill_alpha interface](graphics_base_fill_alpha.md)
+- [GraphicsBase class line_color interface](graphics_base_line_color.md)
+- [GraphicsBase class line_alpha interface](graphics_base_line_alpha.md)
+- [GraphicsBase class line_thickness interface](graphics_base_line_thickness.md)
+- [GraphicsBase class line_dot_setting interface](graphics_base_line_dot_setting.md)
+- [GraphicsBase class line_dash_setting interface](graphics_base_line_dash_setting.md)
+- [GraphicsBase class line_round_dot_setting interface](graphics_base_line_round_dot_setting.md)
+- [GraphicsBase class line_dash_dot_setting interface](graphics_base_line_dash_dot_setting.md)
 - [GraphicsBase class rotation_around_center interface](graphics_base_rotation_around_center.md)
 - [GraphicsBase class rotation_around_point interfaces](graphics_base_rotation_around_point.md)
 - [GraphicsBase class scale_from_center interfaces](graphics_base_scale_from_center.md)
 - [GraphicsBase class scale_from_point interfaces](graphics_base_scale_from_point.md)
 - [GraphicsBase class flip_x and flip_y interfaces](graphics_base_flip_interfaces.md)
 - [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md)
+
 
 ---
 
@@ -139,15 +149,6 @@ The `Graphics` class handles each vector graphics drawing.
 - [Graphics class draw_round_dotted_line interface](graphics_draw_round_dotted_line.md)
 - [Graphics class draw_dash_dotted_line interface](graphics_draw_dash_dotted_line.md)
 - [Graphics class draw_polygon interface](graphics_draw_polygon.md)
-- [Graphics class fill_color interface](graphics_fill_color.md)
-- [Graphics class fill_alpha interface](graphics_fill_alpha.md)
-- [Graphics class line_color interface](graphics_line_color.md)
-- [Graphics class line_alpha interface](graphics_line_alpha.md)
-- [Graphics class line_thickness interface](graphics_line_thickness.md)
-- [Graphics class line_dot_setting interface](graphics_line_dot_setting.md)
-- [Graphics class line_dash_setting interface](graphics_line_dash_setting.md)
-- [Graphics class line_round_dot_setting interface](graphics_line_round_dot_setting.md)
-- [Graphics class line_dash_dot_setting interface](graphics_line_dash_dot_setting.md)
 - [Graphics class clear interface](graphics_clear.md)
 
 ---

@@ -54,7 +54,7 @@ class LineThicknessInterface(
 
         References
         ----------
-        - Graphics line_thickness interface document
+        - GraphicsBase line_thickness interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_line_thickness.html  # noqa
 
         Examples
@@ -87,7 +87,7 @@ class LineThicknessInterface(
 
         References
         ----------
-        - Graphics line_thickness interface document
+        - GraphicsBase line_thickness interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_line_thickness.html  # noqa
         """
         self._update_line_thickness_and_skip_appending_exp(value=value)

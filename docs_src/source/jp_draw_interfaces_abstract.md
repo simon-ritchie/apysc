@@ -109,16 +109,16 @@ ap.save_overall_html(
 ## 関連資料
 
 - [Graphics クラス](jp_graphics.md)
-- [Graphics クラスの fill_color (塗り設定)のインターフェイス](jp_graphics_fill_color.md)
+- [GraphicsBase クラスの fill_color (塗り設定)のインターフェイス](jp_graphics_base_fill_color.md)
 
-- [Graphics クラスの fill_alpha (塗りの透明度設定)のインターフェイス](jp_graphics_fill_alpha.md)
-- [Graphics クラスの line_color (線の色設定)のインターフェイス](jp_graphics_line_color.md)
+- [GraphicsBase クラスの fill_alpha (塗りの透明度設定)のインターフェイス](jp_graphics_base_fill_alpha.md)
+- [GraphicsBase クラスの line_color (線の色設定)のインターフェイス](jp_graphics_base_line_color.md)
 
-- [Graphics クラスの line_color (線の透明度設定)のインターフェイス](jp_graphics_line_alpha.md)
-- [Graphics クラスの line_color (線幅設定)のインターフェイス](jp_graphics_line_thickness.md)
+- [GraphicsBase クラスの line_color (線の透明度設定)のインターフェイス](jp_graphics_base_line_alpha.md)
+- [GraphicsBase クラスの line_color (線幅設定)のインターフェイス](jp_graphics_base_line_thickness.md)
 
-- [Graphics クラスの line_dot_setting (点線設定)のインターフェイス](jp_graphics_line_dot_setting.md)
-- [Graphics クラスの line_dash_setting (破線設定)のインターフェイス](jp_graphics_line_dash_setting.md)
+- [GraphicsBase クラスの line_dot_setting (点線設定)のインターフェイス](jp_graphics_base_line_dot_setting.md)
+- [GraphicsBase クラスの line_dash_setting (破線設定)のインターフェイス](jp_graphics_base_line_dash_setting.md)
 
-- [Graphics クラスの line_round_dot_setting (点線(丸)設定)のインターフェイス](jp_graphics_line_round_dot_setting.md)
-- [Graphics クラスの line_dash_dot_setting (一点鎖線設定)のインターフェイス](jp_graphics_line_dash_dot_setting.md)
+- [GraphicsBase クラスの line_round_dot_setting (点線(丸)設定)のインターフェイス](jp_graphics_base_line_round_dot_setting.md)
+- [GraphicsBase クラスの line_dash_dot_setting (一点鎖線設定)のインターフェイス](jp_graphics_base_line_dash_dot_setting.md)

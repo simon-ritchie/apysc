@@ -1,6 +1,6 @@
-# Graphics line_thickness interface
+# GraphicsBase line_thickness interface
 
-This page explains the `Graphics` class `line_thickness` property interface.
+This page explains the `GraphicsBase` class `line_thickness` property interface.
 
 ## What interface is this?
 

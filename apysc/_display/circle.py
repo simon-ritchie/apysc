@@ -33,6 +33,8 @@ class Circle(
 
     References
     ----------
+    - Circle class document
+        - https://simon-ritchie.github.io/apysc/en/circle.html
     - Graphics draw_circle interface document
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html  # noqa
 
@@ -151,6 +153,11 @@ class Circle(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        References
+        ----------
+        - Circle class document
+            - https://simon-ritchie.github.io/apysc/en/circle.html
 
         Examples
         --------

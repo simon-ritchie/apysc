@@ -367,7 +367,7 @@ ap.Stage(
     stage_elem_id='stage')
 rectangle: ap.Rectangle = ap.Rectangle(
     x=50, y=50, width=50, height=50,
-    line_color='#0af', line_thickness=5)
+    line_color='#0af')
 rectangle.line_round_dot_setting = ap.LineRoundDotSetting(
     round_size=6, space_size=3)
 

@@ -4,7 +4,7 @@ This page explains the `GraphicsBase` class `line_dot_setting` property interfac
 
 ## What interface is this?
 
-The `GraphicsBase` property interface updates or gets the instance's current line dot setting.
+The `line_dot_setting` property interface updates or gets the instance's current line dot setting.
 
 ## Basic usage
 
@@ -27,10 +27,10 @@ line: ap.Line = sprite.graphics.draw_line(
 line.line_dot_setting = ap.LineDotSetting(dot_size=5)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_line_dot_setting_basic_usage/')
+    dest_dir_path='./graphics_base_line_dot_setting_basic_usage/')
 ```
 
-<iframe src="static/graphics_line_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
+<iframe src="static/graphics_base_line_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
 
 ## See also
 

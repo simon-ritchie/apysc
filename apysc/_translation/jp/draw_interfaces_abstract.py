@@ -105,16 +105,16 @@ MAPPING: Dict[str, str] = {
     '- [Graphics class](graphics.md)':
     '- [Graphics クラス](jp_graphics.md)',
 
-    '- [GraphicsBase class fill_color interface](graphics_base_fill_color.md)':
+    '- [GraphicsBase class fill_color interface](graphics_base_fill_color.md)':  # noqa
     '- [GraphicsBase クラスの fill_color (塗り設定)のインターフェイス](jp_graphics_base_fill_color.md)',  # noqa
 
-    '- [GraphicsBase class fill_alpha interface](graphics_base_fill_alpha.md)':
+    '- [GraphicsBase class fill_alpha interface](graphics_base_fill_alpha.md)':  # noqa
     '- [GraphicsBase クラスの fill_alpha (塗りの透明度設定)のインターフェイス](jp_graphics_base_fill_alpha.md)',  # noqa
 
-    '- [GraphicsBase class line_color interface](graphics_base_line_color.md)':
+    '- [GraphicsBase class line_color interface](graphics_base_line_color.md)':  # noqa
     '- [GraphicsBase クラスの line_color (線の色設定)のインターフェイス](jp_graphics_base_line_color.md)',  # noqa
 
-    '- [GraphicsBase class line_alpha interface](graphics_base_line_alpha.md)':
+    '- [GraphicsBase class line_alpha interface](graphics_base_line_alpha.md)':  # noqa
     '- [GraphicsBase クラスの line_color (線の透明度設定)のインターフェイス](jp_graphics_base_line_alpha.md)',  # noqa
 
     '- [GraphicsBase class line_thickness interface](graphics_base_line_thickness.md)':  # noqa

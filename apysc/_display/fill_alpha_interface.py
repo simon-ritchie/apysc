@@ -53,7 +53,7 @@ class FillAlphaInterface(
         References
         ----------
         - GraphicsBase fill_alpha interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_fill_alpha.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_alpha.html
 
         Examples
         --------
@@ -91,7 +91,7 @@ class FillAlphaInterface(
         References
         ----------
         - GraphicsBase fill_alpha interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_fill_alpha.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_alpha.html  # noqa
         """
         self._update_fill_alpha_and_skip_appending_exp(value=value)
         self._fill_alpha._append_incremental_calc_substitution_expression()

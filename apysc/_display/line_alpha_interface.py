@@ -53,7 +53,7 @@ class LineAlphaInterface(
         References
         ----------
         - GraphicsBase line_alpha interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_line_alpha.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_alpha.html  # noqa
 
         Examples
         --------
@@ -87,7 +87,7 @@ class LineAlphaInterface(
         References
         ----------
         - GraphicsBase line_alpha interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_line_alpha.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_alpha.html  # noqa
         """
         self._initialize_line_alpha_if_not_initialized()
         self._update_line_alpha_and_skip_appending_exp(value=value)

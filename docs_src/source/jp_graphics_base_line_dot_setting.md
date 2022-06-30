@@ -1,12 +1,12 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_line_dot_setting.html)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_base_line_dot_setting.html)の確認をお願いします。</span>
 
-# Graphics クラスの line_dot_setting インターフェイス
+# GraphicsBase クラスの line_dot_setting インターフェイス
 
-このページでは`Graphics`クラスの`line_dot_setting`属性のインターフェイスについて説明します。
+このページでは`GraphicsBase`クラスの`line_dot_setting`属性のインターフェイスについて説明します。
 
 ## インターフェイス概要
 
-`line_dot_setting`属性のインターフェイスではインスタンスの現在の線の点線の設定の更新や取得を行うことができます。
+`line_dot_setting`属性のインターフェイスはインスタンスの線のドット設定の更新もしくは取得を行います。
 
 ## 基本的な使い方
 
@@ -29,10 +29,10 @@ line: ap.Line = sprite.graphics.draw_line(
 line.line_dot_setting = ap.LineDotSetting(dot_size=5)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_line_dot_setting_basic_usage/')
+    dest_dir_path='./graphics_base_line_dot_setting_basic_usage/')
 ```
 
-<iframe src="static/graphics_line_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
+<iframe src="static/graphics_base_line_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
 
 ## 関連資料
 

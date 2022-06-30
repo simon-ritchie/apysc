@@ -1,8 +1,8 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_fill_color.html)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html)の確認をお願いします。</span>
 
 # GraphicsBase クラスの fill_color インターフェイス
 
-このページでは`GraphicsBase`クラスの`fill_color`属性の居たーフェイスについて説明します。
+このページでは`GraphicsBase`クラスの`fill_color`属性のインターフェイスについて説明します。
 
 ## インターフェイス概要
 
@@ -48,10 +48,10 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle.click(on_click)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_fill_color_basic_usage/')
+    dest_dir_path='./graphics_base_fill_color_basic_usage/')
 ```
 
-<iframe src="static/graphics_fill_color_basic_usage/index.html" width="150" height="150"></iframe>
+<iframe src="static/graphics_base_fill_color_basic_usage/index.html" width="150" height="150"></iframe>
 
 ## fill_color 属性のAPI
 

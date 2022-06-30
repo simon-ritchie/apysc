@@ -123,7 +123,6 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [GraphicsBase class flip_x and flip_y interfaces](graphics_base_flip_interfaces.md)
 - [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md)
 
-
 ---
 
 ## Graphics class

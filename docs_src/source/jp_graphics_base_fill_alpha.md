@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_fill_alpha.html)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_base_fill_alpha.html)の確認をお願いします。</span>
 
 # GraphicsBase クラスの fill_alpha インターフェイス
 
@@ -36,10 +36,10 @@ rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle_3.fill_alpha = ap.Number(0.25)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_fill_alpha_basic_usage/')
+    dest_dir_path='./graphics_base_fill_alpha_basic_usage/')
 ```
 
-<iframe src="static/graphics_fill_alpha_basic_usage/index.html" width="350" height="150"></iframe>
+<iframe src="static/graphics_base_fill_alpha_basic_usage/index.html" width="350" height="150"></iframe>
 
 ## fill_alpha 属性のAPI
 

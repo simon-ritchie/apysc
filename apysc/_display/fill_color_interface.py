@@ -33,7 +33,7 @@ class FillColorInterface(
         References
         ----------
         - GraphicsBase fill_color interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_fill_color.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
 
         Examples
         --------
@@ -68,7 +68,7 @@ class FillColorInterface(
         References
         ----------
         - GraphicsBase fill_color interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_fill_color.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
         """
         self._update_fill_color_and_skip_appending_exp(value=value)
         self._append_fill_color_update_expression()

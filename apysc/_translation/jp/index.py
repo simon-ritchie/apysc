@@ -243,6 +243,33 @@ MAPPING: Dict[str, str] = {
     '- [DisplayObject class mouse event binding interfaces](display_object_mouse_event.md)':  # noqa
     '- [DisplayObject クラスのマウスイベント設定の各インターフェイス](jp_display_object_mouse_event.md)',  # noqa
 
+    '- [GraphicsBase class fill_color interface](graphics_base_fill_color.md)':  # noqa
+    '- [GraphicsBase クラスの fill_color (塗り設定)のインターフェイス](jp_graphics_base_fill_color.md)',  # noqa
+
+    '- [GraphicsBase class fill_alpha interface](graphics_base_fill_alpha.md)':  # noqa
+    '- [GraphicsBase クラスの fill_alpha (塗りの透明度設定)のインターフェイス](jp_graphics_base_fill_alpha.md)',  # noqa
+
+    '- [GraphicsBase class line_color interface](graphics_base_line_color.md)':  # noqa
+    '- [GraphicsBase クラスの line_color (線の色設定)のインターフェイス](jp_graphics_base_line_color.md)',  # noqa
+
+    '- [GraphicsBase class line_alpha interface](graphics_base_line_alpha.md)':  # noqa
+    '- [GraphicsBase クラスの line_color (線の透明度設定)のインターフェイス](jp_graphics_base_line_alpha.md)',  # noqa
+
+    '- [GraphicsBase class line_thickness interface](graphics_base_line_thickness.md)':  # noqa
+    '- [GraphicsBase クラスの line_color (線幅設定)のインターフェイス](jp_graphics_base_line_thickness.md)',  # noqa
+
+    '- [GraphicsBase class line_dot_setting interface](graphics_base_line_dot_setting.md)':  # noqa
+    '- [GraphicsBase クラスの line_dot_setting (点線設定)のインターフェイス](jp_graphics_base_line_dot_setting.md)',  # noqa
+
+    '- [GraphicsBase class line_dash_setting interface](graphics_base_line_dash_setting.md)':  # noqa
+    '- [GraphicsBase クラスの line_dash_setting (破線設定)のインターフェイス](jp_graphics_base_line_dash_setting.md)',  # noqa
+
+    '- [GraphicsBase class line_round_dot_setting interface](graphics_base_line_round_dot_setting.md)':  # noqa
+    '- [GraphicsBase クラスの line_round_dot_setting (点線(丸)設定)のインターフェイス](jp_graphics_base_line_round_dot_setting.md)',  # noqa
+
+    '- [GraphicsBase class line_dash_dot_setting interface](graphics_base_line_dash_dot_setting.md)':  # noqa
+    '- [GraphicsBase クラスの line_dash_dot_setting (一点鎖線設定)のインターフェイス](jp_graphics_base_line_dash_dot_setting.md)',  # noqa
+
     '- [GraphicsBase class rotation_around_center interface](graphics_base_rotation_around_center.md)':  # noqa
     '- [GraphicsBase クラスの rotation_around_center (中央座標基準の回転) インターフェイス](jp_graphics_base_rotation_around_center.md)',  # noqa
 
@@ -317,33 +344,6 @@ MAPPING: Dict[str, str] = {
 
     '- [Graphics class draw_polygon interface](graphics_draw_polygon.md)':
     '- [Graphics クラスの draw_polygon (多角形描画)のインターフェイス](jp_graphics_draw_polygon.md)',  # noqa
-
-    '- [GraphicsBase class fill_color interface](graphics_base_fill_color.md)':
-    '- [GraphicsBase クラスの fill_color (塗り設定)のインターフェイス](jp_graphics_base_fill_color.md)',  # noqa
-
-    '- [GraphicsBase class fill_alpha interface](graphics_base_fill_alpha.md)':
-    '- [GraphicsBase クラスの fill_alpha (塗りの透明度設定)のインターフェイス](jp_graphics_base_fill_alpha.md)',  # noqa
-
-    '- [GraphicsBase class line_color interface](graphics_base_line_color.md)':
-    '- [GraphicsBase クラスの line_color (線の色設定)のインターフェイス](jp_graphics_base_line_color.md)',  # noqa
-
-    '- [GraphicsBase class line_alpha interface](graphics_base_line_alpha.md)':
-    '- [GraphicsBase クラスの line_color (線の透明度設定)のインターフェイス](jp_graphics_base_line_alpha.md)',  # noqa
-
-    '- [GraphicsBase class line_thickness interface](graphics_base_line_thickness.md)':  # noqa
-    '- [GraphicsBase クラスの line_color (線幅設定)のインターフェイス](jp_graphics_base_line_thickness.md)',  # noqa
-
-    '- [GraphicsBase class line_dot_setting interface](graphics_base_line_dot_setting.md)':  # noqa
-    '- [GraphicsBase クラスの line_dot_setting (点線設定)のインターフェイス](jp_graphics_base_line_dot_setting.md)',  # noqa
-
-    '- [GraphicsBase class line_dash_setting interface](graphics_base_line_dash_setting.md)':  # noqa
-    '- [GraphicsBase クラスの line_dash_setting (破線設定)のインターフェイス](jp_graphics_base_line_dash_setting.md)',  # noqa
-
-    '- [GraphicsBase class line_round_dot_setting interface](graphics_base_line_round_dot_setting.md)':  # noqa
-    '- [GraphicsBase クラスの line_round_dot_setting (点線(丸)設定)のインターフェイス](jp_graphics_base_line_round_dot_setting.md)',  # noqa
-
-    '- [GraphicsBase class line_dash_dot_setting interface](graphics_base_line_dash_dot_setting.md)':  # noqa
-    '- [GraphicsBase クラスの line_dash_dot_setting (一点鎖線設定)のインターフェイス](jp_graphics_base_line_dash_dot_setting.md)',  # noqa
 
     '- [Graphics class clear interface](graphics_clear.md)':
     '- [Graphics クラスの clear インターフェイス](jp_graphics_clear.md)',

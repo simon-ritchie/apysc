@@ -28,10 +28,10 @@ line.line_round_dot_setting = ap.LineRoundDotSetting(
     round_size=10, space_size=5)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_line_round_dot_setting_basic_usage/')
+    dest_dir_path='./graphics_base_line_round_dot_setting_basic_usage/')
 ```
 
-<iframe src="static/graphics_line_round_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
+<iframe src="static/graphics_base_line_round_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
 
 
 ## line_round_dot_setting property API

@@ -38,7 +38,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - GraphicsBase line_dash_dot_setting interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_line_dash_dot_setting.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_dash_dot_setting.html  # noqa
 
         Examples
         --------
@@ -80,7 +80,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - GraphicsBase line_dash_dot_setting interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_line_dash_dot_setting.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_dash_dot_setting.html  # noqa
         """
         self._update_line_dash_dot_setting_and_skip_appending_exp(
             value=value)

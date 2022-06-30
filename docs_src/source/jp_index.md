@@ -130,14 +130,27 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [DisplayObject クラスの get_css と set_css の各インターフェイス](jp_display_object_get_and_set_css.md)
 
 - [DisplayObject クラスのマウスイベント設定の各インターフェイス](jp_display_object_mouse_event.md)
+- [GraphicsBase クラスの fill_color (塗り設定)のインターフェイス](jp_graphics_base_fill_color.md)
+
+- [GraphicsBase クラスの fill_alpha (塗りの透明度設定)のインターフェイス](jp_graphics_base_fill_alpha.md)
+- [GraphicsBase クラスの line_color (線の色設定)のインターフェイス](jp_graphics_base_line_color.md)
+
+- [GraphicsBase クラスの line_color (線の透明度設定)のインターフェイス](jp_graphics_base_line_alpha.md)
+- [GraphicsBase クラスの line_color (線幅設定)のインターフェイス](jp_graphics_base_line_thickness.md)
+
+- [GraphicsBase クラスの line_dot_setting (点線設定)のインターフェイス](jp_graphics_base_line_dot_setting.md)
+- [GraphicsBase クラスの line_dash_setting (破線設定)のインターフェイス](jp_graphics_base_line_dash_setting.md)
+
+- [GraphicsBase クラスの line_round_dot_setting (点線(丸)設定)のインターフェイス](jp_graphics_base_line_round_dot_setting.md)
+- [GraphicsBase クラスの line_dash_dot_setting (一点鎖線設定)のインターフェイス](jp_graphics_base_line_dash_dot_setting.md)
+
 - [GraphicsBase クラスの rotation_around_center (中央座標基準の回転) インターフェイス](jp_graphics_base_rotation_around_center.md)
-
 - [GraphicsBase クラスの rotation_around_point (指定座標基準の回転) の各インターフェイス](jp_graphics_base_rotation_around_point.md)
+
 - [GraphicsBase クラスの scale_from_center (中央座標基準の拡縮) の各インターフェイス](jp_graphics_base_scale_from_center.md)
-
 - [GraphicsBase クラスの scale_from_point (指定座標基準の拡縮) の各インターフェイス](jp_graphics_base_scale_from_point.md)
-- [GraphicsBase クラスの flip_x (横軸の反転) と flip_y (縦軸の反転) のインターフェイス](jp_graphics_base_flip_interfaces.md)
 
+- [GraphicsBase クラスの flip_x (横軸の反転) と flip_y (縦軸の反転) のインターフェイス](jp_graphics_base_flip_interfaces.md)
 - [GraphicsBase クラスの skew_x (X軸の歪み) と skew_y (Y軸の歪み) のインターフェイス](jp_graphics_base_skew.md)
 
 ---
@@ -172,20 +185,6 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [Graphics クラスの draw_dash_dotted_line (一点鎖線の描画)のインターフェイス](jp_graphics_draw_dash_dotted_line.md)
 
 - [Graphics クラスの draw_polygon (多角形描画)のインターフェイス](jp_graphics_draw_polygon.md)
-- [GraphicsBase クラスの fill_color (塗り設定)のインターフェイス](jp_graphics_base_fill_color.md)
-
-- [GraphicsBase クラスの fill_alpha (塗りの透明度設定)のインターフェイス](jp_graphics_base_fill_alpha.md)
-- [GraphicsBase クラスの line_color (線の色設定)のインターフェイス](jp_graphics_base_line_color.md)
-
-- [GraphicsBase クラスの line_color (線の透明度設定)のインターフェイス](jp_graphics_base_line_alpha.md)
-- [GraphicsBase クラスの line_color (線幅設定)のインターフェイス](jp_graphics_base_line_thickness.md)
-
-- [GraphicsBase クラスの line_dot_setting (点線設定)のインターフェイス](jp_graphics_base_line_dot_setting.md)
-- [GraphicsBase クラスの line_dash_setting (破線設定)のインターフェイス](jp_graphics_base_line_dash_setting.md)
-
-- [GraphicsBase クラスの line_round_dot_setting (点線(丸)設定)のインターフェイス](jp_graphics_base_line_round_dot_setting.md)
-- [GraphicsBase クラスの line_dash_dot_setting (一点鎖線設定)のインターフェイス](jp_graphics_base_line_dash_dot_setting.md)
-
 - [Graphics クラスの clear インターフェイス](jp_graphics_clear.md)
 
 ---

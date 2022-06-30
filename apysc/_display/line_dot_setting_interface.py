@@ -38,7 +38,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - GraphicsBase line_dot_setting interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_line_dot_setting.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_dot_setting.html  # noqa
 
         Examples
         --------
@@ -72,7 +72,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - GraphicsBase line_dot_setting interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_line_dot_setting.html  # noqa
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_dot_setting.html  # noqa
         """
         self._update_line_dot_setting_and_skip_appending_exp(value=value)
         self._append_line_dot_setting_update_expression()

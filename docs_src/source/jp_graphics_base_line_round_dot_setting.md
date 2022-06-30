@@ -1,4 +1,4 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_line_round_dot_setting.html)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_base_line_round_dot_setting.html)の確認をお願いします。</span>
 
 # GraphicsBase クラスの line_round_dot_setting インターフェイス
 
@@ -30,10 +30,10 @@ line.line_round_dot_setting = ap.LineRoundDotSetting(
     round_size=10, space_size=5)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_line_round_dot_setting_basic_usage/')
+    dest_dir_path='./graphics_base_line_round_dot_setting_basic_usage/')
 ```
 
-<iframe src="static/graphics_line_round_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
+<iframe src="static/graphics_base_line_round_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
 
 ## line_round_dot_setting 属性のAPI
 

@@ -2652,4 +2652,31 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Graphics class clear interface',
             val='Graphics クラスの clear インターフェイス'),
+        Mapping(
+            key='GraphicsBase fill_alpha interface document',
+            val='GraphicsBase クラスの fill_alpha インターフェイス'),
+        Mapping(
+            key='GraphicsBase fill_color interface document',
+            val='GraphicsBase クラスの fill_color インターフェイス'),
+        Mapping(
+            key='GraphicsBase line_alpha interface document',
+            val='GraphicsBase クラスの line_alpha インターフェイス'),
+        Mapping(
+            key='GraphicsBase line_color interface document',
+            val='GraphicsBase クラスの line_color インターフェイス'),
+        Mapping(
+            key='GraphicsBase line_thickness interface document',
+            val='GraphicsBase クラスの line_thickness インターフェイス'),
+        Mapping(
+            key='GraphicsBase line_dot_setting interface document',
+            val='GraphicsBase クラスの line_dot_setting インターフェイス'),
+        Mapping(
+            key='GraphicsBase line_dash_setting interface document',
+            val='GraphicsBase クラスの line_dash_setting インターフェイス'),
+        Mapping(
+            key='GraphicsBase line_round_dot_setting interface document',
+            val='GraphicsBase クラスの line_round_dot_setting インターフェイス'),
+        Mapping(
+            key='GraphicsBase line_dash_dot_setting interface document',
+            val='GraphicsBase クラスの line_dash_dot_setting インターフェイス'),
     ])

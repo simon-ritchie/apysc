@@ -46,10 +46,10 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle.click(on_click)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_fill_color_basic_usage/')
+    dest_dir_path='./graphics_base_fill_color_basic_usage/')
 ```
 
-<iframe src="static/graphics_fill_color_basic_usage/index.html" width="150" height="150"></iframe>
+<iframe src="static/graphics_base_fill_color_basic_usage/index.html" width="150" height="150"></iframe>
 
 
 ## fill_color property API

@@ -34,10 +34,10 @@ rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle_3.line_alpha = ap.Number(0.25)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_line_alpha_basic_usage/')
+    dest_dir_path='./graphics_base_line_alpha_basic_usage/')
 ```
 
-<iframe src="static/graphics_line_alpha_basic_usage/index.html" width="350" height="150"></iframe>
+<iframe src="static/graphics_base_line_alpha_basic_usage/index.html" width="350" height="150"></iframe>
 
 
 ## line_alpha property API

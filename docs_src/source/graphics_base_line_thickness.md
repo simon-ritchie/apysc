@@ -31,10 +31,10 @@ rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle_2.line_thickness = ap.Int(10)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_line_thickness_basic_usage/')
+    dest_dir_path='./graphics_base_line_thickness_basic_usage/')
 ```
 
-<iframe src="static/graphics_line_thickness_basic_usage/index.html" width="250" height="150"></iframe>
+<iframe src="static/graphics_base_line_thickness_basic_usage/index.html" width="250" height="150"></iframe>
 
 
 ## line_thickness property API

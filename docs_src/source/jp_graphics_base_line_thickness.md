@@ -1,8 +1,8 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_line_thickness.html)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/graphics_base_line_thickness.html)の確認をお願いします。</span>
 
-# Graphics クラスの line_thickness インターフェイス
+# GraphicsBase クラスの line_thickness インターフェイス
 
-このページでは`Graphics`クラスの`line_thickness`属性のインターフェイスについて説明します。
+このページでは`GraphicsBase`クラスの`line_thickness`属性のインターフェイスについて説明します。
 
 ## インターフェイス概要
 
@@ -33,10 +33,10 @@ rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle_2.line_thickness = ap.Int(10)
 
 ap.save_overall_html(
-    dest_dir_path='./graphics_line_thickness_basic_usage/')
+    dest_dir_path='./graphics_base_line_thickness_basic_usage/')
 ```
 
-<iframe src="static/graphics_line_thickness_basic_usage/index.html" width="250" height="150"></iframe>
+<iframe src="static/graphics_base_line_thickness_basic_usage/index.html" width="250" height="150"></iframe>
 
 ## line_thickness 属性のAPI
 

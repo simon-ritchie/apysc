@@ -2720,8 +2720,8 @@ MAPPINGS: Mappings = Mappings(
             key='## fill_alpha property interface example',
             val='## fill_alpha属性のインターフェイス例'),
         Mapping(
-            key='The `fill_alpha` property updates or gets the instance\'s fill '
-            'alpha (opacity):',
+            key='The `fill_alpha` property updates or gets the '
+            'instance\'s fill alpha (opacity):',
             val='`fill_alpha`属性は塗りの透明度の値の更新もしくは取得を行えます:'),
         Mapping(
             key='## line_color property interface example',
@@ -2734,8 +2734,8 @@ MAPPINGS: Mappings = Mappings(
             key='## line_alpha property interface example',
             val='## line_alpha属性のインターフェイス例'),
         Mapping(
-            key='The `line_alpha` property updates or gets the instance\'s line '
-            'alpha (opacity):',
+            key='The `line_alpha` property updates or gets the '
+            'instance\'s line alpha (opacity):',
             val='`line_alpha`属性では線の透明度の値の更新もしくは取得を行えます:'),
         Mapping(
             key='## line_thickness property interface example',

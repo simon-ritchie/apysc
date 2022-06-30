@@ -37,6 +37,7 @@ String('#00aaff')
 
 **[References]**
 
+- [Rectangle class document](https://simon-ritchie.github.io/apysc/en/rectangle.html)
 - [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html)
 
 ### `__init__` method docstring
@@ -106,6 +107,12 @@ Int(100)
 >>> rectangle.fill_color
 String('#00aaff')
 ```
+
+<hr>
+
+**[References]**
+
+- [Rectangle class document](https://simon-ritchie.github.io/apysc/en/rectangle.html)
 
 ### `__repr__` method docstring
 

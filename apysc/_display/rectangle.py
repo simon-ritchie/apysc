@@ -39,6 +39,8 @@ class Rectangle(
 
     References
     ----------
+    - Rectangle class document
+        - https://simon-ritchie.github.io/apysc/en/rectangle.html
     - Graphics draw_rect interface document
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html
 
@@ -178,6 +180,11 @@ class Rectangle(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        References
+        ----------
+        - Rectangle class document
+            - https://simon-ritchie.github.io/apysc/en/rectangle.html
 
         Examples
         --------

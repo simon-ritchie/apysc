@@ -125,6 +125,12 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 
 ---
 
+## Each graphic class
+
+- [Rectangle class](rectangle.md)
+
+---
+
 ## Graphics class
 
 <br><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe>

@@ -34,6 +34,7 @@ String('#00aaff')
 
 **[References]**
 
+- [Circle class document](https://simon-ritchie.github.io/apysc/en/circle.html)
 - [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html)
 
 ### `__init__` method docstring
@@ -104,6 +105,12 @@ String('#ffffff')
 >>> circle.line_thickness
 Int(3)
 ```
+
+<hr>
+
+**[References]**
+
+- [Circle class document](https://simon-ritchie.github.io/apysc/en/circle.html)
 
 ### `__repr__` method docstring
 

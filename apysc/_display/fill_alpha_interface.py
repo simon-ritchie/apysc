@@ -53,7 +53,7 @@ class FillAlphaInterface(
         References
         ----------
         - GraphicsBase fill_alpha interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_alpha.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_alpha.html  # noqa
 
         Examples
         --------

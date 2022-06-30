@@ -33,7 +33,7 @@ class LineColorInterface(
         References
         ----------
         - GraphicsBase line_color interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_color.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_color.html  # noqa
 
         Examples
         --------
@@ -69,7 +69,7 @@ class LineColorInterface(
         References
         ----------
         - GraphicsBase line_color interface document
-            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_color.html
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_color.html  # noqa
         """
         self._initialize_line_color_if_not_initialized()
         self._update_line_color_and_skip_appending_exp(value=value)

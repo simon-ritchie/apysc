@@ -157,7 +157,10 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 
 ## 各グラフィックのクラス
 
+### Table of contents
+
 - [Rectangle クラス](jp_rectangle.md)
+- [Circle クラス](jp_circle.md)
 
 ---
 

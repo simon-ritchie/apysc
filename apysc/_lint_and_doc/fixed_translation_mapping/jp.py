@@ -2779,4 +2779,12 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Rectangle class',
             val='Rectangle クラス'),
+        Mapping(
+            key='The constructor also accepts each style\'s argument, '
+            'such as the `fill_color`.',
+            val='コンストラクタでは他の`fill_color`などのスタイル設定の各引数も'
+            '受け付けます。'),
+        Mapping(
+            key='Circle class',
+            val='Circle クラス'),
     ])

@@ -294,8 +294,14 @@ MAPPING: Dict[str, str] = {
     '## Each graphic class':
     '## 各グラフィックのクラス',
 
+    '### Table of contents':
+    '### Table of contents',
+
     '- [Rectangle class](rectangle.md)':
     '- [Rectangle クラス](jp_rectangle.md)',
+
+    '- [Circle class](circle.md)':
+    '- [Circle クラス](jp_circle.md)',
 
     '---':
     '---',

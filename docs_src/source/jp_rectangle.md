@@ -1,16 +1,18 @@
-# Rectangle class
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/rectangle.html)の確認をお願いします。</span>
 
-This page explains the `Rectangle` class.
+# Rectangle クラス
 
-## What class is this?
+このページでは`Rectangle`クラスについて説明します。
 
-The `Rectangle` class creates a rectangle vector graphics object.
+## クラス概要
 
-## Basic usage
+`Rectangle`クラスは四角のベクターグラフィックスを生成します。
 
-The `Rectangle` class constructor requires the `x`, `y`, `width`, and `height` arguments.
+## 基本的な使い方
 
-The constructor also accepts each style's argument, such as the `fill_color`.
+`Rectangle`クラスのコンストラクタでは`x`、`y`、`width`、`height`の引数指定が必要になります。
+
+コンストラクタでは他にも`fill_color`などのスタイル設定の引数を受け付けます。
 
 ```py
 # runnable
@@ -31,17 +33,17 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_basic_usage/index.html" width="200" height="150"></iframe>
 
-## Note of the draw_rect interface
+## draw_rect インターフェイスに対する特記事項
 
-You can also create a rectangle instance with the `draw_rect` interface.
+`draw_rect`インターフェイスを使っても四角のインスタンスを生成することができます。
 
-Please see also:
+関連資料:
 
-- [Graphics class draw_rect interface](graphics_draw_rect.md)
+- [Graphics クラスの draw_rect (四角の描画)のインターフェイス](jp_graphics_draw_rect.md)
 
-## x property interface example
+## x属性のインターフェイス例
 
-The `x` property updates or gets the instance's x-coordinate:
+`x`属性ではX座標の値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -63,9 +65,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_x/index.html" width="200" height="150"></iframe>
 
-## y property interface example
+## y属性のインターフェイス例
 
-The `y` property updates or gets the instance's y-coordinate:
+`y`属性ではY座標の値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -87,9 +89,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_y/index.html" width="150" height="200"></iframe>
 
-## width property interface example
+## width属性のインターフェイス例
 
-The `width` property updates or gets the instance's width:
+`width`属性では幅の値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -111,9 +113,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_width/index.html" width="200" height="150"></iframe>
 
-## height property interface example
+## height属性のインターフェイス例
 
-The `height` property updates or gets the instance's height:
+`height`属性では高さの値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -135,9 +137,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_height/index.html" width="150" height="200"></iframe>
 
-## ellipse_width property interface example
+## ellipse_width属性のインターフェイス例
 
-The `ellipse_width` property updates or gets the instance's ellipse width:
+`ellipse_width`属性では四角の角丸の幅の値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -160,9 +162,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_ellipse_width/index.html" width="150" height="150"></iframe>
 
-## ellipse_height property interface example
+## ellipse_height属性のインターフェイス例
 
-The `ellipse_height` property updates or gets the instance's ellipse height:
+`ellipse_height`属性では四角の角丸の高さの値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -185,9 +187,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_ellipse_height/index.html" width="150" height="150"></iframe>
 
-## fill_color property interface example
+## fill_color属性のインターフェイス例
 
-The `fill_color` property updates or gets the instance's fill color:
+`fill_color`属性は塗りの色の値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -209,9 +211,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_fill_color/index.html" width="150" height="150"></iframe>
 
-## fill_alpha property interface example
+## fill_alpha属性のインターフェイス例
 
-The `fill_alpha` property updates or gets the instance's fill alpha (opacity):
+`fill_alpha`属性は塗りの透明度の値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -233,9 +235,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_fill_alpha/index.html" width="150" height="150"></iframe>
 
-## line_color property interface example
+## line_color属性のインターフェイス例
 
-The `line_color` property updates or gets the instance's line color:
+`line_color`属性では線の色の値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -256,9 +258,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_line_color/index.html" width="150" height="150"></iframe>
 
-## line_alpha property interface example
+## line_alpha属性のインターフェイス例
 
-The `line_alpha` property updates or gets the instance's line alpha (opacity):
+`line_alpha`属性では線の透明度の値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -280,9 +282,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_line_alpha/index.html" width="150" height="150"></iframe>
 
-## line_thickness property interface example
+## line_thickness属性のインターフェイス例
 
-The `line_thickness` property updates or gets the instance's line thickness (line width):
+`line_thickness`属性では線の幅の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -303,9 +305,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_line_thickness/index.html" width="150" height="150"></iframe>
 
-## line_dot_setting property interface example
+## line_dot_setting属性のインターフェイス例
 
-The `line_dot_setting` property updates or gets the instance's line dot-style setting:
+`line_dot_setting`属性では点線のスタイル設定の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -327,9 +329,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_line_dot_setting/index.html" width="150" height="150"></iframe>
 
-## line_dash_setting property interface example
+## line_dash_setting属性のインターフェイス例
 
-The `line_dash_setting` property updates or gets the instance's line dash-style setting:
+`line_dash_setting`属性では破線のスタイル設定の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -352,9 +354,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_line_dash_setting/index.html" width="150" height="150"></iframe>
 
-## line_round_dot_setting property interface example
+## line_round_dot_setting属性のインターフェイス例
 
-The `line_round_dot_setting` property updates or gets the instance's line round dot-style setting:
+`line_round_dot_setting`属性では丸ドット線のスタイル設定の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -377,9 +379,9 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_line_round_dot_setting/index.html" width="150" height="150"></iframe>
 
-## line_dash_dot_setting property interface example
+## line_dash_dot_setting属性のインターフェイス例
 
-The `line_dash_dot_setting` property updates or gets the instance's dash-dotted line style setting:
+`line_dash_dot_setting`属性では一点鎖線のスタイル設定の更新もしくは取得を行えます:
 
 ```py
 # runnable

@@ -2679,4 +2679,104 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='GraphicsBase line_dash_dot_setting interface document',
             val='GraphicsBase クラスの line_dash_dot_setting インターフェイス'),
+        Mapping(
+            key='Please see also:',
+            val='関連資料:'),
+        Mapping(
+            key='## x property interface example',
+            val='## x属性のインターフェイス例'),
+        Mapping(
+            key='The `x` property updates or gets the instance\'s '
+            'x-coordinate:',
+            val='`x`属性ではX座標の値の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## y property interface example',
+            val='## y属性のインターフェイス例'),
+        Mapping(
+            key='The `y` property updates or gets the instance\'s '
+            'y-coordinate:',
+            val='`y`属性ではY座標の値の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## width property interface example',
+            val='## width属性のインターフェイス例'),
+        Mapping(
+            key='The `width` property updates or gets the instance\'s width:',
+            val='`width`属性では幅の値の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## height property interface example',
+            val='## height属性のインターフェイス例'),
+        Mapping(
+            key='The `height` property updates or gets the instance\'s '
+            'height:',
+            val='`height`属性では高さの値の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## fill_color property interface example',
+            val='## fill_color属性のインターフェイス例'),
+        Mapping(
+            key='The `fill_color` property updates or gets the instance\'s '
+            'fill color:',
+            val='`fill_color`属性は塗りの色の値の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## fill_alpha property interface example',
+            val='## fill_alpha属性のインターフェイス例'),
+        Mapping(
+            key='The `fill_alpha` property updates or gets the instance\'s fill '
+            'alpha (opacity):',
+            val='`fill_alpha`属性は塗りの透明度の値の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## line_color property interface example',
+            val='## line_color属性のインターフェイス例'),
+        Mapping(
+            key='The `line_color` property updates or gets the instance\'s '
+            'line color:',
+            val='`line_color`属性では線の色の値の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## line_alpha property interface example',
+            val='## line_alpha属性のインターフェイス例'),
+        Mapping(
+            key='The `line_alpha` property updates or gets the instance\'s line '
+            'alpha (opacity):',
+            val='`line_alpha`属性では線の透明度の値の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## line_thickness property interface example',
+            val='## line_thickness属性のインターフェイス例'),
+        Mapping(
+            key='The `line_thickness` property updates or gets the '
+            'instance\'s line thickness (line width):',
+            val='`line_thickness`属性では線の幅の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## line_dot_setting property interface example',
+            val='## line_dot_setting属性のインターフェイス例'),
+        Mapping(
+            key='The `line_dot_setting` property updates or gets the '
+            'instance\'s line dot-style setting:',
+            val='`line_dot_setting`属性では点線のスタイル設定の'
+            '更新もしくは取得を行えます:'),
+        Mapping(
+            key='## line_dash_setting property interface example',
+            val='## line_dash_setting属性のインターフェイス例'),
+        Mapping(
+            key='The `line_dash_setting` property updates or gets the '
+            'instance\'s line dash-style setting:',
+            val='`line_dash_setting`属性では破線のスタイル設定の'
+            '更新もしくは取得を行えます:'),
+        Mapping(
+            key='## line_round_dot_setting property interface example',
+            val='## line_round_dot_setting属性のインターフェイス例'),
+        Mapping(
+            key='The `line_round_dot_setting` property updates or gets the '
+            'instance\'s line round dot-style setting:',
+            val='`line_round_dot_setting`属性では丸ドット線のスタイル設定の'
+            '更新もしくは取得を行えます:'),
+        Mapping(
+            key='## line_dash_dot_setting property interface example',
+            val='## line_dash_dot_setting属性のインターフェイス例'),
+        Mapping(
+            key='The `line_dash_dot_setting` property updates or gets the '
+            'instance\'s dash-dotted line style setting:',
+            val='`line_dash_dot_setting`属性では一点鎖線のスタイル設定の'
+            '更新もしくは取得を行えます:'),
+        Mapping(
+            key='Rectangle class',
+            val='Rectangle クラス'),
     ])

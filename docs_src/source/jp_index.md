@@ -155,6 +155,12 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 
 ---
 
+## 各グラフィックのクラス
+
+- [Rectangle クラス](jp_rectangle.md)
+
+---
+
 ## Graphics クラス
 
 <br><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe>

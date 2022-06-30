@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Rectangle class &#8212; apysc  documentation</title>
+    <title>Rectangle クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -19,7 +19,6 @@
     <script src="static/common_func.js"></script>
     <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
-    <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
   </head><body>
@@ -29,8 +28,8 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Rectangle class</a></li> 
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Rectangle クラス</a></li> 
       </ul>
     </div>  
 
@@ -39,17 +38,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="rectangle-class">
-<h1>Rectangle class<a class="headerlink" href="#rectangle-class" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class.</p>
-<section id="what-class-is-this">
-<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class creates a rectangle vector graphics object.</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/rectangle.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="rectangle">
+<h1>Rectangle クラス<a class="headerlink" href="#rectangle" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>クラスについて説明します。</p>
+<section id="id1">
+<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>クラスは四角のベクターグラフィックスを生成します。</p>
 </section>
-<section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">width</span></code>, and <code class="docutils literal notranslate"><span class="pre">height</span></code> arguments.</p>
-<p>The constructor also accepts each style’s argument, such as the <code class="docutils literal notranslate"><span class="pre">fill_color</span></code>.</p>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>クラスのコンストラクタでは<code class="docutils literal notranslate"><span class="pre">x</span></code>、<code class="docutils literal notranslate"><span class="pre">y</span></code>、<code class="docutils literal notranslate"><span class="pre">width</span></code>、<code class="docutils literal notranslate"><span class="pre">height</span></code>の引数指定が必要になります。</p>
+<p>コンストラクタでは他にも<code class="docutils literal notranslate"><span class="pre">fill_color</span></code>などのスタイル設定の引数を受け付けます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -67,17 +67,17 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_basic_usage/index.html" width="200" height="150"></iframe></section>
-<section id="note-of-the-draw-rect-interface">
-<h2>Note of the draw_rect interface<a class="headerlink" href="#note-of-the-draw-rect-interface" title="Permalink to this headline">¶</a></h2>
-<p>You can also create a rectangle instance with the <code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> interface.</p>
-<p>Please see also:</p>
+<section id="draw-rect">
+<h2>draw_rect インターフェイスに対する特記事項<a class="headerlink" href="#draw-rect" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">draw_rect</span></code>インターフェイスを使っても四角のインスタンスを生成することができます。</p>
+<p>関連資料:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="graphics_draw_rect.html"><span class="doc">Graphics class draw_rect interface</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_rect.html"><span class="doc">Graphics クラスの draw_rect (四角の描画)のインターフェイス</span></a></p></li>
 </ul>
 </section>
-<section id="x-property-interface-example">
-<h2>x property interface example<a class="headerlink" href="#x-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> property updates or gets the instance’s x-coordinate:</p>
+<section id="x">
+<h2>x属性のインターフェイス例<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code>属性ではX座標の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -96,9 +96,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_x/index.html" width="200" height="150"></iframe></section>
-<section id="y-property-interface-example">
-<h2>y property interface example<a class="headerlink" href="#y-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">y</span></code> property updates or gets the instance’s y-coordinate:</p>
+<section id="y">
+<h2>y属性のインターフェイス例<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">y</span></code>属性ではY座標の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -117,9 +117,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_y/index.html" width="150" height="200"></iframe></section>
-<section id="width-property-interface-example">
-<h2>width property interface example<a class="headerlink" href="#width-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">width</span></code> property updates or gets the instance’s width:</p>
+<section id="width">
+<h2>width属性のインターフェイス例<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">width</span></code>属性では幅の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -138,9 +138,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_width/index.html" width="200" height="150"></iframe></section>
-<section id="height-property-interface-example">
-<h2>height property interface example<a class="headerlink" href="#height-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">height</span></code> property updates or gets the instance’s height:</p>
+<section id="height">
+<h2>height属性のインターフェイス例<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">height</span></code>属性では高さの値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -159,9 +159,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_height/index.html" width="150" height="200"></iframe></section>
-<section id="ellipse-width-property-interface-example">
-<h2>ellipse_width property interface example<a class="headerlink" href="#ellipse-width-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">ellipse_width</span></code> property updates or gets the instance’s ellipse width:</p>
+<section id="ellipse-width">
+<h2>ellipse_width属性のインターフェイス例<a class="headerlink" href="#ellipse-width" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ellipse_width</span></code>属性では四角の角丸の幅の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -181,9 +181,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_ellipse_width/index.html" width="150" height="150"></iframe></section>
-<section id="ellipse-height-property-interface-example">
-<h2>ellipse_height property interface example<a class="headerlink" href="#ellipse-height-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">ellipse_height</span></code> property updates or gets the instance’s ellipse height:</p>
+<section id="ellipse-height">
+<h2>ellipse_height属性のインターフェイス例<a class="headerlink" href="#ellipse-height" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ellipse_height</span></code>属性では四角の角丸の高さの値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -203,9 +203,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_ellipse_height/index.html" width="150" height="150"></iframe></section>
-<section id="fill-color-property-interface-example">
-<h2>fill_color property interface example<a class="headerlink" href="#fill-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> property updates or gets the instance’s fill color:</p>
+<section id="fill-color">
+<h2>fill_color属性のインターフェイス例<a class="headerlink" href="#fill-color" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>属性は塗りの色の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -224,9 +224,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_fill_color/index.html" width="150" height="150"></iframe></section>
-<section id="fill-alpha-property-interface-example">
-<h2>fill_alpha property interface example<a class="headerlink" href="#fill-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code> property updates or gets the instance’s fill alpha (opacity):</p>
+<section id="fill-alpha">
+<h2>fill_alpha属性のインターフェイス例<a class="headerlink" href="#fill-alpha" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>属性は塗りの透明度の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -245,9 +245,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_fill_alpha/index.html" width="150" height="150"></iframe></section>
-<section id="line-color-property-interface-example">
-<h2>line_color property interface example<a class="headerlink" href="#line-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_color</span></code> property updates or gets the instance’s line color:</p>
+<section id="line-color">
+<h2>line_color属性のインターフェイス例<a class="headerlink" href="#line-color" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>属性では線の色の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -265,9 +265,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_line_color/index.html" width="150" height="150"></iframe></section>
-<section id="line-alpha-property-interface-example">
-<h2>line_alpha property interface example<a class="headerlink" href="#line-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_alpha</span></code> property updates or gets the instance’s line alpha (opacity):</p>
+<section id="line-alpha">
+<h2>line_alpha属性のインターフェイス例<a class="headerlink" href="#line-alpha" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>属性では線の透明度の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -286,9 +286,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_line_alpha/index.html" width="150" height="150"></iframe></section>
-<section id="line-thickness-property-interface-example">
-<h2>line_thickness property interface example<a class="headerlink" href="#line-thickness-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_thickness</span></code> property updates or gets the instance’s line thickness (line width):</p>
+<section id="line-thickness">
+<h2>line_thickness属性のインターフェイス例<a class="headerlink" href="#line-thickness" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>属性では線の幅の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -306,9 +306,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_line_thickness/index.html" width="150" height="150"></iframe></section>
-<section id="line-dot-setting-property-interface-example">
-<h2>line_dot_setting property interface example<a class="headerlink" href="#line-dot-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code> property updates or gets the instance’s line dot-style setting:</p>
+<section id="line-dot-setting">
+<h2>line_dot_setting属性のインターフェイス例<a class="headerlink" href="#line-dot-setting" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code>属性では点線のスタイル設定の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -327,9 +327,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_line_dot_setting/index.html" width="150" height="150"></iframe></section>
-<section id="line-dash-setting-property-interface-example">
-<h2>line_dash_setting property interface example<a class="headerlink" href="#line-dash-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code> property updates or gets the instance’s line dash-style setting:</p>
+<section id="line-dash-setting">
+<h2>line_dash_setting属性のインターフェイス例<a class="headerlink" href="#line-dash-setting" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code>属性では破線のスタイル設定の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -349,9 +349,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_line_dash_setting/index.html" width="150" height="150"></iframe></section>
-<section id="line-round-dot-setting-property-interface-example">
-<h2>line_round_dot_setting property interface example<a class="headerlink" href="#line-round-dot-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code> property updates or gets the instance’s line round dot-style setting:</p>
+<section id="line-round-dot-setting">
+<h2>line_round_dot_setting属性のインターフェイス例<a class="headerlink" href="#line-round-dot-setting" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code>属性では丸ドット線のスタイル設定の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -371,9 +371,9 @@
 </pre></div>
 </div>
 <iframe src="static/rectangle_line_round_dot_setting/index.html" width="150" height="150"></iframe></section>
-<section id="line-dash-dot-setting-property-interface-example">
-<h2>line_dash_dot_setting property interface example<a class="headerlink" href="#line-dash-dot-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_dash_dot_setting</span></code> property updates or gets the instance’s dash-dotted line style setting:</p>
+<section id="line-dash-dot-setting">
+<h2>line_dash_dot_setting属性のインターフェイス例<a class="headerlink" href="#line-dash-dot-setting" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_dash_dot_setting</span></code>属性では一点鎖線のスタイル設定の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -402,30 +402,30 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
+            <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Rectangle class</a><ul>
-<li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
-<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#note-of-the-draw-rect-interface">Note of the draw_rect interface</a></li>
-<li><a class="reference internal" href="#x-property-interface-example">x property interface example</a></li>
-<li><a class="reference internal" href="#y-property-interface-example">y property interface example</a></li>
-<li><a class="reference internal" href="#width-property-interface-example">width property interface example</a></li>
-<li><a class="reference internal" href="#height-property-interface-example">height property interface example</a></li>
-<li><a class="reference internal" href="#ellipse-width-property-interface-example">ellipse_width property interface example</a></li>
-<li><a class="reference internal" href="#ellipse-height-property-interface-example">ellipse_height property interface example</a></li>
-<li><a class="reference internal" href="#fill-color-property-interface-example">fill_color property interface example</a></li>
-<li><a class="reference internal" href="#fill-alpha-property-interface-example">fill_alpha property interface example</a></li>
-<li><a class="reference internal" href="#line-color-property-interface-example">line_color property interface example</a></li>
-<li><a class="reference internal" href="#line-alpha-property-interface-example">line_alpha property interface example</a></li>
-<li><a class="reference internal" href="#line-thickness-property-interface-example">line_thickness property interface example</a></li>
-<li><a class="reference internal" href="#line-dot-setting-property-interface-example">line_dot_setting property interface example</a></li>
-<li><a class="reference internal" href="#line-dash-setting-property-interface-example">line_dash_setting property interface example</a></li>
-<li><a class="reference internal" href="#line-round-dot-setting-property-interface-example">line_round_dot_setting property interface example</a></li>
-<li><a class="reference internal" href="#line-dash-dot-setting-property-interface-example">line_dash_dot_setting property interface example</a></li>
+<li><a class="reference internal" href="#">Rectangle クラス</a><ul>
+<li><a class="reference internal" href="#id1">クラス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#draw-rect">draw_rect インターフェイスに対する特記事項</a></li>
+<li><a class="reference internal" href="#x">x属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#y">y属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#width">width属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#height">height属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#ellipse-width">ellipse_width属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#ellipse-height">ellipse_height属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#fill-color">fill_color属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#fill-alpha">fill_alpha属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-color">line_color属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-alpha">line_alpha属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-thickness">line_thickness属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-dot-setting">line_dot_setting属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-dash-setting">line_dash_setting属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-round-dot-setting">line_round_dot_setting属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-dash-dot-setting">line_dash_dot_setting属性のインターフェイス例</a></li>
 </ul>
 </li>
 </ul>
@@ -450,12 +450,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Rectangle class</a></li> 
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Rectangle クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, apysc project.
+        &#169; Copyright 2022, apysc プロジェクト.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>

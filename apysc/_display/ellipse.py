@@ -34,7 +34,9 @@ class Ellipse(
 
     References
     ----------
-    - Graphics draw_ellipse interface
+    - Ellipse class document
+        - https://simon-ritchie.github.io/apysc/en/ellipse.html
+    - Graphics draw_ellipse interface document
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html  # noqa
 
     Examples
@@ -161,6 +163,11 @@ class Ellipse(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        References
+        ----------
+        - Ellipse class document
+            - https://simon-ritchie.github.io/apysc/en/ellipse.html
 
         Examples
         --------

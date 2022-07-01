@@ -37,7 +37,8 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_ellipse interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html)
+- [Ellipse class document](https://simon-ritchie.github.io/apysc/en/ellipse.html)
+- [Graphics draw_ellipse interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html)
 
 ### `__init__` method docstring
 
@@ -102,6 +103,12 @@ Int(50)
 >>> ellipse.fill_color
 String('#00aaff')
 ```
+
+<hr>
+
+**[References]**
+
+- [Ellipse class document](https://simon-ritchie.github.io/apysc/en/ellipse.html)
 
 ### `__repr__` method docstring
 

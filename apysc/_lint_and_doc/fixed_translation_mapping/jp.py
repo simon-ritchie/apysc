@@ -2787,4 +2787,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Circle class',
             val='Circle クラス'),
+        Mapping(
+            key='Ellipse class',
+            val='Ellipse クラス'),
     ])

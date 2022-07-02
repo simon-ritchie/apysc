@@ -653,3 +653,11 @@ def test__sync_js_libs() -> None:
 
     build_docs._sync_js_libs()
     assert os.path.exists(test_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_excluding_file_names_prefix_list() -> None:
+    excluding_file_names_prefix_list: List[str] = \
+        build_docs._get_excluding_file_names_prefix_list()
+    assert 'jp_' in excluding_file_names_prefix_list
+    assert 'en_' not in excluding_file_names_prefix_list

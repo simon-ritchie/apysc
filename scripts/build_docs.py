@@ -316,9 +316,13 @@ def _exec_document_lint_and_script(
         List of executed Python scripts.
     """
     from apysc._file import file_util
+    excluding_file_names_prefix_list: List[str] = \
+        _get_excluding_file_names_prefix_list()
     md_file_paths: List[str] = \
         file_util.get_specified_ext_file_paths_recursively(
-            extension='.md', dir_path='./docs_src/')
+            extension='.md', dir_path='./docs_src/',
+            excluding_file_names_prefix_list=(
+                excluding_file_names_prefix_list))
     workers: int = mp.cpu_count()
 
     with mp.Pool(workers) as p:
@@ -371,6 +375,24 @@ def _exec_document_lint_and_script(
     executed_scripts: List[str] = [
         script_data['runnable_script'] for script_data in script_data_list]
     return executed_scripts
+
+
+def _get_excluding_file_names_prefix_list() -> List[str]:
+    """
+    Get an excluding (from code block execution) file names'
+    prefix list.
+
+    Returns
+    -------
+    excluding_file_names_prefix_list : List[str]
+        An excluding file names' prefix list.
+    """
+    excluding_file_names_prefix_list: List[str] = []
+    for lang in Lang:
+        if lang == Lang.EN:
+            continue
+        excluding_file_names_prefix_list.append(f'{lang.value}_')
+    return excluding_file_names_prefix_list
 
 
 def _save_docstring_module_hash(module_path: str) -> None:

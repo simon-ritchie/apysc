@@ -110,7 +110,6 @@ class TestGraphics:
         assert polyline.x == -50
         assert polyline.y == -100
 
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_move_to(self) -> None:
         ap.Stage()

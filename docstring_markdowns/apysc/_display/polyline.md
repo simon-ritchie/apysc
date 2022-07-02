@@ -115,3 +115,7 @@ Create a polyline instance with the instance of specified graphics.<hr>
 
 - `polyline`: Polyline
   - A created polyline instance.
+
+### `_set_x_and_y_with_minimum_point` method docstring
+
+Set an initial x and y properties coordinate with a minimum point.

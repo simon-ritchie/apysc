@@ -306,6 +306,9 @@ MAPPING: Dict[str, str] = {
     '- [Ellipse class](ellipse.md)':
     '- [Ellipse クラス](jp_ellipse.md)',
 
+    '- [Line class](line.md)':
+    '- [Line クラス](jp_line.md)',
+
     '---':
     '---',
 

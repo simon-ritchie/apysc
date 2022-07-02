@@ -163,6 +163,7 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [Circle クラス](jp_circle.md)
 
 - [Ellipse クラス](jp_ellipse.md)
+- [Line クラス](jp_line.md)
 
 ---
 

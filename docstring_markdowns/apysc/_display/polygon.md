@@ -112,3 +112,7 @@ Create a polygon instance with the instance of specified graphics.<hr>
 
 - `polygon`: Polygon
   - A created polygon instance.
+
+### `_set_x_and_y_with_minimum_point` method docstring
+
+Set an x and y properties coordinate with a minimum point.

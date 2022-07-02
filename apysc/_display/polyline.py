@@ -16,6 +16,8 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
+from apysc._display.set_x_and_y_with_minimum_point_interface_base import \
+    SetXAndYWithMinimumPointInterfaceBase
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._geom.point2d import Point2D
@@ -25,8 +27,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._display.set_x_and_y_with_minimum_point_interface_base import \
-    SetXAndYWithMinimumPointInterfaceBase
 
 
 class Polyline(

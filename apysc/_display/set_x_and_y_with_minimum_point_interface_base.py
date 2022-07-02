@@ -2,7 +2,8 @@
 an x and y coordinate with a minimum point.
 """
 
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
 
 
 class SetXAndYWithMinimumPointInterfaceBase(ABC):

@@ -163,6 +163,7 @@ def get_abs_module_dir_path(*, module: ModuleType) -> str:
 
 def get_specified_ext_file_paths_recursively(
         *, extension: str, dir_path: str = './',
+        excluding_file_names_prefix_list: Optional[List[str]] = None,
         file_paths: Optional[List[str]] = None) -> List[str]:
     """
     Get specified extension file paths recursively.
@@ -173,6 +174,9 @@ def get_specified_ext_file_paths_recursively(
         Target file extension (e.g., '.md', 'md', and so on).
     dir_path : str
         Directory path to search files recursively.
+    excluding_file_names_prefix_list : list of str or None, optional
+        Excluding file names' prefix list.
+        If you specifies None, all files becomes the target.
     file_paths : list of str or None
         Current file paths (only used for recursive function calls).
 
@@ -192,12 +196,50 @@ def get_specified_ext_file_paths_recursively(
             file_paths = get_specified_ext_file_paths_recursively(
                 extension=extension,
                 dir_path=file_or_dir_path,
+                excluding_file_names_prefix_list=(
+                    excluding_file_names_prefix_list),
                 file_paths=file_paths)
             continue
         if not file_or_dir_path.endswith(extension):
             continue
+
+        has_excluding_prefix: bool = _has_excluding_prefix(
+            file_name=file_or_dir_name,
+            excluding_file_names_prefix_list=excluding_file_names_prefix_list)
+        if has_excluding_prefix:
+            continue
+
         file_paths.append(file_or_dir_path)
     return file_paths
+
+
+def _has_excluding_prefix(
+        *,
+        file_name: str,
+        excluding_file_names_prefix_list: Optional[List[str]]) -> bool:
+    """
+    Get a boolean indicating whether a specified file name has
+    an excluding file name suffix or not.
+
+    Parameters
+    ----------
+    file_name : str
+        A target file name.
+    excluding_file_names_prefix_list : Optional[List[str]]
+        An excluding file names' prefix list.
+
+    Returns
+    -------
+    result : bool
+        This function returns True if a specified file name has
+        an excluding file name suffix.
+    """
+    if excluding_file_names_prefix_list is None:
+        return False
+    for excluding_prefix in excluding_file_names_prefix_list:
+        if file_name.startswith(excluding_prefix):
+            return True
+    return False
 
 
 def count_files_recursively(*, dir_path: str) -> int:

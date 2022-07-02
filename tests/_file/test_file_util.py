@@ -144,3 +144,21 @@ def test_delete_file_if_exists() -> None:
         file_path=test_file_path)
     assert is_deleted
     assert not os.path.exists(test_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__has_excluding_prefix() -> None:
+    result: bool = file_util._has_excluding_prefix(
+        file_name='jp_sprite.md',
+        excluding_file_names_prefix_list=None)
+    assert not result
+
+    result = file_util._has_excluding_prefix(
+        file_name='jp_sprite.md',
+        excluding_file_names_prefix_list=['test_prefix', 'jp_'])
+    assert result
+
+    result = file_util._has_excluding_prefix(
+        file_name='jp_sprite.md',
+        excluding_file_names_prefix_list=['test_prefix'])
+    assert not result

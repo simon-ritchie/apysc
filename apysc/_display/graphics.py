@@ -426,6 +426,7 @@ class Graphics(
                 graphics=self, points=[Point2D(x=0, y=0), Point2D(x=x, y=y)])
         else:
             self._current_line.append_line_point(x=x, y=y)
+            self._current_line._set_x_and_y_with_minimum_point()
         return self._current_line
 
     @arg_validation_decos.is_integer(arg_position_index=1)

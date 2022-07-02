@@ -99,12 +99,17 @@ class TestGraphics:
         polyline: ap.Polyline = sprite.graphics.line_to(x=100, y=200)
         assert polyline.points == ap.Array(
             [ap.Point2D(0, 0), ap.Point2D(100, 200)])
+        assert polyline.x == 0
+        assert polyline.y == 0
         pre_var_name: str = polyline.variable_name
 
-        polyline = sprite.graphics.line_to(x=300, y=400)
+        polyline = sprite.graphics.line_to(x=-50, y=-100)
         assert polyline.points == ap.Array(
-            [ap.Point2D(0, 0), ap.Point2D(100, 200), ap.Point2D(300, 400)])
+            [ap.Point2D(0, 0), ap.Point2D(100, 200), ap.Point2D(-50, -100)])
         assert polyline.variable_name == pre_var_name
+        assert polyline.x == -50
+        assert polyline.y == -100
+
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_move_to(self) -> None:

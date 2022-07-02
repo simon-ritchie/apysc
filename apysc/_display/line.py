@@ -184,8 +184,8 @@ class Line(
             self._start_point._x._value, self._end_point._x._value)
         min_y: int = min(
             self._start_point._y._value, self._end_point._y._value)
-        self.x = Int(min_x)
-        self.y = Int(min_y)
+        self._x = Int(min_x)
+        self._y = Int(min_y)
 
     @classmethod
     def _create_with_graphics(

@@ -184,8 +184,8 @@ class Polyline(
         """
         min_x: int = min([point._x._value for point in self._points._value])
         min_y: int = min([point._y._value for point in self._points._value])
-        self.x = Int(min_x)
-        self.y = Int(min_y)
+        self._x = Int(min_x)
+        self._y = Int(min_y)
 
     @classmethod
     def _create_with_graphics(

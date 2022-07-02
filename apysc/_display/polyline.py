@@ -25,13 +25,16 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._display.set_x_and_y_with_minimum_point_interface_base import \
+    SetXAndYWithMinimumPointInterfaceBase
 
 
 class Polyline(
         XInterface,
         YInterface,
         GraphicsBase,
-        AppendLinePointInterface):
+        AppendLinePointInterface,
+        SetXAndYWithMinimumPointInterfaceBase):
     """
     The polyline vector graphics class.
 
@@ -179,8 +182,7 @@ class Polyline(
 
     def _set_x_and_y_with_minimum_point(self) -> None:
         """
-        Set an initial x and y properties coordinate with
-        a minimum point.
+        Set an x and y properties coordinate with a minimum point.
         """
         min_x: int = min([point._x._value for point in self._points._value])
         min_y: int = min([point._y._value for point in self._points._value])

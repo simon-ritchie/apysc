@@ -1,4 +1,4 @@
-"""Files' common utilities implementation.
+"""Files' common utilities implementations.
 
 Mainly following interfaces are defined:
 
@@ -176,7 +176,7 @@ def get_specified_ext_file_paths_recursively(
         Directory path to search files recursively.
     excluding_file_names_prefix_list : list of str or None, optional
         Excluding file names' prefix list.
-        If you specifies None, all files becomes the target.
+        If you specify None, all files become the target.
     file_paths : list of str or None
         Current file paths (only used for recursive function calls).
 

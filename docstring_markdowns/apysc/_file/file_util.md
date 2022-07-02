@@ -2,7 +2,25 @@
 
 ## Module summary
 
-Files' common utilities implementation. Mainly following interfaces are defined: <br>・empty_directory <br> ・Empty specified directory. <br>・read_txt <br> ・Read specified file's text. <br>・save_plain_txt <br> ・Save plain text string to file. <br>・append_plain_txt <br> ・Append plain text string to file. <br>・remove_file_if_exists <br> ・Remove a specified file if it exists. <br>・get_abs_directory_path_from_file_path <br> ・Get an absolute directory path of a specified file. <br>・get_abs_module_dir_path <br> ・Get a specified module's absolute directory path. <br>・get_specified_ext_file_paths_recursively <br> ・Get specified extension file paths recursively. <br>・count_files_recursively <br> ・Count the existing files number in a specified directory. <br>・delete_file_if_exists <br> ・Delete a specified file if it exists.
+Files' common utilities implementations. Mainly following interfaces are defined: <br>・empty_directory <br> ・Empty specified directory. <br>・read_txt <br> ・Read specified file's text. <br>・save_plain_txt <br> ・Save plain text string to file. <br>・append_plain_txt <br> ・Append plain text string to file. <br>・remove_file_if_exists <br> ・Remove a specified file if it exists. <br>・get_abs_directory_path_from_file_path <br> ・Get an absolute directory path of a specified file. <br>・get_abs_module_dir_path <br> ・Get a specified module's absolute directory path. <br>・get_specified_ext_file_paths_recursively <br> ・Get specified extension file paths recursively. <br>・count_files_recursively <br> ・Count the existing files number in a specified directory. <br>・delete_file_if_exists <br> ・Delete a specified file if it exists.
+
+## `_has_excluding_prefix` function docstring
+
+Get a boolean indicating whether a specified file name has an excluding file name suffix or not.<hr>
+
+**[Parameters]**
+
+- `file_name`: str
+  - A target file name.
+- `excluding_file_names_prefix_list`: Optional[List[str]]
+  - An excluding file names' prefix list.
+
+<hr>
+
+**[Returns]**
+
+- `result`: bool
+  - This function returns True if a specified file name has an excluding file name suffix.
 
 ## `append_plain_txt` function docstring
 
@@ -98,6 +116,8 @@ Get specified extension file paths recursively.<hr>
   - Target file extension (e.g., '.md', 'md', and so on).
 - `dir_path`: str
   - Directory path to search files recursively.
+- `excluding_file_names_prefix_list`: list of str or None, optional
+  - Excluding file names' prefix list. If you specify None, all files become the target.
 - `file_paths`: list of str or None
   - Current file paths (only used for recursive function calls).
 

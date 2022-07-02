@@ -28,6 +28,7 @@ Int(5)
 
 **[References]**
 
+- [Line class document](https://simon-ritchie.github.io/apysc/en/line.html)
 - [Graphics draw_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html)
 - [Graphics draw_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dotted_line.html)
 - [Graphics draw_dashed_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dashed_line.html)
@@ -81,6 +82,12 @@ String('#ffffff')
 >>> line.line_thickness
 Int(3)
 ```
+
+<hr>
+
+**[References]**
+
+- [Line class document](https://simon-ritchie.github.io/apysc/en/line.html)
 
 ### `__repr__` method docstring
 

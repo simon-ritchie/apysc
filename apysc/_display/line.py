@@ -171,8 +171,21 @@ class Line(
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
             line_dash_dot_setting=line_dash_dot_setting)
+        self._set_initial_x_and_y_with_minimum_point()
         super(Line, self).__init__(
             parent=parent, variable_name=variable_name)
+
+    def _set_initial_x_and_y_with_minimum_point(self) -> None:
+        """
+        Set initial x and y properties coordinates with
+        a minimum point.
+        """
+        min_x: int = min(
+            self._start_point._x._value, self._end_point._x._value)
+        min_y: int = min(
+            self._start_point._y._value, self._end_point._y._value)
+        self.x = Int(min_x)
+        self.y = Int(min_y)
 
     @classmethod
     def _create_with_graphics(

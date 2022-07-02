@@ -146,3 +146,18 @@ class TestLine:
                 '_parent': sprite.graphics,
             },
             any_obj=line)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_initial_x_and_y_with_minimum_point(self) -> None:
+        ap.Stage()
+        line: ap.Line = ap.Line(
+            start_point=ap.Point2D(x=10, y=20),
+            end_point=ap.Point2D(x=30, y=40))
+        assert line.x == 10
+        assert line.y == 20
+
+        line = ap.Line(
+            start_point=ap.Point2D(x=30, y=40),
+            end_point=ap.Point2D(x=10, y=20))
+        assert line.x == 10
+        assert line.y == 20

@@ -38,8 +38,10 @@ def main() -> None:
     sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.line_style(
         color='#0af', thickness=5, dot_setting=ap.LineDotSetting(dot_size=10))
-    _: ap.Line = sprite.graphics.draw_line(
+    line_1: ap.Line = sprite.graphics.draw_line(
         x_start=50, y_start=50, x_end=350, y_end=50)
+    ap.assert_equal(line_1.x, 50)
+    ap.assert_equal(line_1.y, 50)
 
     sprite.graphics.line_style(
         color='#0af', thickness=10, cap=ap.LineCaps.ROUND)

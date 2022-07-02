@@ -24,13 +24,16 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._display.set_x_and_y_with_minimum_point_interface_base import \
+    SetXAndYWithMinimumPointInterfaceBase
 
 
 class Polygon(
         XInterface,
         YInterface,
         GraphicsBase,
-        AppendLinePointInterface):
+        AppendLinePointInterface,
+        SetXAndYWithMinimumPointInterfaceBase):
     """
     The polygon vector graphics class.
 
@@ -173,8 +176,18 @@ class Polygon(
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
             line_dash_dot_setting=line_dash_dot_setting)
+        self._set_x_and_y_with_minimum_point()
         super(Polygon, self).__init__(
             parent=parent, variable_name=variable_name)
+
+    def _set_x_and_y_with_minimum_point(self) -> None:
+        """
+        Set an x and y properties coordinate with a minimum point.
+        """
+        min_x: int = min([point._x._value for point in self._points._value])
+        min_y: int = min([point._y._value for point in self._points._value])
+        self._x = Int(min_x)
+        self._y = Int(min_y)
 
     @classmethod
     def _create_with_graphics(

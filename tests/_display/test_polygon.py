@@ -133,3 +133,12 @@ class TestPolygon:
             },
             any_obj=polygon,
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_x_and_y_with_minimum_point(self) -> None:
+        ap.Stage()
+        points: List[ap.Point2D] = [
+            ap.Point2D(50, 50), ap.Point2D(150, 30), ap.Point2D(20, 100)]
+        polygon: ap.Polygon = ap.Polygon(points=points)
+        assert polygon.x == 20
+        assert polygon.y == 30

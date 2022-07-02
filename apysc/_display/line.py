@@ -177,7 +177,7 @@ class Line(
 
     def _set_initial_x_and_y_with_minimum_point(self) -> None:
         """
-        Set initial x and y properties coordinates with
+        Set initial x and y properties coordinate with
         a minimum point.
         """
         min_x: int = min(

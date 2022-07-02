@@ -130,3 +130,7 @@ Make line start and end expression str.<hr>
 
 - `expression`: str
   - Each point expression.
+
+### `_set_initial_x_and_y_with_minimum_point` method docstring
+
+Set initial x and y properties coordinate with a minimum point.

@@ -67,7 +67,7 @@ class Array(
     """
 
     _initial_value: Union[List[Any], tuple, 'Array']
-    _value: List[Any]
+    _value: List[T]
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -771,7 +771,7 @@ class Array(
         >>> arr
         Array([5, 4, 3, 2, 1])
         """
-        self._value.sort()
+        self._value.sort()  # type: ignore
         self._append_sort_expression()
         if not ascending:
             self.reverse()

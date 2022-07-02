@@ -187,7 +187,7 @@ class TestPolyline:
             any_obj=polyline)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__set_initial_x_and_y_with_minimum_point(self) -> None:
+    def test__set_x_and_y_with_minimum_point(self) -> None:
         ap.Stage()
         points: List[ap.Point2D] = [ap.Point2D(10, 20), ap.Point2D(30, 40)]
         polyline: ap.Polyline = ap.Polyline(points=points)

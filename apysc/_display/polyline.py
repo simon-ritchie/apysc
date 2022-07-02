@@ -173,11 +173,11 @@ class Polyline(
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
             line_dash_dot_setting=line_dash_dot_setting)
-        self._set_initial_x_and_y_with_minimum_point()
+        self._set_x_and_y_with_minimum_point()
         super(Polyline, self).__init__(
             parent=parent, variable_name=variable_name)
 
-    def _set_initial_x_and_y_with_minimum_point(self) -> None:
+    def _set_x_and_y_with_minimum_point(self) -> None:
         """
         Set an initial x and y properties coordinate with
         a minimum point.

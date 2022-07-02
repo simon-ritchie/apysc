@@ -7,6 +7,8 @@ from apysc._display.points_2d_interface import Points2DInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._display.set_x_and_y_with_minimum_point_interface_base import \
+    SetXAndYWithMinimumPointInterfaceBase
 
 
 class AppendLinePointInterface(Points2DInterface):
@@ -58,3 +60,6 @@ class AppendLinePointInterface(Points2DInterface):
             f'\n{self.variable_name}.plot({self._points_var_name});'
         )
         ap.append_js_expression(expression=expression)
+
+        if isinstance(self, SetXAndYWithMinimumPointInterfaceBase):
+            self._set_x_and_y_with_minimum_point()

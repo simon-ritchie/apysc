@@ -2790,4 +2790,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Ellipse class',
             val='Ellipse クラス'),
+        Mapping(
+            key='Line class',
+            val='Line クラス'),
     ])

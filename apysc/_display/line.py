@@ -31,6 +31,8 @@ class Line(
 
     References
     ----------
+    - Line class document
+        - https://simon-ritchie.github.io/apysc/en/line.html
     - Graphics draw_line interface document
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html  # noqa
     - Graphics draw_dotted_line interface document
@@ -132,6 +134,11 @@ class Line(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        References
+        ----------
+        - Line class document
+            - https://simon-ritchie.github.io/apysc/en/line.html
 
         Examples
         --------

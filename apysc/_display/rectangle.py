@@ -8,6 +8,8 @@ from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
 from apysc._display.ellipse_width_interface import EllipseWidthInterface
+from apysc._display.fill_alpha_interface import FillAlphaInterface
+from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.height_interface import HeightInterface
 from apysc._display.line_caps import LineCaps
@@ -24,8 +26,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._display.fill_color_interface import FillColorInterface
-from apysc._display.fill_alpha_interface import FillAlphaInterface
 
 
 class Rectangle(

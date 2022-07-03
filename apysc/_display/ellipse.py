@@ -8,6 +8,8 @@ from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface
+from apysc._display.fill_alpha_interface import FillAlphaInterface
+from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
@@ -22,8 +24,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._display.fill_color_interface import FillColorInterface
-from apysc._display.fill_alpha_interface import FillAlphaInterface
 
 
 class Ellipse(

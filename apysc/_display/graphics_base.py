@@ -9,6 +9,7 @@ from typing import Union
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
 from apysc._display.fill_alpha_interface import FillAlphaInterface
+from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.flip_x_interface import FlipXInterface
 from apysc._display.flip_y_interface import FlipYInterface
 from apysc._display.line_alpha_interface import LineAlphaInterface
@@ -46,7 +47,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._display.fill_color_interface import FillColorInterface
 
 
 class GraphicsBase(

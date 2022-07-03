@@ -28,6 +28,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._display.fill_color_interface import FillColorInterface
+from apysc._display.fill_alpha_interface import FillAlphaInterface
 
 
 class Polyline(
@@ -36,7 +37,8 @@ class Polyline(
         GraphicsBase,
         AppendLinePointInterface,
         SetXAndYWithMinimumPointInterfaceBase,
-        FillColorInterface):
+        FillColorInterface,
+        FillAlphaInterface):
     """
     The polyline vector graphics class.
 

@@ -22,6 +22,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._display.fill_color_interface import FillColorInterface
+from apysc._display.fill_alpha_interface import FillAlphaInterface
 
 
 class Circle(
@@ -29,7 +30,8 @@ class Circle(
         CyInterface,
         GraphicsBase,
         RadiusInterface,
-        FillColorInterface):
+        FillColorInterface,
+        FillAlphaInterface):
     """
     The circle vector graphics class.
 

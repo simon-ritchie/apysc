@@ -61,7 +61,6 @@ class GraphicsBase(
         FlipYInterface,
         SkewXInterface,
         SkewYInterface,
-        FillAlphaInterface,
         LineColorInterface,
         LineAlphaInterface,
         LineJointsInterface,
@@ -135,8 +134,9 @@ class GraphicsBase(
         if isinstance(self, FillColorInterface):
             self._set_initial_fill_color_if_not_blank(
                 fill_color=fill_color)
-        self._update_fill_alpha_and_skip_appending_exp(
-            value=fill_alpha)
+        if isinstance(self, FillAlphaInterface):
+            self._update_fill_alpha_and_skip_appending_exp(
+                value=fill_alpha)
         self._set_initial_line_color_if_not_blank(
             line_color=line_color)
         self._update_line_thickness_and_skip_appending_exp(
@@ -150,10 +150,11 @@ class GraphicsBase(
             self._update_line_joints_and_skip_appending_exp(
                 value=line_joints)
 
-        self._append_applying_new_attr_val_exp(
-            new_attr=self._fill_alpha, attr_name='fill_alpha')
-        self._append_attr_to_linking_stack(
-            attr=self._fill_alpha, attr_name='fill_alpha')
+        if isinstance(self, FillAlphaInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._fill_alpha, attr_name='fill_alpha')
+            self._append_attr_to_linking_stack(
+                attr=self._fill_alpha, attr_name='fill_alpha')
 
         if isinstance(self, FillColorInterface):
             self._append_applying_new_attr_val_exp(
@@ -237,10 +238,11 @@ class GraphicsBase(
                 fill_color=self._fill_color, expression=expression,
                 indent_num=indent_num)
 
-        self._initialize_fill_alpha_if_not_initialized()
-        expression = graphics_expression.append_fill_opacity_expression(
-            fill_alpha=self._fill_alpha, expression=expression,
-            indent_num=indent_num)
+        if isinstance(self, FillAlphaInterface):
+            self._initialize_fill_alpha_if_not_initialized()
+            expression = graphics_expression.append_fill_opacity_expression(
+                fill_alpha=self._fill_alpha, expression=expression,
+                indent_num=indent_num)
 
         self._initialize_line_color_if_not_initialized()
         expression = graphics_expression.append_stroke_expression(

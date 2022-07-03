@@ -25,6 +25,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._display.fill_color_interface import FillColorInterface
+from apysc._display.fill_alpha_interface import FillAlphaInterface
 
 
 class Rectangle(
@@ -35,7 +36,8 @@ class Rectangle(
         HeightInterface,
         EllipseWidthInterface,
         EllipseHeightInterface,
-        FillColorInterface):
+        FillColorInterface,
+        FillAlphaInterface):
     """
     The rectangle vector graphics class.
 

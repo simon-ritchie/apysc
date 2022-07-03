@@ -24,9 +24,12 @@ from tests._display.test_graphics_expression import \
     assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import \
     assert_y_attr_expression_exists
+from apysc._display.fill_color_interface import FillColorInterface
 
 
-class _TestGraphic(GraphicsBase):
+class _TestGraphic(
+        GraphicsBase,
+        FillColorInterface):
 
     def __repr__(self) -> str:
         """

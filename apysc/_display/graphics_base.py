@@ -9,7 +9,6 @@ from typing import Union
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
 from apysc._display.fill_alpha_interface import FillAlphaInterface
-from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.flip_x_interface import FlipXInterface
 from apysc._display.flip_y_interface import FlipYInterface
 from apysc._display.line_alpha_interface import LineAlphaInterface
@@ -47,6 +46,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._display.fill_color_interface import FillColorInterface
 
 
 class GraphicsBase(
@@ -61,7 +61,6 @@ class GraphicsBase(
         FlipYInterface,
         SkewXInterface,
         SkewYInterface,
-        FillColorInterface,
         FillAlphaInterface,
         LineColorInterface,
         LineAlphaInterface,
@@ -133,8 +132,9 @@ class GraphicsBase(
         line_joints : String or LineJoints or None
             A line-joints value to set.
         """
-        self._set_initial_fill_color_if_not_blank(
-            fill_color=fill_color)
+        if isinstance(self, FillColorInterface):
+            self._set_initial_fill_color_if_not_blank(
+                fill_color=fill_color)
         self._update_fill_alpha_and_skip_appending_exp(
             value=fill_alpha)
         self._set_initial_line_color_if_not_blank(
@@ -155,10 +155,11 @@ class GraphicsBase(
         self._append_attr_to_linking_stack(
             attr=self._fill_alpha, attr_name='fill_alpha')
 
-        self._append_applying_new_attr_val_exp(
-            new_attr=self._fill_color, attr_name='fill_color')
-        self._append_attr_to_linking_stack(
-            attr=self._fill_color, attr_name='fill_color')
+        if isinstance(self, FillColorInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._fill_color, attr_name='fill_color')
+            self._append_attr_to_linking_stack(
+                attr=self._fill_color, attr_name='fill_color')
 
         self._append_applying_new_attr_val_exp(
             new_attr=self._line_color, attr_name='line_color')
@@ -230,10 +231,11 @@ class GraphicsBase(
         """
         from apysc._display import graphics_expression
 
-        self._initialize_fill_color_if_not_initialized()
-        expression = graphics_expression.append_fill_expression(
-            fill_color=self._fill_color, expression=expression,
-            indent_num=indent_num)
+        if isinstance(self, FillColorInterface):
+            self._initialize_fill_color_if_not_initialized()
+            expression = graphics_expression.append_fill_expression(
+                fill_color=self._fill_color, expression=expression,
+                indent_num=indent_num)
 
         self._initialize_fill_alpha_if_not_initialized()
         expression = graphics_expression.append_fill_opacity_expression(

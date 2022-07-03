@@ -22,12 +22,14 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._display.fill_color_interface import FillColorInterface
 
 
 class Path(
         XInterface,
         YInterface,
-        GraphicsBase):
+        GraphicsBase,
+        FillColorInterface):
     """
     The path vector graphics class.
 

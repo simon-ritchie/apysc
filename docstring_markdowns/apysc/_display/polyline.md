@@ -28,6 +28,7 @@ Int(5)
 
 **[References]**
 
+- [Polyline class document](https://simon-ritchie.github.io/apysc/en/polyline.html)
 - [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html)
 
 ### `__init__` method docstring
@@ -84,6 +85,12 @@ String('#ffffff')
 >>> polyline.line_thickness
 Int(3)
 ```
+
+<hr>
+
+**[References]**
+
+- [Polyline class document](https://simon-ritchie.github.io/apysc/en/polyline.html)
 
 ### `__repr__` method docstring
 

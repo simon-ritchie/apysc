@@ -28,7 +28,7 @@ MAPPING: Dict[str, str] = {
     '`Line`クラスのコンストラクタでは`start_point`や`end_point`の引数指定を必要とします。',
 
     'The constructor also accepts each style\'s argument, such as the `line_color`.':  # noqa
-    'コンストラクタでは`line_color`などのスタイル設定用の引数も受け付けます。',
+    'コンストラクタは`line_color`などのスタイル設定の引数も受け付けます。',
 
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=200,\n    stage_height=100,\n    stage_elem_id=\'stage\')\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\'#0af\', line_thickness=5)\n\nap.save_overall_html(\n    dest_dir_path=\'line_basic_usage/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=200,\n    stage_height=100,\n    stage_elem_id=\'stage\')\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\'#0af\', line_thickness=5)\n\nap.save_overall_html(\n    dest_dir_path=\'line_basic_usage/\')\n```',  # noqa
@@ -66,8 +66,8 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=200,\n    stage_height=100,\n    stage_elem_id=\'stage\')\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\'#0af\', line_thickness=5)\nline.x = ap.Int(100)\n\nap.save_overall_html(\n    dest_dir_path=\'line_x/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=200,\n    stage_height=100,\n    stage_elem_id=\'stage\')\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\'#0af\', line_thickness=5)\nline.x = ap.Int(100)\n\nap.save_overall_html(\n    dest_dir_path=\'line_x/\')\n```',  # noqa
 
-    'Notes: this attribute\'s value becomes the same as the `start_point` argument\'s value.':  # noqa
-    '特記事項: この属性の値は`start_point`の値と同じになります。',
+    'Notes: this attribute\'s value becomes the same as the arguments\' minimum point value.':  # noqa
+    '特記事項: この属性の値は引数の座標の最小値と同値になります。',
 
     '## y property interface example':
     '## y属性のインターフェイス例',
@@ -78,8 +78,8 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=200,\n    stage_height=100,\n    stage_elem_id=\'stage\')\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\'#0af\', line_thickness=5)\nline.y = ap.Int(80)\n\nap.save_overall_html(\n    dest_dir_path=\'line_y/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=200,\n    stage_height=100,\n    stage_elem_id=\'stage\')\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\'#0af\', line_thickness=5)\nline.y = ap.Int(80)\n\nap.save_overall_html(\n    dest_dir_path=\'line_y/\')\n```',  # noqa
 
-    'Notes: this attribute\'s value becomes the same as the `start_point` argument\'s value.':  # noqa
-    '特記事項: この属性の値は`start_point`の値と同じになります。',
+    'Notes: this attribute\'s value becomes the same as the arguments\' minimum point value.':  # noqa
+    '特記事項: この属性の値は引数の座標の最小値と同値になります。',
 
     '## line_color property interface example':
     '## line_color属性のインターフェイス例',

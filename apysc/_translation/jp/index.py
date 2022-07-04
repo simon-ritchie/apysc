@@ -309,6 +309,9 @@ MAPPING: Dict[str, str] = {
     '- [Line class](line.md)':
     '- [Line クラス](jp_line.md)',
 
+    '- [Polyline class](polyline.md)':
+    '- [Polyline クラス](jp_polyline.md)',
+
     '---':
     '---',
 

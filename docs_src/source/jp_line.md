@@ -12,7 +12,7 @@
 
 `Line`クラスのコンストラクタでは`start_point`や`end_point`の引数指定を必要とします。
 
-コンストラクタでは`line_color`などのスタイル設定用の引数も受け付けます。
+コンストラクタは`line_color`などのスタイル設定の引数も受け付けます。
 
 ```py
 # runnable
@@ -73,7 +73,7 @@ ap.save_overall_html(
 
 <iframe src="static/line_x/index.html" width="200" height="100"></iframe>
 
-特記事項: この属性の値は`start_point`の値と同じになります。
+特記事項: この属性の値は引数の座標の最小値と同値になります。
 
 ## y属性のインターフェイス例
 
@@ -100,7 +100,7 @@ ap.save_overall_html(
 
 <iframe src="static/line_y/index.html" width="200" height="100"></iframe>
 
-特記事項: この属性の値は`start_point`の値と同じになります。
+特記事項: この属性の値は引数の座標の最小値と同値になります。
 
 ## line_color属性のインターフェイス例
 

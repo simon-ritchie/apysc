@@ -165,6 +165,8 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [Ellipse クラス](jp_ellipse.md)
 - [Line クラス](jp_line.md)
 
+- [Polyline クラス](jp_polyline.md)
+
 ---
 
 ## Graphics クラス

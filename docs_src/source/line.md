@@ -69,7 +69,7 @@ ap.save_overall_html(
 
 <iframe src="static/line_x/index.html" width="200" height="100"></iframe>
 
-Notes: this attribute's value becomes the same as the `start_point` argument's value.
+Notes: this attribute's value becomes the same as the arguments' minimum point value.
 
 ## y property interface example
 
@@ -96,7 +96,7 @@ ap.save_overall_html(
 
 <iframe src="static/line_y/index.html" width="200" height="100"></iframe>
 
-Notes: this attribute's value becomes the same as the `start_point` argument's value.
+Notes: this attribute's value becomes the same as the arguments' minimum point value.
 
 ## line_color property interface example
 

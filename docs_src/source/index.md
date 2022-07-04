@@ -133,6 +133,7 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [Circle class](circle.md)
 - [Ellipse class](ellipse.md)
 - [Line class](line.md)
+- [Polyline class](polyline.md)
 
 ---
 

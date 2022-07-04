@@ -44,6 +44,8 @@ class Polyline(
 
     References
     ----------
+    - Polyline class document
+        - https://simon-ritchie.github.io/apysc/en/polyline.html
     - Graphics move_to and line_to interfaces document
         - https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html  # noqa
 
@@ -144,6 +146,11 @@ class Polyline(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        References
+        ----------
+        - Polyline class document
+            - https://simon-ritchie.github.io/apysc/en/polyline.html
 
         Examples
         --------

@@ -2794,7 +2794,6 @@ MAPPINGS: Mappings = Mappings(
             key='Line class',
             val='Line クラス'),
         Mapping(
-            key='Notes: this attribute\'s value becomes the same as the '
-            '`start_point` argument\'s value.',
-            val='特記事項: この属性の値は`start_point`の値と同じになります。'),
+            key='Polyline class',
+            val='Polyline クラス'),
     ])

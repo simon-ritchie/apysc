@@ -43,6 +43,8 @@ class Polygon(
 
     References
     ----------
+    - Polygon class document
+        - https://simon-ritchie.github.io/apysc/en/polygon.html
     - Graphics draw_polygon interface document
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html  # noqa
 
@@ -147,6 +149,11 @@ class Polygon(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+
+        References
+        ----------
+        - Polygon class document
+            - https://simon-ritchie.github.io/apysc/en/polygon.html
 
         Examples
         --------

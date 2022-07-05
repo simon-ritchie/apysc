@@ -2805,4 +2805,7 @@ MAPPINGS: Mappings = Mappings(
             key='Notes: this attribute\'s value becomes the same '
             'as the arguments\' minimum point value.',
             val='特記事項: この属性の値は引数の座標の最小値と同値になります。'),
+        Mapping(
+            key='Polygon class',
+            val='Polygon クラス'),
     ])

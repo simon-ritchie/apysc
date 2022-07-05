@@ -134,6 +134,7 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [Ellipse class](ellipse.md)
 - [Line class](line.md)
 - [Polyline class](polyline.md)
+- [Polygon class](polygon.md)
 
 ---
 

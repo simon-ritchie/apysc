@@ -166,6 +166,7 @@ apyscのドキュメントページへようこそ。apyscはPythonのフロン�
 - [Line クラス](jp_line.md)
 
 - [Polyline クラス](jp_polyline.md)
+- [Polygon クラス](jp_polygon.md)
 
 ---
 

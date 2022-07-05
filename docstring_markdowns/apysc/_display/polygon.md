@@ -29,6 +29,7 @@ String('#00aaff')
 
 **[References]**
 
+- [Polygon class document](https://simon-ritchie.github.io/apysc/en/polygon.html)
 - [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html)
 
 ### `__init__` method docstring
@@ -81,6 +82,12 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 >>> polygon.fill_color
 String('#00aaff')
 ```
+
+<hr>
+
+**[References]**
+
+- [Polygon class document](https://simon-ritchie.github.io/apysc/en/polygon.html)
 
 ### `__repr__` method docstring
 

@@ -150,4 +150,103 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\npolygon: ap.Polygon = ap.Polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ],\n    line_color=\'#0af\')\npolygon.line_dash_dot_setting = ap.LineDashDotSetting(\n    dot_size=2, dash_size=5, space_size=2)\n\nap.save_overall_html(\n    dest_dir_path=\'polygon_line_dash_dot_setting/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\npolygon: ap.Polygon = ap.Polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ],\n    line_color=\'#0af\')\npolygon.line_dash_dot_setting = ap.LineDashDotSetting(\n    dot_size=2, dash_size=5, space_size=2)\n\nap.save_overall_html(\n    dest_dir_path=\'polygon_line_dash_dot_setting/\')\n```',  # noqa
 
+    '## Polygon class constructor API':
+    '## Polygon クラスのコンストラクタのAPI',
+
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
+    '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+
+    '**[Interface summary]** Create a polygon vector graphic. This class is similar to the Polyline class, but unlike that, this class connects an end-point and start-point.<hr>':  # noqa
+    '**[インターフェイス概要]** 多角形のベクターグラフィックスを生成します。このクラスはPolylineクラスと似ていますが、Polylineクラスとは異なりこのクラスでは座標の終点と始点が接続される点が異なります。<hr>',  # noqa
+
+    '**[Parameters]**':
+    '**[引数]**',
+
+    '- `points`: Array of Point2D or list of Point2D':
+    '- `points`: Array of Point2D or list of Point2D',
+
+    '  - List of polygon vertex points.':
+    '  - 多角形の各頂点の座標のリスト。',
+
+    '- `fill_color`: str or String, default \'\'':
+    '- `fill_color`: str or String, default \'\'',
+
+    '  - A fill-color to set.':
+    '  - 設定する塗りの色。',
+
+    '- `fill_alpha`: float or Number, default 1.0':
+    '- `fill_alpha`: float or Number, default 1.0',
+
+    '  - A fill-alpha to set.':
+    '  - 設定する塗りの透明度。',
+
+    '- `line_color`: str or String, default \'\'':
+    '- `line_color`: str or String, default \'\'',
+
+    '  - A line-color to set.':
+    '  - 設定する線の色。',
+
+    '- `line_alpha`: float or Number, default 1.0':
+    '- `line_alpha`: float or Number, default 1.0',
+
+    '  - A line-alpha to set.':
+    '  - 設定する線の透明度。',
+
+    '- `line_thickness`: int or Int, default 1':
+    '- `line_thickness`: int or Int, default 1',
+
+    '  - A line-thickness (line-width) to set.':
+    '  - 設定の線幅。',
+
+    '- `line_cap`: String or LineCaps or None, default None':
+    '- `line_cap`: String or LineCaps or None, default None',
+
+    '  - A line-cap setting to set.':
+    '  - 設定する線の端のスタイル設定。',
+
+    '- `line_joints`: String or LineJoints or None, default None':
+    '- `line_joints`: String or LineJoints or None, default None',
+
+    '  - A line-joints setting to set.':
+    '  - 設定する線の連結部分のスタイル設定。',
+
+    '- `line_dot_setting`: LineDotSetting or None, default None':
+    '- `line_dot_setting`: LineDotSetting or None, default None',
+
+    '  - A dot setting to set.':
+    '  - 設定する点線のスタイル設定。',
+
+    '- `line_dash_setting`: LineDashSetting or None, default None':
+    '- `line_dash_setting`: LineDashSetting or None, default None',
+
+    '  - A dash setting to set.':
+    '  - 設定する破線のスタイル設定。',
+
+    '- `line_round_dot_setting`: LineRoundDotSetting or None, default None':
+    '- `line_round_dot_setting`: LineRoundDotSetting or None, default None',
+
+    '  - A round-dot setting to set.':
+    '  - 設定する丸ドットのスタイル設定。',
+
+    '- `line_dash_dot_setting`: LineDashDotSetting or None, default None':
+    '- `line_dash_dot_setting`: LineDashDotSetting or None, default None',
+
+    '  - A dash dot (1-dot chain) setting to set.':
+    '  - 設定する一点鎖線のスタイル設定。',
+
+    '- `parent`: ChildInterface or None, default None':
+    '- `parent`: ChildInterface or None, default None',
+
+    '  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.':  # noqa
+    '  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。',  # noqa
+
+    '<hr>':
+    '<hr>',
+
+    '**[Examples]**':
+    '**[コードサンプル]**',
+
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> polygon: ap.Polygon = ap.Polygon(\n...     points=[\n...         ap.Point2D(x=50, y=50),\n...         ap.Point2D(x=50, y=100),\n...         ap.Point2D(x=100, y=75),\n...     ],\n...     fill_color=\'#00aaff\')\n>>> polygon.fill_color\nString(\'#00aaff\')\n```':  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> polygon: ap.Polygon = ap.Polygon(\n...     points=[\n...         ap.Point2D(x=50, y=50),\n...         ap.Point2D(x=50, y=100),\n...         ap.Point2D(x=100, y=75),\n...     ],\n...     fill_color=\'#00aaff\')\n>>> polygon.fill_color\nString(\'#00aaff\')\n```',  # noqa
+
 }

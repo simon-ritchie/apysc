@@ -290,6 +290,85 @@
 </pre></div>
 </div>
 <iframe src="static/line_line_dash_dot_setting/index.html" width="200" height="100"></iframe></section>
+<section id="line-api">
+<h2>Line クラスのコンストラクタのAPI<a class="headerlink" href="#line-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">start_point:</span> <span class="pre">'point2d.Point2D',</span> <span class="pre">end_point:</span> <span class="pre">'point2d.Point2D',</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">line_cap:</span> <span class="pre">Union[apysc._type.string.String,</span> <span class="pre">apysc._display.line_caps.LineCaps,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dot_setting:</span> <span class="pre">Union[apysc._display.line_dot_setting.LineDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_setting:</span> <span class="pre">Union[apysc._display.line_dash_setting.LineDashSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_round_dot_setting:</span> <span class="pre">Union[apysc._display.line_round_dot_setting.LineRoundDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_dot_setting:</span> <span class="pre">Union[apysc._display.line_dash_dot_setting.LineDashDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_interface.ChildInterface,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 線のベクターグラフィックスを生成します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">start_point</span></code>: Points2D</p>
+<ul>
+<li><p>線の開始座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_point</span></code>: Points2D</p>
+<ul>
+<li><p>線の終了座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>: str or String, default ‘’</p>
+<ul>
+<li><p>設定する線の色。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>: float or Number, default 1.0</p>
+<ul>
+<li><p>設定する線の透明度。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>: int or Int, default 1</p>
+<ul>
+<li><p>設定の線幅。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_cap</span></code>: String or LineCaps or None, default None</p>
+<ul>
+<li><p>設定する線の端のスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code>: LineDotSetting or None, default None</p>
+<ul>
+<li><p>設定する点線のスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code>: LineDashSetting or None, default None</p>
+<ul>
+<li><p>設定する破線のスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code>: LineRoundDotSetting or None, default None</p>
+<ul>
+<li><p>設定する丸ドットのスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dash_dot_setting</span></code>: LineDashDotSetting or None, default None</p>
+<ul>
+<li><p>設定する一点鎖線のスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent</span></code>: ChildInterface or None, default None</p>
+<ul>
+<li><p>このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">start_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+<span class="gp">... </span>   <span class="n">end_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+<span class="gp">... </span>   <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;#ffffff&#39;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_color</span>
+<span class="go">String(&#39;#ffffff&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_thickness</span>
+<span class="go">Int(3)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -317,6 +396,7 @@
 <li><a class="reference internal" href="#line-dash-setting">line_dash_setting属性のインターフェイス例</a></li>
 <li><a class="reference internal" href="#line-round-dot-setting">line_round_dot_setting属性のインターフェイス例</a></li>
 <li><a class="reference internal" href="#line-dash-dot-setting">line_dash_dot_setting属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-api">Line クラスのコンストラクタのAPI</a></li>
 </ul>
 </li>
 </ul>

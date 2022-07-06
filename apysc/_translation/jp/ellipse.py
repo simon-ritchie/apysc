@@ -162,4 +162,121 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\nellipse: ap.Ellipse = ap.Ellipse(\n    x=75, y=75, width=100, height=75,\n    line_color=\'0af\', line_thickness=2)\nellipse.line_dash_dot_setting = ap.LineDashDotSetting(\n    dot_size=3, dash_size=6, space_size=3)\n\nap.save_overall_html(\n    dest_dir_path=\'ellipse_line_dash_dot_setting/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\nellipse: ap.Ellipse = ap.Ellipse(\n    x=75, y=75, width=100, height=75,\n    line_color=\'0af\', line_thickness=2)\nellipse.line_dash_dot_setting = ap.LineDashDotSetting(\n    dot_size=3, dash_size=6, space_size=3)\n\nap.save_overall_html(\n    dest_dir_path=\'ellipse_line_dash_dot_setting/\')\n```',  # noqa
 
+    '## Ellipse class constructor API':
+    '## Ellipse クラスのコンストラクタのAPI',
+
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>':  # noqa
+    '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+
+    '**[Interface summary]** Create an ellipse vector graphic.<hr>':
+    '**[インターフェイス概要]** 楕円のベクターグラフィックスを生成します。<hr>',
+
+    '**[Parameters]**':
+    '**[引数]**',
+
+    '- `x`: Int or int':
+    '- `x`: Int or int',
+
+    '  - X-coordinate of the ellipse center.':
+    '  - 楕円の中央のX座標。',
+
+    '- `y`: Int or int':
+    '- `y`: Int or int',
+
+    '  - Y-coordinate of the ellipse center.':
+    '  - 楕円の中央のY座標。',
+
+    '- `width`: Int or int':
+    '- `width`: Int or int',
+
+    '  - Ellipse width.':
+    '  - 楕円の幅。',
+
+    '- `height`: Int or int':
+    '- `height`: Int or int',
+
+    '  - Ellipse height.':
+    '  - 楕円の高さ。',
+
+    '- `fill_color`: str or String, default \'\'':
+    '- `fill_color`: str or String, default \'\'',
+
+    '  - A fill-color to set.':
+    '  - 設定する塗りの色。',
+
+    '- `fill_alpha`: float or Number, default 1.0':
+    '- `fill_alpha`: float or Number, default 1.0',
+
+    '  - A fill-alpha to set.':
+    '  - 設定する塗りの透明度。',
+
+    '- `line_color`: str or String, default \'\'':
+    '- `line_color`: str or String, default \'\'',
+
+    '  - A line-color to set.':
+    '  - 設定する線の色。',
+
+    '- `line_alpha`: float or Number, default 1.0':
+    '- `line_alpha`: float or Number, default 1.0',
+
+    '  - A line-alpha to set.':
+    '  - 設定する線の透明度。',
+
+    '- `line_thickness`: int or Int, default 1':
+    '- `line_thickness`: int or Int, default 1',
+
+    '  - A line-thickness (line-width) to set.':
+    '  - 設定の線幅。',
+
+    '- `line_cap`: String or LineCaps or None, default None':
+    '- `line_cap`: String or LineCaps or None, default None',
+
+    '  - A line-cap setting to set.':
+    '  - 設定する線の端のスタイル設定。',
+
+    '- `line_joints`: String or LineJoints or None, default None':
+    '- `line_joints`: String or LineJoints or None, default None',
+
+    '  - A line-joints setting to set.':
+    '  - 設定する線の連結部分のスタイル設定。',
+
+    '- `line_dot_setting`: LineDotSetting or None, default None':
+    '- `line_dot_setting`: LineDotSetting or None, default None',
+
+    '  - A dot setting to set.':
+    '  - 設定する点線のスタイル設定。',
+
+    '- `line_dash_setting`: LineDashSetting or None, default None':
+    '- `line_dash_setting`: LineDashSetting or None, default None',
+
+    '  - A dash setting to set.':
+    '  - 設定する破線のスタイル設定。',
+
+    '- `line_round_dot_setting`: LineRoundDotSetting or None, default None':
+    '- `line_round_dot_setting`: LineRoundDotSetting or None, default None',
+
+    '  - A round-dot setting to set.':
+    '  - 設定する丸ドットのスタイル設定。',
+
+    '- `line_dash_dot_setting`: LineDashDotSetting or None, default None':
+    '- `line_dash_dot_setting`: LineDashDotSetting or None, default None',
+
+    '  - A dash dot (1-dot chain) setting to set.':
+    '  - 設定する一点鎖線のスタイル設定。',
+
+    '- `parent`: ChildInterface or None, default None':
+    '- `parent`: ChildInterface or None, default None',
+
+    '  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.':  # noqa
+    '  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。',  # noqa
+
+    '<hr>':
+    '<hr>',
+
+    '**[Examples]**':
+    '**[コードサンプル]**',
+
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> ellipse: ap.Ellipse = ap.Ellipse(\n...    x=100, y=100, width=100, height=50, fill_color=\'#00aaff\')\n>>> ellipse.x\nInt(100)\n\n>>> ellipse.y\nInt(100)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```':  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> ellipse: ap.Ellipse = ap.Ellipse(\n...    x=100, y=100, width=100, height=50, fill_color=\'#00aaff\')\n>>> ellipse.x\nInt(100)\n\n>>> ellipse.y\nInt(100)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```',  # noqa
+
 }

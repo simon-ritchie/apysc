@@ -2808,4 +2808,106 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='Polygon class',
             val='Polygon クラス'),
+        Mapping(
+            key='## Rectangle class constructor API',
+            val='## Rectangle クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Create a rectangle vector '
+            'graphic.<hr>',
+            val='**[インターフェイス概要]** 四角のベクターグラフィックスを作成します。<hr>'),
+        Mapping(
+            key='  - A fill-color to set.',
+            val='  - 設定する塗りの色。'),
+        Mapping(
+            key='  - A fill-alpha to set.',
+            val='  - 設定する塗りの透明度。'),
+        Mapping(
+            key='  - A line-color to set.',
+            val='  - 設定する線の色。'),
+        Mapping(
+            key='  - A line-alpha to set.',
+            val='  - 設定する線の透明度。'),
+        Mapping(
+            key='  - A line-thickness (line-width) to set.',
+            val='  - 設定の線幅。'),
+        Mapping(
+            key='  - A line-cap setting to set.',
+            val='  - 設定する線の端のスタイル設定。'),
+        Mapping(
+            key='  - A line-joints setting to set.',
+            val='  - 設定する線の連結部分のスタイル設定。'),
+        Mapping(
+            key='  - A dot setting to set.',
+            val='  - 設定する点線のスタイル設定。'),
+        Mapping(
+            key='  - A dash setting to set.',
+            val='  - 設定する破線のスタイル設定。'),
+        Mapping(
+            key='  - A round-dot setting to set.',
+            val='  - 設定する丸ドットのスタイル設定。'),
+        Mapping(
+            key='  - A dash dot (1-dot chain) setting to set.',
+            val='  - 設定する一点鎖線のスタイル設定。'),
+        Mapping(
+            key='  - A parent instance to add this instance. '
+            'If a specified value is None, this interface uses '
+            'a stage instance.',
+            val='  - このインスタンスを追加する親のインスタンス。'
+            'もしもNoneが指定された場合、このインスタンスはステージの'
+            'インスタンスへと追加されます。'),
+        Mapping(
+            key='## Circle class constructor API',
+            val='## Circle クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Create a circle vector graphic.<hr>',
+            val='**[インターフェイス概要]** 円のベクターグラフィックスを生成します。<hr>'),
+        Mapping(
+            key='## Ellipse class constructor API',
+            val='## Ellipse クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Create an ellipse vector '
+            'graphic.<hr>',
+            val='**[インターフェイス概要]** 楕円のベクターグラフィックスを生成します。<hr>'),
+        Mapping(
+            key='## Line class constructor API',
+            val='## Line クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Create a line vector graphic.<hr>',
+            val='**[インターフェイス概要]** 線のベクターグラフィックスを生成します。<hr>'),
+        Mapping(
+            key='  - Line start point.',
+            val='  - 線の開始座標。'),
+        Mapping(
+            key='  - Line end point.',
+            val='  - 線の終了座標。'),
+        Mapping(
+            key='## Polygon class constructor API',
+            val='## Polygon クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Create a polygon vector graphic. '
+            'This class is similar to the Polyline class, but unlike that, '
+            'this class connects an end-point and start-point.<hr>',
+            val='**[インターフェイス概要]** 多角形のベクターグラフィックスを生成します。'
+            'このクラスはPolylineクラスと似ていますが、Polylineクラスとは異なり'
+            'このクラスでは座標の終点と始点が接続される点が異なります。<hr>'),
+        Mapping(
+            key='  - List of polygon vertex points.',
+            val='  - 多角形の各頂点の座標のリスト。'),
+        Mapping(
+            key='## Polyline class constructor API',
+            val='## Polyline クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Create a polyline vector '
+            'graphic.<hr>',
+            val='**[インターフェイス概要]** 折れ線のベクターグラフィックスを生成します。<hr>'),
+        Mapping(
+            key='  - List of line points.',
+            val='  - 線の座標のリスト。'),
+        Mapping(
+            key='## Rectangle class constructor API',
+            val='## Rectangle クラスのコンストラクタのAPI'),
+        Mapping(
+            key='**[Interface summary]** Create a rectangle vector '
+            'graphic.<hr>',
+            val='**[インターフェイス概要]** 四角のベクターグラフィックスを生成します。<hr>'),
     ])

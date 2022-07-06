@@ -12,7 +12,7 @@
 
 `Rectangle`クラスのコンストラクタでは`x`、`y`、`width`、`height`の引数指定が必要になります。
 
-コンストラクタでは他にも`fill_color`などのスタイル設定の引数を受け付けます。
+コンストラクタでは他の`fill_color`などのスタイル設定の各引数も受け付けます。
 
 ```py
 # runnable
@@ -403,3 +403,92 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/rectangle_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
+
+## Rectangle クラスのコンストラクタのAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `__init__(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int] = 0, ellipse_height: Union[int, apysc._type.int.Int] = 0, fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_interface.ChildInterface, NoneType] = None) -> None`<hr>
+
+**[インターフェイス概要]** 四角のベクターグラフィックスを作成します。<hr>
+
+**[引数]**
+
+- `x`: Int or int
+  - 描画を開始するX座標。
+
+- `y`: Int or int
+  - 描画を開始するY座標。
+
+- `width`: Int or int
+  - 四角の幅。
+
+- `height`: Int or int
+  - 四角の高さ。
+
+- `ellipse_width`: int or Int
+  - 楕円の幅。
+
+- `ellipse_height`: int or Int
+  - 楕円の高さ。
+
+- `fill_color`: str or String, default ''
+  - 設定する塗りの色。
+
+- `fill_alpha`: float or Number, default 1.0
+  - 設定する塗りの透明度。
+
+- `line_color`: str or String, default ''
+  - 設定する線の色。
+
+- `line_alpha`: float or Number, default 1.0
+  - 設定する線の透明度。
+
+- `line_thickness`: int or Int, default 1
+  - 設定の線幅。
+
+- `line_cap`: String or LineCaps or None, default None
+  - 設定する線の端のスタイル設定。
+
+- `line_joints`: String or LineJoints or None, default None
+  - 設定する線の連結部分のスタイル設定。
+
+- `line_dot_setting`: LineDotSetting or None, default None
+  - 設定する点線のスタイル設定。
+
+- `line_dash_setting`: LineDashSetting or None, default None
+  - 設定する破線のスタイル設定。
+
+- `line_round_dot_setting`: LineRoundDotSetting or None, default None
+  - 設定する丸ドットのスタイル設定。
+
+- `line_dash_dot_setting`: LineDashDotSetting or None, default None
+  - 設定する一点鎖線のスタイル設定。
+
+- `parent`: ChildInterface or None, default None
+  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> rectangle: ap.Rectangle = ap.Rectangle(
+...     x=50, y=50, width=100, height=100, fill_color='#00aaff')
+>>> rectangle.x
+Int(50)
+
+>>> rectangle.y
+Int(50)
+
+>>> rectangle.width
+Int(100)
+
+>>> rectangle.height
+Int(100)
+
+>>> rectangle.fill_color
+String('#00aaff')
+```

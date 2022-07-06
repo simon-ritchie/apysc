@@ -349,6 +349,116 @@
 </pre></div>
 </div>
 <iframe src="static/ellipse_line_dash_dot_setting/index.html" width="150" height="150"></iframe></section>
+<section id="ellipse-api">
+<h2>Ellipse クラスのコンストラクタのAPI<a class="headerlink" href="#ellipse-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">width:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">height:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">line_cap:</span> <span class="pre">Union[apysc._type.string.String,</span> <span class="pre">apysc._display.line_caps.LineCaps,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_joints:</span> <span class="pre">Union[apysc._type.string.String,</span> <span class="pre">apysc._display.line_joints.LineJoints,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dot_setting:</span> <span class="pre">Union[apysc._display.line_dot_setting.LineDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_setting:</span> <span class="pre">Union[apysc._display.line_dash_setting.LineDashSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_round_dot_setting:</span> <span class="pre">Union[apysc._display.line_round_dot_setting.LineRoundDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_dot_setting:</span> <span class="pre">Union[apysc._display.line_dash_dot_setting.LineDashDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_interface.ChildInterface,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> 楕円のベクターグラフィックスを生成します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<ul>
+<li><p>楕円の中央のX座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<ul>
+<li><p>楕円の中央のY座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Int or int</p>
+<ul>
+<li><p>楕円の幅。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: Int or int</p>
+<ul>
+<li><p>楕円の高さ。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>: str or String, default ‘’</p>
+<ul>
+<li><p>設定する塗りの色。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>: float or Number, default 1.0</p>
+<ul>
+<li><p>設定する塗りの透明度。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>: str or String, default ‘’</p>
+<ul>
+<li><p>設定する線の色。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>: float or Number, default 1.0</p>
+<ul>
+<li><p>設定する線の透明度。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>: int or Int, default 1</p>
+<ul>
+<li><p>設定の線幅。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_cap</span></code>: String or LineCaps or None, default None</p>
+<ul>
+<li><p>設定する線の端のスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_joints</span></code>: String or LineJoints or None, default None</p>
+<ul>
+<li><p>設定する線の連結部分のスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code>: LineDotSetting or None, default None</p>
+<ul>
+<li><p>設定する点線のスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code>: LineDashSetting or None, default None</p>
+<ul>
+<li><p>設定する破線のスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code>: LineRoundDotSetting or None, default None</p>
+<ul>
+<li><p>設定する丸ドットのスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dash_dot_setting</span></code>: LineDashDotSetting or None, default None</p>
+<ul>
+<li><p>設定する一点鎖線のスタイル設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent</span></code>: ChildInterface or None, default None</p>
+<ul>
+<li><p>このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">x</span>
+<span class="go">Int(100)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">y</span>
+<span class="go">Int(100)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">width</span>
+<span class="go">Int(100)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">height</span>
+<span class="go">Int(50)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ellipse</span><span class="o">.</span><span class="n">fill_color</span>
+<span class="go">String(&#39;#00aaff&#39;)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -380,6 +490,7 @@
 <li><a class="reference internal" href="#line-dash-setting">line_dash_setting属性のインターフェイス例</a></li>
 <li><a class="reference internal" href="#line-round-dot-setting">line_round_dot_setting属性のインターフェイス例</a></li>
 <li><a class="reference internal" href="#line-dash-dot-setting">line_dash_dot_setting属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#ellipse-api">Ellipse クラスのコンストラクタのAPI</a></li>
 </ul>
 </li>
 </ul>

@@ -361,3 +361,70 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/polygon_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
+
+## Polygon クラスのコンストラクタのAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `__init__(self, *, points: Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_interface.ChildInterface, NoneType] = None) -> None`<hr>
+
+**[インターフェイス概要]** 多角形のベクターグラフィックスを生成します。このクラスはPolylineクラスと似ていますが、Polylineクラスとは異なりこのクラスでは座標の終点と始点が接続される点が異なります。<hr>
+
+**[引数]**
+
+- `points`: Array of Point2D or list of Point2D
+  - 多角形の各頂点の座標のリスト。
+
+- `fill_color`: str or String, default ''
+  - 設定する塗りの色。
+
+- `fill_alpha`: float or Number, default 1.0
+  - 設定する塗りの透明度。
+
+- `line_color`: str or String, default ''
+  - 設定する線の色。
+
+- `line_alpha`: float or Number, default 1.0
+  - 設定する線の透明度。
+
+- `line_thickness`: int or Int, default 1
+  - 設定の線幅。
+
+- `line_cap`: String or LineCaps or None, default None
+  - 設定する線の端のスタイル設定。
+
+- `line_joints`: String or LineJoints or None, default None
+  - 設定する線の連結部分のスタイル設定。
+
+- `line_dot_setting`: LineDotSetting or None, default None
+  - 設定する点線のスタイル設定。
+
+- `line_dash_setting`: LineDashSetting or None, default None
+  - 設定する破線のスタイル設定。
+
+- `line_round_dot_setting`: LineRoundDotSetting or None, default None
+  - 設定する丸ドットのスタイル設定。
+
+- `line_dash_dot_setting`: LineDashDotSetting or None, default None
+  - 設定する一点鎖線のスタイル設定。
+
+- `parent`: ChildInterface or None, default None
+  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> polygon: ap.Polygon = ap.Polygon(
+...     points=[
+...         ap.Point2D(x=50, y=50),
+...         ap.Point2D(x=50, y=100),
+...         ap.Point2D(x=100, y=75),
+...     ],
+...     fill_color='#00aaff')
+>>> polygon.fill_color
+String('#00aaff')
+```

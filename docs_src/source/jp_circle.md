@@ -317,3 +317,90 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/circle_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
+
+## Circle クラスのコンストラクタのAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `__init__(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], radius: Union[int, apysc._type.int.Int], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_interface.ChildInterface, NoneType] = None) -> None`<hr>
+
+**[インターフェイス概要]** 円のベクターグラフィックスを生成します。<hr>
+
+**[引数]**
+
+- `x`: Int or int
+  - 円の中心のX座標。
+
+- `y`: Int or int
+  - 円の中心のY座標。
+
+- `radius`: Int or int
+  - 円の半径。
+
+- `fill_color`: str or String, default ''
+  - 設定する塗りの色。
+
+- `fill_alpha`: float or Number, default 1.0
+  - 設定する塗りの透明度。
+
+- `line_color`: str or String, default ''
+  - 設定する線の色。
+
+- `line_alpha`: float or Number, default 1.0
+  - 設定する線の透明度。
+
+- `line_thickness`: int or Int, default 1
+  - 設定の線幅。
+
+- `line_cap`: String or LineCaps or None, default None
+  - 設定する線の端のスタイル設定。
+
+- `line_joints`: String or LineJoints or None, default None
+  - 設定する線の連結部分のスタイル設定。
+
+- `line_dot_setting`: LineDotSetting or None, default None
+  - 設定する点線のスタイル設定。
+
+- `line_dash_setting`: LineDashSetting or None, default None
+  - 設定する破線のスタイル設定。
+
+- `line_round_dot_setting`: LineRoundDotSetting or None, default None
+  - 設定する丸ドットのスタイル設定。
+
+- `line_dash_dot_setting`: LineDashDotSetting or None, default None
+  - 設定する一点鎖線のスタイル設定。
+
+- `parent`: ChildInterface or None, default None
+  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> circle: ap.Circle = ap.Circle(
+...     x=100, y=100, radius=50, fill_color='#00aaff')
+>>> circle.x
+Int(100)
+
+>>> circle.y
+Int(100)
+
+>>> circle.radius
+Int(50)
+
+>>> circle.fill_color
+String('#00aaff')
+
+>>> circle = ap.Circle(
+...    x=100, y=100, radius=50,
+...    line_color='#ffffff', line_thickness=3,
+...    line_dot_setting=ap.LineDotSetting(dot_size=10))
+>>> circle.line_color
+String('#ffffff')
+
+>>> circle.line_thickness
+Int(3)
+```

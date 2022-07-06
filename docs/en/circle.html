@@ -22,7 +22,7 @@
     <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Draw interfaces abstract" href="draw_interfaces_abstract.html" />
+    <link rel="next" title="Ellipse class" href="ellipse.html" />
     <link rel="prev" title="Rectangle class" href="rectangle.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -32,7 +32,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="draw_interfaces_abstract.html" title="Draw interfaces abstract"
+          <a href="ellipse.html" title="Ellipse class"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="rectangle.html" title="Rectangle class"
@@ -324,6 +324,118 @@
 </pre></div>
 </div>
 <iframe src="static/circle_line_dash_dot_setting/index.html" width="150" height="150"></iframe></section>
+<section id="circle-class-constructor-api">
+<h2>Circle class constructor API<a class="headerlink" href="#circle-class-constructor-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.circle.Circle.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">radius:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">line_cap:</span> <span class="pre">Union[apysc._type.string.String,</span> <span class="pre">apysc._display.line_caps.LineCaps,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_joints:</span> <span class="pre">Union[apysc._type.string.String,</span> <span class="pre">apysc._display.line_joints.LineJoints,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dot_setting:</span> <span class="pre">Union[apysc._display.line_dot_setting.LineDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_setting:</span> <span class="pre">Union[apysc._display.line_dash_setting.LineDashSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_round_dot_setting:</span> <span class="pre">Union[apysc._display.line_round_dot_setting.LineRoundDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_dot_setting:</span> <span class="pre">Union[apysc._display.line_dash_dot_setting.LineDashDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_interface.ChildInterface,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Create a circle vector graphic.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<ul>
+<li><p>X-coordinate of the circle center.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<ul>
+<li><p>Y-coordinate of the circle center.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code>: Int or int</p>
+<ul>
+<li><p>Circle radius.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>: str or String, default ‘’</p>
+<ul>
+<li><p>A fill-color to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>: float or Number, default 1.0</p>
+<ul>
+<li><p>A fill-alpha to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>: str or String, default ‘’</p>
+<ul>
+<li><p>A line-color to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>: float or Number, default 1.0</p>
+<ul>
+<li><p>A line-alpha to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>: int or Int, default 1</p>
+<ul>
+<li><p>A line-thickness (line-width) to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_cap</span></code>: String or LineCaps or None, default None</p>
+<ul>
+<li><p>A line-cap setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_joints</span></code>: String or LineJoints or None, default None</p>
+<ul>
+<li><p>A line-joints setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code>: LineDotSetting or None, default None</p>
+<ul>
+<li><p>A dot setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code>: LineDashSetting or None, default None</p>
+<ul>
+<li><p>A dash setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code>: LineRoundDotSetting or None, default None</p>
+<ul>
+<li><p>A round-dot setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dash_dot_setting</span></code>: LineDashDotSetting or None, default None</p>
+<ul>
+<li><p>A dash dot (1-dot chain) setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent</span></code>: ChildInterface or None, default None</p>
+<ul>
+<li><p>A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="o">.</span><span class="n">x</span>
+<span class="go">Int(100)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="o">.</span><span class="n">y</span>
+<span class="go">Int(100)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="o">.</span><span class="n">radius</span>
+<span class="go">Int(50)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="o">.</span><span class="n">fill_color</span>
+<span class="go">String(&#39;#00aaff&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;#ffffff&#39;</span><span class="p">,</span> <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">line_dot_setting</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">LineDotSetting</span><span class="p">(</span><span class="n">dot_size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="o">.</span><span class="n">line_color</span>
+<span class="go">String(&#39;#ffffff&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="o">.</span><span class="n">line_thickness</span>
+<span class="go">Int(3)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -354,6 +466,7 @@
 <li><a class="reference internal" href="#line-dash-setting-property-interface-example">line_dash_setting property interface example</a></li>
 <li><a class="reference internal" href="#line-round-dot-setting-property-interface-example">line_round_dot_setting property interface example</a></li>
 <li><a class="reference internal" href="#line-dash-dot-setting-property-interface-example">line_dash_dot_setting property interface example</a></li>
+<li><a class="reference internal" href="#circle-class-constructor-api">Circle class constructor API</a></li>
 </ul>
 </li>
 </ul>
@@ -362,8 +475,8 @@
   <p class="topless"><a href="rectangle.html"
                         title="previous chapter">Rectangle class</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="draw_interfaces_abstract.html"
-                        title="next chapter">Draw interfaces abstract</a></p>
+  <p class="topless"><a href="ellipse.html"
+                        title="next chapter">Ellipse class</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -385,7 +498,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="draw_interfaces_abstract.html" title="Draw interfaces abstract"
+          <a href="ellipse.html" title="Ellipse class"
              >next</a> |</li>
         <li class="right" >
           <a href="rectangle.html" title="Rectangle class"

@@ -14,8 +14,6 @@ html-minifier==0.0.4
 wheel==0.36.2
 Sphinx==4.0.2
 groundwork-sphinx-theme==1.1.1
-commonmark==0.9.1
-recommonmark==0.7.1
 notebook==6.4.12
 pyright==0.0.13
 playwright==1.21.0

@@ -2903,11 +2903,4 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - List of line points.',
             val='  - 線の座標のリスト。'),
-        Mapping(
-            key='## Rectangle class constructor API',
-            val='## Rectangle クラスのコンストラクタのAPI'),
-        Mapping(
-            key='**[Interface summary]** Create a rectangle vector '
-            'graphic.<hr>',
-            val='**[インターフェイス概要]** 四角のベクターグラフィックスを生成します。<hr>'),
     ])

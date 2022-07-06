@@ -6,22 +6,17 @@ import warnings
 from typing import Dict
 from typing import List
 
-from recommonmark.parser import CommonMarkParser
-from recommonmark.transform import AutoStructify
 from sphinx.application import Sphinx
 
 PROJECT: str = 'apysc'
 AUTHOR: str = 'simonritchie'
 EXTENSIONS: List[str] = [
-    'recommonmark',
+    'myst_parser',
 ]
 TEMPLATES_PATH: List[str] = ['_templates']
 SOURCE_SUFFIX: Dict[str, str] = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
-}
-SOURCE_PARSERS: Dict[str, type] = {
-    '.md': CommonMarkParser,
 }
 HTML_THEME: str = 'groundwork'
 HTML_STATIC_PATH: List[str] = ['../_static']
@@ -48,14 +43,6 @@ def setup(*, sphinx: Sphinx) -> None:
         category=UserWarning,
         message=r'.*Container node skipped.*',
     )
-
-    sphinx.add_config_value(
-        name='recommonmark_config',
-        default={
-            'auto_toc_tree_section': 'Table of contents',
-        },
-        rebuild=True)
-    sphinx.add_transform(AutoStructify)
 
     sphinx.add_js_file(filename='common_func.js')
     sphinx.add_js_file(filename='hide_toctree_heading_and_sidemenu.js')

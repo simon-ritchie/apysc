@@ -56,7 +56,7 @@ exclude_patterns: Final[List[str]] = document_util.get_exclude_patterns(
 
 source_suffix: Final[Dict[str, str]] = conf_common.SOURCE_SUFFIX
 
-source_parsers: Final[Dict[str, type]] = conf_common.SOURCE_PARSERS
+source_parsers: Final[Dict[str, type]] = {}
 
 
 # -- Options for HTML output -------------------------------------------------

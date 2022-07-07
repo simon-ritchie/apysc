@@ -14,10 +14,13 @@ Other languages documentations: | English | [Japanese (日本語)](https://simon
 
 ### Table of contents
 
-- [What apysc can do in its current implementation](what_apysc_can_do.md)
-- [Quick start guide](quick_start.md)
-- [import conventions](import_conventions.md)
-- [Recommended type annotation checker settings](recommended_type_checker_settings.md)
+```{toctree}
+:maxdepth: 1
+what_apysc_can_do
+quick_start
+import_conventions
+recommended_type_checker_settings
+```
 
 ---
 
@@ -27,8 +30,11 @@ The `Stage` is the apysc overall drawing area container, and the `Sprite` is the
 
 ### Table of contents
 
-- [Stage class](stage.md)
-- [Sprite class](sprite.md)
+```{toctree}
+:maxdepth: 1
+stage
+sprite
+```
 
 ---
 
@@ -38,10 +44,13 @@ The HTML and JavaScript exporting interfaces.
 
 ### Table of contents
 
-- [save_overall_html interface](save_overall_html.md)
-- [display_on_jupyter interface](display_on_jupyter.md)
-- [display_on_colaboratory interface](display_on_colaboratory.md)
-- [append_js_expression interface](append_js_expression.md)
+```{toctree}
+:maxdepth: 1
+save_overall_html
+display_on_jupyter
+display_on_colaboratory
+append_js_expression
+```
 
 ---
 
@@ -51,11 +60,14 @@ The parent class, such as the `Sprite` or `Stage`, has the following interfaces:
 
 ### Table of contents
 
-- [add_child and remove_child interfaces](add_child_and_remove_child.md)
-- [remove_children interface](remove_children.md)
-- [contains interface](contains.md)
-- [num_children interface](num_children.md)
-- [get_child_at interface](get_child_at.md)
+```{toctree}
+:maxdepth: 1
+add_child_and_remove_child
+remove_children
+contains
+num_children
+get_child_at
+```
 
 ---
 
@@ -63,34 +75,37 @@ The parent class, such as the `Sprite` or `Stage`, has the following interfaces:
 
 ### Table of contents
 
-- [Why the apysc library does not use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)
-- [Funcdamental data classes common value interface](fundamental_data_classes_value_interface.md)
-- [Int and Number classes](int_and_number.md)
-- [Int and Number classes common arithmetic operations](int_and_number_arithmetic_operations.md)
-- [Int and Number classes common comparison operations](int_and_number_comparison_operations.md)
-- [String class](string.md)
-- [String class comparison operations](string_comparison_operations.md)
-- [String class addition and multiplication operations](string_addition_and_multiplication.md)
-- [Boolean class](boolean.md)
-- [Array class](array.md)
-- [Array class append and push interfaces](array_append_and_push.md)
-- [Array class extend and concat interfaces](array_extend_and_concat.md)
-- [Array class insert and insert_at interfaces](array_insert_and_insert_at.md)
-- [Array class pop interface](array_pop.md)
-- [Array class remove and remove_at interfaces](array_remove_and_remove_at.md)
-- [Array class sort interface](array_sort.md)
-- [Array class reverse interface](array_reverse.md)
-- [Array class slice interface](array_slice.md)
-- [Array class length interface](array_length.md)
-- [Array class join interface](array_join.md)
-- [Array class index_of interface](array_index_of.md)
-- [Array class clear interface](array_clear.md)
-- [Array class comparison interfaces](array_comparison.md)
-- [Dictionary class](dictionary.md)
-- [Dictionary class generic type settings](dictionary_generic.md)
-- [Dictionary class get interface](dictionary_get.md)
-- [Dictionary class length interface](dictionary_length.md)
-- [Point2D class](point2d.md)
+```{toctree}
+:maxdepth: 1
+why_apysc_doesnt_use_python_builtin_data_type
+fundamental_data_classes_value_interface
+int_and_number
+int_and_number_arithmetic_operations
+int_and_number_comparison_operations
+string.md
+string_comparison_operations
+string_addition_and_multiplication
+boolean
+array
+array_append_and_push
+array_extend_and_concat
+array_insert_and_insert_at
+array_pop
+array_remove_and_remove_at
+array_sort
+array_reverse
+array_slice
+array_length
+array_join
+array_index_of
+array_clear
+array_comparison
+dictionary
+dictionary_generic
+dictionary_get
+dictionary_length
+point2d
+```
 
 ---
 
@@ -100,28 +115,31 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 
 ### Table of contents
 
-- [DisplayObject class](display_object.md)
-- [DisplayObject and GraphicsBase classes basic properties abstract](display_object_and_graphics_base_prop_abstract.md)
-- [DisplayObject class x and y interfaces](display_object_x_and_y.md)
-- [DisplayObject class parent interfaces](display_object_parent.md)
-- [DisplayObject class visible interface](display_object_visible.md)
-- [DisplayObject class get_css and set_css interfaces](display_object_get_and_set_css.md)
-- [DisplayObject class mouse event binding interfaces](display_object_mouse_event.md)
-- [GraphicsBase class fill_color interface](graphics_base_fill_color.md)
-- [GraphicsBase class fill_alpha interface](graphics_base_fill_alpha.md)
-- [GraphicsBase class line_color interface](graphics_base_line_color.md)
-- [GraphicsBase class line_alpha interface](graphics_base_line_alpha.md)
-- [GraphicsBase class line_thickness interface](graphics_base_line_thickness.md)
-- [GraphicsBase class line_dot_setting interface](graphics_base_line_dot_setting.md)
-- [GraphicsBase class line_dash_setting interface](graphics_base_line_dash_setting.md)
-- [GraphicsBase class line_round_dot_setting interface](graphics_base_line_round_dot_setting.md)
-- [GraphicsBase class line_dash_dot_setting interface](graphics_base_line_dash_dot_setting.md)
-- [GraphicsBase class rotation_around_center interface](graphics_base_rotation_around_center.md)
-- [GraphicsBase class rotation_around_point interfaces](graphics_base_rotation_around_point.md)
-- [GraphicsBase class scale_from_center interfaces](graphics_base_scale_from_center.md)
-- [GraphicsBase class scale_from_point interfaces](graphics_base_scale_from_point.md)
-- [GraphicsBase class flip_x and flip_y interfaces](graphics_base_flip_interfaces.md)
-- [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md)
+```{toctree}
+:maxdepth: 1
+display_object
+display_object_and_graphics_base_prop_abstract
+display_object_x_and_y
+display_object_parent
+display_object_visible
+display_object_get_and_set_css
+display_object_mouse_event
+graphics_base_fill_color
+graphics_base_fill_alpha
+graphics_base_line_color
+graphics_base_line_alpha
+graphics_base_line_thickness
+graphics_base_line_dot_setting
+graphics_base_line_dash_setting
+graphics_base_line_round_dot_setting
+graphics_base_line_dash_dot_setting
+graphics_base_rotation_around_center
+graphics_base_rotation_around_point
+graphics_base_scale_from_center
+graphics_base_scale_from_point
+graphics_base_flip_interfaces
+graphics_base_skew
+```
 
 ---
 
@@ -129,12 +147,15 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 
 ### Table of contents
 
-- [Rectangle class](rectangle.md)
-- [Circle class](circle.md)
-- [Ellipse class](ellipse.md)
-- [Line class](line.md)
-- [Polyline class](polyline.md)
-- [Polygon class](polygon.md)
+```{toctree}
+:maxdepth: 1
+rectangle
+circle
+ellipse
+line
+polyline
+polygon
+```
 
 ---
 
@@ -146,22 +167,25 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 
 The `Graphics` class handles each vector graphics drawing.
 
-- [Draw interfaces abstract](draw_interfaces_abstract.md)
-- [Graphics class](graphics.md)
-- [Graphics class begin_fill interface](graphics_begin_fill.md)
-- [Graphics class line_style interface](graphics_line_style.md)
-- [Graphics class draw_rect interface](graphics_draw_rect.md)
-- [Graphics class draw_round_rect interface](graphics_draw_round_rect.md)
-- [Graphics class draw_circle interface](graphics_draw_circle.md)
-- [Graphics class draw_ellipse interface](graphics_draw_ellipse.md)
-- [Graphics class move_to and line_to interfaces](graphics_move_to_and_line_to.md)
-- [Graphics class draw_line interface](graphics_draw_line.md)
-- [Graphics class draw_dotted_line interface](graphics_draw_dotted_line.md)
-- [Graphics class draw_dashed_line interface](graphics_draw_dashed_line.md)
-- [Graphics class draw_round_dotted_line interface](graphics_draw_round_dotted_line.md)
-- [Graphics class draw_dash_dotted_line interface](graphics_draw_dash_dotted_line.md)
-- [Graphics class draw_polygon interface](graphics_draw_polygon.md)
-- [Graphics class clear interface](graphics_clear.md)
+```{toctree}
+:maxdepth: 1
+draw_interfaces_abstract
+graphics
+graphics_begin_fill
+graphics_line_style
+graphics_draw_rect
+graphics_draw_round_rect
+graphics_draw_circle
+graphics_draw_ellipse
+graphics_move_to_and_line_to
+graphics_draw_line
+graphics_draw_dotted_line
+graphics_draw_dashed_line
+graphics_draw_round_dotted_line
+graphics_draw_dash_dotted_line
+graphics_draw_polygon
+graphics_clear
+```
 
 ---
 
@@ -169,9 +193,12 @@ The `Graphics` class handles each vector graphics drawing.
 
 ### Table of contents
 
-- [About the handler options type](about_handler_options_type.md)
-- [Event class prevent_default and stop_propagation interfaces](event_prevent_default_and_stop_propagation.md)
-- [bind_custom_event and trigger_custom_event interfaces](bind_and_trigger_custom_event.md)
+```{toctree}
+:maxdepth: 1
+about_handler_options_type
+event_prevent_default_and_stop_propagation
+bind_and_trigger_custom_event
+```
 
 ---
 
@@ -181,13 +208,16 @@ The `Graphics` class handles each vector graphics drawing.
 
 ### Table of contents
 
-- [MouseEvent interfaces abstract](mouse_event_abstract.md)
-- [Basic mouse event interfaces](mouse_event_basic.md)
-- [click interface](click.md)
-- [dblclick interface](dblclick.md)
-- [mousedown and mouseup interfaces](mousedown_and_mouseup.md)
-- [mouseover and mouseout interfaces](mouseover_and_mouseout.md)
-- [mousemove interface](mousemove.md)
+```{toctree}
+:maxdepth: 1
+mouse_event_abstract
+mouse_event_basic
+click
+dblclick
+mousedown_and_mouseup
+mouseover_and_mouseout
+mousemove
+```
 
 ---
 
@@ -195,11 +225,14 @@ The `Graphics` class handles each vector graphics drawing.
 
 ### Table of contents
 
-- [If class](if.md)
-- [Elif class](elif.md)
-- [Else class](else.md)
-- [Each branch instruction class scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
-- [Return class](return.md)
+```{toctree}
+:maxdepth: 1
+if
+elif
+else
+branch_instruction_variables_reverting_setting
+return
+```
 
 ---
 
@@ -207,8 +240,11 @@ The `Graphics` class handles each vector graphics drawing.
 
 ### Table of contents
 
-- [For loop class](for.md)
-- [Continue class](continue.md)
+```{toctree}
+:maxdepth: 1
+for
+continue
+```
 
 ---
 
@@ -218,14 +254,17 @@ The `Graphics` class handles each vector graphics drawing.
 
 ### Table of contents
 
-- [Timer class](timer.md)
-- [TimerEvent class](timer_event.md)
-- [Timer class delay setting](timer_delay.md)
-- [FPS enum](fps.md)
-- [Timer class repeat_count setting](timer_repeat_count.md)
-- [Timer class start and stop interfaces](timer_start_and_stop.md)
-- [Timer class timer_complete interface](timer_complete.md)
-- [Timer class reset interface](timer_reset.md)
+```{toctree}
+:maxdepth: 1
+timer
+timer_event
+timer_delay
+fps
+timer_repeat_count
+timer_start_and_stop
+timer_complete
+timer_reset
+```
 
 ---
 
@@ -235,38 +274,41 @@ The `Graphics` class handles each vector graphics drawing.
 
 ### Table of contents
 
-- [Animation interfaces abstract](animation_interfaces_abstract.md)
-- [AnimationEvent class](animation_event.md)
-- [Animation duration setting](animation_duration.md)
-- [Animation delay setting](animation_delay.md)
-- [Each animation interface return value](animation_return_value.md)
-- [AnimationBase class start interface](animation_base_start.md)
-- [AnimationBase class animation_complete interface](animation_complete.md)
-- [AnimationBase class interfaces method chaining](animation_method_chaining.md)
-- [AnimationBase class target property](animation_base_target.md)
-- [Animation pause and play interfaces](animation_pause_and_play.md)
-- [Animation reset interface](animation_reset.md)
-- [Animation finish interface](animation_finish.md)
-- [Animation reverse interface](animation_reverse.md)
-- [animation_time interface](animation_time.md)
-- [Easing enum](easing_enum.md)
-- [Sequential animation setting](sequential_animation.md)
-- [animation_parallel interface](animation_parallel.md)
-- [animation_move interface](animation_move.md)
-- [animation_x interface](animation_x.md)
-- [animation_y interface](animation_y.md)
-- [animation_width and animation_height interfaces](animation_width_and_height.md)
-- [animation_fill_color interface](animation_fill_color.md)
-- [animation_fill_alpha interface](animation_fill_alpha.md)
-- [animation_line_color interface](animation_line_color.md)
-- [animation_line_alpha interface](animation_line_alpha.md)
-- [animation_line_thickness interface](animation_line_thickness.md)
-- [animation_radius interface](animation_radius.md)
-- [animation_rotation_around_center interface](animation_rotation_around_center.md)
-- [animation_rotation_around_point interface](animation_rotation_around_point.md)
-- [animation_scale_x_from_center and animation_scale_y_from_center interfaces](animation_scale_x_and_y_from_center.md)
-- [animation_scale_x_from_point and animation_scale_y_from_point interfaces](animation_scale_x_and_y_from_point.md)
-- [animation_skew_x interface](animation_skew_x.md)
+```{toctree}
+:maxdepth: 1
+animation_interfaces_abstract
+animation_event
+animation_duration
+animation_delay
+animation_return_value
+animation_base_start
+animation_complete
+animation_method_chaining
+animation_base_target
+animation_pause_and_play
+animation_reset
+animation_finish
+animation_reverse
+animation_time
+easing_enum
+sequential_animation
+animation_parallel
+animation_move
+animation_x
+animation_y
+animation_width_and_height
+animation_fill_color
+animation_fill_alpha
+animation_line_color
+animation_line_alpha
+animation_line_thickness
+animation_radius
+animation_rotation_around_center
+animation_rotation_around_point
+animation_scale_x_and_y_from_center
+animation_scale_x_and_y_from_point
+animation_skew_x
+```
 
 ---
 
@@ -274,7 +316,10 @@ The `Graphics` class handles each vector graphics drawing.
 
 ### Table of contents
 
-- [delete interface](delete.md)
+```{toctree}
+:maxdepth: 1
+delete
+```
 
 ---
 
@@ -282,10 +327,13 @@ The `Graphics` class handles each vector graphics drawing.
 
 ### Table of contents
 
-- [trace function interface](trace.md)
-- [set_debug_mode interface](set_debug_mode.md)
-- [unset_debug_mode interface](unset_debug_mode.md)
-- [add_debug_info_setting decorator interface](add_debug_info_setting.md)
+```{toctree}
+:maxdepth: 1
+trace
+set_debug_mode
+unset_debug_mode
+add_debug_info_setting
+```
 
 ---
 
@@ -293,9 +341,12 @@ The `Graphics` class handles each vector graphics drawing.
 
 ### Table of contents
 
-- [JavaScript assertion interface basic behavior](assertion_basic_behavior.md)
-- [assert_equal and assert_not_equal interfaces](assert_equal_and_not_equal.md)
-- [assert_true and assert_false interfaces](assert_true_and_false.md)
-- [assert_arrays_equal and assert_arrays_not_equal interfaces](assert_arrays_equal_and_arrays_not_equal.md)
-- [assert_dicts_equal and assert_dicts_not_equal interfaces](assert_dicts_equal_and_dicts_not_equal.md)
-- [assert_defined and assert_undefined interfaces](assert_defined_and_undefined.md)
+```{toctree}
+:maxdepth: 1
+assertion_basic_behavior
+assert_equal_and_not_equal
+assert_true_and_false
+assert_arrays_equal_and_arrays_not_equal
+assert_dicts_equal_and_dicts_not_equal
+assert_defined_and_undefined
+```

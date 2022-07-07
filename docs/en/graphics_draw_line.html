@@ -74,7 +74,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_line_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_line_basic_usage/index.html" width="200" height=100></iframe></section>
+<iframe src="static/graphics_draw_line_basic_usage/index.html" width="200" height=100></iframe>
+</section>
 <section id="ignored-line-style-settings">
 <h2>Ignored line style settings<a class="headerlink" href="#ignored-line-style-settings" title="Permalink to this headline">¶</a></h2>
 <p>This interface will ignore <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>, and <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code> for simplicity. If you need to draw these styled lines, then use <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>, or <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> interfaces instead of the <code class="docutils literal notranslate"><span class="pre">draw_line</span></code> interface.</p>
@@ -98,7 +99,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_line_ignored_dot_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_line_ignored_dot_setting/index.html" width="200" height=100></iframe></section>
+<iframe src="static/graphics_draw_line_ignored_dot_setting/index.html" width="200" height=100></iframe>
+</section>
 <section id="line-class-instance">
 <h2>Line class instance<a class="headerlink" href="#line-class-instance" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code> interface returns the <code class="docutils literal notranslate"><span class="pre">Line</span></code> instance. You can update each setting or bind events to that instance. <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>
@@ -125,10 +127,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_line_line_instance/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_line_line_instance/index.html" width="200" height=100></iframe></section>
+<iframe src="static/graphics_draw_line_line_instance/index.html" width="200" height=100></iframe>
+</section>
 <section id="draw-line-api">
 <h2>draw_line API<a class="headerlink" href="#draw-line-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.graphics.Graphics.draw_line --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.graphics.Graphics.draw_line -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_line(self,</span> <span class="pre">*,</span> <span class="pre">x_start:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y_start:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">x_end:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y_end:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">'_line.Line'</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Draw a normal line vector graphic.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -154,7 +158,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Line</p>
 <ul>
@@ -162,7 +167,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
+<hr>
+<p><strong>[Notes]</strong></p>
 <p>・This interface ignores line settings, like the <code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code>, <code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code>.<hr></p>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>

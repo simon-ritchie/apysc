@@ -58,7 +58,7 @@
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <p>The following page describes the basic mouse event interfaces.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc">Basic mouse event interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc std std-doc">Basic mouse event interfaces</span></a></p></li>
 </ul>
 </section>
 <section id="basic-usage-of-the-mouseover-and-mouseout-interfaces">
@@ -125,7 +125,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouseover_and_mouseout_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/mouseover_and_mouseout_basic_usage/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/mouseover_and_mouseout_basic_usage/index.html" width="150" height="150"></iframe>
+</section>
 <section id="unbind-interfaces">
 <h2>Unbind interfaces<a class="headerlink" href="#unbind-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">unbind_mouseover</span></code> and <code class="docutils literal notranslate"><span class="pre">unbind_mouseout</span></code> interfaces unbind each registered handler from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>.</p>
@@ -190,11 +191,13 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouseover_and_mouseout_unbind_interfaces/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/mouseover_and_mouseout_unbind_interfaces/index.html" width="150" height="150"></iframe><p>There are also existing the <code class="docutils literal notranslate"><span class="pre">unbind_mouseover_all</span></code> and <code class="docutils literal notranslate"><span class="pre">unbind_mouseout_all</span></code> interfaces. These interfaces unbind all the handlers from the target <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
+<iframe src="static/mouseover_and_mouseout_unbind_interfaces/index.html" width="150" height="150"></iframe>
+<p>There are also existing the <code class="docutils literal notranslate"><span class="pre">unbind_mouseover_all</span></code> and <code class="docutils literal notranslate"><span class="pre">unbind_mouseout_all</span></code> interfaces. These interfaces unbind all the handlers from the target <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
 </section>
 <section id="mouseover-api">
 <h2>mouseover API<a class="headerlink" href="#mouseover-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_over_interface.MouseOverInterface.mouseover --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._event.mouse_over_interface.MouseOverInterface.mouseover -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">mouseover(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_O,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Add mouse over event listener setting.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -210,7 +213,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
 <ul>
@@ -218,7 +222,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mouseover</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -232,14 +237,16 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">mouseout</span><span class="p">(</span><span class="n">on_mouseover</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html">About the handler options’ type document</a></p></li>
 </ul>
 </section>
 <section id="unbind-mouseover-api">
 <h2>unbind_mouseover API<a class="headerlink" href="#unbind-mouseover-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_over_interface.MouseOverInterface.unbind_mouseover --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._event.mouse_over_interface.MouseOverInterface.unbind_mouseover -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseover(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Unbind a specified handler’s mouseover event.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -250,7 +257,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mouseover</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -268,7 +276,8 @@
 </section>
 <section id="unbind-mouseover-all-api">
 <h2>unbind_mouseover_all API<a class="headerlink" href="#unbind-mouseover-all-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_over_interface.MouseOverInterface.unbind_mouseover_all --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._event.mouse_over_interface.MouseOverInterface.unbind_mouseover_all -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseover_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Unbind all mouseover events.<hr></p>
 <p><strong>[Examples]</strong></p>
@@ -289,7 +298,8 @@
 </section>
 <section id="mouseout-api">
 <h2>mouseout API<a class="headerlink" href="#mouseout-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.mouseout --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.mouseout -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">mouseout(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_O,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Add mouse out event listener setting.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -305,7 +315,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
 <ul>
@@ -313,7 +324,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mouseout</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -327,14 +339,16 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">mouseout</span><span class="p">(</span><span class="n">on_mouseout</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html">About the handler options’ type document</a></p></li>
 </ul>
 </section>
 <section id="unbind-mouseout-api">
 <h2>unbind_mouseout API<a class="headerlink" href="#unbind-mouseout-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.unbind_mouseout --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.unbind_mouseout -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseout(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Unbind a specified handler’s mouse-out event.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -345,7 +359,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mouseout</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -363,7 +378,8 @@
 </section>
 <section id="unbind-mouseout-all-api">
 <h2>unbind_mouseout_all API<a class="headerlink" href="#unbind-mouseout-all-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.unbind_mouseout_all --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.unbind_mouseout_all -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseout_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Unbind all mouse out events.<hr></p>
 <p><strong>[Examples]</strong></p>

@@ -80,7 +80,8 @@
 </pre></div>
 </div>
 <p>This will create HTML with black background stage, as follows:</p>
-<iframe src="static/stage_background_color/index.html" width="300" height="185"></iframe></section>
+<iframe src="static/stage_background_color/index.html" width="300" height="185"></iframe>
+</section>
 <section id="stage-size-setting">
 <h2>Stage size setting<a class="headerlink" href="#stage-size-setting" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Stage</span></code> class has options to set stage width and stage height (arguments of <code class="docutils literal notranslate"><span class="pre">stage_width</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_height</span></code>). These settings change stage sizes.</p>
@@ -97,7 +98,8 @@
 </pre></div>
 </div>
 <p>The Previous script will create a horizontal stage, as follows:</p>
-<iframe src="static/stage_size/index.html" width="500", height="50"></iframe></section>
+<iframe src="static/stage_size/index.html" width="500", height="50"></iframe>
+</section>
 <section id="stage-element-id-setting">
 <h2>Stage element id setting<a class="headerlink" href="#stage-element-id-setting" title="Permalink to this headline">¶</a></h2>
 <p>Stage element id (HTML id) can be set by <code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code> argument. If you don’t specify this, the apysc sets any unique id (based on created timestamp, like <code class="docutils literal notranslate"><span class="pre">stage_12345...</span></code>).</p>
@@ -113,7 +115,8 @@
 </section>
 <section id="stage-class-constructor-api">
 <h2>Stage class constructor API<a class="headerlink" href="#stage-class-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.stage.Stage.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.stage.Stage.__init__ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">stage_width:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">300,</span> <span class="pre">stage_height:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">185,</span> <span class="pre">background_color:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'#ffffff',</span> <span class="pre">add_to:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'body',</span> <span class="pre">stage_elem_id:</span> <span class="pre">Union[str,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Create Stage (overall viewport) instance.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -144,7 +147,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
@@ -154,7 +158,8 @@
 </section>
 <section id="stage-elem-id-property-api">
 <h2>stage_elem_id property API<a class="headerlink" href="#stage-elem-id-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.stage.Stage.stage_elem_id --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.stage.Stage.stage_elem_id -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong> Get stage’s html element id.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
@@ -164,7 +169,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
@@ -176,7 +182,8 @@
 </section>
 <section id="add-child-api">
 <h2>add_child API<a class="headerlink" href="#add-child-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">add_child(self,</span> <span class="pre">child:</span> <span class="pre">apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Add display object child to this instance.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -187,7 +194,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -198,14 +206,16 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_2</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">rectangle</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html">add_child and remove_child interfaces document</a></p></li>
 </ul>
 </section>
 <section id="remove-child-api">
 <h2>remove_child API<a class="headerlink" href="#remove-child-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">remove_child(self,</span> <span class="pre">child:</span> <span class="pre">apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Remove display object child from this instance.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -216,7 +226,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -228,14 +239,16 @@
 <span class="go">None</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html">add_child and remove_child interfaces document</a></p></li>
 </ul>
 </section>
 <section id="contains-api">
 <h2>contains API<a class="headerlink" href="#contains-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.contains --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.child_interface.ChildInterface.contains -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">contains(self,</span> <span class="pre">child:</span> <span class="pre">apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.boolean.Boolean</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Get a boolean whether this instance contains a specified child.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -246,7 +259,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: Boolean</p>
 <ul>
@@ -254,7 +268,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -269,14 +284,16 @@
 <span class="go">Boolean(False)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/contains.html">contains interface document</a></p></li>
 </ul>
 </section>
 <section id="num-children-property-api">
 <h2>num_children property API<a class="headerlink" href="#num-children-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.num_children --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.child_interface.ChildInterface.num_children -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong> Get a current children’s number.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
@@ -286,7 +303,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -299,14 +317,16 @@
 <span class="go">Int(2)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/num_children.html">num_children interface document</a></p></li>
 </ul>
 </section>
 <section id="get-child-at-api">
 <h2>get_child_at API<a class="headerlink" href="#get-child-at-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.get_child_at --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.child_interface.ChildInterface.get_child_at -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_child_at(self,</span> <span class="pre">index:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.display_object.DisplayObject</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Get a child at a specified index.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -317,7 +337,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">child</span></code>: DisplayObject</p>
 <ul>
@@ -325,7 +346,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -340,7 +362,8 @@
 <span class="go">True</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/get_child_at.html">get_child_at interface document</a></p></li>
 </ul>

@@ -59,7 +59,7 @@
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <p>The following page describes basic mouse event interfaces.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc">Basic mouse event interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc std std-doc">Basic mouse event interfaces</span></a></p></li>
 </ul>
 </section>
 <section id="basic-usage-of-the-click-interface">
@@ -104,7 +104,8 @@
 </pre></div>
 </div>
 <p>If you click the following rectangle, the rectangle color becomes the magenta color.</p>
-<iframe src="static/click_basic_usage_of_the_click_interface/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/click_basic_usage_of_the_click_interface/index.html" width="150" height="150"></iframe>
+</section>
 <section id="basic-usage-of-the-unbind-click-interface">
 <h2>Basic usage of the unbind_click interface<a class="headerlink" href="#basic-usage-of-the-unbind-click-interface" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> interface can remove the binded click event from a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
@@ -147,7 +148,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;click_basic_usage_of_the_unbind_click_interface/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/click_basic_usage_of_the_unbind_click_interface/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/click_basic_usage_of_the_unbind_click_interface/index.html" width="150" height="150"></iframe>
+</section>
 <section id="unbind-all-the-click-event-handlers">
 <h2>Unbind all the click event handlers<a class="headerlink" href="#unbind-all-the-click-event-handlers" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> interface can unbind all the click event handlers from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
@@ -190,10 +192,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;click_unbind_all_the_click_event_handlers/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/click_unbind_all_the_click_event_handlers/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/click_unbind_all_the_click_event_handlers/index.html" width="150" height="150"></iframe>
+</section>
 <section id="click-api">
 <h2>click API<a class="headerlink" href="#click-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.click_interface.ClickInterface.click --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._event.click_interface.ClickInterface.click -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">click(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_O,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Add a click event listener setting.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -209,7 +213,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
 <ul>
@@ -217,7 +222,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -231,14 +237,16 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_click</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html">About the handler options’ type document</a></p></li>
 </ul>
 </section>
 <section id="unbind-click-api">
 <h2>unbind_click API<a class="headerlink" href="#unbind-click-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.click_interface.ClickInterface.unbind_click --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._event.click_interface.ClickInterface.unbind_click -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_click(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Unbind specified handler’s click event.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -249,7 +257,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -267,7 +276,8 @@
 </section>
 <section id="unbind-click-all-api">
 <h2>unbind_click_all API<a class="headerlink" href="#unbind-click-all-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._event.click_interface.ClickInterface.unbind_click_all --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._event.click_interface.ClickInterface.unbind_click_all -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_click_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Unbind all click events.<hr></p>
 <p><strong>[Examples]</strong></p>

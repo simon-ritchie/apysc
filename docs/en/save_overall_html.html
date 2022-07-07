@@ -72,7 +72,8 @@
 </pre></div>
 </div>
 <p>The preceding code exports the <code class="docutils literal notranslate"><span class="pre">save_overall_html_interface_basic_usage/index.html</span></code> and the other JavaScript library files.</p>
-<iframe src="static/save_overall_html_interface_basic_usage/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/save_overall_html_interface_basic_usage/index.html" width="150" height="150"></iframe>
+</section>
 <section id="minify-the-html">
 <h2>Minify the HTML<a class="headerlink" href="#minify-the-html" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function has the <code class="docutils literal notranslate"><span class="pre">minify</span></code> optional argument (default is True). This interface minifies an output HTML if this value is <code class="docutils literal notranslate"><span class="pre">True</span></code>. The <code class="docutils literal notranslate"><span class="pre">False</span></code> setting is sometimes helpful for debugging.</p>
@@ -164,7 +165,8 @@
 </section>
 <section id="save-overall-html-api">
 <h2>save_overall_html API<a class="headerlink" href="#save-overall-html-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._html.exporter.save_overall_html --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._html.exporter.save_overall_html -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">save_overall_html(*,</span> <span class="pre">dest_dir_path:</span> <span class="pre">str,</span> <span class="pre">html_file_name:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'index.html',</span> <span class="pre">minify:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">js_lib_dir_path:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'./',</span> <span class="pre">skip_js_lib_exporting:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">embed_js_libs:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">verbose:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Save the overall HTML and js files under the specified directory path.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -205,7 +207,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
+<hr>
+<p><strong>[Notes]</strong></p>
 <p>This interface empties a specified directory before saving.<hr></p>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>

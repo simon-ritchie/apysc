@@ -121,7 +121,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_complete_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_complete_basic_usage/index.html" width="200" height="150"></iframe></section>
+<iframe src="static/animation_complete_basic_usage/index.html" width="200" height="150"></iframe>
+</section>
 <section id="notes-about-the-other-interface-calling-order">
 <h2>Notes about the other interface calling order<a class="headerlink" href="#notes-about-the-other-interface-calling-order" title="Permalink to this headline">¶</a></h2>
 <p>You can only call the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> before the animation start, so if you call the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method after the <code class="docutils literal notranslate"><span class="pre">start</span></code> method, it raises an exception:</p>
@@ -199,7 +200,8 @@
 </section>
 <section id="animation-complete-api">
 <h2>animation_complete API<a class="headerlink" href="#animation-complete-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._animation.animation_base.AnimationBase.animation_complete --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._animation.animation_base.AnimationBase.animation_complete -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_complete(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[ForwardRef('animation_event.AnimationEvent'),</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_O,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">'AnimationBase'</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Add an animation complete event listener setting.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -215,7 +217,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">self</span></code>: AnimatonBase</p>
 <ul>
@@ -223,11 +226,13 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Raises]</strong></p>
+<hr>
+<p><strong>[Raises]</strong></p>
 <ul class="simple">
 <li><p>Exception: If calling this interface after an animation starts</p></li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
+<hr>
+<p><strong>[Notes]</strong></p>
 <p>This interface can only use before an animation starts<hr></p>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -245,7 +250,8 @@
 <span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html">About the handler options’ type document</a></p></li>
 </ul>

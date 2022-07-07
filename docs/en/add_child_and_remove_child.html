@@ -107,7 +107,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_basic_usage_of_remove_child/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/sprite_basic_usage_of_remove_child/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/sprite_basic_usage_of_remove_child/index.html" width="150" height="150"></iframe>
+</section>
 <section id="the-basic-usage-of-the-add-child-interface">
 <h2>The basic usage of the add_child interface<a class="headerlink" href="#the-basic-usage-of-the-add-child-interface" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface adds a removed child again or adds a child to the other container instance.</p>
@@ -168,17 +169,19 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_basic_usage_of_add_child/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/sprite_basic_usage_of_add_child/index.html" width="250" height="150"></iframe></section>
+<iframe src="static/sprite_basic_usage_of_add_child/index.html" width="250" height="150"></iframe>
+</section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="display_object_parent.html"><span class="doc">DisplayObject class parent interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="contains.html"><span class="doc">contains interface</span></a></p></li>
+<li><p><a class="reference internal" href="display_object_parent.html"><span class="doc std std-doc">DisplayObject class parent interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="contains.html"><span class="doc std std-doc">contains interface</span></a></p></li>
 </ul>
 </section>
 <section id="add-child-api">
 <h2>add_child API<a class="headerlink" href="#add-child-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">add_child(self,</span> <span class="pre">child:</span> <span class="pre">apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Add display object child to this instance.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -189,7 +192,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -203,7 +207,8 @@
 </section>
 <section id="remove-child-api">
 <h2>remove_child API<a class="headerlink" href="#remove-child-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">remove_child(self,</span> <span class="pre">child:</span> <span class="pre">apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Remove display object child from this instance.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -214,7 +219,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>

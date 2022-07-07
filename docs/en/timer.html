@@ -115,22 +115,24 @@
 </pre></div>
 </div>
 <p>If you click the rectangle, the timer starts, and the Handler increases the rectangle x value.</p>
-<iframe src="static/timer_basic_usage/index.html" width="350" height="150"></iframe></section>
+<iframe src="static/timer_basic_usage/index.html" width="350" height="150"></iframe>
+</section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="timer_event.html"><span class="doc">TimerEvent class</span></a></p></li>
-<li><p><a class="reference internal" href="timer_delay.html"><span class="doc">Timer class delay setting</span></a></p></li>
-<li><p><a class="reference internal" href="fps.html"><span class="doc">FPS enum</span></a></p></li>
-<li><p><a class="reference internal" href="timer_repeat_count.html"><span class="doc">Timer class repeat_count setting</span></a></p></li>
-<li><p><a class="reference internal" href="timer_start_and_stop.html"><span class="doc">Timer class start and stop interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="timer_complete.html"><span class="doc">Timer class timer_complete interface</span></a></p></li>
-<li><p><a class="reference internal" href="timer_reset.html"><span class="doc">Timer class reset interface</span></a></p></li>
+<li><p><a class="reference internal" href="timer_event.html"><span class="doc std std-doc">TimerEvent class</span></a></p></li>
+<li><p><a class="reference internal" href="timer_delay.html"><span class="doc std std-doc">Timer class delay setting</span></a></p></li>
+<li><p><a class="reference internal" href="fps.html"><span class="doc std std-doc">FPS enum</span></a></p></li>
+<li><p><a class="reference internal" href="timer_repeat_count.html"><span class="doc std std-doc">Timer class repeat_count setting</span></a></p></li>
+<li><p><a class="reference internal" href="timer_start_and_stop.html"><span class="doc std std-doc">Timer class start and stop interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="timer_complete.html"><span class="doc std std-doc">Timer class timer_complete interface</span></a></p></li>
+<li><p><a class="reference internal" href="timer_reset.html"><span class="doc std std-doc">Timer class reset interface</span></a></p></li>
 </ul>
 </section>
 <section id="timer-constructor-api">
 <h2>Timer constructor API<a class="headerlink" href="#timer-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._time.timer.Timer.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._time.timer.Timer.__init__ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[ForwardRef('timer_event.TimerEvent'),</span> <span class="pre">~_O1],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">delay:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_interface.NumberValueInterface,</span> <span class="pre">apysc._time.fps.FPS],</span> <span class="pre">repeat_count:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">options:</span> <span class="pre">Union[~_O1,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Timer class to handle function calling at regular intervals.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -156,7 +158,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
@@ -174,7 +177,8 @@
 <span class="gp">... </span>    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/timer_event.html">TimerEvent class document</a></p></li>
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/timer_delay.html">Timer class delay setting document</a></p></li>

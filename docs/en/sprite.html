@@ -78,13 +78,14 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_graphics_attribute/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe><p>For more details, please see the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> related documents, for example:</p>
+<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>
+<p>For more details, please see the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> related documents, for example:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="graphics.html"><span class="doc">Graphics class</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_begin_fill.html"><span class="doc">Graphics begin_fill interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_line_style.html"><span class="doc">Graphics line_style interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_rect.html"><span class="doc">Graphics draw_rect interface</span></a></p></li>
-<li><p><a class="reference internal" href="graphics_draw_circle.html"><span class="doc">Graphics draw_circle interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics.html"><span class="doc std std-doc">Graphics class</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_begin_fill.html"><span class="doc std std-doc">Graphics begin_fill interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_style.html"><span class="doc std std-doc">Graphics line_style interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_rect.html"><span class="doc std std-doc">Graphics draw_rect interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_circle.html"><span class="doc std std-doc">Graphics draw_circle interface</span></a></p></li>
 </ul>
 </section>
 <section id="move-displayobject-instances-simultaneously">
@@ -126,20 +127,22 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_move_instances_simultaneously/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe><p>The subsequent pages explain the other interfaces, such as the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface.</p>
+<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>
+<p>The subsequent pages explain the other interfaces, such as the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="add_child_and_remove_child.html"><span class="doc">add_child and remove_child interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="contains.html"><span class="doc">contains interface</span></a></p></li>
-<li><p><a class="reference internal" href="num_children.html"><span class="doc">num_children interface</span></a></p></li>
-<li><p><a class="reference internal" href="get_child_at.html"><span class="doc">get_child_at interface</span></a></p></li>
+<li><p><a class="reference internal" href="add_child_and_remove_child.html"><span class="doc std std-doc">add_child and remove_child interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="contains.html"><span class="doc std std-doc">contains interface</span></a></p></li>
+<li><p><a class="reference internal" href="num_children.html"><span class="doc std std-doc">num_children interface</span></a></p></li>
+<li><p><a class="reference internal" href="get_child_at.html"><span class="doc std std-doc">get_child_at interface</span></a></p></li>
 </ul>
 </section>
 <section id="sprite-class-constructor-api">
 <h2>Sprite class constructor API<a class="headerlink" href="#sprite-class-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.sprite.Sprite.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">variable_name:</span> <span class="pre">Union[str,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Create a basic display object that can be a parent.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -150,7 +153,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>

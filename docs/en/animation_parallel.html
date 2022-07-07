@@ -85,7 +85,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;animation_parallel_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_parallel_basic_usage/index.html" width="400" height="150"></iframe></section>
+<iframe src="static/animation_parallel_basic_usage/index.html" width="400" height="150"></iframe>
+</section>
 <section id="note-for-each-animation-s-duration-delay-and-easing-setting">
 <h2>Note for each animation’s duration, delay, and easing setting<a class="headerlink" href="#note-for-each-animation-s-duration-delay-and-easing-setting" title="Permalink to this headline">¶</a></h2>
 <p>Animation settings of the <code class="docutils literal notranslate"><span class="pre">duration</span></code>, <code class="docutils literal notranslate"><span class="pre">delay</span></code>, and <code class="docutils literal notranslate"><span class="pre">easing</span></code> in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument can’t be changed since these animation settings are referring to the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> arguments. If you set these parameters in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> arguments, setting raise an error:</p>
@@ -107,7 +108,8 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 </section>
 <section id="animation-parallel-api">
 <h2>animation_parallel API<a class="headerlink" href="#animation-parallel-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._animation.animation_parallel_interface.AnimationParallelInterface.animation_parallel --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._animation.animation_parallel_interface.AnimationParallelInterface.animation_parallel -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_parallel(self,</span> <span class="pre">*,</span> <span class="pre">animations:</span> <span class="pre">List[apysc._animation.animation_base.AnimationBase],</span> <span class="pre">duration:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">3000,</span> <span class="pre">delay:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">easing:</span> <span class="pre">apysc._animation.easing.Easing</span> <span class="pre">=</span> <span class="pre">&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_parallel.AnimationParallel</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Set the parallel animation setting.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -133,7 +135,8 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code>: AnimationParallel</p>
 <ul>
@@ -141,11 +144,13 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Raises]</strong></p>
+<hr>
+<p><strong>[Raises]</strong></p>
 <ul class="simple">
 <li><p>ValueError: <br> ・If the animations’ target is not this instance. <br> ・If there are changed duration, delay, or easing animation settings in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> list.</p></li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
+<hr>
+<p><strong>[Notes]</strong></p>
 <p>・To start this animation, you need to call the <code class="docutils literal notranslate"><span class="pre">start</span></code> method of the returned instance. <br> ・The <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument can’t contains the <code class="docutils literal notranslate"><span class="pre">AnimationParallel</span></code> instance. <br> ・This interface ignores the duration, delay, and easing arguments in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument (this interface uses self-arguments instead).<hr></p>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -165,7 +170,8 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 <span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/animation_duration.html">Animation interfaces duration setting document</a></p></li>
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/animation_delay.html">Animation interfaces delay setting document</a></p></li>

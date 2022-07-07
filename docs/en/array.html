@@ -52,7 +52,7 @@
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Array</span></code> class.</p>
 <p>Before reading on, maybe it is helpful to read the following page:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
+<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
 </ul>
 <section id="what-is-the-array">
 <h2>What is the Array?<a class="headerlink" href="#what-is-the-array" title="Permalink to this headline">¶</a></h2>
@@ -91,24 +91,25 @@
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="fundamental_data_classes_value_interface.html"><span class="doc">Funcdamental data classes common value interface</span></a></p></li>
-<li><p><a class="reference internal" href="array_append_and_push.html"><span class="doc">Array class append and push interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="array_extend_and_concat.html"><span class="doc">Array class extend and concat interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="array_insert_and_insert_at.html"><span class="doc">Array class insert and insert_at interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="array_pop.html"><span class="doc">Array class pop interface</span></a></p></li>
-<li><p><a class="reference internal" href="array_remove_and_remove_at.html"><span class="doc">Array class remove and remove_at interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="array_sort.html"><span class="doc">Array class sort interface</span></a></p></li>
-<li><p><a class="reference internal" href="array_reverse.html"><span class="doc">Array class reverse interface</span></a></p></li>
-<li><p><a class="reference internal" href="array_slice.html"><span class="doc">Array class slice interface</span></a></p></li>
-<li><p><a class="reference internal" href="array_length.html"><span class="doc">Array class length interface</span></a></p></li>
-<li><p><a class="reference internal" href="array_join.html"><span class="doc">Array class join interface</span></a></p></li>
-<li><p><a class="reference internal" href="array_index_of.html"><span class="doc">Array class index_of interface</span></a></p></li>
-<li><p><a class="reference internal" href="array_comparison.html"><span class="doc">Array class comparison interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="fundamental_data_classes_value_interface.html"><span class="doc std std-doc">Funcdamental data classes common value interface</span></a></p></li>
+<li><p><a class="reference internal" href="array_append_and_push.html"><span class="doc std std-doc">Array class append and push interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="array_extend_and_concat.html"><span class="doc std std-doc">Array class extend and concat interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="array_insert_and_insert_at.html"><span class="doc std std-doc">Array class insert and insert_at interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="array_pop.html"><span class="doc std std-doc">Array class pop interface</span></a></p></li>
+<li><p><a class="reference internal" href="array_remove_and_remove_at.html"><span class="doc std std-doc">Array class remove and remove_at interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="array_sort.html"><span class="doc std std-doc">Array class sort interface</span></a></p></li>
+<li><p><a class="reference internal" href="array_reverse.html"><span class="doc std std-doc">Array class reverse interface</span></a></p></li>
+<li><p><a class="reference internal" href="array_slice.html"><span class="doc std std-doc">Array class slice interface</span></a></p></li>
+<li><p><a class="reference internal" href="array_length.html"><span class="doc std std-doc">Array class length interface</span></a></p></li>
+<li><p><a class="reference internal" href="array_join.html"><span class="doc std std-doc">Array class join interface</span></a></p></li>
+<li><p><a class="reference internal" href="array_index_of.html"><span class="doc std std-doc">Array class index_of interface</span></a></p></li>
+<li><p><a class="reference internal" href="array_comparison.html"><span class="doc std std-doc">Array class comparison interfaces</span></a></p></li>
 </ul>
 </section>
 <section id="array-class-constructor-api">
 <h2>Array class constructor API<a class="headerlink" href="#array-class-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.array.Array.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._type.array.Array.__init__ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[List[~T],</span> <span class="pre">tuple,</span> <span class="pre">range,</span> <span class="pre">ForwardRef('Array')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Array class for the apysc library.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -119,7 +120,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span>
@@ -140,14 +142,16 @@
 <span class="go">Array([0, 1, 2])</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/array_comparison.html">Array class comparison interfaces document</a></p></li>
 </ul>
 </section>
 <section id="value-property-api">
 <h2>value property API<a class="headerlink" href="#value-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.array.Array.value --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._type.array.Array.value -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong> Get a current array value.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
@@ -157,7 +161,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
@@ -165,7 +170,8 @@
 <span class="go">[4, 5, 6]</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html">apysc fundamental data classes value interface</a></p></li>
 </ul>

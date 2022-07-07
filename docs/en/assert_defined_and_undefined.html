@@ -53,7 +53,7 @@
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="assertion_basic_behavior.html"><span class="doc">JavaScript assertion interface basic behavior</span></a></p></li>
+<li><p><a class="reference internal" href="assertion_basic_behavior.html"><span class="doc std std-doc">JavaScript assertion interface basic behavior</span></a></p></li>
 </ul>
 </section>
 <section id="basic-usage">
@@ -80,7 +80,8 @@
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">other</span> <span class="n">than</span> <span class="n">undefined</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">10</span>
 </pre></div>
 </div>
-<iframe src="static/assert_defined_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and the deleted value) fails:</p>
+<iframe src="static/assert_defined_basic_usage_1/index.html" width="0" height="0"></iframe>
+<p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and the deleted value) fails:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -105,7 +106,8 @@ Left value: other than undefined right value: undefined
 Assertion failed: Value is not defined!
 </pre></div>
 </div>
-<iframe src="static/assert_defined_basic_usage_2/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> and the deleted value) passes:</p>
+<iframe src="static/assert_defined_basic_usage_2/index.html" width="0" height="0"></iframe>
+<p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> and the deleted value) passes:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -128,10 +130,12 @@ Assertion failed: Value is not defined!
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">undefined</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">undefined</span>
 </pre></div>
 </div>
-<iframe src="static/assert_undefined_basic_usage_1/index.html" width="0" height="0"></iframe></section>
+<iframe src="static/assert_undefined_basic_usage_1/index.html" width="0" height="0"></iframe>
+</section>
 <section id="assert-defined-api">
 <h2>assert_defined API<a class="headerlink" href="#assert-defined-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._console.assertion.assert_defined --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._console.assertion.assert_defined -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_defined(value:</span> <span class="pre">Any,</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> JavaScript assertion interface for defined (not undefined) value condition.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -147,7 +151,8 @@ Assertion failed: Value is not defined!
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_defined</span><span class="p">(</span><span class="n">int_val</span><span class="p">)</span>
@@ -156,7 +161,8 @@ Assertion failed: Value is not defined!
 </section>
 <section id="assert-undefined-api">
 <h2>assert_undefined API<a class="headerlink" href="#assert-undefined-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._console.assertion.assert_undefined --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._console.assertion.assert_undefined -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_undefined(value:</span> <span class="pre">Any,</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> JavaScript assertion interface for undefined value condition.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -172,7 +178,8 @@ Assertion failed: Value is not defined!
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">append_js_expression</span><span class="p">(</span>

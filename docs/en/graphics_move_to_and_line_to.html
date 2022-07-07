@@ -81,7 +81,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe>
+</section>
 <section id="sequential-calling-of-the-line-to-interface">
 <h2>Sequential calling of the line_to interface<a class="headerlink" href="#sequential-calling-of-the-line-to-interface" title="Permalink to this headline">¶</a></h2>
 <p>Sequentially, if you call the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface, the result line becomes the polyline.</p>
@@ -117,7 +118,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_sequential_calling/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_move_to_and_line_to_sequential_calling/index.html" width="200" height="200"></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_sequential_calling/index.html" width="200" height="200"></iframe>
+</section>
 <section id="move-to-interface-calling-after-line-to-interface-calling">
 <h2>move_to interface calling after line_to interface calling<a class="headerlink" href="#move-to-interface-calling-after-line-to-interface-calling" title="Permalink to this headline">¶</a></h2>
 <p>If you call the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interface after calling the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface, it creates a new line instance.</p>
@@ -150,7 +152,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_multi_move_to_calling/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_move_to_and_line_to_multi_move_to_calling/index.html" width="250" height="150"></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_multi_move_to_calling/index.html" width="250" height="150"></iframe>
+</section>
 <section id="polyline-instance">
 <h2>Polyline instance<a class="headerlink" href="#polyline-instance" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces will return <code class="docutils literal notranslate"><span class="pre">Polyline</span></code> instance. You can update each setting or bind events to that instance.</p>
@@ -193,10 +196,12 @@
 </pre></div>
 </div>
 <p>If you click the following line, line style will be updated:</p>
-<iframe src="static/graphics_move_to_and_line_to_polyline/index.html" width="200" height="100"></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_polyline/index.html" width="200" height="100"></iframe>
+</section>
 <section id="move-to-api">
 <h2>move_to API<a class="headerlink" href="#move-to-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.graphics.Graphics.move_to --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.graphics.Graphics.move_to -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">move_to(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">'_polyline.Polyline'</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Move a line position to a specified point.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -212,7 +217,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Polyline</p>
 <ul>
@@ -220,7 +226,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -240,7 +247,8 @@
 </section>
 <section id="line-to-api">
 <h2>line_to API<a class="headerlink" href="#line-to-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.graphics.Graphics.line_to --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.graphics.Graphics.line_to -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">line_to(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">'_polyline.Polyline'</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -256,7 +264,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Polyline</p>
 <ul>
@@ -264,7 +273,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>

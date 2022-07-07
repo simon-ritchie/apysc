@@ -85,7 +85,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_basic_usage/index.html" width="350" height="150"></iframe></section>
+<iframe src="static/graphics_begin_fill_basic_usage/index.html" width="350" height="150"></iframe>
+</section>
 <section id="fill-color-setting">
 <h2>Fill color setting<a class="headerlink" href="#fill-color-setting" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">color</span></code> argument sets the fill color, and the <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> interface requires this argument.</p>
@@ -107,7 +108,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_fill_color/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe><p>If you want to clear fill color, specify a blank string to this argument.</p>
+<iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe>
+<p>If you want to clear fill color, specify a blank string to this argument.</p>
 <p>For example, since the following code clears fill color settings, a rectangle graphic becomes invisible.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -132,7 +134,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_color_setting_clear/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_color_setting_clear/index.html" width="150" height="150"></iframe><p>Color code is acceptable like the following list:</p>
+<iframe src="static/graphics_begin_fill_color_setting_clear/index.html" width="150" height="150"></iframe>
+<p>Color code is acceptable like the following list:</p>
 <ul class="simple">
 <li><p>Six characters, e.g., <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>.</p></li>
 <li><p>Three characters, e.g., <code class="docutils literal notranslate"><span class="pre">#0af</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
@@ -174,7 +177,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_acceptable_color_settings/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_acceptable_color_settings/index.html" width="450" height="150"></iframe></section>
+<iframe src="static/graphics_begin_fill_acceptable_color_settings/index.html" width="450" height="150"></iframe>
+</section>
 <section id="fill-color-alpha-opacity-setting">
 <h2>Fill color alpha (opacity) setting<a class="headerlink" href="#fill-color-alpha-opacity-setting" title="Permalink to this headline">¶</a></h2>
 <p>Fill color alpha (opacity) can be set by the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> argument. It can accept 0.0 (transparent) to 1.0 (opaque).</p>
@@ -204,10 +208,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_alpha_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_alpha_setting/index.html" width="200" height="200"></iframe></section>
+<iframe src="static/graphics_begin_fill_alpha_setting/index.html" width="200" height="200"></iframe>
+</section>
 <section id="begin-fill-api">
 <h2>begin_fill API<a class="headerlink" href="#begin-fill-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.begin_fill --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.begin_fill -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">begin_fill(self,</span> <span class="pre">*,</span> <span class="pre">color:</span> <span class="pre">~StrOrString,</span> <span class="pre">alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Set single color value for fill.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -223,7 +229,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -237,7 +244,8 @@
 </section>
 <section id="fill-color-property-api">
 <h2>fill_color property API<a class="headerlink" href="#fill-color-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.fill_color --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.fill_color -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong> Get current fill color.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
@@ -247,7 +255,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -261,7 +270,8 @@
 </section>
 <section id="fill-alpha-property-api">
 <h2>fill_alpha property API<a class="headerlink" href="#fill-alpha-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.fill_alpha --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.fill_alpha -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong> Get current fill color opacity.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
@@ -271,7 +281,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>

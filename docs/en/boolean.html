@@ -52,7 +52,7 @@
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class.</p>
 <p>Before reading on, maybe it is helpful to read the following page:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
+<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
 </ul>
 <section id="what-is-the-boolean-class">
 <h2>What is the Boolean class?<a class="headerlink" href="#what-is-the-boolean-class" title="Permalink to this headline">¶</a></h2>
@@ -136,7 +136,8 @@
 </section>
 <section id="boolean-class-constructor-api">
 <h2>Boolean class constructor API<a class="headerlink" href="#boolean-class-constructor-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.boolean.Boolean.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._type.boolean.Boolean.__init__ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[bool,</span> <span class="pre">int,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">ForwardRef('Boolean')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Boolean class for apysc library.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -147,7 +148,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Notes]</strong></p>
+<hr>
+<p><strong>[Notes]</strong></p>
 <p>The Bool class is the alias of the Boolean, and it behaves the same as the Boolean class.<hr></p>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -163,7 +165,8 @@
 </section>
 <section id="value-property-api">
 <h2>value property API<a class="headerlink" href="#value-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.boolean.Boolean.value --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._type.boolean.Boolean.value -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong> Get a current boolean value.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
@@ -173,7 +176,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
@@ -185,14 +189,16 @@
 <span class="go">True</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html">apysc fundamental data classes value interface</a></p></li>
 </ul>
 </section>
 <section id="not-property-api">
 <h2>not_ property API<a class="headerlink" href="#not-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.boolean.Boolean.not_ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._type.boolean.Boolean.not_ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong> Get a not condition Boolean value.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
@@ -202,7 +208,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bool_val</span><span class="o">.</span><span class="n">not_</span>

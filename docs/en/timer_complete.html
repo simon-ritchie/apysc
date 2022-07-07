@@ -149,10 +149,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_complete_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/timer_complete_basic_usage/index.html" width="250" height="150"></iframe></section>
+<iframe src="static/timer_complete_basic_usage/index.html" width="250" height="150"></iframe>
+</section>
 <section id="timer-complete-api">
 <h2>timer_complete API<a class="headerlink" href="#timer-complete-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._time.timer.Timer.timer_complete --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._time.timer.Timer.timer_complete -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">timer_complete(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[ForwardRef('timer_event.TimerEvent'),</span> <span class="pre">~_O2],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_O2,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Add a timer complete event listener setting.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -168,7 +170,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Returns]</strong></p>
+<hr>
+<p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
 <ul>
@@ -176,7 +179,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
@@ -199,7 +203,8 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[References]</strong></p>
+<hr>
+<p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html">About the handler options’ type document</a></p></li>
 </ul>

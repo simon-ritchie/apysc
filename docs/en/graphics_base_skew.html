@@ -22,7 +22,7 @@
     <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Draw interfaces abstract" href="draw_interfaces_abstract.html" />
+    <link rel="next" title="Rectangle class" href="rectangle.html" />
     <link rel="prev" title="GraphicsBase flip_x and flip_y interfaces" href="graphics_base_flip_interfaces.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -32,7 +32,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="draw_interfaces_abstract.html" title="Draw interfaces abstract"
+          <a href="rectangle.html" title="Rectangle class"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="graphics_base_flip_interfaces.html" title="GraphicsBase flip_x and flip_y interfaces"
@@ -74,7 +74,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_base_skew_x_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_base_skew_x_basic_usage/index.html" width="250" height="150"></iframe><p>The following example skews the rectangle in the y-direction incrementally.</p>
+<iframe src="static/graphics_base_skew_x_basic_usage/index.html" width="250" height="150"></iframe>
+<p>The following example skews the rectangle in the y-direction incrementally.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -117,10 +118,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_base_skew_y_incremental_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_base_skew_y_incremental_basic_usage/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/graphics_base_skew_y_incremental_basic_usage/index.html" width="150" height="150"></iframe>
+</section>
 <section id="skew-x-property-api">
 <h2>skew_x property API<a class="headerlink" href="#skew-x-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.skew_x_interface.SkewXInterface.skew_x --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.skew_x_interface.SkewXInterface.skew_x -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong> Get a current skew x value of the instance.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
@@ -130,7 +133,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -145,7 +149,8 @@
 </section>
 <section id="skew-y-property-api">
 <h2>skew_y property API<a class="headerlink" href="#skew-y-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._display.skew_y_interface.SkewYInterface.skew_y --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<!-- Docstring: apysc._display.skew_y_interface.SkewYInterface.skew_y -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong> Get a current skew y value of the instance.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
@@ -155,7 +160,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[Examples]</strong></p>
+<hr>
+<p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -194,8 +200,8 @@
   <p class="topless"><a href="graphics_base_flip_interfaces.html"
                         title="previous chapter">GraphicsBase flip_x and flip_y interfaces</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="draw_interfaces_abstract.html"
-                        title="next chapter">Draw interfaces abstract</a></p>
+  <p class="topless"><a href="rectangle.html"
+                        title="next chapter">Rectangle class</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -217,7 +223,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="draw_interfaces_abstract.html" title="Draw interfaces abstract"
+          <a href="rectangle.html" title="Rectangle class"
              >next</a> |</li>
         <li class="right" >
           <a href="graphics_base_flip_interfaces.html" title="GraphicsBase flip_x and flip_y interfaces"

@@ -1,11 +1,7 @@
 import os
 from random import randint
 from typing import Any
-from typing import Type
-from typing import Union
 
-from docutils.transforms import Transform  # type: ignore
-from recommonmark.transform import AutoStructify
 from retrying import retry
 from sphinx.application import Sphinx
 
@@ -17,40 +13,6 @@ class _MockSphinx(Sphinx):
     def __init__(self) -> None:
         """The mock class for the `Sphinx` class.
         """
-
-    def add_config_value(
-            self, name: str, default: Any, rebuild: Union[bool, str],
-            types: Any = ()) -> None:
-        """
-        Register a configuration value.
-
-        Parameters
-        ----------
-        name : str
-            The name of configuration value.
-        default : Any
-            The default value of the configuration.
-        rebuild : Union[bool, str]
-            The condition of rebuild.
-        types : Any, optional
-            The type of configuration value.
-        """
-        assert name == 'recommonmark_config'
-        assert default == {
-            'auto_toc_tree_section': 'Table of contents',
-        }
-        assert rebuild
-
-    def add_transform(self, transform: Type[Transform]) -> None:
-        """
-        Register a Docutils transform to be applied after parsing.
-
-        Parameters
-        ----------
-        transform : Type[Transform]
-            A transform class.
-        """
-        assert transform == AutoStructify
 
     def add_js_file(
             self, filename: str, priority: int = 500,

@@ -12,8 +12,6 @@ Other languages documentations: | English | [Japanese (日本語)](https://simon
 
 ## Quick start guide
 
-### Table of contents
-
 ```{toctree}
 :maxdepth: 1
 what_apysc_can_do
@@ -26,8 +24,6 @@ recommended_type_checker_settings
 
 The `Stage` is the apysc overall drawing area container, and the `Sprite` is the container class.
 
-### Table of contents
-
 ```{toctree}
 :maxdepth: 1
 stage
@@ -37,8 +33,6 @@ sprite
 ## Exporting
 
 The HTML and JavaScript exporting interfaces.
-
-### Table of contents
 
 ```{toctree}
 :maxdepth: 1
@@ -52,8 +46,6 @@ append_js_expression
 
 The parent class, such as the `Sprite` or `Stage`, has the following interfaces:
 
-### Table of contents
-
 ```{toctree}
 :maxdepth: 1
 add_child_and_remove_child
@@ -64,8 +56,6 @@ get_child_at
 ```
 
 ## apysc basic data classes
-
-### Table of contents
 
 ```{toctree}
 :maxdepth: 1
@@ -103,8 +93,6 @@ point2d
 
 The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphic class, such as the `Rectangle` class.
 
-### Table of contents
-
 ```{toctree}
 :maxdepth: 1
 display_object
@@ -133,8 +121,6 @@ graphics_base_skew
 
 ## Each graphic class
 
-### Table of contents
-
 ```{toctree}
 :maxdepth: 1
 rectangle
@@ -148,8 +134,6 @@ polygon
 ## Graphics class
 
 <br><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe>
-
-### Table of contents
 
 The `Graphics` class handles each vector graphics drawing.
 
@@ -175,8 +159,6 @@ graphics_clear
 
 ## Common event interfaces
 
-### Table of contents
-
 ```{toctree}
 :maxdepth: 1
 about_handler_options_type
@@ -187,8 +169,6 @@ bind_and_trigger_custom_event
 ## MouseEvent class and mouse event binding
 
 <br><iframe src="static/mousemove_basic_usage/index.html" width="200" height="200"></iframe>
-
-### Table of contents
 
 ```{toctree}
 :maxdepth: 1
@@ -203,8 +183,6 @@ mousemove
 
 ## Branch instruction
 
-### Table of contents
-
 ```{toctree}
 :maxdepth: 1
 if
@@ -216,8 +194,6 @@ return
 
 ## Loop
 
-### Table of contents
-
 ```{toctree}
 :maxdepth: 1
 for
@@ -227,8 +203,6 @@ continue
 ## Timer
 
 <br><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe>
-
-### Table of contents
 
 ```{toctree}
 :maxdepth: 1
@@ -245,8 +219,6 @@ timer_reset
 ## Animation
 
 <br><iframe src="static/animation_interfaces_abstract_rotation_around_center/index.html" width="150" height="150"></iframe>
-
-### Table of contents
 
 ```{toctree}
 :maxdepth: 1
@@ -286,16 +258,12 @@ animation_skew_x
 
 ## Other manipulation interfaces
 
-### Table of contents
-
 ```{toctree}
 :maxdepth: 1
 delete
 ```
 
 ## Debugging
-
-### Table of contents
 
 ```{toctree}
 :maxdepth: 1
@@ -306,8 +274,6 @@ add_debug_info_setting
 ```
 
 ## Testing
-
-### Table of contents
 
 ```{toctree}
 :maxdepth: 1

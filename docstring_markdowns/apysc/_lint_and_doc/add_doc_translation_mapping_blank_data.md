@@ -222,6 +222,24 @@ Set the same key as a value if a specified key is a no-mapping fixed string.<hr>
 - `value`: str
   - This interface returns a key's value if a specified key is a no-mapping fixed string. Otherwise, this interface returns a specified value directly.
 
+## `_set_translated_file_names_to_toc_code_block` function docstring
+
+Set translated file names to a specified mapping value if a value is the table of contents' code block.<hr>
+
+**[Parameters]**
+
+- `lang`: Lang
+  - A target language setting.
+- `value`: str
+  - A mapping value.
+
+<hr>
+
+**[Returns]**
+
+- `value`: str
+  - A result mapping value.
+
 ## `add_mapping_blank_data` function docstring
 
 Add a mapping's blank data of document translations.<hr>

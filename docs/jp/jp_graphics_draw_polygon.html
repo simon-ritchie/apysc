@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -90,7 +89,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_polygon_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_polygon_basic_usage/index.html" width="250" height="150"></iframe></section>
+<iframe src="static/graphics_draw_polygon_basic_usage/index.html" width="250" height="150"></iframe>
+</section>
 <section id="line-to-draw-polygon">
 <h2>line_to と draw_polygon の各インターフェイスの違いについて<a class="headerlink" href="#line-to-draw-polygon" title="Permalink to this headline">¶</a></h2>
 <p>塗りの色の設定をした場合<code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>と<code class="docutils literal notranslate"><span class="pre">line_to</span></code>（及び<code class="docutils literal notranslate"><span class="pre">move_to</span></code>）のインターフェイスの挙動は少し近くなります。例えば以下のコード例では各インターフェイスでどちらも三角形が描画しています。</p>
@@ -124,7 +124,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_polygon_line_to_difference_1/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_polygon_line_to_difference_1/index.html" width="250" height="150"></iframe><p>一方で、各インターフェイスにはパスを閉じる必要があるかどうかの違いがあります。この違いは線の設定を行った場合には顕著になります。<code class="docutils literal notranslate"><span class="pre">line_to</span></code>のインターフェイスでは終点の座標から始点の座標へはパスが自動では繋がりません。</p>
+<iframe src="static/graphics_draw_polygon_line_to_difference_1/index.html" width="250" height="150"></iframe>
+<p>一方で、各インターフェイスにはパスを閉じる必要があるかどうかの違いがあります。この違いは線の設定を行った場合には顕著になります。<code class="docutils literal notranslate"><span class="pre">line_to</span></code>のインターフェイスでは終点の座標から始点の座標へはパスが自動では繋がりません。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -157,7 +158,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_polygon_line_to_difference_2/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_polygon_line_to_difference_2/index.html" width="250" height="150"></iframe></section>
+<iframe src="static/graphics_draw_polygon_line_to_difference_2/index.html" width="250" height="150"></iframe>
+</section>
 <section id="id3">
 <h2>返却値<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Polygon</span></code>クラスのインスタンスを返却します。そのインスタンスは他のグラフィックス系のインスタンスと同様の基本的なインターフェイスを持っています。加えて、<code class="docutils literal notranslate"><span class="pre">Polygon</span></code>クラスは頂点を加えるための<code class="docutils literal notranslate"><span class="pre">append_line_point</span></code>メソッドを持っています。</p>
@@ -189,7 +191,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_polygon_append_line_point/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_polygon_append_line_point/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/graphics_draw_polygon_append_line_point/index.html" width="150" height="150"></iframe>
+</section>
 <section id="draw-polygon-api">
 <h2>draw_polygon API<a class="headerlink" href="#draw-polygon-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
@@ -203,7 +206,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">polygon</span></code>: Polygon</p>
 <ul>
@@ -211,7 +215,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>

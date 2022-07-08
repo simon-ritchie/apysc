@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -52,7 +51,7 @@
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Continue</span></code>クラスについて説明します。</p>
 <p>このページを読み進める前に以下のページを確認しておくと役に立つかもしれません（apyscでは<code class="docutils literal notranslate"><span class="pre">Continue</span></code>クラスを同様の利用で使用しています）。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
+<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
 </ul>
 <section id="id1">
 <h2>Continue クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
@@ -85,7 +84,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;continue_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/continue_basic_usage/index.html" width="250" height="150"></iframe><p>もし<code class="docutils literal notranslate"><span class="pre">Continue</span></code>クラスを<code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">For</span></code>ブロック外で使用した場合はエラーになります:</p>
+<iframe src="static/continue_basic_usage/index.html" width="250" height="150"></iframe>
+<p>もし<code class="docutils literal notranslate"><span class="pre">Continue</span></code>クラスを<code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">For</span></code>ブロック外で使用した場合はエラーになります:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Continue</span><span class="p">()</span>

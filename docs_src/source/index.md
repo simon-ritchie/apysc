@@ -64,7 +64,7 @@ fundamental_data_classes_value_interface
 int_and_number
 int_and_number_arithmetic_operations
 int_and_number_comparison_operations
-string.md
+string
 string_comparison_operations
 string_addition_and_multiplication
 boolean

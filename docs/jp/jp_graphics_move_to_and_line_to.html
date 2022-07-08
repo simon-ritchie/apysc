@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -81,7 +80,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe>
+</section>
 <section id="line-to">
 <h2>line_to インターフェイスの連続した呼び出し<a class="headerlink" href="#line-to" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">line_to</span></code>インターフェイスを連続して呼び出した場合、結果の線は折れ線になります。</p>
@@ -117,7 +117,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_sequential_calling/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_move_to_and_line_to_sequential_calling/index.html" width="200" height="200"></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_sequential_calling/index.html" width="200" height="200"></iframe>
+</section>
 <section id="line-to-move-to">
 <h2>line_to インターフェイスを呼び出した後の move_to インターフェイスの呼び出し<a class="headerlink" href="#line-to-move-to" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">line_to</span></code>インターフェイスを呼び出した後に<code class="docutils literal notranslate"><span class="pre">move_to</span></code>を呼び出した場合新しい線のインスタンスが生成されます。</p>
@@ -150,7 +151,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_multi_move_to_calling/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_move_to_and_line_to_multi_move_to_calling/index.html" width="250" height="150"></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_multi_move_to_calling/index.html" width="250" height="150"></iframe>
+</section>
 <section id="polyline">
 <h2>Polyline インスタンス<a class="headerlink" href="#polyline" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">move_to</span></code>や<code class="docutils literal notranslate"><span class="pre">line_to</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Polyline</span></code>クラスのインスタンスを返却します。そのインスタンスを使って各設定を更新したりイベントを設定したりすることができます。</p>
@@ -193,7 +195,8 @@
 </pre></div>
 </div>
 <p>もし以下の四角をクリックし0た場合、線のスタイルは更新されます:</p>
-<iframe src="static/graphics_move_to_and_line_to_polyline/index.html" width="200" height="100"></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_polyline/index.html" width="200" height="100"></iframe>
+</section>
 <section id="move-to-api">
 <h2>move_to API<a class="headerlink" href="#move-to-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
@@ -212,7 +215,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Polyline</p>
 <ul>
@@ -220,7 +224,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -256,7 +261,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Polyline</p>
 <ul>
@@ -264,7 +270,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>

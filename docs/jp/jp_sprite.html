@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -78,13 +77,14 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_graphics_attribute/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe><p>詳細は以下の<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスの関連ドキュメントをご覧ください。</p>
+<iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>
+<p>詳細は以下の<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスの関連ドキュメントをご覧ください。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_graphics.html"><span class="doc">Graphics クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_graphics_begin_fill.html"><span class="doc">Graphics クラス begin_fill （塗り設定）のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_graphics_line_style.html"><span class="doc">Graphics クラス line_style （線設定）のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_graphics_draw_rect.html"><span class="doc">Graphics クラス draw_rect （四角描画）のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_graphics_draw_circle.html"><span class="doc">Graphics クラス draw_circle （円描画）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics.html"><span class="doc std std-doc">Graphics クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_begin_fill.html"><span class="doc std std-doc">Graphics クラス begin_fill （塗り設定）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_line_style.html"><span class="doc std std-doc">Graphics クラス line_style （線設定）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_rect.html"><span class="doc std std-doc">Graphics クラス draw_rect （四角描画）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_graphics_draw_circle.html"><span class="doc std std-doc">Graphics クラス draw_circle （円描画）のインターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="displayobject">
@@ -126,15 +126,16 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_move_instances_simultaneously/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe><p>以降のページでは<code class="docutils literal notranslate"><span class="pre">add_child</span></code>のインターフェースなど、Spriteクラスの他のインターフェースについて説明していきます。</p>
+<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>
+<p>以降のページでは<code class="docutils literal notranslate"><span class="pre">add_child</span></code>のインターフェースなど、Spriteクラスの他のインターフェースについて説明していきます。</p>
 </section>
 <section id="id3">
 <h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_add_child_and_remove_child.html"><span class="doc">add_child （子の追加）と remove_child （子の削除）のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_contains.html"><span class="doc">contains インターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_num_children.html"><span class="doc">num_children （子の件数属性）のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_get_child_at.html"><span class="doc">get_child_at （特定位置の子の取得処理）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_add_child_and_remove_child.html"><span class="doc std std-doc">add_child （子の追加）と remove_child （子の削除）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_contains.html"><span class="doc std std-doc">contains インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_num_children.html"><span class="doc std std-doc">num_children （子の件数属性）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_get_child_at.html"><span class="doc std std-doc">get_child_at （特定位置の子の取得処理）のインターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="spriteapi">
@@ -150,7 +151,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>

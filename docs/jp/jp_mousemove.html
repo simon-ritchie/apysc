@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -58,7 +57,7 @@
 <h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>以下のページでは基本的なマウスイベントの各インターフェイスについて説明しています。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_mouse_event_basic.html"><span class="doc">基本的なマウスイベントの各インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mouse_event_basic.html"><span class="doc std std-doc">基本的なマウスイベントの各インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="id3">
@@ -101,7 +100,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mousemove_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/mousemove_basic_usage/index.html" width="200" height="200"></iframe></section>
+<iframe src="static/mousemove_basic_usage/index.html" width="200" height="200"></iframe>
+</section>
 <section id="id4">
 <h2>解除用のインターフェイス<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unbind_mousemove</span></code>インターフェイスでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスのマウスを動かした時のイベントのハンドラ設定を解除することができます。</p>
@@ -158,7 +158,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mousemove_unbind_interface/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/mousemove_unbind_interface/index.html" width="200" height="200"></iframe><p>また、<code class="docutils literal notranslate"><span class="pre">unbind_mousemove_all</span></code>のインターフェイスも存在し、このインターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスからマウスを動かしたときのイベントのハンドラ設定を全て解除します。</p>
+<iframe src="static/mousemove_unbind_interface/index.html" width="200" height="200"></iframe>
+<p>また、<code class="docutils literal notranslate"><span class="pre">unbind_mousemove_all</span></code>のインターフェイスも存在し、このインターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスからマウスを動かしたときのイベントのハンドラ設定を全て解除します。</p>
 </section>
 <section id="mousemove-api">
 <h2>mousemove API<a class="headerlink" href="#mousemove-api" title="Permalink to this headline">¶</a></h2>
@@ -178,7 +179,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
 <ul>
@@ -186,7 +188,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousemove</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -200,7 +203,8 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">mousemove</span><span class="p">(</span><span class="n">on_mousemove</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[関連資料]</strong></p>
+<hr>
+<p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html">ハンドラのoptions引数の型について</a></p></li>
 </ul>
@@ -218,7 +222,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousemove</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

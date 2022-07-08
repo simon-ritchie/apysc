@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -57,7 +56,7 @@
 <section id="id2">
 <h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_assertion_basic_behavior.html"><span class="doc">JavaScriptの各アサーションのインターフェイスの基本的な挙動</span></a></p></li>
+<li><p><a class="reference internal" href="jp_assertion_basic_behavior.html"><span class="doc std std-doc">JavaScriptの各アサーションのインターフェイスの基本的な挙動</span></a></p></li>
 </ul>
 </section>
 <section id="id3">
@@ -85,7 +84,8 @@
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span>
 </pre></div>
 </div>
-<iframe src="static/assert_true_basic_usage_1/index.html" width="0" height="0"></iframe><p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>の値を使った処理ではチェックが失敗します:</p>
+<iframe src="static/assert_true_basic_usage_1/index.html" width="0" height="0"></iframe>
+<p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>の値を使った処理ではチェックが失敗します:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -107,7 +107,8 @@ Left value: true right value: false
 Assertion failed: Boolean value is not True!
 </pre></div>
 </div>
-<iframe src="static/assert_true_basic_usage_2/index.html" width="0" height="0"></iframe><p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Int(1)</span></code>の値を使い、<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>に<code class="docutils literal notranslate"><span class="pre">True</span></code>を指定した例ではチェックが失敗します:</p>
+<iframe src="static/assert_true_basic_usage_2/index.html" width="0" height="0"></iframe>
+<p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Int(1)</span></code>の値を使い、<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>に<code class="docutils literal notranslate"><span class="pre">True</span></code>を指定した例ではチェックが失敗します:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -129,7 +130,8 @@ Left value: true right value: 1
 Assertion failed: Value is not Boolean(True)!
 </pre></div>
 </div>
-<iframe src="static/assert_true_basic_usage_3/index.html" width="0" height="0"></iframe><p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Int(1)</span></code>の値を使い<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>に<code class="docutils literal notranslate"><span class="pre">False</span></code>を設定した処理ではチェックが通ります:</p>
+<iframe src="static/assert_true_basic_usage_3/index.html" width="0" height="0"></iframe>
+<p>以下の<code class="docutils literal notranslate"><span class="pre">assert_true</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Int(1)</span></code>の値を使い<code class="docutils literal notranslate"><span class="pre">type_strict</span></code>に<code class="docutils literal notranslate"><span class="pre">False</span></code>を設定した処理ではチェックが通ります:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -149,7 +151,8 @@ Assertion failed: Value is not Boolean(True)!
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<iframe src="static/assert_true_basic_usage_4/index.html" width="0" height="0"></iframe><p>以下の<code class="docutils literal notranslate"><span class="pre">assert_false</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>の値を使った処理ではチェックを通ります:</p>
+<iframe src="static/assert_true_basic_usage_4/index.html" width="0" height="0"></iframe>
+<p>以下の<code class="docutils literal notranslate"><span class="pre">assert_false</span></code>関数と<code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>の値を使った処理ではチェックを通ります:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -169,7 +172,8 @@ Assertion failed: Value is not Boolean(True)!
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">false</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">false</span>
 </pre></div>
 </div>
-<iframe src="static/assert_false_basic_usage_1/index.html" width="0" height="0"></iframe></section>
+<iframe src="static/assert_false_basic_usage_1/index.html" width="0" height="0"></iframe>
+</section>
 <section id="assert-true-api">
 <h2>assert_true API<a class="headerlink" href="#assert-true-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
@@ -193,7 +197,8 @@ Assertion failed: Value is not Boolean(True)!
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">boolean</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">==</span> <span class="mi">10</span>
@@ -224,7 +229,8 @@ Assertion failed: Value is not Boolean(True)!
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">boolean</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">==</span> <span class="mi">11</span>

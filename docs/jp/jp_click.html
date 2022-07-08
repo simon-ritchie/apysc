@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -59,7 +58,7 @@
 <h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>以下のページでは基本的なマウスイベントのインターフェイスについて説明しています。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_mouse_event_basic.html"><span class="doc">基本的なマウスイベントの各インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mouse_event_basic.html"><span class="doc std std-doc">基本的なマウスイベントの各インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="id3">
@@ -104,7 +103,8 @@
 </pre></div>
 </div>
 <p>もしも以下の四角をクリックすると四角の色はマゼンタに切り替わります。</p>
-<iframe src="static/click_basic_usage_of_the_click_interface/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/click_basic_usage_of_the_click_interface/index.html" width="150" height="150"></iframe>
+</section>
 <section id="unbind-click">
 <h2>unbind_click インターフェイスの基本的な使い方<a class="headerlink" href="#unbind-click" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unbind_click</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のサブクラスのインスタンスから登録済みのクリックイベントの設定を取り除きます。</p>
@@ -147,7 +147,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;click_basic_usage_of_the_unbind_click_interface/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/click_basic_usage_of_the_unbind_click_interface/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/click_basic_usage_of_the_unbind_click_interface/index.html" width="150" height="150"></iframe>
+</section>
 <section id="id4">
 <h2>全てのクリックのイベントハンドラを解除する<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のサブクラスのインスタンスから全ての登録されているクリックイベントのハンドラを解除します。</p>
@@ -190,7 +191,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;click_unbind_all_the_click_event_handlers/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/click_unbind_all_the_click_event_handlers/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/click_unbind_all_the_click_event_handlers/index.html" width="150" height="150"></iframe>
+</section>
 <section id="click-api">
 <h2>click API<a class="headerlink" href="#click-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
@@ -209,7 +211,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
 <ul>
@@ -217,7 +220,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -231,7 +235,8 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_click</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[関連資料]</strong></p>
+<hr>
+<p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html">ハンドラのoptions引数の型について</a></p></li>
 </ul>
@@ -249,7 +254,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

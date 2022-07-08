@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -120,7 +119,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_width_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_width_basic_usage/index.html" width="200" height="150"></iframe><p>同様に以下のコード例では<code class="docutils literal notranslate"><span class="pre">animation_height</span></code>メソッドを使って高さのアニメーションを設定しています。</p>
+<iframe src="static/animation_width_basic_usage/index.html" width="200" height="150"></iframe>
+<p>同様に以下のコード例では<code class="docutils literal notranslate"><span class="pre">animation_height</span></code>メソッドを使って高さのアニメーションを設定しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -182,7 +182,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_height_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_height_basic_usage/index.html" width="150" height="200"></iframe></section>
+<iframe src="static/animation_height_basic_usage/index.html" width="150" height="200"></iframe>
+</section>
 <section id="ellipse">
 <h2>Ellipse のインスタンスにおける特記事項<a class="headerlink" href="#ellipse" title="Permalink to this headline">¶</a></h2>
 <p>楕円のインスタンス（<code class="docutils literal notranslate"><span class="pre">Ellipse</span></code>クラス）の<code class="docutils literal notranslate"><span class="pre">animation_width</span></code>と<code class="docutils literal notranslate"><span class="pre">animation_height</span></code>の各インターフェイスは内部実行が異なる都合で<code class="docutils literal notranslate"><span class="pre">AnimationWidth</span></code>クラスなどの代わりに<code class="docutils literal notranslate"><span class="pre">以下のコード例のようにAnimationWidthForEllipse</span></code>クラスと<code class="docutils literal notranslate"><span class="pre">AnimationHeightForEllipse</span></code>クラスのインスタンスを返却します:</p>
@@ -230,7 +231,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">animation_width</span></code>: AnimationWidth</p>
 <ul>
@@ -238,7 +240,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[特記事項]</strong></p>
+<hr>
+<p><strong>[特記事項]</strong></p>
 <p>アニメーションを開始するには返却されたインスタンスの<code class="docutils literal notranslate"><span class="pre">start</span></code>メソッドを呼び出す必要があります。<hr></p>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -254,7 +257,8 @@
 <span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[関連資料]</strong></p>
+<hr>
+<p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_animation_duration.html">各アニメーションインターフェイスの duration （アニメーション時間）設定</a></p></li>
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_animation_delay.html">各アニメーションインターフェイスの delay （遅延時間）設定</a></p></li>
@@ -292,7 +296,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">animation_height</span></code>: AnimationHeight</p>
 <ul>
@@ -300,7 +305,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[特記事項]</strong></p>
+<hr>
+<p><strong>[特記事項]</strong></p>
 <p>アニメーションを開始するには返却されたインスタンスの<code class="docutils literal notranslate"><span class="pre">start</span></code>メソッドを呼び出す必要があります。<hr></p>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -316,7 +322,8 @@
 <span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[関連資料]</strong></p>
+<hr>
+<p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_animation_duration.html">各アニメーションインターフェイスの duration （アニメーション時間）設定</a></p></li>
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_animation_delay.html">各アニメーションインターフェイスの delay （遅延時間）設定</a></p></li>

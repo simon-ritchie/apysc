@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -116,7 +115,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_delay_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/timer_delay_basic_usage/index.html" width="350" height="150"></iframe></section>
+<iframe src="static/timer_delay_basic_usage/index.html" width="350" height="150"></iframe>
+</section>
 <section id="delay-fpsenum">
 <h2>delay 引数にFPSのenumの値を設定する<a class="headerlink" href="#delay-fpsenum" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">delay</span></code>の引数には<code class="docutils literal notranslate"><span class="pre">FPS</span></code>（frames per second / 1秒当たりのフレーム数）のenumの値を指定することもできます。例えば、<code class="docutils literal notranslate"><span class="pre">FPS.FPS_60</span></code>を指定すれば60FPS相当の実行回数（16.6666667ミリ秒ごとの実行）となります。同様に<code class="docutils literal notranslate"><span class="pre">FPS.FPS_30</span></code>を指定すれば30FPS相当（33.3333333ミリ秒ごとの実行）となります。</p>
@@ -163,11 +163,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_delay_fps_enum/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/timer_delay_fps_enum/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/timer_delay_fps_enum/index.html" width="150" height="150"></iframe>
+</section>
 <section id="id3">
 <h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_fps.html"><span class="doc">FPS の enum</span></a></p></li>
+<li><p><a class="reference internal" href="jp_fps.html"><span class="doc std std-doc">FPS の enum</span></a></p></li>
 </ul>
 </section>
 <section id="timer-api">
@@ -198,7 +199,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
@@ -216,7 +218,8 @@
 <span class="gp">... </span>    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[関連資料]</strong></p>
+<hr>
+<p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_timer.html">Timer クラス</a></p></li>
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_timer_event.html">TimerEvent クラス</a></p></li>
@@ -237,7 +240,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">pass</span>

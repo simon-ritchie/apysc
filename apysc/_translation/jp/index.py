@@ -33,23 +33,8 @@ MAPPING: Dict[str, str] = {
     '## Quick start guide':
     '## クイックスタートガイド',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [What apysc can do in its current implementation](what_apysc_can_do.md)':  # noqa
-    '- [apyscが現在の実装で出来ることの概要](jp_what_apysc_can_do.md)',
-
-    '- [Quick start guide](quick_start.md)':
-    '- [クイックスタートガイド](jp_quick_start.md)',
-
-    '- [import conventions](import_conventions.md)':
-    '- [import の慣習](jp_import_conventions.md)',
-
-    '- [Recommended type annotation checker settings](recommended_type_checker_settings.md)':  # noqa
-    '- [推奨される型アノテーションのチェック設定](jp_recommended_type_checker_settings.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nwhat_apysc_can_do\nquick_start\nimport_conventions\nrecommended_type_checker_settings\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_what_apysc_can_do\njp_quick_start\njp_import_conventions\njp_recommended_type_checker_settings\n```',  # noqa
 
     '## Container classes':
     '## コンテナーの各クラス',
@@ -57,17 +42,8 @@ MAPPING: Dict[str, str] = {
     'The `Stage` is the apysc overall drawing area container, and the `Sprite` is the container class.':  # noqa
     '`Stage`はapyscの描画領域全体のコンテナーとなり、`Sprite`は通常の各インスタンスのコンテナーのクラスとなります。',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [Stage class](stage.md)':
-    '- [Stage クラス](jp_stage.md)',
-
-    '- [Sprite class](sprite.md)':
-    '- [Sprite クラス](jp_sprite.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nstage\nsprite\n```':
+    '```{toctree}\n:maxdepth: 1\njp_stage\njp_sprite\n```',
 
     '## Exporting':
     '## 出力処理',
@@ -75,23 +51,8 @@ MAPPING: Dict[str, str] = {
     'The HTML and JavaScript exporting interfaces.':
     '以下はHTMLとJavaScriptの出力処理関係の各インターフェイスです。',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [save_overall_html interface](save_overall_html.md)':
-    '- [save_overall_html インターフェイス](jp_save_overall_html.md)',
-
-    '- [display_on_jupyter interface](display_on_jupyter.md)':
-    '- [display_on_jupyter インターフェイス](jp_display_on_jupyter.md)',
-
-    '- [display_on_colaboratory interface](display_on_colaboratory.md)':
-    '- [display_on_colaboratory インターフェイス](jp_display_on_colaboratory.md)',
-
-    '- [append_js_expression interface](append_js_expression.md)':
-    '- [append_js_expression インターフェイス](jp_append_js_expression.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nsave_overall_html\ndisplay_on_jupyter\ndisplay_on_colaboratory\nappend_js_expression\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_save_overall_html\njp_display_on_jupyter\njp_display_on_colaboratory\njp_append_js_expression\n```',  # noqa
 
     '## Child-related interfaces':
     '## 子要素関係の各インターフェイス',
@@ -99,119 +60,14 @@ MAPPING: Dict[str, str] = {
     'The parent class, such as the `Sprite` or `Stage`, has the following interfaces:':  # noqa
     '`Sprite`や`Stage`などの親となれる各クラスは以下のインターフェイスを持っています:',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [add_child and remove_child interfaces](add_child_and_remove_child.md)':  # noqa
-    '- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](jp_add_child_and_remove_child.md)',  # noqa
-
-    '- [remove_children interface](remove_children.md)':
-    '- [remove_children インターフェイス](jp_remove_children.md)',
-
-    '- [contains interface](contains.md)':
-    '- [contains インターフェイス](jp_contains.md)',
-
-    '- [num_children interface](num_children.md)':
-    '- [num_children （子の件数属性）のインターフェイス](jp_num_children.md)',
-
-    '- [get_child_at interface](get_child_at.md)':
-    '- [get_child_at （特定位置の子の取得処理）のインターフェイス](jp_get_child_at.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nadd_child_and_remove_child\nremove_children\ncontains\nnum_children\nget_child_at\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_add_child_and_remove_child\njp_remove_children\njp_contains\njp_num_children\njp_get_child_at\n```',  # noqa
 
     '## apysc basic data classes':
     '## apyscの基本的な各データクラス',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [Why the apysc library does not use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)':  # noqa
-    '- [なぜapyscではPythonのビルトインのデータの型を使用していないのか](jp_why_apysc_doesnt_use_python_builtin_data_type.md)',  # noqa
-
-    '- [Funcdamental data classes common value interface](fundamental_data_classes_value_interface.md)':  # noqa
-    '- [基本的なデータクラスの共通の value インターフェイス](jp_fundamental_data_classes_value_interface.md)',  # noqa
-
-    '- [Int and Number classes](int_and_number.md)':
-    '- [Int と Number の各クラス](jp_int_and_number.md)',
-
-    '- [Int and Number classes common arithmetic operations](int_and_number_arithmetic_operations.md)':  # noqa
-    '- [Int と Number クラスの共通の計算制御](jp_int_and_number_arithmetic_operations.md)',  # noqa
-
-    '- [Int and Number classes common comparison operations](int_and_number_comparison_operations.md)':  # noqa
-    '- [Int と Number クラスの共通の比較制御](jp_int_and_number_comparison_operations.md)',  # noqa
-
-    '- [String class](string.md)':
-    '- [String クラス](jp_string.md)',
-
-    '- [String class comparison operations](string_comparison_operations.md)':  # noqa
-    '- [String クラスの比較制御](jp_string_comparison_operations.md)',
-
-    '- [String class addition and multiplication operations](string_addition_and_multiplication.md)':  # noqa
-    '- [String クラスの加算と乗算の制御](jp_string_addition_and_multiplication.md)',
-
-    '- [Boolean class](boolean.md)':
-    '- [Boolean クラス](jp_boolean.md)',
-
-    '- [Array class](array.md)':
-    '- [Array クラス](jp_array.md)',
-
-    '- [Array class append and push interfaces](array_append_and_push.md)':
-    '- [Array クラスの append と push のインターフェイス](jp_array_append_and_push.md)',
-
-    '- [Array class extend and concat interfaces](array_extend_and_concat.md)':  # noqa
-    '- [Array クラスの extend と concat のインターフェイス](jp_array_extend_and_concat.md)',  # noqa
-
-    '- [Array class insert and insert_at interfaces](array_insert_and_insert_at.md)':  # noqa
-    '- [Array クラスの insert と insert_at のインターフェイス](jp_array_insert_and_insert_at.md)',  # noqa
-
-    '- [Array class pop interface](array_pop.md)':
-    '- [Array クラスの pop インターフェイス](jp_array_pop.md)',
-
-    '- [Array class remove and remove_at interfaces](array_remove_and_remove_at.md)':  # noqa
-    '- [Array クラスの remove と remove_at のインターフェイス](jp_array_remove_and_remove_at.md)',  # noqa
-
-    '- [Array class sort interface](array_sort.md)':
-    '- [Array クラスの sort インターフェイス](jp_array_sort.md)',
-
-    '- [Array class reverse interface](array_reverse.md)':
-    '- [Array クラスの reverse インターフェイス](jp_array_reverse.md)',
-
-    '- [Array class slice interface](array_slice.md)':
-    '- [Array クラスの slice インターフェイス](jp_array_slice.md)',
-
-    '- [Array class length interface](array_length.md)':
-    '- [Array クラスの length (配列の長さ取得) のインターフェイス](jp_array_length.md)',
-
-    '- [Array class join interface](array_join.md)':
-    '- [Array クラスの join (値の連結文字列生成) のインターフェイス](jp_array_join.md)',
-
-    '- [Array class index_of interface](array_index_of.md)':
-    '- [Array クラスの index_of (値のインデックス取得) のインターフェイス](jp_array_index_of.md)',
-
-    '- [Array class clear interface](array_clear.md)':
-    '- [Array クラスの clear インターフェイス](jp_array_clear.md)',
-
-    '- [Array class comparison interfaces](array_comparison.md)':
-    '- [Array クラスの比較の各インターフェイス](jp_array_comparison.md)',
-
-    '- [Dictionary class](dictionary.md)':
-    '- [Dictionary クラス](jp_dictionary.md)',
-
-    '- [Dictionary class generic type settings](dictionary_generic.md)':
-    '- [Dictionary クラスのジェネリックの型設定](jp_dictionary_generic.md)',
-
-    '- [Dictionary class get interface](dictionary_get.md)':
-    '- [Dictionary クラスの get インターフェイス](jp_dictionary_get.md)',
-
-    '- [Dictionary class length interface](dictionary_length.md)':
-    '- [Dictionary クラスの length インターフェイス](jp_dictionary_length.md)',
-
-    '- [Point2D class](point2d.md)':
-    '- [Point2D クラス](jp_point2d.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nwhy_apysc_doesnt_use_python_builtin_data_type\nfundamental_data_classes_value_interface\nint_and_number\nint_and_number_arithmetic_operations\nint_and_number_comparison_operations\nstring\nstring_comparison_operations\nstring_addition_and_multiplication\nboolean\narray\narray_append_and_push\narray_extend_and_concat\narray_insert_and_insert_at\narray_pop\narray_remove_and_remove_at\narray_sort\narray_reverse\narray_slice\narray_length\narray_join\narray_index_of\narray_clear\narray_comparison\ndictionary\ndictionary_generic\ndictionary_get\ndictionary_length\npoint2d\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_why_apysc_doesnt_use_python_builtin_data_type\njp_fundamental_data_classes_value_interface\njp_int_and_number\njp_int_and_number_arithmetic_operations\njp_int_and_number_comparison_operations\njp_string\njp_string_comparison_operations\njp_string_addition_and_multiplication\njp_boolean\njp_array\njp_array_append_and_push\njp_array_extend_and_concat\njp_array_insert_and_insert_at\njp_array_pop\njp_array_remove_and_remove_at\njp_array_sort\njp_array_reverse\njp_array_slice\njp_array_length\njp_array_join\njp_array_index_of\njp_array_clear\njp_array_comparison\njp_dictionary\njp_dictionary_generic\njp_dictionary_get\njp_dictionary_length\njp_point2d\n```',  # noqa
 
     '## DisplayObject and GraphicsBase classes':
     '## DisplayObject と GraphicsBase の各クラス',
@@ -219,445 +75,76 @@ MAPPING: Dict[str, str] = {
     'The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphic class, such as the `Rectangle` class.':  # noqa
     '`DisplayObject`クラスは各表示用のオブジェクトの基底クラスです。`GraphicsBase`クラスは`DisplayObject`のサブクラスであり、且つ`Rectangle`などの各グラフィックスの基底クラスとなります。',  # noqa
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [DisplayObject class](display_object.md)':
-    '- [DisplayObject クラス](jp_display_object.md)',
-
-    '- [DisplayObject and GraphicsBase classes basic properties abstract](display_object_and_graphics_base_prop_abstract.md)':  # noqa
-    '- [DisplayObject と GraphicsBase の各クラスの基本的な各属性の概要](jp_display_object_and_graphics_base_prop_abstract.md)',  # noqa
-
-    '- [DisplayObject class x and y interfaces](display_object_x_and_y.md)':
-    '- [DisplayObject クラスの x と y インターフェイス](jp_display_object_x_and_y.md)',
-
-    '- [DisplayObject class parent interfaces](display_object_parent.md)':
-    '- [DisplayObjectクラス parent （親要素属性）のインターフェイス](jp_display_object_parent.md)',  # noqa
-
-    '- [DisplayObject class visible interface](display_object_visible.md)':
-    '- [DisplayObject クラスの visible (表示・非表示) のインターフェイス](jp_display_object_visible.md)',  # noqa
-
-    '- [DisplayObject class get_css and set_css interfaces](display_object_get_and_set_css.md)':  # noqa
-    '- [DisplayObject クラスの get_css と set_css の各インターフェイス](jp_display_object_get_and_set_css.md)',  # noqa
-
-    '- [DisplayObject class mouse event binding interfaces](display_object_mouse_event.md)':  # noqa
-    '- [DisplayObject クラスのマウスイベント設定の各インターフェイス](jp_display_object_mouse_event.md)',  # noqa
-
-    '- [GraphicsBase class fill_color interface](graphics_base_fill_color.md)':  # noqa
-    '- [GraphicsBase クラスの fill_color (塗り設定)のインターフェイス](jp_graphics_base_fill_color.md)',  # noqa
-
-    '- [GraphicsBase class fill_alpha interface](graphics_base_fill_alpha.md)':  # noqa
-    '- [GraphicsBase クラスの fill_alpha (塗りの透明度設定)のインターフェイス](jp_graphics_base_fill_alpha.md)',  # noqa
-
-    '- [GraphicsBase class line_color interface](graphics_base_line_color.md)':  # noqa
-    '- [GraphicsBase クラスの line_color (線の色設定)のインターフェイス](jp_graphics_base_line_color.md)',  # noqa
-
-    '- [GraphicsBase class line_alpha interface](graphics_base_line_alpha.md)':  # noqa
-    '- [GraphicsBase クラスの line_color (線の透明度設定)のインターフェイス](jp_graphics_base_line_alpha.md)',  # noqa
-
-    '- [GraphicsBase class line_thickness interface](graphics_base_line_thickness.md)':  # noqa
-    '- [GraphicsBase クラスの line_color (線幅設定)のインターフェイス](jp_graphics_base_line_thickness.md)',  # noqa
-
-    '- [GraphicsBase class line_dot_setting interface](graphics_base_line_dot_setting.md)':  # noqa
-    '- [GraphicsBase クラスの line_dot_setting (点線設定)のインターフェイス](jp_graphics_base_line_dot_setting.md)',  # noqa
-
-    '- [GraphicsBase class line_dash_setting interface](graphics_base_line_dash_setting.md)':  # noqa
-    '- [GraphicsBase クラスの line_dash_setting (破線設定)のインターフェイス](jp_graphics_base_line_dash_setting.md)',  # noqa
-
-    '- [GraphicsBase class line_round_dot_setting interface](graphics_base_line_round_dot_setting.md)':  # noqa
-    '- [GraphicsBase クラスの line_round_dot_setting (点線(丸)設定)のインターフェイス](jp_graphics_base_line_round_dot_setting.md)',  # noqa
-
-    '- [GraphicsBase class line_dash_dot_setting interface](graphics_base_line_dash_dot_setting.md)':  # noqa
-    '- [GraphicsBase クラスの line_dash_dot_setting (一点鎖線設定)のインターフェイス](jp_graphics_base_line_dash_dot_setting.md)',  # noqa
-
-    '- [GraphicsBase class rotation_around_center interface](graphics_base_rotation_around_center.md)':  # noqa
-    '- [GraphicsBase クラスの rotation_around_center (中央座標基準の回転) インターフェイス](jp_graphics_base_rotation_around_center.md)',  # noqa
-
-    '- [GraphicsBase class rotation_around_point interfaces](graphics_base_rotation_around_point.md)':  # noqa
-    '- [GraphicsBase クラスの rotation_around_point (指定座標基準の回転) の各インターフェイス](jp_graphics_base_rotation_around_point.md)',  # noqa
-
-    '- [GraphicsBase class scale_from_center interfaces](graphics_base_scale_from_center.md)':  # noqa
-    '- [GraphicsBase クラスの scale_from_center (中央座標基準の拡縮) の各インターフェイス](jp_graphics_base_scale_from_center.md)',  # noqa
-
-    '- [GraphicsBase class scale_from_point interfaces](graphics_base_scale_from_point.md)':  # noqa
-    '- [GraphicsBase クラスの scale_from_point (指定座標基準の拡縮) の各インターフェイス](jp_graphics_base_scale_from_point.md)',  # noqa
-
-    '- [GraphicsBase class flip_x and flip_y interfaces](graphics_base_flip_interfaces.md)':  # noqa
-    '- [GraphicsBase クラスの flip_x (横軸の反転) と flip_y (縦軸の反転) のインターフェイス](jp_graphics_base_flip_interfaces.md)',  # noqa
-
-    '- [GraphicsBase class skew_x and skew_y interfaces](graphics_base_skew.md)':  # noqa
-    '- [GraphicsBase クラスの skew_x (X軸の歪み) と skew_y (Y軸の歪み) のインターフェイス](jp_graphics_base_skew.md)',  # noqa
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\ndisplay_object\ndisplay_object_and_graphics_base_prop_abstract\ndisplay_object_x_and_y\ndisplay_object_parent\ndisplay_object_visible\ndisplay_object_get_and_set_css\ndisplay_object_mouse_event\ngraphics_base_fill_color\ngraphics_base_fill_alpha\ngraphics_base_line_color\ngraphics_base_line_alpha\ngraphics_base_line_thickness\ngraphics_base_line_dot_setting\ngraphics_base_line_dash_setting\ngraphics_base_line_round_dot_setting\ngraphics_base_line_dash_dot_setting\ngraphics_base_rotation_around_center\ngraphics_base_rotation_around_point\ngraphics_base_scale_from_center\ngraphics_base_scale_from_point\ngraphics_base_flip_interfaces\ngraphics_base_skew\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_display_object\njp_display_object_and_graphics_base_prop_abstract\njp_display_object_x_and_y\njp_display_object_parent\njp_display_object_visible\njp_display_object_get_and_set_css\njp_display_object_mouse_event\njp_graphics_base_fill_color\njp_graphics_base_fill_alpha\njp_graphics_base_line_color\njp_graphics_base_line_alpha\njp_graphics_base_line_thickness\njp_graphics_base_line_dot_setting\njp_graphics_base_line_dash_setting\njp_graphics_base_line_round_dot_setting\njp_graphics_base_line_dash_dot_setting\njp_graphics_base_rotation_around_center\njp_graphics_base_rotation_around_point\njp_graphics_base_scale_from_center\njp_graphics_base_scale_from_point\njp_graphics_base_flip_interfaces\njp_graphics_base_skew\n```',  # noqa
 
     '## Each graphic class':
     '## 各グラフィックのクラス',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [Rectangle class](rectangle.md)':
-    '- [Rectangle クラス](jp_rectangle.md)',
-
-    '- [Circle class](circle.md)':
-    '- [Circle クラス](jp_circle.md)',
-
-    '- [Ellipse class](ellipse.md)':
-    '- [Ellipse クラス](jp_ellipse.md)',
-
-    '- [Line class](line.md)':
-    '- [Line クラス](jp_line.md)',
-
-    '- [Polyline class](polyline.md)':
-    '- [Polyline クラス](jp_polyline.md)',
-
-    '- [Polygon class](polygon.md)':
-    '- [Polygon クラス](jp_polygon.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nrectangle\ncircle\nellipse\nline\npolyline\npolygon\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_rectangle\njp_circle\njp_ellipse\njp_line\njp_polyline\njp_polygon\n```',  # noqa
 
     '## Graphics class':
     '## Graphics クラス',
 
-    '### Table of contents':
-    '### Table of contents',
-
     'The `Graphics` class handles each vector graphics drawing.':
     '`Graphics`クラスは各ベクターグラフィックスの描画処理を扱います。',
 
-    '- [Draw interfaces abstract](draw_interfaces_abstract.md)':
-    '- [描画の各インターフェイスの概要](jp_draw_interfaces_abstract.md)',
-
-    '- [Graphics class](graphics.md)':
-    '- [Graphics クラス](jp_graphics.md)',
-
-    '- [Graphics class begin_fill interface](graphics_begin_fill.md)':
-    '- [Graphics クラスの begin_fill (塗りの設定)のインターフェイス](jp_graphics_begin_fill.md)',  # noqa
-
-    '- [Graphics class line_style interface](graphics_line_style.md)':
-    '- [Graphics クラスの line_style (線のスタイル設定)のインターフェイス](jp_graphics_line_style.md)',  # noqa
-
-    '- [Graphics class draw_rect interface](graphics_draw_rect.md)':
-    '- [Graphics クラスの draw_rect (四角の描画)のインターフェイス](jp_graphics_draw_rect.md)',  # noqa
-
-    '- [Graphics class draw_round_rect interface](graphics_draw_round_rect.md)':  # noqa
-    '- [Graphics クラスの draw_round_rect (角丸の四角の描画)のインターフェイス](jp_graphics_draw_round_rect.md)',  # noqa
-
-    '- [Graphics class draw_circle interface](graphics_draw_circle.md)':
-    '- [Graphics クラスの draw_circle (円の描画)のインターフェイス](jp_graphics_draw_circle.md)',  # noqa
-
-    '- [Graphics class draw_ellipse interface](graphics_draw_ellipse.md)':
-    '- [Graphics クラスの draw_ellipse (楕円描画) のインターフェイス](jp_graphics_draw_ellipse.md)',  # noqa
-
-    '- [Graphics class move_to and line_to interfaces](graphics_move_to_and_line_to.md)':  # noqa
-    '- [Graphics クラスの move_to (線の描画位置の変更)と line_to (指定座標への線の描画)のインターフェイス](jp_graphics_move_to_and_line_to.md)',  # noqa
-
-    '- [Graphics class draw_line interface](graphics_draw_line.md)':
-    '- [Graphics クラスの draw_line (線の描画)のインターフェイス](jp_graphics_draw_line.md)',
-
-    '- [Graphics class draw_dotted_line interface](graphics_draw_dotted_line.md)':  # noqa
-    '- [Graphics クラスの draw_dotted_line (点線の描画)のインターフェイス](jp_graphics_draw_dotted_line.md)',  # noqa
-
-    '- [Graphics class draw_dashed_line interface](graphics_draw_dashed_line.md)':  # noqa
-    '- [Graphics クラスの draw_dashed_line (破線の描画)のインターフェイス](jp_graphics_draw_dashed_line.md)',  # noqa
-
-    '- [Graphics class draw_round_dotted_line interface](graphics_draw_round_dotted_line.md)':  # noqa
-    '- [Graphics クラスの draw_round_dotted_line (点線(丸)の描画)のインターフェイス](jp_graphics_draw_round_dotted_line.md)',  # noqa
-
-    '- [Graphics class draw_dash_dotted_line interface](graphics_draw_dash_dotted_line.md)':  # noqa
-    '- [Graphics クラスの draw_dash_dotted_line (一点鎖線の描画)のインターフェイス](jp_graphics_draw_dash_dotted_line.md)',  # noqa
-
-    '- [Graphics class draw_polygon interface](graphics_draw_polygon.md)':
-    '- [Graphics クラスの draw_polygon (多角形描画)のインターフェイス](jp_graphics_draw_polygon.md)',  # noqa
-
-    '- [Graphics class clear interface](graphics_clear.md)':
-    '- [Graphics クラスの clear インターフェイス](jp_graphics_clear.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\ndraw_interfaces_abstract\ngraphics\ngraphics_begin_fill\ngraphics_line_style\ngraphics_draw_rect\ngraphics_draw_round_rect\ngraphics_draw_circle\ngraphics_draw_ellipse\ngraphics_move_to_and_line_to\ngraphics_draw_line\ngraphics_draw_dotted_line\ngraphics_draw_dashed_line\ngraphics_draw_round_dotted_line\ngraphics_draw_dash_dotted_line\ngraphics_draw_polygon\ngraphics_clear\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_draw_interfaces_abstract\njp_graphics\njp_graphics_begin_fill\njp_graphics_line_style\njp_graphics_draw_rect\njp_graphics_draw_round_rect\njp_graphics_draw_circle\njp_graphics_draw_ellipse\njp_graphics_move_to_and_line_to\njp_graphics_draw_line\njp_graphics_draw_dotted_line\njp_graphics_draw_dashed_line\njp_graphics_draw_round_dotted_line\njp_graphics_draw_dash_dotted_line\njp_graphics_draw_polygon\njp_graphics_clear\n```',  # noqa
 
     '## Common event interfaces':
     '## イベントの共通の各インターフェイス',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [About the handler options type](about_handler_options_type.md)':
-    '- [ハンドラの options パラメーターの型について](jp_about_handler_options_type.md)',
-
-    '- [Event class prevent_default and stop_propagation interfaces](event_prevent_default_and_stop_propagation.md)':  # noqa
-    '- [Event クラスの prevent_default と stop_propagation の各インターフェイス](jp_event_prevent_default_and_stop_propagation.md)',  # noqa
-
-    '- [bind_custom_event and trigger_custom_event interfaces](bind_and_trigger_custom_event.md)':  # noqa
-    '- [bind_custom_event と trigger_custom_event の各インターフェイス](jp_bind_and_trigger_custom_event.md)',  # noqa
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nabout_handler_options_type\nevent_prevent_default_and_stop_propagation\nbind_and_trigger_custom_event\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_about_handler_options_type\njp_event_prevent_default_and_stop_propagation\njp_bind_and_trigger_custom_event\n```',  # noqa
 
     '## MouseEvent class and mouse event binding':
     '## MouseEvent クラスとマウスイベントの設定',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [MouseEvent interfaces abstract](mouse_event_abstract.md)':
-    '- [MouseEvent クラスの各インターフェイスの概要](jp_mouse_event_abstract.md)',
-
-    '- [Basic mouse event interfaces](mouse_event_basic.md)':
-    '- [基本的なマウスイベントの各インターフェイス](jp_mouse_event_basic.md)',
-
-    '- [click interface](click.md)':
-    '- [click インターフェイス](jp_click.md)',
-
-    '- [dblclick interface](dblclick.md)':
-    '- [dblclick インターフェイス](jp_dblclick.md)',
-
-    '- [mousedown and mouseup interfaces](mousedown_and_mouseup.md)':
-    '- [mousedown と mouseup のインターフェイス](jp_mousedown_and_mouseup.md)',
-
-    '- [mouseover and mouseout interfaces](mouseover_and_mouseout.md)':
-    '- [mouseover と mouseout のインターフェイス](jp_mouseover_and_mouseout.md)',
-
-    '- [mousemove interface](mousemove.md)':
-    '- [mousemove インターフェイス](jp_mousemove.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nmouse_event_abstract\nmouse_event_basic\nclick\ndblclick\nmousedown_and_mouseup\nmouseover_and_mouseout\nmousemove\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_mouse_event_abstract\njp_mouse_event_basic\njp_click\njp_dblclick\njp_mousedown_and_mouseup\njp_mouseover_and_mouseout\njp_mousemove\n```',  # noqa
 
     '## Branch instruction':
     '## 条件分岐の制御',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [If class](if.md)':
-    '- [If クラス](jp_if.md)',
-
-    '- [Elif class](elif.md)':
-    '- [Elif クラス](jp_elif.md)',
-
-    '- [Else class](else.md)':
-    '- [Else クラス](jp_else.md)',
-
-    '- [Each branch instruction class scope variables reverting setting](branch_instruction_variables_reverting_setting.md)':  # noqa
-    '- [各条件分岐のクラスのスコープ内の変数値の復元設定](jp_branch_instruction_variables_reverting_setting.md)',  # noqa
-
-    '- [Return class](return.md)':
-    '- [Return クラス](jp_return.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nif\nelif\nelse\nbranch_instruction_variables_reverting_setting\nreturn\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_if\njp_elif\njp_else\njp_branch_instruction_variables_reverting_setting\njp_return\n```',  # noqa
 
     '## Loop':
     '## ループ',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [For loop class](for.md)':
-    '- [ループ用の For クラス](jp_for.md)',
-
-    '- [Continue class](continue.md)':
-    '- [Continue クラス](jp_continue.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nfor\ncontinue\n```':
+    '```{toctree}\n:maxdepth: 1\njp_for\njp_continue\n```',
 
     '## Timer':
     '## タイマー',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [Timer class](timer.md)':
-    '- [Timer クラス](jp_timer.md)',
-
-    '- [TimerEvent class](timer_event.md)':
-    '- [TimerEvent クラス](jp_timer_event.md)',
-
-    '- [Timer class delay setting](timer_delay.md)':
-    '- [Timer クラスの delay 設定](jp_timer_delay.md)',
-
-    '- [FPS enum](fps.md)':
-    '- [FPS の enum](jp_fps.md)',
-
-    '- [Timer class repeat_count setting](timer_repeat_count.md)':
-    '- [Timer クラスの repeat_count 設定](jp_timer_repeat_count.md)',
-
-    '- [Timer class start and stop interfaces](timer_start_and_stop.md)':
-    '- [Timer クラスの start と stop の各インターフェイス](jp_timer_start_and_stop.md)',
-
-    '- [Timer class timer_complete interface](timer_complete.md)':
-    '- [Timer クラスの timer_complete インターフェイス](jp_timer_complete.md)',
-
-    '- [Timer class reset interface](timer_reset.md)':
-    '- [Timer クラスの reset インターフェイス](jp_timer_reset.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\ntimer\ntimer_event\ntimer_delay\nfps\ntimer_repeat_count\ntimer_start_and_stop\ntimer_complete\ntimer_reset\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_timer\njp_timer_event\njp_timer_delay\njp_fps\njp_timer_repeat_count\njp_timer_start_and_stop\njp_timer_complete\njp_timer_reset\n```',  # noqa
 
     '## Animation':
     '## アニメーション',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [Animation interfaces abstract](animation_interfaces_abstract.md)':
-    '- [アニメーションの各インターフェイスの概要](jp_animation_interfaces_abstract.md)',
-
-    '- [AnimationEvent class](animation_event.md)':
-    '- [AnimationEvent クラス](jp_animation_event.md)',
-
-    '- [Animation duration setting](animation_duration.md)':
-    '- [Animation クラスの duration 設定](jp_animation_duration.md)',
-
-    '- [Animation delay setting](animation_delay.md)':
-    '- [Animation クラスの delay 設定](jp_animation_delay.md)',
-
-    '- [Each animation interface return value](animation_return_value.md)':
-    '- [アニメーションの各インターフェイスの返却値について](jp_animation_return_value.md)',
-
-    '- [AnimationBase class start interface](animation_base_start.md)':
-    '- [AnimationBase クラスの start インターフェイス](jp_animation_base_start.md)',
-
-    '- [AnimationBase class animation_complete interface](animation_complete.md)':  # noqa
-    '- [AnimationBase クラスの animation_complete インターフェイス](jp_animation_complete.md)',  # noqa
-
-    '- [AnimationBase class interfaces method chaining](animation_method_chaining.md)':  # noqa
-    '- [AnimationBase クラスの各インターフェイスのメソッドチェーンについて](jp_animation_method_chaining.md)',  # noqa
-
-    '- [AnimationBase class target property](animation_base_target.md)':
-    '- [AnimationBase クラスの target 属性](jp_animation_base_target.md)',
-
-    '- [Animation pause and play interfaces](animation_pause_and_play.md)':
-    '- [アニメーションの pause と play の各インターフェイス](jp_animation_pause_and_play.md)',
-
-    '- [Animation reset interface](animation_reset.md)':
-    '- [アニメーションの reset インターフェイス](jp_animation_reset.md)',
-
-    '- [Animation finish interface](animation_finish.md)':
-    '- [アニメーションの finish インターフェイス](jp_animation_finish.md)',
-
-    '- [Animation reverse interface](animation_reverse.md)':
-    '- [アニメーションの reverse インターフェイス](jp_animation_reverse.md)',
-
-    '- [animation_time interface](animation_time.md)':
-    '- [animation_time インターフェイス](jp_animation_time.md)',
-
-    '- [Easing enum](easing_enum.md)':
-    '- [イージングの enum](jp_easing_enum.md)',
-
-    '- [Sequential animation setting](sequential_animation.md)':
-    '- [連続したアニメーション設定](jp_sequential_animation.md)',
-
-    '- [animation_parallel interface](animation_parallel.md)':
-    '- [animation_parallel インターフェイス](jp_animation_parallel.md)',
-
-    '- [animation_move interface](animation_move.md)':
-    '- [animation_move インターフェイス](jp_animation_move.md)',
-
-    '- [animation_x interface](animation_x.md)':
-    '- [animation_x インターフェイス](jp_animation_x.md)',
-
-    '- [animation_y interface](animation_y.md)':
-    '- [animation_y インターフェイス](jp_animation_y.md)',
-
-    '- [animation_width and animation_height interfaces](animation_width_and_height.md)':  # noqa
-    '- [animation_width と animation_height の各インターフェイス](jp_animation_width_and_height.md)',  # noqa
-
-    '- [animation_fill_color interface](animation_fill_color.md)':
-    '- [animation_fill_color インターフェイス](jp_animation_fill_color.md)',
-
-    '- [animation_fill_alpha interface](animation_fill_alpha.md)':
-    '- [animation_fill_alpha インターフェイス](jp_animation_fill_alpha.md)',
-
-    '- [animation_line_color interface](animation_line_color.md)':
-    '- [animation_line_color インターフェイス](jp_animation_line_color.md)',
-
-    '- [animation_line_alpha interface](animation_line_alpha.md)':
-    '- [animation_line_alpha インターフェイス](jp_animation_line_alpha.md)',
-
-    '- [animation_line_thickness interface](animation_line_thickness.md)':
-    '- [animation_line_thickness インターフェイス](jp_animation_line_thickness.md)',
-
-    '- [animation_radius interface](animation_radius.md)':
-    '- [animation_radius インターフェイス](jp_animation_radius.md)',
-
-    '- [animation_rotation_around_center interface](animation_rotation_around_center.md)':  # noqa
-    '- [animation_rotation_around_center インターフェイス](jp_animation_rotation_around_center.md)',  # noqa
-
-    '- [animation_rotation_around_point interface](animation_rotation_around_point.md)':  # noqa
-    '- [animation_rotation_around_point インターフェイス](jp_animation_rotation_around_point.md)',  # noqa
-
-    '- [animation_scale_x_from_center and animation_scale_y_from_center interfaces](animation_scale_x_and_y_from_center.md)':  # noqa
-    '- [animation_scale_x_from_center と animation_scale_y_from_center の各インターフェイス](jp_animation_scale_x_and_y_from_center.md)',  # noqa
-
-    '- [animation_scale_x_from_point and animation_scale_y_from_point interfaces](animation_scale_x_and_y_from_point.md)':  # noqa
-    '- [animation_scale_x_from_point と animation_scale_y_from_point の各インターフェイス](jp_animation_scale_x_and_y_from_point.md)',  # noqa
-
-    '- [animation_skew_x interface](animation_skew_x.md)':
-    '- [animation_skew_x インターフェイス](jp_animation_skew_x.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\nanimation_interfaces_abstract\nanimation_event\nanimation_duration\nanimation_delay\nanimation_return_value\nanimation_base_start\nanimation_complete\nanimation_method_chaining\nanimation_base_target\nanimation_pause_and_play\nanimation_reset\nanimation_finish\nanimation_reverse\nanimation_time\neasing_enum\nsequential_animation\nanimation_parallel\nanimation_move\nanimation_x\nanimation_y\nanimation_width_and_height\nanimation_fill_color\nanimation_fill_alpha\nanimation_line_color\nanimation_line_alpha\nanimation_line_thickness\nanimation_radius\nanimation_rotation_around_center\nanimation_rotation_around_point\nanimation_scale_x_and_y_from_center\nanimation_scale_x_and_y_from_point\nanimation_skew_x\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_animation_interfaces_abstract\njp_animation_event\njp_animation_duration\njp_animation_delay\njp_animation_return_value\njp_animation_base_start\njp_animation_complete\njp_animation_method_chaining\njp_animation_base_target\njp_animation_pause_and_play\njp_animation_reset\njp_animation_finish\njp_animation_reverse\njp_animation_time\njp_easing_enum\njp_sequential_animation\njp_animation_parallel\njp_animation_move\njp_animation_x\njp_animation_y\njp_animation_width_and_height\njp_animation_fill_color\njp_animation_fill_alpha\njp_animation_line_color\njp_animation_line_alpha\njp_animation_line_thickness\njp_animation_radius\njp_animation_rotation_around_center\njp_animation_rotation_around_point\njp_animation_scale_x_and_y_from_center\njp_animation_scale_x_and_y_from_point\njp_animation_skew_x\n```',  # noqa
 
     '## Other manipulation interfaces':
     '## その他の操作関係の各インターフェイス',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [delete interface](delete.md)':
-    '- [delete インターフェイス](jp_delete.md)',
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\ndelete\n```':
+    '```{toctree}\n:maxdepth: 1\njp_delete\n```',
 
     '## Debugging':
     '## デバッグ',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [trace function interface](trace.md)':
-    '- [trace 関数のインターフェイス](jp_trace.md)',
-
-    '- [set_debug_mode interface](set_debug_mode.md)':
-    '- [set_debug_mode インターフェイス](jp_set_debug_mode.md)',
-
-    '- [unset_debug_mode interface](unset_debug_mode.md)':
-    '- [unset_debug_mode インターフェイス](jp_unset_debug_mode.md)',
-
-    '- [add_debug_info_setting decorator interface](add_debug_info_setting.md)':  # noqa
-    '- [add_debug_info_setting のデコレーターのインターフェイス](jp_add_debug_info_setting.md)',  # noqa
-
-    '---':
-    '---',
+    '```{toctree}\n:maxdepth: 1\ntrace\nset_debug_mode\nunset_debug_mode\nadd_debug_info_setting\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_trace\njp_set_debug_mode\njp_unset_debug_mode\njp_add_debug_info_setting\n```',  # noqa
 
     '## Testing':
     '## テスト',
 
-    '### Table of contents':
-    '### Table of contents',
-
-    '- [JavaScript assertion interface basic behavior](assertion_basic_behavior.md)':  # noqa
-    '- [JavaScriptの各アサーションのインターフェイスの基本的な挙動](jp_assertion_basic_behavior.md)',  # noqa
-
-    '- [assert_equal and assert_not_equal interfaces](assert_equal_and_not_equal.md)':  # noqa
-    '- [assert_equal と assert_not_equal の各インターフェイス](jp_assert_equal_and_not_equal.md)',  # noqa
-
-    '- [assert_true and assert_false interfaces](assert_true_and_false.md)':
-    '- [assert_true と assert_false の各インターフェイス](jp_assert_true_and_false.md)',  # noqa
-
-    '- [assert_arrays_equal and assert_arrays_not_equal interfaces](assert_arrays_equal_and_arrays_not_equal.md)':  # noqa
-    '- [assert_arrays_equal と assert_arrays_not_equal の各インターフェイス](jp_assert_arrays_equal_and_arrays_not_equal.md)',  # noqa
-
-    '- [assert_dicts_equal and assert_dicts_not_equal interfaces](assert_dicts_equal_and_dicts_not_equal.md)':  # noqa
-    '- [assert_dicts_equal と assert_dicts_not_equal の各インターフェイス](jp_assert_dicts_equal_and_dicts_not_equal.md)',  # noqa
-
-    '- [assert_defined and assert_undefined interfaces](assert_defined_and_undefined.md)':  # noqa
-    '- [assert_defined と assert_undefined の各インターフェイス](jp_assert_defined_and_undefined.md)',  # noqa
+    '```{toctree}\n:maxdepth: 1\nassertion_basic_behavior\nassert_equal_and_not_equal\nassert_true_and_false\nassert_arrays_equal_and_arrays_not_equal\nassert_dicts_equal_and_dicts_not_equal\nassert_defined_and_undefined\n```':  # noqa
+    '```{toctree}\n:maxdepth: 1\njp_assertion_basic_behavior\njp_assert_equal_and_not_equal\njp_assert_true_and_false\njp_assert_arrays_equal_and_arrays_not_equal\njp_assert_dicts_equal_and_dicts_not_equal\njp_assert_defined_and_undefined\n```',  # noqa
 
 }

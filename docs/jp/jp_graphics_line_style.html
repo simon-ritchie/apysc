@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -85,7 +84,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_basics/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_basics/index.html" width="200" height="162"></iframe></section>
+<iframe src="static/graphics_line_style_basics/index.html" width="200" height="162"></iframe>
+</section>
 <section id="id3">
 <h2>線の色の設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>指定が必須な<code class="docutils literal notranslate"><span class="pre">color</span></code>引数は線の色を設定します。</p>
@@ -107,7 +107,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_color/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_color/index.html" width="200" height="102"></iframe><p>もしも線の色設定を削除したい場合にはこの引数に空文字を指定してください。</p>
+<iframe src="static/graphics_line_style_line_color/index.html" width="200" height="102"></iframe>
+<p>もしも線の色設定を削除したい場合にはこの引数に空文字を指定してください。</p>
 <p>例えば以下のコード例では線の色設定を削除しているので線は見えなくなっています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -130,7 +131,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_clear_line_color/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_clear_line_color/index.html" width="200" height="102"></iframe><p>以下のリストようなのカラーコードの文字列を指定することができます（<code class="docutils literal notranslate"><span class="pre">begin_fill</span></code>インターフェイスの<code class="docutils literal notranslate"><span class="pre">color</span></code>引数と同じ挙動になります）。</p>
+<iframe src="static/graphics_line_style_clear_line_color/index.html" width="200" height="102"></iframe>
+<p>以下のリストようなのカラーコードの文字列を指定することができます（<code class="docutils literal notranslate"><span class="pre">begin_fill</span></code>インターフェイスの<code class="docutils literal notranslate"><span class="pre">color</span></code>引数と同じ挙動になります）。</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>などの6文字による指定。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#0af</span></code>などの3文字による指定（これは<code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>と同じ値として扱われます）。</p></li>
@@ -164,7 +166,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_color_color_code/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_color_color_code/index.html" width="200" height="162"></iframe></section>
+<iframe src="static/graphics_line_style_line_color_color_code/index.html" width="200" height="162"></iframe>
+</section>
 <section id="id4">
 <h2>線幅の設定<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">thickness</span></code>引数は線の幅を設定します。1以上の値を受け付けることができます。</p>
@@ -194,7 +197,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_thickness/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_thickness/index.html" width="200" height="165"></iframe></section>
+<iframe src="static/graphics_line_style_thickness/index.html" width="200" height="165"></iframe>
+</section>
 <section id="id5">
 <h2>線の透明度の設定<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>引数で線の透明度を設定することができます。0.0（透明）～1.0（不透明）の範囲の値を受け付けることができます。</p>
@@ -220,7 +224,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_alpha/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_alpha/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/graphics_line_style_alpha/index.html" width="150" height="150"></iframe>
+</section>
 <section id="id6">
 <h2>線端の設定<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>線の端のスタイルは<code class="docutils literal notranslate"><span class="pre">cap</span></code>引数で設定することができます。<code class="docutils literal notranslate"><span class="pre">LineCaps</span></code>クラスのenumの値を受け付けます。</p>
@@ -257,7 +262,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_caps/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_caps/index.html" width="200" height="180"></iframe></section>
+<iframe src="static/graphics_line_style_caps/index.html" width="200" height="180"></iframe>
+</section>
 <section id="id7">
 <h2>線の繋ぎ目の設定<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">joints</span></code>引数では線の繋ぎ目（頂点部分）のスタイルを変更します。この引数には<code class="docutils literal notranslate"><span class="pre">LineJoints</span></code>のenumの各値を受け付けます。主に<code class="docutils literal notranslate"><span class="pre">move_to</span></code>や<code class="docutils literal notranslate"><span class="pre">line_to</span></code>などのインターフェイスで生成される<code class="docutils literal notranslate"><span class="pre">Polyline</span></code>クラスのインスタンスでこの引数は使用されます。</p>
@@ -302,7 +308,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_joints/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_joints/index.html" width="350" height="150"></iframe></section>
+<iframe src="static/graphics_line_style_joints/index.html" width="350" height="150"></iframe>
+</section>
 <section id="id8">
 <h2>線の点線設定<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>引数は線を点線へと変更する設定です。この引数は<code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code>クラスの設定を受け付けます。点線のサイズは<code class="docutils literal notranslate"><span class="pre">dot_size</span></code>引数で変更することができます（1以上の値を受け付けます）。</p>
@@ -338,7 +345,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_dot_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_dot_setting/index.html" width="300" height="160"></iframe><p>この設定や類似の設定は線のグラフィックスだけでなく<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>など他のグラフィックスクラスの表示も変更します。</p>
+<iframe src="static/graphics_line_style_line_dot_setting/index.html" width="300" height="160"></iframe>
+<p>この設定や類似の設定は線のグラフィックスだけでなく<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>など他のグラフィックスクラスの表示も変更します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -363,7 +371,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_dot_setting_rectangle/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_dot_setting_rectangle/index.html" width="250" height="150"></iframe><p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
+<iframe src="static/graphics_line_style_line_dot_setting_rectangle/index.html" width="250" height="150"></iframe>
+<p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
 </section>
 <section id="id9">
 <h2>線の破線設定<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
@@ -396,7 +405,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_dash_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_dash_setting/index.html" width="300" height="130"></iframe><p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
+<iframe src="static/graphics_line_style_line_dash_setting/index.html" width="300" height="130"></iframe>
+<p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
 </section>
 <section id="id10">
 <h2>線の丸ドット設定<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
@@ -429,7 +439,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_round_dot_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_round_dot_setting/index.html" width="300" height="130"></iframe><p>特記事項: この設定は内部で<code class="docutils literal notranslate"><span class="pre">cap</span></code>設定の値を使用しているため、この設定では<code class="docutils literal notranslate"><span class="pre">cap</span></code>引数の設定が無視されます。また、丸のサイズに応じた分だけ線の長さが長くなります。</p>
+<iframe src="static/graphics_line_style_line_round_dot_setting/index.html" width="300" height="130"></iframe>
+<p>特記事項: この設定は内部で<code class="docutils literal notranslate"><span class="pre">cap</span></code>設定の値を使用しているため、この設定では<code class="docutils literal notranslate"><span class="pre">cap</span></code>引数の設定が無視されます。また、丸のサイズに応じた分だけ線の長さが長くなります。</p>
 <p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
 </section>
 <section id="id11">
@@ -465,7 +476,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_dash_dot_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_dash_dot_setting/index.html" width="300" height="130"></iframe><p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
+<iframe src="static/graphics_line_style_line_dash_dot_setting/index.html" width="300" height="130"></iframe>
+<p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
 </section>
 <section id="line-style-api">
 <h2>line_style API<a class="headerlink" href="#line-style-api" title="Permalink to this headline">¶</a></h2>
@@ -520,7 +532,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -555,7 +568,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -579,7 +593,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -602,7 +617,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -626,7 +642,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -650,7 +667,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -674,7 +692,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -698,7 +717,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -726,7 +746,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -754,7 +775,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>

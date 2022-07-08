@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -85,7 +84,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_basic_usage/index.html" width="350" height="150"></iframe></section>
+<iframe src="static/graphics_begin_fill_basic_usage/index.html" width="350" height="150"></iframe>
+</section>
 <section id="id3">
 <h2>塗りの色の設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">color</span></code>引数は塗りの色を設定します。<code class="docutils literal notranslate"><span class="pre">begin_fill</span></code>インターフェイスではこの引数は必須になっています。</p>
@@ -107,7 +107,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_fill_color/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe><p>もしも塗りの色の設定を削除したい場合、空の文字列をこの引数に指定してください。</p>
+<iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe>
+<p>もしも塗りの色の設定を削除したい場合、空の文字列をこの引数に指定してください。</p>
 <p>以下のコード例では塗りの色の設定を削除しているため、四角のグラフィックは見えなくなります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -132,7 +133,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_color_setting_clear/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_color_setting_clear/index.html" width="150" height="150"></iframe><p>カラーコードは以下の形の指定を受け付けています。</p>
+<iframe src="static/graphics_begin_fill_color_setting_clear/index.html" width="150" height="150"></iframe>
+<p>カラーコードは以下の形の指定を受け付けています。</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>などの6文字による指定。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#0af</span></code>などの3文字による指定（これは<code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>と同じ値として扱われます）。</p></li>
@@ -174,7 +176,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_acceptable_color_settings/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_acceptable_color_settings/index.html" width="450" height="150"></iframe></section>
+<iframe src="static/graphics_begin_fill_acceptable_color_settings/index.html" width="450" height="150"></iframe>
+</section>
 <section id="id4">
 <h2>塗りの色の透明度の設定<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>塗りの透明度は<code class="docutils literal notranslate"><span class="pre">alpha</span></code>引数で設定できます。0.0（透明）～1.0（不透明）の範囲の値を受け付けます。</p>
@@ -204,7 +207,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_alpha_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_alpha_setting/index.html" width="200" height="200"></iframe></section>
+<iframe src="static/graphics_begin_fill_alpha_setting/index.html" width="200" height="200"></iframe>
+</section>
 <section id="begin-fill-api">
 <h2>begin_fill API<a class="headerlink" href="#begin-fill-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
@@ -223,7 +227,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -247,7 +252,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
@@ -271,7 +277,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>

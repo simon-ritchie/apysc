@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -121,7 +120,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_complete_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_complete_basic_usage/index.html" width="200" height="150"></iframe></section>
+<iframe src="static/animation_complete_basic_usage/index.html" width="200" height="150"></iframe>
+</section>
 <section id="id3">
 <h2>他のインターフェイスを呼び出す際の特記事項<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>メソッドはアニメーション開始前にのみ設定することができます。<code class="docutils literal notranslate"><span class="pre">start</span></code>メソッド呼び出し後に<code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>メソッドを呼び出すとエラーになります。</p>
@@ -215,7 +215,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">self</span></code>: AnimatonBase</p>
 <ul>
@@ -223,11 +224,13 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[エラー発生条件]</strong></p>
+<hr>
+<p><strong>[エラー発生条件]</strong></p>
 <ul class="simple">
 <li><p>Exception: もしアニメーション開始後にこのインターフェイスを呼び出している場合。</p></li>
 </ul>
-<hr><p><strong>[特記事項]</strong></p>
+<hr>
+<p><strong>[特記事項]</strong></p>
 <p>このインターフェイスはアニメーション開始前にのみ利用することができます。<hr></p>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -245,7 +248,8 @@
 <span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[関連資料]</strong></p>
+<hr>
+<p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html">ハンドラのoptions引数の型について</a></p></li>
 </ul>

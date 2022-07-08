@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -115,17 +114,18 @@
 </pre></div>
 </div>
 <p>四角をクリックするとタイマーがスタートし、タイマーのハンドラは四角のX座標を加算していきます。</p>
-<iframe src="static/timer_basic_usage/index.html" width="350" height="150"></iframe></section>
+<iframe src="static/timer_basic_usage/index.html" width="350" height="150"></iframe>
+</section>
 <section id="id3">
 <h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_timer_event.html"><span class="doc">TimerEvent クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_timer_delay.html"><span class="doc">Timer クラスの delay 設定</span></a></p></li>
-<li><p><a class="reference internal" href="jp_fps.html"><span class="doc">FPS の enum</span></a></p></li>
-<li><p><a class="reference internal" href="jp_timer_repeat_count.html"><span class="doc">Timer クラスの repeat_count 設定</span></a></p></li>
-<li><p><a class="reference internal" href="jp_timer_start_and_stop.html"><span class="doc">Timer クラスの start と stop の各インターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_timer_complete.html"><span class="doc">Timer クラスの timer_complete インターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_timer_reset.html"><span class="doc">Timer クラスの reset インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_event.html"><span class="doc std std-doc">TimerEvent クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_delay.html"><span class="doc std std-doc">Timer クラスの delay 設定</span></a></p></li>
+<li><p><a class="reference internal" href="jp_fps.html"><span class="doc std std-doc">FPS の enum</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_repeat_count.html"><span class="doc std std-doc">Timer クラスの repeat_count 設定</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_start_and_stop.html"><span class="doc std std-doc">Timer クラスの start と stop の各インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_complete.html"><span class="doc std std-doc">Timer クラスの timer_complete インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer_reset.html"><span class="doc std std-doc">Timer クラスの reset インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="timer-api">
@@ -156,7 +156,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
@@ -174,7 +175,8 @@
 <span class="gp">... </span>    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[関連資料]</strong></p>
+<hr>
+<p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_timer_event.html">TimerEvent クラス</a></p></li>
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_timer_delay.html">Timer クラスの delay 設定</a></p></li>

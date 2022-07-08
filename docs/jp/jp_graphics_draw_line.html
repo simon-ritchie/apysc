@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -74,7 +73,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_line_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_line_basic_usage/index.html" width="200" height=100></iframe></section>
+<iframe src="static/graphics_draw_line_basic_usage/index.html" width="200" height=100></iframe>
+</section>
 <section id="id3">
 <h2>無視される線のスタイル設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>このインターフェイスはインターフェイスのシンプルさのために<code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>、<code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>、<code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>、<code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>の各設定を無視します。もしもこれらのスタイル設定が必要な場合には<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>インターフェイスの代わりに<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>などのインターフェイスを仕様してください。</p>
@@ -98,7 +98,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_line_ignored_dot_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_line_ignored_dot_setting/index.html" width="200" height=100></iframe></section>
+<iframe src="static/graphics_draw_line_ignored_dot_setting/index.html" width="200" height=100></iframe>
+</section>
 <section id="line">
 <h2>Line クラスのインスタンス<a class="headerlink" href="#line" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Line</span></code>クラスのインスタンスを返却します。そのインスタンスの各種設定を変更したりイベントを登録したり等を行うことができます。<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>などのインターフェイスも同じく<code class="docutils literal notranslate"><span class="pre">Line</span></code>クラスのインスタンスを返却します。</p>
@@ -124,7 +125,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_line_line_instance/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_line_line_instance/index.html" width="200" height=100></iframe></section>
+<iframe src="static/graphics_draw_line_line_instance/index.html" width="200" height=100></iframe>
+</section>
 <section id="draw-line-api">
 <h2>draw_line API<a class="headerlink" href="#draw-line-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
@@ -153,7 +155,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Line</p>
 <ul>
@@ -161,7 +164,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[特記事項]</strong></p>
+<hr>
+<p><strong>[特記事項]</strong></p>
 <p>・このインターフェイスは<code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code>や<code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code>などの設定を無視します。<hr></p>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>

@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -72,7 +71,8 @@
 </pre></div>
 </div>
 <p>上記のコードでは<code class="docutils literal notranslate"><span class="pre">save_overall_html_interface_basic_usage/index.html</span></code>のパスにHTMLファイルや他のJavaScriptのライブラリファイルが出力されます。</p>
-<iframe src="static/save_overall_html_interface_basic_usage/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/save_overall_html_interface_basic_usage/index.html" width="150" height="150"></iframe>
+</section>
 <section id="html">
 <h2>HTMLを最小化する<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code>関数には<code class="docutils literal notranslate"><span class="pre">minify</span></code>のオプションの引数が存在します（デフォルトではTrueになっています）。この設定はもしTrueになっていきれば出力結果のHTMLを最小化（minify）します。Falseの設定はデバッグ時などに便利な時があります。</p>
@@ -205,7 +205,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[特記事項]</strong></p>
+<hr>
+<p><strong>[特記事項]</strong></p>
 <p>このインターフェイスは指定された出力先のディレクトリを出力前に空にします。<hr></p>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>

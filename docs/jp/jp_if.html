@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -52,7 +51,7 @@
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">If</span></code>クラスについて説明します。</p>
 <p>このページを読み進める前に以下のページを確認しておくと役に立つかもしれません（apyscでは基本的なデータクラスと同様の理由で<code class="docutils literal notranslate"><span class="pre">If</span></code>クラスを使用しています）:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
+<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
 </ul>
 <section id="id1">
 <h2>If クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
@@ -74,9 +73,9 @@
 <section id="id3">
 <h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_elif.html"><span class="doc">Elif クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_else.html"><span class="doc">Else クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_branch_instruction_variables_reverting_setting.html"><span class="doc">分岐条件の各クラスのスコープ内変数の復元設定</span></a></p></li>
+<li><p><a class="reference internal" href="jp_elif.html"><span class="doc std std-doc">Elif クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_else.html"><span class="doc std std-doc">Else クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_branch_instruction_variables_reverting_setting.html"><span class="doc std std-doc">分岐条件の各クラスのスコープ内変数の復元設定</span></a></p></li>
 </ul>
 </section>
 <section id="if-api">
@@ -102,7 +101,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">&gt;=</span> <span class="mi">10</span>
@@ -110,7 +110,8 @@
 <span class="gp">... </span>    <span class="n">ap</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s1">&#39;Int value is greater than equal 10!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr><p><strong>[関連資料]</strong></p>
+<hr>
+<p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_branch_instruction_variables_reverting_setting.html">分岐条件の各クラスのスコープ内変数の復元設定</a></p></li>
 </ul>

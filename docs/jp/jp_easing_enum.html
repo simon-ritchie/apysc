@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -116,7 +115,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/easing_enum_basic_usage/index.html" width="200" height="200"></iframe><p>もしも<code class="docutils literal notranslate"><span class="pre">easing</span></code>引数の指定を省略した場合、アニメーションは線形（スタートから終了まで一定の変動）のアニメーションとなります。</p>
+<iframe src="static/easing_enum_basic_usage/index.html" width="200" height="200"></iframe>
+<p>もしも<code class="docutils literal notranslate"><span class="pre">easing</span></code>引数の指定を省略した場合、アニメーションは線形（スタートから終了まで一定の変動）のアニメーションとなります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -176,7 +176,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_default_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/easing_enum_default_setting/index.html" width="200" height="200"></iframe></section>
+<iframe src="static/easing_enum_default_setting/index.html" width="200" height="200"></iframe>
+</section>
 <section id="ease-in-ease-out-ease-in-out">
 <h2>イーズイン（ease-in）、イーズアウト（ease-out）、イーズインアウト（ease-in-out）の違い<a class="headerlink" href="#ease-in-ease-out-ease-in-out" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -186,7 +187,8 @@
 </ul>
 <p>以下のコード例では差が分かるように<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUINT</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUINT</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUINT</span></code>のそれぞれを表示しています。</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -276,13 +278,16 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_difference/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_difference/index.html" width="200" height="350"></iframe></section>
+</details>
+<iframe src="static/easing_enum_ease_difference/index.html" width="200" height="350"></iframe>
+</section>
 <section id="id3">
 <h2>イーズインの例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>この節ではX座標のアニメーションにおける各イーズインの設定による例を表示しています。</p>
 <p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_SINE</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUAD</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_CUBIC</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -372,9 +377,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_in_1/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_in_1/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUART</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUINT</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_EXPO</span></code>の各値を設定しています:</p>
+</details>
+<iframe src="static/easing_enum_ease_in_1/index.html" width="200" height="350"></iframe>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUART</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_QUINT</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_IN_EXPO</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -464,9 +472,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_in_2/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_in_2/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_CIRC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_BACK</span></code>の各値を設定しています:</p>
+</details>
+<iframe src="static/easing_enum_ease_in_2/index.html" width="200" height="350"></iframe>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_CIRC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_BACK</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -549,9 +560,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_in_3/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_in_3/index.html" width="200" height="250"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_ELASTIC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_BOUNCE</span></code>の各値を設定しています:</p>
+</details>
+<iframe src="static/easing_enum_ease_in_3/index.html" width="200" height="250"></iframe>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_ELASTIC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_BOUNCE</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -634,13 +648,16 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_in_4/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_in_4/index.html" width="200" height="250"></iframe></section>
+</details>
+<iframe src="static/easing_enum_ease_in_4/index.html" width="200" height="250"></iframe>
+</section>
 <section id="id4">
 <h2>イーズアウトの例<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>この節ではX座標のアニメーションにおける各イーズアウトの設定による例を表示しています。</p>
 <p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_SINE</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUAD</span></code>、<code class="docutils literal notranslate"><span class="pre">EASE_OUT_CUBIC</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -730,9 +747,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_out_1/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_out_1/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUART</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUINT</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_EXPO</span></code>の各値を設定しています:</p>
+</details>
+<iframe src="static/easing_enum_ease_out_1/index.html" width="200" height="350"></iframe>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUART</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUINT</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_EXPO</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -822,9 +842,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_out_2/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_out_2/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_CIRC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_OUT_BACK</span></code>の各値を設定しています:</p>
+</details>
+<iframe src="static/easing_enum_ease_out_2/index.html" width="200" height="350"></iframe>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_CIRC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_OUT_BACK</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -907,9 +930,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_out_3/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_out_3/index.html" width="200" height="250"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_ELASTIC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_OUT_BOUNCE</span></code>の各値を設定しています。</p>
+</details>
+<iframe src="static/easing_enum_ease_out_3/index.html" width="200" height="250"></iframe>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_OUT_ELASTIC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_OUT_BOUNCE</span></code>の各値を設定しています。</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -992,13 +1018,16 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_out_4/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_out_4/index.html" width="200" height="250"></iframe></section>
+</details>
+<iframe src="static/easing_enum_ease_out_4/index.html" width="200" height="250"></iframe>
+</section>
 <section id="id5">
 <h2>イーズインアウトの例<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>この節ではX座標のアニメーションにおける各イーズインアウトの設定による例を表示しています。</p>
 <p>以下の例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_SINE</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUAD</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_CUBIC</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1088,9 +1117,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_in_out_1/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_in_out_1/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUART</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUINT</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_EXPO</span></code>の各値を設定しています:</p>
+</details>
+<iframe src="static/easing_enum_ease_in_out_1/index.html" width="200" height="350"></iframe>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUART</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUINT</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_EXPO</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1180,9 +1212,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_in_out_2/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_in_out_2/index.html" width="200" height="350"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_CIRC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BACK</span></code>の各値を設定しています:</p>
+</details>
+<iframe src="static/easing_enum_ease_in_out_2/index.html" width="200" height="350"></iframe>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_CIRC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BACK</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1265,9 +1300,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_in_out_3/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_in_out_3/index.html" width="200" height="250"></iframe><p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_ELASTIC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BOUNCE</span></code>の各値を設定しています:</p>
+</details>
+<iframe src="static/easing_enum_ease_in_out_3/index.html" width="200" height="250"></iframe>
+<p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_ELASTIC</span></code>と<code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BOUNCE</span></code>の各値を設定しています:</p>
 <details>
-<summary>コードブロックを表示:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -1350,7 +1388,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./easing_enum_ease_in_out_4/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/easing_enum_ease_in_out_4/index.html" width="200" height="250"></iframe></section>
+</details>
+<iframe src="static/easing_enum_ease_in_out_4/index.html" width="200" height="250"></iframe></section>
 </section>
 
 

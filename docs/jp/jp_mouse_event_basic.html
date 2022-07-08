@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -102,7 +101,8 @@
 </pre></div>
 </div>
 <p>四角をクリックした場合、ハンドラは四角の色をパラメーターに渡された色に変更します。</p>
-<iframe src="static/mouse_event_basic_basic_binding_usage/index.html" width="150" height="150"></iframe><p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の各インスタンスには<code class="docutils literal notranslate"><span class="pre">click</span></code>や<code class="docutils literal notranslate"><span class="pre">mousedown</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseup</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseover</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseout</span></code>、<code class="docutils literal notranslate"><span class="pre">mousemove</span></code>などの様々なイベント設定用のインターフェイスがそっ歳します。</p>
+<iframe src="static/mouse_event_basic_basic_binding_usage/index.html" width="150" height="150"></iframe>
+<p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の各インスタンスには<code class="docutils literal notranslate"><span class="pre">click</span></code>や<code class="docutils literal notranslate"><span class="pre">mousedown</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseup</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseover</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseout</span></code>、<code class="docutils literal notranslate"><span class="pre">mousemove</span></code>などの様々なイベント設定用のインターフェイスがそっ歳します。</p>
 </section>
 <section id="id3">
 <h2>基本的なイベント解除処理の使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
@@ -158,7 +158,8 @@
 </pre></div>
 </div>
 <p>以下の四角をクリックしてみても何も起こらないことが確認できます。</p>
-<iframe src="static/mouse_event_basic_basic_unbinding_usage/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/mouse_event_basic_basic_unbinding_usage/index.html" width="150" height="150"></iframe>
+</section>
 <section id="id4">
 <h2>全てのイベントハンドラの設定を解除する<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>特定のイベントの設定を一括で解除するのが役立つ時があります。イベントが設定できる各インスタンスは<code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>などの<code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;_all</span></code>という名前の形式のインターフェイスを持っており、それを使ってインスタンスから一通りのイベントのハンドラ設定を解除することができます。</p>
@@ -229,7 +230,8 @@
 </pre></div>
 </div>
 <p>四角をクリックしてみても色の変化やX座標の更新などが発生しないことを確認できます。</p>
-<iframe src="static/mouse_event_basic_unbind_all_event_handlers/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/mouse_event_basic_unbind_all_event_handlers/index.html" width="150" height="150"></iframe>
+</section>
 <section id="id5">
 <h2>ハンドラの引数の名前と型<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>ハンドラの関数（もしくはメソッド）の第一引数は<code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>型の引数が必要になります。</p>
@@ -318,7 +320,8 @@
 </pre></div>
 </div>
 <p>F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウスカーソルを動かすと<code class="docutils literal notranslate"><span class="pre">stage_x</span></code>や<code class="docutils literal notranslate"><span class="pre">stage_y</span></code>の座標値を家訓することができます。前述のコードでは四角を<code class="docutils literal notranslate"><span class="pre">(50,</span> <span class="pre">100)</span></code>の位置に設定しているため、<code class="docutils literal notranslate"><span class="pre">stage_x</span></code>の値は50～100の範囲の値となり、<code class="docutils literal notranslate"><span class="pre">stage_y</span></code>の値は100～150の範囲の値となります。</p>
-<iframe src="static/mouse_event_basic_stage_x_and_stage_y/index.html" width="150" height="200"></iframe></section>
+<iframe src="static/mouse_event_basic_stage_x_and_stage_y/index.html" width="150" height="200"></iframe>
+</section>
 <section id="mouseevent-local-x-local-y">
 <h2>MouseEvent クラスの local_x と local_y 属性<a class="headerlink" href="#mouseevent-local-x-local-y" title="Permalink to this headline">¶</a></h2>
 <p>MouseEventのインスタンスは<code class="docutils literal notranslate"><span class="pre">local_x</span></code>と<code class="docutils literal notranslate"><span class="pre">local_y</span></code>という属性も持っています。これらの属性はイベントが登録されたインスタンスを基準とした相対座標となります。</p>
@@ -360,14 +363,15 @@
 </pre></div>
 </div>
 <p>F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウスカーソルを動かしてみて出力結果を確認してみてください。</p>
-<iframe src="static/mouse_event_basic_local_x_and_local_y/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/mouse_event_basic_local_x_and_local_y/index.html" width="150" height="150"></iframe>
+</section>
 <section id="id6">
 <h2>関連資料<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_click.html"><span class="doc">click インターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_mousedown_and_mouseup.html"><span class="doc">mousedown と mouseup のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_mouseover_and_mouseout.html"><span class="doc">mouseover と mouseout のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_mousemove.html"><span class="doc">mousemove インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_click.html"><span class="doc std std-doc">click インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mousedown_and_mouseup.html"><span class="doc std std-doc">mousedown と mouseup のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mouseover_and_mouseout.html"><span class="doc std std-doc">mouseover と mouseout のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mousemove.html"><span class="doc std std-doc">mousemove インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="stage-x-api">
@@ -382,7 +386,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -409,7 +414,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -436,7 +442,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -463,7 +470,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -490,7 +498,8 @@
 </ul>
 </li>
 </ul>
-<hr><p><strong>[コードサンプル]</strong></p>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_custom_event</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Event</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

@@ -17,7 +17,6 @@
     <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
     <script src="static/common_func.js"></script>
-    <script src="static/hide_toctree_heading_and_sidemenu.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -85,7 +84,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;animation_parallel_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_parallel_basic_usage/index.html" width="400" height="150"></iframe></section>
+<iframe src="static/animation_parallel_basic_usage/index.html" width="400" height="150"></iframe>
+</section>
 <section id="durationdelayeasing">
 <h2>各アニメーションのduration、delay、easingの設定についての特記事項<a class="headerlink" href="#durationdelayeasing" title="Permalink to this headline">¶</a></h2>
 <p>各アニメーションごとの<code class="docutils literal notranslate"><span class="pre">duration</span></code>や<code class="docutils literal notranslate"><span class="pre">delay</span></code>、<code class="docutils literal notranslate"><span class="pre">easing</span></code>の引数設定は<code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code>メソッド側の値が使用されるため設定できません。もし何らかの値を設定した場合にはエラーとなります。</p>
@@ -133,7 +133,8 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 </ul>
 </li>
 </ul>
-<hr><p><strong>[返却値]</strong></p>
+<hr>
+<p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code>: AnimationParallel</p>
 <ul>
@@ -141,11 +142,13 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 </ul>
 </li>
 </ul>
-<hr><p><strong>[エラー発生条件]</strong></p>
+<hr>
+<p><strong>[エラー発生条件]</strong></p>
 <ul class="simple">
 <li><p>ValueError: <br> ・もし各アニメーションの対象のインスタンスがこのインスタンスでは無い場合。<br> ・もし<code class="docutils literal notranslate"><span class="pre">animations</span></code>引数の各アニメーションのderationやdelay、easingの設定が変更去れている場合。</p></li>
 </ul>
-<hr><p><strong>[特記事項]</strong></p>
+<hr>
+<p><strong>[特記事項]</strong></p>
 <p>・アニメーションを開始するには返却されたインスタンスの<code class="docutils literal notranslate"><span class="pre">start</span></code>メソッドを呼び出す必要があります。 <br> ・<code class="docutils literal notranslate"><span class="pre">animations</span></code>引数の値には<code class="docutils literal notranslate"><span class="pre">AnimationParallel</span></code>クラスのインスタンスを含めることはできません。 <br> ・このインターフェイスは<code class="docutils literal notranslate"><span class="pre">animations</span></code>引数内の値のduration, delay, easingの各引数の設定を無視します（代わりにこのインターフェイス自身のそれらの引数の設定を利用してください）。<hr></p>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -165,7 +168,8 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 <span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<hr><p><strong>[関連資料]</strong></p>
+<hr>
+<p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_animation_duration.html">各アニメーションインターフェイスの duration （アニメーション時間）設定</a></p></li>
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_animation_delay.html">各アニメーションインターフェイスの delay （遅延時間）設定</a></p></li>

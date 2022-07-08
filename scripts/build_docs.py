@@ -66,12 +66,6 @@ def _main() -> None:
     if not options['skip_sync_translation']:
         _apply_translation_mappings()
 
-    index_md_replacer: _IndexMdUnderscoresReplacer = \
-        _IndexMdUnderscoresReplacer()
-
-    logger.info(msg='Removing underscores from each index.md file...')
-    index_md_replacer.remove_underscores()
-
     logger.info(
         msg='English documents\' Sphinx build command started...')
     complete_process: sp.CompletedProcess = sp.run(
@@ -92,9 +86,6 @@ def _main() -> None:
         print(stdout)
 
     _move_and_adjust_updated_files()
-
-    logger.info(msg='Reverting each index.md file...')
-    index_md_replacer.revert()
 
     apply_link_text_mapping_to_index_html.apply()
 
@@ -187,72 +178,6 @@ def _get_build_command(*, lang: Lang) -> str:
         f'-c ./docs_src/source/conf_{lang.value}/'
     )
     return command
-
-
-class _IndexMdUnderscoresReplacer:
-
-    _index_src_file_paths: List[str]
-    _original_index_files_texts: Dict[str, str]
-
-    def __init__(self) -> None:
-        """
-        This class handles the index.md files underscores
-        replacing and reverting.
-        """
-        self._set_index_src_file_paths()
-        self._set_original_index_files_texts()
-
-    def remove_underscores(self) -> None:
-        """
-        Remove underscores from each index.md file.
-        """
-        from apysc._file import file_util
-        pattern: Pattern = re.compile(pattern=r'^(\- \[.*?)\_(.*?\].*)')
-        for file_path, text in self._original_index_files_texts.items():
-            lines: List[str] = text.splitlines()
-            result_lines: List[str] = []
-            for line in lines:
-                match: Op[Match] = pattern.match(string=line)
-                while match is not None:
-                    line = f'{match.group(1)} {match.group(2)}'
-                    match = pattern.match(string=line)
-                result_lines.append(line)
-            result_txt: str = '\n'.join(result_lines)
-            file_util.save_plain_txt(
-                txt=result_txt, file_path=file_path)
-
-    def revert(self) -> None:
-        """
-        Revert each index.md file's text.
-        """
-        from apysc._file import file_util
-        for file_path, txt in self._original_index_files_texts.items():
-            file_util.save_plain_txt(txt=txt, file_path=file_path)
-
-    def _set_original_index_files_texts(self) -> None:
-        """
-        Set each index.md's original text to the
-        `_original_index_files_texts` attribute.
-        """
-        from apysc._file import file_util
-        self._original_index_files_texts = {}
-        for file_path in self._index_src_file_paths:
-            text: str = file_util.read_txt(file_path=file_path)
-            self._original_index_files_texts[file_path] = text
-
-    def _set_index_src_file_paths(self) -> None:
-        """
-        Set the index.md source file paths to the `_index_src_file_paths`
-        attribute.
-        """
-        self._index_src_file_paths = []
-        file_names: List[str] = os.listdir('./docs_src/source/')
-        for file_name in file_names:
-            if not file_name.endswith('index.md'):
-                continue
-            file_path = os.path.join(
-                './docs_src/source/', file_name)
-            self._index_src_file_paths.append(file_path)
 
 
 def _remove_runnable_inline_comment_from_code_blocks(

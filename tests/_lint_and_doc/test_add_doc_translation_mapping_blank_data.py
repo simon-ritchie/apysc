@@ -338,3 +338,28 @@ def test__set_same_value_if_key_is_image_link() -> None:
             key='![](_static/colaboratory_interface.png)',
             value='')
     assert value == '![](_static/colaboratory_interface.png)'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__set_translated_file_names_to_toc_code_block() -> None:
+    value: str = 'Lorem ipsum'
+    value = add_doc_translation_mapping_blank_data.\
+        _set_translated_file_names_to_toc_code_block(
+            lang=Lang.JP, value=value)
+    assert value == 'Lorem ipsum'
+
+    value = (
+        '```{toctree}'
+        '\\nlorem_ipsum'
+        '\njp_dolor_sit_amet_2'
+        '\n```'
+    )
+    value = add_doc_translation_mapping_blank_data.\
+        _set_translated_file_names_to_toc_code_block(
+            lang=Lang.JP, value=value)
+    assert value == (
+        '```{toctree}'
+        '\njp_lorem_ipsum'
+        '\njp_dolor_sit_amet_2'
+        '\n```'
+    )

@@ -156,6 +156,8 @@ def _make_mappings_from_keys(
             key=key_, value=value)
         value = _set_same_value_if_code_block_mapping_is_blank(
             key=key, value=value)
+        value = _set_translated_file_names_to_toc_code_block(
+            lang=lang, value=value)
         value = _convert_link_list_by_lang(
             key=key, value=value, lang=lang)
         value = _set_same_value_if_api_params_or_returns_list(
@@ -168,6 +170,45 @@ def _make_mappings_from_keys(
         value = escape_key_or_value(key_or_val=value)
         mappings.append({key: value})
     return mappings
+
+
+def _set_translated_file_names_to_toc_code_block(
+        *, lang: Lang, value: str) -> str:
+    """
+    Set translated file names to a specified mapping value
+    if a value is the table of contents' code block.
+
+    Parameters
+    ----------
+    lang : Lang
+        A target language setting.
+    value : str
+        A mapping value.
+
+    Returns
+    -------
+    value : str
+        A result mapping value.
+    """
+    if not value.startswith('```{toctree}'):
+        return value
+    value = remove_escaping_from_key_or_value(key_or_val=value)
+    lines: List[str] = value.splitlines()
+    result_lines: List[str] = []
+    for line in lines:
+        match: Optional[Match] = re.match(
+            pattern=r'^[a-z_0-9]+$',
+            string=line,
+        )
+        if match is None:
+            result_lines.append(line)
+            continue
+        if line.startswith(f'{lang.value}_'):
+            result_lines.append(line)
+            continue
+        result_lines.append(f'{lang.value}_{line}')
+    value = '\n'.join(result_lines)
+    return value
 
 
 _BLANK_ALT_IMAGE_LINK_PATTERN: Pattern = re.compile(

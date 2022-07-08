@@ -22,8 +22,6 @@ import_conventions
 recommended_type_checker_settings
 ```
 
----
-
 ## Container classes
 
 The `Stage` is the apysc overall drawing area container, and the `Sprite` is the container class.
@@ -35,8 +33,6 @@ The `Stage` is the apysc overall drawing area container, and the `Sprite` is the
 stage
 sprite
 ```
-
----
 
 ## Exporting
 
@@ -52,8 +48,6 @@ display_on_colaboratory
 append_js_expression
 ```
 
----
-
 ## Child-related interfaces
 
 The parent class, such as the `Sprite` or `Stage`, has the following interfaces:
@@ -68,8 +62,6 @@ contains
 num_children
 get_child_at
 ```
-
----
 
 ## apysc basic data classes
 
@@ -107,8 +99,6 @@ dictionary_length
 point2d
 ```
 
----
-
 ## DisplayObject and GraphicsBase classes
 
 The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphic class, such as the `Rectangle` class.
@@ -141,8 +131,6 @@ graphics_base_flip_interfaces
 graphics_base_skew
 ```
 
----
-
 ## Each graphic class
 
 ### Table of contents
@@ -156,8 +144,6 @@ line
 polyline
 polygon
 ```
-
----
 
 ## Graphics class
 
@@ -187,8 +173,6 @@ graphics_draw_polygon
 graphics_clear
 ```
 
----
-
 ## Common event interfaces
 
 ### Table of contents
@@ -199,8 +183,6 @@ about_handler_options_type
 event_prevent_default_and_stop_propagation
 bind_and_trigger_custom_event
 ```
-
----
 
 ## MouseEvent class and mouse event binding
 
@@ -219,8 +201,6 @@ mouseover_and_mouseout
 mousemove
 ```
 
----
-
 ## Branch instruction
 
 ### Table of contents
@@ -234,8 +214,6 @@ branch_instruction_variables_reverting_setting
 return
 ```
 
----
-
 ## Loop
 
 ### Table of contents
@@ -245,8 +223,6 @@ return
 for
 continue
 ```
-
----
 
 ## Timer
 
@@ -265,8 +241,6 @@ timer_start_and_stop
 timer_complete
 timer_reset
 ```
-
----
 
 ## Animation
 
@@ -310,8 +284,6 @@ animation_scale_x_and_y_from_point
 animation_skew_x
 ```
 
----
-
 ## Other manipulation interfaces
 
 ### Table of contents
@@ -320,8 +292,6 @@ animation_skew_x
 :maxdepth: 1
 delete
 ```
-
----
 
 ## Debugging
 
@@ -334,8 +304,6 @@ set_debug_mode
 unset_debug_mode
 add_debug_info_setting
 ```
-
----
 
 ## Testing
 

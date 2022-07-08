@@ -54,7 +54,6 @@ def _main() -> None:
     """
     options: _CommandOptions = _get_command_options()
 
-    from scripts import apply_link_text_mapping_to_index_html
     print('-' * 20)
     logger.info(msg='Documentation build started...')
 
@@ -85,8 +84,6 @@ def _main() -> None:
         print(stdout)
 
     _move_and_adjust_updated_files()
-
-    apply_link_text_mapping_to_index_html.apply()
 
     logger.info(msg='Build completed!')
 

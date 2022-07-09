@@ -2903,4 +2903,52 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='  - List of line points.',
             val='  - 線の座標のリスト。'),
+        Mapping(
+            key='## rotation_around_center property interface example',
+            val='## rotation_around_center属性のインターフェイス例'),
+        Mapping(
+            key='The `rotation_around_center` property updates or '
+            'gets the instance\'s rotation value (0 to 359) from the '
+            'center point:',
+            val='`rotation_around_center`属性ではインスタンスの中央座標'
+            'での回転量（0～359）の更新もしくは取得を行えます:'),
+        Mapping(
+            key='## set_rotation_around_point and get_rotation_around_point '
+            'methods interfaces example',
+            val='## set_rotation_around_pointとget_rotation_around_point'
+            'メソッドのインターフェイス例'),
+        Mapping(
+            key='The `set_rotation_around_point` method updates '
+            'the instance\'s rotation value (0 to 359) from a '
+            'specified point.',
+            val='`set_rotation_around_point`メソッドは指定された座標からの'
+            'インスタンスの回転量（0～359）を更新します。'),
+        Mapping(
+            key='Similarly, the `get_rotation_around_point` method '
+            'gets the instance\'s rotation value (0 to 359) from a '
+            'specified point:',
+            val='同様に、`get_rotation_around_point`メソッドでは指定された'
+            '座標のインスタンスの回転量（0～359）を取得します:'),
+        Mapping(
+            key='## flip_x property interface example',
+            val='## flip_x属性のインターフェイス例'),
+        Mapping(
+            key='The `flip_x` property updates or gets the instance\'s '
+            'flip-x (reflecting state) boolean value:',
+            val='`flip_x`属性ではインスタンスのX軸の反転状況の真偽値の更新'
+            'もしくは取得を行えます:'),
+        Mapping(
+            key='## flip_y property interface example',
+            val='## flip_y属性のインターフェイス例'),
+        Mapping(
+            key='The `flip_y` property updates or gets the instance\'s '
+            'flip-y (reflecting state) boolean value:',
+            val='`flip_y`属性ではインスタンスのX軸の反転状況の真偽値の更新'
+            'もしくは取得を行えます:'),
+        Mapping(
+            key='## skew_x property interface example',
+            val='## skew_x属性のインターフェイス例'),
+        Mapping(
+            key='## skew_y property interface example',
+            val='## skew_y属性のインターフェイス例'),
     ])

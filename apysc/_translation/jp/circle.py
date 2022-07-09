@@ -153,6 +153,57 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, line_color=\'0af\', line_thickness=3)\ncircle.line_dash_dot_setting = ap.LineDashDotSetting(\n    dot_size=3, dash_size=6, space_size=3)\n\nap.save_overall_html(\n    dest_dir_path=\'circle_line_dash_dot_setting/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, line_color=\'0af\', line_thickness=3)\ncircle.line_dash_dot_setting = ap.LineDashDotSetting(\n    dot_size=3, dash_size=6, space_size=3)\n\nap.save_overall_html(\n    dest_dir_path=\'circle_line_dash_dot_setting/\')\n```',  # noqa
 
+    '## rotation_around_center property interface example':
+    '## rotation_around_center属性のインターフェイス例',
+
+    'The `rotation_around_center` property updates or gets the instance\'s rotation value (0 to 359) from the center point:':  # noqa
+    '`rotation_around_center`属性ではインスタンスの中央座標での回転量（0～359）の更新もしくは取得を行えます:',
+
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.rotation_around_center += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_rotation_around_center/\')\n```':  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.rotation_around_center += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_rotation_around_center/\')\n```',  # noqa
+
+    '## set_rotation_around_point and get_rotation_around_point methods interfaces example':  # noqa
+    '## set_rotation_around_pointとget_rotation_around_pointメソッドのインターフェイス例',
+
+    'The `set_rotation_around_point` method updates the instance\'s rotation value (0 to 359) from a specified point.':  # noqa
+    '`set_rotation_around_point`メソッドは指定された座標からのインスタンスの回転量（0～359）を更新します。',
+
+    'Similarly, the `get_rotation_around_point` method gets the instance\'s rotation value (0 to 359) from a specified point:':  # noqa
+    '同様に、`get_rotation_around_point`メソッドでは指定された座標のインスタンスの回転量（0～359）を取得します:',
+
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\nx: ap.Int = ap.Int(100)\ny: ap.Int = ap.Int(100)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rotation: ap.Int = circle.get_rotation_around_point(\n        x=x, y=y)\n    rotation += 1\n    circle.set_rotation_around_point(\n        rotation=rotation, x=x, y=y)\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_set_rotation_around_point/\')\n```':  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\nx: ap.Int = ap.Int(100)\ny: ap.Int = ap.Int(100)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    rotation: ap.Int = circle.get_rotation_around_point(\n        x=x, y=y)\n    rotation += 1\n    circle.set_rotation_around_point(\n        rotation=rotation, x=x, y=y)\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_set_rotation_around_point/\')\n```',  # noqa
+
+    '## flip_x property interface example':
+    '## flip_x属性のインターフェイス例',
+
+    'The `flip_x` property updates or gets the instance\'s flip-x (reflecting state) boolean value:':  # noqa
+    '`flip_x`属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:',
+
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\ncircle.rotation_around_center = ap.Int(45)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.flip_x = circle.flip_x.not_\n\n\nap.Timer(on_timer, delay=1000).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_flip_x/\')\n```':  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\ncircle.rotation_around_center = ap.Int(45)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.flip_x = circle.flip_x.not_\n\n\nap.Timer(on_timer, delay=1000).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_flip_x/\')\n```',  # noqa
+
+    '## flip_y property interface example':
+    '## flip_y属性のインターフェイス例',
+
+    'The `flip_y` property updates or gets the instance\'s flip-y (reflecting state) boolean value:':  # noqa
+    '`flip_y`属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:',
+
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\ncircle.rotation_around_center = ap.Int(45)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.flip_y = circle.flip_y.not_\n\n\nap.Timer(on_timer, delay=1000).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_flip_y/\')\n```':  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\ncircle.rotation_around_center = ap.Int(45)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.flip_y = circle.flip_y.not_\n\n\nap.Timer(on_timer, delay=1000).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_flip_y/\')\n```',  # noqa
+
+    '## skew_x property interface example':
+    '## skew_x属性のインターフェイス例',
+
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.skew_x += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_skew_x/\')\n```':  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.skew_x += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_skew_x/\')\n```',  # noqa
+
+    '## skew_y property interface example':
+    '## skew_y属性のインターフェイス例',
+
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.skew_y += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_skew_y/\')\n```':  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.skew_y += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_skew_y/\')\n```',  # noqa
+
     '## Circle class constructor API':
     '## Circle クラスのコンストラクタのAPI',
 

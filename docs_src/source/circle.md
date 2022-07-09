@@ -316,6 +316,244 @@ ap.save_overall_html(
 
 <iframe src="static/circle_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
 
+## rotation_around_center property interface example
+
+The `rotation_around_center` property updates or gets the instance's rotation value (0 to 359) from the center point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+circle: ap.Circle = ap.Circle(
+    x=75, y=75, radius=50, fill_color='#0af')
+circle.scale_x_from_center = ap.Number(0.5)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    circle.rotation_around_center += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='circle_rotation_around_center/')
+```
+
+<iframe src="static/circle_rotation_around_center/index.html" width="150" height="150"></iframe>
+
+## set_rotation_around_point and get_rotation_around_point methods interfaces example
+
+The `set_rotation_around_point` method updates the instance's rotation value (0 to 359) from a specified point.
+
+Similarly, the `get_rotation_around_point` method gets the instance's rotation value (0 to 359) from a specified point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+circle: ap.Circle = ap.Circle(
+    x=75, y=75, radius=50, fill_color='#0af')
+circle.scale_x_from_center = ap.Number(0.5)
+x: ap.Int = ap.Int(100)
+y: ap.Int = ap.Int(100)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rotation: ap.Int = circle.get_rotation_around_point(
+        x=x, y=y)
+    rotation += 1
+    circle.set_rotation_around_point(
+        rotation=rotation, x=x, y=y)
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='circle_set_rotation_around_point/')
+```
+
+<iframe src="static/circle_set_rotation_around_point/index.html" width="150" height="150"></iframe>
+
+## flip_x property interface example
+
+The `flip_x` property updates or gets the instance's flip-x (reflecting state) boolean value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+circle: ap.Circle = ap.Circle(
+    x=75, y=75, radius=50, fill_color='#0af')
+circle.scale_x_from_center = ap.Number(0.5)
+circle.rotation_around_center = ap.Int(45)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    circle.flip_x = circle.flip_x.not_
+
+
+ap.Timer(on_timer, delay=1000).start()
+ap.save_overall_html(
+    dest_dir_path='circle_flip_x/')
+```
+
+<iframe src="static/circle_flip_x/index.html" width="150" height="150"></iframe>
+
+## flip_y property interface example
+
+The `flip_y` property updates or gets the instance's flip-y (reflecting state) boolean value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+circle: ap.Circle = ap.Circle(
+    x=75, y=75, radius=50, fill_color='#0af')
+circle.scale_x_from_center = ap.Number(0.5)
+circle.rotation_around_center = ap.Int(45)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    circle.flip_y = circle.flip_y.not_
+
+
+ap.Timer(on_timer, delay=1000).start()
+ap.save_overall_html(
+    dest_dir_path='circle_flip_y/')
+```
+
+<iframe src="static/circle_flip_y/index.html" width="150" height="150"></iframe>
+
+## skew_x property interface example
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+circle: ap.Circle = ap.Circle(
+    x=75, y=75, radius=50, fill_color='#0af')
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    circle.skew_x += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='circle_skew_x/')
+```
+
+<iframe src="static/circle_skew_x/index.html" width="150" height="150"></iframe>
+
+## skew_y property interface example
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+circle: ap.Circle = ap.Circle(
+    x=75, y=75, radius=50, fill_color='#0af')
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    circle.skew_y += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='circle_skew_y/')
+```
+
+<iframe src="static/circle_skew_y/index.html" width="150" height="150"></iframe>
+
 ## Circle class constructor API
 
 <!-- Docstring: apysc._display.circle.Circle.__init__ -->

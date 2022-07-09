@@ -2951,4 +2951,20 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key='## skew_y property interface example',
             val='## skew_y属性のインターフェイス例'),
+        Mapping(
+            key='The `skew_x` property updates or gets the instance\'s '
+            'skew-x (distortion) value:',
+            val='`skew_x`属性ではインスタンスのX軸の歪みの値の更新もしくは取得を'
+            '行えます:'),
+        Mapping(
+            key='Notes: Depending on the shape of the instance, this may '
+            'be difficult to tell the difference between the x and y '
+            'axes interfaces.',
+            val='特記事項: インスタンスの形状によってはこのインターフェイスはX軸と'
+            'Y軸の各インターフェイスで違いが分かりづらいケースが発生します。'),
+        Mapping(
+            key='The `skew_y` property updates or gets the instance\'s '
+            'skey-y (distortion) value:',
+            val='`skew_y`属性ではインスタンスのY軸の歪みの値の更新もしくは取得を'
+            '行えます:'),
     ])

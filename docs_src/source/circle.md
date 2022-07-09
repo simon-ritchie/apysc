@@ -442,6 +442,8 @@ ap.save_overall_html(
 
 <iframe src="static/circle_flip_x/index.html" width="150" height="150"></iframe>
 
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
+
 ## flip_y property interface example
 
 The `flip_y` property updates or gets the instance's flip-y (reflecting state) boolean value:
@@ -482,7 +484,11 @@ ap.save_overall_html(
 
 <iframe src="static/circle_flip_y/index.html" width="150" height="150"></iframe>
 
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
+
 ## skew_x property interface example
+
+The `skew_x` property updates or gets the instance's skew-x (distortion) value:
 
 ```py
 # runnable
@@ -518,7 +524,11 @@ ap.save_overall_html(
 
 <iframe src="static/circle_skew_x/index.html" width="150" height="150"></iframe>
 
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
+
 ## skew_y property interface example
+
+The `skew_y` property updates or gets the instance's skey-y (distortion) value:
 
 ```py
 # runnable
@@ -553,6 +563,8 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/circle_skew_y/index.html" width="150" height="150"></iframe>
+
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
 
 ## Circle class constructor API
 

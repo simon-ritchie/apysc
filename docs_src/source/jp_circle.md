@@ -444,6 +444,8 @@ ap.save_overall_html(
 
 <iframe src="static/circle_flip_x/index.html" width="150" height="150"></iframe>
 
+特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。
+
 ## flip_y属性のインターフェイス例
 
 `flip_y`属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:
@@ -484,7 +486,11 @@ ap.save_overall_html(
 
 <iframe src="static/circle_flip_y/index.html" width="150" height="150"></iframe>
 
+特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。
+
 ## skew_x属性のインターフェイス例
+
+`skew_x`属性ではインスタンスのX軸の歪みの値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -520,7 +526,11 @@ ap.save_overall_html(
 
 <iframe src="static/circle_skew_x/index.html" width="150" height="150"></iframe>
 
+特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。
+
 ## skew_y属性のインターフェイス例
+
+`skew_y`属性ではインスタンスのY軸の歪みの値の更新もしくは取得を行えます:
 
 ```py
 # runnable
@@ -555,6 +565,8 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/circle_skew_y/index.html" width="150" height="150"></iframe>
+
+特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。
 
 ## Circle クラスのコンストラクタのAPI
 

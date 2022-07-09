@@ -183,6 +183,9 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\ncircle.rotation_around_center = ap.Int(45)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.flip_x = circle.flip_x.not_\n\n\nap.Timer(on_timer, delay=1000).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_flip_x/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\ncircle.rotation_around_center = ap.Int(45)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.flip_x = circle.flip_x.not_\n\n\nap.Timer(on_timer, delay=1000).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_flip_x/\')\n```',  # noqa
 
+    'Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.':  # noqa
+    '特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。',
+
     '## flip_y property interface example':
     '## flip_y属性のインターフェイス例',
 
@@ -192,17 +195,32 @@ MAPPING: Dict[str, str] = {
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\ncircle.rotation_around_center = ap.Int(45)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.flip_y = circle.flip_y.not_\n\n\nap.Timer(on_timer, delay=1000).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_flip_y/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\ncircle.scale_x_from_center = ap.Number(0.5)\ncircle.rotation_around_center = ap.Int(45)\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.flip_y = circle.flip_y.not_\n\n\nap.Timer(on_timer, delay=1000).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_flip_y/\')\n```',  # noqa
 
+    'Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.':  # noqa
+    '特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。',
+
     '## skew_x property interface example':
     '## skew_x属性のインターフェイス例',
+
+    'The `skew_x` property updates or gets the instance\'s skew-x (distortion) value:':  # noqa
+    '`skew_x`属性ではインスタンスのX軸の歪みの値の更新もしくは取得を行えます:',
 
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.skew_x += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_skew_x/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.skew_x += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_skew_x/\')\n```',  # noqa
 
+    'Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.':  # noqa
+    '特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。',
+
     '## skew_y property interface example':
     '## skew_y属性のインターフェイス例',
 
+    'The `skew_y` property updates or gets the instance\'s skey-y (distortion) value:':  # noqa
+    '`skew_y`属性ではインスタンスのY軸の歪みの値の更新もしくは取得を行えます:',
+
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.skew_y += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_skew_y/\')\n```':  # noqa
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.skew_y += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_skew_y/\')\n```',  # noqa
+
+    'Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.':  # noqa
+    '特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。',
 
     '## Circle class constructor API':
     '## Circle クラスのコンストラクタのAPI',

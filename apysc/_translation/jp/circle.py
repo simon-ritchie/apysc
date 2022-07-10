@@ -213,7 +213,7 @@ MAPPING: Dict[str, str] = {
     '## skew_y property interface example':
     '## skew_y属性のインターフェイス例',
 
-    'The `skew_y` property updates or gets the instance\'s skey-y (distortion) value:':  # noqa
+    'The `skew_y` property updates or gets the instance\'s skew-y (distortion) value:':  # noqa
     '`skew_y`属性ではインスタンスのY軸の歪みの値の更新もしくは取得を行えます:',
 
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\ncircle: ap.Circle = ap.Circle(\n    x=75, y=75, radius=50, fill_color=\'#0af\')\n\n\ndef on_timer(e: ap.TimerEvent, options: dict) -> None:\n    """\n    The timer event handler.\n\n    Parameters\n    ----------\n    e : ap.TimerEvent\n        Event instance.\n    options : dict\n        Optional arguments dictionary.\n    """\n    circle.skew_y += 1\n\n\nap.Timer(on_timer, delay=ap.FPS.FPS_60).start()\nap.save_overall_html(\n    dest_dir_path=\'circle_skew_y/\')\n```':  # noqa

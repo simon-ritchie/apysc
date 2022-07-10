@@ -275,6 +275,268 @@ ap.save_overall_html(
 
 <iframe src="static/line_line_dash_dot_setting/index.html" width="200" height="100"></iframe>
 
+## rotation_around_center property interface example
+
+The `rotation_around_center` property updates or gets the instance's rotation value (0 to 359) from the center point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id='stage')
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color='#0af',
+    line_thickness=3)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    line.rotation_around_center += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='line_rotation_around_center/')
+```
+
+<iframe src="static/line_rotation_around_center/index.html" width="200" height="100"></iframe>
+
+## set_rotation_around_point and get_rotation_around_point methods interfaces example
+
+The `set_rotation_around_point` method updates the instance's rotation value (0 to 359) from a specified point.
+
+Similarly, the `get_rotation_around_point` method gets the instance's rotation value (0 to 359) from a specified point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id='stage')
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color='#0af',
+    line_thickness=3)
+x: ap.Int = ap.Int(100)
+y: ap.Int = ap.Int(100)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rotation: ap.Int = line.get_rotation_around_point(
+        x=x, y=y)
+    rotation += 1
+    line.set_rotation_around_point(
+        rotation=rotation, x=x, y=y)
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='line_set_rotation_around_point/')
+```
+
+<iframe src="static/line_set_rotation_around_point/index.html" width="200" height="100"></iframe>
+
+## flip_x property interface example
+
+The `flip_x` property updates or gets the instance's flip-x (reflecting state) boolean value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id='stage')
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color='#0af',
+    line_thickness=3)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    line.flip_x = line.flip_x.not_
+
+
+ap.Timer(on_timer, delay=1000).start()
+ap.save_overall_html(
+    dest_dir_path='line_flip_x/')
+```
+
+<iframe src="static/line_flip_x/index.html" width="200" height="100"></iframe>
+
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
+
+## flip_y property interface example
+
+The `flip_y` property updates or gets the instance's flip-y (reflecting state) boolean value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id='stage')
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color='#0af',
+    line_thickness=3)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    line.flip_y = line.flip_y.not_
+
+
+ap.Timer(on_timer, delay=1000).start()
+ap.save_overall_html(
+    dest_dir_path='line_flip_y/')
+```
+
+<iframe src="static/line_flip_y/index.html" width="200" height="100"></iframe>
+
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
+
+## skew_x property interface example
+
+The `skew_x` property updates or gets the instance's skew-x (distortion) value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id='stage')
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color='#0af',
+    line_thickness=3)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    line.skew_x += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='line_skew_x/')
+```
+
+<iframe src="static/line_skew_x/index.html" width="200" height="100"></iframe>
+
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
+
+## skew_y property interface example
+
+The `skew_y` property updates or gets the instance's skew-y (distortion) value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id='stage')
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color='#0af',
+    line_thickness=3)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    line.skew_y += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='line_skew_y/')
+```
+
+<iframe src="static/line_skew_y/index.html" width="200" height="100"></iframe>
+
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
+
 ## Line class constructor API
 
 <!-- Docstring: apysc._display.line.Line.__init__ -->

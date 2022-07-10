@@ -299,6 +299,251 @@
 </div>
 <iframe src="static/line_line_dash_dot_setting/index.html" width="200" height="100"></iframe>
 </section>
+<section id="rotation-around-center-property-interface-example">
+<h2>rotation_around_center property interface example<a class="headerlink" href="#rotation-around-center-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code> property updates or gets the instance’s rotation value (0 to 359) from the center point:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span>
+    <span class="n">start_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span>
+    <span class="n">end_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;line_rotation_around_center/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/line_rotation_around_center/index.html" width="200" height="100"></iframe>
+</section>
+<section id="set-rotation-around-point-and-get-rotation-around-point-methods-interfaces-example">
+<h2>set_rotation_around_point and get_rotation_around_point methods interfaces example<a class="headerlink" href="#set-rotation-around-point-and-get-rotation-around-point-methods-interfaces-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method updates the instance’s rotation value (0 to 359) from a specified point.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method gets the instance’s rotation value (0 to 359) from a specified point:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span>
+    <span class="n">start_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span>
+    <span class="n">end_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rotation</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">get_rotation_around_point</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">rotation</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_rotation_around_point</span><span class="p">(</span>
+        <span class="n">rotation</span><span class="o">=</span><span class="n">rotation</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;line_set_rotation_around_point/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/line_set_rotation_around_point/index.html" width="200" height="100"></iframe>
+</section>
+<section id="flip-x-property-interface-example">
+<h2>flip_x property interface example<a class="headerlink" href="#flip-x-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> property updates or gets the instance’s flip-x (reflecting state) boolean value:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span>
+    <span class="n">start_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span>
+    <span class="n">end_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">flip_x</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">flip_x</span><span class="o">.</span><span class="n">not_</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;line_flip_x/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/line_flip_x/index.html" width="200" height="100"></iframe>
+<p>Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.</p>
+</section>
+<section id="flip-y-property-interface-example">
+<h2>flip_y property interface example<a class="headerlink" href="#flip-y-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> property updates or gets the instance’s flip-y (reflecting state) boolean value:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span>
+    <span class="n">start_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span>
+    <span class="n">end_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">flip_y</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">flip_y</span><span class="o">.</span><span class="n">not_</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;line_flip_y/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/line_flip_y/index.html" width="200" height="100"></iframe>
+<p>Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.</p>
+</section>
+<section id="skew-x-property-interface-example">
+<h2>skew_x property interface example<a class="headerlink" href="#skew-x-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">skew_x</span></code> property updates or gets the instance’s skew-x (distortion) value:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span>
+    <span class="n">start_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span>
+    <span class="n">end_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">skew_x</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;line_skew_x/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/line_skew_x/index.html" width="200" height="100"></iframe>
+<p>Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.</p>
+</section>
+<section id="skew-y-property-interface-example">
+<h2>skew_y property interface example<a class="headerlink" href="#skew-y-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">skew_y</span></code> property updates or gets the instance’s skew-y (distortion) value:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span>
+    <span class="n">start_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span>
+    <span class="n">end_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">skew_y</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;line_skew_y/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/line_skew_y/index.html" width="200" height="100"></iframe>
+<p>Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.</p>
+</section>
 <section id="line-class-constructor-api">
 <h2>Line class constructor API<a class="headerlink" href="#line-class-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.line.Line.__init__ -->
@@ -407,6 +652,12 @@
 <li><a class="reference internal" href="#line-dash-setting-property-interface-example">line_dash_setting property interface example</a></li>
 <li><a class="reference internal" href="#line-round-dot-setting-property-interface-example">line_round_dot_setting property interface example</a></li>
 <li><a class="reference internal" href="#line-dash-dot-setting-property-interface-example">line_dash_dot_setting property interface example</a></li>
+<li><a class="reference internal" href="#rotation-around-center-property-interface-example">rotation_around_center property interface example</a></li>
+<li><a class="reference internal" href="#set-rotation-around-point-and-get-rotation-around-point-methods-interfaces-example">set_rotation_around_point and get_rotation_around_point methods interfaces example</a></li>
+<li><a class="reference internal" href="#flip-x-property-interface-example">flip_x property interface example</a></li>
+<li><a class="reference internal" href="#flip-y-property-interface-example">flip_y property interface example</a></li>
+<li><a class="reference internal" href="#skew-x-property-interface-example">skew_x property interface example</a></li>
+<li><a class="reference internal" href="#skew-y-property-interface-example">skew_y property interface example</a></li>
 <li><a class="reference internal" href="#line-class-constructor-api">Line class constructor API</a></li>
 </ul>
 </li>

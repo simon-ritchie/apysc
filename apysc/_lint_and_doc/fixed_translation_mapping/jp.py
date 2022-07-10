@@ -2964,7 +2964,7 @@ MAPPINGS: Mappings = Mappings(
             'Y軸の各インターフェイスで違いが分かりづらいケースが発生します。'),
         Mapping(
             key='The `skew_y` property updates or gets the instance\'s '
-            'skey-y (distortion) value:',
+            'skew-y (distortion) value:',
             val='`skew_y`属性ではインスタンスのY軸の歪みの値の更新もしくは取得を'
             '行えます:'),
     ])

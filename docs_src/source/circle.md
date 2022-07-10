@@ -528,7 +528,7 @@ Notes: Depending on the shape of the instance, this may be difficult to tell the
 
 ## skew_y property interface example
 
-The `skew_y` property updates or gets the instance's skey-y (distortion) value:
+The `skew_y` property updates or gets the instance's skew-y (distortion) value:
 
 ```py
 # runnable

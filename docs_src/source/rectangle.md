@@ -402,6 +402,254 @@ ap.save_overall_html(
 
 <iframe src="static/rectangle_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
 
+## rotation_around_center property interface example
+
+The `rotation_around_center` property updates or gets the instance's rotation value (0 to 359) from the center point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50,
+    fill_color='#0af')
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle.rotation_around_center += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='rectangle_rotation_around_center/')
+```
+
+<iframe src="static/rectangle_rotation_around_center/index.html" width="150" height="150"></iframe>
+
+## set_rotation_around_point and get_rotation_around_point methods interfaces example
+
+The `set_rotation_around_point` method updates the instance's rotation value (0 to 359) from a specified point.
+
+Similarly, the `get_rotation_around_point` method gets the instance's rotation value (0 to 359) from a specified point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50,
+    fill_color='#0af')
+x: ap.Int = ap.Int(100)
+y: ap.Int = ap.Int(100)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rotation: ap.Int = rectangle.get_rotation_around_point(
+        x=x, y=y)
+    rotation += 1
+    rectangle.set_rotation_around_point(
+        rotation=rotation, x=x, y=y)
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='rectangle_set_rotation_around_point/')
+```
+
+<iframe src="static/rectangle_set_rotation_around_point/index.html" width="150" height="150"></iframe>
+
+## flip_x property interface example
+
+The `flip_x` property updates or gets the instance's flip-x (reflecting state) boolean value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50,
+    fill_color='#0af')
+rectangle.rotation_around_center = ap.Int(30)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle.flip_x = rectangle.flip_x.not_
+
+
+ap.Timer(on_timer, delay=1000).start()
+ap.save_overall_html(
+    dest_dir_path='rectangle_flip_x/')
+```
+
+<iframe src="static/rectangle_flip_x/index.html" width="150" height="150"></iframe>
+
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
+
+## flip_y property interface example
+
+The `flip_y` property updates or gets the instance's flip-y (reflecting state) boolean value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50,
+    fill_color='#0af')
+rectangle.rotation_around_center = ap.Int(30)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle.flip_y = rectangle.flip_y.not_
+
+
+ap.Timer(on_timer, delay=1000).start()
+ap.save_overall_html(
+    dest_dir_path='rectangle_flip_y/')
+```
+
+<iframe src="static/rectangle_flip_y/index.html" width="150" height="150"></iframe>
+
+Notes: Depending on the shape of the instance, this may be difficult to tell the difference between the x and y axes interfaces.
+
+## skew_x property interface example
+
+The `skew_x` property updates or gets the instance's skew-x (distortion) value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50,
+    fill_color='#0af')
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle.skew_x += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='rectangle_skew_x/')
+```
+
+<iframe src="static/rectangle_skew_x/index.html" width="150" height="150"></iframe>
+
+## skew_y property interface example
+
+The `skew_y` property updates or gets the instance's skew-y (distortion) value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50,
+    fill_color='#0af')
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle.skew_y += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='rectangle_skew_y/')
+```
+
+<iframe src="static/rectangle_skew_y/index.html" width="150" height="150"></iframe>
+
 ## Rectangle class constructor API
 
 <!-- Docstring: apysc._display.rectangle.Rectangle.__init__ -->

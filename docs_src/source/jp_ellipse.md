@@ -346,6 +346,252 @@ ap.save_overall_html(
 
 <iframe src="static/ellipse_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
 
+## rotation_around_center属性のインターフェイス例
+
+`rotation_around_center`属性ではインスタンスの中央座標での回転量（0～359）の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75, y=75, width=150, height=100, fill_color='#0af')
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    ellipse.rotation_around_center += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='ellipse_rotation_around_center/')
+```
+
+<iframe src="static/ellipse_rotation_around_center/index.html" width="150" height="150"></iframe>
+
+## set_rotation_around_pointとget_rotation_around_pointメソッドのインターフェイス例
+
+`set_rotation_around_point`メソッドは指定された座標からのインスタンスの回転量（0～359）を更新します。
+
+同様に、`get_rotation_around_point`メソッドでは指定された座標のインスタンスの回転量（0～359）を取得します:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75, y=75, width=150, height=100, fill_color='#0af')
+x: ap.Int = ap.Int(100)
+y: ap.Int = ap.Int(100)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rotation: ap.Int = ellipse.get_rotation_around_point(
+        x=x, y=y)
+    rotation += 1
+    ellipse.set_rotation_around_point(
+        rotation=rotation, x=x, y=y)
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='ellipse_set_rotation_around_point/')
+```
+
+<iframe src="static/ellipse_set_rotation_around_point/index.html" width="150" height="150"></iframe>
+
+## flip_x属性のインターフェイス例
+
+`flip_x`属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75, y=75, width=150, height=100, fill_color='#0af')
+ellipse.rotation_around_center = ap.Int(30)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    ellipse.flip_x = ellipse.flip_x.not_
+
+
+ap.Timer(on_timer, delay=1000).start()
+ap.save_overall_html(
+    dest_dir_path='ellipse_flip_x/')
+```
+
+<iframe src="static/ellipse_flip_x/index.html" width="150" height="150"></iframe>
+
+特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。
+
+## flip_y属性のインターフェイス例
+
+`flip_y`属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75, y=75, width=150, height=100, fill_color='#0af')
+ellipse.rotation_around_center = ap.Int(30)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    ellipse.flip_y = ellipse.flip_y.not_
+
+
+ap.Timer(on_timer, delay=1000).start()
+ap.save_overall_html(
+    dest_dir_path='ellipse_flip_y/')
+```
+
+<iframe src="static/ellipse_flip_y/index.html" width="150" height="150"></iframe>
+
+特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。
+
+## skew_x属性のインターフェイス例
+
+`skew_x`属性ではインスタンスのX軸の歪みの値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75, y=75, width=150, height=100, fill_color='#0af')
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    ellipse.skew_x += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='ellipse_skew_x/')
+```
+
+<iframe src="static/ellipse_skew_x/index.html" width="150" height="150"></iframe>
+
+特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。
+
+## skew_y属性のインターフェイス例
+
+`skew_y`属性ではインスタンスのY軸の歪みの値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75, y=75, width=150, height=100, fill_color='#0af')
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    ellipse.skew_y += 1
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(
+    dest_dir_path='ellipse_skew_y/')
+```
+
+<iframe src="static/ellipse_skew_y/index.html" width="150" height="150"></iframe>
+
+特記事項: インスタンスの形状によってはこのインターフェイスはX軸とY軸の各インターフェイスで違いが分かりづらいケースが発生します。
+
 ## Ellipse クラスのコンストラクタのAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>

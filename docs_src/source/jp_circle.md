@@ -420,7 +420,7 @@ ap.Stage(
 circle: ap.Circle = ap.Circle(
     x=75, y=75, radius=50, fill_color='#0af')
 circle.scale_x_from_center = ap.Number(0.5)
-circle.rotation_around_center = ap.Int(45)
+circle.rotation_around_center = ap.Int(30)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -462,7 +462,7 @@ ap.Stage(
 circle: ap.Circle = ap.Circle(
     x=75, y=75, radius=50, fill_color='#0af')
 circle.scale_x_from_center = ap.Number(0.5)
-circle.rotation_around_center = ap.Int(45)
+circle.rotation_around_center = ap.Int(30)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:

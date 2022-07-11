@@ -53,7 +53,9 @@ class Int(
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, value: Union[int, float, NumberValueInterface]) -> None:
+            self,
+            value: Union[int, float, NumberValueInterface],
+            variable_name_suffix: str = '') -> None:
         """
         Integer class for apysc library.
 
@@ -62,6 +64,9 @@ class Int(
         value : int or float or Int or Number
             Initial integer value. If the `float` or `Number`
             value is specified, this class casts it to an integer.
+        variable_name_suffix : str, default ''
+            A JavaScript's variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -103,6 +108,7 @@ class Int(
             TemporaryNotHandlerScope
         from apysc._type import type_util
         with TemporaryNotHandlerScope():
+            self._variable_name_suffix = variable_name_suffix
             is_number_specified: bool = type_util.is_number(
                 value=value)
             TYPE_NAME: str = var_names.INT

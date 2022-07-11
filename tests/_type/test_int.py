@@ -36,6 +36,10 @@ class TestInt:
             callable_=ap.Int,
             value='Hello!')
 
+        int_val_3: ap.Int = ap.Int(
+            value=10, variable_name_suffix='test_int_3')
+        assert int_val_3._variable_name_suffix == 'test_int_3'
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
         expression_data_util.empty_expression()

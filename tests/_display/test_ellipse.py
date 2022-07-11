@@ -52,7 +52,8 @@ class TestEllipse:
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
             line_joints=ap.LineJoints.BEVEL,
-            line_dot_setting=ap.LineDotSetting(dot_size=10))
+            line_dot_setting=ap.LineDotSetting(dot_size=10),
+            variable_name_suffix='test_ellipse')
         assert_attrs(
             expected_attrs={
                 '_x': 50,
@@ -68,6 +69,7 @@ class TestEllipse:
                 '_line_joints': ap.LineJoints.BEVEL.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=10),
                 '_parent': stage,
+                '_variable_name_suffix': 'test_ellipse',
             },
             any_obj=ellipse,
         )

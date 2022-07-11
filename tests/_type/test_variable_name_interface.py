@@ -27,7 +27,7 @@ class TestVariableNameInterface:
             'test_interface_1', 'test_interface_2']
 
         interface._variable_name_suffix = 'test_instance'
-        assert interface.variable_name == 'test_interface_2_test_instance'
+        assert interface.variable_name == 'test_interface_2__test_instance'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_previous_variable_name(self) -> None:

@@ -30,11 +30,9 @@ def main() -> None:
         background_color='#333',
         stage_width=1000, stage_height=500, stage_elem_id='stage')
 
-    int_1: ap.Int = ap.Int(10)
-    int_1.variable_name_suffix = 'int_1'
-    int_2: ap.Int = int_1 * 3
-    int_2.variable_name_suffix = 'int_2'
-    ap.trace(int_2)
+    int_1: ap.Int = ap.Int(10, variable_name_suffix='test_int_1')
+    int_1 += 10
+    ap.trace(int_1)
 
     ap.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)

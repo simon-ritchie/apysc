@@ -26,7 +26,7 @@ class TestVariableNameInterface:
         assert interface._variable_name_history == [
             'test_interface_1', 'test_interface_2']
 
-        interface.variable_name_suffix = 'test_instance'
+        interface._variable_name_suffix = 'test_instance'
         assert interface.variable_name == 'test_interface_2_test_instance'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

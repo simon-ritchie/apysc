@@ -11,7 +11,7 @@ class TestVariableNameSuffixInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_variable_name_suffix(self) -> None:
         interface: VariableNameSuffixInterface = VariableNameSuffixInterface()
-        assert interface.variable_name_suffix == ''
+        assert interface._variable_name_suffix == ''
 
-        interface.variable_name_suffix = 'test_instance'
-        assert interface.variable_name_suffix == 'test_instance'
+        interface._variable_name_suffix = 'test_instance'
+        assert interface._variable_name_suffix == 'test_instance'

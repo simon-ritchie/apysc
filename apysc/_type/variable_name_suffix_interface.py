@@ -5,10 +5,10 @@ class.
 
 class VariableNameSuffixInterface:
 
-    _variable_name_suffix: str = ''
+    __variable_name_suffix: str = ''
 
     @property
-    def variable_name_suffix(self) -> str:
+    def _variable_name_suffix(self) -> str:
         """
         Get a variable name suffix string.
 
@@ -17,10 +17,10 @@ class VariableNameSuffixInterface:
         variable_name_suffix : str
             A variable name suffix string.
         """
-        return self._variable_name_suffix
+        return self.__variable_name_suffix
 
-    @variable_name_suffix.setter
-    def variable_name_suffix(self, value: str) -> None:
+    @_variable_name_suffix.setter
+    def _variable_name_suffix(self, value: str) -> None:
         """
         Set a variable name suffix string.
 
@@ -29,4 +29,4 @@ class VariableNameSuffixInterface:
         value : str
             A string to set.
         """
-        self._variable_name_suffix = value
+        self.__variable_name_suffix = value

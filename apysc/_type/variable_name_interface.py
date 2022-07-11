@@ -28,8 +28,8 @@ class VariableNameInterface(DeletedObjectInterface):
             return ''
         variable_name: str = self._variable_name
         if isinstance(self, VariableNameSuffixInterface):
-            if self.variable_name_suffix != '':
-                variable_name += f'_{self.variable_name_suffix}'
+            if self._variable_name_suffix != '':
+                variable_name += f'_{self._variable_name_suffix}'
         return variable_name
 
     @variable_name.setter

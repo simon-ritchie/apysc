@@ -5,6 +5,8 @@ from typing import List
 
 from apysc._type.deleted_object_interface import DeletedObjectInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 
 class VariableNameInterface(DeletedObjectInterface):
@@ -24,7 +26,11 @@ class VariableNameInterface(DeletedObjectInterface):
         """
         if not hasattr(self, '_variable_name'):
             return ''
-        return self._variable_name
+        variable_name: str = self._variable_name
+        if isinstance(self, VariableNameSuffixInterface):
+            if self.variable_name_suffix != '':
+                variable_name += f'_{self.variable_name_suffix}'
+        return variable_name
 
     @variable_name.setter
     @arg_validation_decos.is_builtin_string(

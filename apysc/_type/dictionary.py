@@ -19,6 +19,8 @@ from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 DefaultType = TypeVar('DefaultType')
 
@@ -29,8 +31,11 @@ _V = TypeVar('_V')
 
 class Dictionary(
         Generic[_K, _V],
-        CopyInterface, RevertInterface, DictionaryStructure,
-        CustomEventInterface):
+        CopyInterface,
+        RevertInterface,
+        DictionaryStructure,
+        CustomEventInterface,
+        VariableNameSuffixInterface):
     """
     Dictionary class for the apysc library.
 

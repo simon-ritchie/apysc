@@ -11,9 +11,15 @@ from apysc._type.copy_interface import CopyInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 
-class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
+class Boolean(
+        CopyInterface,
+        RevertInterface,
+        CustomEventInterface,
+        VariableNameSuffixInterface):
     """
     Boolean class for the apysc library.
 

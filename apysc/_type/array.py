@@ -18,12 +18,18 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 T = TypeVar('T')
 
 
 class Array(
-        CopyInterface, RevertInterface, CustomEventInterface, Generic[T]):
+        CopyInterface,
+        RevertInterface,
+        CustomEventInterface,
+        VariableNameSuffixInterface,
+        Generic[T]):
     """
     Array class for the apysc library.
 

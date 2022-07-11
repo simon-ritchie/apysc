@@ -7,9 +7,13 @@ from typing import Union
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 
-class Number(NumberValueInterface[float, 'Number']):
+class Number(
+        NumberValueInterface[float, 'Number'],
+        VariableNameSuffixInterface):
     """
     Floating point number class for the apysc library.
 

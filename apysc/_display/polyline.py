@@ -29,6 +29,8 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 
 class Polyline(
@@ -38,7 +40,8 @@ class Polyline(
         AppendLinePointInterface,
         SetXAndYWithMinimumPointInterfaceBase,
         FillColorInterface,
-        FillAlphaInterface):
+        FillAlphaInterface,
+        VariableNameSuffixInterface):
     """
     The polyline vector graphics class.
 

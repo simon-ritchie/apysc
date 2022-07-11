@@ -11,9 +11,15 @@ from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 
-class String(CopyInterface, RevertInterface, CustomEventInterface):
+class String(
+        CopyInterface,
+        RevertInterface,
+        CustomEventInterface,
+        VariableNameSuffixInterface):
     """
     String class for apysc library.
 

@@ -17,9 +17,9 @@ from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._validation import arg_validation_decos
 from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
+from apysc._validation import arg_validation_decos
 
 T = TypeVar('T')
 

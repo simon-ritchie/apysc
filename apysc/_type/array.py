@@ -78,7 +78,9 @@ class Array(
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
-            value: Union[List[T], tuple, range, 'Array']) -> None:
+            value: Union[List[T], tuple, range, 'Array'],
+            *,
+            variable_name_suffix: str = '') -> None:
         """
         Array class for the apysc library.
 
@@ -86,6 +88,9 @@ class Array(
         ----------
         value : Array or list or tuple or range
             Initial array value.
+        variable_name_suffix : str, default ''
+            A JavaScript's variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -120,6 +125,7 @@ class Array(
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         with TemporaryNotHandlerScope():
+            self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.ARRAY
             self._validate_acceptable_value_type(value=value)
             value = self._convert_range_to_list(value=value)

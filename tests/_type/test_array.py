@@ -19,11 +19,13 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        array_1: ap.Array = ap.Array((1, 2, 3))
+        array_1: ap.Array = ap.Array(
+            (1, 2, 3), variable_name_suffix='test_array')
         expected_attrs: Dict[str, Any] = {
             '_initial_value': (1, 2, 3),
             '_value': [1, 2, 3],
             '_type_name': var_names.ARRAY,
+            '_variable_name_suffix': 'test_array',
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs,

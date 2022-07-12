@@ -47,7 +47,8 @@ class TestPolyline:
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
             line_joints=ap.LineJoints.BEVEL,
-            line_dot_setting=ap.LineDotSetting(dot_size=10))
+            line_dot_setting=ap.LineDotSetting(dot_size=10),
+            variable_name_suffix='test_polyline')
         assert_attrs(
             expected_attrs={
                 '_points': points,
@@ -60,6 +61,7 @@ class TestPolyline:
                 '_line_joints': ap.LineJoints.BEVEL.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=10),
                 '_parent': stage,
+                '_variable_name_suffix': 'test_polyline',
             },
             any_obj=polyline)
 

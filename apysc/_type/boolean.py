@@ -52,7 +52,11 @@ class Boolean(
     _value: bool
 
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, value: Union[bool, int, Int, 'Boolean']) -> None:
+    def __init__(
+            self,
+            value: Union[bool, int, Int, 'Boolean'],
+            *,
+            variable_name_suffix: str = '') -> None:
         """
         Boolean class for apysc library.
 
@@ -66,6 +70,9 @@ class Boolean(
         value : Boolean or Int or bool or int
             Initial boolean value. 0 or 1 are acceptable for
             an integer value.
+        variable_name_suffix : str, default ''
+            A JavaScript's variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -89,6 +96,7 @@ class Boolean(
             TemporaryNotHandlerScope
         from apysc._validation import number_validation
         with TemporaryNotHandlerScope():
+            self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.BOOLEAN
             number_validation.validate_int_is_zero_or_one(
                 integer=value)  # type: ignore

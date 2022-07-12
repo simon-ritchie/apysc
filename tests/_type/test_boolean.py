@@ -17,11 +17,13 @@ class TestBoolean:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        boolean_1: ap.Boolean = ap.Boolean(value=ap.Int(1))
+        boolean_1: ap.Boolean = ap.Boolean(
+            value=ap.Int(1), variable_name_suffix='test_boolean')
         expected_attrs: Dict[str, Any] = {
             '_initial_value': ap.Int(1),
             '_value': True,
             '_type_name': var_names.BOOLEAN,
+            '_variable_name_suffix': 'test_boolean',
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs, any_obj=boolean_1)

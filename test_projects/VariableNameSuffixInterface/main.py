@@ -34,6 +34,11 @@ def main() -> None:
     int_1 += 10
     ap.trace(int_1)
 
+    circle: ap.Circle = ap.Circle(
+        x=100, y=100, radius=50, fill_color='#0af',
+        variable_name_suffix='test_circle')
+    circle.x = ap.Int(150)
+
     ap.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 

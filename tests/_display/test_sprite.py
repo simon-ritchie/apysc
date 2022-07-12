@@ -15,10 +15,12 @@ class TestSprite:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
+        sprite: ap.Sprite = ap.Sprite(
+            variable_name_suffix='test_sprite')
         testing_helper.assert_attrs(
             expected_attrs={
                 'stage': stage,
+                '_variable_name_suffix': 'test_sprite',
             },
             any_obj=sprite)
         testing_helper.assert_attrs_type(

@@ -64,7 +64,8 @@ class Sprite(
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self, *,
-            variable_name: Optional[str] = None) -> None:
+            variable_name: Optional[str] = None,
+            variable_name_suffix: str = '') -> None:
         """
         Create a basic display object that can be a parent.
 
@@ -74,6 +75,9 @@ class Sprite(
             Variable name of this instance. A js expression uses
             this setting. It is unnecessary to specify any
             string except when instantiating the `Sprite` subclass.
+        variable_name_suffix : str, default ''
+            A JavaScript's variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -108,6 +112,7 @@ class Sprite(
         import apysc as ap
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        self._variable_name_suffix = variable_name_suffix
         stage: ap.Stage = ap.get_stage()
         if variable_name is None:
             variable_name = expression_variables_util.\

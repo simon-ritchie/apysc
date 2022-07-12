@@ -28,7 +28,8 @@ class TestPath:
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
             line_joints=ap.LineJoints.BEVEL,
-            line_dot_setting=ap.LineDotSetting(dot_size=10))
+            line_dot_setting=ap.LineDotSetting(dot_size=10),
+            variable_name_suffix='test_path')
         assert_attrs(
             expected_attrs={
                 '_path_data_list': path_data_list,
@@ -41,6 +42,7 @@ class TestPath:
                 '_line_joints': ap.LineJoints.BEVEL.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=10),
                 '_parent': stage,
+                '_variable_name_suffix': 'test_path',
             },
             any_obj=path)
 

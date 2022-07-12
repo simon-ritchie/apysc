@@ -27,7 +27,8 @@ class TestPolygon:
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
             line_joints=ap.LineJoints.BEVEL,
-            line_dot_setting=ap.LineDotSetting(dot_size=5))
+            line_dot_setting=ap.LineDotSetting(dot_size=5),
+            variable_name_suffix='test_polygon')
         assert_attrs(
             expected_attrs={
                 '_points': points,
@@ -40,6 +41,7 @@ class TestPolygon:
                 '_line_joints': ap.LineJoints.BEVEL.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=5),
                 '_parent': stage,
+                '_variable_name_suffix': 'test_polygon',
             },
             any_obj=polygon,
         )

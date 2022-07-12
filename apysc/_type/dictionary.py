@@ -72,7 +72,11 @@ class Dictionary(
     _value: Dict[_K, _V]
 
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
+    def __init__(
+            self,
+            value: Union[Dict[_K, _V], 'Dictionary'],
+            *,
+            variable_name_suffix: str = '') -> None:
         """
         Dictionary class for the apysc library.
 
@@ -80,6 +84,9 @@ class Dictionary(
         ----------
         value : dict or Dictionary
             Initial dictionary value.
+        variable_name_suffix : str, default ''
+            A JavaScript's variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -107,6 +114,7 @@ class Dictionary(
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         with TemporaryNotHandlerScope():
+            self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.DICTIONARY
             self._validate_acceptable_value_type(value=value)
             self._initial_value = value

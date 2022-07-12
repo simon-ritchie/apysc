@@ -52,7 +52,9 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary(
+            value={'a': 10}, variable_name_suffix='test_dictionary')
+        assert dict_1._variable_name_suffix == 'test_dictionary'
         dict_2: ap.Dictionary = ap.Dictionary(value=dict_1)
         assert dict_2._initial_value == dict_1
         assert dict_2.type_name == var_names.DICTIONARY

@@ -16,10 +16,12 @@ class TestNumber:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         expression_data_util.empty_expression()
-        number_1: ap.Number = ap.Number(value=100)
+        number_1: ap.Number = ap.Number(
+            value=100, variable_name_suffix='test_number')
         assert number_1.value == 100.0
         assert type_util.is_same_class_instance(
             class_=float, instance=number_1.value)
+        assert number_1._variable_name_suffix == 'test_number'
 
         number_1 = ap.Number(value=100.5)
         expression: str = expression_data_util.get_current_expression()

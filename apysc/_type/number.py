@@ -56,7 +56,9 @@ class Number(
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,
-            value: Union[int, float, NumberValueInterface]) -> None:
+            value: Union[int, float, NumberValueInterface],
+            *,
+            variable_name_suffix: str = '') -> None:
         """
         Floating point number class for apysc library.
 
@@ -65,6 +67,9 @@ class Number(
         value : int or float or Int or Number
             Initial floating point number value. This class
             casts it to float if you specify int or Int value.
+        variable_name_suffix : str, default ''
+            A JavaScript's variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Notes
         -----
@@ -106,6 +111,7 @@ class Number(
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         with TemporaryNotHandlerScope():
+            self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.NUMBER
             self.variable_name = expression_variables_util.\
                 get_next_variable_name(type_name=TYPE_NAME)

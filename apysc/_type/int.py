@@ -55,6 +55,7 @@ class Int(
     def __init__(
             self,
             value: Union[int, float, NumberValueInterface],
+            *,
             variable_name_suffix: str = '') -> None:
         """
         Integer class for apysc library.

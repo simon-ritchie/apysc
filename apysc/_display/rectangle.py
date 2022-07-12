@@ -143,7 +143,8 @@ class Rectangle(
             line_dash_setting: Op[LineDashSetting] = None,
             line_round_dot_setting: Op[LineRoundDotSetting] = None,
             line_dash_dot_setting: Op[LineDashDotSetting] = None,
-            parent: Op[ChildInterface] = None) -> None:
+            parent: Op[ChildInterface] = None,
+            variable_name_suffix: str = '') -> None:
         """
         Create a rectangle vector graphic.
 
@@ -187,6 +188,9 @@ class Rectangle(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
+        variable_name_suffix : str, default ''
+            A JavaScript's variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -212,6 +216,7 @@ class Rectangle(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.RECTANGLE)
         self.variable_name = variable_name

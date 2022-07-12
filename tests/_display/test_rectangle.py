@@ -44,7 +44,8 @@ class TestRectangle:
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
             line_joints=ap.LineJoints.BEVEL,
-            line_dot_setting=ap.LineDotSetting(dot_size=10))
+            line_dot_setting=ap.LineDotSetting(dot_size=10),
+            variable_name_suffix='test_rectangle')
         testing_helper.assert_attrs(
             expected_attrs={
                 '_x': 50,
@@ -61,6 +62,7 @@ class TestRectangle:
                 '_line_cap': ap.LineCaps.ROUND.value,
                 '_line_joints': ap.LineJoints.BEVEL.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=10),
+                '_variable_name_suffix': 'test_rectangle',
             },
             any_obj=rectangle,
         )

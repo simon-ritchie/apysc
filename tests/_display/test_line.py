@@ -26,7 +26,8 @@ class TestLine:
             line_alpha=0.3,
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
-            line_dot_setting=ap.LineDotSetting(dot_size=10))
+            line_dot_setting=ap.LineDotSetting(dot_size=10),
+            variable_name_suffix='test_line')
         assert_attrs(
             expected_attrs={
                 '_start_point': ap.Point2D(x=10, y=20),
@@ -37,6 +38,7 @@ class TestLine:
                 '_line_cap': ap.LineCaps.ROUND.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=10),
                 '_parent': stage,
+                '_variable_name_suffix': 'test_line',
             },
             any_obj=line)
 

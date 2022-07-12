@@ -30,11 +30,13 @@ class TestString:
             callable_=ap.String,
             value=100)
 
-        string_1: ap.String = ap.String(value='Hello!')
+        string_1: ap.String = ap.String(
+            value='Hello!', variable_name_suffix='test_string')
         expected_attrs: Dict[str, Any] = {
             '_initial_value': 'Hello!',
             '_value': 'Hello!',
             '_type_name': var_names.STRING,
+            '_variable_name_suffix': 'test_string',
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs,

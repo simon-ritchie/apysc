@@ -58,7 +58,11 @@ class String(
 
     @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, value: Union[str, 'String']) -> None:
+    def __init__(
+            self,
+            value: Union[str, 'String'],
+            *,
+            variable_name_suffix: str = '') -> None:
         """
         String class for apysc library.
 
@@ -66,6 +70,9 @@ class String(
         ----------
         value : String or str
             Initial string value.
+        variable_name_suffix : str, default ''
+            A JavaScript's variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -92,6 +99,7 @@ class String(
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         with TemporaryNotHandlerScope():
+            self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.STRING
             self._initial_value = value
             self._type_name = TYPE_NAME

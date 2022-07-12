@@ -12,9 +12,11 @@ class TestAnyValue:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        any_value: ap.AnyValue = ap.AnyValue(100)
+        any_value: ap.AnyValue = ap.AnyValue(
+            100, variable_name_suffix='test_any_value')
         assert any_value._value == 100
         assert any_value.variable_name.startswith(var_names.ANY)
+        assert any_value._variable_name_suffix == 'test_any_value'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:

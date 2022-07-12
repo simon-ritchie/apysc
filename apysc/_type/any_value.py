@@ -38,7 +38,11 @@ class AnyValue(
     _value: Any
 
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, value: Any) -> None:
+    def __init__(
+            self,
+            value: Any,
+            *,
+            variable_name_suffix: str = '') -> None:
         """
         Class implementation of any value (a value that can't
         determine type).
@@ -47,6 +51,9 @@ class AnyValue(
         ----------
         value : *
             Initial any value.
+        variable_name_suffix : str, default ''
+            A JavaScript's variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Examples
         --------
@@ -57,6 +64,7 @@ class AnyValue(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        self._variable_name_suffix = variable_name_suffix
         TYPE_NAME: str = var_names.ANY
         self._value = value
         self.variable_name = expression_variables_util.\

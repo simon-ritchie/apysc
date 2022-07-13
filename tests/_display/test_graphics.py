@@ -282,13 +282,15 @@ class TestGraphics:
         sprite: ap.Sprite = ap.Sprite()
         rectangle: Rectangle = sprite.graphics.draw_round_rect(
             x=50, y=100, width=150, height=200, ellipse_width=20,
-            ellipse_height=30)
+            ellipse_height=30,
+            variable_name_suffix='test_rectangle')
         assert rectangle.x == 50
         assert rectangle.y == 100
         assert rectangle.width == 150
         assert rectangle.height == 200
         assert rectangle.ellipse_width == ap.Int(20)
         assert rectangle.ellipse_height == ap.Int(30)
+        assert rectangle._variable_name_suffix == 'test_rectangle'
         assert sprite.graphics._children == [rectangle]
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

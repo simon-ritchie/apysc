@@ -204,7 +204,8 @@ class Graphics(
             width: Union[int, Int],
             height: Union[int, Int],
             ellipse_width: Union[int, Int],
-            ellipse_height: Union[int, Int]) -> Rectangle:
+            ellipse_height: Union[int, Int],
+            variable_name_suffix: str = '') -> Rectangle:
         """
         Draw a rounded rectangle vector graphics.
 
@@ -222,6 +223,9 @@ class Graphics(
             Ellipse width of the rectangle corner.
         ellipse_height : Int or int
             Ellipse height of the rectangle corner.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -250,7 +254,8 @@ class Graphics(
         """
         import apysc as ap
         rectangle: Rectangle = Rectangle._create_with_graphics(
-            graphics=self, x=x, y=y, width=width, height=height)
+            graphics=self, x=x, y=y, width=width, height=height,
+            variable_name_suffix=variable_name_suffix)
         if isinstance(ellipse_width, int):
             ellipse_width = ap.Int(ellipse_width)
         if isinstance(ellipse_height, int):

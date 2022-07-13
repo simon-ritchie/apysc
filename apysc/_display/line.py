@@ -201,7 +201,8 @@ class Line(
             *,
             graphics: 'graphics.Graphics',
             start_point: 'point2d.Point2D',
-            end_point: 'point2d.Point2D') -> 'Line':
+            end_point: 'point2d.Point2D',
+            variable_name_suffix: str = '') -> 'Line':
         """
         Create a line instance with the instance of
         specified graphics.
@@ -214,6 +215,9 @@ class Line(
             Line start point.
         end_point : Points2D
             Line end point.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -231,7 +235,8 @@ class Line(
             line_dash_setting=graphics._line_dash_setting,
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
-            parent=graphics)
+            parent=graphics,
+            variable_name_suffix=variable_name_suffix)
         return line
 
     @add_debug_info_setting(module_name=__name__)

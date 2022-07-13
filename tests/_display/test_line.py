@@ -135,7 +135,8 @@ class TestLine:
         line: ap.Line = ap.Line._create_with_graphics(
             graphics=sprite.graphics,
             start_point=ap.Point2D(x=10, y=20),
-            end_point=ap.Point2D(x=30, y=40))
+            end_point=ap.Point2D(x=30, y=40),
+            variable_name_suffix='test_line')
         assert_attrs(
             expected_attrs={
                 '_start_point': ap.Point2D(x=10, y=20),
@@ -146,6 +147,7 @@ class TestLine:
                 '_line_cap': ap.LineCaps.ROUND.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=10),
                 '_parent': sprite.graphics,
+                '_variable_name_suffix': 'test_line',
             },
             any_obj=line)
 

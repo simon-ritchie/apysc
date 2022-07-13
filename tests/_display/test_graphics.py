@@ -189,7 +189,8 @@ class TestGraphics:
             color='#333', thickness=3,
             dot_setting=ap.LineDotSetting(dot_size=10))
         line: ap.Line = sprite.graphics.draw_line(
-            x_start=50, y_start=100, x_end=150, y_end=200)
+            x_start=50, y_start=100, x_end=150, y_end=200,
+            variable_name_suffix='test_line')
         assert line.line_color == '#333333'
         assert line.line_thickness == 3
         assert line.line_dot_setting is None

@@ -464,7 +464,8 @@ class Graphics(
             self,
             *,
             x: Union[int, Int],
-            y: Union[int, Int]) -> '_polyline.Polyline':
+            y: Union[int, Int],
+            variable_name_suffix: str = '') -> '_polyline.Polyline':
         """
         Move a line position to a specified point.
 
@@ -474,6 +475,9 @@ class Graphics(
             X destination point to move.
         y : Int or int
             Y destination point to move.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -504,7 +508,8 @@ class Graphics(
         """
         polyline: _polyline.Polyline = \
             _polyline.Polyline._create_with_graphics(
-                graphics=self, points=[Point2D(x=x, y=y)])
+                graphics=self, points=[Point2D(x=x, y=y)],
+            variable_name_suffix=variable_name_suffix)
         self._current_line = polyline
         return polyline
 

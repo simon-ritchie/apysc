@@ -120,8 +120,10 @@ class TestGraphics:
     def test_move_to(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
-        polyline: ap.Polyline = sprite.graphics.move_to(x=100, y=200)
+        polyline: ap.Polyline = sprite.graphics.move_to(
+            x=100, y=200, variable_name_suffix='test_line')
         assert polyline.points == ap.Array([ap.Point2D(100, 200)])
+        assert polyline._variable_name_suffix == 'test_line'
         pre_var_name: str = polyline.variable_name
 
         sprite.graphics.line_to(x=0, y=0)

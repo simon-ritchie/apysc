@@ -130,11 +130,13 @@ class Graphics(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
     @add_debug_info_setting(module_name=__name__)
     def draw_rect(
-            self, *,
+            self,
+            *,
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
-            height: Union[int, Int]) -> Rectangle:
+            height: Union[int, Int],
+            variable_name_suffix: str = '') -> Rectangle:
         """
         Draw a rectangle vector graphics.
 
@@ -148,6 +150,9 @@ class Graphics(
             Rectangle width.
         height : Int or int
             Rectangle height.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -177,7 +182,8 @@ class Graphics(
         String('#00aaff')
         """
         rectangle: Rectangle = Rectangle._create_with_graphics(
-            graphics=self, x=x, y=y, width=width, height=height)
+            graphics=self, x=x, y=y, width=width, height=height,
+            variable_name_suffix=variable_name_suffix)
         return rectangle
 
     @arg_validation_decos.is_integer(arg_position_index=1)

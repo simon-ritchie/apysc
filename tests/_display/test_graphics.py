@@ -51,7 +51,8 @@ class TestGraphics:
         sprite: ap.Sprite = ap.Sprite()
         graphics: Graphics = Graphics(parent=sprite)
         rectangle: Rectangle = graphics.draw_rect(
-            x=100, y=200, width=300, height=400)
+            x=100, y=200, width=300, height=400,
+            variable_name_suffix='test_rectangle')
         assert graphics.num_children == 1
         testing_helper.assert_attrs(
             expected_attrs={
@@ -59,6 +60,7 @@ class TestGraphics:
                 '_y': 200,
                 'width': 300,
                 'height': 400,
+                '_variable_name_suffix': 'test_rectangle',
             },
             any_obj=graphics.get_child_at(index=0))
         assert isinstance(graphics.get_child_at(index=0), Rectangle)

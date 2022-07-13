@@ -298,10 +298,12 @@ class TestGraphics:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = sprite.graphics.draw_circle(
-            x=50, y=100, radius=30)
+            x=50, y=100, radius=30,
+            variable_name_suffix='test_circle')
         assert circle.x == 50
         assert circle.y == 100
         assert circle.radius == 30
+        assert circle._variable_name_suffix == 'test_circle'
         assert sprite.graphics._children == [circle]
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

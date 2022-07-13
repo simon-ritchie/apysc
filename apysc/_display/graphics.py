@@ -274,7 +274,8 @@ class Graphics(
             *,
             x: Union[int, Int],
             y: Union[int, Int],
-            radius: Union[int, Int]) -> '_circle.Circle':
+            radius: Union[int, Int],
+            variable_name_suffix: str = '') -> '_circle.Circle':
         """
         Draw a circle vector graphics.
 
@@ -286,6 +287,9 @@ class Graphics(
             Y-coordinate of the circle center.
         radius : Int or int
             Circle radius.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -318,7 +322,8 @@ class Graphics(
         String('#00aaff')
         """
         circle: _circle.Circle = _circle.Circle._create_with_graphics(
-            graphics=self, x=x, y=y, radius=radius)
+            graphics=self, x=x, y=y, radius=radius,
+            variable_name_suffix=variable_name_suffix)
         return circle
 
     @arg_validation_decos.is_integer(arg_position_index=1)

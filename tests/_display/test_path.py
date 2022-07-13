@@ -122,7 +122,8 @@ class TestPath:
         ]
         path: ap.Path = ap.Path._create_with_graphics(
             graphics=sprite.graphics,
-            path_data_list=path_data_list)
+            path_data_list=path_data_list,
+            variable_name_suffix='test_path')
         assert_attrs(
             expected_attrs={
                 '_path_data_list': path_data_list,
@@ -134,5 +135,6 @@ class TestPath:
                 '_line_joints': ap.LineJoints.BEVEL.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=10),
                 '_parent': sprite.graphics,
+                '_variable_name_suffix': 'test_path',
             },
             any_obj=path)

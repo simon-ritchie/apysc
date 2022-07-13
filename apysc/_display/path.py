@@ -185,7 +185,8 @@ class Path(
             cls,
             *,
             graphics: 'graphics.Graphics',
-            path_data_list: List[PathDataBase]) -> 'Path':
+            path_data_list: List[PathDataBase],
+            variable_name_suffix: str = '') -> 'Path':
         """
         Create a path instance with the instance of
         specified graphics.
@@ -196,6 +197,9 @@ class Path(
             Graphics instance to link this instance.
         path_data_list : list of PathDataBase
             Target path data settings, such as the ap.PathData.MoveTo.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -215,7 +219,8 @@ class Path(
             line_dash_setting=graphics._line_dash_setting,
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
-            parent=graphics)
+            parent=graphics,
+            variable_name_suffix=variable_name_suffix)
         return path
 
     @add_debug_info_setting(module_name=__name__)

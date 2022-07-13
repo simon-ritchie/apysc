@@ -339,7 +339,8 @@ class Graphics(
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
-            height: Union[int, Int]) -> '_ellipse.Ellipse':
+            height: Union[int, Int],
+            variable_name_suffix: str = '') -> '_ellipse.Ellipse':
         """
         Draw an ellipse vector graphic.
 
@@ -353,6 +354,9 @@ class Graphics(
             Ellipse width.
         height : Int or int
             Ellipse height.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -388,7 +392,8 @@ class Graphics(
         String('#00aaff')
         """
         ellipse: _ellipse.Ellipse = _ellipse.Ellipse._create_with_graphics(
-            graphics=self, x=x, y=y, width=width, height=height)
+            graphics=self, x=x, y=y, width=width, height=height,
+            variable_name_suffix=variable_name_suffix)
         return ellipse
 
     @arg_validation_decos.is_integer(arg_position_index=1)

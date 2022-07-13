@@ -311,11 +311,13 @@ class TestGraphics:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
-            x=50, y=100, width=150, height=200)
+            x=50, y=100, width=150, height=200,
+            variable_name_suffix='test_ellipse')
         assert ellipse.x == 50
         assert ellipse.y == 100
         assert ellipse.width == 150
         assert ellipse.height == 200
+        assert ellipse._variable_name_suffix == 'test_ellipse'
         assert sprite.graphics._children == [ellipse]
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

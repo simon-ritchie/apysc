@@ -98,19 +98,23 @@ class TestGraphics:
     def test_line_to(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
-        polyline: ap.Polyline = sprite.graphics.line_to(x=100, y=200)
+        polyline: ap.Polyline = sprite.graphics.line_to(
+            x=100, y=200, variable_name_suffix='test_line')
         assert polyline.points == ap.Array(
             [ap.Point2D(0, 0), ap.Point2D(100, 200)])
         assert polyline.x == 0
         assert polyline.y == 0
+        assert polyline._variable_name_suffix == 'test_line'
         pre_var_name: str = polyline.variable_name
 
-        polyline = sprite.graphics.line_to(x=-50, y=-100)
+        polyline = sprite.graphics.line_to(
+            x=-50, y=-100, variable_name_suffix='test_line')
         assert polyline.points == ap.Array(
             [ap.Point2D(0, 0), ap.Point2D(100, 200), ap.Point2D(-50, -100)])
         assert polyline.variable_name == pre_var_name
         assert polyline.x == -50
         assert polyline.y == -100
+        assert polyline._variable_name_suffix == 'test_line'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_move_to(self) -> None:

@@ -402,7 +402,8 @@ class Graphics(
     def line_to(
             self, *,
             x: Union[int, Int],
-            y: Union[int, Int]) -> '_polyline.Polyline':
+            y: Union[int, Int],
+            variable_name_suffix: str = '') -> '_polyline.Polyline':
         """
         Draw a line from previous point to specified point (initial
         point is x = 0, y = 0).
@@ -413,6 +414,9 @@ class Graphics(
             X destination point to draw a line.
         y : Int or int
             Y destination point to draw a line.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -444,9 +448,13 @@ class Graphics(
         """
         if self._current_line is None:
             self._current_line = _polyline.Polyline._create_with_graphics(
-                graphics=self, points=[Point2D(x=0, y=0), Point2D(x=x, y=y)])
+                graphics=self, points=[Point2D(x=0, y=0), Point2D(x=x, y=y)],
+                variable_name_suffix=variable_name_suffix)
         else:
             self._current_line.append_line_point(x=x, y=y)
+            if variable_name_suffix != '':
+                self._current_line._variable_name_suffix = \
+                    variable_name_suffix
         return self._current_line
 
     @arg_validation_decos.is_integer(arg_position_index=1)

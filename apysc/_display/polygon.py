@@ -213,7 +213,8 @@ class Polygon(
             cls,
             *,
             graphics: 'graphics.Graphics',
-            points: Union[List[Point2D], Array[Point2D]]) -> 'Polygon':
+            points: Union[List[Point2D], Array[Point2D]],
+            variable_name_suffix: str = '') -> 'Polygon':
         """
         Create a polygon instance with the instance of
         specified graphics.
@@ -224,6 +225,9 @@ class Polygon(
             Graphics instance to link this instance.
         points : Array[Point2D]
             List of polygon vertex points.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -243,7 +247,8 @@ class Polygon(
             line_dash_setting=graphics._line_dash_setting,
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
-            parent=graphics)
+            parent=graphics,
+            variable_name_suffix=variable_name_suffix)
         return polygon
 
     def __repr__(self) -> str:

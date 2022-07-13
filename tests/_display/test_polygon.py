@@ -119,7 +119,8 @@ class TestPolygon:
             dot_setting=ap.LineDotSetting(dot_size=5))
         polygon: ap.Polygon = ap.Polygon._create_with_graphics(
             graphics=sprite.graphics,
-            points=points)
+            points=points,
+            variable_name_suffix='test_polygon')
         assert_attrs(
             expected_attrs={
                 '_points': points,
@@ -132,6 +133,7 @@ class TestPolygon:
                 '_line_joints': ap.LineJoints.BEVEL.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=5),
                 '_parent': sprite.graphics,
+                '_variable_name_suffix': 'test_polygon',
             },
             any_obj=polygon,
         )

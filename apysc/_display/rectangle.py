@@ -277,7 +277,8 @@ class Rectangle(
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
-            height: Union[int, Int]) -> 'Rectangle':
+            height: Union[int, Int],
+            variable_name_suffix: str = '') -> 'Rectangle':
         """
         Create a rectangle instance with the instance of
         specified graphics..
@@ -294,6 +295,9 @@ class Rectangle(
             Rectangle width.
         height : Int or int
             Rectangle height.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -316,7 +320,8 @@ class Rectangle(
             line_dash_setting=graphics._line_dash_setting,
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
-            parent=graphics)
+            parent=graphics,
+            variable_name_suffix=variable_name_suffix)
         return rectangle
 
     def __repr__(self) -> str:

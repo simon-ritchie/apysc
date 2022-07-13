@@ -145,7 +145,8 @@ class TestRectangle:
             x=50,
             y=100,
             width=150,
-            height=200)
+            height=200,
+            variable_name_suffix='test_rectangle')
         testing_helper.assert_attrs(
             expected_attrs={
                 '_parent': sprite.graphics,
@@ -162,6 +163,7 @@ class TestRectangle:
                 '_line_joints': ap.LineJoints.BEVEL.value,
                 '_line_dash_setting':
                 ap.LineDashSetting(dash_size=10, space_size=5),
+                '_variable_name_suffix': 'test_rectangle',
             },
             any_obj=rectangle)
 

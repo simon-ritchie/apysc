@@ -213,7 +213,8 @@ class Polyline(
             cls,
             *,
             graphics: 'graphics.Graphics',
-            points: Union[Array[Point2D], List[Point2D]]) -> 'Polyline':
+            points: Union[Array[Point2D], List[Point2D]],
+            variable_name_suffix: str = '') -> 'Polyline':
         """
         Create a polyline instance with the instance of
         specified graphics.
@@ -223,7 +224,10 @@ class Polyline(
         graphics : Graphics
             Graphics instance to link this instance.
         points : Array of Point2D or list of Point2D
-            List of line points._description_
+            List of line points.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -243,7 +247,8 @@ class Polyline(
             line_dash_setting=graphics._line_dash_setting,
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
-            parent=graphics)
+            parent=graphics,
+            variable_name_suffix=variable_name_suffix)
         return polyline
 
     def __repr__(self) -> str:

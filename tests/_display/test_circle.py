@@ -139,7 +139,8 @@ class TestCircle:
             joints=ap.LineJoints.BEVEL,
             dot_setting=ap.LineDotSetting(dot_size=10))
         circle: ap.Circle = ap.Circle._create_with_graphics(
-            graphics=sprite.graphics, x=50, y=100, radius=75)
+            graphics=sprite.graphics, x=50, y=100, radius=75,
+            variable_name_suffix='test_circle')
         assert_attrs(
             expected_attrs={
                 '_x': 50,
@@ -154,5 +155,6 @@ class TestCircle:
                 '_line_joints': ap.LineJoints.BEVEL.value,
                 '_line_dot_setting': ap.LineDotSetting(dot_size=10),
                 '_parent': sprite.graphics,
+                '_variable_name_suffix': 'test_circle',
             },
             any_obj=circle)

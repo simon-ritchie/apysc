@@ -227,7 +227,8 @@ class Circle(
             graphics: 'graphics.Graphics',
             x: Union[int, Int],
             y: Union[int, Int],
-            radius: Union[int, Int]) -> 'Circle':
+            radius: Union[int, Int],
+            variable_name_suffix: str = '') -> 'Circle':
         """
         Create a rectangle instance with the instance of
         specified graphics.
@@ -242,6 +243,9 @@ class Circle(
             Y-coordinate of the circle center.
         radius : Int or int
             Circle radius.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -263,7 +267,8 @@ class Circle(
             line_dash_setting=graphics._line_dash_setting,
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
-            parent=graphics)
+            parent=graphics,
+            variable_name_suffix=variable_name_suffix)
         return circle
 
     @add_debug_info_setting(module_name=__name__)

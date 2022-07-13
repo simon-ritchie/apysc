@@ -232,7 +232,8 @@ class Ellipse(
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
-            height: Union[int, Int]) -> 'Ellipse':
+            height: Union[int, Int],
+            variable_name_suffix: str = '') -> 'Ellipse':
         """
         Create an ellipse instance with the instance of
         specified graphics.
@@ -249,6 +250,9 @@ class Ellipse(
             Ellipse width.
         height : Int or int
             Ellipse height.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -271,7 +275,8 @@ class Ellipse(
             line_dash_setting=graphics._line_dash_setting,
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
-            parent=graphics)
+            parent=graphics,
+            variable_name_suffix=variable_name_suffix)
         return ellipse
 
     @add_debug_info_setting(module_name=__name__)

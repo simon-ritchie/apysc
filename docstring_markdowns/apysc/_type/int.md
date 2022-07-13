@@ -50,6 +50,8 @@ Integer class for apysc library.<hr>
 
 - `value`: int or float or Int or Number
   - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

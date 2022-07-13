@@ -189,7 +189,7 @@ class Rectangle(
             If a specified value is None, this interface uses
             a stage instance.
         variable_name_suffix : str, default ''
-            A JavaScript's variable name suffix string.
+            A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
 
         References

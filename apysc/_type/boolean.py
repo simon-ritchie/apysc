@@ -71,7 +71,7 @@ class Boolean(
             Initial boolean value. 0 or 1 are acceptable for
             an integer value.
         variable_name_suffix : str, default ''
-            A JavaScript's variable name suffix string.
+            A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
 
         References

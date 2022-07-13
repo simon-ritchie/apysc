@@ -93,6 +93,12 @@ MAPPING: Dict[str, str] = {
     '  - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.':  # noqa
     '  - 整数の初期値。もしも`float`や`Number`の値が指定された場合このクラスは値を整数へと変換します。',
 
+    '- `variable_name_suffix`: str, default \'\'':
+    '- `variable_name_suffix`: str, default \'\'',
+
+    '  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript\'s debugging.':  # noqa
+    '  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。',
+
     '<hr>':
     '<hr>',
 
@@ -131,6 +137,12 @@ MAPPING: Dict[str, str] = {
 
     '  - Initial floating point number value. This class casts it to float if you specify int or Int value.':  # noqa
     '  - 浮動小数点数の初期値。もしもintやIntなどの型の値が指定された場合このクラスは値を浮動小数点数へ変換します。',
+
+    '- `variable_name_suffix`: str, default \'\'':
+    '- `variable_name_suffix`: str, default \'\'',
+
+    '  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript\'s debugging.':  # noqa
+    '  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。',
 
     '<hr>':
     '<hr>',

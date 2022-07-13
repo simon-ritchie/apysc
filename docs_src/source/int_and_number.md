@@ -88,7 +88,7 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]** Integer class for apysc library.<hr>
 
@@ -96,6 +96,8 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 - `value`: int or float or Int or Number
   - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 
@@ -138,7 +140,7 @@ Int(10)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]** Floating point number class for apysc library.<hr>
 
@@ -146,6 +148,8 @@ Int(10)
 
 - `value`: int or float or Int or Number
   - Initial floating point number value. This class casts it to float if you specify int or Int value.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

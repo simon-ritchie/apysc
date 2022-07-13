@@ -50,6 +50,8 @@ Create a basic display object that can be a parent.<hr>
 
 - `variable_name`: str or None, default None
   - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

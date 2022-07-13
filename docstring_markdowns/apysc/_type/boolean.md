@@ -67,6 +67,8 @@ Boolean class for apysc library.<hr>
 
 - `value`: Boolean or Int or bool or int
   - Initial boolean value. 0 or 1 are acceptable for an integer value.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

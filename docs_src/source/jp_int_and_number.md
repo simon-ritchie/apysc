@@ -89,7 +89,7 @@ assert ap.Number(10.5) == ap.Float(10.5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]** apyscライブラリ上の整数のためのクラスです。<hr>
 
@@ -97,6 +97,9 @@ assert ap.Number(10.5) == ap.Float(10.5)
 
 - `value`: int or float or Int or Number
   - 整数の初期値。もしも`float`や`Number`の値が指定された場合このクラスは値を整数へと変換します。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
 
@@ -137,7 +140,7 @@ Int(10)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]** apyscライブラリ用の浮動小数点数のクラスです。<hr>
 
@@ -145,6 +148,9 @@ Int(10)
 
 - `value`: int or float or Int or Number
   - 浮動小数点数の初期値。もしもintやIntなどの型の値が指定された場合このクラスは値を浮動小数点数へ変換します。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
 

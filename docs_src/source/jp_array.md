@@ -70,7 +70,7 @@ assert isinstance(int_val, int)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, value: Union[List[~T], tuple, range, ForwardRef('Array')]) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, value: Union[List[~T], tuple, range, ForwardRef('Array')], *, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]** apyscライブラリの配列のクラスです。<hr>
 
@@ -78,6 +78,9 @@ assert isinstance(int_val, int)
 
 - `value`: Array or list or tuple or range
   - 配列の初期値。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
 

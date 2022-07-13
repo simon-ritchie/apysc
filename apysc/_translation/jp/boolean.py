@@ -90,6 +90,12 @@ MAPPING: Dict[str, str] = {
     '  - Initial boolean value. 0 or 1 are acceptable for an integer value.':  # noqa
     '  - 真偽値の初期値。整数の場合は0か1が受け付けられます。',
 
+    '- `variable_name_suffix`: str, default \'\'':
+    '- `variable_name_suffix`: str, default \'\'',
+
+    '  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript\'s debugging.':  # noqa
+    '  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。',
+
     '<hr>':
     '<hr>',
 

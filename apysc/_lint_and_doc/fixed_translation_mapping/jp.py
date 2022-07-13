@@ -2967,4 +2967,9 @@ MAPPINGS: Mappings = Mappings(
             'skew-y (distortion) value:',
             val='`skew_y`属性ではインスタンスのY軸の歪みの値の更新もしくは取得を'
             '行えます:'),
+        Mapping(
+            key='  - A JavaScript variable name suffix string. This '
+            'setting is sometimes useful for JavaScript\'s debugging.',
+            val='  - JavaScript上の変数のサフィックスの設定です。この設定は'
+            'JavaScriptのデバッグ時に役立つことがあります。'),
     ])

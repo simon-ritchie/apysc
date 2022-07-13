@@ -65,7 +65,7 @@ assert isinstance(int_val, int)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value: Union[List[~T], tuple, range, ForwardRef('Array')]) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[List[~T], tuple, range, ForwardRef('Array')], *, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]** Array class for the apysc library.<hr>
 
@@ -73,6 +73,8 @@ assert isinstance(int_val, int)
 
 - `value`: Array or list or tuple or range
   - Initial array value.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

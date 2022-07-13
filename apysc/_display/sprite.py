@@ -76,7 +76,7 @@ class Sprite(
             this setting. It is unnecessary to specify any
             string except when instantiating the `Sprite` subclass.
         variable_name_suffix : str, default ''
-            A JavaScript's variable name suffix string.
+            A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
 
         References

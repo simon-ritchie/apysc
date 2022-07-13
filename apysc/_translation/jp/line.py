@@ -291,6 +291,12 @@ MAPPING: Dict[str, str] = {
     '  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.':  # noqa
     '  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。',  # noqa
 
+    '- `variable_name_suffix`: str, default \'\'':
+    '- `variable_name_suffix`: str, default \'\'',
+
+    '  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript\'s debugging.':  # noqa
+    '  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。',
+
     '<hr>':
     '<hr>',
 

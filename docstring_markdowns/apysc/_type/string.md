@@ -151,6 +151,8 @@ String class for apysc library.<hr>
 
 - `value`: String or str
   - Initial string value.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

@@ -13,10 +13,14 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class ScaleYFromPointInterface(
-        AnimationScaleYFromPointInterface, RevertInterface):
+        VariableNameSuffixAttrInterface,
+        AnimationScaleYFromPointInterface,
+        RevertInterface):
 
     _scale_y_from_point: Dictionary[str, Number]
 
@@ -27,7 +31,10 @@ class ScaleYFromPointInterface(
         """
         if hasattr(self, '_scale_y_from_point'):
             return
-        self._scale_y_from_point = Dictionary({})
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='scale_y_from_point')
+        self._scale_y_from_point = Dictionary(
+            {}, variable_name_suffix=suffix)
 
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)

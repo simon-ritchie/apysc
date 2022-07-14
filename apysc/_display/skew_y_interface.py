@@ -9,10 +9,15 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class SkewYInterface(
-        AnimationSkewYInterface, RevertInterface, AttrLinkingInterface):
+        VariableNameSuffixAttrInterface,
+        AnimationSkewYInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _skew_y: Int
 
@@ -23,7 +28,9 @@ class SkewYInterface(
         """
         if hasattr(self, '_skew_y'):
             return
-        self._skew_y = Int(0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='skew_y')
+        self._skew_y = Int(0, variable_name_suffix=suffix)
 
         self._append_skew_y_attr_linking_setting()
 

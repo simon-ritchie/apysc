@@ -18,9 +18,12 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class WidthAndHeightInterfacesForEllipse(
+        VariableNameSuffixAttrInterface,
         AnimationWidthForEllipseInterface,
         AnimationHeightForEllipseInterface,
         RevertInterface, AttrLinkingInterface):
@@ -34,10 +37,14 @@ class WidthAndHeightInterfacesForEllipse(
         does not initialize these yet.
         """
         if not hasattr(self, '_width'):
-            self._width = Int(0)
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='width')
+            self._width = Int(0, variable_name_suffix=suffix)
             self._append_width_attr_linking_setting()
         if not hasattr(self, '_height'):
-            self._height = Int(0)
+            suffix = self._get_attr_variable_name_suffix(
+                attr_identifier='height')
+            self._height = Int(0, variable_name_suffix=suffix)
             self._append_height_attr_linking_setting()
 
     @add_debug_info_setting(module_name=__name__)

@@ -12,11 +12,16 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class XInterface(
-        XInterfaceBase, AnimationXInterface,
-        AnimationMoveInterface, RevertInterface,
+        XInterfaceBase,
+        VariableNameSuffixAttrInterface,
+        AnimationXInterface,
+        AnimationMoveInterface,
+        RevertInterface,
         AttrLinkingInterface):
 
     def _initialize_x_if_not_initialized(self) -> None:
@@ -26,7 +31,9 @@ class XInterface(
         """
         if hasattr(self, '_x'):
             return
-        self._x = Int(0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='x')
+        self._x = Int(0, variable_name_suffix=suffix)
 
         self._append_x_attr_linking_setting()
 

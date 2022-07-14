@@ -9,10 +9,15 @@ from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class VisibleInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        VariableNameSuffixAttrInterface,
+        VariableNameInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _visible: Boolean
 
@@ -23,7 +28,9 @@ class VisibleInterface(
         """
         if hasattr(self, '_visible'):
             return
-        self._visible = Boolean(True)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='visible')
+        self._visible = Boolean(True, variable_name_suffix=suffix)
 
         self._append_visible_attr_linking_setting()
 

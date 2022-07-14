@@ -12,11 +12,17 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class YInterface(
-        YInterfaceBase, AnimationYInterface, AnimationMoveInterface,
-        RevertInterface, AttrLinkingInterface):
+        YInterfaceBase,
+        VariableNameSuffixAttrInterface,
+        AnimationYInterface,
+        AnimationMoveInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _y: Int
 
@@ -27,7 +33,9 @@ class YInterface(
         """
         if hasattr(self, '_y'):
             return
-        self._y = Int(0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='y')
+        self._y = Int(0, variable_name_suffix=suffix)
 
         self._append_y_attr_linking_setting()
 

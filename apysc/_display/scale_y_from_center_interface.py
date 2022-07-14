@@ -10,10 +10,14 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class ScaleYFromCenterInterface(
-        AnimationScaleYFromCenterInterface, RevertInterface,
+        VariableNameSuffixAttrInterface,
+        AnimationScaleYFromCenterInterface,
+        RevertInterface,
         AttrLinkingInterface):
 
     _scale_y_from_center: Number
@@ -27,7 +31,10 @@ class ScaleYFromCenterInterface(
         import apysc as ap
         if hasattr(self, '_scale_y_from_center'):
             return
-        self._scale_y_from_center = ap.Number(1.0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='scale_y_from_center')
+        self._scale_y_from_center = ap.Number(
+            1.0, variable_name_suffix=suffix)
 
         self._append_scale_y_from_center_attr_linking_setting()
 

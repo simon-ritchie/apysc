@@ -11,10 +11,14 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class RotationAroundPointInterface(
-        AnimationRotationAroundPointInterface, RevertInterface):
+        VariableNameSuffixAttrInterface,
+        AnimationRotationAroundPointInterface,
+        RevertInterface):
 
     _rotation_around_point: Dictionary[str, Int]
 
@@ -25,7 +29,10 @@ class RotationAroundPointInterface(
         """
         if hasattr(self, '_rotation_around_point'):
             return
-        self._rotation_around_point = Dictionary({})
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='rotation_around_point')
+        self._rotation_around_point = Dictionary(
+            {}, variable_name_suffix=suffix)
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

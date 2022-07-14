@@ -286,10 +286,12 @@ class TestGraphics:
         polygon: ap.Polygon = sprite.graphics.draw_polygon(
             points=[
                 ap.Point2D(50, 50), ap.Point2D(150, 50),
-                ap.Point2D(100, 100)])
+                ap.Point2D(100, 100)],
+            variable_name_suffix='test_polygon')
         assert polygon.points == ap.Array(
             [ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)])
         assert polygon.fill_color == '#333333'
+        assert polygon._variable_name_suffix == 'test_polygon'
         assert sprite.graphics._children == [polygon]
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

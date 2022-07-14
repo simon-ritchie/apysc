@@ -948,7 +948,8 @@ class Graphics(
     def draw_polygon(
             self,
             *,
-            points: Union[List[Point2D], Array[Point2D]]) -> '_polyg.Polygon':
+            points: Union[List[Point2D], Array[Point2D]],
+            variable_name_suffix: str = '') -> '_polyg.Polygon':
         """
         Draw a polygon vector graphic. This interface is similar
         to the Polyline class (created by `move_to` or `line_to`).
@@ -959,6 +960,9 @@ class Graphics(
         ----------
         points : list of Point2D or Array.
             Polygon vertex points.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -986,7 +990,8 @@ class Graphics(
         String('#00aaff')
         """
         polygon: _polyg.Polygon = _polyg.Polygon._create_with_graphics(
-            graphics=self, points=points)
+            graphics=self, points=points,
+            variable_name_suffix=variable_name_suffix)
         return polygon
 
     @arg_validation_decos.is_path_data_list(arg_position_index=1)

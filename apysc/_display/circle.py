@@ -25,6 +25,8 @@ from apysc._type.string import String
 from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.attr_to_apysc_val_from_builtin_interface import \
+    AttrToApyscValFromBuiltinInterface
 
 
 class Circle(
@@ -34,7 +36,8 @@ class Circle(
         RadiusInterface,
         FillColorInterface,
         FillAlphaInterface,
-        VariableNameSuffixInterface):
+        VariableNameSuffixInterface,
+        AttrToApyscValFromBuiltinInterface):
     """
     The circle vector graphics class.
 
@@ -290,10 +293,10 @@ class Circle(
         y : Int or int
             Y-coordinate of the circle center.
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        self.x = get_copied_int_from_builtin_val(integer=x)
-        self.y = get_copied_int_from_builtin_val(integer=y)
+        self.x = self._get_copied_int_from_builtin_val(
+            integer=x, attr_identifier='x')
+        self.y = self._get_copied_int_from_builtin_val(
+            integer=y, attr_identifier='y')
 
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:

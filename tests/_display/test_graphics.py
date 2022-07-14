@@ -208,7 +208,8 @@ class TestGraphics:
             dot_setting=ap.LineDotSetting(dot_size=5))
         line: ap.Line = sprite.graphics.draw_dashed_line(
             x_start=50, y_start=100, x_end=150, y_end=200,
-            dash_size=10, space_size=5)
+            dash_size=10, space_size=5,
+            variable_name_suffix='test_line')
         assert line.line_color == '#333333'
         assert line.line_thickness == 3
         line_dash_setting: Optional[ap.LineDashSetting] = \
@@ -217,6 +218,7 @@ class TestGraphics:
         assert line_dash_setting.dash_size == 10
         assert line_dash_setting.space_size == 5
         self._assert_line_points(line=line)
+        assert line._variable_name_suffix == 'test_line'
         assert isinstance(sprite.graphics.line_dot_setting, ap.LineDotSetting)
         sprite.graphics._children == [line]
 

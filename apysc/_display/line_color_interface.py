@@ -11,10 +11,15 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class LineColorInterface(
-        AnimationLineColorInterface, RevertInterface, AttrLinkingInterface):
+        VariableNameSuffixAttrInterface,
+        AnimationLineColorInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _line_color: String
 
@@ -107,12 +112,14 @@ class LineColorInterface(
         """
         import apysc as ap
         self._initialize_line_color_if_not_initialized()
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_color')
         if line_color == '':
             return
         if isinstance(line_color, ap.String):
             line_color_: ap.String = line_color
         else:
-            line_color_ = String(line_color)
+            line_color_ = String(line_color, variable_name_suffix=suffix)
         self._update_line_color_and_skip_appending_exp(
             value=line_color_)
 
@@ -140,7 +147,9 @@ class LineColorInterface(
         """
         if hasattr(self, '_line_color'):
             return
-        self._line_color = String('')
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_color')
+        self._line_color = String('', variable_name_suffix=suffix)
 
     _line_color_snapshots: Dict[str, str]
 

@@ -11,10 +11,15 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class FillColorInterface(
-        AnimationFillColorInterface, RevertInterface, AttrLinkingInterface):
+        VariableNameSuffixAttrInterface,
+        AnimationFillColorInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _fill_color: String
 
@@ -134,7 +139,9 @@ class FillColorInterface(
         """
         if hasattr(self, '_fill_color'):
             return
-        self._fill_color = String('')
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='fill_color')
+        self._fill_color = String('', variable_name_suffix=suffix)
 
     _fill_color_snapshots: Dict[str, str]
 

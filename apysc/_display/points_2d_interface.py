@@ -10,9 +10,14 @@ from apysc._type.array import Array
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
-class Points2DInterface(VariableNameInterface, RevertInterface):
+class Points2DInterface(
+        VariableNameSuffixAttrInterface,
+        VariableNameInterface,
+        RevertInterface):
 
     _points: Array[Point2D]
 
@@ -23,7 +28,9 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_points'):
             return
-        self._points = Array([])
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='points')
+        self._points = Array([], variable_name_suffix=suffix)
 
     @property
     @add_debug_info_setting(module_name=__name__)

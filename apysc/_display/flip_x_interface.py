@@ -9,10 +9,15 @@ from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class FlipXInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        VariableNameSuffixAttrInterface,
+        VariableNameInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _flip_x: Boolean
 
@@ -23,7 +28,9 @@ class FlipXInterface(
         """
         if hasattr(self, '_flip_x'):
             return
-        self._flip_x = Boolean(False)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='flip_x')
+        self._flip_x = Boolean(False, variable_name_suffix=suffix)
 
         self._append_flip_x_attr_linking_setting()
 

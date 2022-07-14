@@ -22,11 +22,15 @@ from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
 
 
-class LineStyleInterface(RevertInterface):
+class LineStyleInterface(
+        VariableNameSuffixAttrInterface,
+        RevertInterface):
 
     _line_color: String
     _line_thickness: Int
@@ -137,16 +141,22 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()
         self._initialize_line_alpha_if_not_initialized()
+        suffix: str
 
         if color != '':
             color = color_util.complement_hex_color(
                 hex_color_code=color)
         self._line_color.value = color
-        self._line_thickness = ap.Int(thickness)
+        suffix = self._get_attr_variable_name_suffix(
+            attr_identifier='line_thickness')
+        self._line_thickness = ap.Int(
+            thickness, variable_name_suffix=suffix)
         if isinstance(alpha, ap.Number):
             alpha_: ap.Number = alpha._copy()
         else:
-            alpha_ = ap.Number(alpha)
+            suffix = self._get_attr_variable_name_suffix(
+                attr_identifier='line_alpha')
+            alpha_ = ap.Number(alpha, variable_name_suffix=suffix)
         self._line_alpha = alpha_
         self._set_line_cap(cap=cap)
         self._set_line_joints(joints=joints)
@@ -168,7 +178,10 @@ class LineStyleInterface(RevertInterface):
         import apysc as ap
         if joints is None:
             joints = LineJoints.MITER
-        self._line_joints = ap.String(joints.value)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_joints')
+        self._line_joints = ap.String(
+            joints.value, variable_name_suffix=suffix)
 
     @add_debug_info_setting(module_name=__name__)
     def _set_line_cap(self, *, cap: Optional[LineCaps]) -> None:
@@ -183,7 +196,10 @@ class LineStyleInterface(RevertInterface):
         import apysc as ap
         if cap is None:
             cap = LineCaps.BUTT
-        self._line_cap = ap.String(cap.value)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_cap')
+        self._line_cap = ap.String(
+            cap.value, variable_name_suffix=suffix)
 
     def _initialize_line_color_if_not_initialized(self) -> None:
         """
@@ -192,7 +208,9 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_color'):
             return
-        self._line_color = String('')
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_color')
+        self._line_color = String('', variable_name_suffix=suffix)
 
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
@@ -201,7 +219,9 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_thickness'):
             return
-        self._line_thickness = Int(1)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_thickness')
+        self._line_thickness = Int(1, variable_name_suffix=suffix)
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
@@ -210,7 +230,9 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_alpha'):
             return
-        self._line_alpha = Number(1.0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_alpha')
+        self._line_alpha = Number(1.0, variable_name_suffix=suffix)
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
@@ -219,7 +241,10 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_cap'):
             return
-        self._line_cap = String(LineCaps.BUTT.value)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_cap')
+        self._line_cap = String(
+            LineCaps.BUTT.value, variable_name_suffix=suffix)
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
@@ -228,7 +253,10 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_joints'):
             return
-        self._line_joints = String(LineJoints.MITER.value)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_joints')
+        self._line_joints = String(
+            LineJoints.MITER.value, variable_name_suffix=suffix)
 
     def _initialize_line_dot_setting_if_not_initialized(self) -> None:
         """

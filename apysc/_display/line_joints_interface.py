@@ -10,9 +10,14 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
-class LineJointsInterface(VariableNameInterface, RevertInterface):
+class LineJointsInterface(
+        VariableNameSuffixAttrInterface,
+        VariableNameInterface,
+        RevertInterface):
 
     _line_joints: String
 
@@ -23,7 +28,11 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_line_joints'):
             return
-        self._line_joints = String(LineJoints.MITER.value)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_joints')
+        self._line_joints = String(
+            LineJoints.MITER.value,
+            variable_name_suffix=suffix)
 
     @property
     @add_debug_info_setting(module_name=__name__)

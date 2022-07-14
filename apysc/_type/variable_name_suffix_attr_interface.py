@@ -2,12 +2,12 @@
 interface class.
 """
 
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._validation import arg_validation_decos
 
 
 class VariableNameSuffixAttrInterface:
 
+    @arg_validation_decos.not_empty_string(arg_position_index=1)
     def _get_attr_variable_name_suffix(
             self, *, attr_identifier: str) -> str:
         """
@@ -28,6 +28,8 @@ class VariableNameSuffixAttrInterface:
                 instance.
             - If a suffix is a blank string.
         """
+        from apysc._type.variable_name_suffix_interface import \
+            VariableNameSuffixInterface
         if not isinstance(self, VariableNameSuffixInterface):
             return ''
         if self._variable_name_suffix == '':

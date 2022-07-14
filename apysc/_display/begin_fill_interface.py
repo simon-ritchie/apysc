@@ -15,11 +15,15 @@ from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
 
 
-class BeginFillInterface(RevertInterface):
+class BeginFillInterface(
+        VariableNameSuffixAttrInterface,
+        RevertInterface):
 
     _fill_color: String
     _fill_alpha: Number
@@ -109,7 +113,9 @@ class BeginFillInterface(RevertInterface):
         """
         if hasattr(self, '_fill_color'):
             return
-        self._fill_color = String('')
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='fill_color')
+        self._fill_color = String('', variable_name_suffix=suffix)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -147,7 +153,9 @@ class BeginFillInterface(RevertInterface):
         """
         if hasattr(self, '_fill_alpha'):
             return
-        self._fill_alpha = Number(1.0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='fill_alpha')
+        self._fill_alpha = Number(1.0, variable_name_suffix=suffix)
 
     _fill_color_snapshots: Dict[str, str]
     _fill_alpha_snapshots: Dict[str, float]

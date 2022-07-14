@@ -11,9 +11,12 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class LineThicknessInterface(
+        VariableNameSuffixAttrInterface,
         AnimationLineThicknessInterface,
         RevertInterface,
         AttrLinkingInterface):
@@ -27,7 +30,9 @@ class LineThicknessInterface(
         """
         if hasattr(self, '_line_thickness'):
             return
-        self._line_thickness = Int(1)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_thickness')
+        self._line_thickness = Int(1, variable_name_suffix=suffix)
 
         self._append_line_thickness_attr_linking_setting()
 
@@ -126,7 +131,9 @@ class LineThicknessInterface(
         if isinstance(value, ap.Int):
             value_: ap.Int = value
         else:
-            value_ = Int(value)
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='line_thickness')
+            value_ = Int(value, variable_name_suffix=suffix)
         self._line_thickness = value_
 
     _line_thickness_snapshots: Dict[str, int]

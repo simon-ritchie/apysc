@@ -11,10 +11,15 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class FillAlphaInterface(
-        AnimationFillAlphaInterface, RevertInterface, AttrLinkingInterface):
+        VariableNameSuffixAttrInterface,
+        AnimationFillAlphaInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _fill_alpha: Number
 
@@ -25,7 +30,9 @@ class FillAlphaInterface(
         """
         if hasattr(self, '_fill_alpha'):
             return
-        self._fill_alpha = Number(1.0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='fill_alpha')
+        self._fill_alpha = Number(1.0, variable_name_suffix=suffix)
 
         self._append_fill_alpha_attr_linking_setting()
 

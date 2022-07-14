@@ -11,10 +11,15 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class RadiusInterface(
-        AnimationRadiusInterface, RevertInterface, AttrLinkingInterface):
+        VariableNameSuffixAttrInterface,
+        AnimationRadiusInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _radius: Int
 
@@ -25,7 +30,9 @@ class RadiusInterface(
         """
         if hasattr(self, '_radius'):
             return
-        self._radius = Int(0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='radius')
+        self._radius = Int(0, variable_name_suffix=suffix)
 
         self._append_raidus_attr_linking_setting()
 
@@ -102,7 +109,9 @@ class RadiusInterface(
         """
         import apysc as ap
         if not isinstance(radius, ap.Int):
-            return ap.Int(radius)
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='radius')
+            return ap.Int(radius, variable_name_suffix=suffix)
         return radius
 
     @add_debug_info_setting(module_name=__name__)

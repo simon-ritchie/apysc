@@ -15,12 +15,17 @@ from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage
 
 
-class ChildInterface(VariableNameInterface, RevertInterface):
+class ChildInterface(
+        VariableNameSuffixAttrInterface,
+        VariableNameInterface,
+        RevertInterface):
 
     _children: Array[DisplayObject]
     stage: 'Stage'
@@ -66,7 +71,9 @@ class ChildInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_children'):
             return
-        self._children = Array([])
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='children')
+        self._children = Array([], variable_name_suffix=suffix)
 
     @arg_validation_decos.is_display_object(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)

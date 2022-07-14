@@ -9,10 +9,15 @@ from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class EllipseHeightInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        VariableNameSuffixAttrInterface,
+        VariableNameInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _ellipse_height: Int
 
@@ -23,7 +28,9 @@ class EllipseHeightInterface(
         """
         if hasattr(self, '_ellipse_height'):
             return
-        self._ellipse_height = Int(0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='ellipse_height')
+        self._ellipse_height = Int(0, variable_name_suffix=suffix)
 
         self._append_ellipse_height_attr_linking_setting()
 

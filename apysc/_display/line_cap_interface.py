@@ -10,9 +10,14 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
-class LineCapInterface(VariableNameInterface, RevertInterface):
+class LineCapInterface(
+        VariableNameSuffixAttrInterface,
+        VariableNameInterface,
+        RevertInterface):
 
     _line_cap: String
 
@@ -23,7 +28,10 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_line_cap'):
             return
-        self._line_cap = String(LineCaps.BUTT.value)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='line_cap')
+        self._line_cap = String(
+            LineCaps.BUTT.value, variable_name_suffix=suffix)
 
     @property
     @add_debug_info_setting(module_name=__name__)

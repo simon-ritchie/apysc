@@ -346,6 +346,8 @@ class TestGraphics:
             ap.PathMoveTo(x=50, y=50),
         ]
         path: ap.Path = sprite.graphics.draw_path(
-            path_data_list=path_data_list)
+            path_data_list=path_data_list,
+            variable_name_suffix='test_path')
         assert isinstance(path, ap.Path)
         assert path._path_data_list == path_data_list
+        assert path._variable_name_suffix == 'test_path'

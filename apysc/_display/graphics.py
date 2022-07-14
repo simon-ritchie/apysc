@@ -997,8 +997,10 @@ class Graphics(
     @arg_validation_decos.is_path_data_list(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def draw_path(
-            self, *,
-            path_data_list: List[PathDataBase]) -> '_path.Path':
+            self,
+            *,
+            path_data_list: List[PathDataBase],
+            variable_name_suffix: str = '') -> '_path.Path':
         """
         Draw a path vector graphics.
 
@@ -1006,6 +1008,9 @@ class Graphics(
         ----------
         path_data_list : list of PathDataBase
             Target path data settings, such as the ap.PathData.MoveTo.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -1027,7 +1032,8 @@ class Graphics(
         ...     ])
         """
         path: _path.Path = _path.Path._create_with_graphics(
-            graphics=self, path_data_list=path_data_list)
+            graphics=self, path_data_list=path_data_list,
+            variable_name_suffix=variable_name_suffix)
         return path
 
     def __repr__(self) -> str:

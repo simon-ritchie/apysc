@@ -141,10 +141,12 @@ Create an ellipse instance with the instance of specified graphics.<hr>
   - Ellipse width.
 - `height`: Int or int
   - Ellipse height.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 
 **[Returns]**
 
-- ``: 
+- `ellipse`: Ellipse
   - A created ellipse instance.

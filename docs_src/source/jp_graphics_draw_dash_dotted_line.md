@@ -46,7 +46,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `draw_dash_dotted_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], dot_size: Union[int, apysc._type.int.Int], dash_size: Union[int, apysc._type.int.Int], space_size: Union[int, apysc._type.int.Int]) -> '_line.Line'`<hr>
+**[インターフェイスの構造]** `draw_dash_dotted_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], dot_size: Union[int, apysc._type.int.Int], dash_size: Union[int, apysc._type.int.Int], space_size: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_line.Line'`<hr>
 
 **[インターフェイス概要]** 一点鎖線のベクターグラフィックスの線を描画します。<hr>
 
@@ -72,6 +72,9 @@ ap.save_overall_html(
 
 - `space_size`: Int or int
   - ドット（点線）や破線間の空白スペースのサイズ。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
 

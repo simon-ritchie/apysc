@@ -145,6 +145,8 @@ Create a rectangle instance with the instance of specified graphics..<hr>
   - Rectangle width.
 - `height`: Int or int
   - Rectangle height.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

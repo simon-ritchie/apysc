@@ -164,7 +164,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_polygon(self, *, points: Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]]) -> '_polyg.Polygon'`<hr>
+**[Interface signature]** `draw_polygon(self, *, points: Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]], variable_name_suffix: str = '') -> '_polyg.Polygon'`<hr>
 
 **[Interface summary]** Draw a polygon vector graphic. This interface is similar to the Polyline class (created by `move_to` or `line_to`). But unlike that, this interface connects the last point and the start point.<hr>
 
@@ -172,6 +172,8 @@ ap.save_overall_html(
 
 - `points`: list of Point2D or Array.
   - Polygon vertex points.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

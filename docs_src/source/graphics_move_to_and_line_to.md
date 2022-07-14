@@ -168,7 +168,7 @@ If you click the following line, line style will be updated:
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `move_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
+**[Interface signature]** `move_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
 **[Interface summary]** Move a line position to a specified point.<hr>
 
@@ -178,6 +178,8 @@ If you click the following line, line style will be updated:
   - X destination point to move.
 - `y`: Int or int
   - Y destination point to move.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 
@@ -213,7 +215,7 @@ Int(5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `line_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
+**[Interface signature]** `line_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
 **[Interface summary]** Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr>
 
@@ -223,6 +225,8 @@ Int(5)
   - X destination point to draw a line.
 - `y`: Int or int
   - Y destination point to draw a line.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

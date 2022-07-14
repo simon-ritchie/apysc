@@ -72,6 +72,12 @@ MAPPING: Dict[str, str] = {
     '  - Dot size.':
     '  - ドットのサイズ。',
 
+    '- `variable_name_suffix`: str, default \'\'':
+    '- `variable_name_suffix`: str, default \'\'',
+
+    '  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript\'s debugging.':  # noqa
+    '  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。',
+
     '<hr>':
     '<hr>',
 

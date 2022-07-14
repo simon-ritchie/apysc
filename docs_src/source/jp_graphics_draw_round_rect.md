@@ -82,7 +82,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `draw_round_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int], ellipse_height: Union[int, apysc._type.int.Int]) -> apysc._display.rectangle.Rectangle`<hr>
+**[インターフェイスの構造]** `draw_round_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int], ellipse_height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
 
 **[インターフェイス概要]** 角丸四角のベクターグラフィックスを描画します。<hr>
 
@@ -105,6 +105,9 @@ ap.save_overall_html(
 
 - `ellipse_height`: Int or int
   - 四角の角丸の高さ。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
 

@@ -163,7 +163,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `draw_polygon(self, *, points: Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]]) -> '_polyg.Polygon'`<hr>
+**[インターフェイスの構造]** `draw_polygon(self, *, points: Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]], variable_name_suffix: str = '') -> '_polyg.Polygon'`<hr>
 
 **[インターフェイス概要]** 多角形のベクターグラフィックスを描画します。このインターフェイスはPolylineクラス（`move_to`や`line_to`のインターフェイスで作成されます）に似ていますが、このインターフェイスは始点と終点が連結されるという違いがあります。<hr>
 
@@ -171,6 +171,9 @@ ap.save_overall_html(
 
 - `points`: list of Point2D or Array.
   - 多角形の頂点の各座標。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
 

@@ -116,7 +116,9 @@ Create a polyline instance with the instance of specified graphics.<hr>
 - `graphics`: Graphics
   - Graphics instance to link this instance.
 - `points`: Array of Point2D or list of Point2D
-  - List of line points._description_
+  - List of line points.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

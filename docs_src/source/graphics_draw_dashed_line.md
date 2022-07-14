@@ -46,7 +46,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_dashed_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], dash_size: Union[int, apysc._type.int.Int], space_size: Union[int, apysc._type.int.Int]) -> '_line.Line'`<hr>
+**[Interface signature]** `draw_dashed_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], dash_size: Union[int, apysc._type.int.Int], space_size: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_line.Line'`<hr>
 
 **[Interface summary]** Draw a dashed line vector graphics.<hr>
 
@@ -64,6 +64,8 @@ ap.save_overall_html(
   - Dash size.
 - `space_size`: Int or int
   - Blank space size between dashes.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

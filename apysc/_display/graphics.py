@@ -509,7 +509,7 @@ class Graphics(
         polyline: _polyline.Polyline = \
             _polyline.Polyline._create_with_graphics(
                 graphics=self, points=[Point2D(x=x, y=y)],
-            variable_name_suffix=variable_name_suffix)
+                variable_name_suffix=variable_name_suffix)
         self._current_line = polyline
         return polyline
 

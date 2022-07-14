@@ -104,7 +104,7 @@ If you click rectangle, the handler changes the x position to 100.
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int]) -> apysc._display.rectangle.Rectangle`<hr>
+**[Interface signature]** `draw_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
 
 **[Interface summary]** Draw a rectangle vector graphics.<hr>
 
@@ -118,6 +118,8 @@ If you click rectangle, the handler changes the x position to 100.
   - Rectangle width.
 - `height`: Int or int
   - Rectangle height.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

@@ -256,7 +256,7 @@ class Ellipse(
 
         Returns
         -------
-        Ellipse
+        ellipse : Ellipse
             A created ellipse instance.
         """
         ellipse: Ellipse = Ellipse(

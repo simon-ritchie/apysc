@@ -114,6 +114,8 @@ Create a polygon instance with the instance of specified graphics.<hr>
   - Graphics instance to link this instance.
 - `points`: Array[Point2D]
   - List of polygon vertex points.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

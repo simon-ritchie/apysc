@@ -167,7 +167,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `move_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
+**[インターフェイスの構造]** `move_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
 **[インターフェイス概要]** 指定された座標に線の描画位置を移動させます。<hr>
 
@@ -178,6 +178,9 @@ ap.save_overall_html(
 
 - `y`: Int or int
   - 移動先となるY座標。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
 
@@ -211,7 +214,7 @@ Int(5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `line_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
+**[インターフェイスの構造]** `line_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
 **[インターフェイス概要]** 直前の位置の座標から指定された座標に向けて線を描画します（初期位置はx=0, y=0になります）。<hr>
 
@@ -222,6 +225,9 @@ Int(5)
 
 - `y`: Int or int
   - 線の描画先となる終点のY座標。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
 

@@ -83,7 +83,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_round_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int], ellipse_height: Union[int, apysc._type.int.Int]) -> apysc._display.rectangle.Rectangle`<hr>
+**[Interface signature]** `draw_round_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int], ellipse_height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
 
 **[Interface summary]** Draw a rounded rectangle vector graphics.<hr>
 
@@ -101,6 +101,8 @@ ap.save_overall_html(
   - Ellipse width of the rectangle corner.
 - `ellipse_height`: Int or int
   - Ellipse height of the rectangle corner.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

@@ -871,7 +871,8 @@ class Graphics(
             y_end: Union[int, Int],
             dot_size: Union[int, Int],
             dash_size: Union[int, Int],
-            space_size: Union[int, Int]) -> '_line.Line':
+            space_size: Union[int, Int],
+            variable_name_suffix: str = '') -> '_line.Line':
         """
         Draw a dash-dotted (1-dot chain) line vector graphics.
 
@@ -891,6 +892,9 @@ class Graphics(
             Dash size.
         space_size : Int or int
             Blank space size between dots and dashes.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -934,7 +938,8 @@ class Graphics(
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
             start_point=Point2D(x=x_start, y=y_start),
-            end_point=Point2D(x=x_end, y=y_end))
+            end_point=Point2D(x=x_end, y=y_end),
+            variable_name_suffix=variable_name_suffix)
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 

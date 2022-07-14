@@ -111,6 +111,9 @@ class Ellipse(
     # parent
     @arg_validation_decos.is_display_object_container(
         arg_position_index=16, optional=True)
+    # variable_name_suffix
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=17, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,

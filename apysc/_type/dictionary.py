@@ -21,6 +21,7 @@ from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
+from apysc._validation import arg_validation_decos
 
 DefaultType = TypeVar('DefaultType')
 
@@ -71,6 +72,8 @@ class Dictionary(
     _initial_value: Union[Dict[_K, _V], 'Dictionary']
     _value: Dict[_K, _V]
 
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,

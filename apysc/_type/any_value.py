@@ -12,6 +12,7 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
+from apysc._validation import arg_validation_decos
 
 
 class AnyValue(
@@ -37,6 +38,8 @@ class AnyValue(
 
     _value: Any
 
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,

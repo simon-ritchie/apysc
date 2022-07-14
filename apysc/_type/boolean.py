@@ -13,6 +13,7 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
+from apysc._validation import arg_validation_decos
 
 
 class Boolean(
@@ -51,6 +52,8 @@ class Boolean(
     _initial_value: Union[bool, int, Int, 'Boolean']
     _value: bool
 
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,

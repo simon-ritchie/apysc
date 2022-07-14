@@ -75,6 +75,8 @@ class Array(
     _initial_value: Union[List[Any], tuple, 'Array']
     _value: List[T]
 
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,

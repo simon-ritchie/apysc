@@ -29,6 +29,7 @@ def main() -> None:
     ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500, stage_elem_id='stage')
+    ap.set_debug_mode()
 
     ap.Circle = ap.Circle(
         x=100, y=100, radius=50, fill_color='#0af',

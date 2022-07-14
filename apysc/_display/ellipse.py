@@ -26,6 +26,8 @@ from apysc._type.string import String
 from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.attr_to_apysc_val_from_builtin_interface import \
+    AttrToApyscValFromBuiltinInterface
 
 
 class Ellipse(
@@ -35,7 +37,8 @@ class Ellipse(
         WidthAndHeightInterfacesForEllipse,
         FillColorInterface,
         FillAlphaInterface,
-        VariableNameSuffixInterface):
+        VariableNameSuffixInterface,
+        AttrToApyscValFromBuiltinInterface):
     """
     The ellipse vector graphics class.
 
@@ -200,16 +203,16 @@ class Ellipse(
         >>> ellipse.fill_color
         String('#00aaff')
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.ELLIPSE)
         self.variable_name = variable_name
-        self._width = get_copied_int_from_builtin_val(integer=width)
-        self._height = get_copied_int_from_builtin_val(integer=height)
+        self._width = self._get_copied_int_from_builtin_val(
+            integer=width, attr_identifier='width')
+        self._height = self._get_copied_int_from_builtin_val(
+            integer=height, attr_identifier='height')
         self._append_width_attr_linking_setting()
         self._append_height_attr_linking_setting()
         self._set_initial_basic_values(
@@ -217,8 +220,10 @@ class Ellipse(
             line_color=line_color, line_thickness=line_thickness,
             line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
         self._append_constructor_expression()
-        self.x = get_copied_int_from_builtin_val(integer=x)
-        self.y = get_copied_int_from_builtin_val(integer=y)
+        self.x = self._get_copied_int_from_builtin_val(
+            integer=x, attr_identifier='x')
+        self.y = self._get_copied_int_from_builtin_val(
+            integer=y, attr_identifier='y')
         self._set_line_setting_if_not_none_value_exists(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,

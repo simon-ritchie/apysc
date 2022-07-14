@@ -195,6 +195,7 @@ class TestGraphics:
         assert line.line_thickness == 3
         assert line.line_dot_setting is None
         self._assert_line_points(line=line)
+        assert line._variable_name_suffix == 'test_line'
         assert isinstance(sprite.graphics.line_dot_setting, ap.LineDotSetting)
         sprite.graphics._children == [line]
 
@@ -227,10 +228,12 @@ class TestGraphics:
             color='#333',
             dash_setting=ap.LineDashSetting(dash_size=10, space_size=5))
         line: ap.Line = sprite.graphics.draw_dotted_line(
-            x_start=50, y_start=100, x_end=150, y_end=200, dot_size=5)
+            x_start=50, y_start=100, x_end=150, y_end=200, dot_size=5,
+            variable_name_suffix='test_line')
         assert isinstance(line.line_dot_setting, ap.LineDotSetting)
         assert line.line_color == '#333333'
         self._assert_line_points(line=line)
+        assert line._variable_name_suffix == 'test_line'
         assert isinstance(
             sprite.graphics.line_dash_setting, ap.LineDashSetting)
         sprite.graphics._children == [line]

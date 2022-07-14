@@ -611,7 +611,8 @@ class Graphics(
             y_start: Union[int, Int],
             x_end: Union[int, Int],
             y_end: Union[int, Int],
-            dot_size: Union[int, Int]) -> '_line.Line':
+            dot_size: Union[int, Int],
+            variable_name_suffix: str = '') -> '_line.Line':
         """
         Draw a dotted line vector graphics.
 
@@ -632,6 +633,9 @@ class Graphics(
             Line end y-coordinate.
         dot_size : Int or int
             Dot size.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -668,7 +672,8 @@ class Graphics(
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
             start_point=Point2D(x=x_start, y=y_start),
-            end_point=Point2D(x=x_end, y=y_end))
+            end_point=Point2D(x=x_end, y=y_end),
+            variable_name_suffix=variable_name_suffix)
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 

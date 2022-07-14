@@ -94,6 +94,7 @@ class FillColorInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(module_name=__name__)
     def _set_initial_fill_color_if_not_blank(
             self, *, fill_color: Union[str, String]) -> None:
         """
@@ -112,10 +113,14 @@ class FillColorInterface(
         if isinstance(fill_color, ap.String):
             fill_color_: ap.String = fill_color
         else:
-            fill_color_ = String(fill_color)
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='fill_color')
+            fill_color_ = String(
+                fill_color, variable_name_suffix=suffix)
         self._update_fill_color_and_skip_appending_exp(
             value=fill_color_)
 
+    @add_debug_info_setting(module_name=__name__)
     def _update_fill_color_and_skip_appending_exp(
             self, *, value: String) -> None:
         """
@@ -132,6 +137,7 @@ class FillColorInterface(
         self._initialize_fill_color_if_not_initialized()
         self._fill_color.value = value
 
+    @add_debug_info_setting(module_name=__name__)
     def _initialize_fill_color_if_not_initialized(self) -> None:
         """
         Initialize the fill_color attribute if this interface

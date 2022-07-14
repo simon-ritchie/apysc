@@ -249,10 +249,12 @@ class TestGraphics:
             dash_setting=ap.LineDashSetting(dash_size=10, space_size=5))
         line: ap.Line = sprite.graphics.draw_round_dotted_line(
             x_start=50, y_start=100, x_end=150, y_end=200,
-            round_size=10, space_size=5)
+            round_size=10, space_size=5,
+            variable_name_suffix='test_line')
         assert isinstance(line.line_round_dot_setting, ap.LineRoundDotSetting)
         assert line.line_color == '#333333'
         self._assert_line_points(line=line)
+        assert line._variable_name_suffix == 'test_line'
         assert isinstance(
             sprite.graphics.line_dash_setting, ap.LineDashSetting)
         sprite.graphics._children == [line]

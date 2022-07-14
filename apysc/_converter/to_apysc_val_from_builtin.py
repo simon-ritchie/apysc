@@ -12,7 +12,9 @@ from apysc._type.string import String
 
 @add_debug_info_setting(module_name=__name__)
 def get_copied_int_from_builtin_val(
-        *, integer: Union[int, Int]) -> Int:
+        *,
+        integer: Union[int, Int],
+        variable_name_suffix: str = '') -> Int:
     """
     Get a copied Int value from a Python built-in int.
 
@@ -20,6 +22,9 @@ def get_copied_int_from_builtin_val(
     ----------
     integer : int or Int
         Target integer value.
+    variable_name_suffix : str, default ''
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript's debugging.
 
     Returns
     -------
@@ -28,7 +33,8 @@ def get_copied_int_from_builtin_val(
     """
     import apysc as ap
     if isinstance(integer, int):
-        copied: ap.Int = ap.Int(integer)
+        copied: ap.Int = ap.Int(
+            integer, variable_name_suffix=variable_name_suffix)
     else:
         copied = integer._copy()
     return copied

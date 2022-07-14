@@ -2,13 +2,13 @@ from random import randint
 
 from retrying import retry
 
+import apysc as ap
 from apysc._type.attr_to_apysc_val_from_builtin_interface import \
     AttrToApyscValFromBuiltinInterface
 from apysc._type.variable_name_suffix_attr_interface import \
     VariableNameSuffixAttrInterface
 from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
-import apysc as ap
 
 
 class _TestClass1(AttrToApyscValFromBuiltinInterface):

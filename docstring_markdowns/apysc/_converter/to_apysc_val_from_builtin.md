@@ -28,6 +28,8 @@ Get a copied Int value from a Python built-in int.<hr>
 
 - `integer`: int or Int
   - Target integer value.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

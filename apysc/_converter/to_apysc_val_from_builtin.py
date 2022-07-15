@@ -101,7 +101,8 @@ def get_copied_string_from_builtin_val(
 
 @add_debug_info_setting(module_name=__name__)
 def get_copied_boolean_from_builtin_val(
-        *, bool_val: Union[bool, Boolean]) -> Boolean:
+        *, bool_val: Union[bool, Boolean],
+        variable_name_suffix: str = '') -> Boolean:
     """
     Get a copied Boolean value from a Python built-in bool.
 
@@ -109,6 +110,9 @@ def get_copied_boolean_from_builtin_val(
     ----------
     bool_val : bool
         Target bool value.
+    variable_name_suffix : str, default ''
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript's debugging.
 
     Returns
     -------
@@ -117,7 +121,8 @@ def get_copied_boolean_from_builtin_val(
     """
     import apysc as ap
     if isinstance(bool_val, bool):
-        copied: ap.Boolean = ap.Boolean(bool_val)
+        copied: ap.Boolean = ap.Boolean(
+            bool_val, variable_name_suffix=variable_name_suffix)
     else:
         copied = bool_val._copy()
     return copied

@@ -57,9 +57,11 @@ def test_get_copied_number_from_builtin_val() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_copied_boolean_from_builtin_val() -> None:
     copied: ap.Boolean = to_apysc_val_from_builtin.\
-        get_copied_boolean_from_builtin_val(bool_val=True)
+        get_copied_boolean_from_builtin_val(
+            bool_val=True, variable_name_suffix='test_boolean')
     assert isinstance(copied, ap.Boolean)
     assert copied
+    assert copied._variable_name_suffix == 'test_boolean'
 
     original_boolean: ap.Boolean = ap.Boolean(True)
     copied = to_apysc_val_from_builtin.get_copied_boolean_from_builtin_val(

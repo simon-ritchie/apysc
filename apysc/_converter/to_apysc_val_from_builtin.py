@@ -53,7 +53,7 @@ def get_copied_number_from_builtin_val(
 
     Returns
     -------
-    num : Number
+    copied : Number
         Copied Number value.
     """
     import apysc as ap

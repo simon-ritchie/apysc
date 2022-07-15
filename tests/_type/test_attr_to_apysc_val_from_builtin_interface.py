@@ -5,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._type.attr_to_apysc_val_from_builtin_interface import \
     AttrToApyscValFromBuiltinInterface
+from apysc._type import attr_to_apysc_val_from_builtin_interface
 from apysc._type.variable_name_suffix_attr_interface import \
     VariableNameSuffixAttrInterface
 from apysc._type.variable_name_suffix_interface import \
@@ -38,3 +39,19 @@ class TestAttrToApyscValFromBuiltinInterface:
         int_2: ap.Int = instance_2._get_copied_int_from_builtin_val(
             integer=10, attr_identifier='x')
         assert int_2._variable_name_suffix == 'test_instance__x'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_variable_name_suffix() -> None:
+    instance_1: _TestClass1 = _TestClass1()
+    suffix: str = attr_to_apysc_val_from_builtin_interface.\
+        _get_variable_name_suffix(
+            instance=instance_1, attr_identifier='x')
+    assert suffix == ''
+
+    instance_2: _TestClass2 = _TestClass2()
+    instance_2._variable_name_suffix = 'test_instance'
+    suffix = attr_to_apysc_val_from_builtin_interface.\
+        _get_variable_name_suffix(
+            instance=instance_2, attr_identifier='x')
+    assert suffix == 'test_instance__x'

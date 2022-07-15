@@ -7,12 +7,16 @@ from typing import Union
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_attr_interface import \
     VariableNameSuffixAttrInterface
+from apysc._type.number import Number
+from apysc._type.string import String
+from apysc._type.boolean import Boolean
 
 
 class AttrToApyscValFromBuiltinInterface:
 
     def _get_copied_int_from_builtin_val(
-            self, *,
+            self,
+            *,
             integer: Union[int, Int],
             attr_identifier: str) -> Int:
         """
@@ -33,11 +37,62 @@ class AttrToApyscValFromBuiltinInterface:
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val
-        if isinstance(self, VariableNameSuffixAttrInterface):
-            suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier=attr_identifier)
-        else:
-            suffix = ''
+        suffix: str = _get_variable_name_suffix(
+            instance=self, attr_identifier=attr_identifier)
         copied: Int = get_copied_int_from_builtin_val(
             integer=integer, variable_name_suffix=suffix)
         return copied
+
+    def _get_get_copied_number_from_builtin_val(
+            self,
+            *,
+            float_or_num: Union[float, Number],
+            attr_identifier: str) -> Number:
+        """
+        Get a copied number value from a Python built-in float
+        and set an attribute's variable name suffix.
+
+        Parameters
+        ----------
+        float_or_num : Union[float, Number]
+            Target float (or Number) value.
+        attr_identifier : str
+            Attribute identifier string (e.g., `fill_alpha`).
+
+        Returns
+        -------
+        copied : Number
+            Copied Number value.
+        """
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_number_from_builtin_val
+        pass
+
+
+def _get_variable_name_suffix(
+        *,
+        instance: AttrToApyscValFromBuiltinInterface,
+        attr_identifier: str) -> str:
+    """
+    Get a target instance's variable name suffix.
+
+    Parameters
+    ----------
+    instance : AttrToApyscValFromBuiltinInterface
+        A target instance.
+    attr_identifier : str
+        Attribute identifier string (e.g., `x`).
+
+    Returns
+    -------
+    suffix : str
+        A target instance's variable name suffix.
+        This value becomes a blank string if a specified
+        instance type is not the `VariableNameSuffixAttrInterface`.
+    """
+    if isinstance(instance, VariableNameSuffixAttrInterface):
+        suffix: str = instance._get_attr_variable_name_suffix(
+            attr_identifier=attr_identifier)
+        return suffix
+
+    return ''

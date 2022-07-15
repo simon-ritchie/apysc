@@ -43,7 +43,7 @@ class AttrToApyscValFromBuiltinInterface:
             integer=integer, variable_name_suffix=suffix)
         return copied
 
-    def _get_get_copied_number_from_builtin_val(
+    def _get_copied_number_from_builtin_val(
             self,
             *,
             float_or_num: Union[float, Number],
@@ -66,7 +66,11 @@ class AttrToApyscValFromBuiltinInterface:
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_number_from_builtin_val
-        pass
+        suffix: str = _get_variable_name_suffix(
+            instance=self, attr_identifier=attr_identifier)
+        copied: Number = get_copied_number_from_builtin_val(
+            float_or_num=float_or_num, variable_name_suffix=suffix)
+        return copied
 
 
 def _get_variable_name_suffix(

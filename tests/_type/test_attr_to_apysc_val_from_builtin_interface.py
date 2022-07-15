@@ -40,6 +40,16 @@ class TestAttrToApyscValFromBuiltinInterface:
             integer=10, attr_identifier='x')
         assert int_2._variable_name_suffix == 'test_instance__x'
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_copied_number_from_builtin_val(self) -> None:
+        instance_2: _TestClass2 = _TestClass2()
+        instance_2._variable_name_suffix = 'test_instance'
+        copied: ap.Number = instance_2._get_copied_number_from_builtin_val(
+            float_or_num=10.5, attr_identifier='fill_alpha')
+        assert copied == 10.5
+        assert isinstance(copied, ap.Number)
+        assert copied._variable_name_suffix == 'test_instance__fill_alpha'
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_variable_name_suffix() -> None:

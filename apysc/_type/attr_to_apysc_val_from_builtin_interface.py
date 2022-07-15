@@ -72,6 +72,35 @@ class AttrToApyscValFromBuiltinInterface:
             float_or_num=float_or_num, variable_name_suffix=suffix)
         return copied
 
+    def _get_copied_string_from_builtin_val(
+            self,
+            *,
+            string: Union[str, String],
+            attr_identifier: str) -> String:
+        """
+        Get a copied String value from a Python built-in str
+        and set an attribute's variable name suffix.
+
+        Parameters
+        ----------
+        string : Union[str, String]
+            Target string value.
+        attr_identifier : str
+            Attribute identifier string (e.g., `fill_color`).
+
+        Returns
+        -------
+        copied : String
+            Copied String value.
+        """
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_string_from_builtin_val
+        suffix: str = _get_variable_name_suffix(
+            instance=self, attr_identifier=attr_identifier)
+        copied: String = get_copied_string_from_builtin_val(
+            string=string, variable_name_suffix=suffix)
+        return copied
+
 
 def _get_variable_name_suffix(
         *,

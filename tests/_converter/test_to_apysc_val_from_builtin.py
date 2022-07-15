@@ -25,9 +25,11 @@ def test_get_copied_int_from_builtin_val() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_copied_string_from_builtin_val() -> None:
     copied: ap.String = to_apysc_val_from_builtin.\
-        get_copied_string_from_builtin_val(string='Hello')
+        get_copied_string_from_builtin_val(
+            string='Hello', variable_name_suffix='test_string')
     assert copied == 'Hello'
     assert isinstance(copied, ap.String)
+    assert copied._variable_name_suffix == 'test_string'
 
     string: ap.String = ap.String('World')
     copied = to_apysc_val_from_builtin.get_copied_string_from_builtin_val(

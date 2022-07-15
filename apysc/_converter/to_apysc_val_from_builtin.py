@@ -72,7 +72,8 @@ def get_copied_number_from_builtin_val(
 
 @add_debug_info_setting(module_name=__name__)
 def get_copied_string_from_builtin_val(
-        *, string: Union[str, String]) -> String:
+        *, string: Union[str, String],
+        variable_name_suffix: str = '') -> String:
     """
     Get a copied String value from a Python built-in str.
 
@@ -80,6 +81,9 @@ def get_copied_string_from_builtin_val(
     ----------
     string : str or String
         Target string value.
+    variable_name_suffix : str, default ''
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript's debugging.
 
     Returns
     -------
@@ -88,7 +92,8 @@ def get_copied_string_from_builtin_val(
     """
     import apysc as ap
     if isinstance(string, str):
-        copied: ap.String = ap.String(string)
+        copied: ap.String = ap.String(
+            string, variable_name_suffix=variable_name_suffix)
     else:
         copied = string._copy()
     return copied

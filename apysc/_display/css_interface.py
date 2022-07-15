@@ -9,9 +9,14 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.attr_to_apysc_val_from_builtin_interface import \
+    AttrToApyscValFromBuiltinInterface
 
 
-class CssInterface(VariableNameInterface, RevertInterface):
+class CssInterface(
+        VariableNameInterface,
+        RevertInterface,
+        AttrToApyscValFromBuiltinInterface):
 
     _css: Dict[str, String]
 
@@ -124,13 +129,13 @@ class CssInterface(VariableNameInterface, RevertInterface):
         String('none')
         """
         import apysc as ap
-        from apysc._converter import to_apysc_val_from_builtin
         from apysc._converter import to_builtin_val_from_apysc
         self._initialize_css_if_not_initialized()
         name_: str = to_builtin_val_from_apysc.\
             get_builtin_str_from_apysc_val(string=name)
-        value_: ap.String = to_apysc_val_from_builtin.\
-            get_copied_string_from_builtin_val(string=value)
+        value_: ap.String = self._get_copied_string_from_builtin_val(
+            string=value,
+            attr_identifier='css')
         self._css[name_] = value_
         self._append_set_css_expression(name=name, value=value)
 

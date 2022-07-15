@@ -42,7 +42,9 @@ def get_copied_int_from_builtin_val(
 
 @add_debug_info_setting(module_name=__name__)
 def get_copied_number_from_builtin_val(
-        *, float_or_num: Union[float, Number]) -> Number:
+        *,
+        float_or_num: Union[float, Number],
+        variable_name_suffix: str = '') -> Number:
     """
     Get a copied number value from a Python built-in float.
 
@@ -50,6 +52,9 @@ def get_copied_number_from_builtin_val(
     ----------
     float_or_num : float or Number
         Target float (or Number) value.
+    variable_name_suffix : str, default ''
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript's debugging.
 
     Returns
     -------
@@ -58,7 +63,8 @@ def get_copied_number_from_builtin_val(
     """
     import apysc as ap
     if isinstance(float_or_num, float):
-        copied: ap.Number = ap.Number(float_or_num)
+        copied: ap.Number = ap.Number(
+            float_or_num, variable_name_suffix=variable_name_suffix)
     else:
         copied = float_or_num._copy()
     return copied

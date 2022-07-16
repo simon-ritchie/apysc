@@ -108,7 +108,7 @@ def get_copied_boolean_from_builtin_val(
 
     Parameters
     ----------
-    bool_val : bool
+    bool_val : bool or Boolean
         Target bool value.
     variable_name_suffix : str, default ''
         A JavaScript variable name suffix string.

@@ -60,6 +60,16 @@ class TestAttrToApyscValFromBuiltinInterface:
         assert isinstance(copied, ap.String)
         assert copied._variable_name_suffix == 'test_instance__fill_color'
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_copied_boolean_from_builtin_val(self) -> None:
+        instance_2: _TestClass2 = _TestClass2()
+        instance_2._variable_name_suffix = 'test_instance'
+        copied: ap.Boolean = instance_2._get_copied_boolean_from_builtin_val(
+            bool_val=True, attr_identifier='visible')
+        assert copied
+        assert isinstance(copied, ap.Boolean)
+        assert copied._variable_name_suffix == 'test_instance__visible'
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_variable_name_suffix() -> None:

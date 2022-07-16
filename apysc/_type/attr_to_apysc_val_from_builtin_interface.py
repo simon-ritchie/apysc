@@ -101,6 +101,35 @@ class AttrToApyscValFromBuiltinInterface:
             string=string, variable_name_suffix=suffix)
         return copied
 
+    def _get_copied_boolean_from_builtin_val(
+            self,
+            *,
+            bool_val: Union[bool, Boolean],
+            attr_identifier: str) -> Boolean:
+        """
+        Get a copied Boolean value from a Python built-in bool
+        and set an attribute's variable name suffix.
+
+        Parameters
+        ----------
+        bool_val : Union[bool, Boolean]
+            Target bool value.
+        attr_identifier : str
+            Attribute identifier string (e.g., `fill_color`).
+
+        Returns
+        -------
+        copied : Boolean
+            Copied Boolean value.
+        """
+        from apysc._converter.to_apysc_val_from_builtin import \
+            get_copied_boolean_from_builtin_val
+        suffix: str = _get_variable_name_suffix(
+            instance=self, attr_identifier=attr_identifier)
+        copied: Boolean = get_copied_boolean_from_builtin_val(
+            bool_val=bool_val, variable_name_suffix=suffix)
+        return copied
+
 
 def _get_variable_name_suffix(
         *,

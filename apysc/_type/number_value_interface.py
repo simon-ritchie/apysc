@@ -13,6 +13,8 @@ from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 _NumType = Union[int, float, 'NumberValueInterface']
 _V = TypeVar('_V', int, float)
@@ -20,7 +22,10 @@ _T = TypeVar('_T', bound='NumberValueInterface')
 
 
 class NumberValueInterface(
-        CopyInterface, RevertInterface, CustomEventInterface,
+        CopyInterface,
+        RevertInterface,
+        CustomEventInterface,
+        VariableNameSuffixInterface,
         Generic[_V, _T]):
 
     _initial_value: _NumType
@@ -620,9 +625,13 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self._value == other._value)
+            result: ap.Boolean = ap.Boolean(
+                self._value == other._value,
+                variable_name_suffix=self._variable_name_suffix)
         else:
-            result = ap.Boolean(self._value == other)
+            result = ap.Boolean(
+                self._value == other,
+                variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_eq_expression(result=result, other=other)
@@ -651,9 +660,11 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, int):
-            return ap.Int(other)
+            return ap.Int(
+                other, variable_name_suffix=self._variable_name_suffix)
         if isinstance(other, float):
-            return ap.Number(other)
+            return ap.Number(
+                other, variable_name_suffix=self._variable_name_suffix)
         return other
 
     @add_debug_info_setting(module_name=__name__)
@@ -696,9 +707,13 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self._value != other._value)
+            result: ap.Boolean = ap.Boolean(
+                self._value != other._value,
+                variable_name_suffix=self._variable_name_suffix)
         else:
-            result = ap.Boolean(self._value != other)
+            result = ap.Boolean(
+                self._value != other,
+                variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ne_expression(result=result, other=other)
@@ -744,9 +759,13 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self._value < other._value)
+            result: ap.Boolean = ap.Boolean(
+                self._value < other._value,
+                variable_name_suffix=self._variable_name_suffix)
         else:
-            result = ap.Boolean(self._value < other)
+            result = ap.Boolean(
+                self._value < other,
+                variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_lt_expression(result=result, other=other)
@@ -792,9 +811,13 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self._value <= other._value)
+            result: ap.Boolean = ap.Boolean(
+                self._value <= other._value,
+                variable_name_suffix=self._variable_name_suffix)
         else:
-            result = ap.Boolean(self._value <= other)
+            result = ap.Boolean(
+                self._value <= other,
+                variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_le_expression(result=result, other=other)
@@ -840,9 +863,13 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self._value > other._value)
+            result: ap.Boolean = ap.Boolean(
+                self._value > other._value,
+                variable_name_suffix=self._variable_name_suffix)
         else:
-            result = ap.Boolean(self._value > other)
+            result = ap.Boolean(
+                self._value > other,
+                variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, NumberValueInterface):
             self._append_gt_expression(result=result, other=other)
@@ -888,9 +915,13 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self._value >= other._value)
+            result: ap.Boolean = ap.Boolean(
+                self._value >= other._value,
+                variable_name_suffix=self._variable_name_suffix)
         else:
-            result = ap.Boolean(self._value >= other)
+            result = ap.Boolean(
+                self._value >= other,
+                variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ge_expression(result=result, other=other)

@@ -131,7 +131,9 @@ class LineAlphaInterface(
         if isinstance(value, ap.Number):
             value_: ap.Number = value
         else:
-            value_ = Number(value)
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='line_alpha')
+            value_ = Number(value, variable_name_suffix=suffix)
         self._line_alpha = value_
 
     _line_alpha_snapshots: Dict[str, float]

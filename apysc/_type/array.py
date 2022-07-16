@@ -1084,7 +1084,9 @@ class Array(
         Int(3)
         """
         import apysc as ap
-        length: ap.Int = ap.Int(len(self._value))
+        length: ap.Int = ap.Int(
+            len(self._value),
+            variable_name_suffix=self._variable_name_suffix)
         self._append_length_expression(length=length)
         return length
 
@@ -1230,7 +1232,8 @@ class Array(
         Int(1)
         """
         import apysc as ap
-        index: ap.Int = ap.Int(-1)
+        index: ap.Int = ap.Int(
+            -1, variable_name_suffix=self._variable_name_suffix)
         try:
             index_: int = self._value.index(value)
         except Exception:

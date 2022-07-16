@@ -133,8 +133,11 @@ class FillAlphaInterface(
         from apysc._converter import cast
         self._initialize_fill_alpha_if_not_initialized()
         if not isinstance(value, Number):
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='fill_alpha')
             value = cast.to_float_from_int(int_or_float=value)
-            value_: Number = Number(value=value)
+            value_: Number = Number(
+                value=value, variable_name_suffix=suffix)
         else:
             value_ = value
         self._fill_alpha = value_

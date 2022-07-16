@@ -107,13 +107,14 @@ class Int(NumberValueInterface[int, 'Int']):
             TemporaryNotHandlerScope
         from apysc._type import type_util
         with TemporaryNotHandlerScope():
-            self._variable_name_suffix = variable_name_suffix
             is_number_specified: bool = type_util.is_number(
                 value=value)
             TYPE_NAME: str = var_names.INT
             self.variable_name = expression_variables_util.\
                 get_next_variable_name(type_name=TYPE_NAME)
-            super(Int, self).__init__(value=value, type_name=TYPE_NAME)
+            super(Int, self).__init__(
+                value=value, type_name=TYPE_NAME,
+                variable_name_suffix=variable_name_suffix)
             self._value = cast.to_int_from_float(int_or_float=self.value)
             self.append_constructor_expression()
             self._append_cast_expression(

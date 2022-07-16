@@ -34,8 +34,11 @@ class NumberValueInterface(
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, *, value: _NumType,
-            type_name: str) -> None:
+            self,
+            *,
+            value: _NumType,
+            type_name: str,
+            variable_name_suffix: str = '') -> None:
         """
         Class for number value interface.
 
@@ -45,7 +48,11 @@ class NumberValueInterface(
             Initial number value.
         type_name : str
             This instance expression's type name (e.g., int, number).
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
         """
+        self._variable_name_suffix = variable_name_suffix
         self._initial_value = value
         if isinstance(value, NumberValueInterface):
             value_: _V = value._value

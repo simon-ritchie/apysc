@@ -110,11 +110,12 @@ class Number(
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         with TemporaryNotHandlerScope():
-            self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.NUMBER
             self.variable_name = expression_variables_util.\
                 get_next_variable_name(type_name=TYPE_NAME)
-            super(Number, self).__init__(value=value, type_name=TYPE_NAME)
+            super(Number, self).__init__(
+                value=value, type_name=TYPE_NAME,
+                variable_name_suffix=variable_name_suffix)
             self._value = cast.to_float_from_int(int_or_float=self.value)
             self.append_constructor_expression()
 

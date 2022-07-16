@@ -4,12 +4,12 @@ built-in value to apysc value.
 
 from typing import Union
 
+from apysc._type.boolean import Boolean
 from apysc._type.int import Int
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.boolean import Boolean
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
 class AttrToApyscValFromBuiltinInterface:

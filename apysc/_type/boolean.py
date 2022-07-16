@@ -225,7 +225,7 @@ class Boolean(
         from apysc._type.variable_name_interface import VariableNameInterface
         expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
-            expression += f'Boolean({value._variable_name});'
+            expression += f'Boolean({value.variable_name});'
         elif value:
             expression += 'true;'
         else:

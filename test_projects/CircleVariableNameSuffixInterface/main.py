@@ -35,6 +35,14 @@ def main() -> None:
     ap.Circle = ap.Circle(
         x=100, y=100, radius=50, fill_color='#0af',
         variable_name_suffix='circle_1')
+
+    sprite: ap.Sprite = ap.Sprite(variable_name_suffix='sprite_1')
+    sprite.graphics.begin_fill(color='#f0a', alpha=0.5)
+    sprite.graphics.line_style(
+        color='#fff', thickness=3, alpha=0.7)
+    sprite.graphics.draw_circle(
+        x=300, y=100, radius=75, variable_name_suffix='circle_2')
+
     ap.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH,
         minify=False)

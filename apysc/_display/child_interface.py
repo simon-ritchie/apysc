@@ -17,6 +17,8 @@ from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_attr_interface import \
     VariableNameSuffixAttrInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage
@@ -25,7 +27,8 @@ if TYPE_CHECKING:
 class ChildInterface(
         VariableNameSuffixAttrInterface,
         VariableNameInterface,
-        RevertInterface):
+        RevertInterface,
+        VariableNameSuffixInterface):
 
     _children: Array[DisplayObject]
     stage: 'Stage'
@@ -153,9 +156,13 @@ class ChildInterface(
         self._initialize_children_if_not_initialized()
         index: ap.Int = self._children.index_of(value=child)
         if index == -1:
-            result: ap.Boolean = ap.Boolean(False)
+            result: ap.Boolean = ap.Boolean(
+                False,
+                variable_name_suffix=self._variable_name_suffix)
         else:
-            result = ap.Boolean(True)
+            result = ap.Boolean(
+                True,
+                variable_name_suffix=self._variable_name_suffix)
         self._append_contains_expression(result=result, child=child)
         return result
 
@@ -209,7 +216,9 @@ class ChildInterface(
         """
         import apysc as ap
         self._initialize_children_if_not_initialized()
-        num_children: ap.Int = ap.Int(value=self._children.length)
+        num_children: ap.Int = ap.Int(
+            value=self._children.length,
+            variable_name_suffix=self._variable_name_suffix)
         self._append_num_children_expression(num_children=num_children)
         return num_children
 

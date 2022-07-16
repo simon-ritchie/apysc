@@ -304,13 +304,12 @@ class Circle(
         Append a constructor expression.
         """
         import apysc as ap
-        from apysc._display.stage import get_stage_variable_name
         from apysc._type import value_util
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.get_stage()
         radius_str: str = value_util.get_value_str_for_expression(
             value=self._radius)
         expression: str = (
-            f'var {self.variable_name} = {stage_variable_name}'
+            f'var {self.variable_name} = {stage.variable_name}'
             f'\n  .circle({radius_str} * 2)'
             '\n  .attr({'
         )

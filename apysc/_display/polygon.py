@@ -274,15 +274,14 @@ class Polygon(
         Append constructor expression.
         """
         import apysc as ap
-        from apysc._display.stage import get_stage_variable_name
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.get_stage()
         points_var_name: str
         points_expression: str
         points_var_name, points_expression = \
             self._make_2dim_points_expression()
         expression: str = (
             f'{points_expression}'
-            f'\nvar {self.variable_name} = {stage_variable_name}'
+            f'\nvar {self.variable_name} = {stage.variable_name}'
             f'\n  .polygon({points_var_name})'
             '\n  .attr({'
         )

@@ -7,7 +7,6 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing import testing_helper
@@ -99,17 +98,16 @@ class TestRectangle:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_constructor_expression(self) -> None:
-        ap.Stage()
+        stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#333', alpha=0.5)
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=100, y=200, width=300, height=400)
         graphics_name: str = sprite.graphics.variable_name
         rect_name: str = rectangle.variable_name
-        stage_variable_name: str = get_stage_variable_name()
         expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [
-            rf'var {rect_name} = {stage_variable_name}',
+            rf'var {rect_name} = {stage.variable_name}',
             rf'\n  \.rect\({var_names.INT}.+?, {var_names.INT}.+?\)',
             r'\n  \.attr\(\{',
             r'\n  \}\);',

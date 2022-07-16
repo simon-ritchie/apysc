@@ -6,7 +6,6 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_attrs
 from tests._display.test_graphics_expression import \
@@ -17,17 +16,16 @@ class TestEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        ap.Stage()
+        stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#0af')
-        stage_variable_name: str = get_stage_variable_name()
         ellipse: ap.Ellipse = ap.Ellipse(
             parent=sprite.graphics,
             x=50, y=100, width=150, height=200)
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'var {ellipse.variable_name} = {stage_variable_name}'
+                rf'var {ellipse.variable_name} = {stage.variable_name}'
                 r'\n  \.ellipse\(.+?, .+?\)'
                 r'\n  .attr\(\{.*?'
                 r'\n  \}\);'

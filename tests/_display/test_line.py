@@ -6,7 +6,6 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
@@ -92,8 +91,7 @@ class TestLine:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        ap.Stage()
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(color='#333', thickness=3)
         line: ap.Line = sprite.graphics.draw_line(
@@ -101,7 +99,7 @@ class TestLine:
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'var {line.variable_name} = {stage_variable_name}'
+                rf'var {line.variable_name} = {stage.variable_name}'
                 r'\n  .line\(.+?\)'
                 r'\n  .attr\(\{.*?'
                 r'\n  \}\);'

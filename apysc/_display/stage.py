@@ -121,7 +121,7 @@ class Stage(
         self._save_stage_elem_id()
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
-        self.variable_name = get_stage_variable_name()
+        self.variable_name = self._stage_elem_id.replace('-', '_')
         self._update_width_and_skip_appending_exp(value=ap.Int(stage_width))
         self._update_height_and_skip_appending_exp(value=ap.Int(stage_height))
 
@@ -198,7 +198,7 @@ class Stage(
             f'var stage_html = \'<div id="{self._stage_elem_id}" '
             f'style="{style}"></div>\';'
             f'\n$("{self._add_to}").append(stage_html);'
-            f'\n{get_stage_variable_name()} = SVG()'
+            f'\n{self.variable_name} = SVG()'
             f'.addTo("#{self._stage_elem_id}").size('
             f'\n  {self.width}, {self.height});'
         )
@@ -278,22 +278,6 @@ def get_stage_elem_id() -> str:
     if result is None:
         return ''
     return result[0]
-
-
-def get_stage_variable_name() -> str:
-    """
-    Get a current stage's global variable name.
-
-    Returns
-    -------
-    stage_variable_name : str
-        Current stage's js global variable name.
-        If there is no instantiated stage yet, this interface
-        returns a blank string.
-    """
-    stage_elem_id: str = get_stage_elem_id()
-    stage_variable_name: str = stage_elem_id.replace('-', '_')
-    return stage_variable_name
 
 
 def get_stage_elem_str() -> str:

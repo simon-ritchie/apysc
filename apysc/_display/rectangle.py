@@ -347,11 +347,10 @@ class Rectangle(
         Append constructor expression.
         """
         import apysc as ap
-        from apysc._display.stage import get_stage_variable_name
         variable_name: str = self.variable_name
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.get_stage()
         expression: str = (
-            f'var {variable_name} = {stage_variable_name}'
+            f'var {variable_name} = {stage.variable_name}'
             f'\n  .rect({self.width.variable_name}, '
             f'{self.height.variable_name})'
             '\n  .attr({'

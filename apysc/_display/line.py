@@ -248,11 +248,10 @@ class Line(
         Append a constructor expression.
         """
         import apysc as ap
-        from apysc._display.stage import get_stage_variable_name
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.get_stage()
         points_str: str = self._make_points_expression()
         expression: str = (
-            f'var {self.variable_name} = {stage_variable_name}'
+            f'var {self.variable_name} = {stage.variable_name}'
             f'\n  .line({points_str})'
             '\n  .attr({'
         )

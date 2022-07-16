@@ -130,13 +130,6 @@ def test_get_stage_elem_id() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_get_stage_variable_name() -> None:
-    ap.Stage(stage_elem_id='line-graph')
-    stage_variable_name: str = stage.get_stage_variable_name()
-    assert stage_variable_name == 'line_graph'
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_stage_elem_str() -> None:
     stage_: ap.Stage = ap.Stage()
     stage_elem_str: str = stage.get_stage_elem_str()

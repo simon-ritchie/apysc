@@ -293,15 +293,14 @@ class Ellipse(
         Append a constructor expression.
         """
         import apysc as ap
-        from apysc._display.stage import get_stage_variable_name
         from apysc._type import value_util
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.get_stage()
         width_str: str = value_util.get_value_str_for_expression(
             value=self._width)
         height_str: str = value_util.get_value_str_for_expression(
             value=self._height)
         expression: str = (
-            f'var {self.variable_name} = {stage_variable_name}'
+            f'var {self.variable_name} = {stage.variable_name}'
             f'\n  .ellipse({width_str}, {height_str})'
             '\n  .attr({'
         )

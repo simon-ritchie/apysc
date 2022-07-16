@@ -137,10 +137,9 @@ class Sprite(
         Append Sprite constructor expression.
         """
         import apysc as ap
-        from apysc._display.stage import get_stage_variable_name
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.get_stage()
         expression: str = (
-            f'\nvar {self.variable_name} = {stage_variable_name}.nested();'
+            f'\nvar {self.variable_name} = {stage.variable_name}.nested();'
         )
         ap.append_js_expression(expression=expression)
 

@@ -6,7 +6,6 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_attrs
 
@@ -16,8 +15,7 @@ class TestCircle:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
-        ap.Stage()
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(
             parent=sprite.graphics,
@@ -27,7 +25,7 @@ class TestCircle:
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'var {circle.variable_name} = {stage_variable_name}'
+                rf'var {circle.variable_name} = {stage.variable_name}'
                 r'\n  \.circle\(.+?\)'
                 r'\n  \.attr\(.+?'
                 r'\n  \}\);'

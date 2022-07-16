@@ -250,9 +250,9 @@ def get_entry_point_func_name() -> str:
     entry_point_func_name : str
         An entry point function name.
     """
-    from apysc._display.stage import get_stage_variable_name
-    stage_variable_name: str = get_stage_variable_name()
-    entry_point_func_name: str = f'main_{stage_variable_name}'
+    import apysc as ap
+    stage: ap.Stage = ap.get_stage()
+    entry_point_func_name: str = f'main_{stage.variable_name}'
     return entry_point_func_name
 
 

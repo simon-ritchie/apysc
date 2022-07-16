@@ -232,15 +232,14 @@ class Path(
         Append a constructor expression.
         """
         import apysc as ap
-        from apysc._display.stage import get_stage_variable_name
         from apysc._geom.path_data_util import make_paths_expression_from_list
         from apysc._string import indent_util
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.get_stage()
         path_data_expression: str = make_paths_expression_from_list(
             path_data_list=self._path_data_list)
         INDENT_NUM: int = 2
         expression: str = (
-            f'var {self.variable_name} = {stage_variable_name}'
+            f'var {self.variable_name} = {stage.variable_name}'
             f'\n  .path({path_data_expression})'
             '\n  .attr({'
         )

@@ -7,7 +7,6 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_attrs
 from tests._display.test_graphics_expression import \
@@ -110,7 +109,7 @@ class TestPolyline:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
-        ap.Stage()
+        stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#0af')
         sprite.graphics.line_style(
@@ -118,11 +117,10 @@ class TestPolyline:
             dot_setting=ap.LineDotSetting(dot_size=10))
         polyline: ap.Polyline = sprite.graphics.line_to(
             x=10, y=20)
-        stage_variable_name: str = get_stage_variable_name()
         expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [
             r'var a.+ \= \[\]\;',
-            rf'var {polyline.variable_name} \= {stage_variable_name}',
+            rf'var {polyline.variable_name} \= {stage.variable_name}',
             r'\n  \.polyline\(.+?\)',
             r'\n  \.attr\(\{',
             r'\n  \}\)\;',

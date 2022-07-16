@@ -5,7 +5,6 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.graphics import Graphics
-from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
 
@@ -42,14 +41,13 @@ class TestSprite:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        ap.Stage()
-        stage_variable_name: str = get_stage_variable_name()
+        stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         expression: str = expression_data_util.get_current_expression()
         expected_strs: List[str] = [
-            f'\nvar {sprite.variable_name} = {stage_variable_name}.nested();',
+            f'\nvar {sprite.variable_name} = {stage.variable_name}.nested();',
             f'\nvar {sprite.graphics.variable_name} = ',
-            f'{stage_variable_name}.nested();',
+            f'{stage.variable_name}.nested();',
             f'\n{sprite.variable_name}',
             f'.add({sprite.graphics.variable_name});'
         ]

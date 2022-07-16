@@ -111,6 +111,12 @@ MAPPING: Dict[str, str] = {
     '  - ID attribute set to stage HTML element (e.g., \'line-graph\'). If None is set, a random integer will be applied.':  # noqa
     '  - ステージのHTML要素に設定されるIDの属性（例 : \'line-graph\'）。もしNoneが設定されている場合、乱数などを使った数値を使った値が設定されます。',  # noqa
 
+    '- `variable_name_suffix`: str, default \'\'':
+    '- `variable_name_suffix`: str, default \'\'',
+
+    '  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript\'s debugging.':  # noqa
+    '  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。',
+
     '<hr>':
     '<hr>',
 

@@ -81,7 +81,7 @@ stage: ap.Stage = ap.Stage(
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, stage_width: int = 300, stage_height: int = 185, background_color: str = '#ffffff', add_to: str = 'body', stage_elem_id: Union[str, NoneType] = None) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, stage_width: int = 300, stage_height: int = 185, background_color: str = '#ffffff', add_to: str = 'body', stage_elem_id: Union[str, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]** ステージ（描画領域全体）のインスタンスを生成します。<hr>
 
@@ -101,6 +101,9 @@ stage: ap.Stage = ap.Stage(
 
 - `stage_elem_id`: str or None, optional
   - ステージのHTML要素に設定されるIDの属性（例 : 'line-graph'）。もしNoneが設定されている場合、乱数などを使った数値を使った値が設定されます。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
 

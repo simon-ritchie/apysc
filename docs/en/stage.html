@@ -116,7 +116,7 @@
 <h2>Stage class constructor API<a class="headerlink" href="#stage-class-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.stage.Stage.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">stage_width:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">300,</span> <span class="pre">stage_height:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">185,</span> <span class="pre">background_color:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'#ffffff',</span> <span class="pre">add_to:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'body',</span> <span class="pre">stage_elem_id:</span> <span class="pre">Union[str,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">stage_width:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">300,</span> <span class="pre">stage_height:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">185,</span> <span class="pre">background_color:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'#ffffff',</span> <span class="pre">add_to:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'body',</span> <span class="pre">stage_elem_id:</span> <span class="pre">Union[str,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong> Create Stage (overall viewport) instance.<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
@@ -143,6 +143,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code>: str or None, optional</p>
 <ul>
 <li><p>ID attribute set to stage HTML element (e.g., ‘line-graph’). If None is set, a random integer will be applied.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default ‘’</p>
+<ul>
+<li><p>A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript’s debugging.</p></li>
 </ul>
 </li>
 </ul>

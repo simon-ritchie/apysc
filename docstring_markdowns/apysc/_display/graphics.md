@@ -42,6 +42,8 @@ Create an object that has each vector graphics interface.<hr>
   - A parent instance.
 - `variable_name`: str or None, default None
   - Variable name to set. Specified only when a subclass instantiation.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

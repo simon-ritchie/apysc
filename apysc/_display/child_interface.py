@@ -16,9 +16,9 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_attr_interface import \
     VariableNameSuffixAttrInterface
-from apysc._validation import arg_validation_decos
 from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
+from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
     from apysc._display.stage import Stage

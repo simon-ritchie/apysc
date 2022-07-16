@@ -115,7 +115,7 @@
 <section id="stage-api">
 <h2>Stage クラスのコンストラクタのAPI<a class="headerlink" href="#stage-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">stage_width:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">300,</span> <span class="pre">stage_height:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">185,</span> <span class="pre">background_color:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'#ffffff',</span> <span class="pre">add_to:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'body',</span> <span class="pre">stage_elem_id:</span> <span class="pre">Union[str,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">stage_width:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">300,</span> <span class="pre">stage_height:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">185,</span> <span class="pre">background_color:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'#ffffff',</span> <span class="pre">add_to:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'body',</span> <span class="pre">stage_elem_id:</span> <span class="pre">Union[str,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong> ステージ（描画領域全体）のインスタンスを生成します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
@@ -142,6 +142,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code>: str or None, optional</p>
 <ul>
 <li><p>ステージのHTML要素に設定されるIDの属性（例 : ‘line-graph’）。もしNoneが設定されている場合、乱数などを使った数値を使った値が設定されます。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default ‘’</p>
+<ul>
+<li><p>JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。</p></li>
 </ul>
 </li>
 </ul>

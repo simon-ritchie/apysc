@@ -23,7 +23,8 @@ class TestStage:
             stage_height=300,
             background_color='#000000',
             add_to='#line-graph',
-            stage_elem_id='line-graph-stage')
+            stage_elem_id='line-graph-stage',
+            variable_name_suffix='test_stage')
         expected_attrs: Dict[str, Any] = {
             'width': 500,
             'height': 300,
@@ -31,9 +32,12 @@ class TestStage:
             '_add_to': '#line-graph',
             '_stage_elem_id': 'line-graph-stage',
             '_children': [],
+            '_variable_name_suffix': 'test_stage',
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs, any_obj=stage)
+        assert stage._children._variable_name_suffix == \
+            'test_stage__children'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_constructor_expression(self) -> None:

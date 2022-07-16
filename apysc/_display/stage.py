@@ -19,15 +19,21 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 # This is used only for avoiding gabage collection.
 _current_stage: 'Stage'
 
 
 class Stage(
-        ChildInterface, WidthInterface, HeightInterface,
-        VariableNameInterface, MouseEventInterfaces,
-        CustomEventInterface):
+        ChildInterface,
+        WidthInterface,
+        HeightInterface,
+        VariableNameInterface,
+        MouseEventInterfaces,
+        CustomEventInterface,
+        VariableNameSuffixInterface):
     """
     The Stage (overall view-area) class.
 
@@ -57,12 +63,14 @@ class Stage(
     @arg_validation_decos.is_builtin_string(
         arg_position_index=5, optional=True)
     def __init__(
-            self, *,
+            self,
+            *,
             stage_width: int = 300,
             stage_height: int = 185,
             background_color: str = '#ffffff',
             add_to: str = 'body',
-            stage_elem_id: Optional[str] = None) -> None:
+            stage_elem_id: Optional[str] = None,
+            variable_name_suffix: str = '') -> None:
         """
         Create Stage (overall viewport) instance.
 
@@ -81,6 +89,9 @@ class Stage(
         stage_elem_id : str or None, optional
             ID attribute set to stage HTML element (e.g., 'line-graph').
             If None is set, a random integer will be applied.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -101,6 +112,7 @@ class Stage(
         from apysc._validation import string_validation
         global _current_stage
         expression_data_util.empty_expression()
+        self._variable_name_suffix = variable_name_suffix
         self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(
             stage_elem_id=stage_elem_id)
@@ -119,7 +131,11 @@ class Stage(
         string_validation.validate_not_empty_string(string=add_to)
         self._add_to = add_to
         self._append_constructor_expression()
-        self._children = ap.Array([])
+
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='children')
+        self._children = ap.Array([], variable_name_suffix=suffix)
+
         _save_stage_id_to_db(stage=self)
         _current_stage = self
 

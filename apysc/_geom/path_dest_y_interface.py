@@ -8,9 +8,17 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
-class PathDestYInterface(RevertInterface, AttrLinkingInterface):
+class PathDestYInterface(
+        VariableNameSuffixAttrInterface,
+        RevertInterface,
+        AttrLinkingInterface,
+        VariableNameSuffixInterface):
 
     _dest_y: Int
 
@@ -21,7 +29,9 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
         """
         if hasattr(self, '_dest_y'):
             return
-        self._dest_y = Int(0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='dest_y')
+        self._dest_y = Int(0, variable_name_suffix=suffix)
 
         self._append_dest_y_linking_setting()
 

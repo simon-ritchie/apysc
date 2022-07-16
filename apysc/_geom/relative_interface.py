@@ -6,9 +6,16 @@ from typing import Dict
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
-class RelativeInterface(RevertInterface):
+class RelativeInterface(
+        VariableNameSuffixAttrInterface,
+        RevertInterface,
+        VariableNameSuffixInterface):
 
     _relative: Boolean
 
@@ -19,7 +26,9 @@ class RelativeInterface(RevertInterface):
         """
         if hasattr(self, '_relative'):
             return
-        self._relative = Boolean(False)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='relative')
+        self._relative = Boolean(False, variable_name_suffix=suffix)
 
     @property
     def relative(self) -> Boolean:

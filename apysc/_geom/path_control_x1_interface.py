@@ -8,9 +8,17 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
-class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
+class PathControlX1Interface(
+        VariableNameSuffixAttrInterface,
+        RevertInterface,
+        AttrLinkingInterface,
+        VariableNameSuffixInterface):
 
     _control_x1: Int
 
@@ -21,7 +29,9 @@ class PathControlX1Interface(RevertInterface, AttrLinkingInterface):
         """
         if hasattr(self, '_control_x1'):
             return
-        self._control_x1 = Int(0)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='control_x1')
+        self._control_x1 = Int(0, variable_name_suffix=suffix)
 
         self._append_control_x1_linking_setting()
 

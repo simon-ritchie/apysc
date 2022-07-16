@@ -15,17 +15,24 @@ class TestPathBezier2DContinual:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         path_bezier_2d_continual: ap.PathBezier2DContinual = \
-            ap.PathBezier2DContinual(x=10, y=20, relative=True)
+            ap.PathBezier2DContinual(
+                x=10, y=20, relative=True,
+                variable_name_suffix='test_path_bezier_2d_continual')
         assert_attrs(
             expected_attrs={
                 '_path_label': ap.PathLabel.BEZIER_2D_CONTINUAL,
                 '_relative': True,
                 '_x': 10,
                 '_y': 20,
+                '_variable_name_suffix': 'test_path_bezier_2d_continual',
             },
             any_obj=path_bezier_2d_continual)
         assert isinstance(path_bezier_2d_continual._x, ap.Int)
         assert isinstance(path_bezier_2d_continual._y, ap.Int)
+        assert path_bezier_2d_continual._x._variable_name_suffix == \
+            'test_path_bezier_2d_continual__x'
+        assert path_bezier_2d_continual._y._variable_name_suffix == \
+            'test_path_bezier_2d_continual__y'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:

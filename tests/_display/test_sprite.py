@@ -28,6 +28,8 @@ class TestSprite:
                 'graphics': Graphics,
             },
             any_obj=sprite)
+        assert sprite.graphics._variable_name_suffix == \
+            'test_sprite__graphics'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_add_child(self) -> None:

@@ -14,6 +14,8 @@ from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
+_Graphics = graphics.Graphics
+
 
 class Sprite(
         XInterface,
@@ -57,7 +59,7 @@ class Sprite(
     Int(50)
     """
 
-    graphics: 'graphics.Graphics'
+    graphics: '_Graphics'
 
     @arg_validation_decos.is_builtin_string(
         arg_position_index=1, optional=True)
@@ -122,7 +124,10 @@ class Sprite(
         self._children = ap.Array([])
         super(Sprite, self).__init__(variable_name=variable_name)
         self._append_constructor_expression()
-        self.graphics = graphics.Graphics(parent=self)
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='graphics')
+        self.graphics = graphics.Graphics(
+            parent=self, variable_name_suffix=suffix)
         stage.add_child(child=self)
         self._set_overflow_visible_setting()
 

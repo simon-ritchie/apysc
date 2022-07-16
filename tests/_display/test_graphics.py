@@ -19,10 +19,13 @@ class TestGraphics:
     def test___init__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
-        graphics: Graphics = Graphics(parent=sprite)
+        graphics: Graphics = Graphics(
+            parent=sprite,
+            variable_name_suffix='test_graphics')
         testing_helper.assert_attrs(
             expected_attrs={
                 'parent_sprite': sprite,
+                '_variable_name_suffix': 'test_graphics',
             },
             any_obj=graphics)
         assert isinstance(graphics.variable_name, str)

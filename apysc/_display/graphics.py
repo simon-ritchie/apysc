@@ -27,15 +27,20 @@ from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 
 class Graphics(
         XInterface,
         YInterface,
         DisplayObject,
-        BeginFillInterface, LineStyleInterface,
-        GraphicsClearInterface, ChildInterface,
-        VariableNameInterface):
+        BeginFillInterface,
+        LineStyleInterface,
+        GraphicsClearInterface,
+        ChildInterface,
+        VariableNameInterface,
+        VariableNameSuffixInterface):
     """
     Create an object that has each vector graphics interface.
 
@@ -65,8 +70,11 @@ class Graphics(
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, *, parent: 'sprite.Sprite',
-            variable_name: Optional[str] = None) -> None:
+            self,
+            *,
+            parent: 'sprite.Sprite',
+            variable_name: Optional[str] = None,
+            variable_name_suffix: str = '') -> None:
         """
         Create an object that has each vector graphics interface.
 
@@ -77,6 +85,9 @@ class Graphics(
         variable_name : str or None, default None
             Variable name to set. Specified only when
             a subclass instantiation.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -88,6 +99,7 @@ class Graphics(
         from apysc._expression import var_names
         from apysc._validation import display_validation
 
+        self._variable_name_suffix = variable_name_suffix
         display_validation.validate_sprite(sprite=parent)
         self.parent_sprite: ap.Sprite = parent
         if variable_name is None:

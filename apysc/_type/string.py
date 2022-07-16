@@ -384,9 +384,13 @@ class String(
         """
         import apysc as ap
         if isinstance(other, str):
-            result: ap.Boolean = ap.Boolean(self._value == other)
+            result: ap.Boolean = ap.Boolean(
+                self._value == other,
+                variable_name_suffix=self._variable_name_suffix)
         elif isinstance(other, String):
-            result = ap.Boolean(self._value == other._value)
+            result = ap.Boolean(
+                self._value == other._value,
+                variable_name_suffix=self._variable_name_suffix)
         else:
             result = ap.Boolean(False)
         other = self._convert_other_val_to_string(other=other)
@@ -413,7 +417,8 @@ class String(
             directly (not to be converted).
         """
         if isinstance(other, str):
-            return String(other)
+            return String(
+                other, variable_name_suffix=self._variable_name_suffix)
         return other
 
     @add_debug_info_setting(module_name=__name__)
@@ -456,11 +461,17 @@ class String(
         """
         import apysc as ap
         if isinstance(other, str):
-            result: ap.Boolean = ap.Boolean(self._value != other)
+            result: ap.Boolean = ap.Boolean(
+                self._value != other,
+                variable_name_suffix=self._variable_name_suffix)
         elif isinstance(other, String):
-            result = ap.Boolean(self._value != other._value)
+            result = ap.Boolean(
+                self._value != other._value,
+                variable_name_suffix=self._variable_name_suffix)
         else:
-            result = ap.Boolean(True)
+            result = ap.Boolean(
+                True,
+                variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ne_expression(result=result, other=other)
@@ -505,7 +516,9 @@ class String(
         """
         import apysc as ap
         value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(self._value < value)
+        result: ap.Boolean = ap.Boolean(
+            self._value < value,
+            variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_lt_expression(result=result, other=other)
@@ -550,7 +563,9 @@ class String(
         """
         import apysc as ap
         value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(self._value <= value)
+        result: ap.Boolean = ap.Boolean(
+            self._value <= value,
+            variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_le_expression(result=result, other=other)
@@ -595,7 +610,9 @@ class String(
         """
         import apysc as ap
         value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(self._value > value)
+        result: ap.Boolean = ap.Boolean(
+            self._value > value,
+            variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_gt_expression(result=result, other=other)
@@ -640,7 +657,9 @@ class String(
         """
         import apysc as ap
         value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(self._value >= value)
+        result: ap.Boolean = ap.Boolean(
+            self._value >= value,
+            variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ge_expression(result=result, other=other)

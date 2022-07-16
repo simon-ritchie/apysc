@@ -106,18 +106,38 @@ class Graphics(
             variable_name = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.GRAPHICS)
         super(Graphics, self).__init__(variable_name=variable_name)
-        self._fill_color = ap.String('')
-        self._fill_alpha = ap.Number(1.0)
-        self._line_color = ap.String('')
-        self._line_alpha = ap.Number(1.0)
-        self._line_thickness = ap.Int(1.0)
+
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='fill_color')
+        self._fill_color = ap.String('', variable_name_suffix=suffix)
+
+        suffix = self._get_attr_variable_name_suffix(
+            attr_identifier='fill_alpha')
+        self._fill_alpha = ap.Number(1.0, variable_name_suffix=suffix)
+
+        suffix = self._get_attr_variable_name_suffix(
+            attr_identifier='line_color')
+        self._line_color = ap.String('', variable_name_suffix=suffix)
+
+        suffix = self._get_attr_variable_name_suffix(
+            attr_identifier='line_alpha')
+        self._line_alpha = ap.Number(1.0, variable_name_suffix=suffix)
+
+        suffix = self._get_attr_variable_name_suffix(
+            attr_identifier='line_thickness')
+        self._line_thickness = ap.Int(1.0, variable_name_suffix=suffix)
+
         self._initialize_line_cap_if_not_initialized()
         self._initialize_line_joints_if_not_initialized()
         self._initialize_line_dot_setting_if_not_initialized()
         self._initialize_line_dash_setting_if_not_initialized()
         self._initialize_line_round_dot_setting_if_not_initialized()
         self._initialize_line_dash_dot_setting_if_not_initialized()
-        self._children = ap.Array([])
+
+        suffix = self._get_attr_variable_name_suffix(
+            attr_identifier='children')
+        self._children = ap.Array([], variable_name_suffix=suffix)
+
         self._append_constructor_expression()
         self.parent_sprite.add_child(child=self)
         self._set_overflow_visible_setting()
@@ -273,9 +293,11 @@ class Graphics(
             graphics=self, x=x, y=y, width=width, height=height,
             variable_name_suffix=variable_name_suffix)
         if isinstance(ellipse_width, int):
-            ellipse_width = ap.Int(ellipse_width)
+            ellipse_width = ap.Int(
+                ellipse_width, variable_name_suffix=variable_name_suffix)
         if isinstance(ellipse_height, int):
-            ellipse_height = ap.Int(ellipse_height)
+            ellipse_height = ap.Int(
+                ellipse_height, variable_name_suffix=variable_name_suffix)
         rectangle.ellipse_width = ellipse_width
         rectangle.ellipse_height = ellipse_height
         return rectangle

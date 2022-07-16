@@ -121,10 +121,14 @@ class Sprite(
         if variable_name is None:
             variable_name = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.SPRITE)
-        self._children = ap.Array([])
+
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='children')
+        self._children = ap.Array([], variable_name_suffix=suffix)
+
         super(Sprite, self).__init__(variable_name=variable_name)
         self._append_constructor_expression()
-        suffix: str = self._get_attr_variable_name_suffix(
+        suffix = self._get_attr_variable_name_suffix(
             attr_identifier='graphics')
         self.graphics = graphics.Graphics(
             parent=self, variable_name_suffix=suffix)

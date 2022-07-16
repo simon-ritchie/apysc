@@ -14,11 +14,17 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.attr_to_apysc_val_from_builtin_interface import \
+    AttrToApyscValFromBuiltinInterface
 
 
 class PathBezier2D(
-        PathDataBase, PathControlXInterface, PathControlYInterface,
-        PathDestXInterface, PathDestYInterface):
+        PathDataBase,
+        PathControlXInterface,
+        PathControlYInterface,
+        PathDestXInterface,
+        PathDestYInterface,
+        AttrToApyscValFromBuiltinInterface):
     """
     Path data class for the svg's `2D bezier curve` (Q).
 
@@ -50,7 +56,8 @@ class PathBezier2D(
             dest_x: Union[int, Int],
             dest_y: Union[int, Int],
             *,
-            relative: Union[bool, Boolean] = False) -> None:
+            relative: Union[bool, Boolean] = False,
+            variable_name_suffix: str = '') -> None:
         """
         Path data class for the svg's `2D bezier curve` (Q).
 
@@ -67,6 +74,9 @@ class PathBezier2D(
         relative : bool or Boolean, default False
             A boolean value indicates whether the path
             coordinates are relative or not (absolute).
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Examples
         --------
@@ -82,18 +92,19 @@ class PathBezier2D(
         ...             dest_x=100, dest_y=50),
         ...     ])
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
         from apysc._geom.path_label import PathLabel
+        self._variable_name_suffix = variable_name_suffix
         super(PathBezier2D, self).__init__(
             path_label=PathLabel.BEZIER_2D,
             relative=relative)
-        self.control_x = get_copied_int_from_builtin_val(
-            integer=control_x)
-        self.control_y = get_copied_int_from_builtin_val(
-            integer=control_y)
-        self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-        self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+        self.control_x = self._get_copied_int_from_builtin_val(
+            integer=control_x, attr_identifier='control_x')
+        self.control_y = self._get_copied_int_from_builtin_val(
+            integer=control_y, attr_identifier='control_y')
+        self.dest_x = self._get_copied_int_from_builtin_val(
+            integer=dest_x, attr_identifier='dest_x')
+        self.dest_y = self._get_copied_int_from_builtin_val(
+            integer=dest_y, attr_identifier='dest_y')
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
@@ -177,18 +188,16 @@ class PathBezier2D(
         >>> bezier_2d.dest_y
         Int(150)
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_boolean_from_builtin_val
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        self.control_x = get_copied_int_from_builtin_val(
-            integer=control_x)
-        self.control_y = get_copied_int_from_builtin_val(
-            integer=control_y)
-        self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-        self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
-        self.relative = get_copied_boolean_from_builtin_val(
-            bool_val=relative)
+        self.control_x = self._get_copied_int_from_builtin_val(
+            integer=control_x, attr_identifier='control_x')
+        self.control_y = self._get_copied_int_from_builtin_val(
+            integer=control_y, attr_identifier='control_y')
+        self.dest_x = self._get_copied_int_from_builtin_val(
+            integer=dest_x, attr_identifier='dest_x')
+        self.dest_y = self._get_copied_int_from_builtin_val(
+            integer=dest_y, attr_identifier='dest_y')
+        self.relative = self._get_copied_boolean_from_builtin_val(
+            bool_val=relative, attr_identifier='relative')
 
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:

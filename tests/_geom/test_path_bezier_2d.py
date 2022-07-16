@@ -16,7 +16,7 @@ class TestPathBezier2D:
     def test___init__(self) -> None:
         path_bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
             control_x=10, control_y=20, dest_x=30, dest_y=40,
-            relative=True)
+            relative=True, variable_name_suffix='test_path_bezier_2d')
         assert_attrs(
             expected_attrs={
                 '_path_label': ap.PathLabel.BEZIER_2D,
@@ -32,6 +32,15 @@ class TestPathBezier2D:
         assert isinstance(path_bezier_2d._control_y, ap.Int)
         assert isinstance(path_bezier_2d._dest_x, ap.Int)
         assert isinstance(path_bezier_2d._dest_y, ap.Int)
+        assert path_bezier_2d._variable_name_suffix == 'test_path_bezier_2d'
+        assert path_bezier_2d._control_x._variable_name_suffix == \
+            'test_path_bezier_2d__control_x'
+        assert path_bezier_2d._control_y._variable_name_suffix == \
+            'test_path_bezier_2d__control_y'
+        assert path_bezier_2d._dest_x._variable_name_suffix == \
+            'test_path_bezier_2d__dest_x'
+        assert path_bezier_2d._dest_y._variable_name_suffix == \
+            'test_path_bezier_2d__dest_y'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:
@@ -56,7 +65,7 @@ class TestPathBezier2D:
     def test_update_path_data(self) -> None:
         path_bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
             control_x=10, control_y=20, dest_x=30, dest_y=40,
-            relative=False)
+            relative=False, variable_name_suffix='test_path_bezier_2d')
         path_bezier_2d.update_path_data(
             control_x=100, control_y=200, dest_x=300, dest_y=400,
             relative=True)
@@ -69,6 +78,14 @@ class TestPathBezier2D:
                 '_relative': True,
             },
             any_obj=path_bezier_2d)
+        assert path_bezier_2d._control_x._variable_name_suffix == \
+            'test_path_bezier_2d__control_x'
+        assert path_bezier_2d._control_y._variable_name_suffix == \
+            'test_path_bezier_2d__control_y'
+        assert path_bezier_2d._dest_x._variable_name_suffix == \
+            'test_path_bezier_2d__dest_x'
+        assert path_bezier_2d._dest_y._variable_name_suffix == \
+            'test_path_bezier_2d__dest_y'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:

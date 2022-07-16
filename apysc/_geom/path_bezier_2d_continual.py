@@ -149,14 +149,12 @@ class PathBezier2DContinual(
         >>> bezier_2d_continual.y
         Int(100)
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_boolean_from_builtin_val
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        self.x = get_copied_int_from_builtin_val(integer=x)
-        self.y = get_copied_int_from_builtin_val(integer=y)
-        self.relative = get_copied_boolean_from_builtin_val(
-            bool_val=relative)
+        self.x = self._get_copied_int_from_builtin_val(
+            integer=x, attr_identifier='x')
+        self.y = self._get_copied_int_from_builtin_val(
+            integer=y, attr_identifier='y')
+        self.relative = self._get_copied_boolean_from_builtin_val(
+            bool_val=relative, attr_identifier='relative')
 
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:

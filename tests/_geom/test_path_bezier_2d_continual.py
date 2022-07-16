@@ -52,7 +52,9 @@ class TestPathBezier2DContinual:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_path_data(self) -> None:
         path_bezier_2d_continual: ap.PathBezier2DContinual = \
-            ap.PathBezier2DContinual(x=10, y=20, relative=False)
+            ap.PathBezier2DContinual(
+                x=10, y=20, relative=False,
+                variable_name_suffix='test_path_bezier_2d_continual')
         path_bezier_2d_continual.update_path_data(
             x=100, y=200, relative=True)
         assert_attrs(
@@ -62,6 +64,12 @@ class TestPathBezier2DContinual:
                 '_relative': True,
             },
             any_obj=path_bezier_2d_continual)
+        path_bezier_2d_continual._x._variable_name_suffix = \
+            'test_path_bezier_2d_continual__x'
+        path_bezier_2d_continual._y._variable_name_suffix = \
+            'test_path_bezier_2d_continual__y'
+        path_bezier_2d_continual._relative._variable_name_suffix = \
+            'test_path_bezier_2d_continual__relative'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:

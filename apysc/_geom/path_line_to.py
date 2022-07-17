@@ -15,7 +15,10 @@ from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 
-class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
+class PathLineTo(
+        PathDataBase,
+        PathXInterface,
+        PathYInterface):
     """
     Path data class for the SVG `line to` (L).
 
@@ -37,8 +40,11 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
     @arg_validation_decos.is_boolean(arg_position_index=3)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, x: Union[int, Int], y: Union[int, Int], *,
-            relative: Union[bool, Boolean] = False) -> None:
+            self,
+            x: Union[int, Int],
+            y: Union[int, Int], *,
+            relative: Union[bool, Boolean] = False,
+            variable_name_suffix: str = '') -> None:
         """
         Path data class for the SVG `line to` (L).
 
@@ -51,6 +57,9 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
         relative : bool or Boolean, default False
             A boolean value indicates whether the path
             coordinates are relative or not (absolute).
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Examples
         --------
@@ -64,14 +73,15 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
         ...         ap.PathLineTo(x=50, y=50),
         ...     ])
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
         from apysc._geom.path_label import PathLabel
+        self._variable_name_suffix = variable_name_suffix
         super(PathLineTo, self).__init__(
             path_label=PathLabel.LINE_TO,
             relative=relative)
-        self.x = get_copied_int_from_builtin_val(integer=x)
-        self.y = get_copied_int_from_builtin_val(integer=y)
+        self.x = self._get_copied_int_from_builtin_val(
+            integer=x, attr_identifier='x')
+        self.y = self._get_copied_int_from_builtin_val(
+            integer=y, attr_identifier='y')
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
@@ -128,14 +138,12 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
         >>> line_to.y
         Int(150)
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_boolean_from_builtin_val
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        self.x = get_copied_int_from_builtin_val(integer=x)
-        self.y = get_copied_int_from_builtin_val(integer=y)
-        self.relative = get_copied_boolean_from_builtin_val(
-            bool_val=relative)
+        self.x = self._get_copied_int_from_builtin_val(
+            integer=x, attr_identifier='x')
+        self.y = self._get_copied_int_from_builtin_val(
+            integer=y, attr_identifier='y')
+        self.relative = self._get_copied_boolean_from_builtin_val(
+            bool_val=relative, attr_identifier='relative')
 
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
@@ -154,7 +162,8 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
         """
         import apysc as ap
         if not isinstance(other, PathLineTo):
-            result: ap.Boolean = ap.Boolean(False)
+            result: ap.Boolean = ap.Boolean(
+                False, variable_name_suffix=self._variable_name_suffix)
             return result
         return (
             self.x == other.x

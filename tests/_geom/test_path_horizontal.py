@@ -15,7 +15,8 @@ class TestPathHorizontal:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         path_horizontal: ap.PathHorizontal = ap.PathHorizontal(
-            x=50, relative=True)
+            x=50, relative=True,
+            variable_name_suffix='test_path_horizontal')
         assert_attrs(
             expected_attrs={
                 '_x': 50,
@@ -24,6 +25,10 @@ class TestPathHorizontal:
             },
             any_obj=path_horizontal)
         assert isinstance(path_horizontal._x, ap.Int)
+        assert path_horizontal._variable_name_suffix == \
+            'test_path_horizontal'
+        assert path_horizontal._x._variable_name_suffix == \
+            'test_path_horizontal__x'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:
@@ -40,7 +45,8 @@ class TestPathHorizontal:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_path_data(self) -> None:
         path_horizontal: ap.PathHorizontal = ap.PathHorizontal(
-            x=50, relative=False)
+            x=50, relative=False,
+            variable_name_suffix='test_path_horizontal')
         path_horizontal.update_path_data(x=100, relative=True)
         assert_attrs(
             expected_attrs={
@@ -48,6 +54,10 @@ class TestPathHorizontal:
                 '_relative': True,
             },
             any_obj=path_horizontal)
+        assert path_horizontal._x._variable_name_suffix == \
+            'test_path_horizontal__x'
+        assert path_horizontal._relative._variable_name_suffix == \
+            'test_path_horizontal__relative'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:

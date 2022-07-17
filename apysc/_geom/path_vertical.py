@@ -14,7 +14,9 @@ from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 
-class PathVertical(PathDataBase, PathYInterface):
+class PathVertical(
+        PathDataBase,
+        PathYInterface):
     """
     Path data class for the SVG `vertical line` (V).
 
@@ -35,8 +37,11 @@ class PathVertical(PathDataBase, PathYInterface):
     @arg_validation_decos.is_boolean(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, y: Union[int, Int], *,
-            relative: Union[bool, Boolean] = False) -> None:
+            self,
+            y: Union[int, Int],
+            *,
+            relative: Union[bool, Boolean] = False,
+            variable_name_suffix: str = '') -> None:
         """
         Path data class for the SVG `vertical line' (V).
 
@@ -47,6 +52,9 @@ class PathVertical(PathDataBase, PathYInterface):
         relative : bool or Boolean, default False
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Examples
         --------
@@ -60,13 +68,13 @@ class PathVertical(PathDataBase, PathYInterface):
         ...         ap.PathVertical(y=100),
         ...     ])
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
         from apysc._geom.path_label import PathLabel
+        self._variable_name_suffix = variable_name_suffix
         super(PathVertical, self).__init__(
             path_label=PathLabel.VERTICAL,
             relative=relative)
-        self.y = get_copied_int_from_builtin_val(integer=y)
+        self.y = self._get_copied_int_from_builtin_val(
+            integer=y, attr_identifier='y')
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
@@ -113,13 +121,10 @@ class PathVertical(PathDataBase, PathYInterface):
         >>> path_vertical.y
         Int(100)
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_boolean_from_builtin_val
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        self.y = get_copied_int_from_builtin_val(integer=y)
-        self.relative = get_copied_boolean_from_builtin_val(
-            bool_val=relative)
+        self.y = self._get_copied_int_from_builtin_val(
+            integer=y, attr_identifier='y')
+        self.relative = self._get_copied_boolean_from_builtin_val(
+            bool_val=relative, attr_identifier='relative')
 
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
@@ -138,7 +143,8 @@ class PathVertical(PathDataBase, PathYInterface):
         """
         import apysc as ap
         if not isinstance(other, PathVertical):
-            result: ap.Boolean = ap.Boolean(False)
+            result: ap.Boolean = ap.Boolean(
+                False, variable_name_suffix=self._variable_name_suffix)
             return result
         return self.y == other.y and self.relative == other.relative
 

@@ -15,7 +15,8 @@ class TestPathVertical:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         path_vertical: ap.PathVertical = ap.PathVertical(
-            y=50, relative=True)
+            y=50, relative=True,
+            variable_name_suffix='test_path_vertical')
         assert_attrs(
             expected_attrs={
                 '_y': 50,
@@ -25,6 +26,9 @@ class TestPathVertical:
             any_obj=path_vertical,
         )
         assert isinstance(path_vertical._y, ap.Int)
+        assert path_vertical._variable_name_suffix == 'test_path_vertical'
+        assert path_vertical._y._variable_name_suffix == \
+            'test_path_vertical__y'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:
@@ -41,7 +45,8 @@ class TestPathVertical:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_path_data(self) -> None:
         path_vertical: ap.PathVertical = ap.PathVertical(
-            y=50, relative=False)
+            y=50, relative=False,
+            variable_name_suffix='test_path_vertical')
         path_vertical.update_path_data(y=100, relative=True)
         assert_attrs(
             expected_attrs={
@@ -49,6 +54,10 @@ class TestPathVertical:
                 '_relative': True,
             },
             any_obj=path_vertical)
+        assert path_vertical._y._variable_name_suffix == \
+            'test_path_vertical__y'
+        assert path_vertical._relative._variable_name_suffix == \
+            'test_path_vertical__relative'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:

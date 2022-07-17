@@ -12,7 +12,8 @@ class TestPoint2D:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        point: ap.Point2D = ap.Point2D(x=10, y=20)
+        point: ap.Point2D = ap.Point2D(
+            x=10, y=20, variable_name_suffix='test_point')
         assert_attrs(
             expected_attrs={
                 '_x': 10,
@@ -22,6 +23,9 @@ class TestPoint2D:
         assert isinstance(point._x, ap.Int)
         assert isinstance(point._y, ap.Int)
         assert point.variable_name.startswith(f'{var_names.POINT2D}_')
+        assert point._variable_name_suffix == 'test_point'
+        assert point._x._variable_name_suffix == 'test_point__x'
+        assert point._y._variable_name_suffix == 'test_point__y'
 
         x: ap.Int = ap.Int(10)
         y: ap.Int = ap.Int(20)
@@ -35,20 +39,24 @@ class TestPoint2D:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_x(self) -> None:
-        point: ap.Point2D = ap.Point2D(x=10, y=20)
+        point: ap.Point2D = ap.Point2D(
+            x=10, y=20, variable_name_suffix='test_point')
         x: ap.Int = point.x
         assert isinstance(x, ap.Int)
         assert x == 10
+        assert x._variable_name_suffix == 'test_point__x'
 
         point.x += 20
         assert point.x == 30
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_y(self) -> None:
-        point: ap.Point2D = ap.Point2D(x=10, y=20)
+        point: ap.Point2D = ap.Point2D(
+            x=10, y=20, variable_name_suffix='test_point')
         y: ap.Int = point.y
         assert isinstance(y, ap.Int)
         assert y == 20
+        assert y._variable_name_suffix == 'test_point__y'
 
         point.y += 20
         assert point.y == 40

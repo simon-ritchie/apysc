@@ -49,7 +49,8 @@ class TestPathMoveTo:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_path_data(self) -> None:
         path_move_to: ap.PathMoveTo = ap.PathMoveTo(
-            x=50, y=100, relative=False)
+            x=50, y=100, relative=False,
+            variable_name_suffix='test_path_move_to')
         path_move_to.update_path_data(x=150, y=200, relative=True)
         assert_attrs(
             expected_attrs={
@@ -58,6 +59,12 @@ class TestPathMoveTo:
                 '_relative': True,
             },
             any_obj=path_move_to)
+        assert path_move_to._x._variable_name_suffix == \
+            'test_path_move_to__x'
+        assert path_move_to._y._variable_name_suffix == \
+            'test_path_move_to__y'
+        assert path_move_to._relative._variable_name_suffix == \
+            'test_path_move_to__relative'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:

@@ -15,7 +15,8 @@ class TestPathLineTo:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         path_line_to: ap.PathLineTo = ap.PathLineTo(
-            x=50, y=100, relative=True)
+            x=50, y=100, relative=True,
+            variable_name_suffix='test_path_line_to')
         assert_attrs(
             expected_attrs={
                 '_x': 50,
@@ -27,6 +28,12 @@ class TestPathLineTo:
         )
         assert isinstance(path_line_to._x, ap.Int)
         assert isinstance(path_line_to._y, ap.Int)
+        assert path_line_to._variable_name_suffix == 'test_path_line_to'
+        assert path_line_to._x._variable_name_suffix == \
+            'test_path_line_to__x'
+        assert path_line_to._y._variable_name_suffix == \
+            'test_path_line_to__y'
+
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:
@@ -44,7 +51,8 @@ class TestPathLineTo:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_path_data(self) -> None:
         path_line_to: ap.PathLineTo = ap.PathLineTo(
-            x=50, y=100, relative=False)
+            x=50, y=100, relative=False,
+            variable_name_suffix='test_path_line_to')
         path_line_to.update_path_data(x=150, y=200, relative=True)
         assert_attrs(
             expected_attrs={
@@ -53,6 +61,12 @@ class TestPathLineTo:
                 '_relative': True,
             },
             any_obj=path_line_to)
+        assert path_line_to._x._variable_name_suffix == \
+            'test_path_line_to__x'
+        assert path_line_to._y._variable_name_suffix == \
+            'test_path_line_to__y'
+        assert path_line_to._relative._variable_name_suffix == \
+            'test_path_line_to__relative'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:

@@ -10,9 +10,13 @@ class TestLineDotSetting:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        setting: LineDotSetting = LineDotSetting(dot_size=5)
+        setting: LineDotSetting = LineDotSetting(
+            dot_size=5, variable_name_suffix='test_setting')
         assert isinstance(setting._value['dot_size'], ap.Int)
         assert setting._value['dot_size'] == 5
+        assert setting._variable_name_suffix == 'test_setting'
+        assert setting['dot_size']._variable_name_suffix == \
+            'test_setting__dot_size'
 
         setting = LineDotSetting(dot_size=ap.Int(10))
         assert setting._value['dot_size'] == 10

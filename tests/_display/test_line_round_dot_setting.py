@@ -10,13 +10,19 @@ class TestLineRoundDotSetting:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         setting: ap.LineRoundDotSetting = ap.LineRoundDotSetting(
-            round_size=20, space_size=10)
+            round_size=20, space_size=10,
+            variable_name_suffix='test_setting')
         assert setting._value == {
             'round_size': ap.Int(20),
             'space_size': ap.Int(10),
         }
         assert isinstance(setting['round_size'], ap.Int)
         assert isinstance(setting['space_size'], ap.Int)
+        assert setting._variable_name_suffix == 'test_setting'
+        assert setting.round_size._variable_name_suffix == \
+            'test_setting__round_size'
+        assert setting.space_size._variable_name_suffix == \
+            'test_setting__space_size'
 
         setting = ap.LineRoundDotSetting(
             round_size=ap.Int(20), space_size=ap.Int(10))

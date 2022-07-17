@@ -10,11 +10,17 @@ class TestLineDashSetting:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         setting: ap.LineDashSetting = ap.LineDashSetting(
-            dash_size=10, space_size=5)
+            dash_size=10, space_size=5,
+            variable_name_suffix='test_setting')
         assert setting._value['dash_size'] == 10
         assert isinstance(setting._value['dash_size'], ap.Int)
         assert setting._value['space_size'] == 5
         assert isinstance(setting._value['space_size'], ap.Int)
+        assert setting._variable_name_suffix == 'test_setting'
+        assert setting['dash_size']._variable_name_suffix == \
+            'test_setting__dash_size'
+        assert setting['space_size']._variable_name_suffix == \
+            'test_setting__space_size'
 
         dash_size: ap.Int = ap.Int(15)
         space_size: ap.Int = ap.Int(3)

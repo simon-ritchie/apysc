@@ -7,9 +7,16 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._type.attr_to_apysc_val_from_builtin_interface import \
+    AttrToApyscValFromBuiltinInterface
+from apysc._type.variable_name_suffix_attr_interface import \
+    VariableNameSuffixAttrInterface
 
 
-class LineDashSetting(Dictionary[str, Int]):
+class LineDashSetting(
+        Dictionary[str, Int],
+        VariableNameSuffixAttrInterface,
+        AttrToApyscValFromBuiltinInterface):
     """
     Dash setting class for a line.
 
@@ -39,10 +46,15 @@ class LineDashSetting(Dictionary[str, Int]):
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=2)
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, *, dash_size: Union[int, Int],
-            space_size: Union[int, Int]) -> None:
+            self,
+            *,
+            dash_size: Union[int, Int],
+            space_size: Union[int, Int],
+            variable_name_suffix: str = '') -> None:
         """
         Dash setting class for a line.
 
@@ -52,6 +64,9 @@ class LineDashSetting(Dictionary[str, Int]):
             Dash size.
         space_size : int or Int
             Blank space size between dashes.
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         References
         ----------
@@ -75,16 +90,17 @@ class LineDashSetting(Dictionary[str, Int]):
         Int(2)
         """
         import apysc as ap
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        dash_size_: ap.Int = get_copied_int_from_builtin_val(
-            integer=dash_size)
-        space_size_: ap.Int = get_copied_int_from_builtin_val(
-            integer=space_size)
-        super(LineDashSetting, self).__init__({
-            'dash_size': dash_size_,
-            'space_size': space_size_,
-        })
+        self._variable_name_suffix = variable_name_suffix
+        dash_size_: ap.Int = self._get_copied_int_from_builtin_val(
+            integer=dash_size, attr_identifier='dash_size')
+        space_size_: ap.Int = self._get_copied_int_from_builtin_val(
+            integer=space_size, attr_identifier='space_size')
+        super(LineDashSetting, self).__init__(
+            {
+                'dash_size': dash_size_,
+                'space_size': space_size_,
+            },
+            variable_name_suffix=self._variable_name_suffix)
 
     @property
     @add_debug_info_setting(module_name=__name__)

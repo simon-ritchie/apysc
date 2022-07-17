@@ -62,6 +62,8 @@ class Stage(
         arg_position_index=4, optional=False)
     @arg_validation_decos.is_builtin_string(
         arg_position_index=5, optional=True)
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=6, optional=False)
     def __init__(
             self,
             *,

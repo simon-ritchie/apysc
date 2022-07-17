@@ -14,6 +14,7 @@ from apysc._type.attr_to_apysc_val_from_builtin_interface import \
     AttrToApyscValFromBuiltinInterface
 from apysc._type.boolean import Boolean
 from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class PathDataBase(
@@ -26,6 +27,7 @@ class PathDataBase(
 
     _path_label: PathLabel
 
+    @arg_validation_decos.is_boolean(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,

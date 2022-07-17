@@ -35,6 +35,8 @@ class PathHorizontal(
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,

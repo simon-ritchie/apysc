@@ -68,6 +68,12 @@ class Graphics(
 
     _current_line: Optional['_polyline.Polyline'] = None
 
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=1, optional=False)
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=2, optional=True)
+    @arg_validation_decos.is_builtin_string(
+        arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
             self,

@@ -645,8 +645,12 @@ class Graphics(
         self._reset_each_line_settings()
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
-            start_point=Point2D(x=x_start, y=y_start),
-            end_point=Point2D(x=x_end, y=y_end),
+            start_point=Point2D(
+                x=x_start, y=y_start,
+                variable_name_suffix=variable_name_suffix),
+            end_point=Point2D(
+                x=x_end, y=y_end,
+                variable_name_suffix=variable_name_suffix),
             variable_name_suffix=variable_name_suffix)
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
@@ -724,11 +728,16 @@ class Graphics(
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-        self._line_dot_setting = ap.LineDotSetting(dot_size=dot_size)
+        self._line_dot_setting = ap.LineDotSetting(
+            dot_size=dot_size, variable_name_suffix=variable_name_suffix)
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
-            start_point=Point2D(x=x_start, y=y_start),
-            end_point=Point2D(x=x_end, y=y_end),
+            start_point=Point2D(
+                x=x_start, y=y_start,
+                variable_name_suffix=variable_name_suffix),
+            end_point=Point2D(
+                x=x_end, y=y_end,
+                variable_name_suffix=variable_name_suffix),
             variable_name_suffix=variable_name_suffix)
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
@@ -813,11 +822,16 @@ class Graphics(
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
         self._line_dash_setting = ap.LineDashSetting(
-            dash_size=dash_size, space_size=space_size)
+            dash_size=dash_size, space_size=space_size,
+            variable_name_suffix=variable_name_suffix)
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
-            start_point=Point2D(x=x_start, y=y_start),
-            end_point=Point2D(x=x_end, y=y_end),
+            start_point=Point2D(
+                x=x_start, y=y_start,
+                variable_name_suffix=variable_name_suffix),
+            end_point=Point2D(
+                x=x_end, y=y_end,
+                variable_name_suffix=variable_name_suffix),
             variable_name_suffix=variable_name_suffix)
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
@@ -902,11 +916,16 @@ class Graphics(
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
         self._line_round_dot_setting = ap.LineRoundDotSetting(
-            round_size=round_size, space_size=space_size)
+            round_size=round_size, space_size=space_size,
+            variable_name_suffix=variable_name_suffix)
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
-            start_point=Point2D(x=x_start, y=y_start),
-            end_point=Point2D(x=x_end, y=y_end),
+            start_point=Point2D(
+                x=x_start, y=y_start,
+                variable_name_suffix=variable_name_suffix),
+            end_point=Point2D(
+                x=x_end, y=y_end,
+                variable_name_suffix=variable_name_suffix),
             variable_name_suffix=variable_name_suffix)
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
@@ -996,11 +1015,16 @@ class Graphics(
         self._line_dash_dot_setting = ap.LineDashDotSetting(
             dot_size=dot_size,
             dash_size=dash_size,
-            space_size=space_size)
+            space_size=space_size,
+            variable_name_suffix=variable_name_suffix)
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
-            start_point=Point2D(x=x_start, y=y_start),
-            end_point=Point2D(x=x_end, y=y_end),
+            start_point=Point2D(
+                x=x_start, y=y_start,
+                variable_name_suffix=variable_name_suffix),
+            end_point=Point2D(
+                x=x_end, y=y_end,
+                variable_name_suffix=variable_name_suffix),
             variable_name_suffix=variable_name_suffix)
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line

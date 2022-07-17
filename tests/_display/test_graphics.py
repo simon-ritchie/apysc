@@ -199,6 +199,8 @@ class TestGraphics:
         assert line.line_dot_setting is None
         self._assert_line_points(line=line)
         assert line._variable_name_suffix == 'test_line'
+        assert line._start_point._variable_name_suffix == 'test_line'
+        assert line._end_point._variable_name_suffix == 'test_line'
         assert isinstance(sprite.graphics.line_dot_setting, ap.LineDotSetting)
         sprite.graphics._children == [line]
 
@@ -222,6 +224,11 @@ class TestGraphics:
         assert line_dash_setting.space_size == 5
         self._assert_line_points(line=line)
         assert line._variable_name_suffix == 'test_line'
+        assert line._start_point._variable_name_suffix == 'test_line'
+        assert line._end_point._variable_name_suffix == 'test_line'
+        if line._line_dash_setting is not None:
+            assert line._line_dash_setting._variable_name_suffix == \
+                'test_line'
         assert isinstance(sprite.graphics.line_dot_setting, ap.LineDotSetting)
         sprite.graphics._children == [line]
 
@@ -239,6 +246,11 @@ class TestGraphics:
         assert line.line_color == '#333333'
         self._assert_line_points(line=line)
         assert line._variable_name_suffix == 'test_line'
+        assert line._start_point._variable_name_suffix == 'test_line'
+        assert line._end_point._variable_name_suffix == 'test_line'
+        if line._line_dot_setting is not None:
+            assert line._line_dot_setting._variable_name_suffix == \
+                'test_line'
         assert isinstance(
             sprite.graphics.line_dash_setting, ap.LineDashSetting)
         sprite.graphics._children == [line]
@@ -258,6 +270,11 @@ class TestGraphics:
         assert line.line_color == '#333333'
         self._assert_line_points(line=line)
         assert line._variable_name_suffix == 'test_line'
+        assert line._start_point._variable_name_suffix == 'test_line'
+        assert line._end_point._variable_name_suffix == 'test_line'
+        if line._line_round_dot_setting is not None:
+            assert line._line_round_dot_setting._variable_name_suffix == \
+                'test_line'
         assert isinstance(
             sprite.graphics.line_dash_setting, ap.LineDashSetting)
         sprite.graphics._children == [line]
@@ -277,6 +294,11 @@ class TestGraphics:
         assert line.line_color == '#333333'
         self._assert_line_points(line=line)
         assert line._variable_name_suffix == 'test_line'
+        assert line._start_point._variable_name_suffix == 'test_line'
+        assert line._end_point._variable_name_suffix == 'test_line'
+        if line._line_dash_dot_setting is not None:
+            assert line._line_dash_dot_setting._variable_name_suffix == \
+                'test_line'
         assert isinstance(
             sprite.graphics.line_dash_setting, ap.LineDashSetting)
         sprite.graphics._children == [line]

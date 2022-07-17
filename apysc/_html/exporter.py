@@ -226,14 +226,15 @@ def _append_stage_global_variable_to_html(*, html_str: str) -> str:
     html_str : str
         After appended HTML string.
     """
-    from apysc._display.stage import get_stage_elem_id
+    import apysc as ap
     from apysc._html import html_const
     from apysc._html import html_util
+    stage: ap.Stage = ap.get_stage()
     html_str = html_util.append_html_to_str(
         to_append_html=html_const.SCRIPT_START_TAG,
         dest_html=html_str, indent_num=0)
     html_str = html_util.append_html_to_str(
-        to_append_html=f'var {get_stage_elem_id()};',
+        to_append_html=f'var {stage.variable_name};',
         dest_html=html_str, indent_num=0)
     html_str = html_util.append_html_to_str(
         to_append_html=html_const.SCRIPT_END_TAG,

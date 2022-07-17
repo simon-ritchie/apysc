@@ -318,16 +318,23 @@ class Boolean(
         self._validate_comparison_other_type(other=other)
         result: Boolean
         if isinstance(other, Boolean):
-            result = Boolean(self._value == other._value)
+            result = Boolean(
+                self._value == other._value,
+                variable_name_suffix=self._variable_name_suffix)
             self._append_eq_expression(result=result, other=other)
             return result
         elif isinstance(other, ap.Int):
             other_ = bool(other.value)
-            result = Boolean(self._value == other_)
+            result = Boolean(
+                self._value == other_,
+                variable_name_suffix=self._variable_name_suffix)
         else:
             other = bool(other)
-            result = Boolean(self._value == other)
-            other = Boolean(other)
+            result = Boolean(
+                self._value == other,
+                variable_name_suffix=self._variable_name_suffix)
+            other = Boolean(
+                other, variable_name_suffix=self._variable_name_suffix)
         self._append_eq_expression(result=result, other=other)
         return result
 
@@ -447,7 +454,9 @@ class Boolean(
         >>> bool_val.not_
         Boolean(True)
         """
-        result: Boolean = Boolean(not self)
+        result: Boolean = Boolean(
+            not self,
+            variable_name_suffix=self._variable_name_suffix)
         self._append_not_prop_expression(result=result)
         return result
 

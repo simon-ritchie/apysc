@@ -174,21 +174,25 @@ class TestBoolean:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
-        boolean_1: ap.Boolean = ap.Boolean(True)
+        boolean_1: ap.Boolean = ap.Boolean(
+            True, variable_name_suffix='test_boolean_1')
         boolean_2: ap.Boolean = ap.Boolean(True)
         result: ap.Boolean = boolean_1 == boolean_2
         assert result
         assert isinstance(result, ap.Boolean)
+        assert result._variable_name_suffix == 'test_boolean_1'
 
         assert boolean_1
 
         result = boolean_1 == 1
         assert result
         assert isinstance(result, ap.Boolean)
+        assert result._variable_name_suffix == 'test_boolean_1'
 
         result = boolean_1 == ap.Int(1)
         assert result
         assert isinstance(result, ap.Boolean)
+        assert result._variable_name_suffix == 'test_boolean_1'
 
         result = boolean_1 == False  # noqa
         assert not result
@@ -196,9 +200,11 @@ class TestBoolean:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_not_(self) -> None:
-        boolean_1: ap.Boolean = ap.Boolean(True)
+        boolean_1: ap.Boolean = ap.Boolean(
+            True, variable_name_suffix='test_boolean_1')
         boolean_2: ap.Boolean = boolean_1.not_
         assert not boolean_2
+        assert boolean_1._variable_name_suffix == 'test_boolean_1'
 
         boolean_3: ap.Boolean = boolean_2.not_
         assert boolean_3

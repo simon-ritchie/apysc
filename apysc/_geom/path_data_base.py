@@ -12,9 +12,14 @@ from apysc._geom.relative_interface import RelativeInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.string import String
+from apysc._type.attr_to_apysc_val_from_builtin_interface import \
+    AttrToApyscValFromBuiltinInterface
 
 
-class PathDataBase(RelativeInterface, ABC):
+class PathDataBase(
+        RelativeInterface,
+        AttrToApyscValFromBuiltinInterface,
+        ABC):
     """
     Base class for the path data.
     """
@@ -23,7 +28,9 @@ class PathDataBase(RelativeInterface, ABC):
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, *, path_label: PathLabel,
+            self,
+            *,
+            path_label: PathLabel,
             relative: Union[bool, Boolean]) -> None:
         """
         Base class for the path data.
@@ -36,11 +43,9 @@ class PathDataBase(RelativeInterface, ABC):
             A boolean value indicates whether the path
             coordinates are relative or not (absolute).
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_boolean_from_builtin_val
         self._path_label = path_label
-        self.relative = get_copied_boolean_from_builtin_val(
-            bool_val=relative)
+        self.relative = self._get_copied_boolean_from_builtin_val(
+            bool_val=relative, attr_identifier='relative')
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_char(self) -> String:

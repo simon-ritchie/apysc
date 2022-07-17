@@ -20,9 +20,13 @@ from apysc._validation import arg_validation_decos
 
 
 class PathBezier3D(
-        PathDataBase, PathDestXInterface, PathDestYInterface,
-        PathControlX1Interface, PathControlY1Interface,
-        PathControlX2Interface, PathControlY2Interface):
+        PathDataBase,
+        PathDestXInterface,
+        PathDestYInterface,
+        PathControlX1Interface,
+        PathControlY1Interface,
+        PathControlX2Interface,
+        PathControlY2Interface):
     """
     Path data class for the svg's `3D bezier curve` (C).
 
@@ -62,7 +66,8 @@ class PathBezier3D(
             dest_x: Union[int, Int],
             dest_y: Union[int, Int],
             *,
-            relative: Union[bool, Boolean] = False) -> None:
+            relative: Union[bool, Boolean] = False,
+            variable_name_suffix: str = '') -> None:
         """
         Path data class for the svg's `3D bezier curve` (C).
 
@@ -83,6 +88,9 @@ class PathBezier3D(
         relative : bool or Boolean, default False
             A boolean value indicates whether the path
             coordinates are relative or not (absolute).
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Examples
         --------
@@ -102,22 +110,23 @@ class PathBezier3D(
         ...             dest_x=100, dest_y=50),
         ...     ])
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
         from apysc._geom.path_label import PathLabel
+        self._variable_name_suffix = variable_name_suffix
         super(PathBezier3D, self).__init__(
             path_label=PathLabel.BEZIER_3D,
             relative=relative)
-        self.control_x1 = get_copied_int_from_builtin_val(
-            integer=control_x1)
-        self.control_y1 = get_copied_int_from_builtin_val(
-            integer=control_y1)
-        self.control_x2 = get_copied_int_from_builtin_val(
-            integer=control_x2)
-        self.control_y2 = get_copied_int_from_builtin_val(
-            integer=control_y2)
-        self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-        self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+        self.control_x1 = self._get_copied_int_from_builtin_val(
+            integer=control_x1, attr_identifier='control_x1')
+        self.control_y1 = self._get_copied_int_from_builtin_val(
+            integer=control_y1, attr_identifier='control_y1')
+        self.control_x2 = self._get_copied_int_from_builtin_val(
+            integer=control_x2, attr_identifier='control_x2')
+        self.control_y2 = self._get_copied_int_from_builtin_val(
+            integer=control_y2, attr_identifier='control_y2')
+        self.dest_x = self._get_copied_int_from_builtin_val(
+            integer=dest_x, attr_identifier='dest_x')
+        self.dest_y = self._get_copied_int_from_builtin_val(
+            integer=dest_y, attr_identifier='dest_y')
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
@@ -221,22 +230,20 @@ class PathBezier3D(
         >>> bezier_3d_continual.dest_y
         Int(150)
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_boolean_from_builtin_val
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        self.control_x1 = get_copied_int_from_builtin_val(
-            integer=control_x1)
-        self.control_y1 = get_copied_int_from_builtin_val(
-            integer=control_y1)
-        self.control_x2 = get_copied_int_from_builtin_val(
-            integer=control_x2)
-        self.control_y2 = get_copied_int_from_builtin_val(
-            integer=control_y2)
-        self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-        self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
-        self.relative = get_copied_boolean_from_builtin_val(
-            bool_val=relative)
+        self.control_x1 = self._get_copied_int_from_builtin_val(
+            integer=control_x1, attr_identifier='control_x1')
+        self.control_y1 = self._get_copied_int_from_builtin_val(
+            integer=control_y1, attr_identifier='control_y1')
+        self.control_x2 = self._get_copied_int_from_builtin_val(
+            integer=control_x2, attr_identifier='control_x2')
+        self.control_y2 = self._get_copied_int_from_builtin_val(
+            integer=control_y2, attr_identifier='control_y2')
+        self.dest_x = self._get_copied_int_from_builtin_val(
+            integer=dest_x, attr_identifier='dest_x')
+        self.dest_y = self._get_copied_int_from_builtin_val(
+            integer=dest_y, attr_identifier='dest_y')
+        self.relative = self._get_copied_boolean_from_builtin_val(
+            bool_val=relative, attr_identifier='relative')
 
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
@@ -255,7 +262,8 @@ class PathBezier3D(
         """
         import apysc as ap
         if not isinstance(other, PathBezier3D):
-            result: ap.Boolean = ap.Boolean(False)
+            result: ap.Boolean = ap.Boolean(
+                False, variable_name_suffix=self._variable_name_suffix)
             return result
         return (
             self.control_x1 == other.control_x1

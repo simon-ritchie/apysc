@@ -15,7 +15,8 @@ class TestPathMoveTo:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         path_move_to: ap.PathMoveTo = ap.PathMoveTo(
-            x=50, y=100, relative=True)
+            x=50, y=100, relative=True,
+            variable_name_suffix='test_path_move_to')
         assert_attrs(
             expected_attrs={
                 '_x': 50,
@@ -26,6 +27,11 @@ class TestPathMoveTo:
             any_obj=path_move_to)
         assert isinstance(path_move_to._x, ap.Int)
         assert isinstance(path_move_to._y, ap.Int)
+        assert path_move_to._variable_name_suffix == 'test_path_move_to'
+        assert path_move_to._x._variable_name_suffix == \
+            'test_path_move_to__x'
+        assert path_move_to._y._variable_name_suffix == \
+            'test_path_move_to__y'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:

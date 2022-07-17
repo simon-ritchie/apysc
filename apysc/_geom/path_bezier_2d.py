@@ -14,8 +14,6 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._type.attr_to_apysc_val_from_builtin_interface import \
-    AttrToApyscValFromBuiltinInterface
 
 
 class PathBezier2D(
@@ -23,8 +21,7 @@ class PathBezier2D(
         PathControlXInterface,
         PathControlYInterface,
         PathDestXInterface,
-        PathDestYInterface,
-        AttrToApyscValFromBuiltinInterface):
+        PathDestYInterface):
     """
     Path data class for the svg's `2D bezier curve` (Q).
 

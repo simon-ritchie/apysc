@@ -14,7 +14,10 @@ from apysc._type.int import Int
 from apysc._type.string import String
 
 
-class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
+class PathMoveTo(
+        PathDataBase,
+        PathXInterface,
+        PathYInterface):
     """
     Path data class for the SVG `move to` (M).
 
@@ -33,8 +36,11 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, x: Union[int, Int], y: Union[int, Int], *,
-            relative: Union[bool, Boolean] = False) -> None:
+            self,
+            x: Union[int, Int],
+            y: Union[int, Int], *,
+            relative: Union[bool, Boolean] = False,
+            variable_name_suffix: str = '') -> None:
         """
         Path data class for the SVG `move to` (M).
 
@@ -47,6 +53,9 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
         relative : bool or Boolean, default False
             A boolean value indicates whether the path coordinates
             are relative or not (absolute).
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Examples
         --------
@@ -60,14 +69,15 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
         ...         ap.PathLineTo(x=50, y=50),
         ...     ])
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
         from apysc._geom.path_label import PathLabel
+        self._variable_name_suffix = variable_name_suffix
         super(PathMoveTo, self).__init__(
             path_label=PathLabel.MOVE_TO,
             relative=relative)
-        self.x = get_copied_int_from_builtin_val(integer=x)
-        self.y = get_copied_int_from_builtin_val(integer=y)
+        self.x = self._get_copied_int_from_builtin_val(
+            integer=x, attr_identifier='x')
+        self.y = self._get_copied_int_from_builtin_val(
+            integer=y, attr_identifier='y')
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:

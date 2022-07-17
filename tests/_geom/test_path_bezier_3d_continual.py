@@ -17,7 +17,8 @@ class TestPathBezier3DContinual:
         path_bezier_3d_continual: ap.PathBezier3DContinual = \
             ap.PathBezier3DContinual(
                 control_x=10, control_y=20, dest_x=30, dest_y=40,
-                relative=True)
+                relative=True,
+                variable_name_suffix='test_path_bezier_3d_continual')
         assert_attrs(
             expected_attrs={
                 '_path_label': ap.PathLabel.BEZIER_3D_CONTINUAL,
@@ -32,6 +33,17 @@ class TestPathBezier3DContinual:
         assert isinstance(path_bezier_3d_continual._control_y, ap.Int)
         assert isinstance(path_bezier_3d_continual._dest_x, ap.Int)
         assert isinstance(path_bezier_3d_continual._dest_y, ap.Int)
+        assert path_bezier_3d_continual._variable_name_suffix == \
+            'test_path_bezier_3d_continual'
+        assert path_bezier_3d_continual._control_x._variable_name_suffix \
+            == 'test_path_bezier_3d_continual__control_x'
+        assert path_bezier_3d_continual._control_y._variable_name_suffix \
+            == 'test_path_bezier_3d_continual__control_y'
+        assert path_bezier_3d_continual._dest_x._variable_name_suffix \
+            == 'test_path_bezier_3d_continual__dest_x'
+        assert path_bezier_3d_continual._dest_y._variable_name_suffix \
+            == 'test_path_bezier_3d_continual__dest_y'
+
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:
@@ -55,7 +67,8 @@ class TestPathBezier3DContinual:
         continual: ap.PathBezier3DContinual = \
             ap.PathBezier3DContinual(
                 control_x=10, control_y=20, dest_x=30, dest_y=40,
-                relative=False)
+                relative=False,
+                variable_name_suffix='test_continual')
         continual.update_path_data(
             control_x=100, control_y=200, dest_x=300, dest_y=400,
             relative=True)
@@ -68,6 +81,16 @@ class TestPathBezier3DContinual:
                 '_relative': True,
             },
             any_obj=continual)
+        assert continual._control_x._variable_name_suffix == \
+            'test_continual__control_x'
+        assert continual._control_y._variable_name_suffix == \
+            'test_continual__control_y'
+        assert continual._dest_x._variable_name_suffix == \
+            'test_continual__dest_x'
+        assert continual._dest_y._variable_name_suffix == \
+            'test_continual__dest_y'
+        assert continual._relative._variable_name_suffix == \
+            'test_continual__relative'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:

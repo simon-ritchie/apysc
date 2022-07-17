@@ -12,7 +12,8 @@ class TestPathDataBase:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         path_data: ap.PathMoveTo = ap.PathMoveTo(
-            x=10, y=20, relative=True)
+            x=10, y=20, relative=True,
+            variable_name_suffix='test_path_data')
         assert_attrs(
             expected_attrs={
                 '_path_label': ap.PathLabel.MOVE_TO,
@@ -20,6 +21,8 @@ class TestPathDataBase:
             },
             any_obj=path_data)
         assert isinstance(path_data._relative, ap.Boolean)
+        assert path_data._relative._variable_name_suffix == \
+            'test_path_data__relative'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_char(self) -> None:

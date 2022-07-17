@@ -16,7 +16,8 @@ class TestPathBezier3D:
     def test___init__(self) -> None:
         path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
             control_x1=10, control_y1=20, control_x2=30, control_y2=40,
-            dest_x=50, dest_y=60, relative=True)
+            dest_x=50, dest_y=60, relative=True,
+            variable_name_suffix='test_path_bezier_3d')
         assert_attrs(
             expected_attrs={
                 '_path_label': ap.PathLabel.BEZIER_3D,
@@ -35,6 +36,19 @@ class TestPathBezier3D:
         assert isinstance(path_bezier_3d._control_y2, ap.Int)
         assert isinstance(path_bezier_3d._dest_x, ap.Int)
         assert isinstance(path_bezier_3d._dest_y, ap.Int)
+        assert path_bezier_3d._variable_name_suffix == 'test_path_bezier_3d'
+        assert path_bezier_3d._control_x1._variable_name_suffix == \
+            'test_path_bezier_3d__control_x1'
+        assert path_bezier_3d._control_y1._variable_name_suffix == \
+            'test_path_bezier_3d__control_y1'
+        assert path_bezier_3d._control_x2._variable_name_suffix == \
+            'test_path_bezier_3d__control_x2'
+        assert path_bezier_3d._control_y2._variable_name_suffix == \
+            'test_path_bezier_3d__control_y2'
+        assert path_bezier_3d._dest_x._variable_name_suffix == \
+            'test_path_bezier_3d__dest_x'
+        assert path_bezier_3d._dest_y._variable_name_suffix == \
+            'test_path_bezier_3d__dest_y'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:
@@ -64,7 +78,8 @@ class TestPathBezier3D:
     def test_update_path_data(self) -> None:
         path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
             control_x1=10, control_y1=20, control_x2=30, control_y2=40,
-            dest_x=50, dest_y=60, relative=False)
+            dest_x=50, dest_y=60, relative=False,
+            variable_name_suffix='test_path_bezier_3d')
         path_bezier_3d.update_path_data(
             control_x1=100, control_y1=200, control_x2=300,
             control_y2=400, dest_x=500, dest_y=600, relative=True)
@@ -79,6 +94,16 @@ class TestPathBezier3D:
                 '_relative': True,
             },
             any_obj=path_bezier_3d)
+        assert path_bezier_3d._control_x1._variable_name_suffix == \
+            'test_path_bezier_3d__control_x1'
+        assert path_bezier_3d._control_y1._variable_name_suffix == \
+            'test_path_bezier_3d__control_y1'
+        assert path_bezier_3d._control_x2._variable_name_suffix == \
+            'test_path_bezier_3d__control_x2'
+        assert path_bezier_3d._control_y2._variable_name_suffix == \
+            'test_path_bezier_3d__control_y2'
+        assert path_bezier_3d._relative._variable_name_suffix == \
+            'test_path_bezier_3d__relative'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:

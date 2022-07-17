@@ -13,15 +13,12 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._type.attr_to_apysc_val_from_builtin_interface import \
-    AttrToApyscValFromBuiltinInterface
 
 
 class PathBezier2DContinual(
         PathDataBase,
         PathXInterface,
-        PathYInterface,
-        AttrToApyscValFromBuiltinInterface):
+        PathYInterface):
     """
     Path data class for the SVG `continual 2D bezier curve` (T).
 

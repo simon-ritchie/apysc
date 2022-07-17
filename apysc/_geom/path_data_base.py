@@ -10,10 +10,10 @@ from apysc._branch._if import If
 from apysc._geom.path_label import PathLabel
 from apysc._geom.relative_interface import RelativeInterface
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.boolean import Boolean
-from apysc._type.string import String
 from apysc._type.attr_to_apysc_val_from_builtin_interface import \
     AttrToApyscValFromBuiltinInterface
+from apysc._type.boolean import Boolean
+from apysc._type.string import String
 
 
 class PathDataBase(

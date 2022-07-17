@@ -137,6 +137,8 @@ Class for number value interface.<hr>
   - Initial number value.
 - `type_name`: str
   - This instance expression's type name (e.g., int, number).
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 ### `__int__` method docstring
 

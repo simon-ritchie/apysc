@@ -83,7 +83,7 @@ ap.save_overall_html(
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int]) -> None`<hr>
+**[Interface signature]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]** 2-dimensional geometry point.<hr>
 
@@ -93,6 +93,8 @@ ap.save_overall_html(
   - X-coordinate.
 - `y`: int or Int
   - Y-coordinate.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

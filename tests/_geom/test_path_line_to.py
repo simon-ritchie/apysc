@@ -34,7 +34,6 @@ class TestPathLineTo:
         assert path_line_to._y._variable_name_suffix == \
             'test_path_line_to__y'
 
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:
         path_line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=100)

@@ -47,5 +47,6 @@ def main() -> None:
         dest_dir_path=_DEST_DIR_PATH,
         minify=False)
 
+
 if __name__ == '__main__':
     main()

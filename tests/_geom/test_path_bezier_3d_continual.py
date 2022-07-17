@@ -44,7 +44,6 @@ class TestPathBezier3DContinual:
         assert path_bezier_3d_continual._dest_y._variable_name_suffix \
             == 'test_path_bezier_3d_continual__dest_y'
 
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_str(self) -> None:
         continual: ap.PathBezier3DContinual = \

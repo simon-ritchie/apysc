@@ -5,11 +5,11 @@ from typing import Dict
 
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
-from apysc._validation import arg_validation_decos
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
 from apysc._type.variable_name_suffix_attr_interface import \
     VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
+from apysc._validation import arg_validation_decos
 
 
 class RelativeInterface(

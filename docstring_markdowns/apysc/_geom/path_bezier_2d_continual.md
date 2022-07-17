@@ -53,6 +53,8 @@ Path data class for the SVG `continual 2D bezier curve` (T).<hr>
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - The boolean value indicates whether the path coordinates are relative or not (absolute).
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
 <hr>
 

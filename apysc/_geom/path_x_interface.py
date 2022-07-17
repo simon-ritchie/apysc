@@ -7,11 +7,11 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._validation import arg_validation_decos
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
 from apysc._type.variable_name_suffix_attr_interface import \
     VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
+from apysc._validation import arg_validation_decos
 
 
 class PathXInterface(

@@ -62,9 +62,13 @@ class PathDataBase(
         """
         svg_char_: str = self._path_label.value
         if self._relative._value:
-            svg_char: String = String(svg_char_.lower())
+            svg_char: String = String(
+                svg_char_.lower(),
+                variable_name_suffix=self._variable_name_suffix)
         else:
-            svg_char = String(svg_char_)
+            svg_char = String(
+                svg_char_,
+                variable_name_suffix=self._variable_name_suffix)
         with If(self._relative, locals_=locals()):
             svg_char.value = svg_char_.lower()
         with Else(locals_=locals()):

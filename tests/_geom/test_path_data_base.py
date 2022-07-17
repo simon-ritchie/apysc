@@ -28,10 +28,12 @@ class TestPathDataBase:
     def test__get_svg_char(self) -> None:
         expression_data_util.empty_expression()
         path_data: ap.PathMoveTo = ap.PathMoveTo(
-            x=10, y=20, relative=False)
+            x=10, y=20, relative=False,
+            variable_name_suffix='test_path_data')
         svg_char: ap.String = path_data._get_svg_char()
         assert svg_char == 'M'
         assert isinstance(svg_char, ap.String)
+        assert svg_char._variable_name_suffix == 'test_path_data'
         expression: str = expression_data_util.get_current_expression()
         assert 'if (' in expression
         assert 'else {' in expression

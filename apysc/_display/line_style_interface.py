@@ -21,12 +21,12 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
+from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_attr_interface import \
     VariableNameSuffixAttrInterface
-from apysc._validation import arg_validation_decos
 from apysc._type.variable_name_suffix_interface import \
     VariableNameSuffixInterface
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._validation import arg_validation_decos
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -140,7 +140,6 @@ class LineStyleInterface(
         >>> line.line_cap
         String('round')
         """
-        import apysc as ap
         from apysc._color import color_util
 
         self._initialize_line_color_if_not_initialized()
@@ -163,13 +162,14 @@ class LineStyleInterface(
         self._line_round_dot_setting = round_dot_setting
         self._line_dash_dot_setting = dash_dot_setting
 
-    def _convert_line_thickness_to_apysc_int(self, *, thickness) -> Int:
+    def _convert_line_thickness_to_apysc_int(
+            self, *, thickness: Union[int, Int]) -> Int:
         """
-        Convert a line thickness value to Int.
+        Convert a line thickness value to an Int value.
 
         Parameters
         ----------
-        thickness : _type_
+        thickness : Union[int, Int]
             A line thickness value.
 
         Returns
@@ -191,7 +191,7 @@ class LineStyleInterface(
     def _convert_line_alpha_to_number(
             self, *, alpha: Union[float, Number]) -> Number:
         """
-        Convert a line alpha value to Number.
+        Convert a line alpha value to a Number value.
 
         Parameters
         ----------

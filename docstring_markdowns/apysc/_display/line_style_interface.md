@@ -6,6 +6,38 @@ Class implementation for line style-related interface.
 
 ## `LineStyleInterface` class docstring
 
+### `_convert_line_alpha_to_number` method docstring
+
+Convert a line alpha value to a Number value.<hr>
+
+**[Parameters]**
+
+- `alpha`: Union[float, Number]
+  - A specified line alpha value.
+
+<hr>
+
+**[Returns]**
+
+- `alpha_`: Number
+  - Converted line alpha value.
+
+### `_convert_line_thickness_to_apysc_int` method docstring
+
+Convert a line thickness value to an Int value.<hr>
+
+**[Parameters]**
+
+- `thickness`: Union[int, Int]
+  - A line thickness value.
+
+<hr>
+
+**[Returns]**
+
+- `thickness_`: Int
+  - Converted line thickness value.
+
 ### `_initialize_line_alpha_if_not_initialized` method docstring
 
 Initialize _line_alpha attribute if this interface does not initialize it yet.

@@ -125,7 +125,9 @@ class HeightInterface(
         if isinstance(value, ap.Int):
             value_: ap.Int = value
         else:
-            value_ = Int(value)
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='height')
+            value_ = Int(value, variable_name_suffix=suffix)
         self._height = value_
 
     _height_snapshots: Dict[str, int]

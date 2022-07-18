@@ -129,7 +129,9 @@ class CyInterface(
         if isinstance(y, Int):
             y_: Int = y
         else:
-            y_ = Int(y)
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='y')
+            y_ = Int(y, variable_name_suffix=suffix)
         self._y = y_
 
     _y_snapshots: Dict[str, int]

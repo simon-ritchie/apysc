@@ -133,7 +133,9 @@ class XInterface(
         if isinstance(x, Int):
             x_: Int = x
         else:
-            x_ = Int(x)
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='x')
+            x_ = Int(x, variable_name_suffix=suffix)
         self._x = x_
 
     _x_snapshots: Dict[str, int]

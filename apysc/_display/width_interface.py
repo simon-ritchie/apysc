@@ -124,7 +124,9 @@ class WidthInterface(
         if isinstance(value, ap.Int):
             value_: ap.Int = value
         else:
-            value_ = Int(value)
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='width')
+            value_ = Int(value, variable_name_suffix=suffix)
         self._width = value_
 
     _width_snapshots: Dict[str, int]

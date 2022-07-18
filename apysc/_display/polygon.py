@@ -208,8 +208,14 @@ class Polygon(
         """
         min_x: int = min([point._x._value for point in self._points._value])
         min_y: int = min([point._y._value for point in self._points._value])
-        self._x = Int(min_x)
-        self._y = Int(min_y)
+
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='x')
+        self._x = Int(min_x, variable_name_suffix=suffix)
+
+        suffix = self._get_attr_variable_name_suffix(
+            attr_identifier='y')
+        self._y = Int(min_y, variable_name_suffix=suffix)
 
     @classmethod
     def _create_with_graphics(

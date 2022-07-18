@@ -497,8 +497,12 @@ class Graphics(
         Int(5)
         """
         if self._current_line is None:
+            first_point: Point2D = Point2D(
+                x=0, y=0, variable_name_suffix=variable_name_suffix)
+            second_point: Point2D = Point2D(
+                x=x, y=y, variable_name_suffix=variable_name_suffix)
             self._current_line = _polyline.Polyline._create_with_graphics(
-                graphics=self, points=[Point2D(x=0, y=0), Point2D(x=x, y=y)],
+                graphics=self, points=[first_point, second_point],
                 variable_name_suffix=variable_name_suffix)
         else:
             self._current_line.append_line_point(x=x, y=y)
@@ -558,9 +562,12 @@ class Graphics(
         >>> line_1.line_thickness
         Int(5)
         """
+        point: Point2D = Point2D(
+            x=x, y=y, variable_name_suffix=variable_name_suffix)
         polyline: _polyline.Polyline = \
             _polyline.Polyline._create_with_graphics(
-                graphics=self, points=[Point2D(x=x, y=y)],
+                graphics=self,
+                points=[point],
                 variable_name_suffix=variable_name_suffix)
         self._current_line = polyline
         return polyline

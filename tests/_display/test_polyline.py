@@ -190,9 +190,12 @@ class TestPolyline:
     def test__set_x_and_y_with_minimum_point(self) -> None:
         ap.Stage()
         points: List[ap.Point2D] = [ap.Point2D(10, 20), ap.Point2D(30, 40)]
-        polyline: ap.Polyline = ap.Polyline(points=points)
+        polyline: ap.Polyline = ap.Polyline(
+            points=points, variable_name_suffix='test_polyline')
         assert polyline.x == 10
         assert polyline.y == 20
+        assert polyline._x._variable_name_suffix == 'test_polyline__x'
+        assert polyline._y._variable_name_suffix == 'test_polyline__y'
 
         points = [ap.Point2D(30, 40), ap.Point2D(10, 20)]
         polyline = ap.Polyline(points=points)

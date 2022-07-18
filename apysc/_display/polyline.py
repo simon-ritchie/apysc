@@ -183,7 +183,8 @@ class Polyline(
         from apysc._expression import var_names
         self._variable_name_suffix = variable_name_suffix
         if isinstance(points, list):
-            points = Array(points)
+            points = Array(
+                points, variable_name_suffix=self._variable_name_suffix)
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.POLYLINE)
         self.variable_name = variable_name
@@ -208,8 +209,14 @@ class Polyline(
         """
         min_x: int = min([point._x._value for point in self._points._value])
         min_y: int = min([point._y._value for point in self._points._value])
-        self._x = Int(min_x)
-        self._y = Int(min_y)
+
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='x')
+        self._x = Int(min_x, variable_name_suffix=suffix)
+
+        suffix = self._get_attr_variable_name_suffix(
+            attr_identifier='y')
+        self._y = Int(min_y, variable_name_suffix=suffix)
 
     @classmethod
     def _create_with_graphics(

@@ -9,9 +9,13 @@ from apysc._display.set_x_and_y_with_minimum_point_interface_base import \
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
 
 
-class AppendLinePointInterface(Points2DInterface):
+class AppendLinePointInterface(
+        Points2DInterface,
+        VariableNameSuffixInterface):
 
     _points_var_name: str
 
@@ -51,7 +55,11 @@ class AppendLinePointInterface(Points2DInterface):
                 '_points_var_name attribute is not set. Please add '
                 'implementation to set that value when constructor '
                 'or else.')
-        self.points.append(value=ap.Point2D(x=x, y=y))
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier='points')
+        point: ap.Point2D = ap.Point2D(
+            x=x, y=y, variable_name_suffix=suffix)
+        self.points.append(value=point)
         expression: str
         x_name: str = value_util.get_value_str_for_expression(value=x)
         y_name: str = value_util.get_value_str_for_expression(value=y)

@@ -141,6 +141,9 @@ class TestPolygon:
         ap.Stage()
         points: List[ap.Point2D] = [
             ap.Point2D(50, 50), ap.Point2D(150, 30), ap.Point2D(20, 100)]
-        polygon: ap.Polygon = ap.Polygon(points=points)
+        polygon: ap.Polygon = ap.Polygon(
+            points=points, variable_name_suffix='test_polygon')
         assert polygon.x == 20
         assert polygon.y == 30
+        assert polygon._x._variable_name_suffix == 'test_polygon__x'
+        assert polygon._y._variable_name_suffix == 'test_polygon__y'

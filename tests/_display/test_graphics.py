@@ -108,6 +108,8 @@ class TestGraphics:
         assert polyline.x == 0
         assert polyline.y == 0
         assert polyline._variable_name_suffix == 'test_line'
+        assert polyline.points[0]._variable_name_suffix == 'test_line'
+        assert polyline.points[1]._variable_name_suffix == 'test_line'
         pre_var_name: str = polyline.variable_name
 
         polyline = sprite.graphics.line_to(
@@ -118,6 +120,7 @@ class TestGraphics:
         assert polyline.x == -50
         assert polyline.y == -100
         assert polyline._variable_name_suffix == 'test_line'
+        assert 'test_line' in polyline.points[2]._variable_name_suffix
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_move_to(self) -> None:
@@ -127,6 +130,7 @@ class TestGraphics:
             x=100, y=200, variable_name_suffix='test_line')
         assert polyline.points == ap.Array([ap.Point2D(100, 200)])
         assert polyline._variable_name_suffix == 'test_line'
+        assert polyline.points[0]._variable_name_suffix == 'test_line'
         pre_var_name: str = polyline.variable_name
 
         sprite.graphics.line_to(x=0, y=0)

@@ -15,6 +15,7 @@ class TestAppendLinePointInterface:
         expression_data_util.empty_expression()
         interface: AppendLinePointInterface = AppendLinePointInterface()
         interface.variable_name = 'test_append_line_point_interface'
+        interface._variable_name_suffix = 'test_interface'
         x: ap.Int = ap.Int(50)
         y: ap.Int = ap.Int(100)
         assert_raises(
@@ -33,3 +34,5 @@ class TestAppendLinePointInterface:
             f'\n{interface.variable_name}.plot(test_points);'
         )
         assert expected in expression
+        assert 'test_interface' in \
+            interface.points[0]._variable_name_suffix

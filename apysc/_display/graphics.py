@@ -38,9 +38,7 @@ class Graphics(
         BeginFillInterface,
         LineStyleInterface,
         GraphicsClearInterface,
-        ChildInterface,
-        VariableNameInterface,
-        VariableNameSuffixInterface):
+        ChildInterface):
     """
     Create an object that has each vector graphics interface.
 

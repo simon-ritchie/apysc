@@ -406,3 +406,19 @@ class TestLineStyleInterface:
             dot_size=5, dash_size=10, space_size=7)
         line_dash_dot_setting = line_style_interface.line_dash_dot_setting
         assert isinstance(line_dash_dot_setting, ap.LineDashDotSetting)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__convert_line_alpha_to_number(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface._variable_name_suffix = 'test_suffix'
+
+        alpha: ap.Number = line_style_interface.\
+            _convert_line_alpha_to_number(alpha=ap.Number(0.5))
+        assert alpha == 0.5
+        assert isinstance(alpha, ap.Number)
+
+        alpha = line_style_interface._convert_line_alpha_to_number(
+            alpha=0.3)
+        assert alpha == 0.3
+        assert isinstance(alpha, ap.Number)
+        assert alpha._variable_name_suffix == 'test_suffix__line_alpha'

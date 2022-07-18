@@ -24,13 +24,18 @@ from apysc._type.string import String
 from apysc._type.variable_name_suffix_attr_interface import \
     VariableNameSuffixAttrInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_interface import \
+    VariableNameSuffixInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
 
 
 class LineStyleInterface(
         VariableNameSuffixAttrInterface,
-        RevertInterface):
+        VariableNameInterface,
+        RevertInterface,
+        VariableNameSuffixInterface):
 
     _line_color: String
     _line_thickness: Int
@@ -151,19 +156,40 @@ class LineStyleInterface(
             attr_identifier='line_thickness')
         self._line_thickness = ap.Int(
             thickness, variable_name_suffix=suffix)
-        if isinstance(alpha, ap.Number):
-            alpha_: ap.Number = alpha._copy()
-        else:
-            suffix = self._get_attr_variable_name_suffix(
-                attr_identifier='line_alpha')
-            alpha_ = ap.Number(alpha, variable_name_suffix=suffix)
-        self._line_alpha = alpha_
+        self._line_alpha = self._convert_line_alpha_to_number(
+            alpha=alpha)
         self._set_line_cap(cap=cap)
         self._set_line_joints(joints=joints)
         self._line_dot_setting = dot_setting
         self._line_dash_setting = dash_setting
         self._line_round_dot_setting = round_dot_setting
         self._line_dash_dot_setting = dash_dot_setting
+
+    @add_debug_info_setting(module_name=__name__)
+    def _convert_line_alpha_to_number(
+            self, *, alpha: Union[float, Number]) -> Number:
+        """
+        Convert a line alpha value to Number.
+
+        Parameters
+        ----------
+        alpha : Union[float, Number]
+            A specified line alpha value.
+
+        Returns
+        -------
+        alpha_ : Number
+            Converted line alpha value.
+        """
+        import apysc as ap
+        if isinstance(alpha, ap.Number):
+            alpha_: ap.Number = alpha._copy()
+        else:
+            suffix = self._get_attr_variable_name_suffix(
+                attr_identifier='line_alpha')
+            alpha_ = ap.Number(
+                alpha, variable_name_suffix=suffix)
+        return alpha_
 
     @add_debug_info_setting(module_name=__name__)
     def _set_line_joints(self, *, joints: Optional[LineJoints]) -> None:

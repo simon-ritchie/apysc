@@ -152,10 +152,8 @@ class LineStyleInterface(
             color = color_util.complement_hex_color(
                 hex_color_code=color)
         self._line_color.value = color
-        suffix = self._get_attr_variable_name_suffix(
-            attr_identifier='line_thickness')
-        self._line_thickness = ap.Int(
-            thickness, variable_name_suffix=suffix)
+        self._line_thickness = self._convert_line_thickness_to_apysc_int(
+            thickness=thickness)
         self._line_alpha = self._convert_line_alpha_to_number(
             alpha=alpha)
         self._set_line_cap(cap=cap)
@@ -164,6 +162,30 @@ class LineStyleInterface(
         self._line_dash_setting = dash_setting
         self._line_round_dot_setting = round_dot_setting
         self._line_dash_dot_setting = dash_dot_setting
+
+    def _convert_line_thickness_to_apysc_int(self, *, thickness) -> Int:
+        """
+        Convert a line thickness value to Int.
+
+        Parameters
+        ----------
+        thickness : _type_
+            A line thickness value.
+
+        Returns
+        -------
+        thickness_ : Int
+            Converted line thickness value.
+        """
+        import apysc as ap
+        if isinstance(thickness, ap.Int):
+            thickness_: ap.Int = thickness._copy()
+        else:
+            suffix: str = self._get_attr_variable_name_suffix(
+                attr_identifier='line_thickness')
+            thickness_ = ap.Int(
+                thickness, variable_name_suffix=suffix)
+        return thickness_
 
     @add_debug_info_setting(module_name=__name__)
     def _convert_line_alpha_to_number(

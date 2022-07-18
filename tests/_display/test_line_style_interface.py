@@ -422,3 +422,20 @@ class TestLineStyleInterface:
         assert alpha == 0.3
         assert isinstance(alpha, ap.Number)
         assert alpha._variable_name_suffix == 'test_suffix__line_alpha'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__convert_line_thickness_to_apysc_int(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface._variable_name_suffix = 'test_suffix'
+
+        thickness: ap.Int = line_style_interface.\
+            _convert_line_thickness_to_apysc_int(thickness=ap.Int(10))
+        assert thickness == 10
+        assert isinstance(thickness, ap.Int)
+
+        thickness = line_style_interface.\
+            _convert_line_thickness_to_apysc_int(thickness=5)
+        assert thickness == 5
+        assert isinstance(thickness, ap.Int)
+        assert thickness._variable_name_suffix == \
+            'test_suffix__line_thickness'

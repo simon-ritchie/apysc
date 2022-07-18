@@ -350,7 +350,7 @@ class Point2D(
             x_repr = repr(self._x)
         y_repr: str = '0'
         if hasattr(self, '_y'):
-            y_repr: str = repr(self._y)
+            y_repr = repr(self._y)
         repr_str: str = f'Point2D({x_repr}, {y_repr})'
         return repr_str
 

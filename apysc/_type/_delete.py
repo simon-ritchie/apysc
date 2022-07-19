@@ -32,6 +32,7 @@ def _remove_from_parent(*, value: VariableNameInterface) -> None:
         _description_
     """
     from apysc._display.parent_interface import ParentInterface
+
     if not isinstance(value, ParentInterface):
         return
     value.remove_from_parent()
@@ -47,8 +48,8 @@ def _append_delete_expression(*, value: VariableNameInterface) -> None:
         A target value to delete.
     """
     import apysc as ap
+
     expression: str = (
-        f'delete {value.variable_name};'
-        f'\n{value.variable_name} = undefined;'
+        f"delete {value.variable_name};" f"\n{value.variable_name} = undefined;"
     )
     ap.append_js_expression(expression=expression)

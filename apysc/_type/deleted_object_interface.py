@@ -12,20 +12,20 @@ from typing import Tuple
 from apysc._type.revert_interface import RevertInterface
 
 _EXCLUDING_TARGET_METHOD_NAMES: List[str] = [
-    '_make_snapshot',
-    '_revert',
-    '_set_single_snapshot_val_to_dict',
-    '_snapshot_exists',
-    '_get_next_snapshot_name',
-    '_run_all_make_snapshot_methods',
-    '_run_all_revert_methods',
-    '_delete_snapshot_exists_val',
-    '_run_base_cls_revert_methods_recursively',
-    '_run_base_cls_make_snapshot_methods_recursively',
-    '_set_snapshot_exists_val',
-    '_initialize_ss_exists_val_if_not_initialized',
-    '_disable_each_method',
-    '_disabled_method',
+    "_make_snapshot",
+    "_revert",
+    "_set_single_snapshot_val_to_dict",
+    "_snapshot_exists",
+    "_get_next_snapshot_name",
+    "_run_all_make_snapshot_methods",
+    "_run_all_revert_methods",
+    "_delete_snapshot_exists_val",
+    "_run_base_cls_revert_methods_recursively",
+    "_run_base_cls_make_snapshot_methods_recursively",
+    "_set_snapshot_exists_val",
+    "_initialize_ss_exists_val_if_not_initialized",
+    "_disable_each_method",
+    "_disabled_method",
 ]
 
 
@@ -77,14 +77,16 @@ class DeletedObjectInterface(RevertInterface):
             This interface always raises an exception.
         """
         raise _DisabledObjectError(
-            'This object has been deleted and cannot manipulate.')
+            "This object has been deleted and cannot manipulate."
+        )
 
     def _disable_each_method(self) -> None:
         """
         Disable each method of this instance.
         """
         method_members: List[Tuple[str, Callable]] = inspect.getmembers(
-            self, predicate=inspect.ismethod)
+            self, predicate=inspect.ismethod
+        )
         for method_name, _ in method_members:
             if method_name in _EXCLUDING_TARGET_METHOD_NAMES:
                 continue
@@ -102,8 +104,10 @@ class DeletedObjectInterface(RevertInterface):
             Target snapshot name.
         """
         self._set_single_snapshot_val_to_dict(
-            dict_name='_is_deleted_object_snapshot',
-            value=self.__is_deleted_object, snapshot_name=snapshot_name)
+            dict_name="_is_deleted_object_snapshot",
+            value=self.__is_deleted_object,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -116,5 +120,4 @@ class DeletedObjectInterface(RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self.__is_deleted_object = self._is_deleted_object_snapshot[
-            snapshot_name]
+        self.__is_deleted_object = self._is_deleted_object_snapshot[snapshot_name]

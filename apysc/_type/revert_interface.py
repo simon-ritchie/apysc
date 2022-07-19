@@ -19,7 +19,7 @@ class RevertInterface(ABC):
         Initialize _snapshot_exists_ value if this instance
         does not initialize it yet.
         """
-        if hasattr(self, '_snapshot_exists_'):
+        if hasattr(self, "_snapshot_exists_"):
             return
         self._snapshot_exists_ = {}
 
@@ -59,11 +59,13 @@ class RevertInterface(ABC):
         """
         self_type: Type = type(self)
         self._run_base_cls_make_snapshot_methods_recursively(
-            class_=self_type, snapshot_name=snapshot_name)
+            class_=self_type, snapshot_name=snapshot_name
+        )
         self._set_snapshot_exists_val(snapshot_name=snapshot_name)
 
     def _run_base_cls_make_snapshot_methods_recursively(
-            self, *, class_: Type, snapshot_name: str) -> None:
+        self, *, class_: Type, snapshot_name: str
+    ) -> None:
         """
         Run base classes make_snapshot methods recursively.
 
@@ -78,10 +80,10 @@ class RevertInterface(ABC):
         for base_class in base_classes:
             if not issubclass(base_class, RevertInterface):
                 continue
-            base_class._make_snapshot(
-                self, snapshot_name=snapshot_name)
+            base_class._make_snapshot(self, snapshot_name=snapshot_name)
             self._run_base_cls_make_snapshot_methods_recursively(
-                class_=base_class, snapshot_name=snapshot_name)
+                class_=base_class, snapshot_name=snapshot_name
+            )
         class_._make_snapshot(self, snapshot_name=snapshot_name)
 
     def _run_all_revert_methods(self, *, snapshot_name: str) -> None:
@@ -97,11 +99,13 @@ class RevertInterface(ABC):
         """
         self_type: Type = type(self)
         self._run_base_cls_revert_methods_recursively(
-            class_=self_type, snapshot_name=snapshot_name)
+            class_=self_type, snapshot_name=snapshot_name
+        )
         self._delete_snapshot_exists_val(snapshot_name=snapshot_name)
 
     def _run_base_cls_revert_methods_recursively(
-            self, *, class_: Type, snapshot_name: str) -> None:
+        self, *, class_: Type, snapshot_name: str
+    ) -> None:
         """
         Run base classes revert methods recursively.
 
@@ -118,7 +122,8 @@ class RevertInterface(ABC):
                 continue
             base_class._revert(self, snapshot_name=snapshot_name)
             self._run_base_cls_revert_methods_recursively(
-                class_=base_class, snapshot_name=snapshot_name)
+                class_=base_class, snapshot_name=snapshot_name
+            )
         class_._revert(self, snapshot_name=snapshot_name)
 
     def _snapshot_exists(self, *, snapshot_name: str) -> bool:
@@ -174,13 +179,15 @@ class RevertInterface(ABC):
         """
         from apysc._expression import expression_variables_util
         from apysc._expression.var_names import SNAPSHOT
+
         snapshot_name: str = expression_variables_util.get_next_variable_name(
-            type_name=SNAPSHOT)
+            type_name=SNAPSHOT
+        )
         return snapshot_name
 
     def _set_single_snapshot_val_to_dict(
-            self, *, dict_name: str, value: Any,
-            snapshot_name: str) -> None:
+        self, *, dict_name: str, value: Any, snapshot_name: str
+    ) -> None:
         """
         Set a single snapshot value to the specified
         name dictionary.
@@ -208,7 +215,8 @@ class RevertInterface(ABC):
 
 
 def make_snapshots_of_each_scope_vars(
-        *, locals_: Dict[str, Any], globals_: Dict[str, Any]) -> str:
+    *, locals_: Dict[str, Any], globals_: Dict[str, Any]
+) -> str:
     """
     Make snapshots of each scope's variables.
 
@@ -244,24 +252,23 @@ def make_variables_snapshots(*, variables: List[Any]) -> str:
         Snapshot name to be used.
     """
     ended: Dict[int, bool] = {}
-    snapshot_name: str = ''
+    snapshot_name: str = ""
     for variable in variables:
         if not isinstance(variable, RevertInterface):
             continue
         var_id: int = id(variable)
         if var_id in ended:
             continue
-        if snapshot_name == '':
+        if snapshot_name == "":
             snapshot_name = variable._get_next_snapshot_name()
-        variable._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
+        variable._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         ended[var_id] = True
     return snapshot_name
 
 
 def revert_each_scope_vars(
-        *, snapshot_name: str, locals_: Dict[str, Any],
-        globals_: Dict[str, Any]) -> None:
+    *, snapshot_name: str, locals_: Dict[str, Any], globals_: Dict[str, Any]
+) -> None:
     """
     Revert each scope's variables.
 

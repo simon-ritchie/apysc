@@ -48,8 +48,8 @@ class ExpressionString(RevertInterface):
             Target snapshot name.
         """
         self._set_single_snapshot_val_to_dict(
-            dict_name='_value_snapshots',
-            value=self._value, snapshot_name=snapshot_name)
+            dict_name="_value_snapshots", value=self._value, snapshot_name=snapshot_name
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

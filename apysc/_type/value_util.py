@@ -43,6 +43,7 @@ def get_value_str_for_expression(*, value: Any) -> str:
     """
     from apysc._type.expression_string import ExpressionString
     from apysc._type.variable_name_interface import VariableNameInterface
+
     if isinstance(value, ExpressionString):
         return value.value
     if isinstance(value, VariableNameInterface):
@@ -58,7 +59,7 @@ def get_value_str_for_expression(*, value: Any) -> str:
         values_str = _get_value_str_from_dict(value=value)
         return values_str
     if value is None:
-        return 'null'
+        return "null"
     return str(value)
 
 
@@ -76,13 +77,13 @@ def _get_value_str_from_dict(*, value: Dict[Any, Any]) -> str:
     value_str : str
         Converted string, e.g., '{"any_key": 10, "other_key": any_variable}'
     """
-    value_str: str = '{'
+    value_str: str = "{"
     for key, value in value.items():
-        if value_str != '{':
-            value_str += ', '
+        if value_str != "{":
+            value_str += ", "
         _validate_dict_key_type(key=key)
         value_str += f'"{key}": {get_value_str_for_expression(value=value)}'
-    value_str += '}'
+    value_str += "}"
     return value_str
 
 
@@ -102,12 +103,10 @@ def _validate_dict_key_type(*, key: Any) -> None:
     """
     if isinstance(key, (str, int, float)):
         return
-    raise TypeError(
-        f'Dictionary key type only supports str and int: {type(key)}')
+    raise TypeError(f"Dictionary key type only supports str and int: {type(key)}")
 
 
-def _get_value_str_from_iterable(
-        *, value: Union[list, tuple, Array]) -> str:
+def _get_value_str_from_iterable(*, value: Union[list, tuple, Array]) -> str:
     """
     Get a value string from an iterable object.
 
@@ -122,23 +121,24 @@ def _get_value_str_from_iterable(
         Converted string, e.g., '[10, "Hello!", true, any_variable]'.
     """
     from apysc._type.variable_name_interface import VariableNameInterface
+
     if isinstance(value, Array):
         value_: List[Any] = value.value  # type: ignore
     else:
         value_ = list(value)  # type: ignore[arg-type]
-    value_str: str = '['
+    value_str: str = "["
     for unit_value in value_:
-        if value_str != '[':
-            value_str += ', '
+        if value_str != "[":
+            value_str += ", "
         if isinstance(unit_value, VariableNameInterface):
-            value_str += f'{unit_value.variable_name}'
+            value_str += f"{unit_value.variable_name}"
             continue
         value_str += get_value_str_for_expression(value=unit_value)
-    value_str += ']'
+    value_str += "]"
     return value_str
 
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -160,6 +160,7 @@ def get_copy(*, value: T) -> T:
         value directly.
     """
     from apysc._type.copy_interface import CopyInterface
+
     if not isinstance(value, CopyInterface):
         return value
     return value._copy()

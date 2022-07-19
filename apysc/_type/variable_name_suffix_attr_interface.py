@@ -6,10 +6,8 @@ from apysc._validation import arg_validation_decos
 
 
 class VariableNameSuffixAttrInterface:
-
     @arg_validation_decos.not_empty_string(arg_position_index=1)
-    def _get_attr_variable_name_suffix(
-            self, *, attr_identifier: str) -> str:
+    def _get_attr_variable_name_suffix(self, *, attr_identifier: str) -> str:
         """
         Get an attribute's variable name suffix if its value
         is not blank.
@@ -28,14 +26,16 @@ class VariableNameSuffixAttrInterface:
                 instance.
             - If a suffix is a blank string.
         """
-        from apysc._type.variable_name_suffix_interface import \
-            VariableNameSuffixInterface
+        from apysc._type.variable_name_suffix_interface import (
+            VariableNameSuffixInterface,
+        )
+
         if not isinstance(self, VariableNameSuffixInterface):
-            return ''
-        if self._variable_name_suffix == '':
-            return ''
+            return ""
+        if self._variable_name_suffix == "":
+            return ""
 
         attr_variable_name_suffix: str = (
-            f'{self._variable_name_suffix}__{attr_identifier}'
+            f"{self._variable_name_suffix}__{attr_identifier}"
         )
         return attr_variable_name_suffix

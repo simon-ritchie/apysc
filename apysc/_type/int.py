@@ -8,7 +8,7 @@ from apysc._type.number_value_interface import NumberValueInterface
 from apysc._validation import arg_validation_decos
 
 
-class Int(NumberValueInterface[int, 'Int']):
+class Int(NumberValueInterface[int, "Int"]):
     """
     Integer class for the apysc library.
 
@@ -47,14 +47,14 @@ class Int(NumberValueInterface[int, 'Int']):
     """
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            value: Union[int, float, NumberValueInterface],
-            *,
-            variable_name_suffix: str = '') -> None:
+        self,
+        value: Union[int, float, NumberValueInterface],
+        *,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Integer class for apysc library.
 
@@ -103,26 +103,26 @@ class Int(NumberValueInterface[int, 'Int']):
         from apysc._converter import cast
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._expression.event_handler_scope import \
-            TemporaryNotHandlerScope
+        from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
         from apysc._type import type_util
+
         with TemporaryNotHandlerScope():
-            is_number_specified: bool = type_util.is_number(
-                value=value)
+            is_number_specified: bool = type_util.is_number(value=value)
             TYPE_NAME: str = var_names.INT
-            self.variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=TYPE_NAME)
+            self.variable_name = expression_variables_util.get_next_variable_name(
+                type_name=TYPE_NAME
+            )
             super(Int, self).__init__(
-                value=value, type_name=TYPE_NAME,
-                variable_name_suffix=variable_name_suffix)
+                value=value,
+                type_name=TYPE_NAME,
+                variable_name_suffix=variable_name_suffix,
+            )
             self._value = cast.to_int_from_float(int_or_float=self.value)
             self.append_constructor_expression()
-            self._append_cast_expression(
-                is_number_specified=is_number_specified)
+            self._append_cast_expression(is_number_specified=is_number_specified)
 
     @add_debug_info_setting(module_name=__name__)
-    def _append_cast_expression(
-            self, *, is_number_specified: bool) -> None:
+    def _append_cast_expression(self, *, is_number_specified: bool) -> None:
         """
         Append integer cast (Math.trunc) expression.
 
@@ -133,16 +133,17 @@ class Int(NumberValueInterface[int, 'Int']):
             instance or not.
         """
         import apysc as ap
+
         if not is_number_specified:
             return
         expression: str = (
-            f'{self.variable_name} = Math.trunc({self.variable_name}, 10);'
+            f"{self.variable_name} = Math.trunc({self.variable_name}, 10);"
         )
         ap.append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
-            self, *,
-            value: Union[int, float, NumberValueInterface]) -> None:
+        self, *, value: Union[int, float, NumberValueInterface]
+    ) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -153,6 +154,7 @@ class Int(NumberValueInterface[int, 'Int']):
             value to an integer if float or number value is specified.
         """
         from apysc._converter import cast
+
         if isinstance(value, NumberValueInterface):
             value._value = cast.to_int_from_float(int_or_float=value._value)
             value_: Union[int, float, NumberValueInterface] = value._value
@@ -170,8 +172,8 @@ class Int(NumberValueInterface[int, 'Int']):
         repr_str : str
             Representation string of this instance.
         """
-        if not hasattr(self, '_value'):
-            repr_str: str = 'Int(0)'
+        if not hasattr(self, "_value"):
+            repr_str: str = "Int(0)"
         else:
-            repr_str = f'Int({self._value})'
+            repr_str = f"Int({self._value})"
         return repr_str

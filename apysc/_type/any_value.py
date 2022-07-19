@@ -10,16 +10,13 @@ from apysc._type.boolean import Boolean
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class AnyValue(
-        CopyInterface,
-        RevertInterface,
-        CustomEventInterface,
-        VariableNameSuffixInterface):
+    CopyInterface, RevertInterface, CustomEventInterface, VariableNameSuffixInterface
+):
     """
     Class implementation of any value (a value that can't
     determine type).
@@ -38,14 +35,9 @@ class AnyValue(
 
     _value: Any
 
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
-    def __init__(
-            self,
-            value: Any,
-            *,
-            variable_name_suffix: str = '') -> None:
+    def __init__(self, value: Any, *, variable_name_suffix: str = "") -> None:
         """
         Class implementation of any value (a value that can't
         determine type).
@@ -67,11 +59,13 @@ class AnyValue(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
         TYPE_NAME: str = var_names.ANY
         self._value = value
-        self.variable_name = expression_variables_util.\
-            get_next_variable_name(type_name=TYPE_NAME)
+        self.variable_name = expression_variables_util.get_next_variable_name(
+            type_name=TYPE_NAME
+        )
         self._type_name = TYPE_NAME
         self._append_constructor_expression()
 
@@ -82,13 +76,13 @@ class AnyValue(
         """
         import apysc as ap
         from apysc._type import value_util
-        expression: str = f'var {self.variable_name} = '
+
+        expression: str = f"var {self.variable_name} = "
         if isinstance(self._value, VariableNameInterface):
-            expression += f'{self._value.variable_name};'
+            expression += f"{self._value.variable_name};"
         else:
-            value_str: str = value_util.get_value_str_for_expression(
-                value=self._value)
-            expression += f'{value_str};'
+            value_str: str = value_util.get_value_str_for_expression(value=self._value)
+            expression += f"{value_str};"
         ap.append_js_expression(expression=expression)
 
     @property
@@ -139,16 +133,18 @@ class AnyValue(
             Any value to set.
         """
         import apysc as ap
-        expression: str = f'{self.variable_name} = '
+
+        expression: str = f"{self.variable_name} = "
         if isinstance(value, VariableNameInterface):
-            expression += f'{value.variable_name};'
+            expression += f"{value.variable_name};"
         else:
-            expression += f'{value};'
+            expression += f"{value};"
         ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
     def _append_arithmetic_operation_expression(
-            self, *, other: Any, operator: str) -> VariableNameInterface:
+        self, *, other: Any, operator: str
+    ) -> VariableNameInterface:
         """
         Append arithmetic operation (e.g., addition) expression.
 
@@ -166,11 +162,11 @@ class AnyValue(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         value_str: str = get_value_str_for_expression(value=other)
         result: AnyValue = self._copy()
         expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} {operator} {value_str};'
+            f"{result.variable_name} = " f"{self.variable_name} {operator} {value_str};"
         )
         ap.append_js_expression(expression=expression)
         return result
@@ -190,9 +186,9 @@ class AnyValue(
         result : AnyValue
             Addition result value.
         """
-        result: VariableNameInterface = \
-            self._append_arithmetic_operation_expression(
-                other=other, operator='+')
+        result: VariableNameInterface = self._append_arithmetic_operation_expression(
+            other=other, operator="+"
+        )
         return result
 
     @add_debug_info_setting(module_name=__name__)
@@ -210,9 +206,9 @@ class AnyValue(
         result : AnyValue
             Subtraction result value.
         """
-        result: VariableNameInterface = \
-            self._append_arithmetic_operation_expression(
-                other=other, operator='-')
+        result: VariableNameInterface = self._append_arithmetic_operation_expression(
+            other=other, operator="-"
+        )
         return result
 
     @add_debug_info_setting(module_name=__name__)
@@ -230,9 +226,9 @@ class AnyValue(
         result : AnyValue
             Subtraction result value.
         """
-        result: VariableNameInterface = \
-            self._append_arithmetic_operation_expression(
-                other=other, operator='*')
+        result: VariableNameInterface = self._append_arithmetic_operation_expression(
+            other=other, operator="*"
+        )
         return result
 
     @add_debug_info_setting(module_name=__name__)
@@ -250,9 +246,9 @@ class AnyValue(
         result : AnyValue
             True division result value.
         """
-        result: VariableNameInterface = \
-            self._append_arithmetic_operation_expression(
-                other=other, operator='/')
+        result: VariableNameInterface = self._append_arithmetic_operation_expression(
+            other=other, operator="/"
+        )
         return result
 
     @add_debug_info_setting(module_name=__name__)
@@ -272,18 +268,20 @@ class AnyValue(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         result: AnyValue = self._copy()
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (
-            f'{result.variable_name} = '
-            f'Math.trunc({self.variable_name} / {value_str});'
+            f"{result.variable_name} = "
+            f"Math.trunc({self.variable_name} / {value_str});"
         )
         ap.append_js_expression(expression=expression)
         return result
 
     @add_debug_info_setting(module_name=__name__)
     def _append_incremental_arithmetic_operation_expression(
-            self, *, other: Any, operator: str) -> None:
+        self, *, other: Any, operator: str
+    ) -> None:
         """
         Append incremental arithmetic operation (e.g., incremental
         addition) expression.
@@ -297,10 +295,9 @@ class AnyValue(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         value_str: str = get_value_str_for_expression(value=other)
-        expression: str = (
-            f'{self.variable_name} {operator} {value_str};'
-        )
+        expression: str = f"{self.variable_name} {operator} {value_str};"
         ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
@@ -319,7 +316,8 @@ class AnyValue(
             Incremental addition result value.
         """
         self._append_incremental_arithmetic_operation_expression(
-            other=other, operator='+=')
+            other=other, operator="+="
+        )
         return self
 
     @add_debug_info_setting(module_name=__name__)
@@ -338,7 +336,8 @@ class AnyValue(
             Incremental subtraction result value.
         """
         self._append_incremental_arithmetic_operation_expression(
-            other=other, operator='-=')
+            other=other, operator="-="
+        )
         return self
 
     @add_debug_info_setting(module_name=__name__)
@@ -357,7 +356,8 @@ class AnyValue(
             Incremental multiplication result value.
         """
         self._append_incremental_arithmetic_operation_expression(
-            other=other, operator='*=')
+            other=other, operator="*="
+        )
         return self
 
     @add_debug_info_setting(module_name=__name__)
@@ -376,12 +376,14 @@ class AnyValue(
             Incremental division result value.
         """
         self._append_incremental_arithmetic_operation_expression(
-            other=other, operator='/=')
+            other=other, operator="/="
+        )
         return self
 
     @add_debug_info_setting(module_name=__name__)
     def _append_comparison_expression(
-            self, *, comparison_operator: str, other: Any) -> Boolean:
+        self, *, comparison_operator: str, other: Any
+    ) -> Boolean:
         """
         Append comparison operation expression.
 
@@ -402,11 +404,12 @@ class AnyValue(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         result: ap.Boolean = ap.Boolean(False)
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} {comparison_operator} {value_str};'
+            f"{result.variable_name} = "
+            f"{self.variable_name} {comparison_operator} {value_str};"
         )
         ap.append_js_expression(expression=expression)
         return result
@@ -429,8 +432,10 @@ class AnyValue(
             is impossible.
         """
         import apysc as ap
+
         result: ap.Boolean = self._append_comparison_expression(
-            comparison_operator='===', other=other)
+            comparison_operator="===", other=other
+        )
         return result
 
     @add_debug_info_setting(module_name=__name__)
@@ -451,8 +456,10 @@ class AnyValue(
             is impossible.
         """
         import apysc as ap
+
         result: ap.Boolean = self._append_comparison_expression(
-            comparison_operator='!==', other=other)
+            comparison_operator="!==", other=other
+        )
         return result
 
     @add_debug_info_setting(module_name=__name__)
@@ -473,8 +480,10 @@ class AnyValue(
             is impossible.
         """
         import apysc as ap
+
         result: ap.Boolean = self._append_comparison_expression(
-            comparison_operator='<', other=other)
+            comparison_operator="<", other=other
+        )
         return result
 
     @add_debug_info_setting(module_name=__name__)
@@ -495,8 +504,10 @@ class AnyValue(
             is impossible.
         """
         import apysc as ap
+
         result: ap.Boolean = self._append_comparison_expression(
-            comparison_operator='<=', other=other)
+            comparison_operator="<=", other=other
+        )
         return result
 
     @add_debug_info_setting(module_name=__name__)
@@ -517,8 +528,10 @@ class AnyValue(
             is impossible.
         """
         import apysc as ap
+
         result: ap.Boolean = self._append_comparison_expression(
-            comparison_operator='>', other=other)
+            comparison_operator=">", other=other
+        )
         return result
 
     @add_debug_info_setting(module_name=__name__)
@@ -538,8 +551,10 @@ class AnyValue(
             False on Python since the correct comparison is impossible.
         """
         import apysc as ap
+
         result: ap.Boolean = self._append_comparison_expression(
-            comparison_operator='>=', other=other)
+            comparison_operator=">=", other=other
+        )
         return result
 
     _any_value_snapshots: Dict[str, Any]
@@ -554,8 +569,10 @@ class AnyValue(
             Target snapshot name.
         """
         self._set_single_snapshot_val_to_dict(
-            dict_name='_any_value_snapshots',
-            value=self._value, snapshot_name=snapshot_name)
+            dict_name="_any_value_snapshots",
+            value=self._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

@@ -9,8 +9,7 @@ from apysc._type.number_value_interface import NumberValueInterface
 from apysc._validation import arg_validation_decos
 
 
-class Number(
-        NumberValueInterface[float, 'Number']):
+class Number(NumberValueInterface[float, "Number"]):
     """
     Floating point number class for the apysc library.
 
@@ -50,14 +49,14 @@ class Number(
     """
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            value: Union[int, float, NumberValueInterface],
-            *,
-            variable_name_suffix: str = '') -> None:
+        self,
+        value: Union[int, float, NumberValueInterface],
+        *,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Floating point number class for apysc library.
 
@@ -107,21 +106,25 @@ class Number(
         from apysc._converter import cast
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._expression.event_handler_scope import \
-            TemporaryNotHandlerScope
+        from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
+
         with TemporaryNotHandlerScope():
             TYPE_NAME: str = var_names.NUMBER
-            self.variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=TYPE_NAME)
+            self.variable_name = expression_variables_util.get_next_variable_name(
+                type_name=TYPE_NAME
+            )
             super(Number, self).__init__(
-                value=value, type_name=TYPE_NAME,
-                variable_name_suffix=variable_name_suffix)
+                value=value,
+                type_name=TYPE_NAME,
+                variable_name_suffix=variable_name_suffix,
+            )
             self._value = cast.to_float_from_int(int_or_float=self.value)
             self.append_constructor_expression()
 
     @arg_validation_decos.is_num(arg_position_index=1)
     def _set_value_and_skip_expression_appending(
-            self, *, value: Union[int, float, Any]) -> None:
+        self, *, value: Union[int, float, Any]
+    ) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -133,6 +136,7 @@ class Number(
             value to an integer.
         """
         from apysc._converter import cast
+
         if isinstance(value, NumberValueInterface):
             value._value = cast.to_float_from_int(int_or_float=value._value)
             value_ = value._value
@@ -150,8 +154,8 @@ class Number(
         repr_str : str
             Representation string of this instance.
         """
-        if not hasattr(self, '_value'):
-            repr_str: str = 'Number(0)'
+        if not hasattr(self, "_value"):
+            repr_str: str = "Number(0)"
         else:
-            repr_str = f'Number({self._value})'
+            repr_str = f"Number({self._value})"
         return repr_str

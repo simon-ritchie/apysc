@@ -19,24 +19,24 @@ from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
-DefaultType = TypeVar('DefaultType')
+DefaultType = TypeVar("DefaultType")
 
 _BuiltinKeys = Union[str, int, float]
-_K = TypeVar('_K')
-_V = TypeVar('_V')
+_K = TypeVar("_K")
+_V = TypeVar("_V")
 
 
 class Dictionary(
-        Generic[_K, _V],
-        CopyInterface,
-        RevertInterface,
-        DictionaryStructure,
-        CustomEventInterface,
-        VariableNameSuffixInterface):
+    Generic[_K, _V],
+    CopyInterface,
+    RevertInterface,
+    DictionaryStructure,
+    CustomEventInterface,
+    VariableNameSuffixInterface,
+):
     """
     Dictionary class for the apysc library.
 
@@ -69,17 +69,17 @@ class Dictionary(
     0
     """
 
-    _initial_value: Union[Dict[_K, _V], 'Dictionary']
+    _initial_value: Union[Dict[_K, _V], "Dictionary"]
     _value: Dict[_K, _V]
 
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            value: Union[Dict[_K, _V], 'Dictionary'],
-            *,
-            variable_name_suffix: str = '') -> None:
+        self,
+        value: Union[Dict[_K, _V], "Dictionary"],
+        *,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Dictionary class for the apysc library.
 
@@ -114,8 +114,8 @@ class Dictionary(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._expression.event_handler_scope import \
-            TemporaryNotHandlerScope
+        from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
+
         with TemporaryNotHandlerScope():
             self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.DICTIONARY
@@ -123,8 +123,9 @@ class Dictionary(
             self._initial_value = value
             self._type_name = TYPE_NAME
             self._value = self._get_dict_value(value=value)
-            self.variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=TYPE_NAME)
+            self.variable_name = expression_variables_util.get_next_variable_name(
+                type_name=TYPE_NAME
+            )
             self._append_constructor_expression()
 
     @add_debug_info_setting(module_name=__name__)
@@ -134,14 +135,16 @@ class Dictionary(
         """
         import apysc as ap
         from apysc._type import value_util
+
         value_str: str = value_util.get_value_str_for_expression(
-            value=self._initial_value)
-        expression: str = f'var {self.variable_name} = {value_str};'
+            value=self._initial_value
+        )
+        expression: str = f"var {self.variable_name} = {value_str};"
         ap.append_js_expression(expression=expression)
 
     def _get_dict_value(
-            self, *,
-            value: Union[Dict[_K, _V], 'Dictionary']) -> Dict[_K, _V]:
+        self, *, value: Union[Dict[_K, _V], "Dictionary"]
+    ) -> Dict[_K, _V]:
         """
         Get a dict value from a specified value.
 
@@ -160,7 +163,8 @@ class Dictionary(
         return value  # type: ignore
 
     def _validate_acceptable_value_type(
-            self, *, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
+        self, *, value: Union[Dict[_K, _V], "Dictionary"]
+    ) -> None:
         """
         Validate whether a specified value is an acceptable
         type or not.
@@ -179,14 +183,14 @@ class Dictionary(
         if isinstance(value, (dict, Dictionary)):
             return
         raise TypeError(
-            'Not acceptable value type is specified.'
-            f'\nSpecified valkue type is: {type(value)}'
-            '\nAcceptable types are: dict and Dictionary'
+            "Not acceptable value type is specified."
+            f"\nSpecified valkue type is: {type(value)}"
+            "\nAcceptable types are: dict and Dictionary"
         )
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def value(self) -> Union[Dict[_K, _V], 'Dictionary']:
+    def value(self) -> Union[Dict[_K, _V], "Dictionary"]:
         """
         Get a current dict value.
 
@@ -212,7 +216,7 @@ class Dictionary(
 
     @value.setter
     @add_debug_info_setting(module_name=__name__)
-    def value(self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
+    def value(self, value: Union[Dict[_K, _V], "Dictionary"]) -> None:
         """
         Set dictionary value.
 
@@ -232,7 +236,8 @@ class Dictionary(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(
-            self, *, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
+        self, *, value: Union[Dict[_K, _V], "Dictionary"]
+    ) -> None:
         """
         Append value's setter expression.
 
@@ -243,9 +248,9 @@ class Dictionary(
         """
         import apysc as ap
         from apysc._type import value_util
-        value_str: str = value_util.get_value_str_for_expression(
-            value=value)
-        expression: str = f'{self.variable_name} = {value_str};'
+
+        value_str: str = value_util.get_value_str_for_expression(value=value)
+        expression: str = f"{self.variable_name} = {value_str};"
         ap.append_js_expression(expression=expression)
 
     _value_snapshot: Dict[str, Dict[_K, _V]]
@@ -260,8 +265,10 @@ class Dictionary(
             Target snapshot name.
         """
         self._set_single_snapshot_val_to_dict(
-            dict_name='_value_snapshot',
-            value={**self._value}, snapshot_name=snapshot_name)
+            dict_name="_value_snapshot",
+            value={**self._value},
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -285,8 +292,8 @@ class Dictionary(
         string : str
             Converted value string.
         """
-        if not hasattr(self, '_value'):
-            return '{}'
+        if not hasattr(self, "_value"):
+            return "{}"
         return str(self._value)
 
     def __repr__(self) -> str:
@@ -298,10 +305,10 @@ class Dictionary(
         repr_str : str
             Representation string of this instance.
         """
-        if not hasattr(self, '_value'):
-            repr_str: str = 'Dictionary({})'
+        if not hasattr(self, "_value"):
+            repr_str: str = "Dictionary({})"
         else:
-            repr_str = f'Dictionary({self._value})'
+            repr_str = f"Dictionary({self._value})"
         return repr_str
 
     @property
@@ -328,6 +335,7 @@ class Dictionary(
         Int(2)
         """
         import apysc as ap
+
         length: ap.Int = ap.Int(len(self._value))
         self._append_length_expression(length=length)
         return length
@@ -343,9 +351,9 @@ class Dictionary(
             Created length Int variable.
         """
         import apysc as ap
+
         expression: str = (
-            f'{length.variable_name} = '
-            f'Object.keys({self.variable_name}).length;'
+            f"{length.variable_name} = " f"Object.keys({self.variable_name}).length;"
         )
         ap.append_js_expression(expression=expression)
 
@@ -355,8 +363,9 @@ class Dictionary(
         Dictionary instance.
         """
         raise Exception(
-            'Dictionary instance can\'t apply len function.'
-            ' Please use length property instead.')
+            "Dictionary instance can't apply len function."
+            " Please use length property instead."
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def __getitem__(self, key: Union[_K, ExpressionString]) -> _V:
@@ -374,6 +383,7 @@ class Dictionary(
             Specified key's value.
         """
         import apysc as ap
+
         self._validate_key_type_is_str_or_numeric(key=key)
         key_: _BuiltinKeys = self._get_builtin_type_key(key=key)
         has_key: bool = key_ in self._value
@@ -385,7 +395,8 @@ class Dictionary(
         return value
 
     def _get_builtin_type_key(
-            self, *, key: Union[_K, ExpressionString]) -> _BuiltinKeys:
+        self, *, key: Union[_K, ExpressionString]
+    ) -> _BuiltinKeys:
         """
         Get a built-in type's key (str, int, or float) from
         a specified key.
@@ -409,7 +420,8 @@ class Dictionary(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_getitem_expression(
-            self, *, key: Union[_K, ExpressionString], value: Any) -> None:
+        self, *, key: Union[_K, ExpressionString], value: Any
+    ) -> None:
         """
         Append __getitem__ expression.
 
@@ -422,17 +434,18 @@ class Dictionary(
         """
         import apysc as ap
         from apysc._type import value_util
+
         if not isinstance(value, VariableNameInterface):
             value = ap.AnyValue(None)
         key_str: str = value_util.get_value_str_for_expression(value=key)
         expression: str = (
-            f'var {value.variable_name} = '
-            f'{self.variable_name}[{key_str}];'
+            f"var {value.variable_name} = " f"{self.variable_name}[{key_str}];"
         )
         ap.append_js_expression(expression=expression)
 
     def _validate_key_type_is_str_or_numeric(
-            self, *, key: Union[_K, ExpressionString]) -> None:
+        self, *, key: Union[_K, ExpressionString]
+    ) -> None:
         """
         Validate whether a key's value type is acceptable
         (str or int or float) or not.
@@ -448,18 +461,15 @@ class Dictionary(
             If a key's type is not String, Int, Number, str, int,
             or float.
         """
-        if isinstance(
-                key,
-                (str, String, int, Int, float, Number,
-                 ExpressionString)):
+        if isinstance(key, (str, String, int, Int, float, Number, ExpressionString)):
             return
         raise ValueError(
-            f'Unsupported key type is specified: {type(key)}, {key}'
-            f'\nSuppoting types are: str, String, int, Int')
+            f"Unsupported key type is specified: {type(key)}, {key}"
+            f"\nSuppoting types are: str, String, int, Int"
+        )
 
     @add_debug_info_setting(module_name=__name__)
-    def __setitem__(
-            self, key: Union[_K, ExpressionString], value: _V) -> None:
+    def __setitem__(self, key: Union[_K, ExpressionString], value: _V) -> None:
         """
         Set value to a specified key position.
 
@@ -476,7 +486,8 @@ class Dictionary(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_setitem_expression(
-            self, *, key: Union[_K, ExpressionString], value: _V) -> None:
+        self, *, key: Union[_K, ExpressionString], value: _V
+    ) -> None:
         """
         Append __setitem__ method expression.
 
@@ -489,12 +500,10 @@ class Dictionary(
         """
         import apysc as ap
         from apysc._type import value_util
+
         key_str: str = value_util.get_value_str_for_expression(value=key)
-        value_str: str = value_util.get_value_str_for_expression(
-            value=value)
-        expression: str = (
-            f'{self.variable_name}[{key_str}] = {value_str};'
-        )
+        value_str: str = value_util.get_value_str_for_expression(value=value)
+        expression: str = f"{self.variable_name}[{key_str}] = {value_str};"
         ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
@@ -513,8 +522,7 @@ class Dictionary(
         self._append_delitem_expression(key=key)
 
     @add_debug_info_setting(module_name=__name__)
-    def _append_delitem_expression(
-            self, *, key: Union[_K, ExpressionString]) -> None:
+    def _append_delitem_expression(self, *, key: Union[_K, ExpressionString]) -> None:
         """
         Append __delitem__ method expression.
 
@@ -525,10 +533,9 @@ class Dictionary(
         """
         import apysc as ap
         from apysc._type import value_util
+
         key_str: str = value_util.get_value_str_for_expression(value=key)
-        expression: str = (
-            f'delete {self.variable_name}[{key_str}];'
-        )
+        expression: str = f"delete {self.variable_name}[{key_str}];"
         ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
@@ -548,6 +555,7 @@ class Dictionary(
             Comparison result.
         """
         import apysc as ap
+
         if isinstance(other, Dictionary):
             result: ap.Boolean = ap.Boolean(self._value == other._value)
         else:
@@ -560,8 +568,8 @@ class Dictionary(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
-            self, *, result: Boolean,
-            other: VariableNameInterface) -> None:
+        self, *, result: Boolean, other: VariableNameInterface
+    ) -> None:
         """
         Append an __eq__ expression.
 
@@ -573,9 +581,10 @@ class Dictionary(
             The Dictionary's other value to compare.
         """
         import apysc as ap
+
         expression: str = (
-            f'{result.variable_name} = '
-            f'_.isEqual({self.variable_name}, {other.variable_name});'
+            f"{result.variable_name} = "
+            f"_.isEqual({self.variable_name}, {other.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 
@@ -596,6 +605,7 @@ class Dictionary(
             Comparison result.
         """
         import apysc as ap
+
         if isinstance(other, dict):
             other = Dictionary(other)
         result: ap.Boolean = self == other
@@ -606,8 +616,8 @@ class Dictionary(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
-            self, *, result: Boolean,
-            other: VariableNameInterface) -> None:
+        self, *, result: Boolean, other: VariableNameInterface
+    ) -> None:
         """
         Append a __ne__ expression.
 
@@ -619,17 +629,17 @@ class Dictionary(
             The Dictionary's other value to compare.
         """
         import apysc as ap
+
         expression: str = (
-            f'{result.variable_name} = '
-            f'!_.isEqual({self.variable_name}, {other.variable_name});'
+            f"{result.variable_name} = "
+            f"!_.isEqual({self.variable_name}, {other.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
     def get(
-            self, key: Union[_K, ExpressionString],
-            *,
-            default: DefaultType = None) -> DefaultType:
+        self, key: Union[_K, ExpressionString], *, default: DefaultType = None
+    ) -> DefaultType:
         """
         Get a specified key dictionary value. If this
         dictionary hasn't a specified key, this interface
@@ -674,15 +684,13 @@ class Dictionary(
             result_value: Any = self._value[key_]  # type: ignore
         else:
             result_value = default
-        self._append_get_expression(
-            key=key, result_value=result_value, default=default)
+        self._append_get_expression(key=key, result_value=result_value, default=default)
         return result_value
 
     @add_debug_info_setting(module_name=__name__)
     def _append_get_expression(
-            self, *, key: Union[_K, ExpressionString],
-            result_value: Any,
-            default: Any) -> None:
+        self, *, key: Union[_K, ExpressionString], result_value: Any, default: Any
+    ) -> None:
         """
         Append the `get` method expression.
 
@@ -698,18 +706,19 @@ class Dictionary(
         """
         import apysc as ap
         from apysc._type import value_util
+
         key_str: str = value_util.get_value_str_for_expression(value=key)
         if not isinstance(result_value, VariableNameInterface):
             result_value = AnyValue(value=None)
         result_value_str: str = value_util.get_value_str_for_expression(
-            value=result_value)
-        default_value_str: str = value_util.get_value_str_for_expression(
-            value=default)
+            value=result_value
+        )
+        default_value_str: str = value_util.get_value_str_for_expression(value=default)
         expression: str = (
-            f'if ({key_str} in {self.variable_name}) {{'
-            f'\n  {result_value_str} = {self.variable_name}[{key_str}];'
-            '\n}else {'
-            f'\n  {result_value_str} = {default_value_str};'
-            '\n}'
+            f"if ({key_str} in {self.variable_name}) {{"
+            f"\n  {result_value_str} = {self.variable_name}[{key_str}];"
+            "\n}else {"
+            f"\n  {result_value_str} = {default_value_str};"
+            "\n}"
         )
         ap.append_js_expression(expression=expression)

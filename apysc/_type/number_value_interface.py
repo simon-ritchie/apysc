@@ -12,21 +12,21 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
-_NumType = Union[int, float, 'NumberValueInterface']
-_V = TypeVar('_V', int, float)
-_T = TypeVar('_T', bound='NumberValueInterface')
+_NumType = Union[int, float, "NumberValueInterface"]
+_V = TypeVar("_V", int, float)
+_T = TypeVar("_T", bound="NumberValueInterface")
 
 
 class NumberValueInterface(
-        CopyInterface,
-        RevertInterface,
-        CustomEventInterface,
-        VariableNameSuffixInterface,
-        Generic[_V, _T]):
+    CopyInterface,
+    RevertInterface,
+    CustomEventInterface,
+    VariableNameSuffixInterface,
+    Generic[_V, _T],
+):
 
     _initial_value: _NumType
     _value: _V
@@ -34,11 +34,8 @@ class NumberValueInterface(
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            value: _NumType,
-            type_name: str,
-            variable_name_suffix: str = '') -> None:
+        self, *, value: _NumType, type_name: str, variable_name_suffix: str = ""
+    ) -> None:
         """
         Class for number value interface.
 
@@ -67,14 +64,12 @@ class NumberValueInterface(
         Append current value's constructor expression.
         """
         import apysc as ap
+
         if isinstance(self._initial_value, NumberValueInterface):
-            value_: Union[int, float, str] = \
-                self._initial_value.variable_name
+            value_: Union[int, float, str] = self._initial_value.variable_name
         else:
             value_ = self._value
-        expression: str = (
-            f'var {self.variable_name} = {value_};'
-        )
+        expression: str = f"var {self.variable_name} = {value_};"
         ap.append_js_expression(expression=expression)
 
     @property
@@ -134,8 +129,7 @@ class NumberValueInterface(
             self._append_value_setter_expression(value=self._value)
 
     @arg_validation_decos.is_num(arg_position_index=1)
-    def _set_value_and_skip_expression_appending(
-            self, *, value: _NumType) -> None:
+    def _set_value_and_skip_expression_appending(self, *, value: _NumType) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -151,8 +145,7 @@ class NumberValueInterface(
         self._value = value_
 
     @add_debug_info_setting(module_name=__name__)
-    def _append_value_setter_expression(
-            self, *, value: _NumType) -> None:
+    def _append_value_setter_expression(self, *, value: _NumType) -> None:
         """
         Append value's setter-expresion.
 
@@ -162,13 +155,12 @@ class NumberValueInterface(
             Any number value to set.
         """
         import apysc as ap
+
         if isinstance(value, NumberValueInterface):
             right_value: Union[str, int, float] = value.variable_name
         else:
             right_value = value  # type: ignore
-        expression: str = (
-            f'{self.variable_name} = {right_value};'
-        )
+        expression: str = f"{self.variable_name} = {right_value};"
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_num(arg_position_index=1)
@@ -198,8 +190,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_addition_expression(
-            self, *, result: VariableNameInterface,
-            other: _NumType) -> None:
+        self, *, result: VariableNameInterface, other: _NumType
+    ) -> None:
         """
         Append addition expression.
 
@@ -212,10 +204,10 @@ class NumberValueInterface(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
-            f'var {result.variable_name} = '
-            f'{self.variable_name} + {right_value};'
+            f"var {result.variable_name} = " f"{self.variable_name} + {right_value};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -246,8 +238,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_subtraction_expression(
-            self, *, result: VariableNameInterface,
-            other: _NumType) -> None:
+        self, *, result: VariableNameInterface, other: _NumType
+    ) -> None:
         """
         Append subtraction expression.
 
@@ -260,10 +252,10 @@ class NumberValueInterface(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
-            f'var {result.variable_name} = '
-            f'{self.variable_name} - {right_value};'
+            f"var {result.variable_name} = " f"{self.variable_name} - {right_value};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -294,8 +286,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_multiplication_expression(
-            self, *, result: VariableNameInterface,
-            other: _NumType) -> None:
+        self, *, result: VariableNameInterface, other: _NumType
+    ) -> None:
         """
         Append multiplication expression.
 
@@ -308,10 +300,10 @@ class NumberValueInterface(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
-            f'var {result.variable_name} = '
-            f'{self.variable_name} * {right_value};'
+            f"var {result.variable_name} = " f"{self.variable_name} * {right_value};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -332,6 +324,7 @@ class NumberValueInterface(
             True division result value.
         """
         import apysc as ap
+
         result: ap.Number = ap.Number(value=self)
         if isinstance(other, NumberValueInterface):
             value: _NumType = result._value / other._value
@@ -343,8 +336,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_true_division_expression(
-            self, *, result: VariableNameInterface,
-            other: _NumType) -> None:
+        self, *, result: VariableNameInterface, other: _NumType
+    ) -> None:
         """
         Append true division expression.
 
@@ -357,10 +350,10 @@ class NumberValueInterface(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
-            f'{result.variable_name} = {self.variable_name} / '
-            f'{right_value};'
+            f"{result.variable_name} = {self.variable_name} / " f"{right_value};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -381,6 +374,7 @@ class NumberValueInterface(
             Floor division result value.
         """
         import apysc as ap
+
         result: ap.Int = ap.Int(value=self)
         if isinstance(other, NumberValueInterface):
             value: _NumType = self._value // other._value
@@ -392,8 +386,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_floor_division_expression(
-            self, *, result: VariableNameInterface,
-            other: _NumType) -> None:
+        self, *, result: VariableNameInterface, other: _NumType
+    ) -> None:
         """
         Append floor division expression.
 
@@ -406,14 +400,15 @@ class NumberValueInterface(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
-            f'{result.variable_name} = '
-            f'Math.trunc({self.variable_name} / {right_value});'
+            f"{result.variable_name} = "
+            f"Math.trunc({self.variable_name} / {right_value});"
         )
         ap.append_js_expression(expression=expression)
 
-    _incremental_calc_prev_name: str = ''
+    _incremental_calc_prev_name: str = ""
 
     @add_debug_info_setting(module_name=__name__)
     def _append_incremental_calc_substitution_expression(self) -> None:
@@ -422,11 +417,12 @@ class NumberValueInterface(
         Each interface call this method.
         """
         from apysc._expression import expression_variables_util
-        expression_variables_util.\
-            append_substitution_expression_with_names(
-                left_variable_name=self._incremental_calc_prev_name,
-                right_variable_name=self.variable_name)
-        self._incremental_calc_prev_name = ''
+
+        expression_variables_util.append_substitution_expression_with_names(
+            left_variable_name=self._incremental_calc_prev_name,
+            right_variable_name=self.variable_name,
+        )
+        self._incremental_calc_prev_name = ""
 
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -445,11 +441,12 @@ class NumberValueInterface(
             Incremental addition result value.
         """
         from apysc._expression import expression_variables_util
-        self._incremental_calc_prev_name = \
-            self._get_previous_variable_name()
+
+        self._incremental_calc_prev_name = self._get_previous_variable_name()
         result: _T = self + other
         expression_variables_util.append_substitution_expression(
-            left_value=self, right_value=result)
+            left_value=self, right_value=result
+        )
         result.variable_name = self.variable_name
         return result
 
@@ -470,11 +467,12 @@ class NumberValueInterface(
             Incremental subtraction result value.
         """
         from apysc._expression import expression_variables_util
-        self._incremental_calc_prev_name = \
-            self._get_previous_variable_name()
+
+        self._incremental_calc_prev_name = self._get_previous_variable_name()
         result: NumberValueInterface = self - other
         expression_variables_util.append_substitution_expression(
-            left_value=self, right_value=result)
+            left_value=self, right_value=result
+        )
         result.variable_name = self.variable_name
         return result
 
@@ -495,11 +493,12 @@ class NumberValueInterface(
             Incremental multiplication result value.
         """
         from apysc._expression import expression_variables_util
-        self._incremental_calc_prev_name = \
-            self._get_previous_variable_name()
+
+        self._incremental_calc_prev_name = self._get_previous_variable_name()
         result: _T = self * other
         expression_variables_util.append_substitution_expression(
-            left_value=self, right_value=result)
+            left_value=self, right_value=result
+        )
         result.variable_name = self.variable_name
         return result
 
@@ -520,13 +519,13 @@ class NumberValueInterface(
             The other value for incremental-true division.
         """
         from apysc._expression import expression_variables_util
-        self._incremental_calc_prev_name = \
-            self._get_previous_variable_name()
+
+        self._incremental_calc_prev_name = self._get_previous_variable_name()
         result: NumberValueInterface = self / other
-        result._incremental_calc_prev_name = \
-            self._incremental_calc_prev_name
+        result._incremental_calc_prev_name = self._incremental_calc_prev_name
         expression_variables_util.append_substitution_expression(
-            left_value=self, right_value=result)
+            left_value=self, right_value=result
+        )
         result.variable_name = self.variable_name
         return result
 
@@ -557,8 +556,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_modulo_expression(
-            self, *, result: VariableNameInterface,
-            other: _NumType) -> None:
+        self, *, result: VariableNameInterface, other: _NumType
+    ) -> None:
         """
         Append a module expression.
 
@@ -571,10 +570,10 @@ class NumberValueInterface(
         """
         import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
+
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
-            f'var {result.variable_name} = '
-            f'{self.variable_name} % {right_value};'
+            f"var {result.variable_name} = " f"{self.variable_name} % {right_value};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -587,8 +586,8 @@ class NumberValueInterface(
         string : str
             Converted value string.
         """
-        if not hasattr(self, '_value'):
-            return '0'
+        if not hasattr(self, "_value"):
+            return "0"
         return str(self._value)
 
     def __int__(self) -> int:
@@ -631,14 +630,16 @@ class NumberValueInterface(
             returns True.
         """
         import apysc as ap
+
         if isinstance(other, NumberValueInterface):
             result: ap.Boolean = ap.Boolean(
                 self._value == other._value,
-                variable_name_suffix=self._variable_name_suffix)
+                variable_name_suffix=self._variable_name_suffix,
+            )
         else:
             result = ap.Boolean(
-                self._value == other,
-                variable_name_suffix=self._variable_name_suffix)
+                self._value == other, variable_name_suffix=self._variable_name_suffix
+            )
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_eq_expression(result=result, other=other)
@@ -666,18 +667,17 @@ class NumberValueInterface(
             other type directly (not to be converted).
         """
         import apysc as ap
+
         if isinstance(other, int):
-            return ap.Int(
-                other, variable_name_suffix=self._variable_name_suffix)
+            return ap.Int(other, variable_name_suffix=self._variable_name_suffix)
         if isinstance(other, float):
-            return ap.Number(
-                other, variable_name_suffix=self._variable_name_suffix)
+            return ap.Number(other, variable_name_suffix=self._variable_name_suffix)
         return other
 
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
-            self, *, result: VariableNameInterface,
-            other: VariableNameInterface) -> None:
+        self, *, result: VariableNameInterface, other: VariableNameInterface
+    ) -> None:
         """
         Append __eq__ method expression.
 
@@ -689,9 +689,10 @@ class NumberValueInterface(
             The other value to compare.
         """
         import apysc as ap
+
         expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} === {other.variable_name};'
+            f"{result.variable_name} = "
+            f"{self.variable_name} === {other.variable_name};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -713,14 +714,16 @@ class NumberValueInterface(
             returns True.
         """
         import apysc as ap
+
         if isinstance(other, NumberValueInterface):
             result: ap.Boolean = ap.Boolean(
                 self._value != other._value,
-                variable_name_suffix=self._variable_name_suffix)
+                variable_name_suffix=self._variable_name_suffix,
+            )
         else:
             result = ap.Boolean(
-                self._value != other,
-                variable_name_suffix=self._variable_name_suffix)
+                self._value != other, variable_name_suffix=self._variable_name_suffix
+            )
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ne_expression(result=result, other=other)
@@ -728,8 +731,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
-            self, *, result: VariableNameInterface,
-            other: VariableNameInterface) -> None:
+        self, *, result: VariableNameInterface, other: VariableNameInterface
+    ) -> None:
         """
         Append __ne__ method expression.
 
@@ -741,9 +744,10 @@ class NumberValueInterface(
             The other value to compare.
         """
         import apysc as ap
+
         expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} !== {other.variable_name};'
+            f"{result.variable_name} = "
+            f"{self.variable_name} !== {other.variable_name};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -765,14 +769,16 @@ class NumberValueInterface(
             this interface returns True.
         """
         import apysc as ap
+
         if isinstance(other, NumberValueInterface):
             result: ap.Boolean = ap.Boolean(
                 self._value < other._value,
-                variable_name_suffix=self._variable_name_suffix)
+                variable_name_suffix=self._variable_name_suffix,
+            )
         else:
             result = ap.Boolean(
-                self._value < other,
-                variable_name_suffix=self._variable_name_suffix)
+                self._value < other, variable_name_suffix=self._variable_name_suffix
+            )
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_lt_expression(result=result, other=other)
@@ -780,8 +786,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_lt_expression(
-            self, *, result: VariableNameInterface,
-            other: VariableNameInterface) -> None:
+        self, *, result: VariableNameInterface, other: VariableNameInterface
+    ) -> None:
         """
         Append __lt__ method expression.
 
@@ -793,9 +799,10 @@ class NumberValueInterface(
             The other value to compare.
         """
         import apysc as ap
+
         expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} < {other.variable_name};'
+            f"{result.variable_name} = "
+            f"{self.variable_name} < {other.variable_name};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -817,14 +824,16 @@ class NumberValueInterface(
             value, this interface returns True.
         """
         import apysc as ap
+
         if isinstance(other, NumberValueInterface):
             result: ap.Boolean = ap.Boolean(
                 self._value <= other._value,
-                variable_name_suffix=self._variable_name_suffix)
+                variable_name_suffix=self._variable_name_suffix,
+            )
         else:
             result = ap.Boolean(
-                self._value <= other,
-                variable_name_suffix=self._variable_name_suffix)
+                self._value <= other, variable_name_suffix=self._variable_name_suffix
+            )
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_le_expression(result=result, other=other)
@@ -832,8 +841,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_le_expression(
-            self, *, result: VariableNameInterface,
-            other: VariableNameInterface) -> None:
+        self, *, result: VariableNameInterface, other: VariableNameInterface
+    ) -> None:
         """
         Append __le__ method expression.
 
@@ -845,9 +854,10 @@ class NumberValueInterface(
             The other value to compare.
         """
         import apysc as ap
+
         expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} <= {other.variable_name};'
+            f"{result.variable_name} = "
+            f"{self.variable_name} <= {other.variable_name};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -869,14 +879,16 @@ class NumberValueInterface(
             this interface returns True.
         """
         import apysc as ap
+
         if isinstance(other, NumberValueInterface):
             result: ap.Boolean = ap.Boolean(
                 self._value > other._value,
-                variable_name_suffix=self._variable_name_suffix)
+                variable_name_suffix=self._variable_name_suffix,
+            )
         else:
             result = ap.Boolean(
-                self._value > other,
-                variable_name_suffix=self._variable_name_suffix)
+                self._value > other, variable_name_suffix=self._variable_name_suffix
+            )
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, NumberValueInterface):
             self._append_gt_expression(result=result, other=other)
@@ -884,8 +896,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_gt_expression(
-            self, *, result: VariableNameInterface,
-            other: VariableNameInterface) -> None:
+        self, *, result: VariableNameInterface, other: VariableNameInterface
+    ) -> None:
         """
         Append __gt__ expression.
 
@@ -897,9 +909,10 @@ class NumberValueInterface(
             The other value to compare.
         """
         import apysc as ap
+
         expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} > {other.variable_name};'
+            f"{result.variable_name} = "
+            f"{self.variable_name} > {other.variable_name};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -921,14 +934,16 @@ class NumberValueInterface(
             value, this interface returns True.
         """
         import apysc as ap
+
         if isinstance(other, NumberValueInterface):
             result: ap.Boolean = ap.Boolean(
                 self._value >= other._value,
-                variable_name_suffix=self._variable_name_suffix)
+                variable_name_suffix=self._variable_name_suffix,
+            )
         else:
             result = ap.Boolean(
-                self._value >= other,
-                variable_name_suffix=self._variable_name_suffix)
+                self._value >= other, variable_name_suffix=self._variable_name_suffix
+            )
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ge_expression(result=result, other=other)
@@ -936,8 +951,8 @@ class NumberValueInterface(
 
     @add_debug_info_setting(module_name=__name__)
     def _append_ge_expression(
-            self, *, result: VariableNameInterface,
-            other: VariableNameInterface) -> None:
+        self, *, result: VariableNameInterface, other: VariableNameInterface
+    ) -> None:
         """
         Append __ge__ expression.
 
@@ -949,9 +964,10 @@ class NumberValueInterface(
             The other value to compare.
         """
         import apysc as ap
+
         expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} >= {other.variable_name};'
+            f"{result.variable_name} = "
+            f"{self.variable_name} >= {other.variable_name};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -967,8 +983,8 @@ class NumberValueInterface(
             Target snapshot name.
         """
         self._set_single_snapshot_val_to_dict(
-            dict_name='_value_snapshots',
-            value=self._value, snapshot_name=snapshot_name)
+            dict_name="_value_snapshots", value=self._value, snapshot_name=snapshot_name
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

@@ -8,17 +8,15 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 
 
 class AttrToApyscValFromBuiltinInterface:
-
     def _get_copied_int_from_builtin_val(
-            self,
-            *,
-            integer: Union[int, Int],
-            attr_identifier: str) -> Int:
+        self, *, integer: Union[int, Int], attr_identifier: str
+    ) -> Int:
         """
         Get a copied Int value from a Python built-in int
         and set an attribute's variable name suffix.
@@ -35,19 +33,21 @@ class AttrToApyscValFromBuiltinInterface:
         copied : Int
             Copied Int value.
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
+        from apysc._converter.to_apysc_val_from_builtin import (
+            get_copied_int_from_builtin_val,
+        )
+
         suffix: str = _get_variable_name_suffix(
-            instance=self, attr_identifier=attr_identifier)
+            instance=self, attr_identifier=attr_identifier
+        )
         copied: Int = get_copied_int_from_builtin_val(
-            integer=integer, variable_name_suffix=suffix)
+            integer=integer, variable_name_suffix=suffix
+        )
         return copied
 
     def _get_copied_number_from_builtin_val(
-            self,
-            *,
-            float_or_num: Union[float, Number],
-            attr_identifier: str) -> Number:
+        self, *, float_or_num: Union[float, Number], attr_identifier: str
+    ) -> Number:
         """
         Get a copied number value from a Python built-in float
         and set an attribute's variable name suffix.
@@ -64,19 +64,21 @@ class AttrToApyscValFromBuiltinInterface:
         copied : Number
             Copied Number value.
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_number_from_builtin_val
+        from apysc._converter.to_apysc_val_from_builtin import (
+            get_copied_number_from_builtin_val,
+        )
+
         suffix: str = _get_variable_name_suffix(
-            instance=self, attr_identifier=attr_identifier)
+            instance=self, attr_identifier=attr_identifier
+        )
         copied: Number = get_copied_number_from_builtin_val(
-            float_or_num=float_or_num, variable_name_suffix=suffix)
+            float_or_num=float_or_num, variable_name_suffix=suffix
+        )
         return copied
 
     def _get_copied_string_from_builtin_val(
-            self,
-            *,
-            string: Union[str, String],
-            attr_identifier: str) -> String:
+        self, *, string: Union[str, String], attr_identifier: str
+    ) -> String:
         """
         Get a copied String value from a Python built-in str
         and set an attribute's variable name suffix.
@@ -93,19 +95,21 @@ class AttrToApyscValFromBuiltinInterface:
         copied : String
             Copied String value.
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_string_from_builtin_val
+        from apysc._converter.to_apysc_val_from_builtin import (
+            get_copied_string_from_builtin_val,
+        )
+
         suffix: str = _get_variable_name_suffix(
-            instance=self, attr_identifier=attr_identifier)
+            instance=self, attr_identifier=attr_identifier
+        )
         copied: String = get_copied_string_from_builtin_val(
-            string=string, variable_name_suffix=suffix)
+            string=string, variable_name_suffix=suffix
+        )
         return copied
 
     def _get_copied_boolean_from_builtin_val(
-            self,
-            *,
-            bool_val: Union[bool, Boolean],
-            attr_identifier: str) -> Boolean:
+        self, *, bool_val: Union[bool, Boolean], attr_identifier: str
+    ) -> Boolean:
         """
         Get a copied Boolean value from a Python built-in bool
         and set an attribute's variable name suffix.
@@ -122,19 +126,22 @@ class AttrToApyscValFromBuiltinInterface:
         copied : Boolean
             Copied Boolean value.
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_boolean_from_builtin_val
+        from apysc._converter.to_apysc_val_from_builtin import (
+            get_copied_boolean_from_builtin_val,
+        )
+
         suffix: str = _get_variable_name_suffix(
-            instance=self, attr_identifier=attr_identifier)
+            instance=self, attr_identifier=attr_identifier
+        )
         copied: Boolean = get_copied_boolean_from_builtin_val(
-            bool_val=bool_val, variable_name_suffix=suffix)
+            bool_val=bool_val, variable_name_suffix=suffix
+        )
         return copied
 
 
 def _get_variable_name_suffix(
-        *,
-        instance: AttrToApyscValFromBuiltinInterface,
-        attr_identifier: str) -> str:
+    *, instance: AttrToApyscValFromBuiltinInterface, attr_identifier: str
+) -> str:
     """
     Get a target instance's variable name suffix.
 
@@ -154,7 +161,8 @@ def _get_variable_name_suffix(
     """
     if isinstance(instance, VariableNameSuffixAttrInterface):
         suffix: str = instance._get_attr_variable_name_suffix(
-            attr_identifier=attr_identifier)
+            attr_identifier=attr_identifier
+        )
         return suffix
 
-    return ''
+    return ""

@@ -5,7 +5,7 @@ class.
 
 class VariableNameSuffixInterface:
 
-    __variable_name_suffix: str = ''
+    __variable_name_suffix: str = ""
 
     @property
     def _variable_name_suffix(self) -> str:

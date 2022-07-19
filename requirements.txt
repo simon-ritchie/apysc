@@ -18,3 +18,4 @@ notebook==6.4.12
 pyright==0.0.13
 playwright==1.21.0
 myst-parser==0.18.0
+black==22.6.0

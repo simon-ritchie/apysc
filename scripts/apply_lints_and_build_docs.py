@@ -44,7 +44,7 @@ class LintCommand(TypedDict):
 _PY_FILE_DIRS_STR: str = './apysc/ ./tests/ ./test_projects/ ./scripts/'
 
 FLAKE8_NO_PATH_COMMAND: Final[str] = (
-    'flake8 --ignore E402,W503'
+    'flake8 --ignore E402,W503 --max-line-length 88'
 )
 
 FLAKE8_COMMAND: Final[str] = (

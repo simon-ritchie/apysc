@@ -16,22 +16,17 @@ from apysc._testing import testing_helper
 
 
 class TestArray:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        array_1: ap.Array = ap.Array(
-            (1, 2, 3), variable_name_suffix='test_array')
+        array_1: ap.Array = ap.Array((1, 2, 3), variable_name_suffix="test_array")
         expected_attrs: Dict[str, Any] = {
-            '_initial_value': (1, 2, 3),
-            '_value': [1, 2, 3],
-            '_type_name': var_names.ARRAY,
-            '_variable_name_suffix': 'test_array',
+            "_initial_value": (1, 2, 3),
+            "_value": [1, 2, 3],
+            "_type_name": var_names.ARRAY,
+            "_variable_name_suffix": "test_array",
         }
-        testing_helper.assert_attrs(
-            expected_attrs=expected_attrs,
-            any_obj=array_1)
-        assert array_1.variable_name.startswith(
-            f'{var_names.ARRAY}_')
+        testing_helper.assert_attrs(expected_attrs=expected_attrs, any_obj=array_1)
+        assert array_1.variable_name.startswith(f"{var_names.ARRAY}_")
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_acceptable_value_type(self) -> None:
@@ -41,9 +36,8 @@ class TestArray:
         _ = ap.Array(array_1)
 
         testing_helper.assert_raises(
-            expected_error_class=ValueError,
-            callable_=ap.Array,
-            value=100)
+            expected_error_class=ValueError, callable_=ap.Array, value=100
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_list_value(self) -> None:
@@ -63,12 +57,12 @@ class TestArray:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f'var {array_1.variable_name} = [1, 2, 3];'
+        expected: str = f"var {array_1.variable_name} = [1, 2, 3];"
         assert expected in expression
 
         array_2: ap.Array = ap.Array(array_1)
         expression = expression_data_util.get_current_expression()
-        expected = f'var {array_2.variable_name} = {array_1.variable_name}'
+        expected = f"var {array_2.variable_name} = {array_1.variable_name}"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -77,14 +71,12 @@ class TestArray:
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.value = [4, 5, 6]
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{array_1.variable_name} = [4, 5, 6];'
-        )
+        expected: str = f"{array_1.variable_name} = [4, 5, 6];"
         assert expected in expression
 
         array_2: ap.Array = ap.Array(array_1)
         expression = expression_data_util.get_current_expression()
-        expected = f'{array_2.variable_name} = {array_1.variable_name};'
+        expected = f"{array_2.variable_name} = {array_1.variable_name};"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -115,9 +107,7 @@ class TestArray:
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.append(value=4)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{array_1.variable_name}.push(4);'
-        )
+        expected: str = f"{array_1.variable_name}.push(4);"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -136,8 +126,7 @@ class TestArray:
         array_1.extend(other_arr=[3, 4])
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{array_1.variable_name} = '
-            f'{array_1.variable_name}.concat([3, 4]);'
+            f"{array_1.variable_name} = " f"{array_1.variable_name}.concat([3, 4]);"
         )
         assert expected in expression
 
@@ -145,8 +134,8 @@ class TestArray:
         array_1.extend(other_arr=array_2)
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{array_1.variable_name} = '
-            f'{array_1.variable_name}.concat({array_2.variable_name});'
+            f"{array_1.variable_name} = "
+            f"{array_1.variable_name}.concat({array_2.variable_name});"
         )
         assert expected in expression
 
@@ -164,8 +153,7 @@ class TestArray:
         array_2: ap.Array = array_1.concat([3, 4])
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{array_2.variable_name} = '
-            f'{array_1.variable_name}.concat([3, 4]);'
+            f"{array_2.variable_name} = " f"{array_1.variable_name}.concat([3, 4]);"
         )
         assert expected in expression
 
@@ -173,8 +161,8 @@ class TestArray:
         array_4: ap.Array = array_1.concat(array_3)
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{array_4.variable_name} = '
-            f'{array_1.variable_name}.concat({array_3.variable_name});'
+            f"{array_4.variable_name} = "
+            f"{array_1.variable_name}.concat({array_3.variable_name});"
         )
         assert expected in expression
 
@@ -196,9 +184,7 @@ class TestArray:
         array_1: ap.Array[Any] = ap.Array([1, 4])
         array_1.insert(index=1, value=2)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{array_1.variable_name}.splice(1, 0, 2);'
-        )
+        expected: str = f"{array_1.variable_name}.splice(1, 0, 2);"
         assert expected in expression
 
         index_1: ap.Int = ap.Int(2)
@@ -206,8 +192,8 @@ class TestArray:
         array_1.insert(index=index_1, value=value_1)
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{array_1.variable_name}.splice'
-            f'({index_1.variable_name}, 0, {value_1.variable_name});'
+            f"{array_1.variable_name}.splice"
+            f"({index_1.variable_name}, 0, {value_1.variable_name});"
         )
         assert expected in expression
 
@@ -225,18 +211,13 @@ class TestArray:
         array_1: ap.Array[Any] = ap.Array([1, int_1, 3])
         _: int = array_1.pop()
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{array_1.variable_name}.pop();'
-        )
+        expected: str = f"{array_1.variable_name}.pop();"
         assert expected in expression
 
         value_1: ap.Int = array_1.pop()
         assert value_1.variable_name == int_1.variable_name
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{value_1.variable_name} = '
-            f'{array_1.variable_name}.pop();'
-        )
+        expected = f"{value_1.variable_name} = " f"{array_1.variable_name}.pop();"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -252,10 +233,10 @@ class TestArray:
         array_1.remove(2)
         expression: str = expression_data_util.get_current_expression()
         expected_strs: List[str] = [
-            'var idx_',
-            f' = _.indexOf({array_1.variable_name}, 2);'
-            f'\n{array_1.variable_name}.splice(',
-            ', 1);'
+            "var idx_",
+            f" = _.indexOf({array_1.variable_name}, 2);"
+            f"\n{array_1.variable_name}.splice(",
+            ", 1);",
         ]
         for expected_str in expected_strs:
             assert expected_str in expression
@@ -277,17 +258,13 @@ class TestArray:
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
         array_1.remove_at(index=1)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{array_1.variable_name}.splice(1, 1);'
-        )
+        expected: str = f"{array_1.variable_name}.splice(1, 1);"
         assert expected in expression
 
         int_1: ap.Int = ap.Int(1)
         array_1.remove_at(index=int_1)
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{array_1.variable_name}.splice({int_1.variable_name}, 1);'
-        )
+        expected = f"{array_1.variable_name}.splice({int_1.variable_name}, 1);"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -302,9 +279,7 @@ class TestArray:
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.reverse()
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{array_1.variable_name}.reverse();'
-        )
+        expected: str = f"{array_1.variable_name}.reverse();"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -323,19 +298,16 @@ class TestArray:
         array_1: ap.Array = ap.Array([3, 5, 1, 4, 2])
         array_1.sort()
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{array_1.variable_name}.sort();'
-        )
+        expected: str = f"{array_1.variable_name}.sort();"
         assert expected in expression
-        assert 'reverse' not in expression
+        assert "reverse" not in expression
 
         expression_data_util.empty_expression()
         array_2: ap.Array = ap.Array([3, 5, 1, 4, 2])
         array_2.sort(ascending=False)
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{array_2.variable_name}.sort();'
-            f'\n{array_2.variable_name}.reverse();'
+            f"{array_2.variable_name}.sort();" f"\n{array_2.variable_name}.reverse();"
         )
         assert expected in expression
 
@@ -358,8 +330,7 @@ class TestArray:
         array_2: ap.Array = array_1.slice(start=1, end=3)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{array_2.variable_name} = '
-            f'{array_1.variable_name}.slice(1, 3);'
+            f"{array_2.variable_name} = " f"{array_1.variable_name}.slice(1, 3);"
         )
         assert expected in expression
 
@@ -368,34 +339,27 @@ class TestArray:
         array_3: ap.Array = array_1.slice(start=int_1, end=int_2)
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{array_3.variable_name} = {array_1.variable_name}'
-            f'.slice({int_1}, {int_2});'
+            f"{array_3.variable_name} = {array_1.variable_name}"
+            f".slice({int_1}, {int_2});"
         )
         assert expected in expression
 
         array_4: ap.Array = array_1.slice(start=1)
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{array_4.variable_name} = {array_1.variable_name}'
-            '.slice(1);'
-        )
+        expected = f"{array_4.variable_name} = {array_1.variable_name}" ".slice(1);"
         assert expected in expression
 
         array_5: ap.Array = array_1.slice(end=2)
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{array_5.variable_name} = {array_1.variable_name}'
-            '.slice(0, 2);'
-        )
+        expected = f"{array_5.variable_name} = {array_1.variable_name}" ".slice(0, 2);"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___getitem__(self) -> None:
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
         testing_helper.assert_raises(
-            expected_error_class=ValueError,
-            callable_=array_1.__getitem__,
-            index=(0, 1))
+            expected_error_class=ValueError, callable_=array_1.__getitem__, index=(0, 1)
+        )
 
         value_1: int = array_1[2]
         assert value_1 == 3
@@ -411,32 +375,30 @@ class TestArray:
         _: int = array_1[0]
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
-            pattern=rf'var {var_names.ANY}_.+? = {array_1.variable_name}\[0\]',
-            string=expression, flags=re.MULTILINE)
+            pattern=rf"var {var_names.ANY}_.+? = {array_1.variable_name}\[0\]",
+            string=expression,
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
         value_1: ap.Int = array_1[2]
         expression = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{value_1.variable_name} = {array_1.variable_name}[2];'
-        )
+        expected: str = f"{value_1.variable_name} = {array_1.variable_name}[2];"
         assert expected in expression
 
         int_2: ap.Int = ap.Int(2)
         _ = array_1[int_2]
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{value_1.variable_name} = {array_1.variable_name}'
-            f'[{int_2.variable_name}];'
+            f"{value_1.variable_name} = {array_1.variable_name}"
+            f"[{int_2.variable_name}];"
         )
         assert expected in expression
 
         array_2: ap.Array = ap.Array([])
         value_2: ap.AnyValue = array_2[0]
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{value_2.variable_name} = {array_2.variable_name}[0];'
-        )
+        expected = f"{value_2.variable_name} = {array_2.variable_name}[0];"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -447,7 +409,8 @@ class TestArray:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=array_1._validate_index_type_is_int,
-            index='Hello!')
+            index="Hello!",
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_builtin_int_from_index(self) -> None:
@@ -456,8 +419,7 @@ class TestArray:
         assert builtin_int_index == 1
         assert isinstance(builtin_int_index, int)
 
-        builtin_int_index = array_1._get_builtin_int_from_index(
-            index=ap.Int(1))
+        builtin_int_index = array_1._get_builtin_int_from_index(index=ap.Int(1))
         assert builtin_int_index == 1
         assert isinstance(builtin_int_index, int)
 
@@ -479,24 +441,20 @@ class TestArray:
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
         array_1[1] = 4
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{array_1.variable_name}[1] = 4;'
-        )
+        expected: str = f"{array_1.variable_name}[1] = 4;"
         assert expected in expression
 
-        array_1[1] = 'Hello!'
+        array_1[1] = "Hello!"
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{array_1.variable_name}[1] = "Hello!";'
-        )
+        expected = f'{array_1.variable_name}[1] = "Hello!";'
 
         int_1: ap.Int = ap.Int(1)
         int_2: ap.Int = ap.Int(5)
         array_1[int_1] = int_2
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{array_1.variable_name}[{int_1.variable_name}] = '
-            f'{int_2.variable_name};'
+            f"{array_1.variable_name}[{int_1.variable_name}] = "
+            f"{int_2.variable_name};"
         )
         assert expected in expression
 
@@ -519,9 +477,7 @@ class TestArray:
         array_1: ap.Array = ap.Array([1, 2, 3])
         length: ap.Int = array_1.length
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{length.variable_name} = {array_1.variable_name}.length;'
-        )
+        expected: str = f"{length.variable_name} = {array_1.variable_name}.length;"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -532,24 +488,24 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_join(self) -> None:
-        array_1: ap.Array = ap.Array(['1', ap.String('2'), 3, ap.Int(4)])
-        joined: ap.String = array_1.join(',')
-        assert joined == '1,2,3,4'
-        joined = array_1.join(ap.String(','))
-        assert joined == '1,2,3,4'
+        array_1: ap.Array = ap.Array(["1", ap.String("2"), 3, ap.Int(4)])
+        joined: ap.String = array_1.join(",")
+        assert joined == "1,2,3,4"
+        joined = array_1.join(ap.String(","))
+        assert joined == "1,2,3,4"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_join_expression(self) -> None:
         expression_data_util.empty_expression()
-        string_1: ap.String = ap.String('2')
+        string_1: ap.String = ap.String("2")
         int_1: ap.Int = ap.Int(4)
-        array_1: ap.Array = ap.Array(['1', string_1, 3, int_1])
-        string_2: ap.String = ap.String(', ')
+        array_1: ap.Array = ap.Array(["1", string_1, 3, int_1])
+        string_2: ap.String = ap.String(", ")
         joined: ap.String = array_1.join(sep=string_2)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{joined.variable_name} = '
-            f'{array_1.variable_name}.join({string_2.variable_name});'
+            f"{joined.variable_name} = "
+            f"{array_1.variable_name}.join({string_2.variable_name});"
         )
         assert expected in expression
 
@@ -557,27 +513,34 @@ class TestArray:
     def test___str__(self) -> None:
         array_1: ap.Array = ap.Array(
             [
-                '1', 2, ap.Int(3), ap.Number(10.5),
-                ap.Boolean(True), ap.String('Hello!'),
-                ap.Array([4, 5])])
+                "1",
+                2,
+                ap.Int(3),
+                ap.Number(10.5),
+                ap.Boolean(True),
+                ap.String("Hello!"),
+                ap.Array([4, 5]),
+            ]
+        )
         string: str = str(array_1)
         assert string == (
             "['1', 2, Int(3), Number(10.5), Boolean(True), "
-            "String('Hello!'), Array([4, 5])]")
+            "String('Hello!'), Array([4, 5])]"
+        )
 
         del array_1._value
-        assert str(array_1) == '[]'
+        assert str(array_1) == "[]"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
-        assert repr(array_1) == 'Array([1, 2])'
+        assert repr(array_1) == "Array([1, 2])"
 
         del array_1._value
-        assert repr(array_1) == 'Array([])'
+        assert repr(array_1) == "Array([])"
 
         array_2: ap.Array = ap.Array([ap.Int(10)])
-        assert repr(array_2) == 'Array([Int(10)])'
+        assert repr(array_2) == "Array([Int(10)])"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_index_of(self) -> None:
@@ -597,8 +560,8 @@ class TestArray:
         index_1: ap.Int = array_1.index_of(value=int_1)
         expression = expression_data_util.get_current_expression()
         expected: str = (
-            f'{index_1.variable_name} = {array_1.variable_name}'
-            f'.indexOf({int_1.variable_name});'
+            f"{index_1.variable_name} = {array_1.variable_name}"
+            f".indexOf({int_1.variable_name});"
         )
         assert expected in expression
 
@@ -630,7 +593,7 @@ class TestArray:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
-        snapshot_name: str = 'snapshot_1'
+        snapshot_name: str = "snapshot_1"
         array_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert array_1._value_snapshots[snapshot_name] == [1, 2, 3]
 
@@ -641,7 +604,7 @@ class TestArray:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
-        snapshot_name: str = 'snapshot_1'
+        snapshot_name: str = "snapshot_1"
         array_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         array_1.value = [4, 5, 6]
         array_1._run_all_revert_methods(snapshot_name=snapshot_name)
@@ -659,8 +622,8 @@ class TestArray:
         result: ap.Boolean = array_1 == array_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{result.variable_name} = '
-            f'_.isEqual({array_1.variable_name}, {array_2.variable_name});'
+            f"{result.variable_name} = "
+            f"_.isEqual({array_1.variable_name}, {array_2.variable_name});"
         )
         assert expected in expression
 
@@ -669,12 +632,13 @@ class TestArray:
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{result.variable_name} = '
-                rf'_.isEqual\({array_1.variable_name}, '
-                rf'{var_names.ARRAY}\_.+?\);'
+                rf"{result.variable_name} = "
+                rf"_.isEqual\({array_1.variable_name}, "
+                rf"{var_names.ARRAY}\_.+?\);"
             ),
             string=expression,
-            flags=re.MULTILINE)
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -697,16 +661,15 @@ class TestArray:
         result: ap.Boolean = array_1 != array_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{result.variable_name} = '
-            f'!_.isEqual({array_1.variable_name}, {array_2.variable_name});'
+            f"{result.variable_name} = "
+            f"!_.isEqual({array_1.variable_name}, {array_2.variable_name});"
         )
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__convert_other_val_to_array(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
-        converted_val: Any = array_1._convert_other_val_to_array(
-            other=[3, 4])
+        converted_val: Any = array_1._convert_other_val_to_array(other=[3, 4])
         assert converted_val == [3, 4]
         assert isinstance(converted_val, ap.Array)
 
@@ -728,9 +691,7 @@ class TestArray:
         arr: ap.Array = ap.Array([1, 2, 3])
         arr._append_clear_expression()
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{arr.variable_name}.splice(0);'
-        )
+        expected: str = f"{arr.variable_name}.splice(0);"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -741,7 +702,5 @@ class TestArray:
         arr.clear()
         assert arr._value == []
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{arr.variable_name}.splice(0);'
-        )
+        expected: str = f"{arr.variable_name}.splice(0);"
         assert expected in expression

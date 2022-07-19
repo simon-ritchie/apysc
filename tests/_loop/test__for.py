@@ -13,29 +13,30 @@ from apysc._testing import testing_helper
 
 
 class TestFor:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         arr: ap.Array = ap.Array([1, 2, 3])
         for_: ap.For = ap.For(
-            arr_or_dict=arr, locals_={'value_1': 1},
-            globals_={'value_2': 2})
+            arr_or_dict=arr, locals_={"value_1": 1}, globals_={"value_2": 2}
+        )
         testing_helper.assert_attrs(
             expected_attrs={
-                '_arr_or_dict': arr,
-                '_locals': {'value_1': 1},
-                '_globals': {'value_2': 2},
+                "_arr_or_dict": arr,
+                "_locals": {"value_1": 1},
+                "_globals": {"value_2": 2},
             },
-            any_obj=for_)
+            any_obj=for_,
+        )
         assert isinstance(for_._indent, Indent)
 
         for_ = ap.For(arr)
         testing_helper.assert_attrs(
             expected_attrs={
-                '_locals': {},
-                '_globals': {},
+                "_locals": {},
+                "_globals": {},
             },
-            any_obj=for_)
+            any_obj=for_,
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_arr_enter_expression(self) -> None:
@@ -44,14 +45,10 @@ class TestFor:
         with ap.For(arr, locals_=locals(), globals_=globals()) as i:
             pass
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'var length = {arr.variable_name}.length;'
-        )
+        expected: str = f"var length = {arr.variable_name}.length;"
         assert expected in expression
         i_name: str = i.variable_name
-        expected = (
-            f'for ({i_name} = 0; {i_name} < length; {i_name}++) {{'
-        )
+        expected = f"for ({i_name} = 0; {i_name} < length; {i_name}++) {{"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -65,17 +62,17 @@ class TestFor:
             assert current_loop_count == 1
         assert isinstance(i, ap.Int)
 
-        dict_val: ap.Dictionary = ap.Dictionary({'a': 10})
+        dict_val: ap.Dictionary = ap.Dictionary({"a": 10})
         with ap.For(dict_val) as key:
             pass
         assert isinstance(key, ap.String)
-        assert key == 'a'
+        assert key == "a"
 
         dict_val = ap.Dictionary({})
         with ap.For(dict_val) as key:
             pass
         assert isinstance(key, ap.String)
-        assert key == ''
+        assert key == ""
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
@@ -89,10 +86,7 @@ class TestFor:
         current_indent_num: int = indent_num.get_current_indent_num()
         assert current_indent_num == 0
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'  {int_1.variable_name} = 20;'
-            '\n}'
-        )
+        expected: str = f"  {int_1.variable_name} = 20;" "\n}"
         assert expected in expression
         assert last_scope.get_last_scope() == LastScope.FOR
         current_loop_count: int = loop_count.get_current_loop_count()
@@ -101,21 +95,20 @@ class TestFor:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_dict_enter_expression(self) -> None:
         expression_data_util.empty_expression()
-        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
         with ap.For[ap.String](dict_1) as key:
             pass
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'for (var {key.variable_name} in {dict_1.variable_name}) {{'
-        )
+        expected: str = f"for (var {key.variable_name} in {dict_1.variable_name}) {{"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_arr_or_dict_val_type(self) -> None:
         ap.For(ap.Array([0]))
-        ap.For(ap.Dictionary({'a': 10}))
+        ap.For(ap.Dictionary({"a": 10}))
         testing_helper.assert_raises(
             expected_error_class=TypeError,
             callable_=ap.For,
-            match='Specified value type is neither Array nor Dictionary: ',
-            arr_or_dict='Hello!')
+            match="Specified value type is neither Array nor Dictionary: ",
+            arr_or_dict="Hello!",
+        )

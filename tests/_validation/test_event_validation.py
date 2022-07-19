@@ -7,9 +7,10 @@ def test_validate_event() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=event_validation.validate_event,
-        match='\nTest error!',
+        match="\nTest error!",
         e=100,
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
 
     int_1: ap.Int = ap.Int(10)
     e: ap.Event = ap.Event(this=int_1)
@@ -21,8 +22,10 @@ def test_validate_event_type() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=event_validation.validate_event_type,
-        mouse_event_type=100)
+        mouse_event_type=100,
+    )
 
     mouse_event_type: ap.MouseEventType = event_validation.validate_event_type(
-        mouse_event_type=ap.MouseEventType.CLICK)
+        mouse_event_type=ap.MouseEventType.CLICK
+    )
     assert isinstance(mouse_event_type, ap.MouseEventType)

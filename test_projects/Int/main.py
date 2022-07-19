@@ -6,7 +6,7 @@ $ python test_projects/Int/main.py
 
 import sys
 
-sys.path.append('./')
+sys.path.append("./")
 
 import os
 from types import ModuleType
@@ -19,8 +19,7 @@ from apysc._file import file_util
 this_module: ModuleType = sys.modules[__name__]
 
 _DEST_DIR_PATH: str = os.path.join(
-    file_util.get_abs_module_dir_path(module=this_module),
-    'test_output/'
+    file_util.get_abs_module_dir_path(module=this_module), "test_output/"
 )
 
 
@@ -32,7 +31,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: ap.Stage = ap.Stage(background_color='#333')
+    stage: ap.Stage = ap.Stage(background_color="#333")
 
     int_1: ap.Int = ap.Int(10)
     ap.assert_equal(left=10, right=int_1)
@@ -102,7 +101,7 @@ def main() -> None:
     ap.assert_equal(left=10, right=int_14)
 
     int_15: ap.Int = ap.Int(10)
-    options: _Int15Options = {'int_15': int_15}
+    options: _Int15Options = {"int_15": int_15}
     stage.click(on_stage_clicked, options=options)
 
     int_16: ap.Int = ap.Int(10)
@@ -125,8 +124,8 @@ def on_stage_clicked(e: ap.MouseEvent, options: _Int15Options) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('stage clicked!')
-    int_15: ap.Int = options['int_15']
+    ap.trace("stage clicked!")
+    int_15: ap.Int = options["int_15"]
     int_15 += 5
     ap.assert_true(int_15 == 15)
     ap.assert_true(int_15 != 16)
@@ -136,5 +135,5 @@ def on_stage_clicked(e: ap.MouseEvent, options: _Int15Options) -> None:
     ap.assert_true(int_15 >= 15)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

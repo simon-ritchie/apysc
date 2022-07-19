@@ -10,9 +10,7 @@ class FPSDefinition:
     _fps: int
     _milisecond_intervals: Union[int, float]
 
-    def __init__(
-            self, *, fps: int,
-            milisecond_intervals: Union[int, float]) -> None:
+    def __init__(self, *, fps: int, milisecond_intervals: Union[int, float]) -> None:
         """
         FPS definition class.
 

@@ -36,7 +36,6 @@ def test_reset() -> None:
 
 
 class TestIndent:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         indent_num.reset()
@@ -63,13 +62,12 @@ class TestIndent:
 def test__get_indent_num_table_name() -> None:
     expression_data_util.empty_expression()
     table_name: str = indent_num._get_indent_num_table_name()
-    assert table_name == \
-        expression_data_util.TableName.INDENT_NUM_NORMAL.value
+    assert table_name == expression_data_util.TableName.INDENT_NUM_NORMAL.value
 
     instance: VariableNameInterface = VariableNameInterface()
-    instance.variable_name = 'test_instance'
+    instance.variable_name = "test_instance"
     with event_handler_scope.HandlerScope(
-            handler_name='test_handler_1', instance=instance):
+        handler_name="test_handler_1", instance=instance
+    ):
         table_name = indent_num._get_indent_num_table_name()
-        assert table_name == \
-            expression_data_util.TableName.INDENT_NUM_HANDLER.value
+        assert table_name == expression_data_util.TableName.INDENT_NUM_HANDLER.value

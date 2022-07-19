@@ -6,7 +6,7 @@ $ python test_projects/Array/main.py
 
 import sys
 
-sys.path.append('./')
+sys.path.append("./")
 
 import os
 from types import ModuleType
@@ -20,8 +20,7 @@ from apysc._file import file_util
 this_module: ModuleType = sys.modules[__name__]
 
 _DEST_DIR_PATH: str = os.path.join(
-    file_util.get_abs_module_dir_path(module=this_module),
-    'test_output/'
+    file_util.get_abs_module_dir_path(module=this_module), "test_output/"
 )
 
 
@@ -30,9 +29,8 @@ class _Array28Options(TypedDict):
 
 
 def main() -> None:
-    """Entry point of this test project.
-    """
-    stage: ap.Stage = ap.Stage(background_color='#333')
+    """Entry point of this test project."""
+    stage: ap.Stage = ap.Stage(background_color="#333")
 
     array_1: ap.Array = ap.Array([1, 2, 3])
     ap.assert_arrays_equal(left=[1, 2, 3], right=array_1)
@@ -124,9 +122,9 @@ def main() -> None:
     length_1: ap.Int = array_22.length
     ap.assert_equal(left=3, right=length_1)
 
-    array_23: ap.Array = ap.Array([1, ap.Int(2), '3', ap.String('4')])
-    joined_1: ap.String = array_23.join(', ')
-    ap.assert_equal(left='1, 2, 3, 4', right=joined_1)
+    array_23: ap.Array = ap.Array([1, ap.Int(2), "3", ap.String("4")])
+    joined_1: ap.String = array_23.join(", ")
+    ap.assert_equal(left="1, 2, 3, 4", right=joined_1)
 
     int_3: ap.Int = ap.Int(2)
     array_24: ap.Array = ap.Array([1, int_3, 3])
@@ -146,7 +144,7 @@ def main() -> None:
     ap.assert_equal(left=30, right=int_4)
 
     array_28: ap.Array = ap.Array([1, 2])
-    options: _Array28Options = {'array_28': array_28}
+    options: _Array28Options = {"array_28": array_28}
     stage.click(on_stage_clicked, options=options)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
@@ -163,12 +161,12 @@ def on_stage_clicked(e: ap.MouseEvent, options: _Array28Options) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('stage clicked!')
-    array_28: ap.Array = options['array_28']
+    ap.trace("stage clicked!")
+    array_28: ap.Array = options["array_28"]
     array_28.value = [3, 4]
     ap.assert_true(array_28 == [3, 4])
     ap.assert_true(array_28 != [1, 2])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

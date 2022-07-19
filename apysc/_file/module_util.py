@@ -26,9 +26,8 @@ from typing import Optional
 
 
 def get_module_paths_recursively(
-        dir_path: str = './',
-        *,
-        module_paths: Optional[List[str]] = None) -> List[str]:
+    dir_path: str = "./", *, module_paths: Optional[List[str]] = None
+) -> List[str]:
     """
     Get all module paths under the specified directory.
 
@@ -53,11 +52,12 @@ def get_module_paths_recursively(
         file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
         if os.path.isdir(file_or_dir_path):
             module_paths = get_module_paths_recursively(
-                dir_path=file_or_dir_path, module_paths=module_paths)
+                dir_path=file_or_dir_path, module_paths=module_paths
+            )
             continue
-        if not file_or_dir_path.endswith('.py'):
+        if not file_or_dir_path.endswith(".py"):
             continue
-        if file_or_dir_name == '__init__.py':
+        if file_or_dir_name == "__init__.py":
             continue
         module_paths.append(file_or_dir_path)
     return module_paths
@@ -78,9 +78,8 @@ def save_tmp_module(*, script: str) -> str:
         Saved temporary module path.
     """
     random_int: int = randint(1_000_000_000, 10_000_000_000)
-    saved_module_path: str = (
-        f'./tmp_{datetime.now().timestamp()}_{random_int}.py')
-    with open(saved_module_path, 'w') as f:
+    saved_module_path: str = f"./tmp_{datetime.now().timestamp()}_{random_int}.py"
+    with open(saved_module_path, "w") as f:
         f.write(script)
     return saved_module_path
 
@@ -101,9 +100,9 @@ def save_tmp_module_and_run_script(*, script: str) -> str:
     """
     tmp_mod_path: str = save_tmp_module(script=script)
     process: sp.CompletedProcess = sp.run(
-        f'python {tmp_mod_path}', shell=True,
-        stdout=sp.PIPE, stderr=sp.STDOUT)
-    stdout: str = process.stdout.decode('utf-8')
+        f"python {tmp_mod_path}", shell=True, stdout=sp.PIPE, stderr=sp.STDOUT
+    )
+    stdout: str = process.stdout.decode("utf-8")
     os.remove(tmp_mod_path)
     return stdout
 
@@ -122,16 +121,15 @@ def read_target_path_module(module_path: str) -> ModuleType:
     module : ModuleType
         Read module.
     """
-    if module_path.startswith('./'):
-        module_path = module_path.replace('./', '', 1)
-    module_path = module_path.rsplit('.py', maxsplit=1)[0]
-    module_path = module_path.replace('/', '.')
+    if module_path.startswith("./"):
+        module_path = module_path.replace("./", "", 1)
+    module_path = module_path.rsplit(".py", maxsplit=1)[0]
+    module_path = module_path.replace("/", ".")
     module: ModuleType = importlib.import_module(name=module_path)
     return module
 
 
-def read_module_or_class_from_package_path(
-        module_or_class_package_path: str) -> Any:
+def read_module_or_class_from_package_path(module_or_class_package_path: str) -> Any:
     """
     Read a specified package path module or class.
 
@@ -146,14 +144,11 @@ def read_module_or_class_from_package_path(
         Read module or class.
     """
     try:
-        module: ModuleType = importlib.import_module(
-            module_or_class_package_path)
+        module: ModuleType = importlib.import_module(module_or_class_package_path)
     except Exception:
-        splitted: List[str] = module_or_class_package_path.rsplit(
-            '.', maxsplit=1)
+        splitted: List[str] = module_or_class_package_path.rsplit(".", maxsplit=1)
         module_or_class_package_path = splitted[0]
         class_name: str = splitted[1]
-        module = importlib.import_module(
-            module_or_class_package_path)
+        module = importlib.import_module(module_or_class_package_path)
         return getattr(module, class_name)
     return module

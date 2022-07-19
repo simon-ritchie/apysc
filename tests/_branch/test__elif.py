@@ -13,15 +13,13 @@ from apysc._testing.testing_helper import assert_attrs
 
 
 class TestElif:
-
     @retry(stop_max_attempt_number=15, wait_fixed=1500)
     def test__append_enter_expression(self) -> None:
         expression_data_util.empty_expression()
         boolean_1: ap.Boolean = ap.Boolean(True)
         with raises(
-                ValueError,
-                match=r'Elif interface can only use right '
-                      r'after If or Elif'):  # type: ignore
+            ValueError, match=r"Elif interface can only use right " r"after If or Elif"
+        ):  # type: ignore
             with ap.Elif(boolean_1, locals_=locals(), globals_=globals()):
                 pass
 
@@ -33,10 +31,10 @@ class TestElif:
             pass
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'if ({boolean_1.variable_name}) {{'
-            '\n}'
-            f'\nelse if ({boolean_1.variable_name}) {{'
-            '\n}'
+            f"if ({boolean_1.variable_name}) {{"
+            "\n}"
+            f"\nelse if ({boolean_1.variable_name}) {{"
+            "\n}"
         )
         assert expected in expression
 
@@ -59,11 +57,13 @@ class TestElif:
         locals_: Dict[str, Any] = locals()
         globals_: Dict[str, Any] = globals()
         elif_: ap.Elif = ap.Elif(
-            condition=boolean_1, locals_=locals_, globals_=globals_)
+            condition=boolean_1, locals_=locals_, globals_=globals_
+        )
         assert_attrs(
             expected_attrs={
-                '_condition': boolean_1,
-                '_locals': locals_,
-                '_globals': globals_,
+                "_condition": boolean_1,
+                "_locals": locals_,
+                "_globals": globals_,
             },
-            any_obj=elif_)
+            any_obj=elif_,
+        )

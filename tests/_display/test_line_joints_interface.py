@@ -12,7 +12,6 @@ from apysc._testing.testing_helper import assert_raises
 
 
 class TestLineJointsInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_line_joints_if_not_initialized(self) -> None:
         interface: LineJointsInterface = LineJointsInterface()
@@ -26,7 +25,7 @@ class TestLineJointsInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_joints(self) -> None:
         interface: LineJointsInterface = LineJointsInterface()
-        interface.variable_name = 'test_line_joints_interface'
+        interface.variable_name = "test_line_joints_interface"
         interface._initialize_line_joints_if_not_initialized()
         assert interface.line_joints == ap.LineJoints.MITER.value
 
@@ -37,59 +36,61 @@ class TestLineJointsInterface:
     def test__update_line_joints_and_skip_appending_exp(self) -> None:
         expression_data_util.empty_expression()
         interface: LineJointsInterface = LineJointsInterface()
-        interface.variable_name = 'test_line_joints_interface'
+        interface.variable_name = "test_line_joints_interface"
         assert_raises(
             expected_error_class=TypeError,
-            callable_=interface.
-            _update_line_joints_and_skip_appending_exp,
-            match=r'Not supported line_joints type specified: ',
-            value='miter')
+            callable_=interface._update_line_joints_and_skip_appending_exp,
+            match=r"Not supported line_joints type specified: ",
+            value="miter",
+        )
 
         interface._update_line_joints_and_skip_appending_exp(
-            value=ap.String(ap.LineJoints.BEVEL.value))
+            value=ap.String(ap.LineJoints.BEVEL.value)
+        )
         assert interface.line_joints == ap.LineJoints.BEVEL.value
         expression: str = expression_data_util.get_current_expression()
-        assert '.attr' not in expression
+        assert ".attr" not in expression
 
-        interface._update_line_joints_and_skip_appending_exp(
-            value=ap.LineJoints.MITER)
+        interface._update_line_joints_and_skip_appending_exp(value=ap.LineJoints.MITER)
         assert interface.line_joints == ap.LineJoints.MITER.value
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_joints_update_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: LineJointsInterface = LineJointsInterface()
-        interface.variable_name = 'test_line_joints_interface'
+        interface.variable_name = "test_line_joints_interface"
         interface.line_joints = ap.LineJoints.BEVEL
         interface._append_line_joints_update_expression()
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{interface.variable_name}.attr'
-                rf'\({{"stroke-linejoin": .+?}}\);'
+                rf"{interface.variable_name}.attr" rf'\({{"stroke-linejoin": .+?}}\);'
             ),
             string=expression,
-            flags=re.MULTILINE)
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface: LineJointsInterface = LineJointsInterface()
-        interface.variable_name = 'test_line_joints_interface'
+        interface.variable_name = "test_line_joints_interface"
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._line_joints_snapshots == {
-            snapshot_name: ap.LineJoints.MITER.value}
+            snapshot_name: ap.LineJoints.MITER.value
+        }
 
         interface.line_joints = ap.LineJoints.BEVEL
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._line_joints_snapshots == {
-            snapshot_name: ap.LineJoints.MITER.value}
+            snapshot_name: ap.LineJoints.MITER.value
+        }
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         interface: LineJointsInterface = LineJointsInterface()
-        interface.variable_name = 'test_line_joints_interface'
+        interface.variable_name = "test_line_joints_interface"
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         interface.line_joints = ap.LineJoints.BEVEL

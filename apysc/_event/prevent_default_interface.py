@@ -6,7 +6,6 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class PreventDefaultInterface(VariableNameInterface):
-
     @add_debug_info_setting(module_name=__name__)
     def prevent_default(self) -> None:
         """
@@ -34,7 +33,6 @@ class PreventDefaultInterface(VariableNameInterface):
         >>> _ = rectangle.click(on_click)
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.preventDefault();'
-        )
+
+        expression: str = f"{self.variable_name}.preventDefault();"
         ap.append_js_expression(expression=expression)

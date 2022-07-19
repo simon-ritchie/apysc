@@ -6,7 +6,7 @@ $ python test_projects/Boolean/main.py
 
 import sys
 
-sys.path.append('./')
+sys.path.append("./")
 
 import os
 from types import ModuleType
@@ -19,8 +19,7 @@ from apysc._file import file_util
 this_module: ModuleType = sys.modules[__name__]
 
 _DEST_DIR_PATH: str = os.path.join(
-    file_util.get_abs_module_dir_path(module=this_module),
-    'test_output/'
+    file_util.get_abs_module_dir_path(module=this_module), "test_output/"
 )
 
 
@@ -29,9 +28,8 @@ class _Bool14Options(TypedDict):
 
 
 def main() -> None:
-    """Entry point of this test project.
-    """
-    stage: ap.Stage = ap.Stage(background_color='#333')
+    """Entry point of this test project."""
+    stage: ap.Stage = ap.Stage(background_color="#333")
 
     boolean_1: ap.Boolean = ap.Boolean(True)
     ap.assert_true(boolean_1)
@@ -71,7 +69,7 @@ def main() -> None:
     ap.assert_false(boolean_13)
 
     boolean_14: ap.Boolean = ap.Boolean(False)
-    options: _Bool14Options = {'boolean_14': boolean_14}
+    options: _Bool14Options = {"boolean_14": boolean_14}
     stage.click(on_stage_clicked, options=options)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
@@ -88,11 +86,11 @@ def on_stage_clicked(e: ap.MouseEvent, options: _Bool14Options) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('stage clicked!')
-    boolean_14: ap.Boolean = options['boolean_14']
+    ap.trace("stage clicked!")
+    boolean_14: ap.Boolean = options["boolean_14"]
     boolean_14.value = True
     ap.assert_true(boolean_14 == True)  # noqa
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

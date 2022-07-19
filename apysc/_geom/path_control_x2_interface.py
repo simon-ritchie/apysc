@@ -7,18 +7,19 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class PathControlX2Interface(
-        VariableNameSuffixAttrInterface,
-        RevertInterface,
-        AttrLinkingInterface,
-        VariableNameSuffixInterface):
+    VariableNameSuffixAttrInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+    VariableNameSuffixInterface,
+):
 
     _control_x2: Int
 
@@ -27,10 +28,9 @@ class PathControlX2Interface(
         Initialize the _control_x2 attribute if this instance
         does not initialize it yet.
         """
-        if hasattr(self, '_control_x2'):
+        if hasattr(self, "_control_x2"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='control_x2')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="control_x2")
         self._control_x2 = Int(0, variable_name_suffix=suffix)
 
         self._append_control_x2_linking_setting()
@@ -41,9 +41,11 @@ class PathControlX2Interface(
         Append a control_x2 attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._control_x2, attr_name='control_x2')
+            new_attr=self._control_x2, attr_name="control_x2"
+        )
         self._append_attr_to_linking_stack(
-            attr=self._control_x2, attr_name='control_x2')
+            attr=self._control_x2, attr_name="control_x2"
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -100,8 +102,10 @@ class PathControlX2Interface(
         """
         self._initialize_control_x2_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_control_x2_snapshots',
-            value=int(self._control_x2._value), snapshot_name=snapshot_name)
+            dict_name="_control_x2_snapshots",
+            value=int(self._control_x2._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

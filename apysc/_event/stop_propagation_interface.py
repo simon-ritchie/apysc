@@ -6,7 +6,6 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class StopPropagationInterface(VariableNameInterface):
-
     @add_debug_info_setting(module_name=__name__)
     def stop_propagation(self) -> None:
         """
@@ -32,7 +31,6 @@ class StopPropagationInterface(VariableNameInterface):
         >>> _ = rectangle.click(on_click)
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.stopPropagation();'
-        )
+
+        expression: str = f"{self.variable_name}.stopPropagation();"
         ap.append_js_expression(expression=expression)

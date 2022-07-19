@@ -13,7 +13,6 @@ from apysc._testing.testing_helper import assert_raises
 
 
 class TestLineDotSettingInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_line_dot_setting_if_not_initialized(self) -> None:
         interface: LineDotSettingInterface = LineDotSettingInterface()
@@ -27,9 +26,8 @@ class TestLineDotSettingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_dot_setting(self) -> None:
         interface: LineDotSettingInterface = LineDotSettingInterface()
-        interface.variable_name = 'test_line_dot_setting_interface'
-        line_dot_setting: Optional[ap.LineDotSetting] = \
-            interface.line_dot_setting
+        interface.variable_name = "test_line_dot_setting_interface"
+        line_dot_setting: Optional[ap.LineDotSetting] = interface.line_dot_setting
         assert line_dot_setting is None
 
         interface._line_dot_setting = ap.LineDotSetting(dot_size=10)
@@ -48,13 +46,11 @@ class TestLineDotSettingInterface:
     def test__append_line_dot_setting_update_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: LineDotSettingInterface = LineDotSettingInterface()
-        interface.variable_name = 'test_line_dot_setting_interface'
+        interface.variable_name = "test_line_dot_setting_interface"
         interface._initialize_line_dot_setting_if_not_initialized()
         interface._append_line_dot_setting_update_expression()
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{interface.variable_name}.css("stroke-dasharray", "");'
-        )
+        expected: str = f'{interface.variable_name}.css("stroke-dasharray", "");'
         assert expected in expression
 
         expression_data_util.empty_expression()
@@ -64,56 +60,57 @@ class TestLineDotSettingInterface:
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{interface.variable_name}.css\("stroke-dasharray", '
-                rf'{var_names.INT}_.+\);'
+                rf"{var_names.INT}_.+\);"
             ),
-            string=expression, flags=re.MULTILINE)
+            string=expression,
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_dot_setting_and_skip_appending_exp(self) -> None:
         expression_data_util.empty_expression()
         interface: LineDotSettingInterface = LineDotSettingInterface()
-        interface._update_line_dot_setting_and_skip_appending_exp(
-            value=None)
-        line_dot_setting: Optional[ap.LineDotSetting] = \
-            interface.line_dot_setting
+        interface._update_line_dot_setting_and_skip_appending_exp(value=None)
+        line_dot_setting: Optional[ap.LineDotSetting] = interface.line_dot_setting
         assert line_dot_setting is None
         expression: str = expression_data_util.get_current_expression()
-        assert '.css' not in expression
+        assert ".css" not in expression
 
         interface._update_line_dot_setting_and_skip_appending_exp(
-            value=ap.LineDotSetting(dot_size=10))
+            value=ap.LineDotSetting(dot_size=10)
+        )
         line_dot_setting = interface.line_dot_setting
         assert line_dot_setting.dot_size == 10  # type: ignore
 
         assert_raises(
             expected_error_class=TypeError,
-            callable_=interface.
-            _update_line_dot_setting_and_skip_appending_exp,
-            match='Not supported line_dot_setting type specified: ',
-            value=10)
+            callable_=interface._update_line_dot_setting_and_skip_appending_exp,
+            match="Not supported line_dot_setting type specified: ",
+            value=10,
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface: LineDotSettingInterface = LineDotSettingInterface()
-        interface.variable_name = 'test_line_dot_setting_interface'
+        interface.variable_name = "test_line_dot_setting_interface"
         interface.line_dot_setting = ap.LineDotSetting(dot_size=10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert isinstance(
-            interface._line_dot_setting_snapshots[snapshot_name],
-            ap.LineDotSetting)
+            interface._line_dot_setting_snapshots[snapshot_name], ap.LineDotSetting
+        )
 
         interface.line_dot_setting = None
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert isinstance(
-            interface._line_dot_setting_snapshots[snapshot_name],
-            ap.LineDotSetting)
+            interface._line_dot_setting_snapshots[snapshot_name], ap.LineDotSetting
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         interface: LineDotSettingInterface = LineDotSettingInterface()
-        interface.variable_name = 'test_line_dot_setting_interface'
+        interface.variable_name = "test_line_dot_setting_interface"
         interface.line_dot_setting = ap.LineDotSetting(dot_size=10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)

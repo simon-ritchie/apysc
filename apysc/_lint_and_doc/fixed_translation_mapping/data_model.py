@@ -14,8 +14,7 @@ from apysc._lint_and_doc.docs_lang import Lang
 
 
 class Mapping:
-    """This class is for a single fixed-translation mapping setting.
-    """
+    """This class is for a single fixed-translation mapping setting."""
 
     _key: str
     _val: str
@@ -61,8 +60,7 @@ class Mapping:
 
 
 class Mappings:
-    """This class is for fixed-translation mappings settings.
-    """
+    """This class is for fixed-translation mappings settings."""
 
     mappings: List[Mapping]
 
@@ -78,8 +76,7 @@ class Mappings:
         self.mappings = mappings
 
 
-def get_fixed_translation_str_if_exists(
-        *, key: str, lang: Lang) -> str:
+def get_fixed_translation_str_if_exists(*, key: str, lang: Lang) -> str:
     """
     If a mapping setting exists, get a fixed-translation
     string from a specified language key string.
@@ -99,11 +96,11 @@ def get_fixed_translation_str_if_exists(
     """
     mappings: Optional[Mappings] = _read_mappings(lang=lang)
     if mappings is None:
-        return ''
+        return ""
     for mapping in mappings.mappings:
         if mapping.key == key:
             return mapping.val
-    return ''
+    return ""
 
 
 @lru_cache(maxsize=None)
@@ -123,13 +120,14 @@ def _read_mappings(*, lang: Lang) -> Optional[Mappings]:
         settings, this interface returns None.
     """
     from apysc._file import module_util
+
     module_path: str = _get_mappings_module_path_from_lang(lang=lang)
     if not os.path.isfile(module_path):
         return None
-    module: ModuleType = module_util.read_target_path_module(
-        module_path=module_path)
+    module: ModuleType = module_util.read_target_path_module(module_path=module_path)
     members: List[Tuple[str, Mappings]] = inspect.getmembers(
-        module, predicate=lambda x: isinstance(x, Mappings))
+        module, predicate=lambda x: isinstance(x, Mappings)
+    )
     if not members:
         return None
     return members[0][1]
@@ -152,7 +150,6 @@ def _get_mappings_module_path_from_lang(*, lang: Lang) -> str:
         of a specified language.
     """
     module_path: str = (
-        './apysc/_lint_and_doc/fixed_translation_mapping/'
-        f'{lang.value}.py'
+        "./apysc/_lint_and_doc/fixed_translation_mapping/" f"{lang.value}.py"
     )
     return module_path

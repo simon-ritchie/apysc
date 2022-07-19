@@ -55,8 +55,8 @@ class TestChildInterface:
         result: ap.Boolean = stage.contains(sprite_1)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{result._variable_name} = '
-            f'{stage.variable_name}.has({sprite_1.variable_name});'
+            f"{result._variable_name} = "
+            f"{stage.variable_name}.has({sprite_1.variable_name});"
         )
         assert expected in expression
 
@@ -96,8 +96,8 @@ class TestChildInterface:
         num_children_1: ap.Int = stage.num_children
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{num_children_1.variable_name} = '
-            f'{stage.variable_name}.children().length;'
+            f"{num_children_1.variable_name} = "
+            f"{stage.variable_name}.children().length;"
         )
         assert expected in expression
 
@@ -106,8 +106,8 @@ class TestChildInterface:
         num_children_2 = sprite_1.num_children
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{num_children_2.variable_name} = '
-            f'{sprite_1.variable_name}.children().length;'
+            f"{num_children_2.variable_name} = "
+            f"{sprite_1.variable_name}.children().length;"
         )
         assert expected in expression
 
@@ -121,9 +121,9 @@ class TestChildInterface:
         child_1: DisplayObject = stage.get_child_at(index=int_1)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'var {child_1.variable_name} = '
-            f'{stage.variable_name}.children()'
-            f'[{int_1.variable_name}];'
+            f"var {child_1.variable_name} = "
+            f"{stage.variable_name}.children()"
+            f"[{int_1.variable_name}];"
         )
         assert expected in expression
 
@@ -132,8 +132,7 @@ class TestChildInterface:
         child_2: DisplayObject = sprite_1.get_child_at(index=0)
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'var {child_2.variable_name} = '
-            f'{sprite_1.variable_name}.children()[0];'
+            f"var {child_2.variable_name} = " f"{sprite_1.variable_name}.children()[0];"
         )
         assert expected in expression
 
@@ -160,20 +159,17 @@ class TestChildInterface:
         stage._children.append(100)  # type: ignore
 
         snapshot_name_1: str = stage._get_next_snapshot_name()
-        stage._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name_1)
-        assert stage._children_snapshots[snapshot_name_1] == [
-            sprite_1, 100]
-        assert stage._snapshot_exists(
-            snapshot_name=snapshot_name_1)
+        stage._run_all_make_snapshot_methods(snapshot_name=snapshot_name_1)
+        assert stage._children_snapshots[snapshot_name_1] == [sprite_1, 100]
+        assert stage._snapshot_exists(snapshot_name=snapshot_name_1)
         assert sprite_1._children_snapshots[snapshot_name_1] == [
-            sprite_1.graphics, sprite_2]
+            sprite_1.graphics,
+            sprite_2,
+        ]
 
         stage.remove_child(child=sprite_1)
-        stage._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name_1)
-        assert stage._children_snapshots[snapshot_name_1] == [
-            sprite_1, 100]
+        stage._run_all_make_snapshot_methods(snapshot_name=snapshot_name_1)
+        assert stage._children_snapshots[snapshot_name_1] == [sprite_1, 100]
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
@@ -185,17 +181,14 @@ class TestChildInterface:
         stage._children.append(100)  # type: ignore
 
         snapshot_name_1: str = sprite_1._get_next_snapshot_name()
-        stage._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name_1)
+        stage._run_all_make_snapshot_methods(snapshot_name=snapshot_name_1)
         stage.remove_child(child=sprite_1)
         sprite_1.remove_child(child=sprite_2)
         stage._run_all_revert_methods(snapshot_name=snapshot_name_1)
         assert stage._children == [sprite_1, 100]
         assert sprite_1._children == [sprite_1.graphics, sprite_2]
-        assert not stage._snapshot_exists(
-            snapshot_name=snapshot_name_1)
-        assert not sprite_1._snapshot_exists(
-            snapshot_name=snapshot_name_1)
+        assert not stage._snapshot_exists(snapshot_name=snapshot_name_1)
+        assert not sprite_1._snapshot_exists(snapshot_name=snapshot_name_1)
 
         stage.remove_child(child=sprite_1)
         stage._run_all_revert_methods(snapshot_name=snapshot_name_1)
@@ -209,12 +202,12 @@ class TestChildInterface:
         sprite._append_expression_of_remove_children()
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'var children = {sprite.variable_name}.children();'
-            '\nvar length = children.length;'
-            '\nfor (var i = 0; i < length; i++) {'
-            '\n  var child = children[i];'
-            f'\n  {sprite.variable_name}.remove(child);'
-            '\n}'
+            f"var children = {sprite.variable_name}.children();"
+            "\nvar length = children.length;"
+            "\nfor (var i = 0; i < length; i++) {"
+            "\n  var child = children[i];"
+            f"\n  {sprite.variable_name}.remove(child);"
+            "\n}"
         )
         assert expected in expression
 
@@ -227,7 +220,7 @@ class TestChildInterface:
         sprite.remove_children()
         assert sprite._children.length == 0
         expression: str = expression_data_util.get_current_expression()
-        assert '.children()' in expression
+        assert ".children()" in expression
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -235,9 +228,7 @@ def test_append_expression_of_add_child() -> None:
     stage: ap.Stage = ap.Stage()
     sprite: ap.Sprite = ap.Sprite()
     stage.add_child(child=sprite)
-    expected: str = (
-        f'{stage.variable_name}.add({sprite.variable_name});'
-    )
+    expected: str = f"{stage.variable_name}.add({sprite.variable_name});"
     expression: str = expression_data_util.get_current_expression()
     assert expected in expression
 
@@ -251,13 +242,14 @@ def test_append_expression_of_remove_child() -> None:
     expression: str = expression_data_util.get_current_expression()
     match: Optional[Match] = re.search(
         pattern=(
-            rf'var {var_names.PARENT}_.+? = '
-            rf'{sprite.variable_name}.parent\(\);'
-            rf'\nif \({var_names.PARENT}_.+?\) {{'
-            rf'\n  {var_names.PARENT}_.+?.removeElement\('
-            rf'{sprite.variable_name}\);'
-            r'\n}'
+            rf"var {var_names.PARENT}_.+? = "
+            rf"{sprite.variable_name}.parent\(\);"
+            rf"\nif \({var_names.PARENT}_.+?\) {{"
+            rf"\n  {var_names.PARENT}_.+?.removeElement\("
+            rf"{sprite.variable_name}\);"
+            r"\n}"
         ),
         string=expression,
-        flags=re.MULTILINE | re.DOTALL)
+        flags=re.MULTILINE | re.DOTALL,
+    )
     assert match is not None

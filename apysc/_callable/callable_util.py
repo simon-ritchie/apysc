@@ -13,8 +13,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 empty = inspect.Signature.empty
 
 
-@add_debug_info_setting(
-    module_name=__name__)
+@add_debug_info_setting(module_name=__name__)
 def get_func_default_vals(*, func: Callable) -> Dict[str, Any]:
     """
     Get specified function's arguments default values.
@@ -57,7 +56,7 @@ def get_arg_name_at(*, func: Callable, index: int) -> str:
         Target index's argument name.
     """
     signature: Signature = inspect.signature(func)
-    arg_name: str = ''
+    arg_name: str = ""
     for i, target_idx_arg_name in enumerate(signature.parameters.keys()):
         if i != index:
             continue
@@ -68,7 +67,8 @@ def get_arg_name_at(*, func: Callable, index: int) -> str:
 
 @add_debug_info_setting(module_name=__name__)
 def get_name_and_arg_value_dict_from_args(
-        *, func: Callable, args: list, kwargs: dict) -> Dict[str, Any]:
+    *, func: Callable, args: list, kwargs: dict
+) -> Dict[str, Any]:
     """
     Get a dictionary with an argument name at key and
     specified argument values at value.
@@ -114,8 +114,8 @@ def get_method_class_name(*, method: Callable) -> str:
         is not a method (e.g., function).
     """
     if not inspect.ismethod(method):
-        return ''
-    class_name: str = ''
+        return ""
+    class_name: str = ""
     for class_ in inspect.getmro(type(method.__self__)):  # type: ignore
         if method.__name__ not in class_.__dict__:
             continue

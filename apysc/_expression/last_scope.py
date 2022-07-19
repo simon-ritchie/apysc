@@ -22,9 +22,8 @@ def reset() -> None:
     Reset last expression's scope information.
     """
     from apysc._expression import expression_data_util
-    query: str = (
-        f'DELETE FROM {expression_data_util.TableName.LAST_SCOPE.value};'
-    )
+
+    query: str = f"DELETE FROM {expression_data_util.TableName.LAST_SCOPE.value};"
     expression_data_util.exec_query(sql=query)
 
 
@@ -39,10 +38,11 @@ def get_last_scope() -> LastScope:
         value, this interface returns LastScope.NORMAL.
     """
     from apysc._expression import expression_data_util
+
     query: str = (
-        'SELECT last_scope FROM '
-        f'{expression_data_util.TableName.LAST_SCOPE.value} '
-        'LIMIT 1;'
+        "SELECT last_scope FROM "
+        f"{expression_data_util.TableName.LAST_SCOPE.value} "
+        "LIMIT 1;"
     )
     expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
@@ -62,10 +62,11 @@ def set_last_scope(*, value: LastScope) -> None:
         Last scope value to set.
     """
     from apysc._expression import expression_data_util
+
     reset()
     query: str = (
-        'INSERT INTO '
-        f'{expression_data_util.TableName.LAST_SCOPE.value}(last_scope) '
-        f'VALUES({value.value});'
+        "INSERT INTO "
+        f"{expression_data_util.TableName.LAST_SCOPE.value}(last_scope) "
+        f"VALUES({value.value});"
     )
     expression_data_util.exec_query(sql=query)

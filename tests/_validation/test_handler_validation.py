@@ -17,23 +17,24 @@ class _TestTypedDict(TypedDict):
 def test_validate_options_type() -> None:
     handler_validation.validate_options_type(options=None)
 
-    handler_validation.validate_options_type(
-        options={'a': 10})
+    handler_validation.validate_options_type(options={"a": 10})
 
-    test_typed_dict: _TestTypedDict = {'a': 20}
+    test_typed_dict: _TestTypedDict = {"a": 20}
     handler_validation.validate_options_type(options=test_typed_dict)
 
     assert_raises(
         expected_error_class=TypeError,
         callable_=handler_validation.validate_options_type,
         match="Handler's options argument must be a dictionary",
-        options=[10])
+        options=[10],
+    )
     assert_raises(
         expected_error_class=TypeError,
         callable_=handler_validation.validate_options_type,
         match="\nTest error!",
         options=[10],
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
 
 
 def _test_handler_1(*, e: ap.Event) -> None:
@@ -53,21 +54,23 @@ def test_validate_handler_args_num() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=handler_validation.validate_handler_args_num,
-        match='A specified handler\'s argument is not callable:',
-        handler=100)
+        match="A specified handler's argument is not callable:",
+        handler=100,
+    )
 
     assert_raises(
         expected_error_class=ValueError,
         callable_=handler_validation.validate_handler_args_num,
-        match=r'A specified handler\'s arguments number '
-        r'must be 2 \(actual: 1\)',
-        handler=_test_handler_1,)
+        match=r"A specified handler\'s arguments number " r"must be 2 \(actual: 1\)",
+        handler=_test_handler_1,
+    )
     assert_raises(
         expected_error_class=ValueError,
         callable_=handler_validation.validate_handler_args_num,
-        match='\nTest error!',
+        match="\nTest error!",
         handler=_test_handler_1,
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
 
     handler_validation.validate_handler_args_num(handler=_test_handler_2)
     handler_validation.validate_handler_args_num(handler=_test_handler_3)

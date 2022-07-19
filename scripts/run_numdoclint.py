@@ -8,7 +8,7 @@ $ python ./scripts/run_numdoclint.py
 import sys
 from logging import Logger
 
-sys.path.append('./')
+sys.path.append("./")
 
 import scripts.command_util as command_util
 from apysc._console import loggers
@@ -26,11 +26,11 @@ def _main() -> None:
     Exception
         If command standard out is not blank.
     """
-    logger.info('numdoclint command started.')
+    logger.info("numdoclint command started.")
     stdout: str = command_util.run_command(command=NUMDOCLINT_COMMAND)
-    if stdout != '':
-        raise Exception('There are numdoclint errors.')
+    if stdout != "":
+        raise Exception("There are numdoclint errors.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _main()

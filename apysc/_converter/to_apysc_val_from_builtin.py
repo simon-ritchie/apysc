@@ -12,9 +12,8 @@ from apysc._type.string import String
 
 @add_debug_info_setting(module_name=__name__)
 def get_copied_int_from_builtin_val(
-        *,
-        integer: Union[int, Int],
-        variable_name_suffix: str = '') -> Int:
+    *, integer: Union[int, Int], variable_name_suffix: str = ""
+) -> Int:
     """
     Get a copied Int value from a Python built-in int.
 
@@ -32,9 +31,9 @@ def get_copied_int_from_builtin_val(
         Copied Int value.
     """
     import apysc as ap
+
     if isinstance(integer, int):
-        copied: ap.Int = ap.Int(
-            integer, variable_name_suffix=variable_name_suffix)
+        copied: ap.Int = ap.Int(integer, variable_name_suffix=variable_name_suffix)
     else:
         copied = integer._copy()
     return copied
@@ -42,9 +41,8 @@ def get_copied_int_from_builtin_val(
 
 @add_debug_info_setting(module_name=__name__)
 def get_copied_number_from_builtin_val(
-        *,
-        float_or_num: Union[float, Number],
-        variable_name_suffix: str = '') -> Number:
+    *, float_or_num: Union[float, Number], variable_name_suffix: str = ""
+) -> Number:
     """
     Get a copied number value from a Python built-in float.
 
@@ -62,9 +60,11 @@ def get_copied_number_from_builtin_val(
         Copied Number value.
     """
     import apysc as ap
+
     if isinstance(float_or_num, float):
         copied: ap.Number = ap.Number(
-            float_or_num, variable_name_suffix=variable_name_suffix)
+            float_or_num, variable_name_suffix=variable_name_suffix
+        )
     else:
         copied = float_or_num._copy()
     return copied
@@ -72,8 +72,8 @@ def get_copied_number_from_builtin_val(
 
 @add_debug_info_setting(module_name=__name__)
 def get_copied_string_from_builtin_val(
-        *, string: Union[str, String],
-        variable_name_suffix: str = '') -> String:
+    *, string: Union[str, String], variable_name_suffix: str = ""
+) -> String:
     """
     Get a copied String value from a Python built-in str.
 
@@ -91,9 +91,9 @@ def get_copied_string_from_builtin_val(
         Copied String value.
     """
     import apysc as ap
+
     if isinstance(string, str):
-        copied: ap.String = ap.String(
-            string, variable_name_suffix=variable_name_suffix)
+        copied: ap.String = ap.String(string, variable_name_suffix=variable_name_suffix)
     else:
         copied = string._copy()
     return copied
@@ -101,8 +101,8 @@ def get_copied_string_from_builtin_val(
 
 @add_debug_info_setting(module_name=__name__)
 def get_copied_boolean_from_builtin_val(
-        *, bool_val: Union[bool, Boolean],
-        variable_name_suffix: str = '') -> Boolean:
+    *, bool_val: Union[bool, Boolean], variable_name_suffix: str = ""
+) -> Boolean:
     """
     Get a copied Boolean value from a Python built-in bool.
 
@@ -120,9 +120,11 @@ def get_copied_boolean_from_builtin_val(
         Copied Boolean value.
     """
     import apysc as ap
+
     if isinstance(bool_val, bool):
         copied: ap.Boolean = ap.Boolean(
-            bool_val, variable_name_suffix=variable_name_suffix)
+            bool_val, variable_name_suffix=variable_name_suffix
+        )
     else:
         copied = bool_val._copy()
     return copied

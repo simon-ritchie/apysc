@@ -5,27 +5,24 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.rotation_around_center_interface import \
-    RotationAroundCenterInterface
+from apysc._display.rotation_around_center_interface import (
+    RotationAroundCenterInterface,
+)
 from apysc._expression import expression_data_util
 
 
 class _TestInterface(RotationAroundCenterInterface):
-
     def __init__(self) -> None:
         """
         The class for the testing of the RotationAroundCenterInterface.
         """
-        self.variable_name = 'test_rotation_around_center_interface'
+        self.variable_name = "test_rotation_around_center_interface"
 
 
 class TestRotationAroundCenterInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__initialize_rotation_around_center_if_not_initialized(
-            self) -> None:
-        interface: RotationAroundCenterInterface = \
-            RotationAroundCenterInterface()
+    def test__initialize_rotation_around_center_if_not_initialized(self) -> None:
+        interface: RotationAroundCenterInterface = RotationAroundCenterInterface()
         interface._initialize_rotation_around_center_if_not_initialized()
         assert interface._rotation_around_center == 0
         interface._rotation_around_center._value = 10
@@ -49,9 +46,9 @@ class TestRotationAroundCenterInterface:
         interface.rotation_around_center = int_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface.variable_name}.rotate(-{int_1.variable_name});'
-            f'\n{interface.variable_name}.rotate({int_2.variable_name});'
-            f'\n{int_1.variable_name} = {int_2.variable_name};'
+            f"{interface.variable_name}.rotate(-{int_1.variable_name});"
+            f"\n{interface.variable_name}.rotate({int_2.variable_name});"
+            f"\n{int_1.variable_name} = {int_2.variable_name};"
         )
         assert expected in expression
 
@@ -82,9 +79,7 @@ class TestRotationAroundCenterInterface:
         assert interface.rotation_around_center == 20
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_rotation_around_center_attr_linking_setting(
-            self) -> None:
+    def test__append_rotation_around_center_attr_linking_setting(self) -> None:
         interface: _TestInterface = _TestInterface()
         interface._initialize_rotation_around_center_if_not_initialized()
-        assert interface._attr_linking_stack['rotation_around_center'] == \
-            [ap.Int(0)]
+        assert interface._attr_linking_stack["rotation_around_center"] == [ap.Int(0)]

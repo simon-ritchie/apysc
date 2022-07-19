@@ -7,8 +7,7 @@ from typing import Union
 
 
 class Heading:
-    """This class is for the document's heading.
-    """
+    """This class is for the document's heading."""
 
     _text: str
     _overall_text: str
@@ -26,10 +25,10 @@ class Heading:
         self._overall_text = heading_text
         sharp_num: int = 0
         for char in heading_text:
-            if char != '#':
+            if char != "#":
                 break
             sharp_num += 1
-        text: str = heading_text.replace('#', '', sharp_num).strip()
+        text: str = heading_text.replace("#", "", sharp_num).strip()
         self._text = text
         self._sharp_num = sharp_num
 
@@ -71,8 +70,7 @@ class Heading:
 
 
 class BodyText:
-    """This class is for a document body text.
-    """
+    """This class is for a document body text."""
 
     _text: str
 
@@ -104,7 +102,7 @@ class CodeBlock:
 
     _code_block: str
     _overall_code_block: str
-    _code_type: str = ''
+    _code_type: str = ""
 
     def __init__(self, *, code_block: str) -> None:
         """
@@ -120,15 +118,15 @@ class CodeBlock:
         code_block_lines: List[str] = []
         lines: List[str] = code_block.splitlines()
         for line in lines:
-            if line.startswith('```') and self._code_type == '':
-                self._code_type = line.replace('```', '').strip()
+            if line.startswith("```") and self._code_type == "":
+                self._code_type = line.replace("```", "").strip()
                 continue
-            if line.startswith('```'):
+            if line.startswith("```"):
                 break
-            if line == '# runnable':
+            if line == "# runnable":
                 continue
             code_block_lines.append(line)
-        self._code_block = '\n'.join(code_block_lines).strip()
+        self._code_block = "\n".join(code_block_lines).strip()
 
     @property
     def code_block(self) -> str:
@@ -168,8 +166,8 @@ class CodeBlock:
 
 
 def split_markdown_document(
-        *,
-        markdown_txt: str) -> List[Union[Heading, BodyText, CodeBlock]]:
+    *, markdown_txt: str
+) -> List[Union[Heading, BodyText, CodeBlock]]:
     """
     Split a specified markdown document to `Heading`,
     `BodyText`, and `CodeBlock` values.
@@ -191,43 +189,45 @@ def split_markdown_document(
     lines: List[str] = markdown_txt.splitlines()
     splitted_values: List[Union[Heading, BodyText, CodeBlock]] = []
     for line in lines:
-        if not is_code_block and line.startswith('```'):
+        if not is_code_block and line.startswith("```"):
             _create_body_text_and_append_to_list_if_values_exist(
-                splitted_values=splitted_values,
-                body_text_lines=current_body_text_lines)
+                splitted_values=splitted_values, body_text_lines=current_body_text_lines
+            )
             is_code_block = True
             current_code_block_lines.append(line)
             continue
 
         if is_code_block:
             current_code_block_lines.append(line)
-            if line.startswith('```'):
+            if line.startswith("```"):
                 code_block: CodeBlock = _create_code_block_from_list(
-                    code_block_lines=current_code_block_lines)
+                    code_block_lines=current_code_block_lines
+                )
                 splitted_values.append(code_block)
                 is_code_block = False
                 continue
             continue
 
-        if line.startswith('#'):
+        if line.startswith("#"):
             _create_body_text_and_append_to_list_if_values_exist(
-                splitted_values=splitted_values,
-                body_text_lines=current_body_text_lines)
+                splitted_values=splitted_values, body_text_lines=current_body_text_lines
+            )
             splitted_values.append(Heading(heading_text=line))
             continue
 
         current_body_text_lines.append(line)
 
     _create_body_text_and_append_to_list_if_values_exist(
-        splitted_values=splitted_values,
-        body_text_lines=current_body_text_lines)
+        splitted_values=splitted_values, body_text_lines=current_body_text_lines
+    )
     return splitted_values
 
 
 def _create_body_text_and_append_to_list_if_values_exist(
-        *,
-        splitted_values: List[Union[Heading, BodyText, CodeBlock]],
-        body_text_lines: List[str]) -> None:
+    *,
+    splitted_values: List[Union[Heading, BodyText, CodeBlock]],
+    body_text_lines: List[str]
+) -> None:
     """
     Create a body text instance from a specified body
     text lines list and append it to a result list.
@@ -248,13 +248,12 @@ def _create_body_text_and_append_to_list_if_values_exist(
     """
     if not body_text_lines:
         return
-    body_text_str: str = '\n'.join(body_text_lines)
+    body_text_str: str = "\n".join(body_text_lines)
     splitted_values.append(BodyText(text=body_text_str))
     body_text_lines.clear()
 
 
-def _create_code_block_from_list(
-        *, code_block_lines: List[str]) -> CodeBlock:
+def _create_code_block_from_list(*, code_block_lines: List[str]) -> CodeBlock:
     """
     Create a code block instance from a specified lines list.
 
@@ -273,7 +272,7 @@ def _create_code_block_from_list(
     code_block : CodeBlock
         A created code block instance.
     """
-    code_block_str: str = '\n'.join(code_block_lines)
+    code_block_str: str = "\n".join(code_block_lines)
     code_block: CodeBlock = CodeBlock(code_block=code_block_str)
     code_block_lines.clear()
     return code_block

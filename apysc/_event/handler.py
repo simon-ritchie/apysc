@@ -21,8 +21,7 @@ class HandlerData(TypedDict):
     options: Any
 
 
-def get_handler_name(
-        *, handler: _Handler, instance: Any) -> str:
+def get_handler_name(*, handler: _Handler, instance: Any) -> str:
     """
     Get a handler name.
 
@@ -41,18 +40,21 @@ def get_handler_name(
     """
     from apysc._callable import callable_util
     from apysc._event import handler_circular_calling_util as circ_util
-    from apysc._validation.variable_name_validation import \
-        validate_variable_name_interface_type
-    class_name: str = callable_util.get_method_class_name(method=handler)
-    if class_name != '':
-        class_name = f'{class_name}_'
-    handler_name: str = (
-        f'{handler.__module__}{class_name}{handler.__name__}'  # type: ignore
+    from apysc._validation.variable_name_validation import (
+        validate_variable_name_interface_type,
     )
-    handler_name = handler_name.replace('.', '_')
+
+    class_name: str = callable_util.get_method_class_name(method=handler)
+    if class_name != "":
+        class_name = f"{class_name}_"
+    handler_name: str = (
+        f"{handler.__module__}{class_name}{handler.__name__}"  # type: ignore
+    )
+    handler_name = handler_name.replace(".", "_")
     instance_: VariableNameInterface = validate_variable_name_interface_type(
-        instance=instance)
-    handler_name += f'_{instance_.variable_name}'
+        instance=instance
+    )
+    handler_name += f"_{instance_.variable_name}"
     if circ_util.is_handler_circular_calling(handler_name=handler_name):
         return circ_util.get_prev_handler_name(handler_name=handler_name)
     return handler_name
@@ -61,11 +63,12 @@ def get_handler_name(
 @arg_validation_decos.is_event(arg_position_index=2)
 @add_debug_info_setting(module_name=__name__)
 def append_handler_expression(
-        *,
-        handler_data: HandlerData,
-        handler_name: str,
-        e: Event,
-        in_handler_head_expression: str = '') -> None:
+    *,
+    handler_data: HandlerData,
+    handler_name: str,
+    e: Event,
+    in_handler_head_expression: str = "",
+) -> None:
     """
     Append a handler's expression.
 
@@ -82,41 +85,39 @@ def append_handler_expression(
         head position.
     """
     import apysc as ap
-    from apysc._event.handler_circular_calling_util import \
-        is_handler_circular_calling
+    from apysc._event.handler_circular_calling_util import is_handler_circular_calling
     from apysc._expression.event_handler_scope import HandlerScope
     from apysc._expression.indent_num import Indent
     from apysc._type import revert_interface
-    from apysc._validation.variable_name_validation import \
-        validate_variable_name_interface_type
-    variables: List[Any] = [*handler_data['options'].values()]
-    snapshot_name: str = revert_interface.make_variables_snapshots(
-        variables=variables)
-    instance: VariableNameInterface = \
-        validate_variable_name_interface_type(instance=e.this)
+    from apysc._validation.variable_name_validation import (
+        validate_variable_name_interface_type,
+    )
+
+    variables: List[Any] = [*handler_data["options"].values()]
+    snapshot_name: str = revert_interface.make_variables_snapshots(variables=variables)
+    instance: VariableNameInterface = validate_variable_name_interface_type(
+        instance=e.this
+    )
 
     with HandlerScope(handler_name=handler_name, instance=instance):
         is_handler_circular_calling_: bool = is_handler_circular_calling(
-            handler_name=handler_name)
+            handler_name=handler_name
+        )
         if not is_handler_circular_calling_:
-            expression: str = (
-                f'function {handler_name}({e.variable_name}) {{'
-            )
+            expression: str = f"function {handler_name}({e.variable_name}) {{"
             ap.append_js_expression(expression=expression)
             with Indent():
                 _append_in_handler_head_expression(
-                    in_handler_head_expression=in_handler_head_expression)
-                handler_data['handler'](
-                    e, handler_data['options'])
-            ap.append_js_expression(expression='}')
+                    in_handler_head_expression=in_handler_head_expression
+                )
+                handler_data["handler"](e, handler_data["options"])
+            ap.append_js_expression(expression="}")
 
-    revert_interface.revert_variables(
-        snapshot_name=snapshot_name, variables=variables)
+    revert_interface.revert_variables(snapshot_name=snapshot_name, variables=variables)
 
 
 @add_debug_info_setting(module_name=__name__)
-def _append_in_handler_head_expression(
-        *, in_handler_head_expression: str) -> None:
+def _append_in_handler_head_expression(*, in_handler_head_expression: str) -> None:
     """
     Append an in-handler head expression if it is not blank.
 
@@ -127,15 +128,16 @@ def _append_in_handler_head_expression(
         head position if it is not blank.
     """
     import apysc as ap
-    if in_handler_head_expression == '':
+
+    if in_handler_head_expression == "":
         return
     ap.append_js_expression(expression=in_handler_head_expression)
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_unbinding_expression(
-        *, this: VariableNameInterface, handler_name: str,
-        mouse_event_type: MouseEventType) -> None:
+    *, this: VariableNameInterface, handler_name: str, mouse_event_type: MouseEventType
+) -> None:
     """
     Append event unbinding expression.
 
@@ -150,19 +152,18 @@ def append_unbinding_expression(
     """
     import apysc as ap
     from apysc._validation import event_validation
-    event_validation.validate_event_type(
-        mouse_event_type=mouse_event_type)
+
+    event_validation.validate_event_type(mouse_event_type=mouse_event_type)
     expression: str = (
-        f'{this.variable_name}.off("{mouse_event_type.value}", '
-        f'{handler_name});'
+        f'{this.variable_name}.off("{mouse_event_type.value}", ' f"{handler_name});"
     )
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_unbinding_all_expression(
-        *, this: VariableNameInterface,
-        mouse_event_type: MouseEventType) -> None:
+    *, this: VariableNameInterface, mouse_event_type: MouseEventType
+) -> None:
     """
     Append all events unbinding expression.
 
@@ -175,9 +176,7 @@ def append_unbinding_all_expression(
     """
     import apysc as ap
     from apysc._validation import event_validation
-    event_validation.validate_event_type(
-        mouse_event_type=mouse_event_type)
-    expression: str = (
-        f'{this.variable_name}.off("{mouse_event_type.value}");'
-    )
+
+    event_validation.validate_event_type(mouse_event_type=mouse_event_type)
+    expression: str = f'{this.variable_name}.off("{mouse_event_type.value}");'
     ap.append_js_expression(expression=expression)

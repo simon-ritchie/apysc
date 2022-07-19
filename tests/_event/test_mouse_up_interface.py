@@ -13,17 +13,13 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class _TestMouseUp(MouseUpInterface, VariableNameInterface):
-
     def __init__(self) -> None:
-        """Test class for mouse up interface.
-        """
-        self.variable_name = 'test_mouse_up'
+        """Test class for mouse up interface."""
+        self.variable_name = "test_mouse_up"
 
 
 class TestMouseUpInterface:
-
-    def on_mouse_up_1(
-            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_up_1(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler for mouse up event.
 
@@ -35,8 +31,7 @@ class TestMouseUpInterface:
             Optional arguments dictionary.
         """
 
-    def on_mouse_up_2(
-            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_up_2(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler for mouse up event.
 
@@ -62,17 +57,17 @@ class TestMouseUpInterface:
         expression_data_util.empty_expression()
         interface_1: _TestMouseUp = _TestMouseUp()
         name: str = interface_1.mouseup(
-            handler=self.on_mouse_up_1, options={'msg': 'Hello!'})
+            handler=self.on_mouse_up_1, options={"msg": "Hello!"}
+        )
         assert name in interface_1._mouse_up_handlers
-        expression: str = \
+        expression: str = (
             expression_data_util.get_current_event_handler_scope_expression()
-        expected: str = f'function {name}('
+        )
+        expected: str = f"function {name}("
         assert expected in expression
 
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{interface_1.variable_name}.mouseup({name});'
-        )
+        expected = f"{interface_1.variable_name}.mouseup({name});"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -84,7 +79,7 @@ class TestMouseUpInterface:
         assert interface_1._mouse_up_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off('
+            f"{interface_1.variable_name}.off("
             f'"{ap.MouseEventType.MOUSEUP.value}", {name});'
         )
         assert expected in expression
@@ -99,7 +94,6 @@ class TestMouseUpInterface:
         interface_1._mouse_up_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off('
-            f'"{ap.MouseEventType.MOUSEUP.value}");'
+            f"{interface_1.variable_name}.off(" f'"{ap.MouseEventType.MOUSEUP.value}");'
         )
         assert expected in expression

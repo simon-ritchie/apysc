@@ -8,11 +8,10 @@ from apysc._expression import var_names
 
 
 class TestWheelEvent:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         e: ap.WheelEvent = ap.WheelEvent(this=ap.document)
-        assert e.variable_name.startswith(f'{var_names.WHEEL_EVENT}_')
+        assert e.variable_name.startswith(f"{var_names.WHEEL_EVENT}_")
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_delta_y(self) -> None:
@@ -27,10 +26,7 @@ class TestWheelEvent:
         e: ap.WheelEvent = ap.WheelEvent(this=ap.document)
         delta_y: ap.Int = e.delta_y
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{delta_y.variable_name} = '
-            f'{e.variable_name}.deltaY;'
-        )
+        expected: str = f"{delta_y.variable_name} = " f"{e.variable_name}.deltaY;"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -46,8 +42,5 @@ class TestWheelEvent:
         e: ap.WheelEvent = ap.WheelEvent(this=ap.document)
         delta_x: ap.Int = e.delta_x
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{delta_x.variable_name} = '
-            f'{e.variable_name}.deltaX;'
-        )
+        expected: str = f"{delta_x.variable_name} = " f"{e.variable_name}.deltaX;"
         assert expected in expression

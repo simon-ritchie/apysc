@@ -23,28 +23,28 @@ from apysc._validation import arg_validation_decos
 
 
 class TableName(Enum):
-    NOT_EXISTING = 'not_existing'
-    EXPRESSION_NORMAL = 'expression_normal'
-    EXPRESSION_HANDLER = 'expression_handler'
-    INDENT_NUM_NORMAL = 'indent_num_normal'
-    INDENT_NUM_HANDLER = 'indent_num_handler'
-    LAST_SCOPE = 'last_scope'
-    EVENT_HANDLER_SCOPE_COUNT = 'event_handler_scope_count'
-    LOOP_COUNT = 'loop_count'
-    DEBUG_MODE_SETTING = 'debug_mode_setting'
-    DEBUG_MODE_CALLABLE_COUNT = 'debug_mode_callable_count'
-    STAGE_ELEM_ID = 'stage_elem_id'
-    VARIABLE_NAME_COUNT = 'variable_name_count'
-    HANDLER_CALLING_STACK = 'handler_calling_stack'
-    CIRCULAR_CALLING_HANDLER_NAME = 'circular_calling_handler_name'
-    STAGE_ID = 'stage_id'
+    NOT_EXISTING = "not_existing"
+    EXPRESSION_NORMAL = "expression_normal"
+    EXPRESSION_HANDLER = "expression_handler"
+    INDENT_NUM_NORMAL = "indent_num_normal"
+    INDENT_NUM_HANDLER = "indent_num_handler"
+    LAST_SCOPE = "last_scope"
+    EVENT_HANDLER_SCOPE_COUNT = "event_handler_scope_count"
+    LOOP_COUNT = "loop_count"
+    DEBUG_MODE_SETTING = "debug_mode_setting"
+    DEBUG_MODE_CALLABLE_COUNT = "debug_mode_callable_count"
+    STAGE_ELEM_ID = "stage_elem_id"
+    VARIABLE_NAME_COUNT = "variable_name_count"
+    HANDLER_CALLING_STACK = "handler_calling_stack"
+    CIRCULAR_CALLING_HANDLER_NAME = "circular_calling_handler_name"
+    STAGE_ID = "stage_id"
 
 
-_SQLITE_IN_MEMORY_SETTING: str = 'file::memory:?cache=shared'
+_SQLITE_IN_MEMORY_SETTING: str = "file::memory:?cache=shared"
 connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
 cursor = connection.cursor()
 
-_C = TypeVar('_C', bound=Callable)
+_C = TypeVar("_C", bound=Callable)
 
 
 def _check_connection(func: _C) -> _C:
@@ -119,9 +119,7 @@ def _table_exists(*, table_name: TableName) -> bool:
     return False
 
 
-def _make_create_table_query(
-        *, table_name: TableName,
-        column_ddl: str) -> str:
+def _make_create_table_query(*, table_name: TableName, column_ddl: str) -> str:
     """
     Make a create table SQL query.
 
@@ -139,17 +137,13 @@ def _make_create_table_query(
         A create table SQL query.
     """
     query: str = (
-        'CREATE TABLE IF NOT EXISTS '
-        f'{table_name.value} ('
-        f'\n{column_ddl}'
-        '\n);'
+        "CREATE TABLE IF NOT EXISTS " f"{table_name.value} (" f"\n{column_ddl}" "\n);"
     )
     return query
 
 
 _EXPRESSION_TABLE_COLUMN_DDL: str = (
-    '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
-    '\n  txt TEXT NOT NULL'
+    "  id INTEGER PRIMARY KEY AUTOINCREMENT," "\n  txt TEXT NOT NULL"
 )
 
 
@@ -159,8 +153,8 @@ def _create_expression_normal_table() -> None:
     Create the normal expression data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=TableName.EXPRESSION_NORMAL,
-        column_ddl=_EXPRESSION_TABLE_COLUMN_DDL)
+        table_name=TableName.EXPRESSION_NORMAL, column_ddl=_EXPRESSION_TABLE_COLUMN_DDL
+    )
     cursor.execute(query)
 
 
@@ -170,12 +164,12 @@ def _create_expression_handler_table() -> None:
     Create the handler expression data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=TableName.EXPRESSION_HANDLER,
-        column_ddl=_EXPRESSION_TABLE_COLUMN_DDL)
+        table_name=TableName.EXPRESSION_HANDLER, column_ddl=_EXPRESSION_TABLE_COLUMN_DDL
+    )
     cursor.execute(query)
 
 
-_INDENT_NUM_TABLE_COLUMN_DDL: str = '  num INTEGER NOT NULL'
+_INDENT_NUM_TABLE_COLUMN_DDL: str = "  num INTEGER NOT NULL"
 
 
 @_check_connection
@@ -184,8 +178,8 @@ def _create_indent_num_normal_table() -> None:
     Create the normal indentation number data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=TableName.INDENT_NUM_NORMAL,
-        column_ddl=_INDENT_NUM_TABLE_COLUMN_DDL)
+        table_name=TableName.INDENT_NUM_NORMAL, column_ddl=_INDENT_NUM_TABLE_COLUMN_DDL
+    )
     cursor.execute(query)
 
 
@@ -195,8 +189,8 @@ def _create_indent_num_handler_table() -> None:
     Create the handler indentation number data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=TableName.INDENT_NUM_HANDLER,
-        column_ddl=_INDENT_NUM_TABLE_COLUMN_DDL)
+        table_name=TableName.INDENT_NUM_HANDLER, column_ddl=_INDENT_NUM_TABLE_COLUMN_DDL
+    )
     cursor.execute(query)
 
 
@@ -206,10 +200,8 @@ def _create_last_scope_table() -> None:
     Create the last scope data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=TableName.LAST_SCOPE,
-        column_ddl=(
-            '  last_scope INTEGER NOT NULL'
-        ))
+        table_name=TableName.LAST_SCOPE, column_ddl=("  last_scope INTEGER NOT NULL")
+    )
     cursor.execute(query)
 
 
@@ -220,9 +212,8 @@ def _create_event_handler_scope_count_table() -> None:
     """
     query: str = _make_create_table_query(
         table_name=TableName.EVENT_HANDLER_SCOPE_COUNT,
-        column_ddl=(
-            '  count INTEGER NOT NULL'
-        ))
+        column_ddl=("  count INTEGER NOT NULL"),
+    )
     cursor.execute(query)
 
 
@@ -232,10 +223,8 @@ def _create_loop_count_table() -> None:
     Create the loop count value SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=TableName.LOOP_COUNT,
-        column_ddl=(
-            '  count INTEGER NOT NULL'
-        ))
+        table_name=TableName.LOOP_COUNT, column_ddl=("  count INTEGER NOT NULL")
+    )
     cursor.execute(query)
 
 
@@ -246,9 +235,8 @@ def _create_debug_mode_setting_table() -> None:
     """
     query: str = _make_create_table_query(
         table_name=TableName.DEBUG_MODE_SETTING,
-        column_ddl=(
-            '  is_debug_mode INTEGER NOT NULL'
-        ))
+        column_ddl=("  is_debug_mode INTEGER NOT NULL"),
+    )
     cursor.execute(query)
 
 
@@ -260,10 +248,11 @@ def _create_debug_mode_callable_count_table() -> None:
     query: str = _make_create_table_query(
         table_name=TableName.DEBUG_MODE_CALLABLE_COUNT,
         column_ddl=(
-            '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
-            '\n  name TEXT NOT NULL,'
-            '\n  count INTEGER NOT NULL'
-        ))
+            "  id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            "\n  name TEXT NOT NULL,"
+            "\n  count INTEGER NOT NULL"
+        ),
+    )
     cursor.execute(query)
 
 
@@ -273,8 +262,8 @@ def _create_stage_elem_id_table() -> None:
     Create the stage element id data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=TableName.STAGE_ELEM_ID,
-        column_ddl='  elem_id TEXT NOT NULL')
+        table_name=TableName.STAGE_ELEM_ID, column_ddl="  elem_id TEXT NOT NULL"
+    )
     cursor.execute(query)
 
 
@@ -286,10 +275,11 @@ def _create_variable_name_count_table() -> None:
     query: str = _make_create_table_query(
         table_name=TableName.VARIABLE_NAME_COUNT,
         column_ddl=(
-            '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
-            '\n  type_name TEXT NOT NULL,'
-            '\n  count INTEGER NOT NULL'
-        ))
+            "  id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            "\n  type_name TEXT NOT NULL,"
+            "\n  count INTEGER NOT NULL"
+        ),
+    )
     cursor.execute(query)
 
 
@@ -301,11 +291,12 @@ def _create_handler_calling_stack_table() -> None:
     query: str = _make_create_table_query(
         table_name=TableName.HANDLER_CALLING_STACK,
         column_ddl=(
-            '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
-            '\n  handler_name TEXT NOT NULL,'
-            '\n  scope_count INTEGER NOT NULL,'
-            '\n  variable_name TEXT NOT NULL'
-        ))
+            "  id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            "\n  handler_name TEXT NOT NULL,"
+            "\n  scope_count INTEGER NOT NULL,"
+            "\n  variable_name TEXT NOT NULL"
+        ),
+    )
     cursor.execute(query)
 
 
@@ -317,11 +308,12 @@ def _create_circular_calling_handler_name_table() -> None:
     query: str = _make_create_table_query(
         table_name=TableName.CIRCULAR_CALLING_HANDLER_NAME,
         column_ddl=(
-            '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
-            '\n  handler_name TEXT NOT NULL,'
-            '\n  prev_handler_name TEXT NOT NULL,'
-            '\n  prev_variable_name TEXT NOT NULL'
-        ))
+            "  id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            "\n  handler_name TEXT NOT NULL,"
+            "\n  prev_handler_name TEXT NOT NULL,"
+            "\n  prev_variable_name TEXT NOT NULL"
+        ),
+    )
     cursor.execute(query)
 
 
@@ -331,8 +323,8 @@ def _create_stage_id_table() -> None:
     Create the stage id data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=TableName.STAGE_ID,
-        column_ddl='  stage_id INTEGER NOT NULL')
+        table_name=TableName.STAGE_ID, column_ddl="  stage_id INTEGER NOT NULL"
+    )
     cursor.execute(query)
 
 
@@ -346,8 +338,7 @@ def initialize_sqlite_tables_if_not_initialized() -> bool:
     initialized : bool
         If initialized, returns True.
     """
-    table_exists: bool = _table_exists(
-        table_name=TableName.EXPRESSION_NORMAL)
+    table_exists: bool = _table_exists(table_name=TableName.EXPRESSION_NORMAL)
     if table_exists:
         return False
     _create_expression_normal_table()
@@ -375,13 +366,12 @@ def empty_expression() -> None:
     for table_name in TableName:
         if table_name == TableName.NOT_EXISTING:
             continue
-        query: str = f'DELETE FROM {table_name.value};'
+        query: str = f"DELETE FROM {table_name.value};"
         cursor.execute(query)
     connection.commit()
 
 
-@arg_validation_decos.is_builtin_string(
-    arg_position_index=0, optional=False)
+@arg_validation_decos.is_builtin_string(arg_position_index=0, optional=False)
 def append_js_expression(expression: str) -> None:
     """
     Append js expression.
@@ -404,16 +394,15 @@ def append_js_expression(expression: str) -> None:
     from apysc._expression import indent_num
     from apysc._expression import last_scope
     from apysc._string import indent_util
+
     initialize_sqlite_tables_if_not_initialized()
     current_indent_num: int = indent_num.get_current_indent_num()
     expression = indent_util.append_spaces_to_expression(
-        expression=expression, indent_num=current_indent_num)
+        expression=expression, indent_num=current_indent_num
+    )
     expression = expression.replace('"', '""')
     table_name: TableName = _get_expression_table_name()
-    query: str = (
-        f'INSERT INTO {table_name.value}(txt) '
-        f'VALUES ("{expression}");'
-    )
+    query: str = f"INSERT INTO {table_name.value}(txt) " f'VALUES ("{expression}");'
     cursor.execute(query)
     connection.commit()
     last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
@@ -431,8 +420,10 @@ def _get_expression_table_name() -> TableName:
         Target expression table name.
     """
     from apysc._expression import event_handler_scope
-    event_handler_scope_count: int = \
+
+    event_handler_scope_count: int = (
         event_handler_scope.get_current_event_handler_scope_count()
+    )
     if event_handler_scope_count == 0:
         return TableName.EXPRESSION_NORMAL
     return TableName.EXPRESSION_HANDLER
@@ -454,7 +445,8 @@ def get_current_expression() -> str:
         Current expression's string.
     """
     current_expression: str = _get_current_expression(
-        table_name=TableName.EXPRESSION_NORMAL)
+        table_name=TableName.EXPRESSION_NORMAL
+    )
     return current_expression
 
 
@@ -473,7 +465,8 @@ def get_current_event_handler_scope_expression() -> str:
         Current expression's string.
     """
     current_expression: str = _get_current_expression(
-        table_name=TableName.EXPRESSION_HANDLER)
+        table_name=TableName.EXPRESSION_HANDLER
+    )
     return current_expression
 
 
@@ -492,14 +485,13 @@ def _get_current_expression(*, table_name: TableName) -> str:
         Current expression string.
     """
     initialize_sqlite_tables_if_not_initialized()
-    query: str = (
-        f'SELECT txt FROM {table_name.value}')
+    query: str = f"SELECT txt FROM {table_name.value}"
     cursor.execute(query)
     result: List[Tuple[str]] = cursor.fetchall()
     if not result:
-        return ''
+        return ""
     expressions: List[str] = [tpl[0] for tpl in result]
-    current_expression = '\n'.join(expressions)
+    current_expression = "\n".join(expressions)
     return current_expression
 
 
@@ -523,12 +515,13 @@ def _validate_limit_clause(*, sql: str) -> None:
         If the LIMIT clause used in a DELETE or UPDATE sql.
     """
     sql_: str = sql.lower()
-    if 'delete ' not in sql_ and 'update ' not in sql_:
+    if "delete " not in sql_ and "update " not in sql_:
         return
-    if 'limit ' not in sql_:
+    if "limit " not in sql_:
         return
     raise _LimitClauseCantUseError(
-        f'LIMIT clause cannot use in the UPDATE or DELETE sql: {sql_}')
+        f"LIMIT clause cannot use in the UPDATE or DELETE sql: {sql_}"
+    )
 
 
 def exec_query(*, sql: str, commit: bool = True) -> None:

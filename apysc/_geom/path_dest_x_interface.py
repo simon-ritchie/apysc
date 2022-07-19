@@ -7,18 +7,19 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class PathDestXInterface(
-        VariableNameSuffixAttrInterface,
-        RevertInterface,
-        AttrLinkingInterface,
-        VariableNameSuffixInterface):
+    VariableNameSuffixAttrInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+    VariableNameSuffixInterface,
+):
 
     _dest_x: Int
 
@@ -27,10 +28,9 @@ class PathDestXInterface(
         Initialize the _dest_x attribute if this instance
         does not initialize it yet.
         """
-        if hasattr(self, '_dest_x'):
+        if hasattr(self, "_dest_x"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='dest_x')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="dest_x")
         self._dest_x = Int(0, variable_name_suffix=suffix)
 
         self._append_dest_x_linking_setting()
@@ -41,9 +41,9 @@ class PathDestXInterface(
         Append a dest_x attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._dest_x, attr_name='dest_x')
-        self._append_attr_to_linking_stack(
-            attr=self._dest_x, attr_name='dest_x')
+            new_attr=self._dest_x, attr_name="dest_x"
+        )
+        self._append_attr_to_linking_stack(attr=self._dest_x, attr_name="dest_x")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -99,8 +99,10 @@ class PathDestXInterface(
         """
         self._initialize_dest_x_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_dest_x_snapshots',
-            value=int(self._dest_x._value), snapshot_name=snapshot_name)
+            dict_name="_dest_x_snapshots",
+            value=int(self._dest_x._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

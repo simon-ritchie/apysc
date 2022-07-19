@@ -8,16 +8,14 @@ from apysc._expression import expression_data_util
 
 
 class _TestInterface(SkewXInterface):
-
     def __init__(self) -> None:
         """
         The class for the testing of the SkewXInterface.
         """
-        self.variable_name = 'test_skew_x_interface'
+        self.variable_name = "test_skew_x_interface"
 
 
 class TestSkewXInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_skew_x_if_not_initialized(self) -> None:
         interface: _TestInterface = _TestInterface()
@@ -47,9 +45,9 @@ class TestSkewXInterface:
         interface_name: str = interface.variable_name
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_name}.skew(-{before_value.variable_name}, 0);'
-            f'\n{interface_name}.skew({after_value.variable_name}, 0);'
-            f'\n{before_value.variable_name} = {after_value.variable_name};'
+            f"{interface_name}.skew(-{before_value.variable_name}, 0);"
+            f"\n{interface_name}.skew({after_value.variable_name}, 0);"
+            f"\n{before_value.variable_name} = {after_value.variable_name};"
         )
         assert expected in expression
 
@@ -83,4 +81,4 @@ class TestSkewXInterface:
     def test__append_skew_x_attr_linking_setting(self) -> None:
         interface: _TestInterface = _TestInterface()
         interface._initialize_skew_x_if_not_initialized()
-        assert interface._attr_linking_stack['skew_x'] == [ap.Int(0)]
+        assert interface._attr_linking_stack["skew_x"] == [ap.Int(0)]

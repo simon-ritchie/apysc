@@ -17,7 +17,7 @@ from random import randint
 
 from apysc._validation import arg_validation_decos
 
-_TMP_ROOT_DIR_PATH: str = './'
+_TMP_ROOT_DIR_PATH: str = "./"
 
 
 def _save_overall_html(*, html_file_name: str, minify: bool) -> None:
@@ -32,29 +32,28 @@ def _save_overall_html(*, html_file_name: str, minify: bool) -> None:
         Boolean value whether minify a HTML or not.
     """
     import apysc as ap
+
     timestamp: float = datetime.now().timestamp()
     random_int: int = randint(10000, 100000)
     dest_dir_path: str = (
-        f'{_TMP_ROOT_DIR_PATH}tmp_apysc_jupyter_{timestamp}{random_int}/')
+        f"{_TMP_ROOT_DIR_PATH}tmp_apysc_jupyter_{timestamp}{random_int}/"
+    )
     ap.save_overall_html(
         dest_dir_path=dest_dir_path,
         html_file_name=html_file_name,
         minify=minify,
         skip_js_lib_exporting=True,
         embed_js_libs=True,
-        verbose=0)
+        verbose=0,
+    )
     src_file_path: str = os.path.join(dest_dir_path, html_file_name)
     shutil.copy(src_file_path, html_file_name)
     shutil.rmtree(dest_dir_path, ignore_errors=True)
 
 
-@arg_validation_decos.is_builtin_string(
-    arg_position_index=0, optional=False)
+@arg_validation_decos.is_builtin_string(arg_position_index=0, optional=False)
 @arg_validation_decos.is_builtin_boolean(arg_position_index=1)
-def display_on_jupyter(
-        html_file_name: str,
-        *,
-        minify: bool = True) -> None:
+def display_on_jupyter(html_file_name: str, *, minify: bool = True) -> None:
     """
     Save the overall HTML and display it on the Jupyter.
 
@@ -83,20 +82,19 @@ def display_on_jupyter(
     import apysc as ap
 
     stage: ap.Stage = ap.get_stage()
-    _save_overall_html(
-        html_file_name=html_file_name,
-        minify=minify)
+    _save_overall_html(html_file_name=html_file_name, minify=minify)
     display(
-        IFrame(src=f'./{html_file_name}',
-               width=stage._width._value, height=stage._height._value))
+        IFrame(
+            src=f"./{html_file_name}",
+            width=stage._width._value,
+            height=stage._height._value,
+        )
+    )
 
 
-@arg_validation_decos.is_builtin_string(
-    arg_position_index=0, optional=False)
+@arg_validation_decos.is_builtin_string(arg_position_index=0, optional=False)
 @arg_validation_decos.is_builtin_boolean(arg_position_index=1)
-def display_on_colaboratory(
-        html_file_name: str, *,
-        minify: bool = True) -> None:
+def display_on_colaboratory(html_file_name: str, *, minify: bool = True) -> None:
     """
     Save the overall HTML and display it on Google Colaboratory.
 
@@ -117,8 +115,7 @@ def display_on_colaboratory(
     from IPython.display import display
 
     from apysc._file import file_util
-    _save_overall_html(
-        html_file_name=html_file_name,
-        minify=minify)
+
+    _save_overall_html(html_file_name=html_file_name, minify=minify)
     html_str: str = file_util.read_txt(file_path=html_file_name)
     display(HTML(html_str))

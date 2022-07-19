@@ -5,7 +5,7 @@ import subprocess as sp
 import sys
 from logging import Logger
 
-sys.path.append('./')
+sys.path.append("./")
 
 from apysc._console import loggers
 
@@ -26,12 +26,13 @@ def run_command(command: str) -> str:
     stdout : str
         Command result stdout.
     """
-    logger.info(f'Target command: {command}')
+    logger.info(f"Target command: {command}")
     complete_process: sp.CompletedProcess = sp.run(
-        command, shell=True, stdout=sp.PIPE, stderr=sp.STDOUT)
-    stdout: str = complete_process.stdout.decode('utf-8')
+        command, shell=True, stdout=sp.PIPE, stderr=sp.STDOUT
+    )
+    stdout: str = complete_process.stdout.decode("utf-8")
     stdout = stdout.strip()
-    if stdout == '[]':
-        stdout = ''
+    if stdout == "[]":
+        stdout = ""
     print(stdout)
     return stdout

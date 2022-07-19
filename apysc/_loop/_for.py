@@ -16,7 +16,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 
-T = TypeVar('T', Int, String, Number)
+T = TypeVar("T", Int, String, Number)
 
 
 class For(Generic[T]):
@@ -44,10 +44,12 @@ class For(Generic[T]):
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, arr_or_dict: Union[Array, Dictionary],
-            *,
-            locals_: Optional[Dict[str, Any]] = None,
-            globals_: Optional[Dict[str, Any]] = None) -> None:
+        self,
+        arr_or_dict: Union[Array, Dictionary],
+        *,
+        locals_: Optional[Dict[str, Any]] = None,
+        globals_: Optional[Dict[str, Any]] = None,
+    ) -> None:
         """
         A class to append for the (loop) expression.
 
@@ -90,7 +92,8 @@ class For(Generic[T]):
         self._indent = Indent()
 
     def _validate_arr_or_dict_val_type(
-            self, *, arr_or_dict: Union[Array, Dictionary]) -> None:
+        self, *, arr_or_dict: Union[Array, Dictionary]
+    ) -> None:
         """
         Validate loop value type is Array of Dictionary.
 
@@ -107,8 +110,9 @@ class For(Generic[T]):
         if isinstance(arr_or_dict, (Array, Dictionary)):
             return
         raise TypeError(
-            'Specified value type is neither Array nor Dictionary: '
-            f'{type(arr_or_dict)}')
+            "Specified value type is neither Array nor Dictionary: "
+            f"{type(arr_or_dict)}"
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def __enter__(self) -> T:
@@ -123,10 +127,11 @@ class For(Generic[T]):
         import apysc as ap
         from apysc._loop import loop_count
         from apysc._type import revert_interface
+
         loop_count.increment_current_loop_count()
-        self._snapshot_name = \
-            revert_interface.make_snapshots_of_each_scope_vars(
-                locals_=self._locals, globals_=self._globals)
+        self._snapshot_name = revert_interface.make_snapshots_of_each_scope_vars(
+            locals_=self._locals, globals_=self._globals
+        )
         i_or_key: Union[ap.Int, ap.String]
         if isinstance(self._arr_or_dict, ap.Array):
             i_or_key = ap.Int(0)
@@ -135,7 +140,7 @@ class For(Generic[T]):
             if self._arr_or_dict._value:
                 key: str = str(list(self._arr_or_dict._value.keys())[0])
             else:
-                key = ''
+                key = ""
             i_or_key = ap.String(key)
             self._append_dict_enter_expression(key=i_or_key)
         self._indent.__enter__()
@@ -151,12 +156,15 @@ class For(Generic[T]):
         from apysc._expression.last_scope import LastScope
         from apysc._loop import loop_count
         from apysc._type import revert_interface
+
         loop_count.decrement_current_loop_count()
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
-            locals_=self._locals, globals_=self._globals)
+            locals_=self._locals,
+            globals_=self._globals,
+        )
         self._indent.__exit__()
-        ap.append_js_expression(expression='}')
+        ap.append_js_expression(expression="}")
         last_scope.set_last_scope(value=LastScope.FOR)
 
     @add_debug_info_setting(module_name=__name__)
@@ -170,10 +178,11 @@ class For(Generic[T]):
             Loop index value.
         """
         import apysc as ap
+
         i_name: str = i.variable_name
         expression: str = (
-            f'var length = {self._arr_or_dict.variable_name}.length;\n'
-            f'for ({i_name} = 0; {i_name} < length; {i_name}++) {{'
+            f"var length = {self._arr_or_dict.variable_name}.length;\n"
+            f"for ({i_name} = 0; {i_name} < length; {i_name}++) {{"
         )
         ap.append_js_expression(expression=expression)
 
@@ -188,9 +197,9 @@ class For(Generic[T]):
             Loop (dictionary) key value.
         """
         import apysc as ap
+
         key_name: str = key.variable_name
         expression: str = (
-            f'for (var {key_name} in '
-            f'{self._arr_or_dict.variable_name}) {{'
+            f"for (var {key_name} in " f"{self._arr_or_dict.variable_name}) {{"
         )
         ap.append_js_expression(expression=expression)

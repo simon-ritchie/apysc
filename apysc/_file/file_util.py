@@ -61,13 +61,12 @@ def read_txt(*, file_path: str) -> str:
     txt : str
         Target file's text.
     """
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open(file_path, "r", encoding="utf-8") as f:
         try:
             txt: str = f.read()
         except Exception:
             err_msg: str = (
-                f'{traceback.format_exc()}'
-                f'\nFailed the file reading: {file_path}'
+                f"{traceback.format_exc()}" f"\nFailed the file reading: {file_path}"
             )
             raise Exception(err_msg)
     return txt
@@ -84,10 +83,9 @@ def save_plain_txt(*, txt: str, file_path: str) -> None:
     file_path : str
         Destination file path.
     """
-    dir_path: str = get_abs_directory_path_from_file_path(
-        file_path=file_path)
+    dir_path: str = get_abs_directory_path_from_file_path(file_path=file_path)
     os.makedirs(dir_path, exist_ok=True)
-    with open(file_path, 'w', encoding='utf-8') as f:
+    with open(file_path, "w", encoding="utf-8") as f:
         f.write(txt)
 
 
@@ -102,10 +100,9 @@ def append_plain_txt(*, txt: str, file_path: str) -> None:
     file_path : str
         Destination file path.
     """
-    dir_path: str = get_abs_directory_path_from_file_path(
-        file_path=file_path)
+    dir_path: str = get_abs_directory_path_from_file_path(file_path=file_path)
     os.makedirs(dir_path, exist_ok=True)
-    with open(file_path, 'a', encoding='utf-8') as f:
+    with open(file_path, "a", encoding="utf-8") as f:
         f.write(txt)
 
 
@@ -138,7 +135,7 @@ def get_abs_directory_path_from_file_path(*, file_path: str) -> str:
         An absolute directory path.
     """
     dir_path: str = os.path.dirname(file_path)
-    dir_path += '/'
+    dir_path += "/"
     return dir_path
 
 
@@ -157,14 +154,17 @@ def get_abs_module_dir_path(*, module: ModuleType) -> str:
         Specified module's abosulute directory path.
     """
     abs_module_dir_path: str = os.path.dirname(str(module.__file__))
-    abs_module_dir_path += '/'
+    abs_module_dir_path += "/"
     return abs_module_dir_path
 
 
 def get_specified_ext_file_paths_recursively(
-        *, extension: str, dir_path: str = './',
-        excluding_file_names_prefix_list: Optional[List[str]] = None,
-        file_paths: Optional[List[str]] = None) -> List[str]:
+    *,
+    extension: str,
+    dir_path: str = "./",
+    excluding_file_names_prefix_list: Optional[List[str]] = None,
+    file_paths: Optional[List[str]] = None,
+) -> List[str]:
     """
     Get specified extension file paths recursively.
 
@@ -187,8 +187,8 @@ def get_specified_ext_file_paths_recursively(
     """
     if file_paths is None:
         file_paths = []
-    if not extension.startswith('.'):
-        extension = f'.{extension}'
+    if not extension.startswith("."):
+        extension = f".{extension}"
     file_or_dir_names: List[str] = os.listdir(dir_path)
     for file_or_dir_name in file_or_dir_names:
         file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
@@ -196,16 +196,17 @@ def get_specified_ext_file_paths_recursively(
             file_paths = get_specified_ext_file_paths_recursively(
                 extension=extension,
                 dir_path=file_or_dir_path,
-                excluding_file_names_prefix_list=(
-                    excluding_file_names_prefix_list),
-                file_paths=file_paths)
+                excluding_file_names_prefix_list=(excluding_file_names_prefix_list),
+                file_paths=file_paths,
+            )
             continue
         if not file_or_dir_path.endswith(extension):
             continue
 
         has_excluding_prefix: bool = _has_excluding_prefix(
             file_name=file_or_dir_name,
-            excluding_file_names_prefix_list=excluding_file_names_prefix_list)
+            excluding_file_names_prefix_list=excluding_file_names_prefix_list,
+        )
         if has_excluding_prefix:
             continue
 
@@ -214,9 +215,8 @@ def get_specified_ext_file_paths_recursively(
 
 
 def _has_excluding_prefix(
-        *,
-        file_name: str,
-        excluding_file_names_prefix_list: Optional[List[str]]) -> bool:
+    *, file_name: str, excluding_file_names_prefix_list: Optional[List[str]]
+) -> bool:
     """
     Get a boolean indicating whether a specified file name has
     an excluding file name suffix or not.
@@ -264,8 +264,7 @@ def count_files_recursively(*, dir_path: str) -> int:
     for file_or_dir_name in file_or_dir_names:
         file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
         if os.path.isdir(file_or_dir_path):
-            count += count_files_recursively(
-                dir_path=file_or_dir_path)
+            count += count_files_recursively(dir_path=file_or_dir_path)
             continue
         if os.path.isfile(file_or_dir_path):
             count += 1

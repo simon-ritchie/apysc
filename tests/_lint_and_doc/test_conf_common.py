@@ -9,14 +9,10 @@ from apysc._lint_and_doc import conf_common
 
 
 class _MockSphinx(Sphinx):
-
     def __init__(self) -> None:
-        """The mock class for the `Sphinx` class.
-        """
+        """The mock class for the `Sphinx` class."""
 
-    def add_js_file(
-            self, filename: str, priority: int = 500,
-            **kwargs: Any) -> None:
+    def add_js_file(self, filename: str, priority: int = 500, **kwargs: Any) -> None:
         """
         Register a JavaScript file to include in the HTML output.
 
@@ -27,10 +23,8 @@ class _MockSphinx(Sphinx):
         priority : int, optional
             A priority for the file ordering.
         """
-        assert filename.endswith('.js')
-        assert os.path.exists(
-            f'./docs_src/source/_static/{filename}'
-        )
+        assert filename.endswith(".js")
+        assert os.path.exists(f"./docs_src/source/_static/{filename}")
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

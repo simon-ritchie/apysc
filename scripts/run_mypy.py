@@ -8,7 +8,7 @@ $ python ./scripts/run_mypy.py
 import sys
 from logging import Logger
 
-sys.path.append('./')
+sys.path.append("./")
 
 import scripts.command_util as command_util
 from apysc._console import loggers
@@ -26,11 +26,11 @@ def _main() -> None:
     Exception
         If there are any mypy errors.
     """
-    logger.info('mypy command started.')
+    logger.info("mypy command started.")
     stdout: str = command_util.run_command(command=MYPY_COMMAND)
-    if 'Success' not in stdout:
-        raise Exception('There are mypy errors.')
+    if "Success" not in stdout:
+        raise Exception("There are mypy errors.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _main()

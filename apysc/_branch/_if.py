@@ -36,11 +36,12 @@ class If(IfBase):
     @arg_validation_decos.is_vars_dict(arg_position_index=3)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            condition: Optional[Boolean],
-            *,
-            locals_: Optional[Dict[str, Any]] = None,
-            globals_: Optional[Dict[str, Any]] = None) -> None:
+        self,
+        condition: Optional[Boolean],
+        *,
+        locals_: Optional[Dict[str, Any]] = None,
+        globals_: Optional[Dict[str, Any]] = None,
+    ) -> None:
         """
         A class to append if branch instruction expression.
 
@@ -76,19 +77,18 @@ class If(IfBase):
         ...     ap.trace('Int value is greater than equal 10!')
         """
         super(If, self).__init__(
-            condition=condition, locals_=locals_, globals_=globals_)
+            condition=condition, locals_=locals_, globals_=globals_
+        )
 
     def _append_enter_expression(self) -> None:
         """
         Append if branch instruction starting expression.
         """
         import apysc as ap
+
         if self._condition is None:
-            raise ValueError(
-                'If expression\'s condition argument can\'t be set None.')
-        expression: str = (
-            f'if ({self._condition.variable_name}) {{'
-        )
+            raise ValueError("If expression's condition argument can't be set None.")
+        expression: str = f"if ({self._condition.variable_name}) {{"
         ap.append_js_expression(expression=expression)
 
     def _set_last_scope(self) -> None:
@@ -97,4 +97,5 @@ class If(IfBase):
         """
         from apysc._expression import last_scope
         from apysc._expression.last_scope import LastScope
+
         last_scope.set_last_scope(value=LastScope.IF)

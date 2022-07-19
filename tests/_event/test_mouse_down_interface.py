@@ -11,17 +11,13 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class _TestMouseDown(MouseDownInterface, VariableNameInterface):
-
     def __init__(self) -> None:
-        """Test class for mouse down testing.
-        """
-        self.variable_name = 'test_mouse_down'
+        """Test class for mouse down testing."""
+        self.variable_name = "test_mouse_down"
 
 
 class TestMouseDownInterface:
-
-    def on_mouse_down_1(
-            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_down_1(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse down handler method for testing.
 
@@ -33,8 +29,7 @@ class TestMouseDownInterface:
             Optional arguments dictionary.
         """
 
-    def on_mouse_down_2(
-            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_down_2(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse down handler method for testing.
 
@@ -47,8 +42,7 @@ class TestMouseDownInterface:
         """
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__initialize_mouse_down_handlers_if_not_initialized(
-            self) -> None:
+    def test__initialize_mouse_down_handlers_if_not_initialized(self) -> None:
         interface_1: MouseDownInterface = MouseDownInterface()
         interface_1._initialize_mouse_down_handlers_if_not_initialized()
         assert interface_1._mouse_down_handlers == {}
@@ -61,18 +55,17 @@ class TestMouseDownInterface:
         expression_data_util.empty_expression()
         interface_1: _TestMouseDown = _TestMouseDown()
         name: str = interface_1.mousedown(
-            handler=self.on_mouse_down_1,
-            options={'msg': 'Hello!'})
+            handler=self.on_mouse_down_1, options={"msg": "Hello!"}
+        )
         assert name in interface_1._mouse_down_handlers
-        expression: str = \
+        expression: str = (
             expression_data_util.get_current_event_handler_scope_expression()
-        expected: str = f'function {name}('
+        )
+        expected: str = f"function {name}("
         assert expected in expression
 
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{interface_1.variable_name}.mousedown({name});'
-        )
+        expected = f"{interface_1.variable_name}.mousedown({name});"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -84,8 +77,9 @@ class TestMouseDownInterface:
         assert interface_1._mouse_down_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off('
-            f'"{ap.MouseEventType.MOUSEDOWN.value}", {name});')
+            f"{interface_1.variable_name}.off("
+            f'"{ap.MouseEventType.MOUSEDOWN.value}", {name});'
+        )
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -98,7 +92,7 @@ class TestMouseDownInterface:
         assert interface_1._mouse_down_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off('
+            f"{interface_1.variable_name}.off("
             f'"{ap.MouseEventType.MOUSEDOWN.value}");'
         )
         assert expected in expression

@@ -17,69 +17,73 @@ from apysc._type.number_value_interface import NumberValueInterface
 
 
 class TestNumberValueInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=100, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=100, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         testing_helper.assert_attrs(
             expected_attrs={
-                '_initial_value': 100,
-                '_value': 100,
-                '_type_name': 'test_interface',
+                "_initial_value": 100,
+                "_value": 100,
+                "_type_name": "test_interface",
             },
-            any_obj=interface_1)
+            any_obj=interface_1,
+        )
 
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=interface_1, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=interface_1, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         testing_helper.assert_attrs(
             expected_attrs={
-                '_initial_value': interface_1,
-                '_value': 100,
+                "_initial_value": interface_1,
+                "_value": 100,
             },
-            any_obj=interface_2)
+            any_obj=interface_2,
+        )
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             callable_=NumberValueInterface,
-            value='Hello!',
-            type_name='test_interface')
+            value="Hello!",
+            type_name="test_interface",
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
         expression_data_util.empty_expression()
         interface: NumberValueInterface = NumberValueInterface(
-            value=100, type_name='test_interface')
-        interface.variable_name = 'test_number_value_interface'
+            value=100, type_name="test_interface"
+        )
+        interface.variable_name = "test_number_value_interface"
         interface.value = 200
         assert interface.value == 200
 
         with pytest.raises(ValueError):  # type: ignore
-            interface.value = 'Hello!'  # type: ignore
+            interface.value = "Hello!"  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=100, type_name='test_interface')
-        interface_1.variable_name = 'test_number_value_interface_1'
+            value=100, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_number_value_interface_1"
         interface_1.append_constructor_expression()
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            'var test_number_value_interface_1 = 100;'
-        )
+        expected: str = "var test_number_value_interface_1 = 100;"
         assert expected in expression
 
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=interface_1, type_name='test_interface')
-        interface_2.variable_name = 'test_number_value_interface_2'
+            value=interface_1, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_number_value_interface_2"
         interface_2.append_constructor_expression()
         expression = expression_data_util.get_current_expression()
         expected = (
-            'var test_number_value_interface_2 = '
-            'test_number_value_interface_1'
+            "var test_number_value_interface_2 = " "test_number_value_interface_1"
         )
         assert expected in expression
 
@@ -87,36 +91,36 @@ class TestNumberValueInterface:
     def test__append_value_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=100, type_name='test_interface')
-        interface_1.variable_name = 'test_number_value_interface_1'
+            value=100, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_number_value_interface_1"
         interface_1.value = 200
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{interface_1.variable_name} = 200;'
-        )
+        expected: str = f"{interface_1.variable_name} = 200;"
         assert expected in expression
 
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=100, type_name='test_interface')
-        interface_2.variable_name = 'test_number_value_interface_2'
+            value=100, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_number_value_interface_2"
         interface_2.value = interface_1
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{interface_2.variable_name} = {interface_1.variable_name};'
-        )
+        expected = f"{interface_2.variable_name} = {interface_1.variable_name};"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_type_name(self) -> None:
         interface: NumberValueInterface = NumberValueInterface(
-            value=100, type_name='test_interface')
-        assert interface.type_name == 'test_interface'
+            value=100, type_name="test_interface"
+        )
+        assert interface.type_name == "test_interface"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___add__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = interface_1 + 20
         assert interface_2.value == 30
         assert interface_1.variable_name != interface_2.variable_name
@@ -128,32 +132,33 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__copy(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1._copy()
         assert interface_1.value == interface_2.value
         assert interface_1.variable_name != interface_2.variable_name
-        assert interface_2.variable_name.startswith('test_interface')
+        assert interface_2.variable_name.startswith("test_interface")
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_addition_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1 + 10
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'var {interface_2.variable_name} = '
-            f'{interface_1.variable_name} + 10;'
+            f"var {interface_2.variable_name} = " f"{interface_1.variable_name} + 10;"
         )
         assert expected in expression
 
         interface_3: NumberValueInterface = interface_1 + interface_2
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'var {interface_3.variable_name} = '
-            f'{interface_1.variable_name} + {interface_2.variable_name};'
+            f"var {interface_3.variable_name} = "
+            f"{interface_1.variable_name} + {interface_2.variable_name};"
         )
         assert expected in expression
 
@@ -161,33 +166,31 @@ class TestNumberValueInterface:
     def test_set_value_and_skip_expression_appending(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_1._set_value_and_skip_expression_appending(value=20)
         assert interface_1.value == 20
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{interface_1.variable_name} = 20;'
-        )
+        expected: str = f"{interface_1.variable_name} = 20;"
         assert expected not in expression
 
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=30, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_1'
-        interface_2._set_value_and_skip_expression_appending(
-            value=interface_1)
+            value=30, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_1"
+        interface_2._set_value_and_skip_expression_appending(value=interface_1)
         assert interface_2.value == 20
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{interface_2.variable_name} = {interface_1.variable_name};'
-        )
+        expected = f"{interface_2.variable_name} = {interface_1.variable_name};"
         assert expected not in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___sub__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=20, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=20, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1 - 15
         assert interface_2.value == 5
 
@@ -198,28 +201,30 @@ class TestNumberValueInterface:
     def test__append_subtraction_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=20, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=20, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1 - 15
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_2.variable_name} = {interface_1.variable_name} - 15;'
+            f"{interface_2.variable_name} = {interface_1.variable_name} - 15;"
         )
         assert expected in expression
 
         interface_3: NumberValueInterface = interface_1 - interface_2
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{interface_3.variable_name} = {interface_1.variable_name} '
-            f'- {interface_2.variable_name};'
+            f"{interface_3.variable_name} = {interface_1.variable_name} "
+            f"- {interface_2.variable_name};"
         )
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___mul__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=20, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=20, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1 * 3
         assert interface_2.value == 60
 
@@ -230,28 +235,30 @@ class TestNumberValueInterface:
     def test__append_multiplication_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=20, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=20, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1 * 3
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_2.variable_name} = {interface_1.variable_name} * 3;'
+            f"{interface_2.variable_name} = {interface_1.variable_name} * 3;"
         )
         assert expected in expression
 
         interface_3: NumberValueInterface = interface_1 * interface_2
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{interface_3.variable_name} = {interface_1.variable_name}'
-            f' * {interface_2.variable_name};'
+            f"{interface_3.variable_name} = {interface_1.variable_name}"
+            f" * {interface_2.variable_name};"
         )
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___truediv__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1 / 4
         assert interface_2.value == 2.5
         assert isinstance(interface_2, ap.Number)
@@ -263,38 +270,41 @@ class TestNumberValueInterface:
     def test__append_true_division_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1 / 4
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_2.variable_name} = {interface_1.variable_name};'
-            f'\n{interface_2.variable_name} = {interface_1.variable_name}'
-            ' / 4;'
+            f"{interface_2.variable_name} = {interface_1.variable_name};"
+            f"\n{interface_2.variable_name} = {interface_1.variable_name}"
+            " / 4;"
         )
         assert expected in expression
 
         interface_3: NumberValueInterface = interface_2 / interface_1
         expression = expression_data_util.get_current_expression()
         expected = (
-            f'{interface_3.variable_name} = {interface_2.variable_name};'
-            f'\n{interface_3.variable_name} = {interface_2.variable_name}'
-            f' / {interface_1.variable_name};'
+            f"{interface_3.variable_name} = {interface_2.variable_name};"
+            f"\n{interface_3.variable_name} = {interface_2.variable_name}"
+            f" / {interface_1.variable_name};"
         )
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___floordiv__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1 // 4
         assert interface_2.value == 2
         assert isinstance(interface_2, ap.Int)
 
         interface_3: NumberValueInterface = NumberValueInterface(
-            value=6, type_name='test_interface')
-        interface_3.variable_name = 'test_interface_2'
+            value=6, type_name="test_interface"
+        )
+        interface_3.variable_name = "test_interface_2"
         interface_4: NumberValueInterface = interface_1 // interface_3
         assert interface_4.value == 1
 
@@ -302,25 +312,24 @@ class TestNumberValueInterface:
     def test__append_floor_division_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = interface_1 // 4
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_2.variable_name} = '
-            f'Math.trunc({interface_1.variable_name} / 4);'
+            f"{interface_2.variable_name} = "
+            f"Math.trunc({interface_1.variable_name} / 4);"
         )
         assert expected in expression
 
         interface_3: NumberValueInterface = interface_1 // interface_2
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{interface_3.variable_name} = {interface_1.variable_name};'
-        )
+        expected = f"{interface_3.variable_name} = {interface_1.variable_name};"
         assert expected in expression
         expected = (
-            f'{interface_3.variable_name} = Math.trunc('
-            f'{interface_1.variable_name} / {interface_2.variable_name});'
+            f"{interface_3.variable_name} = Math.trunc("
+            f"{interface_1.variable_name} / {interface_2.variable_name});"
         )
         assert expected in expression
 
@@ -336,14 +345,14 @@ class TestNumberValueInterface:
             Variable name of the x_interface x attribute.
         """
         x_interface: XInterface = XInterface()
-        x_interface.variable_name = 'test_x_interface'
+        x_interface.variable_name = "test_x_interface"
         x_interface.x = ap.Int(10)
         x_variable_name: str = x_interface._x.variable_name
         return x_interface, x_variable_name
 
     def _assert_substitution_expression_to_prev_var_exists(
-            self, x_interface: XInterface,
-            previous_x_variable_name: str) -> None:
+        self, x_interface: XInterface, previous_x_variable_name: str
+    ) -> None:
         """
         Assert the substitution expression to the previous x
         variable name exists.
@@ -361,13 +370,12 @@ class TestNumberValueInterface:
             If the substitution expression does not exist.
         """
         expression = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{previous_x_variable_name} = {x_interface._x.variable_name};')
+        expected: str = f"{previous_x_variable_name} = {x_interface._x.variable_name};"
         assert expected in expression
 
     def _assert_substitution_expression_to_prev_var_not_exist(
-            self, x_interface: XInterface,
-            previous_x_variable_name: str) -> None:
+        self, x_interface: XInterface, previous_x_variable_name: str
+    ) -> None:
         """
         Assert the substitution expression to the previous x
         variable name does not exist.
@@ -385,97 +393,101 @@ class TestNumberValueInterface:
             If the substitution expression exists.
         """
         expression = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{previous_x_variable_name} = {x_interface._x.variable_name};')
+        expected: str = f"{previous_x_variable_name} = {x_interface._x.variable_name};"
         assert expected not in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         int_1: ap.Int = ap.Int(5)
         interface_1 += int_1
         assert interface_1.value == 15
-        assert interface_1.variable_name == 'test_interface_0'
+        assert interface_1.variable_name == "test_interface_0"
 
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                r'test_interface_[0-9]+ = test_interface_0 \+ '
-                rf'{int_1.variable_name};'
-                r'\ntest_interface_0 = test_interface_[0-9]+;'
+                r"test_interface_[0-9]+ = test_interface_0 \+ "
+                rf"{int_1.variable_name};"
+                r"\ntest_interface_0 = test_interface_[0-9]+;"
             ),
             string=expression,
-            flags=re.MULTILINE | re.DOTALL)
+            flags=re.MULTILINE | re.DOTALL,
+        )
         assert match is not None
 
         expression_data_util.empty_expression()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x += 20
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface,
-            previous_x_variable_name=previous_variable_name)
+            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+        )
 
         expression_data_util.empty_expression()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x: ap.Int = x_interface.x
         x += 20
         self._assert_substitution_expression_to_prev_var_not_exist(
-            x_interface=x_interface,
-            previous_x_variable_name=previous_variable_name)
+            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___isub__(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_1 -= 3
         assert interface_1.value == 7
-        assert interface_1.variable_name == 'test_interface_0'
+        assert interface_1.variable_name == "test_interface_0"
 
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                r'test_interface_[0-9]+ = test_interface_0 - 3;'
-                r'\ntest_interface_0 = test_interface_[0-9]+;'
+                r"test_interface_[0-9]+ = test_interface_0 - 3;"
+                r"\ntest_interface_0 = test_interface_[0-9]+;"
             ),
             string=expression,
-            flags=re.MULTILINE | re.DOTALL)
+            flags=re.MULTILINE | re.DOTALL,
+        )
         assert match is not None
 
         expression_data_util.empty_expression()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x -= 5
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface,
-            previous_x_variable_name=previous_variable_name)
+            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+        )
 
         expression_data_util.empty_expression()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x: ap.Int = x_interface.x
         x -= 20
         self._assert_substitution_expression_to_prev_var_not_exist(
-            x_interface=x_interface,
-            previous_x_variable_name=previous_variable_name)
+            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___imul__(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_1 *= 3
         assert interface_1.value == 30
-        assert interface_1.variable_name == 'test_interface_0'
+        assert interface_1.variable_name == "test_interface_0"
 
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                r'test_interface_[0-9]+ = test_interface_0 \* 3;'
-                r'\ntest_interface_0 = test_interface_[0-9]+;'
+                r"test_interface_[0-9]+ = test_interface_0 \* 3;"
+                r"\ntest_interface_0 = test_interface_[0-9]+;"
             ),
             string=expression,
             flags=re.MULTILINE | re.DOTALL,
@@ -486,71 +498,78 @@ class TestNumberValueInterface:
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x *= 2
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface,
-            previous_x_variable_name=previous_variable_name)
+            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+        )
 
         expression_data_util.empty_expression()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x: ap.Int = x_interface.x
         x *= 2
         self._assert_substitution_expression_to_prev_var_not_exist(
-            x_interface=x_interface,
-            previous_x_variable_name=previous_variable_name)
+            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___itruediv__(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_1 /= 4
         assert interface_1.value == 2.5
-        assert interface_1.variable_name == 'test_interface_0'
+        assert interface_1.variable_name == "test_interface_0"
 
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                r'var n_[0-9]+ = test_interface_0;'
-                r'\nn_[0-9]+ = test_interface_0 / 4;'),
+                r"var n_[0-9]+ = test_interface_0;"
+                r"\nn_[0-9]+ = test_interface_0 / 4;"
+            ),
             string=expression,
-            flags=re.MULTILINE | re.DOTALL)
+            flags=re.MULTILINE | re.DOTALL,
+        )
         assert match is not None
 
         expression_data_util.empty_expression()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x /= 2
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface,
-            previous_x_variable_name=previous_variable_name)
+            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+        )
 
         expression_data_util.empty_expression()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x: ap.Int = x_interface.x
         x /= 2
         self._assert_substitution_expression_to_prev_var_not_exist(
-            x_interface=x_interface,
-            previous_x_variable_name=previous_variable_name)
+            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___str__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        assert str(interface_1) == '10'
+            value=10, type_name="test_interface"
+        )
+        assert str(interface_1) == "10"
 
         del interface_1._value
-        assert str(interface_1) == '0'
+        assert str(interface_1) == "0"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_0'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_0"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_1"
         interface_3: NumberValueInterface = NumberValueInterface(
-            value=11, type_name='test_interface')
-        interface_3.variable_name = 'test_interface_3'
+            value=11, type_name="test_interface"
+        )
+        interface_3.variable_name = "test_interface_3"
 
         assert interface_1 == 10
         assert interface_1 == interface_2
@@ -563,11 +582,13 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ne__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=11, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=11, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         assert interface_1 != 11
         assert interface_1 != interface_2
 
@@ -577,14 +598,17 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___lt__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=11, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=11, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         interface_3: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_3.variable_name = 'test_interface_3'
+            value=10, type_name="test_interface"
+        )
+        interface_3.variable_name = "test_interface_3"
 
         assert interface_1 < 11
         assert interface_1 < interface_2
@@ -596,17 +620,21 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___le__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=10, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         interface_3: NumberValueInterface = NumberValueInterface(
-            value=11, type_name='test_interface')
-        interface_3.variable_name = 'test_interface_3'
+            value=11, type_name="test_interface"
+        )
+        interface_3.variable_name = "test_interface_3"
         interface_4: NumberValueInterface = NumberValueInterface(
-            value=9, type_name='test_interface')
-        interface_4.variable_name = 'test_interface_4'
+            value=9, type_name="test_interface"
+        )
+        interface_4.variable_name = "test_interface_4"
 
         assert interface_1 <= 10
         assert interface_1 <= 11
@@ -621,14 +649,17 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___gt__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=9, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=9, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         interface_3: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_3.variable_name = 'test_interface_3'
+            value=10, type_name="test_interface"
+        )
+        interface_3.variable_name = "test_interface_3"
 
         assert interface_1 > 9
         assert interface_1 > interface_2
@@ -641,17 +672,21 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ge__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=10, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         interface_3: NumberValueInterface = NumberValueInterface(
-            value=9, type_name='test_interface')
-        interface_3.variable_name = 'test_interface_3'
+            value=9, type_name="test_interface"
+        )
+        interface_3.variable_name = "test_interface_3"
         interface_4: NumberValueInterface = NumberValueInterface(
-            value=11, type_name='test_interface')
-        interface_4.variable_name = 'test_interface_4'
+            value=11, type_name="test_interface"
+        )
+        interface_4.variable_name = "test_interface_4"
 
         assert interface_1 >= 10
         assert interface_1 >= 9
@@ -666,8 +701,9 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___int__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         integer: int = int(interface_1)
         assert interface_1 == 10
         assert isinstance(integer, int)
@@ -675,7 +711,8 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___float__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10.5, type_name='test_interface')
+            value=10.5, type_name="test_interface"
+        )
         float_val: float = float(interface_1)
         assert float_val == 10.5
         assert isinstance(float_val, float)
@@ -683,26 +720,25 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10.5, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
-        snapshot_name: str = 'snapshot_1'
-        interface_1._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
+            value=10.5, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
+        snapshot_name: str = "snapshot_1"
+        interface_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface_1._value_snapshots[snapshot_name] == 10.5
 
         interface_1.value = 20
-        interface_1._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
+        interface_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface_1._value_snapshots[snapshot_name] == 10.5
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10.5, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
-        snapshot_name: str = 'snapshot_1'
-        interface_1._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
+            value=10.5, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
+        snapshot_name: str = "snapshot_1"
+        interface_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         interface_1.value = 20
         interface_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface_1.value == 10.5
@@ -715,16 +751,18 @@ class TestNumberValueInterface:
     def test__append_eq_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=10, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         result: ap.Boolean = interface_1 == interface_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{result.variable_name} = '
-            f'{interface_1.variable_name} === {interface_2.variable_name};'
+            f"{result.variable_name} = "
+            f"{interface_1.variable_name} === {interface_2.variable_name};"
         )
         assert expected in expression
 
@@ -733,28 +771,32 @@ class TestNumberValueInterface:
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{result.variable_name} = '
-                rf'{interface_1.variable_name} === '
-                rf'{var_names.INT}\_.+?\;'),
+                rf"{result.variable_name} = "
+                rf"{interface_1.variable_name} === "
+                rf"{var_names.INT}\_.+?\;"
+            ),
             string=expression,
-            flags=re.MULTILINE)
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=10, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         result: ap.Boolean = interface_1 != interface_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{result.variable_name} = '
-            f'{interface_1.variable_name} !== '
-            f'{interface_2.variable_name};'
+            f"{result.variable_name} = "
+            f"{interface_1.variable_name} !== "
+            f"{interface_2.variable_name};"
         )
         assert expected in expression
 
@@ -763,28 +805,31 @@ class TestNumberValueInterface:
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{result.variable_name} = '
-                rf'{interface_1.variable_name} !== '
-                rf'{var_names.INT}\_.+?;'
+                rf"{result.variable_name} = "
+                rf"{interface_1.variable_name} !== "
+                rf"{var_names.INT}\_.+?;"
             ),
             string=expression,
-            flags=re.MULTILINE)
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_lt_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=10, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         result: ap.Boolean = interface_1 < interface_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{result.variable_name} = '
-            f'{interface_1.variable_name} < {interface_2.variable_name};'
+            f"{result.variable_name} = "
+            f"{interface_1.variable_name} < {interface_2.variable_name};"
         )
         assert expected in expression
 
@@ -793,27 +838,31 @@ class TestNumberValueInterface:
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{result.variable_name} = '
-                rf'{interface_1.variable_name} \< '
-                rf'{var_names.INT}\_.+;'
+                rf"{result.variable_name} = "
+                rf"{interface_1.variable_name} \< "
+                rf"{var_names.INT}\_.+;"
             ),
-            string=expression, flags=re.MULTILINE)
+            string=expression,
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_le_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=10, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         result: ap.Boolean = interface_1 <= interface_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{result.variable_name} = '
-            f'{interface_1.variable_name} <= {interface_2.variable_name};'
+            f"{result.variable_name} = "
+            f"{interface_1.variable_name} <= {interface_2.variable_name};"
         )
         assert expected in expression
 
@@ -822,27 +871,31 @@ class TestNumberValueInterface:
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{result.variable_name} = '
-                rf'{interface_1.variable_name} <= '
-                rf'{var_names.INT}\_.+;'
+                rf"{result.variable_name} = "
+                rf"{interface_1.variable_name} <= "
+                rf"{var_names.INT}\_.+;"
             ),
-            string=expression, flags=re.MULTILINE)
+            string=expression,
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_gt_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=10, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         result: ap.Boolean = interface_1 > interface_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{result.variable_name} = '
-            f'{interface_1.variable_name} > {interface_2.variable_name};'
+            f"{result.variable_name} = "
+            f"{interface_1.variable_name} > {interface_2.variable_name};"
         )
         assert expected in expression
 
@@ -851,27 +904,31 @@ class TestNumberValueInterface:
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{result.variable_name} = '
-                rf'{interface_1.variable_name} > '
-                rf'{var_names.INT}\_.+;'
+                rf"{result.variable_name} = "
+                rf"{interface_1.variable_name} > "
+                rf"{var_names.INT}\_.+;"
             ),
-            string=expression, flags=re.MULTILINE)
+            string=expression,
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ge_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_2.variable_name = 'test_interface_2'
+            value=10, type_name="test_interface"
+        )
+        interface_2.variable_name = "test_interface_2"
         result: ap.Boolean = interface_1 >= interface_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{result.variable_name} = '
-            f'{interface_1.variable_name} >= {interface_2.variable_name};'
+            f"{result.variable_name} = "
+            f"{interface_1.variable_name} >= {interface_2.variable_name};"
         )
         assert expected in expression
 
@@ -880,66 +937,65 @@ class TestNumberValueInterface:
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{result.variable_name} = '
-                rf'{interface_1.variable_name} >= '
-                rf'{var_names.INT}\_.+?;'
+                rf"{result.variable_name} = "
+                rf"{interface_1.variable_name} >= "
+                rf"{var_names.INT}\_.+?;"
             ),
-            string=expression, flags=re.MULTILINE)
+            string=expression,
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__convert_other_val_to_int_or_number(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        converted_val: Any = interface_1._convert_other_val_to_int_or_number(
-            other=10)
+            value=10, type_name="test_interface"
+        )
+        converted_val: Any = interface_1._convert_other_val_to_int_or_number(other=10)
         assert isinstance(converted_val, ap.Int)
         assert converted_val == 10
 
-        converted_val = interface_1._convert_other_val_to_int_or_number(
-            other=10.5)
+        converted_val = interface_1._convert_other_val_to_int_or_number(other=10.5)
         assert isinstance(converted_val, ap.Number)
         assert converted_val == 10.5
 
-        converted_val = interface_1._convert_other_val_to_int_or_number(
-            other='Hello')
-        assert converted_val == 'Hello'
+        converted_val = interface_1._convert_other_val_to_int_or_number(other="Hello")
+        assert converted_val == "Hello"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_incremental_calc_substitution_expression(self) -> None:
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = \
-            self._make_x_interface_instance()
+        x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x += 10
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface,
-            previous_x_variable_name=previous_variable_name)
-        assert x_interface._x._incremental_calc_prev_name == ''
+            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+        )
+        assert x_interface._x._incremental_calc_prev_name == ""
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_modulo_expression(self) -> None:
         expression_data_util.empty_expression()
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = interface_1 % 10
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_2.variable_name} = '
-            f'{interface_1.variable_name} % 10;'
+            f"{interface_2.variable_name} = " f"{interface_1.variable_name} % 10;"
         )
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___mod__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+            value=10, type_name="test_interface"
+        )
+        interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = interface_1 % 3
         assert interface_2 == 1
 
-        interface_1 = NumberValueInterface(
-            value=10.5, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+        interface_1 = NumberValueInterface(value=10.5, type_name="test_interface")
+        interface_1.variable_name = "test_interface_1"
         interface_3: NumberValueInterface = interface_1 % ap.Int(3)
         assert interface_3 == 1.5

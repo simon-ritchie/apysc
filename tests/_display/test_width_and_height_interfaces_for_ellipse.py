@@ -3,17 +3,18 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.width_and_height_interfaces_for_ellipse import \
-    WidthAndHeightInterfacesForEllipse
+from apysc._display.width_and_height_interfaces_for_ellipse import (
+    WidthAndHeightInterfacesForEllipse,
+)
 from apysc._expression import expression_data_util
 
 
 class TestWidthAndHeightInterfacesForEllipse:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_width_and_height_if_not_initialized(self) -> None:
-        interface: WidthAndHeightInterfacesForEllipse = \
+        interface: WidthAndHeightInterfacesForEllipse = (
             WidthAndHeightInterfacesForEllipse()
+        )
         interface._initialize_width_and_height_if_not_initialized()
         assert interface._width == 0
         assert interface._height == 0
@@ -26,10 +27,10 @@ class TestWidthAndHeightInterfacesForEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_width(self) -> None:
-        interface: WidthAndHeightInterfacesForEllipse = \
+        interface: WidthAndHeightInterfacesForEllipse = (
             WidthAndHeightInterfacesForEllipse()
-        interface.variable_name = \
-            'test_width_and_height_interfaces_for_ellipse'
+        )
+        interface.variable_name = "test_width_and_height_interfaces_for_ellipse"
         assert interface.width == 0
 
         interface.width = ap.Int(10)
@@ -37,10 +38,10 @@ class TestWidthAndHeightInterfacesForEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_height(self) -> None:
-        interface: WidthAndHeightInterfacesForEllipse = \
+        interface: WidthAndHeightInterfacesForEllipse = (
             WidthAndHeightInterfacesForEllipse()
-        interface.variable_name = \
-            'test_width_and_height_interfaces_for_ellipse'
+        )
+        interface.variable_name = "test_width_and_height_interfaces_for_ellipse"
         assert interface.height == 0
 
         interface.height = ap.Int(10)
@@ -49,28 +50,28 @@ class TestWidthAndHeightInterfacesForEllipse:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_width_and_height_update_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface: WidthAndHeightInterfacesForEllipse = \
+        interface: WidthAndHeightInterfacesForEllipse = (
             WidthAndHeightInterfacesForEllipse()
-        interface.variable_name = \
-            'test_width_and_height_interfaces_for_ellipse'
+        )
+        interface.variable_name = "test_width_and_height_interfaces_for_ellipse"
         width: ap.Int = ap.Int(10)
         interface.width = width
         height: ap.Int = ap.Int(20)
         interface.height = height
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface.variable_name}.radius('
-            f'Math.trunc({width.variable_name} / 2), '
-            f'Math.trunc({height.variable_name}) / 2);'
+            f"{interface.variable_name}.radius("
+            f"Math.trunc({width.variable_name} / 2), "
+            f"Math.trunc({height.variable_name}) / 2);"
         )
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        interface: WidthAndHeightInterfacesForEllipse = \
+        interface: WidthAndHeightInterfacesForEllipse = (
             WidthAndHeightInterfacesForEllipse()
-        interface.variable_name = \
-            'test_width_and_height_interfaces_for_ellipse'
+        )
+        interface.variable_name = "test_width_and_height_interfaces_for_ellipse"
         interface.width = ap.Int(10)
         interface.height = ap.Int(20)
         snapshot_name: str = interface._get_next_snapshot_name()
@@ -86,10 +87,10 @@ class TestWidthAndHeightInterfacesForEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        interface: WidthAndHeightInterfacesForEllipse = \
+        interface: WidthAndHeightInterfacesForEllipse = (
             WidthAndHeightInterfacesForEllipse()
-        interface.variable_name = \
-            'test_width_and_height_interfaces_for_ellipse'
+        )
+        interface.variable_name = "test_width_and_height_interfaces_for_ellipse"
         interface.width = ap.Int(10)
         interface.height = ap.Int(20)
         snapshot_name: str = interface._get_next_snapshot_name()
@@ -108,18 +109,18 @@ class TestWidthAndHeightInterfacesForEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_width_attr_linking_setting(self) -> None:
-        interface: WidthAndHeightInterfacesForEllipse = \
+        interface: WidthAndHeightInterfacesForEllipse = (
             WidthAndHeightInterfacesForEllipse()
-        interface.variable_name = \
-            'test_width_and_height_interfaces_for_ellipse'
+        )
+        interface.variable_name = "test_width_and_height_interfaces_for_ellipse"
         interface._initialize_width_and_height_if_not_initialized()
-        assert interface._attr_linking_stack['width'] == [ap.Int(0)]
+        assert interface._attr_linking_stack["width"] == [ap.Int(0)]
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_height_attr_linking_setting(self) -> None:
-        interface: WidthAndHeightInterfacesForEllipse = \
+        interface: WidthAndHeightInterfacesForEllipse = (
             WidthAndHeightInterfacesForEllipse()
-        interface.variable_name = \
-            'test_width_and_height_interfaces_for_ellipse'
+        )
+        interface.variable_name = "test_width_and_height_interfaces_for_ellipse"
         interface._initialize_width_and_height_if_not_initialized()
-        assert interface._attr_linking_stack['height'] == [ap.Int(0)]
+        assert interface._attr_linking_stack["height"] == [ap.Int(0)]

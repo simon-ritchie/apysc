@@ -8,7 +8,6 @@ from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationParallelInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_parallel(self) -> None:
         ap.Stage()
@@ -25,9 +24,10 @@ class TestAnimationParallelInterface:
         )
         assert_attrs(
             expected_attrs={
-                '_animations': animations,
-                '_duration': 1000,
-                '_delay': 500,
-                '_easing': ap.Easing.EASE_OUT_QUINT,
+                "_animations": animations,
+                "_duration": 1000,
+                "_delay": 500,
+                "_easing": ap.Easing.EASE_OUT_QUINT,
             },
-            any_obj=animation_parallel)
+            any_obj=animation_parallel,
+        )

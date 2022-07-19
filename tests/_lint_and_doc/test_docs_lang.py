@@ -20,6 +20,5 @@ def test_langs_values_are_str_type() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_lang_from_str_value() -> None:
-    lang: Lang = docs_lang.get_lang_from_str_value(
-        str_value=Lang.JP.value)
+    lang: Lang = docs_lang.get_lang_from_str_value(str_value=Lang.JP.value)
     assert lang == Lang.JP

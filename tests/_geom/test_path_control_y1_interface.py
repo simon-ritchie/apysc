@@ -7,7 +7,6 @@ from apysc._geom.path_control_y1_interface import PathControlY1Interface
 
 
 class TestPathControlY1Interface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_control_y1(self) -> None:
         interface: PathControlY1Interface = PathControlY1Interface()
@@ -50,4 +49,4 @@ class TestPathControlY1Interface:
     def test__append_control_y1_linking_setting(self) -> None:
         interface: PathControlY1Interface = PathControlY1Interface()
         interface._initialize_control_y1_if_not_initialized()
-        assert interface._attr_linking_stack['control_y1'] == [ap.Int(0)]
+        assert interface._attr_linking_stack["control_y1"] == [ap.Int(0)]

@@ -7,29 +7,31 @@ from typing import Union
 
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import \
-    AttrToApyscValFromBuiltinInterface
+from apysc._type.attr_to_apysc_val_from_builtin_interface import (
+    AttrToApyscValFromBuiltinInterface,
+)
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 _Int = Union[int, Int]
 
 
 class Point2D(
-        VariableNameSuffixAttrInterface,
-        VariableNameInterface,
-        RevertInterface,
-        DictionaryStructure,
-        CustomEventInterface,
-        VariableNameSuffixInterface,
-        AttrToApyscValFromBuiltinInterface):
+    VariableNameSuffixAttrInterface,
+    VariableNameInterface,
+    RevertInterface,
+    DictionaryStructure,
+    CustomEventInterface,
+    VariableNameSuffixInterface,
+    AttrToApyscValFromBuiltinInterface,
+):
     """
     2-dimensional geometry point class.
 
@@ -59,15 +61,9 @@ class Point2D(
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=3, optional=True)
+    @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=True)
     @add_debug_info_setting(module_name=__name__)
-    def __init__(
-            self,
-            x: _Int,
-            y: _Int,
-            *,
-            variable_name_suffix: str = '') -> None:
+    def __init__(self, x: _Int, y: _Int, *, variable_name_suffix: str = "") -> None:
         """
         2-dimensional geometry point.
 
@@ -97,24 +93,23 @@ class Point2D(
         import apysc as ap
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
         if isinstance(x, ap.Int):
             x_: ap.Int = x
         else:
-            suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='x')
+            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="x")
             x_ = ap.Int(x, variable_name_suffix=suffix)
         if isinstance(y, ap.Int):
             y_: ap.Int = y
         else:
-            suffix = self._get_attr_variable_name_suffix(
-                attr_identifier='y')
+            suffix = self._get_attr_variable_name_suffix(attr_identifier="y")
             y_ = ap.Int(y, variable_name_suffix=suffix)
         self._x = x_
         self._y = y_
-        self.variable_name = \
-            expression_variables_util.get_next_variable_name(
-                type_name=var_names.POINT2D)
+        self.variable_name = expression_variables_util.get_next_variable_name(
+            type_name=var_names.POINT2D
+        )
         self._append_constructor_expression()
 
     @add_debug_info_setting(module_name=__name__)
@@ -123,10 +118,12 @@ class Point2D(
         Append constructor expression.
         """
         import apysc as ap
+
         expression: str = (
-            f'var {self.variable_name} = {{'
+            f"var {self.variable_name} = {{"
             f'"x": {self._x.variable_name}, '
-            f'"y": {self._y.variable_name}}};')
+            f'"y": {self._y.variable_name}}};'
+        )
         ap.append_js_expression(expression=expression)
 
     @property
@@ -149,10 +146,9 @@ class Point2D(
         Int(150)
         """
         import apysc as ap
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='x')
-        x: ap.Int = ap.Int(
-            self._x._value, variable_name_suffix=suffix)
+
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="x")
+        x: ap.Int = ap.Int(self._x._value, variable_name_suffix=suffix)
         self._append_x_getter_expression(x=x)
         return x
 
@@ -169,9 +165,9 @@ class Point2D(
             X-coordinate to set.
         """
         import apysc as ap
+
         if not isinstance(value, ap.Int):
-            suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='x')
+            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="x")
             value = ap.Int(value, variable_name_suffix=suffix)
         self._x = value
         self._x._append_incremental_calc_substitution_expression()
@@ -188,10 +184,8 @@ class Point2D(
             Target x value.
         """
         import apysc as ap
-        expression: str = (
-            f'{x.variable_name} = '
-            f'{self.variable_name}["x"];'
-        )
+
+        expression: str = f"{x.variable_name} = " f'{self.variable_name}["x"];'
         ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
@@ -205,9 +199,8 @@ class Point2D(
             X-coordinate to set.
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}["x"] = {value.variable_name};'
-        )
+
+        expression: str = f'{self.variable_name}["x"] = {value.variable_name};'
         ap.append_js_expression(expression=expression)
 
     @property
@@ -230,10 +223,9 @@ class Point2D(
         Int(150)
         """
         import apysc as ap
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='y')
-        y: ap.Int = ap.Int(
-            self._y._value, variable_name_suffix=suffix)
+
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="y")
+        y: ap.Int = ap.Int(self._y._value, variable_name_suffix=suffix)
         self._append_y_getter_expression(y=y)
         return y
 
@@ -250,9 +242,9 @@ class Point2D(
             Y-coordinate to set.
         """
         import apysc as ap
+
         if not isinstance(value, ap.Int):
-            suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='y')
+            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="y")
             value = ap.Int(value, variable_name_suffix=suffix)
         self._y = value
         self._y._append_incremental_calc_substitution_expression()
@@ -269,10 +261,8 @@ class Point2D(
             Target y value.
         """
         import apysc as ap
-        expression: str = (
-            f'{y.variable_name} = '
-            f'{self.variable_name}["y"];'
-        )
+
+        expression: str = f"{y.variable_name} = " f'{self.variable_name}["y"];'
         ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
@@ -286,9 +276,8 @@ class Point2D(
             Y-coordinate to set.
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}["y"] = {value.variable_name};'
-        )
+
+        expression: str = f'{self.variable_name}["y"] = {value.variable_name};'
         ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
@@ -307,10 +296,10 @@ class Point2D(
             Comparison result.
         """
         import apysc as ap
+
         result: ap.Boolean
         if not isinstance(other, Point2D):
-            result = ap.Boolean(
-                False, variable_name_suffix=self._variable_name_suffix)
+            result = ap.Boolean(False, variable_name_suffix=self._variable_name_suffix)
             return result
         return other.x == self.x and other.y == self.y
 
@@ -330,6 +319,7 @@ class Point2D(
             Comparison result.
         """
         import apysc as ap
+
         result: ap.Boolean = self == other
         result = result.not_
         return result
@@ -345,13 +335,13 @@ class Point2D(
             Type name and coordinates values are set
             (e.g., `Point2D(Int(50), Int(100))`).
         """
-        x_repr: str = '0'
-        if hasattr(self, '_x'):
+        x_repr: str = "0"
+        if hasattr(self, "_x"):
             x_repr = repr(self._x)
-        y_repr: str = '0'
-        if hasattr(self, '_y'):
+        y_repr: str = "0"
+        if hasattr(self, "_y"):
             y_repr = repr(self._y)
-        repr_str: str = f'Point2D({x_repr}, {y_repr})'
+        repr_str: str = f"Point2D({x_repr}, {y_repr})"
         return repr_str
 
     _x_snapshots: Dict[str, int]
@@ -367,11 +357,15 @@ class Point2D(
             Target snapshot name.
         """
         self._set_single_snapshot_val_to_dict(
-            dict_name='_x_snapshots',
-            value=int(self._x._value), snapshot_name=snapshot_name)
+            dict_name="_x_snapshots",
+            value=int(self._x._value),
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_y_snapshots',
-            value=int(self._y._value), snapshot_name=snapshot_name)
+            dict_name="_y_snapshots",
+            value=int(self._y._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

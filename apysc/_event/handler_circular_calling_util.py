@@ -23,14 +23,17 @@ def is_handler_circular_calling(*, handler_name: str) -> bool:
         returns True.
     """
     from apysc._expression import event_handler_scope
+
     if _is_already_saved_circular_calling(handler_name=handler_name):
         return True
     original_handler_name: str = handler_name
     handler_name = event_handler_scope.remove_suffix_num_from_handler_name(
-        handler_name=handler_name)
+        handler_name=handler_name
+    )
     handler_names: List[str] = _read_handler_names()
     handler_names = _append_handler_name_to_last_of_list(
-        handler_name=handler_name, handler_names=handler_names)
+        handler_name=handler_name, handler_names=handler_names
+    )
     count: int = handler_names.count(handler_name)
     if count < 2:
         return False
@@ -48,8 +51,7 @@ def is_handler_circular_calling(*, handler_name: str) -> bool:
         if prev_handler_count == 2:
             break
     if prev_handler_count == 2:
-        _save_circular_calling_handler_name(
-            handler_name=original_handler_name)
+        _save_circular_calling_handler_name(handler_name=original_handler_name)
         return True
     return False
 
@@ -71,9 +73,8 @@ def _is_already_saved_circular_calling(*, handler_name: str) -> bool:
         name as the circular calling handler, this interface
         returns True.
     """
-    prev_handler_name: str = get_prev_handler_name(
-        handler_name=handler_name)
-    if prev_handler_name == '':
+    prev_handler_name: str = get_prev_handler_name(handler_name=handler_name)
+    if prev_handler_name == "":
         return False
     return True
 
@@ -95,16 +96,16 @@ def get_prev_handler_name(*, handler_name: str) -> str:
         previous one, this interface returns a blank string.
     """
     from apysc._expression import expression_data_util
-    table_name: str = expression_data_util.TableName.\
-        CIRCULAR_CALLING_HANDLER_NAME.value
+
+    table_name: str = expression_data_util.TableName.CIRCULAR_CALLING_HANDLER_NAME.value
     query: str = (
-        f'SELECT prev_handler_name FROM {table_name} '
+        f"SELECT prev_handler_name FROM {table_name} "
         f"WHERE handler_name = '{handler_name}';"
     )
     expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
     if result is None:
-        return ''
+        return ""
     return result[0]
 
 
@@ -126,16 +127,16 @@ def get_prev_variable_name(*, handler_name: str) -> str:
         this interface returns a blank string.
     """
     from apysc._expression import expression_data_util
-    table_name: str = expression_data_util.TableName.\
-        CIRCULAR_CALLING_HANDLER_NAME.value
+
+    table_name: str = expression_data_util.TableName.CIRCULAR_CALLING_HANDLER_NAME.value
     query: str = (
-        f'SELECT prev_variable_name FROM {table_name} '
+        f"SELECT prev_variable_name FROM {table_name} "
         f"WHERE handler_name = '{handler_name}';"
     )
     expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
     if result is None:
-        return ''
+        return ""
     return result[0]
 
 
@@ -149,15 +150,15 @@ def _save_circular_calling_handler_name(*, handler_name: str) -> None:
         Target handler's name.
     """
     from apysc._expression import expression_data_util
-    prev_hadler_name: str = _get_same_name_prev_hadler_name(
-        handler_name=handler_name)
+
+    prev_hadler_name: str = _get_same_name_prev_hadler_name(handler_name=handler_name)
     prev_variable_name: str = _get_same_name_prev_variable_name(
-        handler_name=handler_name)
-    table_name: str = expression_data_util.TableName.\
-        CIRCULAR_CALLING_HANDLER_NAME.value
+        handler_name=handler_name
+    )
+    table_name: str = expression_data_util.TableName.CIRCULAR_CALLING_HANDLER_NAME.value
     query: str = (
-        f'INSERT INTO {table_name}'
-        '(handler_name, prev_handler_name, prev_variable_name) '
+        f"INSERT INTO {table_name}"
+        "(handler_name, prev_handler_name, prev_variable_name) "
         f"VALUES('{handler_name}', '{prev_hadler_name}', "
         f"'{prev_variable_name}');"
     )
@@ -181,8 +182,7 @@ def _get_same_name_prev_hadler_name(*, handler_name: str) -> str:
         handler's name.
     """
     same_name_prev_hadler_name: str
-    same_name_prev_hadler_name, _ = _get_same_name_prev_data(
-        handler_name=handler_name)
+    same_name_prev_hadler_name, _ = _get_same_name_prev_data(handler_name=handler_name)
     return same_name_prev_hadler_name
 
 
@@ -204,8 +204,7 @@ def _get_same_name_prev_variable_name(*, handler_name: str) -> str:
         variable name.
     """
     prev_variable_name: str
-    _, prev_variable_name = _get_same_name_prev_data(
-        handler_name=handler_name)
+    _, prev_variable_name = _get_same_name_prev_data(handler_name=handler_name)
     return prev_variable_name
 
 
@@ -235,11 +234,11 @@ def _get_same_name_prev_data(*, handler_name: str) -> Tuple[str, str]:
     """
     from apysc._expression import event_handler_scope
     from apysc._expression import expression_data_util
-    table_name: str = expression_data_util.TableName.\
-        HANDLER_CALLING_STACK.value
+
+    table_name: str = expression_data_util.TableName.HANDLER_CALLING_STACK.value
     query: str = (
-        f'SELECT handler_name, variable_name FROM {table_name} '
-        f'ORDER BY scope_count DESC'
+        f"SELECT handler_name, variable_name FROM {table_name} "
+        f"ORDER BY scope_count DESC"
     )
     expression_data_util.exec_query(sql=query)
     result: List[Tuple[str, str]] = expression_data_util.cursor.fetchall()
@@ -247,22 +246,30 @@ def _get_same_name_prev_data(*, handler_name: str) -> Tuple[str, str]:
         handler_name_: str = tpl[0]
         if i == 0 and handler_name == handler_name_:
             continue
-        no_suffix_handler_name: str = event_handler_scope.\
-            remove_suffix_num_from_handler_name(handler_name=handler_name)
-        no_suffix_handler_name_: str = event_handler_scope.\
-            remove_suffix_num_from_handler_name(handler_name=handler_name_)
+        no_suffix_handler_name: str = (
+            event_handler_scope.remove_suffix_num_from_handler_name(
+                handler_name=handler_name
+            )
+        )
+        no_suffix_handler_name_: str = (
+            event_handler_scope.remove_suffix_num_from_handler_name(
+                handler_name=handler_name_
+            )
+        )
         if no_suffix_handler_name != no_suffix_handler_name_:
             continue
         prev_hadler_name: str = handler_name_
         prev_variable_name: str = tpl[1]
         return prev_hadler_name, prev_variable_name
     raise ValueError(
-        'Previous same name handler does not exitst in the SQLite.'
-        ' Please check the implementation of this function\'s calling.')
+        "Previous same name handler does not exitst in the SQLite."
+        " Please check the implementation of this function's calling."
+    )
 
 
 def _append_handler_name_to_last_of_list(
-        *, handler_name: str, handler_names: List[str]) -> List[str]:
+    *, handler_name: str, handler_names: List[str]
+) -> List[str]:
     """
     Append a specified handler's name to the list
     last if the last one is the other handler's name.
@@ -300,16 +307,13 @@ def _read_handler_names() -> List[str]:
     """
     from apysc._expression import event_handler_scope
     from apysc._expression import expression_data_util
-    table_name: str = expression_data_util.TableName.\
-        HANDLER_CALLING_STACK.value
-    query: str = (
-        f'SELECT handler_name FROM {table_name} '
-        f'ORDER BY scope_count'
-    )
+
+    table_name: str = expression_data_util.TableName.HANDLER_CALLING_STACK.value
+    query: str = f"SELECT handler_name FROM {table_name} " f"ORDER BY scope_count"
     expression_data_util.exec_query(sql=query)
     result: List[Tuple[str]] = expression_data_util.cursor.fetchall()
     handler_names: List[str] = [
-        event_handler_scope.remove_suffix_num_from_handler_name(
-            handler_name=tpl[0])
-        for tpl in result]
+        event_handler_scope.remove_suffix_num_from_handler_name(handler_name=tpl[0])
+        for tpl in result
+    ]
     return handler_names

@@ -8,7 +8,7 @@ $ python ./scripts/run_flake8.py
 import sys
 from logging import Logger
 
-sys.path.append('./')
+sys.path.append("./")
 
 import scripts.command_util as command_util
 from apysc._console import loggers
@@ -26,11 +26,11 @@ def _main() -> None:
     Exception
         If command standard out is not blank.
     """
-    logger.info('flake8 command started.')
+    logger.info("flake8 command started.")
     stdout: str = command_util.run_command(command=FLAKE8_COMMAND)
-    if stdout != '':
-        raise Exception('There are flake8 errors or warning.')
+    if stdout != "":
+        raise Exception("There are flake8 errors or warning.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _main()

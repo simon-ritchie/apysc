@@ -28,9 +28,8 @@ class WheelEvent(Event):
         supported document (overall screen) mouse wheel.
         """
         from apysc._expression import var_names
-        super(WheelEvent, self).__init__(
-            this=this,
-            type_name=var_names.WHEEL_EVENT)
+
+        super(WheelEvent, self).__init__(this=this, type_name=var_names.WHEEL_EVENT)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -44,6 +43,7 @@ class WheelEvent(Event):
             Delta x value.
         """
         import apysc as ap
+
         delta_x: ap.Int = ap.Int(0)
         self._append_delta_x_getter_expression(delta_x=delta_x)
         return delta_x
@@ -59,10 +59,8 @@ class WheelEvent(Event):
             Target delta x value.
         """
         import apysc as ap
-        expression: str = (
-            f'{delta_x.variable_name} = '
-            f'{self.variable_name}.deltaX;'
-        )
+
+        expression: str = f"{delta_x.variable_name} = " f"{self.variable_name}.deltaX;"
         ap.append_js_expression(expression=expression)
 
     @property
@@ -77,6 +75,7 @@ class WheelEvent(Event):
             Delta y value.
         """
         import apysc as ap
+
         delta_y: ap.Int = ap.Int(0)
         self._append_delta_y_getter_expression(delta_y=delta_y)
         return delta_y
@@ -92,8 +91,6 @@ class WheelEvent(Event):
             Target delta y value.
         """
         import apysc as ap
-        expression: str = (
-            f'{delta_y.variable_name} = '
-            f'{self.variable_name}.deltaY;'
-        )
+
+        expression: str = f"{delta_y.variable_name} = " f"{self.variable_name}.deltaY;"
         ap.append_js_expression(expression=expression)

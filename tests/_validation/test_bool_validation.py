@@ -13,9 +13,10 @@ def test_validate_bool() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=bool_validation.validate_bool,
-        match='\nTest error!',
+        match="\nTest error!",
         value=1,
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -25,6 +26,7 @@ def test_validate_builtin_bool() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=bool_validation.validate_builtin_bool,
-        match='\nTest error!',
+        match="\nTest error!",
         value=ap.Boolean(True),
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )

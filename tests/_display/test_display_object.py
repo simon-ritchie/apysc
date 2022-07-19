@@ -9,35 +9,36 @@ from apysc._testing import testing_helper
 
 
 class TestDisplayObject:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject(
-            variable_name='test_display_object')
+            variable_name="test_display_object"
+        )
         testing_helper.assert_attrs(
             expected_attrs={
-                'stage': stage,
+                "stage": stage,
             },
-            any_obj=display_object)
+            any_obj=display_object,
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_variable_name(self) -> None:
         ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject(
-            variable_name='test_display_object_1')
-        display_object.variable_name = 'test_display_object_2'
-        assert display_object.variable_name == 'test_display_object_2'
+            variable_name="test_display_object_1"
+        )
+        display_object.variable_name = "test_display_object_2"
+        assert display_object.variable_name == "test_display_object_2"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_overflow_visible_setting(self) -> None:
         expression_data_util.empty_expression()
         ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject(
-            variable_name='test_display_object')
+            variable_name="test_display_object"
+        )
         display_object._set_overflow_visible_setting()
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{display_object.variable_name}.css("overflow", "visible");'
-        )
+        expected: str = f'{display_object.variable_name}.css("overflow", "visible");'
         assert expected in expression

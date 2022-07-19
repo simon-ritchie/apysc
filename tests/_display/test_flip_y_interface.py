@@ -8,16 +8,14 @@ from apysc._expression import expression_data_util
 
 
 class _TestInterface(FlipYInterface):
-
     def __init__(self) -> None:
         """
         The class for the testing of the FlipYInterface.
         """
-        self.variable_name = 'test_flip_y_interface'
+        self.variable_name = "test_flip_y_interface"
 
 
 class TestFlipYInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_flip_y_if_not_initialized(self) -> None:
         interface: _TestInterface = _TestInterface()
@@ -74,4 +72,4 @@ class TestFlipYInterface:
     def test__append_flip_y_attr_linking_setting(self) -> None:
         interface: _TestInterface = _TestInterface()
         interface._initialize_flip_y_if_not_initialized()
-        assert interface._attr_linking_stack['flip_y'] == [ap.Boolean(False)]
+        assert interface._attr_linking_stack["flip_y"] == [ap.Boolean(False)]

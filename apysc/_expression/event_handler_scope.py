@@ -19,9 +19,7 @@ class HandlerScope:
     _handler_name: str
     _instance: VariableNameInterface
 
-    def __init__(
-            self, *, handler_name: str,
-            instance: VariableNameInterface) -> None:
+    def __init__(self, *, handler_name: str, instance: VariableNameInterface) -> None:
         """
         Class for a handler scope. The apysc uses this class at
         a with-statement.
@@ -42,7 +40,8 @@ class HandlerScope:
         """
         _increment_scope_count()
         _save_handler_calling_stack(
-            handler_name=self._handler_name, instance=self._instance)
+            handler_name=self._handler_name, instance=self._instance
+        )
 
     def __exit__(self, *args: Any) -> None:
         """
@@ -58,7 +57,8 @@ class HandlerScope:
 
 
 def _save_handler_calling_stack(
-        *, handler_name: str, instance: VariableNameInterface) -> None:
+    *, handler_name: str, instance: VariableNameInterface
+) -> None:
     """
     Save the handler calling stack data to the SQLite.
 
@@ -70,12 +70,13 @@ def _save_handler_calling_stack(
         Instance will be binded the target handler.
     """
     from apysc._expression import expression_data_util
+
     scope_count: int = get_current_event_handler_scope_count()
     variable_name: str = instance.variable_name
     query: str = (
-        'INSERT INTO '
-        f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value}'
-        '(handler_name, scope_count, variable_name) '
+        "INSERT INTO "
+        f"{expression_data_util.TableName.HANDLER_CALLING_STACK.value}"
+        "(handler_name, scope_count, variable_name) "
         f"VALUES('{handler_name}', {scope_count}, '{variable_name}');"
     )
     expression_data_util.exec_query(sql=query)
@@ -95,9 +96,9 @@ def remove_suffix_num_from_handler_name(*, handler_name: str) -> str:
     handler_name : str
         Result handler's name.
     """
-    splitted: List[str] = handler_name.split('_')
+    splitted: List[str] = handler_name.split("_")
     splitted = splitted[:-1]
-    handler_name = '_'.join(splitted)
+    handler_name = "_".join(splitted)
     return handler_name
 
 
@@ -111,12 +112,13 @@ def _delete_handler_calling_stack(*, handler_name: str) -> None:
         Target handler's name.
     """
     from apysc._expression import expression_data_util
+
     scope_count: int = get_current_event_handler_scope_count()
     query: str = (
-        'DELETE FROM '
-        f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '
+        "DELETE FROM "
+        f"{expression_data_util.TableName.HANDLER_CALLING_STACK.value} "
         f"WHERE handler_name = '{handler_name}' "
-        f'AND scope_count = {scope_count};'
+        f"AND scope_count = {scope_count};"
     )
     expression_data_util.exec_query(sql=query)
 
@@ -183,15 +185,16 @@ def _save_current_scope_count(*, count: int) -> None:
         Scope count to save.
     """
     from apysc._expression import expression_data_util
+
     query: str = (
-        'DELETE FROM '
-        f'{expression_data_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value};'
+        "DELETE FROM "
+        f"{expression_data_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value};"
     )
     expression_data_util.exec_query(sql=query, commit=False)
     query = (
-        'INSERT INTO '
-        f'{expression_data_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value}'
-        f'(count) VALUES({count});'
+        "INSERT INTO "
+        f"{expression_data_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value}"
+        f"(count) VALUES({count});"
     )
     expression_data_util.exec_query(sql=query)
 
@@ -209,10 +212,11 @@ def get_current_event_handler_scope_count() -> int:
         then this interface returns 2 or more count.
     """
     from apysc._expression import expression_data_util
+
     query: str = (
-        'SELECT count FROM '
-        f'{expression_data_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value} '
-        'LIMIT 1;'
+        "SELECT count FROM "
+        f"{expression_data_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value} "
+        "LIMIT 1;"
     )
     expression_data_util.exec_query(sql=query)
     result: Optional[Tuple] = expression_data_util.cursor.fetchone()

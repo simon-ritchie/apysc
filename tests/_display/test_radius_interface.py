@@ -8,7 +8,6 @@ from apysc._expression import expression_data_util
 
 
 class TestRadiusInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_radius_if_not_initialized(self) -> None:
         interface: RadiusInterface = RadiusInterface()
@@ -21,7 +20,7 @@ class TestRadiusInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_radius(self) -> None:
         interface: RadiusInterface = RadiusInterface()
-        interface.variable_name = 'test_radius_interface'
+        interface.variable_name = "test_radius_interface"
         assert interface.radius == 0
 
         interface.radius = ap.Int(10)
@@ -31,19 +30,17 @@ class TestRadiusInterface:
     def test__append_radius_update_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: RadiusInterface = RadiusInterface()
-        interface.variable_name = 'test_radius_interface'
+        interface.variable_name = "test_radius_interface"
         radius: ap.Int = ap.Int(10)
         interface.radius = radius
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{interface.variable_name}.radius({radius.variable_name});'
-        )
+        expected: str = f"{interface.variable_name}.radius({radius.variable_name});"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface: RadiusInterface = RadiusInterface()
-        interface.variable_name = 'test_radius_interface'
+        interface.variable_name = "test_radius_interface"
         interface.radius = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -56,7 +53,7 @@ class TestRadiusInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         interface: RadiusInterface = RadiusInterface()
-        interface.variable_name = 'test_radius_interface'
+        interface.variable_name = "test_radius_interface"
         interface.radius = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -82,6 +79,6 @@ class TestRadiusInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_raidus_attr_linking_setting(self) -> None:
         interface: RadiusInterface = RadiusInterface()
-        interface.variable_name = 'test_radius_interface'
+        interface.variable_name = "test_radius_interface"
         interface._initialize_radius_if_not_initialized()
-        assert interface._attr_linking_stack['radius'] == [ap.Int(0)]
+        assert interface._attr_linking_stack["radius"] == [ap.Int(0)]

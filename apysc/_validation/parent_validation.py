@@ -5,8 +5,7 @@ from typing import Any
 from typing import Optional
 
 
-def validate_parent_contains_child(
-        *, parent: Optional[Any], child: Any) -> None:
+def validate_parent_contains_child(*, parent: Optional[Any], child: Any) -> None:
     """
     Validate whether a parent contains a specified child.
 
@@ -25,6 +24,7 @@ def validate_parent_contains_child(
     """
     from apysc._display.child_interface import ChildInterface
     from apysc._display.display_object import DisplayObject
+
     parent_: Optional[ChildInterface] = parent
     child_: DisplayObject = child
     if parent_ is None:
@@ -32,7 +32,8 @@ def validate_parent_contains_child(
     if parent_.contains(child=child_):
         return
     raise ValueError(
-        'Parent not containts specified child.'
-        f'\nParent type: {type(parent_)}'
-        f'\nChild type: {type(child_)}'
-        f'\nChild name: {child_.variable_name}')
+        "Parent not containts specified child."
+        f"\nParent type: {type(parent_)}"
+        f"\nChild type: {type(child_)}"
+        f"\nChild name: {child_.variable_name}"
+    )

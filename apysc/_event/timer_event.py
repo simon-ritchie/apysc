@@ -38,10 +38,10 @@ class TimerEvent(Event):
     ... ).start()
     """
 
-    _this: 'timer.Timer'
+    _this: "timer.Timer"
 
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, *, this: 'timer.Timer') -> None:
+    def __init__(self, *, this: "timer.Timer") -> None:
         """
         Timer event class.
 
@@ -75,11 +75,11 @@ class TimerEvent(Event):
         ... ).start()
         """
         from apysc._expression import var_names
-        super(TimerEvent, self).__init__(
-            this=this, type_name=var_names.TIMER_EVENT)
+
+        super(TimerEvent, self).__init__(this=this, type_name=var_names.TIMER_EVENT)
 
     @property
-    def this(self) -> 'timer.Timer':
+    def this(self) -> "timer.Timer":
         """
         Get a timer instance of listening to this event.
 

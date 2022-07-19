@@ -22,7 +22,7 @@ def make_blank_file(*, file_path: str) -> None:
     file_path : str
         File path to make.
     """
-    file_util.save_plain_txt(txt='', file_path=file_path)
+    file_util.save_plain_txt(txt="", file_path=file_path)
 
 
 def _assert_has_attr(*, any_obj: Any, attr_name: str) -> None:
@@ -36,15 +36,11 @@ def _assert_has_attr(*, any_obj: Any, attr_name: str) -> None:
     attr_name : str
         Expected attribute name.
     """
-    msg: str = (
-        'Expected attribute does not exists.'
-        f'\nAttribute name: {attr_name}'
-    )
+    msg: str = "Expected attribute does not exists." f"\nAttribute name: {attr_name}"
     assert hasattr(any_obj, attr_name), msg
 
 
-def assert_attrs(
-        *, expected_attrs: Dict[str, Any], any_obj: Any) -> None:
+def assert_attrs(*, expected_attrs: Dict[str, Any], any_obj: Any) -> None:
     """
     Check a specified object's attributes.
 
@@ -65,16 +61,15 @@ def assert_attrs(
 
         attr_val: Any = getattr(any_obj, attr_name)
         msg: str = (
-            'Attribute value is different from expected value.'
-            f'\nAttribute name: {attr_name}'
-            f'\nAttribute value: {attr_val}'
-            f'\nExpected value: {expected_value}'
+            "Attribute value is different from expected value."
+            f"\nAttribute name: {attr_name}"
+            f"\nAttribute value: {attr_val}"
+            f"\nExpected value: {expected_value}"
         )
         assert attr_val == expected_value, msg
 
 
-def assert_attrs_type(
-        *, expected_types: Dict[str, Type], any_obj: Any) -> None:
+def assert_attrs_type(*, expected_types: Dict[str, Type], any_obj: Any) -> None:
     """
     Check a specified object's attribute types.
 
@@ -95,20 +90,21 @@ def assert_attrs_type(
 
         attr_val: Any = getattr(any_obj, attr_name)
         msg: str = (
-            'Attribute type is different from expected type.'
-            f'\nAttribute name: {attr_name}'
-            f'\nAttribute type: {type(attr_val)}'
-            f'\nExpected type: {expected_type}'
+            "Attribute type is different from expected type."
+            f"\nAttribute name: {attr_name}"
+            f"\nAttribute type: {type(attr_val)}"
+            f"\nExpected type: {expected_type}"
         )
         assert isinstance(attr_val, expected_type), msg
 
 
 def assert_raises(
-        *,
-        expected_error_class: type,
-        callable_: Callable,
-        match: Optional[str] = None,
-        **kwargs: Any) -> None:
+    *,
+    expected_error_class: type,
+    callable_: Callable,
+    match: Optional[str] = None,
+    **kwargs: Any,
+) -> None:
     """
     Check that a specified callable raises an exception.
 
@@ -130,6 +126,6 @@ def assert_raises(
     """
     _kwargs: Dict[str, Any] = {}
     if match is not None:
-        _kwargs['match'] = match
+        _kwargs["match"] = match
     with pytest.raises(expected_error_class, **_kwargs):  # type: ignore
         callable_(**kwargs)

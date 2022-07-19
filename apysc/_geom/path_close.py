@@ -46,9 +46,8 @@ class PathClose(PathDataBase):
         ...     ])
         """
         from apysc._geom.path_label import PathLabel
-        super(PathClose, self).__init__(
-            path_label=PathLabel.CLOSE,
-            relative=False)
+
+        super(PathClose, self).__init__(path_label=PathLabel.CLOSE, relative=False)
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
@@ -62,7 +61,7 @@ class PathClose(PathDataBase):
             setting.
         """
         from apysc._type import value_util
+
         svg_char: String = self._get_svg_char()
-        svg_str: str = value_util.get_value_str_for_expression(
-            value=svg_char)
+        svg_str: str = value_util.get_value_str_for_expression(value=svg_char)
         return svg_str

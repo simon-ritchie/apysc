@@ -16,40 +16,38 @@ from apysc._testing.testing_helper import assert_attrs
 
 
 class TestMapping:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        base: Mapping = Mapping(key='Lorem', val='ipsum')
+        base: Mapping = Mapping(key="Lorem", val="ipsum")
         assert_attrs(
             expected_attrs={
-                '_key': 'Lorem',
-                '_val': 'ipsum',
+                "_key": "Lorem",
+                "_val": "ipsum",
             },
-            any_obj=base)
+            any_obj=base,
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_key(self) -> None:
-        base: Mapping = Mapping(key='Lorem', val='ipsum')
-        assert base.key == 'Lorem'
+        base: Mapping = Mapping(key="Lorem", val="ipsum")
+        assert base.key == "Lorem"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
-        base: Mapping = Mapping(key='Lorem', val='ipsum')
-        assert base.val == 'ipsum'
+        base: Mapping = Mapping(key="Lorem", val="ipsum")
+        assert base.val == "ipsum"
 
 
 class TestMappings:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__init__(self) -> None:
         mappings_list: List[Mapping] = [
-            Mapping(key='Lorem', val='ipsum'),
+            Mapping(key="Lorem", val="ipsum"),
         ]
-        mappings: Mappings = Mappings(
-            mappings=mappings_list)
+        mappings: Mappings = Mappings(mappings=mappings_list)
         assert_attrs(
             expected_attrs={
-                'mappings': mappings_list,
+                "mappings": mappings_list,
             },
             any_obj=mappings,
         )
@@ -57,30 +55,30 @@ class TestMappings:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_mappings_module_path_from_lang() -> None:
-    module_path: str = data_model._get_mappings_module_path_from_lang(
-        lang=Lang.JP)
-    assert module_path.endswith('jp.py')
+    module_path: str = data_model._get_mappings_module_path_from_lang(lang=Lang.JP)
+    assert module_path.endswith("jp.py")
     assert os.path.isfile(module_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__read_mappings() -> None:
-
     class _MockLang(Enum):
-        NOT_EXISTING_LANG = 'not_existing_lang'
+        NOT_EXISTING_LANG = "not_existing_lang"
 
     test_module_path: str = data_model._get_mappings_module_path_from_lang(
-        lang=_MockLang.NOT_EXISTING_LANG)  # type: ignore
+        lang=_MockLang.NOT_EXISTING_LANG
+    )  # type: ignore
     file_util.remove_file_if_exists(file_path=test_module_path)
 
     mappings: Optional[Mappings] = data_model._read_mappings(
-        lang=_MockLang.NOT_EXISTING_LANG)  # type: ignore
+        lang=_MockLang.NOT_EXISTING_LANG
+    )  # type: ignore
     assert mappings is None
 
-    file_util.save_plain_txt(
-        txt='', file_path=test_module_path)
+    file_util.save_plain_txt(txt="", file_path=test_module_path)
     mappings = data_model._read_mappings(
-        lang=_MockLang.NOT_EXISTING_LANG)  # type: ignore
+        lang=_MockLang.NOT_EXISTING_LANG
+    )  # type: ignore
     assert mappings is None
 
     mappings = data_model._read_mappings(lang=Lang.JP)
@@ -91,36 +89,37 @@ def test__read_mappings() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_fixed_translation_str_if_exists() -> None:
-
     class _MockLang(Enum):
-        NOT_EXISTING_LANG = 'not_existing_lang'
+        NOT_EXISTING_LANG = "not_existing_lang"
 
     translation_str: str = data_model.get_fixed_translation_str_if_exists(
-        key='**[Parameters]**',
-        lang=_MockLang.NOT_EXISTING_LANG)  # type: ignore
-    assert translation_str == ''
+        key="**[Parameters]**", lang=_MockLang.NOT_EXISTING_LANG
+    )  # type: ignore
+    assert translation_str == ""
 
     translation_str = data_model.get_fixed_translation_str_if_exists(
-        key='not existing key', lang=Lang.JP)
-    assert translation_str == ''
+        key="not existing key", lang=Lang.JP
+    )
+    assert translation_str == ""
 
     translation_str = data_model.get_fixed_translation_str_if_exists(
-        key='**[Parameters]**', lang=Lang.JP)
-    assert translation_str == '**[引数]**'
+        key="**[Parameters]**", lang=Lang.JP
+    )
+    assert translation_str == "**[引数]**"
 
 
 @retry(stop_max_attempt_number=1, wait_fixed=randint(10, 3000))
 def test_check_mapping_keys_not_duplicated() -> None:
     for lang in Lang:
-        mappings: Optional[Mappings] = data_model._read_mappings(
-            lang=lang)
+        mappings: Optional[Mappings] = data_model._read_mappings(lang=lang)
         if mappings is None:
             continue
         keys: List[str] = []
         for mapping in mappings.mappings:
             if mapping.key in keys:
                 raise AssertionError(
-                    'There is a duplicated mapping\'s key.'
-                    f'\nLanguage: {lang}'
-                    f'\nTarget key: {mapping.key}')
+                    "There is a duplicated mapping's key."
+                    f"\nLanguage: {lang}"
+                    f"\nTarget key: {mapping.key}"
+                )
             keys.append(mapping.key)

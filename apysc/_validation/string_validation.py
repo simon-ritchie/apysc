@@ -7,8 +7,8 @@ from apysc._type.string import String
 
 
 def validate_string_type(
-        *, string: Union[str, String],
-        additional_err_msg: str = '') -> None:
+    *, string: Union[str, String], additional_err_msg: str = ""
+) -> None:
     """
     Validate a specified string's type is str.
 
@@ -28,15 +28,14 @@ def validate_string_type(
         return
     if isinstance(string, String):
         return
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
     raise ValueError(
-        f'A specified value is not str type: {type(string)}'
-        f'{additional_err_msg}')
+        f"A specified value is not str type: {type(string)}" f"{additional_err_msg}"
+    )
 
 
-def validate_builtin_string_type(
-        *, string: str, additional_err_msg: str = '') -> None:
+def validate_builtin_string_type(*, string: str, additional_err_msg: str = "") -> None:
     """
     Validate a specified string's type is Python built-in's str.
 
@@ -54,16 +53,16 @@ def validate_builtin_string_type(
     """
     if isinstance(string, str):
         return
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
     raise ValueError(
-        f'A specified value is not str type: {type(string)}'
-        f'{additional_err_msg}')
+        f"A specified value is not str type: {type(string)}" f"{additional_err_msg}"
+    )
 
 
 def validate_not_empty_string(
-        *, string: Union[str, String],
-        additional_err_msg: str = '') -> None:
+    *, string: Union[str, String], additional_err_msg: str = ""
+) -> None:
     """
     Validate whether a specified string is not empty.
 
@@ -82,12 +81,11 @@ def validate_not_empty_string(
     """
     validate_string_type(string=string)
     if isinstance(string, str):
-        if string != '':
+        if string != "":
             return
     elif isinstance(string, String):
-        if string._value != '':
+        if string._value != "":
             return
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
-    raise ValueError(
-        f'Empty string is not acceptable.{additional_err_msg}')
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
+    raise ValueError(f"Empty string is not acceptable.{additional_err_msg}")

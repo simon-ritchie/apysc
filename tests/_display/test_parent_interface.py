@@ -8,7 +8,6 @@ from apysc._expression import expression_data_util
 
 
 class TestParentInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_parent(self) -> None:
         stage: ap.Stage = ap.Stage()
@@ -30,14 +29,14 @@ class TestParentInterface:
         expression_data_util.empty_expression()
         sprite.remove_from_parent()
         expression: str = expression_data_util.get_current_expression()
-        assert f'removeElement({sprite.variable_name}' in expression
+        assert f"removeElement({sprite.variable_name}" in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite)
-        snapshot_name: str = 'snapshot_1'
+        snapshot_name: str = "snapshot_1"
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert sprite._parent_snapshots[snapshot_name] == stage
 
@@ -50,7 +49,7 @@ class TestParentInterface:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite)
-        snapshot_name: str = 'snapshot_1'
+        snapshot_name: str = "snapshot_1"
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         stage.remove_child(child=sprite)
         sprite._run_all_revert_methods(snapshot_name=snapshot_name)

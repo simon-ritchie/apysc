@@ -22,11 +22,12 @@ class IfBase(ABC):
     _indent: Indent
 
     def __init__(
-            self,
-            *,
-            condition: Optional[Boolean],
-            locals_: Optional[Dict[str, Any]] = None,
-            globals_: Optional[Dict[str, Any]] = None) -> None:
+        self,
+        *,
+        condition: Optional[Boolean],
+        locals_: Optional[Dict[str, Any]] = None,
+        globals_: Optional[Dict[str, Any]] = None
+    ) -> None:
         """
         A class to append if (else if and else) branch instruction
         expression.
@@ -78,9 +79,10 @@ class IfBase(ABC):
             This instance.
         """
         from apysc._type import revert_interface
-        self._snapshot_name = \
-            revert_interface.make_snapshots_of_each_scope_vars(
-                locals_=self._locals, globals_=self._globals)
+
+        self._snapshot_name = revert_interface.make_snapshots_of_each_scope_vars(
+            locals_=self._locals, globals_=self._globals
+        )
         self._append_enter_expression()
         self._indent.__enter__()
         return self
@@ -91,10 +93,7 @@ class IfBase(ABC):
         Append branch instruction start expression.
         """
 
-    def __exit__(
-            self, exc_type: Type,
-            exc_value: Any,
-            traceback: Any) -> None:
+    def __exit__(self, exc_type: Type, exc_value: Any, traceback: Any) -> None:
         """
         Method to be called when ending of the with statement.
 
@@ -108,9 +107,12 @@ class IfBase(ABC):
             Traceback value.
         """
         from apysc._type import revert_interface
+
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
-            locals_=self._locals, globals_=self._globals)
+            locals_=self._locals,
+            globals_=self._globals,
+        )
         self._indent.__exit__()
         self._append_exit_expression()
         self._set_last_scope()
@@ -120,7 +122,8 @@ class IfBase(ABC):
         Append if branch instruction ending expression.
         """
         import apysc as ap
-        ap.append_js_expression(expression='}')
+
+        ap.append_js_expression(expression="}")
 
     @abstractmethod
     def _set_last_scope(self) -> None:
@@ -140,6 +143,7 @@ class IfBase(ABC):
         """
         from apysc._expression import last_scope
         from apysc._expression.last_scope import LastScope
+
         last_scope_: LastScope = last_scope.get_last_scope()
         if last_scope_ != LastScope.IF and last_scope_ != LastScope.ELIF:
             return False

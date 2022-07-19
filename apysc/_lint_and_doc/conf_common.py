@@ -8,24 +8,24 @@ from typing import List
 
 from sphinx.application import Sphinx
 
-PROJECT: str = 'apysc'
-AUTHOR: str = 'simonritchie'
+PROJECT: str = "apysc"
+AUTHOR: str = "simonritchie"
 EXTENSIONS: List[str] = [
-    'myst_parser',
+    "myst_parser",
 ]
-TEMPLATES_PATH: List[str] = ['_templates']
+TEMPLATES_PATH: List[str] = ["_templates"]
 SOURCE_SUFFIX: Dict[str, str] = {
-    '.rst': 'restructuredtext',
-    '.md': 'markdown',
+    ".rst": "restructuredtext",
+    ".md": "markdown",
 }
-HTML_THEME: str = 'groundwork'
-HTML_STATIC_PATH: List[str] = ['../_static']
+HTML_THEME: str = "groundwork"
+HTML_STATIC_PATH: List[str] = ["../_static"]
 HTML_CSS_FILES: List[str] = [
-    'base.css',
-    'codeblock.css',
-    'iframe.css',
+    "base.css",
+    "codeblock.css",
+    "iframe.css",
 ]
-HTML_LOGO: str = '../_static/logo_for_document.png'
+HTML_LOGO: str = "../_static/logo_for_document.png"
 HTML_COPY_SOURCE: bool = False
 
 
@@ -39,10 +39,10 @@ def setup(*, sphinx: Sphinx) -> None:
         The Sphinx instance.
     """
     warnings.filterwarnings(
-        action='ignore',
+        action="ignore",
         category=UserWarning,
-        message=r'.*Container node skipped.*',
+        message=r".*Container node skipped.*",
     )
 
-    sphinx.add_js_file(filename='common_func.js')
-    sphinx.add_js_file(filename='add_navigation_to_footer.js')
+    sphinx.add_js_file(filename="common_func.js")
+    sphinx.add_js_file(filename="add_navigation_to_footer.js")

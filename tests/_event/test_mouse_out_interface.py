@@ -11,17 +11,13 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class _TestMouseOut(MouseOutInterface, VariableNameInterface):
-
     def __init__(self) -> None:
-        """Test class for MouseOutInterface.
-        """
-        self.variable_name = 'test_mouse_out'
+        """Test class for MouseOutInterface."""
+        self.variable_name = "test_mouse_out"
 
 
 class TestMouseOutInterface:
-
-    def on_mouse_out_1(
-            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_out_1(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse out handler method for testing.
 
@@ -33,8 +29,7 @@ class TestMouseOutInterface:
             Optional arguments dictionary.
         """
 
-    def on_mouse_out_2(
-            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_out_2(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse out handler method for testing.
 
@@ -60,20 +55,18 @@ class TestMouseOutInterface:
         expression_data_util.empty_expression()
         interface_1: _TestMouseOut = _TestMouseOut()
         name: str = interface_1.mouseout(
-            handler=self.on_mouse_out_1,
-            options={'msg': 'Hello!'})
+            handler=self.on_mouse_out_1, options={"msg": "Hello!"}
+        )
         assert name in interface_1._mouse_out_handlers
-        assert interface_1._mouse_out_handlers[name]['options'] == \
-            {'msg': 'Hello!'}
-        expression: str = \
+        assert interface_1._mouse_out_handlers[name]["options"] == {"msg": "Hello!"}
+        expression: str = (
             expression_data_util.get_current_event_handler_scope_expression()
-        expected: str = f'function {name}('
+        )
+        expected: str = f"function {name}("
         assert expected in expression
 
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{interface_1.variable_name}.mouseout({name});'
-        )
+        expected = f"{interface_1.variable_name}.mouseout({name});"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -85,7 +78,7 @@ class TestMouseOutInterface:
         assert interface_1._mouse_out_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off'
+            f"{interface_1.variable_name}.off"
             f'("{ap.MouseEventType.MOUSEOUT.value}", {name});'
         )
         assert expected in expression
@@ -100,7 +93,7 @@ class TestMouseOutInterface:
         assert interface_1._mouse_out_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off('
+            f"{interface_1.variable_name}.off("
             f'"{ap.MouseEventType.MOUSEOUT.value}");'
         )
         assert expected in expression

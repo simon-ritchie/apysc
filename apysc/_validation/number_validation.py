@@ -27,8 +27,8 @@ from apysc._type.number_value_interface import NumberValueInterface
 
 
 def validate_num(
-        *, num: Union[int, float, Int, Number],
-        additional_err_msg: str = '') -> None:
+    *, num: Union[int, float, Int, Number], additional_err_msg: str = ""
+) -> None:
     """
     Validate a specified value as an integer or float type.
 
@@ -44,20 +44,17 @@ def validate_num(
     ValueError
         If a specified value is not an integer and float value.
     """
-    if isinstance(
-            num,
-            (int, float, NumberValueInterface)):
+    if isinstance(num, (int, float, NumberValueInterface)):
         return
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
     raise ValueError(
-        f'Specified value is not iteger or float type: {num}'
-        f'({type(num)}){additional_err_msg}')
+        f"Specified value is not iteger or float type: {num}"
+        f"({type(num)}){additional_err_msg}"
+    )
 
 
-def validate_integer(
-        *, integer: Union[int, Int],
-        additional_err_msg: str = '') -> None:
+def validate_integer(*, integer: Union[int, Int], additional_err_msg: str = "") -> None:
     """
     Validate whether a specified value is an integer or not.
 
@@ -75,15 +72,15 @@ def validate_integer(
     """
     if isinstance(integer, (int, Int)):
         return
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
     raise ValueError(
-        f'A specified value is not an integer: {integer}({type(integer)})'
-        f'{additional_err_msg}')
+        f"A specified value is not an integer: {integer}({type(integer)})"
+        f"{additional_err_msg}"
+    )
 
 
-def validate_builtin_integer(
-        *, integer: int, additional_err_msg: str = '') -> None:
+def validate_builtin_integer(*, integer: int, additional_err_msg: str = "") -> None:
     """
     Validate whether a specified value is a built-in integer or not.
 
@@ -101,12 +98,13 @@ def validate_builtin_integer(
     """
     if isinstance(integer, int):
         return
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
     raise ValueError(
-        'A specified value is not a built-in integer: '
-        f'{integer}({type(integer)})'
-        f'{additional_err_msg}')
+        "A specified value is not a built-in integer: "
+        f"{integer}({type(integer)})"
+        f"{additional_err_msg}"
+    )
 
 
 def validate_int_is_zero_or_one(*, integer: Union[int, Int]) -> None:
@@ -132,13 +130,12 @@ def validate_int_is_zero_or_one(*, integer: Union[int, Int]) -> None:
         return
     if integer == 0 or integer == 1:
         return
-    raise ValueError(
-        f'Specified integer value is not zero and one: {integer}')
+    raise ValueError(f"Specified integer value is not zero and one: {integer}")
 
 
 def validate_num_is_gt_zero(
-        *, num: Union[int, float, Int, Number],
-        additional_err_msg: str = '') -> None:
+    *, num: Union[int, float, Int, Number], additional_err_msg: str = ""
+) -> None:
     """
     Validate specified value is greater than zero.
 
@@ -159,16 +156,16 @@ def validate_num_is_gt_zero(
             return
     elif num > 0:
         return
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
     raise ValueError(
-        f'Specified values is less than or equal to zero: {num}'
-        f'{additional_err_msg}')
+        f"Specified values is less than or equal to zero: {num}" f"{additional_err_msg}"
+    )
 
 
 def validate_num_is_gte_zero(
-        *, num: Union[int, float, Int, Number],
-        additional_err_msg: str = '') -> None:
+    *, num: Union[int, float, Int, Number], additional_err_msg: str = ""
+) -> None:
     """
     Validate whether a specified value is greater than or equal to zero.
 
@@ -189,15 +186,14 @@ def validate_num_is_gte_zero(
             return
     elif num >= 0:
         return
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
-    raise ValueError(
-        f'Specified values is less than zero: {num}{additional_err_msg}')
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
+    raise ValueError(f"Specified values is less than zero: {num}{additional_err_msg}")
 
 
 def validate_num_is_0_to_1_range(
-        *, num: Union[float, NumberValueInterface],
-        additional_err_msg: str = '') -> None:
+    *, num: Union[float, NumberValueInterface], additional_err_msg: str = ""
+) -> None:
     """
     Validate whether a specified number is from 0.0 to 1.0.
 
@@ -213,17 +209,17 @@ def validate_num_is_0_to_1_range(
     ValueError
         If a specified opacity is out of the 0.0 to 1.0 range.
     """
-    lt_err_msg: str = 'Can\'t specify number value less than 0.0: '
-    gt_err_msg: str = 'Can\'t specify number value greater than 1.0: '
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
+    lt_err_msg: str = "Can't specify number value less than 0.0: "
+    gt_err_msg: str = "Can't specify number value greater than 1.0: "
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
     if isinstance(num, NumberValueInterface):
         if num._value < 0.0:
-            raise ValueError(f'{lt_err_msg}{num}{additional_err_msg}')
+            raise ValueError(f"{lt_err_msg}{num}{additional_err_msg}")
         if num._value > 1.0:
-            raise ValueError(f'{gt_err_msg}{num}{additional_err_msg}')
+            raise ValueError(f"{gt_err_msg}{num}{additional_err_msg}")
     else:
         if num < 0.0:
-            raise ValueError(f'{lt_err_msg}{num}{additional_err_msg}')
+            raise ValueError(f"{lt_err_msg}{num}{additional_err_msg}")
         if num > 1.0:
-            raise ValueError(f'{gt_err_msg}{num}{additional_err_msg}')
+            raise ValueError(f"{gt_err_msg}{num}{additional_err_msg}")

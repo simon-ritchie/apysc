@@ -29,7 +29,7 @@ def make_spaces_for_html(*, indent_num: int) -> str:
     spaces : str
         Result spaces string.
     """
-    spaces: str = ' ' * (indent_num * 2)
+    spaces: str = " " * (indent_num * 2)
     return spaces
 
 
@@ -54,6 +54,6 @@ def append_spaces_to_expression(*, expression: str, indent_num: int) -> str:
     lines: List[str] = expression.splitlines()
     spaces: str = make_spaces_for_html(indent_num=indent_num)
     for i, line in enumerate(lines):
-        lines[i] = f'{spaces}{line}'
-    expression = '\n'.join(lines)
+        lines[i] = f"{spaces}{line}"
+    expression = "\n".join(lines)
     return expression

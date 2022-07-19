@@ -22,8 +22,7 @@ LOCAL_FILE_PATH_PREFIX: str = f'file://{os.path.abspath("./")}/'
 logger: Logger = loggers.get_info_logger()
 
 
-def get_docs_local_file_path(
-        *, lang: Lang, file_name: str) -> str:
+def get_docs_local_file_path(*, lang: Lang, file_name: str) -> str:
     """
     Get a document's local file path for the E2E testing.
 
@@ -41,7 +40,7 @@ def get_docs_local_file_path(
     """
     file_path: str = os.path.join(
         LOCAL_FILE_PATH_PREFIX,
-        f'docs/{lang.value}/{file_name}.html',
+        f"docs/{lang.value}/{file_name}.html",
     )
     return file_path
 
@@ -61,12 +60,17 @@ def _assert_local_file_error_log_not_exits(*, file_path: str) -> None:
         If there is an error log file.
     """
     from apysc._file import file_util
+
     local_file_page_err_file_path: str = _get_local_file_page_err_file_path(
-        file_path=file_path)
-    local_file_assertion_err_file_path: str = \
-        _get_local_file_assertion_err_file_path(file_path=file_path)
+        file_path=file_path
+    )
+    local_file_assertion_err_file_path: str = _get_local_file_assertion_err_file_path(
+        file_path=file_path
+    )
     log_file_paths: List[str] = [
-        local_file_page_err_file_path, local_file_assertion_err_file_path]
+        local_file_page_err_file_path,
+        local_file_assertion_err_file_path,
+    ]
     for log_file_path in log_file_paths:
         if not os.path.isfile(log_file_path):
             continue
@@ -74,8 +78,7 @@ def _assert_local_file_error_log_not_exits(*, file_path: str) -> None:
         raise AssertionError(log_txt)
 
 
-def _delete_local_file_assertion_error_logs(
-        *, file_path: str) -> None:
+def _delete_local_file_assertion_error_logs(*, file_path: str) -> None:
     """
     Delete local files assertion error logs files if they exist.
 
@@ -85,20 +88,20 @@ def _delete_local_file_assertion_error_logs(
         A target local file path.
     """
     from apysc._file import file_util
+
     local_file_page_err_file_path: str = _get_local_file_page_err_file_path(
-        file_path=file_path)
+        file_path=file_path
+    )
     file_util.delete_file_if_exists(file_path=local_file_page_err_file_path)
 
-    local_file_assertion_err_file_path: str = \
-        _get_local_file_assertion_err_file_path(file_path=file_path)
-    file_util.delete_file_if_exists(
-        file_path=local_file_assertion_err_file_path)
+    local_file_assertion_err_file_path: str = _get_local_file_assertion_err_file_path(
+        file_path=file_path
+    )
+    file_util.delete_file_if_exists(file_path=local_file_assertion_err_file_path)
 
 
-_FILE_PATH_SUFFIX_LOCAL_FILE_PAGE_ERR: str = \
-    'e2e_testing_local_file_page_error_'
-_FILE_PATH_SUFFIX_LOCAL_FILE_ASSERT_ERR: str = \
-    'e2e_testing_local_file_assertion_error_'
+_FILE_PATH_SUFFIX_LOCAL_FILE_PAGE_ERR: str = "e2e_testing_local_file_page_error_"
+_FILE_PATH_SUFFIX_LOCAL_FILE_ASSERT_ERR: str = "e2e_testing_local_file_assertion_error_"
 
 
 def _get_local_file_assertion_err_file_path(*, file_path: str) -> str:
@@ -115,11 +118,10 @@ def _get_local_file_assertion_err_file_path(*, file_path: str) -> str:
     log_file_path : str
         An assertion error log's file path of a local file.
     """
-    file_path = _replace_paths_symbols_by_underscore(
-        file_path=file_path)
-    os.makedirs('./tmp/', exist_ok=True)
+    file_path = _replace_paths_symbols_by_underscore(file_path=file_path)
+    os.makedirs("./tmp/", exist_ok=True)
     log_file_path: str = (
-        f'./tmp/{_FILE_PATH_SUFFIX_LOCAL_FILE_ASSERT_ERR}{file_path}.log'
+        f"./tmp/{_FILE_PATH_SUFFIX_LOCAL_FILE_ASSERT_ERR}{file_path}.log"
     )
     return log_file_path
 
@@ -138,12 +140,9 @@ def _get_local_file_page_err_file_path(*, file_path: str) -> str:
     log_file_path : str
         A page error's log file path of a local file.
     """
-    file_path = _replace_paths_symbols_by_underscore(
-        file_path=file_path)
-    os.makedirs('./tmp/', exist_ok=True)
-    log_file_path: str = (
-        f'./tmp/{_FILE_PATH_SUFFIX_LOCAL_FILE_PAGE_ERR}{file_path}.log'
-    )
+    file_path = _replace_paths_symbols_by_underscore(file_path=file_path)
+    os.makedirs("./tmp/", exist_ok=True)
+    log_file_path: str = f"./tmp/{_FILE_PATH_SUFFIX_LOCAL_FILE_PAGE_ERR}{file_path}.log"
     return log_file_path
 
 
@@ -161,15 +160,13 @@ def _replace_paths_symbols_by_underscore(*, file_path: str) -> str:
     file_path : str
         A result file path.
     """
-    symbols: List[str] = [':', '/', '.']
+    symbols: List[str] = [":", "/", "."]
     for symbol in symbols:
-        file_path = file_path.replace(symbol, '_')
+        file_path = file_path.replace(symbol, "_")
     return file_path
 
 
-def _get_local_file_page_err_handler(
-        *,
-        file_path: str) -> Callable[[Error], None]:
+def _get_local_file_page_err_handler(*, file_path: str) -> Callable[[Error], None]:
     """
     Get a page error's event handler.
 
@@ -194,19 +191,18 @@ def _get_local_file_page_err_handler(
         err : Error
             _description_
         """
-        log_file_path: str = _get_local_file_page_err_file_path(
-            file_path=file_path)
+        log_file_path: str = _get_local_file_page_err_file_path(file_path=file_path)
 
-        file_path_: str = file_path.replace('file://', '', 1)
-        file_txt: str = ''
+        file_path_: str = file_path.replace("file://", "", 1)
+        file_txt: str = ""
         if os.path.isfile(file_path_):
             file_txt = file_util.read_txt(file_path=file_path_)
         err_msg: str = (
-            'There is an unexpected error in the following '
-            f'Local file: {file_path}'
-            f'\nError message: {err.message}'
-            f'\nStack trace: {err.stack}'
-            f'\nLocal file text:\n\n{file_txt}'
+            "There is an unexpected error in the following "
+            f"Local file: {file_path}"
+            f"\nError message: {err.message}"
+            f"\nStack trace: {err.stack}"
+            f"\nLocal file text:\n\n{file_txt}"
         )
         file_util.save_plain_txt(txt=err_msg, file_path=log_file_path)
         raise AssertionError(err_msg)
@@ -218,8 +214,8 @@ _ConsoleHandler = Callable[[ConsoleMessage], None]
 
 
 def _get_local_file_console_event_handler(
-        *, file_path: str,
-        expected_assert_f_msgs: Op[List[str]] = None) -> _ConsoleHandler:
+    *, file_path: str, expected_assert_f_msgs: Op[List[str]] = None
+) -> _ConsoleHandler:
     """
     Get a console event's handler.
 
@@ -246,18 +242,20 @@ def _get_local_file_console_event_handler(
         message : ConsoleMessage
             A target console message instance.
         """
-        if message.type != 'assert':
+        if message.type != "assert":
             return
         if (
-                expected_assert_f_msgs is not None
-                and message.text in expected_assert_f_msgs):
+            expected_assert_f_msgs is not None
+            and message.text in expected_assert_f_msgs
+        ):
             return
         log_file_path: str = _get_local_file_assertion_err_file_path(
-            file_path=file_path)
+            file_path=file_path
+        )
         err_msg: str = (
-            'There is an unexpected assertion error in the '
-            f'following local file: {file_path}'
-            f'\nError message: {message.text}'
+            "There is an unexpected assertion error in the "
+            f"following local file: {file_path}"
+            f"\nError message: {message.text}"
         )
         file_util.save_plain_txt(txt=err_msg, file_path=log_file_path)
         raise AssertionError(err_msg)
@@ -271,7 +269,8 @@ class LocalFileData(TypedDict):
 
 
 def assert_local_files_not_raise_error(
-        *, local_file_data_list: List[LocalFileData]) -> None:
+    *, local_file_data_list: List[LocalFileData]
+) -> None:
     """
     Assert specified local files do not raise an error.
 
@@ -288,23 +287,24 @@ def assert_local_files_not_raise_error(
     with sync_playwright() as p:
         browser: Browser = p.chromium.launch()
         for local_file_data in local_file_data_list:
-            file_path: str = local_file_data['file_path']
+            file_path: str = local_file_data["file_path"]
             _delete_local_file_assertion_error_logs(file_path=file_path)
             expected_assert_f_msgs: Op[List[str]] = local_file_data[
-                'expected_assertion_failed_msgs']
-            logger.info(
-                f'Local file\'s assertion started: {file_path}')
+                "expected_assertion_failed_msgs"
+            ]
+            logger.info(f"Local file's assertion started: {file_path}")
             for _ in range(2):
                 page: Page = browser.new_page()
                 page.on(
-                    event='console',
+                    event="console",
                     f=_get_local_file_console_event_handler(
                         file_path=file_path,
                         expected_assert_f_msgs=expected_assert_f_msgs,
-                    ))
+                    ),
+                )
                 page.on(
-                    event='pageerror',
-                    f=_get_local_file_page_err_handler(
-                        file_path=file_path))
+                    event="pageerror",
+                    f=_get_local_file_page_err_handler(file_path=file_path),
+                )
                 page.goto(url=file_path)
                 _assert_local_file_error_log_not_exits(file_path=file_path)

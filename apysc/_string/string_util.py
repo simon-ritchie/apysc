@@ -59,7 +59,7 @@ def escape_double_quotation(*, string: str) -> str:
     return string
 
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 def wrap_by_double_quotation_if_value_is_string(*, value: T) -> T:
@@ -85,8 +85,8 @@ def wrap_by_double_quotation_if_value_is_string(*, value: T) -> T:
 
 
 def substitute_file_by_pattern(
-        *, file_path: str, pattern: str, repl: str,
-        flags: Any) -> None:
+    *, file_path: str, pattern: str, repl: str, flags: Any
+) -> None:
     """
     Substitute text file by regular expression pattern.
 
@@ -102,12 +102,9 @@ def substitute_file_by_pattern(
         Regular expression flags.
     """
     from apysc._file import file_util
+
     string: str = file_util.read_txt(file_path=file_path)
-    string = re.sub(
-        pattern=pattern,
-        repl=repl,
-        string=string,
-        flags=flags)
+    string = re.sub(pattern=pattern, repl=repl, string=string, flags=flags)
     file_util.save_plain_txt(txt=string, file_path=file_path)
 
 
@@ -125,8 +122,8 @@ def replace_double_spaces_to_single_space(*, string: str) -> str:
     string : str
         Replaced string.
     """
-    while '  ' in string:
-        string = string.replace('  ', ' ')
+    while "  " in string:
+        string = string.replace("  ", " ")
     return string
 
 
@@ -147,5 +144,5 @@ def get_tails_lines_str(*, string: str, n: int) -> str:
         A tail's lines string
     """
     lines: List[str] = string.splitlines()
-    tails_lines_str: str = '\n'.join(lines[-n:])
+    tails_lines_str: str = "\n".join(lines[-n:])
     return tails_lines_str

@@ -14,9 +14,7 @@ from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 
-class PathVertical(
-        PathDataBase,
-        PathYInterface):
+class PathVertical(PathDataBase, PathYInterface):
     """
     Path data class for the SVG `vertical line` (V).
 
@@ -35,15 +33,15 @@ class PathVertical(
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=3, optional=True)
+    @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=True)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            y: Union[int, Int],
-            *,
-            relative: Union[bool, Boolean] = False,
-            variable_name_suffix: str = '') -> None:
+        self,
+        y: Union[int, Int],
+        *,
+        relative: Union[bool, Boolean] = False,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Path data class for the SVG `vertical line' (V).
 
@@ -71,12 +69,12 @@ class PathVertical(
         ...     ])
         """
         from apysc._geom.path_label import PathLabel
+
         self._variable_name_suffix = variable_name_suffix
         super(PathVertical, self).__init__(
-            path_label=PathLabel.VERTICAL,
-            relative=relative)
-        self.y = self._get_copied_int_from_builtin_val(
-            integer=y, attr_identifier='y')
+            path_label=PathLabel.VERTICAL, relative=relative
+        )
+        self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
@@ -89,21 +87,19 @@ class PathVertical(
             An SVG path string was created with the current setting.
         """
         from apysc._type import value_util
+
         svg_char: String = self._get_svg_char()
-        svg_char_str: str = value_util.get_value_str_for_expression(
-            value=svg_char)
-        y_str: str = value_util.get_value_str_for_expression(
-            value=self._y)
-        svg_str: str = f'{svg_char_str} + String({y_str})'
+        svg_char_str: str = value_util.get_value_str_for_expression(value=svg_char)
+        y_str: str = value_util.get_value_str_for_expression(value=self._y)
+        svg_str: str = f"{svg_char_str} + String({y_str})"
         return svg_str
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def update_path_data(
-            self, y: Union[int, Int],
-            *,
-            relative: Union[bool, Boolean] = False) -> None:
+        self, y: Union[int, Int], *, relative: Union[bool, Boolean] = False
+    ) -> None:
         """
         Update the path's data settings.
 
@@ -123,10 +119,10 @@ class PathVertical(
         >>> path_vertical.y
         Int(100)
         """
-        self.y = self._get_copied_int_from_builtin_val(
-            integer=y, attr_identifier='y')
+        self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
         self.relative = self._get_copied_boolean_from_builtin_val(
-            bool_val=relative, attr_identifier='relative')
+            bool_val=relative, attr_identifier="relative"
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
@@ -144,9 +140,11 @@ class PathVertical(
             Comparison result.
         """
         import apysc as ap
+
         if not isinstance(other, PathVertical):
             result: ap.Boolean = ap.Boolean(
-                False, variable_name_suffix=self._variable_name_suffix)
+                False, variable_name_suffix=self._variable_name_suffix
+            )
             return result
         return self.y == other.y and self.relative == other.relative
 
@@ -166,6 +164,7 @@ class PathVertical(
             Comparison result.
         """
         import apysc as ap
+
         result: ap.Boolean = self == other
         result = result.not_
         return result

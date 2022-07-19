@@ -39,10 +39,11 @@ def set_debug_mode() -> None:
     >>> int_val: ap.Int = ap.Int(10)
     """
     from apysc._expression import expression_data_util
+
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
-    query: str = f'DELETE FROM {table_name};'
+    query: str = f"DELETE FROM {table_name};"
     expression_data_util.exec_query(sql=query, commit=False)
-    query = f'INSERT INTO {table_name}(is_debug_mode) VALUES(1);'
+    query = f"INSERT INTO {table_name}(is_debug_mode) VALUES(1);"
     expression_data_util.exec_query(sql=query)
 
 
@@ -64,8 +65,9 @@ def unset_debug_mode() -> None:
     >>> ap.unset_debug_mode()
     """
     from apysc._expression import expression_data_util
+
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
-    query: str = f'DELETE FROM {table_name};'
+    query: str = f"DELETE FROM {table_name};"
     expression_data_util.exec_query(sql=query)
 
 
@@ -93,8 +95,9 @@ def is_debug_mode() -> bool:
     False
     """
     from apysc._expression import expression_data_util
+
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
-    query: str = f'SELECT is_debug_mode FROM {table_name} LIMIT 1;'
+    query: str = f"SELECT is_debug_mode FROM {table_name} LIMIT 1;"
     expression_data_util.exec_query(sql=query)
     result_: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
     if result_ is None:
@@ -125,10 +128,11 @@ def _get_callable_str(*, callable_: Union[Callable, str]) -> str:
 
 
 def _get_callable_path_name(
-        *,
-        callable_: Union[Callable, str],
-        module_name: str,
-        class_: Optional[Union[Type, str]] = None) -> str:
+    *,
+    callable_: Union[Callable, str],
+    module_name: str,
+    class_: Optional[Union[Type, str]] = None,
+) -> str:
     """
     Get a specified callable count data path name.
 
@@ -147,24 +151,25 @@ def _get_callable_path_name(
     path_name : str
         Target path name.
     """
-    module_path: str = module_name.replace('.', '_')
+    module_path: str = module_name.replace(".", "_")
     if class_ is None:
-        class_name: str = ''
+        class_name: str = ""
     elif inspect.isclass(class_):
-        class_name_: str = getattr(class_, '__name__')
-        class_name = f'_{class_name_}'
+        class_name_: str = getattr(class_, "__name__")
+        class_name = f"_{class_name_}"
     else:
-        class_name = f'_{class_}'
+        class_name = f"_{class_}"
     callable_str: str = _get_callable_str(callable_=callable_)
-    path_name: str = f'{module_path}{class_name}_{callable_str}'
+    path_name: str = f"{module_path}{class_name}_{callable_str}"
     return path_name
 
 
 def _get_callable_count(
-        *,
-        callable_: Union[Callable, str],
-        module_name: str,
-        class_: Optional[Union[Type, str]] = None) -> int:
+    *,
+    callable_: Union[Callable, str],
+    module_name: str,
+    class_: Optional[Union[Type, str]] = None,
+) -> int:
     """
     Get a specified callable count number.
 
@@ -184,13 +189,13 @@ def _get_callable_count(
         Target count number.
     """
     from apysc._expression import expression_data_util
+
     path_name: str = _get_callable_path_name(
-        callable_=callable_, module_name=module_name, class_=class_)
-    table_name: str = \
-        expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
+        callable_=callable_, module_name=module_name, class_=class_
+    )
+    table_name: str = expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
     query: str = (
-        f'SELECT count FROM {table_name} '
-        f"WHERE name = '{path_name}' LIMIT 1;"
+        f"SELECT count FROM {table_name} " f"WHERE name = '{path_name}' LIMIT 1;"
     )
     expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
@@ -200,10 +205,11 @@ def _get_callable_count(
 
 
 def _increment_callable_count(
-        *,
-        callable_: Union[Callable, str],
-        module_name: str,
-        class_: Optional[Union[Type, str]] = None) -> None:
+    *,
+    callable_: Union[Callable, str],
+    module_name: str,
+    class_: Optional[Union[Type, str]] = None,
+) -> None:
     """
     Increment a specified callable count number.
 
@@ -218,20 +224,19 @@ def _increment_callable_count(
         variable is not a method, this interface ignores this argument.
     """
     from apysc._expression import expression_data_util
+
     callable_count: int = _get_callable_count(
-        callable_=callable_, module_name=module_name, class_=class_)
+        callable_=callable_, module_name=module_name, class_=class_
+    )
     callable_count += 1
     path_name: str = _get_callable_path_name(
-        callable_=callable_, module_name=module_name, class_=class_)
-    table_name: str = \
-        expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
-    query: str = (
-        f'DELETE FROM {table_name} '
-        f"WHERE name = '{path_name}';"
+        callable_=callable_, module_name=module_name, class_=class_
     )
+    table_name: str = expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
+    query: str = f"DELETE FROM {table_name} " f"WHERE name = '{path_name}';"
     expression_data_util.exec_query(sql=query, commit=False)
     query = (
-        f'INSERT INTO {table_name}(name, count) '
+        f"INSERT INTO {table_name}(name, count) "
         f"VALUES ('{path_name}', {callable_count});"
     )
     expression_data_util.exec_query(sql=query)
@@ -255,18 +260,19 @@ class DebugInfo:
     _args: List[Any]
     _kwargs: Dict[str, Any]
     _class_name: Optional[str]
-    _DIVIDER: str = '/' * 70
+    _DIVIDER: str = "/" * 70
     _callable_count: int
     _indent: Indent
 
     def __init__(
-            self,
-            *,
-            callable_: Union[Callable, str],
-            args: List[Any],
-            kwargs: Dict[str, Any],
-            module_name: str,
-            class_name: Optional[str] = None) -> None:
+        self,
+        *,
+        callable_: Union[Callable, str],
+        args: List[Any],
+        kwargs: Dict[str, Any],
+        module_name: str,
+        class_name: Optional[str] = None,
+    ) -> None:
         """
         Save debug information (append callable interface
         name comment and arguments information) to the
@@ -299,11 +305,11 @@ class DebugInfo:
         self._module_name = module_name
         self._class_name = class_name
         _increment_callable_count(
-            callable_=callable_, module_name=module_name,
-            class_=class_name)
+            callable_=callable_, module_name=module_name, class_=class_name
+        )
         self._callable_count = _get_callable_count(
-            callable_=callable_, module_name=module_name,
-            class_=class_name)
+            callable_=callable_, module_name=module_name, class_=class_name
+        )
         self._indent = Indent()
 
     def _get_class_info(self) -> str:
@@ -316,9 +322,9 @@ class DebugInfo:
             Target class information string.
         """
         if self._class_name is None:
-            class_info: str = ''
+            class_info: str = ""
         else:
-            class_info = f'\n// class: {self._class_name}'
+            class_info = f"\n// class: {self._class_name}"
         return class_info
 
     def __enter__(self) -> None:
@@ -327,24 +333,23 @@ class DebugInfo:
         with-block.
         """
         import apysc as ap
+
         if not ap.is_debug_mode():
             return
         class_info: str = self._get_class_info()
-        arguments_info: str = ''
+        arguments_info: str = ""
         if self._args:
-            arguments_info += (
-                f'\n// Positional arguments: {self._args}'
-            )
+            arguments_info += f"\n// Positional arguments: {self._args}"
         if self._kwargs:
-            arguments_info += f'\n// Keyword arguments: {self._kwargs}'
+            arguments_info += f"\n// Keyword arguments: {self._kwargs}"
         callable_str: str = _get_callable_str(callable_=self._callable)
         expression: str = (
-            f'{self._DIVIDER}'
-            f'\n// [{callable_str} {self._callable_count}] '
-            'started.'
-            f'\n// module name: {self._module_name}'
-            f'{class_info}'
-            f'{arguments_info}'
+            f"{self._DIVIDER}"
+            f"\n// [{callable_str} {self._callable_count}] "
+            "started."
+            f"\n// module name: {self._module_name}"
+            f"{class_info}"
+            f"{arguments_info}"
         )
         ap.append_js_expression(expression=expression)
         self._indent.__enter__()
@@ -359,27 +364,26 @@ class DebugInfo:
             Positional arguments.
         """
         import apysc as ap
+
         if not ap.is_debug_mode():
             return
         class_info: str = self._get_class_info()
         callable_str: str = _get_callable_str(callable_=self._callable)
         expression: str = (
-            f'// [{callable_str} {self._callable_count}] ended.'
-            f'\n// module name: {self._module_name}'
-            f'{class_info}'
-            f'\n{self._DIVIDER}'
+            f"// [{callable_str} {self._callable_count}] ended."
+            f"\n// module name: {self._module_name}"
+            f"{class_info}"
+            f"\n{self._DIVIDER}"
         )
         self._indent.__exit__()
         ap.append_js_expression(expression=expression)
 
 
 # pyright: reportInvalidTypeVarUse=false
-_F = TypeVar('_F', bound=Callable)
+_F = TypeVar("_F", bound=Callable)
 
 
-def add_debug_info_setting(
-        *,
-        module_name: str) -> _F:
+def add_debug_info_setting(*, module_name: str) -> _F:
     """
     Set a debug information setting to a target
     callable object (decorator function).
@@ -446,18 +450,20 @@ def add_debug_info_setting(
             signature: Signature = inspect.signature(func)
             if len(signature.parameters) != 0:
                 first_arg_name: str = list(signature.parameters.keys())[0]
-                if first_arg_name == 'self':
+                if first_arg_name == "self":
                     first_arg_value: Any = args[0]
                     class_name = type(first_arg_value).__name__
-                elif first_arg_name == 'cls':
+                elif first_arg_name == "cls":
                     first_arg_value = args[0]
                     class_name = first_arg_value.__name__
 
             with DebugInfo(
-                    callable_=func,
-                    args=list(args),
-                    kwargs=kwargs, module_name=module_name,
-                    class_name=class_name):
+                callable_=func,
+                args=list(args),
+                kwargs=kwargs,
+                module_name=module_name,
+                class_name=class_name,
+            ):
                 result: Any = func(*args, **kwargs)
                 return result
 

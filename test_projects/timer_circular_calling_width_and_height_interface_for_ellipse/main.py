@@ -8,7 +8,7 @@ timer_circular_calling_width_and_height_interface_for_ellipse/main.py
 
 import sys
 
-sys.path.append('./')
+sys.path.append("./")
 
 import os
 from types import ModuleType
@@ -21,8 +21,7 @@ from apysc._file import file_util
 this_module: ModuleType = sys.modules[__name__]
 
 _DEST_DIR_PATH: str = os.path.join(
-    file_util.get_abs_module_dir_path(module=this_module),
-    'test_output/'
+    file_util.get_abs_module_dir_path(module=this_module), "test_output/"
 )
 
 
@@ -35,19 +34,22 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color='#333',
-        stage_width=1000, stage_height=500, stage_elem_id='stage')
+        background_color="#333",
+        stage_width=1000,
+        stage_height=500,
+        stage_elem_id="stage",
+    )
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color='#00aaff')
+    sprite.graphics.begin_fill(color="#00aaff")
 
     ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
-        x=200, y=200, width=150, height=150)
-    options: _EllipseOptions = {'ellipse': ellipse}
+        x=200, y=200, width=150, height=150
+    )
+    options: _EllipseOptions = {"ellipse": ellipse}
     timer_1: ap.Timer = ap.Timer(
-        on_timer_1, delay=ap.FPS.FPS_60, repeat_count=50,
-        options=options)
-    timer_1.timer_complete(
-        on_timer_complete_1, options=options)
+        on_timer_1, delay=ap.FPS.FPS_60, repeat_count=50, options=options
+    )
+    timer_1.timer_complete(on_timer_complete_1, options=options)
     timer_1.start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
@@ -64,7 +66,7 @@ def on_timer_1(e: ap.TimerEvent, options: _EllipseOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ellipse: ap.Ellipse = options['ellipse']
+    ellipse: ap.Ellipse = options["ellipse"]
     ellipse.width += 1
     ellipse.height -= 1
 
@@ -81,11 +83,9 @@ def on_timer_complete_1(e: ap.TimerEvent, options: _EllipseOptions) -> None:
         Optional arguments dictionary.
     """
     timer_2: ap.Timer = ap.Timer(
-        on_timer_2, delay=ap.FPS.FPS_60, repeat_count=100,
-        options=options)
-    timer_2.timer_complete(
-        on_timer_complete_2,
-        options=options)
+        on_timer_2, delay=ap.FPS.FPS_60, repeat_count=100, options=options
+    )
+    timer_2.timer_complete(on_timer_complete_2, options=options)
     timer_2.start()
 
 
@@ -100,7 +100,7 @@ def on_timer_2(e: ap.TimerEvent, options: _EllipseOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ellipse: ap.Ellipse = options['ellipse']
+    ellipse: ap.Ellipse = options["ellipse"]
     ellipse.width -= 1
     ellipse.height += 1
 
@@ -117,12 +117,11 @@ def on_timer_complete_2(e: ap.TimerEvent, options: _EllipseOptions) -> None:
         Optional arguments dictionary.
     """
     timer_3: ap.Timer = ap.Timer(
-        on_timer_1, delay=ap.FPS.FPS_60, repeat_count=100,
-        options=options)
-    timer_3.timer_complete(
-        on_timer_complete_1, options=options)
+        on_timer_1, delay=ap.FPS.FPS_60, repeat_count=100, options=options
+    )
+    timer_3.timer_complete(on_timer_complete_1, options=options)
     timer_3.start()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

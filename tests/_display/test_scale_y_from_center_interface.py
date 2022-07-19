@@ -3,22 +3,19 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.scale_y_from_center_interface import \
-    ScaleYFromCenterInterface
+from apysc._display.scale_y_from_center_interface import ScaleYFromCenterInterface
 from apysc._expression import expression_data_util
 
 
 class _TestInterface(ScaleYFromCenterInterface):
-
     def __init__(self) -> None:
         """
         The class for testing of the ScaleYFromCenterInterface.
         """
-        self.variable_name = 'test_scale_y_from_center_interface'
+        self.variable_name = "test_scale_y_from_center_interface"
 
 
 class TestScaleYFromCenterInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_scale_y_from_center_if_not_initialized(self) -> None:
         interface: _TestInterface = _TestInterface()
@@ -45,9 +42,9 @@ class TestScaleYFromCenterInterface:
         interface.scale_y_from_center = num_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface.variable_name}.scale(1, 1 / {num_1.variable_name});'
-            f'\n{interface.variable_name}.scale(1, {num_2.variable_name});'
-            f'\n{num_1.variable_name} = {num_2.variable_name};'
+            f"{interface.variable_name}.scale(1, 1 / {num_1.variable_name});"
+            f"\n{interface.variable_name}.scale(1, {num_2.variable_name});"
+            f"\n{num_1.variable_name} = {num_2.variable_name};"
         )
         assert expected in expression
 
@@ -80,5 +77,4 @@ class TestScaleYFromCenterInterface:
     def test__append_scale_y_from_center_attr_linking_setting(self) -> None:
         interface: _TestInterface = _TestInterface()
         interface._initialize_scale_y_from_center_if_not_initialized()
-        assert interface._attr_linking_stack['scale_y_from_center'] == \
-            [ap.Number(1.0)]
+        assert interface._attr_linking_stack["scale_y_from_center"] == [ap.Number(1.0)]

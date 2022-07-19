@@ -19,9 +19,9 @@ from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
 
-_O1 = TypeVar('_O1')
-_O2 = TypeVar('_O2')
-_Handler = Callable[['timer_event.TimerEvent', _O1], None]
+_O1 = TypeVar("_O1")
+_O2 = TypeVar("_O2")
+_Handler = Callable[["timer_event.TimerEvent", _O1], None]
 
 
 class Timer(VariableNameInterface, CustomEventInterface):
@@ -78,12 +78,13 @@ class Timer(VariableNameInterface, CustomEventInterface):
     @arg_validation_decos.handler_options_type(arg_position_index=4)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            handler: _Handler[_O1],
-            *,
-            delay: Union[int, float, NumberValueInterface, FPS],
-            repeat_count: Union[int, Int] = 0,
-            options: Optional[_O1] = None) -> None:
+        self,
+        handler: _Handler[_O1],
+        *,
+        delay: Union[int, float, NumberValueInterface, FPS],
+        repeat_count: Union[int, Int] = 0,
+        options: Optional[_O1] = None,
+    ) -> None:
         """
         Timer class to handle function calling at regular intervals.
 
@@ -141,19 +142,17 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._event.handler import get_handler_name
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._expression.event_handler_scope import \
-            TemporaryNotHandlerScope
+        from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
         from apysc._validation import number_validation
+
         with TemporaryNotHandlerScope():
-            self.variable_name = \
-                expression_variables_util.get_next_variable_name(
-                    type_name=var_names.TIMER)
-            self._handler_name = get_handler_name(
-                handler=handler, instance=self)
+            self.variable_name = expression_variables_util.get_next_variable_name(
+                type_name=var_names.TIMER
+            )
+            self._handler_name = get_handler_name(handler=handler, instance=self)
             handler = self._wrap_handler(handler=handler)
             self._handler: _Handler[_O1] = handler
-            delay_: ap.Number = self._convert_delay_to_number(
-                delay=delay)
+            delay_: ap.Number = self._convert_delay_to_number(delay=delay)
             number_validation.validate_num_is_gte_zero(num=delay_)
             self._delay = delay_
             if isinstance(repeat_count, ap.Int):
@@ -166,16 +165,15 @@ class Timer(VariableNameInterface, CustomEventInterface):
             if options is None:
                 options = {}  # type: ignore
             self._handler_data = {  # type: ignore
-                'handler': self._handler,  # type: ignore
-                'options': options,
+                "handler": self._handler,  # type: ignore
+                "options": options,
             }
-            ap.append_js_expression(
-                expression=f'var {self.variable_name};')
+            ap.append_js_expression(expression=f"var {self.variable_name};")
 
     @add_debug_info_setting(module_name=__name__)
     def _convert_delay_to_number(
-            self, *,
-            delay: Union[int, float, NumberValueInterface, FPS]) -> Number:
+        self, *, delay: Union[int, float, NumberValueInterface, FPS]
+    ) -> Number:
         """
         Convert each type of delay value to a `Number` value.
 
@@ -192,6 +190,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         """
         import apysc as ap
         from apysc._time.fps import FPSDefinition
+
         if isinstance(delay, FPS):
             fps_definition: FPSDefinition = delay.value
             delay = fps_definition.milisecond_intervals
@@ -228,6 +227,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         Number(33.3)
         """
         from apysc._type import value_util
+
         return value_util.get_copy(value=self._delay)
 
     @property
@@ -258,6 +258,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         Int(50)
         """
         from apysc._type import value_util
+
         return value_util.get_copy(value=self._repeat_count)
 
     @property
@@ -286,6 +287,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         Boolean(True)
         """
         from apysc._type import value_util
+
         return value_util.get_copy(value=self._running)
 
     @property
@@ -309,6 +311,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ...     on_timer, delay=33.3, repeat_count=50).start()
         """
         from apysc._type import value_util
+
         return value_util.get_copy(value=self._current_count)
 
     @add_debug_info_setting(module_name=__name__)
@@ -334,31 +337,35 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._event.handler import append_handler_expression
         from apysc._expression import expression_data_util
         from apysc._type import value_util
-        delay_val_str: str = value_util.get_value_str_for_expression(
-            value=self._delay)
-        is_handler_circular_calling: bool = handler_circular_calling_util.\
-            is_handler_circular_calling(handler_name=self._handler_name)
+
+        delay_val_str: str = value_util.get_value_str_for_expression(value=self._delay)
+        is_handler_circular_calling: bool = (
+            handler_circular_calling_util.is_handler_circular_calling(
+                handler_name=self._handler_name
+            )
+        )
         if is_handler_circular_calling:
-            handler_name: str = handler_circular_calling_util.\
-                get_prev_handler_name(handler_name=self._handler_name)
-            variable_name: str = handler_circular_calling_util.\
-                get_prev_variable_name(handler_name=self._handler_name)
+            handler_name: str = handler_circular_calling_util.get_prev_handler_name(
+                handler_name=self._handler_name
+            )
+            variable_name: str = handler_circular_calling_util.get_prev_variable_name(
+                handler_name=self._handler_name
+            )
         else:
             handler_name = self._handler_name
             variable_name = self.variable_name
         expression: str = (
-            f'\nif (_.isUndefined({variable_name})) {{'
-            f'\n  {variable_name} = setInterval('
-            f'{handler_name}, {delay_val_str});'
-            '\n}'
+            f"\nif (_.isUndefined({variable_name})) {{"
+            f"\n  {variable_name} = setInterval("
+            f"{handler_name}, {delay_val_str});"
+            "\n}"
         )
         expression_data_util.append_js_expression(expression=expression)
 
         e: ap.TimerEvent = ap.TimerEvent(this=self)
         append_handler_expression(
-            handler_data=self._handler_data,
-            handler_name=handler_name,
-            e=e)
+            handler_data=self._handler_data, handler_name=handler_name, e=e
+        )
         self._running.value = True
 
     def _wrap_handler(self, *, handler: _Handler[_O1]) -> _Handler[_O1]:
@@ -405,24 +412,27 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._expression import expression_data_util
         from apysc._expression.indent_num import Indent
         from apysc._type import value_util
-        current_count_val_str: str = value_util.\
-            get_value_str_for_expression(value=self._current_count)
-        repeat_count_val_str: str = value_util.\
-            get_value_str_for_expression(value=self._repeat_count)
+
+        current_count_val_str: str = value_util.get_value_str_for_expression(
+            value=self._current_count
+        )
+        repeat_count_val_str: str = value_util.get_value_str_for_expression(
+            value=self._repeat_count
+        )
         expression: str = (
-            f'if ({repeat_count_val_str} !== 0 '
-            f'&& {current_count_val_str} === {repeat_count_val_str}) {{'
-            f'\n{self._get_stop_expression(indent_num=1)}'
+            f"if ({repeat_count_val_str} !== 0 "
+            f"&& {current_count_val_str} === {repeat_count_val_str}) {{"
+            f"\n{self._get_stop_expression(indent_num=1)}"
         )
         expression_data_util.append_js_expression(expression=expression)
         with Indent():
             self._running.value = False
-            self.trigger_custom_event(
-                custom_event_type=CustomEventType.TIMER_COMPLETE)
+            self.trigger_custom_event(custom_event_type=CustomEventType.TIMER_COMPLETE)
             self.unbind_custom_event_all(
-                custom_event_type=CustomEventType.TIMER_COMPLETE)
+                custom_event_type=CustomEventType.TIMER_COMPLETE
+            )
             self._current_count.value = 0
-        expression = '\n}'
+        expression = "\n}"
         expression_data_util.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
@@ -457,6 +467,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ...     on_timer, delay=33.3, options=options).start()
         """
         from apysc._expression import expression_data_util
+
         self._running.value = False
         expression: str = self._get_stop_expression(indent_num=0)
         expression_data_util.append_js_expression(expression=expression)
@@ -477,14 +488,16 @@ class Timer(VariableNameInterface, CustomEventInterface):
             Stop interface expression string.
         """
         from apysc._string import indent_util
+
         expression: str = (
-            f'if (!_.isUndefined({self.variable_name})) {{'
-            f'\n  clearInterval({self.variable_name});'
-            f'\n  {self.variable_name} = undefined;'
-            '\n}'
+            f"if (!_.isUndefined({self.variable_name})) {{"
+            f"\n  clearInterval({self.variable_name});"
+            f"\n  {self.variable_name} = undefined;"
+            "\n}"
         )
         expression = indent_util.append_spaces_to_expression(
-            expression=expression, indent_num=indent_num)
+            expression=expression, indent_num=indent_num
+        )
         return expression
 
     @add_debug_info_setting(module_name=__name__)
@@ -525,8 +538,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def timer_complete(
-            self, handler: _Handler[_O2], *,
-            options: Optional[_O2] = None) -> str:
+        self, handler: _Handler[_O2], *, options: Optional[_O2] = None
+    ) -> str:
         """
         Add a timer complete event listener setting.
 
@@ -574,10 +587,12 @@ class Timer(VariableNameInterface, CustomEventInterface):
         """
         import apysc as ap
         from apysc._event.custom_event_type import CustomEventType
+
         e: ap.TimerEvent = ap.TimerEvent(this=self)
         name: str = self.bind_custom_event(
             custom_event_type=CustomEventType.TIMER_COMPLETE,
             handler=handler,
             e=e,
-            options=options)
+            options=options,
+        )
         return name

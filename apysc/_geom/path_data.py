@@ -17,6 +17,7 @@ class PathData:
     """
     This class is for the definitions of each path data class.
     """
+
     MoveTo = PathMoveTo
     LineTo = PathLineTo
     Horizontal = PathHorizontal

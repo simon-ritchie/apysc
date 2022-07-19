@@ -33,8 +33,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_equal(
-        left: Any, right: Any, *, msg: str = '') -> None:
+def assert_equal(left: Any, right: Any, *, msg: str = "") -> None:
     """
     JavaScript assertion interface for equal condition.
 
@@ -69,6 +68,7 @@ def assert_equal(
     """
     import apysc as ap
     from apysc._string import string_util
+
     for value in (left, right):
         if _value_type_is_array(value=value):
             assert_arrays_equal(left=left, right=right, msg=msg)
@@ -78,22 +78,17 @@ def assert_equal(
             assert_dicts_equal(left=left, right=right, msg=msg)
             return
 
-    _trace_info(
-        interface_label='assert_equal', left=left, right=right)
+    _trace_info(interface_label="assert_equal", left=left, right=right)
 
-    left_str, right_str = _get_left_and_right_strs(
-        left=left, right=right)
+    left_str, right_str = _get_left_and_right_strs(left=left, right=right)
 
     msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert({left_str} === {right_str}, "{msg}");'
-    )
+    expression: str = f'console.assert({left_str} === {right_str}, "{msg}");'
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_not_equal(
-        left: Any, right: Any, *, msg: str = '') -> None:
+def assert_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
     """
     JavaScript assertion interface for not equal condition.
 
@@ -129,6 +124,7 @@ def assert_not_equal(
     """
     import apysc as ap
     from apysc._string import string_util
+
     for value in (left, right):
         if _value_type_is_array(value=value):
             assert_arrays_not_equal(left=left, right=right, msg=msg)
@@ -138,23 +134,16 @@ def assert_not_equal(
             assert_dicts_not_equal(left=left, right=right, msg=msg)
             return
 
-    _trace_info(
-        interface_label='assert_not_equal',
-        left=left,
-        right=right)
-    left_str, right_str = _get_left_and_right_strs(
-        left=left, right=right)
+    _trace_info(interface_label="assert_not_equal", left=left, right=right)
+    left_str, right_str = _get_left_and_right_strs(left=left, right=right)
 
     msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert({left_str} !== {right_str}, "{msg}");'
-    )
+    expression: str = f'console.assert({left_str} !== {right_str}, "{msg}");'
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_true(
-        value: Any, *, type_strict: bool = True, msg: str = '') -> None:
+def assert_true(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
     """
     JavaScript assertion interface for true condition.
 
@@ -184,24 +173,21 @@ def assert_true(
     """
     import apysc as ap
     from apysc._string import string_util
-    _trace_info(
-        interface_label='assert_true', left='true', right=value)
-    _, value_str = _get_left_and_right_strs(
-        left='_', right=value)
+
+    _trace_info(interface_label="assert_true", left="true", right=value)
+    _, value_str = _get_left_and_right_strs(left="_", right=value)
 
     msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert({value_str} =='
-    )
+    expression: str = f"console.assert({value_str} =="
     expression = _add_equal_if_type_strict_setting_is_true(
-        expression=expression, type_strict=type_strict)
+        expression=expression, type_strict=type_strict
+    )
     expression += f' true, "{msg}");'
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_false(
-        value: Any, *, type_strict: bool = True, msg: str = '') -> None:
+def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
     """
     JavaScript assertion interface for false condition.
 
@@ -231,24 +217,21 @@ def assert_false(
     """
     import apysc as ap
     from apysc._string import string_util
-    _trace_info(
-        interface_label='assert_false', left='false', right=value)
-    _, value_str = _get_left_and_right_strs(
-        left='_', right=value)
+
+    _trace_info(interface_label="assert_false", left="false", right=value)
+    _, value_str = _get_left_and_right_strs(left="_", right=value)
 
     msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert({value_str} =='
-    )
+    expression: str = f"console.assert({value_str} =="
     expression = _add_equal_if_type_strict_setting_is_true(
-        expression=expression, type_strict=type_strict)
+        expression=expression, type_strict=type_strict
+    )
     expression += f' false, "{msg}");'
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_arrays_equal(
-        left: Any, right: Any, *, msg: str = '') -> None:
+def assert_arrays_equal(left: Any, right: Any, *, msg: str = "") -> None:
     """
     JavaScript assertion interface for Array values equal condition.
 
@@ -281,18 +264,19 @@ def assert_arrays_equal(
     >>> ap.assert_arrays_equal(arr_1, arr_2)
     """
     import apysc as ap
+
     _trace_arrays_or_dicts_assertion_info(
-        interface_label='assert_arrays_equal',
-        left=left, right=right)
+        interface_label="assert_arrays_equal", left=left, right=right
+    )
 
     expression: str = _make_arrays_or_dicts_comparison_expression(
-        left=left, right=right, msg=msg, not_condition=False)
+        left=left, right=right, msg=msg, not_condition=False
+    )
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_arrays_not_equal(
-        left: Any, right: Any, *, msg: str = '') -> None:
+def assert_arrays_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
     """
     JavaScript assertion interface for Array values not equal condition.
 
@@ -325,17 +309,19 @@ def assert_arrays_not_equal(
     >>> ap.assert_arrays_not_equal(arr_1, arr_2)
     """
     import apysc as ap
+
     _trace_arrays_or_dicts_assertion_info(
-        interface_label='assert_arrays_not_equal',
-        left=left, right=right)
+        interface_label="assert_arrays_not_equal", left=left, right=right
+    )
 
     expression: str = _make_arrays_or_dicts_comparison_expression(
-        left=left, right=right, msg=msg, not_condition=True)
+        left=left, right=right, msg=msg, not_condition=True
+    )
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
+def assert_dicts_equal(left: Any, right: Any, *, msg: str = "") -> None:
     """
     JavaScript assertion interface for Dictionary values equal
     condition.
@@ -369,18 +355,19 @@ def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
     >>> ap.assert_dicts_equal(dict_1, dict_2)
     """
     import apysc as ap
+
     _trace_arrays_or_dicts_assertion_info(
-        interface_label='assert_dicts_equal',
-        left=left, right=right)
+        interface_label="assert_dicts_equal", left=left, right=right
+    )
 
     expression: str = _make_arrays_or_dicts_comparison_expression(
-        left=left, right=right, msg=msg, not_condition=False)
+        left=left, right=right, msg=msg, not_condition=False
+    )
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_dicts_not_equal(
-        left: Any, right: Any, *, msg: str = '') -> None:
+def assert_dicts_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
     """
     JavaScript assertion interface for Dictionary values not equal
     condition.
@@ -414,17 +401,19 @@ def assert_dicts_not_equal(
     >>> ap.assert_dicts_not_equal(dict_1, dict_2)
     """
     import apysc as ap
+
     _trace_arrays_or_dicts_assertion_info(
-        interface_label='assert_dicts_not_equal',
-        left=left, right=right)
+        interface_label="assert_dicts_not_equal", left=left, right=right
+    )
 
     expression: str = _make_arrays_or_dicts_comparison_expression(
-        left=left, right=right, msg=msg, not_condition=True)
+        left=left, right=right, msg=msg, not_condition=True
+    )
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_defined(value: Any, *, msg: str = '') -> None:
+def assert_defined(value: Any, *, msg: str = "") -> None:
     """
     JavaScript assertion interface for defined (not undefined)
     value condition.
@@ -449,21 +438,19 @@ def assert_defined(value: Any, *, msg: str = '') -> None:
     """
     import apysc as ap
     from apysc._string import string_util
+
     _trace_info(
-        interface_label='assert_defined', left='other than undefined',
-        right=value)
-    _, value_str = _get_left_and_right_strs(
-        left='_', right=value)
+        interface_label="assert_defined", left="other than undefined", right=value
+    )
+    _, value_str = _get_left_and_right_strs(left="_", right=value)
 
     msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert(!_.isUndefined({value_str}), "{msg}");'
-    )
+    expression: str = f'console.assert(!_.isUndefined({value_str}), "{msg}");'
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
-def assert_undefined(value: Any, *, msg: str = '') -> None:
+def assert_undefined(value: Any, *, msg: str = "") -> None:
     """
     JavaScript assertion interface for undefined value condition.
 
@@ -489,23 +476,19 @@ def assert_undefined(value: Any, *, msg: str = '') -> None:
     """
     import apysc as ap
     from apysc._string import string_util
-    _trace_info(
-        interface_label='assert_undefined', left='undefined',
-        right=value)
-    _, value_str = _get_left_and_right_strs(
-        left='_', right=value)
+
+    _trace_info(interface_label="assert_undefined", left="undefined", right=value)
+    _, value_str = _get_left_and_right_strs(left="_", right=value)
 
     msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert(_.isUndefined({value_str}), "{msg}");'
-    )
+    expression: str = f'console.assert(_.isUndefined({value_str}), "{msg}");'
     ap.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
 def _make_arrays_or_dicts_comparison_expression(
-        *, left: Any, right: Any, msg: str,
-        not_condition: bool) -> str:
+    *, left: Any, right: Any, msg: str, not_condition: bool
+) -> str:
     """
     Make arrays or dicts comparison (assert_arrays_equal,
     assert_arrays_not_equal, assert_dicts_equal, or
@@ -530,17 +513,16 @@ def _make_arrays_or_dicts_comparison_expression(
     """
     from apysc._string import string_util
     from apysc._type import value_util
-    left_exp_str: str = value_util.get_value_str_for_expression(
-        value=left)
-    right_exp_str: str = value_util.get_value_str_for_expression(
-        value=right)
+
+    left_exp_str: str = value_util.get_value_str_for_expression(value=left)
+    right_exp_str: str = value_util.get_value_str_for_expression(value=right)
     msg = string_util.escape_str(string=msg)
     if not_condition:
-        not_condition_str: str = '!'
+        not_condition_str: str = "!"
     else:
-        not_condition_str = ''
+        not_condition_str = ""
     expression: str = (
-        f'console.assert({not_condition_str}_.isEqual({left_exp_str}, '
+        f"console.assert({not_condition_str}_.isEqual({left_exp_str}, "
         f'{right_exp_str}), "{msg}");'
     )
     return expression
@@ -548,7 +530,8 @@ def _make_arrays_or_dicts_comparison_expression(
 
 @add_debug_info_setting(module_name=__name__)
 def _trace_arrays_or_dicts_assertion_info(
-        *, interface_label: str, left: Any, right: Any) -> None:
+    *, interface_label: str, left: Any, right: Any
+) -> None:
     """
     Append arrays or dictionaries values' information
     trace expression.
@@ -564,26 +547,23 @@ def _trace_arrays_or_dicts_assertion_info(
     """
     import apysc as ap
     from apysc._type import value_util
-    left_exp_str: str = value_util.get_value_str_for_expression(
-        value=left)
+
+    left_exp_str: str = value_util.get_value_str_for_expression(value=left)
     if isinstance(left, dict):
-        left_exp_str = left_exp_str.replace('"', '')
-    right_exp_str: str = value_util.get_value_str_for_expression(
-        value=right)
+        left_exp_str = left_exp_str.replace('"', "")
+    right_exp_str: str = value_util.get_value_str_for_expression(value=right)
     if isinstance(right, dict):
-        right_exp_str = right_exp_str.replace('"', '')
+        right_exp_str = right_exp_str.replace('"', "")
     if isinstance(left, (ap.Array, ap.Dictionary)):
-        value_str: str = value_util.get_value_str_for_expression(
-            value=left.value)
-        value_str = value_str.replace('"', '')
-        left_info_str: str = f'{left_exp_str} ({value_str})'
+        value_str: str = value_util.get_value_str_for_expression(value=left.value)
+        value_str = value_str.replace('"', "")
+        left_info_str: str = f"{left_exp_str} ({value_str})"
     else:
         left_info_str = left_exp_str
     right_info_str = right_exp_str
     _trace_info(
-        interface_label=interface_label,
-        left=left_info_str,
-        right=right_info_str)
+        interface_label=interface_label, left=left_info_str, right=right_info_str
+    )
 
 
 def _value_type_is_array(*, value: Any) -> bool:
@@ -602,6 +582,7 @@ def _value_type_is_array(*, value: Any) -> bool:
         If the value type is Array, this interface returns True.
     """
     import apysc as ap
+
     if isinstance(value, ap.Array):
         return True
     return False
@@ -623,13 +604,15 @@ def _value_type_is_dict(*, value: Any) -> bool:
         If the value type is Dictionary, this interface returns True.
     """
     from apysc._type.dictionary_structure import DictionaryStructure
+
     if isinstance(value, DictionaryStructure):
         return True
     return False
 
 
 def _add_equal_if_type_strict_setting_is_true(
-        *, expression: str, type_strict: bool) -> str:
+    *, expression: str, type_strict: bool
+) -> str:
     """
     Add single equal character to expression if type_string setting
     is True.
@@ -649,12 +632,11 @@ def _add_equal_if_type_strict_setting_is_true(
     """
     if not type_strict:
         return expression
-    expression += '='
+    expression += "="
     return expression
 
 
-def _get_left_and_right_strs(
-        *, left: Any, right: Any) -> Tuple[str, str]:
+def _get_left_and_right_strs(*, left: Any, right: Any) -> Tuple[str, str]:
     """
     Get left and right value strings from specified values.
 
@@ -677,8 +659,8 @@ def _get_left_and_right_strs(
         double quotation.
     """
     from apysc._type import value_util
-    left_str: str = value_util.get_value_str_for_expression(
-        value=left)
+
+    left_str: str = value_util.get_value_str_for_expression(value=left)
     right_str: str = value_util.get_value_str_for_expression(value=right)
     return left_str, right_str
 
@@ -699,9 +681,10 @@ def _trace_info(*, interface_label: str, left: Any, right: Any) -> None:
     """
     import apysc as ap
     from apysc._type.variable_name_interface import VariableNameInterface
-    info: str = f'[{interface_label}]'
+
+    info: str = f"[{interface_label}]"
     if isinstance(left, VariableNameInterface):
-        info += f'\nLeft-side variable name: {left.variable_name}'
+        info += f"\nLeft-side variable name: {left.variable_name}"
     if isinstance(right, VariableNameInterface):
-        info += f'\nRight-side variable name: {right.variable_name}'
-    ap.trace(info, '\nLeft value:', left, 'right value:', right)
+        info += f"\nRight-side variable name: {right.variable_name}"
+    ap.trace(info, "\nLeft value:", left, "right value:", right)

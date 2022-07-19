@@ -9,54 +9,52 @@ from apysc._testing.testing_helper import assert_attrs
 
 
 class TestPoint2D:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        point: ap.Point2D = ap.Point2D(
-            x=10, y=20, variable_name_suffix='test_point')
+        point: ap.Point2D = ap.Point2D(x=10, y=20, variable_name_suffix="test_point")
         assert_attrs(
             expected_attrs={
-                '_x': 10,
-                '_y': 20,
+                "_x": 10,
+                "_y": 20,
             },
-            any_obj=point)
+            any_obj=point,
+        )
         assert isinstance(point._x, ap.Int)
         assert isinstance(point._y, ap.Int)
-        assert point.variable_name.startswith(f'{var_names.POINT2D}_')
-        assert point._variable_name_suffix == 'test_point'
-        assert point._x._variable_name_suffix == 'test_point__x'
-        assert point._y._variable_name_suffix == 'test_point__y'
+        assert point.variable_name.startswith(f"{var_names.POINT2D}_")
+        assert point._variable_name_suffix == "test_point"
+        assert point._x._variable_name_suffix == "test_point__x"
+        assert point._y._variable_name_suffix == "test_point__y"
 
         x: ap.Int = ap.Int(10)
         y: ap.Int = ap.Int(20)
         point = ap.Point2D(x=x, y=y)
         assert_attrs(
             expected_attrs={
-                '_x': x,
-                '_y': y,
+                "_x": x,
+                "_y": y,
             },
-            any_obj=point)
+            any_obj=point,
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_x(self) -> None:
-        point: ap.Point2D = ap.Point2D(
-            x=10, y=20, variable_name_suffix='test_point')
+        point: ap.Point2D = ap.Point2D(x=10, y=20, variable_name_suffix="test_point")
         x: ap.Int = point.x
         assert isinstance(x, ap.Int)
         assert x == 10
-        assert x._variable_name_suffix == 'test_point__x'
+        assert x._variable_name_suffix == "test_point__x"
 
         point.x += 20
         assert point.x == 30
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_y(self) -> None:
-        point: ap.Point2D = ap.Point2D(
-            x=10, y=20, variable_name_suffix='test_point')
+        point: ap.Point2D = ap.Point2D(x=10, y=20, variable_name_suffix="test_point")
         y: ap.Int = point.y
         assert isinstance(y, ap.Int)
         assert y == 20
-        assert y._variable_name_suffix == 'test_point__y'
+        assert y._variable_name_suffix == "test_point__y"
 
         point.y += 20
         assert point.y == 40
@@ -96,7 +94,7 @@ class TestPoint2D:
         point: ap.Point2D = ap.Point2D(x=x, y=y)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{point.variable_name} = '
+            f"{point.variable_name} = "
             f'{{"x": {x.variable_name}, "y": {y.variable_name}}};'
         )
         assert expected in expression
@@ -107,9 +105,7 @@ class TestPoint2D:
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         x: ap.Int = point.x
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{x.variable_name} = {point.variable_name}["x"];'
-        )
+        expected: str = f'{x.variable_name} = {point.variable_name}["x"];'
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -118,9 +114,7 @@ class TestPoint2D:
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         y: ap.Int = point.y
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{y.variable_name} = {point.variable_name}["y"];'
-        )
+        expected: str = f'{y.variable_name} = {point.variable_name}["y"];'
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -130,9 +124,7 @@ class TestPoint2D:
         x: ap.Int = ap.Int(20)
         point.x = x
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{point.variable_name}["x"] = {x.variable_name};'
-        )
+        expected: str = f'{point.variable_name}["x"] = {x.variable_name};'
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -142,9 +134,7 @@ class TestPoint2D:
         y: ap.Int = ap.Int(30)
         point.y = y
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{point.variable_name}["y"] = {y.variable_name};'
-        )
+        expected: str = f'{point.variable_name}["y"] = {y.variable_name};'
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -178,4 +168,4 @@ class TestPoint2D:
     def test___repr__(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         repr_str: str = repr(point)
-        assert repr_str == 'Point2D(Int(10), Int(20))'
+        assert repr_str == "Point2D(Int(10), Int(20))"

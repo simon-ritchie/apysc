@@ -7,18 +7,19 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class PathDestYInterface(
-        VariableNameSuffixAttrInterface,
-        RevertInterface,
-        AttrLinkingInterface,
-        VariableNameSuffixInterface):
+    VariableNameSuffixAttrInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+    VariableNameSuffixInterface,
+):
 
     _dest_y: Int
 
@@ -27,10 +28,9 @@ class PathDestYInterface(
         Initialize the _dest_y attribute if this instance
         does not initialize it yet.
         """
-        if hasattr(self, '_dest_y'):
+        if hasattr(self, "_dest_y"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='dest_y')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="dest_y")
         self._dest_y = Int(0, variable_name_suffix=suffix)
 
         self._append_dest_y_linking_setting()
@@ -41,9 +41,9 @@ class PathDestYInterface(
         Append a dest_y linking setting.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._dest_y, attr_name='dest_y')
-        self._append_attr_to_linking_stack(
-            attr=self._dest_y, attr_name='dest_y')
+            new_attr=self._dest_y, attr_name="dest_y"
+        )
+        self._append_attr_to_linking_stack(attr=self._dest_y, attr_name="dest_y")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -99,8 +99,10 @@ class PathDestYInterface(
         """
         self._initialize_dest_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_dest_y_snapshots',
-            value=int(self._dest_y._value), snapshot_name=snapshot_name)
+            dict_name="_dest_y_snapshots",
+            value=int(self._dest_y._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

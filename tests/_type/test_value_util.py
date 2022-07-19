@@ -10,38 +10,37 @@ from apysc._type.expression_string import ExpressionString
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_value_str_for_expression() -> None:
-    exp_str: ExpressionString = ExpressionString(value='s_1')
+    exp_str: ExpressionString = ExpressionString(value="s_1")
     value_str: str = value_util.get_value_str_for_expression(value=exp_str)
-    assert value_str == 's_1'
+    assert value_str == "s_1"
 
     int_val: ap.Int = ap.Int(value=10)
-    value_str = value_util.get_value_str_for_expression(
-        value=int_val)
+    value_str = value_util.get_value_str_for_expression(value=int_val)
     assert value_str == int_val.variable_name
 
     value_str = value_util.get_value_str_for_expression(value=10)
-    assert value_str == '10'
+    assert value_str == "10"
 
     value_str = value_util.get_value_str_for_expression(value=True)
-    assert value_str == 'true'
+    assert value_str == "true"
 
     value_str = value_util.get_value_str_for_expression(value=False)
-    assert value_str == 'false'
+    assert value_str == "false"
 
-    value_str = value_util.get_value_str_for_expression(value='Hello!')
+    value_str = value_util.get_value_str_for_expression(value="Hello!")
     assert value_str == '"Hello!"'
 
     value_str = value_util.get_value_str_for_expression(value=[10, 20])
-    assert value_str == '[10, 20]'
+    assert value_str == "[10, 20]"
 
     value_str = value_util.get_value_str_for_expression(value=(30, 40))
-    assert value_str == '[30, 40]'
+    assert value_str == "[30, 40]"
 
-    value_str = value_util.get_value_str_for_expression(value={'key_1': 10})
+    value_str = value_util.get_value_str_for_expression(value={"key_1": 10})
     assert value_str == '{"key_1": 10}'
 
     value_str = value_util.get_value_str_for_expression(value=None)
-    assert value_str == 'null'
+    assert value_str == "null"
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -59,34 +58,35 @@ def test_get_copy() -> None:
 def test__get_value_str_from_iterable() -> None:
     int_1: ap.Int = ap.Int(value=10)
     value_str: str = value_util._get_value_str_from_iterable(
-        value=[100, True, int_1, (1000, 2000), 'Hello!'])
-    expected: str = (
-        f'[100, true, {int_1.variable_name}, [1000, 2000], "Hello!"]'
+        value=[100, True, int_1, (1000, 2000), "Hello!"]
     )
+    expected: str = f'[100, true, {int_1.variable_name}, [1000, 2000], "Hello!"]'
     assert value_str == expected
 
     value_str = value_util._get_value_str_from_iterable(value=(10, 20))
-    assert value_str == '[10, 20]'
+    assert value_str == "[10, 20]"
 
     array_1: ap.Array = ap.Array([30, 40])
     value_str = value_util._get_value_str_from_iterable(value=array_1)
-    assert value_str == '[30, 40]'
+    assert value_str == "[30, 40]"
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__validate_dict_key_type() -> None:
     value_util._validate_dict_key_type(key=10)
     value_util._validate_dict_key_type(key=10.5)
-    value_util._validate_dict_key_type(key='Hello')
+    value_util._validate_dict_key_type(key="Hello")
     assert_raises(
         expected_error_class=TypeError,
         callable_=value_util._validate_dict_key_type,
-        match='Dictionary key type only supports str and int',
-        key=ap.Int(10))
+        match="Dictionary key type only supports str and int",
+        key=ap.Int(10),
+    )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_value_str_from_dict() -> None:
     value_str: str = value_util._get_value_str_from_dict(
-        value={'key_1': 10, 20: 'Hello', 'key_3': [1, 2, 3]})
+        value={"key_1": 10, 20: "Hello", "key_3": [1, 2, 3]}
+    )
     assert value_str == '{"key_1": 10, "20": "Hello", "key_3": [1, 2, 3]}'

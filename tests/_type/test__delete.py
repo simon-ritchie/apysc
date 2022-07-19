@@ -17,8 +17,7 @@ def test__append_delete_expression() -> None:
     _delete._append_delete_expression(value=value)
     expression: str = expression_data_util.get_current_expression()
     expected: str = (
-        f'delete {value.variable_name};'
-        f'\n{value.variable_name} = undefined;'
+        f"delete {value.variable_name};" f"\n{value.variable_name} = undefined;"
     )
     assert expected in expression
 
@@ -31,7 +30,7 @@ def test_delete() -> None:
     assert_raises(
         expected_error_class=_DisabledObjectError,
         callable_=value.unbind_custom_event_all,
-        custom_event_type='test_event',
+        custom_event_type="test_event",
     )
 
 

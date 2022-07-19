@@ -20,19 +20,15 @@ from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
-MAPPING_CONST_NAME: str = 'MAPPING'
+MAPPING_CONST_NAME: str = "MAPPING"
 
 SKIPPING_PATTERNS: List[Pattern] = [
     re.compile(pattern=DOCSTRING_PATH_COMMENT_PATTERN),
 ]
 
-_INTERFACE_SIGNATURE_PATTERN: str = (
-    r'\*\*\[Interface signature\]\*\* .*?<hr>'
-)
+_INTERFACE_SIGNATURE_PATTERN: str = r"\*\*\[Interface signature\]\*\* .*?<hr>"
 
-_CODE_BLOCK_IFRAME_PATTERN: str = (
-    r'<iframe src="static.*?index\.html".*?></iframe>'
-)
+_CODE_BLOCK_IFRAME_PATTERN: str = r'<iframe src="static.*?index\.html".*?></iframe>'
 
 MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
     re.compile(pattern=_INTERFACE_SIGNATURE_PATTERN),
@@ -42,9 +38,7 @@ MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]
 
 
-def read_mapping_data(
-        *, src_doc_file_path: str,
-        lang: Lang) -> Dict[str, str]:
+def read_mapping_data(*, src_doc_file_path: str, lang: Lang) -> Dict[str, str]:
     """
     Read an already saved mapping data.
 
@@ -61,22 +55,23 @@ def read_mapping_data(
         An already saved mapping data dictionary.
     """
     from apysc._file import module_util
+
     mapping_module_path: str = get_mapping_module_path(
-        src_doc_file_path=src_doc_file_path, lang=lang)
+        src_doc_file_path=src_doc_file_path, lang=lang
+    )
     if not os.path.isfile(mapping_module_path):
         return {}
     module: ModuleType = module_util.read_target_path_module(
-        module_path=mapping_module_path)
+        module_path=mapping_module_path
+    )
     importlib.reload(module)
     if not hasattr(module, MAPPING_CONST_NAME):
         return {}
-    already_saved_mapping: Dict[str, str] = getattr(
-        module, MAPPING_CONST_NAME)
+    already_saved_mapping: Dict[str, str] = getattr(module, MAPPING_CONST_NAME)
     return already_saved_mapping
 
 
-def get_mapping_module_path(
-        *, src_doc_file_path: str, lang: Lang) -> str:
+def get_mapping_module_path(*, src_doc_file_path: str, lang: Lang) -> str:
     """
     Get a mapping data module path.
 
@@ -93,17 +88,15 @@ def get_mapping_module_path(
         A mapping data module path.
     """
     basename: str = os.path.basename(src_doc_file_path)
-    basename = basename.replace('.md', '.py', 1)
+    basename = basename.replace(".md", ".py", 1)
     mapping_module_path: str = os.path.join(
-        f'./apysc/_translation/{lang.value}/',
+        f"./apysc/_translation/{lang.value}/",
         basename,
     )
     return mapping_module_path
 
 
-def convert_splitted_values_to_keys(
-        *,
-        splitted_values: _SplittedVals) -> List[str]:
+def convert_splitted_values_to_keys(*, splitted_values: _SplittedVals) -> List[str]:
     """
     Convert specified splitted values to dictionary's key
     strings.
@@ -121,7 +114,7 @@ def convert_splitted_values_to_keys(
     keys: List[str] = []
     for splitted_value in splitted_values:
         is_body_text: bool = False
-        key: str = ''
+        key: str = ""
         if isinstance(splitted_value, Heading):
             key = splitted_value.overall_text
         if isinstance(splitted_value, BodyText):
@@ -137,8 +130,7 @@ def convert_splitted_values_to_keys(
     return keys
 
 
-def _append_body_text_keys_to_list(
-        *, key: str, keys: List[str]) -> None:
+def _append_body_text_keys_to_list(*, key: str, keys: List[str]) -> None:
     """
     Append document's body text keys to a specified key's list.
 
@@ -150,20 +142,18 @@ def _append_body_text_keys_to_list(
     keys : list of str
         A key's list to append.
     """
-    splitted_keys: List[str] = key.split('\\n\\n')
+    splitted_keys: List[str] = key.split("\\n\\n")
     for key_ in splitted_keys:
         if _key_is_api_docs_list(key_=key_):
-            lines: List[str] = key_.split('\\n')
+            lines: List[str] = key_.split("\\n")
             keys.extend(lines)
         elif _key_is_api_docs_br_tags_list(key_=key_):
-            _extend_keys_with_api_docs_br_tags_list(
-                keys=keys, key_=key_)
+            _extend_keys_with_api_docs_br_tags_list(keys=keys, key_=key_)
         else:
             keys.append(key_)
 
 
-def _extend_keys_with_api_docs_br_tags_list(
-        *, keys: List[str], key_: str) -> None:
+def _extend_keys_with_api_docs_br_tags_list(*, keys: List[str], key_: str) -> None:
     """
     Extend a specified keys list with an API docs' break tags list.
 
@@ -174,10 +164,10 @@ def _extend_keys_with_api_docs_br_tags_list(
     key_ : str
         An API docs' break tags list string.
     """
-    splitted_keys: List[str] = key_.split('<br> ・')
+    splitted_keys: List[str] = key_.split("<br> ・")
     for i, splitted_key in enumerate(splitted_keys):
         if i != 0:
-            splitted_keys[i] = f'<br> ・{splitted_key}'
+            splitted_keys[i] = f"<br> ・{splitted_key}"
     keys.extend(splitted_keys)
 
 
@@ -197,14 +187,12 @@ def _key_is_api_docs_br_tags_list(*, key_: str) -> bool:
         A boolean indicates whether a specified key's string
         is a markdown of a list with break tags or not.
     """
-    if '<br> ・' in key_:
+    if "<br> ・" in key_:
         return True
     return False
 
 
-_API_DOCS_LIST_PATTERN: Pattern = re.compile(
-    pattern=r'^- .+?\\n',
-    flags=re.MULTILINE)
+_API_DOCS_LIST_PATTERN: Pattern = re.compile(pattern=r"^- .+?\\n", flags=re.MULTILINE)
 
 
 def _key_is_api_docs_list(*, key_: str) -> bool:
@@ -224,8 +212,7 @@ def _key_is_api_docs_list(*, key_: str) -> bool:
         A boolean indicates whether a specified key's string
         is a markdown of a list with break tags or not.
     """
-    match: Optional[Match] = _API_DOCS_LIST_PATTERN.search(
-        string=key_)
+    match: Optional[Match] = _API_DOCS_LIST_PATTERN.search(string=key_)
     if match is None:
         return False
     return True
@@ -246,17 +233,23 @@ def escape_key_or_value(*, key_or_val: str) -> str:
         An escaped key or value string.
     """
     key_or_val = remove_escaping_from_key_or_value(key_or_val=key_or_val)
-    TMP_LINE_END_ESCAPE_STR: str = '___tmp_line_end___'
+    TMP_LINE_END_ESCAPE_STR: str = "___tmp_line_end___"
     key_or_val = re.sub(
-        pattern=r'\\$\n', repl=TMP_LINE_END_ESCAPE_STR,
-        string=key_or_val, flags=re.MULTILINE)
-    key_or_val = key_or_val.replace('\\', '\\\\')
+        pattern=r"\\$\n",
+        repl=TMP_LINE_END_ESCAPE_STR,
+        string=key_or_val,
+        flags=re.MULTILINE,
+    )
+    key_or_val = key_or_val.replace("\\", "\\\\")
     key_or_val = key_or_val.replace("'", "\\'")
-    key_or_val = key_or_val.replace('\n', '\\n')
-    key_or_val = key_or_val.replace('\\\\n', '\\n')
+    key_or_val = key_or_val.replace("\n", "\\n")
+    key_or_val = key_or_val.replace("\\\\n", "\\n")
     key_or_val = re.sub(
-        pattern=rf'{TMP_LINE_END_ESCAPE_STR}',
-        repl=r'\\\\\\n', string=key_or_val, flags=re.MULTILINE)
+        pattern=rf"{TMP_LINE_END_ESCAPE_STR}",
+        repl=r"\\\\\\n",
+        string=key_or_val,
+        flags=re.MULTILINE,
+    )
     return key_or_val
 
 
@@ -274,9 +267,9 @@ def remove_escaping_from_key_or_value(*, key_or_val: str) -> str:
     key_or_val : str
         A result key or value string.
     """
-    key_or_val = key_or_val.replace('\\\\', '\\')
+    key_or_val = key_or_val.replace("\\\\", "\\")
     key_or_val = key_or_val.replace("\\'", "'")
-    key_or_val = key_or_val.replace('\\n', '\n')
+    key_or_val = key_or_val.replace("\\n", "\n")
     return key_or_val
 
 
@@ -326,9 +319,7 @@ def is_translation_skipping_key(*, key: str) -> bool:
     return False
 
 
-def get_translated_file_path_from_src_path(
-        *, source_doc_path: str,
-        lang: Lang) -> str:
+def get_translated_file_path_from_src_path(*, source_doc_path: str, lang: Lang) -> str:
     """
     Get a translated file path from a specified source
     document's file path.
@@ -346,7 +337,7 @@ def get_translated_file_path_from_src_path(
         A translated file path.
     """
     basename: str = os.path.basename(source_doc_path)
-    basename = f'{lang.value}_{basename}'
+    basename = f"{lang.value}_{basename}"
     dir_path = os.path.dirname(source_doc_path)
     translated_file_path: str = os.path.join(dir_path, basename)
     return translated_file_path
@@ -369,7 +360,7 @@ def remove_empty_keys(*, keys: List[str]) -> List[str]:
     """
     result_keys: List[str] = []
     for key in keys:
-        if key.strip() == '':
+        if key.strip() == "":
             continue
         result_keys.append(key)
     return result_keys
@@ -398,6 +389,7 @@ def get_hash_type_from_lang(*, lang: Lang) -> HashType:
     if lang == Lang.JP:
         return HashType.TRANSLATION_MAPPING_JP
     raise ValueError(
-        'There is no implementation of a specified language type\'s '
-        'branch condition. Please add a necessary branch condition: '
-        f'{lang}')
+        "There is no implementation of a specified language type's "
+        "branch condition. Please add a necessary branch condition: "
+        f"{lang}"
+    )

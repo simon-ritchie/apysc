@@ -16,10 +16,11 @@ def get_current_loop_count() -> int:
         Current loop count.
     """
     from apysc._expression import expression_data_util
+
     query: str = (
-        'SELECT count FROM '
-        f'{expression_data_util.TableName.LOOP_COUNT.value} '
-        'LIMIT 1;'
+        "SELECT count FROM "
+        f"{expression_data_util.TableName.LOOP_COUNT.value} "
+        "LIMIT 1;"
     )
     expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
@@ -38,10 +39,11 @@ def _save_loop_count(*, loop_count: int) -> None:
         A loop count value.
     """
     from apysc._expression import expression_data_util
+
     table_name: str = expression_data_util.TableName.LOOP_COUNT.value
-    query: str = f'DELETE FROM {table_name};'
+    query: str = f"DELETE FROM {table_name};"
     expression_data_util.exec_query(sql=query, commit=False)
-    query = f'INSERT INTO {table_name}(count) VALUES ({loop_count});'
+    query = f"INSERT INTO {table_name}(count) VALUES ({loop_count});"
     expression_data_util.exec_query(sql=query)
 
 

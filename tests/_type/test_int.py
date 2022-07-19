@@ -10,35 +10,28 @@ from apysc._testing import testing_helper
 
 
 class TestInt:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         expression_data_util.empty_expression()
         int_val_1: ap.Int = ap.Int(value=100.5)
         assert int_val_1.value == 100
-        assert int_val_1.variable_name.startswith(f'{var_names.INT}_')
+        assert int_val_1.variable_name.startswith(f"{var_names.INT}_")
 
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'var {int_val_1.variable_name} = 100;'
-        )
+        expected: str = f"var {int_val_1.variable_name} = 100;"
         assert expected in expression
 
         int_val_2: ap.Int = ap.Int(value=int_val_1)
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'var {int_val_2.variable_name} = {int_val_1.variable_name};'
-        )
+        expected = f"var {int_val_2.variable_name} = {int_val_1.variable_name};"
         assert expected in expression
 
         testing_helper.assert_raises(
-            expected_error_class=ValueError,
-            callable_=ap.Int,
-            value='Hello!')
+            expected_error_class=ValueError, callable_=ap.Int, value="Hello!"
+        )
 
-        int_val_3: ap.Int = ap.Int(
-            value=10, variable_name_suffix='test_int_3')
-        assert int_val_3._variable_name_suffix == 'test_int_3'
+        int_val_3: ap.Int = ap.Int(value=10, variable_name_suffix="test_int_3")
+        assert int_val_3._variable_name_suffix == "test_int_3"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
@@ -48,21 +41,17 @@ class TestInt:
         assert int_val_1.value == 200
 
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{int_val_1.variable_name} = 200;'
-        )
+        expected: str = f"{int_val_1.variable_name} = 200;"
         assert expected in expression
 
         with pytest.raises(ValueError):  # type: ignore
-            int_val_1.value = 'Hello!'  # type: ignore
+            int_val_1.value = "Hello!"  # type: ignore
 
         int_val_2: ap.Int = ap.Int(value=100)
         int_val_2.value = int_val_1
         assert int_val_2.value == 200  # type: ignore
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{int_val_2.variable_name} = {int_val_1.variable_name};'
-        )
+        expected = f"{int_val_2.variable_name} = {int_val_1.variable_name};"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___add__(self) -> None:
@@ -77,17 +66,13 @@ class TestInt:
         int_1._set_value_and_skip_expression_appending(value=20.5)
         assert int_1.value == 20
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{int_1.variable_name} = 20;'
-        )
+        expected: str = f"{int_1.variable_name} = 20;"
         assert expected not in expression
 
         int_2: ap.Int = ap.Int(value=30)
         int_2._set_value_and_skip_expression_appending(value=int_1)
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{int_2.variable_name} = {int_1.variable_name};'
-        )
+        expected = f"{int_2.variable_name} = {int_1.variable_name};"
         assert expected not in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -96,28 +81,27 @@ class TestInt:
         int_val: ap.Int = ap.Int(value=ap.Number(value=100.5))
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{int_val.variable_name} = '
-            f'Math.trunc({int_val.variable_name}, 10);'
+            f"{int_val.variable_name} = " f"Math.trunc({int_val.variable_name}, 10);"
         )
         assert expected in expression
 
         expression_data_util.empty_expression()
         int_val = ap.Int(value=100)
         expression = expression_data_util.get_current_expression()
-        assert 'Math.trunc' not in expression
+        assert "Math.trunc" not in expression
 
         expression_data_util.empty_expression()
         int_val = ap.Int(value=100.5)
         expression = expression_data_util.get_current_expression()
-        assert 'Math.trunc' not in expression
-        expected = f'{int_val.variable_name} = 100;'
+        assert "Math.trunc" not in expression
+        expected = f"{int_val.variable_name} = 100;"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
         int_1: ap.Int = ap.Int(3)
         repr_str: str = repr(int_1)
-        assert repr_str == 'Int(3)'
+        assert repr_str == "Int(3)"
 
         del int_1._value
-        assert repr(int_1) == 'Int(0)'
+        assert repr(int_1) == "Int(0)"

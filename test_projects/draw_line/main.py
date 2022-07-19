@@ -6,7 +6,7 @@ $ python test_projects/draw_line/main.py
 
 import sys
 
-sys.path.append('./')
+sys.path.append("./")
 
 import os
 from types import ModuleType
@@ -19,8 +19,7 @@ from apysc._file import file_util
 this_module: ModuleType = sys.modules[__name__]
 
 _DEST_DIR_PATH: str = os.path.join(
-    file_util.get_abs_module_dir_path(module=this_module),
-    'test_output/'
+    file_util.get_abs_module_dir_path(module=this_module), "test_output/"
 )
 
 
@@ -32,29 +31,28 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(
-        background_color='#333',
-        stage_width=1000, stage_height=500)
+    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
     sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.line_style(
-        color='#0af', thickness=5, dot_setting=ap.LineDotSetting(dot_size=10))
+        color="#0af", thickness=5, dot_setting=ap.LineDotSetting(dot_size=10)
+    )
     line_1: ap.Line = sprite.graphics.draw_line(
-        x_start=50, y_start=50, x_end=350, y_end=50)
+        x_start=50, y_start=50, x_end=350, y_end=50
+    )
     ap.assert_equal(line_1.x, 50)
     ap.assert_equal(line_1.y, 50)
 
-    sprite.graphics.line_style(
-        color='#0af', thickness=10, cap=ap.LineCaps.ROUND)
+    sprite.graphics.line_style(color="#0af", thickness=10, cap=ap.LineCaps.ROUND)
     line_2: ap.Line = sprite.graphics.draw_line(
-        x_start=50, y_start=80, x_end=350, y_end=80)
-    options: _SpOptions = {'sprite': sprite}
+        x_start=50, y_start=80, x_end=350, y_end=80
+    )
+    options: _SpOptions = {"sprite": sprite}
     line_2.click(on_line_click, options=options)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_line_click(
-        e: ap.MouseEvent[ap.Line], options: _SpOptions) -> None:
+def on_line_click(e: ap.MouseEvent[ap.Line], options: _SpOptions) -> None:
     """
     Handler that called when line is clicked.
 
@@ -65,9 +63,9 @@ def on_line_click(
     options : dict
         Optional parameters.
     """
-    sprite: ap.Sprite = options['sprite']
+    sprite: ap.Sprite = options["sprite"]
     sprite.x += 100
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -11,17 +11,13 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class _TestMouseMove(MouseMoveInterface, VariableNameInterface):
-
     def __init__(self) -> None:
-        """Class for MouseMoveInterface testing.
-        """
-        self.variable_name = 'test_mouse_move'
+        """Class for MouseMoveInterface testing."""
+        self.variable_name = "test_mouse_move"
 
 
 class TestMouseMoveInterface:
-
-    def on_mouse_move_1(
-            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_move_1(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse move handler method for testing.
 
@@ -33,8 +29,7 @@ class TestMouseMoveInterface:
             Optional arguments dictionary.
         """
 
-    def on_mouse_move_2(
-            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_move_2(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse move handler method for testing.
 
@@ -60,20 +55,19 @@ class TestMouseMoveInterface:
         expression_data_util.empty_expression()
         interface_1: _TestMouseMove = _TestMouseMove()
         name: str = interface_1.mousemove(
-            handler=self.on_mouse_move_1, options={'msg': 'Hello!'})
+            handler=self.on_mouse_move_1, options={"msg": "Hello!"}
+        )
         assert name in interface_1._mouse_move_handlers
-        assert interface_1._mouse_move_handlers[name]['options'] == \
-            {'msg': 'Hello!'}
+        assert interface_1._mouse_move_handlers[name]["options"] == {"msg": "Hello!"}
 
-        expression: str = \
+        expression: str = (
             expression_data_util.get_current_event_handler_scope_expression()
-        expected: str = f'function {name}('
+        )
+        expected: str = f"function {name}("
         assert expected in expression
 
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{interface_1.variable_name}.mousemove({name});'
-        )
+        expected = f"{interface_1.variable_name}.mousemove({name});"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -85,7 +79,7 @@ class TestMouseMoveInterface:
         assert interface_1._mouse_move_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off('
+            f"{interface_1.variable_name}.off("
             f'"{ap.MouseEventType.MOUSEMOVE.value}", {name});'
         )
         assert expected in expression
@@ -100,7 +94,7 @@ class TestMouseMoveInterface:
         assert interface_1._mouse_move_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off('
+            f"{interface_1.variable_name}.off("
             f'"{ap.MouseEventType.MOUSEMOVE.value}");'
         )
         assert expected in expression

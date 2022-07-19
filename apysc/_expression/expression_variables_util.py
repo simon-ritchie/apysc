@@ -37,10 +37,10 @@ def get_next_variable_name(*, type_name: str) -> str:
     variable_name : str
         Next variable name.
     """
-    next_variable_num: int = _get_next_variable_num(
-        type_name=type_name)
+    next_variable_num: int = _get_next_variable_num(type_name=type_name)
     variable_name = _make_variable_name(
-        type_name=type_name, variable_num=next_variable_num)
+        type_name=type_name, variable_num=next_variable_num
+    )
     _save_next_variable_name_count(type_name=type_name)
     return variable_name
 
@@ -55,17 +55,14 @@ def _save_next_variable_name_count(*, type_name: str) -> None:
         Any type name, e.g., `sp`.
     """
     from apysc._expression import expression_data_util
-    next_variable_num: int = _get_next_variable_num(
-        type_name=type_name)
+
+    next_variable_num: int = _get_next_variable_num(type_name=type_name)
     table_name: str = expression_data_util.TableName.VARIABLE_NAME_COUNT.value
-    query: str = (
-        f'DELETE FROM {table_name} '
-        f"WHERE type_name = '{type_name}';"
-    )
+    query: str = f"DELETE FROM {table_name} " f"WHERE type_name = '{type_name}';"
     expression_data_util.exec_query(sql=query, commit=False)
     query = (
-        f'INSERT INTO {table_name}'
-        '(type_name, count) '
+        f"INSERT INTO {table_name}"
+        "(type_name, count) "
         f"VALUES('{type_name}', {next_variable_num});"
     )
     expression_data_util.exec_query(sql=query)
@@ -87,7 +84,7 @@ def _make_variable_name(*, type_name: str, variable_num: int) -> str:
     variable_name : str
         Variable name that concatenated type name and variable number.
     """
-    variable_name: str = f'{type_name}_{variable_num}'
+    variable_name: str = f"{type_name}_{variable_num}"
     return variable_name
 
 
@@ -106,10 +103,10 @@ def _get_next_variable_num(*, type_name: str) -> int:
         Next variable number (start from 1).
     """
     from apysc._expression import expression_data_util
+
     table_name: str = expression_data_util.TableName.VARIABLE_NAME_COUNT.value
     query: str = (
-        f'SELECT count FROM {table_name} '
-        f"WHERE type_name = '{type_name}' LIMIT 1;"
+        f"SELECT count FROM {table_name} " f"WHERE type_name = '{type_name}' LIMIT 1;"
     )
     expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
@@ -120,8 +117,8 @@ def _get_next_variable_num(*, type_name: str) -> int:
 
 
 def append_substitution_expression(
-        *, left_value: VariableNameInterface,
-        right_value: VariableNameInterface) -> None:
+    *, left_value: VariableNameInterface, right_value: VariableNameInterface
+) -> None:
     """
     Append a substitution expression between two variables.
 
@@ -133,15 +130,14 @@ def append_substitution_expression(
         Any right value.
     """
     import apysc as ap
-    expression: str = (
-        f'{left_value.variable_name} = {right_value.variable_name};'
-    )
+
+    expression: str = f"{left_value.variable_name} = {right_value.variable_name};"
     ap.append_js_expression(expression=expression)
 
 
 def append_substitution_expression_with_names(
-        *, left_variable_name: str,
-        right_variable_name: str) -> None:
+    *, left_variable_name: str, right_variable_name: str
+) -> None:
     """
     Append a substitution expression between two variable names.
 
@@ -158,9 +154,8 @@ def append_substitution_expression_with_names(
         Right-side variable name.
     """
     import apysc as ap
-    if left_variable_name == '' or right_variable_name == '':
+
+    if left_variable_name == "" or right_variable_name == "":
         return
-    expression: str = (
-        f'{left_variable_name} = {right_variable_name};'
-    )
+    expression: str = f"{left_variable_name} = {right_variable_name};"
     ap.append_js_expression(expression=expression)

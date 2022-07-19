@@ -8,16 +8,14 @@ from apysc._expression import expression_data_util
 
 
 class _TestInterface(FlipXInterface):
-
     def __init__(self) -> None:
         """
         The class for the testing of the FlipXInterface class.
         """
-        self.variable_name = 'test_flip_x_interface'
+        self.variable_name = "test_flip_x_interface"
 
 
 class TestFlipXInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_flip_x_if_not_initialized(self) -> None:
         interface: _TestInterface = _TestInterface()
@@ -46,13 +44,13 @@ class TestFlipXInterface:
         interface.flip_x = flip_x_2
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'if ({flip_x_1.variable_name}) {{'
+            f"if ({flip_x_1.variable_name}) {{"
             f'\n  {interface.variable_name}.flip("x");'
-            '\n}'
-            f'\nif ({flip_x_2.variable_name}) {{'
+            "\n}"
+            f"\nif ({flip_x_2.variable_name}) {{"
             f'\n  {interface.variable_name}.flip("x");'
-            '\n}'
-            f'\n{flip_x_1.variable_name} = {flip_x_2.variable_name};'
+            "\n}"
+            f"\n{flip_x_1.variable_name} = {flip_x_2.variable_name};"
         )
         assert expected in expression
 
@@ -86,4 +84,4 @@ class TestFlipXInterface:
     def test__append_flip_x_attr_linking_setting(self) -> None:
         interface: _TestInterface = _TestInterface()
         interface._initialize_flip_x_if_not_initialized()
-        assert interface._attr_linking_stack['flip_x'] == [ap.Boolean(False)]
+        assert interface._attr_linking_stack["flip_x"] == [ap.Boolean(False)]

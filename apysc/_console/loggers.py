@@ -7,7 +7,7 @@ from logging import Logger
 from logging import StreamHandler
 from logging import getLogger
 
-_LOGGER_NAME_INFO: str = 'user_info'
+_LOGGER_NAME_INFO: str = "user_info"
 _is_initial_call: bool = True
 
 
@@ -29,8 +29,8 @@ def get_info_logger() -> Logger:
     if _is_initial_call:
         stream_handler: StreamHandler = StreamHandler()
         formatter: Formatter = Formatter(
-            fmt='%(asctime)s - %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S')
+            fmt="%(asctime)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
+        )
         stream_handler.setFormatter(fmt=formatter)
         logger.addHandler(stream_handler)
         _is_initial_call = False

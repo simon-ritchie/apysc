@@ -7,7 +7,6 @@ from apysc._geom.path_y_interface import PathYInterface
 
 
 class TestPathYInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_y(self) -> None:
         interface: PathYInterface = PathYInterface()
@@ -50,4 +49,4 @@ class TestPathYInterface:
     def test__append_y_linking_setting(self) -> None:
         interface: PathYInterface = PathYInterface()
         interface._initialize_y_if_not_initialized()
-        assert interface._attr_linking_stack['y'] == [ap.Int(0)]
+        assert interface._attr_linking_stack["y"] == [ap.Int(0)]

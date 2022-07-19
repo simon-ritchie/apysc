@@ -8,7 +8,6 @@ from apysc._testing.testing_helper import assert_raises
 
 
 class TestContinue:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         expression_data_util.empty_expression()
@@ -21,4 +20,4 @@ class TestContinue:
         with ap.For(arr):
             ap.Continue()
         expression: str = expression_data_util.get_current_expression()
-        assert 'continue;' in expression
+        assert "continue;" in expression

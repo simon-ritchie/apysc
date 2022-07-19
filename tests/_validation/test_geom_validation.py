@@ -10,11 +10,13 @@ def test_validate_point_2d_type() -> None:
     assert_raises(
         expected_error_class=ValueError,
         callable_=geom_validation.validate_point_2d_type,
-        match='Specified value\'s type is not Point2D: ',
-        point=(10, 20))
+        match="Specified value's type is not Point2D: ",
+        point=(10, 20),
+    )
     assert_raises(
         expected_error_class=ValueError,
         callable_=geom_validation.validate_point_2d_type,
-        match='\nTest error!',
+        match="\nTest error!",
         point=(10, 20),
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )

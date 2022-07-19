@@ -7,18 +7,19 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class PathYInterface(
-        VariableNameSuffixAttrInterface,
-        RevertInterface,
-        AttrLinkingInterface,
-        VariableNameSuffixInterface):
+    VariableNameSuffixAttrInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+    VariableNameSuffixInterface,
+):
 
     _y: Int
 
@@ -27,10 +28,9 @@ class PathYInterface(
         Initialize the _y attribute if this instance does not
         initialize it yet.
         """
-        if hasattr(self, '_y'):
+        if hasattr(self, "_y"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='y')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="y")
         self._y = Int(0, variable_name_suffix=suffix)
 
         self._append_y_linking_setting()
@@ -40,10 +40,8 @@ class PathYInterface(
         """
         Append a y attribute linking settings.
         """
-        self._append_applying_new_attr_val_exp(
-            new_attr=self._y, attr_name='y')
-        self._append_attr_to_linking_stack(
-            attr=self._y, attr_name='y')
+        self._append_applying_new_attr_val_exp(new_attr=self._y, attr_name="y")
+        self._append_attr_to_linking_stack(attr=self._y, attr_name="y")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -97,8 +95,10 @@ class PathYInterface(
         """
         self._initialize_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_y_snapshots',
-            value=int(self._y._value), snapshot_name=snapshot_name)
+            dict_name="_y_snapshots",
+            value=int(self._y._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

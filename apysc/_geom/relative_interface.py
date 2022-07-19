@@ -5,17 +5,16 @@ from typing import Dict
 
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class RelativeInterface(
-        VariableNameSuffixAttrInterface,
-        RevertInterface,
-        VariableNameSuffixInterface):
+    VariableNameSuffixAttrInterface, RevertInterface, VariableNameSuffixInterface
+):
 
     _relative: Boolean
 
@@ -24,10 +23,9 @@ class RelativeInterface(
         Initialize the _relative attribute if this instance
         does not initialize it yet.
         """
-        if hasattr(self, '_relative'):
+        if hasattr(self, "_relative"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='relative')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="relative")
         self._relative = Boolean(False, variable_name_suffix=suffix)
 
     @property
@@ -83,8 +81,10 @@ class RelativeInterface(
         """
         self._initialize_relative_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_relative_snapshots',
-            value=self._relative._value, snapshot_name=snapshot_name)
+            dict_name="_relative_snapshots",
+            value=self._relative._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

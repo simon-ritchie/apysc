@@ -12,14 +12,12 @@ from apysc._expression import var_names
 
 
 class TestMouseEvent:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         int_1: ap.Int = ap.Int(10)
         mouse_event: ap.MouseEvent[ap.Int] = ap.MouseEvent(this=int_1)
         assert mouse_event.this == int_1
-        assert mouse_event.variable_name.startswith(
-            f'{var_names.MOUSE_EVENT}_')
+        assert mouse_event.variable_name.startswith(f"{var_names.MOUSE_EVENT}_")
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_stage_x(self) -> None:
@@ -37,9 +35,9 @@ class TestMouseEvent:
         stage_x: ap.Int = mouse_event.stage_x
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{stage_x.variable_name} = '
-            f'{mouse_event.variable_name}.pageX - '
-            f'{get_stage_elem_str()}.offset().left;'
+            f"{stage_x.variable_name} = "
+            f"{mouse_event.variable_name}.pageX - "
+            f"{get_stage_elem_str()}.offset().left;"
         )
         assert expected in expression
 
@@ -58,9 +56,9 @@ class TestMouseEvent:
         stage_y: ap.Int = mouse_event.stage_y
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{stage_y.variable_name} = '
-            f'{mouse_event.variable_name}.pageY - '
-            f'{get_stage_elem_str()}.offset().top;'
+            f"{stage_y.variable_name} = "
+            f"{mouse_event.variable_name}.pageY - "
+            f"{get_stage_elem_str()}.offset().top;"
         )
         assert expected in expression
 
@@ -81,11 +79,12 @@ class TestMouseEvent:
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{local_x.variable_name} = {var_names.INT}\_.+? \- '
-                rf'get_total_x\({sprite.variable_name}\);'
+                rf"{local_x.variable_name} = {var_names.INT}\_.+? \- "
+                rf"get_total_x\({sprite.variable_name}\);"
             ),
             string=expression,
-            flags=re.MULTILINE)
+            flags=re.MULTILINE,
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -105,9 +104,10 @@ class TestMouseEvent:
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{local_y.variable_name} = {var_names.INT}\_.+? \- '
-                rf'get_total_y\({sprite.variable_name}\);'
+                rf"{local_y.variable_name} = {var_names.INT}\_.+? \- "
+                rf"get_total_y\({sprite.variable_name}\);"
             ),
             string=expression,
-            flags=re.MULTILINE)
+            flags=re.MULTILINE,
+        )
         assert match is not None

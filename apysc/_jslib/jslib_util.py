@@ -20,7 +20,7 @@ from types import ModuleType
 from typing import List
 
 _HIGH_PRIORITY_FILE_ORDERS: List[str] = [
-    'jquery.min.js',
+    "jquery.min.js",
 ]
 
 
@@ -39,16 +39,18 @@ def get_jslib_file_names() -> List[str]:
     jslib_file_names: List[str] = []
     file_names: List[str] = os.listdir(this_modules_dir_path)
     for file_name in file_names:
-        if not file_name.endswith('.js'):
+        if not file_name.endswith(".js"):
             continue
         jslib_file_names.append(file_name)
     jslib_file_names = _sort_js_file_names_with_priority_setting(
-        jslib_file_names=jslib_file_names)
+        jslib_file_names=jslib_file_names
+    )
     return jslib_file_names
 
 
 def _sort_js_file_names_with_priority_setting(
-        *, jslib_file_names: List[str]) -> List[str]:
+    *, jslib_file_names: List[str]
+) -> List[str]:
     """
     Sort a JavaScript libraries' file names list
     with the priority setting.
@@ -88,8 +90,7 @@ def get_jslib_abs_dir_path() -> str:
     return jslib_abs_dir_path
 
 
-def export_jslib_to_specified_dir(
-        *, dest_dir_path: str, jslib_name: str) -> str:
+def export_jslib_to_specified_dir(*, dest_dir_path: str, jslib_name: str) -> str:
     """
     Export a JavaScript library to a specified directory.
 
@@ -115,8 +116,8 @@ def export_jslib_to_specified_dir(
     src_file_path: str = os.path.join(dir_path, jslib_name)
     if not os.path.isfile(src_file_path):
         raise FileNotFoundError(
-            'Specified JavaScript library file is not found: '
-            f'{src_file_path}')
+            "Specified JavaScript library file is not found: " f"{src_file_path}"
+        )
     dest_file_path: str = os.path.join(dest_dir_path, jslib_name)
     shutil.copyfile(src_file_path, dest_file_path)
     return dest_file_path
@@ -137,6 +138,7 @@ def read_jslib_str(*, jslib_name: str) -> str:
         Read JavaScript library string.
     """
     from apysc._file import file_util
+
     dir_path: str = get_jslib_abs_dir_path()
     file_path: str = os.path.join(dir_path, jslib_name)
     jslib_str: str = file_util.read_txt(file_path=file_path)

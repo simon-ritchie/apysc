@@ -25,10 +25,9 @@ def get_current_indent_num() -> int:
         Current indent number.
     """
     from apysc._expression import expression_data_util
+
     table_name: str = _get_indent_num_table_name()
-    query: str = (
-        f'SELECT num FROM {table_name} LIMIT 1;'
-    )
+    query: str = f"SELECT num FROM {table_name} LIMIT 1;"
     expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
     if result is None:
@@ -47,12 +46,11 @@ def _save_current_indent_num(*, indent_num: int) -> None:
         Current indentation number.
     """
     from apysc._expression import expression_data_util
+
     table_name: str = _get_indent_num_table_name()
-    query: str = f'DELETE FROM {table_name};'
+    query: str = f"DELETE FROM {table_name};"
     expression_data_util.exec_query(sql=query, commit=False)
-    query = (
-        f'INSERT INTO {table_name}(num) VALUES ({indent_num});'
-    )
+    query = f"INSERT INTO {table_name}(num) VALUES ({indent_num});"
     expression_data_util.exec_query(sql=query)
 
 
@@ -69,8 +67,10 @@ def _get_indent_num_table_name() -> str:
     """
     from apysc._expression import event_handler_scope
     from apysc._expression import expression_data_util
-    event_handler_scope_count: int = \
+
+    event_handler_scope_count: int = (
         event_handler_scope.get_current_event_handler_scope_count()
+    )
     if event_handler_scope_count == 0:
         return expression_data_util.TableName.INDENT_NUM_NORMAL.value
     return expression_data_util.TableName.INDENT_NUM_HANDLER.value
@@ -114,11 +114,12 @@ def reset() -> None:
     Reset current indent number.
     """
     from apysc._expression import expression_data_util
+
     table_names: List[str] = [
         expression_data_util.TableName.INDENT_NUM_NORMAL.value,
         expression_data_util.TableName.INDENT_NUM_HANDLER.value,
     ]
     for table_name in table_names:
-        query: str = f'DELETE FROM {table_name};'
+        query: str = f"DELETE FROM {table_name};"
         expression_data_util.exec_query(sql=query, commit=False)
     expression_data_util.connection.commit()

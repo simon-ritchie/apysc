@@ -5,10 +5,10 @@ from enum import Enum
 
 
 class Lang(Enum):
-    """Translation target languages definitions.
-    """
-    EN = 'en'
-    JP = 'jp'
+    """Translation target languages definitions."""
+
+    EN = "en"
+    JP = "jp"
 
 
 class _UndefinedStrValue(Exception):
@@ -38,4 +38,5 @@ def get_lang_from_str_value(*, str_value: str) -> Lang:
         if lang.value == str_value:
             return lang
     raise _UndefinedStrValue(
-        f'A specified language string value is undefined: {str_value}')
+        f"A specified language string value is undefined: {str_value}"
+    )

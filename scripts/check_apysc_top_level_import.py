@@ -15,7 +15,7 @@ from typing import Any
 from typing import List
 from typing import Tuple
 
-sys.path.append('./')
+sys.path.append("./")
 
 from apysc._console import loggers
 from apysc._file import module_util
@@ -34,27 +34,29 @@ def _main() -> None:
         If there are any top-level import of the `import apysc` or
         `import apysc as ap` in the apysc package modules.
     """
-    logger.info('Getting module paths recursively...')
+    logger.info("Getting module paths recursively...")
     module_paths: List[str] = module_util.get_module_paths_recursively(
-        dir_path='./apysc/')
+        dir_path="./apysc/"
+    )
     logger.info("Checking each module's member value...")
     for module_path in module_paths:
         if not os.path.isfile(module_path):
             continue
         module: ModuleType = module_util.read_target_path_module(
-            module_path=module_path)
-        members: List[Tuple[str, Any]] = inspect.getmembers(
-            object=module)
+            module_path=module_path
+        )
+        members: List[Tuple[str, Any]] = inspect.getmembers(object=module)
         for member_name, _ in members:
-            if member_name != 'ap' and member_name != 'apysc':
+            if member_name != "ap" and member_name != "apysc":
                 continue
             raise Exception(
-                'The modules in the apysc package can not import '
-                'apysc (e.g., import apysc as ap) module at the '
-                'top-level scope.'
-                f'\nInvalid module: {module_path}')
-    logger.info('Completed and there are no errors!')
+                "The modules in the apysc package can not import "
+                "apysc (e.g., import apysc as ap) module at the "
+                "top-level scope."
+                f"\nInvalid module: {module_path}"
+            )
+    logger.info("Completed and there are no errors!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _main()

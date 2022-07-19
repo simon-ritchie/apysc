@@ -17,11 +17,12 @@ from apysc._validation import arg_validation_decos
 
 
 class PathBezier2D(
-        PathDataBase,
-        PathControlXInterface,
-        PathControlYInterface,
-        PathDestXInterface,
-        PathDestYInterface):
+    PathDataBase,
+    PathControlXInterface,
+    PathControlYInterface,
+    PathDestXInterface,
+    PathDestYInterface,
+):
     """
     Path data class for the svg's `2D bezier curve` (Q).
 
@@ -45,18 +46,18 @@ class PathBezier2D(
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.is_boolean(arg_position_index=5)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=6, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=6, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            control_x: Union[int, Int],
-            control_y: Union[int, Int],
-            dest_x: Union[int, Int],
-            dest_y: Union[int, Int],
-            *,
-            relative: Union[bool, Boolean] = False,
-            variable_name_suffix: str = '') -> None:
+        self,
+        control_x: Union[int, Int],
+        control_y: Union[int, Int],
+        dest_x: Union[int, Int],
+        dest_y: Union[int, Int],
+        *,
+        relative: Union[bool, Boolean] = False,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Path data class for the svg's `2D bezier curve` (Q).
 
@@ -92,18 +93,23 @@ class PathBezier2D(
         ...     ])
         """
         from apysc._geom.path_label import PathLabel
+
         self._variable_name_suffix = variable_name_suffix
         super(PathBezier2D, self).__init__(
-            path_label=PathLabel.BEZIER_2D,
-            relative=relative)
+            path_label=PathLabel.BEZIER_2D, relative=relative
+        )
         self.control_x = self._get_copied_int_from_builtin_val(
-            integer=control_x, attr_identifier='control_x')
+            integer=control_x, attr_identifier="control_x"
+        )
         self.control_y = self._get_copied_int_from_builtin_val(
-            integer=control_y, attr_identifier='control_y')
+            integer=control_y, attr_identifier="control_y"
+        )
         self.dest_x = self._get_copied_int_from_builtin_val(
-            integer=dest_x, attr_identifier='dest_x')
+            integer=dest_x, attr_identifier="dest_x"
+        )
         self.dest_y = self._get_copied_int_from_builtin_val(
-            integer=dest_y, attr_identifier='dest_y')
+            integer=dest_y, attr_identifier="dest_y"
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
@@ -116,22 +122,22 @@ class PathBezier2D(
             A SVG path string was created with the current setting.
         """
         from apysc._type import value_util
+
         svg_char: String = self._get_svg_char()
-        svg_char_str: str = value_util.get_value_str_for_expression(
-            value=svg_char)
+        svg_char_str: str = value_util.get_value_str_for_expression(value=svg_char)
         control_x_str: str = value_util.get_value_str_for_expression(
-            value=self._control_x)
+            value=self._control_x
+        )
         control_y_str: str = value_util.get_value_str_for_expression(
-            value=self._control_y)
-        dest_x_str: str = value_util.get_value_str_for_expression(
-            value=self._dest_x)
-        dest_y_str: str = value_util.get_value_str_for_expression(
-            value=self._dest_y)
+            value=self._control_y
+        )
+        dest_x_str: str = value_util.get_value_str_for_expression(value=self._dest_x)
+        dest_y_str: str = value_util.get_value_str_for_expression(value=self._dest_y)
         svg_str: str = (
             f'{svg_char_str} + String({control_x_str}) + " " '
             f'+ String({control_y_str}) + " " '
             f'+ String({dest_x_str}) + " " '
-            f'+ String({dest_y_str})'
+            f"+ String({dest_y_str})"
         )
         return svg_str
 
@@ -142,13 +148,14 @@ class PathBezier2D(
     @arg_validation_decos.is_boolean(arg_position_index=5)
     @add_debug_info_setting(module_name=__name__)
     def update_path_data(
-            self,
-            control_x: Union[int, Int],
-            control_y: Union[int, Int],
-            dest_x: Union[int, Int],
-            dest_y: Union[int, Int],
-            *,
-            relative: Union[bool, Boolean] = False) -> None:
+        self,
+        control_x: Union[int, Int],
+        control_y: Union[int, Int],
+        dest_x: Union[int, Int],
+        dest_y: Union[int, Int],
+        *,
+        relative: Union[bool, Boolean] = False,
+    ) -> None:
         """
         Update the path's data settings.
 
@@ -188,15 +195,20 @@ class PathBezier2D(
         Int(150)
         """
         self.control_x = self._get_copied_int_from_builtin_val(
-            integer=control_x, attr_identifier='control_x')
+            integer=control_x, attr_identifier="control_x"
+        )
         self.control_y = self._get_copied_int_from_builtin_val(
-            integer=control_y, attr_identifier='control_y')
+            integer=control_y, attr_identifier="control_y"
+        )
         self.dest_x = self._get_copied_int_from_builtin_val(
-            integer=dest_x, attr_identifier='dest_x')
+            integer=dest_x, attr_identifier="dest_x"
+        )
         self.dest_y = self._get_copied_int_from_builtin_val(
-            integer=dest_y, attr_identifier='dest_y')
+            integer=dest_y, attr_identifier="dest_y"
+        )
         self.relative = self._get_copied_boolean_from_builtin_val(
-            bool_val=relative, attr_identifier='relative')
+            bool_val=relative, attr_identifier="relative"
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
@@ -214,6 +226,7 @@ class PathBezier2D(
             Comparison result.
         """
         import apysc as ap
+
         if not isinstance(other, PathBezier2D):
             result: ap.Boolean = ap.Boolean(False)
             return result
@@ -222,7 +235,8 @@ class PathBezier2D(
             and self.control_y == other.control_y
             and self.dest_x == other.dest_x
             and self.dest_y == other.dest_y
-            and self.relative == other.relative)
+            and self.relative == other.relative
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
@@ -240,6 +254,7 @@ class PathBezier2D(
             Comparison result.
         """
         import apysc as ap
+
         result: ap.Boolean = self == other
         result = result.not_
         return result

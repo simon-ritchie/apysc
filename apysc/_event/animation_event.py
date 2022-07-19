@@ -9,7 +9,7 @@ from apysc._event.event import Event
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
 
-_T = TypeVar('_T', bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameInterface)
 
 
 class AnimationEvent(Event, Generic[_T]):
@@ -32,12 +32,10 @@ class AnimationEvent(Event, Generic[_T]):
     ...     x=100).animation_complete(on_animation_complete)
     """
 
-    _this: 'animation_base.AnimationBase[_T]'
+    _this: "animation_base.AnimationBase[_T]"
 
     @add_debug_info_setting(module_name=__name__)
-    def __init__(
-            self, *,
-            this: 'animation_base.AnimationBase[_T]') -> None:
+    def __init__(self, *, this: "animation_base.AnimationBase[_T]") -> None:
         """
         Animation event class.
 
@@ -63,12 +61,14 @@ class AnimationEvent(Event, Generic[_T]):
 
         """
         from apysc._expression import var_names
+
         super(AnimationEvent, self).__init__(
-            this=this, type_name=var_names.ANIMATION_EVENT)
+            this=this, type_name=var_names.ANIMATION_EVENT
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def this(self) -> 'animation_base.AnimationBase[_T]':
+    def this(self) -> "animation_base.AnimationBase[_T]":
         """
         Get an animation setting instance of listening to this event.
 

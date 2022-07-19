@@ -19,7 +19,6 @@ def test_easing_num() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_easing_const_names() -> None:
     for easing in ap.Easing:
-        if easing.name == 'LINEAR':
+        if easing.name == "LINEAR":
             continue
-        assert easing.name.startswith('EASE_IN_') \
-            or easing.name.startswith('EASE_OUT_')
+        assert easing.name.startswith("EASE_IN_") or easing.name.startswith("EASE_OUT_")

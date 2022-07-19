@@ -12,12 +12,12 @@ from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
 
-T = TypeVar('T', bound=VariableNameInterface)
+T = TypeVar("T", bound=VariableNameInterface)
 
 
 class MouseEvent(
-        Event[T], Generic[T], StopPropagationInterface,
-        PreventDefaultInterface):
+    Event[T], Generic[T], StopPropagationInterface, PreventDefaultInterface
+):
     """
     Mouse event class.
 
@@ -42,8 +42,7 @@ class MouseEvent(
     >>> _ = rectangle.mousedown(on_mousedown)
     """
 
-    @arg_validation_decos.is_variable_name_interface_type(
-        arg_position_index=1)
+    @arg_validation_decos.is_variable_name_interface_type(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, this: T) -> None:
         """
@@ -70,8 +69,8 @@ class MouseEvent(
         >>> e: ap.MouseEvent = ap.MouseEvent(this=rectangle)
         """
         from apysc._expression import var_names
-        super(MouseEvent, self).__init__(
-            this=this, type_name=var_names.MOUSE_EVENT)
+
+        super(MouseEvent, self).__init__(this=this, type_name=var_names.MOUSE_EVENT)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -104,6 +103,7 @@ class MouseEvent(
         >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
+
         x: ap.Int = ap.Int(0)
         self._append_stage_x_getter_expression(x=x)
         return x
@@ -120,9 +120,10 @@ class MouseEvent(
         """
         import apysc as ap
         from apysc._display.stage import get_stage_elem_str
+
         expression: str = (
-            f'{x.variable_name} = {self.variable_name}.pageX - '
-            f'{get_stage_elem_str()}.offset().left;'
+            f"{x.variable_name} = {self.variable_name}.pageX - "
+            f"{get_stage_elem_str()}.offset().left;"
         )
         ap.append_js_expression(expression=expression)
 
@@ -157,6 +158,7 @@ class MouseEvent(
         >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
+
         y: ap.Int = ap.Int(0)
         self._append_stage_y_getter_expression(y=y)
         return y
@@ -173,9 +175,10 @@ class MouseEvent(
         """
         import apysc as ap
         from apysc._display.stage import get_stage_elem_str
+
         expression: str = (
-            f'{y.variable_name} = {self.variable_name}.pageY - '
-            f'{get_stage_elem_str()}.offset().top;'
+            f"{y.variable_name} = {self.variable_name}.pageY - "
+            f"{get_stage_elem_str()}.offset().top;"
         )
         ap.append_js_expression(expression=expression)
 
@@ -212,6 +215,7 @@ class MouseEvent(
         >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
+
         x: ap.Int = ap.Int(0)
         self._append_local_x_getter_expression(x=x)
         return x
@@ -227,11 +231,12 @@ class MouseEvent(
             Target x-coordinate value.
         """
         import apysc as ap
+
         stage_x: ap.Int = self.stage_x
         this: T = self.this
         expression: str = (
-            f'{x.variable_name} = {stage_x.variable_name} - '
-            f'get_total_x({this.variable_name});'
+            f"{x.variable_name} = {stage_x.variable_name} - "
+            f"get_total_x({this.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 
@@ -268,6 +273,7 @@ class MouseEvent(
         >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
+
         y: ap.Int = ap.Int(0)
         self._append_local_y_getter_expression(y=y)
         return y
@@ -283,10 +289,11 @@ class MouseEvent(
             Target y-coordinate value.
         """
         import apysc as ap
+
         stage_y: ap.Int = self.stage_y
         this: T = self.this
         expression: str = (
-            f'{y.variable_name} = {stage_y.variable_name} - '
-            f'get_total_y({this.variable_name});'
+            f"{y.variable_name} = {stage_y.variable_name} - "
+            f"get_total_y({this.variable_name});"
         )
         ap.append_js_expression(expression=expression)

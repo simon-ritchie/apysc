@@ -10,17 +10,15 @@ from apysc._branch._if import If
 from apysc._geom.path_label import PathLabel
 from apysc._geom.relative_interface import RelativeInterface
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import \
-    AttrToApyscValFromBuiltinInterface
+from apysc._type.attr_to_apysc_val_from_builtin_interface import (
+    AttrToApyscValFromBuiltinInterface,
+)
 from apysc._type.boolean import Boolean
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 
-class PathDataBase(
-        RelativeInterface,
-        AttrToApyscValFromBuiltinInterface,
-        ABC):
+class PathDataBase(RelativeInterface, AttrToApyscValFromBuiltinInterface, ABC):
     """
     Base class for the path data.
     """
@@ -30,10 +28,8 @@ class PathDataBase(
     @arg_validation_decos.is_boolean(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            path_label: PathLabel,
-            relative: Union[bool, Boolean]) -> None:
+        self, *, path_label: PathLabel, relative: Union[bool, Boolean]
+    ) -> None:
         """
         Base class for the path data.
 
@@ -47,7 +43,8 @@ class PathDataBase(
         """
         self._path_label = path_label
         self.relative = self._get_copied_boolean_from_builtin_val(
-            bool_val=relative, attr_identifier='relative')
+            bool_val=relative, attr_identifier="relative"
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_char(self) -> String:
@@ -63,12 +60,12 @@ class PathDataBase(
         svg_char_: str = self._path_label.value
         if self._relative._value:
             svg_char: String = String(
-                svg_char_.lower(),
-                variable_name_suffix=self._variable_name_suffix)
+                svg_char_.lower(), variable_name_suffix=self._variable_name_suffix
+            )
         else:
             svg_char = String(
-                svg_char_,
-                variable_name_suffix=self._variable_name_suffix)
+                svg_char_, variable_name_suffix=self._variable_name_suffix
+            )
         with If(self._relative, locals_=locals()):
             svg_char.value = svg_char_.lower()
         with Else(locals_=locals()):

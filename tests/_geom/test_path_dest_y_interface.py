@@ -7,7 +7,6 @@ from apysc._geom.path_dest_y_interface import PathDestYInterface
 
 
 class TestPathDestYInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_dest_y(self) -> None:
         interface: PathDestYInterface = PathDestYInterface()
@@ -50,4 +49,4 @@ class TestPathDestYInterface:
     def test__append_dest_y_linking_setting(self) -> None:
         interface: PathDestYInterface = PathDestYInterface()
         interface._initialize_dest_y_if_not_initialized()
-        assert interface._attr_linking_stack['dest_y'] == [ap.Int(0)]
+        assert interface._attr_linking_stack["dest_y"] == [ap.Int(0)]

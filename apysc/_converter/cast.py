@@ -20,8 +20,7 @@ from apysc._type.number_value_interface import NumberValueInterface
 
 
 @add_debug_info_setting(module_name=__name__)
-def to_int_from_float(
-        *, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
+def to_int_from_float(*, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
     """
     Convert float value to int.
 
@@ -37,6 +36,7 @@ def to_int_from_float(
         Converted integer value.
     """
     import apysc as ap
+
     if isinstance(int_or_float, ap.Number):
         return ap.Int(int_or_float)
     if not isinstance(int_or_float, float):
@@ -45,8 +45,7 @@ def to_int_from_float(
 
 
 @add_debug_info_setting(module_name=__name__)
-def to_float_from_int(
-        *, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
+def to_float_from_int(*, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
     """
     Convert int value to float.
 
@@ -62,6 +61,7 @@ def to_float_from_int(
         Converted float value.
     """
     import apysc as ap
+
     if isinstance(int_or_float, ap.Int):
         return ap.Number(int_or_float)
     if not isinstance(int_or_float, int):
@@ -90,6 +90,7 @@ def to_bool_from_int(*, integer: Union[int, Int]) -> bool:
         If an argument value isn't zero or one.
     """
     from apysc._validation import number_validation
+
     number_validation.validate_int_is_zero_or_one(integer=integer)
     if integer == 0:
         return False

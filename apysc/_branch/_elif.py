@@ -49,11 +49,12 @@ class Elif(IfBase):
     @arg_validation_decos.is_vars_dict(arg_position_index=3)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            condition: Optional[Boolean],
-            *,
-            locals_: Optional[Dict[str, Any]] = None,
-            globals_: Optional[Dict[str, Any]] = None) -> None:
+        self,
+        condition: Optional[Boolean],
+        *,
+        locals_: Optional[Dict[str, Any]] = None,
+        globals_: Optional[Dict[str, Any]] = None,
+    ) -> None:
         """
         A class to append the `else if` branch instruction expression.
 
@@ -103,7 +104,8 @@ class Elif(IfBase):
             - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # noqa
         """
         super(Elif, self).__init__(
-            condition=condition, locals_=locals_, globals_=globals_)
+            condition=condition, locals_=locals_, globals_=globals_
+        )
 
     def _append_enter_expression(self) -> None:
         """
@@ -115,25 +117,24 @@ class Elif(IfBase):
             If the last scope is not If or Elif.
         """
         import apysc as ap
+
         if not self._last_scope_is_if_or_elif():
             raise ValueError(
-                'Elif interface can only use right after If or Elif '
-                'interfaces.'
-                '\n\nMaybe you are using Int or String, or anything else'
-                ' comparison expression at Elif constructor (e.g., '
-                '`with Elif(any_value == 10, ...):`).'
-                '\nCurrently that specifying expression directly is not '
-                'supported so please'
-                ' define condition seperately as follows:'
-                '\ncondition: Boolean = any_value == 10'
-                '\n...'
-                '\nwith Elif(condition, ....):')
+                "Elif interface can only use right after If or Elif "
+                "interfaces."
+                "\n\nMaybe you are using Int or String, or anything else"
+                " comparison expression at Elif constructor (e.g., "
+                "`with Elif(any_value == 10, ...):`)."
+                "\nCurrently that specifying expression directly is not "
+                "supported so please"
+                " define condition seperately as follows:"
+                "\ncondition: Boolean = any_value == 10"
+                "\n..."
+                "\nwith Elif(condition, ....):"
+            )
         if self._condition is None:
-            raise ValueError(
-                'Elif expression\'s condition argument can\'t be set None.')
-        expression: str = (
-            f'else if ({self._condition.variable_name}) {{'
-        )
+            raise ValueError("Elif expression's condition argument can't be set None.")
+        expression: str = f"else if ({self._condition.variable_name}) {{"
         ap.append_js_expression(expression=expression)
 
     def _set_last_scope(self) -> None:
@@ -142,4 +143,5 @@ class Elif(IfBase):
         """
         from apysc._expression import last_scope
         from apysc._expression.last_scope import LastScope
+
         last_scope.set_last_scope(value=LastScope.ELIF)

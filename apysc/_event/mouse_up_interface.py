@@ -12,7 +12,7 @@ from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
-_O = TypeVar('_O')
+_O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
 
 
@@ -23,9 +23,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
-    def mouseup(
-            self, handler: _Handler[_O], *,
-            options: Optional[_O] = None) -> str:
+    def mouseup(self, handler: _Handler[_O], *, options: Optional[_O] = None) -> str:
         """
         Add mouse up event listener setting.
 
@@ -66,21 +64,25 @@ class MouseUpInterface(MouseEventInterfaceBase):
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._type.variable_name_interface import VariableNameInterface
-        from apysc._validation.variable_name_validation import \
-            validate_variable_name_interface_type
-        self_instance: VariableNameInterface = \
-            validate_variable_name_interface_type(instance=self)
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_interface_type,
+        )
+
+        self_instance: VariableNameInterface = validate_variable_name_interface_type(
+            instance=self
+        )
         self._initialize_mouse_up_handlers_if_not_initialized()
         name: str = get_handler_name(handler=handler, instance=self)
         self._set_mouse_event_handler_data(
-            handler=handler, handlers_dict=self._mouse_up_handlers,
-            options=options)
+            handler=handler, handlers_dict=self._mouse_up_handlers, options=options
+        )
         self._append_mouse_event_binding_expression(
-            name=name, mouse_event_type=ap.MouseEventType.MOUSEUP)
+            name=name, mouse_event_type=ap.MouseEventType.MOUSEUP
+        )
         e: ap.MouseEvent = ap.MouseEvent(this=self_instance)
         append_handler_expression(
-            handler_data=self._mouse_up_handlers[name],
-            handler_name=name, e=e)
+            handler_data=self._mouse_up_handlers[name], handler_name=name, e=e
+        )
         return name
 
     def _initialize_mouse_up_handlers_if_not_initialized(self) -> None:
@@ -88,7 +90,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
         Initialize _mouse_up_handlers attribute if this instance
         does not initialize it yet.
         """
-        if hasattr(self, '_mouse_up_handlers'):
+        if hasattr(self, "_mouse_up_handlers"):
             return
         self._mouse_up_handlers = {}
 
@@ -124,10 +126,13 @@ class MouseUpInterface(MouseEventInterfaceBase):
         >>> _ = rectangle.mouseup(on_mouseup)
         """
         import apysc as ap
+
         self._initialize_mouse_up_handlers_if_not_initialized()
         self._unbind_mouse_event(
-            handler=handler, mouse_event_type=ap.MouseEventType.MOUSEUP,
-            handlers_dict=self._mouse_up_handlers)
+            handler=handler,
+            mouse_event_type=ap.MouseEventType.MOUSEUP,
+            handlers_dict=self._mouse_up_handlers,
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def unbind_mouseup_all(self) -> None:
@@ -155,7 +160,9 @@ class MouseUpInterface(MouseEventInterfaceBase):
         >>> _ = rectangle.mouseup(on_mouseup)
         """
         import apysc as ap
+
         self._initialize_mouse_up_handlers_if_not_initialized()
         self._unbind_all_mouse_events(
             mouse_event_type=ap.MouseEventType.MOUSEUP,
-            handlers_dict=self._mouse_up_handlers)
+            handlers_dict=self._mouse_up_handlers,
+        )

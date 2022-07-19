@@ -6,9 +6,7 @@ helper interfaces.
 from typing import Any
 
 
-def validate_point_2d_type(
-        *, point: Any,
-        additional_err_msg: str = '') -> None:
+def validate_point_2d_type(*, point: Any, additional_err_msg: str = "") -> None:
     """
     Validate specified value's type is Point2D.
 
@@ -25,10 +23,11 @@ def validate_point_2d_type(
         If a specified value's type is not Point2D.
     """
     import apysc as ap
+
     if isinstance(point, ap.Point2D):
         return
-    if additional_err_msg != '':
-        additional_err_msg = f'\n{additional_err_msg}'
+    if additional_err_msg != "":
+        additional_err_msg = f"\n{additional_err_msg}"
     raise ValueError(
-        f'Specified value\'s type is not Point2D: {type(point)}'
-        f'{additional_err_msg}')
+        f"Specified value's type is not Point2D: {type(point)}" f"{additional_err_msg}"
+    )

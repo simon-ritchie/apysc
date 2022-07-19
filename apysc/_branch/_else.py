@@ -40,10 +40,11 @@ class Else(IfBase):
     @arg_validation_decos.is_vars_dict(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            locals_: Optional[Dict[str, Any]] = None,
-            globals_: Optional[Dict[str, Any]] = None) -> None:
+        self,
+        *,
+        locals_: Optional[Dict[str, Any]] = None,
+        globals_: Optional[Dict[str, Any]] = None
+    ) -> None:
         """
         A class to append else branch instruction expression.
 
@@ -82,10 +83,7 @@ class Else(IfBase):
         >>> with ap.Else():
         ...     ap.trace('Value is less than 11.')
         """
-        super().__init__(
-            condition=None,
-            locals_=locals_,
-            globals_=globals_)
+        super().__init__(condition=None, locals_=locals_, globals_=globals_)
 
     def _append_enter_expression(self) -> None:
         """
@@ -97,13 +95,12 @@ class Else(IfBase):
             If the last scope is not If or Elif.
         """
         import apysc as ap
+
         if not self._last_scope_is_if_or_elif():
             raise ValueError(
-                'Else interface can only use right after If or Elif '
-                'interfaces.')
-        expression: str = (
-            'else {'
-        )
+                "Else interface can only use right after If or Elif " "interfaces."
+            )
+        expression: str = "else {"
         ap.append_js_expression(expression=expression)
 
     def _set_last_scope(self) -> None:
@@ -112,4 +109,5 @@ class Else(IfBase):
         """
         from apysc._expression import last_scope
         from apysc._expression.last_scope import LastScope
+
         last_scope.set_last_scope(value=LastScope.ELSE)

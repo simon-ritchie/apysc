@@ -57,29 +57,28 @@ from typing import Tuple
 from typing import Type
 from typing import TypeVar
 
-DOCSTRING_PATH_COMMENT_KEYWORD: str = 'Docstring:'
+DOCSTRING_PATH_COMMENT_KEYWORD: str = "Docstring:"
 DOCSTRING_PATH_COMMENT_PATTERN: str = (
-    rf'^\<\!\-\-.*?{DOCSTRING_PATH_COMMENT_KEYWORD}'
-    r'(?P<path>.*?)\-\-\>'
+    rf"^\<\!\-\-.*?{DOCSTRING_PATH_COMMENT_KEYWORD}" r"(?P<path>.*?)\-\-\>"
 )
 
-_HYPHENS_LINE_PATTERN: str = r'(\s{4}|^)-----'
+_HYPHENS_LINE_PATTERN: str = r"(\s{4}|^)-----"
 
 
 class _SectionPattern(Enum):
-    PARAMETERS = r'(\s{4}|^)Parameters$'
-    RETURNS = r'(\s{4}|^)Returns$'
-    YIELDS = r'(\s{4}|^)Yields$'
-    RECEIVES = r'(\s{4}|^)Receives$'
-    RAISES = r'(\s{4}|^)Raises$'
-    WARNS = r'(\s{4}|^)Warns$'
-    WARNINGS = r'(\s{4}|^)Warnings$'
-    SEE_ALSO = r'(\s{4}|^)See Also$'
-    NOTES = r'(\s{4}|^)Notes$'
-    REFERENCES = r'(\s{4}|^)References$'
-    EXAMPLES = r'(\s{4}|^)Examples$'
-    ATTRIBUTES = r'(\s{4}|^)Attributes$'
-    METHODS = r'(\s{4}|^)Methods$'
+    PARAMETERS = r"(\s{4}|^)Parameters$"
+    RETURNS = r"(\s{4}|^)Returns$"
+    YIELDS = r"(\s{4}|^)Yields$"
+    RECEIVES = r"(\s{4}|^)Receives$"
+    RAISES = r"(\s{4}|^)Raises$"
+    WARNS = r"(\s{4}|^)Warns$"
+    WARNINGS = r"(\s{4}|^)Warnings$"
+    SEE_ALSO = r"(\s{4}|^)See Also$"
+    NOTES = r"(\s{4}|^)Notes$"
+    REFERENCES = r"(\s{4}|^)References$"
+    EXAMPLES = r"(\s{4}|^)Examples$"
+    ATTRIBUTES = r"(\s{4}|^)Attributes$"
+    METHODS = r"(\s{4}|^)Methods$"
 
 
 def get_docstring_src_module_paths(md_file_path: str) -> List[str]:
@@ -99,26 +98,26 @@ def get_docstring_src_module_paths(md_file_path: str) -> List[str]:
     """
     from apysc._file import file_util
     from apysc._file import module_util
+
     md_txt: str = file_util.read_txt(file_path=md_file_path)
     lines: List[str] = md_txt.splitlines()
     module_paths: List[str] = []
-    pattern: Pattern = re.compile(
-        pattern=DOCSTRING_PATH_COMMENT_PATTERN)
+    pattern: Pattern = re.compile(pattern=DOCSTRING_PATH_COMMENT_PATTERN)
     for line in lines:
-        if not line.startswith('<!--'):
+        if not line.startswith("<!--"):
             continue
         match: Optional[Match] = pattern.search(string=line)
         if match is None:
             continue
-        package_path: str = match.group(1).rsplit('.', maxsplit=1)[0]
+        package_path: str = match.group(1).rsplit(".", maxsplit=1)[0]
         package_path = package_path.strip()
-        module_or_class: Any = module_util.\
-            read_module_or_class_from_package_path(
-                module_or_class_package_path=package_path)
+        module_or_class: Any = module_util.read_module_or_class_from_package_path(
+            module_or_class_package_path=package_path
+        )
         if inspect.isclass(module_or_class):
-            package_path = package_path.rsplit('.', maxsplit=1)[0]
-        module_path: str = package_path.replace('.', '/')
-        module_path = f'./{module_path}.py'
+            package_path = package_path.rsplit(".", maxsplit=1)[0]
+        module_path: str = package_path.replace(".", "/")
+        module_path = f"./{module_path}.py"
         module_paths.append(module_path)
     return module_paths
 
@@ -138,19 +137,22 @@ def reset_replaced_docstring_section(*, md_file_path: str) -> bool:
         Replacing is executed or not.
     """
     from apysc._file import file_util
+
     md_txt: str = file_util.read_txt(file_path=md_file_path)
     matches: List[str] = _get_docstring_path_comment_matches(md_txt=md_txt)
     if not matches:
         return False
     md_txt = _remove_replaced_docstring_section_from_md_txt(
-        md_txt=md_txt, matches=matches)
-    with open(md_file_path, 'w') as f:
+        md_txt=md_txt, matches=matches
+    )
+    with open(md_file_path, "w") as f:
         f.write(md_txt)
     return True
 
 
 def _remove_replaced_docstring_section_from_md_txt(
-        *, md_txt: str, matches: List[str]) -> str:
+    *, md_txt: str, matches: List[str]
+) -> str:
     """
     Remove replaced docstring from a specified markdown text.
 
@@ -171,24 +173,27 @@ def _remove_replaced_docstring_section_from_md_txt(
     is_reset_section_range: bool = False
     for line in lines:
         if is_reset_section_range:
-            if line.startswith('#'):
-                result_lines.append(f'\n{line}')
+            if line.startswith("#"):
+                result_lines.append(f"\n{line}")
                 is_reset_section_range = False
             continue
-        docstring_path_specification_comment: str = \
+        docstring_path_specification_comment: str = (
             _extract_docstring_path_specification_comment_from_line(
-                line=line, matches=matches)
-        if docstring_path_specification_comment != '':
+                line=line, matches=matches
+            )
+        )
+        if docstring_path_specification_comment != "":
             result_lines.append(line)
             is_reset_section_range = True
             continue
         result_lines.append(line)
-    md_txt = '\n'.join(result_lines)
+    md_txt = "\n".join(result_lines)
     return md_txt
 
 
 def _extract_docstring_path_specification_comment_from_line(
-        *, line: str, matches: List[str]) -> str:
+    *, line: str, matches: List[str]
+) -> str:
     """
     Extract a docstring path specification comment
     from a specified markdown line text.
@@ -208,7 +213,7 @@ def _extract_docstring_path_specification_comment_from_line(
     for match in matches:
         if match in line:
             return match
-    return ''
+    return ""
 
 
 def _get_docstring_path_comment_matches(*, md_txt: str) -> List[str]:
@@ -227,9 +232,8 @@ def _get_docstring_path_comment_matches(*, md_txt: str) -> List[str]:
     """
     matches: List[str] = []
     for match in re.finditer(
-            pattern=DOCSTRING_PATH_COMMENT_PATTERN,
-            string=md_txt,
-            flags=re.MULTILINE):
+        pattern=DOCSTRING_PATH_COMMENT_PATTERN, string=md_txt, flags=re.MULTILINE
+    ):
         matches.append(match.group(0))
     return matches
 
@@ -245,28 +249,30 @@ def replace_docstring_path_specification(*, md_file_path: str) -> None:
         Target markdown file path.
     """
     from apysc._file import file_util
+
     md_txt: str = file_util.read_txt(file_path=md_file_path)
     lines: List[str] = md_txt.splitlines()
     result_lines: List[str] = []
     for line in lines:
         match: Optional[Match] = re.search(
-            pattern=DOCSTRING_PATH_COMMENT_PATTERN, string=line)
+            pattern=DOCSTRING_PATH_COMMENT_PATTERN, string=line
+        )
         if match is not None:
             result_lines.append(line)
-            result_lines.append('')
-            markdown_format_docstring: str = \
+            result_lines.append("")
+            markdown_format_docstring: str = (
                 _convert_docstring_path_comment_to_markdown_format(
                     docstring_path_comment=match.group(0),
                     md_file_path=md_file_path,
                 )
+            )
             result_lines.append(markdown_format_docstring)
             continue
 
         result_lines.append(line)
         continue
-    md_txt = '\n'.join(result_lines)
-    file_util.save_plain_txt(
-        txt=md_txt, file_path=md_file_path)
+    md_txt = "\n".join(result_lines)
+    file_util.save_plain_txt(txt=md_txt, file_path=md_file_path)
 
 
 class _DocstringPathNotFoundError(Exception):
@@ -278,8 +284,8 @@ class _DocstringCallableNotExistsError(Exception):
 
 
 def _convert_docstring_path_comment_to_markdown_format(
-        *, docstring_path_comment: str,
-        md_file_path: str) -> str:
+    *, docstring_path_comment: str, md_file_path: str
+) -> str:
     """
     Convert a specified docstring path comment to a
     markdown format text.
@@ -298,33 +304,36 @@ def _convert_docstring_path_comment_to_markdown_format(
     """
     module_or_class_package_path: str
     callable_name: str
-    module_or_class_package_path, callable_name = \
-        _extract_package_path_and_callable_name_from_path(
-            docstring_path_comment=docstring_path_comment,
-        )
+    (
+        module_or_class_package_path,
+        callable_name,
+    ) = _extract_package_path_and_callable_name_from_path(
+        docstring_path_comment=docstring_path_comment,
+    )
     callable_: Callable = _get_callable_from_package_path_and_callable_name(
         module_or_class_package_path=module_or_class_package_path,
         callable_name=callable_name,
     )
     if callable_.__doc__ is None:
-        return ''
+        return ""
     if callable(callable_):
         signature: Optional[Signature] = inspect.signature(callable_)
         callable_name = callable_.__name__
     else:
         signature = None
-        callable_name = ''
+        callable_name = ""
     markdown_format_docstring: str = _convert_docstring_to_markdown(
         docstring=callable_.__doc__,
         signature=signature,
         callable_name=callable_name,
-        md_file_path=md_file_path)
+        md_file_path=md_file_path,
+    )
     return markdown_format_docstring
 
 
 def _get_callable_from_package_path_and_callable_name(
-        *, module_or_class_package_path: str,
-        callable_name: str) -> Callable:
+    *, module_or_class_package_path: str, callable_name: str
+) -> Callable:
     """
     Get a callable object from a specified package path and
     callable name.
@@ -351,31 +360,35 @@ def _get_callable_from_package_path_and_callable_name(
         Target callable object.
     """
     from apysc._file import module_util
+
     try:
-        module_or_class: Any = \
-            module_util.read_module_or_class_from_package_path(
-                module_or_class_package_path=module_or_class_package_path)
+        module_or_class: Any = module_util.read_module_or_class_from_package_path(
+            module_or_class_package_path=module_or_class_package_path
+        )
     except Exception:
         raise _DocstringPathNotFoundError(
-            'Could not found module or class of the docstring path.'
-            f'\nModule or class package path: {module_or_class_package_path}'
+            "Could not found module or class of the docstring path."
+            f"\nModule or class package path: {module_or_class_package_path}"
         )
     try:
         callable_: Callable = getattr(module_or_class, callable_name)
     except Exception:
         raise _DocstringCallableNotExistsError(
             "Specified docstring path's module or class does not have "
-            'a target callable attribute.'
-            f'\nModule or class package path: {module_or_class_package_path}',
-            f'\nCallable name: {callable_name}')
+            "a target callable attribute."
+            f"\nModule or class package path: {module_or_class_package_path}",
+            f"\nCallable name: {callable_name}",
+        )
     return callable_
 
 
 def _convert_docstring_to_markdown(
-        *, docstring: str,
-        signature: Optional[Signature],
-        callable_name: str,
-        md_file_path: str) -> str:
+    *,
+    docstring: str,
+    signature: Optional[Signature],
+    callable_name: str,
+    md_file_path: str,
+) -> str:
     """
     Convert a specified docstring to a markdown format text.
 
@@ -397,42 +410,42 @@ def _convert_docstring_to_markdown(
         Converted markdown text.
     """
     summary: str = extract_summary_from_docstring(docstring=docstring)
-    parameters: List[Parameter] = \
-        extract_param_or_rtn_values_from_docstring(
-            target_type=Parameter, docstring=docstring)
+    parameters: List[Parameter] = extract_param_or_rtn_values_from_docstring(
+        target_type=Parameter, docstring=docstring
+    )
     returns: List[Return] = extract_param_or_rtn_values_from_docstring(
-        target_type=Return, docstring=docstring)
-    raises: List[Raise] = extract_raise_values_from_docstring(
-        docstring=docstring)
+        target_type=Return, docstring=docstring
+    )
+    raises: List[Raise] = extract_raise_values_from_docstring(docstring=docstring)
     notes: str = extract_notes_from_docstring(docstring=docstring)
-    examples: List[Example] = extract_example_values_from_docstring(
-        docstring=docstring)
+    examples: List[Example] = extract_example_values_from_docstring(docstring=docstring)
     references: List[Reference] = extract_reference_values_from_docstring(
-        docstring=docstring)
+        docstring=docstring
+    )
     references = _slice_references_by_md_file_path(
-        references=references, md_file_path=md_file_path)
+        references=references, md_file_path=md_file_path
+    )
     markdown: str = (
         '<span class="inconspicuous-txt">Note: the document '
-        'build script generates and updates this '
-        'API document section automatically. Maybe this section '
-        'is duplicated compared with previous sections.</span>')
+        "build script generates and updates this "
+        "API document section automatically. Maybe this section "
+        "is duplicated compared with previous sections.</span>"
+    )
     if signature is not None:
-        markdown += (
-            f'\n\n**[Interface signature]** `{callable_name}{signature}`<hr>'
-        )
+        markdown += f"\n\n**[Interface signature]** `{callable_name}{signature}`<hr>"
     markdown = append_summary_to_markdown(
-        markdown=markdown, summary=summary,
-        heading_label='**[Interface summary]** ')
+        markdown=markdown, summary=summary, heading_label="**[Interface summary]** "
+    )
     markdown = append_params_or_rtns_to_markdown(
-        markdown=markdown, params_or_rtns=parameters)
+        markdown=markdown, params_or_rtns=parameters
+    )
     markdown = append_params_or_rtns_to_markdown(
-        markdown=markdown, params_or_rtns=returns)
+        markdown=markdown, params_or_rtns=returns
+    )
     markdown = append_raises_to_markdown(markdown=markdown, raises=raises)
     markdown = append_notes_to_markdown(markdown=markdown, notes=notes)
-    markdown = append_examples_to_markdown(
-        markdown=markdown, examples=examples)
-    markdown = append_references_to_markdown(
-        markdown=markdown, references=references)
+    markdown = append_examples_to_markdown(markdown=markdown, examples=examples)
+    markdown = append_references_to_markdown(markdown=markdown, references=references)
     markdown = remove_trailing_hr_tag(markdown=markdown)
     return markdown
 
@@ -452,16 +465,16 @@ def remove_trailing_hr_tag(*, markdown: str) -> str:
         A result markdown string.
     """
     markdown = markdown.strip()
-    hr_tag: str = '<hr>'
+    hr_tag: str = "<hr>"
     if markdown.endswith(hr_tag):
-        markdown = markdown[:-len(hr_tag)]
+        markdown = markdown[: -len(hr_tag)]
     markdown = markdown.strip()
     return markdown
 
 
 def append_summary_to_markdown(
-        *, markdown: str, summary: str,
-        heading_label: str) -> str:
+    *, markdown: str, summary: str, heading_label: str
+) -> str:
     """
     Append an interface summary string to a specified
     markdown string.
@@ -480,13 +493,13 @@ def append_summary_to_markdown(
     markdown : str
         A result markdown string.
     """
-    if summary == '':
+    if summary == "":
         return markdown
-    if markdown != '':
-        markdown += '\n\n'
-    if summary.strip().startswith('<br>'):
-        summary = summary.replace('<br>', '', 1)
-    markdown += f'{heading_label}{summary}<hr>'
+    if markdown != "":
+        markdown += "\n\n"
+    if summary.strip().startswith("<br>"):
+        summary = summary.replace("<br>", "", 1)
+    markdown += f"{heading_label}{summary}<hr>"
     return markdown
 
 
@@ -506,16 +519,13 @@ def append_notes_to_markdown(*, markdown: str, notes: str) -> str:
     markdown : str
         A result markdown string.
     """
-    if notes == '':
+    if notes == "":
         return markdown
-    if markdown != '':
-        markdown += '\n\n'
-    if notes.strip().startswith('<br>'):
-        notes = notes.replace('<br>', '', 1)
-    markdown += (
-        '**[Notes]**'
-        f'\n\n{notes}<hr>'
-    )
+    if markdown != "":
+        markdown += "\n\n"
+    if notes.strip().startswith("<br>"):
+        notes = notes.replace("<br>", "", 1)
+    markdown += "**[Notes]**" f"\n\n{notes}<hr>"
     return markdown
 
 
@@ -539,21 +549,20 @@ def extract_notes_from_docstring(*, docstring: str) -> str:
     notes_lines: List[str] = []
     for line in lines:
         if _is_target_section_pattern_line(
-                line=line,
-                section_pattern=_SectionPattern.NOTES):
+            line=line, section_pattern=_SectionPattern.NOTES
+        ):
             is_notes_section_range = True
             continue
         if _is_skip_target_line(
-                is_target_section_range=is_notes_section_range,
-                line=line):
+            is_target_section_range=is_notes_section_range, line=line
+        ):
             continue
         if _is_section_line(line=line):
             break
 
-        line = _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
-            line=line)
+        line = _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(line=line)
         notes_lines.append(line)
-    notes: str = '\n'.join(notes_lines)
+    notes: str = "\n".join(notes_lines)
     notes = _remove_line_breaks_and_unnecessary_spaces(text=notes)
     return notes
 
@@ -563,8 +572,7 @@ class _ParamOrRtnBase:
     _type_str: str
     _description: str
 
-    def __init__(
-            self, *, name: str, type_str: str, description: str) -> None:
+    def __init__(self, *, name: str, type_str: str, description: str) -> None:
         """
         Parameter or return value's base class.
 
@@ -644,18 +652,16 @@ class _ParamOrRtnBase:
 
 
 class Parameter(_ParamOrRtnBase):
-    """Parameter value type.
-    """
+    """Parameter value type."""
 
 
 class Return(_ParamOrRtnBase):
-    """Return value type.
-    """
+    """Return value type."""
 
 
 class Raise:
-    """Raise value type.
-    """
+    """Raise value type."""
+
     _err_class_name: str
     _description: str
 
@@ -722,8 +728,7 @@ class Raise:
 
 
 class Reference:
-    """Reference value type.
-    """
+    """Reference value type."""
 
     _page_label: str
     _url: str
@@ -791,15 +796,12 @@ class Reference:
 
 
 class Example:
-    """Example value type.
-    """
+    """Example value type."""
 
     _input_code_block: str
     _expected_output: str
 
-    def __init__(
-            self, *, input_code_block: str,
-            expected_output: str = '') -> None:
+    def __init__(self, *, input_code_block: str, expected_output: str = "") -> None:
         """
         Example value type.
 
@@ -862,8 +864,8 @@ class Example:
 
 
 def _slice_references_by_md_file_path(
-        references: List[Reference],
-        md_file_path: str) -> List[Reference]:
+    references: List[Reference], md_file_path: str
+) -> List[Reference]:
     """
     Slice a specified references list to exclude the
     same URL's document file.
@@ -881,20 +883,18 @@ def _slice_references_by_md_file_path(
         Sliced list.
     """
     md_file_name: str = os.path.basename(md_file_path)
-    md_file_name = md_file_name.rsplit('.', maxsplit=1)[0]
+    md_file_name = md_file_name.rsplit(".", maxsplit=1)[0]
     sliced_references: List[Reference] = []
     for reference in references:
-        reference_file_name: str = reference.url.rsplit('/', 1)[-1]
-        reference_file_name = reference_file_name.rsplit(
-            '.', maxsplit=1)[0]
+        reference_file_name: str = reference.url.rsplit("/", 1)[-1]
+        reference_file_name = reference_file_name.rsplit(".", maxsplit=1)[0]
         if reference_file_name == md_file_name:
             continue
         sliced_references.append(reference)
     return sliced_references
 
 
-def append_examples_to_markdown(
-        *, markdown: str, examples: List[Example]) -> str:
+def append_examples_to_markdown(*, markdown: str, examples: List[Example]) -> str:
     """
     Append examples to a specified markdown string.
 
@@ -912,24 +912,21 @@ def append_examples_to_markdown(
     """
     if not examples:
         return markdown
-    if markdown != '':
-        markdown += '\n\n'
-    markdown += '**[Examples]**\n\n```py'
+    if markdown != "":
+        markdown += "\n\n"
+    markdown += "**[Examples]**\n\n```py"
     for i, example in enumerate(examples):
         if i != 0:
-            markdown += '\n'
-        markdown += (
-            f'\n{example.input_code_block}'
-        )
-        if example.expected_output != '':
-            markdown += f'\n{example.expected_output}'
-    markdown += '\n```'
-    markdown += '\n\n<hr>'
+            markdown += "\n"
+        markdown += f"\n{example.input_code_block}"
+        if example.expected_output != "":
+            markdown += f"\n{example.expected_output}"
+    markdown += "\n```"
+    markdown += "\n\n<hr>"
     return markdown
 
 
-def extract_example_values_from_docstring(
-        *, docstring: str) -> List[Example]:
+def extract_example_values_from_docstring(*, docstring: str) -> List[Example]:
     """
     Extract example values from a docstring.
 
@@ -950,13 +947,13 @@ def extract_example_values_from_docstring(
     example_values: List[Example] = []
     for line in lines:
         if _is_target_section_pattern_line(
-                line=line,
-                section_pattern=_SectionPattern.EXAMPLES):
+            line=line, section_pattern=_SectionPattern.EXAMPLES
+        ):
             is_example_section_range = True
             continue
         if _is_skip_target_line(
-                is_target_section_range=is_example_section_range,
-                line=line):
+            is_target_section_range=is_example_section_range, line=line
+        ):
             continue
         if _is_section_line(line=line):
             break
@@ -964,21 +961,24 @@ def extract_example_values_from_docstring(
             _make_example_and_append_to_list(
                 example_values=example_values,
                 input_code_block_lines=input_code_block_lines,
-                expected_output=line)
+                expected_output=line,
+            )
             continue
         input_code_block_lines.append(line)
     _make_example_and_append_to_list(
         example_values=example_values,
         input_code_block_lines=input_code_block_lines,
-        expected_output='')
+        expected_output="",
+    )
     return example_values
 
 
 def _make_example_and_append_to_list(
-        *,
-        example_values: List[Example],
-        input_code_block_lines: List[str],
-        expected_output: str) -> None:
+    *,
+    example_values: List[Example],
+    input_code_block_lines: List[str],
+    expected_output: str,
+) -> None:
     """
     Make an example value and append it to a specified list.
 
@@ -998,11 +998,12 @@ def _make_example_and_append_to_list(
     if not input_code_block_lines:
         return
     input_code_block_lines_: List[str] = [
-        line.strip() for line in input_code_block_lines]
-    input_code_block: str = '\n'.join(input_code_block_lines_)
+        line.strip() for line in input_code_block_lines
+    ]
+    input_code_block: str = "\n".join(input_code_block_lines_)
     example: Example = Example(
-        input_code_block=input_code_block,
-        expected_output=expected_output.strip())
+        input_code_block=input_code_block, expected_output=expected_output.strip()
+    )
     example_values.append(example)
     input_code_block_lines.clear()
 
@@ -1024,13 +1025,12 @@ def _is_example_output_line(*, line: str) -> bool:
         is an example section's output line.
     """
     line = line.strip()
-    if line.startswith('>>>') or line.startswith('...'):
+    if line.startswith(">>>") or line.startswith("..."):
         return False
     return True
 
 
-def append_references_to_markdown(
-        markdown: str, references: List[Reference]) -> str:
+def append_references_to_markdown(markdown: str, references: List[Reference]) -> str:
     """
     Append references to a specified markdown string.
 
@@ -1048,19 +1048,16 @@ def append_references_to_markdown(
     """
     if not references:
         return markdown
-    if markdown != '':
-        markdown += '\n\n'
-    markdown += '**[References]**\n'
+    if markdown != "":
+        markdown += "\n\n"
+    markdown += "**[References]**\n"
     for reference in references:
-        markdown += (
-            f'\n- [{reference.page_label}]({reference.url})'
-        )
-    markdown += '\n\n<hr>'
+        markdown += f"\n- [{reference.page_label}]({reference.url})"
+    markdown += "\n\n<hr>"
     return markdown
 
 
-def append_raises_to_markdown(
-        *, markdown: str, raises: List[Raise]) -> str:
+def append_raises_to_markdown(*, markdown: str, raises: List[Raise]) -> str:
     """
     Append raises to a specified markdown string.
 
@@ -1078,23 +1075,21 @@ def append_raises_to_markdown(
     """
     if not raises:
         return markdown
-    if markdown != '':
-        markdown += '\n\n'
-    markdown += '**[Raises]**\n'
+    if markdown != "":
+        markdown += "\n\n"
+    markdown += "**[Raises]**\n"
     for raise_ in raises:
-        markdown += (
-            f'\n- {raise_.err_class_name}: {raise_.description}'
-        )
-    markdown += '\n\n<hr>'
+        markdown += f"\n- {raise_.err_class_name}: {raise_.description}"
+    markdown += "\n\n<hr>"
     return markdown
 
 
-_ParamOrRtn = TypeVar('_ParamOrRtn', Parameter, Return)
+_ParamOrRtn = TypeVar("_ParamOrRtn", Parameter, Return)
 
 
 def append_params_or_rtns_to_markdown(
-        *, markdown: str,
-        params_or_rtns: List[_ParamOrRtn]) -> str:
+    *, markdown: str, params_or_rtns: List[_ParamOrRtn]
+) -> str:
     """
     Append parameters or returns to a specified markdown string.
 
@@ -1113,23 +1108,22 @@ def append_params_or_rtns_to_markdown(
     if not params_or_rtns:
         return markdown
     if isinstance(params_or_rtns[0], Parameter):
-        section_label: str = 'Parameters'
+        section_label: str = "Parameters"
     else:
-        section_label = 'Returns'
-    if markdown != '':
-        markdown += '\n\n'
-    markdown += f'**[{section_label}]**\n'
+        section_label = "Returns"
+    if markdown != "":
+        markdown += "\n\n"
+    markdown += f"**[{section_label}]**\n"
     for parameter in params_or_rtns:
         markdown += (
-            f'\n- `{parameter.name}`: {parameter.type_str}'
-            f'\n  - {parameter.description}'
+            f"\n- `{parameter.name}`: {parameter.type_str}"
+            f"\n  - {parameter.description}"
         )
-    markdown += '\n\n<hr>'
+    markdown += "\n\n<hr>"
     return markdown
 
 
-def extract_reference_values_from_docstring(
-        *, docstring: str) -> List[Reference]:
+def extract_reference_values_from_docstring(*, docstring: str) -> List[Reference]:
     """
     Extract reference values from a docstring.
 
@@ -1146,38 +1140,38 @@ def extract_reference_values_from_docstring(
     lines: List[str] = docstring.splitlines()
     lines = _remove_blank_lines_from_list(lines=lines)
     is_references_section_range: bool = False
-    page_label: str = ''
-    url: str = ''
+    page_label: str = ""
+    url: str = ""
     base_indent_num: int = 0
     reference_values: List[Reference] = []
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
         base_indent_num = _get_base_indent_num_if_not_set(
-            line=line, base_indent_num=base_indent_num)
+            line=line, base_indent_num=base_indent_num
+        )
         if _is_target_section_pattern_line(
-                line=line,
-                section_pattern=_SectionPattern.REFERENCES):
+            line=line, section_pattern=_SectionPattern.REFERENCES
+        ):
             is_references_section_range = True
             continue
         if _is_skip_target_line(
-                is_target_section_range=is_references_section_range,
-                line=line):
+            is_target_section_range=is_references_section_range, line=line
+        ):
             continue
         if _is_section_line(line=line):
             break
         if current_indent_num == base_indent_num:
-            page_label = _remove_unnecessary_markdown_list_from_line(
-                line=line)
+            page_label = _remove_unnecessary_markdown_list_from_line(line=line)
             continue
         url = _remove_unnecessary_markdown_list_from_line(line=line)
         url = _remove_noqa(string=url)
         _make_reference_and_append_to_list(
-            reference_values=reference_values,
-            page_label=page_label, url=url)
-        url = ''
+            reference_values=reference_values, page_label=page_label, url=url
+        )
+        url = ""
     _make_reference_and_append_to_list(
-        reference_values=reference_values,
-        page_label=page_label, url=url)
+        reference_values=reference_values, page_label=page_label, url=url
+    )
     return reference_values
 
 
@@ -1195,15 +1189,13 @@ def _remove_noqa(string: str) -> str:
     string : str
         Result string.
     """
-    string = string.replace('# noqa', '', 1).strip()
+    string = string.replace("# noqa", "", 1).strip()
     return string
 
 
 def _make_reference_and_append_to_list(
-        *,
-        reference_values: List[Reference],
-        page_label: str,
-        url: str) -> None:
+    *, reference_values: List[Reference], page_label: str, url: str
+) -> None:
     """
     Make a reference value and append it to a specified list.
 
@@ -1216,15 +1208,13 @@ def _make_reference_and_append_to_list(
     url : str
         Target reference page URL.
     """
-    if url == '':
+    if url == "":
         return
-    reference: Reference = Reference(
-        page_label=page_label, url=url)
+    reference: Reference = Reference(page_label=page_label, url=url)
     reference_values.append(reference)
 
 
-def _remove_unnecessary_markdown_list_from_line(
-        *, line: str) -> str:
+def _remove_unnecessary_markdown_list_from_line(*, line: str) -> str:
     """
     Remove unnecessary markdown list string from a line.
 
@@ -1238,7 +1228,7 @@ def _remove_unnecessary_markdown_list_from_line(
     line : str
         Result docstring line.
     """
-    line = line.replace('- ', '', 1)
+    line = line.replace("- ", "", 1)
     line = line.strip()
     return line
 
@@ -1260,22 +1250,23 @@ def extract_raise_values_from_docstring(*, docstring: str) -> List[Raise]:
     lines: List[str] = docstring.splitlines()
     lines = _remove_blank_lines_from_list(lines=lines)
     is_raises_section_range: bool = False
-    err_class_name: str = ''
+    err_class_name: str = ""
     base_indent_num: int = 0
     description_lines: List[str] = []
     raise_values: List[Raise] = []
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
         base_indent_num = _get_base_indent_num_if_not_set(
-            line=line, base_indent_num=base_indent_num)
+            line=line, base_indent_num=base_indent_num
+        )
         if _is_target_section_pattern_line(
-                line=line,
-                section_pattern=_SectionPattern.RAISES):
+            line=line, section_pattern=_SectionPattern.RAISES
+        ):
             is_raises_section_range = True
             continue
         if _is_skip_target_line(
-                is_target_section_range=is_raises_section_range,
-                line=line):
+            is_target_section_range=is_raises_section_range, line=line
+        ):
             continue
         if _is_section_line(line=line):
             break
@@ -1288,8 +1279,7 @@ def extract_raise_values_from_docstring(*, docstring: str) -> List[Raise]:
             err_class_name = line.strip()
             continue
 
-        line = _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
-            line=line)
+        line = _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(line=line)
         description_lines.append(line)
     _make_raise_description_and_append_to_list(
         raise_values=raise_values,
@@ -1299,8 +1289,7 @@ def extract_raise_values_from_docstring(*, docstring: str) -> List[Raise]:
     return raise_values
 
 
-def _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
-        line: str) -> str:
+def _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(line: str) -> str:
     """
     Append a break tag and replace the hyphen symbol
     if the first character is the hyphen symbol.
@@ -1315,15 +1304,15 @@ def _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
     line : str
         Replaced docstring line.
     """
-    first_char: str = ''
+    first_char: str = ""
     for char in line:
-        if char == ' ':
+        if char == " ":
             continue
         first_char = char
         break
-    if first_char == '-' and line.strip().startswith('- '):
-        line = line.replace('- ', '・', 1)
-        line = f'<br>{line}'
+    if first_char == "-" and line.strip().startswith("- "):
+        line = line.replace("- ", "・", 1)
+        line = f"<br>{line}"
     return line
 
 
@@ -1343,14 +1332,13 @@ def _remove_blank_lines_from_list(*, lines: List[str]) -> List[str]:
     """
     result_lines: List[str] = []
     for line in lines:
-        if line.strip() == '':
+        if line.strip() == "":
             continue
         result_lines.append(line)
     return result_lines
 
 
-def _get_base_indent_num_if_not_set(
-        *, line: str, base_indent_num: int) -> int:
+def _get_base_indent_num_if_not_set(*, line: str, base_indent_num: int) -> int:
     """
     Get a base indent number from a line if it is an
     initial value.
@@ -1376,10 +1364,8 @@ def _get_base_indent_num_if_not_set(
 
 
 def _make_raise_description_and_append_to_list(
-        *,
-        raise_values: List[Raise],
-        err_class_name: str,
-        description_lines: List[str]) -> None:
+    *, raise_values: List[Raise], err_class_name: str, description_lines: List[str]
+) -> None:
     """
     Make a raise value description from a list of lines and
     append raise value to a specified list.
@@ -1399,18 +1385,16 @@ def _make_raise_description_and_append_to_list(
     """
     if not description_lines:
         return
-    description: str = '\n'.join(description_lines)
-    description = _remove_line_breaks_and_unnecessary_spaces(
-        text=description)
-    raise_: Raise = Raise(
-        err_class_name=err_class_name, description=description)
+    description: str = "\n".join(description_lines)
+    description = _remove_line_breaks_and_unnecessary_spaces(text=description)
+    raise_: Raise = Raise(err_class_name=err_class_name, description=description)
     raise_values.append(raise_)
     description_lines.clear()
 
 
 def extract_param_or_rtn_values_from_docstring(
-        *, target_type: Type[_ParamOrRtn],
-        docstring: str) -> List[_ParamOrRtn]:
+    *, target_type: Type[_ParamOrRtn], docstring: str
+) -> List[_ParamOrRtn]:
     """
     Extract parameter or return values from a docstring.
 
@@ -1429,25 +1413,27 @@ def extract_param_or_rtn_values_from_docstring(
     lines: List[str] = docstring.splitlines()
     lines = _remove_blank_lines_from_list(lines=lines)
     is_param_or_rtn_section_range: bool = False
-    value_name: str = ''
-    value_type_str: str = ''
+    value_name: str = ""
+    value_type_str: str = ""
     base_indent_num: int = 0
     description_lines: List[str] = []
     param_or_rtn_values: List[_ParamOrRtn] = []
-    params_or_rtns_section_pattern: _SectionPattern = \
+    params_or_rtns_section_pattern: _SectionPattern = (
         _get_params_or_rtns_section_pattern_by_type(target_type=target_type)
+    )
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
         base_indent_num = _get_base_indent_num_if_not_set(
-            line=line, base_indent_num=base_indent_num)
+            line=line, base_indent_num=base_indent_num
+        )
         if _is_target_section_pattern_line(
-                line=line,
-                section_pattern=params_or_rtns_section_pattern):
+            line=line, section_pattern=params_or_rtns_section_pattern
+        ):
             is_param_or_rtn_section_range = True
             continue
         if _is_skip_target_line(
-                is_target_section_range=is_param_or_rtn_section_range,
-                line=line):
+            is_target_section_range=is_param_or_rtn_section_range, line=line
+        ):
             continue
         if _is_section_line(line=line):
             break
@@ -1459,8 +1445,7 @@ def extract_param_or_rtn_values_from_docstring(
                 value_type_str=value_type_str,
                 description_lines=description_lines,
             )
-            value_name, value_type_str = _get_value_name_and_type_from_line(
-                line=line)
+            value_name, value_type_str = _get_value_name_and_type_from_line(line=line)
             continue
         description_lines.append(line)
     _make_prm_or_rtn_description_and_append_to_list(
@@ -1473,8 +1458,7 @@ def extract_param_or_rtn_values_from_docstring(
     return param_or_rtn_values
 
 
-def _is_skip_target_line(
-        *, is_target_section_range: bool, line: str) -> bool:
+def _is_skip_target_line(*, is_target_section_range: bool, line: str) -> bool:
     """
     Get a boolean indicating whether a specified line
     is skipping target or not.
@@ -1501,8 +1485,8 @@ def _is_skip_target_line(
 
 
 def _get_params_or_rtns_section_pattern_by_type(
-        *,
-        target_type: Type[_ParamOrRtnBase]) -> _SectionPattern:
+    *, target_type: Type[_ParamOrRtnBase]
+) -> _SectionPattern:
     """
     Get the parameters or returns section pattern
     of a specified type.
@@ -1526,17 +1510,17 @@ def _get_params_or_rtns_section_pattern_by_type(
         return _SectionPattern.PARAMETERS
     if target_type == Return:
         return _SectionPattern.RETURNS
-    raise ValueError(
-        f'Invalid type argument is provided: {target_type}')
+    raise ValueError(f"Invalid type argument is provided: {target_type}")
 
 
 def _make_prm_or_rtn_description_and_append_to_list(
-        *,
-        target_type: Type[_ParamOrRtn],
-        param_or_rtn_values: List[_ParamOrRtn],
-        value_name: str,
-        value_type_str: str,
-        description_lines: List[str]) -> None:
+    *,
+    target_type: Type[_ParamOrRtn],
+    param_or_rtn_values: List[_ParamOrRtn],
+    value_name: str,
+    value_type_str: str,
+    description_lines: List[str],
+) -> None:
     """
     Make a parameter or return value description from a list of
     lines and append parameter or return value to a specified list.
@@ -1560,12 +1544,11 @@ def _make_prm_or_rtn_description_and_append_to_list(
     """
     if not description_lines:
         return
-    description: str = '\n'.join(description_lines)
-    description = _remove_line_breaks_and_unnecessary_spaces(
-        text=description)
+    description: str = "\n".join(description_lines)
+    description = _remove_line_breaks_and_unnecessary_spaces(text=description)
     param_or_rtn: _ParamOrRtn = target_type(
-        name=value_name, type_str=value_type_str,
-        description=description)
+        name=value_name, type_str=value_type_str, description=description
+    )
     param_or_rtn_values.append(param_or_rtn)
     description_lines.clear()
 
@@ -1586,7 +1569,7 @@ def _get_indent_num_from_line(*, line: str) -> int:
     """
     spaces: int = 0
     for char in line:
-        if char != ' ':
+        if char != " ":
             break
         spaces += 1
     indent_num: int = spaces // 4
@@ -1610,9 +1593,9 @@ def _get_value_name_and_type_from_line(*, line: str) -> Tuple[str, str]:
     type_name : str
         Target parameter or return value type name.
     """
-    if ':' not in line:
-        return '', ''
-    splitted: List[str] = line.split(':', maxsplit=1)
+    if ":" not in line:
+        return "", ""
+    splitted: List[str] = line.split(":", maxsplit=1)
     value_name: str = splitted[0].strip()
     type_name: str = splitted[1].strip()
     return value_name, type_name
@@ -1634,17 +1617,15 @@ def _is_hyphens_line(*, line: str) -> bool:
         If a specified line is a hyphens line, this function
         returns True.
     """
-    match: Optional[Match] = re.search(
-        pattern=_HYPHENS_LINE_PATTERN, string=line)
+    match: Optional[Match] = re.search(pattern=_HYPHENS_LINE_PATTERN, string=line)
     if match is None:
         return False
     return True
 
 
 def _is_target_section_pattern_line(
-        *,
-        line: str,
-        section_pattern: _SectionPattern) -> bool:
+    *, line: str, section_pattern: _SectionPattern
+) -> bool:
     """
     Get a boolean indicating whether a specified line
     matches a target section pattern or not.
@@ -1662,8 +1643,7 @@ def _is_target_section_pattern_line(
         If a specified line is the parameters section,
         this function returns True.
     """
-    match: Optional[Match] = re.search(
-        pattern=section_pattern.value, string=line)
+    match: Optional[Match] = re.search(pattern=section_pattern.value, string=line)
     if match is None:
         return False
     return True
@@ -1692,10 +1672,9 @@ def extract_summary_from_docstring(*, docstring: str) -> str:
     for line in lines:
         if _is_section_line(line=line):
             break
-        line = _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
-            line=line)
+        line = _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(line=line)
         result_lines.append(line)
-    summary: str = '\n'.join(result_lines)
+    summary: str = "\n".join(result_lines)
     summary = _remove_line_breaks_and_unnecessary_spaces(text=summary)
     return summary
 
@@ -1716,10 +1695,10 @@ def _remove_line_breaks_and_unnecessary_spaces(*, text: str) -> str:
         Converted text.
     """
     from apysc._string import string_util
+
     text = text.strip()
-    text = text.replace('\n', ' ')
-    text = string_util.replace_double_spaces_to_single_space(
-        string=text)
+    text = text.replace("\n", " ")
+    text = string_util.replace_double_spaces_to_single_space(string=text)
     text = text.strip()
     return text
 
@@ -1741,8 +1720,7 @@ def _is_section_line(*, line: str) -> bool:
         this function returns True.
     """
     for pattern in _SectionPattern:
-        match: Optional[Match] = re.search(
-            pattern=pattern.value, string=line)
+        match: Optional[Match] = re.search(pattern=pattern.value, string=line)
         if match is None:
             continue
         return True
@@ -1750,7 +1728,8 @@ def _is_section_line(*, line: str) -> bool:
 
 
 def _extract_package_path_and_callable_name_from_path(
-        *, docstring_path_comment: str) -> Tuple[str, str]:
+    *, docstring_path_comment: str
+) -> Tuple[str, str]:
     """
     Extract a module or class package path and callable
     name from a specified path comment.
@@ -1769,17 +1748,17 @@ def _extract_package_path_and_callable_name_from_path(
         Extracted callable name.
     """
     path: str = _extract_path_from_docstring_comment(
-        docstring_path_comment=docstring_path_comment)
-    if '.' not in path:
-        return '', ''
-    splitted: List[str] = path.rsplit('.', maxsplit=1)
+        docstring_path_comment=docstring_path_comment
+    )
+    if "." not in path:
+        return "", ""
+    splitted: List[str] = path.rsplit(".", maxsplit=1)
     module_or_class_package_path: str = splitted[0]
     callable_name: str = splitted[1]
     return module_or_class_package_path, callable_name
 
 
-def _extract_path_from_docstring_comment(
-        *, docstring_path_comment: str) -> str:
+def _extract_path_from_docstring_comment(*, docstring_path_comment: str) -> str:
     """
     Extract a path string from a specified docstring path comment.
 
@@ -1794,17 +1773,16 @@ def _extract_path_from_docstring_comment(
         Extracted path string.
     """
     match: Optional[Match] = re.search(
-        pattern=DOCSTRING_PATH_COMMENT_PATTERN,
-        string=docstring_path_comment)
+        pattern=DOCSTRING_PATH_COMMENT_PATTERN, string=docstring_path_comment
+    )
     if match is None:
-        return ''
+        return ""
     path: str = match.group(1)
     path = path.strip()
     return path
 
 
-def extract_docstrings_from_module(
-        *, module: ModuleType) -> List[str]:
+def extract_docstrings_from_module(*, module: ModuleType) -> List[str]:
     """
     Extract docstrings from a specified module.
 
@@ -1823,20 +1801,23 @@ def extract_docstrings_from_module(
         docstrings.append(module.__doc__)
 
     function_members: List[Tuple[str, Callable]] = inspect.getmembers(
-        object=module, predicate=inspect.isfunction)
+        object=module, predicate=inspect.isfunction
+    )
     function: Callable
     for _, function in function_members:
         if function.__doc__ is not None:
             docstrings.append(function.__doc__)
 
     class_members: List[Tuple[str, Type]] = inspect.getmembers(
-        object=module, predicate=inspect.isclass)
+        object=module, predicate=inspect.isclass
+    )
     class_: Type
     for _, class_ in class_members:
         if class_.__doc__ is not None:
             docstrings.append(class_.__doc__)
         method_members: List[Tuple[str, Callable]] = inspect.getmembers(
-            object=class_, predicate=inspect.ismethod)
+            object=class_, predicate=inspect.ismethod
+        )
         method: Callable
         for _, method in method_members:
             if method.__doc__ is not None:

@@ -15,9 +15,10 @@ def test_validate_num() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num,
-        match='\nTest error!',
-        num='Hello!',
-        additional_err_msg='Test error!',)
+        match="\nTest error!",
+        num="Hello!",
+        additional_err_msg="Test error!",
+    )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -28,8 +29,9 @@ def test_validate_integer() -> None:
         expected_error_class=ValueError,
         callable_=number_validation.validate_integer,
         integer=10.5,
-        additional_err_msg='Test error!',
-        match='\nTest error!')
+        additional_err_msg="Test error!",
+        match="\nTest error!",
+    )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -39,13 +41,15 @@ def test_validate_num_is_gt_zero() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_gt_zero,
-        match='\nTest error!',
+        match="\nTest error!",
         num=0,
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_gt_zero,
-        num=ap.Int(0))
+        num=ap.Int(0),
+    )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -56,15 +60,15 @@ def test_validate_num_is_gte_zero() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_gte_zero,
-        match='\nTest error!',
+        match="\nTest error!",
         num=-0.1,
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_int_is_zero_or_one() -> None:
-    number_validation.validate_int_is_zero_or_one(
-        integer='Hello!')  # type: ignore
+    number_validation.validate_int_is_zero_or_one(integer="Hello!")  # type: ignore
     number_validation.validate_int_is_zero_or_one(integer=1)
     number_validation.validate_int_is_zero_or_one(integer=0)
     number_validation.validate_int_is_zero_or_one(integer=ap.Int(0))
@@ -72,11 +76,13 @@ def test_validate_int_is_zero_or_one() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_int_is_zero_or_one,
-        integer=2)
+        integer=2,
+    )
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_int_is_zero_or_one,
-        integer=ap.Int(2))
+        integer=ap.Int(2),
+    )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -84,28 +90,32 @@ def test_validate_number_is_0_to_1_range() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_0_to_1_range,
-        match='\nTest error!',
+        match="\nTest error!",
         num=-0.1,
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_0_to_1_range,
-        match='\nTest error!',
+        match="\nTest error!",
         num=1.1,
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_0_to_1_range,
-        match='\nTest error!',
+        match="\nTest error!",
         num=ap.Number(-0.1),
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_num_is_0_to_1_range,
-        match='\nTest error!',
+        match="\nTest error!",
         num=ap.Number(1.1),
-        additional_err_msg='Test error!')
+        additional_err_msg="Test error!",
+    )
 
     number_validation.validate_num_is_0_to_1_range(num=0.0)
     number_validation.validate_num_is_0_to_1_range(num=1.0)
@@ -120,7 +130,7 @@ def test_validate_builtin_integer() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         callable_=number_validation.validate_builtin_integer,
-        match='\nTest error!',
+        match="\nTest error!",
         integer=ap.Int(100),
-        additional_err_msg='Test error!',
+        additional_err_msg="Test error!",
     )

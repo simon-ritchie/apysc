@@ -13,14 +13,13 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class TestCopyInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__copy(self) -> None:
         interface: CopyInterface = CopyInterface()
-        interface.variable_name = 'test_copy_interface'
-        interface._type_name = 'test_copy_interface'
+        interface.variable_name = "test_copy_interface"
+        interface._type_name = "test_copy_interface"
         result: CopyInterface = interface._copy()
-        assert result.variable_name.startswith('test_copy_interface_')
+        assert result.variable_name.startswith("test_copy_interface_")
         assert result.variable_name != interface.variable_name
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -29,49 +28,38 @@ class TestCopyInterface:
         int_1: ap.Int = ap.Int(10)
         int_2: ap.Int = int_1._copy()
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'{int_2.variable_name} = '
-            f'{int_1.variable_name};'
-        )
+        expected: str = f"{int_2.variable_name} = " f"{int_1.variable_name};"
         assert expected in expression
 
         expression_data_util.empty_expression()
         arr_1: ap.Array = ap.Array([10, 20, 30])
         arr_2: ap.Array = arr_1._copy()
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{arr_2.variable_name} = '
-            f'cpy({arr_1.variable_name});'
-        )
+        expected = f"{arr_2.variable_name} = " f"cpy({arr_1.variable_name});"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_updating_cpy_exp_to_handler_scope(self) -> None:
         expression_data_util.empty_expression()
         instance: VariableNameInterface = VariableNameInterface()
-        instance.variable_name = 'test_instance'
+        instance.variable_name = "test_instance"
         int_1: ap.Int = ap.Int(10)
-        with HandlerScope(handler_name='test_handler_1', instance=instance):
+        with HandlerScope(handler_name="test_handler_1", instance=instance):
             int_2: ap.Int = int_1._copy()
-        expression: str = \
+        expression: str = (
             expression_data_util.get_current_event_handler_scope_expression()
-        pattern: str = (
-            rf'^{int_2.variable_name} = {int_1.variable_name};')
+        )
+        pattern: str = rf"^{int_2.variable_name} = {int_1.variable_name};"
         match: Optional[Match] = re.search(
-            pattern=pattern,
-            string=expression, flags=re.MULTILINE)
+            pattern=pattern, string=expression, flags=re.MULTILINE
+        )
         assert match is not None
 
         expression_data_util.empty_expression()
         arr_1: ap.Array = ap.Array([1, 2, 3])
-        with HandlerScope(handler_name='test_handler_1', instance=instance):
+        with HandlerScope(handler_name="test_handler_1", instance=instance):
             arr_2: ap.Array = arr_1._copy()
-        expression = \
-            expression_data_util.get_current_event_handler_scope_expression()
-        pattern = (
-            rf'^{arr_2.variable_name} = cpy\({arr_1.variable_name}\);'
-        )
-        match = re.search(
-            pattern=pattern,
-            string=expression, flags=re.MULTILINE)
+        expression = expression_data_util.get_current_event_handler_scope_expression()
+        pattern = rf"^{arr_2.variable_name} = cpy\({arr_1.variable_name}\);"
+        match = re.search(pattern=pattern, string=expression, flags=re.MULTILINE)
         assert match is not None

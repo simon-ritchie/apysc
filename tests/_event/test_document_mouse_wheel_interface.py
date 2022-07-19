@@ -21,7 +21,7 @@ def on_mouse_wheel_1(e: ap.WheelEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    assert options['msg'] == 'Hello!'
+    assert options["msg"] == "Hello!"
 
 
 def on_mouse_wheel_2(e: ap.WheelEvent, options: Dict[str, Any]) -> None:
@@ -42,18 +42,14 @@ def on_mouse_wheel_2(e: ap.WheelEvent, options: Dict[str, Any]) -> None:
 def test_bind_wheel_event_to_document() -> None:
     expression_data_util.empty_expression()
     name: str = ap.bind_wheel_event_to_document(
-        handler=on_mouse_wheel_1, options={'msg': 'Hello!'})
-    expression: str = expression_data_util.get_current_expression()
-    expected: str = (
-        f'$({ap.document.variable_name}).on("mousewheel", {name});'
+        handler=on_mouse_wheel_1, options={"msg": "Hello!"}
     )
+    expression: str = expression_data_util.get_current_expression()
+    expected: str = f'$({ap.document.variable_name}).on("mousewheel", {name});'
     assert expected in expression
 
-    expression = expression_data_util.\
-        get_current_event_handler_scope_expression()
-    expected = (
-        f'function {name}({var_names.WHEEL_EVENT}_'
-    )
+    expression = expression_data_util.get_current_event_handler_scope_expression()
+    expected = f"function {name}({var_names.WHEEL_EVENT}_"
     assert expected in expression
 
     _ = ap.bind_wheel_event_to_document(handler=on_mouse_wheel_2)
@@ -63,12 +59,9 @@ def test_bind_wheel_event_to_document() -> None:
 def test_unbind_wheel_event_from_document() -> None:
     expression_data_util.empty_expression()
     ap.unbind_wheel_event_from_document(handler=on_mouse_wheel_1)
-    name: str = get_handler_name(
-        handler=on_mouse_wheel_1, instance=ap.document)
+    name: str = get_handler_name(handler=on_mouse_wheel_1, instance=ap.document)
     expression: str = expression_data_util.get_current_expression()
-    expected: str = (
-        f'$({ap.document.variable_name}).off("mousewheel", {name});'
-    )
+    expected: str = f'$({ap.document.variable_name}).off("mousewheel", {name});'
     assert expected in expression
 
 

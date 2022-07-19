@@ -7,7 +7,6 @@ from apysc._geom.path_dest_x_interface import PathDestXInterface
 
 
 class TestPathDestXInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_dest_x(self) -> None:
         interface: PathDestXInterface = PathDestXInterface()
@@ -50,4 +49,4 @@ class TestPathDestXInterface:
     def test__append_dest_x_linking_setting(self) -> None:
         interface: PathDestXInterface = PathDestXInterface()
         interface._initialize_dest_x_if_not_initialized()
-        assert interface._attr_linking_stack['dest_x'] == [ap.Int(0)]
+        assert interface._attr_linking_stack["dest_x"] == [ap.Int(0)]

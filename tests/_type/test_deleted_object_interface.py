@@ -8,7 +8,6 @@ from apysc._type.deleted_object_interface import _DisabledObjectError
 
 
 class TestDeletedObjectInterface:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__is_deleted_object(self) -> None:
         interface: DeletedObjectInterface = DeletedObjectInterface()
@@ -18,7 +17,6 @@ class TestDeletedObjectInterface:
         assert interface._is_deleted_object
 
         class _TestClass(DeletedObjectInterface):
-
             def _test_func(self, a: int) -> int:
                 return a * 2
 
@@ -54,9 +52,7 @@ class TestDeletedObjectInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__disable_each_methods(self) -> None:
-
         class _TestClass(DeletedObjectInterface):
-
             def _test_func(self, a: int) -> int:
                 return a * 2
 
@@ -74,4 +70,5 @@ class TestDeletedObjectInterface:
         assert_raises(
             expected_error_class=_DisabledObjectError,
             callable_=interface._disabled_method,
-            a=100)
+            a=100,
+        )

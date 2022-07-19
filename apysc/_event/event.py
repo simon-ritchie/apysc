@@ -9,7 +9,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
 
-T = TypeVar('T', bound=VariableNameInterface)
+T = TypeVar("T", bound=VariableNameInterface)
 
 
 class Event(Generic[T], VariableNameInterface):
@@ -39,16 +39,10 @@ class Event(Generic[T], VariableNameInterface):
 
     _this: T
 
-    @arg_validation_decos.is_variable_name_interface_type(
-        arg_position_index=1)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=True)
+    @arg_validation_decos.is_variable_name_interface_type(arg_position_index=1)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=True)
     @add_debug_info_setting(module_name=__name__)
-    def __init__(
-            self,
-            *,
-            this: T,
-            type_name: Optional[str] = None) -> None:
+    def __init__(self, *, this: T, type_name: Optional[str] = None) -> None:
         """
         Basic event class.
 
@@ -82,15 +76,16 @@ class Event(Generic[T], VariableNameInterface):
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._validate_type_name_and_self_type(type_name=type_name)
         self._this = this
         if type_name is None:
             type_name = var_names.EVENT
-        self.variable_name = expression_variables_util.\
-            get_next_variable_name(type_name=type_name)
+        self.variable_name = expression_variables_util.get_next_variable_name(
+            type_name=type_name
+        )
 
-    def _validate_type_name_and_self_type(
-            self, *, type_name: Optional[str]) -> None:
+    def _validate_type_name_and_self_type(self, *, type_name: Optional[str]) -> None:
         """
         Validate type_name argument is None when a self
         instance is not Event subclass, and the same is true
@@ -108,16 +103,19 @@ class Event(Generic[T], VariableNameInterface):
             - If type_name is None and self instance is not Event type.
         """
         from apysc._type import type_util
+
         if type_name is not None:
             if type_util.is_same_class_instance(class_=Event, instance=self):
                 raise ValueError(
-                    'type_name argument can be set only when this instance '
-                    'is subclass of Event.')
+                    "type_name argument can be set only when this instance "
+                    "is subclass of Event."
+                )
             return
         if not type_util.is_same_class_instance(class_=Event, instance=self):
             raise ValueError(
-                'type_name argument can\'t be set when this instance '
-                'is Event (this will be used by Event subclass).')
+                "type_name argument can't be set when this instance "
+                "is Event (this will be used by Event subclass)."
+            )
 
     @property
     def this(self) -> T:

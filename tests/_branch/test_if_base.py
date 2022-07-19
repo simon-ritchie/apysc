@@ -35,29 +35,31 @@ class IfSubClass(IfBase):
 
 
 class TestIfBase:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         condition: ap.Boolean = ap.Boolean(True)
-        locals_: Dict[str, Any] = {'value1': 10}
-        globals_: Dict[str, Any] = {'value2': 20}
+        locals_: Dict[str, Any] = {"value1": 10}
+        globals_: Dict[str, Any] = {"value2": 20}
         instance: IfSubClass = IfSubClass(
-            condition=condition, locals_=locals_, globals_=globals_)
+            condition=condition, locals_=locals_, globals_=globals_
+        )
         testing_helper.assert_attrs(
             expected_attrs={
-                '_condition': condition,
-                '_locals': locals_,
-                '_globals': globals_,
+                "_condition": condition,
+                "_locals": locals_,
+                "_globals": globals_,
             },
-            any_obj=instance)
+            any_obj=instance,
+        )
 
         instance = IfSubClass(condition=condition)
         testing_helper.assert_attrs(
             expected_attrs={
-                '_locals': {},
-                '_globals': {},
+                "_locals": {},
+                "_globals": {},
             },
-            any_obj=instance)
+            any_obj=instance,
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
@@ -65,12 +67,12 @@ class TestIfBase:
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         condition: ap.Boolean = ap.Boolean(True)
-        locals_: Dict[str, Any] = {'value1': int_1}
-        globals_: Dict[str, Any] = {'value2': 20}
+        locals_: Dict[str, Any] = {"value1": int_1}
+        globals_: Dict[str, Any] = {"value2": 20}
         instance: IfSubClass
         with IfSubClass(
-                condition=condition, locals_=locals_,
-                globals_=globals_) as instance:
+            condition=condition, locals_=locals_, globals_=globals_
+        ) as instance:
             current_indent_num: int = indent_num.get_current_indent_num()
             assert current_indent_num == 1
             assert instance._entered
@@ -82,21 +84,20 @@ class TestIfBase:
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         condition: ap.Boolean = ap.Boolean(True)
-        locals_: Dict[str, Any] = {'value1': int_1}
-        globals_: Dict[str, Any] = {'value2': 20}
+        locals_: Dict[str, Any] = {"value1": int_1}
+        globals_: Dict[str, Any] = {"value2": 20}
         instance: IfSubClass
         with IfSubClass(
-                condition=condition, locals_=locals_,
-                globals_=globals_) as instance:
+            condition=condition, locals_=locals_, globals_=globals_
+        ) as instance:
             pass
         current_indent_num: int = indent_num.get_current_indent_num()
         assert current_indent_num == 0
         assert instance._last_scope_is_set
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
-            pattern=r'^}',
-            string=expression,
-            flags=re.MULTILINE | re.DOTALL)
+            pattern=r"^}", string=expression, flags=re.MULTILINE | re.DOTALL
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -107,9 +108,8 @@ class TestIfBase:
             pass
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
-            pattern=r'^}',
-            string=expression,
-            flags=re.MULTILINE | re.DOTALL)
+            pattern=r"^}", string=expression, flags=re.MULTILINE | re.DOTALL
+        )
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -117,7 +117,8 @@ class TestIfBase:
         last_scope.reset()
         boolean_1: ap.Boolean = ap.Boolean(True)
         if_instance: IfSubClass = IfSubClass(
-            condition=boolean_1, locals_=locals(), globals_=globals())
+            condition=boolean_1, locals_=locals(), globals_=globals()
+        )
         result: bool = if_instance._last_scope_is_if_or_elif()
         assert not result
 

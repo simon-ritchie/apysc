@@ -34,18 +34,18 @@ from typing_extensions import TypedDict
 
 class HashType(Enum):
 
-    AUTOFLAKE = 'autoflake'
-    ISORT = 'isort'
-    AUTOPEP8 = 'autopep8'
-    DOCSTRING_SRC = 'docstring_src'
-    DOCSTRING_TO_MARKDOWN = 'docstring_to_markdown'
-    TRANSLATION_MAPPING_JP = 'translation_mapping_jp'
-    APPLYING_TRANSLATION_MAPPING = 'applying_translation_mapping'
-    INDEX_HTML_LINK_TEXT_MAPPING = 'index_html_link_text_mapping'
-    DOCUMENT = 'document'
+    AUTOFLAKE = "autoflake"
+    ISORT = "isort"
+    AUTOPEP8 = "autopep8"
+    DOCSTRING_SRC = "docstring_src"
+    DOCSTRING_TO_MARKDOWN = "docstring_to_markdown"
+    TRANSLATION_MAPPING_JP = "translation_mapping_jp"
+    APPLYING_TRANSLATION_MAPPING = "applying_translation_mapping"
+    INDEX_HTML_LINK_TEXT_MAPPING = "index_html_link_text_mapping"
+    DOCUMENT = "document"
 
 
-_HASH_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'
+_HASH_PACKAGE_ROOT_PATH: str = "./.lint_and_doc_hash"
 
 
 def get_hash_dir_path(*, hash_type: HashType) -> str:
@@ -67,16 +67,12 @@ def get_hash_dir_path(*, hash_type: HashType) -> str:
     This interface creates a returned directory path
     if it does not exist.
     """
-    dir_path: str = os.path.join(
-        _HASH_PACKAGE_ROOT_PATH,
-        f'.{hash_type.value}/'
-    )
+    dir_path: str = os.path.join(_HASH_PACKAGE_ROOT_PATH, f".{hash_type.value}/")
     os.makedirs(dir_path, exist_ok=True)
     return dir_path
 
 
-def get_target_file_hash_file_path(
-        *, file_path: str, hash_type: HashType) -> str:
+def get_target_file_hash_file_path(*, file_path: str, hash_type: HashType) -> str:
     """
     Get a specified file's hash file path.
 
@@ -97,14 +93,14 @@ def get_target_file_hash_file_path(
     This interface automatically creates a returned file's
     directory path if it does not exist.
     """
-    if file_path.startswith('./'):
-        file_path = file_path.replace('./', '', 1)
+    if file_path.startswith("./"):
+        file_path = file_path.replace("./", "", 1)
     dir_path: str = get_hash_dir_path(hash_type=hash_type)
     file_path_: str = os.path.join(dir_path, file_path)
     basename: str = os.path.basename(file_path_)
-    if '.' in basename:
-        extension: str = basename.split('.')[-1]
-        file_path_ = file_path_.replace(f'.{extension}', '', 1)
+    if "." in basename:
+        extension: str = basename.split(".")[-1]
+        file_path_ = file_path_.replace(f".{extension}", "", 1)
     os.makedirs(os.path.dirname(file_path_), exist_ok=True)
     return file_path_
 
@@ -126,8 +122,9 @@ def read_target_file_hash(*, file_path: str) -> str:
         a blank string.
     """
     from apysc._file import file_util
+
     if not os.path.isfile(file_path):
-        return ''
+        return ""
     file_txt: str = file_util.read_txt(file_path=file_path)
     hashed_string: str = hashlib.sha1(file_txt.encode()).hexdigest()
     return hashed_string
@@ -152,10 +149,12 @@ def read_saved_hash(*, file_path: str, hash_type: HashType) -> str:
         a blank string.
     """
     from apysc._file import file_util
+
     file_path_: str = get_target_file_hash_file_path(
-        file_path=file_path, hash_type=hash_type)
+        file_path=file_path, hash_type=hash_type
+    )
     if not os.path.isfile(file_path_):
-        return ''
+        return ""
     saved_hash: str = file_util.read_txt(file_path=file_path_)
     saved_hash = saved_hash.strip()
     return saved_hash
@@ -173,16 +172,17 @@ def save_target_file_hash(*, file_path: str, hash_type: HashType) -> None:
         Target hash type.
     """
     from apysc._file import file_util
+
     hash: str = read_target_file_hash(file_path=file_path)
-    if hash == '':
+    if hash == "":
         return
     file_path_: str = get_target_file_hash_file_path(
-        file_path=file_path, hash_type=hash_type)
+        file_path=file_path, hash_type=hash_type
+    )
     file_util.save_plain_txt(txt=hash, file_path=file_path_)
 
 
-def save_target_files_hash(
-        *, file_paths: List[str], hash_type: HashType) -> None:
+def save_target_files_hash(*, file_paths: List[str], hash_type: HashType) -> None:
     """
     Save target files' current hash.
 
@@ -198,9 +198,8 @@ def save_target_files_hash(
         future_list: List[futures.Future] = []
         for file_path in file_paths:
             future = executor.submit(
-                save_target_file_hash,
-                file_path=file_path,
-                hash_type=hash_type)
+                save_target_file_hash, file_path=file_path, hash_type=hash_type
+            )
             future_list.append(future)
         _ = futures.as_completed(fs=future_list)
 
@@ -222,8 +221,7 @@ def is_file_updated(*, file_path: str, hash_type: HashType) -> bool:
         If a specified file is changing, this interface
         returns True.
     """
-    saved_hash: str = read_saved_hash(
-        file_path=file_path, hash_type=hash_type)
+    saved_hash: str = read_saved_hash(file_path=file_path, hash_type=hash_type)
     current_hash: str = read_target_file_hash(file_path=file_path)
     if saved_hash == current_hash:
         return False
@@ -235,8 +233,7 @@ class _IsFileUpdatedArgs(TypedDict):
     hash_type: HashType
 
 
-def _is_file_updated_func_for_multiprocessing(
-        args: _IsFileUpdatedArgs) -> bool:
+def _is_file_updated_func_for_multiprocessing(args: _IsFileUpdatedArgs) -> bool:
     """
     Wrapper function of the `is_file_updated` function
     for the multiprocessing.
@@ -254,14 +251,14 @@ def _is_file_updated_func_for_multiprocessing(
         returns True.
     """
     result: bool = is_file_updated(
-        file_path=args['file_path'],
-        hash_type=args['hash_type'])
+        file_path=args["file_path"], hash_type=args["hash_type"]
+    )
     return result
 
 
 def _create_args_list_for_multiprocessing(
-        *, file_paths: List[str],
-        hash_type: HashType) -> List[_IsFileUpdatedArgs]:
+    *, file_paths: List[str], hash_type: HashType
+) -> List[_IsFileUpdatedArgs]:
     """
     Create an arguments list for the multiprocessing.
 
@@ -279,16 +276,18 @@ def _create_args_list_for_multiprocessing(
     """
     args_list: List[_IsFileUpdatedArgs] = []
     for file_path in file_paths:
-        args_list.append({
-            'file_path': file_path,
-            'hash_type': hash_type,
-        })
+        args_list.append(
+            {
+                "file_path": file_path,
+                "hash_type": hash_type,
+            }
+        )
     return args_list
 
 
 def remove_not_updated_file_paths(
-        *, file_paths: List[str],
-        hash_type: HashType) -> List[str]:
+    *, file_paths: List[str], hash_type: HashType
+) -> List[str]:
     """
     Remove not updated files from specified file paths.
 
@@ -305,9 +304,9 @@ def remove_not_updated_file_paths(
         After the slicing file paths.
     """
     workers: int = max(cpu_count() - 1, 1)
-    args_list: List[_IsFileUpdatedArgs] = \
-        _create_args_list_for_multiprocessing(
-            file_paths=file_paths, hash_type=hash_type)
+    args_list: List[_IsFileUpdatedArgs] = _create_args_list_for_multiprocessing(
+        file_paths=file_paths, hash_type=hash_type
+    )
     sliced_file_paths: List[str] = []
     with Pool(processes=workers) as p:
         file_updated_bool_list: List[bool] = p.map(

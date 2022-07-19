@@ -17,9 +17,10 @@ from apysc._testing.testing_helper import assert_raises
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_docs_local_file_path() -> None:
     file_path: str = e2e_testing_helper.get_docs_local_file_path(
-        lang=Lang.EN, file_name='index')
-    assert file_path.startswith('file://')
-    assert file_path.endswith('/docs/en/index.html')
+        lang=Lang.EN, file_name="index"
+    )
+    assert file_path.startswith("file://")
+    assert file_path.endswith("/docs/en/index.html")
 
 
 class _MockConsoleMessage(ConsoleMessage):
@@ -69,34 +70,33 @@ class _MockConsoleMessage(ConsoleMessage):
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_local_file_console_event_handler() -> None:
     file_path: str = e2e_testing_helper.get_docs_local_file_path(
-        lang=Lang.EN, file_name='index')
-    handler: Callable[[ConsoleMessage], None] = e2e_testing_helper.\
-        _get_local_file_console_event_handler(
-            file_path=file_path)
-    message: ConsoleMessage = _MockConsoleMessage(
-        type='log', text='Test message 1.')
+        lang=Lang.EN, file_name="index"
+    )
+    handler: Callable[
+        [ConsoleMessage], None
+    ] = e2e_testing_helper._get_local_file_console_event_handler(file_path=file_path)
+    message: ConsoleMessage = _MockConsoleMessage(type="log", text="Test message 1.")
     handler(message)
 
-    message = _MockConsoleMessage(
-        type='assert', text='Test message 1.')
+    message = _MockConsoleMessage(type="assert", text="Test message 1.")
     handler = e2e_testing_helper._get_local_file_console_event_handler(
-        file_path=file_path,
-        expected_assert_f_msgs=['Test message 1.'])
+        file_path=file_path, expected_assert_f_msgs=["Test message 1."]
+    )
     handler(message)
 
-    message = _MockConsoleMessage(
-        type='assert', text='Test message 2.')
+    message = _MockConsoleMessage(type="assert", text="Test message 2.")
     assert_raises(
         expected_error_class=AssertionError,
         callable_=handler,
-        match='There is an unexpected assertion error',
-        message=message)
+        match="There is an unexpected assertion error",
+        message=message,
+    )
 
-    log_file_path: str = e2e_testing_helper.\
-        _get_local_file_assertion_err_file_path(file_path=file_path)
+    log_file_path: str = e2e_testing_helper._get_local_file_assertion_err_file_path(
+        file_path=file_path
+    )
     assert os.path.exists(log_file_path)
-    e2e_testing_helper._delete_local_file_assertion_error_logs(
-        file_path=file_path)
+    e2e_testing_helper._delete_local_file_assertion_error_logs(file_path=file_path)
 
 
 class _MockError(Error):
@@ -145,109 +145,114 @@ class _MockError(Error):
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_local_file_page_err_handler() -> None:
-    file_path: str = 'file://test/path.html'
-    handler: Callable[[Error], None] = e2e_testing_helper.\
-        _get_local_file_page_err_handler(
-            file_path=file_path)
+    file_path: str = "file://test/path.html"
+    handler: Callable[
+        [Error], None
+    ] = e2e_testing_helper._get_local_file_page_err_handler(file_path=file_path)
     err: Error = _MockError(
-        message='Test error!',
-        stack='Uncaught Error: Test error!\nat <anonymous>:1:7')
+        message="Test error!", stack="Uncaught Error: Test error!\nat <anonymous>:1:7"
+    )
     assert_raises(
         expected_error_class=AssertionError,
         callable_=handler,
-        match='There is an unexpected error',
+        match="There is an unexpected error",
         err=err,
     )
 
-    log_file_path: str = e2e_testing_helper.\
-        _get_local_file_page_err_file_path(file_path=file_path)
+    log_file_path: str = e2e_testing_helper._get_local_file_page_err_file_path(
+        file_path=file_path
+    )
     assert os.path.exists(log_file_path)
-    e2e_testing_helper._delete_local_file_assertion_error_logs(
-        file_path=file_path)
+    e2e_testing_helper._delete_local_file_assertion_error_logs(file_path=file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__replace_paths_symbols_by_underscore() -> None:
     file_path: str = e2e_testing_helper._replace_paths_symbols_by_underscore(
-        file_path='file://docs/en/index.html')
-    assert file_path == 'file___docs_en_index_html'
+        file_path="file://docs/en/index.html"
+    )
+    assert file_path == "file___docs_en_index_html"
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_local_file_page_err_file_path() -> None:
-    log_file_path: str = e2e_testing_helper.\
-        _get_local_file_page_err_file_path(
-            file_path='file://docs/en/index.html')
+    log_file_path: str = e2e_testing_helper._get_local_file_page_err_file_path(
+        file_path="file://docs/en/index.html"
+    )
     assert log_file_path == (
-        './tmp/e2e_testing_local_file_page_error_file'
-        '___docs_en_index_html.log'
+        "./tmp/e2e_testing_local_file_page_error_file" "___docs_en_index_html.log"
     )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_local_file_assertion_err_file_path() -> None:
-    log_file_path: str = e2e_testing_helper.\
-        _get_local_file_assertion_err_file_path(
-            file_path='file://docs/en/index.html')
+    log_file_path: str = e2e_testing_helper._get_local_file_assertion_err_file_path(
+        file_path="file://docs/en/index.html"
+    )
     assert log_file_path == (
-        './tmp/e2e_testing_local_file_assertion_error_file'
-        '___docs_en_index_html.log'
+        "./tmp/e2e_testing_local_file_assertion_error_file" "___docs_en_index_html.log"
     )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__delete_local_file_assertion_error_logs() -> None:
-    file_path: str = 'file://docs/en/index.html'
-    local_file_page_err_file_path: str = e2e_testing_helper.\
-        _get_local_file_page_err_file_path(file_path=file_path)
-    file_util.save_plain_txt(txt='', file_path=local_file_page_err_file_path)
+    file_path: str = "file://docs/en/index.html"
+    local_file_page_err_file_path: str = (
+        e2e_testing_helper._get_local_file_page_err_file_path(file_path=file_path)
+    )
+    file_util.save_plain_txt(txt="", file_path=local_file_page_err_file_path)
 
-    local_file_assertion_err_file_path: str = e2e_testing_helper.\
-        _get_local_file_assertion_err_file_path(file_path=file_path)
-    file_util.save_plain_txt(
-        txt='', file_path=local_file_assertion_err_file_path)
+    local_file_assertion_err_file_path: str = (
+        e2e_testing_helper._get_local_file_assertion_err_file_path(file_path=file_path)
+    )
+    file_util.save_plain_txt(txt="", file_path=local_file_assertion_err_file_path)
 
-    e2e_testing_helper._delete_local_file_assertion_error_logs(
-        file_path=file_path)
+    e2e_testing_helper._delete_local_file_assertion_error_logs(file_path=file_path)
     assert not os.path.exists(local_file_page_err_file_path)
     assert not os.path.exists(local_file_assertion_err_file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__assert_local_file_error_log_not_exits() -> None:
-    file_path: str = 'file://docs/en/index.html'
-    e2e_testing_helper._delete_local_file_assertion_error_logs(
-        file_path=file_path)
-    e2e_testing_helper._assert_local_file_error_log_not_exits(
-        file_path=file_path)
+    file_path: str = "file://docs/en/index.html"
+    e2e_testing_helper._delete_local_file_assertion_error_logs(file_path=file_path)
+    e2e_testing_helper._assert_local_file_error_log_not_exits(file_path=file_path)
 
-    local_file_page_err_file_path: str = e2e_testing_helper.\
-        _get_local_file_page_err_file_path(file_path=file_path)
-    file_util.save_plain_txt(txt='', file_path=local_file_page_err_file_path)
+    local_file_page_err_file_path: str = (
+        e2e_testing_helper._get_local_file_page_err_file_path(file_path=file_path)
+    )
+    file_util.save_plain_txt(txt="", file_path=local_file_page_err_file_path)
     assert_raises(
         expected_error_class=AssertionError,
-        callable_=e2e_testing_helper.
-        _assert_local_file_error_log_not_exits,
-        file_path=file_path)
+        callable_=e2e_testing_helper._assert_local_file_error_log_not_exits,
+        file_path=file_path,
+    )
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_local_files_not_raise_error() -> None:
     file_path: str = e2e_testing_helper.get_docs_local_file_path(
-        lang=Lang.EN, file_name='index')
-    local_file_data_list: List[LocalFileData] = [{
-        'file_path': file_path,
-        'expected_assertion_failed_msgs': None,
-    }]
+        lang=Lang.EN, file_name="index"
+    )
+    local_file_data_list: List[LocalFileData] = [
+        {
+            "file_path": file_path,
+            "expected_assertion_failed_msgs": None,
+        }
+    ]
     e2e_testing_helper.assert_local_files_not_raise_error(
-        local_file_data_list=local_file_data_list)
+        local_file_data_list=local_file_data_list
+    )
 
     file_path = e2e_testing_helper.get_docs_local_file_path(
-        lang=Lang.EN, file_name='assert_equal_and_not_equal')
-    local_file_data_list = [{
-        'file_path': file_path,
-        'expected_assertion_failed_msgs': None,
-    }]
+        lang=Lang.EN, file_name="assert_equal_and_not_equal"
+    )
+    local_file_data_list = [
+        {
+            "file_path": file_path,
+            "expected_assertion_failed_msgs": None,
+        }
+    ]
     assert_raises(
         expected_error_class=AssertionError,
         callable_=e2e_testing_helper.assert_local_files_not_raise_error,

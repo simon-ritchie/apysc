@@ -13,30 +13,29 @@ from apysc._testing import testing_helper
 
 
 class TestIf:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(True)
         locals_: Dict[str, Any] = locals()
         globals_: Dict[str, Any] = globals()
-        if_: ap.If = ap.If(
-            condition=boolean_1, locals_=locals_, globals_=globals_)
+        if_: ap.If = ap.If(condition=boolean_1, locals_=locals_, globals_=globals_)
         assert if_._condition
         testing_helper.assert_attrs(
             expected_attrs={
-                '_condition': boolean_1,
-                '_locals': locals_,
-                '_globals': globals_,
+                "_condition": boolean_1,
+                "_locals": locals_,
+                "_globals": globals_,
             },
-            any_obj=if_)
+            any_obj=if_,
+        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         int_2: ap.Int = ap.Int(20)
-        locals_: Dict[str, Any] = {'value1': int_1}
-        globals_: Dict[str, Any] = {'value2': int_2}
+        locals_: Dict[str, Any] = {"value1": int_1}
+        globals_: Dict[str, Any] = {"value2": int_2}
         boolean_1: ap.Boolean = ap.Boolean(True)
         with ap.If(condition=boolean_1, locals_=locals_, globals_=globals_):
             current_indent_num: int = indent_num.get_current_indent_num()
@@ -50,8 +49,8 @@ class TestIf:
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         int_2: ap.Int = ap.Int(20)
-        locals_: Dict[str, Any] = {'value1': int_1}
-        globals_: Dict[str, Any] = {'value2': int_2}
+        locals_: Dict[str, Any] = {"value1": int_1}
+        globals_: Dict[str, Any] = {"value2": int_2}
         boolean_1: ap.Boolean = ap.Boolean(True)
         last_scope_: LastScope = last_scope.get_last_scope()
         assert last_scope_ == LastScope.NORMAL
@@ -80,8 +79,7 @@ class TestIf:
             int_1.value = 20
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'if ({boolean_1.variable_name}) {{'
-            f'\n  {int_1.variable_name} = 20;'
+            f"if ({boolean_1.variable_name}) {{" f"\n  {int_1.variable_name} = 20;"
         )
         assert expected in expression
 
@@ -95,9 +93,9 @@ class TestIf:
             int_1.value = 20
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'if ({boolean_1.variable_name}) {{'
-            f'\n  {int_1.variable_name} = 20;'
-            '\n}'
+            f"if ({boolean_1.variable_name}) {{"
+            f"\n  {int_1.variable_name} = 20;"
+            "\n}"
         )
         assert expected in expression
 

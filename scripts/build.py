@@ -10,7 +10,7 @@ import sys
 from logging import Logger
 from typing import List
 
-sys.path.append('./')
+sys.path.append("./")
 
 from apysc._console import loggers
 
@@ -31,24 +31,23 @@ def _run_command(command: str) -> None:
     Exception
         If the command return code is not 0.
     """
-    logger.info(f'Command started: {command}')
-    popen = sp.Popen(
-        command, shell=True, stdout=sp.PIPE, stderr=sp.STDOUT)
+    logger.info(f"Command started: {command}")
+    popen = sp.Popen(command, shell=True, stdout=sp.PIPE, stderr=sp.STDOUT)
     stdout_bytes: bytes = popen.communicate()[0]
     try:
-        stdout: str = stdout_bytes.decode('utf-8')
+        stdout: str = stdout_bytes.decode("utf-8")
     except Exception:
-        stdout = stdout_bytes.decode('sjis')
+        stdout = stdout_bytes.decode("sjis")
     logger.info(stdout)
     if popen.returncode == 0:
         return
-    raise Exception(f'Command failed: {popen.returncode}')
+    raise Exception(f"Command failed: {popen.returncode}")
 
 
 _REMOVING_DIR_PATHS: List[str] = [
-    './build',
-    './dist',
-    './stubdoc.egg-info',
+    "./build",
+    "./dist",
+    "./stubdoc.egg-info",
 ]
 
 
@@ -61,17 +60,16 @@ def _remove_build_dirs() -> None:
 
 
 def _main() -> None:
-    """Script entry point.
-    """
+    """Script entry point."""
     _remove_build_dirs()
 
-    command: str = 'python ./scripts/setup.py sdist'
+    command: str = "python ./scripts/setup.py sdist"
     _run_command(command=command)
 
-    command = 'python ./scripts/setup.py bdist_wheel'
+    command = "python ./scripts/setup.py bdist_wheel"
     _run_command(command=command)
 
-    logger.info('Build completed!')
+    logger.info("Build completed!")
 
 
 if __name__ == "__main__":

@@ -7,7 +7,6 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationTimeInterface(VariableNameInterface):
-
     @add_debug_info_setting(module_name=__name__)
     def animation_time(self) -> Number:
         """
@@ -51,10 +50,11 @@ class AnimationTimeInterface(VariableNameInterface):
         ...     options=options).start()
         """
         import apysc as ap
+
         elapsed_time: Number = Number(0.0)
         expression: str = (
-            f'{elapsed_time.variable_name} = '
-            f'{self.variable_name}.timeline().time();'
+            f"{elapsed_time.variable_name} = "
+            f"{self.variable_name}.timeline().time();"
         )
         ap.append_js_expression(expression=expression)
         return elapsed_time

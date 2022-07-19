@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class AnimationMoveInterface(AnimationInterfaceBase):
-
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -19,13 +18,14 @@ class AnimationMoveInterface(AnimationInterfaceBase):
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.is_easing(arg_position_index=5)
     def animation_move(
-            self,
-            *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationMove:
+        self,
+        *,
+        x: Union[int, Int],
+        y: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationMove:
         """
         Set the x and y coordinates animation settings.
 
@@ -86,10 +86,6 @@ class AnimationMoveInterface(AnimationInterfaceBase):
         ... ).start()
         """
         animation_move: AnimationMove = AnimationMove(
-            target=self,
-            x=x,
-            y=y,
-            duration=duration,
-            delay=delay,
-            easing=easing)
+            target=self, x=x, y=y, duration=duration, delay=delay, easing=easing
+        )
         return animation_move

@@ -6,7 +6,6 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationPlayInterface(VariableNameInterface):
-
     @add_debug_info_setting(module_name=__name__)
     def animation_play(self) -> None:
         """
@@ -48,7 +47,6 @@ class AnimationPlayInterface(VariableNameInterface):
         >>> ap.Timer(on_timer_2, delay=1000, options=options).start()
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.timeline().play();'
-        )
+
+        expression: str = f"{self.variable_name}.timeline().play();"
         ap.append_js_expression(expression=expression)

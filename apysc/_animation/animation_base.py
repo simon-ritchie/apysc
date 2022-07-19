@@ -18,13 +18,12 @@ from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
 
-_T = TypeVar('_T', bound=VariableNameInterface)
-_O = TypeVar('_O')
-_Handler = Callable[['animation_event.AnimationEvent', _O], None]
+_T = TypeVar("_T", bound=VariableNameInterface)
+_O = TypeVar("_O")
+_Handler = Callable[["animation_event.AnimationEvent", _O], None]
 
 
-class AnimationBase(
-        VariableNameInterface, CustomEventInterface, Generic[_T], ABC):
+class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], ABC):
 
     _target: _T
     _duration: Int
@@ -54,12 +53,13 @@ class AnimationBase(
 
     @add_debug_info_setting(module_name=__name__)
     def _set_basic_animation_settings(
-            self,
-            *,
-            target: _T,
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> None:
+        self,
+        *,
+        target: _T,
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR,
+    ) -> None:
         """
         Set the basic animation settings.
 
@@ -76,11 +76,14 @@ class AnimationBase(
             Easing setting. If None, Linear calculation is used.
         """
         from apysc._converter import to_apysc_val_from_builtin
+
         self._target = target
-        self._duration = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=duration)
-        self._delay = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=delay)
+        self._duration = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+            integer=duration
+        )
+        self._delay = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+            integer=delay
+        )
         self._easing = easing
 
     def _get_animation_basic_expression(self) -> str:
@@ -93,17 +96,17 @@ class AnimationBase(
             An animation basic expression string.
         """
         expression: str = (
-            f'{self._target.variable_name}'
-            '\n  .animate({'
-            f'\n    duration: {self._duration.variable_name},'
-            f'\n    delay: {self._delay.variable_name}}})'
-            f'\n  .ease({self._easing.value})'
+            f"{self._target.variable_name}"
+            "\n  .animate({"
+            f"\n    duration: {self._duration.variable_name},"
+            f"\n    delay: {self._delay.variable_name}}})"
+            f"\n  .ease({self._easing.value})"
         )
         expression += self._get_animation_complete_handler_expression()
         return expression
 
     @add_debug_info_setting(module_name=__name__)
-    def start(self) -> 'AnimationBase':
+    def start(self) -> "AnimationBase":
         """
         Start an animation with current settings.
 
@@ -128,6 +131,7 @@ class AnimationBase(
         >>> _ = rectangle.animation_x(x=100).start()
         """
         import apysc as ap
+
         expression: str = self._get_animation_basic_expression()
         animation_expresssion: str = self._get_animation_func_expression()
         expression += animation_expresssion
@@ -151,22 +155,24 @@ class AnimationBase(
         returns multiple lines expression.
         """
         from apysc._event.custom_event_type import CustomEventType
+
         event_type: str = CustomEventType.ANIMATION_COMPLETE.value
         self._initialize_custom_event_handlers_if_not_initialized(
-            custom_event_type_str=event_type)
+            custom_event_type_str=event_type
+        )
         if event_type not in self._custom_event_handlers:
-            return ''
-        expression: str = ''
+            return ""
+        expression: str = ""
         for handler_name in self._custom_event_handlers[event_type].keys():
-            expression += f'\n  .after({handler_name})'
+            expression += f"\n  .after({handler_name})"
         return expression
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def animation_complete(
-            self, handler: _Handler[_O], *,
-            options: Optional[_O] = None) -> 'AnimationBase':
+        self, handler: _Handler[_O], *, options: Optional[_O] = None
+    ) -> "AnimationBase":
         """
         Add an animation complete event listener setting.
 
@@ -217,16 +223,19 @@ class AnimationBase(
         """
         import apysc as ap
         from apysc._event.custom_event_type import CustomEventType
+
         self._validate_animation_not_started()
         e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
-        in_handler_head_expression: str = \
+        in_handler_head_expression: str = (
             self._get_complete_event_in_handler_head_expression()
+        )
         self.bind_custom_event(
             custom_event_type=CustomEventType.ANIMATION_COMPLETE,
             handler=handler,
             e=e,
             options=options,
-            in_handler_head_expression=in_handler_head_expression)
+            in_handler_head_expression=in_handler_head_expression,
+        )
         return self
 
     @abstractmethod
@@ -248,8 +257,8 @@ class AnimationBase(
         if not self._started._value:
             return
         raise Exception(
-            'This interface can not be called after the animation '
-            'is started.')
+            "This interface can not be called after the animation " "is started."
+        )
 
     @property
     def target(self) -> _T:

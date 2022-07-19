@@ -12,7 +12,6 @@ from apysc._validation import arg_validation_decos
 
 
 class AnimationLineAlphaInterface(AnimationInterfaceBase):
-
     @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
@@ -20,12 +19,13 @@ class AnimationLineAlphaInterface(AnimationInterfaceBase):
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_line_alpha(
-            self,
-            *,
-            alpha: Union[float, Number],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationLineAlpha:
+        self,
+        *,
+        alpha: Union[float, Number],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationLineAlpha:
         """
         Set the line alpha animation setting.
 
@@ -84,9 +84,6 @@ class AnimationLineAlphaInterface(AnimationInterfaceBase):
         ... ).start()
         """
         animation_line_alpha: AnimationLineAlpha = AnimationLineAlpha(
-            target=self,
-            alpha=alpha,
-            duration=duration,
-            delay=delay,
-            easing=easing)
+            target=self, alpha=alpha, duration=duration, delay=delay, easing=easing
+        )
         return animation_line_alpha

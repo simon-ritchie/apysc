@@ -6,7 +6,6 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationResetInterface(VariableNameInterface):
-
     @add_debug_info_setting(module_name=__name__)
     def animation_reset(self) -> None:
         """
@@ -42,7 +41,6 @@ class AnimationResetInterface(VariableNameInterface):
         >>> ap.Timer(on_timer, delay=750, options=options).start()
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.timeline().stop();'
-        )
+
+        expression: str = f"{self.variable_name}.timeline().stop();"
         ap.append_js_expression(expression=expression)

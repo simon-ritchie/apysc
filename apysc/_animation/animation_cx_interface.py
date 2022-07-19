@@ -12,19 +12,19 @@ from apysc._validation import arg_validation_decos
 
 
 class AnimationCxInterface(AnimationInterfaceBase):
-
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_x(
-            self,
-            *,
-            x: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationCx:
+        self,
+        *,
+        x: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationCx:
         """
         Set the center-x coordinate animation setting.
 
@@ -81,9 +81,6 @@ class AnimationCxInterface(AnimationInterfaceBase):
         ... ).start()
         """
         animation_cx: AnimationCx = AnimationCx(
-            target=self,
-            x=x,
-            duration=duration,
-            delay=delay,
-            easing=easing)
+            target=self, x=x, duration=duration, delay=delay, easing=easing
+        )
         return animation_cx

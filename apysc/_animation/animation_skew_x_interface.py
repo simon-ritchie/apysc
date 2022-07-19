@@ -11,19 +11,19 @@ from apysc._validation import arg_validation_decos
 
 
 class AnimationSkewXInterface(AnimationInterfaceBase):
-
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_skew_x(
-            self,
-            *,
-            skew_x: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationSkewX:
+        self,
+        *,
+        skew_x: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationSkewX:
         """
         Set the skew-x animation setting.
 
@@ -80,9 +80,6 @@ class AnimationSkewXInterface(AnimationInterfaceBase):
         ... ).start()
         """
         animation_skew_x: AnimationSkewX = AnimationSkewX(
-            target=self,
-            skew_x=skew_x,
-            duration=duration,
-            delay=delay,
-            easing=easing)
+            target=self, skew_x=skew_x, duration=duration, delay=delay, easing=easing
+        )
         return animation_skew_x

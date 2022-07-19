@@ -11,23 +11,23 @@ from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
-StrOrString = TypeVar('StrOrString', str, String)
+StrOrString = TypeVar("StrOrString", str, String)
 
 
 class AnimationLineColorInterface(AnimationInterfaceBase):
-
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_line_color(
-            self,
-            *,
-            line_color: StrOrString,
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationLineColor:
+        self,
+        *,
+        line_color: StrOrString,
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationLineColor:
         """
         Set the line color animation setting.
 
@@ -90,5 +90,6 @@ class AnimationLineColorInterface(AnimationInterfaceBase):
             line_color=line_color,
             duration=duration,
             delay=delay,
-            easing=easing)
+            easing=easing,
+        )
         return animation_line_color

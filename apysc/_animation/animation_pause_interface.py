@@ -6,7 +6,6 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationPauseInterface(VariableNameInterface):
-
     @add_debug_info_setting(module_name=__name__)
     def animation_pause(self) -> None:
         """
@@ -42,7 +41,6 @@ class AnimationPauseInterface(VariableNameInterface):
         >>> ap.Timer(on_timer, delay=750, options=options).start()
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.timeline().pause();'
-        )
+
+        expression: str = f"{self.variable_name}.timeline().pause();"
         ap.append_js_expression(expression=expression)

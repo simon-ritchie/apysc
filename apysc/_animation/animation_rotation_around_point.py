@@ -12,7 +12,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
-_T = TypeVar('_T', bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameInterface)
 
 
 class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
@@ -63,15 +63,16 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            target: _T,
-            rotation_around_point: Union[int, Int],
-            x: Union[int, Int],
-            y: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> None:
+        self,
+        *,
+        target: _T,
+        rotation_around_point: Union[int, Int],
+        x: Union[int, Int],
+        y: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR,
+    ) -> None:
         """
         The animation class for a rotation around the given point.
 
@@ -100,38 +101,40 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
             instance.
         """
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._display.rotation_around_point_interface import \
-            RotationAroundPointInterface
+        from apysc._display.rotation_around_point_interface import (
+            RotationAroundPointInterface,
+        )
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(
-                type_name=var_names.ANIMATION_ROTATION_AROUND_POINT)
-        self._x = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=x)
-        self._y = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=y)
+
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.ANIMATION_ROTATION_AROUND_POINT
+        )
+        self._x = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=x)
+        self._y = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=y)
         target_: VariableNameInterface = target
         if isinstance(target_, RotationAroundPointInterface):
             target_._initialize_rotation_around_point_if_not_initialized()
-            self._before_rotation_around_point = target_.\
-                get_rotation_around_point(x=self._x, y=self._y)
+            self._before_rotation_around_point = target_.get_rotation_around_point(
+                x=self._x, y=self._y
+            )
         else:
             raise TypeError(
-                'Specified `target` argument is not a '
-                f'RotationAroundPointInterface instance: {type(target_)}')
-        self._rotation_around_point = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=rotation_around_point)
+                "Specified `target` argument is not a "
+                f"RotationAroundPointInterface instance: {type(target_)}"
+            )
+        self._rotation_around_point = (
+            to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+                integer=rotation_around_point
+            )
+        )
         self._rotation_around_point_diff = (
-            self._rotation_around_point
-            - self._before_rotation_around_point)
+            self._rotation_around_point - self._before_rotation_around_point
+        )
         self._set_basic_animation_settings(
-            target=target,
-            duration=duration,
-            delay=delay,
-            easing=easing)
-        super(AnimationRotationAroundPoint, self).__init__(
-            variable_name=variable_name)
+            target=target, duration=duration, delay=delay, easing=easing
+        )
+        super(AnimationRotationAroundPoint, self).__init__(variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """
@@ -143,11 +146,13 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
+
         diff_str: str = value_util.get_value_str_for_expression(
-            value=self._rotation_around_point_diff)
+            value=self._rotation_around_point_diff
+        )
         x_str: str = value_util.get_value_str_for_expression(value=self._x)
         y_str: str = value_util.get_value_str_for_expression(value=self._y)
-        return f'\n  .rotate({diff_str}, {x_str}, {y_str});'
+        return f"\n  .rotate({diff_str}, {x_str}, {y_str});"
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
@@ -161,25 +166,32 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display import rotation_interface_helper
-        from apysc._display.rotation_around_point_interface import \
-            RotationAroundPointInterface
+        from apysc._display.rotation_around_point_interface import (
+            RotationAroundPointInterface,
+        )
         from apysc._type import value_util
-        expression: str = ''
+
+        expression: str = ""
         if isinstance(self._target, RotationAroundPointInterface):
-            self._target.\
-                _initialize_rotation_around_point_if_not_initialized()
-            key_exp_str: str = rotation_interface_helper.\
-                get_coordinates_key_for_expression(
-                    x=self._x, y=self._y).value
-            target_rotation_around_point_value_str: str = value_util.\
-                get_value_str_for_expression(
-                    value=self._target._rotation_around_point)
-            rotation_around_point_value_str: str = value_util.\
-                get_value_str_for_expression(
-                    value=self._rotation_around_point)
+            self._target._initialize_rotation_around_point_if_not_initialized()
+            key_exp_str: str = (
+                rotation_interface_helper.get_coordinates_key_for_expression(
+                    x=self._x, y=self._y
+                ).value
+            )
+            target_rotation_around_point_value_str: str = (
+                value_util.get_value_str_for_expression(
+                    value=self._target._rotation_around_point
+                )
+            )
+            rotation_around_point_value_str: str = (
+                value_util.get_value_str_for_expression(
+                    value=self._rotation_around_point
+                )
+            )
             expression = (
-                f'{target_rotation_around_point_value_str}'
-                f'[{key_exp_str}] = '
-                f'{rotation_around_point_value_str};'
+                f"{target_rotation_around_point_value_str}"
+                f"[{key_exp_str}] = "
+                f"{rotation_around_point_value_str};"
             )
         return expression

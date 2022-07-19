@@ -3,22 +3,21 @@
 
 from typing import Union
 
-from apysc._animation.animation_height_for_ellipse import \
-    AnimationHeightForEllipse
+from apysc._animation.animation_height_for_ellipse import AnimationHeightForEllipse
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 
 
 class AnimationHeightForEllipseInterface(AnimationInterfaceBase):
-
     def animation_height(
-            self,
-            *,
-            height: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationHeightForEllipse:
+        self,
+        *,
+        height: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationHeightForEllipse:
         """
         Set the ellipse-height animation setting.
 
@@ -74,11 +73,13 @@ class AnimationHeightForEllipseInterface(AnimationInterfaceBase):
         ...     easing=ap.Easing.EASE_OUT_QUINT,
         ... ).start()
         """
-        animation_height_for_ellipse: AnimationHeightForEllipse = \
+        animation_height_for_ellipse: AnimationHeightForEllipse = (
             AnimationHeightForEllipse(
                 target=self,
                 height=height,
                 duration=duration,
                 delay=delay,
-                easing=easing)
+                easing=easing,
+            )
+        )
         return animation_height_for_ellipse

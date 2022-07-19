@@ -15,7 +15,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
-_T = TypeVar('_T', bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameInterface)
 
 
 class AnimationParallel(AnimationBase[_T], Generic[_T]):
@@ -61,13 +61,14 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            target: _T,
-            animations: List[AnimationBase],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> None:
+        self,
+        *,
+        target: _T,
+        animations: List[AnimationBase],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR,
+    ) -> None:
         """
         The parallel animation setting class.
 
@@ -95,18 +96,15 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.ANIMATION_PARALLEL)
+
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.ANIMATION_PARALLEL
+        )
         self._animations = animations
         self._set_basic_animation_settings(
-            target=target,
-            duration=duration,
-            delay=delay,
-            easing=easing)
-        super(
-            AnimationParallel,
-            self).__init__(
-            variable_name=variable_name)
+            target=target, duration=duration, delay=delay, easing=easing
+        )
+        super(AnimationParallel, self).__init__(variable_name=variable_name)
         self._validate_animation_targets_are_unified()
         self._validate_animations_duration_are_default_vals()
         self._validate_animations_delay_are_default_vals()
@@ -127,11 +125,11 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             if animation._easing == Easing.LINEAR:
                 continue
             err_msg: str = (
-                'There is an animation target that is changed '
-                f'easing setting: {animation._easing.name}'
-                '\nThe easing setting of animation in the `animations` '
-                'argument can not be changed.'
-                f'\nTarget animation type: {type(animation)}'
+                "There is an animation target that is changed "
+                f"easing setting: {animation._easing.name}"
+                "\nThe easing setting of animation in the `animations` "
+                "argument can not be changed."
+                f"\nTarget animation type: {type(animation)}"
             )
             raise ValueError(err_msg)
 
@@ -150,11 +148,11 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             if animation._delay._value == 0:
                 continue
             err_msg: str = (
-                'There is an animation target that is changed '
-                f'delay setting: {animation._delay._value}'
-                '\nThe delay setting of animation in the `animations`'
-                'argument can not be changed.'
-                f'\nTarget animation type: {type(animation)}'
+                "There is an animation target that is changed "
+                f"delay setting: {animation._delay._value}"
+                "\nThe delay setting of animation in the `animations`"
+                "argument can not be changed."
+                f"\nTarget animation type: {type(animation)}"
             )
             raise ValueError(err_msg)
 
@@ -173,11 +171,11 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             if animation._duration._value == 3000:
                 continue
             err_msg: str = (
-                'There is an animation target that is changed '
-                f'duration setting: {animation._duration._value}'
-                '\nThe duration setting of animation in the '
-                '`animations` argument can not be changed.'
-                f'\nTarget animation type: {type(animation)}'
+                "There is an animation target that is changed "
+                f"duration setting: {animation._duration._value}"
+                "\nThe duration setting of animation in the "
+                "`animations` argument can not be changed."
+                f"\nTarget animation type: {type(animation)}"
             )
             raise ValueError(err_msg)
 
@@ -195,13 +193,13 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             if animation._target == self._target:
                 continue
             err_msg: str = (
-                'There is not unified animation target instance: '
-                f'{animation._target} (type: {type(animation._target)})'
-                f'\nExpected instance: {self._target} (type: '
-                f'{type(self._target)})'
-                f'\nTarget animation type: {type(animation)}'
-                f'\nPlease unify the animation targets of the '
-                'animation_parallel interface argument.'
+                "There is not unified animation target instance: "
+                f"{animation._target} (type: {type(animation._target)})"
+                f"\nExpected instance: {self._target} (type: "
+                f"{type(self._target)})"
+                f"\nTarget animation type: {type(animation)}"
+                f"\nPlease unify the animation targets of the "
+                "animation_parallel interface argument."
             )
             raise ValueError(err_msg)
 
@@ -214,27 +212,24 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
         expression : str
             Animation function expression.
         """
-        expression: str = ''
+        expression: str = ""
         attr_strs: List[str] = []
         for i, animation in enumerate(self._animations):
-            single_expression: str = \
-                animation._get_animation_func_expression()
-            single_expression = single_expression.replace(';', '')
-            if '.attr' in single_expression:
+            single_expression: str = animation._get_animation_func_expression()
+            single_expression = single_expression.replace(";", "")
+            if ".attr" in single_expression:
                 match: Optional[Match] = re.search(
-                    pattern=(
-                        r'.*\.attr\({(.*?)}\)'
-                    ),
+                    pattern=(r".*\.attr\({(.*?)}\)"),
                     string=single_expression,
-                    flags=re.MULTILINE | re.DOTALL)
+                    flags=re.MULTILINE | re.DOTALL,
+                )
                 if match is not None:
                     attr_strs.append(match.group(1))
             else:
                 expression += single_expression
             if i == len(self._animations) - 1:
-                expression += self._make_animation_attr_exp(
-                    attr_strs=attr_strs)
-                expression += ';'
+                expression += self._make_animation_attr_exp(attr_strs=attr_strs)
+                expression += ";"
         return expression
 
     def _make_animation_attr_exp(self, *, attr_strs: List[str]) -> str:
@@ -251,12 +246,12 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
         expression : str
             Created attribute expression string.
         """
-        expression: str = '\n  .attr({'
+        expression: str = "\n  .attr({"
         for i, attr_str in enumerate(attr_strs):
-            expression += f'\n    {attr_str}'
+            expression += f"\n    {attr_str}"
             if i != len(attr_strs) - 1:
-                expression += ','
-        expression += '\n  })'
+                expression += ","
+        expression += "\n  })"
         return expression
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
@@ -270,11 +265,12 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        expression: str = ''
+        expression: str = ""
         for animation in self._animations:
-            if expression != '':
-                expression += '\n'
-            single_expression: str = animation.\
-                _get_complete_event_in_handler_head_expression()
+            if expression != "":
+                expression += "\n"
+            single_expression: str = (
+                animation._get_complete_event_in_handler_head_expression()
+            )
             expression += single_expression
         return expression

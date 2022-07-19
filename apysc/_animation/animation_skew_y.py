@@ -11,7 +11,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
-_T = TypeVar('_T', bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameInterface)
 
 
 class AnimationSkewY(AnimationBase[_T], Generic[_T]):
@@ -55,13 +55,14 @@ class AnimationSkewY(AnimationBase[_T], Generic[_T]):
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            target: _T,
-            skew_y: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> None:
+        self,
+        *,
+        target: _T,
+        skew_y: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR,
+    ) -> None:
         """
         The animation class for a skew-y.
 
@@ -88,24 +89,26 @@ class AnimationSkewY(AnimationBase[_T], Generic[_T]):
         from apysc._display.skew_y_interface import SkewYInterface
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.ANIMATION_SKEW_Y)
+
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.ANIMATION_SKEW_Y
+        )
         target_: VariableNameInterface = target
         if isinstance(target_, SkewYInterface):
             target_._initialize_skew_y_if_not_initialized()
             self._before_skew_y = target_._skew_y
         else:
             raise TypeError(
-                'Specified `target` argument is not a SkewYInterface '
-                f'instance: {type(target_)}')
-        self._skew_y = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=skew_y)
+                "Specified `target` argument is not a SkewYInterface "
+                f"instance: {type(target_)}"
+            )
+        self._skew_y = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+            integer=skew_y
+        )
         self._skew_y_diff = self._skew_y - self._before_skew_y
         self._set_basic_animation_settings(
-            target=target,
-            duration=duration,
-            delay=delay,
-            easing=easing)
+            target=target, duration=duration, delay=delay, easing=easing
+        )
         super(AnimationSkewY, self).__init__(variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
@@ -118,9 +121,9 @@ class AnimationSkewY(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
-        diff_str: str = value_util.get_value_str_for_expression(
-            value=self._skew_y_diff)
-        return f'\n  .skew(0, {diff_str});'
+
+        diff_str: str = value_util.get_value_str_for_expression(value=self._skew_y_diff)
+        return f"\n  .skew(0, {diff_str});"
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
@@ -134,11 +137,12 @@ class AnimationSkewY(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display.skew_y_interface import SkewYInterface
-        expression: str = ''
+
+        expression: str = ""
         if isinstance(self._target, SkewYInterface):
             self._target._initialize_skew_y_if_not_initialized()
             expression = (
-                f'{self._target._skew_y.variable_name} = '
-                f'{self._skew_y.variable_name};'
+                f"{self._target._skew_y.variable_name} = "
+                f"{self._skew_y.variable_name};"
             )
         return expression

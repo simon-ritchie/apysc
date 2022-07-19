@@ -11,7 +11,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
-_T = TypeVar('_T', bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameInterface)
 
 
 class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
@@ -55,13 +55,14 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            target: _T,
-            width: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> None:
+        self,
+        *,
+        target: _T,
+        width: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR,
+    ) -> None:
         """
         The animation class for the ellipse-width.
 
@@ -82,18 +83,17 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(
-                type_name=var_names.ANIMATION_WIDTH_FOR_ELLIPSE)
-        self._width = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=width)
+
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.ANIMATION_WIDTH_FOR_ELLIPSE
+        )
+        self._width = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+            integer=width
+        )
         self._set_basic_animation_settings(
-            target=target,
-            duration=duration,
-            delay=delay,
-            easing=easing)
-        super(AnimationWidthForEllipse, self).__init__(
-            variable_name=variable_name)
+            target=target, duration=duration, delay=delay, easing=easing
+        )
+        super(AnimationWidthForEllipse, self).__init__(variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """
@@ -105,9 +105,9 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
-        width_str: str = value_util.get_value_str_for_expression(
-            value=self._width)
-        return f'\n  .attr({{rx: Math.trunc({width_str} / 2)}});'
+
+        width_str: str = value_util.get_value_str_for_expression(value=self._width)
+        return f"\n  .attr({{rx: Math.trunc({width_str} / 2)}});"
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
@@ -120,13 +120,15 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.width_and_height_interfaces_for_ellipse import \
-            WidthAndHeightInterfacesForEllipse
-        expression: str = ''
+        from apysc._display.width_and_height_interfaces_for_ellipse import (
+            WidthAndHeightInterfacesForEllipse,
+        )
+
+        expression: str = ""
         if isinstance(self._target, WidthAndHeightInterfacesForEllipse):
             self._target._initialize_width_and_height_if_not_initialized()
             expression = (
-                f'{self._target._width.variable_name} = '
-                f'{self._width.variable_name};'
+                f"{self._target._width.variable_name} = "
+                f"{self._width.variable_name};"
             )
         return expression

@@ -5,8 +5,7 @@ interface.
 from typing import Union
 
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
-from apysc._animation.animation_scale_y_from_center import \
-    AnimationScaleYFromCenter
+from apysc._animation.animation_scale_y_from_center import AnimationScaleYFromCenter
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -14,19 +13,19 @@ from apysc._validation import arg_validation_decos
 
 
 class AnimationScaleYFromCenterInterface(AnimationInterfaceBase):
-
     @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_scale_y_from_center(
-            self,
-            *,
-            scale_y_from_center: Union[float, Number],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationScaleYFromCenter:
+        self,
+        *,
+        scale_y_from_center: Union[float, Number],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationScaleYFromCenter:
         """
         Set the scale-y from the center point animation setting.
 
@@ -82,11 +81,13 @@ class AnimationScaleYFromCenterInterface(AnimationInterfaceBase):
         ...     easing=ap.Easing.EASE_OUT_QUINT,
         ... ).start()
         """
-        animation_scale_y_from_center: AnimationScaleYFromCenter = \
+        animation_scale_y_from_center: AnimationScaleYFromCenter = (
             AnimationScaleYFromCenter(
                 target=self,
                 scale_y_from_center=scale_y_from_center,
                 duration=duration,
                 delay=delay,
-                easing=easing)
+                easing=easing,
+            )
+        )
         return animation_scale_y_from_center

@@ -13,7 +13,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_interface import VariableNameInterface
 
-_T = TypeVar('_T', bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameInterface)
 
 
 class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
@@ -62,14 +62,15 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            target: _T,
-            scale_x_from_point: Union[float, Number],
-            x: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> None:
+        self,
+        *,
+        target: _T,
+        scale_x_from_point: Union[float, Number],
+        x: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR,
+    ) -> None:
         """
         The animation class for a scale-x from the given point.
 
@@ -97,38 +98,36 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
         """
         import apysc as ap
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._display.scale_x_from_point_interface import \
-            ScaleXFromPointInterface
+        from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(
-                type_name=var_names.ANIMATION_SCALE_X_FROM_POINT)
-        self._x = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=x)
+
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.ANIMATION_SCALE_X_FROM_POINT
+        )
+        self._x = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=x)
         target_: VariableNameInterface = target
         if isinstance(target_, ScaleXFromPointInterface):
             target_._initialize_scale_x_from_point_if_not_initialized()
-            self._before_scale_x_from_point = target_.\
-                get_scale_x_from_point(x=self._x)
+            self._before_scale_x_from_point = target_.get_scale_x_from_point(x=self._x)
         else:
             raise TypeError(
-                'Specified `target` argument is not a '
-                f'ScaleXFromPointInterface: {type(target_)}')
-        self._scale_x_from_point = to_apysc_val_from_builtin.\
-            get_copied_number_from_builtin_val(
-                float_or_num=scale_x_from_point)
+                "Specified `target` argument is not a "
+                f"ScaleXFromPointInterface: {type(target_)}"
+            )
+        self._scale_x_from_point = (
+            to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+                float_or_num=scale_x_from_point
+            )
+        )
         one: ap.Number = ap.Number(1.0)
         self._scale_x_from_point_diff_ratio = (
-            one / self._before_scale_x_from_point
-            * self._scale_x_from_point)
+            one / self._before_scale_x_from_point * self._scale_x_from_point
+        )
         self._set_basic_animation_settings(
-            target=target,
-            duration=duration,
-            delay=delay,
-            easing=easing)
-        super(AnimationScaleXFromPoint, self).__init__(
-            variable_name=variable_name)
+            target=target, duration=duration, delay=delay, easing=easing
+        )
+        super(AnimationScaleXFromPoint, self).__init__(variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """
@@ -140,10 +139,12 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
+
         diff_ratio_str: str = value_util.get_value_str_for_expression(
-            value=self._scale_x_from_point_diff_ratio)
+            value=self._scale_x_from_point_diff_ratio
+        )
         x_str: str = value_util.get_value_str_for_expression(value=self._x)
-        return f'\n  .scale({diff_ratio_str}, 1, {x_str}, 0);'
+        return f"\n  .scale({diff_ratio_str}, 1, {x_str}, 0);"
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
@@ -157,20 +158,20 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display import scale_interface_helper
-        from apysc._display.scale_x_from_point_interface import \
-            ScaleXFromPointInterface
+        from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
         from apysc._type import value_util
-        expression: str = ''
+
+        expression: str = ""
         if isinstance(self._target, ScaleXFromPointInterface):
             self._target._initialize_scale_x_from_point_if_not_initialized()
-            key_exp_str: str = scale_interface_helper.\
-                get_coordinate_key_for_expression(coordinate=self._x).value
+            key_exp_str: str = scale_interface_helper.get_coordinate_key_for_expression(
+                coordinate=self._x
+            ).value
             target_scale_x_str: str = value_util.get_value_str_for_expression(
-                value=self._target._scale_x_from_point)
-            scale_x_str: str = value_util.get_value_str_for_expression(
-                value=self._scale_x_from_point)
-            expression = (
-                f'{target_scale_x_str}[{key_exp_str}] = '
-                f'{scale_x_str};'
+                value=self._target._scale_x_from_point
             )
+            scale_x_str: str = value_util.get_value_str_for_expression(
+                value=self._scale_x_from_point
+            )
+            expression = f"{target_scale_x_str}[{key_exp_str}] = " f"{scale_x_str};"
         return expression

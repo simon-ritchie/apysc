@@ -6,7 +6,6 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationReverseInterface(VariableNameInterface):
-
     @add_debug_info_setting(module_name=__name__)
     def animation_reverse(self) -> None:
         """
@@ -51,7 +50,6 @@ class AnimationReverseInterface(VariableNameInterface):
         >>> ap.Timer(on_timer, delay=750, options=options).start()
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.timeline().reverse();'
-        )
+
+        expression: str = f"{self.variable_name}.timeline().reverse();"
         ap.append_js_expression(expression=expression)

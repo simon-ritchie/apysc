@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class AnimationRadiusInterface(AnimationInterfaceBase):
-
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
@@ -19,12 +18,13 @@ class AnimationRadiusInterface(AnimationInterfaceBase):
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_radius(
-            self,
-            *,
-            radius: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationRadius:
+        self,
+        *,
+        radius: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationRadius:
         """
         Set the radius animation setting.
 
@@ -81,9 +81,6 @@ class AnimationRadiusInterface(AnimationInterfaceBase):
         ... ).start()
         """
         animation_radius: AnimationRadius = AnimationRadius(
-            target=self,
-            radius=radius,
-            duration=duration,
-            delay=delay,
-            easing=easing)
+            target=self, radius=radius, duration=duration, delay=delay, easing=easing
+        )
         return animation_radius

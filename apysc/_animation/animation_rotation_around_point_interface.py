@@ -5,15 +5,15 @@ interface.
 from typing import Union
 
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
-from apysc._animation.animation_rotation_around_point import \
-    AnimationRotationAroundPoint
+from apysc._animation.animation_rotation_around_point import (
+    AnimationRotationAroundPoint,
+)
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
 class AnimationRotationAroundPointInterface(AnimationInterfaceBase):
-
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -22,14 +22,15 @@ class AnimationRotationAroundPointInterface(AnimationInterfaceBase):
     @arg_validation_decos.is_integer(arg_position_index=5)
     @arg_validation_decos.is_easing(arg_position_index=6)
     def animation_rotation_around_point(
-            self,
-            *,
-            rotation_around_point: Union[int, Int],
-            x: Union[int, Int],
-            y: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationRotationAroundPoint:
+        self,
+        *,
+        rotation_around_point: Union[int, Int],
+        x: Union[int, Int],
+        y: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationRotationAroundPoint:
         """
         Set the rotation around the given point animation setting.
 
@@ -91,7 +92,7 @@ class AnimationRotationAroundPointInterface(AnimationInterfaceBase):
         ...     easing=ap.Easing.EASE_OUT_QUINT,
         ... ).start()
         """
-        animation_rotation_around_point: AnimationRotationAroundPoint = \
+        animation_rotation_around_point: AnimationRotationAroundPoint = (
             AnimationRotationAroundPoint(
                 target=self,
                 rotation_around_point=rotation_around_point,
@@ -99,5 +100,7 @@ class AnimationRotationAroundPointInterface(AnimationInterfaceBase):
                 y=y,
                 duration=duration,
                 delay=delay,
-                easing=easing)
+                easing=easing,
+            )
+        )
         return animation_rotation_around_point

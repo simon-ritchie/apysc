@@ -12,7 +12,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_interface import VariableNameInterface
 
-_T = TypeVar('_T', bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameInterface)
 
 
 class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
@@ -58,13 +58,14 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
 
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            target: _T,
-            alpha: Union[float, Number],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> None:
+        self,
+        *,
+        target: _T,
+        alpha: Union[float, Number],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR,
+    ) -> None:
         """
         The animation class for the line alpha.
 
@@ -85,18 +86,17 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(
-                type_name=var_names.ANIMATION_LINE_ALPHA)
-        self._line_alpha = to_apysc_val_from_builtin.\
-            get_copied_number_from_builtin_val(float_or_num=alpha)
+
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.ANIMATION_LINE_ALPHA
+        )
+        self._line_alpha = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=alpha
+        )
         self._set_basic_animation_settings(
-            target=target,
-            duration=duration,
-            delay=delay,
-            easing=easing)
-        super(AnimationLineAlpha, self).__init__(
-            variable_name=variable_name)
+            target=target, duration=duration, delay=delay, easing=easing
+        )
+        super(AnimationLineAlpha, self).__init__(variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """
@@ -108,8 +108,10 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
+
         line_alpha_str: str = value_util.get_value_str_for_expression(
-            value=self._line_alpha)
+            value=self._line_alpha
+        )
         return f'\n  .attr({{"stroke-opacity": {line_alpha_str}}});'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
@@ -124,11 +126,12 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display.line_alpha_interface import LineAlphaInterface
-        expression: str = ''
+
+        expression: str = ""
         if isinstance(self._target, LineAlphaInterface):
             self._target._initialize_line_alpha_if_not_initialized()
             expression = (
-                f'{self._target._line_alpha.variable_name} = '
-                f'{self._line_alpha.variable_name};'
+                f"{self._target._line_alpha.variable_name} = "
+                f"{self._line_alpha.variable_name};"
             )
         return expression

@@ -5,27 +5,28 @@ interface.
 from typing import Union
 
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
-from apysc._animation.animation_rotation_around_center import \
-    AnimationRotationAroundCenter
+from apysc._animation.animation_rotation_around_center import (
+    AnimationRotationAroundCenter,
+)
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
 class AnimationRotationAroundCenterInterface(AnimationInterfaceBase):
-
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_rotation_around_center(
-            self,
-            *,
-            rotation_around_center: Union[int, Int],
-            duration: Union[int, Int] = 3000,
-            delay: Union[int, Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationRotationAroundCenter:
+        self,
+        *,
+        rotation_around_center: Union[int, Int],
+        duration: Union[int, Int] = 3000,
+        delay: Union[int, Int] = 0,
+        easing: Easing = Easing.LINEAR
+    ) -> AnimationRotationAroundCenter:
         """
         Set the rotation around the center animation setting.
 
@@ -81,11 +82,13 @@ class AnimationRotationAroundCenterInterface(AnimationInterfaceBase):
         ...     easing=ap.Easing.EASE_OUT_QUINT,
         ... ).start()
         """
-        animation_rotation_around_center: AnimationRotationAroundCenter = \
+        animation_rotation_around_center: AnimationRotationAroundCenter = (
             AnimationRotationAroundCenter(
                 target=self,
                 rotation_around_center=rotation_around_center,
                 duration=duration,
                 delay=delay,
-                easing=easing)
+                easing=easing,
+            )
+        )
         return animation_rotation_around_center

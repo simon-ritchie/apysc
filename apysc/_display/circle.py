@@ -19,25 +19,26 @@ from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.radius_interface import RadiusInterface
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import \
-    AttrToApyscValFromBuiltinInterface
+from apysc._type.attr_to_apysc_val_from_builtin_interface import (
+    AttrToApyscValFromBuiltinInterface,
+)
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class Circle(
-        CxInterface,
-        CyInterface,
-        GraphicsBase,
-        RadiusInterface,
-        FillColorInterface,
-        FillAlphaInterface,
-        VariableNameSuffixInterface,
-        AttrToApyscValFromBuiltinInterface):
+    CxInterface,
+    CyInterface,
+    GraphicsBase,
+    RadiusInterface,
+    FillColorInterface,
+    FillAlphaInterface,
+    VariableNameSuffixInterface,
+    AttrToApyscValFromBuiltinInterface,
+):
     """
     The circle vector graphics class.
 
@@ -70,8 +71,7 @@ class Circle(
     """
 
     # self
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # x
     @arg_validation_decos.is_integer(arg_position_index=1)
     # y
@@ -91,11 +91,9 @@ class Circle(
     @arg_validation_decos.is_integer(arg_position_index=8)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=8)
     # line_cap
-    @arg_validation_decos.is_line_cap(
-        arg_position_index=9, optional=True)
+    @arg_validation_decos.is_line_cap(arg_position_index=9, optional=True)
     # line_joints
-    @arg_validation_decos.is_line_joints(
-        arg_position_index=10, optional=True)
+    @arg_validation_decos.is_line_joints(arg_position_index=10, optional=True)
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=11)
     # line_dash_setting
@@ -106,30 +104,31 @@ class Circle(
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=14)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=15, optional=True)
+        arg_position_index=15, optional=True
+    )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=16, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=16, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            radius: Union[int, Int],
-            fill_color: Union[str, String] = '',
-            fill_alpha: Union[float, Number] = 1.0,
-            line_color: Union[str, String] = '',
-            line_alpha: Union[float, Number] = 1.0,
-            line_thickness: Union[int, Int] = 1,
-            line_cap: Op[Union[String, LineCaps]] = None,
-            line_joints: Op[Union[String, LineJoints]] = None,
-            line_dot_setting: Op[LineDotSetting] = None,
-            line_dash_setting: Op[LineDashSetting] = None,
-            line_round_dot_setting: Op[LineRoundDotSetting] = None,
-            line_dash_dot_setting: Op[LineDashDotSetting] = None,
-            parent: Op[ChildInterface] = None,
-            variable_name_suffix: str = '') -> None:
+        self,
+        *,
+        x: Union[int, Int],
+        y: Union[int, Int],
+        radius: Union[int, Int],
+        fill_color: Union[str, String] = "",
+        fill_alpha: Union[float, Number] = 1.0,
+        line_color: Union[str, String] = "",
+        line_alpha: Union[float, Number] = 1.0,
+        line_thickness: Union[int, Int] = 1,
+        line_cap: Op[Union[String, LineCaps]] = None,
+        line_joints: Op[Union[String, LineJoints]] = None,
+        line_dot_setting: Op[LineDotSetting] = None,
+        line_dash_setting: Op[LineDashSetting] = None,
+        line_round_dot_setting: Op[LineRoundDotSetting] = None,
+        line_dash_dot_setting: Op[LineDashDotSetting] = None,
+        parent: Op[ChildInterface] = None,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Create a circle vector graphic.
 
@@ -202,39 +201,47 @@ class Circle(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.CIRCLE)
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.CIRCLE
+        )
         self.variable_name = variable_name
         self._radius = self._get_converted_radius_int(radius=radius)
         self._set_initial_basic_values(
-            fill_color=fill_color, fill_alpha=fill_alpha,
-            line_color=line_color, line_thickness=line_thickness,
-            line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
+            fill_color=fill_color,
+            fill_alpha=fill_alpha,
+            line_color=line_color,
+            line_thickness=line_thickness,
+            line_alpha=line_alpha,
+            line_cap=line_cap,
+            line_joints=line_joints,
+        )
         self._append_constructor_expression()
         self._set_center_coordinates(x=x, y=y)
         self._set_line_setting_if_not_none_value_exists(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
-            line_dash_dot_setting=line_dash_dot_setting)
-        super(Circle, self).__init__(
-            parent=parent, variable_name=variable_name)
+            line_dash_dot_setting=line_dash_dot_setting,
+        )
+        super(Circle, self).__init__(parent=parent, variable_name=variable_name)
 
         self._append_applying_new_attr_val_exp(
-            new_attr=self._radius, attr_name='radius')
-        self._append_attr_to_linking_stack(
-            attr=self._radius, attr_name='radius')
+            new_attr=self._radius, attr_name="radius"
+        )
+        self._append_attr_to_linking_stack(attr=self._radius, attr_name="radius")
 
     @classmethod
     def _create_with_graphics(
-            cls,
-            *,
-            graphics: 'graphics.Graphics',
-            x: Union[int, Int],
-            y: Union[int, Int],
-            radius: Union[int, Int],
-            variable_name_suffix: str = '') -> 'Circle':
+        cls,
+        *,
+        graphics: "graphics.Graphics",
+        x: Union[int, Int],
+        y: Union[int, Int],
+        radius: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "Circle":
         """
         Create a rectangle instance with the instance of
         specified graphics.
@@ -274,15 +281,14 @@ class Circle(
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
             parent=graphics,
-            variable_name_suffix=variable_name_suffix)
+            variable_name_suffix=variable_name_suffix,
+        )
         return circle
 
     @add_debug_info_setting(module_name=__name__)
     def _set_center_coordinates(
-            self,
-            *,
-            x: Union[int, Int],
-            y: Union[int, Int]) -> None:
+        self, *, x: Union[int, Int], y: Union[int, Int]
+    ) -> None:
         """
         Set a center x-coordinate and a center y-coordinate.
 
@@ -293,10 +299,8 @@ class Circle(
         y : Int or int
             Y-coordinate of the circle center.
         """
-        self.x = self._get_copied_int_from_builtin_val(
-            integer=x, attr_identifier='x')
-        self.y = self._get_copied_int_from_builtin_val(
-            integer=y, attr_identifier='y')
+        self.x = self._get_copied_int_from_builtin_val(integer=x, attr_identifier="x")
+        self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
 
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
@@ -305,17 +309,18 @@ class Circle(
         """
         import apysc as ap
         from apysc._type import value_util
+
         stage: ap.Stage = ap.get_stage()
-        radius_str: str = value_util.get_value_str_for_expression(
-            value=self._radius)
+        radius_str: str = value_util.get_value_str_for_expression(value=self._radius)
         expression: str = (
-            f'var {self.variable_name} = {stage.variable_name}'
-            f'\n  .circle({radius_str} * 2)'
-            '\n  .attr({'
+            f"var {self.variable_name} = {stage.variable_name}"
+            f"\n  .circle({radius_str} * 2)"
+            "\n  .attr({"
         )
         expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2)
-        expression += '\n  });'
+            expression=expression, indent_num=2
+        )
+        expression += "\n  });"
         ap.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:

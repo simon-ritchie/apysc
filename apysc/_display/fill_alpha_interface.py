@@ -4,22 +4,23 @@
 from typing import Dict
 from typing import Union
 
-from apysc._animation.animation_fill_alpha_interface import \
-    AnimationFillAlphaInterface
+from apysc._animation.animation_fill_alpha_interface import AnimationFillAlphaInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class FillAlphaInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationFillAlphaInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationFillAlphaInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _fill_alpha: Number
 
@@ -28,10 +29,9 @@ class FillAlphaInterface(
         Initialize _fill_alpha attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_fill_alpha'):
+        if hasattr(self, "_fill_alpha"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='fill_alpha')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="fill_alpha")
         self._fill_alpha = Number(1.0, variable_name_suffix=suffix)
 
         self._append_fill_alpha_attr_linking_setting()
@@ -42,9 +42,11 @@ class FillAlphaInterface(
         Append a scale-y attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._fill_alpha, attr_name='fill_alpha')
+            new_attr=self._fill_alpha, attr_name="fill_alpha"
+        )
         self._append_attr_to_linking_stack(
-            attr=self._fill_alpha, attr_name='fill_alpha')
+            attr=self._fill_alpha, attr_name="fill_alpha"
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -76,17 +78,16 @@ class FillAlphaInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_fill_alpha_if_not_initialized()
-        fill_alpha: ap.Number = value_util.get_copy(
-            value=self._fill_alpha)
+        fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
         return fill_alpha
 
     @fill_alpha.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def fill_alpha(
-            self, value: Number) -> None:
+    def fill_alpha(self, value: Number) -> None:
         """
         Update this instance's fill opacity.
 
@@ -113,15 +114,14 @@ class FillAlphaInterface(
         """
         import apysc as ap
         from apysc._type import value_util
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._fill_alpha)
-        expression: str = (
-            f'{self.variable_name}.fill({{opacity: {value_str}}});'
-        )
+
+        value_str: str = value_util.get_value_str_for_expression(value=self._fill_alpha)
+        expression: str = f"{self.variable_name}.fill({{opacity: {value_str}}});"
         ap.append_js_expression(expression=expression)
 
     def _update_fill_alpha_and_skip_appending_exp(
-            self, *, value: Union[float, Number]) -> None:
+        self, *, value: Union[float, Number]
+    ) -> None:
         """
         Update the fill opacity and skip appending expression.
 
@@ -131,13 +131,14 @@ class FillAlphaInterface(
             Fill opacity to set.
         """
         from apysc._converter import cast
+
         self._initialize_fill_alpha_if_not_initialized()
         if not isinstance(value, Number):
             suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='fill_alpha')
+                attr_identifier="fill_alpha"
+            )
             value = cast.to_float_from_int(int_or_float=value)
-            value_: Number = Number(
-                value=value, variable_name_suffix=suffix)
+            value_: Number = Number(value=value, variable_name_suffix=suffix)
         else:
             value_ = value
         self._fill_alpha = value_
@@ -155,8 +156,10 @@ class FillAlphaInterface(
         """
         self._initialize_fill_alpha_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_fill_alpha_snapshots',
-            value=self._fill_alpha._value, snapshot_name=snapshot_name)
+            dict_name="_fill_alpha_snapshots",
+            value=self._fill_alpha._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

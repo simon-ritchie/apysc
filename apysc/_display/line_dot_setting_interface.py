@@ -20,7 +20,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         Initialize _line_dot_setting attribute if this
         interface does not initialize it yet.
         """
-        if hasattr(self, '_line_dot_setting'):
+        if hasattr(self, "_line_dot_setting"):
             return
         self._line_dot_setting = None
 
@@ -56,8 +56,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         return self._line_dot_setting
 
     @line_dot_setting.setter
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     @arg_validation_decos.is_line_dot_setting(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def line_dot_setting(self, value: Optional[LineDotSetting]) -> None:
@@ -78,7 +77,8 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         self._append_line_dot_setting_update_expression()
 
     def _update_line_dot_setting_and_skip_appending_exp(
-            self, *, value: Optional[LineDotSetting]) -> None:
+        self, *, value: Optional[LineDotSetting]
+    ) -> None:
         """
         Update line dot setting and skip appending expression.
 
@@ -89,9 +89,10 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         """
         if value is not None and not isinstance(value, LineDotSetting):
             raise TypeError(
-                'Not supported line_dot_setting type specified: '
-                f'{type(value)}'
-                '\nAcceptable ones are: LineDotSetting or None.')
+                "Not supported line_dot_setting type specified: "
+                f"{type(value)}"
+                "\nAcceptable ones are: LineDotSetting or None."
+            )
         self._line_dot_setting = value
 
     @add_debug_info_setting(module_name=__name__)
@@ -100,6 +101,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         Append line dot setting updating expression.
         """
         import apysc as ap
+
         if self._line_dot_setting is None:
             setting_str: str = '""'
         else:
@@ -122,8 +124,10 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         """
         self._initialize_line_dot_setting_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_dot_setting_snapshots',
-            value=self._line_dot_setting, snapshot_name=snapshot_name)
+            dict_name="_line_dot_setting_snapshots",
+            value=self._line_dot_setting,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -136,5 +140,4 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._line_dot_setting = self._line_dot_setting_snapshots[
-            snapshot_name]
+        self._line_dot_setting = self._line_dot_setting_snapshots[snapshot_name]

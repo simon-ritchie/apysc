@@ -14,10 +14,10 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
@@ -25,13 +25,14 @@ if TYPE_CHECKING:
 
 
 class ChildInterface(
-        VariableNameSuffixAttrInterface,
-        VariableNameInterface,
-        RevertInterface,
-        VariableNameSuffixInterface):
+    VariableNameSuffixAttrInterface,
+    VariableNameInterface,
+    RevertInterface,
+    VariableNameSuffixInterface,
+):
 
     _children: Array[DisplayObject]
-    stage: 'Stage'
+    stage: "Stage"
 
     @arg_validation_decos.is_display_object(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -72,10 +73,9 @@ class ChildInterface(
         Initialize _children attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_children'):
+        if hasattr(self, "_children"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='children')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="children")
         self._children = Array([], variable_name_suffix=suffix)
 
     @arg_validation_decos.is_display_object(arg_position_index=1)
@@ -153,21 +153,21 @@ class ChildInterface(
         Boolean(False)
         """
         import apysc as ap
+
         self._initialize_children_if_not_initialized()
         index: ap.Int = self._children.index_of(value=child)
         if index == -1:
             result: ap.Boolean = ap.Boolean(
-                False,
-                variable_name_suffix=self._variable_name_suffix)
+                False, variable_name_suffix=self._variable_name_suffix
+            )
         else:
-            result = ap.Boolean(
-                True,
-                variable_name_suffix=self._variable_name_suffix)
+            result = ap.Boolean(True, variable_name_suffix=self._variable_name_suffix)
         self._append_contains_expression(result=result, child=child)
         return result
 
     def _append_contains_expression(
-            self, *, result: Boolean, child: DisplayObject) -> None:
+        self, *, result: Boolean, child: DisplayObject
+    ) -> None:
         """
         Append contains method expression.
 
@@ -179,9 +179,10 @@ class ChildInterface(
             Child instance to check.
         """
         import apysc as ap
+
         expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name}.has({child.variable_name});'
+            f"{result.variable_name} = "
+            f"{self.variable_name}.has({child.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 
@@ -215,15 +216,15 @@ class ChildInterface(
         Int(2)
         """
         import apysc as ap
+
         self._initialize_children_if_not_initialized()
         num_children: ap.Int = ap.Int(
-            value=self._children.length,
-            variable_name_suffix=self._variable_name_suffix)
+            value=self._children.length, variable_name_suffix=self._variable_name_suffix
+        )
         self._append_num_children_expression(num_children=num_children)
         return num_children
 
-    def _append_num_children_expression(
-            self, *, num_children: Int) -> None:
+    def _append_num_children_expression(self, *, num_children: Int) -> None:
         """
         Append num_children method expression.
 
@@ -233,9 +234,10 @@ class ChildInterface(
             Current children number.
         """
         import apysc as ap
+
         expression: str = (
-            f'{num_children.variable_name} = '
-            f'{self.variable_name}.children().length;'
+            f"{num_children.variable_name} = "
+            f"{self.variable_name}.children().length;"
         )
         ap.append_js_expression(expression=expression)
 
@@ -278,18 +280,21 @@ class ChildInterface(
         from apysc._display.any_display_object import AnyDisplayObject
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._initialize_children_if_not_initialized()
         if self.num_children > index:
             child: DisplayObject = self._children[index]
         else:
-            variable_name: str = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.DISPLAY_OBJECT)
+            variable_name: str = expression_variables_util.get_next_variable_name(
+                type_name=var_names.DISPLAY_OBJECT
+            )
             child = AnyDisplayObject(variable_name=variable_name)
         self._append_get_child_at_expression(child=child, index=index)
         return child
 
     def _append_get_child_at_expression(
-            self, *, child: DisplayObject, index: Union[int, Int]) -> None:
+        self, *, child: DisplayObject, index: Union[int, Int]
+    ) -> None:
         """
         Append a get_child_at method expression.
 
@@ -302,11 +307,12 @@ class ChildInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
-            f'var {child.variable_name} = '
-            f'{self.variable_name}.children()'
-            f'[{index_str}];'
+            f"var {child.variable_name} = "
+            f"{self.variable_name}.children()"
+            f"[{index_str}];"
         )
         ap.append_js_expression(expression=expression)
 
@@ -330,13 +336,14 @@ class ChildInterface(
         Append an expression of the `remove_children` interface.
         """
         import apysc as ap
+
         expression: str = (
-            f'var children = {self.variable_name}.children();'
-            '\nvar length = children.length;'
-            '\nfor (var i = 0; i < length; i++) {'
-            '\n  var child = children[i];'
-            f'\n  {self.variable_name}.remove(child);'
-            '\n}'
+            f"var children = {self.variable_name}.children();"
+            "\nvar length = children.length;"
+            "\nfor (var i = 0; i < length; i++) {"
+            "\n  var child = children[i];"
+            f"\n  {self.variable_name}.remove(child);"
+            "\n}"
         )
         ap.append_js_expression(expression=expression)
 
@@ -361,8 +368,10 @@ class ChildInterface(
             child._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
 
         self._set_single_snapshot_val_to_dict(
-            dict_name='_children_snapshots',
-            value=[*self._children._value], snapshot_name=snapshot_name)
+            dict_name="_children_snapshots",
+            value=[*self._children._value],
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -394,11 +403,10 @@ def append_expression_of_add_child(*, child: DisplayObject) -> None:
         Child object to add.
     """
     import apysc as ap
+
     parent_name: str = child.parent.variable_name  # type: ignore
     child_name: str = child.variable_name
-    expression: str = (
-        f'{parent_name}.add({child_name});'
-    )
+    expression: str = f"{parent_name}.add({child_name});"
     ap.append_js_expression(expression=expression)
 
 
@@ -415,13 +423,15 @@ def append_expression_of_remove_child(*, child: DisplayObject) -> None:
     import apysc as ap
     from apysc._expression import expression_variables_util
     from apysc._expression import var_names
+
     parent_name: str = expression_variables_util.get_next_variable_name(
-        type_name=var_names.PARENT)
+        type_name=var_names.PARENT
+    )
     child_name: str = child.variable_name
     expression: str = (
-        f'var {parent_name} = {child_name}.parent();'
-        f'\nif ({parent_name}) {{'
-        f'\n  {parent_name}.removeElement({child_name});'
-        '\n}'
+        f"var {parent_name} = {child_name}.parent();"
+        f"\nif ({parent_name}) {{"
+        f"\n  {parent_name}.removeElement({child_name});"
+        "\n}"
     )
     ap.append_js_expression(expression=expression)

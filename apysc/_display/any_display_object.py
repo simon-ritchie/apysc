@@ -11,4 +11,5 @@ class AnyDisplayObject(DisplayObject, XInterface, YInterface):
     """This class is for the `DisplayObject` subclass
     implementation to avoid an abstract method error.
     """
+
     ...

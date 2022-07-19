@@ -21,7 +21,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         Initialize _line_round_dot_setting if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_line_round_dot_setting'):
+        if hasattr(self, "_line_round_dot_setting"):
             return
         self._line_round_dot_setting = None
 
@@ -61,12 +61,10 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         return self._line_round_dot_setting
 
     @line_round_dot_setting.setter
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def line_round_dot_setting(
-            self, value: Optional[LineRoundDotSetting]) -> None:
+    def line_round_dot_setting(self, value: Optional[LineRoundDotSetting]) -> None:
         """
         Set line round dot setting.
 
@@ -81,8 +79,8 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             Line round setting to set.
         """
         import apysc as ap
-        self._update_line_round_dot_setting_and_skip_appending_exp(
-            value=value)
+
+        self._update_line_round_dot_setting_and_skip_appending_exp(value=value)
         if value is not None:
             self.line_cap = ap.LineCaps.ROUND
             self.line_thickness = value.round_size
@@ -91,7 +89,8 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         self._append_line_round_dot_setting_update_expression()
 
     def _update_line_round_dot_setting_and_skip_appending_exp(
-            self, *, value: Optional[LineRoundDotSetting]) -> None:
+        self, *, value: Optional[LineRoundDotSetting]
+    ) -> None:
         """
         Update line round setting and skip appending expression.
 
@@ -102,9 +101,10 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         """
         if value is not None and not isinstance(value, LineRoundDotSetting):
             raise TypeError(
-                'Not supported line_round_dot_setting type specified: '
-                f'{type(value)}'
-                '\nAcceptable ones are: LineRoundDotSetting or None.')
+                "Not supported line_round_dot_setting type specified: "
+                f"{type(value)}"
+                "\nAcceptable ones are: LineRoundDotSetting or None."
+            )
         self._line_round_dot_setting = value
 
     @add_debug_info_setting(module_name=__name__)
@@ -113,23 +113,19 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         Append line round dot setting updating expression.
         """
         import apysc as ap
+
         if self._line_round_dot_setting is None:
             setting_str: str = '""'
         else:
-            round_size_name: str = \
-                self._line_round_dot_setting.round_size.variable_name
-            space_size_name: str = \
-                self._line_round_dot_setting.space_size.variable_name
-            setting_str = (
-                f'"1 " + String({round_size_name} + {space_size_name})'
-            )
+            round_size_name: str = self._line_round_dot_setting.round_size.variable_name
+            space_size_name: str = self._line_round_dot_setting.space_size.variable_name
+            setting_str = f'"1 " + String({round_size_name} + {space_size_name})'
         expression: str = (
             f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
         )
         ap.append_js_expression(expression=expression)
 
-    _line_round_dot_setting_snapshots: Dict[
-        str, Optional[LineRoundDotSetting]]
+    _line_round_dot_setting_snapshots: Dict[str, Optional[LineRoundDotSetting]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -142,8 +138,10 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         """
         self._initialize_line_round_dot_setting_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_round_dot_setting_snapshots',
-            value=self._line_round_dot_setting, snapshot_name=snapshot_name)
+            dict_name="_line_round_dot_setting_snapshots",
+            value=self._line_round_dot_setting,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -157,4 +155,5 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._line_round_dot_setting = self._line_round_dot_setting_snapshots[
-            snapshot_name]
+            snapshot_name
+        ]

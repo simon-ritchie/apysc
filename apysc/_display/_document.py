@@ -14,6 +14,7 @@ class Document(VariableNameInterface):
         Document (overall HTML document) class.
         """
         from apysc._expression import var_names
+
         self.variable_name = var_names.DOCUMENT
 
 

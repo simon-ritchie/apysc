@@ -22,20 +22,21 @@ from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
-StrOrString = TypeVar('StrOrString', str, String)
+StrOrString = TypeVar("StrOrString", str, String)
 
 
 class LineStyleInterface(
-        VariableNameSuffixAttrInterface,
-        VariableNameInterface,
-        RevertInterface,
-        VariableNameSuffixInterface):
+    VariableNameSuffixAttrInterface,
+    VariableNameInterface,
+    RevertInterface,
+    VariableNameSuffixInterface,
+):
 
     _line_color: String
     _line_thickness: Int
@@ -47,33 +48,31 @@ class LineStyleInterface(
     _line_round_dot_setting: Optional[LineRoundDotSetting]
     _line_dash_dot_setting: Optional[LineDashDotSetting]
 
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_num(arg_position_index=3)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=3)
-    @arg_validation_decos.is_line_cap(
-        arg_position_index=4, optional=True)
-    @arg_validation_decos.is_line_joints(
-        arg_position_index=5, optional=True)
+    @arg_validation_decos.is_line_cap(arg_position_index=4, optional=True)
+    @arg_validation_decos.is_line_joints(arg_position_index=5, optional=True)
     @arg_validation_decos.is_line_dot_setting(arg_position_index=6)
     @arg_validation_decos.is_line_dash_setting(arg_position_index=7)
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=8)
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=9)
     @add_debug_info_setting(module_name=__name__)
     def line_style(
-            self,
-            *,
-            color: StrOrString,
-            thickness: Union[int, Int] = 1,
-            alpha: Union[float, Number] = 1.0,
-            cap: Optional[LineCaps] = None,
-            joints: Optional[LineJoints] = None,
-            dot_setting: Optional[LineDotSetting] = None,
-            dash_setting: Optional[LineDashSetting] = None,
-            round_dot_setting: Optional[LineRoundDotSetting] = None,
-            dash_dot_setting: Optional[LineDashDotSetting] = None) -> None:
+        self,
+        *,
+        color: StrOrString,
+        thickness: Union[int, Int] = 1,
+        alpha: Union[float, Number] = 1.0,
+        cap: Optional[LineCaps] = None,
+        joints: Optional[LineJoints] = None,
+        dot_setting: Optional[LineDotSetting] = None,
+        dash_setting: Optional[LineDashSetting] = None,
+        round_dot_setting: Optional[LineRoundDotSetting] = None,
+        dash_dot_setting: Optional[LineDashDotSetting] = None
+    ) -> None:
         """
         Set line style values.
 
@@ -147,14 +146,13 @@ class LineStyleInterface(
         self._initialize_line_alpha_if_not_initialized()
         suffix: str
 
-        if color != '':
-            color = color_util.complement_hex_color(
-                hex_color_code=color)
+        if color != "":
+            color = color_util.complement_hex_color(hex_color_code=color)
         self._line_color.value = color
         self._line_thickness = self._convert_line_thickness_to_apysc_int(
-            thickness=thickness)
-        self._line_alpha = self._convert_line_alpha_to_number(
-            alpha=alpha)
+            thickness=thickness
+        )
+        self._line_alpha = self._convert_line_alpha_to_number(alpha=alpha)
         self._set_line_cap(cap=cap)
         self._set_line_joints(joints=joints)
         self._line_dot_setting = dot_setting
@@ -163,7 +161,8 @@ class LineStyleInterface(
         self._line_dash_dot_setting = dash_dot_setting
 
     def _convert_line_thickness_to_apysc_int(
-            self, *, thickness: Union[int, Int]) -> Int:
+        self, *, thickness: Union[int, Int]
+    ) -> Int:
         """
         Convert a line thickness value to an Int value.
 
@@ -178,18 +177,18 @@ class LineStyleInterface(
             Converted line thickness value.
         """
         import apysc as ap
+
         if isinstance(thickness, ap.Int):
             thickness_: ap.Int = thickness._copy()
         else:
             suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='line_thickness')
-            thickness_ = ap.Int(
-                thickness, variable_name_suffix=suffix)
+                attr_identifier="line_thickness"
+            )
+            thickness_ = ap.Int(thickness, variable_name_suffix=suffix)
         return thickness_
 
     @add_debug_info_setting(module_name=__name__)
-    def _convert_line_alpha_to_number(
-            self, *, alpha: Union[float, Number]) -> Number:
+    def _convert_line_alpha_to_number(self, *, alpha: Union[float, Number]) -> Number:
         """
         Convert a line alpha value to a Number value.
 
@@ -204,13 +203,12 @@ class LineStyleInterface(
             Converted line alpha value.
         """
         import apysc as ap
+
         if isinstance(alpha, ap.Number):
             alpha_: ap.Number = alpha._copy()
         else:
-            suffix = self._get_attr_variable_name_suffix(
-                attr_identifier='line_alpha')
-            alpha_ = ap.Number(
-                alpha, variable_name_suffix=suffix)
+            suffix = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
+            alpha_ = ap.Number(alpha, variable_name_suffix=suffix)
         return alpha_
 
     @add_debug_info_setting(module_name=__name__)
@@ -224,12 +222,11 @@ class LineStyleInterface(
             Line vertices (joints) style setting.
         """
         import apysc as ap
+
         if joints is None:
             joints = LineJoints.MITER
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_joints')
-        self._line_joints = ap.String(
-            joints.value, variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_joints")
+        self._line_joints = ap.String(joints.value, variable_name_suffix=suffix)
 
     @add_debug_info_setting(module_name=__name__)
     def _set_line_cap(self, *, cap: Optional[LineCaps]) -> None:
@@ -242,33 +239,32 @@ class LineStyleInterface(
             Line cap (edge style) setting.
         """
         import apysc as ap
+
         if cap is None:
             cap = LineCaps.BUTT
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_cap')
-        self._line_cap = ap.String(
-            cap.value, variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_cap")
+        self._line_cap = ap.String(cap.value, variable_name_suffix=suffix)
 
     def _initialize_line_color_if_not_initialized(self) -> None:
         """
         Initialize _line_color attribute if this interface does
         not initialize it yet.
         """
-        if hasattr(self, '_line_color'):
+        if hasattr(self, "_line_color"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_color')
-        self._line_color = String('', variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_color")
+        self._line_color = String("", variable_name_suffix=suffix)
 
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
         Initialize _line_thickness attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_line_thickness'):
+        if hasattr(self, "_line_thickness"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_thickness')
+            attr_identifier="line_thickness"
+        )
         self._line_thickness = Int(1, variable_name_suffix=suffix)
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
@@ -276,10 +272,9 @@ class LineStyleInterface(
         Initialize _line_alpha attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_line_alpha'):
+        if hasattr(self, "_line_alpha"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_alpha')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
         self._line_alpha = Number(1.0, variable_name_suffix=suffix)
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
@@ -287,31 +282,27 @@ class LineStyleInterface(
         Initialize _line_cap attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_line_cap'):
+        if hasattr(self, "_line_cap"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_cap')
-        self._line_cap = String(
-            LineCaps.BUTT.value, variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_cap")
+        self._line_cap = String(LineCaps.BUTT.value, variable_name_suffix=suffix)
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
         Initialize _line_joints attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_line_joints'):
+        if hasattr(self, "_line_joints"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_joints')
-        self._line_joints = String(
-            LineJoints.MITER.value, variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_joints")
+        self._line_joints = String(LineJoints.MITER.value, variable_name_suffix=suffix)
 
     def _initialize_line_dot_setting_if_not_initialized(self) -> None:
         """
         Initialize _line_dot_setting attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_line_dot_setting'):
+        if hasattr(self, "_line_dot_setting"):
             return
         self._line_dot_setting = None
 
@@ -320,7 +311,7 @@ class LineStyleInterface(
         Initialize _line_dash_setting attribute if this
         interface does not initialize it yet.
         """
-        if hasattr(self, '_line_dash_setting'):
+        if hasattr(self, "_line_dash_setting"):
             return
         self._line_dash_setting = None
 
@@ -329,7 +320,7 @@ class LineStyleInterface(
         Initialize _line_round_dot_setting attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_line_round_dot_setting'):
+        if hasattr(self, "_line_round_dot_setting"):
             return
         self._line_round_dot_setting = None
 
@@ -338,7 +329,7 @@ class LineStyleInterface(
         Initialize _line_dash_dot_setting attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_line_dash_dot_setting'):
+        if hasattr(self, "_line_dash_dot_setting"):
             return
         self._line_dash_dot_setting = None
 
@@ -366,6 +357,7 @@ class LineStyleInterface(
         String('#ffffff')
         """
         from apysc._type import value_util
+
         self._initialize_line_color_if_not_initialized()
         return value_util.get_copy(value=self._line_color)
 
@@ -391,6 +383,7 @@ class LineStyleInterface(
         Int(5)
         """
         from apysc._type import value_util
+
         self._initialize_line_thickness_if_not_initialized()
         return value_util.get_copy(value=self._line_thickness)
 
@@ -417,6 +410,7 @@ class LineStyleInterface(
         Number(0.5)
         """
         from apysc._type import value_util
+
         self._initialize_line_alpha_if_not_initialized()
         return value_util.get_copy(value=self._line_alpha)
 
@@ -592,8 +586,7 @@ class LineStyleInterface(
     _line_joints_snapshots: Dict[str, str]
     _line_dot_setting_snapshots: Dict[str, Optional[LineDotSetting]]
     _line_dash_setting_snapshots: Dict[str, Optional[LineDashSetting]]
-    _line_round_dot_setting_snapshots: Dict[
-        str, Optional[LineRoundDotSetting]]
+    _line_round_dot_setting_snapshots: Dict[str, Optional[LineRoundDotSetting]]
     _line_dash_dot_setting_snapshots: Dict[str, Optional[LineDashDotSetting]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
@@ -615,33 +608,50 @@ class LineStyleInterface(
         self._initialize_line_round_dot_setting_if_not_initialized()
         self._initialize_line_dash_dot_setting_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_color_snapshots',
-            value=self._line_color._value, snapshot_name=snapshot_name)
+            dict_name="_line_color_snapshots",
+            value=self._line_color._value,
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_thickness_snapshots',
+            dict_name="_line_thickness_snapshots",
             value=int(self._line_thickness._value),
-            snapshot_name=snapshot_name)
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_alpha_snapshots',
-            value=self._line_alpha._value, snapshot_name=snapshot_name)
+            dict_name="_line_alpha_snapshots",
+            value=self._line_alpha._value,
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_cap_snapshots',
-            value=self._line_cap._value, snapshot_name=snapshot_name)
+            dict_name="_line_cap_snapshots",
+            value=self._line_cap._value,
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_joints_snapshots',
-            value=self._line_joints._value, snapshot_name=snapshot_name)
+            dict_name="_line_joints_snapshots",
+            value=self._line_joints._value,
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_dot_setting_snapshots',
-            value=self._line_dot_setting, snapshot_name=snapshot_name)
+            dict_name="_line_dot_setting_snapshots",
+            value=self._line_dot_setting,
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_dash_setting_snapshots',
-            value=self._line_dash_setting, snapshot_name=snapshot_name)
+            dict_name="_line_dash_setting_snapshots",
+            value=self._line_dash_setting,
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_round_dot_setting_snapshots',
-            value=self._line_round_dot_setting, snapshot_name=snapshot_name)
+            dict_name="_line_round_dot_setting_snapshots",
+            value=self._line_round_dot_setting,
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_dash_dot_setting_snapshots',
-            value=self._line_dash_dot_setting, snapshot_name=snapshot_name)
+            dict_name="_line_dash_dot_setting_snapshots",
+            value=self._line_dash_dot_setting,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -655,17 +665,16 @@ class LineStyleInterface(
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._line_color._value = self._line_color_snapshots[snapshot_name]
-        self._line_thickness._value = self._line_thickness_snapshots[
-            snapshot_name]
+        self._line_thickness._value = self._line_thickness_snapshots[snapshot_name]
         self._line_alpha._value = self._line_alpha_snapshots[snapshot_name]
         self._line_cap._value = self._line_cap_snapshots[snapshot_name]
         self._line_joints._value = self._line_joints_snapshots[snapshot_name]
 
-        self._line_dot_setting = self._line_dot_setting_snapshots[
-            snapshot_name]
-        self._line_dash_setting = self._line_dash_setting_snapshots[
-            snapshot_name]
+        self._line_dot_setting = self._line_dot_setting_snapshots[snapshot_name]
+        self._line_dash_setting = self._line_dash_setting_snapshots[snapshot_name]
         self._line_round_dot_setting = self._line_round_dot_setting_snapshots[
-            snapshot_name]
+            snapshot_name
+        ]
         self._line_dash_dot_setting = self._line_dash_dot_setting_snapshots[
-            snapshot_name]
+            snapshot_name
+        ]

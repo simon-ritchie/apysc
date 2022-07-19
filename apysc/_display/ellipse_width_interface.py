@@ -8,16 +8,18 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class EllipseWidthInterface(
-        VariableNameSuffixAttrInterface,
-        VariableNameInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    VariableNameInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _ellipse_width: Int
 
@@ -26,10 +28,11 @@ class EllipseWidthInterface(
         Initialize _ellipse_width attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_ellipse_width'):
+        if hasattr(self, "_ellipse_width"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='ellipse_width')
+            attr_identifier="ellipse_width"
+        )
         self._ellipse_width = Int(0, variable_name_suffix=suffix)
 
         self._append_ellipse_width_attr_linking_setting()
@@ -40,9 +43,11 @@ class EllipseWidthInterface(
         Append an ellipse-height attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._ellipse_width, attr_name='ellipse_width')
+            new_attr=self._ellipse_width, attr_name="ellipse_width"
+        )
         self._append_attr_to_linking_stack(
-            attr=self._ellipse_width, attr_name='ellipse_width')
+            attr=self._ellipse_width, attr_name="ellipse_width"
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -69,6 +74,7 @@ class EllipseWidthInterface(
         Int(10)
         """
         from apysc._type import value_util
+
         self._initialize_ellipse_width_if_not_initialized()
         return value_util.get_copy(value=self._ellipse_width)
 
@@ -85,8 +91,7 @@ class EllipseWidthInterface(
             Ellipse width value.
         """
         self._ellipse_width = value
-        self._ellipse_width.\
-            _append_incremental_calc_substitution_expression()
+        self._ellipse_width._append_incremental_calc_substitution_expression()
         self._append_ellipse_width_update_expression()
 
         self._append_ellipse_width_attr_linking_setting()
@@ -98,19 +103,19 @@ class EllipseWidthInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_ellipse_width_if_not_initialized()
         width_value_str: str = value_util.get_value_str_for_expression(
-            value=self._ellipse_width)
-        if hasattr(self, '_ellipse_height'):
-            height_value_str: str = value_util.\
-                get_value_str_for_expression(
-                    value=getattr(self, '_ellipse_height'))
+            value=self._ellipse_width
+        )
+        if hasattr(self, "_ellipse_height"):
+            height_value_str: str = value_util.get_value_str_for_expression(
+                value=getattr(self, "_ellipse_height")
+            )
         else:
-            height_value_str = value_util.get_value_str_for_expression(
-                value=0)
+            height_value_str = value_util.get_value_str_for_expression(value=0)
         expression: str = (
-            f'{self.variable_name}.radius({width_value_str}, '
-            f'{height_value_str});'
+            f"{self.variable_name}.radius({width_value_str}, " f"{height_value_str});"
         )
         ap.append_js_expression(expression=expression)
 
@@ -127,9 +132,10 @@ class EllipseWidthInterface(
         """
         self._initialize_ellipse_width_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_ellipse_width_snapshots',
+            dict_name="_ellipse_width_snapshots",
             value=int(self._ellipse_width._value),
-            snapshot_name=snapshot_name)
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -142,5 +148,4 @@ class EllipseWidthInterface(
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._ellipse_width._value = self._ellipse_width_snapshots[
-            snapshot_name]
+        self._ellipse_width._value = self._ellipse_width_snapshots[snapshot_name]

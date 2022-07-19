@@ -22,6 +22,7 @@ class LineJoints(Enum):
     - Graphics line_style interface document
         - https://simon-ritchie.github.io/apysc/en/graphics_line_style.html
     """
-    MITER = 'miter'
-    ROUND = 'round'
-    BEVEL = 'bevel'
+
+    MITER = "miter"
+    ROUND = "round"
+    BEVEL = "bevel"

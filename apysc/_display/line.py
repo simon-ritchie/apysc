@@ -19,16 +19,11 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
-class Line(
-        XInterface,
-        YInterface,
-        GraphicsBase,
-        VariableNameSuffixInterface):
+class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
     """
     The line vector graphics class.
 
@@ -62,12 +57,11 @@ class Line(
     Int(5)
     """
 
-    _start_point: 'point2d.Point2D'
-    _end_point: 'point2d.Point2D'
+    _start_point: "point2d.Point2D"
+    _end_point: "point2d.Point2D"
 
     # self
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # start_point
     @arg_validation_decos.is_point_2d(arg_position_index=1)
     # end_point
@@ -80,8 +74,7 @@ class Line(
     @arg_validation_decos.is_integer(arg_position_index=5)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     # line_cap
-    @arg_validation_decos.is_line_cap(
-        arg_position_index=6, optional=True)
+    @arg_validation_decos.is_line_cap(arg_position_index=6, optional=True)
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=7)
     # line_dash_setting
@@ -92,26 +85,27 @@ class Line(
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=10)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=11, optional=True)
+        arg_position_index=11, optional=True
+    )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=12, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=12, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            start_point: 'point2d.Point2D',
-            end_point: 'point2d.Point2D',
-            line_color: Union[str, String] = '',
-            line_alpha: Union[float, Number] = 1.0,
-            line_thickness: Union[int, Int] = 1,
-            line_cap: Op[Union[String, LineCaps]] = None,
-            line_dot_setting: Op[LineDotSetting] = None,
-            line_dash_setting: Op[LineDashSetting] = None,
-            line_round_dot_setting: Op[LineRoundDotSetting] = None,
-            line_dash_dot_setting: Op[LineDashDotSetting] = None,
-            parent: Op[ChildInterface] = None,
-            variable_name_suffix: str = '') -> None:
+        self,
+        *,
+        start_point: "point2d.Point2D",
+        end_point: "point2d.Point2D",
+        line_color: Union[str, String] = "",
+        line_alpha: Union[float, Number] = 1.0,
+        line_thickness: Union[int, Int] = 1,
+        line_cap: Op[Union[String, LineCaps]] = None,
+        line_dot_setting: Op[LineDotSetting] = None,
+        line_dash_setting: Op[LineDashSetting] = None,
+        line_round_dot_setting: Op[LineRoundDotSetting] = None,
+        line_dash_dot_setting: Op[LineDashDotSetting] = None,
+        parent: Op[ChildInterface] = None,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Create a line vector graphic.
 
@@ -166,14 +160,21 @@ class Line(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.LINE)
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.LINE
+        )
         self.variable_name = variable_name
         self._set_initial_basic_values(
-            fill_color='', fill_alpha=1,
-            line_color=line_color, line_thickness=line_thickness,
-            line_alpha=line_alpha, line_cap=line_cap, line_joints=None)
+            fill_color="",
+            fill_alpha=1,
+            line_color=line_color,
+            line_thickness=line_thickness,
+            line_alpha=line_alpha,
+            line_cap=line_cap,
+            line_joints=None,
+        )
         self._start_point = start_point
         self._end_point = end_point
         self._append_constructor_expression()
@@ -181,31 +182,30 @@ class Line(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
-            line_dash_dot_setting=line_dash_dot_setting)
+            line_dash_dot_setting=line_dash_dot_setting,
+        )
         self._set_initial_x_and_y_with_minimum_point()
-        super(Line, self).__init__(
-            parent=parent, variable_name=variable_name)
+        super(Line, self).__init__(parent=parent, variable_name=variable_name)
 
     def _set_initial_x_and_y_with_minimum_point(self) -> None:
         """
         Set initial x and y properties coordinate with
         a minimum point.
         """
-        min_x: int = min(
-            self._start_point._x._value, self._end_point._x._value)
-        min_y: int = min(
-            self._start_point._y._value, self._end_point._y._value)
+        min_x: int = min(self._start_point._x._value, self._end_point._x._value)
+        min_y: int = min(self._start_point._y._value, self._end_point._y._value)
         self._x = Int(min_x)
         self._y = Int(min_y)
 
     @classmethod
     def _create_with_graphics(
-            cls,
-            *,
-            graphics: 'graphics.Graphics',
-            start_point: 'point2d.Point2D',
-            end_point: 'point2d.Point2D',
-            variable_name_suffix: str = '') -> 'Line':
+        cls,
+        *,
+        graphics: "graphics.Graphics",
+        start_point: "point2d.Point2D",
+        end_point: "point2d.Point2D",
+        variable_name_suffix: str = "",
+    ) -> "Line":
         """
         Create a line instance with the instance of
         specified graphics.
@@ -239,7 +239,8 @@ class Line(
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
             parent=graphics,
-            variable_name_suffix=variable_name_suffix)
+            variable_name_suffix=variable_name_suffix,
+        )
         return line
 
     @add_debug_info_setting(module_name=__name__)
@@ -248,17 +249,18 @@ class Line(
         Append a constructor expression.
         """
         import apysc as ap
+
         stage: ap.Stage = ap.get_stage()
         points_str: str = self._make_points_expression()
         expression: str = (
-            f'var {self.variable_name} = {stage.variable_name}'
-            f'\n  .line({points_str})'
-            '\n  .attr({'
+            f"var {self.variable_name} = {stage.variable_name}"
+            f"\n  .line({points_str})"
+            "\n  .attr({"
         )
         expression = self._append_basic_vals_expression(
-            expression=expression,
-            indent_num=2)
-        expression += '\n  });'
+            expression=expression, indent_num=2
+        )
+        expression += "\n  });"
         ap.append_js_expression(expression=expression)
 
     def _make_points_expression(self) -> str:
@@ -271,13 +273,14 @@ class Line(
             Each point expression.
         """
         import apysc as ap
+
         start_point: ap.Point2D = self._start_point
         end_point: ap.Point2D = self._end_point
         expression: str = (
-            f'{start_point.x.variable_name}, '
-            f'{start_point.y.variable_name}, '
-            f'{end_point.x.variable_name}, '
-            f'{end_point.y.variable_name}'
+            f"{start_point.x.variable_name}, "
+            f"{start_point.y.variable_name}, "
+            f"{end_point.x.variable_name}, "
+            f"{end_point.y.variable_name}"
         )
         return expression
 

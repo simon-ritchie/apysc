@@ -20,7 +20,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         Initialize the _line_dash_setting attribute if this
         interface does not initialize it yet.
         """
-        if hasattr(self, '_line_dash_setting'):
+        if hasattr(self, "_line_dash_setting"):
             return
         self._line_dash_setting = None
 
@@ -60,8 +60,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         return self._line_dash_setting
 
     @line_dash_setting.setter
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     @arg_validation_decos.is_line_dash_setting(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def line_dash_setting(self, value: Optional[LineDashSetting]) -> None:
@@ -82,7 +81,8 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         self._append_line_dash_setting_update_expression()
 
     def _update_line_dash_setting_and_skip_appending_exp(
-            self, *, value: Optional[LineDashSetting]) -> None:
+        self, *, value: Optional[LineDashSetting]
+    ) -> None:
         """
         Update line dash setting and skip appending expression.
 
@@ -93,9 +93,10 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         """
         if value is not None and not isinstance(value, LineDashSetting):
             raise TypeError(
-                'Not supported line_dash_setting type specified: '
-                f'{type(value)}'
-                '\nAcceptable ones are: LineDashSetting or None.')
+                "Not supported line_dash_setting type specified: "
+                f"{type(value)}"
+                "\nAcceptable ones are: LineDashSetting or None."
+            )
         self._line_dash_setting = value
 
     @add_debug_info_setting(module_name=__name__)
@@ -104,15 +105,16 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         Append line dash setting updating expression.
         """
         import apysc as ap
+
         if self._line_dash_setting is None:
             setting_str: str = '""'
         else:
             setting_str = (
-                'String('
-                f'{self._line_dash_setting.dash_size.variable_name})'
+                "String("
+                f"{self._line_dash_setting.dash_size.variable_name})"
                 ' + " " + '
-                'String('
-                f'{self._line_dash_setting.space_size.variable_name})'
+                "String("
+                f"{self._line_dash_setting.space_size.variable_name})"
             )
         expression: str = (
             f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
@@ -132,8 +134,10 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         """
         self._initialize_line_dash_setting_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_dash_setting_snapshots',
-            value=self._line_dash_setting, snapshot_name=snapshot_name)
+            dict_name="_line_dash_setting_snapshots",
+            value=self._line_dash_setting,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -146,5 +150,4 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._line_dash_setting = self._line_dash_setting_snapshots[
-            snapshot_name]
+        self._line_dash_setting = self._line_dash_setting_snapshots[snapshot_name]

@@ -29,13 +29,14 @@ from apysc._validation import arg_validation_decos
 
 
 class Graphics(
-        XInterface,
-        YInterface,
-        DisplayObject,
-        BeginFillInterface,
-        LineStyleInterface,
-        GraphicsClearInterface,
-        ChildInterface):
+    XInterface,
+    YInterface,
+    DisplayObject,
+    BeginFillInterface,
+    LineStyleInterface,
+    GraphicsClearInterface,
+    ChildInterface,
+):
     """
     Create an object that has each vector graphics interface.
 
@@ -61,21 +62,21 @@ class Graphics(
     Int(100)
     """
 
-    _current_line: Optional['_polyline.Polyline'] = None
+    _current_line: Optional["_polyline.Polyline"] = None
 
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=1, optional=False)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=True)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=3, optional=False)
+        arg_position_index=1, optional=False
+    )
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=True)
+    @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            parent: 'sprite.Sprite',
-            variable_name: Optional[str] = None,
-            variable_name_suffix: str = '') -> None:
+        self,
+        *,
+        parent: "sprite.Sprite",
+        variable_name: Optional[str] = None,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Create an object that has each vector graphics interface.
 
@@ -104,28 +105,24 @@ class Graphics(
         display_validation.validate_sprite(sprite=parent)
         self.parent_sprite: ap.Sprite = parent
         if variable_name is None:
-            variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.GRAPHICS)
+            variable_name = expression_variables_util.get_next_variable_name(
+                type_name=var_names.GRAPHICS
+            )
         super(Graphics, self).__init__(variable_name=variable_name)
 
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='fill_color')
-        self._fill_color = ap.String('', variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="fill_color")
+        self._fill_color = ap.String("", variable_name_suffix=suffix)
 
-        suffix = self._get_attr_variable_name_suffix(
-            attr_identifier='fill_alpha')
+        suffix = self._get_attr_variable_name_suffix(attr_identifier="fill_alpha")
         self._fill_alpha = ap.Number(1.0, variable_name_suffix=suffix)
 
-        suffix = self._get_attr_variable_name_suffix(
-            attr_identifier='line_color')
-        self._line_color = ap.String('', variable_name_suffix=suffix)
+        suffix = self._get_attr_variable_name_suffix(attr_identifier="line_color")
+        self._line_color = ap.String("", variable_name_suffix=suffix)
 
-        suffix = self._get_attr_variable_name_suffix(
-            attr_identifier='line_alpha')
+        suffix = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
         self._line_alpha = ap.Number(1.0, variable_name_suffix=suffix)
 
-        suffix = self._get_attr_variable_name_suffix(
-            attr_identifier='line_thickness')
+        suffix = self._get_attr_variable_name_suffix(attr_identifier="line_thickness")
         self._line_thickness = ap.Int(1.0, variable_name_suffix=suffix)
 
         self._initialize_line_cap_if_not_initialized()
@@ -135,8 +132,7 @@ class Graphics(
         self._initialize_line_round_dot_setting_if_not_initialized()
         self._initialize_line_dash_dot_setting_if_not_initialized()
 
-        suffix = self._get_attr_variable_name_suffix(
-            attr_identifier='children')
+        suffix = self._get_attr_variable_name_suffix(attr_identifier="children")
         self._children = ap.Array([], variable_name_suffix=suffix)
 
         self._append_constructor_expression()
@@ -149,10 +145,9 @@ class Graphics(
         Append constructor expression.
         """
         import apysc as ap
+
         stage_name: str = self.parent_sprite.stage.variable_name
-        expression: str = (
-            f'var {self.variable_name} = {stage_name}.nested();'
-        )
+        expression: str = f"var {self.variable_name} = {stage_name}.nested();"
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -161,17 +156,17 @@ class Graphics(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=5, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_rect(
-            self,
-            *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int],
-            variable_name_suffix: str = '') -> Rectangle:
+        self,
+        *,
+        x: Union[int, Int],
+        y: Union[int, Int],
+        width: Union[int, Int],
+        height: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> Rectangle:
         """
         Draw a rectangle vector graphics.
 
@@ -217,8 +212,13 @@ class Graphics(
         String('#00aaff')
         """
         rectangle: Rectangle = Rectangle._create_with_graphics(
-            graphics=self, x=x, y=y, width=width, height=height,
-            variable_name_suffix=variable_name_suffix)
+            graphics=self,
+            x=x,
+            y=y,
+            width=width,
+            height=height,
+            variable_name_suffix=variable_name_suffix,
+        )
         return rectangle
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -231,18 +231,19 @@ class Graphics(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     @arg_validation_decos.is_integer(arg_position_index=6)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=7, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=7, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_round_rect(
-            self, *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int],
-            ellipse_width: Union[int, Int],
-            ellipse_height: Union[int, Int],
-            variable_name_suffix: str = '') -> Rectangle:
+        self,
+        *,
+        x: Union[int, Int],
+        y: Union[int, Int],
+        width: Union[int, Int],
+        height: Union[int, Int],
+        ellipse_width: Union[int, Int],
+        ellipse_height: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> Rectangle:
         """
         Draw a rounded rectangle vector graphics.
 
@@ -290,15 +291,23 @@ class Graphics(
         Int(15)
         """
         import apysc as ap
+
         rectangle: Rectangle = Rectangle._create_with_graphics(
-            graphics=self, x=x, y=y, width=width, height=height,
-            variable_name_suffix=variable_name_suffix)
+            graphics=self,
+            x=x,
+            y=y,
+            width=width,
+            height=height,
+            variable_name_suffix=variable_name_suffix,
+        )
         if isinstance(ellipse_width, int):
             ellipse_width = ap.Int(
-                ellipse_width, variable_name_suffix=variable_name_suffix)
+                ellipse_width, variable_name_suffix=variable_name_suffix
+            )
         if isinstance(ellipse_height, int):
             ellipse_height = ap.Int(
-                ellipse_height, variable_name_suffix=variable_name_suffix)
+                ellipse_height, variable_name_suffix=variable_name_suffix
+            )
         rectangle.ellipse_width = ellipse_width
         rectangle.ellipse_height = ellipse_height
         return rectangle
@@ -307,16 +316,16 @@ class Graphics(
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=4, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=4, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_circle(
-            self,
-            *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            radius: Union[int, Int],
-            variable_name_suffix: str = '') -> '_circle.Circle':
+        self,
+        *,
+        x: Union[int, Int],
+        y: Union[int, Int],
+        radius: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "_circle.Circle":
         """
         Draw a circle vector graphics.
 
@@ -363,8 +372,12 @@ class Graphics(
         String('#00aaff')
         """
         circle: _circle.Circle = _circle.Circle._create_with_graphics(
-            graphics=self, x=x, y=y, radius=radius,
-            variable_name_suffix=variable_name_suffix)
+            graphics=self,
+            x=x,
+            y=y,
+            radius=radius,
+            variable_name_suffix=variable_name_suffix,
+        )
         return circle
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -373,17 +386,17 @@ class Graphics(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=5, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_ellipse(
-            self,
-            *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int],
-            variable_name_suffix: str = '') -> '_ellipse.Ellipse':
+        self,
+        *,
+        x: Union[int, Int],
+        y: Union[int, Int],
+        width: Union[int, Int],
+        height: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "_ellipse.Ellipse":
         """
         Draw an ellipse vector graphic.
 
@@ -435,20 +448,22 @@ class Graphics(
         String('#00aaff')
         """
         ellipse: _ellipse.Ellipse = _ellipse.Ellipse._create_with_graphics(
-            graphics=self, x=x, y=y, width=width, height=height,
-            variable_name_suffix=variable_name_suffix)
+            graphics=self,
+            x=x,
+            y=y,
+            width=width,
+            height=height,
+            variable_name_suffix=variable_name_suffix,
+        )
         return ellipse
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=3, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def line_to(
-            self, *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            variable_name_suffix: str = '') -> '_polyline.Polyline':
+        self, *, x: Union[int, Int], y: Union[int, Int], variable_name_suffix: str = ""
+    ) -> "_polyline.Polyline":
         """
         Draw a line from previous point to specified point (initial
         point is x = 0, y = 0).
@@ -493,30 +508,29 @@ class Graphics(
         """
         if self._current_line is None:
             first_point: Point2D = Point2D(
-                x=0, y=0, variable_name_suffix=variable_name_suffix)
+                x=0, y=0, variable_name_suffix=variable_name_suffix
+            )
             second_point: Point2D = Point2D(
-                x=x, y=y, variable_name_suffix=variable_name_suffix)
+                x=x, y=y, variable_name_suffix=variable_name_suffix
+            )
             self._current_line = _polyline.Polyline._create_with_graphics(
-                graphics=self, points=[first_point, second_point],
-                variable_name_suffix=variable_name_suffix)
+                graphics=self,
+                points=[first_point, second_point],
+                variable_name_suffix=variable_name_suffix,
+            )
         else:
             self._current_line.append_line_point(x=x, y=y)
-            if variable_name_suffix != '':
-                self._current_line._variable_name_suffix = \
-                    variable_name_suffix
+            if variable_name_suffix != "":
+                self._current_line._variable_name_suffix = variable_name_suffix
         return self._current_line
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=3, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def move_to(
-            self,
-            *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            variable_name_suffix: str = '') -> '_polyline.Polyline':
+        self, *, x: Union[int, Int], y: Union[int, Int], variable_name_suffix: str = ""
+    ) -> "_polyline.Polyline":
         """
         Move a line position to a specified point.
 
@@ -557,13 +571,10 @@ class Graphics(
         >>> line_1.line_thickness
         Int(5)
         """
-        point: Point2D = Point2D(
-            x=x, y=y, variable_name_suffix=variable_name_suffix)
-        polyline: _polyline.Polyline = \
-            _polyline.Polyline._create_with_graphics(
-                graphics=self,
-                points=[point],
-                variable_name_suffix=variable_name_suffix)
+        point: Point2D = Point2D(x=x, y=y, variable_name_suffix=variable_name_suffix)
+        polyline: _polyline.Polyline = _polyline.Polyline._create_with_graphics(
+            graphics=self, points=[point], variable_name_suffix=variable_name_suffix
+        )
         self._current_line = polyline
         return polyline
 
@@ -585,17 +596,17 @@ class Graphics(
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=5, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_line(
-            self,
-            *,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int],
-            variable_name_suffix: str = '') -> '_line.Line':
+        self,
+        *,
+        x_start: Union[int, Int],
+        y_start: Union[int, Int],
+        x_end: Union[int, Int],
+        y_end: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "_line.Line":
         """
         Draw a normal line vector graphic.
 
@@ -648,12 +659,13 @@ class Graphics(
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
             start_point=Point2D(
-                x=x_start, y=y_start,
-                variable_name_suffix=variable_name_suffix),
+                x=x_start, y=y_start, variable_name_suffix=variable_name_suffix
+            ),
             end_point=Point2D(
-                x=x_end, y=y_end,
-                variable_name_suffix=variable_name_suffix),
-            variable_name_suffix=variable_name_suffix)
+                x=x_end, y=y_end, variable_name_suffix=variable_name_suffix
+            ),
+            variable_name_suffix=variable_name_suffix,
+        )
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
@@ -663,18 +675,18 @@ class Graphics(
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.is_integer(arg_position_index=5)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=6, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=6, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_dotted_line(
-            self,
-            *,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int],
-            dot_size: Union[int, Int],
-            variable_name_suffix: str = '') -> '_line.Line':
+        self,
+        *,
+        x_start: Union[int, Int],
+        y_start: Union[int, Int],
+        x_end: Union[int, Int],
+        y_end: Union[int, Int],
+        dot_size: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "_line.Line":
         """
         Draw a dotted line vector graphics.
 
@@ -727,20 +739,23 @@ class Graphics(
         Int(5)
         """
         import apysc as ap
+
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
         self._line_dot_setting = ap.LineDotSetting(
-            dot_size=dot_size, variable_name_suffix=variable_name_suffix)
+            dot_size=dot_size, variable_name_suffix=variable_name_suffix
+        )
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
             start_point=Point2D(
-                x=x_start, y=y_start,
-                variable_name_suffix=variable_name_suffix),
+                x=x_start, y=y_start, variable_name_suffix=variable_name_suffix
+            ),
             end_point=Point2D(
-                x=x_end, y=y_end,
-                variable_name_suffix=variable_name_suffix),
-            variable_name_suffix=variable_name_suffix)
+                x=x_end, y=y_end, variable_name_suffix=variable_name_suffix
+            ),
+            variable_name_suffix=variable_name_suffix,
+        )
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
@@ -752,19 +767,19 @@ class Graphics(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     @arg_validation_decos.is_integer(arg_position_index=6)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=7, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=7, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_dashed_line(
-            self,
-            *,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int],
-            dash_size: Union[int, Int],
-            space_size: Union[int, Int],
-            variable_name_suffix: str = '') -> '_line.Line':
+        self,
+        *,
+        x_start: Union[int, Int],
+        y_start: Union[int, Int],
+        x_end: Union[int, Int],
+        y_end: Union[int, Int],
+        dash_size: Union[int, Int],
+        space_size: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "_line.Line":
         """
         Draw a dashed line vector graphics.
 
@@ -820,21 +835,25 @@ class Graphics(
         Int(2)
         """
         import apysc as ap
+
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
         self._line_dash_setting = ap.LineDashSetting(
-            dash_size=dash_size, space_size=space_size,
-            variable_name_suffix=variable_name_suffix)
+            dash_size=dash_size,
+            space_size=space_size,
+            variable_name_suffix=variable_name_suffix,
+        )
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
             start_point=Point2D(
-                x=x_start, y=y_start,
-                variable_name_suffix=variable_name_suffix),
+                x=x_start, y=y_start, variable_name_suffix=variable_name_suffix
+            ),
             end_point=Point2D(
-                x=x_end, y=y_end,
-                variable_name_suffix=variable_name_suffix),
-            variable_name_suffix=variable_name_suffix)
+                x=x_end, y=y_end, variable_name_suffix=variable_name_suffix
+            ),
+            variable_name_suffix=variable_name_suffix,
+        )
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
@@ -846,19 +865,19 @@ class Graphics(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     @arg_validation_decos.is_integer(arg_position_index=6)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=7, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=7, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_round_dotted_line(
-            self,
-            *,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int],
-            round_size: Union[int, Int],
-            space_size: Union[int, Int],
-            variable_name_suffix: str = '') -> '_line.Line':
+        self,
+        *,
+        x_start: Union[int, Int],
+        y_start: Union[int, Int],
+        x_end: Union[int, Int],
+        y_end: Union[int, Int],
+        round_size: Union[int, Int],
+        space_size: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "_line.Line":
         """
         Draw a round-dotted line vector graphics.
 
@@ -914,21 +933,25 @@ class Graphics(
         Int(3)
         """
         import apysc as ap
+
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
         self._line_round_dot_setting = ap.LineRoundDotSetting(
-            round_size=round_size, space_size=space_size,
-            variable_name_suffix=variable_name_suffix)
+            round_size=round_size,
+            space_size=space_size,
+            variable_name_suffix=variable_name_suffix,
+        )
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
             start_point=Point2D(
-                x=x_start, y=y_start,
-                variable_name_suffix=variable_name_suffix),
+                x=x_start, y=y_start, variable_name_suffix=variable_name_suffix
+            ),
             end_point=Point2D(
-                x=x_end, y=y_end,
-                variable_name_suffix=variable_name_suffix),
-            variable_name_suffix=variable_name_suffix)
+                x=x_end, y=y_end, variable_name_suffix=variable_name_suffix
+            ),
+            variable_name_suffix=variable_name_suffix,
+        )
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
@@ -942,20 +965,20 @@ class Graphics(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
     @arg_validation_decos.is_integer(arg_position_index=7)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=7)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=8, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_dash_dotted_line(
-            self,
-            *,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int],
-            dot_size: Union[int, Int],
-            dash_size: Union[int, Int],
-            space_size: Union[int, Int],
-            variable_name_suffix: str = '') -> '_line.Line':
+        self,
+        *,
+        x_start: Union[int, Int],
+        y_start: Union[int, Int],
+        x_end: Union[int, Int],
+        y_end: Union[int, Int],
+        dot_size: Union[int, Int],
+        dash_size: Union[int, Int],
+        space_size: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "_line.Line":
         """
         Draw a dash-dotted (1-dot chain) line vector graphics.
 
@@ -1011,6 +1034,7 @@ class Graphics(
         Int(3)
         """
         import apysc as ap
+
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
@@ -1018,28 +1042,30 @@ class Graphics(
             dot_size=dot_size,
             dash_size=dash_size,
             space_size=space_size,
-            variable_name_suffix=variable_name_suffix)
+            variable_name_suffix=variable_name_suffix,
+        )
         line: _line.Line = _line.Line._create_with_graphics(
             graphics=self,
             start_point=Point2D(
-                x=x_start, y=y_start,
-                variable_name_suffix=variable_name_suffix),
+                x=x_start, y=y_start, variable_name_suffix=variable_name_suffix
+            ),
             end_point=Point2D(
-                x=x_end, y=y_end,
-                variable_name_suffix=variable_name_suffix),
-            variable_name_suffix=variable_name_suffix)
+                x=x_end, y=y_end, variable_name_suffix=variable_name_suffix
+            ),
+            variable_name_suffix=variable_name_suffix,
+        )
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
     @arg_validation_decos.is_point_2ds(arg_position_index=1)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_polygon(
-            self,
-            *,
-            points: Union[List[Point2D], Array[Point2D]],
-            variable_name_suffix: str = '') -> '_polyg.Polygon':
+        self,
+        *,
+        points: Union[List[Point2D], Array[Point2D]],
+        variable_name_suffix: str = "",
+    ) -> "_polyg.Polygon":
         """
         Draw a polygon vector graphic. This interface is similar
         to the Polyline class (created by `move_to` or `line_to`).
@@ -1080,19 +1106,16 @@ class Graphics(
         String('#00aaff')
         """
         polygon: _polyg.Polygon = _polyg.Polygon._create_with_graphics(
-            graphics=self, points=points,
-            variable_name_suffix=variable_name_suffix)
+            graphics=self, points=points, variable_name_suffix=variable_name_suffix
+        )
         return polygon
 
     @arg_validation_decos.is_path_data_list(arg_position_index=1)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_path(
-            self,
-            *,
-            path_data_list: List[PathDataBase],
-            variable_name_suffix: str = '') -> '_path.Path':
+        self, *, path_data_list: List[PathDataBase], variable_name_suffix: str = ""
+    ) -> "_path.Path":
         """
         Draw a path vector graphics.
 
@@ -1124,8 +1147,10 @@ class Graphics(
         ...     ])
         """
         path: _path.Path = _path.Path._create_with_graphics(
-            graphics=self, path_data_list=path_data_list,
-            variable_name_suffix=variable_name_suffix)
+            graphics=self,
+            path_data_list=path_data_list,
+            variable_name_suffix=variable_name_suffix,
+        )
         return path
 
     def __repr__(self) -> str:

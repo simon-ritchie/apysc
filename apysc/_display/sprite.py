@@ -10,20 +10,20 @@ from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 _Graphics = graphics.Graphics
 
 
 class Sprite(
-        XInterface,
-        YInterface,
-        DisplayObject,
-        ChildInterface,
-        RevertInterface,
-        VariableNameSuffixInterface):
+    XInterface,
+    YInterface,
+    DisplayObject,
+    ChildInterface,
+    RevertInterface,
+    VariableNameSuffixInterface,
+):
     """
     This class is for the basic display object that
     can be a parent.
@@ -59,17 +59,14 @@ class Sprite(
     Int(50)
     """
 
-    graphics: '_Graphics'
+    graphics: "_Graphics"
 
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=1, optional=True)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=True)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self, *,
-            variable_name: Optional[str] = None,
-            variable_name_suffix: str = '') -> None:
+        self, *, variable_name: Optional[str] = None, variable_name_suffix: str = ""
+    ) -> None:
         """
         Create a basic display object that can be a parent.
 
@@ -116,22 +113,21 @@ class Sprite(
         import apysc as ap
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
         stage: ap.Stage = ap.get_stage()
         if variable_name is None:
-            variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.SPRITE)
+            variable_name = expression_variables_util.get_next_variable_name(
+                type_name=var_names.SPRITE
+            )
 
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='children')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="children")
         self._children = ap.Array([], variable_name_suffix=suffix)
 
         super(Sprite, self).__init__(variable_name=variable_name)
         self._append_constructor_expression()
-        suffix = self._get_attr_variable_name_suffix(
-            attr_identifier='graphics')
-        self.graphics = graphics.Graphics(
-            parent=self, variable_name_suffix=suffix)
+        suffix = self._get_attr_variable_name_suffix(attr_identifier="graphics")
+        self.graphics = graphics.Graphics(parent=self, variable_name_suffix=suffix)
         stage.add_child(child=self)
         self._set_overflow_visible_setting()
 
@@ -141,9 +137,10 @@ class Sprite(
         Append Sprite constructor expression.
         """
         import apysc as ap
+
         stage: ap.Stage = ap.get_stage()
         expression: str = (
-            f'\nvar {self.variable_name} = {stage.variable_name}.nested();'
+            f"\nvar {self.variable_name} = {stage.variable_name}.nested();"
         )
         ap.append_js_expression(expression=expression)
 
@@ -158,8 +155,7 @@ class Sprite(
         """
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self.graphics._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
+        self.graphics._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

@@ -9,15 +9,15 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class LineCapInterface(
-        VariableNameSuffixAttrInterface,
-        VariableNameInterface,
-        RevertInterface):
+    VariableNameSuffixAttrInterface, VariableNameInterface, RevertInterface
+):
 
     _line_cap: String
 
@@ -26,12 +26,10 @@ class LineCapInterface(
         Initialize the _line_cap attribute if this
         interface does not initialize it yet.
         """
-        if hasattr(self, '_line_cap'):
+        if hasattr(self, "_line_cap"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_cap')
-        self._line_cap = String(
-            LineCaps.BUTT.value, variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_cap")
+        self._line_cap = String(LineCaps.BUTT.value, variable_name_suffix=suffix)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -60,8 +58,7 @@ class LineCapInterface(
         return self._line_cap._copy()
 
     @line_cap.setter
-    @arg_validation_decos.is_line_cap(
-        arg_position_index=1, optional=False)
+    @arg_validation_decos.is_line_cap(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def line_cap(self, value: Union[String, LineCaps]) -> None:
         """
@@ -82,15 +79,16 @@ class LineCapInterface(
         """
         import apysc as ap
         from apysc._type import value_util
-        cap_name: str = value_util.get_value_str_for_expression(
-            value=self._line_cap)
+
+        cap_name: str = value_util.get_value_str_for_expression(value=self._line_cap)
         expression: str = (
             f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
         )
         ap.append_js_expression(expression=expression)
 
     def _update_line_cap_and_skip_appending_exp(
-            self, *, value: Union[String, LineCaps]) -> None:
+        self, *, value: Union[String, LineCaps]
+    ) -> None:
         """
         Update line cap and skip appending expression.
 
@@ -117,8 +115,10 @@ class LineCapInterface(
         """
         self._initialize_line_cap_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_cap_snapshots',
-            value=self._line_cap._value, snapshot_name=snapshot_name)
+            dict_name="_line_cap_snapshots",
+            value=self._line_cap._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

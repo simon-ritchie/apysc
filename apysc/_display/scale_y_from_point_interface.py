@@ -4,23 +4,24 @@
 from typing import Any
 from typing import Dict
 
-from apysc._animation.animation_scale_y_from_point_interface import \
-    AnimationScaleYFromPointInterface
+from apysc._animation.animation_scale_y_from_point_interface import (
+    AnimationScaleYFromPointInterface,
+)
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.expression_string import ExpressionString
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class ScaleYFromPointInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationScaleYFromPointInterface,
-        RevertInterface):
+    VariableNameSuffixAttrInterface, AnimationScaleYFromPointInterface, RevertInterface
+):
 
     _scale_y_from_point: Dictionary[str, Number]
 
@@ -29,12 +30,12 @@ class ScaleYFromPointInterface(
         Initialize the `_scale_y_from_point` attribute if this
         instance does not initialize it yet.
         """
-        if hasattr(self, '_scale_y_from_point'):
+        if hasattr(self, "_scale_y_from_point"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='scale_y_from_point')
-        self._scale_y_from_point = Dictionary(
-            {}, variable_name_suffix=suffix)
+            attr_identifier="scale_y_from_point"
+        )
+        self._scale_y_from_point = Dictionary({}, variable_name_suffix=suffix)
 
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -72,12 +73,17 @@ class ScaleYFromPointInterface(
         """
         import apysc as ap
         from apysc._display import scale_interface_helper
+
         self._initialize_scale_y_from_point_if_not_initialized()
         default_val: ap.Number = ap.Number(1.0)
-        key_exp_str: ExpressionString = scale_interface_helper.\
-            get_coordinate_key_for_expression(coordinate=int(y._value))
+        key_exp_str: ExpressionString = (
+            scale_interface_helper.get_coordinate_key_for_expression(
+                coordinate=int(y._value)
+            )
+        )
         scale_y: ap.Number = self._scale_y_from_point.get(
-            key=key_exp_str, default=default_val)
+            key=key_exp_str, default=default_val
+        )
         return scale_y
 
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
@@ -113,15 +119,18 @@ class ScaleYFromPointInterface(
         Number(1.5)
         """
         from apysc._display import scale_interface_helper
+
         self._initialize_scale_y_from_point_if_not_initialized()
-        key_exp_str: ExpressionString = scale_interface_helper.\
-            get_coordinate_key_for_expression(coordinate=int(y._value))
+        key_exp_str: ExpressionString = (
+            scale_interface_helper.get_coordinate_key_for_expression(
+                coordinate=int(y._value)
+            )
+        )
         self._scale_y_from_point._value[key_exp_str.value] = scale_y
         self._append_scale_y_from_point_update_expression(y=y)
 
     @add_debug_info_setting(module_name=__name__)
-    def _append_scale_y_from_point_update_expression(
-            self, *, y: Int) -> None:
+    def _append_scale_y_from_point_update_expression(self, *, y: Int) -> None:
         """
         Append the scale-y from the specified y-coordinate updating
         expression.
@@ -133,12 +142,14 @@ class ScaleYFromPointInterface(
         """
         import apysc as ap
         from apysc._display import scale_interface_helper
+
         expression: str
         expression = scale_interface_helper.get_scale_updating_expression(
             coordinate=y,
             scale_dict=self._scale_y_from_point,
             interface_variable_name=self.variable_name,
-            coordinate_type=scale_interface_helper.CoordinateType.Y)
+            coordinate_type=scale_interface_helper.CoordinateType.Y,
+        )
         ap.append_js_expression(expression=expression)
 
     _scale_y_from_point_snapshots: Dict[str, Dict[str, Any]]
@@ -154,9 +165,10 @@ class ScaleYFromPointInterface(
         """
         self._initialize_scale_y_from_point_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_scale_y_from_point_snapshots',
+            dict_name="_scale_y_from_point_snapshots",
             value={**self._scale_y_from_point._value},
-            snapshot_name=snapshot_name)
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -170,4 +182,5 @@ class ScaleYFromPointInterface(
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._scale_y_from_point._value = self._scale_y_from_point_snapshots[
-            snapshot_name]
+            snapshot_name
+        ]

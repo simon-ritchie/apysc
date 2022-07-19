@@ -4,22 +4,23 @@
 from typing import Any
 from typing import Dict
 
-from apysc._animation.animation_scale_x_from_point_interface import \
-    AnimationScaleXFromPointInterface
+from apysc._animation.animation_scale_x_from_point_interface import (
+    AnimationScaleXFromPointInterface,
+)
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class ScaleXFromPointInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationScaleXFromPointInterface,
-        RevertInterface):
+    VariableNameSuffixAttrInterface, AnimationScaleXFromPointInterface, RevertInterface
+):
 
     _scale_x_from_point: Dictionary[str, Number]
 
@@ -28,12 +29,12 @@ class ScaleXFromPointInterface(
         Initialize the `_scale_x_from_point` attribute if
         this instance does not initialize it yet.
         """
-        if hasattr(self, '_scale_x_from_point'):
+        if hasattr(self, "_scale_x_from_point"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='scale_x_from_point')
-        self._scale_x_from_point = Dictionary(
-            {}, variable_name_suffix=suffix)
+            attr_identifier="scale_x_from_point"
+        )
+        self._scale_x_from_point = Dictionary({}, variable_name_suffix=suffix)
 
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -72,12 +73,17 @@ class ScaleXFromPointInterface(
         import apysc as ap
         from apysc._display import scale_interface_helper
         from apysc._type.expression_string import ExpressionString
+
         self._initialize_scale_x_from_point_if_not_initialized()
         default_val: ap.Number = ap.Number(1.0)
-        key_exp_str: ExpressionString = scale_interface_helper.\
-            get_coordinate_key_for_expression(coordinate=int(x._value))
+        key_exp_str: ExpressionString = (
+            scale_interface_helper.get_coordinate_key_for_expression(
+                coordinate=int(x._value)
+            )
+        )
         scale_x: ap.Number = self._scale_x_from_point.get(
-            key=key_exp_str, default=default_val)
+            key=key_exp_str, default=default_val
+        )
         return scale_x
 
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
@@ -114,15 +120,18 @@ class ScaleXFromPointInterface(
         """
         from apysc._display import scale_interface_helper
         from apysc._type.expression_string import ExpressionString
+
         self._initialize_scale_x_from_point_if_not_initialized()
-        key_exp_str: ExpressionString = scale_interface_helper.\
-            get_coordinate_key_for_expression(coordinate=int(x._value))
+        key_exp_str: ExpressionString = (
+            scale_interface_helper.get_coordinate_key_for_expression(
+                coordinate=int(x._value)
+            )
+        )
         self._scale_x_from_point._value[key_exp_str.value] = scale_x
         self._append_scale_x_from_point_update_expression(x=x)
 
     @add_debug_info_setting(module_name=__name__)
-    def _append_scale_x_from_point_update_expression(
-            self, *, x: Int) -> None:
+    def _append_scale_x_from_point_update_expression(self, *, x: Int) -> None:
         """
         Append the scale-x from the specified x-coordinate updating
         expression.
@@ -134,12 +143,14 @@ class ScaleXFromPointInterface(
         """
         import apysc as ap
         from apysc._display import scale_interface_helper
+
         expression: str
         expression = scale_interface_helper.get_scale_updating_expression(
             coordinate=x,
             scale_dict=self._scale_x_from_point,
             interface_variable_name=self.variable_name,
-            coordinate_type=scale_interface_helper.CoordinateType.X)
+            coordinate_type=scale_interface_helper.CoordinateType.X,
+        )
         ap.append_js_expression(expression=expression)
 
     _scale_x_from_point_snapshots: Dict[str, Dict[str, Any]]
@@ -155,9 +166,10 @@ class ScaleXFromPointInterface(
         """
         self._initialize_scale_x_from_point_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_scale_x_from_point_snapshots',
+            dict_name="_scale_x_from_point_snapshots",
             value={**self._scale_x_from_point._value},
-            snapshot_name=snapshot_name)
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -171,4 +183,5 @@ class ScaleXFromPointInterface(
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._scale_x_from_point._value = self._scale_x_from_point_snapshots[
-            snapshot_name]
+            snapshot_name
+        ]

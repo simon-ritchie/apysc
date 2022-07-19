@@ -5,8 +5,9 @@ from typing import Dict
 from typing import Union
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import \
-    AttrToApyscValFromBuiltinInterface
+from apysc._type.attr_to_apysc_val_from_builtin_interface import (
+    AttrToApyscValFromBuiltinInterface,
+)
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -14,9 +15,8 @@ from apysc._validation import arg_validation_decos
 
 
 class CssInterface(
-        VariableNameInterface,
-        RevertInterface,
-        AttrToApyscValFromBuiltinInterface):
+    VariableNameInterface, RevertInterface, AttrToApyscValFromBuiltinInterface
+):
 
     _css: Dict[str, String]
 
@@ -25,7 +25,7 @@ class CssInterface(
         Initialize the _css attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_css'):
+        if hasattr(self, "_css"):
             return
         self._css = {}
 
@@ -62,19 +62,22 @@ class CssInterface(
         """
         import apysc as ap
         from apysc._converter import to_builtin_val_from_apysc
+
         self._initialize_css_if_not_initialized()
-        name_: str = to_builtin_val_from_apysc.\
-            get_builtin_str_from_apysc_val(string=name)
+        name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
+            string=name
+        )
         if name_ in self._css:
             css: ap.String = self._css[name_]._copy()
         else:
-            css = ap.String('')
+            css = ap.String("")
         self._append_get_css_expresion(name=name, css=css)
         return css
 
     @add_debug_info_setting(module_name=__name__)
     def _append_get_css_expresion(
-            self, *, name: Union[str, String], css: String) -> None:
+        self, *, name: Union[str, String], css: String
+    ) -> None:
         """
         Append a CSS getter expression string.
 
@@ -87,22 +90,18 @@ class CssInterface(
         """
         import apysc as ap
         from apysc._type import value_util
-        name_value_str: str = value_util.get_value_str_for_expression(
-            value=name)
-        css_value_str: str = value_util.get_value_str_for_expression(
-            value=css)
+
+        name_value_str: str = value_util.get_value_str_for_expression(value=name)
+        css_value_str: str = value_util.get_value_str_for_expression(value=css)
         expression: str = (
-            f'{css_value_str} = {self.variable_name}.'
-            f'css({name_value_str});'
+            f"{css_value_str} = {self.variable_name}." f"css({name_value_str});"
         )
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_string(arg_position_index=1)
     @arg_validation_decos.is_string(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
-    def set_css(
-            self, *, name: Union[str, String],
-            value: Union[str, String]) -> None:
+    def set_css(self, *, name: Union[str, String], value: Union[str, String]) -> None:
         """
         Set a specified value string to the CSS.
 
@@ -130,19 +129,21 @@ class CssInterface(
         """
         import apysc as ap
         from apysc._converter import to_builtin_val_from_apysc
+
         self._initialize_css_if_not_initialized()
-        name_: str = to_builtin_val_from_apysc.\
-            get_builtin_str_from_apysc_val(string=name)
+        name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
+            string=name
+        )
         value_: ap.String = self._get_copied_string_from_builtin_val(
-            string=value,
-            attr_identifier='css')
+            string=value, attr_identifier="css"
+        )
         self._css[name_] = value_
         self._append_set_css_expression(name=name, value=value)
 
     @add_debug_info_setting(module_name=__name__)
     def _append_set_css_expression(
-            self, *, name: Union[str, String],
-            value: Union[str, String]) -> None:
+        self, *, name: Union[str, String], value: Union[str, String]
+    ) -> None:
         """
         Append a CSS setter expression string.
 
@@ -155,13 +156,10 @@ class CssInterface(
         """
         import apysc as ap
         from apysc._type import value_util
-        name_value_str: str = value_util.get_value_str_for_expression(
-            value=name)
-        value_str: str = value_util.get_value_str_for_expression(
-            value=value)
-        expression: str = (
-            f'{self.variable_name}.css({name_value_str}, {value_str});'
-        )
+
+        name_value_str: str = value_util.get_value_str_for_expression(value=name)
+        value_str: str = value_util.get_value_str_for_expression(value=value)
+        expression: str = f"{self.variable_name}.css({name_value_str}, {value_str});"
         ap.append_js_expression(expression=expression)
 
     _css_snapshot: Dict[str, Dict[str, String]]
@@ -177,8 +175,8 @@ class CssInterface(
         """
         self._initialize_css_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_css_snapshot',
-            value={**self._css}, snapshot_name=snapshot_name)
+            dict_name="_css_snapshot", value={**self._css}, snapshot_name=snapshot_name
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

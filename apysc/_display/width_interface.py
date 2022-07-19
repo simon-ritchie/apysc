@@ -9,16 +9,18 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class WidthInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationWidthInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationWidthInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _width: Int
 
@@ -27,10 +29,9 @@ class WidthInterface(
         Initialize _width attribute if this instance does not
         initialize it yet.
         """
-        if hasattr(self, '_width'):
+        if hasattr(self, "_width"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='width')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="width")
         self._width = Int(0, variable_name_suffix=suffix)
 
         self._append_width_attr_linking_setting()
@@ -40,10 +41,8 @@ class WidthInterface(
         """
         Append a width attribute linking settings.
         """
-        self._append_applying_new_attr_val_exp(
-            new_attr=self._width, attr_name='width')
-        self._append_attr_to_linking_stack(
-            attr=self._width, attr_name='width')
+        self._append_applying_new_attr_val_exp(new_attr=self._width, attr_name="width")
+        self._append_attr_to_linking_stack(attr=self._width, attr_name="width")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -70,6 +69,7 @@ class WidthInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_width_if_not_initialized()
         width: ap.Int = value_util.get_copy(value=self._width)
         return width
@@ -100,15 +100,12 @@ class WidthInterface(
         """
         import apysc as ap
         from apysc._type import value_util
-        width_str: str = value_util.get_value_str_for_expression(
-            value=self._width)
-        expression: str = (
-            f'{self.variable_name}.width({width_str});'
-        )
+
+        width_str: str = value_util.get_value_str_for_expression(value=self._width)
+        expression: str = f"{self.variable_name}.width({width_str});"
         ap.append_js_expression(expression=expression)
 
-    def _update_width_and_skip_appending_exp(
-            self, *, value: Union[int, Int]) -> None:
+    def _update_width_and_skip_appending_exp(self, *, value: Union[int, Int]) -> None:
         """
         Update width value and skip appending expression.
 
@@ -119,13 +116,13 @@ class WidthInterface(
         """
         import apysc as ap
         from apysc._converter import cast
+
         self._initialize_width_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)
         if isinstance(value, ap.Int):
             value_: ap.Int = value
         else:
-            suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='width')
+            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="width")
             value_ = Int(value, variable_name_suffix=suffix)
         self._width = value_
 
@@ -142,8 +139,10 @@ class WidthInterface(
         """
         self._initialize_width_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_width_snapshots',
-            value=int(self._width._value), snapshot_name=snapshot_name)
+            dict_name="_width_snapshots",
+            value=int(self._width._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

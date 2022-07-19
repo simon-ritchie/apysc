@@ -4,19 +4,22 @@
 from typing import Union
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import \
-    AttrToApyscValFromBuiltinInterface
+from apysc._type.attr_to_apysc_val_from_builtin_interface import (
+    AttrToApyscValFromBuiltinInterface,
+)
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class LineDotSetting(
-        Dictionary[str, Int],
-        VariableNameSuffixAttrInterface,
-        AttrToApyscValFromBuiltinInterface):
+    Dictionary[str, Int],
+    VariableNameSuffixAttrInterface,
+    AttrToApyscValFromBuiltinInterface,
+):
     """
     Dot setting class for a line.
 
@@ -40,14 +43,11 @@ class LineDotSetting(
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=2, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            dot_size: Union[int, Int],
-            variable_name_suffix: str = '') -> None:
+        self, *, dot_size: Union[int, Int], variable_name_suffix: str = ""
+    ) -> None:
         """
         Dot setting class for a line.
 
@@ -77,14 +77,14 @@ class LineDotSetting(
         Int(5)
         """
         import apysc as ap
+
         self._variable_name_suffix = variable_name_suffix
         dot_size_: ap.Int = self._get_copied_int_from_builtin_val(
-            integer=dot_size, attr_identifier='dot_size')
+            integer=dot_size, attr_identifier="dot_size"
+        )
         super(LineDotSetting, self).__init__(
-            {
-                'dot_size': dot_size_
-            },
-            variable_name_suffix=self._variable_name_suffix)
+            {"dot_size": dot_size_}, variable_name_suffix=self._variable_name_suffix
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -109,4 +109,4 @@ class LineDotSetting(
         >>> line.line_dot_setting.dot_size
         Int(5)
         """
-        return self['dot_size']._copy()
+        return self["dot_size"]._copy()

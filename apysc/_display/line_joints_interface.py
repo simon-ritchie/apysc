@@ -9,15 +9,15 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class LineJointsInterface(
-        VariableNameSuffixAttrInterface,
-        VariableNameInterface,
-        RevertInterface):
+    VariableNameSuffixAttrInterface, VariableNameInterface, RevertInterface
+):
 
     _line_joints: String
 
@@ -26,13 +26,10 @@ class LineJointsInterface(
         Initialize _line_joints attribute if this interface does
         not initialize it yet.
         """
-        if hasattr(self, '_line_joints'):
+        if hasattr(self, "_line_joints"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_joints')
-        self._line_joints = String(
-            LineJoints.MITER.value,
-            variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_joints")
+        self._line_joints = String(LineJoints.MITER.value, variable_name_suffix=suffix)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -62,8 +59,7 @@ class LineJointsInterface(
         return self._line_joints._copy()
 
     @line_joints.setter
-    @arg_validation_decos.is_line_joints(
-        arg_position_index=1, optional=False)
+    @arg_validation_decos.is_line_joints(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def line_joints(self, value: Union[String, LineJoints]) -> None:
         """
@@ -78,7 +74,8 @@ class LineJointsInterface(
         self._append_line_joints_update_expression()
 
     def _update_line_joints_and_skip_appending_exp(
-            self, *, value: Union[String, LineJoints]) -> None:
+        self, *, value: Union[String, LineJoints]
+    ) -> None:
         """
         Update line joints and skip appending expression.
 
@@ -89,9 +86,10 @@ class LineJointsInterface(
         """
         if not isinstance(value, (String, LineJoints)):
             raise TypeError(
-                'Not supported line_joints type specified: '
-                f'{type(value)}'
-                '\nAcceptable ones are: String or LineJoints.')
+                "Not supported line_joints type specified: "
+                f"{type(value)}"
+                "\nAcceptable ones are: String or LineJoints."
+            )
         if isinstance(value, String):
             self._line_joints = value._copy()
         else:
@@ -104,11 +102,12 @@ class LineJointsInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         joints_name: str = value_util.get_value_str_for_expression(
-            value=self._line_joints)
+            value=self._line_joints
+        )
         expression: str = (
-            f'{self.variable_name}.attr'
-            f'({{"stroke-linejoin": {joints_name}}});'
+            f"{self.variable_name}.attr" f'({{"stroke-linejoin": {joints_name}}});'
         )
         ap.append_js_expression(expression=expression)
 
@@ -125,8 +124,10 @@ class LineJointsInterface(
         """
         self._initialize_line_joints_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_joints_snapshots',
-            value=self._line_joints._value, snapshot_name=snapshot_name)
+            dict_name="_line_joints_snapshots",
+            value=self._line_joints._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

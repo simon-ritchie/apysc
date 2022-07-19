@@ -4,22 +4,25 @@ interface.
 
 from typing import Dict
 
-from apysc._animation.animation_rotation_around_center_interface import \
-    AnimationRotationAroundCenterInterface
+from apysc._animation.animation_rotation_around_center_interface import (
+    AnimationRotationAroundCenterInterface,
+)
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class RotationAroundCenterInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationRotationAroundCenterInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationRotationAroundCenterInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _rotation_around_center: Int
 
@@ -28,12 +31,12 @@ class RotationAroundCenterInterface(
         Initialize the `_rotation_around_center` attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_rotation_around_center'):
+        if hasattr(self, "_rotation_around_center"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='rotation_around_center')
-        self._rotation_around_center = Int(
-            0, variable_name_suffix=suffix)
+            attr_identifier="rotation_around_center"
+        )
+        self._rotation_around_center = Int(0, variable_name_suffix=suffix)
 
         self._append_rotation_around_center_attr_linking_setting()
 
@@ -43,11 +46,11 @@ class RotationAroundCenterInterface(
         Append a rotation around a center attribute linking setting.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._rotation_around_center,
-            attr_name='rotation_around_center')
+            new_attr=self._rotation_around_center, attr_name="rotation_around_center"
+        )
         self._append_attr_to_linking_stack(
-            attr=self._rotation_around_center,
-            attr_name='rotation_around_center')
+            attr=self._rotation_around_center, attr_name="rotation_around_center"
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -78,6 +81,7 @@ class RotationAroundCenterInterface(
         Int(45)
         """
         from apysc._type import value_util
+
         self._initialize_rotation_around_center_if_not_initialized()
         return value_util.get_copy(value=self._rotation_around_center)
 
@@ -99,17 +103,18 @@ class RotationAroundCenterInterface(
             - https://simon-ritchie.github.io/apysc/en/graphics_base_rotation_around_center.html  # noqa
         """
         import apysc as ap
+
         self._initialize_rotation_around_center_if_not_initialized()
         before_value: ap.Int = self._rotation_around_center
         self._rotation_around_center = value
-        self._append_rotation_around_center_update_expression(
-            before_value=before_value)
+        self._append_rotation_around_center_update_expression(before_value=before_value)
 
         self._append_rotation_around_center_attr_linking_setting()
 
     @add_debug_info_setting(module_name=__name__)
     def _append_rotation_around_center_update_expression(
-            self, *, before_value: Int) -> None:
+        self, *, before_value: Int
+    ) -> None:
         """
         Append the rotation around the center of this instance
         updating expression.
@@ -121,14 +126,17 @@ class RotationAroundCenterInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         before_value_str: str = value_util.get_value_str_for_expression(
-            value=before_value)
+            value=before_value
+        )
         after_value_str: str = value_util.get_value_str_for_expression(
-            value=self._rotation_around_center)
+            value=self._rotation_around_center
+        )
         expression: str = (
-            f'{self.variable_name}.rotate(-{before_value_str});'
-            f'\n{self.variable_name}.rotate({after_value_str});'
-            f'\n{before_value_str} = {after_value_str};'
+            f"{self.variable_name}.rotate(-{before_value_str});"
+            f"\n{self.variable_name}.rotate({after_value_str});"
+            f"\n{before_value_str} = {after_value_str};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -145,9 +153,10 @@ class RotationAroundCenterInterface(
         """
         self._initialize_rotation_around_center_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_rotation_around_center_snapshots',
+            dict_name="_rotation_around_center_snapshots",
             value=int(self._rotation_around_center._value),
-            snapshot_name=snapshot_name)
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -160,5 +169,6 @@ class RotationAroundCenterInterface(
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._rotation_around_center._value = \
-            self._rotation_around_center_snapshots[snapshot_name]
+        self._rotation_around_center._value = self._rotation_around_center_snapshots[
+            snapshot_name
+        ]

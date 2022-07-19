@@ -71,17 +71,17 @@ class GraphicsClearInterface:
         from apysc._display.line_alpha_interface import LineAlphaInterface
         from apysc._display.line_color_interface import LineColorInterface
         from apysc._display.line_style_interface import LineStyleInterface
-        from apysc._display.line_thickness_interface import \
-            LineThicknessInterface
+        from apysc._display.line_thickness_interface import LineThicknessInterface
+
         if isinstance(self, (FillColorInterface, BeginFillInterface)):
             self._initialize_fill_color_if_not_initialized()
-        self._fill_color.value = ''
+        self._fill_color.value = ""
         if isinstance(self, (FillAlphaInterface, BeginFillInterface)):
             self._initialize_fill_alpha_if_not_initialized()
         self._fill_alpha.value = 1.0
         if isinstance(self, (LineColorInterface, LineStyleInterface)):
             self._initialize_line_color_if_not_initialized()
-        self._line_color.value = ''
+        self._line_color.value = ""
         if isinstance(self, (LineThicknessInterface, LineStyleInterface)):
             self._initialize_line_thickness_if_not_initialized()
         self._line_thickness.value = 1
@@ -91,11 +91,11 @@ class GraphicsClearInterface:
         if isinstance(self, ChildInterface):
             self._initialize_children_if_not_initialized()
             self.remove_children()
-        if hasattr(self, '_current_line'):
+        if hasattr(self, "_current_line"):
             self._current_line = None
-        if hasattr(self, '_line_cap'):
+        if hasattr(self, "_line_cap"):
             self._line_cap = ap.String(ap.LineCaps.BUTT.value)
-        if hasattr(self, '_line_joints'):
+        if hasattr(self, "_line_joints"):
             self._line_joints = ap.String(ap.LineJoints.MITER.value)
         self._line_dot_setting = None
         self._line_dash_setting = None

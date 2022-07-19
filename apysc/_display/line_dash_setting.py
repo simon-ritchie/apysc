@@ -4,19 +4,22 @@
 from typing import Union
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import \
-    AttrToApyscValFromBuiltinInterface
+from apysc._type.attr_to_apysc_val_from_builtin_interface import (
+    AttrToApyscValFromBuiltinInterface,
+)
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class LineDashSetting(
-        Dictionary[str, Int],
-        VariableNameSuffixAttrInterface,
-        AttrToApyscValFromBuiltinInterface):
+    Dictionary[str, Int],
+    VariableNameSuffixAttrInterface,
+    AttrToApyscValFromBuiltinInterface,
+):
     """
     Dash setting class for a line.
 
@@ -46,15 +49,15 @@ class LineDashSetting(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=2)
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=3, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            dash_size: Union[int, Int],
-            space_size: Union[int, Int],
-            variable_name_suffix: str = '') -> None:
+        self,
+        *,
+        dash_size: Union[int, Int],
+        space_size: Union[int, Int],
+        variable_name_suffix: str = ""
+    ) -> None:
         """
         Dash setting class for a line.
 
@@ -90,17 +93,21 @@ class LineDashSetting(
         Int(2)
         """
         import apysc as ap
+
         self._variable_name_suffix = variable_name_suffix
         dash_size_: ap.Int = self._get_copied_int_from_builtin_val(
-            integer=dash_size, attr_identifier='dash_size')
+            integer=dash_size, attr_identifier="dash_size"
+        )
         space_size_: ap.Int = self._get_copied_int_from_builtin_val(
-            integer=space_size, attr_identifier='space_size')
+            integer=space_size, attr_identifier="space_size"
+        )
         super(LineDashSetting, self).__init__(
             {
-                'dash_size': dash_size_,
-                'space_size': space_size_,
+                "dash_size": dash_size_,
+                "space_size": space_size_,
             },
-            variable_name_suffix=self._variable_name_suffix)
+            variable_name_suffix=self._variable_name_suffix,
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -126,7 +133,7 @@ class LineDashSetting(
         >>> line.line_dash_setting.dash_size
         Int(5)
         """
-        return self['dash_size']
+        return self["dash_size"]
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -152,4 +159,4 @@ class LineDashSetting(
         >>> line.line_dash_setting.space_size
         Int(2)
         """
-        return self['space_size']
+        return self["space_size"]

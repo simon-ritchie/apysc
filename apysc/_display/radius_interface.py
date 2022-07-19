@@ -4,22 +4,23 @@
 from typing import Dict
 from typing import Union
 
-from apysc._animation.animation_radius_interface import \
-    AnimationRadiusInterface
+from apysc._animation.animation_radius_interface import AnimationRadiusInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class RadiusInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationRadiusInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationRadiusInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _radius: Int
 
@@ -28,10 +29,9 @@ class RadiusInterface(
         Initialize _radius attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_radius'):
+        if hasattr(self, "_radius"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='radius')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="radius")
         self._radius = Int(0, variable_name_suffix=suffix)
 
         self._append_raidus_attr_linking_setting()
@@ -42,9 +42,9 @@ class RadiusInterface(
         Append a radius attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._radius, attr_name='radius')
-        self._append_attr_to_linking_stack(
-            attr=self._radius, attr_name='radius')
+            new_attr=self._radius, attr_name="radius"
+        )
+        self._append_attr_to_linking_stack(attr=self._radius, attr_name="radius")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -70,6 +70,7 @@ class RadiusInterface(
         Int(75)
         """
         from apysc._type import value_util
+
         self._initialize_radius_if_not_initialized()
         return value_util.get_copy(value=self._radius)
 
@@ -92,8 +93,7 @@ class RadiusInterface(
         self._append_raidus_attr_linking_setting()
 
     @add_debug_info_setting(module_name=__name__)
-    def _get_converted_radius_int(
-            self, *, radius: Union[int, Int]) -> Int:
+    def _get_converted_radius_int(self, *, radius: Union[int, Int]) -> Int:
         """
         Get a radius converted Int instance.
 
@@ -108,9 +108,9 @@ class RadiusInterface(
             Type converted radius value.
         """
         import apysc as ap
+
         if not isinstance(radius, ap.Int):
-            suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='radius')
+            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="radius")
             return ap.Int(radius, variable_name_suffix=suffix)
         return radius
 
@@ -121,12 +121,10 @@ class RadiusInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_radius_if_not_initialized()
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._radius)
-        expression: str = (
-            f'{self.variable_name}.radius({value_str});'
-        )
+        value_str: str = value_util.get_value_str_for_expression(value=self._radius)
+        expression: str = f"{self.variable_name}.radius({value_str});"
         ap.append_js_expression(expression=expression)
 
     _radius_snapshots: Dict[str, int]
@@ -142,8 +140,10 @@ class RadiusInterface(
         """
         self._initialize_radius_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_radius_snapshots',
-            value=int(self._radius._value), snapshot_name=snapshot_name)
+            dict_name="_radius_snapshots",
+            value=int(self._radius._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

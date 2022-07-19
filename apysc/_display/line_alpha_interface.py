@@ -4,22 +4,23 @@
 from typing import Dict
 from typing import Union
 
-from apysc._animation.animation_line_alpha_interface import \
-    AnimationLineAlphaInterface
+from apysc._animation.animation_line_alpha_interface import AnimationLineAlphaInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class LineAlphaInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationLineAlphaInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationLineAlphaInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _line_alpha: Number
 
@@ -28,10 +29,9 @@ class LineAlphaInterface(
         Initialize _line_alpha attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_line_alpha'):
+        if hasattr(self, "_line_alpha"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_alpha')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
         self._line_alpha = Number(1.0, variable_name_suffix=suffix)
 
         self._append_line_alpha_attr_linking_setting()
@@ -42,9 +42,11 @@ class LineAlphaInterface(
         Append a line alpha attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._line_alpha, attr_name='line_alpha')
+            new_attr=self._line_alpha, attr_name="line_alpha"
+        )
         self._append_attr_to_linking_stack(
-            attr=self._line_alpha, attr_name='line_alpha')
+            attr=self._line_alpha, attr_name="line_alpha"
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -75,6 +77,7 @@ class LineAlphaInterface(
         Number(0.5)
         """
         from apysc._type import value_util
+
         self._initialize_line_alpha_if_not_initialized()
         return value_util.get_copy(value=self._line_alpha)
 
@@ -110,15 +113,16 @@ class LineAlphaInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         line_alpha_str: str = value_util.get_value_str_for_expression(
-            value=self._line_alpha)
-        expression: str = (
-            f'{self.variable_name}.stroke({{opacity: {line_alpha_str}}});'
+            value=self._line_alpha
         )
+        expression: str = f"{self.variable_name}.stroke({{opacity: {line_alpha_str}}});"
         ap.append_js_expression(expression=expression)
 
     def _update_line_alpha_and_skip_appending_exp(
-            self, *, value: Union[float, Number]) -> None:
+        self, *, value: Union[float, Number]
+    ) -> None:
         """
         Update line alpha and skip appending expression.
 
@@ -128,11 +132,13 @@ class LineAlphaInterface(
             Line alpha (opacity) to set.
         """
         import apysc as ap
+
         if isinstance(value, ap.Number):
             value_: ap.Number = value
         else:
             suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='line_alpha')
+                attr_identifier="line_alpha"
+            )
             value_ = Number(value, variable_name_suffix=suffix)
         self._line_alpha = value_
 
@@ -149,8 +155,10 @@ class LineAlphaInterface(
         """
         self._initialize_line_alpha_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_alpha_snapshots',
-            value=self._line_alpha._value, snapshot_name=snapshot_name)
+            dict_name="_line_alpha_snapshots",
+            value=self._line_alpha._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

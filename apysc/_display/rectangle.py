@@ -25,22 +25,22 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class Rectangle(
-        XInterface,
-        YInterface,
-        GraphicsBase,
-        WidthInterface,
-        HeightInterface,
-        EllipseWidthInterface,
-        EllipseHeightInterface,
-        FillColorInterface,
-        FillAlphaInterface,
-        VariableNameSuffixInterface):
+    XInterface,
+    YInterface,
+    GraphicsBase,
+    WidthInterface,
+    HeightInterface,
+    EllipseWidthInterface,
+    EllipseHeightInterface,
+    FillColorInterface,
+    FillAlphaInterface,
+    VariableNameSuffixInterface,
+):
     """
     The rectangle vector graphics class.
 
@@ -76,8 +76,7 @@ class Rectangle(
     """
 
     # self
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # x
     @arg_validation_decos.is_integer(arg_position_index=1)
     # y
@@ -106,11 +105,9 @@ class Rectangle(
     @arg_validation_decos.is_integer(arg_position_index=11)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=11)
     # line_cap
-    @arg_validation_decos.is_line_cap(
-        arg_position_index=12, optional=True)
+    @arg_validation_decos.is_line_cap(arg_position_index=12, optional=True)
     # line_joints
-    @arg_validation_decos.is_line_joints(
-        arg_position_index=13, optional=True)
+    @arg_validation_decos.is_line_joints(arg_position_index=13, optional=True)
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=14)
     # line_dash_setting
@@ -121,33 +118,34 @@ class Rectangle(
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=17)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=18, optional=True)
+        arg_position_index=18, optional=True
+    )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=19, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=19, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int],
-            ellipse_width: Union[int, Int] = 0,
-            ellipse_height: Union[int, Int] = 0,
-            fill_color: Union[str, String] = '',
-            fill_alpha: Union[float, Number] = 1.0,
-            line_color: Union[str, String] = '',
-            line_alpha: Union[float, Number] = 1.0,
-            line_thickness: Union[int, Int] = 1,
-            line_cap: Op[Union[String, LineCaps]] = None,
-            line_joints: Op[Union[String, LineJoints]] = None,
-            line_dot_setting: Op[LineDotSetting] = None,
-            line_dash_setting: Op[LineDashSetting] = None,
-            line_round_dot_setting: Op[LineRoundDotSetting] = None,
-            line_dash_dot_setting: Op[LineDashDotSetting] = None,
-            parent: Op[ChildInterface] = None,
-            variable_name_suffix: str = '') -> None:
+        self,
+        *,
+        x: Union[int, Int],
+        y: Union[int, Int],
+        width: Union[int, Int],
+        height: Union[int, Int],
+        ellipse_width: Union[int, Int] = 0,
+        ellipse_height: Union[int, Int] = 0,
+        fill_color: Union[str, String] = "",
+        fill_alpha: Union[float, Number] = 1.0,
+        line_color: Union[str, String] = "",
+        line_alpha: Union[float, Number] = 1.0,
+        line_thickness: Union[int, Int] = 1,
+        line_cap: Op[Union[String, LineCaps]] = None,
+        line_joints: Op[Union[String, LineJoints]] = None,
+        line_dot_setting: Op[LineDotSetting] = None,
+        line_dash_setting: Op[LineDashSetting] = None,
+        line_round_dot_setting: Op[LineRoundDotSetting] = None,
+        line_dash_dot_setting: Op[LineDashDotSetting] = None,
+        parent: Op[ChildInterface] = None,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Create a rectangle vector graphic.
 
@@ -219,34 +217,40 @@ class Rectangle(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.RECTANGLE)
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.RECTANGLE
+        )
         self.variable_name = variable_name
         self._update_x_and_skip_appending_exp(x=x)
         self._update_y_and_skip_appending_exp(y=y)
         self._update_width_and_skip_appending_exp(value=width)
         self._update_height_and_skip_appending_exp(value=height)
         self._set_initial_basic_values(
-            fill_color=fill_color, fill_alpha=fill_alpha,
-            line_color=line_color, line_thickness=line_thickness,
-            line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
+            fill_color=fill_color,
+            fill_alpha=fill_alpha,
+            line_color=line_color,
+            line_thickness=line_thickness,
+            line_alpha=line_alpha,
+            line_cap=line_cap,
+            line_joints=line_joints,
+        )
         self._append_constructor_expression()
         self._set_line_setting_if_not_none_value_exists(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
-            line_dash_dot_setting=line_dash_dot_setting)
+            line_dash_dot_setting=line_dash_dot_setting,
+        )
         self._set_ellipse_settings_if_values_are_not_zero(
-            ellipse_width=ellipse_width, ellipse_height=ellipse_height)
-        super(Rectangle, self).__init__(
-            parent=parent, variable_name=variable_name)
+            ellipse_width=ellipse_width, ellipse_height=ellipse_height
+        )
+        super(Rectangle, self).__init__(parent=parent, variable_name=variable_name)
 
     def _set_ellipse_settings_if_values_are_not_zero(
-            self,
-            *,
-            ellipse_width: Union[int, Int],
-            ellipse_height: Union[int, Int]) -> None:
+        self, *, ellipse_width: Union[int, Int], ellipse_height: Union[int, Int]
+    ) -> None:
         """
         Set ellipse-related settings if values are not zero.
 
@@ -274,14 +278,15 @@ class Rectangle(
 
     @classmethod
     def _create_with_graphics(
-            cls,
-            *,
-            graphics: 'graphics.Graphics',
-            x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int],
-            variable_name_suffix: str = '') -> 'Rectangle':
+        cls,
+        *,
+        graphics: "graphics.Graphics",
+        x: Union[int, Int],
+        y: Union[int, Int],
+        width: Union[int, Int],
+        height: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "Rectangle":
         """
         Create a rectangle instance with the instance of
         specified graphics..
@@ -324,7 +329,8 @@ class Rectangle(
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
             parent=graphics,
-            variable_name_suffix=variable_name_suffix)
+            variable_name_suffix=variable_name_suffix,
+        )
         return rectangle
 
     def __repr__(self) -> str:
@@ -347,15 +353,17 @@ class Rectangle(
         Append constructor expression.
         """
         import apysc as ap
+
         variable_name: str = self.variable_name
         stage: ap.Stage = ap.get_stage()
         expression: str = (
-            f'var {variable_name} = {stage.variable_name}'
-            f'\n  .rect({self.width.variable_name}, '
-            f'{self.height.variable_name})'
-            '\n  .attr({'
+            f"var {variable_name} = {stage.variable_name}"
+            f"\n  .rect({self.width.variable_name}, "
+            f"{self.height.variable_name})"
+            "\n  .attr({"
         )
         expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2)
-        expression += '\n  });'
+            expression=expression, indent_num=2
+        )
+        expression += "\n  });"
         ap.append_js_expression(expression=expression)

@@ -23,18 +23,18 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class Path(
-        XInterface,
-        YInterface,
-        GraphicsBase,
-        FillColorInterface,
-        FillAlphaInterface,
-        VariableNameSuffixInterface):
+    XInterface,
+    YInterface,
+    GraphicsBase,
+    FillColorInterface,
+    FillAlphaInterface,
+    VariableNameSuffixInterface,
+):
     """
     The path vector graphics class.
 
@@ -56,8 +56,7 @@ class Path(
     _path_data_list: List[PathDataBase]
 
     # self
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # path_data_list
     @arg_validation_decos.is_path_data_list(arg_position_index=1)
     # fill_color
@@ -72,11 +71,9 @@ class Path(
     @arg_validation_decos.is_integer(arg_position_index=6)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
     # line_cap
-    @arg_validation_decos.is_line_cap(
-        arg_position_index=7, optional=True)
+    @arg_validation_decos.is_line_cap(arg_position_index=7, optional=True)
     # line_joints
-    @arg_validation_decos.is_line_joints(
-        arg_position_index=8, optional=True)
+    @arg_validation_decos.is_line_joints(arg_position_index=8, optional=True)
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=9)
     # line_dash_setting
@@ -87,28 +84,29 @@ class Path(
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=12)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=13, optional=True)
+        arg_position_index=13, optional=True
+    )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=14, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=14, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            path_data_list: List[PathDataBase],
-            fill_color: Union[str, String] = '',
-            fill_alpha: Union[float, Number] = 1.0,
-            line_color: Union[str, String] = '',
-            line_alpha: Union[float, Number] = 1.0,
-            line_thickness: Union[int, Int] = 1,
-            line_cap: Op[Union[String, LineCaps]] = None,
-            line_joints: Op[Union[String, LineJoints]] = None,
-            line_dot_setting: Op[LineDotSetting] = None,
-            line_dash_setting: Op[LineDashSetting] = None,
-            line_round_dot_setting: Op[LineRoundDotSetting] = None,
-            line_dash_dot_setting: Op[LineDashDotSetting] = None,
-            parent: Op[ChildInterface] = None,
-            variable_name_suffix: str = '') -> None:
+        self,
+        *,
+        path_data_list: List[PathDataBase],
+        fill_color: Union[str, String] = "",
+        fill_alpha: Union[float, Number] = 1.0,
+        line_color: Union[str, String] = "",
+        line_alpha: Union[float, Number] = 1.0,
+        line_thickness: Union[int, Int] = 1,
+        line_cap: Op[Union[String, LineCaps]] = None,
+        line_joints: Op[Union[String, LineJoints]] = None,
+        line_dot_setting: Op[LineDotSetting] = None,
+        line_dash_setting: Op[LineDashSetting] = None,
+        line_round_dot_setting: Op[LineRoundDotSetting] = None,
+        line_dash_dot_setting: Op[LineDashDotSetting] = None,
+        parent: Op[ChildInterface] = None,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Create a path vector graphic.
 
@@ -165,31 +163,39 @@ class Path(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.PATH)
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.PATH
+        )
         self.variable_name = variable_name
         self._set_initial_basic_values(
-            fill_color=fill_color, fill_alpha=fill_alpha,
-            line_color=line_color, line_thickness=line_thickness,
-            line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
+            fill_color=fill_color,
+            fill_alpha=fill_alpha,
+            line_color=line_color,
+            line_thickness=line_thickness,
+            line_alpha=line_alpha,
+            line_cap=line_cap,
+            line_joints=line_joints,
+        )
         self._path_data_list = path_data_list
         self._append_constructor_expression()
         self._set_line_setting_if_not_none_value_exists(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
-            line_dash_dot_setting=line_dash_dot_setting)
-        super(Path, self).__init__(
-            parent=parent, variable_name=variable_name)
+            line_dash_dot_setting=line_dash_dot_setting,
+        )
+        super(Path, self).__init__(parent=parent, variable_name=variable_name)
 
     @classmethod
     def _create_with_graphics(
-            cls,
-            *,
-            graphics: 'graphics.Graphics',
-            path_data_list: List[PathDataBase],
-            variable_name_suffix: str = '') -> 'Path':
+        cls,
+        *,
+        graphics: "graphics.Graphics",
+        path_data_list: List[PathDataBase],
+        variable_name_suffix: str = "",
+    ) -> "Path":
         """
         Create a path instance with the instance of
         specified graphics.
@@ -223,7 +229,8 @@ class Path(
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
             parent=graphics,
-            variable_name_suffix=variable_name_suffix)
+            variable_name_suffix=variable_name_suffix,
+        )
         return path
 
     @add_debug_info_setting(module_name=__name__)
@@ -234,23 +241,24 @@ class Path(
         import apysc as ap
         from apysc._geom.path_data_util import make_paths_expression_from_list
         from apysc._string import indent_util
+
         stage: ap.Stage = ap.get_stage()
         path_data_expression: str = make_paths_expression_from_list(
-            path_data_list=self._path_data_list)
+            path_data_list=self._path_data_list
+        )
         INDENT_NUM: int = 2
         expression: str = (
-            f'var {self.variable_name} = {stage.variable_name}'
-            f'\n  .path({path_data_expression})'
-            '\n  .attr({'
+            f"var {self.variable_name} = {stage.variable_name}"
+            f"\n  .path({path_data_expression})"
+            "\n  .attr({"
         )
         expression = self._append_basic_vals_expression(
-            expression=expression,
-            indent_num=INDENT_NUM)
-        spaces: str = indent_util.make_spaces_for_html(
-            indent_num=INDENT_NUM)
-        if self._fill_color._value == '':
+            expression=expression, indent_num=INDENT_NUM
+        )
+        spaces: str = indent_util.make_spaces_for_html(indent_num=INDENT_NUM)
+        if self._fill_color._value == "":
             expression += f'\n{spaces}fill: "transparent",'
-        expression += '\n  });'
+        expression += "\n  });"
         ap.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:

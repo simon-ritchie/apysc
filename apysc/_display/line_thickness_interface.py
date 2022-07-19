@@ -4,22 +4,25 @@
 from typing import Dict
 from typing import Union
 
-from apysc._animation.animation_line_thickness_interface import \
-    AnimationLineThicknessInterface
+from apysc._animation.animation_line_thickness_interface import (
+    AnimationLineThicknessInterface,
+)
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class LineThicknessInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationLineThicknessInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationLineThicknessInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _line_thickness: Int
 
@@ -28,10 +31,11 @@ class LineThicknessInterface(
         Initialize _line_thickness attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_line_thickness'):
+        if hasattr(self, "_line_thickness"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_thickness')
+            attr_identifier="line_thickness"
+        )
         self._line_thickness = Int(1, variable_name_suffix=suffix)
 
         self._append_line_thickness_attr_linking_setting()
@@ -42,9 +46,11 @@ class LineThicknessInterface(
         Append a line thickness attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._line_thickness, attr_name='line_thickness')
+            new_attr=self._line_thickness, attr_name="line_thickness"
+        )
         self._append_attr_to_linking_stack(
-            attr=self._line_thickness, attr_name='line_thickness')
+            attr=self._line_thickness, attr_name="line_thickness"
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -75,6 +81,7 @@ class LineThicknessInterface(
         Int(5)
         """
         from apysc._type import value_util
+
         return value_util.get_copy(value=self._line_thickness)
 
     @line_thickness.setter
@@ -96,8 +103,7 @@ class LineThicknessInterface(
             - https://simon-ritchie.github.io/apysc/en/graphics_base_line_thickness.html  # noqa
         """
         self._update_line_thickness_and_skip_appending_exp(value=value)
-        self._line_thickness.\
-            _append_incremental_calc_substitution_expression()
+        self._line_thickness._append_incremental_calc_substitution_expression()
         self._append_line_thickness_update_expression()
 
         self._append_line_thickness_attr_linking_setting()
@@ -109,16 +115,18 @@ class LineThicknessInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         line_thickness_str: str = value_util.get_value_str_for_expression(
-            value=self.line_thickness)
+            value=self.line_thickness
+        )
         expression: str = (
-            f'{self.variable_name}.attr({{"stroke-width": '
-            f'{line_thickness_str}}});'
+            f'{self.variable_name}.attr({{"stroke-width": ' f"{line_thickness_str}}});"
         )
         ap.append_js_expression(expression=expression)
 
     def _update_line_thickness_and_skip_appending_exp(
-            self, *, value: Union[int, Int]) -> None:
+        self, *, value: Union[int, Int]
+    ) -> None:
         """
         Update line thickness and skip appending expression.
 
@@ -128,11 +136,13 @@ class LineThicknessInterface(
             Line thickness to set.
         """
         import apysc as ap
+
         if isinstance(value, ap.Int):
             value_: ap.Int = value
         else:
             suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='line_thickness')
+                attr_identifier="line_thickness"
+            )
             value_ = Int(value, variable_name_suffix=suffix)
         self._line_thickness = value_
 
@@ -149,8 +159,10 @@ class LineThicknessInterface(
         """
         self._initialize_line_thickness_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_thickness_snapshots',
-            value=self._line_thickness._value, snapshot_name=snapshot_name)
+            dict_name="_line_thickness_snapshots",
+            value=self._line_thickness._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -163,5 +175,4 @@ class LineThicknessInterface(
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._line_thickness._value = self._line_thickness_snapshots[
-            snapshot_name]
+        self._line_thickness._value = self._line_thickness_snapshots[snapshot_name]

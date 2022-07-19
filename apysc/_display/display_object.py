@@ -3,8 +3,7 @@
 
 from typing import TYPE_CHECKING
 
-from apysc._animation.animation_parallel_interface import \
-    AnimationParallelInterface
+from apysc._animation.animation_parallel_interface import AnimationParallelInterface
 from apysc._display.css_interface import CssInterface
 from apysc._display.parent_interface import ParentInterface
 from apysc._display.visible_interface import VisibleInterface
@@ -20,9 +19,15 @@ if TYPE_CHECKING:
 
 
 class DisplayObject(
-        XInterfaceBase, YInterfaceBase, ParentInterface, MouseEventInterfaces,
-        VisibleInterface, CustomEventInterface, CssInterface,
-        AnimationParallelInterface):
+    XInterfaceBase,
+    YInterfaceBase,
+    ParentInterface,
+    MouseEventInterfaces,
+    VisibleInterface,
+    CustomEventInterface,
+    CssInterface,
+    AnimationParallelInterface,
+):
     """
     Display object (base) class for the common interfaces.
 
@@ -32,7 +37,7 @@ class DisplayObject(
         - https://simon-ritchie.github.io/apysc/en/display_object.html
     """
 
-    stage: 'Stage'
+    stage: "Stage"
 
     @arg_validation_decos.not_empty_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -52,6 +57,7 @@ class DisplayObject(
             - https://simon-ritchie.github.io/apysc/en/display_object.html
         """
         import apysc as ap
+
         stage: ap.Stage = ap.get_stage()
         self.stage: ap.Stage = stage
         self._variable_name = variable_name
@@ -61,4 +67,4 @@ class DisplayObject(
         """
         Set the `visible` value to the `overflow` CSS property.
         """
-        self.set_css(name='overflow', value='visible')
+        self.set_css(name="overflow", value="visible")

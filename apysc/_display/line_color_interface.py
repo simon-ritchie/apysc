@@ -4,22 +4,23 @@
 from typing import Dict
 from typing import Union
 
-from apysc._animation.animation_line_color_interface import \
-    AnimationLineColorInterface
+from apysc._animation.animation_line_color_interface import AnimationLineColorInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class LineColorInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationLineColorInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationLineColorInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _line_color: String
 
@@ -54,9 +55,9 @@ class LineColorInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_line_color_if_not_initialized()
-        line_color: ap.String = value_util.get_copy(
-            value=self._line_color)
+        line_color: ap.String = value_util.get_copy(value=self._line_color)
         return line_color
 
     @line_color.setter
@@ -81,9 +82,11 @@ class LineColorInterface(
         self._append_line_color_update_expression()
 
         self._append_applying_new_attr_val_exp(
-            new_attr=self._line_color, attr_name='line_color')
+            new_attr=self._line_color, attr_name="line_color"
+        )
         self._append_attr_to_linking_stack(
-            attr=self._line_color, attr_name='line_color')
+            attr=self._line_color, attr_name="line_color"
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def _append_line_color_update_expression(self) -> None:
@@ -92,15 +95,16 @@ class LineColorInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         line_color_str: str = value_util.get_value_str_for_expression(
-            value=self._line_color)
-        expression: str = (
-            f'{self.variable_name}.stroke({line_color_str});'
+            value=self._line_color
         )
+        expression: str = f"{self.variable_name}.stroke({line_color_str});"
         ap.append_js_expression(expression=expression)
 
     def _set_initial_line_color_if_not_blank(
-            self, *, line_color: Union[str, String]) -> None:
+        self, *, line_color: Union[str, String]
+    ) -> None:
         """
         Set initial line color value if a specified value is
         not a blank string.
@@ -111,20 +115,18 @@ class LineColorInterface(
             Line color (hexadecimal string, e.g., '#00aaff').
         """
         import apysc as ap
+
         self._initialize_line_color_if_not_initialized()
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_color')
-        if line_color == '':
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_color")
+        if line_color == "":
             return
         if isinstance(line_color, ap.String):
             line_color_: ap.String = line_color
         else:
             line_color_ = String(line_color, variable_name_suffix=suffix)
-        self._update_line_color_and_skip_appending_exp(
-            value=line_color_)
+        self._update_line_color_and_skip_appending_exp(value=line_color_)
 
-    def _update_line_color_and_skip_appending_exp(
-            self, *, value: String) -> None:
+    def _update_line_color_and_skip_appending_exp(self, *, value: String) -> None:
         """
         Update line color and skip appending expression.
 
@@ -134,9 +136,9 @@ class LineColorInterface(
             Line color to set.
         """
         from apysc._color import color_util
+
         self._initialize_line_color_if_not_initialized()
-        value = color_util.complement_hex_color(
-            hex_color_code=value)
+        value = color_util.complement_hex_color(hex_color_code=value)
         self._initialize_line_color_if_not_initialized()
         self._line_color = value
 
@@ -145,11 +147,10 @@ class LineColorInterface(
         Initialize the line_color attribute if this
         interface does not initialize it yet.
         """
-        if hasattr(self, '_line_color'):
+        if hasattr(self, "_line_color"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='line_color')
-        self._line_color = String('', variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_color")
+        self._line_color = String("", variable_name_suffix=suffix)
 
     _line_color_snapshots: Dict[str, str]
 
@@ -164,8 +165,10 @@ class LineColorInterface(
         """
         self._initialize_line_color_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_color_snapshots',
-            value=self._line_color._value, snapshot_name=snapshot_name)
+            dict_name="_line_color_snapshots",
+            value=self._line_color._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

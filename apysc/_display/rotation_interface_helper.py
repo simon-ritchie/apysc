@@ -8,9 +8,8 @@ from apysc._type.int import Int
 
 
 def get_coordinates_key_for_expression(
-        *,
-        x: Union[int, Int],
-        y: Union[int, Int]) -> ExpressionString:
+    *, x: Union[int, Int], y: Union[int, Int]
+) -> ExpressionString:
     """
     Get a key string for the expression from the x and y coordinates.
 
@@ -27,6 +26,7 @@ def get_coordinates_key_for_expression(
         Key expression string.
     """
     from apysc._type.variable_name_interface import VariableNameInterface
+
     if isinstance(x, VariableNameInterface):
         x_str: str = x.variable_name
     else:
@@ -36,5 +36,6 @@ def get_coordinates_key_for_expression(
     else:
         y_str = str(y)
     key_exp_str: ExpressionString = ExpressionString(
-        value=f'String({x_str}) + "_" + String({y_str})')
+        value=f'String({x_str}) + "_" + String({y_str})'
+    )
     return key_exp_str

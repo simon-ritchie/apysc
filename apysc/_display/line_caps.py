@@ -19,6 +19,7 @@ class LineCaps(Enum):
         This is similar to BUTT type, but the length of the line
         will be increased by the stroke-width (thickness) value.
     """
-    BUTT = 'butt'
-    ROUND = 'round'
-    SQUARE = 'square'
+
+    BUTT = "butt"
+    ROUND = "round"
+    SQUARE = "square"

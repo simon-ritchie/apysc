@@ -20,7 +20,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         Initialize _line_dash_dot_setting attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_line_dash_dot_setting'):
+        if hasattr(self, "_line_dash_dot_setting"):
             return
         self._line_dash_dot_setting = None
 
@@ -63,12 +63,10 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         return self._line_dash_dot_setting
 
     @line_dash_dot_setting.setter
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def line_dash_dot_setting(
-            self, value: Optional[LineDashDotSetting]) -> None:
+    def line_dash_dot_setting(self, value: Optional[LineDashDotSetting]) -> None:
         """
         Set line dash dot (1-dot chain) setting.
 
@@ -82,12 +80,12 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         - GraphicsBase line_dash_dot_setting interface document
             - https://simon-ritchie.github.io/apysc/en/graphics_base_line_dash_dot_setting.html  # noqa
         """
-        self._update_line_dash_dot_setting_and_skip_appending_exp(
-            value=value)
+        self._update_line_dash_dot_setting_and_skip_appending_exp(value=value)
         self._append_line_dash_dot_setting_update_expression()
 
     def _update_line_dash_dot_setting_and_skip_appending_exp(
-            self, *, value: Optional[LineDashDotSetting]) -> None:
+        self, *, value: Optional[LineDashDotSetting]
+    ) -> None:
         """
         Update line dash-dot (1-dot chain) setting and skip
         appending expression.
@@ -99,9 +97,10 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         """
         if value is not None and not isinstance(value, LineDashDotSetting):
             raise TypeError(
-                'Not supported line_dash_dot_setting type specified: '
-                f'{type(value)}'
-                '\nAcceptable ones are: LineDashDotSetting or None.')
+                "Not supported line_dash_dot_setting type specified: "
+                f"{type(value)}"
+                "\nAcceptable ones are: LineDashDotSetting or None."
+            )
         self._line_dash_dot_setting = value
 
     @add_debug_info_setting(module_name=__name__)
@@ -110,20 +109,18 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         Append line dash-dot setting updating expression.
         """
         import apysc as ap
+
         if self._line_dash_dot_setting is None:
             setting_str: str = '""'
         else:
-            dot_size_name: str = \
-                self._line_dash_dot_setting.dot_size.variable_name
-            dash_size_name: str = \
-                self._line_dash_dot_setting.dash_size.variable_name
-            space_size_name: str = \
-                self._line_dash_dot_setting.space_size.variable_name
+            dot_size_name: str = self._line_dash_dot_setting.dot_size.variable_name
+            dash_size_name: str = self._line_dash_dot_setting.dash_size.variable_name
+            space_size_name: str = self._line_dash_dot_setting.space_size.variable_name
             setting_str = (
                 f'String({dot_size_name}) + " " + '
                 f'String({space_size_name}) + " " + '
                 f'String({dash_size_name}) + " " + '
-                f'String({space_size_name})'
+                f"String({space_size_name})"
             )
         expression: str = (
             f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
@@ -143,8 +140,10 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         """
         self._initialize_line_dash_dot_setting_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_line_dash_dot_setting_snapshots',
-            value=self._line_dash_dot_setting, snapshot_name=snapshot_name)
+            dict_name="_line_dash_dot_setting_snapshots",
+            value=self._line_dash_dot_setting,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -158,4 +157,5 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._line_dash_dot_setting = self._line_dash_dot_setting_snapshots[
-            snapshot_name]
+            snapshot_name
+        ]

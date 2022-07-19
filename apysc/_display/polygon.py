@@ -17,8 +17,9 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.set_x_and_y_with_minimum_point_interface_base import \
-    SetXAndYWithMinimumPointInterfaceBase
+from apysc._display.set_x_and_y_with_minimum_point_interface_base import (
+    SetXAndYWithMinimumPointInterfaceBase,
+)
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._geom.point2d import Point2D
@@ -27,20 +28,20 @@ from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class Polygon(
-        XInterface,
-        YInterface,
-        GraphicsBase,
-        AppendLinePointInterface,
-        SetXAndYWithMinimumPointInterfaceBase,
-        FillColorInterface,
-        FillAlphaInterface,
-        VariableNameSuffixInterface):
+    XInterface,
+    YInterface,
+    GraphicsBase,
+    AppendLinePointInterface,
+    SetXAndYWithMinimumPointInterfaceBase,
+    FillColorInterface,
+    FillAlphaInterface,
+    VariableNameSuffixInterface,
+):
     """
     The polygon vector graphics class.
 
@@ -68,8 +69,7 @@ class Polygon(
     """
 
     # self
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # points
     @arg_validation_decos.is_point_2ds(arg_position_index=1)
     # fill_color
@@ -84,11 +84,9 @@ class Polygon(
     @arg_validation_decos.is_integer(arg_position_index=6)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
     # line_cap
-    @arg_validation_decos.is_line_cap(
-        arg_position_index=7, optional=True)
+    @arg_validation_decos.is_line_cap(arg_position_index=7, optional=True)
     # line_joints
-    @arg_validation_decos.is_line_joints(
-        arg_position_index=8, optional=True)
+    @arg_validation_decos.is_line_joints(arg_position_index=8, optional=True)
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=9)
     # line_dash_setting
@@ -99,28 +97,29 @@ class Polygon(
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=12)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=13, optional=True)
+        arg_position_index=13, optional=True
+    )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=14, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=14, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            points: Union[List[Point2D], Array[Point2D]],
-            fill_color: Union[str, String] = '',
-            fill_alpha: Union[float, Number] = 1.0,
-            line_color: Union[str, String] = '',
-            line_alpha: Union[float, Number] = 1.0,
-            line_thickness: Union[int, Int] = 1,
-            line_cap: Op[Union[String, LineCaps]] = None,
-            line_joints: Op[Union[String, LineJoints]] = None,
-            line_dot_setting: Op[LineDotSetting] = None,
-            line_dash_setting: Op[LineDashSetting] = None,
-            line_round_dot_setting: Op[LineRoundDotSetting] = None,
-            line_dash_dot_setting: Op[LineDashDotSetting] = None,
-            parent: Op[ChildInterface] = None,
-            variable_name_suffix: str = '') -> None:
+        self,
+        *,
+        points: Union[List[Point2D], Array[Point2D]],
+        fill_color: Union[str, String] = "",
+        fill_alpha: Union[float, Number] = 1.0,
+        line_color: Union[str, String] = "",
+        line_alpha: Union[float, Number] = 1.0,
+        line_thickness: Union[int, Int] = 1,
+        line_cap: Op[Union[String, LineCaps]] = None,
+        line_joints: Op[Union[String, LineJoints]] = None,
+        line_dot_setting: Op[LineDotSetting] = None,
+        line_dash_setting: Op[LineDashSetting] = None,
+        line_round_dot_setting: Op[LineRoundDotSetting] = None,
+        line_dash_dot_setting: Op[LineDashDotSetting] = None,
+        parent: Op[ChildInterface] = None,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Create a polygon vector graphic. This class is
         similar to the Polyline class, but unlike that,
@@ -181,26 +180,33 @@ class Polygon(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
         if isinstance(points, list):
             points = Array(points)
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.POLYGON)
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.POLYGON
+        )
         self.variable_name = variable_name
         self._set_initial_basic_values(
-            fill_color=fill_color, fill_alpha=fill_alpha,
-            line_color=line_color, line_thickness=line_thickness,
-            line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
+            fill_color=fill_color,
+            fill_alpha=fill_alpha,
+            line_color=line_color,
+            line_thickness=line_thickness,
+            line_alpha=line_alpha,
+            line_cap=line_cap,
+            line_joints=line_joints,
+        )
         self.points = points
         self._append_constructor_expression()
         self._set_line_setting_if_not_none_value_exists(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
-            line_dash_dot_setting=line_dash_dot_setting)
+            line_dash_dot_setting=line_dash_dot_setting,
+        )
         self._set_x_and_y_with_minimum_point()
-        super(Polygon, self).__init__(
-            parent=parent, variable_name=variable_name)
+        super(Polygon, self).__init__(parent=parent, variable_name=variable_name)
 
     def _set_x_and_y_with_minimum_point(self) -> None:
         """
@@ -209,21 +215,20 @@ class Polygon(
         min_x: int = min([point._x._value for point in self._points._value])
         min_y: int = min([point._y._value for point in self._points._value])
 
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='x')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="x")
         self._x = Int(min_x, variable_name_suffix=suffix)
 
-        suffix = self._get_attr_variable_name_suffix(
-            attr_identifier='y')
+        suffix = self._get_attr_variable_name_suffix(attr_identifier="y")
         self._y = Int(min_y, variable_name_suffix=suffix)
 
     @classmethod
     def _create_with_graphics(
-            cls,
-            *,
-            graphics: 'graphics.Graphics',
-            points: Union[List[Point2D], Array[Point2D]],
-            variable_name_suffix: str = '') -> 'Polygon':
+        cls,
+        *,
+        graphics: "graphics.Graphics",
+        points: Union[List[Point2D], Array[Point2D]],
+        variable_name_suffix: str = "",
+    ) -> "Polygon":
         """
         Create a polygon instance with the instance of
         specified graphics.
@@ -257,7 +262,8 @@ class Polygon(
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
             parent=graphics,
-            variable_name_suffix=variable_name_suffix)
+            variable_name_suffix=variable_name_suffix,
+        )
         return polygon
 
     def __repr__(self) -> str:
@@ -280,19 +286,20 @@ class Polygon(
         Append constructor expression.
         """
         import apysc as ap
+
         stage: ap.Stage = ap.get_stage()
         points_var_name: str
         points_expression: str
-        points_var_name, points_expression = \
-            self._make_2dim_points_expression()
+        points_var_name, points_expression = self._make_2dim_points_expression()
         expression: str = (
-            f'{points_expression}'
-            f'\nvar {self.variable_name} = {stage.variable_name}'
-            f'\n  .polygon({points_var_name})'
-            '\n  .attr({'
+            f"{points_expression}"
+            f"\nvar {self.variable_name} = {stage.variable_name}"
+            f"\n  .polygon({points_var_name})"
+            "\n  .attr({"
         )
         expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2)
-        expression += '\n  });'
+            expression=expression, indent_num=2
+        )
+        expression += "\n  });"
         ap.append_js_expression(expression=expression)
         self._points_var_name = points_var_name

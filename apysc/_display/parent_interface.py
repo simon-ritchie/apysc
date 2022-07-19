@@ -15,10 +15,10 @@ if TYPE_CHECKING:
 
 class ParentInterface(RevertInterface):
 
-    _parent: Optional['ChildInterface'] = None
+    _parent: Optional["ChildInterface"] = None
 
     @property
-    def parent(self) -> Optional['ChildInterface']:
+    def parent(self) -> Optional["ChildInterface"]:
         """
         Get a parent instance that has an add_child and remove_child
         interfaces.
@@ -52,8 +52,9 @@ class ParentInterface(RevertInterface):
 
     @parent.setter
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=1, optional=True)
-    def parent(self, value: Optional['ChildInterface']) -> None:
+        arg_position_index=1, optional=True
+    )
+    def parent(self, value: Optional["ChildInterface"]) -> None:
         """
         Set parent instance.
 
@@ -79,8 +80,8 @@ class ParentInterface(RevertInterface):
             - https://simon-ritchie.github.io/apysc/en/display_object_parent.html  # noqa
         """
         from apysc._validation import parent_validation
-        parent_validation.validate_parent_contains_child(
-            parent=value, child=self)
+
+        parent_validation.validate_parent_contains_child(parent=value, child=self)
         self._parent = value
 
     @add_debug_info_setting(module_name=__name__)
@@ -94,9 +95,9 @@ class ParentInterface(RevertInterface):
             If a parent is None (there is no parent).
         """
         from apysc._display.child_interface import ChildInterface
-        from apysc._display.child_interface import \
-            append_expression_of_remove_child
+        from apysc._display.child_interface import append_expression_of_remove_child
         from apysc._display.display_object import DisplayObject
+
         parent: Optional[ChildInterface] = self._parent
         child: DisplayObject = self  # type: ignore
         if parent is not None:
@@ -104,7 +105,7 @@ class ParentInterface(RevertInterface):
         else:
             append_expression_of_remove_child(child=child)
 
-    _parent_snapshots: Dict[str, Optional['ChildInterface']]
+    _parent_snapshots: Dict[str, Optional["ChildInterface"]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -116,8 +117,10 @@ class ParentInterface(RevertInterface):
             Target snapshot name.
         """
         self._set_single_snapshot_val_to_dict(
-            dict_name='_parent_snapshots',
-            value=self._parent, snapshot_name=snapshot_name)
+            dict_name="_parent_snapshots",
+            value=self._parent,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

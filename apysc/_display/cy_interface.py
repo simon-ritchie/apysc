@@ -10,27 +10,27 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class CyInterface(
-        YInterfaceBase,
-        VariableNameSuffixAttrInterface,
-        AnimationCyInterface,
-        RevertInterface,
-        AttrLinkingInterface):
-
+    YInterfaceBase,
+    VariableNameSuffixAttrInterface,
+    AnimationCyInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
     def _initialize_y_if_not_initialized(self) -> None:
         """
         Initialize _y attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_y'):
+        if hasattr(self, "_y"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='y')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="y")
         self._y = Int(0, variable_name_suffix=suffix)
 
         self._append_y_attr_linking_setting()
@@ -40,9 +40,8 @@ class CyInterface(
         """
         Append y attribute linking settings.
         """
-        self._append_applying_new_attr_val_exp(
-            new_attr=self._y, attr_name='y')
-        self._append_attr_to_linking_stack(attr=self._y, attr_name='y')
+        self._append_applying_new_attr_val_exp(new_attr=self._y, attr_name="y")
+        self._append_attr_to_linking_stack(attr=self._y, attr_name="y")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -74,6 +73,7 @@ class CyInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_y_if_not_initialized()
         y: ap.Int = value_util.get_copy(value=self._y)
         return y
@@ -108,16 +108,13 @@ class CyInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_y_if_not_initialized()
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._y)
-        expression: str = (
-            f'{self.variable_name}.cy({value_str});'
-        )
+        value_str: str = value_util.get_value_str_for_expression(value=self._y)
+        expression: str = f"{self.variable_name}.cy({value_str});"
         ap.append_js_expression(expression=expression)
 
-    def _update_y_and_skip_appending_exp(
-            self, *, y: Union[int, Int]) -> None:
+    def _update_y_and_skip_appending_exp(self, *, y: Union[int, Int]) -> None:
         """
         Update y-coordinate and skip appending an expression.
 
@@ -129,8 +126,7 @@ class CyInterface(
         if isinstance(y, Int):
             y_: Int = y
         else:
-            suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='y')
+            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="y")
             y_ = Int(y, variable_name_suffix=suffix)
         self._y = y_
 
@@ -147,8 +143,10 @@ class CyInterface(
         """
         self._initialize_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_y_snapshots',
-            value=int(self._y._value), snapshot_name=snapshot_name)
+            dict_name="_y_snapshots",
+            value=int(self._y._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

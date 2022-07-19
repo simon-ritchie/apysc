@@ -11,28 +11,28 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class XInterface(
-        XInterfaceBase,
-        VariableNameSuffixAttrInterface,
-        AnimationXInterface,
-        AnimationMoveInterface,
-        RevertInterface,
-        AttrLinkingInterface):
-
+    XInterfaceBase,
+    VariableNameSuffixAttrInterface,
+    AnimationXInterface,
+    AnimationMoveInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
     def _initialize_x_if_not_initialized(self) -> None:
         """
         Initialize the _x attribute if this instance does not
         initialize it yet.
         """
-        if hasattr(self, '_x'):
+        if hasattr(self, "_x"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='x')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="x")
         self._x = Int(0, variable_name_suffix=suffix)
 
         self._append_x_attr_linking_setting()
@@ -42,10 +42,8 @@ class XInterface(
         """
         Append an x attribute linking settings.
         """
-        self._append_applying_new_attr_val_exp(
-            new_attr=self._x, attr_name='x')
-        self._append_attr_to_linking_stack(
-            attr=self._x, attr_name='x')
+        self._append_applying_new_attr_val_exp(new_attr=self._x, attr_name="x")
+        self._append_attr_to_linking_stack(attr=self._x, attr_name="x")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -77,6 +75,7 @@ class XInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_x_if_not_initialized()
         x: ap.Int = value_util.get_copy(value=self._x)
         return x
@@ -112,16 +111,13 @@ class XInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_x_if_not_initialized()
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._x)
-        expression: str = (
-            f'{self.variable_name}.x({value_str});'
-        )
+        value_str: str = value_util.get_value_str_for_expression(value=self._x)
+        expression: str = f"{self.variable_name}.x({value_str});"
         ap.append_js_expression(expression=expression)
 
-    def _update_x_and_skip_appending_exp(
-            self, *, x: Union[int, Int]) -> None:
+    def _update_x_and_skip_appending_exp(self, *, x: Union[int, Int]) -> None:
         """
         Update x-coordinate and skip appending an expression.
 
@@ -133,8 +129,7 @@ class XInterface(
         if isinstance(x, Int):
             x_: Int = x
         else:
-            suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='x')
+            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="x")
             x_ = Int(x, variable_name_suffix=suffix)
         self._x = x_
 
@@ -151,8 +146,10 @@ class XInterface(
         """
         self._initialize_x_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_x_snapshots',
-            value=int(self._x._value), snapshot_name=snapshot_name)
+            dict_name="_x_snapshots",
+            value=int(self._x._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

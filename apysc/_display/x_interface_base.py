@@ -33,8 +33,7 @@ class XInterfaceBase(ABC):
         """
 
     @abstractmethod
-    def _update_x_and_skip_appending_exp(
-            self, *, x: Union[int, Int]) -> None:
+    def _update_x_and_skip_appending_exp(self, *, x: Union[int, Int]) -> None:
         """
         Update x-coordinate and skip appending an expression.
 

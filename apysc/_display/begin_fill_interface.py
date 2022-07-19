@@ -14,16 +14,15 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
-StrOrString = TypeVar('StrOrString', str, String)
+StrOrString = TypeVar("StrOrString", str, String)
 
 
-class BeginFillInterface(
-        VariableNameSuffixAttrInterface,
-        RevertInterface):
+class BeginFillInterface(VariableNameSuffixAttrInterface, RevertInterface):
 
     _fill_color: String
     _fill_alpha: Number
@@ -33,8 +32,8 @@ class BeginFillInterface(
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def begin_fill(
-            self, *, color: StrOrString,
-            alpha: Union[float, Number] = 1.0) -> None:
+        self, *, color: StrOrString, alpha: Union[float, Number] = 1.0
+    ) -> None:
         """
         Set single color value for fill.
 
@@ -64,11 +63,11 @@ class BeginFillInterface(
         import apysc as ap
         from apysc._color import color_util
         from apysc._converter import cast
+
         self._initialize_fill_color_if_not_initialized()
         self._initialize_fill_alpha_if_not_initialized()
-        if color != '':
-            color = color_util.complement_hex_color(
-                hex_color_code=color)
+        if color != "":
+            color = color_util.complement_hex_color(hex_color_code=color)
         self._fill_color.value = color
         if not isinstance(alpha, ap.Number):
             alpha = cast.to_float_from_int(int_or_float=alpha)
@@ -102,6 +101,7 @@ class BeginFillInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_fill_color_if_not_initialized()
         fill_color: ap.String = value_util.get_copy(value=self._fill_color)
         return fill_color
@@ -111,11 +111,10 @@ class BeginFillInterface(
         Initialize the fill_color attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_fill_color'):
+        if hasattr(self, "_fill_color"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='fill_color')
-        self._fill_color = String('', variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="fill_color")
+        self._fill_color = String("", variable_name_suffix=suffix)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -142,6 +141,7 @@ class BeginFillInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_fill_alpha_if_not_initialized()
         fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
         return fill_alpha
@@ -151,10 +151,9 @@ class BeginFillInterface(
         Initialize the fill_alpha attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_fill_alpha'):
+        if hasattr(self, "_fill_alpha"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='fill_alpha')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="fill_alpha")
         self._fill_alpha = Number(1.0, variable_name_suffix=suffix)
 
     _fill_color_snapshots: Dict[str, str]
@@ -172,11 +171,15 @@ class BeginFillInterface(
         self._initialize_fill_color_if_not_initialized()
         self._initialize_fill_alpha_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_fill_color_snapshots',
-            value=self._fill_color._value, snapshot_name=snapshot_name)
+            dict_name="_fill_color_snapshots",
+            value=self._fill_color._value,
+            snapshot_name=snapshot_name,
+        )
         self._set_single_snapshot_val_to_dict(
-            dict_name='_fill_alpha_snapshots',
-            value=self._fill_alpha._value, snapshot_name=snapshot_name)
+            dict_name="_fill_alpha_snapshots",
+            value=self._fill_alpha._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

@@ -3,22 +3,25 @@
 
 from typing import Dict
 
-from apysc._animation.animation_scale_y_from_center_interface import \
-    AnimationScaleYFromCenterInterface
+from apysc._animation.animation_scale_y_from_center_interface import (
+    AnimationScaleYFromCenterInterface,
+)
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class ScaleYFromCenterInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationScaleYFromCenterInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationScaleYFromCenterInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _scale_y_from_center: Number
 
@@ -29,12 +32,13 @@ class ScaleYFromCenterInterface(
         instance does not initialize it yet.
         """
         import apysc as ap
-        if hasattr(self, '_scale_y_from_center'):
+
+        if hasattr(self, "_scale_y_from_center"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='scale_y_from_center')
-        self._scale_y_from_center = ap.Number(
-            1.0, variable_name_suffix=suffix)
+            attr_identifier="scale_y_from_center"
+        )
+        self._scale_y_from_center = ap.Number(1.0, variable_name_suffix=suffix)
 
         self._append_scale_y_from_center_attr_linking_setting()
 
@@ -44,11 +48,11 @@ class ScaleYFromCenterInterface(
         Append a scale-y attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._scale_y_from_center,
-            attr_name='scale_y_from_center')
+            new_attr=self._scale_y_from_center, attr_name="scale_y_from_center"
+        )
         self._append_attr_to_linking_stack(
-            attr=self._scale_y_from_center,
-            attr_name='scale_y_from_center')
+            attr=self._scale_y_from_center, attr_name="scale_y_from_center"
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -79,6 +83,7 @@ class ScaleYFromCenterInterface(
         Number(1.5)
         """
         from apysc._type import value_util
+
         self._initialize_scale_y_from_center_if_not_initialized()
         return value_util.get_copy(value=self._scale_y_from_center)
 
@@ -100,17 +105,18 @@ class ScaleYFromCenterInterface(
             - https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_center.html  # noqa
         """
         import apysc as ap
+
         self._initialize_scale_y_from_center_if_not_initialized()
         before_value: ap.Number = self._scale_y_from_center
         self._scale_y_from_center = value
-        self._append_scale_y_from_center_update_expression(
-            before_value=before_value)
+        self._append_scale_y_from_center_update_expression(before_value=before_value)
 
         self._append_scale_y_from_center_attr_linking_setting()
 
     @add_debug_info_setting(module_name=__name__)
     def _append_scale_y_from_center_update_expression(
-            self, *, before_value: Number) -> None:
+        self, *, before_value: Number
+    ) -> None:
         """
         Append the scale-y from the center of this instance
         updating expression.
@@ -122,14 +128,17 @@ class ScaleYFromCenterInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         before_value_str: str = value_util.get_value_str_for_expression(
-            value=before_value)
+            value=before_value
+        )
         after_value_str: str = value_util.get_value_str_for_expression(
-            value=self._scale_y_from_center)
+            value=self._scale_y_from_center
+        )
         expression: str = (
-            f'{self.variable_name}.scale(1, 1 / {before_value_str});'
-            f'\n{self.variable_name}.scale(1, {after_value_str});'
-            f'\n{before_value_str} = {after_value_str};'
+            f"{self.variable_name}.scale(1, 1 / {before_value_str});"
+            f"\n{self.variable_name}.scale(1, {after_value_str});"
+            f"\n{before_value_str} = {after_value_str};"
         )
         ap.append_js_expression(expression=expression)
 
@@ -146,9 +155,10 @@ class ScaleYFromCenterInterface(
         """
         self._initialize_scale_y_from_center_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_scale_y_from_center_snapshots',
+            dict_name="_scale_y_from_center_snapshots",
             value=self._scale_y_from_center._value,
-            snapshot_name=snapshot_name)
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """
@@ -161,5 +171,6 @@ class ScaleYFromCenterInterface(
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._scale_y_from_center._value = \
-            self._scale_y_from_center_snapshots[snapshot_name]
+        self._scale_y_from_center._value = self._scale_y_from_center_snapshots[
+            snapshot_name
+        ]

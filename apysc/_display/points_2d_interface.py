@@ -9,15 +9,15 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class Points2DInterface(
-        VariableNameSuffixAttrInterface,
-        VariableNameInterface,
-        RevertInterface):
+    VariableNameSuffixAttrInterface, VariableNameInterface, RevertInterface
+):
 
     _points: Array[Point2D]
 
@@ -26,10 +26,9 @@ class Points2DInterface(
         Initialize _points attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_points'):
+        if hasattr(self, "_points"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='points')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="points")
         self._points = Array([], variable_name_suffix=suffix)
 
     @property
@@ -96,22 +95,26 @@ class Points2DInterface(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._initialize_points_if_not_initialized()
         variable_name: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.ARRAY)
+            type_name=var_names.ARRAY
+        )
         i_name: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.INDEX)
+            type_name=var_names.INDEX
+        )
         points_name: str = self._points.variable_name
         point_name: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.POINT2D)
+            type_name=var_names.POINT2D
+        )
         expression: str = (
-            f'var {variable_name} = [];'
-            f'\nfor (var {i_name} = 0; {i_name} < {points_name}.length; '
-            f'{i_name}++) {{'
-            f'\n  var {point_name} = {points_name}[{i_name}];'
-            f'\n  {variable_name}.push('
+            f"var {variable_name} = [];"
+            f"\nfor (var {i_name} = 0; {i_name} < {points_name}.length; "
+            f"{i_name}++) {{"
+            f"\n  var {point_name} = {points_name}[{i_name}];"
+            f"\n  {variable_name}.push("
             f'[{point_name}["x"], {point_name}["y"]]);'
-            '}'
+            "}"
         )
         return variable_name, expression
 
@@ -126,9 +129,8 @@ class Points2DInterface(
             Points value to set.
         """
         import apysc as ap
-        expression: str = (
-            f'{self._points.variable_name} = {value.variable_name};'
-        )
+
+        expression: str = f"{self._points.variable_name} = {value.variable_name};"
         ap.append_js_expression(expression=expression)
 
     _points_snapshots: Dict[str, Array]
@@ -143,11 +145,12 @@ class Points2DInterface(
             Target snapshot name.
         """
         self._initialize_points_if_not_initialized()
-        self._points._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
+        self._points._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._set_single_snapshot_val_to_dict(
-            dict_name='_points_snapshots',
-            value=self._points, snapshot_name=snapshot_name)
+            dict_name="_points_snapshots",
+            value=self._points,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

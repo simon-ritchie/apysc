@@ -8,16 +8,18 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class VisibleInterface(
-        VariableNameSuffixAttrInterface,
-        VariableNameInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    VariableNameInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _visible: Boolean
 
@@ -26,10 +28,9 @@ class VisibleInterface(
         Initialize _visible attribute if this instance does not
         initialize it yet.
         """
-        if hasattr(self, '_visible'):
+        if hasattr(self, "_visible"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='visible')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="visible")
         self._visible = Boolean(True, variable_name_suffix=suffix)
 
         self._append_visible_attr_linking_setting()
@@ -40,9 +41,9 @@ class VisibleInterface(
         Append a visible attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._visible, attr_name='visible')
-        self._append_attr_to_linking_stack(
-            attr=self._visible, attr_name='visible')
+            new_attr=self._visible, attr_name="visible"
+        )
+        self._append_attr_to_linking_stack(attr=self._visible, attr_name="visible")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -68,6 +69,7 @@ class VisibleInterface(
         Boolean(False)
         """
         from apysc._type import value_util
+
         self._initialize_visible_if_not_initialized()
         return value_util.get_copy(value=self._visible)
 
@@ -94,12 +96,13 @@ class VisibleInterface(
         Append visible property updating expression.
         """
         import apysc as ap
+
         expression: str = (
-            f'if ({self._visible.variable_name}) {{'
-            f'\n  {self.variable_name}.show();'
-            '\n}else {'
-            f'\n  {self.variable_name}.hide();'
-            '\n}'
+            f"if ({self._visible.variable_name}) {{"
+            f"\n  {self.variable_name}.show();"
+            "\n}else {"
+            f"\n  {self.variable_name}.hide();"
+            "\n}"
         )
         ap.append_js_expression(expression=expression)
 
@@ -116,8 +119,10 @@ class VisibleInterface(
         """
         self._initialize_visible_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_visible_snapshots',
-            value=self._visible._value, snapshot_name=snapshot_name)
+            dict_name="_visible_snapshots",
+            value=self._visible._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

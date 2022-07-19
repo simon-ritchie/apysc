@@ -8,16 +8,18 @@ from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class FlipYInterface(
-        VariableNameSuffixAttrInterface,
-        VariableNameInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    VariableNameInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _flip_y: Boolean
 
@@ -26,10 +28,9 @@ class FlipYInterface(
         Initialize the _flip_y attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_flip_y'):
+        if hasattr(self, "_flip_y"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='flip_y')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="flip_y")
         self._flip_y = Boolean(False, variable_name_suffix=suffix)
 
         self._append_flip_y_attr_linking_setting()
@@ -40,9 +41,9 @@ class FlipYInterface(
         Append a flip-y attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._flip_y, attr_name='flip_y')
-        self._append_attr_to_linking_stack(
-            attr=self._flip_y, attr_name='flip_y')
+            new_attr=self._flip_y, attr_name="flip_y"
+        )
+        self._append_attr_to_linking_stack(attr=self._flip_y, attr_name="flip_y")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -77,6 +78,7 @@ class FlipYInterface(
         Boolean(True)
         """
         from apysc._type import value_util
+
         self._initialize_flip_y_if_not_initialized()
         return value_util.get_copy(value=self._flip_y)
 
@@ -99,6 +101,7 @@ class FlipYInterface(
             - https://simon-ritchie.github.io/apysc/en/graphics_base_flip_interfaces.html  # noqa
         """
         import apysc as ap
+
         self._initialize_flip_y_if_not_initialized()
         before_value: ap.Boolean = self._flip_y
         self._flip_y = value
@@ -107,8 +110,7 @@ class FlipYInterface(
         self._append_flip_y_attr_linking_setting()
 
     @add_debug_info_setting(module_name=__name__)
-    def _append_flip_y_update_expression(
-            self, *, before_value: Boolean) -> None:
+    def _append_flip_y_update_expression(self, *, before_value: Boolean) -> None:
         """
         Append a y-axis flipping value updating expression.
 
@@ -119,12 +121,14 @@ class FlipYInterface(
         """
         import apysc as ap
         from apysc._display import flip_interface_helper
+
         self._initialize_flip_y_if_not_initialized()
-        expression: str = flip_interface_helper.\
-            make_flip_update_expression(
-                before_value=before_value, after_value=self._flip_y,
-                axis=flip_interface_helper.Axis.Y,
-                interface_variable_name=self.variable_name)
+        expression: str = flip_interface_helper.make_flip_update_expression(
+            before_value=before_value,
+            after_value=self._flip_y,
+            axis=flip_interface_helper.Axis.Y,
+            interface_variable_name=self.variable_name,
+        )
         ap.append_js_expression(expression=expression)
 
     _flip_y_snapshots: Dict[str, bool]
@@ -140,8 +144,10 @@ class FlipYInterface(
         """
         self._initialize_flip_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_flip_y_snapshots',
-            value=self._flip_y._value, snapshot_name=snapshot_name)
+            dict_name="_flip_y_snapshots",
+            value=self._flip_y._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

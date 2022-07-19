@@ -4,22 +4,23 @@
 from typing import Dict
 from typing import Union
 
-from apysc._animation.animation_fill_color_interface import \
-    AnimationFillColorInterface
+from apysc._animation.animation_fill_color_interface import AnimationFillColorInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class FillColorInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationFillColorInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationFillColorInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _fill_color: String
 
@@ -54,6 +55,7 @@ class FillColorInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_fill_color_if_not_initialized()
         fill_color: ap.String = value_util.get_copy(value=self._fill_color)
         return fill_color
@@ -79,9 +81,11 @@ class FillColorInterface(
         self._append_fill_color_update_expression()
 
         self._append_applying_new_attr_val_exp(
-            new_attr=self._fill_color, attr_name='fill_color')
+            new_attr=self._fill_color, attr_name="fill_color"
+        )
         self._append_attr_to_linking_stack(
-            attr=self._fill_color, attr_name='fill_color')
+            attr=self._fill_color, attr_name="fill_color"
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def _append_fill_color_update_expression(self) -> None:
@@ -89,14 +93,14 @@ class FillColorInterface(
         Append the fill color updating expression.
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.fill("{self.fill_color}");'
-        )
+
+        expression: str = f'{self.variable_name}.fill("{self.fill_color}");'
         ap.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
     def _set_initial_fill_color_if_not_blank(
-            self, *, fill_color: Union[str, String]) -> None:
+        self, *, fill_color: Union[str, String]
+    ) -> None:
         """
         Set the initial fill color if a specified value
         is not a blank string.
@@ -107,22 +111,21 @@ class FillColorInterface(
             Fill color (hexadecimal string, e.g., '#00aaff').
         """
         import apysc as ap
+
         self._initialize_fill_color_if_not_initialized()
-        if fill_color == '':
+        if fill_color == "":
             return
         if isinstance(fill_color, ap.String):
             fill_color_: ap.String = fill_color
         else:
             suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='fill_color')
-            fill_color_ = String(
-                fill_color, variable_name_suffix=suffix)
-        self._update_fill_color_and_skip_appending_exp(
-            value=fill_color_)
+                attr_identifier="fill_color"
+            )
+            fill_color_ = String(fill_color, variable_name_suffix=suffix)
+        self._update_fill_color_and_skip_appending_exp(value=fill_color_)
 
     @add_debug_info_setting(module_name=__name__)
-    def _update_fill_color_and_skip_appending_exp(
-            self, *, value: String) -> None:
+    def _update_fill_color_and_skip_appending_exp(self, *, value: String) -> None:
         """
         Update fill color and skip appending expression.
 
@@ -132,8 +135,8 @@ class FillColorInterface(
             Fill color to set.
         """
         from apysc._color import color_util
-        value = color_util.complement_hex_color(
-            hex_color_code=value)
+
+        value = color_util.complement_hex_color(hex_color_code=value)
         self._initialize_fill_color_if_not_initialized()
         self._fill_color.value = value
 
@@ -143,11 +146,10 @@ class FillColorInterface(
         Initialize the fill_color attribute if this interface
         does not initialize it yet.
         """
-        if hasattr(self, '_fill_color'):
+        if hasattr(self, "_fill_color"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='fill_color')
-        self._fill_color = String('', variable_name_suffix=suffix)
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="fill_color")
+        self._fill_color = String("", variable_name_suffix=suffix)
 
     _fill_color_snapshots: Dict[str, str]
 
@@ -162,8 +164,10 @@ class FillColorInterface(
         """
         self._initialize_fill_color_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_fill_color_snapshots',
-            value=self._fill_color._value, snapshot_name=snapshot_name)
+            dict_name="_fill_color_snapshots",
+            value=self._fill_color._value,
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

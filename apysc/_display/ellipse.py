@@ -17,28 +17,30 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.width_and_height_interfaces_for_ellipse import \
-    WidthAndHeightInterfacesForEllipse
+from apysc._display.width_and_height_interfaces_for_ellipse import (
+    WidthAndHeightInterfacesForEllipse,
+)
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import \
-    AttrToApyscValFromBuiltinInterface
+from apysc._type.attr_to_apysc_val_from_builtin_interface import (
+    AttrToApyscValFromBuiltinInterface,
+)
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_interface import \
-    VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class Ellipse(
-        CxInterface,
-        CyInterface,
-        GraphicsBase,
-        WidthAndHeightInterfacesForEllipse,
-        FillColorInterface,
-        FillAlphaInterface,
-        VariableNameSuffixInterface,
-        AttrToApyscValFromBuiltinInterface):
+    CxInterface,
+    CyInterface,
+    GraphicsBase,
+    WidthAndHeightInterfacesForEllipse,
+    FillColorInterface,
+    FillAlphaInterface,
+    VariableNameSuffixInterface,
+    AttrToApyscValFromBuiltinInterface,
+):
     """
     The ellipse vector graphics class.
 
@@ -74,8 +76,7 @@ class Ellipse(
     """
 
     # self
-    @arg_validation_decos.multiple_line_settings_are_not_set(
-        arg_position_index=0)
+    @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # x
     @arg_validation_decos.is_integer(arg_position_index=1)
     # y
@@ -98,11 +99,9 @@ class Ellipse(
     @arg_validation_decos.is_integer(arg_position_index=9)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=9)
     # line_cap
-    @arg_validation_decos.is_line_cap(
-        arg_position_index=10, optional=True)
+    @arg_validation_decos.is_line_cap(arg_position_index=10, optional=True)
     # line_joints
-    @arg_validation_decos.is_line_joints(
-        arg_position_index=11, optional=True)
+    @arg_validation_decos.is_line_joints(arg_position_index=11, optional=True)
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=12)
     # line_dash_setting
@@ -113,31 +112,32 @@ class Ellipse(
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=15)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=16, optional=True)
+        arg_position_index=16, optional=True
+    )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(
-        arg_position_index=17, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=17, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-            self,
-            *,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int],
-            fill_color: Union[str, String] = '',
-            fill_alpha: Union[float, Number] = 1.0,
-            line_color: Union[str, String] = '',
-            line_alpha: Union[float, Number] = 1.0,
-            line_thickness: Union[int, Int] = 1,
-            line_cap: Op[Union[String, LineCaps]] = None,
-            line_joints: Op[Union[String, LineJoints]] = None,
-            line_dot_setting: Op[LineDotSetting] = None,
-            line_dash_setting: Op[LineDashSetting] = None,
-            line_round_dot_setting: Op[LineRoundDotSetting] = None,
-            line_dash_dot_setting: Op[LineDashDotSetting] = None,
-            parent: Op[ChildInterface] = None,
-            variable_name_suffix: str = '') -> None:
+        self,
+        *,
+        x: Union[int, Int],
+        y: Union[int, Int],
+        width: Union[int, Int],
+        height: Union[int, Int],
+        fill_color: Union[str, String] = "",
+        fill_alpha: Union[float, Number] = 1.0,
+        line_color: Union[str, String] = "",
+        line_alpha: Union[float, Number] = 1.0,
+        line_thickness: Union[int, Int] = 1,
+        line_cap: Op[Union[String, LineCaps]] = None,
+        line_joints: Op[Union[String, LineJoints]] = None,
+        line_dot_setting: Op[LineDotSetting] = None,
+        line_dash_setting: Op[LineDashSetting] = None,
+        line_round_dot_setting: Op[LineRoundDotSetting] = None,
+        line_dash_dot_setting: Op[LineDashDotSetting] = None,
+        parent: Op[ChildInterface] = None,
+        variable_name_suffix: str = "",
+    ) -> None:
         """
         Create an ellipse vector graphic.
 
@@ -205,43 +205,51 @@ class Ellipse(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.ELLIPSE)
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.ELLIPSE
+        )
         self.variable_name = variable_name
         self._width = self._get_copied_int_from_builtin_val(
-            integer=width, attr_identifier='width')
+            integer=width, attr_identifier="width"
+        )
         self._height = self._get_copied_int_from_builtin_val(
-            integer=height, attr_identifier='height')
+            integer=height, attr_identifier="height"
+        )
         self._append_width_attr_linking_setting()
         self._append_height_attr_linking_setting()
         self._set_initial_basic_values(
-            fill_color=fill_color, fill_alpha=fill_alpha,
-            line_color=line_color, line_thickness=line_thickness,
-            line_alpha=line_alpha, line_cap=line_cap, line_joints=line_joints)
+            fill_color=fill_color,
+            fill_alpha=fill_alpha,
+            line_color=line_color,
+            line_thickness=line_thickness,
+            line_alpha=line_alpha,
+            line_cap=line_cap,
+            line_joints=line_joints,
+        )
         self._append_constructor_expression()
-        self.x = self._get_copied_int_from_builtin_val(
-            integer=x, attr_identifier='x')
-        self.y = self._get_copied_int_from_builtin_val(
-            integer=y, attr_identifier='y')
+        self.x = self._get_copied_int_from_builtin_val(integer=x, attr_identifier="x")
+        self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
         self._set_line_setting_if_not_none_value_exists(
             line_dot_setting=line_dot_setting,
             line_dash_setting=line_dash_setting,
             line_round_dot_setting=line_round_dot_setting,
-            line_dash_dot_setting=line_dash_dot_setting)
-        super(Ellipse, self).__init__(
-            parent=parent, variable_name=variable_name)
+            line_dash_dot_setting=line_dash_dot_setting,
+        )
+        super(Ellipse, self).__init__(parent=parent, variable_name=variable_name)
 
     @classmethod
     def _create_with_graphics(
-            cls,
-            *,
-            graphics: 'graphics.Graphics',
-            x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int],
-            variable_name_suffix: str = '') -> 'Ellipse':
+        cls,
+        *,
+        graphics: "graphics.Graphics",
+        x: Union[int, Int],
+        y: Union[int, Int],
+        width: Union[int, Int],
+        height: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "Ellipse":
         """
         Create an ellipse instance with the instance of
         specified graphics.
@@ -284,7 +292,8 @@ class Ellipse(
             line_round_dot_setting=graphics._line_round_dot_setting,
             line_dash_dot_setting=graphics._line_dash_dot_setting,
             parent=graphics,
-            variable_name_suffix=variable_name_suffix)
+            variable_name_suffix=variable_name_suffix,
+        )
         return ellipse
 
     @add_debug_info_setting(module_name=__name__)
@@ -294,19 +303,19 @@ class Ellipse(
         """
         import apysc as ap
         from apysc._type import value_util
+
         stage: ap.Stage = ap.get_stage()
-        width_str: str = value_util.get_value_str_for_expression(
-            value=self._width)
-        height_str: str = value_util.get_value_str_for_expression(
-            value=self._height)
+        width_str: str = value_util.get_value_str_for_expression(value=self._width)
+        height_str: str = value_util.get_value_str_for_expression(value=self._height)
         expression: str = (
-            f'var {self.variable_name} = {stage.variable_name}'
-            f'\n  .ellipse({width_str}, {height_str})'
-            '\n  .attr({'
+            f"var {self.variable_name} = {stage.variable_name}"
+            f"\n  .ellipse({width_str}, {height_str})"
+            "\n  .attr({"
         )
         expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2)
-        expression += '\n  });'
+            expression=expression, indent_num=2
+        )
+        expression += "\n  });"
         ap.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:

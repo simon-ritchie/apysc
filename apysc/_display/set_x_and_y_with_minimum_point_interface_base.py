@@ -7,7 +7,6 @@ from abc import abstractmethod
 
 
 class SetXAndYWithMinimumPointInterfaceBase(ABC):
-
     @abstractmethod
     def _set_x_and_y_with_minimum_point(self) -> None:
         """

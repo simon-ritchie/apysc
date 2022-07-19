@@ -4,22 +4,23 @@
 from typing import Dict
 from typing import Union
 
-from apysc._animation.animation_height_interface import \
-    AnimationHeightInterface
+from apysc._animation.animation_height_interface import AnimationHeightInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_suffix_attr_interface import \
-    VariableNameSuffixAttrInterface
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._validation import arg_validation_decos
 
 
 class HeightInterface(
-        VariableNameSuffixAttrInterface,
-        AnimationHeightInterface,
-        RevertInterface,
-        AttrLinkingInterface):
+    VariableNameSuffixAttrInterface,
+    AnimationHeightInterface,
+    RevertInterface,
+    AttrLinkingInterface,
+):
 
     _height: Int
 
@@ -28,10 +29,9 @@ class HeightInterface(
         Initialize _height attribute if this interface does not
         initialize it yet.
         """
-        if hasattr(self, '_height'):
+        if hasattr(self, "_height"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier='height')
+        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="height")
         self._height = Int(0, variable_name_suffix=suffix)
 
         self._append_height_attr_linking_setting()
@@ -42,9 +42,9 @@ class HeightInterface(
         Append a height attribute linking settings.
         """
         self._append_applying_new_attr_val_exp(
-            new_attr=self._height, attr_name='height')
-        self._append_attr_to_linking_stack(
-            attr=self._height, attr_name='height')
+            new_attr=self._height, attr_name="height"
+        )
+        self._append_attr_to_linking_stack(attr=self._height, attr_name="height")
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -71,6 +71,7 @@ class HeightInterface(
         """
         import apysc as ap
         from apysc._type import value_util
+
         self._initialize_height_if_not_initialized()
         height: ap.Int = value_util.get_copy(value=self._height)
         return height
@@ -101,15 +102,12 @@ class HeightInterface(
         """
         import apysc as ap
         from apysc._type import value_util
-        height_str: str = value_util.get_value_str_for_expression(
-            value=self._height)
-        expression: str = (
-            f'{self.variable_name}.height({height_str});'
-        )
+
+        height_str: str = value_util.get_value_str_for_expression(value=self._height)
+        expression: str = f"{self.variable_name}.height({height_str});"
         ap.append_js_expression(expression=expression)
 
-    def _update_height_and_skip_appending_exp(
-            self, *, value: Union[int, Int]) -> None:
+    def _update_height_and_skip_appending_exp(self, *, value: Union[int, Int]) -> None:
         """
         Update height value and skip appending expression.
 
@@ -120,13 +118,13 @@ class HeightInterface(
         """
         import apysc as ap
         from apysc._converter import cast
+
         self._initialize_height_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)
         if isinstance(value, ap.Int):
             value_: ap.Int = value
         else:
-            suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier='height')
+            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="height")
             value_ = Int(value, variable_name_suffix=suffix)
         self._height = value_
 
@@ -143,8 +141,10 @@ class HeightInterface(
         """
         self._initialize_height_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
-            dict_name='_height_snapshots',
-            value=int(self._height._value), snapshot_name=snapshot_name)
+            dict_name="_height_snapshots",
+            value=int(self._height._value),
+            snapshot_name=snapshot_name,
+        )
 
     def _revert(self, *, snapshot_name: str) -> None:
         """

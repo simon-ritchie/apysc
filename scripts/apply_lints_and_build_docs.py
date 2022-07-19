@@ -166,7 +166,6 @@ def _main() -> None:
     hash_lint_types: List[lint_and_doc_hash_util.HashType] = [
         lint_and_doc_hash_util.HashType.AUTOFLAKE,
         lint_and_doc_hash_util.HashType.ISORT,
-        lint_and_doc_hash_util.HashType.AUTOPEP8,
     ]
     for hash_lint_type in hash_lint_types:
         logger.info(msg=f"Saving {hash_lint_type.value} hash files...")
@@ -483,7 +482,7 @@ _PYRIGHT_COMMAND: LintCommand = {
 
 def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
     """
-    Make the in-place lint commands (autoflake, isort, and autopep8) list.
+    Make the in-place lint commands (autoflake and isort) list.
 
     Returns
     -------
@@ -508,16 +507,9 @@ def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
         lint_commands=lint_commands, module_paths=module_paths
     )
 
-    autopep8_updated_module_paths: List[
-        str
-    ] = _append_autopep8_lint_command_if_module_updated(
-        lint_commands=lint_commands, module_paths=module_paths
-    )
-
     updated_module_paths: List[str] = [
         *autoflake_updated_module_paths,
         *isort_updated_module_paths,
-        *autopep8_updated_module_paths,
     ]
     updated_module_paths = list(set(updated_module_paths))
 
@@ -561,45 +553,6 @@ def _append_isort_lint_command_if_module_updated(
             }
         )
     return isort_updated_module_paths
-
-
-def _append_autopep8_lint_command_if_module_updated(
-    lint_commands: List[LintCommand], module_paths: List[str]
-) -> List[str]:
-    """
-    Append the autopep8 lint command to the list if the
-    modules have been updated.
-
-    Parameters
-    ----------
-    lint_commands : list of LintCommand
-        Target list.
-    module_paths : list of str
-        Overall module paths.
-
-    Returns
-    -------
-    autopep8_updated_module_paths : list of str
-        Updated module paths.
-    """
-    logger.info(msg="Creating the autopep8 command...")
-    autopep8_updated_module_paths: List[
-        str
-    ] = lint_and_doc_hash_util.remove_not_updated_file_paths(
-        file_paths=module_paths, hash_type=lint_and_doc_hash_util.HashType.AUTOPEP8
-    )
-    if autopep8_updated_module_paths:
-        autopep8_module_paths_str: str = _get_joined_paths_str(
-            module_paths=autopep8_updated_module_paths
-        )
-        lint_commands.append(
-            {
-                "command": "autopep8 --in-place --aggressive --aggressive --ignore=E402 "
-                f"{autopep8_module_paths_str}",
-                "lint_name": "autopep8",
-            }
-        )
-    return autopep8_updated_module_paths
 
 
 def _append_autoflake_lint_command_if_module_updated(

@@ -36,7 +36,6 @@ class HashType(Enum):
 
     AUTOFLAKE = "autoflake"
     ISORT = "isort"
-    AUTOPEP8 = "autopep8"
     DOCSTRING_SRC = "docstring_src"
     DOCSTRING_TO_MARKDOWN = "docstring_to_markdown"
     TRANSLATION_MAPPING_JP = "translation_mapping_jp"

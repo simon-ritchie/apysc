@@ -79,7 +79,6 @@ def test__make_inplace_lint_commands() -> None:
     assert lint_names == [
         "autoflake",
         "isort",
-        "autopep8",
     ]
     assert updated_module_paths == ["./apysc/_display/sprite.py"]
 
@@ -152,52 +151,6 @@ def test__append_autoflake_lint_command_if_module_updated() -> None:
     assert len(lint_commands) == 1
     assert lint_commands[0]["lint_name"] == "autoflake"
     assert autoflake_updated_module_paths == ["./apysc/_display/sprite.py"]
-
-    apply_lints_and_build_docs.lint_and_doc_hash_util.remove_not_updated_file_paths = (
-        original_remove_not_updated_file_paths_func
-    )
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__append_autopep8_lint_command_if_module_updated() -> None:
-    original_remove_not_updated_file_paths_func = (
-        apply_lints_and_build_docs.lint_and_doc_hash_util.remove_not_updated_file_paths
-    )
-
-    def mock_remove_not_updated_file_paths_1(
-        file_paths: List[str], hash_type: HashType
-    ) -> List[str]:
-        return []
-
-    apply_lints_and_build_docs.lint_and_doc_hash_util.remove_not_updated_file_paths = (
-        mock_remove_not_updated_file_paths_1
-    )
-    lint_commands: List[LintCommand] = []
-    module_paths: List[str] = ["./apysc/_display/sprite.py"]
-    autopep8_updated_module_paths: List[
-        str
-    ] = apply_lints_and_build_docs._append_autopep8_lint_command_if_module_updated(
-        lint_commands=lint_commands, module_paths=module_paths
-    )
-    assert lint_commands == []
-    assert autopep8_updated_module_paths == []
-
-    def mock_remove_not_updated_file_paths_2(
-        file_paths: List[str], hash_type: HashType
-    ) -> List[str]:
-        return ["./apysc/_display/sprite.py"]
-
-    apply_lints_and_build_docs.lint_and_doc_hash_util.remove_not_updated_file_paths = (
-        mock_remove_not_updated_file_paths_2
-    )
-    autopep8_updated_module_paths = (
-        apply_lints_and_build_docs._append_autopep8_lint_command_if_module_updated(
-            lint_commands=lint_commands, module_paths=module_paths
-        )
-    )
-    assert len(lint_commands) == 1
-    assert lint_commands[0]["lint_name"] == "autopep8"
-    assert autopep8_updated_module_paths == ["./apysc/_display/sprite.py"]
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.remove_not_updated_file_paths = (
         original_remove_not_updated_file_paths_func

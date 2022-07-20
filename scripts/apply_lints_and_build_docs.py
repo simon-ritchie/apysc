@@ -69,9 +69,7 @@ CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND: Final[
     str
 ] = "python ./scripts/check_apysc_top_level_import.py"
 
-BLACK_COMMAND: Final[str] = (
-    f"black --exclude apysc/_translation/ {_PY_FILE_DIRS_STR}"
-)
+BLACK_COMMAND: Final[str] = f"black --exclude apysc/_translation/,apysc/__init__.py {_PY_FILE_DIRS_STR}"
 
 
 def _get_module_paths() -> List[str]:
@@ -163,9 +161,7 @@ def _main() -> None:
     for lint_command in lint_commands:
         run_lint_command(lint_command=lint_command)
     logger.info(msg="flake8 command started.")
-    flake8_process: sp.Popen = _start_subprocess(
-        command_strs=FLAKE8_COMMAND.split(" ")
-    )
+    flake8_process: sp.Popen = _start_subprocess(command_strs=FLAKE8_COMMAND.split(" "))
 
     hash_lint_types: List[lint_and_doc_hash_util.HashType] = [
         lint_and_doc_hash_util.HashType.AUTOFLAKE,

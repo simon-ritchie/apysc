@@ -9,7 +9,7 @@ from retrying import retry
 
 from apysc._file import file_util
 from apysc._file import module_util
-from apysc._lint_and_doc import add_doc_translation_mapping_blank_data
+from apysc._lint_and_doc import add_doc_translation_mapping_blank_data as mod
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
@@ -20,7 +20,7 @@ from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 def test__get_src_docs_file_paths() -> None:
     src_docs_file_paths: List[
         str
-    ] = add_doc_translation_mapping_blank_data._get_src_docs_file_paths()
+    ] = mod._get_src_docs_file_paths()
     assert "./docs_src/source/sprite.md" in src_docs_file_paths
     assert "./docs_src/source/_static/" not in src_docs_file_paths
     assert "./docs_src/source/jp_sprite.md" not in src_docs_file_paths
@@ -29,12 +29,12 @@ def test__get_src_docs_file_paths() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__is_translated_document() -> None:
-    result: bool = add_doc_translation_mapping_blank_data._is_translated_document(
+    result: bool = mod._is_translated_document(
         path="./test/path.md"
     )
     assert not result
 
-    result = add_doc_translation_mapping_blank_data._is_translated_document(
+    result = mod._is_translated_document(
         path="./test/jp_path.md"
     )
     assert result
@@ -46,7 +46,7 @@ def test__make_mappings_from_keys() -> None:
         "./docs_src/source/test_add_doc_translation_mapping_blank_data_2.md"
     )
     test_mapping_module_path: str = (
-        add_doc_translation_mapping_blank_data.get_mapping_module_path(
+        mod.get_mapping_module_path(
             src_doc_file_path=test_src_doc_file_path, lang=Lang.JP
         )
     )
@@ -62,7 +62,7 @@ def test__make_mappings_from_keys() -> None:
     )
     mappings: List[
         Dict[str, str]
-    ] = add_doc_translation_mapping_blank_data._make_mappings_from_keys(
+    ] = mod._make_mappings_from_keys(
         keys=["a", "c", "d\\ne"],
         src_doc_file_path=test_mapping_module_path,
         lang=Lang.JP,
@@ -82,13 +82,13 @@ def test__save_mapping_data() -> None:
         "./docs_src/source/test_add_doc_translation_mapping_blank_data_3.md"
     )
     test_mapping_module_path: str = (
-        add_doc_translation_mapping_blank_data.get_mapping_module_path(
+        mod.get_mapping_module_path(
             src_doc_file_path=test_src_doc_file_path, lang=Lang.JP
         )
     )
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)
 
-    add_doc_translation_mapping_blank_data._save_mapping_data(
+    mod._save_mapping_data(
         mappings=[
             {
                 "a": "b",
@@ -146,7 +146,7 @@ def test_add_mapping_blank_data() -> None:
     )
     file_util.remove_file_if_exists(file_path=file_path)
 
-    add_doc_translation_mapping_blank_data.add_mapping_blank_data(lang=Lang.JP)
+    mod.add_mapping_blank_data(lang=Lang.JP)
     assert os.path.isfile(file_path)
 
 
@@ -154,7 +154,7 @@ def test_add_mapping_blank_data() -> None:
 def test__remove_skipping_pattern_keys_from_list() -> None:
     result_keys: List[
         str
-    ] = add_doc_translation_mapping_blank_data._remove_skipping_pattern_keys_from_list(
+    ] = mod._remove_skipping_pattern_keys_from_list(
         keys=[
             "Lorem ipsum",
             "<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->",
@@ -174,14 +174,14 @@ def test__remove_skipping_pattern_keys_from_list() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__set_fixed_translation_value_if_exists() -> None:
     fixed_value: str = (
-        add_doc_translation_mapping_blank_data._set_fixed_translation_value_if_exists(
+        mod._set_fixed_translation_value_if_exists(
             key="**[Parameters]**", value="Lorem ipsum."
         )
     )
     assert fixed_value == "**[引数]**"
 
     fixed_value = (
-        add_doc_translation_mapping_blank_data._set_fixed_translation_value_if_exists(
+        mod._set_fixed_translation_value_if_exists(
             key="Not existing key", value="Lorem ipsum."
         )
     )
@@ -190,17 +190,17 @@ def test__set_fixed_translation_value_if_exists() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__set_same_value_if_code_block_mapping_is_blank() -> None:
-    value: str = add_doc_translation_mapping_blank_data._set_same_value_if_code_block_mapping_is_blank(
+    value: str = mod._set_same_value_if_code_block_mapping_is_blank(
         key="```py\nprint(10)\n```", value="Lorem ipsum."
     )
     assert value == "Lorem ipsum."
 
-    value = add_doc_translation_mapping_blank_data._set_same_value_if_code_block_mapping_is_blank(
+    value = mod._set_same_value_if_code_block_mapping_is_blank(
         key="Lorem ipsum.", value=""
     )
     assert value == ""
 
-    value = add_doc_translation_mapping_blank_data._set_same_value_if_code_block_mapping_is_blank(
+    value = mod._set_same_value_if_code_block_mapping_is_blank(
         key="```py\nprint(10)\n```", value=""
     )
     assert value == "```py\nprint(10)\n```"
@@ -208,17 +208,17 @@ def test__set_same_value_if_code_block_mapping_is_blank() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__convert_link_list_by_lang() -> None:
-    value: str = add_doc_translation_mapping_blank_data._convert_link_list_by_lang(
+    value: str = mod._convert_link_list_by_lang(
         key="Lorem ipsum.", value="Dolor sit.", lang=Lang.JP
     )
     assert value == "Dolor sit."
 
-    value = add_doc_translation_mapping_blank_data._convert_link_list_by_lang(
+    value = mod._convert_link_list_by_lang(
         key="- Lorem ipsum.\n- Dolor sit.", value="Dolor sit.", lang=Lang.JP
     )
     assert value == "Dolor sit."
 
-    value = add_doc_translation_mapping_blank_data._convert_link_list_by_lang(
+    value = mod._convert_link_list_by_lang(
         key=(
             "- [Graphics class](any/path_1.md)"
             "\n- [Graphics begin_fill interface](any/path_2.md)"
@@ -271,7 +271,7 @@ def test_can_read_added_mapping_modules() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_link_texts() -> None:
-    link_texts: List[str] = add_doc_translation_mapping_blank_data._extract_link_texts(
+    link_texts: List[str] = mod._extract_link_texts(
         value=("- [Lorem ipsum](any/path_1.md)" "\n- [Dolar sit](any/path_2.md)")
     )
     assert link_texts == ["Lorem ipsum", "Dolar sit"]
@@ -280,13 +280,13 @@ def test__extract_link_texts() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__replace_link_text_by_fixed_mapping() -> None:
     value: str = (
-        add_doc_translation_mapping_blank_data._replace_link_text_by_fixed_mapping(
+        mod._replace_link_text_by_fixed_mapping(
             value="- [Lorem ipsum](any/path_1.md)", lang=Lang.JP
         )
     )
     assert value == ""
 
-    value = add_doc_translation_mapping_blank_data._replace_link_text_by_fixed_mapping(
+    value = mod._replace_link_text_by_fixed_mapping(
         value=(
             "- [Graphics class](graphics.md)"
             "\n- [Graphics line_style interface](graphics_line_style.md)"
@@ -303,12 +303,12 @@ def test__replace_link_text_by_fixed_mapping() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__set_same_value_if_api_params_or_returns_list() -> None:
-    value: str = add_doc_translation_mapping_blank_data._set_same_value_if_api_params_or_returns_list(
+    value: str = mod._set_same_value_if_api_params_or_returns_list(
         key="Lorem ipsum", value="テストテキスト"
     )
     assert value == "テストテキスト"
 
-    value = add_doc_translation_mapping_blank_data._set_same_value_if_api_params_or_returns_list(
+    value = mod._set_same_value_if_api_params_or_returns_list(
         key="- `self`: AnimatonBase", value="テストテキスト"
     )
     assert value == "- `self`: AnimatonBase"
@@ -316,12 +316,12 @@ def test__set_same_value_if_api_params_or_returns_list() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__set_same_value_if_key_is_no_mapping_fixed_string() -> None:
-    value: str = add_doc_translation_mapping_blank_data._set_same_value_if_key_is_no_mapping_fixed_string(
+    value: str = mod._set_same_value_if_key_is_no_mapping_fixed_string(
         key="</details>", value=""
     )
     assert value == "</details>"
 
-    value = add_doc_translation_mapping_blank_data._set_same_value_if_key_is_no_mapping_fixed_string(
+    value = mod._set_same_value_if_key_is_no_mapping_fixed_string(
         key="Lorem ipsum", value=""
     )
     assert value == ""
@@ -330,13 +330,13 @@ def test__set_same_value_if_key_is_no_mapping_fixed_string() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__set_same_value_if_key_is_image_link() -> None:
     value: str = (
-        add_doc_translation_mapping_blank_data._set_same_value_if_key_is_image_link(
+        mod._set_same_value_if_key_is_image_link(
             key="Lorem ipsum", value=""
         )
     )
     assert value == ""
 
-    value = add_doc_translation_mapping_blank_data._set_same_value_if_key_is_image_link(
+    value = mod._set_same_value_if_key_is_image_link(
         key="![](_static/colaboratory_interface.png)", value=""
     )
     assert value == "![](_static/colaboratory_interface.png)"
@@ -345,13 +345,13 @@ def test__set_same_value_if_key_is_image_link() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__set_translated_file_names_to_toc_code_block() -> None:
     value: str = "Lorem ipsum"
-    value = add_doc_translation_mapping_blank_data._set_translated_file_names_to_toc_code_block(
+    value = mod._set_translated_file_names_to_toc_code_block(
         lang=Lang.JP, value=value
     )
     assert value == "Lorem ipsum"
 
     value = "```{toctree}" "\\nlorem_ipsum" "\njp_dolor_sit_amet_2" "\n```"
-    value = add_doc_translation_mapping_blank_data._set_translated_file_names_to_toc_code_block(
+    value = mod._set_translated_file_names_to_toc_code_block(
         lang=Lang.JP, value=value
     )
     assert value == ("```{toctree}" "\njp_lorem_ipsum" "\njp_dolor_sit_amet_2" "\n```")

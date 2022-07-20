@@ -12,9 +12,7 @@ from apysc._lint_and_doc.lint_and_doc_hash_util import _IsFileUpdatedArgs
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_lint_hash_dir_path() -> None:
-    dir_path: str = lint_and_doc_hash_util.get_hash_dir_path(
-        hash_type=HashType.ISORT
-    )
+    dir_path: str = lint_and_doc_hash_util.get_hash_dir_path(hash_type=HashType.ISORT)
     assert dir_path == ("./.lint_and_doc_hash/.isort/")
     assert os.path.isdir(dir_path)
 

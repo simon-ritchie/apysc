@@ -58,14 +58,14 @@ class TestAnimationHeightForEllipse:
             WidthAndHeightInterfacesForEllipse()
         )
         target.variable_name = "test_animation_height_for_ellipse"
-        animation_height_for_ellipse: ap.AnimationHeightForEllipse = (
+        anim_for_ellipse: ap.AnimationHeightForEllipse = (
             ap.AnimationHeightForEllipse(target=target, height=100)
         )
         expression: str = (
-            animation_height_for_ellipse._get_complete_event_in_handler_head_expression()
+            anim_for_ellipse._get_complete_event_in_handler_head_expression()
         )
         expected: str = (
             f"{target._height.variable_name} = "
-            f"{animation_height_for_ellipse._height.variable_name};"
+            f"{anim_for_ellipse._height.variable_name};"
         )
         assert expression == expected

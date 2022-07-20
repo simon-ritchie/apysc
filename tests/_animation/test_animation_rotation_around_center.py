@@ -75,7 +75,7 @@ class TestAnimationRotationAroundCenter:
             ap.AnimationRotationAroundCenter(target=target, rotation_around_center=50)
         )
         expression: str = (
-            animation_rotation_around_center._get_complete_event_in_handler_head_expression()
+            animation_rotation_around_center._get_complete_event_in_handler_head_expression()  # noqa
         )
         right_variable_name: str = (
             animation_rotation_around_center._rotation_around_center.variable_name

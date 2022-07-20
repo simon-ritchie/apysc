@@ -69,6 +69,10 @@ CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND: Final[
     str
 ] = "python ./scripts/check_apysc_top_level_import.py"
 
+BLACK_COMMAND: Final[str] = (
+    f"black --exclude apysc/_translation/ {_PY_FILE_DIRS_STR}"
+)
+
 
 def _get_module_paths() -> List[str]:
     """
@@ -130,12 +134,12 @@ def _main() -> None:
 
     logger.info(msg="mypy command started.")
     mypy_process: sp.Popen = sp.Popen(
-        _MYPY_COMMAND["command"].split(" "), stdout=sp.PIPE, stderr=sp.PIPE
+        MYPY_COMMAND.split(" "), stdout=sp.PIPE, stderr=sp.PIPE
     )
 
     logger.info(msg="Pyright command started.")
     pyright_process: sp.Popen = sp.Popen(
-        _PYRIGHT_COMMAND["command"].split(" "), stdout=sp.PIPE, stderr=sp.PIPE
+        PYRIGHT_COMMAND.split(" "), stdout=sp.PIPE, stderr=sp.PIPE
     )
 
     logger.info(msg="Docstring to markdown conversion started.")
@@ -160,7 +164,7 @@ def _main() -> None:
         run_lint_command(lint_command=lint_command)
     logger.info(msg="flake8 command started.")
     flake8_process: sp.Popen = _start_subprocess(
-        command_strs=_FLAKE8_COMMAND["command"].split(" ")
+        command_strs=FLAKE8_COMMAND.split(" ")
     )
 
     hash_lint_types: List[lint_and_doc_hash_util.HashType] = [
@@ -462,22 +466,6 @@ def _start_subprocess(command_strs: List[str]) -> sp.Popen:
     """
     process: sp.Popen = sp.Popen(command_strs, stdout=sp.PIPE, stderr=sp.STDOUT)
     return process
-
-
-_FLAKE8_COMMAND: LintCommand = {
-    "command": FLAKE8_COMMAND,
-    "lint_name": "flake8",
-}
-
-_MYPY_COMMAND: LintCommand = {
-    "command": MYPY_COMMAND,
-    "lint_name": "mypy",
-}
-
-_PYRIGHT_COMMAND: LintCommand = {
-    "command": PYRIGHT_COMMAND,
-    "lint_name": "Pyright",
-}
 
 
 def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:

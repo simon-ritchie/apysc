@@ -77,6 +77,7 @@ def test__make_inplace_lint_commands() -> None:
         lint_command["lint_name"] for lint_command in lint_commands
     ]
     assert lint_names == [
+        "black",
         "autoflake",
         "isort",
     ]

@@ -472,7 +472,7 @@ def _start_subprocess(command_strs: List[str]) -> sp.Popen:
 
 def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
     """
-    Make the in-place lint commands (autoflake and isort) list.
+    Make the in-place lint commands (black, autoflake, and isort) list.
 
     Returns
     -------
@@ -484,6 +484,11 @@ def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
     module_paths: List[str] = _get_module_paths()
 
     lint_commands: List[LintCommand] = []
+
+    lint_commands.append({
+        'command': BLACK_COMMAND,
+        'lint_name': 'black',
+    })
 
     autoflake_updated_module_paths: List[
         str

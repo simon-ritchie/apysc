@@ -485,10 +485,12 @@ def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
 
     lint_commands: List[LintCommand] = []
 
-    lint_commands.append({
-        'command': BLACK_COMMAND,
-        'lint_name': 'black',
-    })
+    lint_commands.append(
+        {
+            "command": BLACK_COMMAND,
+            "lint_name": "black",
+        }
+    )
 
     autoflake_updated_module_paths: List[
         str

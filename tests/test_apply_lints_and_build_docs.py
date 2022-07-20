@@ -96,7 +96,7 @@ def test__make_inplace_lint_commands() -> None:
         updated_module_paths,
     ) = apply_lints_and_build_docs._make_inplace_lint_commands()
     lint_names = [lint_command["lint_name"] for lint_command in lint_commands]
-    assert lint_names == []
+    assert lint_names == ["black"]
     assert updated_module_paths == []
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.remove_not_updated_file_paths = (

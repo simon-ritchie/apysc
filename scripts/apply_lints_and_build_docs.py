@@ -44,7 +44,9 @@ class LintCommand(TypedDict):
 _PY_FILE_DIRS_STR: str = "./apysc/ ./tests/ ./test_projects/ ./scripts/"
 _MAX_LINE_LENGTH: int = 88
 
-FLAKE8_NO_PATH_COMMAND: Final[str] = f"flake8 --max-line-length {_MAX_LINE_LENGTH} --ignore E402,W503"
+FLAKE8_NO_PATH_COMMAND: Final[
+    str
+] = f"flake8 --max-line-length {_MAX_LINE_LENGTH} --ignore E402,W503"
 
 FLAKE8_COMMAND: Final[str] = f"{FLAKE8_NO_PATH_COMMAND} {_PY_FILE_DIRS_STR}"
 
@@ -70,7 +72,9 @@ CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND: Final[
     str
 ] = "python ./scripts/check_apysc_top_level_import.py"
 
-BLACK_COMMAND: Final[str] = f"black --exclude apysc/_translation/,apysc/__init__.py {_PY_FILE_DIRS_STR}"
+BLACK_COMMAND: Final[
+    str
+] = f"black --exclude apysc/_translation/,apysc/__init__.py {_PY_FILE_DIRS_STR}"
 
 
 def _get_module_paths() -> List[str]:
@@ -534,6 +538,7 @@ def _append_isort_lint_command_if_module_updated(
             {
                 "command": "isort --force-single-line-imports "
                 f"--line-length {_MAX_LINE_LENGTH} "
+                "--profile black "
                 f"{isort_module_paths_str}",
                 "lint_name": "isort",
             }

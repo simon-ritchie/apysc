@@ -42,8 +42,9 @@ class LintCommand(TypedDict):
 
 
 _PY_FILE_DIRS_STR: str = "./apysc/ ./tests/ ./test_projects/ ./scripts/"
+_MAX_LINE_LENGTH: int = 88
 
-FLAKE8_NO_PATH_COMMAND: Final[str] = "flake8 --max-line-length 88 --ignore E402,W503"
+FLAKE8_NO_PATH_COMMAND: Final[str] = f"flake8 --max-line-length {_MAX_LINE_LENGTH} --ignore E402,W503"
 
 FLAKE8_COMMAND: Final[str] = f"{FLAKE8_NO_PATH_COMMAND} {_PY_FILE_DIRS_STR}"
 
@@ -532,6 +533,7 @@ def _append_isort_lint_command_if_module_updated(
         lint_commands.append(
             {
                 "command": "isort --force-single-line-imports "
+                f"--line-length {_MAX_LINE_LENGTH} "
                 f"{isort_module_paths_str}",
                 "lint_name": "isort",
             }

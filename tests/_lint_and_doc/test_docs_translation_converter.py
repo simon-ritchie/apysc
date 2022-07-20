@@ -88,24 +88,18 @@ def test__apply_mapping_if_translated_str_is_api_sig() -> None:
         "**[Interface signature]** `__init__(self, *, "
         "variable_name:Union[str, NoneType]=None) -> None`<hr>"
     )
-    translated_str: str = (
-        mod._apply_mapping_if_translated_str_is_api_sig(
-            translated_str=src_translated_str, lang="Invalid lang"  # type: ignore
-        )
+    translated_str: str = mod._apply_mapping_if_translated_str_is_api_sig(
+        translated_str=src_translated_str, lang="Invalid lang"  # type: ignore
     )
     assert translated_str == src_translated_str
 
-    translated_str = (
-        mod._apply_mapping_if_translated_str_is_api_sig(
-            translated_str="Lorem ipsum", lang=Lang.JP
-        )
+    translated_str = mod._apply_mapping_if_translated_str_is_api_sig(
+        translated_str="Lorem ipsum", lang=Lang.JP
     )
     assert translated_str == "Lorem ipsum"
 
-    translated_str = (
-        mod._apply_mapping_if_translated_str_is_api_sig(
-            translated_str=src_translated_str, lang=Lang.JP
-        )
+    translated_str = mod._apply_mapping_if_translated_str_is_api_sig(
+        translated_str=src_translated_str, lang=Lang.JP
     )
     assert translated_str == (
         "**[インターフェイスの構造]** `__init__(self, *, "
@@ -115,14 +109,10 @@ def test__apply_mapping_if_translated_str_is_api_sig() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_sharp_heading_symbol_num() -> None:
-    sharp_symbol_num: int = mod._get_sharp_heading_symbol_num(
-        target_str="Lorem ipsum"
-    )
+    sharp_symbol_num: int = mod._get_sharp_heading_symbol_num(target_str="Lorem ipsum")
     assert sharp_symbol_num == 0
 
-    sharp_symbol_num = mod._get_sharp_heading_symbol_num(
-        target_str="## Lorem ipsum"
-    )
+    sharp_symbol_num = mod._get_sharp_heading_symbol_num(target_str="## Lorem ipsum")
     assert sharp_symbol_num == 2
 
 
@@ -157,10 +147,8 @@ def test__remove_unnecessary_line_break_between_list() -> None:
         "\n- [テストテキスト5](test/path_3.md)"
         "\n\nテストテキスト6"
     )
-    result_translated_doc = (
-        mod._remove_unnecessary_line_break_between_list(
-            translated_doc=translated_doc
-        )
+    result_translated_doc = mod._remove_unnecessary_line_break_between_list(
+        translated_doc=translated_doc
     )
     assert result_translated_doc == (
         "# テスト見出し1"
@@ -177,9 +165,7 @@ def test__remove_unnecessary_line_break_between_list() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_first_spaces_num() -> None:
-    first_spaces_num: int = mod._get_first_spaces_num(
-        txt="    - Lorem ipsum"
-    )
+    first_spaces_num: int = mod._get_first_spaces_num(txt="    - Lorem ipsum")
     assert first_spaces_num == 4
 
 
@@ -245,14 +231,12 @@ def test__validate_tail_hr_tag() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__remove_line_break_between_api_docs_list_br_tag() -> None:
-    translated_doc: str = (
-        mod._remove_line_break_between_api_docs_list_br_tag(
-            translated_doc=(
-                "- ValueError: \n\n<br> ・If the animations' target "
-                "is not this instance. \n\n<br> ・If there are changed "
-                "duration, delay, or easing animation settings "
-                "in the `animations` list."
-            )
+    translated_doc: str = mod._remove_line_break_between_api_docs_list_br_tag(
+        translated_doc=(
+            "- ValueError: \n\n<br> ・If the animations' target "
+            "is not this instance. \n\n<br> ・If there are changed "
+            "duration, delay, or easing animation settings "
+            "in the `animations` list."
         )
     )
     assert translated_doc == (
@@ -307,14 +291,8 @@ def test__validate_first_full_width_list_symbols_are_same() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_double_line_breaks_if_txt_is_not_blank() -> None:
-    txt: str = (
-        mod._append_double_line_breaks_if_txt_is_not_blank(
-            txt=""
-        )
-    )
+    txt: str = mod._append_double_line_breaks_if_txt_is_not_blank(txt="")
     assert txt == ""
 
-    txt = mod._append_double_line_breaks_if_txt_is_not_blank(
-        txt="Lorem ipsum."
-    )
+    txt = mod._append_double_line_breaks_if_txt_is_not_blank(txt="Lorem ipsum.")
     assert txt == "Lorem ipsum.\n\n"

@@ -58,8 +58,8 @@ class TestAnimationHeightForEllipse:
             WidthAndHeightInterfacesForEllipse()
         )
         target.variable_name = "test_animation_height_for_ellipse"
-        anim_for_ellipse: ap.AnimationHeightForEllipse = (
-            ap.AnimationHeightForEllipse(target=target, height=100)
+        anim_for_ellipse: ap.AnimationHeightForEllipse = ap.AnimationHeightForEllipse(
+            target=target, height=100
         )
         expression: str = (
             anim_for_ellipse._get_complete_event_in_handler_head_expression()

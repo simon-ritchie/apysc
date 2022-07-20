@@ -66,19 +66,17 @@ def test__read_mappings() -> None:
         NOT_EXISTING_LANG = "not_existing_lang"
 
     test_module_path: str = data_model._get_mappings_module_path_from_lang(
-        lang=_MockLang.NOT_EXISTING_LANG
-    )  # type: ignore
+        lang=_MockLang.NOT_EXISTING_LANG  # type: ignore
+    )
     file_util.remove_file_if_exists(file_path=test_module_path)
 
     mappings: Optional[Mappings] = data_model._read_mappings(
         lang=_MockLang.NOT_EXISTING_LANG
-    )  # type: ignore
+    )
     assert mappings is None
 
     file_util.save_plain_txt(txt="", file_path=test_module_path)
-    mappings = data_model._read_mappings(
-        lang=_MockLang.NOT_EXISTING_LANG
-    )  # type: ignore
+    mappings = data_model._read_mappings(lang=_MockLang.NOT_EXISTING_LANG)
     assert mappings is None
 
     mappings = data_model._read_mappings(lang=Lang.JP)
@@ -93,8 +91,8 @@ def test_get_fixed_translation_str_if_exists() -> None:
         NOT_EXISTING_LANG = "not_existing_lang"
 
     translation_str: str = data_model.get_fixed_translation_str_if_exists(
-        key="**[Parameters]**", lang=_MockLang.NOT_EXISTING_LANG
-    )  # type: ignore
+        key="**[Parameters]**", lang=_MockLang.NOT_EXISTING_LANG  # type: ignore
+    )
     assert translation_str == ""
 
     translation_str = data_model.get_fixed_translation_str_if_exists(

@@ -97,12 +97,12 @@ def test_convert_splitted_values_to_keys() -> None:
 def test_escape_key_or_value() -> None:
     key_or_val: str = translation_mapping_utils.escape_key_or_value(
         key_or_val=(
-            "- [Lorem's\\+ ipsum \"dolar\"](any/path_1.md)"
+            '- [Lorem\'s\\+ ipsum "dolar"](any/path_1.md)'
             "\n- [Dolor sit](any/path_2.md)"
         )
     )
     assert key_or_val == (
-        "- [Lorem\\'s\\\\+ ipsum \\\"dolar\\\"](any/path_1.md)"
+        '- [Lorem\\\'s\\\\+ ipsum \\"dolar\\"](any/path_1.md)'
         "\\n- [Dolor sit](any/path_2.md)"
     )
 

@@ -33,7 +33,7 @@ _CODE_BLOCK_IFRAME_PATTERN: str = r'<iframe src=\\"static.*?index\.html\\".*?></
 MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
     re.compile(pattern=_INTERFACE_SIGNATURE_PATTERN),
     re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN),
-    re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN.replace('\\', '')),
+    re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN.replace("\\", "")),
 ]
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]

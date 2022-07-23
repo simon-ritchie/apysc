@@ -28,11 +28,12 @@ SKIPPING_PATTERNS: List[Pattern] = [
 
 _INTERFACE_SIGNATURE_PATTERN: str = r"\*\*\[Interface signature\]\*\* .*?<hr>"
 
-_CODE_BLOCK_IFRAME_PATTERN: str = r'<iframe src="static.*?index\.html".*?></iframe>'
+_CODE_BLOCK_IFRAME_PATTERN: str = r'<iframe src=\\"static.*?index\.html\\".*?></iframe>'
 
 MAPPING_UNNECESSARY_PATTERNS: List[Pattern] = [
     re.compile(pattern=_INTERFACE_SIGNATURE_PATTERN),
     re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN),
+    re.compile(pattern=_CODE_BLOCK_IFRAME_PATTERN.replace('\\', '')),
 ]
 
 _SplittedVals = List[Union[Heading, BodyText, CodeBlock]]

@@ -115,10 +115,10 @@ def test__save_mapping_data() -> None:
 
     module_str: str = file_util.read_txt(file_path=test_mapping_module_path)
     expected_strs: List[str] = [
-        "\n    'Lorem ipsum dolor sit amet, consectetur "
-        "adipiscing elit, sed do eiusmod tempor.',  # noqa",
-        "\n    'Lorem ipsum dolor sit amet, consectetur adipiscing "
-        "elit, sed do eiusmod tempor.':  # noqa",
+        '\n    "Lorem ipsum dolor sit amet, consectetur '
+        'adipiscing elit, sed do eiusmod tempor.",  # noqa',
+        '\n    "Lorem ipsum dolor sit amet, consectetur adipiscing '
+        'elit, sed do eiusmod tempor.":  # noqa',
     ]
     for expected_str in expected_strs:
         assert expected_str in module_str

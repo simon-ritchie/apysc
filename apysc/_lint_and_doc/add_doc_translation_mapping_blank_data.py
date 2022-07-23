@@ -114,10 +114,12 @@ def _save_mapping_data(
     for mapping in mappings:
         key: str = list(mapping.keys())[0]
         value: str = list(mapping.values())[0]
-        module_str += f"\n\n    '{key}':"
+        module_str += "\n    "
+        module_str += "#" * 50
+        module_str += f'\n    "{key}":'
         if len(key) >= 70:
             module_str += "  # noqa"
-        module_str += f"\n    '{value}',"
+        module_str += f'\n    "{value}",'
         if len(value) >= 70:
             module_str += "  # noqa"
     module_str += "\n\n}\n"

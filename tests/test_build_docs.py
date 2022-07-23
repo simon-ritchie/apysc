@@ -161,7 +161,7 @@ World!
 # runnable
 print(200)
 save_overall_html(
-    dest_dir_path='quick_start_stage_creation/')
+    dest_dir_path="quick_start_stage_creation/")
 ```
 
 ```
@@ -179,9 +179,9 @@ print(300)
         [
             "print(200)"
             "\nsave_overall_html("
-            "\n    dest_dir_path='./docs_src/source/_static/"
-            "quick_start_stage_creation/',"
-            "\n    js_lib_dir_path='../', skip_js_lib_exporting=True)"
+            '\n    dest_dir_path="./docs_src/source/_static/'
+            'quick_start_stage_creation/",'
+            '\n    js_lib_dir_path="../", skip_js_lib_exporting=True)'
         ]
     )
 
@@ -240,21 +240,21 @@ def test__append_js_lib_path_and_skip_settings() -> None:
     """_append_js_lib_path_and_skip_settings 関数のテスト。"""
     code: str = """print(200)
 save_overall_html(
-    dest_dir_path='quick_start_stage_creation/')"""
+    dest_dir_path="quick_start_stage_creation/")"""
     code = build_docs._append_js_lib_path_and_skip_settings(code=code)
     expected: str = """print(200)
 save_overall_html(
-    dest_dir_path='quick_start_stage_creation/',
-    js_lib_dir_path='../', skip_js_lib_exporting=True)"""
+    dest_dir_path="quick_start_stage_creation/",
+    js_lib_dir_path="../", skip_js_lib_exporting=True)"""
     assert code == expected
 
     code = """save_overall_html(
-    dest_dir_path='quick_start_stage_creation/'
+    dest_dir_path="quick_start_stage_creation/"
 )"""
     code = build_docs._append_js_lib_path_and_skip_settings(code=code)
     expected = """save_overall_html(
-    dest_dir_path='quick_start_stage_creation/',
-    js_lib_dir_path='../', skip_js_lib_exporting=True)"""
+    dest_dir_path="quick_start_stage_creation/",
+    js_lib_dir_path="../", skip_js_lib_exporting=True)"""
     assert code == expected
 
 

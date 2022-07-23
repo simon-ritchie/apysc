@@ -813,7 +813,7 @@ def _append_js_lib_path_and_skip_settings(code: str) -> str:
     """
     code = re.sub(
         pattern=(r"(save_overall_html\(.+?)\)"),
-        repl=r"\1,\n    js_lib_dir_path='../', skip_js_lib_exporting=True)",
+        repl=r'\1,\n    js_lib_dir_path="../", skip_js_lib_exporting=True)',
         string=code,
         count=1,
         flags=re.MULTILINE | re.DOTALL,

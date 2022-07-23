@@ -122,7 +122,7 @@ def _save_mapping_data(
         module_str += f'\n    "{value}",'
         if len(value) >= 80:
             module_str += "  # noqa"
-    module_str += "\n\n}\n"
+    module_str += "\n}\n"
     module_path: str = get_mapping_module_path(
         src_doc_file_path=src_doc_file_path, lang=lang
     )

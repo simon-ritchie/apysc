@@ -72,10 +72,9 @@ CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND: Final[
     str
 ] = "python ./scripts/check_apysc_top_level_import.py"
 
-BLACK_COMMAND: Final[str] = (
-    'black --extend-exclude "(apysc/_translation/'
-    + f'|apysc/__init__.py)" {_PY_FILE_DIRS_STR}'
-)
+BLACK_COMMAND: Final[
+    str
+] = f'black --extend-exclude "(apysc/__init__.py)" {_PY_FILE_DIRS_STR}'
 
 
 def _get_module_paths() -> List[str]:

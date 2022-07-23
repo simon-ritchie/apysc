@@ -9,45 +9,31 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
     ##################################################
-    "# Array class reverse interface":
-    "# Array クラスの reverse インターフェイス",
+    "# Array class reverse interface": "# Array クラスの reverse インターフェイス",
     ##################################################
-    "This page explains the `Array` class `reverse` method interface.":
-    "このページでは`Array`クラスの`reverse`メソッドのインターフェイスについて説明します。",
+    "This page explains the `Array` class `reverse` method interface.": "このページでは`Array`クラスの`reverse`メソッドのインターフェイスについて説明します。",  # noqa
     ##################################################
-    "## What interface is this?":
-    "## インターフェイス概要",
+    "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `reverse` method interface reverses an array\'s values order in place.":
-    "`reverse`メソッドは配列の値を直接更新する形で値の順番を逆順にします。",
+    "The `reverse` method interface reverses an array\'s values order in place.": "`reverse`メソッドは配列の値を直接更新する形で値の順番を逆順にします。",  # noqa
     ##################################################
-    "## Basic usage":
-    "## 基本的な使い方",
+    "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "The `reverse` method requires no arguments and returns no value.":
-    "`reverse`メソッドは引数の指定を必要としません。",
+    "The `reverse` method requires no arguments and returns no value.": "`reverse`メソッドは引数の指定を必要としません。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\narr.reverse()\nassert arr == [5, 3, 1]\n```":  # noqa
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\narr.reverse()\nassert arr == [5, 3, 1]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\narr.reverse()\nassert arr == [5, 3, 1]\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\narr.reverse()\nassert arr == [5, 3, 1]\n```",  # noqa
     ##################################################
-    "## See also":
-    "## 関連資料",
+    "## See also": "## 関連資料",
     ##################################################
-    "- [Array class sort interface](array_sort.md)":
-    "- [Array クラスの sort インターフェイス](jp_array_sort.md)",
+    "- [Array class sort interface](array_sort.md)": "- [Array クラスの sort インターフェイス](jp_array_sort.md)",  # noqa
     ##################################################
-    "## reverse API":
-    "## reverse API",
+    "## reverse API": "## reverse API",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>":  # noqa
-    "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Reverse this array in place.<hr>":
-    "**[インターフェイス概要]** 配列の値を直接更新する形ではぽ列の値の順番を逆順にします。<hr>",
+    "**[Interface summary]** Reverse this array in place.<hr>": "**[インターフェイス概要]** 配列の値を直接更新する形ではぽ列の値の順番を逆順にします。<hr>",  # noqa
     ##################################################
-    "**[Examples]**":
-    "**[コードサンプル]**",
+    "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.reverse()\n>>> arr\nArray([3, 2, 1])\n```":  # noqa
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.reverse()\n>>> arr\nArray([3, 2, 1])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.reverse()\n>>> arr\nArray([3, 2, 1])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.reverse()\n>>> arr\nArray([3, 2, 1])\n```",  # noqa
 }

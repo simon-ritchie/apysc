@@ -248,6 +248,15 @@ save_overall_html(
     js_lib_dir_path='../', skip_js_lib_exporting=True)"""
     assert code == expected
 
+    code = """save_overall_html(
+    dest_dir_path='quick_start_stage_creation/'
+)"""
+    code = build_docs._append_js_lib_path_and_skip_settings(code=code)
+    expected = """save_overall_html(
+    dest_dir_path='quick_start_stage_creation/',
+    js_lib_dir_path='../', skip_js_lib_exporting=True)"""
+    assert code == expected
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_script_data_list() -> None:

@@ -818,6 +818,10 @@ def _append_js_lib_path_and_skip_settings(code: str) -> str:
         count=1,
         flags=re.MULTILINE | re.DOTALL,
     )
+    code = re.sub(
+        pattern=r"\n^,$",
+        repl=r",",
+        string=code, flags=re.MULTILINE)
     return code
 
 
@@ -839,7 +843,7 @@ def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
         will be replaced by './docs_src/_static/<original_path>/'.
     """
     match: Op[Match] = re.search(
-        pattern=(r'save_overall_html\(.*?dest_dir_path="(.+?)"\)'),
+        pattern=(r'save_overall_html\(.*?dest_dir_path="(.+?)".*?\)'),
         string=code,
         flags=re.MULTILINE | re.DOTALL,
     )

@@ -117,10 +117,10 @@ def _save_mapping_data(
         module_str += "\n    "
         module_str += "#" * 50
         module_str += f'\n    "{key}":'
-        if len(key) >= 70:
+        if len(key) >= 80:
             module_str += "  # noqa"
         module_str += f'\n    "{value}",'
-        if len(value) >= 70:
+        if len(value) >= 80:
             module_str += "  # noqa"
     module_str += "\n\n}\n"
     module_path: str = get_mapping_module_path(

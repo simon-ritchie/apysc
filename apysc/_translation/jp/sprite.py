@@ -36,14 +36,14 @@ MAPPING: Dict[str, str] = {
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_graphics_attribute/\')\n```":  # noqa
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\'#333\',\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\'stage\')\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\'#0af\')\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(\n    dest_dir_path=\'sprite_graphics_attribute/\')\n```",  # noqa
     ##################################################
-    "For more details, please see the `Graphics` related documents, for example:":  # noqa
+    "For more details, please see the `Graphics` related documents, for example:":
     "詳細は以下の`Graphics`クラスの関連ドキュメントをご覧ください。",
     ##################################################
     "- [Graphics class](graphics.md)":
     "- [Graphics クラス](jp_graphics.md)",
     ##################################################
     "- [Graphics begin_fill interface](graphics_begin_fill.md)":
-    "- [Graphics クラス begin_fill （塗り設定）のインターフェイス](jp_graphics_begin_fill.md)",  # noqa
+    "- [Graphics クラス begin_fill （塗り設定）のインターフェイス](jp_graphics_begin_fill.md)",
     ##################################################
     "- [Graphics line_style interface](graphics_line_style.md)":
     "- [Graphics クラス line_style （線設定）のインターフェイス](jp_graphics_line_style.md)",
@@ -52,7 +52,7 @@ MAPPING: Dict[str, str] = {
     "- [Graphics クラス draw_rect （四角描画）のインターフェイス](jp_graphics_draw_rect.md)",
     ##################################################
     "- [Graphics draw_circle interface](graphics_draw_circle.md)":
-    "- [Graphics クラス draw_circle （円描画）のインターフェイス](jp_graphics_draw_circle.md)",  # noqa
+    "- [Graphics クラス draw_circle （円描画）のインターフェイス](jp_graphics_draw_circle.md)",
     ##################################################
     "## Move DisplayObject instances simultaneously":
     "## DisplayObjectの複数のインスタンスの移動について",
@@ -69,7 +69,7 @@ MAPPING: Dict[str, str] = {
     "## See also":
     "## 関連資料",
     ##################################################
-    "- [add_child and remove_child interfaces](add_child_and_remove_child.md)":  # noqa
+    "- [add_child and remove_child interfaces](add_child_and_remove_child.md)":
     "- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](jp_add_child_and_remove_child.md)",  # noqa
     ##################################################
     "- [contains interface](contains.md)":
@@ -87,7 +87,7 @@ MAPPING: Dict[str, str] = {
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>":  # noqa
     "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Create a basic display object that can be a parent.<hr>":  # noqa
+    "**[Interface summary]** Create a basic display object that can be a parent.<hr>":
     "**[インターフェイス概要]** 子を持つことのできる基本的な表示要素用のオブジェクトを生成します。<hr>",
     ##################################################
     "**[Parameters]**":

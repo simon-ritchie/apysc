@@ -83,11 +83,11 @@ def test__save_mapping_data() -> None:
             },
             {
                 "c": "Lorem ipsum dolor sit amet, consectetur adipiscing "
-                "elit, sed do eiusmod tempor.",
+                "elit, sed do eiusmod tempor incididunt ut labore et.",
             },
             {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing "
-                "elit, sed do eiusmod tempor.": "d",
+                "elit, sed do eiusmod tempor incididunt ut labore et.": "d",
             },
         ],
         src_doc_file_path=test_src_doc_file_path,
@@ -108,17 +108,17 @@ def test__save_mapping_data() -> None:
     assert mapping == {
         "a": "b",
         "c": "Lorem ipsum dolor sit amet, consectetur adipiscing "
-        "elit, sed do eiusmod tempor.",
+        "elit, sed do eiusmod tempor incididunt ut labore et.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing "
-        "elit, sed do eiusmod tempor.": "d",
+        "elit, sed do eiusmod tempor incididunt ut labore et.": "d",
     }
 
     module_str: str = file_util.read_txt(file_path=test_mapping_module_path)
     expected_strs: List[str] = [
         '\n    "Lorem ipsum dolor sit amet, consectetur '
-        'adipiscing elit, sed do eiusmod tempor.",  # noqa',
+        'adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",  # noqa',
         '\n    "Lorem ipsum dolor sit amet, consectetur adipiscing '
-        'elit, sed do eiusmod tempor.":  # noqa',
+        'elit, sed do eiusmod tempor incididunt ut labore et.":  # noqa',
     ]
     for expected_str in expected_strs:
         assert expected_str in module_str

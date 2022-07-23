@@ -318,16 +318,19 @@ def _apply_black_formatting_to_code_block(*, md_file_path: str) -> None:
     from apysc._file import file_util
     tmp_dir_path: str = "./tmp/code_block_black/"
     os.makedirs(tmp_dir_path, exist_ok=True)
-    random_int: int = randint(1000, 1000000)
     basename: str = os.path.basename(md_file_path)
-    tmp_module_path: str = os.path.join(
-        tmp_dir_path,
-        f"{random_int}_{basename}")
     with open(md_file_path, 'r') as f:
         md_str: str = f.read()
 
     code_blocks: List[_CodeBlock] = _get_code_blocks_from_txt(md_txt=md_str)
     for code_block in code_blocks:
+        if '>>>' in code_block.code:
+            continue
+
+        random_int: int = randint(1000, 1000000)
+        tmp_module_path: str = os.path.join(
+            tmp_dir_path,
+            f"{random_int}_{basename}")
         if code_block.code_type != "py":
             continue
         file_util.save_plain_txt(
@@ -342,11 +345,11 @@ def _apply_black_formatting_to_code_block(*, md_file_path: str) -> None:
             result_code_block,
             1,
         )
+        file_util.remove_file_if_exists(file_path=tmp_module_path)
+
     file_util.save_plain_txt(
         txt=md_str,
         file_path=md_file_path)
-
-    file_util.remove_file_if_exists(file_path=tmp_module_path)
 
 
 def _get_excluding_file_names_prefix_list() -> List[str]:
@@ -619,7 +622,7 @@ def _check_code_block_with_flake8(script_data: _ScriptData) -> None:
     runnable_script: str = script_data["runnable_script"]
     md_file_path: str = script_data["md_file_path"]
     tmp_module_path: str = module_util.save_tmp_module(script=runnable_script)
-    command: str = f"{FLAKE8_NO_PATH_COMMAND},W292,E501,E122 {tmp_module_path}"
+    command: str = f"{FLAKE8_NO_PATH_COMMAND},W292,E501,E122,E128 {tmp_module_path}"
     stdout: str = run_command(command=command).strip()
     os.remove(tmp_module_path)
     if stdout != "":

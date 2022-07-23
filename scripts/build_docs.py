@@ -263,18 +263,19 @@ def _exec_document_lint_and_script(limit_count: Op[int] = None) -> List[str]:
             docstring_module_paths=docstring_module_paths
         )
 
+        logger.info(msg="Slicing not updated markdown files...")
         md_file_paths = lint_and_doc_hash_util.remove_not_updated_file_paths(
             file_paths=md_file_paths, hash_type=HashType.DOCUMENT
         )
 
-        logger.info(msg="Slicing not updated markdown files...")
+        logger.info(msg="Document's code block black formatting started...")
+        for md_file_path in md_file_paths:
+            _apply_black_formatting_to_code_block(md_file_path=md_file_path)
+
+        logger.info(msg="Making script data list...")
         script_data_list: List[_ScriptData] = _make_script_data_list(
             md_file_paths=md_file_paths, limit_count=limit_count
         )
-
-        logger.info(msg="Document's code block black formatting started...")
-        for script_data in script_data_list:
-            _apply_black_formatting_to_code_block(script_data=script_data)
 
         logger.info(msg="Document's code block flake8 checking started...")
         p.map(func=_check_code_block_with_flake8, iterable=script_data_list)
@@ -305,38 +306,45 @@ def _exec_document_lint_and_script(limit_count: Op[int] = None) -> List[str]:
     return executed_scripts
 
 
-def _apply_black_formatting_to_code_block(*, script_data: _ScriptData) -> None:
+def _apply_black_formatting_to_code_block(*, md_file_path: str) -> None:
     """
-    Apply the black formatting to a specified code block.
+    Apply the black formatting to specified markdown's code blocks.
 
     Parameters
     ----------
-    script_data : _ScriptData
-        Target code block's script data.
+    md_file_path : str
+        A target markdown file.
     """
     from apysc._file import file_util
     tmp_dir_path: str = "./tmp/code_block_black/"
     os.makedirs(tmp_dir_path, exist_ok=True)
     random_int: int = randint(1000, 1000000)
-    basename: str = os.path.basename(script_data['md_file_path'])
+    basename: str = os.path.basename(md_file_path)
     tmp_module_path: str = os.path.join(
         tmp_dir_path,
         f"{random_int}_{basename}")
-    file_util.save_plain_txt(
-        txt=script_data["runnable_script"],
-        file_path=tmp_module_path)
-    os.system(f"black {tmp_module_path}")
-    with open(tmp_module_path, "r") as f:
-        result_code_block: str = f.read().strip()
-    with open(script_data["md_file_path"], 'r') as f2:
-        md_str: str = f2.read()
-    md_str = md_str.replace(
-        script_data["runnable_script"],
-        result_code_block,
-    )
+    with open(md_file_path, 'r') as f:
+        md_str: str = f.read()
+
+    code_blocks: List[_CodeBlock] = _get_code_blocks_from_txt(md_txt=md_str)
+    for code_block in code_blocks:
+        if code_block.code_type != "py":
+            continue
+        file_util.save_plain_txt(
+            txt=code_block.code,
+            file_path=tmp_module_path)
+        os.system(f"black {tmp_module_path}")
+        with open(tmp_module_path, "r") as f:
+            result_code_block: str = f.read().strip()
+
+        md_str = md_str.replace(
+            code_block.code,
+            result_code_block,
+            1,
+        )
     file_util.save_plain_txt(
         txt=md_str,
-        file_path=script_data["md_file_path"])
+        file_path=md_file_path)
 
     file_util.remove_file_if_exists(file_path=tmp_module_path)
 

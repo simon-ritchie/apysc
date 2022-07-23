@@ -632,12 +632,8 @@ def test__apply_black_formatting_to_code_block() -> None:
     )
     file_util.save_plain_txt(
         txt=tmp_md_str, file_path=tmp_md_path)
-    script_data: _ScriptData = {
-        "md_file_path": tmp_md_path,
-        "runnable_script": "print('100')",
-    }
     build_docs._apply_black_formatting_to_code_block(
-        script_data=script_data)
+        md_file_path=tmp_md_path)
     result_md_str: str = file_util.read_txt(file_path=tmp_md_path)
     expected_str: str = (
         "Hello!"

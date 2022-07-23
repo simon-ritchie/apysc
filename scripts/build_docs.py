@@ -7,6 +7,7 @@ $ python ./scripts/build_docs.py --skip_sync_translation
 
 import multiprocessing as mp
 import os
+from random import randint
 import re
 import shutil
 import subprocess as sp
@@ -271,6 +272,10 @@ def _exec_document_lint_and_script(limit_count: Op[int] = None) -> List[str]:
             md_file_paths=md_file_paths, limit_count=limit_count
         )
 
+        logger.info(msg="Document's code block black formatting started...")
+        for script_data in script_data_list:
+            _apply_black_formatting_to_code_block(script_data=script_data)
+
         logger.info(msg="Document's code block flake8 checking started...")
         p.map(func=_check_code_block_with_flake8, iterable=script_data_list)
         logger.info(msg="Document's code block numdoclint checking started...")
@@ -298,6 +303,42 @@ def _exec_document_lint_and_script(limit_count: Op[int] = None) -> List[str]:
         script_data["runnable_script"] for script_data in script_data_list
     ]
     return executed_scripts
+
+
+def _apply_black_formatting_to_code_block(*, script_data: _ScriptData) -> None:
+    """
+    Apply the black formatting to a specified code block.
+
+    Parameters
+    ----------
+    script_data : _ScriptData
+        Target code block's script data.
+    """
+    from apysc._file import file_util
+    tmp_dir_path: str = "./tmp/code_block_black/"
+    os.makedirs(tmp_dir_path, exist_ok=True)
+    random_int: int = randint(1000, 1000000)
+    basename: str = os.path.basename(script_data['md_file_path'])
+    tmp_module_path: str = os.path.join(
+        tmp_dir_path,
+        f"{random_int}_{basename}")
+    file_util.save_plain_txt(
+        txt=script_data["runnable_script"],
+        file_path=tmp_module_path)
+    os.system(f"black {tmp_module_path}")
+    with open(tmp_module_path, "r") as f:
+        result_code_block: str = f.read().strip()
+    with open(script_data["md_file_path"], 'r') as f2:
+        md_str: str = f2.read()
+    md_str = md_str.replace(
+        script_data["runnable_script"],
+        result_code_block,
+    )
+    file_util.save_plain_txt(
+        txt=md_str,
+        file_path=script_data["md_file_path"])
+
+    file_util.remove_file_if_exists(file_path=tmp_module_path)
 
 
 def _get_excluding_file_names_prefix_list() -> List[str]:

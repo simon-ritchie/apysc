@@ -464,7 +464,7 @@ def test__replace_docstring_specification() -> None:
     os.makedirs(tmp_dir_path, exist_ok=True)
     tmp_file_path: str = os.path.join(
         tmp_dir_path,
-        "test_build_docs.md",
+        "test_build_docs_1.md",
     )
     file_util.save_plain_txt(
         txt=(
@@ -616,3 +616,35 @@ def test__get_excluding_file_names_prefix_list() -> None:
     ] = build_docs._get_excluding_file_names_prefix_list()
     assert "jp_" in excluding_file_names_prefix_list
     assert "en_" not in excluding_file_names_prefix_list
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__apply_black_formatting_to_code_block() -> None:
+    tmp_md_str: str = (
+        "Hello!"
+        "\n\n```py"
+        "\nprint('100')"
+        "\n```"
+    )
+    os.makedirs('./tmp/', exist_ok=True)
+    tmp_md_path: str = os.path.join(
+        './tmp/test_build_docs_2.md'
+    )
+    file_util.save_plain_txt(
+        txt=tmp_md_str, file_path=tmp_md_path)
+    script_data: _ScriptData = {
+        "md_file_path": tmp_md_path,
+        "runnable_script": "print('100')",
+    }
+    build_docs._apply_black_formatting_to_code_block(
+        script_data=script_data)
+    result_md_str: str = file_util.read_txt(file_path=tmp_md_path)
+    expected_str: str = (
+        "Hello!"
+        "\n\n```py"
+        '\nprint("100")'
+        "\n```"
+    )
+    assert result_md_str == expected_str
+
+    file_util.remove_file_if_exists(file_path=tmp_md_path)

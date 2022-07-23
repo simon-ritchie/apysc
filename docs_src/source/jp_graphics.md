@@ -19,22 +19,19 @@ Sprite のインスタンスは`graphics`属性を持っており、その属性
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=250,
-    stage_height=180,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=250, stage_height=180, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw the white border and cyan color rectangle.
-sprite.graphics.line_style(color='#fff', thickness=5)
-sprite.graphics.begin_fill(color='#0af')
-sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.line_style(color="#fff", thickness=5)
+sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Draw the magenta color polyline.
-sprite.graphics.begin_fill(color='')
-sprite.graphics.line_style(color='#f0a', thickness=5)
+sprite.graphics.begin_fill(color="")
+sprite.graphics.line_style(color="#f0a", thickness=5)
 sprite.graphics.move_to(x=150, y=50)
 sprite.graphics.line_to(x=200, y=50)
 sprite.graphics.line_to(x=150, y=100)
@@ -42,11 +39,10 @@ sprite.graphics.line_to(x=200, y=100)
 
 # Draw the dashed line.
 sprite.graphics.draw_dashed_line(
-    x_start=50, y_start=130, x_end=200, y_end=130,
-    dash_size=10, space_size=5)
+    x_start=50, y_start=130, x_end=200, y_end=130, dash_size=10, space_size=5
+)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_call_interfaces_from_sprite_instance/')
+ap.save_overall_html(dest_dir_path="graphics_call_interfaces_from_sprite_instance/")
 ```
 
 <iframe src="static/graphics_call_interfaces_from_sprite_instance/index.html" width="250" height="180"></iframe>
@@ -62,16 +58,13 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
 
 
-def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -88,19 +81,17 @@ def on_rectangle_click(
     rectangle.x = ap.Int(100)
     rectangle.y = ap.Int(100)
     rectangle.fill_alpha = ap.Number(0.5)
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
 
 # drew_rect interface will return Rectangle instance.
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Bind click event to the rectangle.
 rectangle.click(on_rectangle_click)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_return_values/')
+ap.save_overall_html(dest_dir_path="graphics_return_values/")
 ```
 
 もし以下の四角をクリックすると座標値や塗りの色、透明度などの値が更新されます。

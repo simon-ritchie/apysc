@@ -21,15 +21,13 @@ The following assertion example (`assert_defined` and initialized value) passes:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 int_val: ap.Int = ap.Int(10)
-ap.assert_defined(
-    value=int_val, msg='Value is not defined!')
+ap.assert_defined(value=int_val, msg="Value is not defined!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_defined_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="assert_defined_basic_usage_1/")
 ```
 
 ```
@@ -47,17 +45,14 @@ The following assertion example (`assert_defined` and the deleted value) fails:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 int_val: ap.Int = ap.Int(10)
-ap.append_js_expression(
-    expression=f'{int_val.variable_name} = undefined;')
-ap.assert_defined(
-    value=int_val, msg='Value is not defined!')
+ap.append_js_expression(expression=f"{int_val.variable_name} = undefined;")
+ap.assert_defined(value=int_val, msg="Value is not defined!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_defined_basic_usage_2/')
+ap.save_overall_html(dest_dir_path="assert_defined_basic_usage_2/")
 ```
 
 ```
@@ -77,17 +72,14 @@ The following assertion example (`assert_undefined` and the deleted value) passe
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 int_val: ap.Int = ap.Int(10)
-ap.append_js_expression(
-    expression=f'{int_val.variable_name} = undefined;')
-ap.assert_undefined(
-    value=int_val, msg='Value is defined!')
+ap.append_js_expression(expression=f"{int_val.variable_name} = undefined;")
+ap.assert_undefined(value=int_val, msg="Value is defined!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_undefined_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="assert_undefined_basic_usage_1/")
 ```
 
 ```

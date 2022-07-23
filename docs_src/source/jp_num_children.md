@@ -23,8 +23,7 @@
 import apysc as ap
 
 
-def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
+def on_sprite_click(e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
     The handler that the sprite calls when clicked.
 
@@ -38,29 +37,28 @@ def on_sprite_click(
     sprite: ap.Sprite = e.this
     rectangle_x: ap.Int = (sprite.num_children - 1) * 100 + 50
     new_rect: ap.Rectangle = sprite.graphics.draw_rect(
-        x=rectangle_x,
-        y=50, width=50, height=50)
+        x=rectangle_x, y=50, width=50, height=50
+    )
     sprite.add_child(new_rect)
     ap.trace(
-        'Current sprite children number:', sprite.num_children,
-        'rectangle x:', rectangle_x)
+        "Current sprite children number:",
+        sprite.num_children,
+        "rectangle x:",
+        rectangle_x,
+    )
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=450,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=450, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.add_child(rectangle_1)
 sprite.click(on_sprite_click)
 
-ap.save_overall_html(
-    dest_dir_path='num_children_basic_usage/')
+ap.save_overall_html(dest_dir_path="num_children_basic_usage/")
 ```
 
 <iframe src="static/num_children_basic_usage/index.html" width="450" height="150"></iframe>

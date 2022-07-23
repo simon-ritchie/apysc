@@ -14,11 +14,11 @@ The `String` class is the apysc string class. It can accept `str` or `String` va
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
-assert string_1 == 'Hello'
+string_1: ap.String = ap.String("Hello")
+assert string_1 == "Hello"
 
 string_2: ap.String = ap.String(string_1)
-assert string_2 == 'Hello'
+assert string_2 == "Hello"
 ```
 
 ## String class interfaces

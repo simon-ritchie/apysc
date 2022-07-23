@@ -17,8 +17,7 @@ The `Event`'s subclass instance has the `prevent_default` method (note: there is
 import apysc as ap
 
 
-def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -33,16 +32,14 @@ def on_click(
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='event_prevent_default_basic_usage/')
+ap.save_overall_html(dest_dir_path="event_prevent_default_basic_usage/")
 ```
 
 ## Basic usage of the stop_propagation interface
@@ -56,8 +53,7 @@ The following example binds the click event to the sprite and rectangle instance
 import apysc as ap
 
 
-def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -69,11 +65,10 @@ def on_rectangle_click(
         Optional arguments dictionary.
     """
     e.stop_propagation()
-    ap.trace('The rectangle is clicked!')
+    ap.trace("The rectangle is clicked!")
 
 
-def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
+def on_sprite_click(e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
     The handler that the sprite calls when clicked.
 
@@ -84,21 +79,19 @@ def on_sprite_click(
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('The sprite is clicked!')
+    ap.trace("The sprite is clicked!")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 sprite.click(on_sprite_click)
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_rectangle_click)
 
-ap.save_overall_html(
-    dest_dir_path='event_stop_propagation_basic_usage/')
+ap.save_overall_html(dest_dir_path="event_stop_propagation_basic_usage/")
 ```
 
 If you click the following rectangle, the only message of `The rectangle is clicked!` is displayed browser console (please press the F12 key). Also, the sprite console message is not displayed.

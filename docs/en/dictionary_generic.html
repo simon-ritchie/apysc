@@ -55,8 +55,8 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
-<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>These generic type-annotations are sometimes helpful for checking with the mypy, Pylance, or other libraries and enhancing safety.</p>
@@ -64,8 +64,8 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
-<span class="n">a_value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="n">a_value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Expression</span> <span class="n">of</span> <span class="nb">type</span> <span class="s2">&quot;int&quot;</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">assigned</span> <span class="n">to</span> <span class="n">declared</span> <span class="nb">type</span> <span class="s2">&quot;str&quot;</span>
@@ -76,7 +76,7 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
 <span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -88,9 +88,8 @@
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="c1"># Accepting the str and int key types.</span>
-<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
-<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
+<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
 <span class="n">b_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -100,9 +99,8 @@
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="c1"># Accepting all types by specifying the Any type.</span>
-<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">})</span>
-<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">})</span>
+<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
 <span class="n">b_value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>

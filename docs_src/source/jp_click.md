@@ -27,17 +27,14 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 
-def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -49,15 +46,13 @@ def on_click(
         Optional arguments.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(handler=on_click)
 
-ap.save_overall_html(
-    dest_dir_path='click_basic_usage_of_the_click_interface/')
+ap.save_overall_html(dest_dir_path="click_basic_usage_of_the_click_interface/")
 ```
 
 もしも以下の四角をクリックすると四角の色はマゼンタに切り替わります。
@@ -75,17 +70,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 
-def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -97,16 +89,14 @@ def on_click(
         Optional arguments.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(handler=on_click)
 rectangle.unbind_click(handler=on_click)
 
-ap.save_overall_html(
-    dest_dir_path='click_basic_usage_of_the_unbind_click_interface/')
+ap.save_overall_html(dest_dir_path="click_basic_usage_of_the_unbind_click_interface/")
 ```
 
 <iframe src="static/click_basic_usage_of_the_unbind_click_interface/index.html" width="150" height="150"></iframe>
@@ -122,17 +112,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 
-def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -144,16 +131,14 @@ def on_click(
         Optional arguments.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(handler=on_click)
 rectangle.unbind_click_all()
 
-ap.save_overall_html(
-    dest_dir_path='click_unbind_all_the_click_event_handlers/')
+ap.save_overall_html(dest_dir_path="click_unbind_all_the_click_event_handlers/")
 ```
 
 <iframe src="static/click_unbind_all_the_click_event_handlers/index.html" width="150" height="150"></iframe>

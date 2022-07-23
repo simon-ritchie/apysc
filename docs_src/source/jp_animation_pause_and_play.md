@@ -36,9 +36,8 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : _RectOptions
         Optional arguments dictionary.
     """
-    options['rectangle'].animation_pause()
-    timer: ap.Timer = ap.Timer(
-        on_timer_2, delay=500, options=options, repeat_count=1)
+    options["rectangle"].animation_pause()
+    timer: ap.Timer = ap.Timer(on_timer_2, delay=500, options=options, repeat_count=1)
     timer.start()
 
 
@@ -53,25 +52,22 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : _RectOptions
         Optional arguments dictionary.
     """
-    options['rectangle'].animation_play()
+    options["rectangle"].animation_play()
 
 
 ap.Stage(
-    stage_width=600, stage_height=150,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=600, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#00aaff')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#00aaff")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_x(x=500, duration=15_000).start()
 
-options: _RectOptions = {'rectangle': rectangle}
-timer: ap.Timer = ap.Timer(
-    on_timer_1, delay=1000, options=options)
+options: _RectOptions = {"rectangle": rectangle}
+timer: ap.Timer = ap.Timer(on_timer_1, delay=1000, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_pause_basic_usage/')
+ap.save_overall_html(dest_dir_path="./animation_pause_basic_usage/")
 ```
 
 <iframe src="static/animation_pause_basic_usage/index.html" width="600" height="150"></iframe>

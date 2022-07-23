@@ -19,13 +19,10 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='save_overall_html_interface_basic_usage/')
+ap.save_overall_html(dest_dir_path="save_overall_html_interface_basic_usage/")
 ```
 
 上記のコードでは`save_overall_html_interface_basic_usage/index.html`のパスにHTMLファイルや他のJavaScriptのライブラリファイルが出力されます。
@@ -40,14 +37,10 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    minify=False)
+ap.save_overall_html(dest_dir_path="dest_dir/", minify=False)
 ```
 
 ## JavaScriptのライブラリのディレクトリパスの設定と出力スキップの設定
@@ -62,15 +55,12 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    js_lib_dir_path='static/js/',
-    skip_js_lib_exporting=True)
+    dest_dir_path="dest_dir/", js_lib_dir_path="static/js/", skip_js_lib_exporting=True
+)
 ```
 
 特記事項: 現在の実装では`js_lib_dir_path`の設定ではJavaScriptファイルの出力先は変更されません。
@@ -83,14 +73,10 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    html_file_name='chart.html')
+ap.save_overall_html(dest_dir_path="dest_dir/", html_file_name="chart.html")
 ```
 
 ## embed_js_libs オプションでJavaScriptのライブラリを1つのHTMLファイルにまとめる
@@ -101,14 +87,10 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    embed_js_libs=True)
+ap.save_overall_html(dest_dir_path="dest_dir/", embed_js_libs=True)
 ```
 
 ## verbose オプションで標準出力の設定を変更する
@@ -119,14 +101,10 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    verbose=0)
+ap.save_overall_html(dest_dir_path="dest_dir/", verbose=0)
 ```
 
 ## save_overall_html API

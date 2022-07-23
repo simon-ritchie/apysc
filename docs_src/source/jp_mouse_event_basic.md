@@ -19,13 +19,11 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 
 class _ColorOptions(TypedDict):
@@ -45,18 +43,15 @@ def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     # Change the clicked rectangle color to the passed color.
     rectangle: ap.Rectangle = e.this
-    color: ap.String = ap.String(options['color'])
+    color: ap.String = ap.String(options["color"])
     rectangle.fill_color = color
 
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-options: _ColorOptions = {'color': '#f0a'}
-rectangle.click(
-    handler=on_rectangle_click, options=options)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+options: _ColorOptions = {"color": "#f0a"}
+rectangle.click(handler=on_rectangle_click, options=options)
 
-ap.save_overall_html(
-    dest_dir_path='mouse_event_basic_basic_binding_usage/')
+ap.save_overall_html(dest_dir_path="mouse_event_basic_basic_binding_usage/")
 ```
 
 四角をクリックした場合、ハンドラは四角の色をパラメーターに渡された色に変更します。
@@ -80,13 +75,11 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 
 class _ColorOptions(TypedDict):
@@ -106,20 +99,17 @@ def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     # Change the clicked rectangle color to the passed color.
     rectangle: ap.Rectangle = e.this
-    color: ap.String = ap.String(options['color'])
+    color: ap.String = ap.String(options["color"])
     rectangle.fill_color = color
 
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-options: _ColorOptions = {'color': '#f0a'}
-rectangle.click(
-    handler=on_rectangle_click, options=options)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+options: _ColorOptions = {"color": "#f0a"}
+rectangle.click(handler=on_rectangle_click, options=options)
 
 rectangle.unbind_click(handler=on_rectangle_click)
 
-ap.save_overall_html(
-    dest_dir_path='mouse_event_basic_basic_unbinding_usage/')
+ap.save_overall_html(dest_dir_path="mouse_event_basic_basic_unbinding_usage/")
 ```
 
 以下の四角をクリックしてみても何も起こらないことが確認できます。
@@ -139,21 +129,18 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 
 class _ColorOptions(TypedDict):
     color: str
 
 
-def change_color_on_rectangle_click(
-        e: ap.MouseEvent, options: _ColorOptions) -> None:
+def change_color_on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -165,12 +152,11 @@ def change_color_on_rectangle_click(
         Optional arguments.
     """
     rectangle: ap.Rectangle = e.this
-    color: ap.String = ap.String(options['color'])
+    color: ap.String = ap.String(options["color"])
     rectangle.fill_color = color
 
 
-def change_x_on_rectangle_click(
-        e: ap.MouseEvent, options: dict) -> None:
+def change_x_on_rectangle_click(e: ap.MouseEvent, options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -185,17 +171,14 @@ def change_x_on_rectangle_click(
     rectangle.x += 50
 
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-options: _ColorOptions = {'color': '#f0a'}
-rectangle.click(
-    handler=change_color_on_rectangle_click, options=options)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+options: _ColorOptions = {"color": "#f0a"}
+rectangle.click(handler=change_color_on_rectangle_click, options=options)
 rectangle.click(handler=change_x_on_rectangle_click)
 
 rectangle.unbind_click_all()
 
-ap.save_overall_html(
-    dest_dir_path='mouse_event_basic_unbind_all_event_handlers/')
+ap.save_overall_html(dest_dir_path="mouse_event_basic_unbind_all_event_handlers/")
 ```
 
 四角をクリックしてみても色の変化やX座標の更新などが発生しないことを確認できます。
@@ -223,17 +206,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 
-def on_rectangle_mousedown(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_rectangle_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mousedown.
 
@@ -248,8 +228,7 @@ def on_rectangle_mousedown(
     rectangle.x += 50
 
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.mousedown(handler=on_rectangle_mousedown)
 ```
 
@@ -262,17 +241,14 @@ MouseEventクラスのインスタンスは`stage_x`や`stage_y`の各属性の�
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=200, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 
-def on_mousemove(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mousemove(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mousemove.
 
@@ -283,15 +259,13 @@ def on_mousemove(
     options : dict
         Optional arguments.
     """
-    ap.trace('stage_x:', e.stage_x, 'stage_y:', e.stage_y)
+    ap.trace("stage_x:", e.stage_x, "stage_y:", e.stage_y)
 
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=100, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=100, width=50, height=50)
 rectangle.mousemove(handler=on_mousemove)
 
-ap.save_overall_html(
-    dest_dir_path='mouse_event_basic_stage_x_and_stage_y')
+ap.save_overall_html(dest_dir_path="mouse_event_basic_stage_x_and_stage_y")
 ```
 
 F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウスカーソルを動かすと`stage_x`や`stage_y`の座標値を家訓することができます。前述のコードでは四角を`(50, 100)`の位置に設定しているため、`stage_x`の値は50～100の範囲の値となり、`stage_y`の値は100～150の範囲の値となります。
@@ -309,17 +283,14 @@ MouseEventのインスタンスは`local_x`と`local_y`という属性も持っ�
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 
-def on_mousemove(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mousemove(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mousemove.
 
@@ -330,15 +301,13 @@ def on_mousemove(
     options : dict
         Optional arguments.
     """
-    ap.trace('local_x:', e.local_x, 'local_y:', e.local_y)
+    ap.trace("local_x:", e.local_x, "local_y:", e.local_y)
 
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.mousemove(handler=on_mousemove)
 
-ap.save_overall_html(
-    dest_dir_path='mouse_event_basic_local_x_and_local_y')
+ap.save_overall_html(dest_dir_path="mouse_event_basic_local_x_and_local_y")
 ```
 
 F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウスカーソルを動かしてみて出力結果を確認してみてください。

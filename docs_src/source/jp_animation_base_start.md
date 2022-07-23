@@ -17,19 +17,16 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-animation_x: ap.AnimationX = rectangle.animation_x(
-    x=100, duration=3000, delay=3000)
+animation_x: ap.AnimationX = rectangle.animation_x(x=100, duration=3000, delay=3000)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_base_start_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="./animation_base_start_basic_usage_1/")
 ```
 
 <iframe src="static/animation_base_start_basic_usage_1/index.html" width="200" height="150"></iframe>
@@ -41,17 +38,15 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 rectangle.animation_x(x=100, duration=3000, delay=3000).start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_base_start_basic_usage_2/')
+ap.save_overall_html(dest_dir_path="./animation_base_start_basic_usage_2/")
 ```
 
 <iframe src="static/animation_base_start_basic_usage_2/index.html" width="200" height="150"></iframe>

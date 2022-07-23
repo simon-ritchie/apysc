@@ -18,16 +18,13 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='draw_interfaces_abstract_begin_fill/')
+ap.save_overall_html(dest_dir_path="draw_interfaces_abstract_begin_fill/")
 ```
 
 <iframe src="static/draw_interfaces_abstract_begin_fill/index.html" width="150" height="150"></iframe>
@@ -45,16 +42,13 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color='#fff', thickness=5, alpha=0.5)
+sprite.graphics.line_style(color="#fff", thickness=5, alpha=0.5)
 sprite.graphics.draw_line(x_start=50, y_start=50, x_end=150, y_end=50)
 
-ap.save_overall_html(
-    dest_dir_path='draw_interfaces_abstract_line_style/')
+ap.save_overall_html(dest_dir_path="draw_interfaces_abstract_line_style/")
 ```
 
 <iframe src="static/draw_interfaces_abstract_line_style/index.html" width="200" height="100"></iframe>
@@ -72,17 +66,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=250,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.graphics.draw_circle(x=175, y=75, radius=25)
 
-ap.save_overall_html(
-    dest_dir_path='draw_interfaces_abstract_each_drawing_interface/')
+ap.save_overall_html(dest_dir_path="draw_interfaces_abstract_each_drawing_interface/")
 ```
 
 <iframe src="static/draw_interfaces_abstract_each_drawing_interface/index.html" width="250" height="150"></iframe>

@@ -11,8 +11,7 @@ Each `AnimationBase` class-related interface (such as the `animation_x`\, `start
 import apysc as ap
 
 
-def on_animation_complete(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -23,23 +22,21 @@ def on_animation_complete(
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('Animation is completed!')
+    ap.trace("Animation is completed!")
 
 
 ap.Stage(
-    stage_width=200, stage_height=150,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#00aaff')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#00aaff")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_x(
     x=100,
     duration=1000,
 ).animation_complete(on_animation_complete).start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_method_chaining_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="./animation_method_chaining_basic_usage_1/")
 ```
 
 <iframe src="static/animation_method_chaining_basic_usage_1/index.html" width="200" height=150></iframe>
@@ -53,8 +50,7 @@ If you want to chain the methods like JavaScript (e.g., `D3.js`), you can use ba
 import apysc as ap
 
 
-def on_animation_complete(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -65,23 +61,20 @@ def on_animation_complete(
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('Animation is completed!')
+    ap.trace("Animation is completed!")
 
 
 ap.Stage(
-    stage_width=200, stage_height=150,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#00aaff')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle\
-    .animation_x(x=100, duration=1000)\
-    .animation_complete(on_animation_complete)\
-    .start()
+sprite.graphics.begin_fill(color="#00aaff")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle.animation_x(x=100, duration=1000).animation_complete(
+    on_animation_complete
+).start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_method_chaining_basic_usage_2/')
+ap.save_overall_html(dest_dir_path="./animation_method_chaining_basic_usage_2/")
 ```
 
 <iframe src="static/animation_method_chaining_basic_usage_2/index.html" width="200" height=150></iframe>

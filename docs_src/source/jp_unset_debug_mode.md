@@ -25,8 +25,8 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 ap.set_debug_mode()
 int_1: ap.Int = ap.Int(10)
@@ -35,8 +35,7 @@ ap.unset_debug_mode()
 int_2: ap.Int = ap.Int(20)
 int_2 += 20
 
-ap.save_overall_html(
-    minify=False, dest_dir_path='unset_debug_mode_basic_usage/')
+ap.save_overall_html(minify=False, dest_dir_path="unset_debug_mode_basic_usage/")
 ```
 
 出力されたHTMLでは最初の整数部分のデバッグ情報を以下のように含んでいます。その後のスプライトや2つ目の整数関係の位置のものは含まれないようになっています:

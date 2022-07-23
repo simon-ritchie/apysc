@@ -13,14 +13,11 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=200, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 assert isinstance(sprite.parent, ap.Stage)
 assert isinstance(sprite.graphics.parent, ap.Sprite)
@@ -38,21 +35,17 @@ assert isinstance(rectangle.parent, ap.Graphics)
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Remove the rectangle from the parent, and nothing displays
 # on the stage.
 rectangle.remove_from_parent()
 
-ap.save_overall_html(
-    dest_dir_path='display_object_remove_from_parent_basic_usage/')
+ap.save_overall_html(dest_dir_path="display_object_remove_from_parent_basic_usage/")
 ```
 
 <iframe src="static/display_object_remove_from_parent_basic_usage/index.html" width="150" height="150"></iframe>

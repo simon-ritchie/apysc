@@ -19,22 +19,24 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 left_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+    x=50, y=50, width=50, height=50
+)
 center_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
+    x=150, y=50, width=50, height=50
+)
 center_rectangle.scale_x_from_center = ap.Number(0.5)
 right_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=250, y=50, width=50, height=50)
+    x=250, y=50, width=50, height=50
+)
 right_rectangle.scale_y_from_center = ap.Number(0.5)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_base_scale_from_center_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="graphics_base_scale_from_center_basic_usage_1/")
 ```
 
 <iframe src="static/graphics_base_scale_from_center_basic_usage_1/index.html" width="350" height="150"></iframe>
@@ -46,26 +48,22 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af', alpha=0.3)
+sprite.graphics.begin_fill(color="#0af", alpha=0.3)
 
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_2.scale_x_from_center = ap.Number(0.5)
 rectangle_2.scale_y_from_center = ap.Number(0.5)
 
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_3.scale_x_from_center = ap.Number(0.25)
 rectangle_3.scale_y_from_center = ap.Number(0.25)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_base_scale_from_center_basic_usage_2/')
+ap.save_overall_html(dest_dir_path="graphics_base_scale_from_center_basic_usage_2/")
 ```
 
 <iframe src="static/graphics_base_scale_from_center_basic_usage_2/index.html" width="150" height="150"></iframe>
@@ -96,9 +94,9 @@ def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle_1: ap.Rectangle = options['rectangle_1']
-    rectangle_2: ap.Rectangle = options['rectangle_2']
-    direction: ap.Int = options['direction']
+    rectangle_1: ap.Rectangle = options["rectangle_1"]
+    rectangle_2: ap.Rectangle = options["rectangle_2"]
+    direction: ap.Int = options["direction"]
 
     current_scale: ap.Number = rectangle_1.scale_x_from_center
     condition_1: ap.Boolean = current_scale >= 2.0
@@ -113,30 +111,27 @@ def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af', alpha=0.5)
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-sprite.graphics.begin_fill(color='#f0a', alpha=0.5)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#f0a", alpha=0.5)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 
 direction: ap.Int = ap.Int(1.0)
 options: _RectanglesOptions = {
-    'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2,
-    'direction': direction}
-timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60,
-    options=options)
+    "rectangle_1": rectangle_1,
+    "rectangle_2": rectangle_2,
+    "direction": direction,
+}
+timer: ap.Timer = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='graphics_base_scale_from_center_basic_usage_3/')
+ap.save_overall_html(dest_dir_path="graphics_base_scale_from_center_basic_usage_3/")
 ```
 
 <iframe src="static/graphics_base_scale_from_center_basic_usage_3/index.html" width="150" height="150"></iframe>

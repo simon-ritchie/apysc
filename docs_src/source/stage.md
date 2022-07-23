@@ -27,12 +27,9 @@ stage: ap.Stage = ap.Stage()
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_elem_id='stage')
+stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="stage")
 
-ap.save_overall_html(
-    dest_dir_path='stage_background_color/')
+ap.save_overall_html(dest_dir_path="stage_background_color/")
 ```
 
 This will create HTML with black background stage, as follows:
@@ -48,12 +45,10 @@ This will create HTML with black background stage, as follows:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=500, stage_height=50,
-    background_color='#333',
-    stage_elem_id='stage')
+    stage_width=500, stage_height=50, background_color="#333", stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='stage_size/')
+ap.save_overall_html(dest_dir_path="stage_size/")
 ```
 
 The Previous script will create a horizontal stage, as follows:
@@ -68,9 +63,7 @@ Stage element id (HTML id) can be set by `stage_elem_id` argument. If you don't 
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_elem_id='line_chart_1')
+stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="line_chart_1")
 ```
 
 This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.

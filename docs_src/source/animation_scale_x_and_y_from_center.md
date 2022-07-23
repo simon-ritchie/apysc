@@ -36,7 +36,8 @@ class Options(TypedDict):
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle], options: Options) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: Options
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -49,7 +50,7 @@ def on_animation_complete_1(
     """
     rectangle: ap.Rectangle = e.this.target
     SCALE: float = 1.0
-    if options['direction'] == Direction.X:
+    if options["direction"] == Direction.X:
         rectangle.animation_scale_x_from_center(
             scale_x_from_center=SCALE,
             duration=DURATION,
@@ -58,7 +59,7 @@ def on_animation_complete_1(
             on_animation_complete_2,
             options=options,
         ).start()
-    elif options['direction'] == Direction.Y:
+    elif options["direction"] == Direction.Y:
         rectangle.animation_scale_y_from_center(
             scale_y_from_center=SCALE,
             duration=DURATION,
@@ -70,7 +71,8 @@ def on_animation_complete_1(
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle], options: Options) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: Options
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -83,7 +85,7 @@ def on_animation_complete_2(
     """
     rectangle: ap.Rectangle = e.this.target
     SCALE: float = 2.0
-    if options['direction'] == Direction.X:
+    if options["direction"] == Direction.X:
         rectangle.animation_scale_x_from_center(
             scale_x_from_center=SCALE,
             duration=DURATION,
@@ -92,7 +94,7 @@ def on_animation_complete_2(
             on_animation_complete_1,
             options=options,
         ).start()
-    elif options['direction'] == Direction.Y:
+    elif options["direction"] == Direction.Y:
         rectangle.animation_scale_y_from_center(
             scale_y_from_center=SCALE,
             duration=DURATION,
@@ -104,16 +106,18 @@ def on_animation_complete_2(
 
 
 ap.Stage(
-    stage_width=250, stage_height=150,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 left_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+    x=50, y=50, width=50, height=50
+)
 right_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
+    x=150, y=50, width=50, height=50
+)
 
-options: Options = {'direction': Direction.X}
+options: Options = {"direction": Direction.X}
 left_rectangle.animation_scale_x_from_center(
     scale_x_from_center=2.0,
     duration=DURATION,
@@ -123,7 +127,7 @@ left_rectangle.animation_scale_x_from_center(
     options=options,
 ).start()
 
-options = {'direction': Direction.Y}
+options = {"direction": Direction.Y}
 right_rectangle.animation_scale_y_from_center(
     scale_y_from_center=2.0,
     duration=DURATION,
@@ -133,8 +137,7 @@ right_rectangle.animation_scale_y_from_center(
     options=options,
 ).start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_scale_x_and_y_from_center_basic_usage/')
+ap.save_overall_html(dest_dir_path="./animation_scale_x_and_y_from_center_basic_usage/")
 ```
 
 <iframe src="static/animation_scale_x_and_y_from_center_basic_usage/index.html" width="250" height="150"></iframe>

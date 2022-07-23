@@ -39,12 +39,12 @@ def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     """
     x: ap.Int = ap.Int(50)
     y: ap.Int = ap.Int(50)
-    rectangle_1: ap.Rectangle = options['rectangle_1']
+    rectangle_1: ap.Rectangle = options["rectangle_1"]
     rotation: ap.Int = rectangle_1.get_rotation_around_point(x=x, y=y)
     rotation += 1
     rectangle_1.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
-    rectangle_2: ap.Rectangle = options['rectangle_2']
+    rectangle_2: ap.Rectangle = options["rectangle_2"]
     x = ap.Int(100)
     y = ap.Int(100)
     rotation = rectangle_2.get_rotation_around_point(x=x, y=y)
@@ -53,24 +53,19 @@ def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-options: _RectanglesOptions = {
-    'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2}
-timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60, options=options)
+options: _RectanglesOptions = {"rectangle_1": rectangle_1, "rectangle_2": rectangle_2}
+timer: ap.Timer = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='graphics_base_rotation_around_point_basic_usage/')
+ap.save_overall_html(dest_dir_path="graphics_base_rotation_around_point_basic_usage/")
 ```
 
 <iframe src="static/graphics_base_rotation_around_point_basic_usage/index.html" width="150" height="150"></iframe>

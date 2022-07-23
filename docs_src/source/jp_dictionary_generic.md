@@ -12,8 +12,8 @@
 # runnable
 import apysc as ap
 
-dict_value: ap.Dictionary[str, int] = ap.Dictionary({'a': 10})
-a_value: int = dict_value['a']
+dict_value: ap.Dictionary[str, int] = ap.Dictionary({"a": 10})
+a_value: int = dict_value["a"]
 ```
 
 これらのジェネリックの型アノテーションはmypyやPylanceなどのライブラリによるチェックや安全面で役に立つことがあります。
@@ -24,8 +24,8 @@ a_value: int = dict_value['a']
 # runnable
 import apysc as ap
 
-dict_value: ap.Dictionary[str, int] = ap.Dictionary({'a': 10})
-a_value: str = dict_value['a']
+dict_value: ap.Dictionary[str, int] = ap.Dictionary({"a": 10})
+a_value: str = dict_value["a"]
 ```
 
 ```
@@ -39,7 +39,7 @@ Expression of type "int" cannot be assigned to declared type "str"
 # runnable
 import apysc as ap
 
-dict_value: ap.Dictionary[str, int] = ap.Dictionary({'a': 10})
+dict_value: ap.Dictionary[str, int] = ap.Dictionary({"a": 10})
 a_value: int = dict_value[10]
 ```
 
@@ -54,9 +54,8 @@ from typing import Union
 import apysc as ap
 
 # Accepting the str and int key types.
-dict_value: ap.Dictionary[Union[int, str], int] = ap.Dictionary(
-    {'a': 10, 2: 20})
-a_value: int = dict_value['a']
+dict_value: ap.Dictionary[Union[int, str], int] = ap.Dictionary({"a": 10, 2: 20})
+a_value: int = dict_value["a"]
 b_value: int = dict_value[2]
 ```
 
@@ -67,8 +66,7 @@ from typing import Any
 import apysc as ap
 
 # Accepting all types by specifying the Any type.
-dict_value: ap.Dictionary[Any, Any] = ap.Dictionary(
-    {'a': 10, 2: 'b'})
-a_value: int = dict_value['a']
+dict_value: ap.Dictionary[Any, Any] = ap.Dictionary({"a": 10, 2: "b"})
+a_value: int = dict_value["a"]
 b_value: str = dict_value[2]
 ```

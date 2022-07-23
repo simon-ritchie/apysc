@@ -22,8 +22,7 @@ DURATION: int = 1000
 EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 
 
-def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -42,8 +41,7 @@ def on_animation_complete_1(
     ).animation_complete(on_animation_complete_2).start()
 
 
-def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -63,12 +61,11 @@ def on_animation_complete_2(
 
 
 ap.Stage(
-    stage_width=150, stage_height=150,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 rectangle.animation_skew_x(
     skew_x=50,
@@ -76,8 +73,7 @@ rectangle.animation_skew_x(
     easing=EASING,
 ).animation_complete(on_animation_complete_1).start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_skew_x_basic_usage/')
+ap.save_overall_html(dest_dir_path="./animation_skew_x_basic_usage/")
 ```
 
 <iframe src="static/animation_skew_x_basic_usage/index.html" width="150" height="150"></iframe>

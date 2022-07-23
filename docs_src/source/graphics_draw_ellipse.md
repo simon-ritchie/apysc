@@ -15,25 +15,23 @@ The `draw_ellipse` interface has the `x`\, `y`\, `width`\, and `height` argument
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=325,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=325, stage_height=200, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
 
 # Set the cyan fill color and draw the ellipse.
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 sprite.graphics.draw_ellipse(x=125, y=100, width=150, height=100)
 
 # Set the only dotted-line style and draw the ellipse.
-sprite.graphics.begin_fill(color='')
+sprite.graphics.begin_fill(color="")
 sprite.graphics.line_style(
-    color='#fff', thickness=3, dot_setting=ap.LineDotSetting(dot_size=3))
+    color="#fff", thickness=3, dot_setting=ap.LineDotSetting(dot_size=3)
+)
 sprite.graphics.draw_ellipse(x=200, y=100, width=150, height=100)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_draw_ellipse_basic_usage/')
+ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_basic_usage/")
 ```
 
 <iframe src="static/graphics_draw_ellipse_basic_usage/index.html" width="325" height="200"></iframe>
@@ -51,8 +49,7 @@ The following code example binds the click event handler. If you click the ellip
 import apysc as ap
 
 
-def on_ellipse_click(
-        e: ap.MouseEvent[ap.Ellipse], options: dict) -> None:
+def on_ellipse_click(e: ap.MouseEvent[ap.Ellipse], options: dict) -> None:
     """
     The handler that the ellipse calls when clicked.
 
@@ -69,20 +66,16 @@ def on_ellipse_click(
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=250,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=250, stage_height=200, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af')
-ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
-    x=125, y=100, width=150, height=100)
+sprite.graphics.begin_fill(color="#0af")
+ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(x=125, y=100, width=150, height=100)
 ellipse.click(on_ellipse_click)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_draw_ellipse_return_value/')
+ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 ```
 
 <iframe src="static/graphics_draw_ellipse_return_value/index.html" width="250" height="200"></iframe>

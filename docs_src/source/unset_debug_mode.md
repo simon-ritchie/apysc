@@ -23,8 +23,8 @@ The following example appends the debug information only at the `int_1` instanti
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 ap.set_debug_mode()
 int_1: ap.Int = ap.Int(10)
@@ -33,8 +33,7 @@ ap.unset_debug_mode()
 int_2: ap.Int = ap.Int(20)
 int_2 += 20
 
-ap.save_overall_html(
-    minify=False, dest_dir_path='unset_debug_mode_basic_usage/')
+ap.save_overall_html(minify=False, dest_dir_path="unset_debug_mode_basic_usage/")
 ```
 
 The exported HTML includes the debug information at the first integer position. It doesn't include the sprite and second integer positions, as follows:

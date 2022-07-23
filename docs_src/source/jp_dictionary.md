@@ -20,8 +20,8 @@
 # runnable
 import apysc as ap
 
-dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
-assert dict_1 == {'a': 10}
+dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
+assert dict_1 == {"a": 10}
 
 dict_2: ap.Dictionary = ap.Dictionary(dict_1)
 assert dict_1 == dict_2
@@ -35,9 +35,9 @@ assert dict_1 == dict_2
 # runnable
 import apysc as ap
 
-dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
-dict_1['a'] = 20
-assert dict_1 == {'a': 20}
+dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
+dict_1["a"] = 20
+assert dict_1 == {"a": 20}
 ```
 
 ## 値のgetterのインターフェイス
@@ -49,8 +49,8 @@ assert dict_1 == {'a': 20}
 import apysc as ap
 
 int_1: ap.Int = ap.Int(10)
-dict_1: ap.Dictionary = ap.Dictionary({'a': int_1})
-int_2: ap.Int = dict_1['a']
+dict_1: ap.Dictionary = ap.Dictionary({"a": int_1})
+int_2: ap.Int = dict_1["a"]
 assert isinstance(int_2, ap.Int)
 assert int_2 == 10
 ```
@@ -64,8 +64,8 @@ assert int_2 == 10
 import apysc as ap
 
 int_1: ap.Int = ap.Int(10)
-dict_1: ap.Dictionary = ap.Dictionary({'a': int_1})
-retrieved_val: ap.AnyValue = dict_1['b']
+dict_1: ap.Dictionary = ap.Dictionary({"a": int_1})
+retrieved_val: ap.AnyValue = dict_1["b"]
 assert isinstance(retrieved_val, ap.AnyValue)
 ```
 
@@ -78,8 +78,8 @@ assert isinstance(retrieved_val, ap.AnyValue)
 import apysc as ap
 
 int_1: ap.Int = ap.Int(10)
-dict_1: ap.Dictionary = ap.Dictionary({'a': int_1})
-del dict_1['a']
+dict_1: ap.Dictionary = ap.Dictionary({"a": int_1})
+del dict_1["a"]
 assert dict_1 == {}
 ```
 

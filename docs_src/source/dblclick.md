@@ -35,20 +35,18 @@ def on_double_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.dblclick(on_double_click)
 
-ap.save_overall_html(
-    dest_dir_path='./dblclick_basic_usage/')
+ap.save_overall_html(dest_dir_path="./dblclick_basic_usage/")
 ```
 
 <iframe src="static/dblclick_basic_usage/index.html" width="150" height="150"></iframe>
@@ -76,21 +74,19 @@ def on_double_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.dblclick(on_double_click)
 rectangle.unbind_dblclick(on_double_click)
 
-ap.save_overall_html(
-    dest_dir_path='./unbind_dblclick_basic_usage/')
+ap.save_overall_html(dest_dir_path="./unbind_dblclick_basic_usage/")
 ```
 
 <iframe src="static/unbind_dblclick_basic_usage/index.html" width="150" height="150"></iframe>

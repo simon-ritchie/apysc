@@ -19,8 +19,7 @@
 import apysc as ap
 
 
-def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -35,16 +34,14 @@ def on_click(
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='event_prevent_default_basic_usage/')
+ap.save_overall_html(dest_dir_path="event_prevent_default_basic_usage/")
 ```
 
 ## stop_propagation インターフェイスの基本的な使い方
@@ -58,8 +55,7 @@ ap.save_overall_html(
 import apysc as ap
 
 
-def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -71,11 +67,10 @@ def on_rectangle_click(
         Optional arguments dictionary.
     """
     e.stop_propagation()
-    ap.trace('The rectangle is clicked!')
+    ap.trace("The rectangle is clicked!")
 
 
-def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
+def on_sprite_click(e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
     The handler that the sprite calls when clicked.
 
@@ -86,21 +81,19 @@ def on_sprite_click(
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('The sprite is clicked!')
+    ap.trace("The sprite is clicked!")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 sprite.click(on_sprite_click)
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_rectangle_click)
 
-ap.save_overall_html(
-    dest_dir_path='event_stop_propagation_basic_usage/')
+ap.save_overall_html(dest_dir_path="event_stop_propagation_basic_usage/")
 ```
 
 もし以下の四角をクリックした場合、ブラウザのコンソールには`The rectangle is clicked!`というメッセージのみが表示され、Sprite関係のメッセージは表示されません。

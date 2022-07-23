@@ -38,8 +38,8 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     options : RectOptions
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
-    direction: ap.Int = options['direction']
+    rectangle: ap.Rectangle = options["rectangle"]
+    direction: ap.Int = options["direction"]
     rectangle.x += direction
     rectangle.y += direction
 
@@ -53,21 +53,17 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 direction: ap.Int = ap.Int(1)
-options: RectOptions = {'rectangle': rectangle, 'direction': direction}
+options: RectOptions = {"rectangle": rectangle, "direction": direction}
 ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
 
-ap.save_overall_html(
-    dest_dir_path='do_and_graphics_base_prop_abstract_x_and_y/')
+ap.save_overall_html(dest_dir_path="do_and_graphics_base_prop_abstract_x_and_y/")
 ```
 
 </details>
@@ -107,25 +103,21 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     options : RectOptions
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.visible = rectangle.visible.not_
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-options: RectOptions = {'rectangle': rectangle}
+options: RectOptions = {"rectangle": rectangle}
 ap.Timer(on_timer, delay=1000, options=options).start()
 
-ap.save_overall_html(
-    dest_dir_path='do_and_graphics_base_prop_abstract_visible/')
+ap.save_overall_html(dest_dir_path="do_and_graphics_base_prop_abstract_visible/")
 ```
 
 </details>
@@ -165,25 +157,21 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     options : RectOptions
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.rotation_around_center += 1
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-options: RectOptions = {'rectangle': rectangle}
+options: RectOptions = {"rectangle": rectangle}
 ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
 
-ap.save_overall_html(
-    dest_dir_path='do_and_graphics_base_prop_abstract_rotation/')
+ap.save_overall_html(dest_dir_path="do_and_graphics_base_prop_abstract_rotation/")
 ```
 
 </details>
@@ -225,8 +213,8 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     options : RectOptions
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
-    scale_value: ap.Number = options['scale_value']
+    rectangle: ap.Rectangle = options["rectangle"]
+    scale_value: ap.Number = options["scale_value"]
     rectangle.scale_x_from_center += scale_value
     rectangle.scale_y_from_center += scale_value
 
@@ -240,21 +228,17 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 scale_value: ap.Number = ap.Number(0.01)
-options: RectOptions = {'rectangle': rectangle, 'scale_value': scale_value}
+options: RectOptions = {"rectangle": rectangle, "scale_value": scale_value}
 ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
 
-ap.save_overall_html(
-    dest_dir_path='do_and_graphics_base_prop_abstract_scale/')
+ap.save_overall_html(dest_dir_path="do_and_graphics_base_prop_abstract_scale/")
 ```
 
 </details>
@@ -295,25 +279,21 @@ def on_timer(e: ap.TimerEvent, options: LineOptions) -> None:
     options : LineOptions
         Optional arguments dictionary.
     """
-    line: ap.Line = options['line']
+    line: ap.Line = options["line"]
     line.flip_x = line.flip_x.not_
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color='#fff', thickness=5)
-line: ap.Line = sprite.graphics.draw_line(
-    x_start=50, y_start=50, x_end=100, y_end=100)
+sprite.graphics.line_style(color="#fff", thickness=5)
+line: ap.Line = sprite.graphics.draw_line(x_start=50, y_start=50, x_end=100, y_end=100)
 
-options: LineOptions = {'line': line}
+options: LineOptions = {"line": line}
 ap.Timer(on_timer, delay=1000, options=options).start()
 
-ap.save_overall_html(
-    dest_dir_path='do_and_graphics_base_prop_abstract_flip/')
+ap.save_overall_html(dest_dir_path="do_and_graphics_base_prop_abstract_flip/")
 ```
 
 </details>
@@ -353,25 +333,21 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     options : RectOptions
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.skew_x += 1
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-options: RectOptions = {'rectangle': rectangle}
+options: RectOptions = {"rectangle": rectangle}
 ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
 
-ap.save_overall_html(
-    dest_dir_path='do_and_graphics_base_prop_abstract_skew/')
+ap.save_overall_html(dest_dir_path="do_and_graphics_base_prop_abstract_skew/")
 ```
 
 </details>

@@ -48,15 +48,14 @@ def on_click(e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='delete_basic_usage/')
+ap.save_overall_html(dest_dir_path="delete_basic_usage/")
 ```
 
 If you click the following rectangle, the `delete` function removes it from the stage.

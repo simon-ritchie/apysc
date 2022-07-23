@@ -19,15 +19,11 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, fill_color="#0af")
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_basic_usage/')
+ap.save_overall_html(dest_dir_path="ellipse_basic_usage/")
 ```
 
 <iframe src="static/ellipse_basic_usage/index.html" width="150" height="150"></iframe>
@@ -49,16 +45,12 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=0, y=75, width=100, height=75, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=0, y=75, width=100, height=75, fill_color="#0af")
 ellipse.x = ap.Int(100)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_x/')
+ap.save_overall_html(dest_dir_path="ellipse_x/")
 ```
 
 <iframe src="static/ellipse_x/index.html" width="150" height="150"></iframe>
@@ -72,16 +64,12 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=0, width=100, height=50, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=0, width=100, height=50, fill_color="#0af")
 ellipse.y = ap.Int(125)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_y/')
+ap.save_overall_html(dest_dir_path="ellipse_y/")
 ```
 
 <iframe src="static/ellipse_y/index.html" width="150" height="150"></iframe>
@@ -95,16 +83,12 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=0, height=75, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=0, height=75, fill_color="#0af")
 ellipse.width = ap.Int(125)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_width/')
+ap.save_overall_html(dest_dir_path="ellipse_width/")
 ```
 
 <iframe src="static/ellipse_width/index.html" width="150" height="150"></iframe>
@@ -118,16 +102,12 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=75, height=0, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=75, height=0, fill_color="#0af")
 ellipse.height = ap.Int(125)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_height/')
+ap.save_overall_html(dest_dir_path="ellipse_height/")
 ```
 
 <iframe src="static/ellipse_height/index.html" width="150" height="150"></iframe>
@@ -141,16 +121,12 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75)
-ellipse.fill_color = ap.String('#f0a')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75)
+ellipse.fill_color = ap.String("#f0a")
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_fill_color/')
+ap.save_overall_html(dest_dir_path="ellipse_fill_color/")
 ```
 
 <iframe src="static/ellipse_fill_color/index.html" width="150" height="150"></iframe>
@@ -164,16 +140,12 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, fill_color="#0af")
 ellipse.fill_alpha = ap.Number(0.3)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_fill_alpha/')
+ap.save_overall_html(dest_dir_path="ellipse_fill_alpha/")
 ```
 
 <iframe src="static/ellipse_fill_alpha/index.html" width="150" height="150"></iframe>
@@ -187,16 +159,12 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75, line_thickness=5)
-ellipse.line_color = ap.String('#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, line_thickness=5)
+ellipse.line_color = ap.String("#0af")
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_line_color/')
+ap.save_overall_html(dest_dir_path="ellipse_line_color/")
 ```
 
 <iframe src="static/ellipse_line_color/index.html" width="150" height="150"></iframe>
@@ -210,17 +178,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75,
-    line_color='0af', line_thickness=5)
+    x=75, y=75, width=100, height=75, line_color="0af", line_thickness=5
+)
 ellipse.line_alpha = ap.Number(0.3)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_line_alpha/')
+ap.save_overall_html(dest_dir_path="ellipse_line_alpha/")
 ```
 
 <iframe src="static/ellipse_line_alpha/index.html" width="150" height="150"></iframe>
@@ -234,16 +199,12 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75, line_color='0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, line_color="0af")
 ellipse.line_thickness = ap.Int(8)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_line_thickness/')
+ap.save_overall_html(dest_dir_path="ellipse_line_thickness/")
 ```
 
 <iframe src="static/ellipse_line_thickness/index.html" width="150" height="150"></iframe>
@@ -257,17 +218,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75,
-    line_color='0af', line_thickness=2)
+    x=75, y=75, width=100, height=75, line_color="0af", line_thickness=2
+)
 ellipse.line_dot_setting = ap.LineDotSetting(dot_size=2)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_line_dot_setting/')
+ap.save_overall_html(dest_dir_path="ellipse_line_dot_setting/")
 ```
 
 <iframe src="static/ellipse_line_dot_setting/index.html" width="150" height="150"></iframe>
@@ -281,18 +239,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75,
-    line_color='0af', line_thickness=2)
-ellipse.line_dash_setting = ap.LineDashSetting(
-    dash_size=6, space_size=2)
+    x=75, y=75, width=100, height=75, line_color="0af", line_thickness=2
+)
+ellipse.line_dash_setting = ap.LineDashSetting(dash_size=6, space_size=2)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_line_dash_setting/')
+ap.save_overall_html(dest_dir_path="ellipse_line_dash_setting/")
 ```
 
 <iframe src="static/ellipse_line_dash_setting/index.html" width="150" height="150"></iframe>
@@ -306,17 +260,12 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75, line_color='0af')
-ellipse.line_round_dot_setting = ap.LineRoundDotSetting(
-    round_size=5, space_size=2)
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, line_color="0af")
+ellipse.line_round_dot_setting = ap.LineRoundDotSetting(round_size=5, space_size=2)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_line_round_dot_setting/')
+ap.save_overall_html(dest_dir_path="ellipse_line_round_dot_setting/")
 ```
 
 <iframe src="static/ellipse_line_round_dot_setting/index.html" width="150" height="150"></iframe>
@@ -330,18 +279,16 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75,
-    line_color='0af', line_thickness=2)
+    x=75, y=75, width=100, height=75, line_color="0af", line_thickness=2
+)
 ellipse.line_dash_dot_setting = ap.LineDashDotSetting(
-    dot_size=3, dash_size=6, space_size=3)
+    dot_size=3, dash_size=6, space_size=3
+)
 
-ap.save_overall_html(
-    dest_dir_path='ellipse_line_dash_dot_setting/')
+ap.save_overall_html(dest_dir_path="ellipse_line_dash_dot_setting/")
 ```
 
 <iframe src="static/ellipse_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
@@ -355,12 +302,9 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=150, height=100, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -378,8 +322,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='ellipse_rotation_around_center/')
+ap.save_overall_html(dest_dir_path="ellipse_rotation_around_center/")
 ```
 
 <iframe src="static/ellipse_rotation_around_center/index.html" width="150" height="150"></iframe>
@@ -395,12 +338,9 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=150, height=100, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
 x: ap.Int = ap.Int(100)
 y: ap.Int = ap.Int(100)
 
@@ -416,16 +356,13 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rotation: ap.Int = ellipse.get_rotation_around_point(
-        x=x, y=y)
+    rotation: ap.Int = ellipse.get_rotation_around_point(x=x, y=y)
     rotation += 1
-    ellipse.set_rotation_around_point(
-        rotation=rotation, x=x, y=y)
+    ellipse.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='ellipse_set_rotation_around_point/')
+ap.save_overall_html(dest_dir_path="ellipse_set_rotation_around_point/")
 ```
 
 <iframe src="static/ellipse_set_rotation_around_point/index.html" width="150" height="150"></iframe>
@@ -439,12 +376,9 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=150, height=100, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
 ellipse.rotation_around_center = ap.Int(30)
 
 
@@ -463,8 +397,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=1000).start()
-ap.save_overall_html(
-    dest_dir_path='ellipse_flip_x/')
+ap.save_overall_html(dest_dir_path="ellipse_flip_x/")
 ```
 
 <iframe src="static/ellipse_flip_x/index.html" width="150" height="150"></iframe>
@@ -480,12 +413,9 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=150, height=100, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
 ellipse.rotation_around_center = ap.Int(30)
 
 
@@ -504,8 +434,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=1000).start()
-ap.save_overall_html(
-    dest_dir_path='ellipse_flip_y/')
+ap.save_overall_html(dest_dir_path="ellipse_flip_y/")
 ```
 
 <iframe src="static/ellipse_flip_y/index.html" width="150" height="150"></iframe>
@@ -521,12 +450,9 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=150, height=100, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -544,8 +470,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='ellipse_skew_x/')
+ap.save_overall_html(dest_dir_path="ellipse_skew_x/")
 ```
 
 <iframe src="static/ellipse_skew_x/index.html" width="150" height="150"></iframe>
@@ -561,12 +486,9 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
-ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=150, height=100, fill_color='#0af')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -584,8 +506,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='ellipse_skew_y/')
+ap.save_overall_html(dest_dir_path="ellipse_skew_y/")
 ```
 
 <iframe src="static/ellipse_skew_y/index.html" width="150" height="150"></iframe>

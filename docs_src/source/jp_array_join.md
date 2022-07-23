@@ -17,8 +17,8 @@
 import apysc as ap
 
 arr: ap.Array[int] = ap.Array([1, 2, 3])
-joined: ap.String = arr.join(sep=',')
-assert joined == '1,2,3'
+joined: ap.String = arr.join(sep=",")
+assert joined == "1,2,3"
 ```
 
 ## join API

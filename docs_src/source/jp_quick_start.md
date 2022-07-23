@@ -22,7 +22,7 @@ $ pip install apysc
 # runnable
 import apysc as ap
 
-stage = ap.Stage(stage_width=300, stage_height=180, background_color='#333')
+stage = ap.Stage(stage_width=300, stage_height=180, background_color="#333")
 ```
 
 さらに、結果のHTMLとJavaScriptのファイルを`save_overall_html`関数によって保存することができます（このケースではまだ黒い背景のステージが表示されるだけです）。
@@ -32,10 +32,9 @@ stage = ap.Stage(stage_width=300, stage_height=180, background_color='#333')
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=300, stage_height=180, background_color='#333',
-    stage_elem_id='stage')
-ap.save_overall_html(
-    dest_dir_path='quick_start_stage_creation/')
+    stage_width=300, stage_height=180, background_color="#333", stage_elem_id="stage"
+)
+ap.save_overall_html(dest_dir_path="quick_start_stage_creation/")
 ```
 
 このコードでは`dest_dir_path`引数に指定されたディレクトリに結果のHTMLとJavaScriptの各ファイルを生成します。以下のコード例では`index.html`のファイル（`quick_start_stage_creation/index.html`）を開くことで出力結果を確認することができます。
@@ -51,23 +50,22 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=250, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw polyline vector graphics.
-sprite.graphics.line_style(color='#fff', thickness=3)
+sprite.graphics.line_style(color="#fff", thickness=3)
 sprite.graphics.move_to(x=50, y=50)
 sprite.graphics.line_to(x=100, y=50)
 sprite.graphics.line_to(x=50, y=100)
 sprite.graphics.line_to(x=100, y=100)
 
 # Draw rectangle vector graphic.
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='quick_start_sprite_graphics/')
+ap.save_overall_html(dest_dir_path="quick_start_sprite_graphics/")
 ```
 
 <iframe src="static/quick_start_sprite_graphics/index.html" width="250" height="150"></iframe>

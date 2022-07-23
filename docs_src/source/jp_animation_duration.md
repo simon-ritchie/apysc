@@ -22,9 +22,7 @@ DURATION: int = 3000
 EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 
 
-def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: dict) -> None:
+def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that animation calls when its end.
 
@@ -37,13 +35,13 @@ def on_animation_complete_1(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_x: ap.AnimationX = rectangle.animation_x(
-        x=50, duration=DURATION, easing=EASING)
+        x=50, duration=DURATION, easing=EASING
+    )
     animation_x.animation_complete(on_animation_complete_2)
     animation_x.start()
 
 
-def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that animation calls when its end.
 
@@ -56,26 +54,26 @@ def on_animation_complete_2(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_x: ap.AnimationX = rectangle.animation_x(
-        x=400, duration=DURATION, easing=EASING)
+        x=400, duration=DURATION, easing=EASING
+    )
     animation_x.animation_complete(on_animation_complete_1)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=500, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=500, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 animation_x: ap.AnimationX = rectangle.animation_x(
-    x=400, duration=DURATION, easing=EASING)
+    x=400, duration=DURATION, easing=EASING
+)
 animation_x.animation_complete(on_animation_complete_1)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_duration_basic_usage/')
+ap.save_overall_html(dest_dir_path="./animation_duration_basic_usage/")
 ```
 
 <iframe src="static/animation_duration_basic_usage/index.html" width="500" height="150"></iframe>

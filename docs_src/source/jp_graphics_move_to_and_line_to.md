@@ -19,13 +19,11 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=300,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=300, stage_height=100, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color='#0af', thickness=5)
+sprite.graphics.line_style(color="#0af", thickness=5)
 
 # Move to x=50, y=50 point (no drawing).
 sprite.graphics.move_to(x=50, y=50)
@@ -34,8 +32,7 @@ sprite.graphics.move_to(x=50, y=50)
 # destination point (250, 50).
 sprite.graphics.line_to(x=250, y=50)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_move_to_and_line_to_basic_usage/')
+ap.save_overall_html(dest_dir_path="graphics_move_to_and_line_to_basic_usage/")
 ```
 
 <iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe>
@@ -49,13 +46,11 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color='#0af', thickness=5)
+sprite.graphics.line_style(color="#0af", thickness=5)
 
 # Move to x=50, y=50 point (no drawing).
 sprite.graphics.move_to(x=50, y=50)
@@ -73,8 +68,7 @@ sprite.graphics.line_to(x=50, y=150)
 # destination point (150, 150).
 sprite.graphics.line_to(x=150, y=150)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_move_to_and_line_to_sequential_calling/')
+ap.save_overall_html(dest_dir_path="graphics_move_to_and_line_to_sequential_calling/")
 ```
 
 <iframe src="static/graphics_move_to_and_line_to_sequential_calling/index.html" width="200" height="200"></iframe>
@@ -88,13 +82,11 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=250,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color='#0af', thickness=5)
+sprite.graphics.line_style(color="#0af", thickness=5)
 
 # First move_to interface calling.
 sprite.graphics.move_to(x=50, y=50)
@@ -110,7 +102,8 @@ sprite.graphics.line_to(x=150, y=100)
 sprite.graphics.line_to(x=200, y=100)
 
 ap.save_overall_html(
-    dest_dir_path='graphics_move_to_and_line_to_multi_move_to_calling/')
+    dest_dir_path="graphics_move_to_and_line_to_multi_move_to_calling/"
+)
 ```
 
 <iframe src="static/graphics_move_to_and_line_to_multi_move_to_calling/index.html" width="250" height="150"></iframe>
@@ -126,8 +119,7 @@ ap.save_overall_html(
 import apysc as ap
 
 
-def on_line_click(
-        e: ap.MouseEvent[ap.Polyline], options: dict) -> None:
+def on_line_click(e: ap.MouseEvent[ap.Polyline], options: dict) -> None:
     """
     The handler that the line instance calls when clicked.
 
@@ -139,24 +131,21 @@ def on_line_click(
         Optional arguments.
     """
     polyline: ap.Polyline = e.this
-    polyline.line_color = ap.String('#f0a')
+    polyline.line_color = ap.String("#f0a")
     polyline.line_dot_setting = ap.LineDotSetting(dot_size=5)
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color='#0af', thickness=30)
+sprite.graphics.line_style(color="#0af", thickness=30)
 polyline: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
 sprite.graphics.line_to(x=150, y=50)
 polyline.click(on_line_click)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_move_to_and_line_to_polyline/')
+ap.save_overall_html(dest_dir_path="graphics_move_to_and_line_to_polyline/")
 ```
 
 もし以下の四角をクリックし0た場合、線のスタイルは更新されます:

@@ -17,15 +17,12 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=450,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=450, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.add_child(rectangle_1)
 
 first_child: ap.DisplayObject = sprite.get_child_at(index=0)

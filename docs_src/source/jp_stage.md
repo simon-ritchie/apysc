@@ -29,12 +29,9 @@ stage: ap.Stage = ap.Stage()
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_elem_id='stage')
+stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="stage")
 
-ap.save_overall_html(
-    dest_dir_path='stage_background_color/')
+ap.save_overall_html(dest_dir_path="stage_background_color/")
 ```
 
 このコードは以下のように黒背景のステージのHTMLを生成します:
@@ -50,12 +47,10 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=500, stage_height=50,
-    background_color='#333',
-    stage_elem_id='stage')
+    stage_width=500, stage_height=50, background_color="#333", stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='stage_size/')
+ap.save_overall_html(dest_dir_path="stage_size/")
 ```
 
 上記のコードは以下のように横長のステージを作成します:
@@ -70,9 +65,7 @@ ap.save_overall_html(
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_elem_id='line_chart_1')
+stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="line_chart_1")
 ```
 
 このオプションはapyscの各プロジェクトで複数回出力などを行う際のIDの識別やバージョン管理などの面で便利です。

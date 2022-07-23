@@ -23,15 +23,14 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 # Custom event type name.
-ROTATE_90_DEGREES: str = 'rotate_90_degrees'
+ROTATE_90_DEGREES: str = "rotate_90_degrees"
 
 
 class _RectOptions(TypedDict):
     rectangle: ap.Rectangle
 
 
-def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -43,13 +42,11 @@ def on_rectangle_click(
         Optional arguments dictionary.
     """
     e.this.unbind_click(on_rectangle_click)
-    options_: _RectOptions = {'rectangle': e.this}
+    options_: _RectOptions = {"rectangle": e.this}
     timer: ap.Timer = ap.Timer(
-        on_timer, delay=ap.FPS.FPS_60, repeat_count=90,
-        options=options_)
-    timer.timer_complete(
-        on_timer_complete,
-        options=options_)
+        on_timer, delay=ap.FPS.FPS_60, repeat_count=90, options=options_
+    )
+    timer.timer_complete(on_timer_complete, options=options_)
     timer.start()
 
 
@@ -64,7 +61,7 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.rotation_around_center += 1
 
 
@@ -79,7 +76,7 @@ def on_timer_complete(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.trigger_custom_event(custom_event_type=ROTATE_90_DEGREES)
 
 
@@ -94,30 +91,30 @@ def on_rotate_90_degrees(e: ap.Event, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.visible = ap.Boolean(True)
 
 
 ap.Stage(
-    stage_width=250, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_1.click(on_rectangle_click)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 rectangle_2.visible = ap.Boolean(False)
 
 e: ap.Event = ap.Event(this=rectangle_1)
 rectangle_1.bind_custom_event(
-    custom_event_type=ROTATE_90_DEGREES, handler=on_rotate_90_degrees, e=e,
-    options={'rectangle': rectangle_2})
+    custom_event_type=ROTATE_90_DEGREES,
+    handler=on_rotate_90_degrees,
+    e=e,
+    options={"rectangle": rectangle_2},
+)
 
-ap.save_overall_html(
-    dest_dir_path='bind_and_trigger_custom_event_basic_usage/')
+ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 ```
 
 <iframe src="static/bind_and_trigger_custom_event_basic_usage/index.html" width="250" height="150"></iframe>

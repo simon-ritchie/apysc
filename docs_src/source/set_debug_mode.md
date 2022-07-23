@@ -21,14 +21,13 @@ After the stage instantiation, you can set the debug mode by the `set_debug_mode
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 ap.set_debug_mode()
 sprite: ap.Sprite = ap.Sprite()
 int_1: ap.Int = ap.Int(10)
 
-ap.save_overall_html(
-    dest_dir_path='set_debug_mode_basic_usage/')
+ap.save_overall_html(dest_dir_path="set_debug_mode_basic_usage/")
 ```
 
 This setting appends the information (Python's function and method callings, its module and class names, and argument information) as the JavaScript comment to the exported HTML, like the following:

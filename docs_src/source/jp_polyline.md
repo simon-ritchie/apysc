@@ -19,10 +19,8 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -30,11 +28,11 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_basic_usage/')
+ap.save_overall_html(dest_dir_path="polyline_basic_usage/")
 ```
 
 <iframe src="static/polyline_basic_usage/index.html" width="200" height="150"></iframe>
@@ -56,10 +54,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -67,12 +63,12 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 polyline.x = ap.Int(100)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_x/')
+ap.save_overall_html(dest_dir_path="polyline_x/")
 ```
 
 <iframe src="static/polyline_x/index.html" width="200" height="150"></iframe>
@@ -88,10 +84,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -99,12 +93,12 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 polyline.y = ap.Int(100)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_y/')
+ap.save_overall_html(dest_dir_path="polyline_y/")
 ```
 
 <iframe src="static/polyline_y/index.html" width="200" height="150"></iframe>
@@ -120,10 +114,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -131,12 +123,12 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#fff',
-    line_thickness=3)
-polyline.fill_color = ap.String('#0af')
+    line_color="#fff",
+    line_thickness=3,
+)
+polyline.fill_color = ap.String("#0af")
 
-ap.save_overall_html(
-    dest_dir_path='polyline_fill_color/')
+ap.save_overall_html(dest_dir_path="polyline_fill_color/")
 ```
 
 <iframe src="static/polyline_fill_color/index.html" width="200" height="150"></iframe>
@@ -150,10 +142,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -161,13 +151,13 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    fill_color='#0af',
-    line_color='#fff',
-    line_thickness=3)
+    fill_color="#0af",
+    line_color="#fff",
+    line_thickness=3,
+)
 polyline.fill_alpha = ap.Number(0.3)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_fill_alpha/')
+ap.save_overall_html(dest_dir_path="polyline_fill_alpha/")
 ```
 
 <iframe src="static/polyline_fill_alpha/index.html" width="200" height="150"></iframe>
@@ -181,10 +171,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -192,11 +180,11 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_thickness=3)
-polyline.line_color = ap.String('#0af')
+    line_thickness=3,
+)
+polyline.line_color = ap.String("#0af")
 
-ap.save_overall_html(
-    dest_dir_path='polyline_line_color/')
+ap.save_overall_html(dest_dir_path="polyline_line_color/")
 ```
 
 <iframe src="static/polyline_line_color/index.html" width="200" height="150"></iframe>
@@ -210,10 +198,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -221,12 +207,12 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 polyline.line_alpha = ap.Number(0.3)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_line_alpha/')
+ap.save_overall_html(dest_dir_path="polyline_line_alpha/")
 ```
 
 <iframe src="static/polyline_line_alpha/index.html" width="200" height="150"></iframe>
@@ -240,10 +226,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -251,11 +235,11 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af')
+    line_color="#0af",
+)
 polyline.line_thickness = ap.Int(6)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_line_thickness/')
+ap.save_overall_html(dest_dir_path="polyline_line_thickness/")
 ```
 
 <iframe src="static/polyline_line_thickness/index.html" width="200" height="150"></iframe>
@@ -269,10 +253,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -280,12 +262,12 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 polyline.line_dot_setting = ap.LineDotSetting(dot_size=3)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_line_dot_setting/')
+ap.save_overall_html(dest_dir_path="polyline_line_dot_setting/")
 ```
 
 <iframe src="static/polyline_line_dot_setting/index.html" width="200" height="150"></iframe>
@@ -299,10 +281,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -310,13 +290,12 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
-polyline.line_dash_setting = ap.LineDashSetting(
-    dash_size=5, space_size=2)
+    line_color="#0af",
+    line_thickness=3,
+)
+polyline.line_dash_setting = ap.LineDashSetting(dash_size=5, space_size=2)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_line_dash_setting/')
+ap.save_overall_html(dest_dir_path="polyline_line_dash_setting/")
 ```
 
 <iframe src="static/polyline_line_dash_setting/index.html" width="200" height="150"></iframe>
@@ -330,10 +309,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -341,12 +318,11 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af')
-polyline.line_round_dot_setting = ap.LineRoundDotSetting(
-    round_size=6, space_size=3)
+    line_color="#0af",
+)
+polyline.line_round_dot_setting = ap.LineRoundDotSetting(round_size=6, space_size=3)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_line_round_dot_setting/')
+ap.save_overall_html(dest_dir_path="polyline_line_round_dot_setting/")
 ```
 
 <iframe src="static/polyline_line_round_dot_setting/index.html" width="200" height="150"></iframe>
@@ -360,10 +336,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -371,13 +345,14 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 polyline.line_dash_dot_setting = ap.LineDashDotSetting(
-    dot_size=2, dash_size=5, space_size=2)
+    dot_size=2, dash_size=5, space_size=2
+)
 
-ap.save_overall_html(
-    dest_dir_path='polyline_line_dash_dot_setting/')
+ap.save_overall_html(dest_dir_path="polyline_line_dash_dot_setting/")
 ```
 
 <iframe src="static/polyline_line_dash_dot_setting/index.html" width="200" height="150"></iframe>
@@ -391,10 +366,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -402,8 +375,9 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -421,8 +395,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='polyline_rotation_around_center/')
+ap.save_overall_html(dest_dir_path="polyline_rotation_around_center/")
 ```
 
 <iframe src="static/polyline_rotation_around_center/index.html" width="200" height="150"></iframe>
@@ -438,10 +411,8 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
@@ -449,8 +420,9 @@ polyline: ap.Polyline = ap.Polyline(
         ap.Point2D(x=100, y=100),
         ap.Point2D(x=150, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 x: ap.Int = ap.Int(150)
 y: ap.Int = ap.Int(100)
 
@@ -466,16 +438,13 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rotation: ap.Int = polyline.get_rotation_around_point(
-        x=x, y=y)
+    rotation: ap.Int = polyline.get_rotation_around_point(x=x, y=y)
     rotation += 1
-    polyline.set_rotation_around_point(
-        rotation=rotation, x=x, y=y)
+    polyline.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='polyline_set_rotation_around_point/')
+ap.save_overall_html(dest_dir_path="polyline_set_rotation_around_point/")
 ```
 
 <iframe src="static/polyline_set_rotation_around_point/index.html" width="200" height="150"></iframe>
@@ -489,18 +458,17 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
         ap.Point2D(x=100, y=50),
         ap.Point2D(x=50, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -518,8 +486,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=1000).start()
-ap.save_overall_html(
-    dest_dir_path='polyline_flip_x/')
+ap.save_overall_html(dest_dir_path="polyline_flip_x/")
 ```
 
 <iframe src="static/polyline_flip_x/index.html" width="150" height="150"></iframe>
@@ -533,18 +500,17 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
         ap.Point2D(x=100, y=50),
         ap.Point2D(x=50, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -562,8 +528,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=1000).start()
-ap.save_overall_html(
-    dest_dir_path='polyline_flip_y/')
+ap.save_overall_html(dest_dir_path="polyline_flip_y/")
 ```
 
 <iframe src="static/polyline_flip_y/index.html" width="150" height="150"></iframe>
@@ -577,18 +542,17 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
         ap.Point2D(x=100, y=50),
         ap.Point2D(x=50, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -606,8 +570,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='polyline_skew_x/')
+ap.save_overall_html(dest_dir_path="polyline_skew_x/")
 ```
 
 <iframe src="static/polyline_skew_x/index.html" width="150" height="150"></iframe>
@@ -621,18 +584,17 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 polyline: ap.Polyline = ap.Polyline(
     points=[
         ap.Point2D(x=50, y=50),
         ap.Point2D(x=100, y=50),
         ap.Point2D(x=50, y=100),
     ],
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -650,8 +612,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='polyline_skew_y/')
+ap.save_overall_html(dest_dir_path="polyline_skew_y/")
 ```
 
 <iframe src="static/polyline_skew_y/index.html" width="150" height="150"></iframe>

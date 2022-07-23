@@ -15,8 +15,8 @@ The `join` method requires the `sep` argument as the separator, as follows:
 import apysc as ap
 
 arr: ap.Array[int] = ap.Array([1, 2, 3])
-joined: ap.String = arr.join(sep=',')
-assert joined == '1,2,3'
+joined: ap.String = arr.join(sep=",")
+assert joined == "1,2,3"
 ```
 
 

@@ -21,17 +21,14 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=250, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
 
 class _RectOptions(TypedDict):
@@ -49,27 +46,23 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.rotation_around_center += 1
 
 
-options: _RectOptions = {'rectangle': rectangle_1}
-timer_1: ap.Timer = ap.Timer(
-    handler=on_timer, delay=100, options=options)
+options: _RectOptions = {"rectangle": rectangle_1}
+timer_1: ap.Timer = ap.Timer(handler=on_timer, delay=100, options=options)
 timer_1.start()
 
-options = {'rectangle': rectangle_2}
-timer_2: ap.Timer = ap.Timer(
-    handler=on_timer, delay=33.3333333, options=options)
+options = {"rectangle": rectangle_2}
+timer_2: ap.Timer = ap.Timer(handler=on_timer, delay=33.3333333, options=options)
 timer_2.start()
 
-options = {'rectangle': rectangle_3}
-timer_3: ap.Timer = ap.Timer(
-    handler=on_timer, delay=16.6666667, options=options)
+options = {"rectangle": rectangle_3}
+timer_3: ap.Timer = ap.Timer(handler=on_timer, delay=16.6666667, options=options)
 timer_3.start()
 
-ap.save_overall_html(
-    dest_dir_path='timer_delay_basic_usage/')
+ap.save_overall_html(dest_dir_path="timer_delay_basic_usage/")
 ```
 
 <iframe src="static/timer_delay_basic_usage/index.html" width="350" height="150"></iframe>
@@ -85,12 +78,11 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 
 class _RectOptions(TypedDict):
@@ -108,18 +100,15 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.rotation_around_center += 1
 
 
-options: _RectOptions = {'rectangle': rectangle}
-timer: ap.Timer = ap.Timer(
-    handler=on_timer, delay=ap.FPS.FPS_60,
-    options=options)
+options: _RectOptions = {"rectangle": rectangle}
+timer: ap.Timer = ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='timer_delay_fps_enum/')
+ap.save_overall_html(dest_dir_path="timer_delay_fps_enum/")
 ```
 
 <iframe src="static/timer_delay_fps_enum/index.html" width="150" height="150"></iframe>

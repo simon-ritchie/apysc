@@ -38,31 +38,30 @@ def on_timer(e: ap.TimerEvent, options: _PolygonOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    polygon: ap.Polygon = options['polygon']
+    polygon: ap.Polygon = options["polygon"]
     flip_x: ap.Boolean = polygon.flip_x
     flip_x = flip_x.not_
     polygon.flip_x = flip_x
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 polygon: ap.Polygon = sprite.graphics.draw_polygon(
     points=[
         ap.Point2D(x=50, y=50),
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=75),
-    ])
-options: _PolygonOptions = {'polygon': polygon}
-timer: ap.Timer = ap.Timer(
-    on_timer, delay=1000, options=options)
+    ]
+)
+options: _PolygonOptions = {"polygon": polygon}
+timer: ap.Timer = ap.Timer(on_timer, delay=1000, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='graphics_base_flip_x_basic_usage/')
+ap.save_overall_html(dest_dir_path="graphics_base_flip_x_basic_usage/")
 ```
 
 <iframe src="static/graphics_base_flip_x_basic_usage/index.html" width="150" height="150"></iframe>

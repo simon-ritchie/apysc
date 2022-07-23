@@ -17,8 +17,7 @@ The following example draws the rectangle. Then, the handler displays the messag
 import apysc as ap
 
 
-def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -29,20 +28,18 @@ def on_rectangle_click(
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('Hello apysc!', 'Rectangle width:', e.this.width)
+    ap.trace("Hello apysc!", "Rectangle width:", e.this.width)
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_rectangle_click)
 
-ap.save_overall_html(
-    dest_dir_path='trace_basic_usage/')
+ap.save_overall_html(dest_dir_path="trace_basic_usage/")
 ```
 
 <iframe src="static/trace_basic_usage/index.html" width="150" height="150"></iframe>

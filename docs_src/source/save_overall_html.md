@@ -17,13 +17,10 @@ The following code example exports the HTML and JavaScript files, and the export
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='save_overall_html_interface_basic_usage/')
+ap.save_overall_html(dest_dir_path="save_overall_html_interface_basic_usage/")
 ```
 
 The preceding code exports the `save_overall_html_interface_basic_usage/index.html` and the other JavaScript library files.
@@ -38,14 +35,10 @@ The `save_overall_html` function has the `minify` optional argument (default is 
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    minify=False)
+ap.save_overall_html(dest_dir_path="dest_dir/", minify=False)
 ```
 
 ## JavaScript libs directory path setting and skip option
@@ -60,15 +53,12 @@ Also, the `skip_js_lib_exporting` option is helpful when you want to skip the al
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    js_lib_dir_path='static/js/',
-    skip_js_lib_exporting=True)
+    dest_dir_path="dest_dir/", js_lib_dir_path="static/js/", skip_js_lib_exporting=True
+)
 ```
 
 Notes: The `js_lib_dir_path` option does not change the js files exporting destination directory currently.
@@ -81,14 +71,10 @@ If you need to change the output HTML file name, use the `html_file_name` option
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    html_file_name='chart.html')
+ap.save_overall_html(dest_dir_path="dest_dir/", html_file_name="chart.html")
 ```
 
 ## Bundle each JavaScript library to the signle HTML file by the embed_js_libs option
@@ -99,14 +85,10 @@ You can bundle each JavaScript library to the single output HTML file by the `em
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    embed_js_libs=True)
+ap.save_overall_html(dest_dir_path="dest_dir/", embed_js_libs=True)
 ```
 
 ## Change the stdout setting by the verbose option
@@ -117,14 +99,10 @@ The `verbose` optional argument changes the exporting stdout behavior. If the sp
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
-ap.save_overall_html(
-    dest_dir_path='dest_dir/',
-    verbose=0)
+ap.save_overall_html(dest_dir_path="dest_dir/", verbose=0)
 ```
 
 ## save_overall_html API

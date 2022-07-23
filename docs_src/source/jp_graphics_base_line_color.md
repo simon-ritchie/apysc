@@ -32,25 +32,23 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     rectangle: ap.Rectangle = e.this
     line_color: ap.String = rectangle.line_color
-    with ap.If(line_color == '#00aaff'):
-        rectangle.line_color = ap.String('#f0a')
+    with ap.If(line_color == "#00aaff"):
+        rectangle.line_color = ap.String("#f0a")
     with ap.Else():
-        rectangle.line_color = ap.String('#0af')
+        rectangle.line_color = ap.String("#0af")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0', alpha=0.0)
-sprite.graphics.line_style(color='#0af', thickness=5)
+sprite.graphics.begin_fill(color="#0", alpha=0.0)
+sprite.graphics.line_style(color="#0af", thickness=5)
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='./graphics_base_line_color_basic_usage/')
+ap.save_overall_html(dest_dir_path="./graphics_base_line_color_basic_usage/")
 ```
 
 <iframe src="static/graphics_base_line_color_basic_usage/index.html" width="150" height="150"></iframe>

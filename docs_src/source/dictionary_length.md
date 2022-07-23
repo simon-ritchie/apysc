@@ -14,7 +14,7 @@ The `length` property interface returns the `Int` value. There is no setter inte
 # runnable
 import apysc as ap
 
-dict_1: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
+dict_1: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
 assert dict_1.length == 2
 assert isinstance(dict_1.length, ap.Int)
 ```
@@ -26,7 +26,7 @@ The Python built-in `len` function is not supported and raises an exception:
 ```py
 import apysc as ap
 
-dict_1: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
+dict_1: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
 len(dict_1)
 ```
 

@@ -32,39 +32,32 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.rotation_around_center += 1
 
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-options: _RectOptions = {'rectangle': rectangle_1}
-timer_1: ap.Timer = ap.Timer(
-    handler=on_timer, delay=ap.FPS.FPS_10, options=options)
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+options: _RectOptions = {"rectangle": rectangle_1}
+timer_1: ap.Timer = ap.Timer(handler=on_timer, delay=ap.FPS.FPS_10, options=options)
 timer_1.start()
 
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
-options = {'rectangle': rectangle_2}
-timer_2: ap.Timer = ap.Timer(
-    handler=on_timer, delay=ap.FPS.FPS_30, options=options)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
+options = {"rectangle": rectangle_2}
+timer_2: ap.Timer = ap.Timer(handler=on_timer, delay=ap.FPS.FPS_30, options=options)
 timer_2.start()
 
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=250, y=50, width=50, height=50)
-options = {'rectangle': rectangle_3}
-timer_3: ap.Timer = ap.Timer(
-    handler=on_timer, delay=ap.FPS.FPS_60, options=options)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
+options = {"rectangle": rectangle_3}
+timer_3: ap.Timer = ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60, options=options)
 timer_3.start()
 
-ap.save_overall_html(
-    dest_dir_path='fps_basic_usage/')
+ap.save_overall_html(dest_dir_path="fps_basic_usage/")
 ```
 
 <iframe src="static/fps_basic_usage/index.html" width="350" height="150"></iframe>

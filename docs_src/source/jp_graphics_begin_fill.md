@@ -17,28 +17,22 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=350,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=350, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
 # Set blue fill color and draw the first rectangle.
-sprite.graphics.begin_fill(color='#0af')
-sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Draw the second rectangle (fill color setting will be maintained).
-sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
+sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
 # Set the other fill color and draw the third rectangle.
-sprite.graphics.begin_fill(color='#f0a')
-sprite.graphics.draw_rect(
-    x=250, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#f0a")
+sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_begin_fill_basic_usage/')
+ap.save_overall_html(dest_dir_path="graphics_begin_fill_basic_usage/")
 ```
 
 <iframe src="static/graphics_begin_fill_basic_usage/index.html" width="350" height="150"></iframe>
@@ -52,18 +46,15 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan fill color and draw the rectangle.
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_begin_fill_fill_color/')
+ap.save_overall_html(dest_dir_path="graphics_begin_fill_fill_color/")
 ```
 
 <iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe>
@@ -77,23 +68,19 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 # Clear fill color by specifying blank string.
-sprite.graphics.begin_fill(color='')
+sprite.graphics.begin_fill(color="")
 
 # Since fill color is not set, the rectangle is invisible.
-sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_begin_fill_color_setting_clear/')
+ap.save_overall_html(dest_dir_path="graphics_begin_fill_color_setting_clear/")
 ```
 
 <iframe src="static/graphics_begin_fill_color_setting_clear/index.html" width="150" height="150"></iframe>
@@ -113,34 +100,27 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=450,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=450, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
 # Six characters fill color setting (a cyan color).
-sprite.graphics.begin_fill(color='#00aaff')
-sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Three characters fill color setting (a magenta color).
-sprite.graphics.begin_fill(color='#f0a')
-sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#f0a")
+sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
 # Single characters fill color setting (a black color).
-sprite.graphics.begin_fill(color='#0')
-sprite.graphics.draw_rect(
-    x=250, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0")
+sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
 # Fill color that Skipped `#` symbol is also acceptable.
-sprite.graphics.begin_fill(color='999')
-sprite.graphics.draw_rect(
-    x=350, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="999")
+sprite.graphics.draw_rect(x=350, y=50, width=50, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_begin_fill_acceptable_color_settings/')
+ap.save_overall_html(dest_dir_path="graphics_begin_fill_acceptable_color_settings/")
 ```
 
 <iframe src="static/graphics_begin_fill_acceptable_color_settings/index.html" width="450" height="150"></iframe>
@@ -154,26 +134,18 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#00aaff', alpha=0.2)
-sprite.graphics.draw_rect(
-    x=50, y=75, width=50, height=50)
-sprite.graphics.draw_rect(
-    x=75, y=50, width=50, height=50)
-sprite.graphics.draw_rect(
-    x=75, y=75, width=50, height=50)
-sprite.graphics.draw_rect(
-    x=75, y=100, width=50, height=50)
-sprite.graphics.draw_rect(
-    x=100, y=75, width=50, height=50)
+sprite.graphics.begin_fill(color="#00aaff", alpha=0.2)
+sprite.graphics.draw_rect(x=50, y=75, width=50, height=50)
+sprite.graphics.draw_rect(x=75, y=50, width=50, height=50)
+sprite.graphics.draw_rect(x=75, y=75, width=50, height=50)
+sprite.graphics.draw_rect(x=75, y=100, width=50, height=50)
+sprite.graphics.draw_rect(x=100, y=75, width=50, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_begin_fill_alpha_setting/')
+ap.save_overall_html(dest_dir_path="graphics_begin_fill_alpha_setting/")
 ```
 
 <iframe src="static/graphics_begin_fill_alpha_setting/index.html" width="200" height="200"></iframe>

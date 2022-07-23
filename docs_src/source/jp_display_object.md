@@ -15,13 +15,11 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 
 # Verify each instance type.

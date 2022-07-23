@@ -23,8 +23,7 @@ The following example binds the mouse move event handler to the circle. So if yo
 import apysc as ap
 
 
-def on_mousemove(
-        e: ap.MouseEvent[ap.Circle], options: dict) -> None:
+def on_mousemove(e: ap.MouseEvent[ap.Circle], options: dict) -> None:
     """
     The handler that the circle calls when mousemove.
 
@@ -41,18 +40,15 @@ def on_mousemove(
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 circle.mousemove(on_mousemove)
 
-ap.save_overall_html(
-    dest_dir_path='mousemove_basic_usage/')
+ap.save_overall_html(dest_dir_path="mousemove_basic_usage/")
 ```
 
 <iframe src="static/mousemove_basic_usage/index.html" width="200" height="200"></iframe>
@@ -68,8 +64,7 @@ In the following example, the interface removes the mouse move event handler if 
 import apysc as ap
 
 
-def on_mousemove(
-        e: ap.MouseEvent[ap.Circle], options: dict) -> None:
+def on_mousemove(e: ap.MouseEvent[ap.Circle], options: dict) -> None:
     """
     The handler that the circle calls when mousemove.
 
@@ -101,19 +96,16 @@ def on_click(e: ap.MouseEvent[ap.Circle], options: dict) -> None:
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=200,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 circle.mousemove(on_mousemove)
 circle.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='mousemove_unbind_interface/')
+ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 ```
 
 <iframe src="static/mousemove_unbind_interface/index.html" width="200" height="200"></iframe>

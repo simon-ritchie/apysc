@@ -24,8 +24,7 @@ DURATION: int = 1000
 EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 
 
-def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -38,13 +37,13 @@ def on_animation_complete_1(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_width: ap.AnimationWidth = rectangle.animation_width(
-        width=50, duration=DURATION, easing=EASING)
+        width=50, duration=DURATION, easing=EASING
+    )
     animation_width.animation_complete(on_animation_complete_2)
     animation_width.start()
 
 
-def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -57,25 +56,25 @@ def on_animation_complete_2(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_width: ap.AnimationWidth = rectangle.animation_width(
-        width=100, duration=DURATION, easing=EASING)
+        width=100, duration=DURATION, easing=EASING
+    )
     animation_width.animation_complete(on_animation_complete_1)
     animation_width.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=150,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#00aaff')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#00aaff")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_width: ap.AnimationWidth = rectangle.animation_width(
-    width=100, duration=DURATION, easing=EASING)
+    width=100, duration=DURATION, easing=EASING
+)
 animation_width.animation_complete(on_animation_complete_1)
 animation_width.start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_width_basic_usage/')
+ap.save_overall_html(dest_dir_path="./animation_width_basic_usage/")
 ```
 
 <iframe src="static/animation_width_basic_usage/index.html" width="200" height="150"></iframe>
@@ -90,8 +89,7 @@ DURATION: int = 1000
 EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 
 
-def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -104,13 +102,13 @@ def on_animation_complete_1(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_height: ap.AnimationHeight = rectangle.animation_height(
-        height=50, duration=DURATION, easing=EASING)
+        height=50, duration=DURATION, easing=EASING
+    )
     animation_height.animation_complete(on_animation_complete_2)
     animation_height.start()
 
 
-def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -123,25 +121,25 @@ def on_animation_complete_2(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_height: ap.AnimationHeight = rectangle.animation_height(
-        height=100, duration=DURATION, easing=EASING)
+        height=100, duration=DURATION, easing=EASING
+    )
     animation_height.animation_complete(on_animation_complete_1)
     animation_height.start()
 
 
 ap.Stage(
-    stage_width=150, stage_height=200,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=150, stage_height=200, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#00aaff')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#00aaff")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_height: ap.AnimationHeight = rectangle.animation_height(
-    height=100, duration=DURATION, easing=EASING)
+    height=100, duration=DURATION, easing=EASING
+)
 animation_height.animation_complete(on_animation_complete_1)
 animation_height.start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_height_basic_usage/')
+ap.save_overall_html(dest_dir_path="./animation_height_basic_usage/")
 ```
 
 <iframe src="static/animation_height_basic_usage/index.html" width="150" height="200"></iframe>
@@ -155,14 +153,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=200,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=150, stage_height=200, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#00aaff')
-ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
-    x=100, y=100, width=100, height=100)
+sprite.graphics.begin_fill(color="#00aaff")
+ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(x=100, y=100, width=100, height=100)
 animation_width: ap.AnimationWidthForEllipse = ellipse.animation_width(
-    width=200, duration=1000)
+    width=200, duration=1000
+)
 animation_width.start()
 ```
 

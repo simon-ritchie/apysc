@@ -27,14 +27,13 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 bool_1: ap.Boolean = ap.Boolean(True)
-ap.assert_true(bool_1, msg='Boolean value is not True!')
+ap.assert_true(bool_1, msg="Boolean value is not True!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_true_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="assert_true_basic_usage_1/")
 ```
 
 ```
@@ -52,14 +51,13 @@ Left value: true right value: true
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 bool_1: ap.Boolean = ap.Boolean(False)
-ap.assert_true(bool_1, msg='Boolean value is not True!')
+ap.assert_true(bool_1, msg="Boolean value is not True!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_true_basic_usage_2/')
+ap.save_overall_html(dest_dir_path="assert_true_basic_usage_2/")
 ```
 
 ```
@@ -79,14 +77,13 @@ Assertion failed: Boolean value is not True!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 int_1: ap.Int = ap.Int(1)
-ap.assert_true(int_1, type_strict=True, msg='Value is not Boolean(True)!')
+ap.assert_true(int_1, type_strict=True, msg="Value is not Boolean(True)!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_true_basic_usage_3/')
+ap.save_overall_html(dest_dir_path="assert_true_basic_usage_3/")
 ```
 
 ```
@@ -106,14 +103,13 @@ Assertion failed: Value is not Boolean(True)!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 int_1: ap.Int = ap.Int(1)
-ap.assert_true(int_1, type_strict=False, msg='Value is not True!')
+ap.assert_true(int_1, type_strict=False, msg="Value is not True!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_true_basic_usage_4/')
+ap.save_overall_html(dest_dir_path="assert_true_basic_usage_4/")
 ```
 
 ```
@@ -131,14 +127,13 @@ Left value: true right value: 1
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 bool_1: ap.Boolean = ap.Boolean(False)
-ap.assert_false(bool_1, msg='Value is not False!')
+ap.assert_false(bool_1, msg="Value is not False!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_false_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="assert_false_basic_usage_1/")
 ```
 
 ```

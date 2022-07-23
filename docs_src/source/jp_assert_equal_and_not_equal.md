@@ -23,14 +23,13 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 int_1: ap.Int = ap.Int(10)
-ap.assert_equal(left=11, right=int_1, msg='Values are not equal!')
+ap.assert_equal(left=11, right=int_1, msg="Values are not equal!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_equal_basic_usage/')
+ap.save_overall_html(dest_dir_path="assert_equal_basic_usage/")
 ```
 
 ```
@@ -50,14 +49,13 @@ Assertion failed: Values are not equal!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 int_1: ap.Int = ap.Int(10)
-ap.assert_not_equal(left=10, right=int_1, msg='Values are equal!')
+ap.assert_not_equal(left=10, right=int_1, msg="Values are equal!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_not_equal_basic_usage/')
+ap.save_overall_html(dest_dir_path="assert_not_equal_basic_usage/")
 ```
 
 ```

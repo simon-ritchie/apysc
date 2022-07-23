@@ -16,7 +16,7 @@
 # runnable
 import apysc as ap
 
-dict_1: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
+dict_1: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
 assert dict_1.length == 2
 assert isinstance(dict_1.length, ap.Int)
 ```
@@ -28,7 +28,7 @@ Pythonビルトインの`len`関数はサポートされておらずエラーと
 ```py
 import apysc as ap
 
-dict_1: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
+dict_1: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
 len(dict_1)
 ```
 

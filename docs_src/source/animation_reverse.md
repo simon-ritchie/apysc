@@ -48,26 +48,22 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.animation_reverse()
 
 
 ap.Stage(
-    stage_width=500, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=500, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_x(x=400, duration=5000).start()
-options: _RectOptions = {'rectangle': rectangle}
-ap.Timer(
-    on_timer_1, delay=3000, repeat_count=1,
-    options=options).start()
+options: _RectOptions = {"rectangle": rectangle}
+ap.Timer(on_timer_1, delay=3000, repeat_count=1, options=options).start()
 
-ap.save_overall_html(
-    dest_dir_path='animation_reverse_basic_usage/')
+ap.save_overall_html(dest_dir_path="animation_reverse_basic_usage/")
 ```
 
 <iframe src="static/animation_reverse_basic_usage/index.html" width="500" height="150"></iframe>
@@ -98,27 +94,25 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
 
     # Nothing happens since the animation has already been completed.
     rectangle.animation_reverse()
 
 
 ap.Stage(
-    stage_width=500, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=500, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_x(x=400, duration=1000).start()
 
-options: _RectOptions = {'rectangle': rectangle}
+options: _RectOptions = {"rectangle": rectangle}
 ap.Timer(on_timer, delay=1500, repeat_count=1, options=options).start()
 
-ap.save_overall_html(
-    dest_dir_path='animation_reverse_notes/')
+ap.save_overall_html(dest_dir_path="animation_reverse_notes/")
 ```
 
 <iframe src="static/animation_reverse_notes/index.html" width="500" height="150"></iframe>

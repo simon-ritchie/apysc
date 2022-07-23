@@ -19,21 +19,18 @@ getterもしくはsetterの各インターフェイスの値は`Int`型の値に
 import apysc as ap
 
 ap.Stage(
-    stage_width=250, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color='#0af', thickness=1)
+sprite.graphics.line_style(color="#0af", thickness=1)
 
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_1.line_thickness = ap.Int(5)
 
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 rectangle_2.line_thickness = ap.Int(10)
 
-ap.save_overall_html(
-    dest_dir_path='./graphics_base_line_thickness_basic_usage/')
+ap.save_overall_html(dest_dir_path="./graphics_base_line_thickness_basic_usage/")
 ```
 
 <iframe src="static/graphics_base_line_thickness_basic_usage/index.html" width="250" height="150"></iframe>

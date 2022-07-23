@@ -32,25 +32,23 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
-    ap.trace('Animation elapsed time:', rectangle.animation_time())
+    rectangle: ap.Rectangle = options["rectangle"]
+    ap.trace("Animation elapsed time:", rectangle.animation_time())
 
 
 ap.Stage(
-    stage_width=500, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=500, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_x(x=400, duration=10000).start()
 
-options: _RectOptions = {'rectangle': rectangle}
+options: _RectOptions = {"rectangle": rectangle}
 ap.Timer(on_timer, delay=1000, options=options).start()
 
-ap.save_overall_html(
-    dest_dir_path='animation_time_basic_usage/')
+ap.save_overall_html(dest_dir_path="animation_time_basic_usage/")
 ```
 
 <iframe src="static/animation_time_basic_usage/index.html" width="500" height="150"></iframe>

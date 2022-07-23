@@ -42,15 +42,14 @@ def on_click(e: ap.MouseEvent[ap.Sprite], options: _RectsOptions) -> None:
         Optional arguments dictionary.
     """
     e.this.unbind_click(on_click)
-    rectangle_1: ap.Rectangle = options['rectangle_1']
-    rectangle_2: ap.Rectangle = options['rectangle_2']
-    options_: _RectOptions = {'rectangle': rectangle_1}
+    rectangle_1: ap.Rectangle = options["rectangle_1"]
+    rectangle_2: ap.Rectangle = options["rectangle_2"]
+    options_: _RectOptions = {"rectangle": rectangle_1}
     timer_1: ap.Timer = ap.Timer(
-        handler=on_timer, delay=ap.FPS.FPS_60, repeat_count=90,
-        options=options_)
-    options_ = {'rectangle': rectangle_2}
-    timer_1.timer_complete(
-        handler=on_timer_1_complete, options=options_)
+        handler=on_timer, delay=ap.FPS.FPS_60, repeat_count=90, options=options_
+    )
+    options_ = {"rectangle": rectangle_2}
+    timer_1.timer_complete(handler=on_timer_1_complete, options=options_)
     timer_1.start()
 
 
@@ -65,7 +64,7 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.rotation_around_center += 1
 
 
@@ -80,30 +79,26 @@ def on_timer_1_complete(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle_2: ap.Rectangle = options['rectangle']
-    options_: _RectOptions = {'rectangle': rectangle_2}
+    rectangle_2: ap.Rectangle = options["rectangle"]
+    options_: _RectOptions = {"rectangle": rectangle_2}
     timer_2: ap.Timer = ap.Timer(
-        handler=on_timer, delay=ap.FPS.FPS_60, repeat_count=90,
-        options=options_)
+        handler=on_timer, delay=ap.FPS.FPS_60, repeat_count=90, options=options_
+    )
     timer_2.start()
 
 
 ap.Stage(
-    stage_width=250, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
-options: _RectsOptions = {
-    'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2}
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
+options: _RectsOptions = {"rectangle_1": rectangle_1, "rectangle_2": rectangle_2}
 sprite.click(handler=on_click, options=options)
 
-ap.save_overall_html(
-    dest_dir_path='timer_complete_basic_usage/')
+ap.save_overall_html(dest_dir_path="timer_complete_basic_usage/")
 ```
 
 <iframe src="static/timer_complete_basic_usage/index.html" width="250" height="150"></iframe>

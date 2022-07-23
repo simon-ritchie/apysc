@@ -60,20 +60,20 @@ assert point.x == 30
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 sprite.graphics.draw_polygon(
     points=[
         ap.Point2D(x=75, y=50),
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
-    ])
+    ]
+)
 
-ap.save_overall_html(
-    dest_dir_path='point2d_basic_usage/')
+ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 ```
 
 <iframe src="static/point2d_basic_usage/index.html" width="150" height="150"></iframe>

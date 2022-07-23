@@ -10,8 +10,8 @@ Each `String` class comparison operation returns a `Boolean` value, not a Python
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
-result: ap.Boolean = string_1 == 'Hello'
+string_1: ap.String = ap.String("Hello")
+result: ap.Boolean = string_1 == "Hello"
 assert result
 assert isinstance(result, ap.Boolean)
 ```
@@ -24,8 +24,8 @@ The `str` or `String` types of comparison other value (comparison right-side val
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
-result: ap.Boolean = string_1 == 'Hello'
+string_1: ap.String = ap.String("Hello")
+result: ap.Boolean = string_1 == "Hello"
 assert result
 ```
 
@@ -33,8 +33,8 @@ assert result
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
-string_2: ap.String = ap.String('Hello')
+string_1: ap.String = ap.String("Hello")
+string_2: ap.String = ap.String("Hello")
 result: ap.Boolean = string_1 == string_2
 assert result
 ```
@@ -47,8 +47,8 @@ You can use the `==` operator for the equal comparison:
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
-result: ap.Boolean = string_1 == 'Hello'
+string_1: ap.String = ap.String("Hello")
+result: ap.Boolean = string_1 == "Hello"
 assert result
 ```
 
@@ -60,8 +60,8 @@ You can use the `!=` operator for the not equal comparison:
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
-result: ap.Boolean = string_1 != 'World'
+string_1: ap.String = ap.String("Hello")
+result: ap.Boolean = string_1 != "World"
 assert result
 ```
 
@@ -73,8 +73,8 @@ You can use each less than, less than or equal, greater than, greater than equal
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('1970-01-05')
-result: ap.Boolean = string_1 < '1970-01-06'
+string_1: ap.String = ap.String("1970-01-05")
+result: ap.Boolean = string_1 < "1970-01-06"
 assert result
 ```
 
@@ -82,8 +82,8 @@ assert result
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('1970-01-05')
-result: ap.Boolean = string_1 <= '1970-01-05'
+string_1: ap.String = ap.String("1970-01-05")
+result: ap.Boolean = string_1 <= "1970-01-05"
 assert result
 ```
 
@@ -91,8 +91,8 @@ assert result
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('1970-01-05')
-result: ap.Boolean = string_1 > '1970-01-04'
+string_1: ap.String = ap.String("1970-01-05")
+result: ap.Boolean = string_1 > "1970-01-04"
 assert result
 ```
 
@@ -100,7 +100,7 @@ assert result
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('1970-01-05')
-result: ap.Boolean = string_1 >= '1970-01-05'
+string_1: ap.String = ap.String("1970-01-05")
+result: ap.Boolean = string_1 >= "1970-01-05"
 assert result
 ```

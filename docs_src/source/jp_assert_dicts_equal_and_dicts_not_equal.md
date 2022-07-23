@@ -25,16 +25,15 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
-dict_val: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
+dict_val: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
 ap.assert_dicts_equal(
-    left={'a': 10, 'b': 20}, right=dict_val,
-    msg='Values are not equal!')
+    left={"a": 10, "b": 20}, right=dict_val, msg="Values are not equal!"
+)
 
-ap.save_overall_html(
-    dest_dir_path='assert_dicts_equal_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="assert_dicts_equal_basic_usage_1/")
 ```
 
 ```
@@ -51,15 +50,13 @@ Left value: {a: 10, b: 20} right value: dct_1
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
-dict_val: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
-ap.assert_dicts_equal(
-    left={'a': 30}, right=dict_val, msg='Values are not equal!')
+dict_val: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
+ap.assert_dicts_equal(left={"a": 30}, right=dict_val, msg="Values are not equal!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_dicts_equal_basic_usage_2/')
+ap.save_overall_html(dest_dir_path="assert_dicts_equal_basic_usage_2/")
 ```
 
 ```
@@ -78,15 +75,13 @@ Assertion failed: Values are not equal!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
-dict_val: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
-ap.assert_dicts_not_equal(
-    left={'a': 30}, right=dict_val, msg='Values are equal!')
+dict_val: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
+ap.assert_dicts_not_equal(left={"a": 30}, right=dict_val, msg="Values are equal!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_dicts_not_equal_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="assert_dicts_not_equal_basic_usage_1/")
 ```
 
 ```
@@ -105,16 +100,13 @@ Left value: {a: 30} right value: dct_1
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
-dict_val: ap.Dictionary = ap.Dictionary({'a': 30})
-ap.assert_equal(
-    left={'a': 30}, right=dict_val,
-    msg='Values are not equal!')
+dict_val: ap.Dictionary = ap.Dictionary({"a": 30})
+ap.assert_equal(left={"a": 30}, right=dict_val, msg="Values are not equal!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_dicts_equal_notes_for_assert_equal/')
+ap.save_overall_html(dest_dir_path="assert_dicts_equal_notes_for_assert_equal/")
 ```
 
 ```

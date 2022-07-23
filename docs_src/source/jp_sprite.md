@@ -21,17 +21,14 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='sprite_graphics_attribute/')
+ap.save_overall_html(dest_dir_path="sprite_graphics_attribute/")
 ```
 
 <iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>
@@ -55,8 +52,7 @@ ap.save_overall_html(
 import apysc as ap
 
 
-def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
+def on_sprite_click(e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
     The handler that the sprite calls when clicked.
 
@@ -72,19 +68,16 @@ def on_sprite_click(
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=250,
-    stage_height=250,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=250, stage_height=250, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 sprite.click(on_sprite_click)
 
-ap.save_overall_html(
-    dest_dir_path='sprite_move_instances_simultaneously/')
+ap.save_overall_html(dest_dir_path="sprite_move_instances_simultaneously/")
 ```
 
 <iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>

@@ -19,24 +19,20 @@ getterとsetterの両方のインターフェイスの値は`Number`型の0.0～
 import apysc as ap
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color='#0af', thickness=5)
+sprite.graphics.line_style(color="#0af", thickness=5)
 
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 rectangle_2.line_alpha = ap.Number(0.5)
 
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=250, y=50, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 rectangle_3.line_alpha = ap.Number(0.25)
 
-ap.save_overall_html(
-    dest_dir_path='./graphics_base_line_alpha_basic_usage/')
+ap.save_overall_html(dest_dir_path="./graphics_base_line_alpha_basic_usage/")
 ```
 
 <iframe src="static/graphics_base_line_alpha_basic_usage/index.html" width="350" height="150"></iframe>

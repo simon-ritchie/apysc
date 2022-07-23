@@ -17,16 +17,13 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 sprite.graphics.draw_rect(x=50, y=50, width=100, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_draw_rect_basic_usage/')
+ap.save_overall_html(dest_dir_path="graphics_draw_rect_basic_usage/")
 ```
 
 前述のコードでは横長の四角を描画しています。
@@ -40,15 +37,12 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.draw_rect(x=50, y=50, width=100, height=50)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_draw_rect_basic_usage_skipped_begin_fill/')
+ap.save_overall_html(dest_dir_path="graphics_draw_rect_basic_usage_skipped_begin_fill/")
 ```
 
 <iframe src="static/graphics_draw_rect_basic_usage_skipped_begin_fill/index.html" width="200" height="150"></iframe>
@@ -80,19 +74,15 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_draw_rect_rectangle/')
+ap.save_overall_html(dest_dir_path="graphics_draw_rect_rectangle/")
 ```
 
 四角をクリックしてみると、ハンドラはX座標を100pxの位置に変更します。

@@ -25,8 +25,7 @@
 import apysc as ap
 
 
-def on_mouseover(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mouseover(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mouseover.
 
@@ -40,11 +39,10 @@ def on_mouseover(
     rectangle: ap.Rectangle = e.this
 
     # Change the rectangle fill color to magenta.
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
 
-def on_mouseout(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mouseout(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mouseout.
 
@@ -58,27 +56,23 @@ def on_mouseout(
     rectangle: ap.Rectangle = e.this
 
     # Revert the rectangle fill color.
-    rectangle.fill_color = ap.String('#0af')
+    rectangle.fill_color = ap.String("#0af")
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Bind the mouse over and mouse out event handlers to the rectangle.
 rectangle.mouseover(on_mouseover)
 rectangle.mouseout(on_mouseout)
 
-ap.save_overall_html(
-    dest_dir_path='mouseover_and_mouseout_basic_usage/')
+ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_basic_usage/")
 ```
 
 <iframe src="static/mouseover_and_mouseout_basic_usage/index.html" width="150" height="150"></iframe>
@@ -94,8 +88,7 @@ ap.save_overall_html(
 import apysc as ap
 
 
-def on_mouseover(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mouseover(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mouseover.
 
@@ -107,14 +100,13 @@ def on_mouseover(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
     # Unbind the mouseover handler.
     rectangle.unbind_mouseover(handler=on_mouseover)
 
 
-def on_mouseout(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mouseout(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mouseout.
 
@@ -126,28 +118,24 @@ def on_mouseout(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String('#0af')
+    rectangle.fill_color = ap.String("#0af")
 
     rectangle.unbind_mouseout(handler=on_mouseout)
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 rectangle.mouseover(on_mouseover)
 rectangle.mouseout(on_mouseout)
 
-ap.save_overall_html(
-    dest_dir_path='mouseover_and_mouseout_unbind_interfaces/')
+ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 ```
 
 <iframe src="static/mouseover_and_mouseout_unbind_interfaces/index.html" width="150" height="150"></iframe>

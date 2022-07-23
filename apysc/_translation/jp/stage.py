@@ -27,9 +27,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Stage background color setting": "## ステージの背景色設定",
     ##################################################
-    "`Stage` class has a `background_color` option, which changes the stage's background color.": "`Stage`クラスは`background_color`のオプションの引数を持っており、この引数でステージの背景色を変更することができます。",  # noqa
+    "`Stage` class has a `background_color` option, which changes the stage\'s background color.": "`Stage`クラスは`background_color`のオプションの引数を持っており、この引数でステージの背景色を変更することができます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    background_color='#333',\n    stage_elem_id='stage')\n\nap.save_overall_html(\n    dest_dir_path='stage_background_color/')\n```": "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    background_color='#333',\n    stage_elem_id='stage')\n\nap.save_overall_html(\n    dest_dir_path='stage_background_color/')\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(background_color=\"#333\", stage_elem_id=\"stage\")\n\nap.save_overall_html(dest_dir_path=\"stage_background_color/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(background_color=\"#333\", stage_elem_id=\"stage\")\n\nap.save_overall_html(dest_dir_path=\"stage_background_color/\")\n```",  # noqa
     ##################################################
     "This will create HTML with black background stage, as follows:": "このコードは以下のように黒背景のステージのHTMLを生成します:",  # noqa
     ##################################################
@@ -37,21 +37,21 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "`Stage` class has options to set stage width and stage height (arguments of `stage_width` and `stage_height`). These settings change stage sizes.": "`Stage`クラスはステージの幅を設定する`stage_width`引数とステージの高さを設定する`stage_height`引数を持っています。これらの設定はステージのサイズを変更します。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=500, stage_height=50,\n    background_color='#333',\n    stage_elem_id='stage')\n\nap.save_overall_html(\n    dest_dir_path='stage_size/')\n```": "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=500, stage_height=50,\n    background_color='#333',\n    stage_elem_id='stage')\n\nap.save_overall_html(\n    dest_dir_path='stage_size/')\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=500, stage_height=50, background_color=\"#333\", stage_elem_id=\"stage\"\n)\n\nap.save_overall_html(dest_dir_path=\"stage_size/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=500, stage_height=50, background_color=\"#333\", stage_elem_id=\"stage\"\n)\n\nap.save_overall_html(dest_dir_path=\"stage_size/\")\n```",  # noqa
     ##################################################
     "The Previous script will create a horizontal stage, as follows:": "上記のコードは以下のように横長のステージを作成します:",  # noqa
     ##################################################
     "## Stage element id setting": "## ステージの要素のID設定",
     ##################################################
-    "Stage element id (HTML id) can be set by `stage_elem_id` argument. If you don't specify this, the apysc sets any unique id (based on created timestamp, like `stage_12345...`).": "ステージの要素のID（HTMLのID）は`stage_elem_id`引数で設定することができます。もしもこの設定を指定しない場合、apyscはステージ生成時のタイムスタンプや乱数などをベースとした一意なIDを生成します（例 : `stage_12345...`）。",  # noqa
+    "Stage element id (HTML id) can be set by `stage_elem_id` argument. If you don\'t specify this, the apysc sets any unique id (based on created timestamp, like `stage_12345...`).": "ステージの要素のID（HTMLのID）は`stage_elem_id`引数で設定することができます。もしもこの設定を指定しない場合、apyscはステージ生成時のタイムスタンプや乱数などをベースとした一意なIDを生成します（例 : `stage_12345...`）。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    background_color='#333',\n    stage_elem_id='line_chart_1')\n```": "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    background_color='#333',\n    stage_elem_id='line_chart_1')\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(background_color=\"#333\", stage_elem_id=\"line_chart_1\")\n```": "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(background_color=\"#333\", stage_elem_id=\"line_chart_1\")\n```",  # noqa
     ##################################################
     "This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.": "このオプションはapyscの各プロジェクトで複数回出力などを行う際のIDの識別やバージョン管理などの面で便利です。",  # noqa
     ##################################################
     "## Stage class constructor API": "## Stage クラスのコンストラクタのAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]** Create Stage (overall viewport) instance.<hr>": "**[インターフェイス概要]** ステージ（描画領域全体）のインスタンスを生成します。<hr>",  # noqa
     ##################################################
@@ -65,49 +65,49 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Stage height": "  - ステージの高さ。",
     ##################################################
-    "- `background_color`: str, default '#ffffff'": "- `background_color`: str, default '#ffffff'",  # noqa
+    "- `background_color`: str, default \'#ffffff\'": "- `background_color`: str, default \'#ffffff\'",  # noqa
     ##################################################
     "  - Hexadecimal background color string.": "  - 16進数の背景色の文字列。",
     ##################################################
-    "- `add_to`: str, default 'body'": "- `add_to`: str, default 'body'",
+    "- `add_to`: str, default \'body\'": "- `add_to`: str, default \'body\'",
     ##################################################
-    "  - Specification of element to add stage. Unique tag (e.g., 'body') or ID selector (e.g., '#any-unique-elem') is acceptable.": "  - ステージの要素を追加先となる要素の指定。一意のタグ（例 : 'body'）やIDのセレクタ（例 : '#any-unique-elem'）を受け付けることができます。",  # noqa
+    "  - Specification of element to add stage. Unique tag (e.g., \'body\') or ID selector (e.g., \'#any-unique-elem\') is acceptable.": "  - ステージの要素を追加先となる要素の指定。一意のタグ（例 : \'body\'）やIDのセレクタ（例 : \'#any-unique-elem\'）を受け付けることができます。",  # noqa
     ##################################################
     "- `stage_elem_id`: str or None, optional": "- `stage_elem_id`: str or None, optional",  # noqa
     ##################################################
-    "  - ID attribute set to stage HTML element (e.g., 'line-graph'). If None is set, a random integer will be applied.": "  - ステージのHTML要素に設定されるIDの属性（例 : 'line-graph'）。もしNoneが設定されている場合、乱数などを使った数値を使った値が設定されます。",  # noqa
+    "  - ID attribute set to stage HTML element (e.g., \'line-graph\'). If None is set, a random integer will be applied.": "  - ステージのHTML要素に設定されるIDの属性（例 : \'line-graph\'）。もしNoneが設定されている場合、乱数などを使った数値を使った値が設定されます。",  # noqa
     ##################################################
-    "- `variable_name_suffix`: str, default ''": "- `variable_name_suffix`: str, default ''",  # noqa
+    "- `variable_name_suffix`: str, default \'\'": "- `variable_name_suffix`: str, default \'\'",  # noqa
     ##################################################
-    "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
+    "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript\'s debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     stage_width=500, stage_height=300,\n...     background_color='#333', stage_elem_id='sales_chart')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     stage_width=500, stage_height=300,\n...     background_color='#333', stage_elem_id='sales_chart')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     stage_width=500, stage_height=300,\n...     background_color=\'#333\', stage_elem_id=\'sales_chart\')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     stage_width=500, stage_height=300,\n...     background_color=\'#333\', stage_elem_id=\'sales_chart\')\n```",  # noqa
     ##################################################
     "## stage_elem_id property API": "## stage_elem_id 属性のAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get stage's html element id.<hr>": "**[インターフェイス概要]** ステージのHTML要素のIDを取得します。<hr>",  # noqa
+    "**[Interface summary]** Get stage\'s html element id.<hr>": "**[インターフェイス概要]** ステージのHTML要素のIDを取得します。<hr>",  # noqa
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
     "- `stage_elem_id`: str": "- `stage_elem_id`: str",
     ##################################################
-    "  - Stage's html element id (not including class or id symbol). e.g., 'line-graph'": "  - ステージのHTML要素のID（ID用の#の記号などは含まれません。例 : 'line-graph'）。",  # noqa
+    "  - Stage\'s html element id (not including class or id symbol). e.g., \'line-graph\'": "  - ステージのHTML要素のID（ID用の#の記号などは含まれません。例 : \'line-graph\'）。",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     stage_width=500, stage_height=300,\n...     background_color='#333', stage_elem_id='sales_chart')\n>>> stage.stage_elem_id\n'sales_chart'\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     stage_width=500, stage_height=300,\n...     background_color='#333', stage_elem_id='sales_chart')\n>>> stage.stage_elem_id\n'sales_chart'\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     stage_width=500, stage_height=300,\n...     background_color=\'#333\', stage_elem_id=\'sales_chart\')\n>>> stage.stage_elem_id\n\'sales_chart\'\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     stage_width=500, stage_height=300,\n...     background_color=\'#333\', stage_elem_id=\'sales_chart\')\n>>> stage.stage_elem_id\n\'sales_chart\'\n```",  # noqa
     ##################################################
     "## add_child API": "## add_child API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]** Add display object child to this instance.<hr>": "**[インターフェイス概要]** 表示オブジェクトの子をこのインスタンスへと追加します。<hr>",  # noqa
     ##################################################
@@ -121,7 +121,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> sprite_1.graphics.begin_fill(color='#0af')\n>>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rectangle)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> sprite_1.graphics.begin_fill(color='#0af')\n>>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rectangle)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> sprite_1.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rectangle)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite_1: ap.Sprite = ap.Sprite()\n>>> sprite_1.graphics.begin_fill(color=\'#0af\')\n>>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite_2: ap.Sprite = ap.Sprite()\n>>> sprite_2.add_child(rectangle)\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -131,7 +131,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## remove_child API": "## remove_child API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]** Remove display object child from this instance.<hr>": "**[インターフェイス概要]** このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr>",  # noqa
     ##################################################
@@ -145,7 +145,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.remove_child(rectangle)\n>>> print(rectangle.parent)\nNone\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.remove_child(rectangle)\n>>> print(rectangle.parent)\nNone\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.remove_child(rectangle)\n>>> print(rectangle.parent)\nNone\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.remove_child(rectangle)\n>>> print(rectangle.parent)\nNone\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -155,7 +155,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## contains API": "## contains API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]** Get a boolean whether this instance contains a specified child.<hr>": "**[インターフェイス概要]** 指定された子のインスタンスを持っているかどうかの真偽値を取得します。<hr>",  # noqa
     ##################################################
@@ -177,7 +177,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.contains(rectangle)\nBoolean(True)\n\n>>> rectangle.remove_from_parent()\n>>> sprite.graphics.contains(rectangle)\nBoolean(False)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.contains(rectangle)\nBoolean(True)\n\n>>> rectangle.remove_from_parent()\n>>> sprite.graphics.contains(rectangle)\nBoolean(False)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.contains(rectangle)\nBoolean(True)\n\n>>> rectangle.remove_from_parent()\n>>> sprite.graphics.contains(rectangle)\nBoolean(False)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> sprite.graphics.contains(rectangle)\nBoolean(True)\n\n>>> rectangle.remove_from_parent()\n>>> sprite.graphics.contains(rectangle)\nBoolean(False)\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -187,9 +187,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## num_children property API": "## num_children property API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get a current children's number.<hr>": "**[インターフェイス概要]** 現在の子の数を取得します。<hr>",  # noqa
+    "**[Interface summary]** Get a current children\'s number.<hr>": "**[インターフェイス概要]** 現在の子の数を取得します。<hr>",  # noqa
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
@@ -201,7 +201,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=150, y=50, width=50, height=50)\n>>> sprite.graphics.num_children\nInt(2)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=150, y=50, width=50, height=50)\n>>> sprite.graphics.num_children\nInt(2)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=150, y=50, width=50, height=50)\n>>> sprite.graphics.num_children\nInt(2)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=150, y=50, width=50, height=50)\n>>> sprite.graphics.num_children\nInt(2)\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -211,7 +211,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## get_child_at API": "## get_child_at API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]** Get a child at a specified index.<hr>": "**[インターフェイス概要]** 指定されたインデックス位置の子を取得します。<hr>",  # noqa
     ##################################################
@@ -219,7 +219,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `index`: int or Int": "- `index`: int or Int",
     ##################################################
-    "  - Child's index (start from 0).": "  - 対象の子のインデックス（0からスタートします）。",
+    "  - Child\'s index (start from 0).": "  - 対象の子のインデックス（0からスタートします）。",
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -233,7 +233,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=150, y=50, width=50, height=50)\n>>> child_at_index_1: ap.DisplayObject = (\n...     sprite.graphics.get_child_at(1))\n>>> child_at_index_1 == rectangle_2\nTrue\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=150, y=50, width=50, height=50)\n>>> child_at_index_1: ap.DisplayObject = (\n...     sprite.graphics.get_child_at(1))\n>>> child_at_index_1 == rectangle_2\nTrue\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=150, y=50, width=50, height=50)\n>>> child_at_index_1: ap.DisplayObject = (\n...     sprite.graphics.get_child_at(1))\n>>> child_at_index_1 == rectangle_2\nTrue\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\'#0af\', alpha=0.5)\n>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50)\n>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=150, y=50, width=50, height=50)\n>>> child_at_index_1: ap.DisplayObject = (\n...     sprite.graphics.get_child_at(1))\n>>> child_at_index_1 == rectangle_2\nTrue\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

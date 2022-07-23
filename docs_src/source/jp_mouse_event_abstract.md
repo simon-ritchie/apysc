@@ -32,28 +32,24 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    with ap.If(rectangle.fill_color == '#00aaff'):
-        rectangle.fill_color = ap.String('#f0a')
+    with ap.If(rectangle.fill_color == "#00aaff"):
+        rectangle.fill_color = ap.String("#f0a")
         ap.Return()
 
-    with ap.If(rectangle.fill_color == '#ff00aa'):
-        rectangle.fill_color = ap.String('#0af')
+    with ap.If(rectangle.fill_color == "#ff00aa"):
+        rectangle.fill_color = ap.String("#0af")
         ap.Return()
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='mouse_event_abstract_click/')
+ap.save_overall_html(dest_dir_path="mouse_event_abstract_click/")
 ```
 
 <iframe src="static/mouse_event_abstract_click/index.html" width="150" height="150"></iframe>

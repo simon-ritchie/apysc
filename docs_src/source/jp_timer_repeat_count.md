@@ -25,8 +25,7 @@ class _RectOptions(TypedDict):
     rectangle: ap.Rectangle
 
 
-def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that a rectangle calls when clicked.
 
@@ -37,10 +36,10 @@ def on_rectangle_click(
     options : dict
         Optional arguments dictionary.
     """
-    options_: _RectOptions = {'rectangle': e.this}
+    options_: _RectOptions = {"rectangle": e.this}
     timer: ap.Timer = ap.Timer(
-        handler=on_timer, delay=16, repeat_count=100,
-        options=options_)
+        handler=on_timer, delay=16, repeat_count=100, options=options_
+    )
     timer.start()
     e.this.unbind_click(handler=on_rectangle_click)
 
@@ -56,21 +55,19 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.x += 1
 
 
 ap.Stage(
-    stage_width=250, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_rectangle_click)
 
-ap.save_overall_html(
-    dest_dir_path='timer_repeat_count_basic_usage/')
+ap.save_overall_html(dest_dir_path="timer_repeat_count_basic_usage/")
 ```
 
 <iframe src="static/timer_repeat_count_basic_usage/index.html" width="250" height="150"></iframe>

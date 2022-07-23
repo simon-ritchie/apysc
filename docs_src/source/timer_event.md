@@ -32,7 +32,7 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.rotation_around_center += 1
 
 
@@ -47,25 +47,22 @@ def on_timer_complete(e: ap.TimerEvent, options: dict) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('Timer complete!')
+    ap.trace("Timer complete!")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-options: _RectOptions = {'rectangle': rectangle}
-timer: ap.Timer = ap.Timer(
-    handler=on_timer, delay=33.3, options=options)
+options: _RectOptions = {"rectangle": rectangle}
+timer: ap.Timer = ap.Timer(handler=on_timer, delay=33.3, options=options)
 timer.start()
 timer.timer_complete(handler=on_timer_complete)
 
-ap.save_overall_html(
-    dest_dir_path='timer_event_basic_usage/')
+ap.save_overall_html(dest_dir_path="timer_event_basic_usage/")
 ```
 
 <iframe src="static/timer_event_basic_usage/index.html" width="150" height="150"></iframe>
@@ -96,26 +93,23 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.rotation_around_center += 1
-    ap.trace('Current timer count: ', e.this.current_count)
+    ap.trace("Current timer count: ", e.this.current_count)
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-options: _RectOptions = {'rectangle': rectangle}
-timer: ap.Timer = ap.Timer(
-    handler=on_timer, delay=16.6, options=options)
+options: _RectOptions = {"rectangle": rectangle}
+timer: ap.Timer = ap.Timer(handler=on_timer, delay=16.6, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='timer_event_this_attribute/')
+ap.save_overall_html(dest_dir_path="timer_event_this_attribute/")
 ```
 
 <iframe src="static/timer_event_this_attribute/index.html" width="150" height="150"></iframe>

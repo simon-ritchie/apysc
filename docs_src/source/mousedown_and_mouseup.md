@@ -23,8 +23,7 @@ The following example binds the mouse down handler and mouse upped one to the re
 import apysc as ap
 
 
-def on_mousedown(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mousedown.
 
@@ -36,11 +35,10 @@ def on_mousedown(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
 
-def on_mouseup(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mouseup(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mouseup.
 
@@ -52,26 +50,22 @@ def on_mouseup(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String('#0af')
+    rectangle.fill_color = ap.String("#0af")
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Bind each handler to the rectangle.
 rectangle.mousedown(on_mousedown)
 rectangle.mouseup(on_mouseup)
 
-ap.save_overall_html(
-    dest_dir_path='mousedown_and_mouseup_basic_usage/')
+ap.save_overall_html(dest_dir_path="mousedown_and_mouseup_basic_usage/")
 ```
 
 <iframe src="static/mousedown_and_mouseup_basic_usage/index.html" width="150" height="150"></iframe>
@@ -87,8 +81,7 @@ The following example unbinds handlers in the `on_mousedown` and `on_mouseup` fu
 import apysc as ap
 
 
-def on_mousedown(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mousedown.
 
@@ -101,11 +94,10 @@ def on_mousedown(
     """
     rectangle: ap.Rectangle = e.this
     rectangle.unbind_mousedown(handler=on_mousedown)
-    rectangle.fill_color = ap.String('#f0a')
+    rectangle.fill_color = ap.String("#f0a")
 
 
-def on_mouseup(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_mouseup(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when mouseup.
 
@@ -118,25 +110,21 @@ def on_mouseup(
     """
     rectangle: ap.Rectangle = e.this
     rectangle.unbind_mouseup(handler=on_mouseup)
-    rectangle.fill_color = ap.String('#0af')
+    rectangle.fill_color = ap.String("#0af")
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=150,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 rectangle.mousedown(on_mousedown)
 rectangle.mouseup(on_mouseup)
 
-ap.save_overall_html(
-    dest_dir_path='mousedown_and_mouseup_unbind_interfaces/')
+ap.save_overall_html(dest_dir_path="mousedown_and_mouseup_unbind_interfaces/")
 ```
 
 <iframe src="static/mousedown_and_mouseup_unbind_interfaces/index.html" width="150" height="150"></iframe>

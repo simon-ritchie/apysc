@@ -25,15 +25,13 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 arr_1: ap.Array = ap.Array([1, 2, 3])
-ap.assert_arrays_equal(
-    left=[1, 2, 3], right=arr_1, msg='Values are not equal!')
+ap.assert_arrays_equal(left=[1, 2, 3], right=arr_1, msg="Values are not equal!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_arrays_equal_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="assert_arrays_equal_basic_usage_1/")
 ```
 
 ```
@@ -50,15 +48,13 @@ Left value: [1, 2, 3] right value: arr_2
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 arr_1: ap.Array = ap.Array([1, 2, 3])
-ap.assert_arrays_equal(
-    left=[1, 2], right=arr_1, msg='Values are not equal!')
+ap.assert_arrays_equal(left=[1, 2], right=arr_1, msg="Values are not equal!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_arrays_equal_basic_usage_2/')
+ap.save_overall_html(dest_dir_path="assert_arrays_equal_basic_usage_2/")
 ```
 
 ```
@@ -77,15 +73,13 @@ Assertion failed: Values are not equal!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 arr_1: ap.Array = ap.Array([1, 2, 3])
-ap.assert_arrays_not_equal(
-    left=[1, 2], right=arr_1, msg='Values are equal!')
+ap.assert_arrays_not_equal(left=[1, 2], right=arr_1, msg="Values are equal!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_arrays_not_equal_basic_usage_1/')
+ap.save_overall_html(dest_dir_path="assert_arrays_not_equal_basic_usage_1/")
 ```
 
 <iframe src="static/assert_arrays_not_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
@@ -99,15 +93,13 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+)
 
 arr_1: ap.Array = ap.Array([1, 2, 3, 4, 5])
-ap.assert_equal(
-    left=[1, 2, 3, 4, 5], right=arr_1, msg='Values are equal!')
+ap.assert_equal(left=[1, 2, 3, 4, 5], right=arr_1, msg="Values are equal!")
 
-ap.save_overall_html(
-    dest_dir_path='assert_arrays_equal_notes_for_the_assert_equal/')
+ap.save_overall_html(dest_dir_path="assert_arrays_equal_notes_for_the_assert_equal/")
 ```
 
 ```

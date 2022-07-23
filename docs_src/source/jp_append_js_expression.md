@@ -19,8 +19,7 @@
 import apysc as ap
 
 
-def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -31,21 +30,18 @@ def on_click(
     options : dict
         Optional arguments dictionary.
     """
-    ap.append_js_expression(
-        expression='console.log("The rectangle is clicked!");')
+    ap.append_js_expression(expression='console.log("The rectangle is clicked!");')
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='append_js_expression_basic_usage/')
+ap.save_overall_html(dest_dir_path="append_js_expression_basic_usage/")
 ```
 
 四角をクリックすると`The rectangle is clicked!`というメッセージがブラウザのコンソールに表示されます（F12キーを押して確認してください）。

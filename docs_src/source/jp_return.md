@@ -23,8 +23,7 @@
 import apysc as ap
 
 
-def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -37,28 +36,26 @@ def on_click(
     """
     rectangle: ap.Rectangle = e.this
     fill_color: ap.String = rectangle.fill_color
-    with ap.If(fill_color == '#00aaff'):
-        rectangle.fill_color = ap.String('#ff00aa')
+    with ap.If(fill_color == "#00aaff"):
+        rectangle.fill_color = ap.String("#ff00aa")
         ap.Return()
-    with ap.If(fill_color == '#ff00aa'):
-        rectangle.fill_color = ap.String('#00ffaa')
+    with ap.If(fill_color == "#ff00aa"):
+        rectangle.fill_color = ap.String("#00ffaa")
         ap.Return()
-    with ap.If(fill_color == '#00ffaa'):
-        rectangle.fill_color = ap.String('#00aaff')
+    with ap.If(fill_color == "#00ffaa"):
+        rectangle.fill_color = ap.String("#00aaff")
         ap.Return()
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#00aaff')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#00aaff")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='return_basic_usage/')
+ap.save_overall_html(dest_dir_path="return_basic_usage/")
 ```
 
 <iframe src="static/return_basic_usage/index.html" width="150" height="150"></iframe>

@@ -26,10 +26,10 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, str]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace(options['msg'])
+    ap.trace(options["msg"])
 
 
-timer: ap.Timer = ap.Timer(on_timer, delay=1000, options={'msg': 'Hello!'})
+timer: ap.Timer = ap.Timer(on_timer, delay=1000, options={"msg": "Hello!"})
 timer.start()
 ```
 
@@ -59,10 +59,10 @@ def on_timer(e: ap.TimerEvent, options: _MsgOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace(options['msg'])
+    ap.trace(options["msg"])
 
 
-options: _MsgOptions = {'msg': 'Hello!'}
+options: _MsgOptions = {"msg": "Hello!"}
 timer: ap.Timer = ap.Timer(on_timer, delay=1000, options=options)
 timer.start()
 ```

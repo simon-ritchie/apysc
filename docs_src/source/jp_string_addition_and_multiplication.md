@@ -12,9 +12,9 @@
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
-string_2: ap.String = string_1 + ' World!'
-assert string_2 == 'Hello World!'
+string_1: ap.String = ap.String("Hello")
+string_2: ap.String = string_1 + " World!"
+assert string_2 == "Hello World!"
 assert isinstance(string_2, ap.String)
 ```
 
@@ -24,9 +24,9 @@ assert isinstance(string_2, ap.String)
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
-string_1 += ' World!'
-assert string_1 == 'Hello World!'
+string_1: ap.String = ap.String("Hello")
+string_1 += " World!"
+assert string_1 == "Hello World!"
 ```
 
 `String`の値とPythonのビルトインの`str`の値によるオペレーションもサポートしています。`String`の値同士のオペレーションも同様です。
@@ -35,10 +35,10 @@ assert string_1 == 'Hello World!'
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
-string_2: ap.String = ap.String(' World!')
+string_1: ap.String = ap.String("Hello")
+string_2: ap.String = ap.String(" World!")
 string_3: ap.String = string_1 + string_2
-assert string_3 == 'Hello World!'
+assert string_3 == "Hello World!"
 ```
 
 一方で`str`の値と`String`の値の場合（左側を`str`の値にする場合）はサポートしていません。例えば以下のコード例ではエラーとなります:
@@ -46,8 +46,8 @@ assert string_3 == 'Hello World!'
 ```py
 import apysc as ap
 
-string_1: ap.String = ap.String(' World!')
-string_2: ap.String = 'Hello' + string_1
+string_1: ap.String = ap.String(" World!")
+string_2: ap.String = "Hello" + string_1
 ```
 
 ```
@@ -62,9 +62,9 @@ TypeError: must be str, not String
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
+string_1: ap.String = ap.String("Hello")
 string_2: ap.String = string_1 * 3
-assert string_2 == 'HelloHelloHello'
+assert string_2 == "HelloHelloHello"
 ```
 
 `int`もしくは`Int`型の値を右側の値として受け付けることができます:
@@ -73,8 +73,8 @@ assert string_2 == 'HelloHelloHello'
 # runnable
 import apysc as ap
 
-string_1: ap.String = ap.String('Hello')
+string_1: ap.String = ap.String("Hello")
 int_1: ap.Int = ap.Int(3)
 string_2: ap.String = string_1 * int_1
-assert string_2 == 'HelloHelloHello'
+assert string_2 == "HelloHelloHello"
 ```

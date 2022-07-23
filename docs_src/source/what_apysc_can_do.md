@@ -24,15 +24,16 @@ The apysc library can draw many vector graphics types, like the rectangle, circl
 import apysc as ap
 
 ap.Stage(
-    stage_width=650, stage_height=210, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=650, stage_height=210, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 sprite.graphics.draw_round_rect(
-    x=150, y=50, width=50, height=50, ellipse_width=12, ellipse_height=12)
+    x=150, y=50, width=50, height=50, ellipse_width=12, ellipse_height=12
+)
 
 sprite.graphics.draw_circle(x=275, y=75, radius=25)
 
@@ -43,10 +44,11 @@ sprite.graphics.draw_polygon(
         ap.Point2D(x=475, y=50),
         ap.Point2D(x=450, y=100),
         ap.Point2D(x=500, y=100),
-    ])
+    ]
+)
 
-sprite.graphics.begin_fill(color='')
-sprite.graphics.line_style(color='#eee', thickness=3)
+sprite.graphics.begin_fill(color="")
+sprite.graphics.line_style(color="#eee", thickness=3)
 sprite.graphics.move_to(x=550, y=50)
 sprite.graphics.line_to(x=600, y=50)
 sprite.graphics.line_to(x=550, y=100)
@@ -54,12 +56,13 @@ sprite.graphics.line_to(x=600, y=100)
 
 sprite.graphics.draw_line(x_start=50, y_start=130, x_end=600, y_end=130)
 sprite.graphics.draw_dotted_line(
-    x_start=50, y_start=130, x_end=600, y_end=130, dot_size=5)
+    x_start=50, y_start=130, x_end=600, y_end=130, dot_size=5
+)
 sprite.graphics.draw_round_dotted_line(
-    x_start=53, y_start=160, x_end=600, y_end=160, round_size=6, space_size=6)
+    x_start=53, y_start=160, x_end=600, y_end=160, round_size=6, space_size=6
+)
 
-ap.save_overall_html(
-    dest_dir_path='what_apysc_can_do_draw_vector_graphics/')
+ap.save_overall_html(dest_dir_path="what_apysc_can_do_draw_vector_graphics/")
 ```
 
 </details>
@@ -97,8 +100,7 @@ The click event example (please click the following rectangle):
 import apysc as ap
 
 
-def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the rectangle calls when clicked.
 
@@ -110,25 +112,23 @@ def on_click(
         Optional arguments dictionary.
     """
     color: ap.String = e.this.fill_color
-    condition: ap.Boolean = color == '#00aaff'
+    condition: ap.Boolean = color == "#00aaff"
     with ap.If(condition):
-        e.this.fill_color = ap.String('#f0a')
+        e.this.fill_color = ap.String("#f0a")
     with ap.Else():
-        e.this.fill_color = ap.String('#0af')
+        e.this.fill_color = ap.String("#0af")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-ap.save_overall_html(
-    dest_dir_path='what_apysc_can_do_mouse_event_click/')
+ap.save_overall_html(dest_dir_path="what_apysc_can_do_mouse_event_click/")
 ```
 
 </details>
@@ -173,8 +173,8 @@ def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
-    alpha_direction: ap.Int = options['alpha_direction']
+    rectangle: ap.Rectangle = options["rectangle"]
+    alpha_direction: ap.Int = options["alpha_direction"]
     current_alpha: ap.Number = rectangle.fill_alpha
     condition_1: ap.Boolean = current_alpha < 0.0
     condition_2: ap.Boolean = current_alpha > 1.0
@@ -187,22 +187,18 @@ def on_timer(e: ap.TimerEvent, options: _Options) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 alpha_direction: ap.Int = ap.Int(1)
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-options: _Options = {
-    'rectangle': rectangle, 'alpha_direction': alpha_direction}
-timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60, options=options)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+options: _Options = {"rectangle": rectangle, "alpha_direction": alpha_direction}
+timer: ap.Timer = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='what_apysc_can_do_timer_animation/')
+ap.save_overall_html(dest_dir_path="what_apysc_can_do_timer_animation/")
 ```
 
 </details>

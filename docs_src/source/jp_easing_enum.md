@@ -17,9 +17,7 @@
 import apysc as ap
 
 
-def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: dict) -> None:
+def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -31,14 +29,13 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_move: ap.AnimationMove = e.this.target.animation_move(
-        x=50, y=50, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)
+        x=50, y=50, duration=1000, easing=ap.Easing.EASE_OUT_QUINT
+    )
     animation_move.animation_complete(on_animation_complete_2)
     animation_move.start()
 
 
-def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: dict) -> None:
+def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -50,26 +47,26 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_move: ap.AnimationMove = e.this.target.animation_move(
-        x=100, y=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)
+        x=100, y=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT
+    )
     animation_move.animation_complete(on_animation_complete_1)
     animation_move.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=200, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=200, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 animation_move: ap.AnimationMove = rectangle.animation_move(
-    x=100, y=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)
+    x=100, y=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT
+)
 animation_move.animation_complete(on_animation_complete_1)
 animation_move.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_basic_usage/')
+ap.save_overall_html(dest_dir_path="./easing_enum_basic_usage/")
 ```
 
 <iframe src="static/easing_enum_basic_usage/index.html" width="200" height="200"></iframe>
@@ -81,9 +78,7 @@ ap.save_overall_html(
 import apysc as ap
 
 
-def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: dict) -> None:
+def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -95,14 +90,13 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_move: ap.AnimationMove = e.this.target.animation_move(
-        x=50, y=50, duration=1000)
+        x=50, y=50, duration=1000
+    )
     animation_move.animation_complete(on_animation_complete_2)
     animation_move.start()
 
 
-def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: dict) -> None:
+def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -114,26 +108,24 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_move: ap.AnimationMove = e.this.target.animation_move(
-        x=100, y=100, duration=1000)
+        x=100, y=100, duration=1000
+    )
     animation_move.animation_complete(on_animation_complete_1)
     animation_move.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=200, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=200, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-animation_move: ap.AnimationMove = rectangle.animation_move(
-    x=100, y=100, duration=1000)
+animation_move: ap.AnimationMove = rectangle.animation_move(x=100, y=100, duration=1000)
 animation_move.animation_complete(on_animation_complete_1)
 animation_move.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_default_setting/')
+ap.save_overall_html(dest_dir_path="./easing_enum_default_setting/")
 ```
 
 <iframe src="static/easing_enum_default_setting/index.html" width="200" height="200"></iframe>
@@ -168,8 +160,8 @@ EASING_3: ap.Easing = ap.Easing.EASE_IN_OUT_QUINT
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -181,14 +173,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -200,45 +193,40 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_3.animation_x(
-    x=x, duration=DURATION, easing=EASING_3)
-options = {'easing': EASING_3}
+animation_x = rectangle_3.animation_x(x=x, duration=DURATION, easing=EASING_3)
+options = {"easing": EASING_3}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_difference/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_difference/")
 ```
 
 </details>
@@ -272,8 +260,8 @@ EASING_3: ap.Easing = ap.Easing.EASE_IN_CUBIC
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -285,14 +273,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -304,45 +293,40 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_3.animation_x(
-    x=x, duration=DURATION, easing=EASING_3)
-options = {'easing': EASING_3}
+animation_x = rectangle_3.animation_x(x=x, duration=DURATION, easing=EASING_3)
+options = {"easing": EASING_3}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_in_1/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_in_1/")
 ```
 
 </details>
@@ -372,8 +356,8 @@ EASING_3: ap.Easing = ap.Easing.EASE_IN_EXPO
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -385,14 +369,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -404,45 +389,40 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_3.animation_x(
-    x=x, duration=DURATION, easing=EASING_3)
-options = {'easing': EASING_3}
+animation_x = rectangle_3.animation_x(x=x, duration=DURATION, easing=EASING_3)
+options = {"easing": EASING_3}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_in_2/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_in_2/")
 ```
 
 </details>
@@ -471,8 +451,8 @@ EASING_2: ap.Easing = ap.Easing.EASE_IN_BACK
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -484,14 +464,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -503,39 +484,35 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=250, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=250, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_in_3/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_in_3/")
 ```
 
 </details>
@@ -564,8 +541,8 @@ EASING_2: ap.Easing = ap.Easing.EASE_IN_BOUNCE
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -577,14 +554,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -596,39 +574,35 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=250, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=250, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_in_4/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_in_4/")
 ```
 
 </details>
@@ -662,8 +636,8 @@ EASING_3: ap.Easing = ap.Easing.EASE_OUT_CUBIC
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -675,14 +649,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -694,45 +669,40 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_3.animation_x(
-    x=x, duration=DURATION, easing=EASING_3)
-options = {'easing': EASING_3}
+animation_x = rectangle_3.animation_x(x=x, duration=DURATION, easing=EASING_3)
+options = {"easing": EASING_3}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_out_1/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_out_1/")
 ```
 
 </details>
@@ -762,8 +732,8 @@ EASING_3: ap.Easing = ap.Easing.EASE_OUT_EXPO
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -775,14 +745,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -794,45 +765,40 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_3.animation_x(
-    x=x, duration=DURATION, easing=EASING_3)
-options = {'easing': EASING_3}
+animation_x = rectangle_3.animation_x(x=x, duration=DURATION, easing=EASING_3)
+options = {"easing": EASING_3}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_out_2/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_out_2/")
 ```
 
 </details>
@@ -861,8 +827,8 @@ EASING_2: ap.Easing = ap.Easing.EASE_OUT_BACK
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -874,14 +840,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -893,39 +860,35 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=250, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=250, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_out_3/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_out_3/")
 ```
 
 </details>
@@ -954,8 +917,8 @@ EASING_2: ap.Easing = ap.Easing.EASE_OUT_BOUNCE
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -967,14 +930,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -986,39 +950,35 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=250, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=250, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_out_4/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_out_4/")
 ```
 
 </details>
@@ -1052,8 +1012,8 @@ EASING_3: ap.Easing = ap.Easing.EASE_IN_OUT_CUBIC
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -1065,14 +1025,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -1084,45 +1045,40 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_3.animation_x(
-    x=x, duration=DURATION, easing=EASING_3)
-options = {'easing': EASING_3}
+animation_x = rectangle_3.animation_x(x=x, duration=DURATION, easing=EASING_3)
+options = {"easing": EASING_3}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_in_out_1/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_in_out_1/")
 ```
 
 </details>
@@ -1152,8 +1108,8 @@ EASING_3: ap.Easing = ap.Easing.EASE_IN_OUT_EXPO
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -1165,14 +1121,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -1184,45 +1141,40 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_3.animation_x(
-    x=x, duration=DURATION, easing=EASING_3)
-options = {'easing': EASING_3}
+animation_x = rectangle_3.animation_x(x=x, duration=DURATION, easing=EASING_3)
+options = {"easing": EASING_3}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_in_out_2/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_in_out_2/")
 ```
 
 </details>
@@ -1251,8 +1203,8 @@ EASING_2: ap.Easing = ap.Easing.EASE_IN_OUT_BACK
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -1264,14 +1216,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -1283,39 +1236,35 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=250, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=250, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_in_out_3/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_in_out_3/")
 ```
 
 </details>
@@ -1344,8 +1293,8 @@ EASING_2: ap.Easing = ap.Easing.EASE_IN_OUT_BOUNCE
 
 
 def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -1357,14 +1306,15 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=50, duration=DURATION, easing=options['easing'])
+        x=50, duration=DURATION, easing=options["easing"]
+    )
     animation_x.animation_complete(on_animation_complete_2, options=options)
     animation_x.start()
 
 
 def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: _EasingOptions) -> None:
+    e: ap.AnimationEvent[ap.Rectangle], options: _EasingOptions
+) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -1376,39 +1326,35 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     animation_x: ap.AnimationX = e.this.target.animation_x(
-        x=100, duration=DURATION, easing=options['easing'])
-    animation_x.animation_complete(
-        on_animation_complete_1, options=options)
+        x=100, duration=DURATION, easing=options["easing"]
+    )
+    animation_x.animation_complete(on_animation_complete_1, options=options)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=250, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=250, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 x: int = 100
 animation_x: ap.AnimationX = rectangle_1.animation_x(
-    x=x, duration=DURATION, easing=EASING_1)
-options: _EasingOptions = {'easing': EASING_1}
+    x=x, duration=DURATION, easing=EASING_1
+)
+options: _EasingOptions = {"easing": EASING_1}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-animation_x = rectangle_2.animation_x(
-    x=x, duration=DURATION, easing=EASING_2)
-options = {'easing': EASING_2}
+animation_x = rectangle_2.animation_x(x=x, duration=DURATION, easing=EASING_2)
+options = {"easing": EASING_2}
 animation_x.animation_complete(on_animation_complete_1, options=options)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./easing_enum_ease_in_out_4/')
+ap.save_overall_html(dest_dir_path="./easing_enum_ease_in_out_4/")
 ```
 
 </details>

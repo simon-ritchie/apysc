@@ -23,14 +23,13 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 ap.set_debug_mode()
 sprite: ap.Sprite = ap.Sprite()
 int_1: ap.Int = ap.Int(10)
 
-ap.save_overall_html(
-    dest_dir_path='set_debug_mode_basic_usage/')
+ap.save_overall_html(dest_dir_path="set_debug_mode_basic_usage/")
 ```
 
 この設定は以下の例の用に出力されたHTML内にPythonの関数やメソッドの呼び出しやそのモジュールやクラス名、引数情報などのJavaScriptのコメントを追加します:

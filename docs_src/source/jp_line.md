@@ -19,17 +19,16 @@
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color='#0af', line_thickness=5)
+    line_color="#0af",
+    line_thickness=5,
+)
 
-ap.save_overall_html(
-    dest_dir_path='line_basic_usage/')
+ap.save_overall_html(dest_dir_path="line_basic_usage/")
 ```
 
 <iframe src="static/line_basic_usage/index.html" width="200" height="100"></iframe>
@@ -57,18 +56,17 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color='#0af', line_thickness=5)
+    line_color="#0af",
+    line_thickness=5,
+)
 line.x = ap.Int(100)
 
-ap.save_overall_html(
-    dest_dir_path='line_x/')
+ap.save_overall_html(dest_dir_path="line_x/")
 ```
 
 <iframe src="static/line_x/index.html" width="200" height="100"></iframe>
@@ -84,18 +82,17 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color='#0af', line_thickness=5)
+    line_color="#0af",
+    line_thickness=5,
+)
 line.y = ap.Int(80)
 
-ap.save_overall_html(
-    dest_dir_path='line_y/')
+ap.save_overall_html(dest_dir_path="line_y/")
 ```
 
 <iframe src="static/line_y/index.html" width="200" height="100"></iframe>
@@ -111,17 +108,16 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
-    end_point=ap.Point2D(x=150, y=50), line_thickness=5)
-line.line_color = ap.String('#f0a')
+    end_point=ap.Point2D(x=150, y=50),
+    line_thickness=5,
+)
+line.line_color = ap.String("#f0a")
 
-ap.save_overall_html(
-    dest_dir_path='line_line_color/')
+ap.save_overall_html(dest_dir_path="line_line_color/")
 ```
 
 <iframe src="static/line_line_color/index.html" width="200" height="100"></iframe>
@@ -135,18 +131,17 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color='#0af', line_thickness=5)
+    line_color="#0af",
+    line_thickness=5,
+)
 line.line_alpha = ap.Number(0.3)
 
-ap.save_overall_html(
-    dest_dir_path='line_line_alpha/')
+ap.save_overall_html(dest_dir_path="line_line_alpha/")
 ```
 
 <iframe src="static/line_line_alpha/index.html" width="200" height="100"></iframe>
@@ -160,18 +155,16 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color='#0af')
+    line_color="#0af",
+)
 line.line_thickness = ap.Int(10)
 
-ap.save_overall_html(
-    dest_dir_path='line_line_thickness/')
+ap.save_overall_html(dest_dir_path="line_line_thickness/")
 ```
 
 <iframe src="static/line_line_thickness/index.html" width="200" height="100"></iframe>
@@ -185,18 +178,17 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color='#0af', line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 line.line_dot_setting = ap.LineDotSetting(dot_size=3)
 
-ap.save_overall_html(
-    dest_dir_path='line_line_dot_setting/')
+ap.save_overall_html(dest_dir_path="line_line_dot_setting/")
 ```
 
 <iframe src="static/line_line_dot_setting/index.html" width="200" height="100"></iframe>
@@ -210,19 +202,17 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color='#0af', line_thickness=3)
-line.line_dash_setting = ap.LineDashSetting(
-    dash_size=6, space_size=2)
+    line_color="#0af",
+    line_thickness=3,
+)
+line.line_dash_setting = ap.LineDashSetting(dash_size=6, space_size=2)
 
-ap.save_overall_html(
-    dest_dir_path='line_line_dash_setting/')
+ap.save_overall_html(dest_dir_path="line_line_dash_setting/")
 ```
 
 <iframe src="static/line_line_dash_setting/index.html" width="200" height="100"></iframe>
@@ -236,19 +226,16 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color='#0af')
-line.line_round_dot_setting = ap.LineRoundDotSetting(
-    round_size=5, space_size=3)
+    line_color="#0af",
+)
+line.line_round_dot_setting = ap.LineRoundDotSetting(round_size=5, space_size=3)
 
-ap.save_overall_html(
-    dest_dir_path='line_line_round_dot_setting/')
+ap.save_overall_html(dest_dir_path="line_line_round_dot_setting/")
 ```
 
 <iframe src="static/line_line_round_dot_setting/index.html" width="200" height="100"></iframe>
@@ -262,19 +249,19 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color='#0af', line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 line.line_dash_dot_setting = ap.LineDashDotSetting(
-    dot_size=2, dash_size=5, space_size=2)
+    dot_size=2, dash_size=5, space_size=2
+)
 
-ap.save_overall_html(
-    dest_dir_path='line_line_dash_dot_setting/')
+ap.save_overall_html(dest_dir_path="line_line_dash_dot_setting/")
 ```
 
 <iframe src="static/line_line_dash_dot_setting/index.html" width="200" height="100"></iframe>
@@ -288,15 +275,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -314,8 +300,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='line_rotation_around_center/')
+ap.save_overall_html(dest_dir_path="line_rotation_around_center/")
 ```
 
 <iframe src="static/line_rotation_around_center/index.html" width="200" height="100"></iframe>
@@ -331,15 +316,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 x: ap.Int = ap.Int(100)
 y: ap.Int = ap.Int(100)
 
@@ -355,16 +339,13 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rotation: ap.Int = line.get_rotation_around_point(
-        x=x, y=y)
+    rotation: ap.Int = line.get_rotation_around_point(x=x, y=y)
     rotation += 1
-    line.set_rotation_around_point(
-        rotation=rotation, x=x, y=y)
+    line.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='line_set_rotation_around_point/')
+ap.save_overall_html(dest_dir_path="line_set_rotation_around_point/")
 ```
 
 <iframe src="static/line_set_rotation_around_point/index.html" width="200" height="100"></iframe>
@@ -378,15 +359,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -404,8 +384,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=1000).start()
-ap.save_overall_html(
-    dest_dir_path='line_flip_x/')
+ap.save_overall_html(dest_dir_path="line_flip_x/")
 ```
 
 <iframe src="static/line_flip_x/index.html" width="200" height="100"></iframe>
@@ -421,15 +400,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -447,8 +425,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=1000).start()
-ap.save_overall_html(
-    dest_dir_path='line_flip_y/')
+ap.save_overall_html(dest_dir_path="line_flip_y/")
 ```
 
 <iframe src="static/line_flip_y/index.html" width="200" height="100"></iframe>
@@ -464,15 +441,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -490,8 +466,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='line_skew_x/')
+ap.save_overall_html(dest_dir_path="line_skew_x/")
 ```
 
 <iframe src="static/line_skew_x/index.html" width="200" height="100"></iframe>
@@ -507,15 +482,14 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    background_color='#333',
-    stage_width=200,
-    stage_height=100,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color='#0af',
-    line_thickness=3)
+    line_color="#0af",
+    line_thickness=3,
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -533,8 +507,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(
-    dest_dir_path='line_skew_y/')
+ap.save_overall_html(dest_dir_path="line_skew_y/")
 ```
 
 <iframe src="static/line_skew_y/index.html" width="200" height="100"></iframe>

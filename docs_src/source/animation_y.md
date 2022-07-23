@@ -20,8 +20,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 DURATION: int = 1000
 
 
-def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -34,13 +33,13 @@ def on_animation_complete_1(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_y: ap.AnimationY = rectangle.animation_y(
-        y=50, duration=DURATION, easing=EASING)
+        y=50, duration=DURATION, easing=EASING
+    )
     animation_y.animation_complete(on_animation_complete_2)
     animation_y.start()
 
 
-def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -53,25 +52,25 @@ def on_animation_complete_2(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_y: ap.AnimationY = rectangle.animation_y(
-        y=100, duration=DURATION, easing=EASING)
+        y=100, duration=DURATION, easing=EASING
+    )
     animation_y.animation_complete(on_animation_complete_1)
     animation_y.start()
 
 
 ap.Stage(
-    stage_width=150, stage_height=200,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=150, stage_height=200, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#00aaff')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#00aaff")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_y: ap.AnimationY = rectangle.animation_y(
-    y=100, duration=DURATION, easing=EASING)
+    y=100, duration=DURATION, easing=EASING
+)
 animation_y.animation_complete(on_animation_complete_1)
 animation_y.start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_y_basic_usage/')
+ap.save_overall_html(dest_dir_path="./animation_y_basic_usage/")
 ```
 
 <iframe src="static/animation_y_basic_usage/index.html" width="150" height="200"></iframe>
@@ -85,13 +84,14 @@ The `Circle` and `Ellipse` classes' `animation_y` interface will return an `Anim
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#00aaff')
+sprite.graphics.begin_fill(color="#00aaff")
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 animation_cy: ap.AnimationCy = circle.animation_y(
-    y=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)
+    y=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT
+)
 ```
 
 

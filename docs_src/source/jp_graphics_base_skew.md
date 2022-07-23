@@ -17,19 +17,20 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=250, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
 left_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+    x=50, y=50, width=50, height=50
+)
 right_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
+    x=150, y=50, width=50, height=50
+)
 right_rectangle.skew_x = ap.Int(50)
 
-ap.save_overall_html(
-    dest_dir_path='graphics_base_skew_x_basic_usage/')
+ap.save_overall_html(dest_dir_path="graphics_base_skew_x_basic_usage/")
 ```
 
 <iframe src="static/graphics_base_skew_x_basic_usage/index.html" width="250" height="150"></iframe>
@@ -58,25 +59,22 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.skew_y += 1
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-options: _RectOptions = {'rectangle': rectangle}
-timer: ap.Timer = ap.Timer(
-    handler=on_timer, delay=ap.FPS.FPS_60, options=options)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+options: _RectOptions = {"rectangle": rectangle}
+timer: ap.Timer = ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='graphics_base_skew_y_incremental_basic_usage/')
+ap.save_overall_html(dest_dir_path="graphics_base_skew_y_incremental_basic_usage/")
 ```
 
 <iframe src="static/graphics_base_skew_y_incremental_basic_usage/index.html" width="150" height="150"></iframe>

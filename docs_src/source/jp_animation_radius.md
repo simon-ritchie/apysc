@@ -21,8 +21,7 @@ import apysc as ap
 DURATION: int = 1000
 
 
-def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
+def on_animation_complete_1(e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -35,12 +34,13 @@ def on_animation_complete_1(
     """
     circle: ap.Circle = e.this.target
     circle.animation_radius(
-        radius=50, duration=DURATION, easing=ap.Easing.EASE_OUT_QUINT,
+        radius=50,
+        duration=DURATION,
+        easing=ap.Easing.EASE_OUT_QUINT,
     ).animation_complete(on_animation_complete_2).start()
 
 
-def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
+def on_animation_complete_2(e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
     The handler that the animation calls when its end.
 
@@ -53,23 +53,25 @@ def on_animation_complete_2(
     """
     circle: ap.Circle = e.this.target
     circle.animation_radius(
-        radius=100, duration=DURATION, easing=ap.Easing.EASE_OUT_QUINT,
+        radius=100,
+        duration=DURATION,
+        easing=ap.Easing.EASE_OUT_QUINT,
     ).animation_complete(on_animation_complete_1).start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=200,
-    background_color='#333', stage_elem_id='stage')
+    stage_width=200, stage_height=200, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-circle: ap.Circle = sprite.graphics.draw_circle(
-    x=100, y=100, radius=50)
+sprite.graphics.begin_fill(color="#0af")
+circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 circle.animation_radius(
-    radius=100, duration=DURATION, easing=ap.Easing.EASE_OUT_QUINT,
+    radius=100,
+    duration=DURATION,
+    easing=ap.Easing.EASE_OUT_QUINT,
 ).animation_complete(on_animation_complete_1).start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_radius_basic_usage/')
+ap.save_overall_html(dest_dir_path="./animation_radius_basic_usage/")
 ```
 
 <iframe src="static/animation_radius_basic_usage/index.html" width="200" height="200"></iframe>

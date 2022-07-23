@@ -21,9 +21,7 @@ import apysc as ap
 DURATION: int = 1000
 
 
-def on_animation_complete_1(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: dict) -> None:
+def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that animation calls when its end.
 
@@ -35,14 +33,12 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
-    animation_x: ap.AnimationX = rectangle.animation_x(
-        x=50, duration=DURATION)
+    animation_x: ap.AnimationX = rectangle.animation_x(x=50, duration=DURATION)
     animation_x.animation_complete(on_animation_complete_2)
     animation_x.start()
 
 
-def on_animation_complete_2(
-        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that animation calls when its end.
 
@@ -54,27 +50,23 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
-    animation_x: ap.AnimationX = rectangle.animation_x(
-        x=100, duration=DURATION)
+    animation_x: ap.AnimationX = rectangle.animation_x(x=100, duration=DURATION)
     animation_x.animation_complete(on_animation_complete_1)
     animation_x.start()
 
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-animation_x: ap.AnimationX = rectangle.animation_x(
-    x=100, duration=1000)
+animation_x: ap.AnimationX = rectangle.animation_x(x=100, duration=1000)
 animation_x.animation_complete(on_animation_complete_1)
 animation_x.start()
 
-ap.save_overall_html(
-    dest_dir_path='./animation_complete_basic_usage/')
+ap.save_overall_html(dest_dir_path="./animation_complete_basic_usage/")
 ```
 
 <iframe src="static/animation_complete_basic_usage/index.html" width="200" height="150"></iframe>
@@ -87,9 +79,7 @@ You can only call the `animation_complete` before the animation start, so if you
 import apysc as ap
 
 
-def on_animation_complete(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: dict) -> None:
+def on_animation_complete(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that animation calls when its end.
 
@@ -100,19 +90,17 @@ def on_animation_complete(
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('Animation complete!')
+    ap.trace("Animation complete!")
 
 
 ap.Stage(
-    stage_width=200, stage_height=200, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=200, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-animation_move: ap.AnimationMove = rectangle.animation_move(
-    x=100, y=100, duration=1000)
+animation_move: ap.AnimationMove = rectangle.animation_move(x=100, y=100, duration=1000)
 animation_move.start()
 animation_move.animation_complete(on_animation_complete)
 ```
@@ -128,9 +116,7 @@ The calling of the `animation_complete` method before the `start` method works c
 import apysc as ap
 
 
-def on_animation_complete(
-        e: ap.AnimationEvent[ap.Rectangle],
-        options: dict) -> None:
+def on_animation_complete(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler that animation calls when its end.
 
@@ -141,19 +127,17 @@ def on_animation_complete(
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('Animation complete!')
+    ap.trace("Animation complete!")
 
 
 ap.Stage(
-    stage_width=200, stage_height=200, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=200, stage_height=200, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-animation_move: ap.AnimationMove = rectangle.animation_move(
-    x=100, y=100, duration=1000)
+animation_move: ap.AnimationMove = rectangle.animation_move(x=100, y=100, duration=1000)
 animation_move.animation_complete(on_animation_complete)
 animation_move.start()
 ```

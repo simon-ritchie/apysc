@@ -23,8 +23,7 @@ class _RectOptions(TypedDict):
     rectangle: ap.Rectangle
 
 
-def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
+def on_sprite_click(e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
     """
     The Handler that the rectangle calls when clicked.
 
@@ -51,22 +50,20 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
+    rectangle: ap.Rectangle = options["rectangle"]
     rectangle.x += 1
 
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-options: _RectOptions = {'rectangle': rectangle}
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+options: _RectOptions = {"rectangle": rectangle}
 sprite.click(on_sprite_click, options=options)
 
-ap.save_overall_html(
-    dest_dir_path='timer_basic_usage/')
+ap.save_overall_html(dest_dir_path="timer_basic_usage/")
 ```
 
 If you click the rectangle, the timer starts, and the Handler increases the rectangle x value.

@@ -21,26 +21,26 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=400, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=400, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-sprite.graphics.line_style(color='#fff', thickness=3)
+sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.line_style(color="#fff", thickness=3)
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_parallel(
     animations=[
         rectangle.animation_x(x=300),
-        rectangle.animation_fill_color(fill_color='#f0a'),
+        rectangle.animation_fill_color(fill_color="#f0a"),
         rectangle.animation_fill_alpha(alpha=0.3),
         rectangle.animation_line_thickness(thickness=7),
     ],
-    duration=3000, delay=3000, easing=ap.Easing.EASE_OUT_QUINT,
+    duration=3000,
+    delay=3000,
+    easing=ap.Easing.EASE_OUT_QUINT,
 ).start()
 
-ap.save_overall_html(
-    dest_dir_path='animation_parallel_basic_usage/')
+ap.save_overall_html(dest_dir_path="animation_parallel_basic_usage/")
 ```
 
 <iframe src="static/animation_parallel_basic_usage/index.html" width="400" height="150"></iframe>
@@ -55,7 +55,9 @@ rectangle.animation_parallel(
     animations=[
         rectangle.animation_x(x=300, duration=1000),
     ],
-    duration=3000, delay=2000, easing=ap.Easing.EASE_OUT_QUINT,
+    duration=3000,
+    delay=2000,
+    easing=ap.Easing.EASE_OUT_QUINT,
 )
 ...
 ```

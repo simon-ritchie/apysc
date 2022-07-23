@@ -44,9 +44,9 @@ def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
-    x: ap.Int = options['x']
-    direction: ap.Int = options['direction']
+    rectangle: ap.Rectangle = options["rectangle"]
+    x: ap.Int = options["x"]
+    direction: ap.Int = options["direction"]
     current_scale_x: ap.Number = rectangle.get_scale_x_from_point(x=x)
     current_scale_x += direction * 0.03
     rectangle.set_scale_x_from_point(scale_x=current_scale_x, x=x)
@@ -57,47 +57,43 @@ def on_timer(e: ap.TimerEvent, options: _Options) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=350, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=350, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
-top_rect: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-middle_rect: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=150, width=50, height=50)
-bottom_rect: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=250, width=50, height=50)
+top_rect: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+middle_rect: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
+bottom_rect: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
 
 top_rect_direction: ap.Int = ap.Int(1)
 options: _Options = {
-    'rectangle': top_rect, 'x': ap.Int(50),
-    'direction': top_rect_direction}
-top_rect_timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60,
-    options=options)
+    "rectangle": top_rect,
+    "x": ap.Int(50),
+    "direction": top_rect_direction,
+}
+top_rect_timer: ap.Timer = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options)
 top_rect_timer.start()
 
 middle_rect_direction: ap.Int = ap.Int(1)
 options = {
-    'rectangle': middle_rect, 'x': ap.Int(75),
-    'direction': middle_rect_direction}
-middle_rect_timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60,
-    options=options)
+    "rectangle": middle_rect,
+    "x": ap.Int(75),
+    "direction": middle_rect_direction,
+}
+middle_rect_timer: ap.Timer = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options)
 middle_rect_timer.start()
 
 bottom_rect_direction: ap.Int = ap.Int(1)
 options = {
-    'rectangle': bottom_rect, 'x': ap.Int(100),
-    'direction': bottom_rect_direction}
-bottom_rect_timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60,
-    options=options)
+    "rectangle": bottom_rect,
+    "x": ap.Int(100),
+    "direction": bottom_rect_direction,
+}
+bottom_rect_timer: ap.Timer = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options)
 bottom_rect_timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='graphics_base_scale_from_point_basic_usage_x/')
+ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_x/")
 ```
 
 <iframe src="static/graphics_base_scale_from_point_basic_usage_x/index.html" width="150" height="350"></iframe>
@@ -128,9 +124,9 @@ def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
-    y: ap.Int = options['y']
-    direction: ap.Int = options['direction']
+    rectangle: ap.Rectangle = options["rectangle"]
+    y: ap.Int = options["y"]
+    direction: ap.Int = options["direction"]
     current_scale_y: ap.Number = rectangle.get_scale_y_from_point(y=y)
     current_scale_y += direction * 0.03
     rectangle.set_scale_y_from_point(scale_y=current_scale_y, y=y)
@@ -141,23 +137,18 @@ def on_timer(e: ap.TimerEvent, options: _Options) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.begin_fill(color="#0af")
 
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 direction: ap.Int = ap.Int(1)
-options: _Options = {
-    'rectangle': rectangle, 'y': ap.Int(50), 'direction': direction}
-timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60,
-    options=options)
+options: _Options = {"rectangle": rectangle, "y": ap.Int(50), "direction": direction}
+timer: ap.Timer = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='graphics_base_scale_from_point_basic_usage_y/')
+ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y/")
 ```
 
 <iframe src="static/graphics_base_scale_from_point_basic_usage_y/index.html" width="150" height="150"></iframe>

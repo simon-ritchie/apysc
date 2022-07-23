@@ -34,29 +34,26 @@ def on_timer(e: ap.TimerEvent, options: _SpriteOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    sprite: ap.Sprite = options['sprite']
-    display_css_val: ap.String = sprite.get_css(name='display')
-    condition: ap.Boolean = display_css_val == 'none'
+    sprite: ap.Sprite = options["sprite"]
+    display_css_val: ap.String = sprite.get_css(name="display")
+    condition: ap.Boolean = display_css_val == "none"
     with ap.If(condition):
-        sprite.set_css(name='display', value='')
+        sprite.set_css(name="display", value="")
     with ap.Else():
-        sprite.set_css(name='display', value='none')
+        sprite.set_css(name="display", value="none")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-options: _SpriteOptions = {'sprite': sprite}
-timer: ap.Timer = ap.Timer(
-    handler=on_timer, delay=1000, options=options)
+sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+options: _SpriteOptions = {"sprite": sprite}
+timer: ap.Timer = ap.Timer(handler=on_timer, delay=1000, options=options)
 timer.start()
 
-ap.save_overall_html(
-    dest_dir_path='display_object_get_and_set_css_basic_usage/')
+ap.save_overall_html(dest_dir_path="display_object_get_and_set_css_basic_usage/")
 ```
 
 <iframe src="static/display_object_get_and_set_css_basic_usage/index.html" width="150" height="150"></iframe>

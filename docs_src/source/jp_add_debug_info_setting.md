@@ -22,17 +22,16 @@ import apysc as ap
 
 
 def _main() -> None:
-    """The entry point of this project.
-    """
+    """The entry point of this project."""
     ap.Stage(
-        background_color='#333',
+        background_color="#333",
         stage_width=150,
         stage_height=150,
-        stage_elem_id='stage')
+        stage_elem_id="stage",
+    )
     ap.set_debug_mode()
     _draw_rectangle(x=50, y=50)
-    ap.save_overall_html(
-        dest_dir_path='add_debug_info_setting_basic_usage/')
+    ap.save_overall_html(dest_dir_path="add_debug_info_setting_basic_usage/")
 
 
 @ap.add_debug_info_setting(module_name=__name__)
@@ -52,7 +51,6 @@ def _draw_rectangle(*, x: int, y: int) -> None:
 
 
 class MySprite(ap.Sprite):
-
     @ap.add_debug_info_setting(module_name=__name__)
     def __init__(self, *, x: int, y: int) -> None:
         """
@@ -66,12 +64,11 @@ class MySprite(ap.Sprite):
             Y-coordinate of the rectangle.
         """
         super(MySprite, self).__init__()
-        self.graphics.begin_fill(color='#0af')
-        self.graphics.draw_rect(
-            x=x, y=y, width=50, height=50)
+        self.graphics.begin_fill(color="#0af")
+        self.graphics.draw_rect(x=x, y=y, width=50, height=50)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _main()
 ```
 

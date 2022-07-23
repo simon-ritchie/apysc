@@ -21,8 +21,7 @@ class _RectOptions(TypedDict):
     rectangle: ap.Rectangle
 
 
-def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
+def on_sprite_click(e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
     """
     The handler that the sprite calls when clicked.
 
@@ -34,30 +33,25 @@ def on_sprite_click(
         Optional arguments dictionary.
     """
     sprite: ap.Sprite = e.this
-    rectangle_1: ap.Rectangle = options['rectangle']
+    rectangle_1: ap.Rectangle = options["rectangle"]
     condition: ap.Boolean = sprite.graphics.contains(child=rectangle_1)
     with ap.If(condition):
         sprite.remove_child(child=rectangle_1)
-        ap.trace('Removed the rectangle!')
+        ap.trace("Removed the rectangle!")
 
 
 ap.Stage(
-    background_color='#333',
-    stage_width=250,
-    stage_height=150,
-    stage_elem_id='stage')
+    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+)
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color='#0af')
-rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-sprite.graphics.draw_rect(
-    x=150, y=50, width=50, height=50)
-options: _RectOptions = {'rectangle': rectangle_1}
+sprite.graphics.begin_fill(color="#0af")
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
+options: _RectOptions = {"rectangle": rectangle_1}
 sprite.click(on_sprite_click, options=options)
 
-ap.save_overall_html(
-    dest_dir_path='sprite_contains_basic_usage/')
+ap.save_overall_html(dest_dir_path="sprite_contains_basic_usage/")
 ```
 
 <iframe src="static/sprite_contains_basic_usage/index.html" width="250" height="150"></iframe>

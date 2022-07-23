@@ -97,11 +97,13 @@ def test_convert_splitted_values_to_keys() -> None:
 def test_escape_key_or_value() -> None:
     key_or_val: str = translation_mapping_utils.escape_key_or_value(
         key_or_val=(
-            "- [Lorem's\\+ ipsum](any/path_1.md)" "\n- [Dolor sit](any/path_2.md)"
+            "- [Lorem's\\+ ipsum \"dolar\"](any/path_1.md)"
+            "\n- [Dolor sit](any/path_2.md)"
         )
     )
     assert key_or_val == (
-        "- [Lorem\\'s\\\\+ ipsum](any/path_1.md)" "\\n- [Dolor sit](any/path_2.md)"
+        "- [Lorem\\'s\\\\+ ipsum \\\"dolar\\\"](any/path_1.md)"
+        "\\n- [Dolor sit](any/path_2.md)"
     )
 
 
@@ -160,9 +162,9 @@ def test__append_body_text_keys_to_list() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_remove_escaping_from_key_or_value() -> None:
     key_or_val: str = translation_mapping_utils.remove_escaping_from_key_or_value(
-        key_or_val="\\\\Hello!\\n\\'World!"
+        key_or_val="\\\\Hello!\\n\\'World!\\\""
     )
-    assert key_or_val == "\\Hello!\n'World!"
+    assert key_or_val == "\\Hello!\n'World!\""
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -7,7 +7,6 @@ $ python ./scripts/build_docs.py --skip_sync_translation
 
 import multiprocessing as mp
 import os
-from random import randint
 import re
 import shutil
 import subprocess as sp
@@ -16,6 +15,7 @@ from argparse import ArgumentParser
 from argparse import Namespace
 from distutils.dir_util import copy_tree
 from logging import Logger
+from random import randint
 from typing import Any
 from typing import Dict
 from typing import List
@@ -316,26 +316,23 @@ def _apply_black_formatting_to_code_block(*, md_file_path: str) -> None:
         A target markdown file.
     """
     from apysc._file import file_util
+
     tmp_dir_path: str = "./tmp/code_block_black/"
     os.makedirs(tmp_dir_path, exist_ok=True)
     basename: str = os.path.basename(md_file_path)
-    with open(md_file_path, 'r') as f:
+    with open(md_file_path, "r") as f:
         md_str: str = f.read()
 
     code_blocks: List[_CodeBlock] = _get_code_blocks_from_txt(md_txt=md_str)
     for code_block in code_blocks:
-        if '>>>' in code_block.code:
+        if ">>>" in code_block.code:
             continue
 
         random_int: int = randint(1000, 1000000)
-        tmp_module_path: str = os.path.join(
-            tmp_dir_path,
-            f"{random_int}_{basename}")
+        tmp_module_path: str = os.path.join(tmp_dir_path, f"{random_int}_{basename}")
         if code_block.code_type != "py":
             continue
-        file_util.save_plain_txt(
-            txt=code_block.code,
-            file_path=tmp_module_path)
+        file_util.save_plain_txt(txt=code_block.code, file_path=tmp_module_path)
         os.system(f"black {tmp_module_path}")
         with open(tmp_module_path, "r") as f:
             result_code_block: str = f.read().strip()
@@ -347,9 +344,7 @@ def _apply_black_formatting_to_code_block(*, md_file_path: str) -> None:
         )
         file_util.remove_file_if_exists(file_path=tmp_module_path)
 
-    file_util.save_plain_txt(
-        txt=md_str,
-        file_path=md_file_path)
+    file_util.save_plain_txt(txt=md_str, file_path=md_file_path)
 
 
 def _get_excluding_file_names_prefix_list() -> List[str]:
@@ -818,10 +813,7 @@ def _append_js_lib_path_and_skip_settings(code: str) -> str:
         count=1,
         flags=re.MULTILINE | re.DOTALL,
     )
-    code = re.sub(
-        pattern=r"\n^,$",
-        repl=r",",
-        string=code, flags=re.MULTILINE)
+    code = re.sub(pattern=r"\n^,$", repl=r",", string=code, flags=re.MULTILINE)
     return code
 
 

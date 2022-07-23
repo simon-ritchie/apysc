@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## append API": "## append API",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]** Add any value to the end of this array. This method behaves the same `push` method.<hr>": "**[インターフェイス概要]** 任意の値を配列の最後に追加します。このメソッドは`push`メソッドと同じように動作します。<hr>",  # noqa
     ##################################################
@@ -43,7 +43,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## push API": "## push API",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]** Add any value to the end of this array. This interface behaves the same as the `append` method.<hr>": "**[Interface summary]** Add any value to the end of this array. This interface behaves the same as the `append` method.<hr>",  # noqa
     ##################################################

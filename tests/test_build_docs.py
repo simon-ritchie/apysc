@@ -629,27 +629,13 @@ def test__get_excluding_file_names_prefix_list() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__apply_black_formatting_to_code_block() -> None:
-    tmp_md_str: str = (
-        "Hello!"
-        "\n\n```py"
-        "\nprint('100')"
-        "\n```"
-    )
-    os.makedirs('./tmp/', exist_ok=True)
-    tmp_md_path: str = os.path.join(
-        './tmp/test_build_docs_2.md'
-    )
-    file_util.save_plain_txt(
-        txt=tmp_md_str, file_path=tmp_md_path)
-    build_docs._apply_black_formatting_to_code_block(
-        md_file_path=tmp_md_path)
+    tmp_md_str: str = "Hello!\n\n```py\nprint('100')\n```"
+    os.makedirs("./tmp/", exist_ok=True)
+    tmp_md_path: str = os.path.join("./tmp/test_build_docs_2.md")
+    file_util.save_plain_txt(txt=tmp_md_str, file_path=tmp_md_path)
+    build_docs._apply_black_formatting_to_code_block(md_file_path=tmp_md_path)
     result_md_str: str = file_util.read_txt(file_path=tmp_md_path)
-    expected_str: str = (
-        "Hello!"
-        "\n\n```py"
-        '\nprint("100")'
-        "\n```"
-    )
+    expected_str: str = "Hello!\n\n```py" '\nprint("100")' "\n```"
     assert result_md_str == expected_str
 
     file_util.remove_file_if_exists(file_path=tmp_md_path)

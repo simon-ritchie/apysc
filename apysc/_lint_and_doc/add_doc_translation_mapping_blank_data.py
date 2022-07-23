@@ -112,16 +112,14 @@ def _save_mapping_data(
         f"\n\n{MAPPING_CONST_NAME}: Dict[str, str] = {{"
     )
     for mapping in mappings:
-        key: str = list(mapping.keys())[0]
-        value: str = list(mapping.values())[0]
         module_str += "\n    "
         module_str += "#" * 50
-        module_str += f'\n    "{key}":'
-        if len(key) >= 80:
-            module_str += "  # noqa"
-        module_str += f'\n    "{value}",'
-        if len(value) >= 80:
-            module_str += "  # noqa"
+        key: str = list(mapping.keys())[0]
+        value: str = list(mapping.values())[0]
+        line: str = f'    "{key}": "{value}",'
+        if len(line) >= 88:
+            line += "  # noqa"
+        module_str += f"\n{line}"
     module_str += "\n}\n"
     module_path: str = get_mapping_module_path(
         src_doc_file_path=src_doc_file_path, lang=lang

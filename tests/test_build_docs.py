@@ -139,10 +139,10 @@ from apysc import save_overall_html
 
 stage = Stage(stage_width=300, stage_height=180, background_color='#333')
 save_overall_html(
-    dest_dir_path='./quick_start_stage_creation')"""
+    dest_dir_path="./quick_start_stage_creation")"""
     code = build_docs._replace_html_saving_export_path_by_doc_path(code=code)
     expected: str = """save_overall_html(
-    dest_dir_path='./docs_src/source/_static/quick_start_stage_creation/')"""
+    dest_dir_path="./docs_src/source/_static/quick_start_stage_creation/")"""
     assert expected in code
 
 

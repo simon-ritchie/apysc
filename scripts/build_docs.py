@@ -839,7 +839,7 @@ def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
         will be replaced by './docs_src/_static/<original_path>/'.
     """
     match: Op[Match] = re.search(
-        pattern=(r"save_overall_html\(.*?dest_dir_path='(.+?)'\)"),
+        pattern=(r'save_overall_html\(.*?dest_dir_path="(.+?)"\)'),
         string=code,
         flags=re.MULTILINE | re.DOTALL,
     )
@@ -855,7 +855,7 @@ def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
 
     code = re.sub(
         pattern=(r"(save_overall_html\(.*?dest_dir_path=).+?\)"),
-        repl=rf"\1'./docs_src/source/_static/{original_path}')",
+        repl=rf'\1"./docs_src/source/_static/{original_path}")',
         string=code,
         count=1,
         flags=re.MULTILINE | re.DOTALL,

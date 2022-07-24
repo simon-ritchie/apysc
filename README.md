@@ -65,9 +65,8 @@ Example code fragments:
 
 ```py
 ...
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
+sprite.graphics.begin_fill(color="#0af")
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 ...
 ```
 
@@ -98,7 +97,7 @@ Example code fragments:
 ```py
 ...
 def on_click(e: ap.MouseEvent, options: dict) -> None:
-    ap.trace('Rectangle is clicked!')
+    ap.trace("Rectangle is clicked!")
 
 
 rectangle.click(on_click)

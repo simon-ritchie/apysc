@@ -669,8 +669,9 @@ ap.save_overall_html(dest_dir_path="polyline_skew_y/")
 ...         ap.Point2D(x=100, y=100),
 ...         ap.Point2D(x=150, y=50),
 ...     ],
-...     line_color='#ffffff',
-...     line_thickness=3)
+...     line_color="#ffffff",
+...     line_thickness=3,
+... )
 >>> polyline.line_color
 String('#ffffff')
 

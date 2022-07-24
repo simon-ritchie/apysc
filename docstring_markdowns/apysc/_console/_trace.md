@@ -20,7 +20,7 @@ Display arguments information to console. This function saves a JavaScript `cons
 ```py
 >>> import apysc as ap
 >>> int_val: ap.Int = ap.Int(10)
->>> ap.trace('Int value is:', int_val)
+>>> ap.trace("Int value is:", int_val)
 ```
 
 <hr>

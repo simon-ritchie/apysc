@@ -113,17 +113,17 @@ If you click the following rectangle, the only message of `The rectangle is clic
 
 ```py
 >>> import apysc as ap
->>> def on_click(
-...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+>>> def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     e.prevent_default()
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String('#f0a')
+...     rectangle.fill_color = ap.String("#f0a")
 ...     rectangle.unbind_mouseup_all()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> _ = rectangle.click(on_click)
 ```
 
@@ -143,12 +143,13 @@ If you click the following rectangle, the only message of `The rectangle is clic
 >>> import apysc as ap
 >>> def on_click(e: ap.MouseEvent, options: dict) -> None:
 ...     e.stop_propagation()
-...     ap.trace('Clicked!')
+...     ap.trace("Clicked!")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> _ = sprite.click(on_click)
 >>> _ = rectangle.click(on_click)
 ```

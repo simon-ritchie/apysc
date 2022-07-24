@@ -45,5 +45,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array(range(3))\n>>> with ap.For(arr) as i:\n...     with ap.If(i == 1):\n...         _ = ap.Continue()\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array(range(3))\n>>> with ap.For(arr) as i:\n...     with ap.If(i == 1):\n...         _ = ap.Continue()\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array(range(3))\n>>> with ap.For(arr) as i:\n...     with ap.If(i == 1):\n...         _ = ap.Continue()\n...\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array(range(3))\n>>> with ap.For(arr) as i:\n...     with ap.If(i == 1):\n...         _ = ap.Continue()\n...\n```",  # noqa
 }

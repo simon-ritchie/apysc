@@ -150,5 +150,5 @@ ap.save_overall_html(dest_dir_path="dest_dir/", verbose=0)
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> # Do something here...
->>> ap.save_overall_html(dest_dir_path='tmp/output/')
+>>> ap.save_overall_html(dest_dir_path="tmp/output/")
 ```

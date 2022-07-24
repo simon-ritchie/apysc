@@ -77,7 +77,7 @@ ap.save_overall_html(dest_dir_path="return_basic_usage/")
 ```py
 >>> import apysc as ap
 >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
-...     """
+...     '''
 ...     The handler that the timer calls.
 ...
 ```

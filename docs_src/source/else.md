@@ -86,9 +86,11 @@ ValueError: Else interface can only use right after If or Elif interfaces.
 >>> import apysc as ap
 >>> int_val: ap.Int = ap.Int(10)
 >>> with ap.If(int_val >= 11):
-...     ap.trace('Value is greater than equal 11.')
+...     ap.trace("Value is greater than equal 11.")
+...
 >>> with ap.Else():
-...     ap.trace('Value is less than 11.')
+...     ap.trace("Value is less than 11.")
+...
 ```
 
 <hr>

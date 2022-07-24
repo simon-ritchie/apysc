@@ -122,9 +122,11 @@ with Elif(condition, ...):
 >>> with ap.If(condition_1):
 ...     # Do something here
 ...     pass
+...
 >>> with ap.Elif(condition_2):
 ...     # Do something else here
 ...     pass
+...
 ```
 
 <hr>

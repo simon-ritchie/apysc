@@ -52,11 +52,11 @@ assert string_2 == "Hello"
 
 ```py
 >>> import apysc as ap
->>> string: ap.String = ap.String('Hello')
+>>> string: ap.String = ap.String("Hello")
 >>> string
 String('Hello')
 
->>> string += ' World!'
+>>> string += " World!"
 >>> string
 String('Hello World!')
 ```
@@ -85,8 +85,8 @@ String('Hello World!')
 
 ```py
 >>> import apysc as ap
->>> string: ap.String = ap.String('Hello')
->>> string.value = 'World!'
+>>> string: ap.String = ap.String("Hello")
+>>> string.value = "World!"
 >>> string.value
 'World!'
 ```

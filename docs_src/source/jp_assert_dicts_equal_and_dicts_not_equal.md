@@ -145,8 +145,8 @@ Left value: {a: 30} right value: dct_1
 
 ```py
 >>> import apysc as ap
->>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
->>> dict_2: ap.Dictionary = ap.Dictionary({'a': 10})
+>>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
+>>> dict_2: ap.Dictionary = ap.Dictionary({"a": 10})
 >>> ap.assert_dicts_equal(dict_1, dict_2)
 ```
 
@@ -179,7 +179,7 @@ Left value: {a: 30} right value: dct_1
 
 ```py
 >>> import apysc as ap
->>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
->>> dict_2: ap.Dictionary = ap.Dictionary({'a': 20})
+>>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
+>>> dict_2: ap.Dictionary = ap.Dictionary({"a": 20})
 >>> ap.assert_dicts_not_equal(dict_1, dict_2)
 ```

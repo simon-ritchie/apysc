@@ -566,7 +566,8 @@ Notes: Depending on the shape of the instance, this may be difficult to tell the
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> ellipse: ap.Ellipse = ap.Ellipse(
-...    x=100, y=100, width=100, height=50, fill_color='#00aaff')
+...     x=100, y=100, width=100, height=50, fill_color="#00aaff"
+... )
 >>> ellipse.x
 Int(100)
 

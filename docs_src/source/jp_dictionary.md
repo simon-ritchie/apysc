@@ -105,15 +105,15 @@ assert dict_1 == {}
 
 ```py
 >>> import apysc as ap
->>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})
+>>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
 >>> dictionary
 Dictionary({'a': 10})
 
->>> dictionary['a']
+>>> dictionary["a"]
 10
 
->>> dictionary['b'] = 20
->>> dictionary['b']
+>>> dictionary["b"] = 20
+>>> dictionary["b"]
 20
 ```
 
@@ -141,7 +141,7 @@ Dictionary({'a': 10})
 ```py
 >>> import apysc as ap
 >>> dictionary: ap.Dictionary = ap.Dictionary({})
->>> dictionary.value = {'a': 10}
+>>> dictionary.value = {"a": 10}
 >>> dictionary.value
 {'a': 10}
 ```

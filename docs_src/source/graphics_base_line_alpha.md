@@ -57,9 +57,10 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_alpha_basic_usage/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color='#fff', thickness=5, alpha=1.0)
+>>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=1.0)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> rectangle.line_alpha = ap.Number(0.5)
 >>> rectangle.line_alpha
 Number(0.5)

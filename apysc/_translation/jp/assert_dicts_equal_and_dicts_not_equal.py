@@ -81,7 +81,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})\n>>> dict_2: ap.Dictionary = ap.Dictionary({'a': 10})\n>>> ap.assert_dicts_equal(dict_1, dict_2)\n```": "```py\n>>> import apysc as ap\n>>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})\n>>> dict_2: ap.Dictionary = ap.Dictionary({'a': 10})\n>>> ap.assert_dicts_equal(dict_1, dict_2)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})\n>>> dict_2: ap.Dictionary = ap.Dictionary({"a": 10})\n>>> ap.assert_dicts_equal(dict_1, dict_2)\n```': '```py\n>>> import apysc as ap\n>>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})\n>>> dict_2: ap.Dictionary = ap.Dictionary({"a": 10})\n>>> ap.assert_dicts_equal(dict_1, dict_2)\n```',  # noqa
     ##################################################
     "## assert_dicts_not_equal API": "## assert_dicts_not_equal API",
     ##################################################
@@ -111,5 +111,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})\n>>> dict_2: ap.Dictionary = ap.Dictionary({'a': 20})\n>>> ap.assert_dicts_not_equal(dict_1, dict_2)\n```": "```py\n>>> import apysc as ap\n>>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})\n>>> dict_2: ap.Dictionary = ap.Dictionary({'a': 20})\n>>> ap.assert_dicts_not_equal(dict_1, dict_2)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})\n>>> dict_2: ap.Dictionary = ap.Dictionary({"a": 20})\n>>> ap.assert_dicts_not_equal(dict_1, dict_2)\n```': '```py\n>>> import apysc as ap\n>>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})\n>>> dict_2: ap.Dictionary = ap.Dictionary({"a": 20})\n>>> ap.assert_dicts_not_equal(dict_1, dict_2)\n```',  # noqa
 }

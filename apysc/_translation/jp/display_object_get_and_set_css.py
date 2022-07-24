@@ -49,7 +49,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> sprite.set_css(name='display', value='none')\n>>> sprite.get_css(name='display')\nString('none')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> sprite.set_css(name='display', value='none')\n>>> sprite.get_css(name='display')\nString('none')\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)\n>>> sprite.set_css(name="display", value="none")\n>>> sprite.get_css(name="display")\nString(\'none\')\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)\n>>> sprite.set_css(name="display", value="none")\n>>> sprite.get_css(name="display")\nString(\'none\')\n```',  # noqa
     ##################################################
     "## set_css API": "## set_css API",
     ##################################################
@@ -71,5 +71,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> sprite.set_css(name='display', value='none')\n>>> sprite.get_css(name='display')\nString('none')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)\n>>> sprite.set_css(name='display', value='none')\n>>> sprite.get_css(name='display')\nString('none')\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)\n>>> sprite.set_css(name="display", value="none")\n>>> sprite.get_css(name="display")\nString(\'none\')\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)\n>>> sprite.set_css(name="display", value="none")\n>>> sprite.get_css(name="display")\nString(\'none\')\n```',  # noqa
 }

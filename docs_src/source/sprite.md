@@ -113,9 +113,10 @@ The subsequent pages explain the other interfaces, such as the `add_child` inter
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite_1: ap.Sprite = ap.Sprite()
 >>> # Create the sprite child rectangle
->>> sprite_1.graphics.begin_fill(color='#0af')
+>>> sprite_1.graphics.begin_fill(color="#0af")
 >>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> sprite_1.graphics.contains(rect)
 Boolean(True)
 

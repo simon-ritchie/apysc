@@ -175,7 +175,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5,\n...     cap=ap.LineCaps.ROUND)\n>>> line: ap.Line = sprite.graphics.draw_line(\n...     x_start=50, y_start=50, x_end=150, y_end=50)\n>>> line.line_color\nString('#ffffff')\n\n>>> line.line_thickness\nInt(5)\n\n>>> line.line_alpha\nNumber(0.5)\n\n>>> line.line_cap\nString('round')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5,\n...     cap=ap.LineCaps.ROUND)\n>>> line: ap.Line = sprite.graphics.draw_line(\n...     x_start=50, y_start=50, x_end=150, y_end=50)\n>>> line.line_color\nString('#ffffff')\n\n>>> line.line_thickness\nInt(5)\n\n>>> line.line_alpha\nNumber(0.5)\n\n>>> line.line_cap\nString('round')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color=\"#fff\", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND\n... )\n>>> line: ap.Line = sprite.graphics.draw_line(\n...     x_start=50, y_start=50, x_end=150, y_end=50\n... )\n>>> line.line_color\nString('#ffffff')\n\n>>> line.line_thickness\nInt(5)\n\n>>> line.line_alpha\nNumber(0.5)\n\n>>> line.line_cap\nString('round')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color=\"#fff\", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND\n... )\n>>> line: ap.Line = sprite.graphics.draw_line(\n...     x_start=50, y_start=50, x_end=150, y_end=50\n... )\n>>> line.line_color\nString('#ffffff')\n\n>>> line.line_thickness\nInt(5)\n\n>>> line.line_alpha\nNumber(0.5)\n\n>>> line.line_cap\nString('round')\n```",  # noqa
     ##################################################
     "## line_color property API": "## line_color 属性のAPI",
     ##################################################
@@ -193,7 +193,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5,\n...     cap=ap.LineCaps.ROUND)\n>>> sprite.graphics.line_color\nString('#ffffff')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5,\n...     cap=ap.LineCaps.ROUND)\n>>> sprite.graphics.line_color\nString('#ffffff')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color=\"#fff\", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND\n... )\n>>> sprite.graphics.line_color\nString('#ffffff')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color=\"#fff\", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND\n... )\n>>> sprite.graphics.line_color\nString('#ffffff')\n```",  # noqa
     ##################################################
     "## line_thickness property API": "## line_thickness 属性のAPI",
     ##################################################
@@ -211,7 +211,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5)\n>>> sprite.graphics.line_thickness\nInt(5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5)\n>>> sprite.graphics.line_thickness\nInt(5)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=0.5)\n>>> sprite.graphics.line_thickness\nInt(5)\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=0.5)\n>>> sprite.graphics.line_thickness\nInt(5)\n```',  # noqa
     ##################################################
     "## line_alpha property API": "## line_alpha 属性のAPI",
     ##################################################
@@ -229,7 +229,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5,\n...     cap=ap.LineCaps.ROUND)\n>>> sprite.graphics.line_alpha\nNumber(0.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5,\n...     cap=ap.LineCaps.ROUND)\n>>> sprite.graphics.line_alpha\nNumber(0.5)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND\n... )\n>>> sprite.graphics.line_alpha\nNumber(0.5)\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND\n... )\n>>> sprite.graphics.line_alpha\nNumber(0.5)\n```',  # noqa
     ##################################################
     "## line_cap property API": "## line_cap 属性のAPI",
     ##################################################
@@ -247,7 +247,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5,\n...     cap=ap.LineCaps.ROUND)\n>>> sprite.graphics.line_cap\nString('round')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5, alpha=0.5,\n...     cap=ap.LineCaps.ROUND)\n>>> sprite.graphics.line_cap\nString('round')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color=\"#fff\", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND\n... )\n>>> sprite.graphics.line_cap\nString('round')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color=\"#fff\", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND\n... )\n>>> sprite.graphics.line_cap\nString('round')\n```",  # noqa
     ##################################################
     "## line_joints property API": "## line_joints 属性のAPI",
     ##################################################
@@ -265,7 +265,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     joints=ap.LineJoints.ROUND)\n>>> sprite.graphics.line_joints\nString('round')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     joints=ap.LineJoints.ROUND)\n>>> sprite.graphics.line_joints\nString('round')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color=\"#fff\", thickness=5, joints=ap.LineJoints.ROUND\n... )\n>>> sprite.graphics.line_joints\nString('round')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color=\"#fff\", thickness=5, joints=ap.LineJoints.ROUND\n... )\n>>> sprite.graphics.line_joints\nString('round')\n```",  # noqa
     ##################################################
     "## line_dot_setting property API": "## line_dot_setting 属性のAPI",
     ##################################################
@@ -283,7 +283,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     dot_setting=ap.LineDotSetting(dot_size=5))\n>>> sprite.graphics.line_dot_setting.dot_size\nInt(5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     dot_setting=ap.LineDotSetting(dot_size=5))\n>>> sprite.graphics.line_dot_setting.dot_size\nInt(5)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff", thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)\n... )\n>>> sprite.graphics.line_dot_setting.dot_size\nInt(5)\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff", thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)\n... )\n>>> sprite.graphics.line_dot_setting.dot_size\nInt(5)\n```',  # noqa
     ##################################################
     "## line_dash_setting property API": "## line_dash_setting 属性のAPI",
     ##################################################
@@ -301,7 +301,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     dash_setting=ap.LineDashSetting(\n...         dash_size=10, space_size=5))\n>>> sprite.graphics.line_dash_setting.dash_size\nInt(10)\n\n>>> sprite.graphics.line_dash_setting.space_size\nInt(5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     dash_setting=ap.LineDashSetting(\n...         dash_size=10, space_size=5))\n>>> sprite.graphics.line_dash_setting.dash_size\nInt(10)\n\n>>> sprite.graphics.line_dash_setting.space_size\nInt(5)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff",\n...     thickness=5,\n...     dash_setting=ap.LineDashSetting(dash_size=10, space_size=5),\n... )\n>>> sprite.graphics.line_dash_setting.dash_size\nInt(10)\n\n>>> sprite.graphics.line_dash_setting.space_size\nInt(5)\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff",\n...     thickness=5,\n...     dash_setting=ap.LineDashSetting(dash_size=10, space_size=5),\n... )\n>>> sprite.graphics.line_dash_setting.dash_size\nInt(10)\n\n>>> sprite.graphics.line_dash_setting.space_size\nInt(5)\n```',  # noqa
     ##################################################
     "## line_round_dot_setting property API": "## line_round_dot_setting 属性のAPI",
     ##################################################
@@ -319,7 +319,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     round_dot_setting=ap.LineRoundDotSetting(\n...         round_size=6, space_size=3))\n>>> sprite.graphics.line_round_dot_setting.round_size\nInt(6)\n\n>>> sprite.graphics.line_round_dot_setting.space_size\nInt(3)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     round_dot_setting=ap.LineRoundDotSetting(\n...         round_size=6, space_size=3))\n>>> sprite.graphics.line_round_dot_setting.round_size\nInt(6)\n\n>>> sprite.graphics.line_round_dot_setting.space_size\nInt(3)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff",\n...     thickness=5,\n...     round_dot_setting=ap.LineRoundDotSetting(round_size=6, space_size=3),\n... )\n>>> sprite.graphics.line_round_dot_setting.round_size\nInt(6)\n\n>>> sprite.graphics.line_round_dot_setting.space_size\nInt(3)\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff",\n...     thickness=5,\n...     round_dot_setting=ap.LineRoundDotSetting(round_size=6, space_size=3),\n... )\n>>> sprite.graphics.line_round_dot_setting.round_size\nInt(6)\n\n>>> sprite.graphics.line_round_dot_setting.space_size\nInt(3)\n```',  # noqa
     ##################################################
     "## line_dash_dot_setting property API": "## line_dash_dot_setting 属性のAPI",
     ##################################################
@@ -337,5 +337,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     dash_dot_setting=ap.LineDashDotSetting(\n...         dot_size=2, dash_size=5, space_size=3))\n>>> sprite.graphics.line_dash_dot_setting.dot_size\nInt(2)\n\n>>> sprite.graphics.line_dash_dot_setting.dash_size\nInt(5)\n\n>>> sprite.graphics.line_dash_dot_setting.space_size\nInt(3)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color='#fff', thickness=5,\n...     dash_dot_setting=ap.LineDashDotSetting(\n...         dot_size=2, dash_size=5, space_size=3))\n>>> sprite.graphics.line_dash_dot_setting.dot_size\nInt(2)\n\n>>> sprite.graphics.line_dash_dot_setting.dash_size\nInt(5)\n\n>>> sprite.graphics.line_dash_dot_setting.space_size\nInt(3)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff",\n...     thickness=5,\n...     dash_dot_setting=ap.LineDashDotSetting(\n...         dot_size=2, dash_size=5, space_size=3\n...     ),\n... )\n>>> sprite.graphics.line_dash_dot_setting.dot_size\nInt(2)\n\n>>> sprite.graphics.line_dash_dot_setting.dash_size\nInt(5)\n\n>>> sprite.graphics.line_dash_dot_setting.space_size\nInt(3)\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(\n...     color="#fff",\n...     thickness=5,\n...     dash_dot_setting=ap.LineDashDotSetting(\n...         dot_size=2, dash_size=5, space_size=3\n...     ),\n... )\n>>> sprite.graphics.line_dash_dot_setting.dot_size\nInt(2)\n\n>>> sprite.graphics.line_dash_dot_setting.dash_size\nInt(5)\n\n>>> sprite.graphics.line_dash_dot_setting.space_size\nInt(3)\n```',  # noqa
 }

@@ -12,19 +12,19 @@ String class for apysc library.<hr>
 
 ```py
 >>> import apysc as ap
->>> string: ap.String = ap.String('Hello')
+>>> string: ap.String = ap.String("Hello")
 >>> string
 String('Hello')
 
->>> string += ' World!'
+>>> string += " World!"
 >>> string
 String('Hello World!')
 
->>> string.value = 'World!'
+>>> string.value = "World!"
 >>> string
 String('World!')
 
->>> string.value = 'Hello!'
+>>> string.value = "Hello!"
 >>> string *= 3
 >>> string
 String('Hello!Hello!Hello!')
@@ -160,11 +160,11 @@ String class for apysc library.<hr>
 
 ```py
 >>> import apysc as ap
->>> string: ap.String = ap.String('Hello')
+>>> string: ap.String = ap.String("Hello")
 >>> string
 String('Hello')
 
->>> string += ' World!'
+>>> string += " World!"
 >>> string
 String('Hello World!')
 ```

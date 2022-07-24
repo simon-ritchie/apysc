@@ -92,9 +92,10 @@ ap.save_overall_html(dest_dir_path="display_object_x_and_y_augmented_assignment/
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> rectangle.x = ap.Int(100)
 >>> rectangle.x
 Int(100)
@@ -119,9 +120,10 @@ Int(100)
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> rectangle.y = ap.Int(100)
 >>> rectangle.y
 Int(100)

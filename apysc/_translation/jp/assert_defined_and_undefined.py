@@ -85,5 +85,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> ap.append_js_expression(\n...     expression=f'{int_val.variable_name} = undefined;')\n>>> ap.assert_undefined(int_val)\n```": "```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> ap.append_js_expression(\n...     expression=f'{int_val.variable_name} = undefined;')\n>>> ap.assert_undefined(int_val)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> ap.append_js_expression(expression=f"{int_val.variable_name} = undefined;")\n>>> ap.assert_undefined(int_val)\n```': '```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> ap.append_js_expression(expression=f"{int_val.variable_name} = undefined;")\n>>> ap.assert_undefined(int_val)\n```',  # noqa
 }

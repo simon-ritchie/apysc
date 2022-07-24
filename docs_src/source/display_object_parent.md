@@ -74,9 +74,10 @@ ap.save_overall_html(dest_dir_path="display_object_remove_from_parent_basic_usag
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite_1: ap.Sprite = ap.Sprite()
->>> sprite_1.graphics.begin_fill(color='#0af')
+>>> sprite_1.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> sprite_2: ap.Sprite = ap.Sprite()
 >>> sprite_2.add_child(rectangle)
 >>> rectangle.parent == sprite_2

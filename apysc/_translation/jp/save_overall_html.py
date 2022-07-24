@@ -107,5 +107,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> # Do something here...\n>>> ap.save_overall_html(dest_dir_path='tmp/output/')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> # Do something here...\n>>> ap.save_overall_html(dest_dir_path='tmp/output/')\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> # Do something here...\n>>> ap.save_overall_html(dest_dir_path="tmp/output/")\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> # Do something here...\n>>> ap.save_overall_html(dest_dir_path="tmp/output/")\n```',  # noqa
 }

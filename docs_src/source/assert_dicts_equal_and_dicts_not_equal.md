@@ -144,8 +144,8 @@ This interface is used instead of assert_equal for Dictionary class comparison (
 
 ```py
 >>> import apysc as ap
->>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
->>> dict_2: ap.Dictionary = ap.Dictionary({'a': 10})
+>>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
+>>> dict_2: ap.Dictionary = ap.Dictionary({"a": 10})
 >>> ap.assert_dicts_equal(dict_1, dict_2)
 ```
 
@@ -178,7 +178,7 @@ This interface is used instead of assert_not_equal for Dictionary class comparis
 
 ```py
 >>> import apysc as ap
->>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
->>> dict_2: ap.Dictionary = ap.Dictionary({'a': 20})
+>>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
+>>> dict_2: ap.Dictionary = ap.Dictionary({"a": 20})
 >>> ap.assert_dicts_not_equal(dict_1, dict_2)
 ```

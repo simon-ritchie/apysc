@@ -15,20 +15,22 @@ Timer class to handle function calling at regular intervals.<hr>
 >>> import apysc as ap
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
+...
 >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
-...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle: ap.Rectangle = options["rectangle"]
 ...     rectangle.x += 1
 >>> def on_timer_complete(e: ap.TimerEvent, options: dict) -> None:
-...     ap.trace('Timer completed!')
+...     ap.trace("Timer completed!")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> options: RectOptions = {'rectangle': rectangle}
+...     x=50, y=50, width=50, height=50
+... )
+>>> options: RectOptions = {"rectangle": rectangle}
 >>> timer: ap.Timer = ap.Timer(
-...     on_timer, delay=ap.FPS.FPS_60, repeat_count=50,
-...     options=options)
+...     on_timer, delay=ap.FPS.FPS_60, repeat_count=50, options=options
+... )
 >>> _ = timer.timer_complete(on_timer_complete)
 >>> timer.start()
 ```
@@ -67,17 +69,18 @@ Timer class to handle function calling at regular intervals.<hr>
 >>> import apysc as ap
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
+...
 >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
-...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle: ap.Rectangle = options["rectangle"]
 ...     rectangle.x += 1
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> options: RectOptions = {'rectangle': rectangle}
->>> _ = ap.Timer(
-...     on_timer, delay=ap.FPS.FPS_60, options=options).start()
+...     x=50, y=50, width=50, height=50
+... )
+>>> options: RectOptions = {"rectangle": rectangle}
+>>> _ = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
 ```
 
 <hr>
@@ -154,20 +157,21 @@ Reset the timer count and stop this timer.<hr>
 >>> import apysc as ap
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
+...
 >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
-...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle: ap.Rectangle = options["rectangle"]
 ...     rectangle.x += 1
 ...     with ap.If(rectangle.x > 100):
 ...         timer: ap.Timer = e.this
 ...         timer.reset()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> options: RectOptions = {'rectangle': rectangle}
->>> _ = ap.Timer(
-...     on_timer, delay=33.3, options=options).start()
+...     x=50, y=50, width=50, height=50
+... )
+>>> options: RectOptions = {"rectangle": rectangle}
+>>> _ = ap.Timer(on_timer, delay=33.3, options=options).start()
 ```
 
 <hr>
@@ -186,8 +190,7 @@ Start this timer.<hr>
 >>> import apysc as ap
 >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
 ...     pass
->>> _ = ap.Timer(
-...     on_timer, delay=33.3, repeat_count=50).start()
+>>> _ = ap.Timer(on_timer, delay=33.3, repeat_count=50).start()
 ```
 
 <hr>
@@ -207,20 +210,21 @@ Stop this timer.<hr>
 >>> import apysc as ap
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
+...
 >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
-...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle: ap.Rectangle = options["rectangle"]
 ...     rectangle.x += 1
 ...     with ap.If(rectangle.x > 100):
 ...         timer: ap.Timer = e.this
 ...         timer.stop()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> options: RectOptions = {'rectangle': rectangle}
->>> _ = ap.Timer(
-...     on_timer, delay=33.3, options=options).start()
+...     x=50, y=50, width=50, height=50
+... )
+>>> options: RectOptions = {"rectangle": rectangle}
+>>> _ = ap.Timer(on_timer, delay=33.3, options=options).start()
 ```
 
 <hr>
@@ -256,20 +260,20 @@ Add a timer complete event listener setting.<hr>
 >>> import apysc as ap
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
+...
 >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
-...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle: ap.Rectangle = options["rectangle"]
 ...     rectangle.x += 1
->>> def on_timer_complete(
-...         e: ap.TimerEvent, options: RectOptions) -> None:
-...     ap.trace('Timer completed!')
+>>> def on_timer_complete(e: ap.TimerEvent, options: RectOptions) -> None:
+...     ap.trace("Timer completed!")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> options: RectOptions = {'rectangle': rectangle}
->>> timer: ap.Timer = ap.Timer(
-...     on_timer, delay=33.3, options=options)
+...     x=50, y=50, width=50, height=50
+... )
+>>> options: RectOptions = {"rectangle": rectangle}
+>>> timer: ap.Timer = ap.Timer(on_timer, delay=33.3, options=options)
 >>> _ = timer.timer_complete(on_timer_complete)
 >>> timer.start()
 ```

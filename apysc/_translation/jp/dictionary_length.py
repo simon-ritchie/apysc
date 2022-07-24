@@ -47,5 +47,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({'a': 1, 'b': 2})\n>>> dictionary.length\nInt(2)\n```": "```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({'a': 1, 'b': 2})\n>>> dictionary.length\nInt(2)\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({"a": 1, "b": 2})\n>>> dictionary.length\nInt(2)\n```': '```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({"a": 1, "b": 2})\n>>> dictionary.length\nInt(2)\n```',  # noqa
 }

@@ -25,7 +25,7 @@ This class can be instantiated only in an event handler scope.<hr>
 ```py
 >>> import apysc as ap
 >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
-...     """
+...     '''
 ...     The handler that the timer calls.
 ...
 ```

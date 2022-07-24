@@ -71,7 +71,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})\n>>> dictionary\nDictionary({'a': 10})\n\n>>> dictionary['a']\n10\n\n>>> dictionary['b'] = 20\n>>> dictionary['b']\n20\n```": "```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})\n>>> dictionary\nDictionary({'a': 10})\n\n>>> dictionary['a']\n10\n\n>>> dictionary['b'] = 20\n>>> dictionary['b']\n20\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})\n>>> dictionary\nDictionary({\'a\': 10})\n\n>>> dictionary["a"]\n10\n\n>>> dictionary["b"] = 20\n>>> dictionary["b"]\n20\n```': '```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})\n>>> dictionary\nDictionary({\'a\': 10})\n\n>>> dictionary["a"]\n10\n\n>>> dictionary["b"] = 20\n>>> dictionary["b"]\n20\n```',  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -95,7 +95,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({})\n>>> dictionary.value = {'a': 10}\n>>> dictionary.value\n{'a': 10}\n```": "```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({})\n>>> dictionary.value = {'a': 10}\n>>> dictionary.value\n{'a': 10}\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({})\n>>> dictionary.value = {\"a\": 10}\n>>> dictionary.value\n{'a': 10}\n```": "```py\n>>> import apysc as ap\n>>> dictionary: ap.Dictionary = ap.Dictionary({})\n>>> dictionary.value = {\"a\": 10}\n>>> dictionary.value\n{'a': 10}\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

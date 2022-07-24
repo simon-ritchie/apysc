@@ -48,6 +48,6 @@ assert joined == "1,2,3"
 ```py
 >>> import apysc as ap
 >>> arr: ap.Array = ap.Array([1, 2, 3])
->>> arr.join(sep=', ')
+>>> arr.join(sep=", ")
 String('1, 2, 3')
 ```

@@ -141,7 +141,6 @@ Left value: undefined right value: undefined
 ```py
 >>> import apysc as ap
 >>> int_val: ap.Int = ap.Int(10)
->>> ap.append_js_expression(
-...     expression=f'{int_val.variable_name} = undefined;')
+>>> ap.append_js_expression(expression=f"{int_val.variable_name} = undefined;")
 >>> ap.assert_undefined(int_val)
 ```

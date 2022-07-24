@@ -186,7 +186,7 @@ ap.save_overall_html(dest_dir_path="graphics_move_to_and_line_to_polyline/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color='#fff', thickness=5)
+>>> sprite.graphics.line_style(color="#fff", thickness=5)
 >>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
 >>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
 >>> line_1 == line_2
@@ -233,7 +233,7 @@ Int(5)
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color='#fff', thickness=5)
+>>> sprite.graphics.line_style(color="#fff", thickness=5)
 >>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
 >>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
 >>> line_3: ap.Polyline = sprite.graphics.line_to(x=50, y=150)

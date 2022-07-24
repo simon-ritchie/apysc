@@ -100,8 +100,11 @@ This option is useful when using the apysc project multiple times (for an easily
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     stage_width=500, stage_height=300,
-...     background_color='#333', stage_elem_id='sales_chart')
+...     stage_width=500,
+...     stage_height=300,
+...     background_color="#333",
+...     stage_elem_id="sales_chart",
+... )
 ```
 
 ## stage_elem_id property API
@@ -124,8 +127,11 @@ This option is useful when using the apysc project multiple times (for an easily
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     stage_width=500, stage_height=300,
-...     background_color='#333', stage_elem_id='sales_chart')
+...     stage_width=500,
+...     stage_height=300,
+...     background_color="#333",
+...     stage_elem_id="sales_chart",
+... )
 >>> stage.stage_elem_id
 'sales_chart'
 ```
@@ -153,9 +159,10 @@ This option is useful when using the apysc project multiple times (for an easily
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite_1: ap.Sprite = ap.Sprite()
->>> sprite_1.graphics.begin_fill(color='#0af')
+>>> sprite_1.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> sprite_2: ap.Sprite = ap.Sprite()
 >>> sprite_2.add_child(rectangle)
 ```
@@ -189,9 +196,10 @@ This option is useful when using the apysc project multiple times (for an easily
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> sprite.graphics.remove_child(rectangle)
 >>> print(rectangle.parent)
 None
@@ -233,9 +241,10 @@ None
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> sprite.graphics.contains(rectangle)
 Boolean(True)
 
@@ -271,11 +280,13 @@ Boolean(False)
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=150, y=50, width=50, height=50)
+...     x=150, y=50, width=50, height=50
+... )
 >>> sprite.graphics.num_children
 Int(2)
 ```
@@ -316,13 +327,14 @@ Int(2)
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=150, y=50, width=50, height=50)
->>> child_at_index_1: ap.DisplayObject = (
-...     sprite.graphics.get_child_at(1))
+...     x=150, y=50, width=50, height=50
+... )
+>>> child_at_index_1: ap.DisplayObject = sprite.graphics.get_child_at(1)
 >>> child_at_index_1 == rectangle_2
 True
 ```

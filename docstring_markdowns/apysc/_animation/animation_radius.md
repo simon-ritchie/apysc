@@ -14,9 +14,8 @@ The animation class for a radius.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
->>> circle: ap.Circle = sprite.graphics.draw_circle(
-...     x=100, y=100, radius=50)
+>>> sprite.graphics.begin_fill(color="#0af")
+>>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> animation: ap.AnimationRadius = circle.animation_radius(
 ...     radius=100,
 ...     duration=1500,

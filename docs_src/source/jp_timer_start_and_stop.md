@@ -88,8 +88,7 @@ ap.save_overall_html(dest_dir_path="timer_start_and_stop_basic_usage/")
 >>> import apysc as ap
 >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
 ...     pass
->>> _ = ap.Timer(
-...     on_timer, delay=33.3, repeat_count=50).start()
+>>> _ = ap.Timer(on_timer, delay=33.3, repeat_count=50).start()
 ```
 
 ## stop API
@@ -107,18 +106,19 @@ ap.save_overall_html(dest_dir_path="timer_start_and_stop_basic_usage/")
 >>> import apysc as ap
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
+...
 >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
-...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle: ap.Rectangle = options["rectangle"]
 ...     rectangle.x += 1
 ...     with ap.If(rectangle.x > 100):
 ...         timer: ap.Timer = e.this
 ...         timer.stop()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> options: RectOptions = {'rectangle': rectangle}
->>> _ = ap.Timer(
-...     on_timer, delay=33.3, options=options).start()
+...     x=50, y=50, width=50, height=50
+... )
+>>> options: RectOptions = {"rectangle": rectangle}
+>>> _ = ap.Timer(on_timer, delay=33.3, options=options).start()
 ```

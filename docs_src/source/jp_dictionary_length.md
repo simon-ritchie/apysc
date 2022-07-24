@@ -53,7 +53,7 @@ Exception: Dictionary instance can't apply len function. Please use length prope
 
 ```py
 >>> import apysc as ap
->>> dictionary: ap.Dictionary = ap.Dictionary({'a': 1, 'b': 2})
+>>> dictionary: ap.Dictionary = ap.Dictionary({"a": 1, "b": 2})
 >>> dictionary.length
 Int(2)
 ```

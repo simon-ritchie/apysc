@@ -41,5 +41,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    '```py\n>>> import apysc as ap\n>>> def on_timer(e: ap.TimerEvent, options: dict) -> None:\n...     """\n...     The handler that the timer calls.\n...\n```': '```py\n>>> import apysc as ap\n>>> def on_timer(e: ap.TimerEvent, options: dict) -> None:\n...     """\n...     The handler that the timer calls.\n...\n```',  # noqa
+    "```py\n>>> import apysc as ap\n>>> def on_timer(e: ap.TimerEvent, options: dict) -> None:\n...     '''\n...     The handler that the timer calls.\n...\n```": "```py\n>>> import apysc as ap\n>>> def on_timer(e: ap.TimerEvent, options: dict) -> None:\n...     '''\n...     The handler that the timer calls.\n...\n```",  # noqa
 }

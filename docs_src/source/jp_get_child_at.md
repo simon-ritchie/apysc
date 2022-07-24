@@ -60,13 +60,14 @@ assert isinstance(second_child, ap.Rectangle)
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=150, y=50, width=50, height=50)
->>> child_at_index_1: ap.DisplayObject = (
-...     sprite.graphics.get_child_at(1))
+...     x=150, y=50, width=50, height=50
+... )
+>>> child_at_index_1: ap.DisplayObject = sprite.graphics.get_child_at(1)
 >>> child_at_index_1 == rectangle_2
 True
 ```

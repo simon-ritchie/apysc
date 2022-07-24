@@ -60,7 +60,8 @@ The `If` class requires passing the `Boolean` value as the condition.
 >>> int_val: ap.Int = ap.Int(10)
 >>> condition: ap.Boolean = int_val >= 10
 >>> with ap.If(condition):
-...     ap.trace('Int value is greater than equal 10!')
+...     ap.trace("Int value is greater than equal 10!")
+...
 ```
 
 <hr>

@@ -14,18 +14,23 @@ Path data class for the svg's `3D bezier curve` (C).<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color='#fff', thickness=3)
+>>> sprite.graphics.line_style(color="#fff", thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=50),
 ...         ap.PathBezier3D(
-...             control_x1=0, control_y1=0,
-...             control_x2=50, control_y2=0,
-...             dest_x=50, dest_y=50),
+...             control_x1=0,
+...             control_y1=0,
+...             control_x2=50,
+...             control_y2=0,
+...             dest_x=50,
+...             dest_y=50,
+...         ),
 ...         ap.PathBezier3DContinual(
-...             control_x=100, control_y=100,
-...             dest_x=100, dest_y=50),
-...     ])
+...             control_x=100, control_y=100, dest_x=100, dest_y=50
+...         ),
+...     ]
+... )
 ```
 
 ### `__eq__` method docstring
@@ -75,18 +80,23 @@ Path data class for the svg's `3D bezier curve` (C).<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color='#fff', thickness=3)
+>>> sprite.graphics.line_style(color="#fff", thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=50),
 ...         ap.PathBezier3D(
-...             control_x1=0, control_y1=0,
-...             control_x2=50, control_y2=0,
-...             dest_x=50, dest_y=50),
+...             control_x1=0,
+...             control_y1=0,
+...             control_x2=50,
+...             control_y2=0,
+...             dest_x=50,
+...             dest_y=50,
+...         ),
 ...         ap.PathBezier3DContinual(
-...             control_x=100, control_y=100,
-...             dest_x=100, dest_y=50),
-...     ])
+...             control_x=100, control_y=100, dest_x=100, dest_y=50
+...         ),
+...     ]
+... )
 ```
 
 ### `__ne__` method docstring
@@ -142,13 +152,21 @@ Update the path's data settings.<hr>
 ```py
 >>> import apysc as ap
 >>> bezier_3d_continual = ap.PathBezier3D(
-...     control_x1=0, control_y1=0,
-...     control_x2=50, control_y2=0,
-...     dest_x=50, dest_y=50)
+...     control_x1=0,
+...     control_y1=0,
+...     control_x2=50,
+...     control_y2=0,
+...     dest_x=50,
+...     dest_y=50,
+... )
 >>> bezier_3d_continual.update_path_data(
-...     control_x1=100, control_y1=100,
-...     control_x2=150, control_y2=100,
-...     dest_x=150, dest_y=150)
+...     control_x1=100,
+...     control_y1=100,
+...     control_x2=150,
+...     control_y2=100,
+...     dest_x=150,
+...     dest_y=150,
+... )
 >>> bezier_3d_continual.control_x1
 Int(100)
 

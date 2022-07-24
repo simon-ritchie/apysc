@@ -61,7 +61,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> condition: ap.Boolean = int_val >= 10\n>>> with ap.If(condition):\n...     ap.trace('Int value is greater than equal 10!')\n```": "```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> condition: ap.Boolean = int_val >= 10\n>>> with ap.If(condition):\n...     ap.trace('Int value is greater than equal 10!')\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> condition: ap.Boolean = int_val >= 10\n>>> with ap.If(condition):\n...     ap.trace("Int value is greater than equal 10!")\n...\n```': '```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> condition: ap.Boolean = int_val >= 10\n>>> with ap.If(condition):\n...     ap.trace("Int value is greater than equal 10!")\n...\n```',  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

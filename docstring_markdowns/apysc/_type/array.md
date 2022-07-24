@@ -710,7 +710,7 @@ Join this array value with a specified separator string.<hr>
 ```py
 >>> import apysc as ap
 >>> arr: ap.Array = ap.Array([1, 2, 3])
->>> arr.join(sep=', ')
+>>> arr.join(sep=", ")
 String('1, 2, 3')
 ```
 

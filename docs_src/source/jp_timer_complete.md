@@ -135,20 +135,20 @@ ap.save_overall_html(dest_dir_path="timer_complete_basic_usage/")
 >>> import apysc as ap
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
+...
 >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
-...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle: ap.Rectangle = options["rectangle"]
 ...     rectangle.x += 1
->>> def on_timer_complete(
-...         e: ap.TimerEvent, options: RectOptions) -> None:
-...     ap.trace('Timer completed!')
+>>> def on_timer_complete(e: ap.TimerEvent, options: RectOptions) -> None:
+...     ap.trace("Timer completed!")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> options: RectOptions = {'rectangle': rectangle}
->>> timer: ap.Timer = ap.Timer(
-...     on_timer, delay=33.3, options=options)
+...     x=50, y=50, width=50, height=50
+... )
+>>> options: RectOptions = {"rectangle": rectangle}
+>>> timer: ap.Timer = ap.Timer(on_timer, delay=33.3, options=options)
 >>> _ = timer.timer_complete(on_timer_complete)
 >>> timer.start()
 ```

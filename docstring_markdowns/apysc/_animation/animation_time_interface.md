@@ -24,26 +24,24 @@ Get an animation elapsed millisecond.<hr>
 >>> import apysc as ap
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
->>> def on_timer(
-...         e: ap.TimerEvent,
-...         options: RectOptions) -> None:
-...     rectangle: ap.Rectangle = options['rectangle']
+...
+>>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+...     rectangle: ap.Rectangle = options["rectangle"]
 ...     animation_time: ap.Number = rectangle.animation_time()
-...     ap.trace('animation_time:', animation_time)
+...     ap.trace("animation_time:", animation_time)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> _ = rectangle.animation_x(
 ...     x=100,
 ...     duration=1500,
 ...     easing=ap.Easing.EASE_OUT_QUINT,
 ... ).start()
->>> options: RectOptions = {'rectangle': rectangle}
->>> ap.Timer(
-...     on_timer, delay=ap.FPS.FPS_60,
-...     options=options).start()
+>>> options: RectOptions = {"rectangle": rectangle}
+>>> ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
 ```
 
 <hr>

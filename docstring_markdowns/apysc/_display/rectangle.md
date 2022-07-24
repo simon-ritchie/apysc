@@ -14,9 +14,10 @@ The rectangle vector graphics class.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=100, height=75)
+...     x=50, y=50, width=100, height=75
+... )
 >>> rectangle.x
 Int(50)
 
@@ -93,7 +94,8 @@ Create a rectangle vector graphic.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> rectangle: ap.Rectangle = ap.Rectangle(
-...     x=50, y=50, width=100, height=100, fill_color='#00aaff')
+...     x=50, y=50, width=100, height=100, fill_color="#00aaff"
+... )
 >>> rectangle.x
 Int(50)
 

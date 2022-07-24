@@ -15,7 +15,8 @@ A class to append if branch instruction expression.<hr>
 >>> int_val: ap.Int = ap.Int(10)
 >>> condition: ap.Boolean = int_val >= 10
 >>> with ap.If(condition):
-...     ap.trace('Int value is greater than equal 10!')
+...     ap.trace("Int value is greater than equal 10!")
+...
 ```
 
 <hr>
@@ -47,7 +48,8 @@ A class to append if branch instruction expression.<hr>
 >>> int_val: ap.Int = ap.Int(10)
 >>> condition: ap.Boolean = int_val >= 10
 >>> with ap.If(condition):
-...     ap.trace('Int value is greater than equal 10!')
+...     ap.trace("Int value is greater than equal 10!")
+...
 ```
 
 <hr>

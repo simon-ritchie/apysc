@@ -143,15 +143,15 @@ ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 
 ```py
 >>> import apysc as ap
->>> def on_mousemove(
-...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+>>> def on_mousemove(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     stage_x: ap.Int = e.stage_x
-...     ap.trace('stage_x:', stage_x)
+...     ap.trace("stage_x:", stage_x)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> _ = rectangle.mousemove(on_mousemove)
 ```
 
@@ -180,19 +180,18 @@ ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 
 ```py
 >>> import apysc as ap
->>> def on_mousemove(
-...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+>>> def on_mousemove(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     stage_x: ap.Int = e.stage_x
-...     ap.trace('stage_x:', stage_x)
->>> def on_click(
-...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     ap.trace("stage_x:", stage_x)
+>>> def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
 ...     rectangle.unbind_mousemove(on_mousemove)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> _ = rectangle.mousemove(on_mousemove)
 >>> _ = rectangle.click(on_click)
 ```
@@ -209,19 +208,18 @@ ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 
 ```py
 >>> import apysc as ap
->>> def on_mousemove(
-...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+>>> def on_mousemove(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     stage_x: ap.Int = e.stage_x
-...     ap.trace('stage_x:', stage_x)
->>> def on_click(
-...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     ap.trace("stage_x:", stage_x)
+>>> def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
 ...     rectangle.unbind_mousemove_all()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> _ = rectangle.mousemove(on_mousemove)
 >>> _ = rectangle.click(on_click)
 ```

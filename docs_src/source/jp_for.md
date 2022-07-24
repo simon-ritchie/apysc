@@ -100,5 +100,6 @@ ap.save_overall_html(dest_dir_path="for_basic_usage_with_dict/")
 >>> import apysc as ap
 >>> arr: ap.Array = ap.Array(range(3))
 >>> with ap.For(arr) as i:
-...     ap.trace('Loop index is:', i)
+...     ap.trace("Loop index is:", i)
+...
 ```

@@ -106,9 +106,8 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
->>> circle: ap.Circle = sprite.graphics.draw_circle(
-...     x=100, y=100, radius=50)
+>>> sprite.graphics.begin_fill(color="#0af")
+>>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> circle.x
 Int(100)
 

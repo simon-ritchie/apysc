@@ -101,17 +101,18 @@ ap.save_overall_html(dest_dir_path="timer_repeat_count_basic_usage/")
 >>> import apysc as ap
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
+...
 >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
-...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle: ap.Rectangle = options["rectangle"]
 ...     rectangle.x += 1
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
->>> options: RectOptions = {'rectangle': rectangle}
->>> _ = ap.Timer(
-...     on_timer, delay=ap.FPS.FPS_60, options=options).start()
+...     x=50, y=50, width=50, height=50
+... )
+>>> options: RectOptions = {"rectangle": rectangle}
+>>> _ = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
 ```
 
 <hr>
@@ -145,8 +146,7 @@ ap.save_overall_html(dest_dir_path="timer_repeat_count_basic_usage/")
 >>> import apysc as ap
 >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
 ...     pass
->>> timer: ap.Timer = ap.Timer(
-...     on_timer, delay=33.3, repeat_count=50)
+>>> timer: ap.Timer = ap.Timer(on_timer, delay=33.3, repeat_count=50)
 >>> timer.repeat_count
 Int(50)
 ```

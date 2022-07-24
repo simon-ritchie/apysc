@@ -14,7 +14,8 @@ A class to append for the (loop) expression.<hr>
 >>> import apysc as ap
 >>> arr: ap.Array = ap.Array(range(3))
 >>> with ap.For(arr) as i:
-...     ap.trace('Loop index is:', i)
+...     ap.trace("Loop index is:", i)
+...
 ```
 
 <hr>
@@ -57,7 +58,8 @@ A class to append for the (loop) expression.<hr>
 >>> import apysc as ap
 >>> arr: ap.Array = ap.Array(range(3))
 >>> with ap.For(arr) as i:
-...     ap.trace('Loop index is:', i)
+...     ap.trace("Loop index is:", i)
+...
 ```
 
 <hr>

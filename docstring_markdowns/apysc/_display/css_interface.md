@@ -74,9 +74,9 @@ Get a CSS value string.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
->>> sprite.set_css(name='display', value='none')
->>> sprite.get_css(name='display')
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.set_css(name="display", value="none")
+>>> sprite.get_css(name="display")
 String('none')
 ```
 
@@ -105,9 +105,9 @@ Set a specified value string to the CSS.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
->>> sprite.set_css(name='display', value='none')
->>> sprite.get_css(name='display')
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.set_css(name="display", value="none")
+>>> sprite.get_css(name="display")
 String('none')
 ```
 

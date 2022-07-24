@@ -99,8 +99,7 @@ Currently, this interface raises a mypy error under some mypy settings. Please s
 
 ```py
 >>> import apysc as ap
->>> @ap.add_debug_info_setting(  # type: ignore[misc]
-...     module_name=__name__)
+>>> @ap.add_debug_info_setting(module_name=__name__)  # type: ignore[misc]
 ... def sample_method(a: int) -> None:
 ...     ...
 ```

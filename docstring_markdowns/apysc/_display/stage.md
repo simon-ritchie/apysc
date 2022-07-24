@@ -55,8 +55,11 @@ The Stage (overall view-area) class.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     stage_width=500, stage_height=300,
-...     background_color='#333', stage_elem_id='sales_chart')
+...     stage_width=500,
+...     stage_height=300,
+...     background_color="#333",
+...     stage_elem_id="sales_chart",
+... )
 ```
 
 <hr>
@@ -91,8 +94,11 @@ Create Stage (overall viewport) instance.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     stage_width=500, stage_height=300,
-...     background_color='#333', stage_elem_id='sales_chart')
+...     stage_width=500,
+...     stage_height=300,
+...     background_color="#333",
+...     stage_elem_id="sales_chart",
+... )
 ```
 
 <hr>

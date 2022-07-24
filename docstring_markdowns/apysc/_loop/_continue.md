@@ -20,6 +20,7 @@ This class can be instantiated in the with loop statement, for example, after th
 >>> with ap.For(arr) as i:
 ...     with ap.If(i == 1):
 ...         _ = ap.Continue()
+...
 ```
 
 <hr>
@@ -44,6 +45,7 @@ This class can be instantiated in the with loop statement, for example, after th
 >>> with ap.For(arr) as i:
 ...     with ap.If(i == 1):
 ...         _ = ap.Continue()
+...
 ```
 
 <hr>

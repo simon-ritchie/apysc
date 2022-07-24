@@ -76,7 +76,7 @@ BLACK_COMMAND: Final[
     str
 ] = f'black --extend-exclude "(apysc/__init__.py)" {_PY_FILE_DIRS_STR}'
 
-BLACKDOC_COMMAND: Final[str] = f"blackdoc ./apysc/"
+BLACKDOC_COMMAND: Final[str] = "blackdoc ./apysc/"
 
 
 def _get_module_paths() -> List[str]:

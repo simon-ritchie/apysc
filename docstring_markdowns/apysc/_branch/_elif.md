@@ -22,9 +22,11 @@ A class to append the `else if` branch instruction expression.<hr>
 >>> with ap.If(condition_1):
 ...     # Do something here
 ...     pass
+...
 >>> with ap.Elif(condition_2):
 ...     # Do something else here
 ...     pass
+...
 ```
 
 <hr>
@@ -65,9 +67,11 @@ A class to append the `else if` branch instruction expression.<hr>
 >>> with ap.If(condition_1):
 ...     # Do something here
 ...     pass
+...
 >>> with ap.Elif(condition_2):
 ...     # Do something else here
 ...     pass
+...
 ```
 
 <hr>

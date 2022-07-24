@@ -59,16 +59,16 @@ assert got_val_3 is None
 ```py
 >>> from typing import Optional
 >>> import apysc as ap
->>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})
->>> value_1: Optional[int] = dictionary.get('a')
+>>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
+>>> value_1: Optional[int] = dictionary.get("a")
 >>> value_1
 10
 
->>> value_2: Optional[int] = dictionary.get('b')
+>>> value_2: Optional[int] = dictionary.get("b")
 >>> print(value_2)
 None
 
->>> value_3: int = dictionary.get('c', default=0)
+>>> value_3: int = dictionary.get("c", default=0)
 >>> value_3
 0
 ```

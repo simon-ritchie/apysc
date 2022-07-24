@@ -119,9 +119,10 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
-...     x=100, y=100, width=100, height=50)
+...     x=100, y=100, width=100, height=50
+... )
 >>> ellipse.x
 Int(100)
 

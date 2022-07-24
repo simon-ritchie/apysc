@@ -90,9 +90,10 @@ ap.save_overall_html(dest_dir_path="sprite_contains_basic_usage/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50)
+...     x=50, y=50, width=50, height=50
+... )
 >>> sprite.graphics.contains(rectangle)
 Boolean(True)
 

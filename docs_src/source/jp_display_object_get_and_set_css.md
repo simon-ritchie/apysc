@@ -88,9 +88,9 @@ ap.save_overall_html(dest_dir_path="display_object_get_and_set_css_basic_usage/"
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
->>> sprite.set_css(name='display', value='none')
->>> sprite.get_css(name='display')
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.set_css(name="display", value="none")
+>>> sprite.get_css(name="display")
 String('none')
 ```
 
@@ -118,8 +118,8 @@ String('none')
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
->>> sprite.set_css(name='display', value='none')
->>> sprite.get_css(name='display')
+>>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.set_css(name="display", value="none")
+>>> sprite.get_css(name="display")
 String('none')
 ```

@@ -14,13 +14,14 @@ The polygon vector graphics class.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color='#0af')
+>>> sprite.graphics.begin_fill(color="#0af")
 >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
 ...     points=[
 ...         ap.Point2D(x=50, y=50),
 ...         ap.Point2D(x=50, y=100),
 ...         ap.Point2D(x=100, y=75),
-...     ])
+...     ]
+... )
 >>> polygon.fill_color
 String('#00aaff')
 ```
@@ -80,7 +81,8 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 ...         ap.Point2D(x=50, y=100),
 ...         ap.Point2D(x=100, y=75),
 ...     ],
-...     fill_color='#00aaff')
+...     fill_color="#00aaff",
+... )
 >>> polygon.fill_color
 String('#00aaff')
 ```

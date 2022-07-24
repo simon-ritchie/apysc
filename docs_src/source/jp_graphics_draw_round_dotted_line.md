@@ -117,10 +117,10 @@ ap.save_overall_html(dest_dir_path="graphics_draw_round_dotted_line_notes/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color='#fff', thickness=5)
+>>> sprite.graphics.line_style(color="#fff", thickness=5)
 >>> line: ap.Line = sprite.graphics.draw_round_dotted_line(
-...    x_start=50, y_start=50, x_end=150, y_end=50,
-...    round_size=6, space_size=3)
+...     x_start=50, y_start=50, x_end=150, y_end=50, round_size=6, space_size=3
+... )
 >>> line.line_color
 String('#ffffff')
 

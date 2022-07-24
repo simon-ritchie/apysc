@@ -51,7 +51,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String('Hello')\n>>> string\nString('Hello')\n\n>>> string += ' World!'\n>>> string\nString('Hello World!')\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String('Hello')\n>>> string\nString('Hello')\n\n>>> string += ' World!'\n>>> string\nString('Hello World!')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString('Hello')\n\n>>> string += \" World!\"\n>>> string\nString('Hello World!')\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString('Hello')\n\n>>> string += \" World!\"\n>>> string\nString('Hello World!')\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -77,7 +77,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String('Hello')\n>>> string.value = 'World!'\n>>> string.value\n'World!'\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String('Hello')\n>>> string.value = 'World!'\n>>> string.value\n'World!'\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String("Hello")\n>>> string.value = "World!"\n>>> string.value\n\'World!\'\n```': '```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String("Hello")\n>>> string.value = "World!"\n>>> string.value\n\'World!\'\n```',  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

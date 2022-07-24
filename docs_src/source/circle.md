@@ -540,8 +540,7 @@ Notes: Depending on the shape of the instance, this may be difficult to tell the
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
->>> circle: ap.Circle = ap.Circle(
-...     x=100, y=100, radius=50, fill_color='#00aaff')
+>>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color="#00aaff")
 >>> circle.x
 Int(100)
 
@@ -555,9 +554,13 @@ Int(50)
 String('#00aaff')
 
 >>> circle = ap.Circle(
-...    x=100, y=100, radius=50,
-...    line_color='#ffffff', line_thickness=3,
-...    line_dot_setting=ap.LineDotSetting(dot_size=10))
+...     x=100,
+...     y=100,
+...     radius=50,
+...     line_color="#ffffff",
+...     line_thickness=3,
+...     line_dot_setting=ap.LineDotSetting(dot_size=10),
+... )
 >>> circle.line_color
 String('#ffffff')
 

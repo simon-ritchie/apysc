@@ -30,7 +30,7 @@ class Return:
         --------
         >>> import apysc as ap
         >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
-        ...     \"\"\"
+        ...     '''
         ...     The handler that the timer calls.
         ...
         ...     Parameters
@@ -39,10 +39,10 @@ class Return:
         ...         Event instance.
         ...     options : dict
         ...         Optional arguments dictionary.
-        ...     \"\"\"
+        ...     '''
         ...     with ap.If(e.this.current_count > 10):
         ...         ap.Return()
-        ...     ap.trace('Not returned.')
+        ...     ap.trace("Not returned.")
         >>> ap.Timer(on_timer, delay=100).start()
         """
         import apysc as ap

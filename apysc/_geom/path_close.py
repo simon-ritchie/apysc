@@ -16,14 +16,15 @@ class PathClose(PathDataBase):
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.line_style(color='#fff', thickness=3)
+    >>> sprite.graphics.line_style(color="#fff", thickness=3)
     >>> path: ap.Path = sprite.graphics.draw_path(
     ...     path_data_list=[
     ...         ap.PathMoveTo(x=0, y=00),
     ...         ap.PathLineTo(x=50, y=0),
     ...         ap.PathLineTo(x=50, y=50),
     ...         ap.PathClose(),
-    ...     ])
+    ...     ]
+    ... )
     """
 
     @add_debug_info_setting(module_name=__name__)
@@ -36,14 +37,15 @@ class PathClose(PathDataBase):
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=3)
+        >>> sprite.graphics.line_style(color="#fff", thickness=3)
         >>> path: ap.Path = sprite.graphics.draw_path(
         ...     path_data_list=[
         ...         ap.PathMoveTo(x=0, y=00),
         ...         ap.PathLineTo(x=50, y=0),
         ...         ap.PathLineTo(x=50, y=50),
         ...         ap.PathClose(),
-        ...     ])
+        ...     ]
+        ... )
         """
         from apysc._geom.path_label import PathLabel
 

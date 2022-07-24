@@ -408,8 +408,7 @@ def add_debug_info_setting(*, module_name: str) -> _F:
     Examples
     --------
     >>> import apysc as ap
-    >>> @ap.add_debug_info_setting(  # type: ignore[misc]
-    ...     module_name=__name__)
+    >>> @ap.add_debug_info_setting(module_name=__name__)  # type: ignore[misc]
     ... def sample_method(a: int) -> None:
     ...     ...
     """

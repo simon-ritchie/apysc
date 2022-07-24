@@ -31,14 +31,13 @@ class PathBezier2D(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.line_style(color='#fff', thickness=3)
+    >>> sprite.graphics.line_style(color="#fff", thickness=3)
     >>> path: ap.Path = sprite.graphics.draw_path(
     ...     path_data_list=[
     ...         ap.PathMoveTo(x=0, y=50),
-    ...         ap.PathBezier2D(
-    ...             control_x=50, control_y=0,
-    ...             dest_x=100, dest_y=50),
-    ...     ])
+    ...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),
+    ...     ]
+    ... )
     """
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -83,14 +82,13 @@ class PathBezier2D(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=3)
+        >>> sprite.graphics.line_style(color="#fff", thickness=3)
         >>> path: ap.Path = sprite.graphics.draw_path(
         ...     path_data_list=[
         ...         ap.PathMoveTo(x=0, y=50),
-        ...         ap.PathBezier2D(
-        ...             control_x=50, control_y=0,
-        ...             dest_x=100, dest_y=50),
-        ...     ])
+        ...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),
+        ...     ]
+        ... )
         """
         from apysc._geom.path_label import PathLabel
 
@@ -177,11 +175,11 @@ class PathBezier2D(
         --------
         >>> import apysc as ap
         >>> bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
-        ...     control_x=50, control_y=0,
-        ...     dest_x=100, dest_y=50)
+        ...     control_x=50, control_y=0, dest_x=100, dest_y=50
+        ... )
         >>> bezier_2d.update_path_data(
-        ...     control_x=150, control_y=100,
-        ...     dest_x=200, dest_y=150)
+        ...     control_x=150, control_y=100, dest_x=200, dest_y=150
+        ... )
         >>> bezier_2d.control_x
         Int(150)
 

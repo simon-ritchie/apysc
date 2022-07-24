@@ -39,9 +39,11 @@ class Elif(IfBase):
     >>> with ap.If(condition_1):
     ...     # Do something here
     ...     pass
+    ...
     >>> with ap.Elif(condition_2):
     ...     # Do something else here
     ...     pass
+    ...
     """
 
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
@@ -76,9 +78,11 @@ class Elif(IfBase):
         >>> with ap.If(condition_1):
         ...     # Do something here
         ...     pass
+        ...
         >>> with ap.Elif(condition_2):
         ...     # Do something else here
         ...     pass
+        ...
 
         Parameters
         ----------

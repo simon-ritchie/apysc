@@ -46,8 +46,11 @@ class Stage(
     --------
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage(
-    ...     stage_width=500, stage_height=300,
-    ...     background_color='#333', stage_elem_id='sales_chart')
+    ...     stage_width=500,
+    ...     stage_height=300,
+    ...     background_color="#333",
+    ...     stage_elem_id="sales_chart",
+    ... )
     """
 
     _background_color: str
@@ -102,8 +105,11 @@ class Stage(
         --------
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage(
-        ...     stage_width=500, stage_height=300,
-        ...     background_color='#333', stage_elem_id='sales_chart')
+        ...     stage_width=500,
+        ...     stage_height=300,
+        ...     background_color="#333",
+        ...     stage_elem_id="sales_chart",
+        ... )
         """
         import apysc as ap
         from apysc._color import color_util
@@ -238,8 +244,11 @@ class Stage(
         --------
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage(
-        ...     stage_width=500, stage_height=300,
-        ...     background_color='#333', stage_elem_id='sales_chart')
+        ...     stage_width=500,
+        ...     stage_height=300,
+        ...     background_color="#333",
+        ...     stage_elem_id="sales_chart",
+        ... )
         >>> stage.stage_elem_id
         'sales_chart'
         """

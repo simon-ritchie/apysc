@@ -33,7 +33,8 @@ class For(Generic[T]):
     >>> import apysc as ap
     >>> arr: ap.Array = ap.Array(range(3))
     >>> with ap.For(arr) as i:
-    ...     ap.trace('Loop index is:', i)
+    ...     ap.trace("Loop index is:", i)
+    ...
     """
 
     _arr_or_dict: Union[Array, Dictionary]
@@ -79,7 +80,8 @@ class For(Generic[T]):
         >>> import apysc as ap
         >>> arr: ap.Array = ap.Array(range(3))
         >>> with ap.For(arr) as i:
-        ...     ap.trace('Loop index is:', i)
+        ...     ap.trace("Loop index is:", i)
+        ...
         """
         self._validate_arr_or_dict_val_type(arr_or_dict=arr_or_dict)
         if locals_ is None:

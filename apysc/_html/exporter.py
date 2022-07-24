@@ -82,7 +82,7 @@ def save_overall_html(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> # Do something here...
-    >>> ap.save_overall_html(dest_dir_path='tmp/output/')
+    >>> ap.save_overall_html(dest_dir_path="tmp/output/")
     """
     from apysc._file import file_util
     from apysc._html import html_util

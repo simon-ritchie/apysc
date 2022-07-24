@@ -31,9 +31,11 @@ class Else(IfBase):
     >>> import apysc as ap
     >>> int_val: ap.Int = ap.Int(10)
     >>> with ap.If(int_val >= 11):
-    ...     ap.trace('Value is greater than equal 11.')
+    ...     ap.trace("Value is greater than equal 11.")
+    ...
     >>> with ap.Else():
-    ...     ap.trace('Value is less than 11.')
+    ...     ap.trace("Value is less than 11.")
+    ...
     """
 
     @arg_validation_decos.is_vars_dict(arg_position_index=1)
@@ -79,9 +81,11 @@ class Else(IfBase):
         >>> import apysc as ap
         >>> int_val: ap.Int = ap.Int(10)
         >>> with ap.If(int_val >= 11):
-        ...     ap.trace('Value is greater than equal 11.')
+        ...     ap.trace("Value is greater than equal 11.")
+        ...
         >>> with ap.Else():
-        ...     ap.trace('Value is less than 11.')
+        ...     ap.trace("Value is less than 11.")
+        ...
         """
         super().__init__(condition=None, locals_=locals_, globals_=globals_)
 

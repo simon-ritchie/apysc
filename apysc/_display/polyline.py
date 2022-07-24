@@ -58,7 +58,7 @@ class Polyline(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.line_style(color='#fff', thickness=5)
+    >>> sprite.graphics.line_style(color="#fff", thickness=5)
     >>> _ = sprite.graphics.move_to(x=50, y=50)
     >>> polyline: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
     >>> polyline.line_color
@@ -172,8 +172,9 @@ class Polyline(
         ...         ap.Point2D(x=100, y=100),
         ...         ap.Point2D(x=150, y=50),
         ...     ],
-        ...     line_color='#ffffff',
-        ...     line_thickness=3)
+        ...     line_color="#ffffff",
+        ...     line_thickness=3,
+        ... )
         >>> polyline.line_color
         String('#ffffff')
         >>> polyline.line_thickness

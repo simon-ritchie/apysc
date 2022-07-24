@@ -43,8 +43,7 @@ class RelativeInterface(
         Examples
         --------
         >>> import apysc as ap
-        >>> line_to: ap.PathLineTo = ap.PathLineTo(
-        ...     x=50, y=50, relative=False)
+        >>> line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=50, relative=False)
         >>> line_to.relative = ap.Boolean(True)
         >>> line_to.relative
         Boolean(True)

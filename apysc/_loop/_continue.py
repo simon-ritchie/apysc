@@ -25,6 +25,7 @@ class Continue:
     >>> with ap.For(arr) as i:
     ...     with ap.If(i == 1):
     ...         _ = ap.Continue()
+    ...
     """
 
     @add_debug_info_setting(module_name=__name__)
@@ -49,6 +50,7 @@ class Continue:
         >>> with ap.For(arr) as i:
         ...     with ap.If(i == 1):
         ...         _ = ap.Continue()
+        ...
         """
         import apysc as ap
         from apysc._loop import loop_count

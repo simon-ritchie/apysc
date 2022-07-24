@@ -125,9 +125,10 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> sprite.graphics.begin_fill(color="#0af")
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-        ...     x=50, y=50, width=50, height=50)
+        ...     x=50, y=50, width=50, height=50
+        ... )
         >>> _ = rectangle.animation_x(x=100).start()
         """
         import apysc as ap
@@ -209,17 +210,22 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
         --------
         >>> import apysc as ap
         >>> def on_animation_complete(
-        ...         e: ap.AnimationEvent[ap.Rectangle],
-        ...         options: dict) -> None:
-        ...     ap.trace('Animation completed!')
+        ...     e: ap.AnimationEvent[ap.Rectangle], options: dict
+        ... ) -> None:
+        ...     ap.trace("Animation completed!")
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> sprite.graphics.begin_fill(color="#0af")
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-        ...     x=50, y=50, width=50, height=50)
-        >>> _ = rectangle.animation_x(
-        ...     x=100,
-        ... ).animation_complete(on_animation_complete).start()
+        ...     x=50, y=50, width=50, height=50
+        ... )
+        >>> _ = (
+        ...     rectangle.animation_x(
+        ...         x=100,
+        ...     )
+        ...     .animation_complete(on_animation_complete)
+        ...     .start()
+        ... )
         """
         import apysc as ap
         from apysc._event.custom_event_type import CustomEventType
@@ -279,16 +285,21 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
         --------
         >>> import apysc as ap
         >>> def on_animation_complete(
-        ...         e: ap.AnimationEvent[ap.Rectangle],
-        ...         options: dict) -> None:
+        ...     e: ap.AnimationEvent[ap.Rectangle], options: dict
+        ... ) -> None:
         ...     rectangle: ap.Rectangle = e.this.target
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> sprite.graphics.begin_fill(color="#0af")
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-        ...     x=50, y=50, width=50, height=50)
-        >>> _ = rectangle.animation_x(
-        ...     x=100,
-        ... ).animation_complete(on_animation_complete).start()
+        ...     x=50, y=50, width=50, height=50
+        ... )
+        >>> _ = (
+        ...     rectangle.animation_x(
+        ...         x=100,
+        ...     )
+        ...     .animation_complete(on_animation_complete)
+        ...     .start()
+        ... )
         """
         return self._target

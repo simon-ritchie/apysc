@@ -27,7 +27,7 @@ def trace(*args: Any) -> None:
     --------
     >>> import apysc as ap
     >>> int_val: ap.Int = ap.Int(10)
-    >>> ap.trace('Int value is:', int_val)
+    >>> ap.trace("Int value is:", int_val)
     """
     import apysc as ap
     from apysc._string import string_util

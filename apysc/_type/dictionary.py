@@ -50,21 +50,21 @@ class Dictionary(
     Examples
     --------
     >>> import apysc as ap
-    >>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})
+    >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
     >>> dictionary
     Dictionary({'a': 10})
 
-    >>> dictionary['a']
+    >>> dictionary["a"]
     10
 
-    >>> dictionary['b'] = 20
-    >>> dictionary['b']
+    >>> dictionary["b"] = 20
+    >>> dictionary["b"]
     20
 
     >>> dictionary.length
     Int(2)
 
-    >>> value_1: int = dictionary.get('c', default=0)
+    >>> value_1: int = dictionary.get("c", default=0)
     >>> value_1
     0
     """
@@ -101,15 +101,15 @@ class Dictionary(
         Examples
         --------
         >>> import apysc as ap
-        >>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})
+        >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
         >>> dictionary
         Dictionary({'a': 10})
 
-        >>> dictionary['a']
+        >>> dictionary["a"]
         10
 
-        >>> dictionary['b'] = 20
-        >>> dictionary['b']
+        >>> dictionary["b"] = 20
+        >>> dictionary["b"]
         20
         """
         from apysc._expression import expression_variables_util
@@ -208,7 +208,7 @@ class Dictionary(
         --------
         >>> import apysc as ap
         >>> dictionary: ap.Dictionary = ap.Dictionary({})
-        >>> dictionary.value = {'a': 10}
+        >>> dictionary.value = {"a": 10}
         >>> dictionary.value
         {'a': 10}
         """
@@ -330,7 +330,7 @@ class Dictionary(
         Examples
         --------
         >>> import apysc as ap
-        >>> dictionary: ap.Dictionary = ap.Dictionary({'a': 1, 'b': 2})
+        >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 1, "b": 2})
         >>> dictionary.length
         Int(2)
         """
@@ -666,16 +666,16 @@ class Dictionary(
         --------
         >>> from typing import Optional
         >>> import apysc as ap
-        >>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})
-        >>> value_1: Optional[int] = dictionary.get('a')
+        >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
+        >>> value_1: Optional[int] = dictionary.get("a")
         >>> value_1
         10
 
-        >>> value_2: Optional[int] = dictionary.get('b')
+        >>> value_2: Optional[int] = dictionary.get("b")
         >>> print(value_2)
         None
 
-        >>> value_3: int = dictionary.get('c', default=0)
+        >>> value_3: int = dictionary.get("c", default=0)
         >>> value_3
         0
         """

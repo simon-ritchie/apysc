@@ -47,9 +47,10 @@ class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.line_style(color='#fff', thickness=5)
+    >>> sprite.graphics.line_style(color="#fff", thickness=5)
     >>> line: ap.Line = sprite.graphics.draw_line(
-    ...     x_start=50, y_start=50, x_end=150, y_end=50)
+    ...     x_start=50, y_start=50, x_end=150, y_end=50
+    ... )
     >>> line.line_color
     String('#ffffff')
 
@@ -149,10 +150,11 @@ class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> line: ap.Line = ap.Line(
-        ...    start_point=ap.Point2D(x=50, y=50),
-        ...    end_point=ap.Point2D(x=150, y=50),
-        ...    line_color='#ffffff',
-        ...    line_thickness=3)
+        ...     start_point=ap.Point2D(x=50, y=50),
+        ...     end_point=ap.Point2D(x=150, y=50),
+        ...     line_color="#ffffff",
+        ...     line_thickness=3,
+        ... )
         >>> line.line_color
         String('#ffffff')
         >>> line.line_thickness

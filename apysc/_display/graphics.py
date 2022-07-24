@@ -50,14 +50,14 @@ class Graphics(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> sprite.graphics.begin_fill(color="#0af")
     >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    ...     x=50, y=50, width=50, height=50)
+    ...     x=50, y=50, width=50, height=50
+    ... )
     >>> rectangle.x
     Int(50)
 
-    >>> circle: ap.Circle = sprite.graphics.draw_circle(
-    ...     x=100, y=100, radius=50)
+    >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
     >>> circle.x
     Int(100)
     """
@@ -199,9 +199,10 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> sprite.graphics.begin_fill(color="#0af")
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-        ...     x=50, y=50, width=50, height=50)
+        ...     x=50, y=50, width=50, height=50
+        ... )
         >>> rectangle.x
         Int(50)
 
@@ -280,10 +281,10 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> sprite.graphics.begin_fill(color="#0af")
         >>> round_rect: ap.Rectangle = sprite.graphics.draw_round_rect(
-        ...     x=50, y=50, width=50, height=50,
-        ...     ellipse_width=10, ellipse_height=15)
+        ...     x=50, y=50, width=50, height=50, ellipse_width=10, ellipse_height=15
+        ... )
         >>> round_rect.ellipse_width
         Int(10)
 
@@ -356,9 +357,8 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
-        >>> circle: ap.Circle = sprite.graphics.draw_circle(
-        ...     x=100, y=100, radius=50)
+        >>> sprite.graphics.begin_fill(color="#0af")
+        >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
         >>> circle.x
         Int(100)
 
@@ -429,9 +429,10 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> sprite.graphics.begin_fill(color="#0af")
         >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
-        ...     x=100, y=100, width=100, height=50)
+        ...     x=100, y=100, width=100, height=50
+        ... )
         >>> ellipse.x
         Int(100)
 
@@ -493,7 +494,7 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> sprite.graphics.line_style(color="#fff", thickness=5)
         >>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
         >>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
         >>> line_3: ap.Polyline = sprite.graphics.line_to(x=50, y=150)
@@ -559,7 +560,7 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> sprite.graphics.line_style(color="#fff", thickness=5)
         >>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
         >>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
         >>> line_1 == line_2
@@ -644,9 +645,10 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> sprite.graphics.line_style(color="#fff", thickness=5)
         >>> line: ap.Line = sprite.graphics.draw_line(
-        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        ...     x_start=50, y_start=50, x_end=150, y_end=50
+        ... )
         >>> line.line_color
         String('#ffffff')
 
@@ -726,9 +728,10 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> sprite.graphics.line_style(color="#fff", thickness=5)
         >>> line: ap.Line = sprite.graphics.draw_dotted_line(
-        ...     x_start=50, y_start=50, x_end=150, y_end=50, dot_size=5)
+        ...     x_start=50, y_start=50, x_end=150, y_end=50, dot_size=5
+        ... )
         >>> line.line_color
         String('#ffffff')
 
@@ -821,10 +824,10 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> sprite.graphics.line_style(color="#fff", thickness=5)
         >>> line: ap.Line = sprite.graphics.draw_dashed_line(
-        ...     x_start=50, y_start=50, x_end=150, y_end=50,
-        ...     dash_size=5, space_size=2)
+        ...     x_start=50, y_start=50, x_end=150, y_end=50, dash_size=5, space_size=2
+        ... )
         >>> line.line_color
         String('#ffffff')
 
@@ -919,10 +922,10 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> sprite.graphics.line_style(color="#fff", thickness=5)
         >>> line: ap.Line = sprite.graphics.draw_round_dotted_line(
-        ...    x_start=50, y_start=50, x_end=150, y_end=50,
-        ...    round_size=6, space_size=3)
+        ...     x_start=50, y_start=50, x_end=150, y_end=50, round_size=6, space_size=3
+        ... )
         >>> line.line_color
         String('#ffffff')
 
@@ -1017,10 +1020,16 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> sprite.graphics.line_style(color="#fff", thickness=5)
         >>> line: ap.Line = sprite.graphics.draw_dash_dotted_line(
-        ...    x_start=50, y_start=50, x_end=150, y_end=50,
-        ...    dot_size=2, dash_size=5, space_size=3)
+        ...     x_start=50,
+        ...     y_start=50,
+        ...     x_end=150,
+        ...     y_end=50,
+        ...     dot_size=2,
+        ...     dash_size=5,
+        ...     space_size=3,
+        ... )
         >>> line.line_color
         String('#ffffff')
 
@@ -1095,13 +1104,14 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> sprite.graphics.begin_fill(color="#0af")
         >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
         ...     points=[
         ...         ap.Point2D(x=25, y=0),
         ...         ap.Point2D(x=0, y=50),
         ...         ap.Point2D(x=50, y=50),
-        ...     ])
+        ...     ]
+        ... )
         >>> polygon.fill_color
         String('#00aaff')
         """
@@ -1137,14 +1147,13 @@ class Graphics(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=3)
+        >>> sprite.graphics.line_style(color="#fff", thickness=3)
         >>> path: ap.Path = sprite.graphics.draw_path(
         ...     path_data_list=[
         ...         ap.PathMoveTo(x=0, y=50),
-        ...         ap.PathBezier2D(
-        ...             control_x=50, control_y=0,
-        ...             dest_x=100, dest_y=50),
-        ...     ])
+        ...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),
+        ...     ]
+        ... )
         """
         path: _path.Path = _path.Path._create_with_graphics(
             graphics=self,

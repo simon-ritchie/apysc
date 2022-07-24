@@ -64,9 +64,8 @@ class CxInterface(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
-        >>> circle: ap.Circle = sprite.graphics.draw_circle(
-        ...     x=100, y=100, radius=50)
+        >>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+        >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
         >>> circle.x = ap.Int(120)
         >>> circle.x
         Int(120)

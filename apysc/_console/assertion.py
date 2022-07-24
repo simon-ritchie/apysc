@@ -350,8 +350,8 @@ def assert_dicts_equal(left: Any, right: Any, *, msg: str = "") -> None:
     Examples
     --------
     >>> import apysc as ap
-    >>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
-    >>> dict_2: ap.Dictionary = ap.Dictionary({'a': 10})
+    >>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
+    >>> dict_2: ap.Dictionary = ap.Dictionary({"a": 10})
     >>> ap.assert_dicts_equal(dict_1, dict_2)
     """
     import apysc as ap
@@ -396,8 +396,8 @@ def assert_dicts_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
     Examples
     --------
     >>> import apysc as ap
-    >>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
-    >>> dict_2: ap.Dictionary = ap.Dictionary({'a': 20})
+    >>> dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
+    >>> dict_2: ap.Dictionary = ap.Dictionary({"a": 20})
     >>> ap.assert_dicts_not_equal(dict_1, dict_2)
     """
     import apysc as ap
@@ -470,8 +470,7 @@ def assert_undefined(value: Any, *, msg: str = "") -> None:
     --------
     >>> import apysc as ap
     >>> int_val: ap.Int = ap.Int(10)
-    >>> ap.append_js_expression(
-    ...     expression=f'{int_val.variable_name} = undefined;')
+    >>> ap.append_js_expression(expression=f"{int_val.variable_name} = undefined;")
     >>> ap.assert_undefined(int_val)
     """
     import apysc as ap

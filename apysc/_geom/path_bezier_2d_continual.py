@@ -24,15 +24,14 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.line_style(color='#fff', thickness=3)
+    >>> sprite.graphics.line_style(color="#fff", thickness=3)
     >>> path: ap.Path = sprite.graphics.draw_path(
     ...     path_data_list=[
     ...         ap.PathMoveTo(x=0, y=50),
-    ...         ap.PathBezier2D(
-    ...             control_x=50, control_y=0,
-    ...             dest_x=100, dest_y=50),
+    ...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),
     ...         ap.PathBezier2DContinual(x=150, y=50),
-    ...     ])
+    ...     ]
+    ... )
     """
 
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -69,15 +68,14 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=3)
+        >>> sprite.graphics.line_style(color="#fff", thickness=3)
         >>> path: ap.Path = sprite.graphics.draw_path(
         ...     path_data_list=[
         ...         ap.PathMoveTo(x=0, y=50),
-        ...         ap.PathBezier2D(
-        ...             control_x=50, control_y=0,
-        ...             dest_x=100, dest_y=50),
+        ...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),
         ...         ap.PathBezier2DContinual(x=150, y=50),
-        ...     ])
+        ...     ]
+        ... )
         """
         from apysc._geom.path_label import PathLabel
 

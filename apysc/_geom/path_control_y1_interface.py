@@ -62,9 +62,13 @@ class PathControlY1Interface(
         --------
         >>> import apysc as ap
         >>> bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
-        ...     control_x1=0, control_y1=0,
-        ...     control_x2=50, control_y2=0,
-        ...     dest_x=50, dest_y=50)
+        ...     control_x1=0,
+        ...     control_y1=0,
+        ...     control_x2=50,
+        ...     control_y2=0,
+        ...     dest_x=50,
+        ...     dest_y=50,
+        ... )
         >>> bezier_3d.control_y1 = ap.Int(25)
         >>> bezier_3d.control_y1
         Int(25)

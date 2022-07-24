@@ -32,19 +32,19 @@ class String(
     Examples
     --------
     >>> import apysc as ap
-    >>> string: ap.String = ap.String('Hello')
+    >>> string: ap.String = ap.String("Hello")
     >>> string
     String('Hello')
 
-    >>> string += ' World!'
+    >>> string += " World!"
     >>> string
     String('Hello World!')
 
-    >>> string.value = 'World!'
+    >>> string.value = "World!"
     >>> string
     String('World!')
 
-    >>> string.value = 'Hello!'
+    >>> string.value = "Hello!"
     >>> string *= 3
     >>> string
     String('Hello!Hello!Hello!')
@@ -82,11 +82,11 @@ class String(
         Examples
         --------
         >>> import apysc as ap
-        >>> string: ap.String = ap.String('Hello')
+        >>> string: ap.String = ap.String("Hello")
         >>> string
         String('Hello')
 
-        >>> string += ' World!'
+        >>> string += " World!"
         >>> string
         String('Hello World!')
         """
@@ -156,8 +156,8 @@ class String(
         Examples
         --------
         >>> import apysc as ap
-        >>> string: ap.String = ap.String('Hello')
-        >>> string.value = 'World!'
+        >>> string: ap.String = ap.String("Hello")
+        >>> string.value = "World!"
         >>> string.value
         'World!'
         """

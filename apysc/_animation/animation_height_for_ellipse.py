@@ -40,9 +40,10 @@ class AnimationHeightForEllipse(AnimationBase[_T], Generic[_T]):
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> sprite.graphics.begin_fill(color="#0af")
     >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
-    ...     x=50, y=50, width=50, height=50)
+    ...     x=50, y=50, width=50, height=50
+    ... )
     >>> animation: ap.AnimationHeightForEllipse = ellipse.animation_height(
     ...     height=100,
     ...     duration=1500,

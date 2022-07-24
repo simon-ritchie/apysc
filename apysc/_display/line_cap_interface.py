@@ -47,9 +47,10 @@ class LineCapInterface(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=10)
+        >>> sprite.graphics.line_style(color="#fff", thickness=10)
         >>> line: ap.Line = sprite.graphics.draw_line(
-        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        ...     x_start=50, y_start=50, x_end=150, y_end=50
+        ... )
         >>> line.line_cap = ap.LineCaps.ROUND
         >>> line.line_cap
         String('round')

@@ -56,9 +56,10 @@ class Ellipse(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> sprite.graphics.begin_fill(color="#0af")
     >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
-    ...     x=100, y=100, width=80, height=50)
+    ...     x=100, y=100, width=80, height=50
+    ... )
     >>> ellipse.x
     Int(100)
 
@@ -191,7 +192,8 @@ class Ellipse(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> ellipse: ap.Ellipse = ap.Ellipse(
-        ...    x=100, y=100, width=100, height=50, fill_color='#00aaff')
+        ...     x=100, y=100, width=100, height=50, fill_color="#00aaff"
+        ... )
         >>> ellipse.x
         Int(100)
         >>> ellipse.y

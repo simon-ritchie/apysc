@@ -40,11 +40,9 @@ class GraphicsClearInterface:
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
-        >>> _ = sprite.graphics.draw_rect(
-        ...     x=50, y=50, width=50, height=50)
-        >>> _ = sprite.graphics.draw_rect(
-        ...     x=150, y=50, width=50, height=50)
+        >>> sprite.graphics.begin_fill(color="#0af")
+        >>> _ = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+        >>> _ = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
         >>> sprite.graphics.num_children
         Int(2)
 

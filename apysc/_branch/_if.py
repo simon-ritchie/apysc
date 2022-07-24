@@ -28,7 +28,8 @@ class If(IfBase):
     >>> int_val: ap.Int = ap.Int(10)
     >>> condition: ap.Boolean = int_val >= 10
     >>> with ap.If(condition):
-    ...     ap.trace('Int value is greater than equal 10!')
+    ...     ap.trace("Int value is greater than equal 10!")
+    ...
     """
 
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
@@ -74,7 +75,8 @@ class If(IfBase):
         >>> int_val: ap.Int = ap.Int(10)
         >>> condition: ap.Boolean = int_val >= 10
         >>> with ap.If(condition):
-        ...     ap.trace('Int value is greater than equal 10!')
+        ...     ap.trace("Int value is greater than equal 10!")
+        ...
         """
         super(If, self).__init__(
             condition=condition, locals_=locals_, globals_=globals_

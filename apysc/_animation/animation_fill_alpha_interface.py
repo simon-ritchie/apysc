@@ -70,9 +70,8 @@ class AnimationFillAlphaInterface(AnimationInterfaceBase):
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af')
-        >>> circle: ap.Circle = sprite.graphics.draw_circle(
-        ...     x=100, y=100, radius=50)
+        >>> sprite.graphics.begin_fill(color="#0af")
+        >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
         >>> _ = circle.animation_y(
         ...     y=100,
         ...     duration=1500,

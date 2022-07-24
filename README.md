@@ -4,6 +4,7 @@
 [![CodeQL](https://github.com/simon-ritchie/apysc/actions/workflows/codeql_analysis.yml/badge.svg)](https://github.com/simon-ritchie/apysc/actions/workflows/codeql_analysis.yml)
 ![Dependabot: enabled](https://img.shields.io/badge/Dependabot-enabled-brightgreen)
 [![PyPI version](https://badge.fury.io/py/apysc.svg)](https://badge.fury.io/py/apysc)
+![](https://img.shields.io/badge/code%20style-black-black?labelColor=gray)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/simon-ritchie/apysc/blob/main/LICENSE)
 ![](https://byob.yarr.is/simon-ritchie/apysc/passing_unit_test_python_versions)
 ![](https://byob.yarr.is/simon-ritchie/apysc/unit_tests_coverage)

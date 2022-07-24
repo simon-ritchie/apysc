@@ -76,6 +76,8 @@ BLACK_COMMAND: Final[
     str
 ] = f'black --extend-exclude "(apysc/__init__.py)" {_PY_FILE_DIRS_STR}'
 
+BLACKDOC_COMMAND: Final[str] = f"blackdoc ./apysc/"
+
 
 def _get_module_paths() -> List[str]:
     """
@@ -471,7 +473,7 @@ def _start_subprocess(command_strs: List[str]) -> sp.Popen:
 
 def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
     """
-    Make the in-place lint commands (black, autoflake, and isort) list.
+    Make the in-place lint commands (black, blackdoc, autoflake, and isort) list.
 
     Returns
     -------
@@ -488,6 +490,13 @@ def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
         {
             "command": BLACK_COMMAND,
             "lint_name": "black",
+        }
+    )
+
+    lint_commands.append(
+        {
+            "command": BLACKDOC_COMMAND,
+            "lint_name": "blackdoc",
         }
     )
 

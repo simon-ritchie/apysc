@@ -29,17 +29,6 @@ class TestArray:
         assert array_1.variable_name.startswith(f"{var_names.ARRAY}_")
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__validate_acceptable_value_type(self) -> None:
-        array_1: ap.Array = ap.Array([1, 2, 3])
-        _: ap.Array = ap.Array((1, 2, 3))
-        _ = ap.Array(range(10))
-        _ = ap.Array(array_1)
-
-        testing_helper.assert_raises(
-            expected_error_class=ValueError, callable_=ap.Array, value=100
-        )
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_list_value(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         list_val: List[Any] = array_1._get_list_value(value=[4, 5, 6])

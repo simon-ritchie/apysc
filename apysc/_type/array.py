@@ -75,6 +75,7 @@ class Array(
     _initial_value: Union[List[Any], tuple, "Array"]
     _value: List[T]
 
+    @arg_validation_decos.is_acceptable_array_value(arg_position_index=1)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -129,7 +130,6 @@ class Array(
         with TemporaryNotHandlerScope():
             self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.ARRAY
-            self._validate_acceptable_value_type(value=value)
             value = self._convert_range_to_list(value=value)
             value_: Union[List[Any], tuple, "Array"] = value
             self._initial_value = value_
@@ -196,32 +196,6 @@ class Array(
             return value._value
         return list(value)  # type: ignore[arg-type]
 
-    def _validate_acceptable_value_type(
-        self, *, value: Union[List[Any], tuple, range, "Array"]
-    ) -> None:
-        """
-        Validate whether a specified value is an acceptable type
-        or not.
-
-        Parameters
-        ----------
-        value : Array or list or tuple or range
-            Iterable value to check.
-
-        Raises
-        ------
-        ValueError
-            If specified value's type is not list, tuple,
-            or Array value.
-        """
-        if isinstance(value, (list, tuple, range, Array)):
-            return
-        raise ValueError(
-            "Not acceptable value type is specified."
-            f"\nSpecified value type: {type(value)}"
-            "\nAcceptable types: list, tuple, range, and Array"
-        )
-
     @property
     @add_debug_info_setting(module_name=__name__)
     def value(self) -> Union[List[Any], tuple, "Array"]:
@@ -249,14 +223,15 @@ class Array(
         return self._value
 
     @value.setter
+    @arg_validation_decos.is_acceptable_array_value(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def value(self, value: Union[List[Any], tuple, "Array"]) -> None:
+    def value(self, value: Union[List[Any], tuple, range, "Array"]) -> None:
         """
         Set array value.
 
         Parameters
         ----------
-        value : Array or list or tuple
+        value : Array or list or tuple or range
             Iterable value (list, tuple, or Array) to set.
 
         References
@@ -264,7 +239,7 @@ class Array(
         - apysc fundamental data classes value interface
             - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
         """
-        self._validate_acceptable_value_type(value=value)
+        value = self._convert_range_to_list(value=value)
         self._value = self._get_list_value(value=value)
         self._append_value_setter_expression(value=value)
 
@@ -361,8 +336,9 @@ class Array(
         expression: str = f"{self.variable_name}.push({value_str});"
         ap.append_js_expression(expression=expression)
 
+    @arg_validation_decos.is_acceptable_array_value(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def extend(self, other_arr: Union[List[T], tuple, "Array"]) -> None:
+    def extend(self, other_arr: Union[List[T], tuple, range, "Array"]) -> None:
         """
         Concatenate argument array to this one. This interface
         positions the argument array's values after this array
@@ -372,7 +348,7 @@ class Array(
 
         Parameters
         ----------
-        other_arr : Array or list or tuple
+        other_arr : Array or list or tuple or range
             Other array-like values to concatenate.
 
         References
@@ -388,7 +364,7 @@ class Array(
         >>> arr
         Array([1, 2, 3, 4, 5, 6])
         """
-        self._validate_acceptable_value_type(value=other_arr)
+        other_arr = self._convert_range_to_list(value=other_arr)
         if isinstance(other_arr, Array):
             self._value.extend(other_arr.value)  # type: ignore
         else:

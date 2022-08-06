@@ -66,14 +66,14 @@ class Sprite(
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-        self, *, variable_name: Optional[str] = None, variable_name_suffix: str = ""
+        self, *, variable_name: str = '', variable_name_suffix: str = ""
     ) -> None:
         """
         Create a basic display object that can be a parent.
 
         Parameters
         ----------
-        variable_name : str or None, default None
+        variable_name : str, default '
             Variable name of this instance. A js expression uses
             this setting. It is unnecessary to specify any
             string except when instantiating the `Sprite` subclass.
@@ -118,7 +118,7 @@ class Sprite(
 
         self._variable_name_suffix = variable_name_suffix
         stage: ap.Stage = ap.get_stage()
-        if variable_name is None:
+        if variable_name == '':
             variable_name = expression_variables_util.get_next_variable_name(
                 type_name=var_names.SPRITE
             )

@@ -1,7 +1,6 @@
 """Implementations for Sprite class.
 """
 
-from typing import Optional
 
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
@@ -66,7 +65,7 @@ class Sprite(
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-        self, *, variable_name: str = '', variable_name_suffix: str = ""
+        self, *, variable_name: str = "", variable_name_suffix: str = ""
     ) -> None:
         """
         Create a basic display object that can be a parent.
@@ -118,7 +117,7 @@ class Sprite(
 
         self._variable_name_suffix = variable_name_suffix
         stage: ap.Stage = ap.get_stage()
-        if variable_name == '':
+        if variable_name == "":
             variable_name = expression_variables_util.get_next_variable_name(
                 type_name=var_names.SPRITE
             )

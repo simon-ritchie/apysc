@@ -93,13 +93,13 @@ The subsequent pages explain the other interfaces, such as the `add_child` inter
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, variable_name: Union[str, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, *, variable_name: str = '', variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]** Create a basic display object that can be a parent.<hr>
 
 **[Parameters]**
 
-- `variable_name`: str or None, default None
+- `variable_name`: str, default '
   - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.

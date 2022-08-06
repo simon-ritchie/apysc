@@ -96,13 +96,13 @@ ap.save_overall_html(dest_dir_path="sprite_move_instances_simultaneously/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, variable_name: Union[str, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, variable_name: str = '', variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]** 子を持つことのできる基本的な表示要素用のオブジェクトを生成します。<hr>
 
 **[引数]**
 
-- `variable_name`: str or None, default None
+- `variable_name`: str, default '
   - このインスタンスの（JavaScript上などで使われる）変数名の設定値。apyscの内部実装で`Sprite`クラスのサブクラスをインスタンス化する時以外は設定は不要です。
 
 - `variable_name_suffix`: str, default ''

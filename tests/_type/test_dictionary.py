@@ -17,7 +17,6 @@ from apysc._type.expression_string import ExpressionString
 
 
 class TestDictionary:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_dict_value(self) -> None:
         dict_1: ap.Dictionary = ap.Dictionary(value={"a": 10})

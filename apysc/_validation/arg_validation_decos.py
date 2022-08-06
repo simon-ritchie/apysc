@@ -118,10 +118,11 @@ Mainly the following decorators exist.
 import functools
 import inspect
 from inspect import Signature
-from typing import Any, Tuple
+from typing import Any
 from typing import Callable
 from typing import Dict
 from typing import List
+from typing import Tuple
 from typing import TypeVar
 
 # pyright: reportInvalidTypeVarUse=false
@@ -1871,6 +1872,7 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _F:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
+
             value: Any = _extract_arg_value(
                 args=args,
                 kwargs=kwargs,
@@ -1882,7 +1884,7 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _F:
             if not isinstance(value, acceptable_types):
                 raise TypeError(
                     "A specified value's type is not an acceptable array value: "
-                    f'{type(value)}\nAcceptable types: {acceptable_types}'
+                    f"{type(value)}\nAcceptable types: {acceptable_types}"
                 )
 
             result: Any = callable_(*args, **kwargs)
@@ -1956,6 +1958,7 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _F:
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
             from apysc._validation import number_validation
+
             value: Any = _extract_arg_value(
                 args=args,
                 kwargs=kwargs,

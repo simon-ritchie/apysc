@@ -708,10 +708,7 @@ def test_is_acceptable_array_value() -> None:
     def _test_func(*, a: Union[list, tuple, range, ap.Array]) -> None:
         ...
 
-    assert_raises(
-        expected_error_class=TypeError,
-        callable_=_test_func,
-        a='Hello')
+    assert_raises(expected_error_class=TypeError, callable_=_test_func, a="Hello")
     _test_func(a=[10, 20])
     _test_func(a=(10, 20))
     _test_func(a=range(10))
@@ -727,10 +724,10 @@ def test_is_acceptable_dictionary_value() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        a='Hello',
+        a="Hello",
     )
-    _test_func(a={'b': 20})
-    _test_func(a=ap.Dictionary({'b': 20}))
+    _test_func(a={"b": 20})
+    _test_func(a=ap.Dictionary({"b": 20}))
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -747,7 +744,7 @@ def test_is_acceptable_boolean_value() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        a='Hello',
+        a="Hello",
     )
     _test_func(a=0)
     _test_func(a=1)

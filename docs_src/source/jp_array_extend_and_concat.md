@@ -31,13 +31,13 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `extend(self, other_arr: Union[List[~T], tuple, ForwardRef('Array')]) -> None`<hr>
+**[インターフェイスの構造]** `extend(self, other_arr: Union[List[~T], tuple, range, ForwardRef('Array')]) -> None`<hr>
 
 **[インターフェイス概要]** 引数に指定された配列のこの配列へ連結します。このインターフェイスは引数に指定された配列の値をこの配列の値の後に配置します。このメソッドはconcatメソッドと似た挙動をしますが、extendメソッドはこの配列自体を更新するのに対してconcatメソッドは別の配列として値を返却するという違いがあります。<hr>
 
 **[引数]**
 
-- `other_arr`: Array or list or tuple
+- `other_arr`: Array or list or tuple or range
   - 連結対象となる他の配列の（もしくはそれに近しい）値。
 
 <hr>

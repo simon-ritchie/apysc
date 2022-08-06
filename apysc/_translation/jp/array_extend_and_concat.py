@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interfaces are these?": "## 各インターフェイスの概要",
     ##################################################
-    "The `extend` and `concat` method interfaces are the two arrays' concatenation interfaces.": "`extend`と`concat`メソッドの各インターフェイスは2つの配列の連結処理を扱います。",  # noqa
+    "The `extend` and `concat` method interfaces are the two arrays\' concatenation interfaces.": "`extend`と`concat`メソッドの各インターフェイスは2つの配列の連結処理を扱います。",  # noqa
     ##################################################
     "The `extend` method updates an original array in place and returns the `None`. The `concat` method returns the concatenated array, and an original one is not updated.": "`extend`メソッドは元々の配列自体を更新し返却値は設定されずNoneとなります。`concat`メソッドでは連結結果の配列を返却します。元の配列は変化しません。",  # noqa
     ##################################################
@@ -27,13 +27,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## extend API": "## extend API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>": "**[インターフェイス概要]** 引数に指定された配列のこの配列へ連結します。このインターフェイスは引数に指定された配列の値をこの配列の値の後に配置します。このメソッドはconcatメソッドと似た挙動をしますが、extendメソッドはこの配列自体を更新するのに対してconcatメソッドは別の配列として値を返却するという違いがあります。<hr>",  # noqa
+    "**[Interface summary]** Concatenate argument array to this one. This interface positions the argument array\'s values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>": "**[インターフェイス概要]** 引数に指定された配列のこの配列へ連結します。このインターフェイスは引数に指定された配列の値をこの配列の値の後に配置します。このメソッドはconcatメソッドと似た挙動をしますが、extendメソッドはこの配列自体を更新するのに対してconcatメソッドは別の配列として値を返却するという違いがあります。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `other_arr`: Array or list or tuple": "- `other_arr`: Array or list or tuple",
+    "- `other_arr`: Array or list or tuple or range": "- `other_arr`: Array or list or tuple or range",  # noqa
     ##################################################
     "  - Other array-like values to concatenate.": "  - 連結対象となる他の配列の（もしくはそれに近しい）値。",
     ##################################################
@@ -45,9 +45,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## concat API": "## concat API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>": "**[インターフェイス概要]** この配列の値と引数に指定された配列の値を連結した配列を作成します。このインターフェイスでは引数に指定された配列の値をこの配列の値の後に配置します。このメソッドはextendメソッドと似ていますが、extendメソッドが配列自体を更新するのに対してconcatメソッドは連結した別の配列の結果を返却するという違いがあります。<hr>",  # noqa
+    "**[Interface summary]** Concatenate argument array to this one. This interface positions the argument array\'s values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>": "**[インターフェイス概要]** この配列の値と引数に指定された配列の値を連結した配列を作成します。このインターフェイスでは引数に指定された配列の値をこの配列の値の後に配置します。このメソッドはextendメソッドと似ていますが、extendメソッドが配列自体を更新するのに対してconcatメソッドは連結した別の配列の結果を返却するという違いがあります。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

@@ -302,21 +302,6 @@ Revert values if a snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### `_validate_acceptable_value_type` method docstring
-
-Validate whether a specified value is an acceptable type or not.<hr>
-
-**[Parameters]**
-
-- `value`: dict or Dictionary
-  - Dictionary value to check.
-
-<hr>
-
-**[Raises]**
-
-- TypeError: If specified value's type is not a Dictionary or dict value.
-
 ### `_validate_key_type_is_str_or_numeric` method docstring
 
 Validate whether a key's value type is acceptable (str or int or float) or not.<hr>

@@ -32,13 +32,13 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `extend(self, other_arr: Union[List[~T], tuple, ForwardRef('Array')]) -> None`<hr>
+**[Interface signature]** `extend(self, other_arr: Union[List[~T], tuple, range, ForwardRef('Array')]) -> None`<hr>
 
 **[Interface summary]** Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>
 
 **[Parameters]**
 
-- `other_arr`: Array or list or tuple
+- `other_arr`: Array or list or tuple or range
   - Other array-like values to concatenate.
 
 <hr>

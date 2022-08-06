@@ -470,21 +470,6 @@ Revert values if a snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### `_validate_acceptable_value_type` method docstring
-
-Validate whether a specified value is an acceptable type or not.<hr>
-
-**[Parameters]**
-
-- `value`: Array or list or tuple or range
-  - Iterable value to check.
-
-<hr>
-
-**[Raises]**
-
-- ValueError: If specified value's type is not list, tuple, or Array value.
-
 ### `_validate_index_type_is_int` method docstring
 
 Validate whether an index value type is an int (or Int) type or not.<hr>
@@ -575,7 +560,7 @@ Concatenate argument array to this one. This interface positions the argument ar
 
 **[Parameters]**
 
-- `other_arr`: Array or list or tuple
+- `other_arr`: Array or list or tuple or range
   - Other array-like values to concatenate.
 
 <hr>

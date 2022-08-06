@@ -72,6 +72,7 @@ class Dictionary(
     _initial_value: Union[Dict[_K, _V], "Dictionary"]
     _value: Dict[_K, _V]
 
+    @arg_validation_decos.is_acceptable_dictionary_value(arg_position_index=1)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -119,7 +120,6 @@ class Dictionary(
         with TemporaryNotHandlerScope():
             self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.DICTIONARY
-            self._validate_acceptable_value_type(value=value)
             self._initial_value = value
             self._type_name = TYPE_NAME
             self._value = self._get_dict_value(value=value)
@@ -162,32 +162,6 @@ class Dictionary(
             return value._value
         return value  # type: ignore
 
-    def _validate_acceptable_value_type(
-        self, *, value: Union[Dict[_K, _V], "Dictionary"]
-    ) -> None:
-        """
-        Validate whether a specified value is an acceptable
-        type or not.
-
-        Parameters
-        ----------
-        value : dict or Dictionary
-            Dictionary value to check.
-
-        Raises
-        ------
-        TypeError
-            If specified value's type is not a Dictionary
-            or dict value.
-        """
-        if isinstance(value, (dict, Dictionary)):
-            return
-        raise TypeError(
-            "Not acceptable value type is specified."
-            f"\nSpecified valkue type is: {type(value)}"
-            "\nAcceptable types are: dict and Dictionary"
-        )
-
     @property
     @add_debug_info_setting(module_name=__name__)
     def value(self) -> Union[Dict[_K, _V], "Dictionary"]:
@@ -215,6 +189,7 @@ class Dictionary(
         return self._value
 
     @value.setter
+    @arg_validation_decos.is_acceptable_dictionary_value(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def value(self, value: Union[Dict[_K, _V], "Dictionary"]) -> None:
         """
@@ -230,7 +205,6 @@ class Dictionary(
         - apysc fundamental data classes value interface
             - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
         """
-        self._validate_acceptable_value_type(value=value)
         self._value = self._get_dict_value(value=value)
         self._append_value_setter_expression(value=value)
 

@@ -17,17 +17,6 @@ from apysc._type.expression_string import ExpressionString
 
 
 class TestDictionary:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__validate_acceptable_value_type(self) -> None:
-        dict_1: ap.Dictionary = ap.Dictionary(value={})
-        _: ap.Dictionary = ap.Dictionary(value=dict_1)
-
-        assert_raises(
-            expected_error_class=TypeError,
-            callable_=ap.Dictionary,
-            match="Not acceptable value type is specified",
-            value=10,
-        )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_dict_value(self) -> None:
@@ -63,7 +52,6 @@ class TestDictionary:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.Dictionary,
-            match="Not acceptable value type is specified.",
             value=10,
         )
 

@@ -716,3 +716,18 @@ def test_is_acceptable_array_value() -> None:
     _test_func(a=(10, 20))
     _test_func(a=range(10))
     _test_func(a=ap.Array([10, 20]))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_acceptable_dictionary_value() -> None:
+    @arg_validation_decos.is_acceptable_dictionary_value(arg_position_index=0)
+    def _test_func(*, a: Union[dict, ap.Dictionary]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a='Hello',
+    )
+    _test_func(a={'b': 20})
+    _test_func(a=ap.Dictionary({'b': 20}))

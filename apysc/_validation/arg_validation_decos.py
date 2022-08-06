@@ -107,6 +107,9 @@ Mainly the following decorators exist.
 - is_acceptable_array_value
     - Set the validation to check a specified argument's type
         is an acceptable array value type.
+- is_acceptable_dictionary_value
+    - Set the validation to check a specified argument's type
+        is an acceptable dictionary value type.
 """
 
 import functools
@@ -1877,6 +1880,48 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _F:
                 raise TypeError(
                     "A specified value's type is not an acceptable array value: "
                     f'{type(value)}\nAcceptable types: {acceptable_types}'
+                )
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_acceptable_dictionary_value(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is an acceptable dictionary value type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            value: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            acceptable_types: Tuple = (dict, ap.Dictionary)
+            if not isinstance(value, acceptable_types):
+                raise TypeError(
+                    "A specified value's type is not an acceptable dictionary value "
+                    f"type: {type(value)}\nAcceptable types: {acceptable_types}"
                 )
 
             result: Any = callable_(*args, **kwargs)

@@ -700,3 +700,19 @@ def test_is_builtin_boolean() -> None:
         a=ap.Boolean(True),
     )
     _test_func(a=True)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_acceptable_array_value() -> None:
+    @arg_validation_decos.is_acceptable_array_value(arg_position_index=0)
+    def _test_func(*, a: Union[list, tuple, range, ap.Array]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        a='Hello')
+    _test_func(a=[10, 20])
+    _test_func(a=(10, 20))
+    _test_func(a=range(10))
+    _test_func(a=ap.Array([10, 20]))

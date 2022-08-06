@@ -49,6 +49,7 @@ class Boolean(
     _initial_value: Union[bool, int, Int, "Boolean"]
     _value: bool
 
+    @arg_validation_decos.is_acceptable_boolean_value(arg_position_index=1)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -90,12 +91,10 @@ class Boolean(
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
-        from apysc._validation import number_validation
 
         with TemporaryNotHandlerScope():
             self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.BOOLEAN
-            number_validation.validate_int_is_zero_or_one(integer=value)  # type: ignore
             self._initial_value = value
             value_: bool = self._get_bool_from_arg_value(value=value)
             self._value = value_
@@ -184,6 +183,7 @@ class Boolean(
         return self._value
 
     @value.setter
+    @arg_validation_decos.is_acceptable_boolean_value(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def value(self, value: Union[bool, int, Int, "Boolean"]) -> None:
         """

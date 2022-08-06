@@ -3,9 +3,9 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
+from apysc._console import _trace
 from apysc._expression import expression_data_util
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._console import _trace
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -15,7 +15,7 @@ def test_trace() -> None:
     expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.log({stage.variable_name}, "100", "Hello!", "\\nCalled from: '
-        'test_trace, file name: test__trace.py, line number: '
+        "test_trace, file name: test__trace.py, line number: "
     )
     assert expected in expression
     assert '");' in expression
@@ -41,9 +41,7 @@ _TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO: str = _dummy_trace()
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_func_callers_info() -> None:
     print(_TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO)
-    assert _TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO.startswith(
-        "\\nCalled from: test__trace"
-    )
+    assert _TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO.startswith("\\nCalled from: test__trace")
 
     func_callers_info: str = _dummy_trace()
     assert func_callers_info.startswith(

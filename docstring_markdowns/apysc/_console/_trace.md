@@ -4,6 +4,15 @@
 
 `trace` (console.log expression) interface implementations
 
+## `_get_func_callers_info` function docstring
+
+Get a function caller's information.<hr>
+
+**[Returns]**
+
+- `func_caller_info`: str
+  - A function caller's information, such as the caller's name, module name, and line number.
+
 ## `trace` function docstring
 
 Display arguments information to console. This function saves a JavaScript `console.log` expression.<hr>

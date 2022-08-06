@@ -1,11 +1,12 @@
 """`trace` (console.log expression) interface implementations
 """
 
-from typing import Any, Optional
-from typing import List
-from types import FrameType
 import inspect
 from inspect import FrameInfo
+from types import FrameType
+from typing import Any
+from typing import List
+from typing import Optional
 
 from apysc._html.debug_mode import add_debug_info_setting
 
@@ -47,7 +48,7 @@ def trace(*args: Any) -> None:
     expression += ", ".join(arg_strs)
 
     func_caller_info: str = _get_func_callers_info()
-    expression +=f', "{func_caller_info}"'
+    expression += f', "{func_caller_info}"'
 
     expression += ");"
     ap.append_js_expression(expression=expression)
@@ -69,7 +70,7 @@ def _get_func_callers_info() -> str:
     current_frame: Optional[FrameType] = inspect.currentframe()
     outer_frames: List[FrameInfo] = inspect.getouterframes(frame=current_frame)
     file_name: str = outer_frames[OUTER_FRAMES_INDEX].filename
-    file_name = file_name.rsplit('/', maxsplit=1)[-1]
+    file_name = file_name.rsplit("/", maxsplit=1)[-1]
     lineno: int = outer_frames[OUTER_FRAMES_INDEX].lineno
     function: str = outer_frames[OUTER_FRAMES_INDEX].function
     if function != "<module>":

@@ -14,7 +14,7 @@ def test_trace() -> None:
     ap.trace(stage, 100, "Hello!")
     expression: str = expression_data_util.get_current_expression()
     expected: str = (
-        f'console.log({stage.variable_name}, "100", "Hello!", "\nCalled from: '
+        f'console.log({stage.variable_name}, "100", "Hello!", "\\nCalled from: '
         'test_trace, file name: test__trace.py, line number: '
     )
     assert expected in expression
@@ -42,10 +42,10 @@ _TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO: str = _dummy_trace()
 def test__get_func_callers_info() -> None:
     print(_TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO)
     assert _TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO.startswith(
-        "\nCalled from: test__trace"
+        "\\nCalled from: test__trace"
     )
 
     func_callers_info: str = _dummy_trace()
     assert func_callers_info.startswith(
-        "\nCalled from: test__get_func_callers_info, file name: test__trace"
+        "\\nCalled from: test__get_func_callers_info, file name: test__trace"
     )

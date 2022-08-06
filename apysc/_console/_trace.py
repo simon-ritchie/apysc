@@ -74,8 +74,8 @@ def _get_func_callers_info() -> str:
     function: str = outer_frames[OUTER_FRAMES_INDEX].function
     if function != "<module>":
         func_caller_info: str = (
-            f"\nCalled from: {function}, file name: {file_name}, line number: {lineno}"
+            f"\\nCalled from: {function}, file name: {file_name}, line number: {lineno}"
         )
     else:
-        func_caller_info = f"\nCalled from: {file_name}, line number: {lineno}"
+        func_caller_info = f"\\nCalled from: {file_name}, line number: {lineno}"
     return func_caller_info

@@ -6,6 +6,8 @@ This page explains the `trace` function interface.
 
 The `trace` function interface displays any message on the browser console. This interface behaves like the JavaScript `console.log` function.
 
+Also, this interface displays Python's file name, caller information, and line number.
+
 ## Basic usage
 
 The `trace` function can accept any number of arguments and various value types.

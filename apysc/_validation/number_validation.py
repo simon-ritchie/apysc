@@ -128,8 +128,12 @@ def validate_int_is_zero_or_one(*, integer: Union[int, Int]) -> None:
     """
     if not isinstance(integer, (int, Int)):
         return
-    if integer == 0 or integer == 1:
-        return
+    if isinstance(integer, int):
+        if integer == 0 or integer == 1:
+            return
+    elif isinstance(integer, Int):
+        if integer._value == 0 or integer._value == 1:
+            return
     raise ValueError(f"Specified integer value is not zero and one: {integer}")
 
 

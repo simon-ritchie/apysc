@@ -4,6 +4,7 @@ validation implementations.
 
 import inspect
 from inspect import Signature
+import re
 from typing import Any
 from typing import Callable
 from typing import List
@@ -81,3 +82,41 @@ def validate_handler_args_num(
             "one becomes the handler's option parameters."
             f"{additional_err_msg}"
         )
+
+
+def validate_in_handler_substitution(*, handler: Callable) -> None:
+    """
+    Validate whether there isn't substitution of the basic type values
+    (e.g., ap.Int, ap.String) in a specified handler's source.
+
+    Parameters
+    ----------
+    handler : Callable
+        A target handler's callable object.
+    """
+    source: str = inspect.getsource(handler)
+    source = _remove_handlers_name_and_args_from_source(
+        source=source)
+    pass
+
+
+def _remove_handlers_name_and_args_from_source(*, source: str) -> str:
+    """
+    Remove a handler's keyword, name, arguments, and return values
+    type annotations from a specified source string.
+
+    Parameters
+    ----------
+    source : str
+        A source string.
+
+    Returns
+    -------
+    source : str
+        A result source string.
+    """
+    source = re.sub(
+        pattern=r"def .+?\(.*?\).*?\:\n",
+        repl='', string=source, count=1,
+        flags=re.MULTILINE | re.DOTALL)
+    return source

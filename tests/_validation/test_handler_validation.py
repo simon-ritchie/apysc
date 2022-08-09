@@ -74,3 +74,35 @@ def test_validate_handler_args_num() -> None:
 
     handler_validation.validate_handler_args_num(handler=_test_handler_2)
     handler_validation.validate_handler_args_num(handler=_test_handler_3)
+
+
+_HANDLER_SOURCE_1: str = """
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    print(100)
+""".strip()
+
+_HANDLER_SOURCE_2: str = """
+def on_timer(e, options):
+    print(200)
+""".strip()
+
+_HANDLER_SOURCE_3: str = """
+def on_timer(
+        e, options):
+    print(300)
+""".strip()
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_handlers_name_and_args_from_source() -> None:
+    source: str = handler_validation._remove_handlers_name_and_args_from_source(
+        source=_HANDLER_SOURCE_1)
+    assert source == "    print(100)"
+
+    source = handler_validation._remove_handlers_name_and_args_from_source(
+        source=_HANDLER_SOURCE_2)
+    assert source == "    print(200)"
+
+    source = handler_validation._remove_handlers_name_and_args_from_source(
+        source=_HANDLER_SOURCE_3)
+    assert source == "    print(300)"

@@ -5,7 +5,7 @@ validation implementations.
 import inspect
 from inspect import Signature
 import re
-from typing import Any
+from typing import Any, Optional
 from typing import Callable
 from typing import List
 
@@ -97,7 +97,38 @@ def validate_in_handler_substitution(*, handler: Callable) -> None:
     source: str = inspect.getsource(handler)
     source = _remove_handlers_name_and_args_from_source(
         source=source)
+    source = _remove_docstring_from_source(docstring=handler.__doc__, source=source)
     pass
+
+
+def _remove_docstring_from_source(*, docstring: Optional[str], source: str) -> str:
+    """
+    Remove a docstring from a specified source code string.
+
+    Parameters
+    ----------
+    docstring : Optional[str]
+        A handler's docstring.
+    source : str
+        A handler's source code string.
+
+    Returns
+    -------
+    source : str
+        A result source code string.
+    """
+    if docstring is None:
+        return source
+    source = source.replace(docstring, "", 1)
+    while source.lstrip().startswith('"""'):
+        source = source.replace('"""', "", 1)
+    while source.lstrip().startswith("'''"):
+        source = source.replace("'''", "", 1)
+    source = re.sub(
+        pattern=r'^ *?\n', repl='', string=source, count=1,
+        flags=re.DOTALL)
+    source = source.rstrip()
+    return source
 
 
 def _remove_handlers_name_and_args_from_source(*, source: str) -> str:

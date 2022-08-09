@@ -1,3 +1,4 @@
+import inspect
 from random import randint
 from typing import Any
 
@@ -106,3 +107,53 @@ def test__remove_handlers_name_and_args_from_source() -> None:
     source = handler_validation._remove_handlers_name_and_args_from_source(
         source=_HANDLER_SOURCE_3)
     assert source == "    print(300)"
+
+
+def _test_handler_4(e: ap.TimerEvent, options: dict) -> None:
+    """
+    Lorem ipsum dolor.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    print(400)
+
+def _test_handler_5(e: ap.TimerEvent, options: dict) -> None:
+    '''
+    Lorem ipsum dolor.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    '''
+    print(500)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_docstring_from_source() -> None:
+    source: str = handler_validation._remove_docstring_from_source(
+        docstring=None, source="    print(600)")
+    assert source == "    print(600)"
+
+    source = inspect.getsource(_test_handler_4)
+    source = handler_validation._remove_handlers_name_and_args_from_source(
+        source=source)
+    source = handler_validation._remove_docstring_from_source(
+        docstring=_test_handler_4.__doc__,
+        source=source)
+    assert source == "    print(400)"
+
+    source = inspect.getsource(_test_handler_5)
+    source = handler_validation._remove_handlers_name_and_args_from_source(
+        source=source)
+    source = handler_validation._remove_docstring_from_source(
+        docstring=_test_handler_5.__doc__,
+        source=source)
+    assert source == "    print(500)"

@@ -8,6 +8,7 @@ from typing_extensions import TypedDict
 import apysc as ap
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import handler_validation
+from apysc._validation.handler_validation import _InvalidAssignmentInHandler
 
 
 class _TestTypedDict(TypedDict):
@@ -157,3 +158,78 @@ def test__remove_docstring_from_source() -> None:
         docstring=_test_handler_5.__doc__,
         source=source)
     assert source == "    print(500)"
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_in_handler_assignment() -> None:
+
+    def _test_handler_1(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        """
+        Lorem ipsum dolor sit amet, consect et.
+
+        Parameters
+        ----------
+        e : ap.MouseEvent[ap.Rectangle]
+            Event instance.
+        options : dict
+            Optional arguments dictionary.
+        """
+        test_int: int = 10 + 20
+        ap.trace(test_int)
+
+    handler_validation.validate_in_handler_assignment(handler=_test_handler_1)
+
+    def _test_handler_2(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        """
+        Lorem ipsum dolor sit amet, consect et.
+
+        Parameters
+        ----------
+        e : ap.MouseEvent[ap.Rectangle]
+            Event instance.
+        options : dict
+            Optional arguments dictionary.
+        """
+        test_int: ap.Int = ap.Int(10)
+        ap.trace(test_int)
+
+    assert_raises(
+        expected_error_class=_InvalidAssignmentInHandler,
+        callable_=handler_validation.validate_in_handler_assignment,
+        handler=_test_handler_2,
+    )
+
+    def _test_handler_3(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        """
+        Lorem ipsum dolor sit amet, consect et.
+
+        Parameters
+        ----------
+        e : ap.MouseEvent[ap.Rectangle]
+            Event instance.
+        options : dict
+            Optional arguments dictionary.
+        """
+        e.this.x = ap.Int(50)
+
+    handler_validation.validate_in_handler_assignment(handler=_test_handler_3)
+
+
+_TEST_SOURCE_1: str = """
+    test_int_1: int = 10 + 20
+    test_int_2: ap.Int = ap.Int(30)
+    test_int_3 = 40
+""".strip()
+
+_EXPECTED_SOURCE_1: str = """
+    test_int_1 = 10 + 20
+    test_int_2 = ap.Int(30)
+    test_int_3 = 40
+""".strip()
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_type_annotation_from_source_variable() -> None:
+    source: str = handler_validation._remove_type_annotation_from_source_variable(
+        source=_TEST_SOURCE_1)
+    assert source == _EXPECTED_SOURCE_1

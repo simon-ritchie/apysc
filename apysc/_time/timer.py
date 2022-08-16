@@ -75,6 +75,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
     _running: Boolean
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @arg_validation_decos.in_handler_assignment(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     @arg_validation_decos.handler_options_type(arg_position_index=4)
@@ -535,6 +536,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         self._current_count.value = 0
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @arg_validation_decos.in_handler_assignment(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def timer_complete(

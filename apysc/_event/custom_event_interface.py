@@ -111,6 +111,7 @@ class CustomEventInterface(BlankObjectInterface):
         del self._custom_event_handlers[custom_event_type_str][name]
 
     @arg_validation_decos.handler_args_num(arg_position_index=2)
+    @arg_validation_decos.in_handler_assignment(arg_position_index=2)
     @arg_validation_decos.is_event(arg_position_index=3)
     @arg_validation_decos.handler_options_type(arg_position_index=4)
     @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=False)
@@ -275,6 +276,7 @@ class CustomEventInterface(BlankObjectInterface):
         ap.append_js_expression(expression=expression)
 
     @arg_validation_decos.handler_args_num(arg_position_index=2)
+    @arg_validation_decos.in_handler_assignment(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def unbind_custom_event(
         self, *, custom_event_type: Union[CustomEventType, str], handler: _Handler

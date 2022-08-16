@@ -19,6 +19,7 @@ _Handler = Callable[[MouseEvent, _O], None]
 
 class MouseEventInterfaceBase:
     @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @arg_validation_decos.in_handler_assignment(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=3)
     def _set_mouse_event_handler_data(
         self,

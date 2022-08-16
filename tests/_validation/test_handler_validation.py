@@ -8,7 +8,7 @@ from typing_extensions import TypedDict
 import apysc as ap
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import handler_validation
-from apysc._validation.handler_validation import _InvalidAssignmentInHandler
+from apysc._validation.handler_validation import InvalidAssignmentInHandler
 
 
 class _TestTypedDict(TypedDict):
@@ -194,7 +194,7 @@ def test_validate_in_handler_assignment() -> None:
         ap.trace(test_int)
 
     assert_raises(
-        expected_error_class=_InvalidAssignmentInHandler,
+        expected_error_class=InvalidAssignmentInHandler,
         callable_=handler_validation.validate_in_handler_assignment,
         handler=_test_handler_2,
     )

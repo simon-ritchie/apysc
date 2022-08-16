@@ -11,6 +11,10 @@ Mainly the following decorators exist.
 - handler_options_type
     - Set the validation to check a specified handler-options
         argument's type.
+- in_handler_assignment
+    - Set the validation to check whether there isn't assignment
+    of the basic type values (e.g., ap.Int, ap.String) in a specified
+    handler's source.
 - is_event
     - Set the validation to check a specified argument's type
         is the `ap.Event` or its subclass type.
@@ -379,6 +383,45 @@ def handler_options_type(*, arg_position_index: int) -> _F:
             validate_options_type(
                 options=options, additional_err_msg=callable_and_arg_names_msg
             )
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def in_handler_assignment(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check whether there isn't assignment
+    of the basic type values (e.g., ap.Int, ap.String) in a specified
+    handler's source.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._validation.handler_validation import \
+                validate_in_handler_assignment
+            handler: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+
+            validate_in_handler_assignment(handler=handler)
 
             result: Any = callable_(*args, **kwargs)
             return result

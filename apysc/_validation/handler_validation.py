@@ -84,7 +84,7 @@ def validate_handler_args_num(
         )
 
 
-class _InvalidAssignmentInHandler(Exception):
+class InvalidAssignmentInHandler(Exception):
     pass
 
 
@@ -100,7 +100,7 @@ def validate_in_handler_assignment(*, handler: Callable) -> None:
 
     Raises
     ------
-    _InvalidAssignmentInHandler
+    InvalidAssignmentInHandler
         If using a prohibited assignment in a handler's code.
     """
     source: str = inspect.getsource(handler)
@@ -108,7 +108,6 @@ def validate_in_handler_assignment(*, handler: Callable) -> None:
         source=source)
     source = _remove_docstring_from_source(docstring=handler.__doc__, source=source)
     source = _remove_type_annotation_from_source_variable(source=source)
-    print('\nsource:\n', source)
 
     INVALID_BASIC_TYPES_STRS: List[str] = [
         "Int", "Number", "Float", "String", "Str", "Boolean", "Bool", "Array",
@@ -130,7 +129,7 @@ def validate_in_handler_assignment(*, handler: Callable) -> None:
             f"\n{variable_name}.value = sp.{invalid_basic_types_str}(...)"
             f"\n\nSpecified handler's code:\n{inspect.getsource(handler)}"
         )
-        raise _InvalidAssignmentInHandler(err_msg)
+        raise InvalidAssignmentInHandler(err_msg)
 
 
 def _remove_type_annotation_from_source_variable(*, source: str) -> str:

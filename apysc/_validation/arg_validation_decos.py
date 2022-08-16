@@ -12,7 +12,7 @@ Mainly the following decorators exist.
     - Set the validation to check a specified handler-options
         argument's type.
 - in_handler_assignment
-    - Set the validation to check whether there isn't assignment
+    - Set the validation to check whether there isn't an assignment
     of the basic type values (e.g., ap.Int, ap.String) in a specified
     handler's source.
 - is_event
@@ -412,8 +412,10 @@ def in_handler_assignment(*, arg_position_index: int) -> _F:
     def wrapped(callable_: _F) -> _F:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._validation.handler_validation import \
-                validate_in_handler_assignment
+            from apysc._validation.handler_validation import (
+                validate_in_handler_assignment,
+            )
+
             handler: Any = _extract_arg_value(
                 args=args,
                 kwargs=kwargs,

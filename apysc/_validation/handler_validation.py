@@ -3,11 +3,14 @@ validation implementations.
 """
 
 import inspect
-from inspect import Signature
 import re
-from typing import Any, Match, Optional, Pattern
+from inspect import Signature
+from typing import Any
 from typing import Callable
 from typing import List
+from typing import Match
+from typing import Optional
+from typing import Pattern
 
 
 def validate_options_type(*, options: Any, additional_err_msg: str = "") -> None:
@@ -90,7 +93,7 @@ class InvalidAssignmentInHandler(Exception):
 
 def validate_in_handler_assignment(*, handler: Callable) -> None:
     """
-    Validate whether there isn't assignment of the basic type values
+    Validate whether there isn't an assignment of the basic type values
     (e.g., ap.Int, ap.String) in a specified handler's source.
 
     Parameters
@@ -104,19 +107,26 @@ def validate_in_handler_assignment(*, handler: Callable) -> None:
         If using a prohibited assignment in a handler's code.
     """
     source: str = inspect.getsource(handler)
-    source = _remove_handlers_name_and_args_from_source(
-        source=source)
+    source = _remove_handlers_name_and_args_from_source(source=source)
     source = _remove_docstring_from_source(docstring=handler.__doc__, source=source)
     source = _remove_type_annotation_from_source_variable(source=source)
 
     INVALID_BASIC_TYPES_STRS: List[str] = [
-        "Int", "Number", "Float", "String", "Str", "Boolean", "Bool", "Array",
+        "Int",
+        "Number",
+        "Float",
+        "String",
+        "Str",
+        "Boolean",
+        "Bool",
+        "Array",
         "Dictionary",
     ]
     for invalid_basic_types_str in INVALID_BASIC_TYPES_STRS:
         match: Optional[Match] = re.search(
             pattern=rf"    ([a-zA-Z0-9_])+? *?\= *?[ap\.]*?{invalid_basic_types_str}\(",
-            string=source)
+            string=source,
+        )
         if match is None:
             continue
         variable_name: str = match.group(1)
@@ -149,11 +159,12 @@ def _remove_type_annotation_from_source_variable(*, source: str) -> str:
     lines: List[str] = source.splitlines()
     result_lines: List[str] = []
     pattern: Pattern = re.compile(
-        pattern=r"([a-zA-Z0-9_]+? *)\:.+?( *[\+\-\*\/\%\&\|\^\>\<\:\=]+)")
+        pattern=r"([a-zA-Z0-9_]+? *)\:.+?( *[\+\-\*\/\%\&\|\^\>\<\:\=]+)"
+    )
     for line in lines:
         line = pattern.sub(repl=r"\1\2", string=line, count=1)
         result_lines.append(line)
-    source = '\n'.join(result_lines)
+    source = "\n".join(result_lines)
     return source
 
 
@@ -180,9 +191,7 @@ def _remove_docstring_from_source(*, docstring: Optional[str], source: str) -> s
         source = source.replace('"""', "", 1)
     while source.lstrip().startswith("'''"):
         source = source.replace("'''", "", 1)
-    source = re.sub(
-        pattern=r'^ *?\n', repl='', string=source, count=1,
-        flags=re.DOTALL)
+    source = re.sub(pattern=r"^ *?\n", repl="", string=source, count=1, flags=re.DOTALL)
     source = source.rstrip()
     return source
 
@@ -204,6 +213,9 @@ def _remove_handlers_name_and_args_from_source(*, source: str) -> str:
     """
     source = re.sub(
         pattern=r"def .+?\(.*?\).*?\:\n",
-        repl='', string=source, count=1,
-        flags=re.MULTILINE | re.DOTALL)
+        repl="",
+        string=source,
+        count=1,
+        flags=re.MULTILINE | re.DOTALL,
+    )
     return source

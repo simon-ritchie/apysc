@@ -180,6 +180,7 @@ def test_validate_in_handler_assignment() -> None:
         expected_error_class=InvalidAssignmentInHandler,
         callable_=handler_validation.validate_in_handler_assignment,
         handler=_test_handler_2,
+        match="test_int.value = ap.Int(...)",
     )
 
     def _test_handler_3(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:

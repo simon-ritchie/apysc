@@ -124,7 +124,7 @@ def validate_in_handler_assignment(*, handler: Callable) -> None:
     ]
     for invalid_basic_types_str in INVALID_BASIC_TYPES_STRS:
         match: Optional[Match] = re.search(
-            pattern=rf"    ([a-zA-Z0-9_])+? *?\= *?[ap\.]*?{invalid_basic_types_str}\(",
+            pattern=rf"    ([a-zA-Z0-9_]+?) *?\= *?[ap\.]*?{invalid_basic_types_str}\(",
             string=source,
         )
         if match is None:

@@ -136,7 +136,7 @@ def validate_in_handler_assignment(*, handler: Callable) -> None:
             "\n\nInstead, consider passing a predefined value to a second argument "
             "dictionary of a handler, or updating it via the `value` property."
             f'\n\nE.g.,\n{variable_name} = options["{variable_name}"]'
-            f"\n{variable_name}.value = sp.{invalid_basic_types_str}(...)"
+            f"\n{variable_name}.value = ap.{invalid_basic_types_str}(...)"
             f"\n\nSpecified handler's code:\n{inspect.getsource(handler)}"
         )
         raise InvalidAssignmentInHandler(err_msg)

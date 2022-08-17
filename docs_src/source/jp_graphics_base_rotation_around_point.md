@@ -28,6 +28,12 @@ class _RectanglesOptions(TypedDict):
     rectangle_2: ap.Rectangle
 
 
+X1: ap.Int = ap.Int(50)
+Y1: ap.Int = ap.Int(50)
+X2: ap.Int = ap.Int(100)
+Y2: ap.Int = ap.Int(100)
+
+
 def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     """
     The handler that the timer calls.
@@ -39,19 +45,15 @@ def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    x: ap.Int = ap.Int(50)
-    y: ap.Int = ap.Int(50)
     rectangle_1: ap.Rectangle = options["rectangle_1"]
-    rotation: ap.Int = rectangle_1.get_rotation_around_point(x=x, y=y)
+    rotation: ap.Int = rectangle_1.get_rotation_around_point(x=X1, y=Y1)
     rotation += 1
-    rectangle_1.set_rotation_around_point(rotation=rotation, x=x, y=y)
+    rectangle_1.set_rotation_around_point(rotation=rotation, x=X1, y=Y1)
 
     rectangle_2: ap.Rectangle = options["rectangle_2"]
-    x = ap.Int(100)
-    y = ap.Int(100)
-    rotation = rectangle_2.get_rotation_around_point(x=x, y=y)
+    rotation = rectangle_2.get_rotation_around_point(x=X2, y=Y2)
     rotation += 1
-    rectangle_2.set_rotation_around_point(rotation=rotation, x=x, y=y)
+    rectangle_2.set_rotation_around_point(rotation=rotation, x=X2, y=Y2)
 
 
 ap.Stage(

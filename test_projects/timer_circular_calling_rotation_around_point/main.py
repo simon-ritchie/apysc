@@ -71,9 +71,11 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     rectangle: ap.Rectangle = options["rectangle"]
     rotation: ap.Int = rectangle.get_rotation_around_point(
-        x=options["x"], y=options["y"])
+        x=options["x"], y=options["y"]
+    )
     rectangle.set_rotation_around_point(
-        rotation=rotation + 1, x=options["x"], y=options["y"])
+        rotation=rotation + 1, x=options["x"], y=options["y"]
+    )
 
 
 def on_timer_complete_1(e: ap.TimerEvent, options: _RectOptions) -> None:
@@ -107,9 +109,11 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     rectangle: ap.Rectangle = options["rectangle"]
     rotation: ap.Int = rectangle.get_rotation_around_point(
-        x=options["x"], y=options["y"])
+        x=options["x"], y=options["y"]
+    )
     rectangle.set_rotation_around_point(
-        rotation=rotation - 1, x=options["x"], y=options["y"])
+        rotation=rotation - 1, x=options["x"], y=options["y"]
+    )
 
 
 def on_timer_complete_2(e: ap.TimerEvent, options: _RectOptions) -> None:

@@ -72,16 +72,12 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    scale_y: ap.Number = rectangle.get_scale_y_from_point(
-        y=options["y"])
+    scale_y: ap.Number = rectangle.get_scale_y_from_point(y=options["y"])
     scale_y += 0.03
-    rectangle.set_scale_y_from_point(
-        scale_y=scale_y, y=options["y"])
+    rectangle.set_scale_y_from_point(scale_y=scale_y, y=options["y"])
 
     with ap.If(scale_y >= 5.0):
-        rectangle.set_scale_y_from_point(
-            scale_y=options["max_scale_y"],
-            y=options["y"])
+        rectangle.set_scale_y_from_point(scale_y=options["max_scale_y"], y=options["y"])
         e.this.stop()
 
 

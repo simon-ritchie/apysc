@@ -14,11 +14,13 @@ from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
 from apysc._validation import arg_validation_decos
+from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
 
 
 class ScaleXFromCenterInterface(
     VariableNameSuffixAttrInterface,
     AnimationScaleXFromCenterInterface,
+    SetLowerScaleLimitInterface,
     RevertInterface,
     AttrLinkingInterface,
 ):
@@ -109,6 +111,7 @@ class ScaleXFromCenterInterface(
 
         self._initialize_scale_x_from_center_if_not_initialized()
         before_value: ap.Number = self._scale_x_from_center
+        self._set_lower_scale_limit(value=value)
         self._scale_x_from_center = value
         self._append_scale_x_from_center_update_expression(before_value=before_value)
 

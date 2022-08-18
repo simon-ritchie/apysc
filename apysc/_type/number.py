@@ -119,7 +119,7 @@ class Number(NumberValueInterface[float, "Number"]):
                 variable_name_suffix=variable_name_suffix,
             )
             self._value = cast.to_float_from_int(int_or_float=self.value)
-            self.append_constructor_expression()
+            self._append_constructor_expression()
 
     @arg_validation_decos.is_num(arg_position_index=1)
     def _set_value_and_skip_expression_appending(

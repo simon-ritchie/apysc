@@ -71,7 +71,7 @@ class TestNumberValueInterface:
             value=100, type_name="test_interface"
         )
         interface_1.variable_name = "test_number_value_interface_1"
-        interface_1.append_constructor_expression()
+        interface_1._append_constructor_expression()
         expression: str = expression_data_util.get_current_expression()
         expected: str = "var test_number_value_interface_1 = 100;"
         assert expected in expression
@@ -80,7 +80,7 @@ class TestNumberValueInterface:
             value=interface_1, type_name="test_interface"
         )
         interface_2.variable_name = "test_number_value_interface_2"
-        interface_2.append_constructor_expression()
+        interface_2._append_constructor_expression()
         expression = expression_data_util.get_current_expression()
         expected = (
             "var test_number_value_interface_2 = " "test_number_value_interface_1"

@@ -118,7 +118,7 @@ class Int(NumberValueInterface[int, "Int"]):
                 variable_name_suffix=variable_name_suffix,
             )
             self._value = cast.to_int_from_float(int_or_float=self.value)
-            self.append_constructor_expression()
+            self._append_constructor_expression()
             self._append_cast_expression(is_number_specified=is_number_specified)
 
     @add_debug_info_setting(module_name=__name__)

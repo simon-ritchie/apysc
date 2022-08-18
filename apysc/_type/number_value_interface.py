@@ -59,7 +59,7 @@ class NumberValueInterface(
         self._type_name = type_name
 
     @add_debug_info_setting(module_name=__name__)
-    def append_constructor_expression(self) -> None:
+    def _append_constructor_expression(self) -> None:
         """
         Append current value's constructor expression.
         """

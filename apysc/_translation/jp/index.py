@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -67,7 +67,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Common event interfaces": "## イベントの共通の各インターフェイス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nabout_handler_options_type\nevent_prevent_default_and_stop_propagation\nbind_and_trigger_custom_event\n```": "```{toctree}\n:maxdepth: 1\njp_about_handler_options_type\njp_event_prevent_default_and_stop_propagation\njp_bind_and_trigger_custom_event\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nabout_handler_options_type\nevent_prevent_default_and_stop_propagation\nbind_and_trigger_custom_event\nnotes_of_handler_scope_assignment\n```": "```{toctree}\n:maxdepth: 1\njp_about_handler_options_type\njp_event_prevent_default_and_stop_propagation\njp_bind_and_trigger_custom_event\njp_notes_of_handler_scope_assignment\n```",  # noqa
     ##################################################
     "## MouseEvent class and mouse event binding": "## MouseEvent クラスとマウスイベントの設定",
     ##################################################

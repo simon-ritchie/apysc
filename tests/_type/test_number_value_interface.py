@@ -999,3 +999,18 @@ class TestNumberValueInterface:
         interface_1.variable_name = "test_interface_1"
         interface_3: NumberValueInterface = interface_1 % ap.Int(3)
         assert interface_3 == 1.5
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_substitution_expression(self) -> None:
+        interface: NumberValueInterface = NumberValueInterface(
+            value=10, type_name="test_interface"
+        )
+        expression: str = interface._create_initial_substitution_expression()
+        assert expression == f"{interface.variable_name} = 10;"
+
+        int_val: ap.Int = ap.Int(10)
+        interface = NumberValueInterface(
+            value=int_val, type_name="test_interface"
+        )
+        expression = interface._create_initial_substitution_expression()
+        assert expression == f"{interface.variable_name} = {int_val.variable_name};"

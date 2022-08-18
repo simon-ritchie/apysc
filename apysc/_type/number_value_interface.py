@@ -64,13 +64,26 @@ class NumberValueInterface(
         Append current value's constructor expression.
         """
         import apysc as ap
+        expression: str = self._create_initial_substitution_expression()
 
+        expression = f'var {expression}'
+        ap.append_js_expression(expression=expression)
+
+    def _create_initial_substitution_expression(self) -> str:
+        """
+        Create an initial value's substitution expression string.
+
+        Returns
+        -------
+        expression : str
+            Created expression string.
+        """
         if isinstance(self._initial_value, NumberValueInterface):
             value_: Union[int, float, str] = self._initial_value.variable_name
         else:
             value_ = self._value
-        expression: str = f"var {self.variable_name} = {value_};"
-        ap.append_js_expression(expression=expression)
+        expression: str = f"{self.variable_name} = {value_};"
+        return expression
 
     @property
     @add_debug_info_setting(module_name=__name__)

@@ -17,10 +17,14 @@ from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
 from apysc._validation import arg_validation_decos
+from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
 
 
 class ScaleYFromPointInterface(
-    VariableNameSuffixAttrInterface, AnimationScaleYFromPointInterface, RevertInterface
+    VariableNameSuffixAttrInterface,
+    AnimationScaleYFromPointInterface,
+    SetLowerScaleLimitInterface,
+    RevertInterface,
 ):
 
     _scale_y_from_point: Dictionary[str, Number]
@@ -128,6 +132,7 @@ class ScaleYFromPointInterface(
                 coordinate=int(y._value)
             )
         )
+        self._set_lower_scale_limit(value=scale_y)
         self._scale_y_from_point._value[key_exp_str.value] = scale_y
         self._append_scale_y_from_point_update_expression(y=y)
 

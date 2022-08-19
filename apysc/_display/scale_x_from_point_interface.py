@@ -16,10 +16,14 @@ from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
 from apysc._validation import arg_validation_decos
+from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
 
 
 class ScaleXFromPointInterface(
-    VariableNameSuffixAttrInterface, AnimationScaleXFromPointInterface, RevertInterface
+    VariableNameSuffixAttrInterface,
+    AnimationScaleXFromPointInterface,
+    SetLowerScaleLimitInterface,
+    RevertInterface,
 ):
 
     _scale_x_from_point: Dictionary[str, Number]
@@ -129,6 +133,7 @@ class ScaleXFromPointInterface(
                 coordinate=int(x._value)
             )
         )
+        self._set_lower_scale_limit(value=scale_x)
         self._scale_x_from_point._value[key_exp_str.value] = scale_x
         self._append_scale_x_from_point_update_expression(x=x)
 

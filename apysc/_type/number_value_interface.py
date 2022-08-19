@@ -77,10 +77,7 @@ class NumberValueInterface(
         """
         import apysc as ap
         from apysc._expression import event_handler_scope
-        event_handler_scope_count: int = (
-            event_handler_scope.get_current_event_handler_scope_count()
-        )
-        if event_handler_scope_count == 0:
+        if not event_handler_scope.current_scope_is_in_event_handler():
             return
         expression: str = self._create_initial_substitution_expression()
         ap.append_js_expression(expression=expression)

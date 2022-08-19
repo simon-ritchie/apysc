@@ -51,10 +51,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         from apysc._expression import event_handler_scope
         from apysc._type.type_util import is_immutable_type
 
-        evt_handler_scope_count: int = (
-            event_handler_scope.get_current_event_handler_scope_count()
-        )
-        if evt_handler_scope_count == 0:
+        if not event_handler_scope.current_scope_is_in_event_handler():
             return
         if is_immutable_type(value=self):
             expression: str = f"{result_variable_name} = {self.variable_name};"

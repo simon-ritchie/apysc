@@ -68,10 +68,7 @@ def _get_indent_num_table_name() -> str:
     from apysc._expression import event_handler_scope
     from apysc._expression import expression_data_util
 
-    event_handler_scope_count: int = (
-        event_handler_scope.get_current_event_handler_scope_count()
-    )
-    if event_handler_scope_count == 0:
+    if not event_handler_scope.current_scope_is_in_event_handler():
         return expression_data_util.TableName.INDENT_NUM_NORMAL.value
     return expression_data_util.TableName.INDENT_NUM_HANDLER.value
 

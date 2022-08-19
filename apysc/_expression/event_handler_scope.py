@@ -224,3 +224,19 @@ def get_current_event_handler_scope_count() -> int:
         return 0
     scope_count: int = int(result[0])
     return scope_count
+
+
+def current_scope_is_in_event_handler() -> bool:
+    """
+    Get a boolean indicating whether a current scope is in an event handler
+    or not.
+
+    Returns
+    -------
+    result : bool
+        This interface returns True if a current scope is in an event handler.
+    """
+    scope_count: int = get_current_event_handler_scope_count()
+    if scope_count == 0:
+        return False
+    return True

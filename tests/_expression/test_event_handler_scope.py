@@ -190,3 +190,15 @@ def test_remove_suffix_num_from_handler_name() -> None:
         handler_name="__main__on_timer_1_timer_5"
     )
     assert handler_name == "__main__on_timer_1_timer"
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_current_scope_is_in_event_handler() -> None:
+    result: bool = event_handler_scope.current_scope_is_in_event_handler()
+    assert not result
+
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = "test_instance"
+    with HandlerScope(handler_name="test_handler_a_1", instance=instance):
+        result = event_handler_scope.current_scope_is_in_event_handler()
+        assert result

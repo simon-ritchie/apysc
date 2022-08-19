@@ -17,5 +17,5 @@ class SetLowerScaleLimitInterface:
             A value to apply the lower scale limit.
         """
         import apysc as ap
-        with ap.If(value < 0.01):
-            value.value = ap.Number(0.01)
+        with ap.If(value < 0.00000001, locals_=locals()):
+            value.value = ap.Number(0.00000001)

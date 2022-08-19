@@ -453,3 +453,20 @@ class TestString:
 
         converted_val = string_1._convert_other_val_to_string(other=100)
         assert converted_val == 100
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_initial_substitution_expression(self) -> None:
+        string: ap.String = ap.String(value="Hello!")
+        expression: str = string._create_initial_substitution_expression()
+        expected_str: str = (
+            f'{string.variable_name} = "Hello!";'
+        )
+        assert expression == expected_str
+
+        other_string: ap.String = ap.String("Hello!")
+        string = ap.String(value=other_string)
+        expression = string._create_initial_substitution_expression()
+        expected_str = (
+            f'{string.variable_name} = {other_string.variable_name};'
+        )
+        assert expression == expected_str

@@ -111,13 +111,25 @@ class String(
         Append constructor expression.
         """
         import apysc as ap
+        expression: str = self._create_initial_substitution_expression()
+        expression = f'var {expression}'
+        ap.append_js_expression(expression=expression)
 
-        expression: str = f"var {self.variable_name} = "
+    def _create_initial_substitution_expression(self) -> str:
+        """
+        Create an initial value's substitution expression string.
+
+        Returns
+        -------
+        expression : str
+            Created expression string.
+        """
+        expression: str = f"{self.variable_name} = "
         if isinstance(self._initial_value, String):
             expression += f"{self._initial_value.variable_name};"
         else:
             expression += f'"{self._value}";'
-        ap.append_js_expression(expression=expression)
+        return expression
 
     def _get_str_value(self, *, value: Union[str, "String"]) -> str:
         """

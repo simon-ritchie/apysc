@@ -72,7 +72,7 @@ class NumberValueInterface(
     @add_debug_info_setting(module_name=__name__)
     def _append_initial_substitution_expression_if_in_handler_scope(self) -> None:
         """
-        Append an initial value's expression if the current scope is
+        Append an initial value's expression if a current scope is
         in a handler scope.
         """
         import apysc as ap

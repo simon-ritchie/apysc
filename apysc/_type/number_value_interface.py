@@ -61,12 +61,28 @@ class NumberValueInterface(
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
-        Append current value's constructor expression.
+        Append a current value's constructor expression.
         """
         import apysc as ap
         expression: str = self._create_initial_substitution_expression()
 
         expression = f'var {expression}'
+        ap.append_js_expression(expression=expression)
+
+    @add_debug_info_setting(module_name=__name__)
+    def _append_initial_substitution_expression_if_in_handler_scope(self) -> None:
+        """
+        Append an initial value's expression if the current scope is
+        in a handler scope.
+        """
+        import apysc as ap
+        from apysc._expression import event_handler_scope
+        event_handler_scope_count: int = (
+            event_handler_scope.get_current_event_handler_scope_count()
+        )
+        if event_handler_scope_count == 0:
+            return
+        expression: str = self._create_initial_substitution_expression()
         ap.append_js_expression(expression=expression)
 
     def _create_initial_substitution_expression(self) -> str:

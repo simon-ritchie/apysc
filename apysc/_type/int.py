@@ -121,6 +121,8 @@ class Int(NumberValueInterface[int, "Int"]):
             self._append_constructor_expression()
             self._append_cast_expression(is_number_specified=is_number_specified)
 
+        self._append_initial_substitution_expression_if_in_handler_scope()
+
     @add_debug_info_setting(module_name=__name__)
     def _append_cast_expression(self, *, is_number_specified: bool) -> None:
         """

@@ -12,6 +12,7 @@ import apysc as ap
 from apysc._display.x_interface import XInterface
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._expression.event_handler_scope import HandlerScope
 from apysc._testing import testing_helper
 from apysc._type.number_value_interface import NumberValueInterface
 
@@ -1014,3 +1015,22 @@ class TestNumberValueInterface:
         )
         expression = interface._create_initial_substitution_expression()
         assert expression == f"{interface.variable_name} = {int_val.variable_name};"
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_initial_substitution_expression_if_in_handler_scope(self) -> None:
+        interface: NumberValueInterface = NumberValueInterface(
+            value=10, type_name="test_interface"
+        )
+        expression_data_util.empty_expression()
+        interface._append_initial_substitution_expression_if_in_handler_scope()
+        expression: str = (
+            expression_data_util.get_current_event_handler_scope_expression()
+        )
+        expected_expression: str = f'{interface.variable_name} = 10;'
+        assert expected_expression not in expression
+
+        expression_data_util.empty_expression()
+        with HandlerScope(handler_name='test_handler', instance=interface):
+            interface._append_initial_substitution_expression_if_in_handler_scope()
+        expression = expression_data_util.get_current_event_handler_scope_expression()
+        assert expected_expression in expression

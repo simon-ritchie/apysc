@@ -4,6 +4,8 @@ This module is for the lower scale limit's setter interface class.
 
 from apysc._type.number import Number
 
+MIN_SCALE: float = 0.00000001
+
 
 class SetLowerScaleLimitInterface:
 
@@ -17,5 +19,5 @@ class SetLowerScaleLimitInterface:
             A value to apply the lower scale limit.
         """
         import apysc as ap
-        with ap.If(value < 0.00000001, locals_=locals()):
-            value.value = ap.Number(0.00000001)
+        with ap.If(value < MIN_SCALE, locals_=locals()):
+            value.value = ap.Number(MIN_SCALE)

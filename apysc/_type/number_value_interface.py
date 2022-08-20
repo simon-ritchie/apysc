@@ -14,6 +14,9 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.initial_substitution_exp_interface import (
+    InitialSubstitutionExpInterface
+)
 
 _NumType = Union[int, float, "NumberValueInterface"]
 _V = TypeVar("_V", int, float)
@@ -25,6 +28,7 @@ class NumberValueInterface(
     RevertInterface,
     CustomEventInterface,
     VariableNameSuffixInterface,
+    InitialSubstitutionExpInterface,
     Generic[_V, _T],
 ):
 
@@ -67,19 +71,6 @@ class NumberValueInterface(
         expression: str = self._create_initial_substitution_expression()
 
         expression = f'var {expression}'
-        ap.append_js_expression(expression=expression)
-
-    @add_debug_info_setting(module_name=__name__)
-    def _append_initial_substitution_expression_if_in_handler_scope(self) -> None:
-        """
-        Append an initial value's expression if a current scope is
-        in a handler scope.
-        """
-        import apysc as ap
-        from apysc._expression import event_handler_scope
-        if not event_handler_scope.current_scope_is_in_event_handler():
-            return
-        expression: str = self._create_initial_substitution_expression()
         ap.append_js_expression(expression=expression)
 
     def _create_initial_substitution_expression(self) -> str:

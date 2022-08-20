@@ -471,22 +471,3 @@ class TestString:
             f'{string.variable_name} = {other_string.variable_name};'
         )
         assert expression == expected_str
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_initial_substitution_expression_if_in_handler_scope(self) -> None:
-        string: ap.String = ap.String(value="Hello!")
-        expression_data_util.empty_expression()
-        string._append_initial_substitution_expression_if_in_handler_scope()
-        expression: str = (
-            expression_data_util.get_current_event_handler_scope_expression()
-        )
-        expected_str: str = f'{string.variable_name} = "Hello!";'
-        assert expected_str not in expression
-
-        expression_data_util.empty_expression()
-        with HandlerScope(handler_name='test_handler', instance=string):
-            string._append_initial_substitution_expression_if_in_handler_scope()
-        expression = (
-            expression_data_util.get_current_event_handler_scope_expression()
-        )
-        assert expected_str in expression

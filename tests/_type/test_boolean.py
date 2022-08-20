@@ -301,23 +301,6 @@ class TestBoolean:
             f"{bool_1.variable_name} = Boolean({bool_2.variable_name});"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_initial_substitution_expression_if_in_handler_scope(self) -> None:
-        bool_1: ap.Boolean = ap.Boolean(True)
-        expression_data_util.empty_expression()
-        bool_1._append_initial_substitution_expression_if_in_handler_scope()
-        expression: str = (
-            expression_data_util.get_current_event_handler_scope_expression()
-        )
-        expected_expression: str = f"{bool_1.variable_name} = true;"
-        assert expected_expression not in expression
-
-        expression_data_util.empty_expression()
-        with HandlerScope(handler_name='test_handler', instance=bool_1):
-            bool_1._append_initial_substitution_expression_if_in_handler_scope()
-        expression = expression_data_util.get_current_event_handler_scope_expression()
-        assert expected_expression in expression
-
 class TestBool:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_alias(self) -> None:

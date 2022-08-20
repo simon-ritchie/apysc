@@ -56,6 +56,7 @@ class Number(NumberValueInterface[float, "Number"]):
         value: Union[int, float, NumberValueInterface],
         *,
         variable_name_suffix: str = "",
+        skip_init_substitution_expression_appending: bool = False,
     ) -> None:
         """
         Floating point number class for apysc library.
@@ -68,6 +69,9 @@ class Number(NumberValueInterface[float, "Number"]):
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+        skip_init_substitution_expression_appending : bool, default False
+            A boolean indicating whether to skip an initial substitution
+            expression or not. This class uses this option internally.
 
         Notes
         -----
@@ -121,7 +125,9 @@ class Number(NumberValueInterface[float, "Number"]):
             self._value = cast.to_float_from_int(int_or_float=self.value)
             self._append_constructor_expression()
 
-        self._append_initial_substitution_expression_if_in_handler_scope()
+        self._append_initial_substitution_expression_if_in_handler_scope(
+            skip_appending=skip_init_substitution_expression_appending,
+        )
 
     @arg_validation_decos.is_num(arg_position_index=1)
     def _set_value_and_skip_expression_appending(

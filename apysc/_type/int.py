@@ -54,6 +54,7 @@ class Int(NumberValueInterface[int, "Int"]):
         value: Union[int, float, NumberValueInterface],
         *,
         variable_name_suffix: str = "",
+        skip_init_substitution_expression_appending: bool = False,
     ) -> None:
         """
         Integer class for apysc library.
@@ -66,6 +67,9 @@ class Int(NumberValueInterface[int, "Int"]):
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+        skip_init_substitution_expression_appending : bool, default False
+            A boolean indicating whether to skip an initial substitution
+            expression or not. This class uses this option internally.
 
         References
         ----------
@@ -121,7 +125,9 @@ class Int(NumberValueInterface[int, "Int"]):
             self._append_constructor_expression()
             self._append_cast_expression(is_number_specified=is_number_specified)
 
-        self._append_initial_substitution_expression_if_in_handler_scope()
+        self._append_initial_substitution_expression_if_in_handler_scope(
+            skip_appending=skip_init_substitution_expression_appending,
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def _append_cast_expression(self, *, is_number_specified: bool) -> None:

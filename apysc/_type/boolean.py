@@ -60,7 +60,11 @@ class Boolean(
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
-        self, value: Union[bool, int, Int, "Boolean"], *, variable_name_suffix: str = ""
+        self,
+        value: Union[bool, int, Int, "Boolean"],
+        *,
+        variable_name_suffix: str = "",
+        skip_init_substitution_expression_appending: bool = False,
     ) -> None:
         """
         Boolean class for apysc library.
@@ -78,6 +82,9 @@ class Boolean(
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+        skip_init_substitution_expression_appending : bool, default False
+            A boolean indicating whether to skip an initial substitution
+            expression or not. This class uses this option internally.
 
         References
         ----------
@@ -111,7 +118,9 @@ class Boolean(
             )
             self._append_constructor_expression()
 
-        self._append_initial_substitution_expression_if_in_handler_scope()
+        self._append_initial_substitution_expression_if_in_handler_scope(
+            skip_appending=skip_init_substitution_expression_appending,
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def _get_bool_from_arg_value(

@@ -35,7 +35,11 @@ class RotationAroundPointInterface(
         suffix: str = self._get_attr_variable_name_suffix(
             attr_identifier="rotation_around_point"
         )
-        self._rotation_around_point = Dictionary({}, variable_name_suffix=suffix)
+        self._rotation_around_point = Dictionary(
+            {},
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

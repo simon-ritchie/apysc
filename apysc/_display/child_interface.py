@@ -77,7 +77,11 @@ class ChildInterface(
         if hasattr(self, "_children"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="children")
-        self._children = Array([], variable_name_suffix=suffix)
+        self._children = Array(
+            [],
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     @arg_validation_decos.is_display_object(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)

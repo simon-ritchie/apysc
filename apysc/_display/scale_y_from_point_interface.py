@@ -39,7 +39,11 @@ class ScaleYFromPointInterface(
         suffix: str = self._get_attr_variable_name_suffix(
             attr_identifier="scale_y_from_point"
         )
-        self._scale_y_from_point = Dictionary({}, variable_name_suffix=suffix)
+        self._scale_y_from_point = Dictionary(
+            {},
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)

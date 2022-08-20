@@ -29,7 +29,11 @@ class Points2DInterface(
         if hasattr(self, "_points"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="points")
-        self._points = Array([], variable_name_suffix=suffix)
+        self._points = Array(
+            [],
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)

@@ -55,6 +55,10 @@ Get a scale-x value from the given x-coordinate.<hr>
 
 <hr>
 
+**[Notes]**
+
+The scale's minimum value is almost zero, and it does not become negative.<hr>
+
 **[Examples]**
 
 ```py
@@ -89,6 +93,10 @@ Update a scale-x value from the given x-coordinate.<hr>
   - X-coordinate.
 
 <hr>
+
+**[Notes]**
+
+The scale's minimum value is almost zero, and it does not become negative.<hr>
 
 **[Examples]**
 

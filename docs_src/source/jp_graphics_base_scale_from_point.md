@@ -175,6 +175,10 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y
 
 <hr>
 
+**[特記事項]**
+
+拡縮の最小値はほぼ0となり、その値は負の値にはなりません。<hr>
+
 **[コードサンプル]**
 
 ```py
@@ -208,6 +212,10 @@ Number(1.5)
   - X座標。
 
 <hr>
+
+**[特記事項]**
+
+拡縮の最小値はほぼ0となり、その値は負の値にはなりません。<hr>
 
 **[コードサンプル]**
 

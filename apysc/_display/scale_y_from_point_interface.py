@@ -7,6 +7,7 @@ from typing import Dict
 from apysc._animation.animation_scale_y_from_point_interface import (
     AnimationScaleYFromPointInterface,
 )
+from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.expression_string import ExpressionString
@@ -17,7 +18,6 @@ from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
 from apysc._validation import arg_validation_decos
-from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
 
 
 class ScaleYFromPointInterface(

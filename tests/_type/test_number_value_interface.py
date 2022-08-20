@@ -1009,8 +1009,6 @@ class TestNumberValueInterface:
         assert expression == f"{interface.variable_name} = 10;"
 
         int_val: ap.Int = ap.Int(10)
-        interface = NumberValueInterface(
-            value=int_val, type_name="test_interface"
-        )
+        interface = NumberValueInterface(value=int_val, type_name="test_interface")
         expression = interface._create_initial_substitution_expression()
         assert expression == f"{interface.variable_name} = {int_val.variable_name};"

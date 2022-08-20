@@ -10,7 +10,6 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from apysc._expression.event_handler_scope import HandlerScope
 from apysc._testing import testing_helper
 
 
@@ -459,15 +458,11 @@ class TestString:
     def test__create_initial_substitution_expression(self) -> None:
         string: ap.String = ap.String(value="Hello!")
         expression: str = string._create_initial_substitution_expression()
-        expected_str: str = (
-            f'{string.variable_name} = "Hello!";'
-        )
+        expected_str: str = f'{string.variable_name} = "Hello!";'
         assert expression == expected_str
 
         other_string: ap.String = ap.String("Hello!")
         string = ap.String(value=other_string)
         expression = string._create_initial_substitution_expression()
-        expected_str = (
-            f'{string.variable_name} = {other_string.variable_name};'
-        )
+        expected_str = f"{string.variable_name} = {other_string.variable_name};"
         assert expression == expected_str

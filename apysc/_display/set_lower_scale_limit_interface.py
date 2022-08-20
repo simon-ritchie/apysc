@@ -8,7 +8,6 @@ MIN_SCALE: float = 0.00000001
 
 
 class SetLowerScaleLimitInterface:
-
     def _set_lower_scale_limit(self, *, value: Number) -> None:
         """
         Set the lower scale limit to a specified value.
@@ -19,5 +18,6 @@ class SetLowerScaleLimitInterface:
             A value to apply the lower scale limit.
         """
         import apysc as ap
+
         with ap.If(value < MIN_SCALE, locals_=locals()):
             value.value = ap.Number(MIN_SCALE)

@@ -10,13 +10,13 @@ from typing import Union
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_interface import CopyInterface
+from apysc._type.initial_substitution_exp_interface import (
+    InitialSubstitutionExpInterface,
+)
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
-from apysc._type.initial_substitution_exp_interface import (
-    InitialSubstitutionExpInterface
-)
 
 _NumType = Union[int, float, "NumberValueInterface"]
 _V = TypeVar("_V", int, float)
@@ -68,9 +68,10 @@ class NumberValueInterface(
         Append a current value's constructor expression.
         """
         import apysc as ap
+
         expression: str = self._create_initial_substitution_expression()
 
-        expression = f'var {expression}'
+        expression = f"var {expression}"
         ap.append_js_expression(expression=expression)
 
     def _create_initial_substitution_expression(self) -> str:

@@ -385,6 +385,15 @@ Convert a comparison other value to a String if it is a string value.<hr>
 - `converted_val`: *
   - Converted value. If the other value is a string, this interface converts it to a String value. This interface returns the other type value directly (not to be converted).
 
+### `_create_initial_substitution_expression` method docstring
+
+Create an initial value's substitution expression string.<hr>
+
+**[Returns]**
+
+- `expression`: str
+  - Created expression string.
+
 ### `_get_str_value` method docstring
 
 Get a (Python's) str value from a specified value.<hr>

@@ -10,7 +10,6 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from apysc._expression.event_handler_scope import HandlerScope
 from apysc._testing import testing_helper
 
 
@@ -300,6 +299,7 @@ class TestBoolean:
         assert expression == (
             f"{bool_1.variable_name} = Boolean({bool_2.variable_name});"
         )
+
 
 class TestBool:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

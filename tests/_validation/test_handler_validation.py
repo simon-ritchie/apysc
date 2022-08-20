@@ -1,4 +1,3 @@
-import inspect
 from random import randint
 from typing import Any
 

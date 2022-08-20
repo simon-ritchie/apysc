@@ -41,6 +41,15 @@ Save the handler calling stack data to the SQLite.<hr>
 - `instance`: VariableNameInterface
   - Instance will be binded the target handler.
 
+## `current_scope_is_in_event_handler` function docstring
+
+Get a boolean indicating whether a current scope is in an event handler or not.<hr>
+
+**[Returns]**
+
+- `result`: bool
+  - This interface returns True if a current scope is in an event handler.
+
 ## `get_current_event_handler_scope_count` function docstring
 
 Get a current event handler's scope count.<hr>

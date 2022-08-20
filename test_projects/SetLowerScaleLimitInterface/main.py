@@ -14,8 +14,8 @@ from types import ModuleType
 from typing_extensions import TypedDict
 
 import apysc as ap
-from apysc._file import file_util
 from apysc._display.set_lower_scale_limit_interface import MIN_SCALE
+from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -98,5 +98,5 @@ def on_timer(e: ap.TimerEvent, options: _CircleOptions) -> None:
         ap.assert_equal(circle_4.get_scale_y_from_point(y=ap.Int(100)), MIN_SCALE)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

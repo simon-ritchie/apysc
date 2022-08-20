@@ -2444,5 +2444,10 @@ MAPPINGS: Mappings = Mappings(
             "setting is sometimes useful for JavaScript's debugging.",
             val="  - JavaScript上の変数のサフィックスの設定です。この設定は" "JavaScriptのデバッグ時に役立つことがあります。",
         ),
+        Mapping(
+            key="The scale's minimum value is almost zero, and it does not become "
+            "negative.<hr>",
+            val="拡縮の最小値はほぼ0となり、その値は負の値にはなりません。<hr>",
+        ),
     ]
 )

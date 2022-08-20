@@ -176,6 +176,10 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y
 
 <hr>
 
+**[Notes]**
+
+The scale's minimum value is almost zero, and it does not become negative.<hr>
+
 **[Examples]**
 
 ```py
@@ -210,6 +214,10 @@ Number(1.5)
   - X-coordinate.
 
 <hr>
+
+**[Notes]**
+
+The scale's minimum value is almost zero, and it does not become negative.<hr>
 
 **[Examples]**
 

@@ -150,6 +150,10 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_center_basic_usage_
 
 <hr>
 
+**[Notes]**
+
+The scale's minimum value is almost zero, and it does not become negative.<hr>
+
 **[Examples]**
 
 ```py
@@ -179,6 +183,10 @@ Number(1.5)
   - Scale-y value from the center of this instance.
 
 <hr>
+
+**[Notes]**
+
+The scale's minimum value is almost zero, and it does not become negative.<hr>
 
 **[Examples]**
 

@@ -164,6 +164,15 @@ Append value's setter expression.<hr>
 - `value`: bool or VariableNameInterface
   - Any value to set.
 
+### `_create_initial_substitution_expression` method docstring
+
+Create an initial value's substitution expression string.<hr>
+
+**[Returns]**
+
+- `expression`: str
+  - Created expression string.
+
 ### `_get_bool_from_arg_value` method docstring
 
 Get bool value from specified argument value.<hr>

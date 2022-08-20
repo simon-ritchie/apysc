@@ -3,14 +3,10 @@ validation implementations.
 """
 
 import inspect
-import re
 from inspect import Signature
 from typing import Any
 from typing import Callable
 from typing import List
-from typing import Match
-from typing import Optional
-from typing import Pattern
 
 
 def validate_options_type(*, options: Any, additional_err_msg: str = "") -> None:

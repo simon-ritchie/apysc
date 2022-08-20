@@ -6,6 +6,7 @@ from typing import Dict
 from apysc._animation.animation_scale_x_from_center_interface import (
     AnimationScaleXFromCenterInterface,
 )
+from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
@@ -14,7 +15,6 @@ from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
 from apysc._validation import arg_validation_decos
-from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
 
 
 class ScaleXFromCenterInterface(
@@ -69,7 +69,7 @@ class ScaleXFromCenterInterface(
 
         Notes
         -----
-        Scale's minimum value is almost zero and it does not become negative.
+        The scale's minimum value is almost zero, and it does not become negative.
 
         References
         ----------
@@ -108,7 +108,7 @@ class ScaleXFromCenterInterface(
 
         Notes
         -----
-        Scale's minimum value is almost zero and it does not become negative.
+        The scale's minimum value is almost zero, and it does not become negative.
 
         References
         ----------

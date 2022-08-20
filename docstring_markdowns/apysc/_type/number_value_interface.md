@@ -313,6 +313,10 @@ Append addition expression.<hr>
 - `other`: NumberValueInterface or int or float
   - Other value to add.
 
+### `_append_constructor_expression` method docstring
+
+Append a current value's constructor expression.
+
 ### `_append_eq_expression` method docstring
 
 Append __eq__ method expression.<hr>
@@ -463,6 +467,15 @@ Convert a specified other value if comparison its type is an int or float, then 
 - `converted_val`: *
   - Converted value. If an int is specified, this interface converts it to an Int. Similarly, if a float is specified, this interface converts it to a Number value. This interface returns the other type directly (not to be converted).
 
+### `_create_initial_substitution_expression` method docstring
+
+Create an initial value's substitution expression string.<hr>
+
+**[Returns]**
+
+- `expression`: str
+  - Created expression string.
+
 ### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>
@@ -489,7 +502,3 @@ Update value attribute and skip expression appending.<hr>
 
 - `value`: NumberValueInterface or int or float
   - Any number value to set.
-
-### `append_constructor_expression` method docstring
-
-Append current value's constructor expression.

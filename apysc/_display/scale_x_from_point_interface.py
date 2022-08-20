@@ -56,6 +56,10 @@ class ScaleXFromPointInterface(
         scale_x : Number
             Scale-x value from the given x-coordinate.
 
+        Notes
+        -----
+        Scale's minimum value is almost zero and it does not become negative.
+
         References
         ----------
         - GraphicsBase scale_from_point interfaces document
@@ -104,6 +108,10 @@ class ScaleXFromPointInterface(
             Scale-x value to set.
         x : Int
             X-coordinate.
+
+        Notes
+        -----
+        Scale's minimum value is almost zero and it does not become negative.
 
         References
         ----------

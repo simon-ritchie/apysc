@@ -67,6 +67,10 @@ class ScaleXFromCenterInterface(
         scale_x_from_center : ap.Number
             Scale-x value from the center of this instance.
 
+        Notes
+        -----
+        Scale's minimum value is almost zero and it does not become negative.
+
         References
         ----------
         - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
@@ -101,6 +105,10 @@ class ScaleXFromCenterInterface(
         ----------
         value : ap.Number
             Scale-x value from the center of this instance.
+
+        Notes
+        -----
+        Scale's minimum value is almost zero and it does not become negative.
 
         References
         ----------

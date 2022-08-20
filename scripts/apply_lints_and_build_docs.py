@@ -123,6 +123,14 @@ def _main() -> None:
             hash_type=lint_and_doc_hash_util.HashType.DOCUMENT
         )
         shutil.rmtree(dir_path, ignore_errors=True)
+        dir_path = lint_and_doc_hash_util.get_hash_dir_path(
+            hash_type=lint_and_doc_hash_util.HashType.APPLYING_TRANSLATION_MAPPING
+        )
+        shutil.rmtree(dir_path, ignore_errors=True)
+        dir_path = lint_and_doc_hash_util.get_hash_dir_path(
+            hash_type=lint_and_doc_hash_util.HashType.TRANSLATION_MAPPING_JP
+        )
+        shutil.rmtree(dir_path, ignore_errors=True)
         _update_doc_files_timestamp()
     _remove_tmp_py_module()
 

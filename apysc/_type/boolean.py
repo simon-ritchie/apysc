@@ -104,6 +104,21 @@ class Boolean(
             )
             self._append_constructor_expression()
 
+        self._append_initial_substitution_expression_if_in_handler_scope()
+
+    @add_debug_info_setting(module_name=__name__)
+    def _append_initial_substitution_expression_if_in_handler_scope(self) -> None:
+        """
+        Append an initial value's expression if a current scope is
+        in a handler scope.
+        """
+        import apysc as ap
+        from apysc._expression import event_handler_scope
+        if not event_handler_scope.current_scope_is_in_event_handler():
+            return
+        expression: str = self._create_initial_substitution_expression()
+        ap.append_js_expression(expression=expression)
+
     @add_debug_info_setting(module_name=__name__)
     def _get_bool_from_arg_value(
         self, *, value: Union[bool, int, Int, "Boolean"]

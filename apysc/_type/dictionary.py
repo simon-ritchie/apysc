@@ -21,6 +21,9 @@ from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.initial_substitution_exp_interface import (
+    InitialSubstitutionExpInterface,
+)
 
 DefaultType = TypeVar("DefaultType")
 
@@ -36,6 +39,7 @@ class Dictionary(
     DictionaryStructure,
     CustomEventInterface,
     VariableNameSuffixInterface,
+    InitialSubstitutionExpInterface,
 ):
     """
     Dictionary class for the apysc library.
@@ -134,13 +138,27 @@ class Dictionary(
         Append constructor expression.
         """
         import apysc as ap
+
+        expression: str = self._create_initial_substitution_expression()
+        expression = f"var {expression}"
+        ap.append_js_expression(expression=expression)
+
+    def _create_initial_substitution_expression(self) -> str:
+        """
+        Create an initial value's substitution expression string.
+
+        Returns
+        -------
+        expression : str
+            Created expression string.
+        """
         from apysc._type import value_util
 
         value_str: str = value_util.get_value_str_for_expression(
             value=self._initial_value
         )
-        expression: str = f"var {self.variable_name} = {value_str};"
-        ap.append_js_expression(expression=expression)
+        expression: str = f"{self.variable_name} = {value_str};"
+        return expression
 
     def _get_dict_value(
         self, *, value: Union[Dict[_K, _V], "Dictionary"]

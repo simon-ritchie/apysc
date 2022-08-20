@@ -358,3 +358,9 @@ class TestDictionary:
                 pattern=expected_pattern, string=expression, flags=re.MULTILINE
             )
             assert match is not None, f"pattern: {expected_pattern}, \n{expression}"
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_initial_substitution_expression(self) -> None:
+        dict_val: ap.Dictionary = ap.Dictionary({"a": 10})
+        expression: str = dict_val._create_initial_substitution_expression()
+        assert expression == f'{dict_val.variable_name} = {{"a": 10}};'

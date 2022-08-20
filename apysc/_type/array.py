@@ -19,6 +19,9 @@ from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
+from apysc._type.initial_substitution_exp_interface import (
+    InitialSubstitutionExpInterface,
+)
 
 T = TypeVar("T")
 
@@ -28,6 +31,7 @@ class Array(
     RevertInterface,
     CustomEventInterface,
     VariableNameSuffixInterface,
+    InitialSubstitutionExpInterface,
     Generic[T],
 ):
     """
@@ -165,15 +169,29 @@ class Array(
         Append constructor expression.
         """
         import apysc as ap
+
+        expression: str = self._create_initial_substitution_expression()
+        expression = f"var {expression}"
+        ap.append_js_expression(expression=expression)
+
+    def _create_initial_substitution_expression(self) -> str:
+        """
+        Create an initial value's substitution expression string.
+
+        Returns
+        -------
+        expression : str
+            Created expression string.
+        """
         from apysc._type import value_util
 
-        expression: str = f"var {self.variable_name} = "
+        expression: str = f"{self.variable_name} = "
         if isinstance(self._initial_value, Array):
             expression += f"{self._initial_value.variable_name};"
         else:
             value_str: str = value_util.get_value_str_for_expression(value=self._value)
             expression += f"{value_str};"
-        ap.append_js_expression(expression=expression)
+        return expression
 
     def _get_list_value(self, *, value: Union[List[Any], tuple, "Array"]) -> List[Any]:
         """

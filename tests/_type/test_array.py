@@ -693,3 +693,14 @@ class TestArray:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{arr.variable_name}.splice(0);"
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_initial_substitution_expression(self) -> None:
+        arr_1: ap.Array = ap.Array([1, 2, 3])
+        expression: str = arr_1._create_initial_substitution_expression()
+        assert expression == f"{arr_1.variable_name} = [1, 2, 3];"
+
+        arr_2: ap.Array = ap.Array([1, 2, 3])
+        arr_1 = ap.Array(arr_2)
+        expression = arr_1._create_initial_substitution_expression()
+        assert expression == f"{arr_1.variable_name} = {arr_2.variable_name};"

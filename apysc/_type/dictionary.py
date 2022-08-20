@@ -84,6 +84,7 @@ class Dictionary(
         value: Union[Dict[_K, _V], "Dictionary"],
         *,
         variable_name_suffix: str = "",
+        skip_init_substitution_expression_appending: bool = False,
     ) -> None:
         """
         Dictionary class for the apysc library.
@@ -95,6 +96,9 @@ class Dictionary(
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+        skip_init_substitution_expression_appending : bool, default False
+            A boolean indicating whether to skip an initial substitution
+            expression or not. This class uses this option internally.
 
         References
         ----------
@@ -131,6 +135,10 @@ class Dictionary(
                 type_name=TYPE_NAME
             )
             self._append_constructor_expression()
+
+        self._append_initial_substitution_expression_if_in_handler_scope(
+            skip_appending=skip_init_substitution_expression_appending,
+        )
 
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:

@@ -141,16 +141,28 @@ class Boolean(
         Append constructor expression.
         """
         import apysc as ap
-        from apysc._type.variable_name_interface import VariableNameInterface
 
-        expression: str = f"var {self.variable_name} = "
+        expression: str = self._create_initial_substitution_expression()
+        expression = f"var {expression}"
+        ap.append_js_expression(expression=expression)
+
+    def _create_initial_substitution_expression(self) -> str:
+        """
+        Create an initial value's substitution expression string.
+
+        Returns
+        -------
+        expression : str
+            Created expression string.
+        """
+        expression: str = f"{self.variable_name} = "
         if isinstance(self._initial_value, VariableNameInterface):
             expression += f"Boolean({self._initial_value.variable_name});"
         elif self._value:
             expression += "true;"
         else:
             expression += "false;"
-        ap.append_js_expression(expression=expression)
+        return expression
 
     @property
     @add_debug_info_setting(module_name=__name__)

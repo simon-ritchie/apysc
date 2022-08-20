@@ -283,6 +283,23 @@ class TestBoolean:
             other="Hello!",
         )
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_initial_substitution_expression(self) -> None:
+        bool_1: ap.Boolean = ap.Boolean(True)
+        expression: str = bool_1._create_initial_substitution_expression()
+        assert expression == f"{bool_1.variable_name} = true;"
+
+        bool_1 = ap.Boolean(False)
+        expression = bool_1._create_initial_substitution_expression()
+        assert expression == f"{bool_1.variable_name} = false;"
+
+        bool_2: ap.Boolean = ap.Boolean(True)
+        bool_1 = ap.Boolean(bool_2)
+        expression = bool_1._create_initial_substitution_expression()
+        assert expression == (
+            f"{bool_1.variable_name} = Boolean({bool_2.variable_name});"
+        )
+
 
 class TestBool:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

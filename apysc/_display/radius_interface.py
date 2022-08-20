@@ -32,7 +32,11 @@ class RadiusInterface(
         if hasattr(self, "_radius"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="radius")
-        self._radius = Int(0, variable_name_suffix=suffix)
+        self._radius = Int(
+            0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_raidus_attr_linking_setting()
 

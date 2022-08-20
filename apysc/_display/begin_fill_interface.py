@@ -116,7 +116,11 @@ class BeginFillInterface(VariableNameSuffixAttrInterface, RevertInterface):
         if hasattr(self, "_fill_color"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="fill_color")
-        self._fill_color = String("", variable_name_suffix=suffix)
+        self._fill_color = String(
+            "",
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -157,7 +161,11 @@ class BeginFillInterface(VariableNameSuffixAttrInterface, RevertInterface):
         if hasattr(self, "_fill_alpha"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="fill_alpha")
-        self._fill_alpha = Number(1.0, variable_name_suffix=suffix)
+        self._fill_alpha = Number(
+            1.0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     _fill_color_snapshots: Dict[str, str]
     _fill_alpha_snapshots: Dict[str, float]

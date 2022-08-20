@@ -31,7 +31,11 @@ class PathDestYInterface(
         if hasattr(self, "_dest_y"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="dest_y")
-        self._dest_y = Int(0, variable_name_suffix=suffix)
+        self._dest_y = Int(
+            0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_dest_y_linking_setting()
 

@@ -31,7 +31,11 @@ class PathControlXInterface(
         if hasattr(self, "_control_x"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="control_x")
-        self._control_x = Int(0, variable_name_suffix=suffix)
+        self._control_x = Int(
+            0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_control_x_linking_setting()
 

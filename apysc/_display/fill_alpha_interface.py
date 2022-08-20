@@ -32,7 +32,11 @@ class FillAlphaInterface(
         if hasattr(self, "_fill_alpha"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="fill_alpha")
-        self._fill_alpha = Number(1.0, variable_name_suffix=suffix)
+        self._fill_alpha = Number(
+            1.0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_fill_alpha_attr_linking_setting()
 

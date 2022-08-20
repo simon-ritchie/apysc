@@ -33,7 +33,11 @@ class EllipseWidthInterface(
         suffix: str = self._get_attr_variable_name_suffix(
             attr_identifier="ellipse_width"
         )
-        self._ellipse_width = Int(0, variable_name_suffix=suffix)
+        self._ellipse_width = Int(
+            0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_ellipse_width_attr_linking_setting()
 

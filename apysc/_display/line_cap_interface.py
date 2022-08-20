@@ -29,7 +29,11 @@ class LineCapInterface(
         if hasattr(self, "_line_cap"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_cap")
-        self._line_cap = String(LineCaps.BUTT.value, variable_name_suffix=suffix)
+        self._line_cap = String(
+            LineCaps.BUTT.value,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     @property
     @add_debug_info_setting(module_name=__name__)

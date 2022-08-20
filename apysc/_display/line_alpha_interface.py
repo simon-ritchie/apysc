@@ -32,7 +32,11 @@ class LineAlphaInterface(
         if hasattr(self, "_line_alpha"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
-        self._line_alpha = Number(1.0, variable_name_suffix=suffix)
+        self._line_alpha = Number(
+            1.0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_line_alpha_attr_linking_setting()
 

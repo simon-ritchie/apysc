@@ -43,11 +43,19 @@ class WidthAndHeightInterfacesForEllipse(
         """
         if not hasattr(self, "_width"):
             suffix: str = self._get_attr_variable_name_suffix(attr_identifier="width")
-            self._width = Int(0, variable_name_suffix=suffix)
+            self._width = Int(
+                0,
+                variable_name_suffix=suffix,
+                skip_init_substitution_expression_appending=True,
+            )
             self._append_width_attr_linking_setting()
         if not hasattr(self, "_height"):
             suffix = self._get_attr_variable_name_suffix(attr_identifier="height")
-            self._height = Int(0, variable_name_suffix=suffix)
+            self._height = Int(
+                0,
+                variable_name_suffix=suffix,
+                skip_init_substitution_expression_appending=True,
+            )
             self._append_height_attr_linking_setting()
 
     @add_debug_info_setting(module_name=__name__)

@@ -29,7 +29,9 @@ class TestInitialSubstitutionExpInterface:
         instance: _TestClass = _TestClass()
         instance.variable_name = "test_instance"
         expression_data_util.empty_expression()
-        instance._append_initial_substitution_expression_if_in_handler_scope()
+        instance._append_initial_substitution_expression_if_in_handler_scope(
+            skip_appending=False,
+        )
         expression: str = (
             expression_data_util.get_current_event_handler_scope_expression()
         )
@@ -38,6 +40,16 @@ class TestInitialSubstitutionExpInterface:
 
         expression_data_util.empty_expression()
         with HandlerScope(handler_name="test_handler", instance=instance):
-            instance._append_initial_substitution_expression_if_in_handler_scope()
+            instance._append_initial_substitution_expression_if_in_handler_scope(
+                skip_appending=False,
+            )
         expression = expression_data_util.get_current_event_handler_scope_expression()
         assert expected_expression in expression
+
+        expression_data_util.empty_expression()
+        with HandlerScope(handler_name="test_handler", instance=instance):
+            instance._append_initial_substitution_expression_if_in_handler_scope(
+                skip_appending=True,
+            )
+        expression = expression_data_util.get_current_event_handler_scope_expression()
+        assert expected_expression not in expression

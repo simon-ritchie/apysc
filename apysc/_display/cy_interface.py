@@ -31,7 +31,11 @@ class CyInterface(
         if hasattr(self, "_y"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="y")
-        self._y = Int(0, variable_name_suffix=suffix)
+        self._y = Int(
+            0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_y_attr_linking_setting()
 

@@ -254,7 +254,11 @@ class LineStyleInterface(
         if hasattr(self, "_line_color"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_color")
-        self._line_color = String("", variable_name_suffix=suffix)
+        self._line_color = String(
+            "",
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
@@ -266,7 +270,11 @@ class LineStyleInterface(
         suffix: str = self._get_attr_variable_name_suffix(
             attr_identifier="line_thickness"
         )
-        self._line_thickness = Int(1, variable_name_suffix=suffix)
+        self._line_thickness = Int(
+            1,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
@@ -276,7 +284,11 @@ class LineStyleInterface(
         if hasattr(self, "_line_alpha"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
-        self._line_alpha = Number(1.0, variable_name_suffix=suffix)
+        self._line_alpha = Number(
+            1.0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
@@ -286,7 +298,11 @@ class LineStyleInterface(
         if hasattr(self, "_line_cap"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_cap")
-        self._line_cap = String(LineCaps.BUTT.value, variable_name_suffix=suffix)
+        self._line_cap = String(
+            LineCaps.BUTT.value,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
@@ -296,7 +312,11 @@ class LineStyleInterface(
         if hasattr(self, "_line_joints"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_joints")
-        self._line_joints = String(LineJoints.MITER.value, variable_name_suffix=suffix)
+        self._line_joints = String(
+            LineJoints.MITER.value,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     def _initialize_line_dot_setting_if_not_initialized(self) -> None:
         """

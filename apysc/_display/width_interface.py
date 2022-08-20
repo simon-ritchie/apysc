@@ -32,7 +32,11 @@ class WidthInterface(
         if hasattr(self, "_width"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="width")
-        self._width = Int(0, variable_name_suffix=suffix)
+        self._width = Int(
+            0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_width_attr_linking_setting()
 

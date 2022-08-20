@@ -31,7 +31,11 @@ class SkewXInterface(
         if hasattr(self, "_skew_x"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="skew_x")
-        self._skew_x = Int(0, variable_name_suffix=suffix)
+        self._skew_x = Int(
+            0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_skew_x_attr_linking_setting()
 

@@ -26,7 +26,11 @@ class RelativeInterface(
         if hasattr(self, "_relative"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="relative")
-        self._relative = Boolean(False, variable_name_suffix=suffix)
+        self._relative = Boolean(
+            False,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     @property
     def relative(self) -> Boolean:

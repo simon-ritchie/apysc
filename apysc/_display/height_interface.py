@@ -32,7 +32,11 @@ class HeightInterface(
         if hasattr(self, "_height"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="height")
-        self._height = Int(0, variable_name_suffix=suffix)
+        self._height = Int(
+            0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_height_attr_linking_setting()
 

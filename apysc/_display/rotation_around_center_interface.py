@@ -36,7 +36,11 @@ class RotationAroundCenterInterface(
         suffix: str = self._get_attr_variable_name_suffix(
             attr_identifier="rotation_around_center"
         )
-        self._rotation_around_center = Int(0, variable_name_suffix=suffix)
+        self._rotation_around_center = Int(
+            0,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_rotation_around_center_attr_linking_setting()
 

@@ -151,7 +151,11 @@ class LineColorInterface(
         if hasattr(self, "_line_color"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_color")
-        self._line_color = String("", variable_name_suffix=suffix)
+        self._line_color = String(
+            "",
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
     _line_color_snapshots: Dict[str, str]
 

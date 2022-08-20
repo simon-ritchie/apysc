@@ -36,7 +36,11 @@ class LineThicknessInterface(
         suffix: str = self._get_attr_variable_name_suffix(
             attr_identifier="line_thickness"
         )
-        self._line_thickness = Int(1, variable_name_suffix=suffix)
+        self._line_thickness = Int(
+            1,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_line_thickness_attr_linking_setting()
 

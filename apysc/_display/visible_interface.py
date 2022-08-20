@@ -31,7 +31,11 @@ class VisibleInterface(
         if hasattr(self, "_visible"):
             return
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="visible")
-        self._visible = Boolean(True, variable_name_suffix=suffix)
+        self._visible = Boolean(
+            True,
+            variable_name_suffix=suffix,
+            skip_init_substitution_expression_appending=True,
+        )
 
         self._append_visible_attr_linking_setting()
 

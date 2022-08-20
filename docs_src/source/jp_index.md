@@ -167,7 +167,6 @@ jp_graphics_clear
 jp_about_handler_options_type
 jp_event_prevent_default_and_stop_propagation
 jp_bind_and_trigger_custom_event
-jp_notes_of_handler_scope_assignment
 ```
 
 ## MouseEvent クラスとマウスイベントの設定

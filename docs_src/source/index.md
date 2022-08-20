@@ -164,7 +164,6 @@ graphics_clear
 about_handler_options_type
 event_prevent_default_and_stop_propagation
 bind_and_trigger_custom_event
-notes_of_handler_scope_assignment
 ```
 
 ## MouseEvent class and mouse event binding

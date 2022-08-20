@@ -43,7 +43,8 @@ def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     # Change the clicked rectangle color to the passed color.
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String(options["color"])
+    color: ap.String = ap.String(options["color"])
+    rectangle.fill_color = color
 
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
@@ -98,7 +99,8 @@ def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     # Change the clicked rectangle color to the passed color.
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String(options["color"])
+    color: ap.String = ap.String(options["color"])
+    rectangle.fill_color = color
 
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
@@ -150,7 +152,8 @@ def change_color_on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) ->
         Optional arguments.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String(options["color"])
+    color: ap.String = ap.String(options["color"])
+    rectangle.fill_color = color
 
 
 def change_x_on_rectangle_click(e: ap.MouseEvent, options: dict) -> None:

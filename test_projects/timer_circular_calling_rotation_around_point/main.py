@@ -26,8 +26,6 @@ _DEST_DIR_PATH: str = os.path.join(
 
 class _RectOptions(TypedDict):
     rectangle: ap.Rectangle
-    x: ap.Int
-    y: ap.Int
 
 
 def main() -> None:
@@ -44,11 +42,7 @@ def main() -> None:
     sprite.graphics.begin_fill(color="#00aaff")
 
     rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
-    options: _RectOptions = {
-        "rectangle": rectangle,
-        "x": ap.Int(50),
-        "y": ap.Int(50),
-    }
+    options: _RectOptions = {"rectangle": rectangle}
     timer_1: ap.Timer = ap.Timer(
         on_timer_1, delay=ap.FPS.FPS_60, repeat_count=100, options=options
     )
@@ -70,12 +64,10 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    rotation: ap.Int = rectangle.get_rotation_around_point(
-        x=options["x"], y=options["y"]
-    )
-    rectangle.set_rotation_around_point(
-        rotation=rotation + 1, x=options["x"], y=options["y"]
-    )
+    x: ap.Int = ap.Int(50)
+    y: ap.Int = ap.Int(50)
+    rotation: ap.Int = rectangle.get_rotation_around_point(x=x, y=y)
+    rectangle.set_rotation_around_point(rotation=rotation + 1, x=x, y=y)
 
 
 def on_timer_complete_1(e: ap.TimerEvent, options: _RectOptions) -> None:
@@ -108,12 +100,10 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    rotation: ap.Int = rectangle.get_rotation_around_point(
-        x=options["x"], y=options["y"]
-    )
-    rectangle.set_rotation_around_point(
-        rotation=rotation - 1, x=options["x"], y=options["y"]
-    )
+    x: ap.Int = ap.Int(50)
+    y: ap.Int = ap.Int(50)
+    rotation: ap.Int = rectangle.get_rotation_around_point(x=x, y=y)
+    rectangle.set_rotation_around_point(rotation=rotation - 1, x=x, y=y)
 
 
 def on_timer_complete_2(e: ap.TimerEvent, options: _RectOptions) -> None:

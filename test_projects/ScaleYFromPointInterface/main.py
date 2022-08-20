@@ -25,8 +25,6 @@ _DEST_DIR_PATH: str = os.path.join(
 
 class _RectOptions(TypedDict):
     rectangle: ap.Rectangle
-    y: ap.Int
-    max_scale_y: ap.Number
 
 
 def main() -> None:
@@ -44,11 +42,7 @@ def main() -> None:
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50
     )
-    options: _RectOptions = {
-        "rectangle": rectangle_1,
-        "y": ap.Int(50),
-        "max_scale_y": ap.Number(5.0),
-    }
+    options: _RectOptions = {"rectangle": rectangle_1}
     timer_1: ap.Timer = ap.Timer(on_timer_1, delay=ap.FPS.FPS_60, options=options)
     timer_1.start()
 
@@ -72,12 +66,13 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    scale_y: ap.Number = rectangle.get_scale_y_from_point(y=options["y"])
+    y: ap.Int = ap.Int(50)
+    scale_y: ap.Number = rectangle.get_scale_y_from_point(y=y)
     scale_y += 0.03
-    rectangle.set_scale_y_from_point(scale_y=scale_y, y=options["y"])
+    rectangle.set_scale_y_from_point(scale_y=scale_y, y=y)
 
     with ap.If(scale_y >= 5.0):
-        rectangle.set_scale_y_from_point(scale_y=options["max_scale_y"], y=options["y"])
+        rectangle.set_scale_y_from_point(scale_y=ap.Number(5.0), y=y)
         e.this.stop()
 
 

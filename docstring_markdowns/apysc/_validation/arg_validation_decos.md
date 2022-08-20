@@ -114,7 +114,7 @@ Set the validation to check a specified handler-options argument's type.<hr>
 
 ## `in_handler_assignment` function docstring
 
-Set the validation to check whether there isn't assignment of the basic type values (e.g., ap.Int, ap.String) in a specified handler's source.<hr>
+Set the validation to check whether there isn't an assignment of the basic type values (e.g., ap.Int, ap.String) in a specified handler's source.<hr>
 
 **[Parameters]**
 

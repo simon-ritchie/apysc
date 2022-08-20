@@ -26,16 +26,10 @@ _DEST_DIR_PATH: str = os.path.join(
 class _Rect1And2Options(TypedDict):
     rectangle_1: ap.Rectangle
     rectangle_2: ap.Rectangle
-    x1: ap.Int
-    y1: ap.Int
-    x2: ap.Int
-    y2: ap.Int
 
 
 class _Rect3Options(TypedDict):
     rectangle_3: ap.Rectangle
-    x: ap.Int
-    y: ap.Int
 
 
 def main() -> None:
@@ -57,10 +51,6 @@ def main() -> None:
     options_1: _Rect1And2Options = {
         "rectangle_1": rectangle_1,
         "rectangle_2": rectangle_2,
-        "x1": ap.Int(50),
-        "y1": ap.Int(50),
-        "x2": ap.Int(100),
-        "y2": ap.Int(100),
     }
     timer_1: ap.Timer = ap.Timer(
         handler=on_timer_1, delay=ap.FPS.FPS_60, options=options_1
@@ -74,11 +64,7 @@ def main() -> None:
     rectangle_3: ap.Rectangle = sprite_2.graphics.draw_rect(
         x=50, y=50, width=50, height=50
     )
-    options_2: _Rect3Options = {
-        "rectangle_3": rectangle_3,
-        "x": ap.Int(50),
-        "y": ap.Int(50),
-    }
+    options_2: _Rect3Options = {"rectangle_3": rectangle_3}
     timer_2: ap.Timer = ap.Timer(
         handler=on_timer_2, delay=ap.FPS.FPS_60, options=options_2
     )
@@ -99,20 +85,18 @@ def on_timer_1(e: ap.TimerEvent, options: _Rect1And2Options) -> None:
         Optional arguments dictionary.
     """
     rectangle_1: ap.Rectangle = options["rectangle_1"]
-    rotation: ap.Int = rectangle_1.get_rotation_around_point(
-        x=options["x1"], y=options["y1"]
-    )
+    x: ap.Int = ap.Int(50)
+    y: ap.Int = ap.Int(50)
+    rotation: ap.Int = rectangle_1.get_rotation_around_point(x=x, y=y)
     rotation += 1
-    rectangle_1.set_rotation_around_point(
-        rotation=rotation, x=options["x1"], y=options["y1"]
-    )
+    rectangle_1.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
     rectangle_2: ap.Rectangle = options["rectangle_2"]
-    rotation = rectangle_1.get_rotation_around_point(x=options["x2"], y=options["y2"])
+    x = ap.Int(100)
+    y = ap.Int(100)
+    rotation = rectangle_1.get_rotation_around_point(x=x, y=y)
     rotation += 1
-    rectangle_2.set_rotation_around_point(
-        rotation=rotation, x=options["x2"], y=options["y2"]
-    )
+    rectangle_2.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
 
 def on_timer_2(e: ap.TimerEvent, options: _Rect3Options) -> None:
@@ -127,13 +111,11 @@ def on_timer_2(e: ap.TimerEvent, options: _Rect3Options) -> None:
         Optional arguments dictionary.
     """
     rectangle_3: ap.Rectangle = options["rectangle_3"]
-    rotation: ap.Int = rectangle_3.get_rotation_around_point(
-        x=options["x"], y=options["y"]
-    )
+    x: ap.Int = ap.Int(50)
+    y: ap.Int = ap.Int(50)
+    rotation: ap.Int = rectangle_3.get_rotation_around_point(x=x, y=y)
     rotation += 1
-    rectangle_3.set_rotation_around_point(
-        rotation=rotation, x=options["x"], y=options["y"]
-    )
+    rectangle_3.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
 
 if __name__ == "__main__":

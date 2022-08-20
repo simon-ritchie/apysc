@@ -11,7 +11,6 @@ from retrying import retry
 import apysc as ap
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import arg_validation_decos
-from apysc._validation.handler_validation import InvalidAssignmentInHandler
 
 
 class _TestClass1:
@@ -755,27 +754,3 @@ def test_is_acceptable_boolean_value() -> None:
     _test_func(a=False)
     _test_func(a=ap.Boolean(True))
     _test_func(a=ap.Boolean(False))
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_in_handler_assignment() -> None:
-    @arg_validation_decos.in_handler_assignment(arg_position_index=0)
-    def _test_func(*, handler: Callable) -> None:
-        ...
-
-    def _test_handler_1(e: ap.Event, options: dict) -> None:
-        a: int = 10
-        b: int = a * 2
-        print(b)
-
-    _test_func(handler=_test_handler_1)
-
-    def _test_handler_2(e: ap.Event, options: dict) -> None:
-        a: ap.Int = ap.Int(10)
-        print(a)
-
-    assert_raises(
-        expected_error_class=InvalidAssignmentInHandler,
-        callable_=_test_func,
-        handler=_test_handler_2,
-    )

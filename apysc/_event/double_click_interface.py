@@ -21,7 +21,6 @@ class DoubleClickInterface(MouseEventInterfaceBase):
     _dblclick_handlers: Dict[str, HandlerData]
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @arg_validation_decos.in_handler_assignment(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def dblclick(self, handler: _Handler[_O], *, options: Optional[_O] = None) -> str:
@@ -97,7 +96,6 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         self._dblclick_handlers = {}
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @arg_validation_decos.in_handler_assignment(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def unbind_dblclick(self, handler: _Handler[_O]) -> None:
         """

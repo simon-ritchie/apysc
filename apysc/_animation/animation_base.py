@@ -169,7 +169,6 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
         return expression
 
     @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @arg_validation_decos.in_handler_assignment(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def animation_complete(

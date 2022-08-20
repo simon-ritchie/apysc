@@ -19,7 +19,6 @@ _Handler = Callable[[WheelEvent, _O], None]
 
 
 @arg_validation_decos.handler_args_num(arg_position_index=0)
-@arg_validation_decos.in_handler_assignment(arg_position_index=0)
 @arg_validation_decos.handler_options_type(arg_position_index=1)
 @add_debug_info_setting(module_name=__name__)
 def bind_wheel_event_to_document(
@@ -66,7 +65,6 @@ def bind_wheel_event_to_document(
 
 
 @arg_validation_decos.handler_args_num(arg_position_index=0)
-@arg_validation_decos.in_handler_assignment(arg_position_index=0)
 @add_debug_info_setting(module_name=__name__)
 def unbind_wheel_event_from_document(*, handler: _Handler[_O]) -> None:
     """

@@ -87,6 +87,7 @@ class Array(
         value: Union[List[T], tuple, range, "Array"],
         *,
         variable_name_suffix: str = "",
+        skip_init_substitution_expression_appending: bool = False,
     ) -> None:
         """
         Array class for the apysc library.
@@ -98,6 +99,9 @@ class Array(
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+        skip_init_substitution_expression_appending : bool, default False
+            A boolean indicating whether to skip an initial substitution
+            expression or not. This class uses this option internally.
 
         References
         ----------
@@ -143,6 +147,10 @@ class Array(
                 type_name=TYPE_NAME
             )
             self._append_constructor_expression()
+
+        self._append_initial_substitution_expression_if_in_handler_scope(
+            skip_appending=skip_init_substitution_expression_appending,
+        )
 
     def _convert_range_to_list(self, *, value: Any) -> Union[List[Any], tuple, "Array"]:
         """

@@ -25,6 +25,7 @@ class XInterface(
     RevertInterface,
     AttrLinkingInterface,
 ):
+    @add_debug_info_setting(module_name=__name__)
     def _initialize_x_if_not_initialized(self) -> None:
         """
         Initialize the _x attribute if this instance does not

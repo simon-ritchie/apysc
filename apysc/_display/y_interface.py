@@ -25,9 +25,7 @@ class YInterface(
     RevertInterface,
     AttrLinkingInterface,
 ):
-
-    _y: Int
-
+    @add_debug_info_setting(module_name=__name__)
     def _initialize_y_if_not_initialized(self) -> None:
         """
         Initialize the _y attribute if this instance does not

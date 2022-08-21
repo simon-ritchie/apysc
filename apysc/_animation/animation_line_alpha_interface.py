@@ -3,6 +3,8 @@
 
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_line_alpha import AnimationLineAlpha
 from apysc._animation.easing import Easing
@@ -12,6 +14,7 @@ from apysc._validation import arg_validation_decos
 
 
 class AnimationLineAlphaInterface(AnimationInterfaceBase):
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

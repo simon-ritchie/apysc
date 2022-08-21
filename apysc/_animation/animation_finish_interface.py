@@ -1,11 +1,14 @@
 """Class implementation for the animation_finish interface.
 """
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationFinishInterface(VariableNameInterface):
+    @final
     @add_debug_info_setting(module_name=__name__)
     def animation_finish(self) -> None:
         """

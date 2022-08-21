@@ -9,6 +9,8 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
@@ -60,6 +62,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
 
     _animations: List[AnimationBase]
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -111,6 +114,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
         self._validate_animations_delay_are_default_vals()
         self._validate_animations_easing_are_default_vals()
 
+    @final
     def _validate_animations_easing_are_default_vals(self) -> None:
         """
         Validate whether the animations easing settings are
@@ -134,6 +138,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             )
             raise ValueError(err_msg)
 
+    @final
     def _validate_animations_delay_are_default_vals(self) -> None:
         """
         Validate whether the animation's delay settings
@@ -157,6 +162,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             )
             raise ValueError(err_msg)
 
+    @final
     def _validate_animations_duration_are_default_vals(self) -> None:
         """
         Validate whether the animation's duration settings
@@ -180,6 +186,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             )
             raise ValueError(err_msg)
 
+    @final
     def _validate_animation_targets_are_unified(self) -> None:
         """
         Validate whether the specified animation's targets are
@@ -204,6 +211,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             )
             raise ValueError(err_msg)
 
+    @final
     def _get_animation_func_expression(self) -> str:
         """
         Get a animation function expression.
@@ -233,6 +241,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
                 expression += ";"
         return expression
 
+    @final
     def _make_animation_attr_exp(self, *, attr_strs: List[str]) -> str:
         """
         Make an animation attribute expression string.
@@ -255,6 +264,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
         expression += "\n  })"
         return expression
 
+    @final
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
         Get an expression to be inserted into the complete event

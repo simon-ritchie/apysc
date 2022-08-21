@@ -5,6 +5,8 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
@@ -54,6 +56,7 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
 
     _width: Int
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -96,6 +99,7 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
         )
         super(AnimationWidthForEllipse, self).__init__(variable_name=variable_name)
 
+    @final
     def _get_animation_func_expression(self) -> str:
         """
         Get a animation function expression.
@@ -110,6 +114,7 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
         width_str: str = value_util.get_value_str_for_expression(value=self._width)
         return f"\n  .attr({{rx: Math.trunc({width_str} / 2)}});"
 
+    @final
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
         Get an expression to be inserted into the complete event

@@ -5,6 +5,8 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
@@ -56,6 +58,7 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
     _before_skew_x: Int
     _skew_x_diff: Int
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -114,6 +117,7 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
         )
         super(AnimationSkewX, self).__init__(variable_name=variable_name)
 
+    @final
     def _get_animation_func_expression(self) -> str:
         """
         Get a animation function expression.
@@ -128,6 +132,7 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
         diff_str: str = value_util.get_value_str_for_expression(value=self._skew_x_diff)
         return f"\n  .skew({diff_str}, 0);"
 
+    @final
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """
         Get an expression to insert into the complete event

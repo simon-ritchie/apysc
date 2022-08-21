@@ -9,6 +9,8 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.easing import Easing
 from apysc._event import animation_event
 from apysc._event.custom_event_interface import CustomEventInterface
@@ -51,6 +53,7 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
         Get an animation function expression.
         """
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _set_basic_animation_settings(
         self,
@@ -86,6 +89,7 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
         )
         self._easing = easing
 
+    @final
     def _get_animation_basic_expression(self) -> str:
         """
         Get an animation basic expression string.
@@ -105,6 +109,7 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
         expression += self._get_animation_complete_handler_expression()
         return expression
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def start(self) -> "AnimationBase":
         """
@@ -140,6 +145,7 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
         self._started.value = True
         return self
 
+    @final
     def _get_animation_complete_handler_expression(self) -> str:
         """
         Get an expression of the animation complete handlers setting.
@@ -168,6 +174,7 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
             expression += f"\n  .after({handler_name})"
         return expression
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
@@ -251,6 +258,7 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
         handler's head.
         """
 
+    @final
     def _validate_animation_not_started(self) -> None:
         """
         Validate whether an animation has not already started.

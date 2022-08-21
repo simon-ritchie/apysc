@@ -1,11 +1,14 @@
 """Class implementation for the animation_reverse interface.
 """
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationReverseInterface(VariableNameInterface):
+    @final
     @add_debug_info_setting(module_name=__name__)
     def animation_reverse(self) -> None:
         """

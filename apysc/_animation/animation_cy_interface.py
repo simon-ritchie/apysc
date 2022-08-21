@@ -4,6 +4,8 @@
 
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_cy import AnimationCy
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.easing import Easing
@@ -12,6 +14,7 @@ from apysc._validation import arg_validation_decos
 
 
 class AnimationCyInterface(AnimationInterfaceBase):
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2)

@@ -15,6 +15,8 @@ from typing import Type
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._expression.indent_num import Indent
 
 
@@ -264,6 +266,7 @@ class DebugInfo:
     _callable_count: int
     _indent: Indent
 
+    @final
     def __init__(
         self,
         *,
@@ -312,6 +315,7 @@ class DebugInfo:
         )
         self._indent = Indent()
 
+    @final
     def _get_class_info(self) -> str:
         """
         Get a class information string.
@@ -327,6 +331,7 @@ class DebugInfo:
             class_info = f"\n// class: {self._class_name}"
         return class_info
 
+    @final
     def __enter__(self) -> None:
         """
         This class uses this method at the start of the
@@ -354,6 +359,7 @@ class DebugInfo:
         ap.append_js_expression(expression=expression)
         self._indent.__enter__()
 
+    @final
     def __exit__(self, *args: Any) -> None:
         """
         This class uses this method at the end of the with-block.

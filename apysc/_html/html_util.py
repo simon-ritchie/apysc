@@ -24,6 +24,8 @@ from typing import Optional
 from typing import Tuple
 from typing import TypeVar
 
+from typing_extensions import final
+
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -167,6 +169,7 @@ class ScriptLineUtil:
     html: str
     script_line_ranges: List[Tuple[int, int]]
 
+    @final
     def __init__(self, *, html: str) -> None:
         """
         The class for HTML's script line utility.
@@ -179,6 +182,7 @@ class ScriptLineUtil:
         self.html = html
         self._set_script_line_ranges()
 
+    @final
     def _set_script_line_ranges(self) -> None:
         """
         Set each script's start and end line numbers.
@@ -195,6 +199,7 @@ class ScriptLineUtil:
                 end_line_num: int = line_number - 1
                 self.script_line_ranges.append((start_line_num, end_line_num))
 
+    @final
     def is_script_line(self, *, line_number: int) -> bool:
         """
         Get a boolean value whether a specified line number

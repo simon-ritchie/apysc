@@ -10,6 +10,7 @@ class Document(VariableNameInterface):
     """
     Document (overall HTML document) class.
     """
+
     @final
     def __init__(self) -> None:
         """

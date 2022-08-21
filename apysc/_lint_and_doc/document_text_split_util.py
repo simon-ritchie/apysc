@@ -5,14 +5,19 @@
 from typing import List
 from typing import Union
 
+from typing_extensions import final
+
 
 class Heading:
-    """This class is for the document's heading."""
+    """
+    This class is for the document's heading.
+    """
 
     _text: str
     _overall_text: str
     _sharp_num: int
 
+    @final
     def __init__(self, *, heading_text: str) -> None:
         """
         This class is for the document's heading.
@@ -70,10 +75,13 @@ class Heading:
 
 
 class BodyText:
-    """This class is for a document body text."""
+    """
+    This class is for a document body text.
+    """
 
     _text: str
 
+    @final
     def __init__(self, *, text: str) -> None:
         """
         This class is for a document body text.
@@ -104,6 +112,7 @@ class CodeBlock:
     _overall_code_block: str
     _code_type: str = ""
 
+    @final
     def __init__(self, *, code_block: str) -> None:
         """
         The class for a document code block.

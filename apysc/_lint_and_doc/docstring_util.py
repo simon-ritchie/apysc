@@ -57,6 +57,8 @@ from typing import Tuple
 from typing import Type
 from typing import TypeVar
 
+from typing_extensions import final
+
 DOCSTRING_PATH_COMMENT_KEYWORD: str = "Docstring:"
 DOCSTRING_PATH_COMMENT_PATTERN: str = (
     rf"^\<\!\-\-.*?{DOCSTRING_PATH_COMMENT_KEYWORD}" r"(?P<path>.*?)\-\-\>"
@@ -771,6 +773,7 @@ class Reference:
         """
         return self._url
 
+    @final
     def __eq__(self, other: Any) -> bool:
         """
         The method for equality comparison.

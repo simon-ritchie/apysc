@@ -10,15 +10,20 @@ from typing import List
 from typing import Optional
 from typing import Tuple
 
+from typing_extensions import final
+
 from apysc._lint_and_doc.docs_lang import Lang
 
 
 class Mapping:
-    """This class is for a single fixed-translation mapping setting."""
+    """
+    This class is for a single fixed-translation mapping setting.
+    """
 
     _key: str
     _val: str
 
+    @final
     def __init__(self, *, key: str, val: str) -> None:
         """
         A single fixed-translation mapping setting.
@@ -60,10 +65,13 @@ class Mapping:
 
 
 class Mappings:
-    """This class is for fixed-translation mappings settings."""
+    """
+    This class is for fixed-translation mappings settings.
+    """
 
     mappings: List[Mapping]
 
+    @final
     def __init__(self, mappings: List[Mapping]) -> None:
         """
         The class for fixed-translation mappings settings.

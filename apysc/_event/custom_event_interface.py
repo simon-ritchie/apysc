@@ -7,6 +7,8 @@ from typing import Dict
 from typing import Optional
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._event.custom_event_type import CustomEventType
 from apysc._event.event import Event
 from apysc._event.handler import HandlerData
@@ -23,6 +25,7 @@ class CustomEventInterface(BlankObjectInterface):
 
     _custom_event_handlers: Dict[_CustomEventType, Dict[_HandlerName, HandlerData]]
 
+    @final
     def _initialize_custom_event_handlers_if_not_initialized(
         self, *, custom_event_type_str: str
     ) -> None:
@@ -40,6 +43,7 @@ class CustomEventInterface(BlankObjectInterface):
         if custom_event_type_str not in self._custom_event_handlers:
             self._custom_event_handlers[custom_event_type_str] = {}
 
+    @final
     def _get_custom_event_type_str(
         self, *, custom_event_type: Union[CustomEventType, str]
     ) -> str:
@@ -61,6 +65,7 @@ class CustomEventInterface(BlankObjectInterface):
         custom_event_type_str: str = custom_event_type.value
         return custom_event_type_str
 
+    @final
     def _set_custom_event_handler_data(
         self, *, handler: _Handler, custom_event_type_str: str, options: Optional[Any]
     ) -> None:
@@ -87,6 +92,7 @@ class CustomEventInterface(BlankObjectInterface):
             "options": options,
         }
 
+    @final
     def _unset_custom_event_handler_data(
         self, *, handler: _Handler, custom_event_type_str: str
     ) -> None:
@@ -110,6 +116,7 @@ class CustomEventInterface(BlankObjectInterface):
             return
         del self._custom_event_handlers[custom_event_type_str][name]
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=2)
     @arg_validation_decos.is_event(arg_position_index=3)
     @arg_validation_decos.handler_options_type(arg_position_index=4)
@@ -202,6 +209,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         return name
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_custom_event_binding_expression(
         self, *, custom_event_type_str: str, name: str
@@ -227,6 +235,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def trigger_custom_event(
         self, *, custom_event_type: Union[CustomEventType, str]
@@ -274,6 +283,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def unbind_custom_event(
@@ -333,6 +343,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         return name
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_custom_event_unbinding_expression(
         self, *, custom_event_type_str: str, name: str
@@ -355,6 +366,7 @@ class CustomEventInterface(BlankObjectInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def unbind_custom_event_all(
         self, *, custom_event_type: Union[CustomEventType, str]

@@ -3,6 +3,8 @@
 
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_to_apysc_val_from_builtin_interface import (
     AttrToApyscValFromBuiltinInterface,
@@ -45,6 +47,7 @@ class LineDashSetting(
     Int(2)
     """
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

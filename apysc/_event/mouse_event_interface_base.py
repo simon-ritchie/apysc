@@ -6,6 +6,8 @@ from typing import Dict
 from typing import Optional
 from typing import TypeVar
 
+from typing_extensions import final
+
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_type import MouseEventType
@@ -18,6 +20,7 @@ _Handler = Callable[[MouseEvent, _O], None]
 
 
 class MouseEventInterfaceBase:
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=3)
     def _set_mouse_event_handler_data(
@@ -50,6 +53,7 @@ class MouseEventInterfaceBase:
             "options": options,
         }
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _unbind_mouse_event(
         self,
@@ -86,6 +90,7 @@ class MouseEventInterfaceBase:
             this=self_instance, handler_name=name, mouse_event_type=mouse_event_type
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _unbind_all_mouse_events(
         self, *, mouse_event_type: MouseEventType, handlers_dict: Dict[str, HandlerData]
@@ -113,6 +118,7 @@ class MouseEventInterfaceBase:
             this=self_instance, mouse_event_type=mouse_event_type
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_mouse_event_binding_expression(
         self, *, name: str, mouse_event_type: MouseEventType

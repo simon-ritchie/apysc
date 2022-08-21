@@ -1,6 +1,8 @@
 """Class implementation for the timer event.
 """
 
+from typing_extensions import final
+
 from apysc._event.event import Event
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._time import timer
@@ -44,6 +46,7 @@ class TimerEvent(Event):
 
     _this: "timer.Timer"
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, this: "timer.Timer") -> None:
         """

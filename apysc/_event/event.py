@@ -5,6 +5,8 @@ from typing import Generic
 from typing import Optional
 from typing import TypeVar
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
@@ -83,6 +85,7 @@ class Event(Generic[T], VariableNameInterface):
             type_name=type_name
         )
 
+    @final
     def _validate_type_name_and_self_type(self, *, type_name: Optional[str]) -> None:
         """
         Validate type_name argument is None when a self

@@ -6,6 +6,8 @@ from typing import Dict
 from typing import Optional
 from typing import TypeVar
 
+from typing_extensions import final
+
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
@@ -20,6 +22,7 @@ class ClickInterface(MouseEventInterfaceBase):
 
     _click_handlers: Dict[str, HandlerData]
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
@@ -85,6 +88,7 @@ class ClickInterface(MouseEventInterfaceBase):
         )
         return name
 
+    @final
     def _initialize_click_handlers_if_not_initialized(self) -> None:
         """
         Initialize _click_handlers attribute if it hasn't been
@@ -94,6 +98,7 @@ class ClickInterface(MouseEventInterfaceBase):
             return
         self._click_handlers = {}
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def unbind_click(self, handler: _Handler[_O]) -> None:
@@ -134,6 +139,7 @@ class ClickInterface(MouseEventInterfaceBase):
             handlers_dict=self._click_handlers,
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def unbind_click_all(self) -> None:
         """

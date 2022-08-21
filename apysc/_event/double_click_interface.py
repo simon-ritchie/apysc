@@ -6,6 +6,8 @@ from typing import Dict
 from typing import Optional
 from typing import TypeVar
 
+from typing_extensions import final
+
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
@@ -20,6 +22,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
 
     _dblclick_handlers: Dict[str, HandlerData]
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
@@ -86,6 +89,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         )
         return name
 
+    @final
     def _initialize_dblclick_handlers_if_not_initialized(self) -> None:
         """
         Initialize _dblclick_handlers attribute if this instance
@@ -95,6 +99,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             return
         self._dblclick_handlers = {}
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def unbind_dblclick(self, handler: _Handler[_O]) -> None:
@@ -130,6 +135,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             handlers_dict=self._dblclick_handlers,
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def unbind_dblclick_all(self) -> None:
         """

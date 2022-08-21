@@ -4,6 +4,8 @@
 from typing import Generic
 from typing import TypeVar
 
+from typing_extensions import final
+
 from apysc._animation import animation_base
 from apysc._event.event import Event
 from apysc._html.debug_mode import add_debug_info_setting
@@ -34,6 +36,7 @@ class AnimationEvent(Event, Generic[_T]):
 
     _this: "animation_base.AnimationBase[_T]"
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, this: "animation_base.AnimationBase[_T]") -> None:
         """

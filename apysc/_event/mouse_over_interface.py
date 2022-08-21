@@ -6,6 +6,8 @@ from typing import Dict
 from typing import Optional
 from typing import TypeVar
 
+from typing_extensions import final
+
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
@@ -20,6 +22,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
 
     _mouse_over_handlers: Dict[str, HandlerData]
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
@@ -85,6 +88,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
         )
         return name
 
+    @final
     def _initialize_mouse_over_handlers_if_not_initialized(self) -> None:
         """
         Initialize _mouse_over_handlers attribute if this
@@ -94,6 +98,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
             return
         self._mouse_over_handlers = {}
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def unbind_mouseover(self, handler: _Handler[_O]) -> None:
@@ -134,6 +139,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
             handlers_dict=self._mouse_over_handlers,
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def unbind_mouseover_all(self) -> None:
         """

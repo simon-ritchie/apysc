@@ -4,6 +4,8 @@
 from typing import Generic
 from typing import TypeVar
 
+from typing_extensions import final
+
 from apysc._event.event import Event
 from apysc._event.prevent_default_interface import PreventDefaultInterface
 from apysc._event.stop_propagation_interface import StopPropagationInterface
@@ -42,6 +44,7 @@ class MouseEvent(
     >>> _ = rectangle.mousedown(on_mousedown)
     """
 
+    @final
     @arg_validation_decos.is_variable_name_interface_type(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, this: T) -> None:
@@ -109,6 +112,7 @@ class MouseEvent(
         self._append_stage_x_getter_expression(x=x)
         return x
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_stage_x_getter_expression(self, *, x: Int) -> None:
         """
@@ -164,6 +168,7 @@ class MouseEvent(
         self._append_stage_y_getter_expression(y=y)
         return y
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_stage_y_getter_expression(self, *, y: Int) -> None:
         """
@@ -221,6 +226,7 @@ class MouseEvent(
         self._append_local_x_getter_expression(x=x)
         return x
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_local_x_getter_expression(self, *, x: Int) -> None:
         """
@@ -279,6 +285,7 @@ class MouseEvent(
         self._append_local_y_getter_expression(y=y)
         return y
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_local_y_getter_expression(self, *, y: Int) -> None:
         """

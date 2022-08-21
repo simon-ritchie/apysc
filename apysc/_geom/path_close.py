@@ -2,6 +2,8 @@
 data class implementation.
 """
 
+from typing_extensions import final
+
 from apysc._geom.path_data_base import PathDataBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.string import String
@@ -27,6 +29,7 @@ class PathClose(PathDataBase):
     ... )
     """
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __init__(self) -> None:
         """
@@ -51,6 +54,7 @@ class PathClose(PathDataBase):
 
         super(PathClose, self).__init__(path_label=PathLabel.CLOSE, relative=False)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
         """

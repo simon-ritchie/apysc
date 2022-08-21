@@ -5,6 +5,8 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_to_apysc_val_from_builtin_interface import (
@@ -60,6 +62,7 @@ class Point2D(
     _x: Int
     _y: Int
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=True)
@@ -114,6 +117,7 @@ class Point2D(
         )
         self._append_constructor_expression()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
@@ -175,6 +179,7 @@ class Point2D(
         self._x._append_incremental_calc_substitution_expression()
         self._append_x_setter_expression(value=value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_x_getter_expression(self, *, x: Int) -> None:
         """
@@ -190,6 +195,7 @@ class Point2D(
         expression: str = f"{x.variable_name} = " f'{self.variable_name}["x"];'
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_x_setter_expression(self, *, value: Int) -> None:
         """
@@ -252,6 +258,7 @@ class Point2D(
         self._y._append_incremental_calc_substitution_expression()
         self._append_y_setter_expression(value=value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_y_getter_expression(self, *, y: Int) -> None:
         """
@@ -267,6 +274,7 @@ class Point2D(
         expression: str = f"{y.variable_name} = " f'{self.variable_name}["y"];'
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_y_setter_expression(self, *, value: Int) -> None:
         """
@@ -282,6 +290,7 @@ class Point2D(
         expression: str = f'{self.variable_name}["y"] = {value.variable_name};'
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
@@ -305,6 +314,7 @@ class Point2D(
             return result
         return other.x == self.x and other.y == self.y
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
@@ -326,6 +336,7 @@ class Point2D(
         result = result.not_
         return result
 
+    @final
     def __repr__(self) -> str:
         """
         Get a string representation of this instance (for the

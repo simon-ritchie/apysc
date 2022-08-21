@@ -5,6 +5,8 @@ class implementation.
 from typing import Any
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_x_interface import PathXInterface
 from apysc._html.debug_mode import add_debug_info_setting
@@ -32,6 +34,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
     ... )
     """
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
@@ -78,6 +81,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         )
         self.x = self._get_copied_int_from_builtin_val(integer=x, attr_identifier="x")
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
         """
@@ -96,6 +100,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         svg_str: str = f"{svg_char_str} + String({x_str})"
         return svg_str
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
@@ -126,6 +131,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
             bool_val=relative, attr_identifier="relative"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
@@ -150,6 +156,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
             return result
         return self.x == other.x and self.relative == other.relative
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """

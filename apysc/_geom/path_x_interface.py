@@ -3,6 +3,8 @@
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
@@ -23,6 +25,7 @@ class PathXInterface(
 
     _x: Int
 
+    @final
     def _initialize_x_if_not_initialized(self) -> None:
         """
         Initialize the _x attribute if this instance does not

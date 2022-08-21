@@ -5,6 +5,8 @@ from abc import ABC
 from abc import abstractmethod
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._branch._else import Else
 from apysc._branch._if import If
 from apysc._geom.path_label import PathLabel
@@ -46,6 +48,7 @@ class PathDataBase(RelativeInterface, AttrToApyscValFromBuiltinInterface, ABC):
             bool_val=relative, attr_identifier="relative"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_char(self) -> String:
         """

@@ -5,6 +5,8 @@ data class implementation.
 from typing import Any
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._geom.path_control_x1_interface import PathControlX1Interface
 from apysc._geom.path_control_x2_interface import PathControlX2Interface
 from apysc._geom.path_control_y1_interface import PathControlY1Interface
@@ -55,6 +57,7 @@ class PathBezier3D(
     ... )
     """
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -148,6 +151,7 @@ class PathBezier3D(
             integer=dest_y, attr_identifier="dest_y"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
         """
@@ -178,6 +182,7 @@ class PathBezier3D(
         )
         return svg_str
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -277,6 +282,7 @@ class PathBezier3D(
             bool_val=relative, attr_identifier="relative"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
@@ -309,6 +315,7 @@ class PathBezier3D(
             and self.relative == other.relative
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """

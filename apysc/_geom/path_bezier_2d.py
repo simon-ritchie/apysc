@@ -4,6 +4,8 @@
 from typing import Any
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._geom.path_control_x_interface import PathControlXInterface
 from apysc._geom.path_control_y_interface import PathControlYInterface
 from apysc._geom.path_data_base import PathDataBase
@@ -40,6 +42,7 @@ class PathBezier2D(
     ... )
     """
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -109,6 +112,7 @@ class PathBezier2D(
             integer=dest_y, attr_identifier="dest_y"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _get_svg_str(self) -> str:
         """
@@ -139,6 +143,7 @@ class PathBezier2D(
         )
         return svg_str
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -208,6 +213,7 @@ class PathBezier2D(
             bool_val=relative, attr_identifier="relative"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
@@ -236,6 +242,7 @@ class PathBezier2D(
             and self.relative == other.relative
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """

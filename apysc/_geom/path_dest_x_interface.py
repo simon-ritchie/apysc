@@ -3,6 +3,8 @@
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
@@ -23,6 +25,7 @@ class PathDestXInterface(
 
     _dest_x: Int
 
+    @final
     def _initialize_dest_x_if_not_initialized(self) -> None:
         """
         Initialize the _dest_x attribute if this instance
@@ -39,6 +42,7 @@ class PathDestXInterface(
 
         self._append_dest_x_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_dest_x_linking_setting(self) -> None:
         """

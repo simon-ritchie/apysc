@@ -3,6 +3,8 @@
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_suffix_attr_interface import (
@@ -18,6 +20,7 @@ class RelativeInterface(
 
     _relative: Boolean
 
+    @final
     def _initialize_relative_if_not_initialized(self) -> None:
         """
         Initialize the _relative attribute if this instance

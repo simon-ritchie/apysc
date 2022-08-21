@@ -14,6 +14,8 @@ from typing import List
 from typing import Optional
 from typing import Tuple
 
+from typing_extensions import final
+
 
 def get_current_indent_num() -> int:
     """
@@ -80,6 +82,7 @@ class Indent:
     class at with-statement.
     """
 
+    @final
     def __enter__(self) -> None:
         """
         This method is for the use of with-statement — this
@@ -89,6 +92,7 @@ class Indent:
         current_indent_num += 1
         _save_current_indent_num(indent_num=current_indent_num)
 
+    @final
     def __exit__(self, *args: Any) -> None:
         """
         This method is for the use of with-statement — this

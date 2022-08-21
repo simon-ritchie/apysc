@@ -7,6 +7,8 @@ from typing import List
 from typing import Optional
 from typing import Tuple
 
+from typing_extensions import final
+
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
@@ -19,6 +21,7 @@ class HandlerScope:
     _handler_name: str
     _instance: VariableNameInterface
 
+    @final
     def __init__(self, *, handler_name: str, instance: VariableNameInterface) -> None:
         """
         Class for a handler scope. The apysc uses this class at
@@ -34,6 +37,7 @@ class HandlerScope:
         self._handler_name = handler_name
         self._instance = instance
 
+    @final
     def __enter__(self) -> None:
         """
         Enter and set an event handler scope setting.
@@ -43,6 +47,7 @@ class HandlerScope:
             handler_name=self._handler_name, instance=self._instance
         )
 
+    @final
     def __exit__(self, *args: Any) -> None:
         """
         Exit and remove an event handler scope setting.
@@ -131,6 +136,7 @@ class TemporaryNotHandlerScope:
 
     _original_scope_count: int
 
+    @final
     def __init__(self) -> None:
         """
         Class temporarily sets up a scope that is not a handler.
@@ -138,12 +144,14 @@ class TemporaryNotHandlerScope:
         """
         self._original_scope_count = get_current_event_handler_scope_count()
 
+    @final
     def __enter__(self) -> None:
         """
         Enter and set the scope count to zero.
         """
         _save_current_scope_count(count=0)
 
+    @final
     def __exit__(self, *args: Any) -> None:
         """
         Exit and revert the scope count.

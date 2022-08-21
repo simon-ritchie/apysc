@@ -7,6 +7,8 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._event import timer_event
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.handler import HandlerData
@@ -74,6 +76,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
     _handler_name: str
     _running: Boolean
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
@@ -173,6 +176,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             }
             ap.append_js_expression(expression=f"var {self.variable_name};")
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _convert_delay_to_number(
         self, *, delay: Union[int, float, NumberValueInterface, FPS]
@@ -313,6 +317,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
         return value_util.get_copy(value=self._current_count)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def start(self) -> None:
         """
@@ -366,6 +371,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         )
         self._running.value = True
 
+    @final
     def _wrap_handler(self, *, handler: _Handler[_O1]) -> _Handler[_O1]:
         """
         Wrap a handler to update a current count value when
@@ -401,6 +407,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
         return wrapped
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_count_branch_expression(self) -> None:
         """
@@ -433,6 +440,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         expression = "\n}"
         expression_data_util.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def stop(self) -> None:
         """
@@ -471,6 +479,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         expression: str = self._get_stop_expression(indent_num=0)
         expression_data_util.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _get_stop_expression(self, *, indent_num: int) -> str:
         """
@@ -499,6 +508,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         )
         return expression
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def reset(self) -> None:
         """
@@ -534,6 +544,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         self.stop()
         self._current_count.value = 0
 
+    @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)

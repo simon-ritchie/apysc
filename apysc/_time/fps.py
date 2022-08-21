@@ -4,12 +4,15 @@
 from enum import Enum
 from typing import Union
 
+from typing_extensions import final
+
 
 class FPSDefinition:
 
     _fps: int
     _milisecond_intervals: Union[int, float]
 
+    @final
     def __init__(self, *, fps: int, milisecond_intervals: Union[int, float]) -> None:
         """
         FPS definition class.

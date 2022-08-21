@@ -8,33 +8,45 @@ from typing import Tuple
 import pytest
 from retrying import retry
 
-from apysc._validation import arg_validation_decos
 import apysc as ap
 from apysc._display.x_interface import XInterface
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing import testing_helper
-from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type import number_value_interface
+from apysc._type.number_value_interface import NumberValueInterface
+from apysc._validation import arg_validation_decos
 
 
 class _TestNumberClass(NumberValueInterface):
-
     def __init__(
         self,
-        *, value: number_value_interface._NumType,
+        *,
+        value: number_value_interface._NumType,
         type_name: str,
-        variable_name_suffix: str = ""
+        variable_name_suffix: str = "",
     ) -> None:
+        """
+        Test class for number value interface.
+
+        Parameters
+        ----------
+        value : NumberValueInterface or int or float
+            Initial number value.
+        type_name : str
+            This instance expression's type name (e.g., int, number).
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
+        """
         super(_TestNumberClass, self).__init__(
-            value=value, type_name=type_name,
-            variable_name_suffix=variable_name_suffix)
+            value=value, type_name=type_name, variable_name_suffix=variable_name_suffix
+        )
 
     @arg_validation_decos.is_num(arg_position_index=1)
     def _set_value_and_skip_expression_appending(
-            self,
-            *,
-            value: number_value_interface._NumType) -> None:
+        self, *, value: number_value_interface._NumType
+    ) -> None:
         """
         Update value attribute and skip expression appending.
 

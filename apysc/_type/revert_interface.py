@@ -9,6 +9,8 @@ from typing import List
 from typing import Tuple
 from typing import Type
 
+from typing_extensions import final
+
 
 class RevertInterface(ABC):
 
@@ -45,6 +47,7 @@ class RevertInterface(ABC):
             Target snapshot name.
         """
 
+    @final
     def _run_all_make_snapshot_methods(self, *, snapshot_name: str) -> None:
         """
         Run all _make_snapshot methods. If an instance has
@@ -63,6 +66,7 @@ class RevertInterface(ABC):
         )
         self._set_snapshot_exists_val(snapshot_name=snapshot_name)
 
+    @final
     def _run_base_cls_make_snapshot_methods_recursively(
         self, *, class_: Type, snapshot_name: str
     ) -> None:
@@ -86,6 +90,7 @@ class RevertInterface(ABC):
             )
         class_._make_snapshot(self, snapshot_name=snapshot_name)
 
+    @final
     def _run_all_revert_methods(self, *, snapshot_name: str) -> None:
         """
         Run all _revert methods. If an instance has multiple
@@ -103,6 +108,7 @@ class RevertInterface(ABC):
         )
         self._delete_snapshot_exists_val(snapshot_name=snapshot_name)
 
+    @final
     def _run_base_cls_revert_methods_recursively(
         self, *, class_: Type, snapshot_name: str
     ) -> None:
@@ -126,6 +132,7 @@ class RevertInterface(ABC):
             )
         class_._revert(self, snapshot_name=snapshot_name)
 
+    @final
     def _snapshot_exists(self, *, snapshot_name: str) -> bool:
         """
         Get a boolean value whether a snapshot value exists or not.
@@ -143,6 +150,7 @@ class RevertInterface(ABC):
         self._initialize_ss_exists_val_if_not_initialized()
         return snapshot_name in self._snapshot_exists_
 
+    @final
     def _set_snapshot_exists_val(self, *, snapshot_name: str) -> None:
         """
         Set boolean value whether snapshot value exists or not.
@@ -155,6 +163,7 @@ class RevertInterface(ABC):
         self._initialize_ss_exists_val_if_not_initialized()
         self._snapshot_exists_[snapshot_name] = True
 
+    @final
     def _delete_snapshot_exists_val(self, *, snapshot_name: str) -> None:
         """
         Delete boolean value whether snapshot value exists or not.
@@ -168,6 +177,7 @@ class RevertInterface(ABC):
         if snapshot_name in self._snapshot_exists_:
             del self._snapshot_exists_[snapshot_name]
 
+    @final
     def _get_next_snapshot_name(self) -> str:
         """
         Get a next snapshot name.
@@ -185,6 +195,7 @@ class RevertInterface(ABC):
         )
         return snapshot_name
 
+    @final
     def _set_single_snapshot_val_to_dict(
         self, *, dict_name: str, value: Any, snapshot_name: str
     ) -> None:

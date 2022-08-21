@@ -3,6 +3,8 @@
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._type.revert_interface import RevertInterface
 
 
@@ -13,6 +15,7 @@ class ExpressionString(RevertInterface):
 
     _value: str
 
+    @final
     def __init__(self, value: str) -> None:
         """
         The class for the JavaScript expression string.

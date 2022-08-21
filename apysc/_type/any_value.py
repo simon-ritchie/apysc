@@ -4,6 +4,8 @@
 from typing import Any
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
@@ -35,6 +37,7 @@ class AnyValue(
 
     _value: Any
 
+    @final
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(self, value: Any, *, variable_name_suffix: str = "") -> None:
@@ -69,6 +72,7 @@ class AnyValue(
         self._type_name = TYPE_NAME
         self._append_constructor_expression()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
@@ -122,6 +126,7 @@ class AnyValue(
         self._value = value
         self._append_value_setter_expression(value=value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(self, *, value: Any) -> None:
         """
@@ -141,6 +146,7 @@ class AnyValue(
             expression += f"{value};"
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_arithmetic_operation_expression(
         self, *, other: Any, operator: str
@@ -171,6 +177,7 @@ class AnyValue(
         ap.append_js_expression(expression=expression)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __add__(self, other: Any) -> Any:
         """
@@ -191,6 +198,7 @@ class AnyValue(
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __sub__(self, other: Any) -> Any:
         """
@@ -211,6 +219,7 @@ class AnyValue(
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __mul__(self, other: Any) -> Any:
         """
@@ -231,6 +240,7 @@ class AnyValue(
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __truediv__(self, other: Any) -> Any:
         """
@@ -251,6 +261,7 @@ class AnyValue(
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __floordiv__(self, other: Any) -> Any:
         """
@@ -278,6 +289,7 @@ class AnyValue(
         ap.append_js_expression(expression=expression)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_incremental_arithmetic_operation_expression(
         self, *, other: Any, operator: str
@@ -300,6 +312,7 @@ class AnyValue(
         expression: str = f"{self.variable_name} {operator} {value_str};"
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __iadd__(self, other: Any) -> Any:
         """
@@ -320,6 +333,7 @@ class AnyValue(
         )
         return self
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __isub__(self, other: Any) -> Any:
         """
@@ -340,6 +354,7 @@ class AnyValue(
         )
         return self
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __imul__(self, other: Any) -> Any:
         """
@@ -360,6 +375,7 @@ class AnyValue(
         )
         return self
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __itruediv__(self, other: Any) -> Any:
         """
@@ -380,6 +396,7 @@ class AnyValue(
         )
         return self
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_comparison_expression(
         self, *, comparison_operator: str, other: Any
@@ -414,6 +431,7 @@ class AnyValue(
         ap.append_js_expression(expression=expression)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
@@ -438,6 +456,7 @@ class AnyValue(
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
@@ -462,6 +481,7 @@ class AnyValue(
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __lt__(self, other: Any) -> Boolean:
         """
@@ -486,6 +506,7 @@ class AnyValue(
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __le__(self, other: Any) -> Boolean:
         """
@@ -510,6 +531,7 @@ class AnyValue(
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __gt__(self, other: Any) -> Boolean:
         """
@@ -534,6 +556,7 @@ class AnyValue(
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ge__(self, other: Any) -> Boolean:
         """

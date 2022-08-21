@@ -9,6 +9,8 @@ from typing import Dict
 from typing import List
 from typing import Tuple
 
+from typing_extensions import final
+
 from apysc._type.revert_interface import RevertInterface
 
 _EXCLUDING_TARGET_METHOD_NAMES: List[str] = [
@@ -66,6 +68,7 @@ class DeletedObjectInterface(RevertInterface):
         if value:
             self._disable_each_method()
 
+    @final
     def _disabled_method(self, *args: Any, **kwargs: Any) -> None:
         """
         The method to replace each method when this object
@@ -80,6 +83,7 @@ class DeletedObjectInterface(RevertInterface):
             "This object has been deleted and cannot manipulate."
         )
 
+    @final
     def _disable_each_method(self) -> None:
         """
         Disable each method of this instance.

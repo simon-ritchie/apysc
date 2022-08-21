@@ -4,6 +4,8 @@
 from typing import Any
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._validation import arg_validation_decos
@@ -129,6 +131,7 @@ class Number(NumberValueInterface[float, "Number"]):
             skip_appending=skip_init_substitution_expression_appending,
         )
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     def _set_value_and_skip_expression_appending(
         self, *, value: Union[int, float, Any]

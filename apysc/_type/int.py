@@ -3,6 +3,8 @@
 
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._validation import arg_validation_decos
@@ -129,6 +131,7 @@ class Int(NumberValueInterface[int, "Int"]):
             skip_appending=skip_init_substitution_expression_appending,
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_cast_expression(self, *, is_number_specified: bool) -> None:
         """
@@ -149,6 +152,7 @@ class Int(NumberValueInterface[int, "Int"]):
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     def _set_value_and_skip_expression_appending(
         self, *, value: Union[int, float, NumberValueInterface]
     ) -> None:

@@ -3,6 +3,8 @@
 
 from typing import List
 
+from typing_extensions import final
+
 from apysc._type.deleted_object_interface import DeletedObjectInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
@@ -49,6 +51,7 @@ class VariableNameInterface(DeletedObjectInterface):
         self._variable_name = variable_name
         self._variable_name_history.append(variable_name)
 
+    @final
     def _get_previous_variable_name(self) -> str:
         """
         Get a previous variable name.

@@ -3,6 +3,8 @@ The apysc uses this interface at the custom event interface
 or something else.
 """
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 
 
@@ -11,6 +13,7 @@ class BlankObjectInterface:
     _is_blank_object_initialized: bool = False
     _blank_object_variable_name: str
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _initialize_blank_object_if_not_initialized(self) -> None:
         """

@@ -7,6 +7,8 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.any_value import AnyValue
@@ -140,6 +142,7 @@ class Dictionary(
             skip_appending=skip_init_substitution_expression_appending,
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
@@ -151,6 +154,7 @@ class Dictionary(
         expression = f"var {expression}"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _create_initial_substitution_expression(self) -> str:
         """
         Create an initial value's substitution expression string.
@@ -168,6 +172,7 @@ class Dictionary(
         expression: str = f"{self.variable_name} = {value_str};"
         return expression
 
+    @final
     def _get_dict_value(
         self, *, value: Union[Dict[_K, _V], "Dictionary"]
     ) -> Dict[_K, _V]:
@@ -234,6 +239,7 @@ class Dictionary(
         self._value = self._get_dict_value(value=value)
         self._append_value_setter_expression(value=value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(
         self, *, value: Union[Dict[_K, _V], "Dictionary"]
@@ -340,6 +346,7 @@ class Dictionary(
         self._append_length_expression(length=length)
         return length
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_length_expression(self, *, length: Int) -> None:
         """
@@ -357,6 +364,7 @@ class Dictionary(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     def __len__(self) -> None:
         """
         This method is disabled and can't use from a
@@ -367,6 +375,7 @@ class Dictionary(
             " Please use length property instead."
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __getitem__(self, key: Union[_K, ExpressionString]) -> _V:
         """
@@ -394,6 +403,7 @@ class Dictionary(
         self._append_getitem_expression(key=key, value=value)
         return value
 
+    @final
     def _get_builtin_type_key(
         self, *, key: Union[_K, ExpressionString]
     ) -> _BuiltinKeys:
@@ -418,6 +428,7 @@ class Dictionary(
         key_: _BuiltinKeys = key  # type: ignore
         return key_
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_getitem_expression(
         self, *, key: Union[_K, ExpressionString], value: Any
@@ -443,6 +454,7 @@ class Dictionary(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     def _validate_key_type_is_str_or_numeric(
         self, *, key: Union[_K, ExpressionString]
     ) -> None:
@@ -468,6 +480,7 @@ class Dictionary(
             f"\nSuppoting types are: str, String, int, Int"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __setitem__(self, key: Union[_K, ExpressionString], value: _V) -> None:
         """
@@ -484,6 +497,7 @@ class Dictionary(
         self._value[key_] = value  # type: ignore
         self._append_setitem_expression(key=key, value=value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_setitem_expression(
         self, *, key: Union[_K, ExpressionString], value: _V
@@ -506,6 +520,7 @@ class Dictionary(
         expression: str = f"{self.variable_name}[{key_str}] = {value_str};"
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __delitem__(self, key: Union[_K, ExpressionString]) -> None:
         """
@@ -521,6 +536,7 @@ class Dictionary(
             del self._value[key_]  # type: ignore
         self._append_delitem_expression(key=key)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_delitem_expression(self, *, key: Union[_K, ExpressionString]) -> None:
         """
@@ -538,6 +554,7 @@ class Dictionary(
         expression: str = f"delete {self.variable_name}[{key_str}];"
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
@@ -566,6 +583,7 @@ class Dictionary(
             self._append_eq_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
         self, *, result: Boolean, other: VariableNameInterface
@@ -588,6 +606,7 @@ class Dictionary(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
@@ -614,6 +633,7 @@ class Dictionary(
             self._append_ne_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
         self, *, result: Boolean, other: VariableNameInterface
@@ -636,6 +656,7 @@ class Dictionary(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def get(
         self, key: Union[_K, ExpressionString], *, default: DefaultType = None
@@ -687,6 +708,7 @@ class Dictionary(
         self._append_get_expression(key=key, result_value=result_value, default=default)
         return result_value
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_get_expression(
         self, *, key: Union[_K, ExpressionString], result_value: Any, default: Any

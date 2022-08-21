@@ -5,6 +5,8 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_interface import CopyInterface
@@ -122,6 +124,7 @@ class Boolean(
             skip_appending=skip_init_substitution_expression_appending,
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _get_bool_from_arg_value(
         self, *, value: Union[bool, int, Int, "Boolean"]
@@ -153,6 +156,7 @@ class Boolean(
         bool_validation.validate_bool(value=result)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
@@ -164,6 +168,7 @@ class Boolean(
         expression = f"var {expression}"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _create_initial_substitution_expression(self) -> str:
         """
         Create an initial value's substitution expression string.
@@ -237,6 +242,7 @@ class Boolean(
         else:
             self._append_value_setter_expression(value=self._value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(
         self, *, value: Union[bool, int, Int, "Boolean"]
@@ -261,6 +267,7 @@ class Boolean(
             expression += "false;"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _set_value_and_skip_expression_appending(
         self, *, value: Union[bool, int, Int, "Boolean"]
     ) -> None:
@@ -275,6 +282,7 @@ class Boolean(
         value_: bool = self._get_bool_from_arg_value(value=value)
         self._value = value_
 
+    @final
     def __bool__(self) -> bool:
         """
         Get a boolean value directly.
@@ -329,6 +337,7 @@ class Boolean(
             return
         self._value = self._value_snapshots[snapshot_name]
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
@@ -369,6 +378,7 @@ class Boolean(
         self._append_eq_expression(result=result, other=other)
         return result
 
+    @final
     def _validate_comparison_other_type(self, *, other: Any) -> None:
         """
         Validate a comparison's other value type.
@@ -395,6 +405,7 @@ class Boolean(
             f"\nAcceptable value types are: {ACCEPTABLE_TYPES}"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -419,6 +430,7 @@ class Boolean(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
@@ -442,6 +454,7 @@ class Boolean(
             self._append_ne_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -494,6 +507,7 @@ class Boolean(
         self._append_not_prop_expression(result=result)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_not_prop_expression(self, *, result: VariableNameInterface) -> None:
         """

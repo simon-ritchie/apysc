@@ -7,6 +7,8 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_interface import CopyInterface
@@ -62,6 +64,7 @@ class NumberValueInterface(
         self._value = value_
         self._type_name = type_name
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
@@ -74,6 +77,7 @@ class NumberValueInterface(
         expression = f"var {expression}"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _create_initial_substitution_expression(self) -> str:
         """
         Create an initial value's substitution expression string.
@@ -162,6 +166,7 @@ class NumberValueInterface(
             value_ = value  # type: ignore
         self._value = value_
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(self, *, value: _NumType) -> None:
         """
@@ -181,6 +186,7 @@ class NumberValueInterface(
         expression: str = f"{self.variable_name} = {right_value};"
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __add__(self, other: _NumType) -> Any:
@@ -206,6 +212,7 @@ class NumberValueInterface(
         self._append_addition_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_addition_expression(
         self, *, result: VariableNameInterface, other: _NumType
@@ -229,6 +236,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __sub__(self, other: _NumType) -> Any:
@@ -254,6 +262,7 @@ class NumberValueInterface(
         self._append_subtraction_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_subtraction_expression(
         self, *, result: VariableNameInterface, other: _NumType
@@ -277,6 +286,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __mul__(self, other: _NumType) -> _T:
@@ -302,6 +312,7 @@ class NumberValueInterface(
         self._append_multiplication_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_multiplication_expression(
         self, *, result: VariableNameInterface, other: _NumType
@@ -325,6 +336,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __truediv__(self, other: _NumType) -> Any:
@@ -352,6 +364,7 @@ class NumberValueInterface(
         self._append_true_division_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_true_division_expression(
         self, *, result: VariableNameInterface, other: _NumType
@@ -375,6 +388,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __floordiv__(self, other: _NumType) -> Any:
@@ -402,6 +416,7 @@ class NumberValueInterface(
         self._append_floor_division_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_floor_division_expression(
         self, *, result: VariableNameInterface, other: _NumType
@@ -428,6 +443,7 @@ class NumberValueInterface(
 
     _incremental_calc_prev_name: str = ""
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_incremental_calc_substitution_expression(self) -> None:
         """
@@ -442,6 +458,7 @@ class NumberValueInterface(
         )
         self._incremental_calc_prev_name = ""
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __iadd__(self, other: _NumType) -> _T:
@@ -468,6 +485,7 @@ class NumberValueInterface(
         result.variable_name = self.variable_name
         return result
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __isub__(self, other: _NumType) -> Any:
@@ -494,6 +512,7 @@ class NumberValueInterface(
         result.variable_name = self.variable_name
         return result
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __imul__(self, other: _NumType) -> _T:
@@ -520,6 +539,7 @@ class NumberValueInterface(
         result.variable_name = self.variable_name
         return result
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __itruediv__(self, other: _NumType) -> Any:
@@ -547,6 +567,7 @@ class NumberValueInterface(
         result.variable_name = self.variable_name
         return result
 
+    @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __mod__(self, other: _NumType) -> _T:
@@ -572,6 +593,7 @@ class NumberValueInterface(
         self._append_modulo_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_modulo_expression(
         self, *, result: VariableNameInterface, other: _NumType
@@ -608,6 +630,7 @@ class NumberValueInterface(
             return "0"
         return str(self._value)
 
+    @final
     def __int__(self) -> int:
         """
         Integer conversion method.
@@ -619,6 +642,7 @@ class NumberValueInterface(
         """
         return int(self._value)
 
+    @final
     def __float__(self) -> float:
         """
         Float conversion method.
@@ -630,6 +654,7 @@ class NumberValueInterface(
         """
         return float(self._value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
@@ -663,6 +688,7 @@ class NumberValueInterface(
             self._append_eq_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _convert_other_val_to_int_or_number(self, *, other: Any) -> Any:
         """
@@ -692,6 +718,7 @@ class NumberValueInterface(
             return ap.Number(other, variable_name_suffix=self._variable_name_suffix)
         return other
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -714,6 +741,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
@@ -747,6 +775,7 @@ class NumberValueInterface(
             self._append_ne_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -769,6 +798,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __lt__(self, other: Any) -> Any:
         """
@@ -802,6 +832,7 @@ class NumberValueInterface(
             self._append_lt_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_lt_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -824,6 +855,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __le__(self, other: Any) -> Any:
         """
@@ -857,6 +889,7 @@ class NumberValueInterface(
             self._append_le_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_le_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -879,6 +912,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __gt__(self, other: Any) -> Any:
         """
@@ -912,6 +946,7 @@ class NumberValueInterface(
             self._append_gt_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_gt_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -934,6 +969,7 @@ class NumberValueInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ge__(self, other: Any) -> Any:
         """
@@ -967,6 +1003,7 @@ class NumberValueInterface(
             self._append_ge_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ge_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface

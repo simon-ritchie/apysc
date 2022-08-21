@@ -4,12 +4,15 @@
 from copy import deepcopy
 from typing import Any
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.type_name_interface import TypeNameInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class CopyInterface(TypeNameInterface, VariableNameInterface):
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _copy(self) -> Any:
         """
@@ -34,6 +37,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         )
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_value_updating_cpy_exp_to_handler_scope(
         self, *, result_variable_name: str
@@ -59,6 +63,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
             expression = f"{result_variable_name} = " f"cpy({self.variable_name});"
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_copy_expression(self, *, result_variable_name: str) -> None:
         """

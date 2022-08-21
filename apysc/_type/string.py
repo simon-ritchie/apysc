@@ -5,6 +5,8 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_interface import CopyInterface
@@ -123,6 +125,7 @@ class String(
             skip_appending=skip_init_substitution_expression_appending,
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
@@ -134,6 +137,7 @@ class String(
         expression = f"var {expression}"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _create_initial_substitution_expression(self) -> str:
         """
         Create an initial value's substitution expression string.
@@ -150,6 +154,7 @@ class String(
             expression += f'"{self._value}";'
         return expression
 
+    @final
     def _get_str_value(self, *, value: Union[str, "String"]) -> str:
         """
         Get a (Python's) str value from a specified value.
@@ -214,6 +219,7 @@ class String(
         self._value = self._get_str_value(value=value)
         self._append_value_setter_expression(value=value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(self, *, value: Union[str, "String"]) -> None:
         """
@@ -233,6 +239,7 @@ class String(
             expression += f'"{value}";'
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __add__(self, other: Union[str, "String"]) -> "String":
@@ -258,6 +265,7 @@ class String(
         self._append_addition_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_addition_expression(
         self, *, result: VariableNameInterface, other: Union[str, "String"]
@@ -281,6 +289,7 @@ class String(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __mul__(self, other: Union[int, Any]) -> "String":
@@ -308,6 +317,7 @@ class String(
         self._append_multiplication_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_multiplication_expression(
         self, *, result: VariableNameInterface, other: Union[int, Any]
@@ -335,6 +345,7 @@ class String(
         expression += "\n}"
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __iadd__(self, other: Union[str, "String"]) -> Any:
@@ -360,6 +371,7 @@ class String(
         result.variable_name = self.variable_name
         return result
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __imul__(self, other: Union[int, Any]) -> Any:
@@ -398,6 +410,7 @@ class String(
             return ""
         return self._value
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> Any:
         """
@@ -432,6 +445,7 @@ class String(
             self._append_eq_expression(result=result, other=other)
         return result
 
+    @final
     def _convert_other_val_to_string(self, *, other: Any) -> Any:
         """
         Convert a comparison other value to a String if it is
@@ -454,6 +468,7 @@ class String(
             return String(other, variable_name_suffix=self._variable_name_suffix)
         return other
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -476,6 +491,7 @@ class String(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __ne__(self, other: Any) -> Any:
         """
@@ -511,6 +527,7 @@ class String(
             self._append_ne_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -533,6 +550,7 @@ class String(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __lt__(self, other: Union[str, Any]) -> Any:
@@ -560,6 +578,7 @@ class String(
             self._append_lt_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_lt_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -582,6 +601,7 @@ class String(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __le__(self, other: Union[str, Any]) -> Any:
@@ -609,6 +629,7 @@ class String(
             self._append_le_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_le_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -631,6 +652,7 @@ class String(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __gt__(self, other: Union[str, Any]) -> Any:
@@ -658,6 +680,7 @@ class String(
             self._append_gt_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_gt_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface
@@ -680,6 +703,7 @@ class String(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __ge__(self, other: Union[str, Any]) -> Any:
@@ -707,6 +731,7 @@ class String(
             self._append_ge_expression(result=result, other=other)
         return result
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ge_expression(
         self, *, result: VariableNameInterface, other: VariableNameInterface

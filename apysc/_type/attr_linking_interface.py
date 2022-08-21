@@ -8,6 +8,8 @@ from typing import Dict
 from typing import List
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -21,6 +23,7 @@ class AttrLinkingInterface:
 
     _attr_linking_stack: Dict[_AttrName, List[_Attr]]
 
+    @final
     def _initialize_attr_linking_stack(self, *, attr_name: str) -> None:
         """
         Initialize the _attr_linking_stack attribute if
@@ -37,6 +40,7 @@ class AttrLinkingInterface:
             return
         self._attr_linking_stack[attr_name] = []
 
+    @final
     def _append_attr_to_linking_stack(self, *, attr: _Attr, attr_name: str) -> None:
         """
         Append an attribute to the linking attribute stack.
@@ -53,6 +57,7 @@ class AttrLinkingInterface:
             return
         self._attr_linking_stack[attr_name].append(attr)
 
+    @final
     def _is_target_attr_already_linked(self, *, attr: _Attr, attr_name: str) -> bool:
         """
         Get a boolean value whether this instance already
@@ -79,6 +84,7 @@ class AttrLinkingInterface:
                 return True
         return False
 
+    @final
     def _append_applying_new_attr_val_exp(
         self, *, new_attr: _Attr, attr_name: str
     ) -> None:

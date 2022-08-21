@@ -4,6 +4,8 @@ built-in value to apysc value.
 
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -14,6 +16,7 @@ from apysc._type.variable_name_suffix_attr_interface import (
 
 
 class AttrToApyscValFromBuiltinInterface:
+    @final
     def _get_copied_int_from_builtin_val(
         self, *, integer: Union[int, Int], attr_identifier: str
     ) -> Int:
@@ -45,6 +48,7 @@ class AttrToApyscValFromBuiltinInterface:
         )
         return copied
 
+    @final
     def _get_copied_number_from_builtin_val(
         self, *, float_or_num: Union[float, Number], attr_identifier: str
     ) -> Number:
@@ -76,6 +80,7 @@ class AttrToApyscValFromBuiltinInterface:
         )
         return copied
 
+    @final
     def _get_copied_string_from_builtin_val(
         self, *, string: Union[str, String], attr_identifier: str
     ) -> String:
@@ -107,6 +112,7 @@ class AttrToApyscValFromBuiltinInterface:
         )
         return copied
 
+    @final
     def _get_copied_boolean_from_builtin_val(
         self, *, bool_val: Union[bool, Boolean], attr_identifier: str
     ) -> Boolean:

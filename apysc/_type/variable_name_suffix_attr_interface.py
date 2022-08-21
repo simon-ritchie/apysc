@@ -2,10 +2,13 @@
 interface class.
 """
 
+from typing_extensions import final
+
 from apysc._validation import arg_validation_decos
 
 
 class VariableNameSuffixAttrInterface:
+    @final
     @arg_validation_decos.not_empty_string(arg_position_index=1)
     def _get_attr_variable_name_suffix(self, *, attr_identifier: str) -> str:
         """

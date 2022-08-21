@@ -5,6 +5,8 @@ interfaces.
 from abc import ABC
 from abc import abstractmethod
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 
 
@@ -15,6 +17,7 @@ class InitialSubstitutionExpInterface(ABC):
         Create an initial value's substitution expression string.
         """
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_initial_substitution_expression_if_in_handler_scope(
         self,

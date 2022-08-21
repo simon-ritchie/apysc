@@ -1,6 +1,8 @@
 """Class implementation for the continue.
 """
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 
 
@@ -28,6 +30,7 @@ class Continue:
     ...
     """
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __init__(self) -> None:
         """

@@ -8,6 +8,8 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._expression.indent_num import Indent
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
@@ -43,6 +45,7 @@ class For(Generic[T]):
     _snapshot_name: str
     _indent: Indent
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -93,6 +96,7 @@ class For(Generic[T]):
         self._globals = globals_
         self._indent = Indent()
 
+    @final
     def _validate_arr_or_dict_val_type(
         self, *, arr_or_dict: Union[Array, Dictionary]
     ) -> None:
@@ -116,6 +120,7 @@ class For(Generic[T]):
             f"{type(arr_or_dict)}"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __enter__(self) -> T:
         """
@@ -148,6 +153,7 @@ class For(Generic[T]):
         self._indent.__enter__()
         return i_or_key  # type: ignore
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def __exit__(self, *args: Any) -> None:
         """
@@ -169,6 +175,7 @@ class For(Generic[T]):
         ap.append_js_expression(expression="}")
         last_scope.set_last_scope(value=LastScope.FOR)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_arr_enter_expression(self, *, i: Int) -> None:
         """
@@ -188,6 +195,7 @@ class For(Generic[T]):
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_dict_enter_expression(self, *, key: String) -> None:
         """

@@ -74,3 +74,8 @@ div.sphinxsidebar {
 hr.docutils {
     display: none  !important;
 }
+
+/* Hide unnecessary underlines. */
+.highlight .w {
+    text-decoration: none !important;
+}

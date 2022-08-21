@@ -13,15 +13,15 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.copy_interface import CopyInterface
+from apysc._type.initial_substitution_exp_interface import (
+    InitialSubstitutionExpInterface,
+)
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
-from apysc._type.initial_substitution_exp_interface import (
-    InitialSubstitutionExpInterface,
-)
 
 T = TypeVar("T")
 
@@ -100,7 +100,7 @@ class Array(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
         skip_init_substitution_expression_appending : bool, default False
-            A boolean indicating whether to skip an initial substitution
+            A boolean indicates whether to skip an initial substitution
             expression or not. This class uses this option internally.
 
         References

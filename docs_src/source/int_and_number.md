@@ -88,7 +88,7 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
 **[Interface summary]** Integer class for apysc library.<hr>
 
@@ -98,6 +98,8 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
   - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+- `skip_init_substitution_expression_appending`: bool, default False
+  - A boolean indicates whether to skip an initial substitution expression or not. This class uses this option internally.
 
 <hr>
 
@@ -140,7 +142,7 @@ Int(10)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
 **[Interface summary]** Floating point number class for apysc library.<hr>
 
@@ -150,6 +152,8 @@ Int(10)
   - Initial floating point number value. This class casts it to float if you specify int or Int value.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+- `skip_init_substitution_expression_appending`: bool, default False
+  - A boolean indicates whether to skip an initial substitution expression or not. This class uses this option internally.
 
 <hr>
 

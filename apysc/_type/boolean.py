@@ -83,7 +83,7 @@ class Boolean(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
         skip_init_substitution_expression_appending : bool, default False
-            A boolean indicating whether to skip an initial substitution
+            A boolean indicates whether to skip an initial substitution
             expression or not. This class uses this option internally.
 
         References

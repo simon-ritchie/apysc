@@ -2449,5 +2449,10 @@ MAPPINGS: Mappings = Mappings(
             "negative.<hr>",
             val="拡縮の最小値はほぼ0となり、その値は負の値にはなりません。<hr>",
         ),
+        Mapping(
+            key="  - A boolean indicates whether to skip an initial substitution "
+            "expression or not. This class uses this option internally.",
+            val="  - 初期値の代入のコード表現をスキップするかどうかの真偽値です。" "このオプションはクラス内部の実装で使用されます。",
+        ),
     ]
 )

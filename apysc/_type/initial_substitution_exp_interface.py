@@ -17,9 +17,9 @@ class InitialSubstitutionExpInterface(ABC):
 
     @add_debug_info_setting(module_name=__name__)
     def _append_initial_substitution_expression_if_in_handler_scope(
-            self,
-            skip_appending: bool,
-        ) -> None:
+        self,
+        skip_appending: bool,
+    ) -> None:
         """
         Append an initial value's expression if a current scope is
         in a handler scope.
@@ -27,7 +27,7 @@ class InitialSubstitutionExpInterface(ABC):
         Parameters
         ----------
         skip_appending : bool
-            A boolean indicating whether to skip appending an expression
+            A boolean indicates whether to skip appending an expression
             or not.
         """
         import apysc as ap

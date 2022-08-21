@@ -208,7 +208,7 @@ def _make_build_doc_command_strs(*, skip_sync_translation: bool) -> List[str]:
     Parameters
     ----------
     skip_sync_translation : bool
-        A boolean indicating whether to skip the translation
+        A boolean indicates whether to skip the translation
         mappings or not.
 
     Returns

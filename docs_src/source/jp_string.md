@@ -34,7 +34,7 @@ assert string_2 == "Hello"
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, value: Union[str, ForwardRef('String')], *, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, value: Union[str, ForwardRef('String')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
 **[インターフェイス概要]** apyscライブラリにおける文字列用のクラスです。<hr>
 
@@ -45,6 +45,9 @@ assert string_2 == "Hello"
 
 - `variable_name_suffix`: str, default ''
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
+
+- `skip_init_substitution_expression_appending`: bool, default False
+  - 初期値の代入のコード表現をスキップするかどうかの真偽値です。このオプションはクラス内部の実装で使用されます。
 
 <hr>
 

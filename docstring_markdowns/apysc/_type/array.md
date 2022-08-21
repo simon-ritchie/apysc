@@ -120,6 +120,8 @@ Array class for the apysc library.<hr>
   - Initial array value.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+- `skip_init_substitution_expression_appending`: bool, default False
+  - A boolean indicates whether to skip an initial substitution expression or not. This class uses this option internally.
 
 <hr>
 
@@ -419,6 +421,15 @@ Convert argument value to list if a specified value is a range type.<hr>
 
 - `value`: Array or list or tuple
   - Converted value.
+
+### `_create_initial_substitution_expression` method docstring
+
+Create an initial value's substitution expression string.<hr>
+
+**[Returns]**
+
+- `expression`: str
+  - Created expression string.
 
 ### `_get_builtin_int_from_index` method docstring
 

@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display.line_joints import LineJoints
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
@@ -21,6 +23,7 @@ class LineJointsInterface(
 
     _line_joints: String
 
+    @final
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
         Initialize _line_joints attribute if this interface does
@@ -77,6 +80,7 @@ class LineJointsInterface(
         self._update_line_joints_and_skip_appending_exp(value=value)
         self._append_line_joints_update_expression()
 
+    @final
     def _update_line_joints_and_skip_appending_exp(
         self, *, value: Union[String, LineJoints]
     ) -> None:
@@ -99,6 +103,7 @@ class LineJointsInterface(
         else:
             self._line_joints = String(value.value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_line_joints_update_expression(self) -> None:
         """

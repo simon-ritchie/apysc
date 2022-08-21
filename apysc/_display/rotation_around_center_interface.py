@@ -4,6 +4,8 @@ interface.
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._animation.animation_rotation_around_center_interface import (
     AnimationRotationAroundCenterInterface,
 )
@@ -26,6 +28,7 @@ class RotationAroundCenterInterface(
 
     _rotation_around_center: Int
 
+    @final
     def _initialize_rotation_around_center_if_not_initialized(self) -> None:
         """
         Initialize the `_rotation_around_center` attribute if this interface
@@ -44,6 +47,7 @@ class RotationAroundCenterInterface(
 
         self._append_rotation_around_center_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_rotation_around_center_attr_linking_setting(self) -> None:
         """
@@ -116,6 +120,7 @@ class RotationAroundCenterInterface(
 
         self._append_rotation_around_center_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_rotation_around_center_update_expression(
         self, *, before_value: Int

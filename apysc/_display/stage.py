@@ -12,6 +12,8 @@ from datetime import datetime
 from typing import Optional
 from typing import Tuple
 
+from typing_extensions import final
+
 from apysc._display.child_interface import ChildInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.width_interface import WidthInterface
@@ -147,6 +149,7 @@ class Stage(
         _save_stage_id_to_db(stage=self)
         _current_stage = self
 
+    @final
     def _save_stage_elem_id(self) -> None:
         """
         Save the stage element id.
@@ -161,6 +164,7 @@ class Stage(
         )
         expression_data_util.exec_query(sql=query)
 
+    @final
     def _create_stage_elem_id_if_none(self, *, stage_elem_id: Optional[str]) -> str:
         """
         Create a random stage element id if a specified id is None.
@@ -184,6 +188,7 @@ class Stage(
         result_id: str = f"stage_{now_timestamp}{random_int}"
         return result_id
 
+    @final
     def _append_constructor_expression(self) -> None:
         """
         Append stage constructor expression.
@@ -193,6 +198,7 @@ class Stage(
         expression: str = self._make_constructor_expression()
         ap.append_js_expression(expression=expression)
 
+    @final
     def _make_constructor_expression(self) -> str:
         """
         Make a stage constructor expression string.
@@ -213,6 +219,7 @@ class Stage(
         )
         return expression
 
+    @final
     def _make_style_str(self) -> str:
         """
         Make a stage's style string.

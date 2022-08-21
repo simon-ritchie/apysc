@@ -1,6 +1,7 @@
 """Implementations for Sprite class.
 """
 
+from typing_extensions import final
 
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
@@ -132,6 +133,7 @@ class Sprite(
         stage.add_child(child=self)
         self._set_overflow_visible_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """

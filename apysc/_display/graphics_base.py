@@ -6,6 +6,8 @@ from abc import abstractmethod
 from typing import Optional
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
 from apysc._display.fill_alpha_interface import FillAlphaInterface
@@ -91,6 +93,7 @@ class GraphicsBase(
         parent.add_child(child=self)
         self._set_overflow_visible_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _set_initial_basic_values(
         self,
@@ -173,6 +176,7 @@ class GraphicsBase(
             attr=self._line_thickness, attr_name="line_thickness"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _set_line_setting_if_not_none_value_exists(
         self,
@@ -209,6 +213,7 @@ class GraphicsBase(
             self.line_dash_dot_setting = line_dash_dot_setting
             return
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_basic_vals_expression(self, *, expression: str, indent_num: int) -> str:
         """

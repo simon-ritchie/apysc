@@ -9,6 +9,8 @@ HeightInterface can't use this interface.
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._animation.animation_height_for_ellipse_interface import (
     AnimationHeightForEllipseInterface,
 )
@@ -36,6 +38,7 @@ class WidthAndHeightInterfacesForEllipse(
     _width: Int
     _height: Int
 
+    @final
     def _initialize_width_and_height_if_not_initialized(self) -> None:
         """
         Initialize _width and _height attributes if this interface
@@ -58,6 +61,7 @@ class WidthAndHeightInterfacesForEllipse(
             )
             self._append_height_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_width_attr_linking_setting(self) -> None:
         """
@@ -66,6 +70,7 @@ class WidthAndHeightInterfacesForEllipse(
         self._append_applying_new_attr_val_exp(new_attr=self._width, attr_name="width")
         self._append_attr_to_linking_stack(attr=self._width, attr_name="width")
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_height_attr_linking_setting(self) -> None:
         """
@@ -172,6 +177,7 @@ class WidthAndHeightInterfacesForEllipse(
 
         self._append_height_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ellipse_width_and_height_update_expression(self) -> None:
         """

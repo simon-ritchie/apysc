@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display.line_caps import LineCaps
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
@@ -21,6 +23,7 @@ class LineCapInterface(
 
     _line_cap: String
 
+    @final
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
         Initialize the _line_cap attribute if this
@@ -77,6 +80,7 @@ class LineCapInterface(
         self._update_line_cap_and_skip_appending_exp(value=value)
         self._append_line_cap_update_expression()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_line_cap_update_expression(self) -> None:
         """
@@ -91,6 +95,7 @@ class LineCapInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     def _update_line_cap_and_skip_appending_exp(
         self, *, value: Union[String, LineCaps]
     ) -> None:

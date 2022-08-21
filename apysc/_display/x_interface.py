@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_x_interface import AnimationXInterface
 from apysc._display.x_interface_base import XInterfaceBase
@@ -25,6 +27,7 @@ class XInterface(
     RevertInterface,
     AttrLinkingInterface,
 ):
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _initialize_x_if_not_initialized(self) -> None:
         """
@@ -42,6 +45,7 @@ class XInterface(
 
         self._append_x_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_x_attr_linking_setting(self) -> None:
         """
@@ -110,6 +114,7 @@ class XInterface(
 
         self._append_x_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_x_update_expression(self) -> None:
         """
@@ -123,6 +128,7 @@ class XInterface(
         expression: str = f"{self.variable_name}.x({value_str});"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _update_x_and_skip_appending_exp(self, *, x: Union[int, Int]) -> None:
         """
         Update x-coordinate and skip appending an expression.

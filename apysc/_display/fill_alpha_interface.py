@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_fill_alpha_interface import AnimationFillAlphaInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -24,6 +26,7 @@ class FillAlphaInterface(
 
     _fill_alpha: Number
 
+    @final
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """
         Initialize _fill_alpha attribute if this interface does not
@@ -40,6 +43,7 @@ class FillAlphaInterface(
 
         self._append_fill_alpha_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_fill_alpha_attr_linking_setting(self) -> None:
         """
@@ -112,6 +116,7 @@ class FillAlphaInterface(
 
         self._append_fill_alpha_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_fill_alpha_update_expression(self) -> None:
         """
@@ -124,6 +129,7 @@ class FillAlphaInterface(
         expression: str = f"{self.variable_name}.fill({{opacity: {value_str}}});"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _update_fill_alpha_and_skip_appending_exp(
         self, *, value: Union[float, Number]
     ) -> None:

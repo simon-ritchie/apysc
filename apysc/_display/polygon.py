@@ -5,6 +5,8 @@ from typing import List
 from typing import Optional as Op
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display import graphics
 from apysc._display.append_line_point_interface import AppendLinePointInterface
 from apysc._display.child_interface import ChildInterface
@@ -210,6 +212,7 @@ class Polygon(
         self._set_x_and_y_with_minimum_point()
         super(Polygon, self).__init__(parent=parent, variable_name=variable_name)
 
+    @final
     def _set_x_and_y_with_minimum_point(self) -> None:
         """
         Set an x and y properties coordinate with a minimum point.
@@ -224,6 +227,7 @@ class Polygon(
         self._y = Int(min_y, variable_name_suffix=suffix)
 
     @classmethod
+    @final
     def _create_with_graphics(
         cls,
         *,
@@ -282,6 +286,7 @@ class Polygon(
         repr_str: str = f"Polygon('{self.variable_name}')"
         return repr_str
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """

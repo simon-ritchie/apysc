@@ -3,6 +3,8 @@
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
@@ -23,6 +25,7 @@ class EllipseHeightInterface(
 
     _ellipse_height: Int
 
+    @final
     def _initialize_ellipse_height_if_not_initialized(self) -> None:
         """
         Initialize _ellipse_height attribute if this interface does not
@@ -41,6 +44,7 @@ class EllipseHeightInterface(
 
         self._append_ellipse_height_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ellipse_height_attr_linking_setting(self) -> None:
         """
@@ -101,6 +105,7 @@ class EllipseHeightInterface(
 
         self._append_ellipse_height_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ellipse_height_update_expression(self) -> None:
         """

@@ -5,6 +5,8 @@ interface.
 from typing import Dict
 from typing import Optional
 
+from typing_extensions import final
+
 from apysc._display.line_cap_interface import LineCapInterface
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.line_thickness_interface import LineThicknessInterface
@@ -16,6 +18,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
 
     _line_round_dot_setting: Optional[LineRoundDotSetting]
 
+    @final
     def _initialize_line_round_dot_setting_if_not_initialized(self) -> None:
         """
         Initialize _line_round_dot_setting if this interface does not
@@ -90,6 +93,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             self.line_cap = ap.LineCaps.BUTT
         self._append_line_round_dot_setting_update_expression()
 
+    @final
     def _update_line_round_dot_setting_and_skip_appending_exp(
         self, *, value: Optional[LineRoundDotSetting]
     ) -> None:
@@ -109,6 +113,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             )
         self._line_round_dot_setting = value
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_line_round_dot_setting_update_expression(self) -> None:
         """

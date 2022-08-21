@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_radius_interface import AnimationRadiusInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -24,6 +26,7 @@ class RadiusInterface(
 
     _radius: Int
 
+    @final
     def _initialize_radius_if_not_initialized(self) -> None:
         """
         Initialize _radius attribute if this interface does not
@@ -40,6 +43,7 @@ class RadiusInterface(
 
         self._append_raidus_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_raidus_attr_linking_setting(self) -> None:
         """
@@ -95,6 +99,7 @@ class RadiusInterface(
 
         self._append_raidus_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _get_converted_radius_int(self, *, radius: Union[int, Int]) -> Int:
         """
@@ -117,6 +122,7 @@ class RadiusInterface(
             return ap.Int(radius, variable_name_suffix=suffix)
         return radius
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_radius_update_expression(self) -> None:
         """

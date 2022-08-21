@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_line_alpha_interface import AnimationLineAlphaInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -24,6 +26,7 @@ class LineAlphaInterface(
 
     _line_alpha: Number
 
+    @final
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
         Initialize _line_alpha attribute if this interface does not
@@ -40,6 +43,7 @@ class LineAlphaInterface(
 
         self._append_line_alpha_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_line_alpha_attr_linking_setting(self) -> None:
         """
@@ -111,6 +115,7 @@ class LineAlphaInterface(
 
         self._append_line_alpha_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_line_alpha_update_expression(self) -> None:
         """
@@ -125,6 +130,7 @@ class LineAlphaInterface(
         expression: str = f"{self.variable_name}.stroke({{opacity: {line_alpha_str}}});"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _update_line_alpha_and_skip_appending_exp(
         self, *, value: Union[float, Number]
     ) -> None:

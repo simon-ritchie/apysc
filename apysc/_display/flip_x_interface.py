@@ -3,6 +3,8 @@
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.boolean import Boolean
@@ -23,6 +25,7 @@ class FlipXInterface(
 
     _flip_x: Boolean
 
+    @final
     def _initialize_flip_x_if_not_initialized(self) -> None:
         """
         Initialize the _flip_x attribute if this interface
@@ -39,6 +42,7 @@ class FlipXInterface(
 
         self._append_flip_x_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_flip_x_attr_linking_setting(self) -> None:
         """
@@ -114,6 +118,7 @@ class FlipXInterface(
 
         self._append_flip_x_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_flip_x_update_expression(self, *, before_value: Boolean) -> None:
         """

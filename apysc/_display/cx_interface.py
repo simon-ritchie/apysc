@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_cx_interface import AnimationCxInterface
 from apysc._display.x_interface_base import XInterfaceBase
 from apysc._html.debug_mode import add_debug_info_setting
@@ -23,6 +25,7 @@ class CxInterface(
     RevertInterface,
     AttrLinkingInterface,
 ):
+    @final
     def _initialize_x_if_not_initialized(self) -> None:
         """
         Initialize _x attribute if this interface does not
@@ -39,6 +42,7 @@ class CxInterface(
 
         self._append_x_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_x_attr_linking_setting(self) -> None:
         """
@@ -104,6 +108,7 @@ class CxInterface(
 
         self._append_x_attr_linking_setting()
 
+    @final
     def _append_x_update_expression(self) -> None:
         """
         Append x position updating expression.
@@ -116,6 +121,7 @@ class CxInterface(
         expression: str = f"{self.variable_name}.cx({value_str});"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _update_x_and_skip_appending_exp(self, *, x: Union[int, Int]) -> None:
         """
         Update x-coordinate and skip appending an expression.

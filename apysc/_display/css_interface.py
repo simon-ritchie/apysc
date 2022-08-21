@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_to_apysc_val_from_builtin_interface import (
     AttrToApyscValFromBuiltinInterface,
@@ -20,6 +22,7 @@ class CssInterface(
 
     _css: Dict[str, String]
 
+    @final
     def _initialize_css_if_not_initialized(self) -> None:
         """
         Initialize the _css attribute if this interface does not
@@ -29,6 +32,7 @@ class CssInterface(
             return
         self._css = {}
 
+    @final
     @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def get_css(self, *, name: Union[str, String]) -> String:
@@ -74,6 +78,7 @@ class CssInterface(
         self._append_get_css_expresion(name=name, css=css)
         return css
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_get_css_expresion(
         self, *, name: Union[str, String], css: String
@@ -98,6 +103,7 @@ class CssInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_string(arg_position_index=1)
     @arg_validation_decos.is_string(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
@@ -140,6 +146,7 @@ class CssInterface(
         self._css[name_] = value_
         self._append_set_css_expression(name=name, value=value)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_set_css_expression(
         self, *, name: Union[str, String], value: Union[str, String]

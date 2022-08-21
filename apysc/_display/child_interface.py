@@ -7,6 +7,8 @@ from typing import Dict
 from typing import List
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display.display_object import DisplayObject
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
@@ -34,6 +36,7 @@ class ChildInterface(
     _children: Array[DisplayObject]
     stage: "Stage"
 
+    @final
     @arg_validation_decos.is_display_object(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def add_child(self, child: DisplayObject) -> None:
@@ -69,6 +72,7 @@ class ChildInterface(
         child.parent = self
         append_expression_of_add_child(child=child)
 
+    @final
     def _initialize_children_if_not_initialized(self) -> None:
         """
         Initialize _children attribute if this interface does not
@@ -83,6 +87,7 @@ class ChildInterface(
             skip_init_substitution_expression_appending=True,
         )
 
+    @final
     @arg_validation_decos.is_display_object(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def remove_child(self, child: DisplayObject) -> None:
@@ -121,6 +126,7 @@ class ChildInterface(
             child.parent = None
             return
 
+    @final
     @arg_validation_decos.is_display_object(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def contains(self, child: DisplayObject) -> Boolean:
@@ -172,6 +178,7 @@ class ChildInterface(
         self._append_contains_expression(result=result, child=child)
         return result
 
+    @final
     def _append_contains_expression(
         self, *, result: Boolean, child: DisplayObject
     ) -> None:
@@ -233,6 +240,7 @@ class ChildInterface(
         self._append_num_children_expression(num_children=num_children)
         return num_children
 
+    @final
     def _append_num_children_expression(self, *, num_children: Int) -> None:
         """
         Append num_children method expression.
@@ -250,6 +258,7 @@ class ChildInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
@@ -302,6 +311,7 @@ class ChildInterface(
         self._append_get_child_at_expression(child=child, index=index)
         return child
 
+    @final
     def _append_get_child_at_expression(
         self, *, child: DisplayObject, index: Union[int, Int]
     ) -> None:
@@ -326,6 +336,7 @@ class ChildInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def remove_children(self) -> None:
         """
@@ -340,6 +351,7 @@ class ChildInterface(
         self._children.clear()
         self._append_expression_of_remove_children()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_expression_of_remove_children(self) -> None:
         """

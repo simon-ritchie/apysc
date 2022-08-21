@@ -5,6 +5,8 @@ from typing import List
 from typing import Optional as Op
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.fill_alpha_interface import FillAlphaInterface
@@ -188,6 +190,7 @@ class Path(
         super(Path, self).__init__(parent=parent, variable_name=variable_name)
 
     @classmethod
+    @final
     def _create_with_graphics(
         cls,
         *,
@@ -232,6 +235,7 @@ class Path(
         )
         return path
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """

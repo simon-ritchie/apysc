@@ -1,6 +1,8 @@
 """Document (overall window) class implementation.
 """
 
+from typing_extensions import final
+
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
@@ -8,7 +10,7 @@ class Document(VariableNameInterface):
     """
     Document (overall HTML document) class.
     """
-
+    @final
     def __init__(self) -> None:
         """
         Document (overall HTML document) class.

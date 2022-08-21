@@ -10,6 +10,8 @@ from typing import Dict
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
@@ -27,6 +29,7 @@ class BeginFillInterface(VariableNameSuffixAttrInterface, RevertInterface):
     _fill_color: String
     _fill_alpha: Number
 
+    @final
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
     @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=2)
@@ -108,6 +111,7 @@ class BeginFillInterface(VariableNameSuffixAttrInterface, RevertInterface):
         fill_color: ap.String = value_util.get_copy(value=self._fill_color)
         return fill_color
 
+    @final
     def _initialize_fill_color_if_not_initialized(self) -> None:
         """
         Initialize the fill_color attribute if this interface
@@ -153,6 +157,7 @@ class BeginFillInterface(VariableNameSuffixAttrInterface, RevertInterface):
         fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
         return fill_alpha
 
+    @final
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """
         Initialize the fill_alpha attribute if this interface

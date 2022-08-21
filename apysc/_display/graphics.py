@@ -5,6 +5,8 @@ from typing import List
 from typing import Optional
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display import circle as _circle
 from apysc._display import ellipse as _ellipse
 from apysc._display import line as _line
@@ -64,6 +66,7 @@ class Graphics(
 
     _current_line: Optional["_polyline.Polyline"] = None
 
+    @final
     @arg_validation_decos.is_display_object_container(
         arg_position_index=1, optional=False
     )
@@ -139,6 +142,7 @@ class Graphics(
         self.parent_sprite.add_child(child=self)
         self._set_overflow_visible_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
@@ -150,6 +154,7 @@ class Graphics(
         expression: str = f"var {self.variable_name} = {stage_name}.nested();"
         ap.append_js_expression(expression=expression)
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -222,6 +227,7 @@ class Graphics(
         )
         return rectangle
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -313,6 +319,7 @@ class Graphics(
         rectangle.ellipse_height = ellipse_height
         return rectangle
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -380,6 +387,7 @@ class Graphics(
         )
         return circle
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -458,6 +466,7 @@ class Graphics(
         )
         return ellipse
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
@@ -525,6 +534,7 @@ class Graphics(
                 self._current_line._variable_name_suffix = variable_name_suffix
         return self._current_line
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
@@ -579,6 +589,7 @@ class Graphics(
         self._current_line = polyline
         return polyline
 
+    @final
     def _reset_each_line_settings(self) -> None:
         """
         Reset each line settings (e.g., LineDotSetting, LineDashSetting,
@@ -593,6 +604,7 @@ class Graphics(
         self._line_round_dot_setting = None
         self._line_dash_dot_setting = None
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -671,6 +683,7 @@ class Graphics(
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -762,6 +775,7 @@ class Graphics(
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -860,6 +874,7 @@ class Graphics(
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -958,6 +973,7 @@ class Graphics(
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -1066,6 +1082,7 @@ class Graphics(
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         return line
 
+    @final
     @arg_validation_decos.is_point_2ds(arg_position_index=1)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
@@ -1120,6 +1137,7 @@ class Graphics(
         )
         return polygon
 
+    @final
     @arg_validation_decos.is_path_data_list(arg_position_index=1)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
@@ -1162,6 +1180,7 @@ class Graphics(
         )
         return path
 
+    @final
     def __repr__(self) -> str:
         """
         Get a string representation of this instance (for the sake of

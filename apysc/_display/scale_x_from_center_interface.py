@@ -3,6 +3,8 @@
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._animation.animation_scale_x_from_center_interface import (
     AnimationScaleXFromCenterInterface,
 )
@@ -27,6 +29,7 @@ class ScaleXFromCenterInterface(
 
     _scale_x_from_center: Number
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _initialize_scale_x_from_center_if_not_initialized(self) -> None:
         """
@@ -48,6 +51,7 @@ class ScaleXFromCenterInterface(
 
         self._append_scale_x_from_center_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_scale_x_from_center_attr_linking_setting(self) -> None:
         """
@@ -129,6 +133,7 @@ class ScaleXFromCenterInterface(
 
         self._append_scale_x_from_center_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_scale_x_from_center_update_expression(
         self, *, before_value: Number

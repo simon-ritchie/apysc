@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_line_thickness_interface import (
     AnimationLineThicknessInterface,
 )
@@ -26,6 +28,7 @@ class LineThicknessInterface(
 
     _line_thickness: Int
 
+    @final
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
         Initialize _line_thickness attribute if this interface
@@ -44,6 +47,7 @@ class LineThicknessInterface(
 
         self._append_line_thickness_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_line_thickness_attr_linking_setting(self) -> None:
         """
@@ -112,6 +116,7 @@ class LineThicknessInterface(
 
         self._append_line_thickness_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_line_thickness_update_expression(self) -> None:
         """
@@ -128,6 +133,7 @@ class LineThicknessInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     def _update_line_thickness_and_skip_appending_exp(
         self, *, value: Union[int, Int]
     ) -> None:

@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_y_interface import AnimationYInterface
 from apysc._display.y_interface_base import YInterfaceBase
@@ -25,6 +27,7 @@ class YInterface(
     RevertInterface,
     AttrLinkingInterface,
 ):
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _initialize_y_if_not_initialized(self) -> None:
         """
@@ -42,6 +45,7 @@ class YInterface(
 
         self._append_y_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_y_attr_linking_setting(self) -> None:
         """
@@ -110,6 +114,7 @@ class YInterface(
 
         self._append_y_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_y_update_expression(self) -> None:
         """
@@ -123,6 +128,7 @@ class YInterface(
         expression: str = f"{self.variable_name}.y({value_str});"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _update_y_and_skip_appending_exp(self, *, y: Union[int, Int]) -> None:
         """
         Update y-coordinate and skip appending an expression.

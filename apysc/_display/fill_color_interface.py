@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_fill_color_interface import AnimationFillColorInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -88,6 +90,7 @@ class FillColorInterface(
             attr=self._fill_color, attr_name="fill_color"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_fill_color_update_expression(self) -> None:
         """
@@ -98,6 +101,7 @@ class FillColorInterface(
         expression: str = f'{self.variable_name}.fill("{self.fill_color}");'
         ap.append_js_expression(expression=expression)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _set_initial_fill_color_if_not_blank(
         self, *, fill_color: Union[str, String]
@@ -125,6 +129,7 @@ class FillColorInterface(
             fill_color_ = String(fill_color, variable_name_suffix=suffix)
         self._update_fill_color_and_skip_appending_exp(value=fill_color_)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _update_fill_color_and_skip_appending_exp(self, *, value: String) -> None:
         """
@@ -141,6 +146,7 @@ class FillColorInterface(
         self._initialize_fill_color_if_not_initialized()
         self._fill_color.value = value
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _initialize_fill_color_if_not_initialized(self) -> None:
         """

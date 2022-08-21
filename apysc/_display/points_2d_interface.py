@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Tuple
 
+from typing_extensions import final
+
 from apysc._geom.point2d import Point2D
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
@@ -21,6 +23,7 @@ class Points2DInterface(
 
     _points: Array[Point2D]
 
+    @final
     def _initialize_points_if_not_initialized(self) -> None:
         """
         Initialize _points attribute if this interface does not
@@ -85,6 +88,7 @@ class Points2DInterface(
         self._append_points_update_expression(value=value)
         self._points = value
 
+    @final
     def _make_2dim_points_expression(self) -> Tuple[str, str]:
         """
         Make JavaScript expression string.
@@ -123,6 +127,7 @@ class Points2DInterface(
         )
         return variable_name, expression
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_points_update_expression(self, *, value: Array) -> None:
         """

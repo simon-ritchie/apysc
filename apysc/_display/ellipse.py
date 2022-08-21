@@ -4,6 +4,8 @@
 from typing import Optional as Op
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.cx_interface import CxInterface
@@ -242,6 +244,7 @@ class Ellipse(
         super(Ellipse, self).__init__(parent=parent, variable_name=variable_name)
 
     @classmethod
+    @final
     def _create_with_graphics(
         cls,
         *,
@@ -298,6 +301,7 @@ class Ellipse(
         )
         return ellipse
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """

@@ -4,6 +4,8 @@
 from typing import Optional as Op
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.cx_interface import CxInterface
@@ -235,6 +237,7 @@ class Circle(
         self._append_attr_to_linking_stack(attr=self._radius, attr_name="radius")
 
     @classmethod
+    @final
     def _create_with_graphics(
         cls,
         *,
@@ -287,6 +290,7 @@ class Circle(
         )
         return circle
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _set_center_coordinates(
         self, *, x: Union[int, Int], y: Union[int, Int]
@@ -304,6 +308,7 @@ class Circle(
         self.x = self._get_copied_int_from_builtin_val(integer=x, attr_identifier="x")
         self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """

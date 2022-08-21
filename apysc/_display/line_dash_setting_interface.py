@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Optional
 
+from typing_extensions import final
+
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
@@ -15,6 +17,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
 
     _line_dash_setting: Optional[LineDashSetting]
 
+    @final
     def _initialize_line_dash_setting_if_not_initialized(self) -> None:
         """
         Initialize the _line_dash_setting attribute if this
@@ -80,6 +83,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         self._update_line_dash_setting_and_skip_appending_exp(value=value)
         self._append_line_dash_setting_update_expression()
 
+    @final
     def _update_line_dash_setting_and_skip_appending_exp(
         self, *, value: Optional[LineDashSetting]
     ) -> None:
@@ -99,6 +103,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
             )
         self._line_dash_setting = value
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_line_dash_setting_update_expression(self) -> None:
         """

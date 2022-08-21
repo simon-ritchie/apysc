@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_width_interface import AnimationWidthInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -24,6 +26,7 @@ class WidthInterface(
 
     _width: Int
 
+    @final
     def _initialize_width_if_not_initialized(self) -> None:
         """
         Initialize _width attribute if this instance does not
@@ -40,6 +43,7 @@ class WidthInterface(
 
         self._append_width_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_width_attr_linking_setting(self) -> None:
         """
@@ -98,6 +102,7 @@ class WidthInterface(
 
         self._append_width_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_width_update_expression(self) -> None:
         """
@@ -110,6 +115,7 @@ class WidthInterface(
         expression: str = f"{self.variable_name}.width({width_str});"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _update_width_and_skip_appending_exp(self, *, value: Union[int, Int]) -> None:
         """
         Update width value and skip appending expression.

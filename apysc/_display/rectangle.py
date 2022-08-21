@@ -4,6 +4,8 @@
 from typing import Optional as Op
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
@@ -250,6 +252,7 @@ class Rectangle(
         )
         super(Rectangle, self).__init__(parent=parent, variable_name=variable_name)
 
+    @final
     def _set_ellipse_settings_if_values_are_not_zero(
         self, *, ellipse_width: Union[int, Int], ellipse_height: Union[int, Int]
     ) -> None:
@@ -279,6 +282,7 @@ class Rectangle(
         self.ellipse_height = ellipse_height
 
     @classmethod
+    @final
     def _create_with_graphics(
         cls,
         *,
@@ -349,6 +353,7 @@ class Rectangle(
         repr_str: str = f"Rectangle('{self.variable_name}')"
         return repr_str
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """

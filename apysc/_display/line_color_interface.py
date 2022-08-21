@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_line_color_interface import AnimationLineColorInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -89,6 +91,7 @@ class LineColorInterface(
             attr=self._line_color, attr_name="line_color"
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_line_color_update_expression(self) -> None:
         """
@@ -103,6 +106,7 @@ class LineColorInterface(
         expression: str = f"{self.variable_name}.stroke({line_color_str});"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _set_initial_line_color_if_not_blank(
         self, *, line_color: Union[str, String]
     ) -> None:
@@ -127,6 +131,7 @@ class LineColorInterface(
             line_color_ = String(line_color, variable_name_suffix=suffix)
         self._update_line_color_and_skip_appending_exp(value=line_color_)
 
+    @final
     def _update_line_color_and_skip_appending_exp(self, *, value: String) -> None:
         """
         Update line color and skip appending expression.
@@ -143,6 +148,7 @@ class LineColorInterface(
         self._initialize_line_color_if_not_initialized()
         self._line_color = value
 
+    @final
     def _initialize_line_color_if_not_initialized(self) -> None:
         """
         Initialize the line_color attribute if this

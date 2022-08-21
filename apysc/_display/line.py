@@ -4,6 +4,8 @@
 from typing import Optional as Op
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.graphics_base import GraphicsBase
@@ -189,6 +191,7 @@ class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
         self._set_initial_x_and_y_with_minimum_point()
         super(Line, self).__init__(parent=parent, variable_name=variable_name)
 
+    @final
     def _set_initial_x_and_y_with_minimum_point(self) -> None:
         """
         Set initial x and y properties coordinate with
@@ -200,6 +203,7 @@ class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
         self._y = Int(min_y)
 
     @classmethod
+    @final
     def _create_with_graphics(
         cls,
         *,
@@ -245,6 +249,7 @@ class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
         )
         return line
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
@@ -265,6 +270,7 @@ class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _make_points_expression(self) -> str:
         """
         Make line start and end expression str.

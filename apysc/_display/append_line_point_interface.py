@@ -3,6 +3,8 @@
 
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display.points_2d_interface import Points2DInterface
 from apysc._display.set_x_and_y_with_minimum_point_interface_base import (
     SetXAndYWithMinimumPointInterfaceBase,
@@ -17,6 +19,7 @@ class AppendLinePointInterface(Points2DInterface, VariableNameSuffixInterface):
 
     _points_var_name: str
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)

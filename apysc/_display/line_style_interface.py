@@ -10,6 +10,8 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
@@ -48,6 +50,7 @@ class LineStyleInterface(
     _line_round_dot_setting: Optional[LineRoundDotSetting]
     _line_dash_dot_setting: Optional[LineDashDotSetting]
 
+    @final
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
@@ -161,6 +164,7 @@ class LineStyleInterface(
         self._line_round_dot_setting = round_dot_setting
         self._line_dash_dot_setting = dash_dot_setting
 
+    @final
     def _convert_line_thickness_to_apysc_int(
         self, *, thickness: Union[int, Int]
     ) -> Int:
@@ -188,6 +192,7 @@ class LineStyleInterface(
             thickness_ = ap.Int(thickness, variable_name_suffix=suffix)
         return thickness_
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _convert_line_alpha_to_number(self, *, alpha: Union[float, Number]) -> Number:
         """
@@ -212,6 +217,7 @@ class LineStyleInterface(
             alpha_ = ap.Number(alpha, variable_name_suffix=suffix)
         return alpha_
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _set_line_joints(self, *, joints: Optional[LineJoints]) -> None:
         """
@@ -229,6 +235,7 @@ class LineStyleInterface(
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_joints")
         self._line_joints = ap.String(joints.value, variable_name_suffix=suffix)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _set_line_cap(self, *, cap: Optional[LineCaps]) -> None:
         """
@@ -246,6 +253,7 @@ class LineStyleInterface(
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_cap")
         self._line_cap = ap.String(cap.value, variable_name_suffix=suffix)
 
+    @final
     def _initialize_line_color_if_not_initialized(self) -> None:
         """
         Initialize _line_color attribute if this interface does
@@ -260,6 +268,7 @@ class LineStyleInterface(
             skip_init_substitution_expression_appending=True,
         )
 
+    @final
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
         Initialize _line_thickness attribute if this interface
@@ -276,6 +285,7 @@ class LineStyleInterface(
             skip_init_substitution_expression_appending=True,
         )
 
+    @final
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
         Initialize _line_alpha attribute if this interface does not
@@ -290,6 +300,7 @@ class LineStyleInterface(
             skip_init_substitution_expression_appending=True,
         )
 
+    @final
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
         Initialize _line_cap attribute if this interface does not
@@ -304,6 +315,7 @@ class LineStyleInterface(
             skip_init_substitution_expression_appending=True,
         )
 
+    @final
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
         Initialize _line_joints attribute if this interface does not
@@ -318,6 +330,7 @@ class LineStyleInterface(
             skip_init_substitution_expression_appending=True,
         )
 
+    @final
     def _initialize_line_dot_setting_if_not_initialized(self) -> None:
         """
         Initialize _line_dot_setting attribute if this interface does not
@@ -327,6 +340,7 @@ class LineStyleInterface(
             return
         self._line_dot_setting = None
 
+    @final
     def _initialize_line_dash_setting_if_not_initialized(self) -> None:
         """
         Initialize _line_dash_setting attribute if this
@@ -336,6 +350,7 @@ class LineStyleInterface(
             return
         self._line_dash_setting = None
 
+    @final
     def _initialize_line_round_dot_setting_if_not_initialized(self) -> None:
         """
         Initialize _line_round_dot_setting attribute if this interface
@@ -345,6 +360,7 @@ class LineStyleInterface(
             return
         self._line_round_dot_setting = None
 
+    @final
     def _initialize_line_dash_dot_setting_if_not_initialized(self) -> None:
         """
         Initialize _line_dash_dot_setting attribute if this interface

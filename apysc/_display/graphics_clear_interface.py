@@ -4,6 +4,8 @@
 
 from typing import Optional
 
+from typing_extensions import final
+
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
@@ -30,6 +32,7 @@ class GraphicsClearInterface:
     _line_round_dot_setting: Optional[LineRoundDotSetting]
     _line_dash_dot_setting: Optional[LineDashDotSetting]
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def clear(self) -> None:
         """

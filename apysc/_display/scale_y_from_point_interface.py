@@ -4,6 +4,8 @@
 from typing import Any
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._animation.animation_scale_y_from_point_interface import (
     AnimationScaleYFromPointInterface,
 )
@@ -29,6 +31,7 @@ class ScaleYFromPointInterface(
 
     _scale_y_from_point: Dictionary[str, Number]
 
+    @final
     def _initialize_scale_y_from_point_if_not_initialized(self) -> None:
         """
         Initialize the `_scale_y_from_point` attribute if this
@@ -45,6 +48,7 @@ class ScaleYFromPointInterface(
             skip_init_substitution_expression_appending=True,
         )
 
+    @final
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def get_scale_y_from_point(self, *, y: Int) -> Number:
@@ -95,6 +99,7 @@ class ScaleYFromPointInterface(
         )
         return scale_y
 
+    @final
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @arg_validation_decos.is_apysc_integer(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
@@ -140,6 +145,7 @@ class ScaleYFromPointInterface(
         self._scale_y_from_point._value[key_exp_str.value] = scale_y
         self._append_scale_y_from_point_update_expression(y=y)
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_scale_y_from_point_update_expression(self, *, y: Int) -> None:
         """

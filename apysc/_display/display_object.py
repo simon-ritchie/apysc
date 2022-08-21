@@ -3,6 +3,8 @@
 
 from typing import TYPE_CHECKING
 
+from typing_extensions import final
+
 from apysc._animation.animation_parallel_interface import AnimationParallelInterface
 from apysc._display.css_interface import CssInterface
 from apysc._display.parent_interface import ParentInterface
@@ -62,6 +64,7 @@ class DisplayObject(
         self.stage: ap.Stage = stage
         self._variable_name = variable_name
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _set_overflow_visible_setting(self) -> None:
         """

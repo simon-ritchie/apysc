@@ -4,6 +4,8 @@
 from typing import Any
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._animation.animation_rotation_around_point_interface import (
     AnimationRotationAroundPointInterface,
 )
@@ -25,6 +27,7 @@ class RotationAroundPointInterface(
 
     _rotation_around_point: Dictionary[str, Int]
 
+    @final
     def _initialize_rotation_around_point_if_not_initialized(self) -> None:
         """
         Initialize the `_rotation_around_point` attribute
@@ -41,6 +44,7 @@ class RotationAroundPointInterface(
             skip_init_substitution_expression_appending=True,
         )
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
@@ -96,6 +100,7 @@ class RotationAroundPointInterface(
         )
         return rotation
 
+    @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -132,6 +137,7 @@ class RotationAroundPointInterface(
             rotation=rotation, x=x, y=y
         )
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_rotation_around_point_update_expression(
         self, *, rotation: Int, x: Int, y: Int
@@ -156,6 +162,7 @@ class RotationAroundPointInterface(
         )
         ap.append_js_expression(expression=expression)
 
+    @final
     def _get_rotation_around_point_updating_expression(
         self, *, rotation: Int, x: Int, y: Int
     ) -> str:

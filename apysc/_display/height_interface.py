@@ -4,6 +4,8 @@
 from typing import Dict
 from typing import Union
 
+from typing_extensions import final
+
 from apysc._animation.animation_height_interface import AnimationHeightInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -24,6 +26,7 @@ class HeightInterface(
 
     _height: Int
 
+    @final
     def _initialize_height_if_not_initialized(self) -> None:
         """
         Initialize _height attribute if this interface does not
@@ -40,6 +43,7 @@ class HeightInterface(
 
         self._append_height_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_height_attr_linking_setting(self) -> None:
         """
@@ -100,6 +104,7 @@ class HeightInterface(
 
         self._append_height_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_height_update_expression(self) -> None:
         """
@@ -112,6 +117,7 @@ class HeightInterface(
         expression: str = f"{self.variable_name}.height({height_str});"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _update_height_and_skip_appending_exp(self, *, value: Union[int, Int]) -> None:
         """
         Update height value and skip appending expression.

@@ -3,6 +3,8 @@
 
 from typing import Dict
 
+from typing_extensions import final
+
 from apysc._animation.animation_skew_x_interface import AnimationSkewXInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -23,6 +25,7 @@ class SkewXInterface(
 
     _skew_x: Int
 
+    @final
     def _initialize_skew_x_if_not_initialized(self) -> None:
         """
         Initialize the _skew_x attribute if this instance does not
@@ -39,6 +42,7 @@ class SkewXInterface(
 
         self._append_skew_x_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_skew_x_attr_linking_setting(self) -> None:
         """
@@ -109,6 +113,7 @@ class SkewXInterface(
 
         self._append_skew_x_attr_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_skew_x_update_expression(self, *, before_value: Int) -> None:
         """

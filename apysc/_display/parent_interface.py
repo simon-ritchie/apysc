@@ -5,6 +5,8 @@ from typing import TYPE_CHECKING
 from typing import Dict
 from typing import Optional
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
@@ -85,6 +87,7 @@ class ParentInterface(RevertInterface):
         parent_validation.validate_parent_contains_child(parent=value, child=self)
         self._parent = value
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def remove_from_parent(self) -> None:
         """

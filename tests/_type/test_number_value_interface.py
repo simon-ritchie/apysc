@@ -8,18 +8,52 @@ from typing import Tuple
 import pytest
 from retrying import retry
 
+from apysc._validation import arg_validation_decos
 import apysc as ap
 from apysc._display.x_interface import XInterface
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing import testing_helper
 from apysc._type.number_value_interface import NumberValueInterface
+from apysc._type import number_value_interface
+
+
+class _TestNumberClass(NumberValueInterface):
+
+    def __init__(
+        self,
+        *, value: number_value_interface._NumType,
+        type_name: str,
+        variable_name_suffix: str = ""
+    ) -> None:
+        super(_TestNumberClass, self).__init__(
+            value=value, type_name=type_name,
+            variable_name_suffix=variable_name_suffix)
+
+    @arg_validation_decos.is_num(arg_position_index=1)
+    def _set_value_and_skip_expression_appending(
+            self,
+            *,
+            value: number_value_interface._NumType) -> None:
+        """
+        Update value attribute and skip expression appending.
+
+        Parameters
+        ----------
+        value : NumberValueInterface or int or float
+            Any number value to set.
+        """
+        if isinstance(value, NumberValueInterface):
+            value_: Any = value._value
+        else:
+            value_ = value  # type: ignore
+        self._value = value_
 
 
 class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=100, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
@@ -32,7 +66,7 @@ class TestNumberValueInterface:
             any_obj=interface_1,
         )
 
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=interface_1, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
@@ -46,7 +80,7 @@ class TestNumberValueInterface:
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
-            callable_=NumberValueInterface,
+            callable_=_TestNumberClass,
             value="Hello!",
             type_name="test_interface",
         )
@@ -54,7 +88,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
         expression_data_util.empty_expression()
-        interface: NumberValueInterface = NumberValueInterface(
+        interface: _TestNumberClass = _TestNumberClass(
             value=100, type_name="test_interface"
         )
         interface.variable_name = "test_number_value_interface"
@@ -67,7 +101,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=100, type_name="test_interface"
         )
         interface_1.variable_name = "test_number_value_interface_1"
@@ -76,7 +110,7 @@ class TestNumberValueInterface:
         expected: str = "var test_number_value_interface_1 = 100;"
         assert expected in expression
 
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=interface_1, type_name="test_interface"
         )
         interface_2.variable_name = "test_number_value_interface_2"
@@ -90,7 +124,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=100, type_name="test_interface"
         )
         interface_1.variable_name = "test_number_value_interface_1"
@@ -99,7 +133,7 @@ class TestNumberValueInterface:
         expected: str = f"{interface_1.variable_name} = 200;"
         assert expected in expression
 
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=100, type_name="test_interface"
         )
         interface_2.variable_name = "test_number_value_interface_2"
@@ -110,14 +144,14 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_type_name(self) -> None:
-        interface: NumberValueInterface = NumberValueInterface(
+        interface: _TestNumberClass = _TestNumberClass(
             value=100, type_name="test_interface"
         )
         assert interface.type_name == "test_interface"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___add__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
@@ -131,7 +165,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__copy(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -143,7 +177,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_addition_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -163,31 +197,8 @@ class TestNumberValueInterface:
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_set_value_and_skip_expression_appending(self) -> None:
-        expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
-            value=10, type_name="test_interface"
-        )
-        interface_1.variable_name = "test_interface_0"
-        interface_1._set_value_and_skip_expression_appending(value=20)
-        assert interface_1.value == 20
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = f"{interface_1.variable_name} = 20;"
-        assert expected not in expression
-
-        interface_2: NumberValueInterface = NumberValueInterface(
-            value=30, type_name="test_interface"
-        )
-        interface_2.variable_name = "test_interface_1"
-        interface_2._set_value_and_skip_expression_appending(value=interface_1)
-        assert interface_2.value == 20
-        expression = expression_data_util.get_current_expression()
-        expected = f"{interface_2.variable_name} = {interface_1.variable_name};"
-        assert expected not in expression
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___sub__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=20, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -200,7 +211,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_subtraction_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=20, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -221,7 +232,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___mul__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=20, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -234,7 +245,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_multiplication_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=20, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -255,7 +266,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___truediv__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -269,7 +280,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_true_division_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -293,7 +304,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___floordiv__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -301,7 +312,7 @@ class TestNumberValueInterface:
         assert interface_2.value == 2
         assert isinstance(interface_2, ap.Int)
 
-        interface_3: NumberValueInterface = NumberValueInterface(
+        interface_3: _TestNumberClass = _TestNumberClass(
             value=6, type_name="test_interface"
         )
         interface_3.variable_name = "test_interface_2"
@@ -311,7 +322,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_floor_division_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -399,7 +410,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -438,7 +449,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___isub__(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -475,7 +486,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___imul__(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -512,7 +523,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___itruediv__(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
@@ -548,7 +559,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___str__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         assert str(interface_1) == "10"
@@ -558,15 +569,15 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_0"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_1"
-        interface_3: NumberValueInterface = NumberValueInterface(
+        interface_3: _TestNumberClass = _TestNumberClass(
             value=11, type_name="test_interface"
         )
         interface_3.variable_name = "test_interface_3"
@@ -581,11 +592,11 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ne__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=11, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
@@ -597,15 +608,15 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___lt__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=11, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
-        interface_3: NumberValueInterface = NumberValueInterface(
+        interface_3: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_3.variable_name = "test_interface_3"
@@ -619,19 +630,19 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___le__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
-        interface_3: NumberValueInterface = NumberValueInterface(
+        interface_3: _TestNumberClass = _TestNumberClass(
             value=11, type_name="test_interface"
         )
         interface_3.variable_name = "test_interface_3"
-        interface_4: NumberValueInterface = NumberValueInterface(
+        interface_4: _TestNumberClass = _TestNumberClass(
             value=9, type_name="test_interface"
         )
         interface_4.variable_name = "test_interface_4"
@@ -648,15 +659,15 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___gt__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=9, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
-        interface_3: NumberValueInterface = NumberValueInterface(
+        interface_3: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_3.variable_name = "test_interface_3"
@@ -671,19 +682,19 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ge__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
-        interface_3: NumberValueInterface = NumberValueInterface(
+        interface_3: _TestNumberClass = _TestNumberClass(
             value=9, type_name="test_interface"
         )
         interface_3.variable_name = "test_interface_3"
-        interface_4: NumberValueInterface = NumberValueInterface(
+        interface_4: _TestNumberClass = _TestNumberClass(
             value=11, type_name="test_interface"
         )
         interface_4.variable_name = "test_interface_4"
@@ -700,7 +711,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___int__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
@@ -710,7 +721,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___float__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10.5, type_name="test_interface"
         )
         float_val: float = float(interface_1)
@@ -719,7 +730,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10.5, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
@@ -733,7 +744,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10.5, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
@@ -750,11 +761,11 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_eq_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
@@ -783,11 +794,11 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
@@ -817,11 +828,11 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_lt_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
@@ -850,11 +861,11 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_le_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
@@ -883,11 +894,11 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_gt_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
@@ -916,11 +927,11 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ge_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
-        interface_2: NumberValueInterface = NumberValueInterface(
+        interface_2: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_2.variable_name = "test_interface_2"
@@ -948,7 +959,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__convert_other_val_to_int_or_number(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         converted_val: Any = interface_1._convert_other_val_to_int_or_number(other=10)
@@ -975,7 +986,7 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_modulo_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
@@ -988,27 +999,27 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___mod__(self) -> None:
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         interface_1.variable_name = "test_interface_1"
         interface_2: NumberValueInterface = interface_1 % 3
         assert interface_2 == 1
 
-        interface_1 = NumberValueInterface(value=10.5, type_name="test_interface")
+        interface_1 = _TestNumberClass(value=10.5, type_name="test_interface")
         interface_1.variable_name = "test_interface_1"
         interface_3: NumberValueInterface = interface_1 % ap.Int(3)
         assert interface_3 == 1.5
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__create_substitution_expression(self) -> None:
-        interface: NumberValueInterface = NumberValueInterface(
+        interface: _TestNumberClass = _TestNumberClass(
             value=10, type_name="test_interface"
         )
         expression: str = interface._create_initial_substitution_expression()
         assert expression == f"{interface.variable_name} = 10;"
 
         int_val: ap.Int = ap.Int(10)
-        interface = NumberValueInterface(value=int_val, type_name="test_interface")
+        interface = _TestNumberClass(value=int_val, type_name="test_interface")
         expression = interface._create_initial_substitution_expression()
         assert expression == f"{interface.variable_name} = {int_val.variable_name};"

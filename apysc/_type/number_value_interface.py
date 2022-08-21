@@ -6,6 +6,7 @@ from typing import Dict
 from typing import Generic
 from typing import TypeVar
 from typing import Union
+from abc import ABC, abstractmethod
 
 from typing_extensions import final
 
@@ -32,6 +33,7 @@ class NumberValueInterface(
     VariableNameSuffixInterface,
     InitialSubstitutionExpInterface,
     Generic[_V, _T],
+    ABC,
 ):
 
     _initial_value: _NumType
@@ -150,7 +152,7 @@ class NumberValueInterface(
         else:
             self._append_value_setter_expression(value=self._value)
 
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @abstractmethod
     def _set_value_and_skip_expression_appending(self, *, value: _NumType) -> None:
         """
         Update value attribute and skip expression appending.
@@ -160,11 +162,6 @@ class NumberValueInterface(
         value : NumberValueInterface or int or float
             Any number value to set.
         """
-        if isinstance(value, NumberValueInterface):
-            value_: _V = value._value
-        else:
-            value_ = value  # type: ignore
-        self._value = value_
 
     @final
     @add_debug_info_setting(module_name=__name__)

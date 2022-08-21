@@ -9,6 +9,8 @@ from typing import Dict
 from typing import Optional
 from typing import Type
 
+from typing_extensions import final
+
 from apysc._expression.indent_num import Indent
 from apysc._type.boolean import Boolean
 
@@ -69,6 +71,7 @@ class IfBase(ABC):
         self._globals = globals_
         self._indent = Indent()
 
+    @final
     def __enter__(self) -> Any:
         """
         Method to be called when beginning of the with statement.
@@ -93,6 +96,7 @@ class IfBase(ABC):
         Append branch instruction start expression.
         """
 
+    @final
     def __exit__(self, exc_type: Type, exc_value: Any, traceback: Any) -> None:
         """
         Method to be called when ending of the with statement.
@@ -117,6 +121,7 @@ class IfBase(ABC):
         self._append_exit_expression()
         self._set_last_scope()
 
+    @final
     def _append_exit_expression(self) -> None:
         """
         Append if branch instruction ending expression.
@@ -131,6 +136,7 @@ class IfBase(ABC):
         Set expression last scope value.
         """
 
+    @final
     def _last_scope_is_if_or_elif(self) -> bool:
         """
         Get a boolean value whether the last scope is If or Elif.

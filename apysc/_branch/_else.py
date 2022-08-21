@@ -5,6 +5,8 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
+from typing_extensions import final
+
 from apysc._branch.if_base import IfBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
@@ -38,6 +40,7 @@ class Else(IfBase):
     ...
     """
 
+    @final
     @arg_validation_decos.is_vars_dict(arg_position_index=1)
     @arg_validation_decos.is_vars_dict(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
@@ -89,6 +92,7 @@ class Else(IfBase):
         """
         super().__init__(condition=None, locals_=locals_, globals_=globals_)
 
+    @final
     def _append_enter_expression(self) -> None:
         """
         Append else branch instruction start expression.
@@ -107,6 +111,7 @@ class Else(IfBase):
         expression: str = "else {"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _set_last_scope(self) -> None:
         """
         Set expression last scope value.

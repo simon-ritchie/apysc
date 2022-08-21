@@ -5,6 +5,8 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
+from typing_extensions import final
+
 from apysc._branch.if_base import IfBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
@@ -32,6 +34,7 @@ class If(IfBase):
     ...
     """
 
+    @final
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
     @arg_validation_decos.is_vars_dict(arg_position_index=2)
     @arg_validation_decos.is_vars_dict(arg_position_index=3)
@@ -82,6 +85,7 @@ class If(IfBase):
             condition=condition, locals_=locals_, globals_=globals_
         )
 
+    @final
     def _append_enter_expression(self) -> None:
         """
         Append if branch instruction starting expression.
@@ -93,6 +97,7 @@ class If(IfBase):
         expression: str = f"if ({self._condition.variable_name}) {{"
         ap.append_js_expression(expression=expression)
 
+    @final
     def _set_last_scope(self) -> None:
         """
         Set expression last scope value.

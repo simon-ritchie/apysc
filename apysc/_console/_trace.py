@@ -8,6 +8,8 @@ from typing import Any
 from typing import List
 from typing import Optional
 
+from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 
 
@@ -54,6 +56,65 @@ def trace(*args: Any) -> None:
     ap.append_js_expression(expression=expression)
 
 
+_temporary_outer_frames_index_adjustments: Optional[int] = None
+
+
+class TemporaryOuterFramesIndexAdjustment:
+
+    _temporary_outer_frames_index_adjustments: int
+
+    @final
+    def __init__(self, *, temporary_outer_frames_index_adjustments: int) -> None:
+        """
+        The class for the trace's temporary outer frames index setting.
+
+        Parameters
+        ----------
+        temporary_outer_frames_index_adjustments : int
+            A temporary outer frames index setting to set.
+        """
+        self._temporary_outer_frames_index_adjustments = (
+            temporary_outer_frames_index_adjustments
+        )
+
+    @final
+    def __enter__(self) -> None:
+        """
+        Enter and set the temporary outer frames index setting.
+        """
+        global _temporary_outer_frames_index_adjustments
+        _temporary_outer_frames_index_adjustments = (
+            self._temporary_outer_frames_index_adjustments
+        )
+
+    @final
+    def __exit__(self, *args: Any) -> None:
+        """
+        Exit and revert the temporary outer frames index setting.
+        """
+        global _temporary_outer_frames_index_adjustments
+        _temporary_outer_frames_index_adjustments = None
+
+
+# Index count: _get_func_callers_info's function + trace + decorator + caller = 3
+DEFAULT_OUTER_FRAMES_INDEX: int = 3
+
+
+def _get_outer_frames_index() -> int:
+    """
+    Get the trace's outer frames index setting.
+
+    Returns
+    -------
+    outer_frames_index : int
+        The trace's outer frames index setting.
+    """
+    global _temporary_outer_frames_index_adjustments
+    if _temporary_outer_frames_index_adjustments is None:
+        return DEFAULT_OUTER_FRAMES_INDEX
+    return _temporary_outer_frames_index_adjustments
+
+
 def _get_func_callers_info() -> str:
     """
     Get a function caller's information.
@@ -64,15 +125,13 @@ def _get_func_callers_info() -> str:
         A function caller's information, such as the caller's name,
         module name, and line number.
     """
-    # Index count: this function + trace + decorator + caller = 3
-    OUTER_FRAMES_INDEX: int = 3
-
+    outer_frames_index: int = _get_outer_frames_index()
     current_frame: Optional[FrameType] = inspect.currentframe()
     outer_frames: List[FrameInfo] = inspect.getouterframes(frame=current_frame)
-    file_name: str = outer_frames[OUTER_FRAMES_INDEX].filename
+    file_name: str = outer_frames[outer_frames_index].filename
     file_name = file_name.rsplit("/", maxsplit=1)[-1]
-    lineno: int = outer_frames[OUTER_FRAMES_INDEX].lineno
-    function: str = outer_frames[OUTER_FRAMES_INDEX].function
+    lineno: int = outer_frames[outer_frames_index].lineno
+    function: str = outer_frames[outer_frames_index].function
     if function != "<module>":
         func_caller_info: str = (
             f"\\nCalled from: {function}, file name: {file_name}, line number: {lineno}"

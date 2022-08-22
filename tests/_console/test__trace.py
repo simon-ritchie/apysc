@@ -47,3 +47,31 @@ def test__get_func_callers_info() -> None:
     assert func_callers_info.startswith(
         "\\nCalled from: test__get_func_callers_info, file name: test__trace"
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_outer_frames_index() -> None:
+    _trace._temporary_outer_frames_index_adjustments = 5
+    outer_frame_index: int = _trace._get_outer_frames_index()
+    assert outer_frame_index == 5
+
+    _trace._temporary_outer_frames_index_adjustments = None
+    outer_frame_index = _trace._get_outer_frames_index()
+    assert outer_frame_index == _trace.DEFAULT_OUTER_FRAMES_INDEX
+
+
+
+class TestTemporaryOuterFramesIndexAdjustment:
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___enter__(self) -> None:
+        with _trace.TemporaryOuterFramesIndexAdjustment(
+                temporary_outer_frames_index_adjustments=5):
+            assert _trace._temporary_outer_frames_index_adjustments == 5
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___exit__(self) -> None:
+        with _trace.TemporaryOuterFramesIndexAdjustment(
+                temporary_outer_frames_index_adjustments=5):
+            pass
+        assert _trace._temporary_outer_frames_index_adjustments is None

@@ -256,7 +256,6 @@ jp_animation_rotation_around_center
 jp_animation_rotation_around_point
 jp_animation_scale_x_and_y_from_center
 jp_animation_scale_x_and_y_from_point
-jp_animation_skew_x
 ```
 
 ## その他の操作関係の各インターフェイス

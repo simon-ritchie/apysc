@@ -253,7 +253,6 @@ animation_rotation_around_center
 animation_rotation_around_point
 animation_scale_x_and_y_from_center
 animation_scale_x_and_y_from_point
-animation_skew_x
 ```
 
 ## Other manipulation interfaces

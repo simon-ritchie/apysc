@@ -5,7 +5,6 @@ from typing import Dict
 
 from typing_extensions import final
 
-from apysc._animation.animation_skew_x_interface import AnimationSkewXInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
@@ -14,11 +13,12 @@ from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class SkewXInterface(
     VariableNameSuffixAttrInterface,
-    AnimationSkewXInterface,
+    VariableNameInterface,
     RevertInterface,
     AttrLinkingInterface,
 ):

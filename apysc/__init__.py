@@ -93,8 +93,6 @@ from apysc._animation.animation_fill_color import AnimationFillColor  # isort:sk
 from apysc._animation.animation_line_color import AnimationLineColor  # isort:skip # noqa
 from apysc._animation.animation_line_alpha import AnimationLineAlpha  # isort:skip # noqa
 from apysc._animation.animation_line_thickness import AnimationLineThickness  # isort:skip # noqa
-from apysc._animation.animation_skew_x import AnimationSkewX  # isort:skip # noqa
-from apysc._animation.animation_skew_y import AnimationSkewY  # isort:skip # noqa
 from apysc._animation.animation_rotation_around_center import AnimationRotationAroundCenter  # isort:skip # noqa
 from apysc._animation.animation_rotation_around_point import AnimationRotationAroundPoint  # isort:skip # noqa
 from apysc._animation.animation_scale_x_from_center import AnimationScaleXFromCenter  # isort:skip # noqa

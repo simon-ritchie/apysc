@@ -185,10 +185,6 @@ MAPPINGS: Mappings = Mappings(
             "（指定座標による垂直方向のアニメーション）のインターフェイス",
         ),
         Mapping(
-            key="animation_skew_x interface document",
-            val="animation_skew_x （水平方向の斜め変換の" "アニメーション）のインターフェイス",
-        ),
-        Mapping(
             key="This interface exists on a `GraphicsBase` subclass, "
             "such as the `Rectangle` or `Circle` class.",
             val="このインターフェイスは`Rectangle`や`Circle`" "クラスなどの`GraphicsBase`のサブクラスで存在します。",
@@ -1524,7 +1520,6 @@ MAPPINGS: Mappings = Mappings(
             val="animation_scale_x_from_point と "
             "animation_scale_y_from_point の各インターフェイス",
         ),
-        Mapping(key="animation_skew_x interface", val="animation_skew_x インターフェイス"),
         Mapping(key="## Debugging", val="## デバッグ"),
         Mapping(key="trace function interface", val="trace 関数のインターフェイス"),
         Mapping(key="set_debug_mode interface", val="set_debug_mode インターフェイス"),

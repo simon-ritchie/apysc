@@ -76,6 +76,8 @@ Append arrays or dictionaries values' information trace expression.<hr>
   - Left-side value to compare.
 - `right`: *
   - Right-side value to compare.
+- `outer_frames_index_adjustment`: int
+  - The trace's outer frames index adjustment setting. This function uses this argument to adjust the caller's information.
 
 ## `_trace_info` function docstring
 
@@ -89,6 +91,8 @@ Append trace expression of specified values.<hr>
   - Left-side value to compare.
 - `right`: *
   - Right-side value to compare.
+- `outer_frames_index_adjustment`: int
+  - The trace's outer frames index adjustment setting. This function uses this argument to adjust the caller's information.
 
 ## `_value_type_is_array` function docstring
 
@@ -134,6 +138,8 @@ JavaScript assertion interface for Array values equal condition.<hr>
   - Right-side value to compare.
 - `msg`: str, optional
   - Message to display when assertion failed.
+- `outer_frames_index_adjustment`: int, optional
+  - The trace's outer frames index adjustment setting. This function uses this argument to adjust the caller's information. Also, this function only uses this argument in internal logic.
 
 <hr>
 
@@ -168,6 +174,8 @@ JavaScript assertion interface for Array values not equal condition.<hr>
   - Right-side value to compare.
 - `msg`: str, optional
   - Message to display when assertion failed.
+- `outer_frames_index_adjustment`: int, optional
+  - The trace's outer frames index adjustment setting. This function uses this argument to adjust the caller's information. Also, this function only uses this argument in internal logic.
 
 <hr>
 
@@ -229,6 +237,8 @@ JavaScript assertion interface for Dictionary values equal condition.<hr>
   - Right-side value to compare.
 - `msg`: str, optional
   - Message to display when assertion failed.
+- `outer_frames_index_adjustment`: int, optional
+  - The trace's outer frames index adjustment setting. This function uses this argument to adjust the caller's information. Also, this function only uses this argument in internal logic.
 
 <hr>
 
@@ -263,6 +273,8 @@ JavaScript assertion interface for Dictionary values not equal condition.<hr>
   - Right-side value to compare.
 - `msg`: str, optional
   - Message to display when assertion failed.
+- `outer_frames_index_adjustment`: int, optional
+  - The trace's outer frames index adjustment setting. This function uses this argument to adjust the caller's information. Also, this function only uses this argument in internal logic.
 
 <hr>
 

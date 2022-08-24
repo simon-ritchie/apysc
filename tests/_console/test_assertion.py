@@ -1,9 +1,4 @@
-from io import TextIOWrapper
-import os
 from random import randint
-import sys
-from datetime import datetime
-from typing import Any
 
 from retrying import retry
 
@@ -203,7 +198,9 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
     expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
     assertion._trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_arrays_equal", left=[1, 2, 3], right=array_1,
+        interface_label="assert_arrays_equal",
+        left=[1, 2, 3],
+        right=array_1,
         outer_frames_index_adjustment=3,
     )
     expression: str = expression_data_util.get_current_expression()
@@ -215,7 +212,9 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
 
     expression_data_util.empty_expression()
     assertion._trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_arrays_not_equal", left=array_1, right=[1, 2, 3],
+        interface_label="assert_arrays_not_equal",
+        left=array_1,
+        right=[1, 2, 3],
         outer_frames_index_adjustment=3,
     )
     expression = expression_data_util.get_current_expression()
@@ -227,7 +226,9 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
     expression_data_util.empty_expression()
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
     assertion._trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_dicts_equal", left=dict_1, right={"a": 10},
+        interface_label="assert_dicts_equal",
+        left=dict_1,
+        right={"a": 10},
         outer_frames_index_adjustment=3,
     )
     expression = expression_data_util.get_current_expression()

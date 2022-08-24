@@ -60,18 +60,18 @@ def test__get_outer_frames_index() -> None:
     assert outer_frame_index == _trace.DEFAULT_OUTER_FRAMES_INDEX
 
 
-
 class TestTemporaryOuterFramesIndexAdjustment:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         with _trace.TemporaryOuterFramesIndexAdjustment(
-                temporary_outer_frames_index_adjustments=5):
+            temporary_outer_frames_index_adjustments=5
+        ):
             assert _trace._temporary_outer_frames_index_adjustments == 5
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         with _trace.TemporaryOuterFramesIndexAdjustment(
-                temporary_outer_frames_index_adjustments=5):
+            temporary_outer_frames_index_adjustments=5
+        ):
             pass
         assert _trace._temporary_outer_frames_index_adjustments is None

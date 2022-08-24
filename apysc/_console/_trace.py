@@ -102,12 +102,12 @@ DEFAULT_OUTER_FRAMES_INDEX: int = 3
 
 def _get_outer_frames_index() -> int:
     """
-    Get the trace's outer frames index setting.
+    Get the trace's outer frames' index setting.
 
     Returns
     -------
     outer_frames_index : int
-        The trace's outer frames index setting.
+        The trace's outer frames' index setting.
     """
     global _temporary_outer_frames_index_adjustments
     if _temporary_outer_frames_index_adjustments is None:

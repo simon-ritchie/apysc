@@ -42,6 +42,7 @@ class PathXInterface(
 
         self._append_x_linking_setting()
 
+    @final
     @add_debug_info_setting(module_name=__name__)
     def _append_x_linking_setting(self) -> None:
         """

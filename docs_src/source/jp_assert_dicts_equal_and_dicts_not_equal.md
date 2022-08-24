@@ -120,7 +120,7 @@ Left value: {a: 30} right value: dct_1
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
+**[インターフェイスの構造]** `assert_dicts_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
 **[インターフェイス概要]** JavaScript上での辞書の等値条件のチェックを行うインターフェイスです。<hr>
 
@@ -134,6 +134,9 @@ Left value: {a: 30} right value: dct_1
 
 - `msg`: str, optional
   - チェックに失敗した際に表示するメッセージ。
+
+- `outer_frames_index_adjustment`: int, optional
+  - trace関数の関数外の参照するフレームのインデックスの調整値です。この引数は呼び出し元の情報の位置を調整するのに使用されます。また、この引数は内部のロジックでのみ使用されるため通常は設定する必要はありません。
 
 <hr>
 
@@ -154,7 +157,7 @@ Left value: {a: 30} right value: dct_1
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `assert_dicts_not_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
+**[インターフェイスの構造]** `assert_dicts_not_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
 **[インターフェイス概要]** JavaScript上での辞書の非等値のチェックを行うインターフェイスです。<hr>
 
@@ -168,6 +171,9 @@ Left value: {a: 30} right value: dct_1
 
 - `msg`: str, optional
   - チェックに失敗した際に表示するメッセージ。
+
+- `outer_frames_index_adjustment`: int, optional
+  - trace関数の関数外の参照するフレームのインデックスの調整値です。この引数は呼び出し元の情報の位置を調整するのに使用されます。また、この引数は内部のロジックでのみ使用されるため通常は設定する必要はありません。
 
 <hr>
 

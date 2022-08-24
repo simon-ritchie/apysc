@@ -2449,5 +2449,13 @@ MAPPINGS: Mappings = Mappings(
             "expression or not. This class uses this option internally.",
             val="  - 初期値の代入のコード表現をスキップするかどうかの真偽値です。" "このオプションはクラス内部の実装で使用されます。",
         ),
+        Mapping(
+            key="  - The trace's outer frames index adjustment setting. This "
+            "function uses this argument to adjust the caller's information. Also, "
+            "this function only uses this argument in internal logic.",
+            val="  - trace関数の関数外の参照するフレームのインデックスの調整値です。"
+            "この引数は呼び出し元の情報の位置を調整するのに使用されます。"
+            "また、この引数は内部のロジックでのみ使用されるため通常は設定する必要はありません。",
+        ),
     ]
 )

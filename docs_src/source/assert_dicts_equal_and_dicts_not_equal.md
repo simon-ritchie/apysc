@@ -121,7 +121,7 @@ Left value: {a: 30} right value: dct_1
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
+**[Interface signature]** `assert_dicts_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
 **[Interface summary]** JavaScript assertion interface for Dictionary values equal condition.<hr>
 
@@ -133,6 +133,8 @@ Left value: {a: 30} right value: dct_1
   - Right-side value to compare.
 - `msg`: str, optional
   - Message to display when assertion failed.
+- `outer_frames_index_adjustment`: int, optional
+  - The trace's outer frames index adjustment setting. This function uses this argument to adjust the caller's information. Also, this function only uses this argument in internal logic.
 
 <hr>
 
@@ -155,7 +157,7 @@ This interface is used instead of assert_equal for Dictionary class comparison (
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `assert_dicts_not_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
+**[Interface signature]** `assert_dicts_not_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
 **[Interface summary]** JavaScript assertion interface for Dictionary values not equal condition.<hr>
 
@@ -167,6 +169,8 @@ This interface is used instead of assert_equal for Dictionary class comparison (
   - Right-side value to compare.
 - `msg`: str, optional
   - Message to display when assertion failed.
+- `outer_frames_index_adjustment`: int, optional
+  - The trace's outer frames index adjustment setting. This function uses this argument to adjust the caller's information. Also, this function only uses this argument in internal logic.
 
 <hr>
 

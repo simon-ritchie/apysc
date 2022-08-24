@@ -29,8 +29,9 @@ Mainly following interfaces are defined:
 from typing import Any
 from typing import Tuple
 
+from apysc._console._trace import DEFAULT_OUTER_FRAMES_INDEX
+from apysc._console._trace import TemporaryOuterFramesIndexAdjustment
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._console._trace import TemporaryOuterFramesIndexAdjustment, DEFAULT_OUTER_FRAMES_INDEX
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -73,17 +74,22 @@ def assert_equal(left: Any, right: Any, *, msg: str = "") -> None:
     for value in (left, right):
         if _value_type_is_array(value=value):
             assert_arrays_equal(
-                left=left, right=right, msg=msg, outer_frames_index_adjustment=2)
+                left=left, right=right, msg=msg, outer_frames_index_adjustment=2
+            )
             return
     for value in (left, right):
         if _value_type_is_dict(value=value):
             assert_dicts_equal(
-                left=left, right=right, msg=msg, outer_frames_index_adjustment=2)
+                left=left, right=right, msg=msg, outer_frames_index_adjustment=2
+            )
             return
 
     _trace_info(
-        interface_label="assert_equal", left=left, right=right,
-        outer_frames_index_adjustment=4)
+        interface_label="assert_equal",
+        left=left,
+        right=right,
+        outer_frames_index_adjustment=4,
+    )
 
     left_str, right_str = _get_left_and_right_strs(left=left, right=right)
 
@@ -133,17 +139,22 @@ def assert_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
     for value in (left, right):
         if _value_type_is_array(value=value):
             assert_arrays_not_equal(
-                left=left, right=right, msg=msg, outer_frames_index_adjustment=2)
+                left=left, right=right, msg=msg, outer_frames_index_adjustment=2
+            )
             return
     for value in (left, right):
         if _value_type_is_dict(value=value):
             assert_dicts_not_equal(
-                left=left, right=right, msg=msg, outer_frames_index_adjustment=2)
+                left=left, right=right, msg=msg, outer_frames_index_adjustment=2
+            )
             return
 
     _trace_info(
-        interface_label="assert_not_equal", left=left, right=right,
-        outer_frames_index_adjustment=4)
+        interface_label="assert_not_equal",
+        left=left,
+        right=right,
+        outer_frames_index_adjustment=4,
+    )
     left_str, right_str = _get_left_and_right_strs(left=left, right=right)
 
     msg = string_util.escape_str(string=msg)
@@ -184,8 +195,11 @@ def assert_true(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
     from apysc._string import string_util
 
     _trace_info(
-        interface_label="assert_true", left="true", right=value,
-        outer_frames_index_adjustment=4)
+        interface_label="assert_true",
+        left="true",
+        right=value,
+        outer_frames_index_adjustment=4,
+    )
     _, value_str = _get_left_and_right_strs(left="_", right=value)
 
     msg = string_util.escape_str(string=msg)
@@ -230,8 +244,11 @@ def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None
     from apysc._string import string_util
 
     _trace_info(
-        interface_label="assert_false", left="false", right=value,
-        outer_frames_index_adjustment=4)
+        interface_label="assert_false",
+        left="false",
+        right=value,
+        outer_frames_index_adjustment=4,
+    )
     _, value_str = _get_left_and_right_strs(left="_", right=value)
 
     msg = string_util.escape_str(string=msg)
@@ -245,8 +262,8 @@ def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None
 
 @add_debug_info_setting(module_name=__name__)
 def assert_arrays_equal(
-        left: Any, right: Any, *, msg: str = "",
-        outer_frames_index_adjustment: int = 0) -> None:
+    left: Any, right: Any, *, msg: str = "", outer_frames_index_adjustment: int = 0
+) -> None:
     """
     JavaScript assertion interface for Array values equal condition.
 
@@ -267,8 +284,8 @@ def assert_arrays_equal(
         Message to display when assertion failed.
     outer_frames_index_adjustment : int, optional
         The trace's outer frames index adjustment setting.
-        This function uses this argument to adjust caller's information.
-        Also, this function only uses this argument in an internal logic.
+        This function uses this argument to adjust the caller's information.
+        Also, this function only uses this argument in internal logic.
 
     References
     ----------
@@ -285,7 +302,9 @@ def assert_arrays_equal(
     import apysc as ap
 
     _trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_arrays_equal", left=left, right=right,
+        interface_label="assert_arrays_equal",
+        left=left,
+        right=right,
         outer_frames_index_adjustment=outer_frames_index_adjustment + 5,
     )
 
@@ -297,8 +316,8 @@ def assert_arrays_equal(
 
 @add_debug_info_setting(module_name=__name__)
 def assert_arrays_not_equal(
-        left: Any, right: Any, *, msg: str = "",
-        outer_frames_index_adjustment: int = 0) -> None:
+    left: Any, right: Any, *, msg: str = "", outer_frames_index_adjustment: int = 0
+) -> None:
     """
     JavaScript assertion interface for Array values not equal condition.
 
@@ -319,8 +338,8 @@ def assert_arrays_not_equal(
         Message to display when assertion failed.
     outer_frames_index_adjustment : int, optional
         The trace's outer frames index adjustment setting.
-        This function uses this argument to adjust caller's information.
-        Also, this function only uses this argument in an internal logic.
+        This function uses this argument to adjust the caller's information.
+        Also, this function only uses this argument in internal logic.
 
     References
     ----------
@@ -337,7 +356,9 @@ def assert_arrays_not_equal(
     import apysc as ap
 
     _trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_arrays_not_equal", left=left, right=right,
+        interface_label="assert_arrays_not_equal",
+        left=left,
+        right=right,
         outer_frames_index_adjustment=outer_frames_index_adjustment + 5,
     )
 
@@ -349,8 +370,8 @@ def assert_arrays_not_equal(
 
 @add_debug_info_setting(module_name=__name__)
 def assert_dicts_equal(
-        left: Any, right: Any, *, msg: str = "",
-        outer_frames_index_adjustment: int = 0) -> None:
+    left: Any, right: Any, *, msg: str = "", outer_frames_index_adjustment: int = 0
+) -> None:
     """
     JavaScript assertion interface for Dictionary values equal
     condition.
@@ -372,8 +393,8 @@ def assert_dicts_equal(
         Message to display when assertion failed.
     outer_frames_index_adjustment : int, optional
         The trace's outer frames index adjustment setting.
-        This function uses this argument to adjust caller's information.
-        Also, this function only uses this argument in an internal logic.
+        This function uses this argument to adjust the caller's information.
+        Also, this function only uses this argument in internal logic.
 
     References
     ----------
@@ -390,7 +411,9 @@ def assert_dicts_equal(
     import apysc as ap
 
     _trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_dicts_equal", left=left, right=right,
+        interface_label="assert_dicts_equal",
+        left=left,
+        right=right,
         outer_frames_index_adjustment=outer_frames_index_adjustment + 5,
     )
 
@@ -402,8 +425,8 @@ def assert_dicts_equal(
 
 @add_debug_info_setting(module_name=__name__)
 def assert_dicts_not_equal(
-        left: Any, right: Any, *, msg: str = "",
-        outer_frames_index_adjustment: int = 0) -> None:
+    left: Any, right: Any, *, msg: str = "", outer_frames_index_adjustment: int = 0
+) -> None:
     """
     JavaScript assertion interface for Dictionary values not equal
     condition.
@@ -425,8 +448,8 @@ def assert_dicts_not_equal(
         Message to display when assertion failed.
     outer_frames_index_adjustment : int, optional
         The trace's outer frames index adjustment setting.
-        This function uses this argument to adjust caller's information.
-        Also, this function only uses this argument in an internal logic.
+        This function uses this argument to adjust the caller's information.
+        Also, this function only uses this argument in internal logic.
 
     References
     ----------
@@ -443,7 +466,9 @@ def assert_dicts_not_equal(
     import apysc as ap
 
     _trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_dicts_not_equal", left=left, right=right,
+        interface_label="assert_dicts_not_equal",
+        left=left,
+        right=right,
         outer_frames_index_adjustment=outer_frames_index_adjustment + 5,
     )
 
@@ -481,7 +506,9 @@ def assert_defined(value: Any, *, msg: str = "") -> None:
     from apysc._string import string_util
 
     _trace_info(
-        interface_label="assert_defined", left="other than undefined", right=value,
+        interface_label="assert_defined",
+        left="other than undefined",
+        right=value,
         outer_frames_index_adjustment=4,
     )
     _, value_str = _get_left_and_right_strs(left="_", right=value)
@@ -519,8 +546,11 @@ def assert_undefined(value: Any, *, msg: str = "") -> None:
     from apysc._string import string_util
 
     _trace_info(
-        interface_label="assert_undefined", left="undefined", right=value,
-        outer_frames_index_adjustment=4)
+        interface_label="assert_undefined",
+        left="undefined",
+        right=value,
+        outer_frames_index_adjustment=4,
+    )
     _, value_str = _get_left_and_right_strs(left="_", right=value)
 
     msg = string_util.escape_str(string=msg)
@@ -573,7 +603,10 @@ def _make_arrays_or_dicts_comparison_expression(
 
 @add_debug_info_setting(module_name=__name__)
 def _trace_arrays_or_dicts_assertion_info(
-    *, interface_label: str, left: Any, right: Any,
+    *,
+    interface_label: str,
+    left: Any,
+    right: Any,
     outer_frames_index_adjustment: int,
 ) -> None:
     """
@@ -590,7 +623,7 @@ def _trace_arrays_or_dicts_assertion_info(
         Right-side value to compare.
     outer_frames_index_adjustment : int
         The trace's outer frames index adjustment setting.
-        This function uses this argument to adjust caller's information.
+        This function uses this argument to adjust the caller's information.
     """
     import apysc as ap
     from apysc._type import value_util
@@ -609,7 +642,9 @@ def _trace_arrays_or_dicts_assertion_info(
         left_info_str = left_exp_str
     right_info_str = right_exp_str
     _trace_info(
-        interface_label=interface_label, left=left_info_str, right=right_info_str,
+        interface_label=interface_label,
+        left=left_info_str,
+        right=right_info_str,
         outer_frames_index_adjustment=outer_frames_index_adjustment + 1,
     )
 
@@ -715,12 +750,12 @@ def _get_left_and_right_strs(*, left: Any, right: Any) -> Tuple[str, str]:
 
 @add_debug_info_setting(module_name=__name__)
 def _trace_info(
-        *,
-        interface_label: str,
-        left: Any,
-        right: Any,
-        outer_frames_index_adjustment: int,
-    ) -> None:
+    *,
+    interface_label: str,
+    left: Any,
+    right: Any,
+    outer_frames_index_adjustment: int,
+) -> None:
     """
     Append trace expression of specified values.
 
@@ -734,7 +769,7 @@ def _trace_info(
         Right-side value to compare.
     outer_frames_index_adjustment : int
         The trace's outer frames index adjustment setting.
-        This function uses this argument to adjust caller's information.
+        This function uses this argument to adjust the caller's information.
     """
     import apysc as ap
     from apysc._type.variable_name_interface import VariableNameInterface
@@ -748,5 +783,6 @@ def _trace_info(
         DEFAULT_OUTER_FRAMES_INDEX + outer_frames_index_adjustment
     )
     with TemporaryOuterFramesIndexAdjustment(
-            temporary_outer_frames_index_adjustments=outer_frames_index_adjustment):
+        temporary_outer_frames_index_adjustments=outer_frames_index_adjustment
+    ):
         ap.trace(info, "\nLeft value:", left, "right value:", right)

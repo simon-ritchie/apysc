@@ -270,6 +270,7 @@ trace
 set_debug_mode
 unset_debug_mode
 add_debug_info_setting
+variable_name_suffix
 ```
 
 ## Testing

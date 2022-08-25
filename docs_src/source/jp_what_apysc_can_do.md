@@ -59,7 +59,7 @@ sprite.graphics.line_to(x=600, y=100)
 
 sprite.graphics.draw_line(x_start=50, y_start=130, x_end=600, y_end=130)
 sprite.graphics.draw_dotted_line(
-    x_start=50, y_start=130, x_end=600, y_end=130, dot_size=5
+    x_start=50, y_start=145, x_end=600, y_end=145, dot_size=2
 )
 sprite.graphics.draw_round_dotted_line(
     x_start=53, y_start=160, x_end=600, y_end=160, round_size=6, space_size=6

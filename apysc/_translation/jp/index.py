@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -95,7 +95,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Debugging": "## デバッグ",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\ntrace\nset_debug_mode\nunset_debug_mode\nadd_debug_info_setting\n```": "```{toctree}\n:maxdepth: 1\njp_trace\njp_set_debug_mode\njp_unset_debug_mode\njp_add_debug_info_setting\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\ntrace\nset_debug_mode\nunset_debug_mode\nadd_debug_info_setting\nvariable_name_suffix\n```": "```{toctree}\n:maxdepth: 1\njp_trace\njp_set_debug_mode\njp_unset_debug_mode\njp_add_debug_info_setting\njp_variable_name_suffix\n```",  # noqa
     ##################################################
     "## Testing": "## テスト",
     ##################################################

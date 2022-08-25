@@ -17,13 +17,13 @@ The following example sets the `my_int` suffix to the `ap.Int` instance:
 ```py
 import apysc as ap
 
-ap.Stage(stage_width=150, stage_height=150, stage_elem_id='stage')
-int_val: ap.Int = ap.Int(10, variable_name_suffix='my_int')
+ap.Stage(stage_width=150, stage_height=150, stage_elem_id="stage")
+int_val: ap.Int = ap.Int(10, variable_name_suffix="my_int")
 ap.trace(int_val)
 
 ap.save_overall_html(
-    dest_dir_path="./variable_name_suffix_basic_usage_1/",
-    minify=False)
+    dest_dir_path="./variable_name_suffix_basic_usage_1/", minify=False
+)
 ```
 
 In the exported JavaScript code, you can verify its `ap.Int` variable has the specified suffix, `_my_int`, as follows:
@@ -31,7 +31,7 @@ In the exported JavaScript code, you can verify its `ap.Int` variable has the sp
 ```js
   // ...
   var i_9__my_int = 10;
-  console.log(i_9__my_int, "\nCalled from: tmp.py, line number: 5");
+  console.log(i_9__my_int, "Called from: tmp.py, line number: 5");
   // ...
 ```
 
@@ -42,7 +42,7 @@ For example, if you set the `my_rectangle` value to the `variable_name_suffix` a
 ```py
 import apysc as ap
 
-ap.Stage(stage_width=150, stage_height=150, stage_elem_id='stage')
+ap.Stage(stage_width=150, stage_height=150, stage_elem_id="stage")
 rectangle: ap.Rectangle = ap.Rectangle(
     x=50,
     y=50,
@@ -53,8 +53,8 @@ rectangle: ap.Rectangle = ap.Rectangle(
 )
 
 ap.save_overall_html(
-    dest_dir_path="./variable_name_suffix_basic_usage_2/",
-    minify=False)
+    dest_dir_path="./variable_name_suffix_basic_usage_2/", minify=False
+)
 ```
 
 In that case, each attribute also has an attribute identifier suffix, such as the `x`, `width`:

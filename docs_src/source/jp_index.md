@@ -273,6 +273,7 @@ jp_trace
 jp_set_debug_mode
 jp_unset_debug_mode
 jp_add_debug_info_setting
+jp_variable_name_suffix
 ```
 
 ## テスト

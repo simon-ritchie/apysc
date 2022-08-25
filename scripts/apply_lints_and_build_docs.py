@@ -275,10 +275,11 @@ def _start_numdoclint_processes() -> List[sp.Popen]:
     ]
     numdoclint_processes: List[sp.Popen] = []
     for path in paths:
-        command_strs: List[str] = NUMDOCLINT_NO_PATH_COMMAND.split(" ")
+        command_strs: List[str] = [*NUMDOCLINT_NO_PATH_COMMAND.split(" ")]
         if not path.endswith("/"):
             command_strs.remove("-r")
-        command_strs.extend(["-p", f"{path}"])  # type: ignore
+        command_strs.append("-p")
+        command_strs.append(path)
         process: sp.Popen = _start_subprocess(command_strs=command_strs)
         numdoclint_processes.append(process)
     return numdoclint_processes

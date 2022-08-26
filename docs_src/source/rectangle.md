@@ -433,6 +433,180 @@ ap.save_overall_html(dest_dir_path="rectangle_set_rotation_around_point/")
 
 <iframe src="static/rectangle_set_rotation_around_point/index.html" width="150" height="150"></iframe>
 
+## scale_x_from_center property interface example
+
+The `scale_x_from_center` property updates or gets the instance's scale-x from the center point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50, fill_color="#0af"
+)
+direction: ap.Int = ap.Int(-1)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    with ap.If(rectangle.scale_x_from_center <= 0.001):
+        direction.value = 1
+    with ap.If(rectangle.scale_x_from_center >= 2.0):
+        direction.value = -1
+    rectangle.scale_x_from_center += direction * 0.005
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="rectangle_scale_x_from_center/")
+```
+
+<iframe src="static/rectangle_scale_x_from_center/index.html" width="150" height="150"></iframe>
+
+## scale_y_from_center property interface example
+
+The `scale_y_from_center` property updates or gets the instance's scale-y from the center point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50, fill_color="#0af"
+)
+direction: ap.Int = ap.Int(-1)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    with ap.If(rectangle.scale_y_from_center <= 0.001):
+        direction.value = 1
+    with ap.If(rectangle.scale_y_from_center >= 2.0):
+        direction.value = -1
+    rectangle.scale_y_from_center += direction * 0.005
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="rectangle_scale_y_from_center/")
+```
+
+<iframe src="static/rectangle_scale_y_from_center/index.html" width="150" height="150"></iframe>
+
+## set_scale_x_from_point and get_scale_x_from_point methods interfaces example
+
+The `set_scale_x_from_point` method updates the instance's scale-x from a specified point.
+
+Similarly, the `get_scale_x_from_point` method gets the instance's scale-x from a specified point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50, fill_color="#0af"
+)
+direction: ap.Int = ap.Int(-1)
+x: ap.Int = ap.Int(100)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = rectangle.get_scale_x_from_point(x=x)
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2.0):
+        direction.value = -1
+    scale += direction * 0.005
+    rectangle.set_scale_x_from_point(scale_x=scale, x=x)
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="rectangle_scale_x_from_point/")
+```
+
+<iframe src="static/rectangle_scale_x_from_point/index.html" width="150" height="150"></iframe>
+
+## set_scale_y_from_point and get_scale_y_from_point methods interfaces example
+
+The `set_scale_y_from_point` method updates the instance's scale-y from a specified point.
+
+Similarly, the `get_scale_y_from_point` method gets the instance's scale-y from a specified point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=50, height=50, fill_color="#0af"
+)
+direction: ap.Int = ap.Int(-1)
+y: ap.Int = ap.Int(100)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = rectangle.get_scale_y_from_point(y=y)
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2.0):
+        direction.value = -1
+    scale += direction * 0.005
+    rectangle.set_scale_y_from_point(scale_y=scale, y=y)
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="rectangle_scale_y_from_point/")
+```
+
+<iframe src="static/rectangle_scale_y_from_point/index.html" width="150" height="150"></iframe>
+
 ## flip_x property interface example
 
 The `flip_x` property updates or gets the instance's flip-x (reflecting state) boolean value:

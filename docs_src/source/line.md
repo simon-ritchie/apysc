@@ -346,6 +346,192 @@ ap.save_overall_html(dest_dir_path="line_set_rotation_around_point/")
 
 <iframe src="static/line_set_rotation_around_point/index.html" width="200" height="100"></iframe>
 
+## scale_x_from_center property interface example
+
+The `scale_x_from_center` property updates or gets the instance's scale-x from the center point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color="#0af",
+    line_thickness=30,
+)
+direction: ap.Int = ap.Int(-1)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    with ap.If(line.scale_x_from_center <= 0.001):
+        direction.value = 1
+    with ap.If(line.scale_x_from_center >= 2.0):
+        direction.value = -1
+    line.scale_x_from_center += direction * 0.005
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="line_scale_x_from_center/")
+```
+
+<iframe src="static/line_scale_x_from_center/index.html" width="200" height="100"></iframe>
+
+## scale_y_from_center property interface example
+
+The `scale_y_from_center` property updates or gets the instance's scale-y from the center point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color="#0af",
+    line_thickness=30,
+)
+direction: ap.Int = ap.Int(-1)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    with ap.If(line.scale_y_from_center <= 0.001):
+        direction.value = 1
+    with ap.If(line.scale_y_from_center >= 2.0):
+        direction.value = -1
+    line.scale_y_from_center += direction * 0.005
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="line_scale_y_from_center/")
+```
+
+<iframe src="static/line_scale_y_from_center/index.html" width="200" height="100"></iframe>
+
+## set_scale_x_from_point and get_scale_x_from_point methods interfaces example
+
+The `set_scale_x_from_point` method updates the instance's scale-x from a specified point.
+
+Similarly, the `get_scale_x_from_point` method gets the instance's scale-x from a specified point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color="#0af",
+    line_thickness=30,
+)
+direction: ap.Int = ap.Int(-1)
+x: ap.Int = ap.Int(150)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = line.get_scale_x_from_point(x=x)
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2.0):
+        direction.value = -1
+    scale += direction * 0.005
+    line.set_scale_x_from_point(scale_x=scale, x=x)
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="line_scale_x_from_point/")
+```
+
+<iframe src="static/line_scale_x_from_point/index.html" width="200" height="100"></iframe>
+
+## set_scale_y_from_point and get_scale_y_from_point methods interfaces example
+
+The `set_scale_y_from_point` method updates the instance's scale-y from a specified point.
+
+Similarly, the `get_scale_y_from_point` method gets the instance's scale-y from a specified point:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+)
+line: ap.Line = ap.Line(
+    start_point=ap.Point2D(x=50, y=40),
+    end_point=ap.Point2D(x=150, y=60),
+    line_color="#0af",
+    line_thickness=30,
+)
+direction: ap.Int = ap.Int(-1)
+y: ap.Int = ap.Int(60)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = line.get_scale_y_from_point(y=y)
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2.0):
+        direction.value = -1
+    scale += direction * 0.005
+    line.set_scale_y_from_point(scale_y=scale, y=y)
+
+
+ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="line_scale_y_from_point/")
+```
+
+<iframe src="static/line_scale_y_from_point/index.html" width="200" height="100"></iframe>
+
 ## flip_x property interface example
 
 The `flip_x` property updates or gets the instance's flip-x (reflecting state) boolean value:

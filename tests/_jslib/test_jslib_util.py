@@ -8,19 +8,24 @@ from retrying import retry
 from apysc._jslib import jslib_util
 from apysc._testing import testing_helper
 
+_EXPECTED_JQUERY_FILE_NAME: str = "jquery-3.5.1.min.js"
+_EXPECTED_SVG_FILE_NAME: str = "svg-3.1.2.min.js"
+_EXPECTED_JQUERY_MOUSEWHEEL_FILE_NAME: str = "jquery.mousewheel-3.1.13.min.js"
+
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_jslib_file_names() -> None:
     jslib_file_names: List[str] = jslib_util.get_jslib_file_names()
-    assert "jquery.min.js" in jslib_file_names
-    assert "svg.min.js" in jslib_file_names
+    assert _EXPECTED_JQUERY_FILE_NAME in jslib_file_names
+    assert _EXPECTED_SVG_FILE_NAME in jslib_file_names
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_jslib_abs_dir_path() -> None:
     jslib_abs_dir_path: str = jslib_util.get_jslib_abs_dir_path()
     file_names: List[str] = os.listdir(jslib_abs_dir_path)
-    assert "jquery.min.js" in file_names
+    assert _EXPECTED_JQUERY_FILE_NAME in file_names
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -29,11 +34,11 @@ def test_export_jslib_to_specified_dir() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
     dest_file_path: str = jslib_util.export_jslib_to_specified_dir(
-        dest_dir_path=tmp_dir_path, jslib_name="jquery.min.js"
+        dest_dir_path=tmp_dir_path, jslib_name=_EXPECTED_JQUERY_FILE_NAME
     )
     exported_dir_path: str = os.path.dirname(dest_file_path)
     assert tmp_dir_path == f"{exported_dir_path}/"
-    assert dest_file_path.endswith("jquery.min.js")
+    assert dest_file_path.endswith(_EXPECTED_JQUERY_FILE_NAME)
     assert os.path.isfile(dest_file_path)
 
     testing_helper.assert_raises(
@@ -48,7 +53,7 @@ def test_export_jslib_to_specified_dir() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_read_jslib_str() -> None:
-    jslib_str: str = "jquery.min.js"
+    jslib_str: str = jslib_util.read_jslib_str(jslib_name=_EXPECTED_JQUERY_FILE_NAME)
     assert jslib_str != ""
 
 
@@ -58,13 +63,19 @@ def test__sort_js_file_names_with_priority_setting() -> None:
         str
     ] = jslib_util._sort_js_file_names_with_priority_setting(
         jslib_file_names=[
-            "svg.min.js",
-            "jquery.mousewheel.min.js",
-            "jquery.min.js",
+            _EXPECTED_SVG_FILE_NAME,
+            _EXPECTED_JQUERY_MOUSEWHEEL_FILE_NAME,
+            _EXPECTED_JQUERY_FILE_NAME,
         ]
     )
     assert sorted_jslib_file_names == [
-        "jquery.min.js",
-        "jquery.mousewheel.min.js",
-        "svg.min.js",
+        _EXPECTED_JQUERY_FILE_NAME,
+        _EXPECTED_JQUERY_MOUSEWHEEL_FILE_NAME,
+        _EXPECTED_SVG_FILE_NAME,
     ]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_jquery_file_name() -> None:
+    file_name: str = jslib_util._get_jquery_file_name()
+    assert file_name == _EXPECTED_JQUERY_FILE_NAME

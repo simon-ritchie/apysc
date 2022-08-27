@@ -14,14 +14,11 @@ Mainly the following interfaces are defined:
 """
 
 import os
+import re
 import shutil
 import sys
 from types import ModuleType
-from typing import List
-
-_HIGH_PRIORITY_FILE_ORDERS: List[str] = [
-    "jquery.min.js",
-]
+from typing import List, Optional, Match
 
 
 def get_jslib_file_names() -> List[str]:
@@ -33,7 +30,7 @@ def get_jslib_file_names() -> List[str]:
     jslib_file_names : list of str
         JavaScript libraries file names existing in this module's
         directory.
-        e.g., ['jquery.min.js', 'svg.min.js']
+        e.g., ['jquery-3.5.1.min.js', 'svg-3.1.2.min.js']
     """
     this_modules_dir_path: str = get_jslib_abs_dir_path()
     jslib_file_names: List[str] = []
@@ -88,6 +85,42 @@ def get_jslib_abs_dir_path() -> str:
     this_module: ModuleType = sys.modules[__name__]
     jslib_abs_dir_path: str = os.path.dirname(str(this_module.__file__))
     return jslib_abs_dir_path
+
+
+def _get_jquery_file_name() -> str:
+    """
+    Get the jQuery file name.
+
+    Returns
+    -------
+    file_name : str
+        The jQuery file name.
+
+    Raises
+    ------
+    FileNotFoundError
+        If the file does not exist.
+    """
+    this_modules_dir_path: str = get_jslib_abs_dir_path()
+    jslib_file_names: List[str] = []
+    file_names: List[str] = os.listdir(this_modules_dir_path)
+    for file_name in file_names:
+        if not file_name.endswith(".js"):
+            continue
+        jslib_file_names.append(file_name)
+    for jslib_name in jslib_file_names:
+        match: Optional[Match] = re.search(
+            pattern=r"jquery-\d+?\.\d+?\.\d+?\.min\.js",
+            string=jslib_name)
+        if match is None:
+            continue
+        return jslib_name
+    raise FileNotFoundError("The jQuery file does not exist in the _jslib package.")
+
+
+_HIGH_PRIORITY_FILE_ORDERS: List[str] = [
+    _get_jquery_file_name(),
+]
 
 
 def export_jslib_to_specified_dir(*, dest_dir_path: str, jslib_name: str) -> str:

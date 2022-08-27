@@ -462,6 +462,198 @@
 </div>
 <iframe src="static/polyline_set_rotation_around_point/index.html" width="200" height="150"></iframe>
 </section>
+<section id="scale-x-from-center">
+<h2>scale_x_from_center属性のインターフェイス例<a class="headerlink" href="#scale-x-from-center" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code>属性ではインスタンスの中央座標でのX軸の拡縮値の更新もしくは取得を行えます:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">polyline</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span><span class="p">(</span>
+    <span class="n">points</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">polyline</span><span class="o">.</span><span class="n">scale_x_from_center</span> <span class="o">&lt;=</span> <span class="mf">0.001</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">polyline</span><span class="o">.</span><span class="n">scale_x_from_center</span> <span class="o">&gt;=</span> <span class="mf">2.0</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">polyline</span><span class="o">.</span><span class="n">scale_x_from_center</span> <span class="o">+=</span> <span class="n">direction</span> <span class="o">*</span> <span class="mf">0.005</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;polyline_scale_x_from_center/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/polyline_scale_x_from_center/index.html" width="200" height="150"></iframe>
+</section>
+<section id="scale-y-from-center">
+<h2>scale_y_from_center属性のインターフェイス例<a class="headerlink" href="#scale-y-from-center" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code>属性ではインスタンスの中央座標でのX軸の拡縮値の更新もしくは取得を行えます:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">polyline</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span><span class="p">(</span>
+    <span class="n">points</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">polyline</span><span class="o">.</span><span class="n">scale_y_from_center</span> <span class="o">&lt;=</span> <span class="mf">0.001</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">polyline</span><span class="o">.</span><span class="n">scale_y_from_center</span> <span class="o">&gt;=</span> <span class="mf">2.0</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">polyline</span><span class="o">.</span><span class="n">scale_y_from_center</span> <span class="o">+=</span> <span class="n">direction</span> <span class="o">*</span> <span class="mf">0.005</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;polyline_scale_y_from_center/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/polyline_scale_y_from_center/index.html" width="200" height="150"></iframe>
+</section>
+<section id="set-scale-x-from-pointget-scale-x-from-point">
+<h2>set_scale_x_from_pointとget_scale_x_from_pointメソッドのインターフェイス例<a class="headerlink" href="#set-scale-x-from-pointget-scale-x-from-point" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code>メソッドは指定されたX座標を基準としてX軸の拡縮値を更新します。</p>
+<p>同様に、<code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code>メソッドでは指定されたX座標を基準としたX軸の拡縮値を取得します:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">polyline</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span><span class="p">(</span>
+    <span class="n">points</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">polyline</span><span class="o">.</span><span class="n">get_scale_x_from_point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">scale</span> <span class="o">&lt;=</span> <span class="mf">0.001</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">scale</span> <span class="o">&gt;=</span> <span class="mf">2.0</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">scale</span> <span class="o">+=</span> <span class="n">direction</span> <span class="o">*</span> <span class="mf">0.005</span>
+    <span class="n">polyline</span><span class="o">.</span><span class="n">set_scale_x_from_point</span><span class="p">(</span><span class="n">scale_x</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;polyline_scale_x_from_point/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/polyline_scale_x_from_point/index.html" width="200" height="150"></iframe>
+</section>
+<section id="set-scale-y-from-pointget-scale-y-from-point">
+<h2>set_scale_y_from_pointとget_scale_y_from_pointメソッドのインターフェイス例<a class="headerlink" href="#set-scale-y-from-pointget-scale-y-from-point" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code>メソッドは指定されたY座標を基準としてY軸の拡縮値を更新します。</p>
+<p>同様に、<code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code>メソッドでは指定されたY座標を基準としたY軸の拡縮値を取得します。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">polyline</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span><span class="p">(</span>
+    <span class="n">points</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">polyline</span><span class="o">.</span><span class="n">get_scale_y_from_point</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">scale</span> <span class="o">&lt;=</span> <span class="mf">0.001</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">scale</span> <span class="o">&gt;=</span> <span class="mf">2.0</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">scale</span> <span class="o">+=</span> <span class="n">direction</span> <span class="o">*</span> <span class="mf">0.005</span>
+    <span class="n">polyline</span><span class="o">.</span><span class="n">set_scale_y_from_point</span><span class="p">(</span><span class="n">scale_y</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;polyline_scale_y_from_point/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/polyline_scale_y_from_point/index.html" width="200" height="150"></iframe>
+</section>
 <section id="flip-x">
 <h2>flip_x属性のインターフェイス例<a class="headerlink" href="#flip-x" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">flip_x</span></code>属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:</p>
@@ -752,6 +944,10 @@
 <li><a class="reference internal" href="#line-dash-dot-setting">line_dash_dot_setting属性のインターフェイス例</a></li>
 <li><a class="reference internal" href="#rotation-around-center">rotation_around_center属性のインターフェイス例</a></li>
 <li><a class="reference internal" href="#set-rotation-around-pointget-rotation-around-point">set_rotation_around_pointとget_rotation_around_pointメソッドのインターフェイス例</a></li>
+<li><a class="reference internal" href="#scale-x-from-center">scale_x_from_center属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#scale-y-from-center">scale_y_from_center属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#set-scale-x-from-pointget-scale-x-from-point">set_scale_x_from_pointとget_scale_x_from_pointメソッドのインターフェイス例</a></li>
+<li><a class="reference internal" href="#set-scale-y-from-pointget-scale-y-from-point">set_scale_y_from_pointとget_scale_y_from_pointメソッドのインターフェイス例</a></li>
 <li><a class="reference internal" href="#flip-x">flip_x属性のインターフェイス例</a></li>
 <li><a class="reference internal" href="#flip-y">flip_y属性のインターフェイス例</a></li>
 <li><a class="reference internal" href="#skew-x">skew_x属性のインターフェイス例</a></li>

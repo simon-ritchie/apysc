@@ -67,7 +67,7 @@ ap.save_overall_html(dest_dir_path="polygon_x/")
 
 <iframe src="static/polygon_x/index.html" width="150" height="150"></iframe>
 
-Notes: this attribute's value becomes the same as the arguments' minimum point value.
+Notes: This attribute's value becomes the same as the arguments' minimum point value.
 
 ## y property interface example
 
@@ -95,7 +95,7 @@ ap.save_overall_html(dest_dir_path="polygon_y/")
 
 <iframe src="static/polygon_y/index.html" width="150" height="150"></iframe>
 
-Notes: this attribute's value becomes the same as the arguments' minimum point value.
+Notes: This attribute's value becomes the same as the arguments' minimum point value.
 
 ## fill_color property interface example
 

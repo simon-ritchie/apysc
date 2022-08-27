@@ -39,7 +39,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"\n)\npolygon: ap.Polygon = ap.Polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ],\n    fill_color="#0af",\n)\npolygon.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="polygon_x/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"\n)\npolygon: ap.Polygon = ap.Polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ],\n    fill_color="#0af",\n)\npolygon.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="polygon_x/")\n```',  # noqa
     ##################################################
-    "Notes: this attribute's value becomes the same as the arguments' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
+    "Notes: This attribute's value becomes the same as the arguments' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
     ##################################################
     "## y property interface example": "## y属性のインターフェイス例",
     ##################################################
@@ -47,7 +47,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"\n)\npolygon: ap.Polygon = ap.Polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ],\n    fill_color="#0af",\n)\npolygon.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="polygon_y/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"\n)\npolygon: ap.Polygon = ap.Polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ],\n    fill_color="#0af",\n)\npolygon.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="polygon_y/")\n```',  # noqa
     ##################################################
-    "Notes: this attribute's value becomes the same as the arguments' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
+    "Notes: This attribute's value becomes the same as the arguments' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
     ##################################################
     "## fill_color property interface example": "## fill_color属性のインターフェイス例",
     ##################################################

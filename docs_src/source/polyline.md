@@ -71,7 +71,7 @@ ap.save_overall_html(dest_dir_path="polyline_x/")
 
 <iframe src="static/polyline_x/index.html" width="200" height="150"></iframe>
 
-Notes: this attribute's value becomes the same as the arguments' minimum point value.
+Notes: This attribute's value becomes the same as the arguments' minimum point value.
 
 ## y property interface example
 
@@ -101,7 +101,7 @@ ap.save_overall_html(dest_dir_path="polyline_y/")
 
 <iframe src="static/polyline_y/index.html" width="200" height="150"></iframe>
 
-Notes: this attribute's value becomes the same as the arguments' minimum point value.
+Notes: This attribute's value becomes the same as the arguments' minimum point value.
 
 ## fill_color property interface example
 

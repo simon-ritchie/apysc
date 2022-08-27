@@ -39,7 +39,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"\n)\npolyline: ap.Polyline = ap.Polyline(\n    points=[\n        ap.Point2D(x=50, y=50),\n        ap.Point2D(x=100, y=50),\n        ap.Point2D(x=100, y=100),\n        ap.Point2D(x=150, y=100),\n    ],\n    line_color="#0af",\n    line_thickness=3,\n)\npolyline.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="polyline_x/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"\n)\npolyline: ap.Polyline = ap.Polyline(\n    points=[\n        ap.Point2D(x=50, y=50),\n        ap.Point2D(x=100, y=50),\n        ap.Point2D(x=100, y=100),\n        ap.Point2D(x=150, y=100),\n    ],\n    line_color="#0af",\n    line_thickness=3,\n)\npolyline.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="polyline_x/")\n```',  # noqa
     ##################################################
-    "Notes: this attribute's value becomes the same as the arguments' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
+    "Notes: This attribute's value becomes the same as the arguments' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
     ##################################################
     "## y property interface example": "## y属性のインターフェイス例",
     ##################################################
@@ -47,7 +47,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"\n)\npolyline: ap.Polyline = ap.Polyline(\n    points=[\n        ap.Point2D(x=50, y=50),\n        ap.Point2D(x=100, y=50),\n        ap.Point2D(x=100, y=100),\n        ap.Point2D(x=150, y=100),\n    ],\n    line_color="#0af",\n    line_thickness=3,\n)\npolyline.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="polyline_y/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"\n)\npolyline: ap.Polyline = ap.Polyline(\n    points=[\n        ap.Point2D(x=50, y=50),\n        ap.Point2D(x=100, y=50),\n        ap.Point2D(x=100, y=100),\n        ap.Point2D(x=150, y=100),\n    ],\n    line_color="#0af",\n    line_thickness=3,\n)\npolyline.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="polyline_y/")\n```',  # noqa
     ##################################################
-    "Notes: this attribute's value becomes the same as the arguments' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
+    "Notes: This attribute's value becomes the same as the arguments' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
     ##################################################
     "## fill_color property interface example": "## fill_color属性のインターフェイス例",
     ##################################################

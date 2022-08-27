@@ -47,7 +47,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=100, stage_elem_id=\"stage\"\n)\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\"#0af\",\n    line_thickness=5,\n)\nline.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"line_x/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=100, stage_elem_id=\"stage\"\n)\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\"#0af\",\n    line_thickness=5,\n)\nline.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"line_x/\")\n```",  # noqa
     ##################################################
-    "Notes: this attribute\'s value becomes the same as the arguments\' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
+    "Notes: This attribute\'s value becomes the same as the arguments\' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
     ##################################################
     "## y property interface example": "## y属性のインターフェイス例",
     ##################################################
@@ -55,7 +55,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=100, stage_elem_id=\"stage\"\n)\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\"#0af\",\n    line_thickness=5,\n)\nline.y = ap.Int(80)\n\nap.save_overall_html(dest_dir_path=\"line_y/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=100, stage_elem_id=\"stage\"\n)\nline: ap.Line = ap.Line(\n    start_point=ap.Point2D(x=50, y=50),\n    end_point=ap.Point2D(x=150, y=50),\n    line_color=\"#0af\",\n    line_thickness=5,\n)\nline.y = ap.Int(80)\n\nap.save_overall_html(dest_dir_path=\"line_y/\")\n```",  # noqa
     ##################################################
-    "Notes: this attribute\'s value becomes the same as the arguments\' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
+    "Notes: This attribute\'s value becomes the same as the arguments\' minimum point value.": "特記事項: この属性の値は引数の座標の最小値と同値になります。",  # noqa
     ##################################################
     "## line_color property interface example": "## line_color属性のインターフェイス例",
     ##################################################

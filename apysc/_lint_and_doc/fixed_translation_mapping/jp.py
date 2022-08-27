@@ -2294,7 +2294,7 @@ MAPPINGS: Mappings = Mappings(
             val="コンストラクタは`line_color`などのスタイル設定の引数も" "受け付けます。",
         ),
         Mapping(
-            key="Notes: this attribute's value becomes the same "
+            key="Notes: This attribute's value becomes the same "
             "as the arguments' minimum point value.",
             val="特記事項: この属性の値は引数の座標の最小値と同値になります。",
         ),

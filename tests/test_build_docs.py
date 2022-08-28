@@ -5,6 +5,7 @@ from random import randint
 from typing import List
 
 from retrying import retry
+from apysc._jslib import jslib_util
 
 import scripts.build_docs as build_docs
 from apysc._file import file_util
@@ -52,6 +53,7 @@ def _checkout_files() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__replace_static_path_recursively() -> None:
+    jquery_file_name: str = jslib_util.get_jquery_file_name()
     tmp_dir_1: str = "../.tmp_test_build_docs/"
     shutil.rmtree(tmp_dir_1, ignore_errors=True)
     tmp_dir_2: str = os.path.join(tmp_dir_1, "subdir/")
@@ -68,7 +70,7 @@ def test__replace_static_path_recursively() -> None:
     pkl_path: str = os.path.join(tmp_dir_1, "test.pkl")
     with open(pkl_path, "w") as f:
         f.write("")
-    jslib_path: str = os.path.join(tmp_dir_1, "jquery.min.js")
+    jslib_path: str = os.path.join(tmp_dir_1, jquery_file_name)
     with open(jslib_path, "w") as f:
         f.write('"_static/groundwork.css"')
 
@@ -611,7 +613,8 @@ def test__get_build_command() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__sync_js_libs() -> None:
-    test_file_path: str = "./docs_src/source/_static/jquery.min.js"
+    jquery_file_name: str = jslib_util.get_jquery_file_name()
+    test_file_path: str = f"./docs_src/source/_static/{jquery_file_name}"
     file_util.remove_file_if_exists(file_path=test_file_path)
 
     build_docs._sync_js_libs()

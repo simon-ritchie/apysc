@@ -75,6 +75,6 @@ def test__sort_js_file_names_with_priority_setting() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_jquery_file_name() -> None:
-    file_name: str = jslib_util._get_jquery_file_name()
+def test_get_jquery_file_name() -> None:
+    file_name: str = jslib_util.get_jquery_file_name()
     assert file_name == _EXPECTED_JQUERY_FILE_NAME

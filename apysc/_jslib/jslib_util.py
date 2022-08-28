@@ -89,7 +89,7 @@ def get_jslib_abs_dir_path() -> str:
     return jslib_abs_dir_path
 
 
-def _get_jquery_file_name() -> str:
+def get_jquery_file_name() -> str:
     """
     Get the jQuery file name.
 
@@ -121,7 +121,7 @@ def _get_jquery_file_name() -> str:
 
 
 _HIGH_PRIORITY_FILE_ORDERS: List[str] = [
-    _get_jquery_file_name(),
+    get_jquery_file_name(),
 ]
 
 

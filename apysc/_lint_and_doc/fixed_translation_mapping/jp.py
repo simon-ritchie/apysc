@@ -2528,10 +2528,6 @@ MAPPINGS: Mappings = Mappings(
             val="デフォルト値はFalseとなっており、この設定では絶対座標として扱われます。",
         ),
         Mapping(
-            key="The default setting is False, and it becomes absolute.",
-            val="デフォルト値はFalseとなっており、この設定では絶対座標として扱われます。",
-        ),
-        Mapping(
             key="## PathMoveTo class constructor API",
             val="## PathMoveTo クラスのコンストラクタのAPI",
         ),

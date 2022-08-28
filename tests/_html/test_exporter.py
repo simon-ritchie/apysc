@@ -14,8 +14,8 @@ from apysc._expression import js_functions
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._file import file_util
 from apysc._html import exporter
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._jslib import jslib_util
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
@@ -284,7 +284,8 @@ def test__append_jslib_str_to_html() -> None:
         embed_js_libs=False,
     )
     expected: str = (
-        "<body>" f'\n  <script type="text/javascript" src="./{jquery_file_name}">'
+        "<body>"
+        f'\n  <script type="text/javascript" src="./{jquery_file_name}">'
         "</script>"
     )
     assert html_str == expected

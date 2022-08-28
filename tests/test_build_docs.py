@@ -5,10 +5,10 @@ from random import randint
 from typing import List
 
 from retrying import retry
-from apysc._jslib import jslib_util
 
 import scripts.build_docs as build_docs
 from apysc._file import file_util
+from apysc._jslib import jslib_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docstring_util import DOCSTRING_PATH_COMMENT_KEYWORD

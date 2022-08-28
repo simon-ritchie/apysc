@@ -2515,7 +2515,7 @@ MAPPINGS: Mappings = Mappings(
             val="## 相対座標設定",
         ),
         Mapping(
-            key="The constructor\'s `relative` optional argument changes its behavior.",
+            key="The constructor's `relative` optional argument changes its behavior.",
             val="コンストラクタの`relative`のオプション引数はその挙動を変更します。",
         ),
         Mapping(
@@ -2537,7 +2537,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - パスの座標が相対座標として扱うかもしくは絶対座標として扱うかどうかの真偽値。",
         ),
         Mapping(
-            key="The constructor also accepts each style\'s argument, such as the "
+            key="The constructor also accepts each style's argument, such as the "
             "`fill_color` and `line_color`.",
             val="コンストラクタは`fill_color`や`line_color`などのスタイル設定用の引数も受け付けます。",
         ),

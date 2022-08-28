@@ -29,19 +29,19 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "This interface requires the `html_file_name` argument to be unique if you need to output multiple HTML. Otherwise, it overwrites the HTML file:": "このインターフェイスは複数の出力出力ファイルをユニークにするための`html_file_name`引数によるファイル名の指定が必要になります。ユニークに設定しないとHTMLファイルが上書きされてしまいます。",  # noqa
     ##################################################
-    "```py\nimport apysc as ap\n\nap.Stage(stage_width=250, stage_height=150, background_color=\"#333\")\nsprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nsprite.graphics.begin_fill(color=\"#f0a\")\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.display_on_colaboratory(html_file_name=\"jupyter_test_1.html\")\n```": "```py\nimport apysc as ap\n\nap.Stage(stage_width=250, stage_height=150, background_color=\"#333\")\nsprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nsprite.graphics.begin_fill(color=\"#f0a\")\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.display_on_colaboratory(html_file_name=\"jupyter_test_1.html\")\n```",  # noqa
+    '```py\nimport apysc as ap\n\nap.Stage(stage_width=250, stage_height=150, background_color="#333")\nsprite = ap.Sprite()\nsprite.graphics.begin_fill(color="#0af")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nsprite.graphics.begin_fill(color="#f0a")\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.display_on_colaboratory(html_file_name="jupyter_test_1.html")\n```': '```py\nimport apysc as ap\n\nap.Stage(stage_width=250, stage_height=150, background_color="#333")\nsprite = ap.Sprite()\nsprite.graphics.begin_fill(color="#0af")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nsprite.graphics.begin_fill(color="#f0a")\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.display_on_colaboratory(html_file_name="jupyter_test_1.html")\n```',  # noqa
     ##################################################
     "![](_static/colaboratory_interface.png)": "![](_static/colaboratory_interface.png)",  # noqa
     ##################################################
     "## display_on_colaboratory API": "## display_on_colaboratory API",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]** Save the overall HTML and display it on Google Colaboratory.<hr>": "**[インターフェイス概要]** HTML全体を保存しGoogle Colaboratory上で表示します。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `html_file_name`: str, default \'index.html\'": "- `html_file_name`: str, default \'index.html\'",  # noqa
+    "- `html_file_name`: str, default 'index.html'": "- `html_file_name`: str, default 'index.html'",  # noqa
     ##################################################
     "  - The output HTML file name.": "  - 出力されるHTMLのファイル名。",
     ##################################################

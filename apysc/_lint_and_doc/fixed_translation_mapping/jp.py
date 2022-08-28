@@ -2505,5 +2505,45 @@ MAPPINGS: Mappings = Mappings(
             "scale-y from a specified point:",
             val="同様に、`get_scale_y_from_point`メソッドでは指定されたY座標を基準としたY軸の拡縮値を取得します。",
         ),
+        Mapping(
+            key="Mainly, the `Path` class constructor or `draw_path` interfaces use "
+            "this setting.",
+            val="主にこの設定は`Path`クラスのコンストラクタと`draw_path`メソッドのインターフェイスで使用されます。",
+        ),
+        Mapping(
+            key="## Relative position setting",
+            val="## 相対座標設定",
+        ),
+        Mapping(
+            key="The constructor\'s `relative` optional argument changes its behavior.",
+            val="コンストラクタの`relative`のオプション引数はその挙動を変更します。",
+        ),
+        Mapping(
+            key="For example, if you set True to its argument, coordinates "
+            "become relative.",
+            val="例として、もしその引数にTrueを指定した場合座標は相対座標として設定されます。",
+        ),
+        Mapping(
+            key="The default setting is False, and it becomes absolute.",
+            val="デフォルト値はFalseとなっており、この設定では絶対座標として扱われます。",
+        ),
+        Mapping(
+            key="The default setting is False, and it becomes absolute.",
+            val="デフォルト値はFalseとなっており、この設定では絶対座標として扱われます。",
+        ),
+        Mapping(
+            key="## PathMoveTo class constructor API",
+            val="## PathMoveTo クラスのコンストラクタのAPI",
+        ),
+        Mapping(
+            key="  - A boolean value indicates whether the path "
+            "coordinates are relative or not (absolute).",
+            val="  - パスの座標が相対座標として扱うかもしくは絶対座標として扱うかどうかの真偽値。",
+        ),
+        Mapping(
+            key="The constructor also accepts each style\'s argument, such as the "
+            "`fill_color` and `line_color`.",
+            val="コンストラクタは`fill_color`や`line_color`などのスタイル設定用の引数も受け付けます。",
+        ),
     ]
 )

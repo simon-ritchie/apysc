@@ -90,6 +90,7 @@ jp_dictionary_generic
 jp_dictionary_get
 jp_dictionary_length
 jp_point2d
+jp_path_move_to
 ```
 
 ## DisplayObject と GraphicsBase の各クラス
@@ -132,6 +133,7 @@ jp_ellipse
 jp_line
 jp_polyline
 jp_polygon
+jp_path
 ```
 
 ## Graphics クラス

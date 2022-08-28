@@ -87,6 +87,7 @@ dictionary_generic
 dictionary_get
 dictionary_length
 point2d
+path_move_to
 ```
 
 ## DisplayObject and GraphicsBase classes

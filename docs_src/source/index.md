@@ -89,6 +89,7 @@ dictionary_length
 point2d
 path_move_to
 path_line_to
+path_horizontal
 ```
 
 ## DisplayObject and GraphicsBase classes

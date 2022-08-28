@@ -86,10 +86,6 @@ dictionary
 dictionary_generic
 dictionary_get
 dictionary_length
-point2d
-path_move_to
-path_line_to
-path_horizontal
 ```
 
 ## DisplayObject and GraphicsBase classes
@@ -159,6 +155,16 @@ graphics_draw_round_dotted_line
 graphics_draw_dash_dotted_line
 graphics_draw_polygon
 graphics_clear
+```
+
+## Geometry-related classes
+
+```{toctree}
+:maxdepth: 1
+point2d
+path_move_to
+path_line_to
+path_horizontal
 ```
 
 ## Common event interfaces

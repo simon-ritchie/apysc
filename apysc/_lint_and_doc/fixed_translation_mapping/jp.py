@@ -2541,5 +2541,11 @@ MAPPINGS: Mappings = Mappings(
             "`fill_color` and `line_color`.",
             val="コンストラクタは`fill_color`や`line_color`などのスタイル設定用の引数も受け付けます。",
         ),
+        Mapping(
+            key="The `Path` class constructor or `draw_path` interfaces\' "
+            "`path_data_list` argument requires its instance.",
+            val="`Path`クラスのコンストラクタもしくは`draw_path`メソッドのインターフェイスの"
+            "`path_data_list`引数でそのインスタンスが必要とされます。",
+        ),
     ]
 )

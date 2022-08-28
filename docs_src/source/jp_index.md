@@ -91,6 +91,7 @@ jp_dictionary_get
 jp_dictionary_length
 jp_point2d
 jp_path_move_to
+jp_path_line_to
 ```
 
 ## DisplayObject と GraphicsBase の各クラス

@@ -47,7 +47,7 @@ For example, if you set True to its argument, coordinates become relative.
 
 The default setting is False, and it becomes absolute.
 
-The following example sets the relative setting and moves to under the 50px position relatively:
+The following example sets the relative setting and moves to the 50px under position from the current position:
 
 ```py
 # runnable

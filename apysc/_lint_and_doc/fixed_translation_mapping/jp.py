@@ -2462,7 +2462,7 @@ MAPPINGS: Mappings = Mappings(
             val="## scale_x_from_center属性のインターフェイス例",
         ),
         Mapping(
-            key="The `scale_x_from_center` property updates or gets the instance\'s "
+            key="The `scale_x_from_center` property updates or gets the instance's "
             "scale-x from the center point:",
             val="`scale_x_from_center`属性ではインスタンスの中央座標でのX軸の拡縮値の更新もしくは取得を行えます:",
         ),
@@ -2471,7 +2471,7 @@ MAPPINGS: Mappings = Mappings(
             val="## scale_y_from_center属性のインターフェイス例",
         ),
         Mapping(
-            key="The `scale_y_from_center` property updates or gets the instance\'s "
+            key="The `scale_y_from_center` property updates or gets the instance's "
             "scale-y from the center point:",
             val="`scale_y_from_center`属性ではインスタンスの中央座標でのX軸の拡縮値の更新もしくは取得を行えます:",
         ),
@@ -2481,12 +2481,12 @@ MAPPINGS: Mappings = Mappings(
             val="## set_scale_x_from_pointとget_scale_x_from_pointメソッドのインターフェイス例",
         ),
         Mapping(
-            key="The `set_scale_x_from_point` method updates the instance\'s "
+            key="The `set_scale_x_from_point` method updates the instance's "
             "scale-x from a specified point.",
             val="`set_scale_x_from_point`メソッドは指定されたX座標を基準としてX軸の拡縮値を更新します。",
         ),
         Mapping(
-            key="Similarly, the `get_scale_x_from_point` method gets the instance\'s "
+            key="Similarly, the `get_scale_x_from_point` method gets the instance's "
             "scale-x from a specified point:",
             val="同様に、`get_scale_x_from_point`メソッドでは指定されたX座標を基準としたX軸の拡縮値を取得します:",
         ),
@@ -2496,12 +2496,12 @@ MAPPINGS: Mappings = Mappings(
             val="## set_scale_y_from_pointとget_scale_y_from_pointメソッドのインターフェイス例",
         ),
         Mapping(
-            key="The `set_scale_y_from_point` method updates the instance\'s "
+            key="The `set_scale_y_from_point` method updates the instance's "
             "scale-y from a specified point.",
             val="`set_scale_y_from_point`メソッドは指定されたY座標を基準としてY軸の拡縮値を更新します。",
         ),
         Mapping(
-            key="Similarly, the `get_scale_y_from_point` method gets the instance\'s "
+            key="Similarly, the `get_scale_y_from_point` method gets the instance's "
             "scale-y from a specified point:",
             val="同様に、`get_scale_y_from_point`メソッドでは指定されたY座標を基準としたY軸の拡縮値を取得します。",
         ),

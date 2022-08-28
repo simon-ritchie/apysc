@@ -4,6 +4,21 @@
 
 Common JavaScript library utility implementations. Mainly the following interfaces are defined: <br>・get_jslib_file_names Get the JavaScript libraries file's names. <br>・get_jslib_abs_dir_path Get the Javascript library's absolute directory path. This interface returns this module's directory. <br>・export_jslib_to_specified_dir Export a JavaScript library to a specified directory. <br>・read_jslib_str Read a JavaScript library file str.
 
+## `_get_jquery_file_name` function docstring
+
+Get the jQuery file name.<hr>
+
+**[Returns]**
+
+- `file_name`: str
+  - The jQuery file name.
+
+<hr>
+
+**[Raises]**
+
+- FileNotFoundError: If the file does not exist.
+
 ## `_sort_js_file_names_with_priority_setting` function docstring
 
 Sort a JavaScript libraries' file names list with the priority setting.<hr>
@@ -60,7 +75,7 @@ Get the JavaScript libraries file's names.<hr>
 **[Returns]**
 
 - `jslib_file_names`: list of str
-  - JavaScript libraries file names existing in this module's directory. e.g., ['jquery.min.js', 'svg.min.js']
+  - JavaScript libraries file names existing in this module's directory. e.g., ['jquery-3.5.1.min.js', 'svg-3.1.2.min.js']
 
 ## `read_jslib_str` function docstring
 

@@ -13,7 +13,6 @@ _EXPECTED_SVG_FILE_NAME: str = "svg-3.1.2.min.js"
 _EXPECTED_JQUERY_MOUSEWHEEL_FILE_NAME: str = "jquery.mousewheel-3.1.13.min.js"
 
 
-
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_jslib_file_names() -> None:
     jslib_file_names: List[str] = jslib_util.get_jslib_file_names()

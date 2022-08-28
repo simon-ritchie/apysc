@@ -18,7 +18,9 @@ import re
 import shutil
 import sys
 from types import ModuleType
-from typing import List, Optional, Match
+from typing import List
+from typing import Match
+from typing import Optional
 
 
 def get_jslib_file_names() -> List[str]:
@@ -110,8 +112,8 @@ def _get_jquery_file_name() -> str:
         jslib_file_names.append(file_name)
     for jslib_name in jslib_file_names:
         match: Optional[Match] = re.search(
-            pattern=r"jquery-\d+?\.\d+?\.\d+?\.min\.js",
-            string=jslib_name)
+            pattern=r"jquery-\d+?\.\d+?\.\d+?\.min\.js", string=jslib_name
+        )
         if match is None:
             continue
         return jslib_name

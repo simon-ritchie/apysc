@@ -89,10 +89,6 @@ jp_dictionary
 jp_dictionary_generic
 jp_dictionary_get
 jp_dictionary_length
-jp_point2d
-jp_path_move_to
-jp_path_line_to
-jp_path_horizontal
 ```
 
 ## DisplayObject と GraphicsBase の各クラス
@@ -162,6 +158,17 @@ jp_graphics_draw_round_dotted_line
 jp_graphics_draw_dash_dotted_line
 jp_graphics_draw_polygon
 jp_graphics_clear
+```
+
+## 座標・サイズ等のデータの各クラス
+
+```{toctree}
+:maxdepth: 1
+jp_point2d
+jp_path_move_to
+jp_path_line_to
+jp_path_horizontal
+jp_path_vertical
 ```
 
 ## イベントの共通の各インターフェイス

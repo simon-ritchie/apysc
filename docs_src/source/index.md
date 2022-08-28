@@ -165,6 +165,7 @@ point2d
 path_move_to
 path_line_to
 path_horizontal
+path_vertical
 ```
 
 ## Common event interfaces

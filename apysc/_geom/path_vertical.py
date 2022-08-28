@@ -54,7 +54,7 @@ class PathVertical(PathDataBase, PathYInterface):
         y : Int or int
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
-            The boolean value indicating whether the path
+            A boolean value indicates whether the path
             coordinates are relative or not (absolute).
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.

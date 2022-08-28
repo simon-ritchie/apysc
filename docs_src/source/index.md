@@ -129,6 +129,7 @@ ellipse
 line
 polyline
 polygon
+path
 ```
 
 ## Graphics class

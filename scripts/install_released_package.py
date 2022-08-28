@@ -15,6 +15,7 @@ sys.path.append("./")
 
 import apysc as ap
 import scripts.command_util as command_util
+from apysc._jslib import jslib_util
 
 _PIP_COMMAND: str = f"pip install apysc=={ap.__version__}"
 _APYSC_TEST_CODE: str = (
@@ -53,8 +54,9 @@ def _main() -> None:
             shutil.rmtree(file_or_dir_name, ignore_errors=True)
 
     os.system(f'python -c "{_APYSC_TEST_CODE}"')
+    jquery_file_name: str = jslib_util.get_jquery_file_name()
     assert os.path.exists("./index.html")
-    assert os.path.exists("./jquery.min.js")
+    assert os.path.exists(f"./{jquery_file_name}")
     print("HTML file is created by the apysc package correctly.")
 
 

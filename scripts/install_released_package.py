@@ -31,6 +31,7 @@ def _main() -> None:
     Also, removing checked out directories and additional minimum tests
     will be run.
     """
+    jquery_file_name: str = jslib_util.get_jquery_file_name()
     os.system("pip freeze | xargs pip uninstall -y")
 
     count: int = 0
@@ -54,7 +55,6 @@ def _main() -> None:
             shutil.rmtree(file_or_dir_name, ignore_errors=True)
 
     os.system(f'python -c "{_APYSC_TEST_CODE}"')
-    jquery_file_name: str = jslib_util.get_jquery_file_name()
     assert os.path.exists("./index.html")
     assert os.path.exists(f"./{jquery_file_name}")
     print("HTML file is created by the apysc package correctly.")

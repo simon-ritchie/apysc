@@ -103,7 +103,51 @@
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;path_line_to_relative/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/path_line_to_relative/index.html" width="100" height="150"></iframe></section>
+<iframe src="static/path_line_to_relative/index.html" width="100" height="150"></iframe>
+</section>
+<section id="pathlineto-api">
+<h2>PathLineTo クラスのコンストラクタのAPI<a class="headerlink" href="#pathlineto-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">relative:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> SVGの<code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">to</span></code> (L)に該当する、指定位置への直線の描画設定のためのデータのクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<ul>
+<li><p>描画先と終点となるX座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<ul>
+<li><p>描画先との終点となるY座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">relative</span></code>: bool or Boolean, default False</p>
+<ul>
+<li><p>パスの座標が相対座標として扱うかもしくは絶対座標として扱うかどうかの真偽値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default ‘’</p>
+<ul>
+<li><p>JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#fff&quot;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">path_data_list</span><span class="o">=</span><span class="p">[</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">PathMoveTo</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">PathLineTo</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">]</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -122,6 +166,7 @@
 <li><a class="reference internal" href="#id1">クラス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
 <li><a class="reference internal" href="#id3">相対座標設定</a></li>
+<li><a class="reference internal" href="#pathlineto-api">PathLineTo クラスのコンストラクタのAPI</a></li>
 </ul>
 </li>
 </ul>

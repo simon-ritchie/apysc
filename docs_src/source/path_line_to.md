@@ -67,3 +67,41 @@ ap.save_overall_html(dest_dir_path="path_line_to_relative/")
 ```
 
 <iframe src="static/path_line_to_relative/index.html" width="100" height="150"></iframe>
+
+## PathLineTo class constructor API
+
+<!-- Docstring: apysc._geom.path_line_to.PathLineTo.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
+
+**[Interface summary]** Path data class for the SVG `line to` (L).<hr>
+
+**[Parameters]**
+
+- `x`: Int or int
+  - X-coordinate of the destination point.
+- `y`: Int or int
+  - Y-coordinate of the destination point.
+- `relative`: bool or Boolean, default False
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> path: ap.Path = sprite.graphics.draw_path(
+...     path_data_list=[
+...         ap.PathMoveTo(x=0, y=50),
+...         ap.PathLineTo(x=50, y=50),
+...     ]
+... )
+```

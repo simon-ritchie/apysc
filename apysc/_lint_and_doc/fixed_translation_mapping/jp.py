@@ -2547,5 +2547,9 @@ MAPPINGS: Mappings = Mappings(
             val="`Path`クラスのコンストラクタもしくは`draw_path`メソッドのインターフェイスの"
             "`path_data_list`引数でそのインスタンスが必要とされます。",
         ),
+        Mapping(
+            key="## PathLineTo class constructor API",
+            val="## PathLineTo クラスのコンストラクタのAPI",
+        ),
     ]
 )

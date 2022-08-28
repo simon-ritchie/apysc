@@ -69,3 +69,42 @@ ap.save_overall_html(dest_dir_path="path_line_to_relative/")
 ```
 
 <iframe src="static/path_line_to_relative/index.html" width="100" height="150"></iframe>
+
+## PathLineTo クラスのコンストラクタのAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
+
+**[インターフェイス概要]** SVGの`line to` (L)に該当する、指定位置への直線の描画設定のためのデータのクラスです。<hr>
+
+**[引数]**
+
+- `x`: Int or int
+  - 描画先と終点となるX座標。
+
+- `y`: Int or int
+  - 描画先との終点となるY座標。
+
+- `relative`: bool or Boolean, default False
+  - パスの座標が相対座標として扱うかもしくは絶対座標として扱うかどうかの真偽値。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> path: ap.Path = sprite.graphics.draw_path(
+...     path_data_list=[
+...         ap.PathMoveTo(x=0, y=50),
+...         ap.PathLineTo(x=50, y=50),
+...     ]
+... )
+```

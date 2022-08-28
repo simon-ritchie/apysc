@@ -40,4 +40,34 @@ MAPPING: Dict[str, str] = {
     "The following example sets the relative setting and draws the line to the 50px under position from the current position:": "以下のコード例ではrelativeの設定を行い、現在の位置から50px下の位置に向けて線の描画を行っています:",  # noqa
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=100, stage_height=150, stage_elem_id=\"stage\"\n)\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=50),\n        ap.PathLineTo(x=0, y=50, relative=True),\n    ],\n    line_color=\"#0af\",\n    line_thickness=5,\n)\n\nap.save_overall_html(dest_dir_path=\"path_line_to_relative/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=100, stage_height=150, stage_elem_id=\"stage\"\n)\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=50),\n        ap.PathLineTo(x=0, y=50, relative=True),\n    ],\n    line_color=\"#0af\",\n    line_thickness=5,\n)\n\nap.save_overall_html(dest_dir_path=\"path_line_to_relative/\")\n```",  # noqa
+    ##################################################
+    "## PathLineTo class constructor API": "## PathLineTo クラスのコンストラクタのAPI",
+    ##################################################
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    ##################################################
+    "**[Interface summary]** Path data class for the SVG `line to` (L).<hr>": "**[インターフェイス概要]** SVGの`line to` (L)に該当する、指定位置への直線の描画設定のためのデータのクラスです。<hr>",  # noqa
+    ##################################################
+    "**[Parameters]**": "**[引数]**",
+    ##################################################
+    "- `x`: Int or int": "- `x`: Int or int",
+    ##################################################
+    "  - X-coordinate of the destination point.": "  - 描画先と終点となるX座標。",
+    ##################################################
+    "- `y`: Int or int": "- `y`: Int or int",
+    ##################################################
+    "  - Y-coordinate of the destination point.": "  - 描画先との終点となるY座標。",
+    ##################################################
+    "- `relative`: bool or Boolean, default False": "- `relative`: bool or Boolean, default False",  # noqa
+    ##################################################
+    "  - A boolean value indicates whether the path coordinates are relative or not (absolute).": "  - パスの座標が相対座標として扱うかもしくは絶対座標として扱うかどうかの真偽値。",  # noqa
+    ##################################################
+    "- `variable_name_suffix`: str, default \'\'": "- `variable_name_suffix`: str, default \'\'",  # noqa
+    ##################################################
+    "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript\'s debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=\"#fff\", thickness=3)\n>>> path: ap.Path = sprite.graphics.draw_path(\n...     path_data_list=[\n...         ap.PathMoveTo(x=0, y=50),\n...         ap.PathLineTo(x=50, y=50),\n...     ]\n... )\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=\"#fff\", thickness=3)\n>>> path: ap.Path = sprite.graphics.draw_path(\n...     path_data_list=[\n...         ap.PathMoveTo(x=0, y=50),\n...         ap.PathLineTo(x=50, y=50),\n...     ]\n... )\n```",  # noqa
 }

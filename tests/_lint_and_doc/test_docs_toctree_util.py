@@ -7,7 +7,7 @@ from retrying import retry
 from apysc._lint_and_doc import docs_toctree_util
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_toctree_file_names_from_file() -> None:
     toctree_file_names: List[str] = (
         docs_toctree_util._extract_toctree_file_names_from_file(
@@ -16,6 +16,15 @@ def test__extract_toctree_file_names_from_file() -> None:
     )
     assert "what_apysc_can_do.md" in toctree_file_names
     assert "recommended_type_checker_settings.md" in toctree_file_names
+    assert "stage.md" in toctree_file_names
+    for toctree_file_name in toctree_file_names:
+        assert os.path.exists(f"./docs_src/source/{toctree_file_name}")
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_toctree_file_names() -> None:
+    toctree_file_names: List[str] = docs_toctree_util.get_toctree_file_names()
+    assert "what_apysc_can_do.md" in toctree_file_names
     assert "stage.md" in toctree_file_names
     for toctree_file_name in toctree_file_names:
         assert os.path.exists(f"./docs_src/source/{toctree_file_name}")

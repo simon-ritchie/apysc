@@ -8,7 +8,7 @@ _TOCTREE_DEFINED_EN_FILE_NAMES: List[str] = [
 ]
 
 
-def get_ordered_toctree_file_names() -> List[str]:
+def get_toctree_file_names() -> List[str]:
     """
     Get toctree file names from the toctree defined files.
 
@@ -23,7 +23,8 @@ def get_ordered_toctree_file_names() -> List[str]:
         extracted_toctree_file_names: List[str] = _extract_toctree_file_names_from_file(
             toctree_defined_en_file_name=toctree_defined_en_file_name,
         )
-    pass
+        toctree_file_names.extend(extracted_toctree_file_names)
+    return toctree_file_names
 
 
 def _extract_toctree_file_names_from_file(

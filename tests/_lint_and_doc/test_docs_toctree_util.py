@@ -28,3 +28,24 @@ def test_get_toctree_file_names() -> None:
     assert "stage.md" in toctree_file_names
     for toctree_file_name in toctree_file_names:
         assert os.path.exists(f"./docs_src/source/{toctree_file_name}")
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_doc_prev_and_next_md_file_names() -> None:
+    prev_md_doc_file_name: str
+    next_md_doc_file_name: str
+    prev_md_doc_file_name, next_md_doc_file_name = (
+        docs_toctree_util.get_doc_prev_and_next_md_file_names(
+            md_doc_file_name="not_existing_document.md"
+        )
+    )
+    assert prev_md_doc_file_name == ""
+    assert next_md_doc_file_name == ""
+
+    prev_md_doc_file_name, next_md_doc_file_name = (
+        docs_toctree_util.get_doc_prev_and_next_md_file_names(
+            md_doc_file_name="circle.md"
+        )
+    )
+    assert prev_md_doc_file_name == "rectangle.md"
+    assert next_md_doc_file_name == "ellipse.md"

@@ -111,3 +111,42 @@ def get_doc_prev_and_next_md_file_names(*, md_doc_file_name: str) -> Tuple[str, 
                 next_md_doc_file_name = f"{match.group(1)}.md"
                 continue
     return prev_md_doc_file_name, next_md_doc_file_name
+
+
+def update_docs_prev_and_next_page_modified_time() -> None:
+    """
+    Update documents next and previous pages' modified time.
+    """
+    toctree_file_names: List[str] = get_toctree_file_names()
+    prev_md_doc_file_name: str
+    next_md_doc_file_name: str
+    for i, toctree_file_name in enumerate(toctree_file_names):
+        prev_md_doc_file_name, next_md_doc_file_name = (
+            get_doc_prev_and_next_md_file_names(md_doc_file_name=toctree_file_name)
+        )
+        expected_prev_md_file_name: str = _get_expected_prev_md_file_name(
+            toctree_file_names=toctree_file_names, i=i)
+        pass
+    pass
+
+
+def _get_expected_prev_md_file_name(*, toctree_file_names: List[str], i: int) -> str:
+    """
+    Get an expected previous markdown file name from a specified index and list.
+
+    Parameters
+    ----------
+    toctree_file_names : List[str]
+        A list of markdown file names.
+    i : int
+        Target list index.
+
+    Returns
+    -------
+    expected_prev_md_file_name : str
+        An expected previous markdown file name.
+    """
+    if i == 0:
+        return ""
+    expected_prev_md_file_name: str = toctree_file_names[i - 1]
+    return expected_prev_md_file_name

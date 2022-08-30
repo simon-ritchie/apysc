@@ -49,3 +49,19 @@ def test_get_doc_prev_and_next_md_file_names() -> None:
     )
     assert prev_md_doc_file_name == "rectangle.md"
     assert next_md_doc_file_name == "ellipse.md"
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_expected_prev_md_file_name() -> None:
+    toctree_file_names: List[str] = ["a.md", "b.md"]
+    expected_prev_md_file_name: str = docs_toctree_util._get_expected_prev_md_file_name(
+        toctree_file_names=toctree_file_names,
+        i=0,
+    )
+    assert expected_prev_md_file_name == ""
+
+    expected_prev_md_file_name = docs_toctree_util._get_expected_prev_md_file_name(
+        toctree_file_names=toctree_file_names,
+        i=1,
+    )
+    assert expected_prev_md_file_name == "a.md"

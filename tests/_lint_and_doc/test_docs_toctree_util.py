@@ -105,3 +105,8 @@ def test__update_adjacent_doc_modified_time_if_toctree_updated() -> None:
         filename="./docs_src/source/sprite.md"
     )
     assert prev_modified_time != after_modified_time
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(1100, 3000))
+def test_update_docs_prev_and_next_page_modified_time() -> None:
+    docs_toctree_util.update_docs_prev_and_next_page_modified_time()

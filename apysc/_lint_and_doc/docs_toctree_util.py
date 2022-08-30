@@ -125,9 +125,37 @@ def update_docs_prev_and_next_page_modified_time() -> None:
             get_doc_prev_and_next_md_file_names(md_doc_file_name=toctree_file_name)
         )
         expected_prev_md_file_name: str = _get_expected_prev_md_file_name(
-            toctree_file_names=toctree_file_names, i=i)
+            toctree_file_names=toctree_file_names,
+            i=i,
+        )
+        expected_next_md_file_name: str = _get_expected_next_md_file_name(
+            toctree_file_names=toctree_file_names,
+            i=i,
+        )
         pass
     pass
+
+
+def _get_expected_next_md_file_name(*, toctree_file_names: List[str], i: int) -> str:
+    """
+    Get an expected next markdown file name from a specified index and list.
+
+    Parameters
+    ----------
+    toctree_file_names : List[str]
+        A list of markdown file names.
+    i : int
+        Target list index.
+
+    Returns
+    -------
+    expected_next_md_file_name : str
+        An expected next markdown file name.
+    """
+    if i == len(toctree_file_names) - 1:
+        return ""
+    expected_next_md_file_name: str = toctree_file_names[i + 1]
+    return expected_next_md_file_name
 
 
 def _get_expected_prev_md_file_name(*, toctree_file_names: List[str], i: int) -> str:

@@ -5,10 +5,15 @@ from datetime import datetime
 import os
 from typing import List, Tuple, Pattern, Optional, Match
 import re
+from logging import Logger
+
+from apysc._console import loggers
 
 _TOCTREE_DEFINED_EN_FILE_NAMES: List[str] = [
     "index",
 ]
+
+logger: Logger = loggers.get_info_logger()
 
 
 def get_toctree_file_names() -> List[str]:
@@ -141,7 +146,6 @@ def update_docs_prev_and_next_page_modified_time() -> None:
             adjacent_doc_file_name=next_md_doc_file_name,
             expected_md_file_name=expected_next_md_file_name,
         )
-    pass
 
 
 def _update_adjacent_doc_modified_time_if_toctree_updated(
@@ -171,6 +175,7 @@ def _update_adjacent_doc_modified_time_if_toctree_updated(
     now_unix_time: float = datetime.now().timestamp()
     file_path: str = f"./docs_src/source/{adjacent_doc_file_name}"
     os.utime(file_path, (now_unix_time, now_unix_time))
+    logger.info(msg=f"Document's modified time is updated: {adjacent_doc_file_name}")
     return True
 
 

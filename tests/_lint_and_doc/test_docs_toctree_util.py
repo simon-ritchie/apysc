@@ -81,3 +81,27 @@ def test__get_expected_next_md_file_name() -> None:
         i=0,
     )
     assert expected_next_md_file_name == "b.md"
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(1100, 3000))
+def test__update_adjacent_doc_modified_time_if_toctree_updated() -> None:
+    prev_modified_time: float = os.path.getmtime(filename="./docs_src/source/sprite.md")
+    is_updated: bool = (
+        docs_toctree_util._update_adjacent_doc_modified_time_if_toctree_updated(
+            adjacent_doc_file_name="sprite.md",
+            expected_md_file_name="sprite.md",
+        )
+    )
+    assert not is_updated
+
+    is_updated = (
+        docs_toctree_util._update_adjacent_doc_modified_time_if_toctree_updated(
+            adjacent_doc_file_name="sprite.md",
+            expected_md_file_name="stage.md",
+        )
+    )
+    assert is_updated
+    after_modified_time: float = os.path.getmtime(
+        filename="./docs_src/source/sprite.md"
+    )
+    assert prev_modified_time != after_modified_time

@@ -1,6 +1,7 @@
 """The utility module for the documents toctree.
 """
 
+from datetime import datetime
 import os
 from typing import List, Tuple, Pattern, Optional, Match
 import re
@@ -132,8 +133,45 @@ def update_docs_prev_and_next_page_modified_time() -> None:
             toctree_file_names=toctree_file_names,
             i=i,
         )
-        pass
+        _update_adjacent_doc_modified_time_if_toctree_updated(
+            adjacent_doc_file_name=prev_md_doc_file_name,
+            expected_md_file_name=expected_prev_md_file_name,
+        )
+        _update_adjacent_doc_modified_time_if_toctree_updated(
+            adjacent_doc_file_name=next_md_doc_file_name,
+            expected_md_file_name=expected_next_md_file_name,
+        )
     pass
+
+
+def _update_adjacent_doc_modified_time_if_toctree_updated(
+    *,
+    adjacent_doc_file_name: str,
+    expected_md_file_name: str,
+) -> bool:
+    """
+    Update a specified adjacent document's modified time
+    if a related toctree differs from an expected file name.
+
+    Parameters
+    ----------
+    adjacent_doc_file_name : str
+        An adjacent document file name.
+    expected_md_file_name : str
+        An expected document file name.
+
+    Returns
+    -------
+    is_updated : bool
+        A boolean indicates whether this function updated an adjacent document's
+        modified time or not.
+    """
+    if adjacent_doc_file_name == expected_md_file_name:
+        return False
+    now_unix_time: float = datetime.now().timestamp()
+    file_path: str = f"./docs_src/source/{adjacent_doc_file_name}"
+    os.utime(file_path, (now_unix_time, now_unix_time))
+    return True
 
 
 def _get_expected_next_md_file_name(*, toctree_file_names: List[str], i: int) -> str:

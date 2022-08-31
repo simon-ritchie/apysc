@@ -29,6 +29,7 @@ sys.path.append("./")
 
 from apysc._console import loggers
 from apysc._jslib import jslib_util
+from apysc._lint_and_doc import docs_toctree_util
 from apysc._lint_and_doc import docstring_util
 from apysc._lint_and_doc import document_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
@@ -38,7 +39,6 @@ from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import (
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import apply_translation_to_doc
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
-from apysc._lint_and_doc import docs_toctree_util
 
 logger: Logger = loggers.get_info_logger()
 

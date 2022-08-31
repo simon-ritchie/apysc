@@ -116,7 +116,7 @@ class PathVertical(PathDataBase, PathYInterface):
             Y-coordinate of the destination point.
         relative : bool or Boolean
             A boolean value indicates whether the path
-            coordinates are relative or not (absolute)..
+            coordinates are relative or not (absolute).
 
         Examples
         --------

@@ -9,10 +9,10 @@ from apysc._lint_and_doc import docs_toctree_util
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_toctree_file_names_from_file() -> None:
-    toctree_file_names: List[str] = (
-        docs_toctree_util._extract_toctree_file_names_from_file(
-            toctree_defined_en_file_name="index",
-        )
+    toctree_file_names: List[
+        str
+    ] = docs_toctree_util._extract_toctree_file_names_from_file(
+        toctree_defined_en_file_name="index",
     )
     assert "what_apysc_can_do.md" in toctree_file_names
     assert "recommended_type_checker_settings.md" in toctree_file_names
@@ -34,18 +34,20 @@ def test_get_toctree_file_names() -> None:
 def test_get_doc_prev_and_next_md_file_names() -> None:
     prev_md_doc_file_name: str
     next_md_doc_file_name: str
-    prev_md_doc_file_name, next_md_doc_file_name = (
-        docs_toctree_util.get_doc_prev_and_next_md_file_names(
-            md_doc_file_name="not_existing_document.md"
-        )
+    (
+        prev_md_doc_file_name,
+        next_md_doc_file_name,
+    ) = docs_toctree_util.get_doc_prev_and_next_md_file_names(
+        md_doc_file_name="not_existing_document.md"
     )
     assert prev_md_doc_file_name == ""
     assert next_md_doc_file_name == ""
 
-    prev_md_doc_file_name, next_md_doc_file_name = (
-        docs_toctree_util.get_doc_prev_and_next_md_file_names(
-            md_doc_file_name="circle.md"
-        )
+    (
+        prev_md_doc_file_name,
+        next_md_doc_file_name,
+    ) = docs_toctree_util.get_doc_prev_and_next_md_file_names(
+        md_doc_file_name="circle.md"
     )
     assert prev_md_doc_file_name == "rectangle.md"
     assert next_md_doc_file_name == "ellipse.md"
@@ -110,9 +112,7 @@ def test__update_adjacent_doc_modified_time_if_toctree_updated() -> None:
         filename="./docs_src/source/sprite.md"
     )
     assert original_file_prev_modified_time != after_modified_time
-    after_modified_time = os.path.getmtime(
-        filename="./docs_src/source/jp_sprite.md"
-    )
+    after_modified_time = os.path.getmtime(filename="./docs_src/source/jp_sprite.md")
     assert translated_file_prev_modified_time != after_modified_time
 
 

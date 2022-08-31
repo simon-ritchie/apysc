@@ -48,7 +48,7 @@ Path data class for the SVG `vertical line' (V).<hr>
 - `y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
-  - The boolean value indicating whether the path coordinates are relative or not (absolute).
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 
@@ -103,7 +103,7 @@ Update the path's data settings.<hr>
 - `y`: Int or int
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean
-  - A boolean value indicates whether the path coordinates are relative or not (absolute)..
+  - A boolean value indicates whether the path coordinates are relative or not (absolute).
 
 <hr>
 

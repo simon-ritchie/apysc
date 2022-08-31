@@ -1,11 +1,15 @@
 """The utility module for the documents toctree.
 """
 
-from datetime import datetime
 import os
-from typing import List, Tuple, Pattern, Optional, Match
 import re
+from datetime import datetime
 from logging import Logger
+from typing import List
+from typing import Match
+from typing import Optional
+from typing import Pattern
+from typing import Tuple
 
 from apysc._console import loggers
 from apysc._lint_and_doc.docs_lang import Lang
@@ -53,6 +57,7 @@ def _extract_toctree_file_names_from_file(
         Extracted toctree file names.
     """
     from apysc._file import file_util
+
     file_str: str = file_util.read_txt(
         file_path=f"./docs_src/source/{toctree_defined_en_file_name}.md"
     )
@@ -60,17 +65,17 @@ def _extract_toctree_file_names_from_file(
     toctree_file_names: List[str] = []
     is_toctree_range_lines: bool = False
     for line in lines:
-        if '```{toctree}' in line:
+        if "```{toctree}" in line:
             is_toctree_range_lines = True
             continue
-        if 'maxdepth' in line:
+        if "maxdepth" in line:
             continue
-        if is_toctree_range_lines and '```' in line:
+        if is_toctree_range_lines and "```" in line:
             is_toctree_range_lines = False
             continue
         if not is_toctree_range_lines:
             continue
-        toctree_file_names.append(f'{line.strip()}.md')
+        toctree_file_names.append(f"{line.strip()}.md")
     return toctree_file_names
 
 
@@ -99,6 +104,7 @@ def get_doc_prev_and_next_md_file_names(*, md_doc_file_name: str) -> Tuple[str, 
         A next markdown file name.
     """
     from apysc._file import file_util
+
     html_file_path: str = f"./docs/en/{md_doc_file_name.replace('.md', '.html', 1)}"
     if not os.path.exists(html_file_path):
         return "", ""
@@ -128,9 +134,10 @@ def update_docs_prev_and_next_page_modified_time() -> None:
     prev_md_doc_file_name: str
     next_md_doc_file_name: str
     for i, toctree_file_name in enumerate(toctree_file_names):
-        prev_md_doc_file_name, next_md_doc_file_name = (
-            get_doc_prev_and_next_md_file_names(md_doc_file_name=toctree_file_name)
-        )
+        (
+            prev_md_doc_file_name,
+            next_md_doc_file_name,
+        ) = get_doc_prev_and_next_md_file_names(md_doc_file_name=toctree_file_name)
         expected_prev_md_file_name: str = _get_expected_prev_md_file_name(
             toctree_file_names=toctree_file_names,
             i=i,

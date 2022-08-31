@@ -8,6 +8,7 @@ import re
 from logging import Logger
 
 from apysc._console import loggers
+from apysc._lint_and_doc.docs_lang import Lang
 
 _TOCTREE_DEFINED_EN_FILE_NAMES: List[str] = [
     "index",
@@ -176,6 +177,18 @@ def _update_adjacent_doc_modified_time_if_toctree_updated(
     file_path: str = f"./docs_src/source/{adjacent_doc_file_name}"
     os.utime(file_path, (now_unix_time, now_unix_time))
     logger.info(msg=f"Document's modified time is updated: {adjacent_doc_file_name}")
+    for lang in Lang:
+        if lang == Lang.EN:
+            continue
+        other_lang_doc_file_path: str = (
+            f"./docs_src/source/{lang.value}_{adjacent_doc_file_name}.md"
+        )
+        if not os.path.exists(other_lang_doc_file_path):
+            continue
+        os.utime(other_lang_doc_file_path, (now_unix_time, now_unix_time))
+        logger.info(
+            msg=f"Document's modified time is updated: {other_lang_doc_file_path}"
+        )
     return True
 
 

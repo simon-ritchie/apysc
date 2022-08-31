@@ -38,6 +38,7 @@ from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import (
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import apply_translation_to_doc
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from apysc._lint_and_doc import docs_toctree_util
 
 logger: Logger = loggers.get_info_logger()
 
@@ -60,6 +61,9 @@ def _main() -> None:
 
     logger.info(msg="Synchronizing the JavaScript libraries...")
     _sync_js_libs()
+
+    logger.info(msg="Updating adjacent documents modified time...")
+    docs_toctree_util.update_docs_prev_and_next_page_modified_time()
 
     _exec_document_lint_and_script()
     if not options["skip_sync_translation"]:

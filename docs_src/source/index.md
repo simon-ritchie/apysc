@@ -166,6 +166,7 @@ path_move_to
 path_line_to
 path_horizontal
 path_vertical
+path_close
 ```
 
 ## Common event interfaces

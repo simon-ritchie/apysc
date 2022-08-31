@@ -110,6 +110,9 @@ def test__update_adjacent_doc_modified_time_if_toctree_updated() -> None:
         filename="./docs_src/source/sprite.md"
     )
     assert original_file_prev_modified_time != after_modified_time
+    after_modified_time = os.path.getmtime(
+        filename="./docs_src/source/jp_sprite.md"
+    )
     assert translated_file_prev_modified_time != after_modified_time
 
 

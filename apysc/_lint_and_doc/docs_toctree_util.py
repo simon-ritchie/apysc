@@ -181,7 +181,7 @@ def _update_adjacent_doc_modified_time_if_toctree_updated(
         if lang == Lang.EN:
             continue
         other_lang_doc_file_path: str = (
-            f"./docs_src/source/{lang.value}_{adjacent_doc_file_name}.md"
+            f"./docs_src/source/{lang.value}_{adjacent_doc_file_name}"
         )
         if not os.path.exists(other_lang_doc_file_path):
             continue

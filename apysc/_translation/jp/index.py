@@ -67,7 +67,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Geometry-related classes": "## 座標・サイズ等のデータの各クラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\npoint2d\npath_move_to\npath_line_to\npath_horizontal\npath_vertical\npath_close\n```": "```{toctree}\n:maxdepth: 1\njp_point2d\njp_path_move_to\njp_path_line_to\njp_path_horizontal\njp_path_vertical\njp_path_close\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\npoint2d\npath_move_to\npath_line_to\npath_horizontal\npath_vertical\npath_close\npath_bezier_2d\n```": "```{toctree}\n:maxdepth: 1\njp_point2d\njp_path_move_to\njp_path_line_to\njp_path_horizontal\njp_path_vertical\njp_path_close\njp_path_bezier_2d\n```",  # noqa
     ##################################################
     "## Common event interfaces": "## イベントの共通の各インターフェイス",
     ##################################################

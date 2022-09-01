@@ -167,6 +167,7 @@ path_line_to
 path_horizontal
 path_vertical
 path_close
+path_bezier_2d
 ```
 
 ## Common event interfaces

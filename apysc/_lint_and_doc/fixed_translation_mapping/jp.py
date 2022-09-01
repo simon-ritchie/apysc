@@ -2551,5 +2551,26 @@ MAPPINGS: Mappings = Mappings(
             key="## PathLineTo class constructor API",
             val="## PathLineTo クラスのコンストラクタのAPI",
         ),
+        Mapping(
+            key="**[Interface summary]** Path data class for the SVG\'s `2D "
+            "bezier curve` (Q).<hr>",
+            val="**[インターフェイス概要]** SVGの2次元のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="  - X-coordinate of the bezier\'s control point.",
+            val="  - ベジェ曲線の制御点のX座標。",
+        ),
+        Mapping(
+            key="  - Y-coordinate of the bezier\'s control point.",
+            val="  - ベジェ曲線の制御点のY座標。",
+        ),
+        Mapping(
+            key="  - X-coordinate of the destination point.",
+            val="  - 終点のX座標。",
+        ),
+        Mapping(
+            key="  - Y-coordinate of the destination point.",
+            val="  - 終点のY座標。",
+        ),
     ]
 )

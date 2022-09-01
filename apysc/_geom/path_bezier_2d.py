@@ -26,7 +26,7 @@ class PathBezier2D(
     PathDestYInterface,
 ):
     """
-    Path data class for the svg's `2D bezier curve` (Q).
+    Path data class for the SVG's `2D bezier curve` (Q).
 
     Examples
     --------
@@ -61,7 +61,7 @@ class PathBezier2D(
         variable_name_suffix: str = "",
     ) -> None:
         """
-        Path data class for the svg's `2D bezier curve` (Q).
+        Path data class for the SVG's `2D bezier curve` (Q).
 
         Parameters
         ----------

@@ -171,6 +171,7 @@ jp_path_horizontal
 jp_path_vertical
 jp_path_close
 jp_path_bezier_2d
+jp_path_bezier_2d_continual
 ```
 
 ## イベントの共通の各インターフェイス

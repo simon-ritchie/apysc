@@ -2572,5 +2572,10 @@ MAPPINGS: Mappings = Mappings(
             key="  - Y-coordinate of the destination point.",
             val="  - 終点のY座標。",
         ),
+        Mapping(
+            key="**[Interface summary]** Path data class for the SVG `continual 2D "
+            "bezier curve` (T).<hr>",
+            val="**[インターフェイス概要]** SVGの連続した2次元のベジェ曲線のデータ設定用のクラスです。<hr>",
+        ),
     ]
 )

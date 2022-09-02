@@ -2554,7 +2554,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="**[Interface summary]** Path data class for the SVG\'s `2D "
             "bezier curve` (Q).<hr>",
-            val="**[インターフェイス概要]** SVGの2次元のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>",
+            val="**[インターフェイス概要]** SVGの2次のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>",
         ),
         Mapping(
             key="  - X-coordinate of the bezier\'s control point.",
@@ -2576,6 +2576,35 @@ MAPPINGS: Mappings = Mappings(
             key="**[Interface summary]** Path data class for the SVG `continual 2D "
             "bezier curve` (T).<hr>",
             val="**[インターフェイス概要]** SVGの連続した2次元のベジェ曲線のデータ設定用のクラスです。<hr>",
+        ),
+        Mapping(
+            key="**[Interface summary]** Path data class for the SVG\'s "
+            "`3D bezier curve` (C).<hr>",
+            val="**[インターフェイス概要]** SVGの3次のベジェ曲線（C）のパスデータのためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="  - X-coordinate of the bezier\'s first control point.",
+            val="  - ベジェ曲線の最初の制御点のX座標。",
+        ),
+        Mapping(
+            key="  - Y-coordinate of the bezier\'s first control point.",
+            val="  - ベジェ曲線の最初の制御点のY座標。",
+        ),
+        Mapping(
+            key="  - Y-coordinate of the bezier\'s first control point.",
+            val="  - ベジェ曲線の最初の制御点のY座標。",
+        ),
+        Mapping(
+            key="  - X-coordinate of the bezier\'s second control point.",
+            val="  - ベジェ曲線の2つ目の制御点のX座標。",
+        ),
+        Mapping(
+            key="  - Y-coordinate of the bezier\'s second control point.",
+            val="  - ベジェ曲線の2つ目の制御点のY座標。",
+        ),
+        Mapping(
+            key="## PathBezier3D class constructor API",
+            val="## PathBezier3D クラスのコンストラクタのAPI",
         ),
     ]
 )

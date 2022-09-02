@@ -1,4 +1,4 @@
-"""Path data class implementation for the svg's `2D bezier curve` (Q).
+"""Path data class implementation for the SVG's `2D bezier curve` (Q).
 """
 
 from typing import Any

@@ -83,7 +83,7 @@ ap.save_overall_html(dest_dir_path="path_horizontal_relative/")
 **[引数]**
 
 - `x`: Int or int
-  - 線の終点となるX座標。
+  - 終点のX座標。
 
 - `relative`: bool or Boolean, default False
   - パスの座標が相対座標として扱うかもしくは絶対座標として扱うかどうかの真偽値。

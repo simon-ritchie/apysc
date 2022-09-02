@@ -6,7 +6,7 @@ This module is for the SVG's `3D bezier curve` (C) path data class implementatio
 
 ## `PathBezier3D` class docstring
 
-Path data class for the svg's `3D bezier curve` (C).<hr>
+Path data class for the SVG's `3D bezier curve` (C).<hr>
 
 **[Examples]**
 
@@ -51,7 +51,7 @@ Equal comparison method.<hr>
 
 ### `__init__` method docstring
 
-Path data class for the svg's `3D bezier curve` (C).<hr>
+Path data class for the SVG's `3D bezier curve` (C).<hr>
 
 **[Parameters]**
 

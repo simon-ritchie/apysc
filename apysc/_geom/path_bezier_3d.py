@@ -31,7 +31,7 @@ class PathBezier3D(
     PathControlY2Interface,
 ):
     """
-    Path data class for the svg's `3D bezier curve` (C).
+    Path data class for the SVG's `3D bezier curve` (C).
 
     Examples
     --------
@@ -80,7 +80,7 @@ class PathBezier3D(
         variable_name_suffix: str = "",
     ) -> None:
         """
-        Path data class for the svg's `3D bezier curve` (C).
+        Path data class for the SVG's `3D bezier curve` (C).
 
         Parameters
         ----------

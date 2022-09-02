@@ -6,7 +6,7 @@ This module is for the SVG's `horizontal line` (H) data class implementation.
 
 ## `PathHorizontal` class docstring
 
-Path data class for the svg's `horizontal line` (H).<hr>
+Path data class for the SVG's `horizontal line` (H).<hr>
 
 **[Examples]**
 
@@ -41,7 +41,7 @@ Equal comparison method.<hr>
 
 ### `__init__` method docstring
 
-Path data class for the svg's `horizontal line` (H).<hr>
+Path data class for the SVG's `horizontal line` (H).<hr>
 
 **[Parameters]**
 

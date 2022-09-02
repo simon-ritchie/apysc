@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What class is this?": "## クラス概要",
     ##################################################
-    "The `PathBezier2D` class is the class to set a 2D bezier curve on a path.": "`PathBezier2D`クラスはパスへ2次元のベジェ曲線を設定するためのクラスです。",  # noqa
+    "The `PathBezier2D` class is the class to set a 2D bezier curve on a path.": "`PathBezier2D`クラスはパスへ2次のベジェ曲線を設定するためのクラスです。",  # noqa
     ##################################################
     "Mainly, the `Path` class constructor or `draw_path` interfaces use this setting.": "主にこの設定は`Path`クラスのコンストラクタと`draw_path`メソッドのインターフェイスで使用されます。",  # noqa
     ##################################################
@@ -55,7 +55,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Path data class for the SVG\'s `2D bezier curve` (Q).<hr>": "**[インターフェイス概要]** SVGの2次元のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>",  # noqa
+    "**[Interface summary]** Path data class for the SVG\'s `2D bezier curve` (Q).<hr>": "**[インターフェイス概要]** SVGの2次のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

@@ -137,7 +137,7 @@ ap.save_overall_html(dest_dir_path="path_bezier_2d_relative/")
 
 **[インターフェイスの構造]** `__init__(self, control_x: Union[int, apysc._type.int.Int], control_y: Union[int, apysc._type.int.Int], dest_x: Union[int, apysc._type.int.Int], dest_y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
-**[インターフェイス概要]** SVGの2次元のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>
+**[インターフェイス概要]** SVGの2次のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>
 
 **[引数]**
 

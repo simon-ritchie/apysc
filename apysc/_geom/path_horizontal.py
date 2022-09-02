@@ -18,7 +18,7 @@ from apysc._validation import arg_validation_decos
 
 class PathHorizontal(PathDataBase, PathXInterface):
     """
-    Path data class for the svg's `horizontal line` (H).
+    Path data class for the SVG's `horizontal line` (H).
 
     Examples
     --------
@@ -47,7 +47,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         variable_name_suffix: str = "",
     ) -> None:
         """
-        Path data class for the svg's `horizontal line` (H).
+        Path data class for the SVG's `horizontal line` (H).
 
         Parameters
         ----------

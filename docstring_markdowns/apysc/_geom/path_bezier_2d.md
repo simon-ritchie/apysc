@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Path data class implementation for the svg's `2D bezier curve` (Q).
+Path data class implementation for the SVG's `2D bezier curve` (Q).
 
 ## `PathBezier2D` class docstring
 
-Path data class for the svg's `2D bezier curve` (Q).<hr>
+Path data class for the SVG's `2D bezier curve` (Q).<hr>
 
 **[Examples]**
 
@@ -41,7 +41,7 @@ Equal comparison method.<hr>
 
 ### `__init__` method docstring
 
-Path data class for the svg's `2D bezier curve` (Q).<hr>
+Path data class for the SVG's `2D bezier curve` (Q).<hr>
 
 **[Parameters]**
 

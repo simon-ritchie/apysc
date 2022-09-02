@@ -2552,16 +2552,16 @@ MAPPINGS: Mappings = Mappings(
             val="## PathLineTo クラスのコンストラクタのAPI",
         ),
         Mapping(
-            key="**[Interface summary]** Path data class for the SVG\'s `2D "
+            key="**[Interface summary]** Path data class for the SVG's `2D "
             "bezier curve` (Q).<hr>",
             val="**[インターフェイス概要]** SVGの2次のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>",
         ),
         Mapping(
-            key="  - X-coordinate of the bezier\'s control point.",
+            key="  - X-coordinate of the bezier's control point.",
             val="  - ベジェ曲線の制御点のX座標。",
         ),
         Mapping(
-            key="  - Y-coordinate of the bezier\'s control point.",
+            key="  - Y-coordinate of the bezier's control point.",
             val="  - ベジェ曲線の制御点のY座標。",
         ),
         Mapping(
@@ -2578,28 +2578,28 @@ MAPPINGS: Mappings = Mappings(
             val="**[インターフェイス概要]** SVGの連続した2次元のベジェ曲線のデータ設定用のクラスです。<hr>",
         ),
         Mapping(
-            key="**[Interface summary]** Path data class for the SVG\'s "
+            key="**[Interface summary]** Path data class for the SVG's "
             "`3D bezier curve` (C).<hr>",
             val="**[インターフェイス概要]** SVGの3次のベジェ曲線（C）のパスデータのためのクラスです。<hr>",
         ),
         Mapping(
-            key="  - X-coordinate of the bezier\'s first control point.",
+            key="  - X-coordinate of the bezier's first control point.",
             val="  - ベジェ曲線の最初の制御点のX座標。",
         ),
         Mapping(
-            key="  - Y-coordinate of the bezier\'s first control point.",
+            key="  - Y-coordinate of the bezier's first control point.",
             val="  - ベジェ曲線の最初の制御点のY座標。",
         ),
         Mapping(
-            key="  - Y-coordinate of the bezier\'s first control point.",
+            key="  - Y-coordinate of the bezier's first control point.",
             val="  - ベジェ曲線の最初の制御点のY座標。",
         ),
         Mapping(
-            key="  - X-coordinate of the bezier\'s second control point.",
+            key="  - X-coordinate of the bezier's second control point.",
             val="  - ベジェ曲線の2つ目の制御点のX座標。",
         ),
         Mapping(
-            key="  - Y-coordinate of the bezier\'s second control point.",
+            key="  - Y-coordinate of the bezier's second control point.",
             val="  - ベジェ曲線の2つ目の制御点のY座標。",
         ),
         Mapping(

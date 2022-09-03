@@ -117,7 +117,7 @@ def save_overall_html(
     _save_html(html_str=html_str, dir_path=dest_dir_path, file_name=html_file_name)
     file_path: str = os.path.join(dest_dir_path, html_file_name)
     _display_info(
-        msg=f"All files were exported! \nFile path is : {file_path}", verbose=verbose
+        msg=f"All files were exported! \nFile path is: {file_path}", verbose=verbose
     )
 
 

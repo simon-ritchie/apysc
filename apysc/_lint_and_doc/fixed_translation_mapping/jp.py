@@ -44,20 +44,20 @@ MAPPINGS: Mappings = Mappings(
             val="add_child （子の追加）と remove_child （子の削除）" "のインターフェイス",
         ),
         Mapping(
-            key="add_child and remove_child interfaces document",
+            key="add_child and remove_child interfaces",
             val="add_child （子の追加）と remove_child （子の削除）" "のインターフェイス",
         ),
         Mapping(key="contains interface", val="contains インターフェイス"),
-        Mapping(key="contains interface document", val="contains インターフェイス"),
+        Mapping(key="contains interface", val="contains インターフェイス"),
         Mapping(key="num_children interface", val="num_children （子の件数属性）のインターフェイス"),
         Mapping(
-            key="num_children interface document", val="num_children （子の件数属性）のインターフェイス"
+            key="num_children interface", val="num_children （子の件数属性）のインターフェイス"
         ),
         Mapping(
             key="get_child_at interface", val="get_child_at （特定位置の子の取得処理）の" "インターフェイス"
         ),
         Mapping(
-            key="get_child_at interface document",
+            key="get_child_at interface",
             val="get_child_at （特定位置の子の取得処理）の" "インターフェイス",
         ),
         Mapping(
@@ -67,26 +67,26 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="**[Notes]**", val="**[特記事項]**"),
         Mapping(key="**[Raises]**", val="**[エラー発生条件]**"),
         Mapping(
-            key="About the handler options\\' type document", val="ハンドラのoptions引数の型について"
+            key="About the handler options\\' type", val="ハンドラのoptions引数の型について"
         ),
         Mapping(key="## Basic usage", val="## 基本的な使い方"),
         Mapping(key="## What setting is this?", val="## 設定概要"),
         Mapping(key="## What class is this?", val="## クラス概要"),
         Mapping(key="## What interface is this?", val="## インターフェイス概要"),
         Mapping(
-            key="Animation interfaces duration setting document",
+            key="Animation interfaces duration setting",
             val="各アニメーションインターフェイスの duration " "（アニメーション時間）設定",
         ),
         Mapping(
-            key="Each animation interface return value document",
+            key="Each animation interface return value",
             val="各アニメーションインターフェイスの返却値",
         ),
-        Mapping(key="Sequential animation setting document", val="連続したアニメーション設定"),
+        Mapping(key="Sequential animation setting", val="連続したアニメーション設定"),
         Mapping(
-            key="animation_parallel interface document",
+            key="animation_parallel interface",
             val="animation_parallel （並列アニメーション設定）の" "インターフェイス",
         ),
-        Mapping(key="Easing enum document", val="イージングのenum"),
+        Mapping(key="Easing enum", val="イージングのenum"),
         Mapping(
             key="  - Milliseconds before an animation ends.", val="  - アニメーション完了までのミリ秒。"
         ),
@@ -106,7 +106,7 @@ MAPPINGS: Mappings = Mappings(
             val=" ・アニメーションを開始するには返却されたインスタンスの" "`start`メソッドを呼び出す必要があります。 ",
         ),
         Mapping(
-            key="Animation interfaces delay setting document",
+            key="Animation interfaces delay setting",
             val="各アニメーションインターフェイスの delay （遅延時間）設定",
         ),
         Mapping(
@@ -122,64 +122,64 @@ MAPPINGS: Mappings = Mappings(
             val="<details>\n<summary>コードブロックを表示:</summary>",
         ),
         Mapping(
-            key="animation_x interface document",
+            key="animation_x interface",
             val="animation_x （X座標のアニメーション）のインターフェイス",
         ),
         Mapping(
-            key="animation_y interface document",
+            key="animation_y interface",
             val="animation_y （Y座標のアニメーション）のインターフェイス",
         ),
         Mapping(
-            key="animation_move interface document",
+            key="animation_move interface",
             val="animation_move （XとY座標のアニメーション）のインターフェイス",
         ),
         Mapping(
-            key="animation_width and animation_height interfaces document",
+            key="animation_width and animation_height interfaces",
             val="animation_width （幅のアニメーション）と animation_height "
             "（高さのアニメーション）のインターフェイス",
         ),
         Mapping(
-            key="animation_fill_color interface document",
+            key="animation_fill_color interface",
             val="animation_fill_color （塗りの色のアニメーション）の" "インターフェイス",
         ),
         Mapping(
-            key="animation_fill_alpha interface document",
+            key="animation_fill_alpha interface",
             val="animation_fill_alpha （塗りの透明度のアニメーション）の" "インターフェイス",
         ),
         Mapping(
-            key="animation_line_color interface document",
+            key="animation_line_color interface",
             val="animation_line_color （線色のアニメーション）の" "インターフェイス",
         ),
         Mapping(
-            key="animation_line_alpha interface document",
+            key="animation_line_alpha interface",
             val="animation_line_alpha （線の透明度のアニメーション）" "のインターフェイス",
         ),
         Mapping(
-            key="animation_line_thickness interface document",
+            key="animation_line_thickness interface",
             val="animation_line_thickness （線幅のアニメーション）の" "インターフェイス",
         ),
         Mapping(
-            key="animation_radius interface document",
+            key="animation_radius interface",
             val="animation_radius （半径のアニメーション）の" "インターフェイス",
         ),
         Mapping(
-            key="animation_rotation_around_center interface document",
+            key="animation_rotation_around_center interface",
             val="animation_rotation_around_center （中央座標での" "回転のアニメーション）のインターフェイス",
         ),
         Mapping(
-            key="animation_rotation_around_point interface document",
+            key="animation_rotation_around_point interface",
             val="animation_rotation_around_point （指定座標に" "よる回転のアニメーション）のインターフェイス",
         ),
         Mapping(
             key="animation_scale_x_from_center and "
-            "animation_scale_y_from_center interfaces document",
+            "animation_scale_y_from_center interfaces",
             val="animation_scale_x_from_center （中央座標による水平方向の"
             "拡縮アニメーション）と animation_scale_y_from_center "
             "（中央座標による垂直方向の拡縮アニメーション）のインターフェイス",
         ),
         Mapping(
             key="animation_scale_x_from_point and "
-            "animation_scale_y_from_point interfaces document",
+            "animation_scale_y_from_point interfaces",
             val="animation_scale_x_from_point （指定座標による"
             "水平方向の拡縮アニメーション）と animation_scale_y_from_point "
             "（指定座標による垂直方向のアニメーション）のインターフェイス",
@@ -409,7 +409,7 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="Array class comparison interfaces", val="Array クラスの比較の各インターフェイス"),
         Mapping(
-            key="Array class comparison interfaces document",
+            key="Array class comparison interfaces",
             val="Array クラスの比較の各インターフェイス",
         ),
         Mapping(key="## Array class constructor API", val="## Array クラスのコンストラクタのAPI"),
@@ -477,7 +477,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Value deletion interface", val="## 値の削除のインターフェイス"),
         Mapping(key="  - Initial dictionary value.", val="  - 辞書の初期値。"),
         Mapping(
-            key="Dictionary class generic type settings document",
+            key="Dictionary class generic type settings",
             val="Dictionary クラスのジェネリックの型設定",
         ),
         Mapping(key="## value attribute API", val="## value 属性のAPI"),
@@ -1359,14 +1359,14 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="String class", val="String クラス"),
         Mapping(key="String class comparison operations", val="String クラスの比較制御"),
         Mapping(
-            key="String class comparison operations document", val="String クラスの比較制御"
+            key="String class comparison operations", val="String クラスの比較制御"
         ),
         Mapping(
             key="String class addition and multiplication operations",
             val="String クラスの加算と乗算の制御",
         ),
         Mapping(
-            key="String class addition and multiplication operations " "document",
+            key="String class addition and multiplication operations",
             val="String クラスの加算と乗算の制御",
         ),
         Mapping(key="Boolean class", val="Boolean クラス"),
@@ -1615,11 +1615,11 @@ MAPPINGS: Mappings = Mappings(
             val="  - 整数の初期値。もしも`float`や`Number`の値が指定された" "場合このクラスは値を整数へと変換します。",
         ),
         Mapping(
-            key="Int and Number common arithmetic operations document",
+            key="Int and Number common arithmetic operations",
             val="Int と Number クラスの共通の各計算制御",
         ),
         Mapping(
-            key="Int and Number common comparison operations document",
+            key="Int and Number common comparison operations",
             val="Int と Number クラスの共通の各比較制御",
         ),
         Mapping(key="## Number class constructor API", val="## Number クラスのコンストラクタのAPI"),
@@ -1893,7 +1893,7 @@ MAPPINGS: Mappings = Mappings(
             val="このインターフェイスは指定された出力先のディレクトリを" "出力前に空にします。<hr>",
         ),
         Mapping(
-            key="animation_complete interface document",
+            key="animation_complete interface",
             val="animation_complete インターフェイス",
         ),
         Mapping(key="## set_debug_mode API", val="## set_debug_mode API"),
@@ -2041,9 +2041,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - Optional arguments dictionary to pass a `Handler` " "callable.",
             val="  - ハンドラの関数もしくはメソッドへ渡すオプションとしての" "各パラメーターを格納した辞書。",
         ),
-        Mapping(key="Timer document", val="Timer クラス"),
-        Mapping(key="TimerEvent class document", val="TimerEvent クラス"),
-        Mapping(key="FPS enum document", val="FPS の enum"),
+        Mapping(key="Timer", val="Timer クラス"),
+        Mapping(key="TimerEvent class", val="TimerEvent クラス"),
+        Mapping(key="FPS enum", val="FPS の enum"),
         Mapping(key="## delay property API", val="## delay 属性のAPI"),
         Mapping(
             key="**[Interface summary]** Get a delay value.<hr>",
@@ -2087,7 +2087,7 @@ MAPPINGS: Mappings = Mappings(
             "0, then a timer loop forever.",
             val="  - ハンドラの呼び出しの上限回数。もし0が指定された場合、" "タイマーはずっと実行され続けます（ハンドラを呼び続けます）。",
         ),
-        Mapping(key="Timer class delay setting document", val="Timer クラスの delay 設定"),
+        Mapping(key="Timer class delay setting", val="Timer クラスの delay 設定"),
         Mapping(key="## reset API", val="## reset API"),
         Mapping(
             key="**[Interface summary]** Reset the timer count and stop "
@@ -2139,39 +2139,39 @@ MAPPINGS: Mappings = Mappings(
             key="Graphics class clear interface", val="Graphics クラスの clear インターフェイス"
         ),
         Mapping(
-            key="GraphicsBase fill_alpha interface document",
+            key="GraphicsBase fill_alpha interface",
             val="GraphicsBase クラスの fill_alpha インターフェイス",
         ),
         Mapping(
-            key="GraphicsBase fill_color interface document",
+            key="GraphicsBase fill_color interface",
             val="GraphicsBase クラスの fill_color インターフェイス",
         ),
         Mapping(
-            key="GraphicsBase line_alpha interface document",
+            key="GraphicsBase line_alpha interface",
             val="GraphicsBase クラスの line_alpha インターフェイス",
         ),
         Mapping(
-            key="GraphicsBase line_color interface document",
+            key="GraphicsBase line_color interface",
             val="GraphicsBase クラスの line_color インターフェイス",
         ),
         Mapping(
-            key="GraphicsBase line_thickness interface document",
+            key="GraphicsBase line_thickness interface",
             val="GraphicsBase クラスの line_thickness インターフェイス",
         ),
         Mapping(
-            key="GraphicsBase line_dot_setting interface document",
+            key="GraphicsBase line_dot_setting interface",
             val="GraphicsBase クラスの line_dot_setting インターフェイス",
         ),
         Mapping(
-            key="GraphicsBase line_dash_setting interface document",
+            key="GraphicsBase line_dash_setting interface",
             val="GraphicsBase クラスの line_dash_setting インターフェイス",
         ),
         Mapping(
-            key="GraphicsBase line_round_dot_setting interface document",
+            key="GraphicsBase line_round_dot_setting interface",
             val="GraphicsBase クラスの line_round_dot_setting インターフェイス",
         ),
         Mapping(
-            key="GraphicsBase line_dash_dot_setting interface document",
+            key="GraphicsBase line_dash_dot_setting interface",
             val="GraphicsBase クラスの line_dash_dot_setting インターフェイス",
         ),
         Mapping(key="Please see also:", val="関連資料:"),

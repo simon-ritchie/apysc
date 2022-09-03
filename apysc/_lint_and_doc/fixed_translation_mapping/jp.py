@@ -2591,10 +2591,6 @@ MAPPINGS: Mappings = Mappings(
             val="  - ベジェ曲線の最初の制御点のY座標。",
         ),
         Mapping(
-            key="  - Y-coordinate of the bezier's first control point.",
-            val="  - ベジェ曲線の最初の制御点のY座標。",
-        ),
-        Mapping(
             key="  - X-coordinate of the bezier's second control point.",
             val="  - ベジェ曲線の2つ目の制御点のX座標。",
         ),

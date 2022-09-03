@@ -103,6 +103,14 @@ def test__update_adjacent_doc_modified_time_if_toctree_updated() -> None:
 
     is_updated = (
         docs_toctree_util._update_adjacent_doc_modified_time_if_toctree_updated(
+            adjacent_doc_file_name=" ",
+            expected_md_file_name="",
+        )
+    )
+    assert not is_updated
+
+    is_updated = (
+        docs_toctree_util._update_adjacent_doc_modified_time_if_toctree_updated(
             adjacent_doc_file_name="sprite.md",
             expected_md_file_name="stage.md",
         )

@@ -180,6 +180,8 @@ def _update_adjacent_doc_modified_time_if_toctree_updated(
     """
     if adjacent_doc_file_name == expected_md_file_name:
         return False
+    if adjacent_doc_file_name.strip() == "":
+        return False
     now_unix_time: float = datetime.now().timestamp()
     file_path: str = f"./docs_src/source/{adjacent_doc_file_name}"
     os.utime(file_path, (now_unix_time, now_unix_time))

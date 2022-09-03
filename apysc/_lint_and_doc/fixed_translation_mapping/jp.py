@@ -43,17 +43,8 @@ MAPPINGS: Mappings = Mappings(
             key="add_child and remove_child interfaces",
             val="add_child （子の追加）と remove_child （子の削除）" "のインターフェイス",
         ),
-        Mapping(
-            key="add_child and remove_child interfaces",
-            val="add_child （子の追加）と remove_child （子の削除）" "のインターフェイス",
-        ),
-        Mapping(key="contains interface", val="contains インターフェイス"),
         Mapping(key="contains interface", val="contains インターフェイス"),
         Mapping(key="num_children interface", val="num_children （子の件数属性）のインターフェイス"),
-        Mapping(key="num_children interface", val="num_children （子の件数属性）のインターフェイス"),
-        Mapping(
-            key="get_child_at interface", val="get_child_at （特定位置の子の取得処理）の" "インターフェイス"
-        ),
         Mapping(
             key="get_child_at interface",
             val="get_child_at （特定位置の子の取得処理）の" "インターフェイス",
@@ -78,10 +69,6 @@ MAPPINGS: Mappings = Mappings(
             val="各アニメーションインターフェイスの返却値",
         ),
         Mapping(key="Sequential animation setting", val="連続したアニメーション設定"),
-        Mapping(
-            key="animation_parallel interface",
-            val="animation_parallel （並列アニメーション設定）の" "インターフェイス",
-        ),
         Mapping(key="Easing enum", val="イージングのenum"),
         Mapping(
             key="  - Milliseconds before an animation ends.", val="  - アニメーション完了までのミリ秒。"
@@ -403,7 +390,6 @@ MAPPINGS: Mappings = Mappings(
             key="Array class index_of interface",
             val="Array クラスの index_of (値のインデックス取得) のインターフェイス",
         ),
-        Mapping(key="Array class comparison interfaces", val="Array クラスの比較の各インターフェイス"),
         Mapping(
             key="Array class comparison interfaces",
             val="Array クラスの比較の各インターフェイス",
@@ -472,10 +458,6 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Notes of the getter interface", val="## getterのインターフェイスの特記事項"),
         Mapping(key="## Value deletion interface", val="## 値の削除のインターフェイス"),
         Mapping(key="  - Initial dictionary value.", val="  - 辞書の初期値。"),
-        Mapping(
-            key="Dictionary class generic type settings",
-            val="Dictionary クラスのジェネリックの型設定",
-        ),
         Mapping(key="## value attribute API", val="## value 属性のAPI"),
         Mapping(key="  - Current dict value.", val="  - 現在の辞書の値。"),
         Mapping(
@@ -1354,11 +1336,6 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="String class", val="String クラス"),
         Mapping(key="String class comparison operations", val="String クラスの比較制御"),
-        Mapping(key="String class comparison operations", val="String クラスの比較制御"),
-        Mapping(
-            key="String class addition and multiplication operations",
-            val="String クラスの加算と乗算の制御",
-        ),
         Mapping(
             key="String class addition and multiplication operations",
             val="String クラスの加算と乗算の制御",
@@ -1441,9 +1418,6 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="Animation duration setting", val="Animation クラスの duration 設定"),
         Mapping(key="Animation delay setting", val="Animation クラスの delay 設定"),
         Mapping(
-            key="Each animation interface return value", val="アニメーションの各インターフェイスの返却値について"
-        ),
-        Mapping(
             key="AnimationBase class start interface",
             val="AnimationBase クラスの start インターフェイス",
         ),
@@ -1467,53 +1441,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="Animation finish interface", val="アニメーションの finish インターフェイス"),
         Mapping(key="Animation reverse interface", val="アニメーションの reverse インターフェイス"),
         Mapping(key="animation_time interface", val="animation_time インターフェイス"),
-        Mapping(key="Easing enum", val="イージングの enum"),
-        Mapping(key="Sequential animation setting", val="連続したアニメーション設定"),
         Mapping(key="animation_parallel interface", val="animation_parallel インターフェイス"),
-        Mapping(key="animation_move interface", val="animation_move インターフェイス"),
-        Mapping(key="animation_x interface", val="animation_x インターフェイス"),
-        Mapping(key="animation_y interface", val="animation_y インターフェイス"),
-        Mapping(
-            key="animation_width and animation_height interfaces",
-            val="animation_width と animation_height の各インターフェイス",
-        ),
-        Mapping(
-            key="animation_fill_color interface", val="animation_fill_color インターフェイス"
-        ),
-        Mapping(
-            key="animation_fill_alpha interface", val="animation_fill_alpha インターフェイス"
-        ),
-        Mapping(
-            key="animation_line_color interface", val="animation_line_color インターフェイス"
-        ),
-        Mapping(
-            key="animation_line_alpha interface", val="animation_line_alpha インターフェイス"
-        ),
-        Mapping(
-            key="animation_line_thickness interface",
-            val="animation_line_thickness インターフェイス",
-        ),
-        Mapping(key="animation_radius interface", val="animation_radius インターフェイス"),
-        Mapping(
-            key="animation_rotation_around_center interface",
-            val="animation_rotation_around_center インターフェイス",
-        ),
-        Mapping(
-            key="animation_rotation_around_point interface",
-            val="animation_rotation_around_point インターフェイス",
-        ),
-        Mapping(
-            key="animation_scale_x_from_center and "
-            "animation_scale_y_from_center interfaces",
-            val="animation_scale_x_from_center と "
-            "animation_scale_y_from_center の各インターフェイス",
-        ),
-        Mapping(
-            key="animation_scale_x_from_point and "
-            "animation_scale_y_from_point interfaces",
-            val="animation_scale_x_from_point と "
-            "animation_scale_y_from_point の各インターフェイス",
-        ),
         Mapping(key="## Debugging", val="## デバッグ"),
         Mapping(key="trace function interface", val="trace 関数のインターフェイス"),
         Mapping(key="set_debug_mode interface", val="set_debug_mode インターフェイス"),
@@ -2036,8 +1964,6 @@ MAPPINGS: Mappings = Mappings(
             val="  - ハンドラの関数もしくはメソッドへ渡すオプションとしての" "各パラメーターを格納した辞書。",
         ),
         Mapping(key="Timer", val="Timer クラス"),
-        Mapping(key="TimerEvent class", val="TimerEvent クラス"),
-        Mapping(key="FPS enum", val="FPS の enum"),
         Mapping(key="## delay property API", val="## delay 属性のAPI"),
         Mapping(
             key="**[Interface summary]** Get a delay value.<hr>",
@@ -2081,7 +2007,6 @@ MAPPINGS: Mappings = Mappings(
             "0, then a timer loop forever.",
             val="  - ハンドラの呼び出しの上限回数。もし0が指定された場合、" "タイマーはずっと実行され続けます（ハンドラを呼び続けます）。",
         ),
-        Mapping(key="Timer class delay setting", val="Timer クラスの delay 設定"),
         Mapping(key="## reset API", val="## reset API"),
         Mapping(
             key="**[Interface summary]** Reset the timer count and stop "

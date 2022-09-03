@@ -27,7 +27,7 @@ class LineDashDotSetting(
 
     References
     ----------
-    - Graphics line_style interface document
+    - Graphics line_style interface
         - https://simon-ritchie.github.io/apysc/en/graphics_line_style.html  # noqa
 
     Examples
@@ -86,7 +86,7 @@ class LineDashDotSetting(
 
         References
         ----------
-        - Graphics line_style interface document
+        - Graphics line_style interface
             - https://simon-ritchie.github.io/apysc/en/graphics_line_style.html  # noqa
 
         Examples

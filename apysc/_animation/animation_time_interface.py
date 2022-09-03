@@ -22,7 +22,7 @@ class AnimationTimeInterface(VariableNameInterface):
 
         References
         ----------
-        - animation_time interface document
+        - animation_time interface
             - https://simon-ritchie.github.io/apysc/en/animation_time.html
 
         Examples

@@ -23,7 +23,7 @@ class Else(IfBase):
 
     References
     ----------
-    - Else document
+    - Else
         - https://simon-ritchie.github.io/apysc/en/else.html
     - Each branch instruction class's scope variables reverting setting
         - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # noqa
@@ -74,7 +74,7 @@ class Else(IfBase):
 
         References
         ----------
-        - Else document
+        - Else
             - https://simon-ritchie.github.io/apysc/en/else.html
         - Each branch instruction class's scope variables reverting setting
             - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # noqa

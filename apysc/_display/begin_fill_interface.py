@@ -49,7 +49,7 @@ class BeginFillInterface(VariableNameSuffixAttrInterface, RevertInterface):
 
         References
         ----------
-        - Graphics begin_fill interface document
+        - Graphics begin_fill interface
             - https://simon-ritchie.github.io/apysc/en/graphics_begin_fill.html  # noqa
 
         Examples

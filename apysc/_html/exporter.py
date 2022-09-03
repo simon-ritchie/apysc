@@ -74,7 +74,7 @@ def save_overall_html(
 
     References
     ----------
-    - save_overall_html interface document
+    - save_overall_html interface
         - https://simon-ritchie.github.io/apysc/en/save_overall_html.html
 
     Examples

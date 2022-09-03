@@ -54,19 +54,19 @@ class AnimationHeightInterface(AnimationInterfaceBase):
 
         References
         ----------
-        - animation_width and animation_height interfaces document
+        - animation_width and animation_height interfaces
             - https://simon-ritchie.github.io/apysc/en/animation_width_and_height.html  # noqa
-        - Animation interfaces duration setting document
+        - Animation interfaces duration setting
             - https://simon-ritchie.github.io/apysc/en/animation_duration.html
-        - Animation interfaces delay setting document
+        - Animation interfaces delay setting
             - https://simon-ritchie.github.io/apysc/en/animation_delay.html
-        - Each animation interface return value document
+        - Each animation interface return value
             - https://simon-ritchie.github.io/apysc/en/animation_return_value.html  # noqa
-        - Sequential animation setting document
+        - Sequential animation setting
             - https://simon-ritchie.github.io/apysc/en/sequential_animation.html
-        - animation_parallel interface document
+        - animation_parallel interface
             - https://simon-ritchie.github.io/apysc/en/animation_parallel.html
-        - Easing enum document
+        - Easing enum
             - https://simon-ritchie.github.io/apysc/en/easing_enum.html
 
         Examples

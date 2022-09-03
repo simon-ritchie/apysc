@@ -25,7 +25,7 @@ class AnimationReverseInterface(VariableNameInterface):
 
         References
         ----------
-        - animation_reverse interface document
+        - animation_reverse interface
             - https://simon-ritchie.github.io/apysc/en/animation_reverse.html
 
         Examples

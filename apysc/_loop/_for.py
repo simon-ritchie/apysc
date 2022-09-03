@@ -27,7 +27,7 @@ class For(Generic[T]):
 
     References
     ----------
-    - For document
+    - For
         - https://simon-ritchie.github.io/apysc/en/for.html
 
     Examples
@@ -75,7 +75,7 @@ class For(Generic[T]):
 
         References
         ----------
-        - For document
+        - For
             - https://simon-ritchie.github.io/apysc/en/for.html
 
         Examples

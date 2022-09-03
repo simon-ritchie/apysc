@@ -73,7 +73,7 @@ def display_on_jupyter(html_file_name: str, *, minify: bool = True) -> None:
 
     References
     ----------
-    - display_on_jupyter interface document
+    - display_on_jupyter interface
         - https://simon-ritchie.github.io/apysc/en/display_on_jupyter.html
     """
     from IPython.display import IFrame
@@ -108,7 +108,7 @@ def display_on_colaboratory(html_file_name: str, *, minify: bool = True) -> None
 
     References
     ----------
-    - display_on_colaboratory interface document
+    - display_on_colaboratory interface
         - https://simon-ritchie.github.io/apysc/en/display_on_colaboratory.html  # noqa
     """
     from IPython.display import HTML

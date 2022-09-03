@@ -61,7 +61,7 @@ class GraphicsClearInterface:
 
         References
         ----------
-        - Graphics clear interface document
+        - Graphics clear interface
             - https://simon-ritchie.github.io/apysc/en/graphics_clear.html
         """
         import apysc as ap

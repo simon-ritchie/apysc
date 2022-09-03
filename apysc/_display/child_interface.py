@@ -50,7 +50,7 @@ class ChildInterface(
 
         References
         ----------
-        - add_child and remove_child interfaces document
+        - add_child and remove_child interfaces
             - https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html  # noqa
 
         Examples
@@ -101,7 +101,7 @@ class ChildInterface(
 
         References
         ----------
-        - add_child and remove_child interfaces document
+        - add_child and remove_child interfaces
             - https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html  # noqa
 
         Examples
@@ -146,7 +146,7 @@ class ChildInterface(
 
         References
         ----------
-        - contains interface document
+        - contains interface
             - https://simon-ritchie.github.io/apysc/en/contains.html
 
         Examples
@@ -213,7 +213,7 @@ class ChildInterface(
 
         References
         ----------
-        - num_children interface document
+        - num_children interface
             - https://simon-ritchie.github.io/apysc/en/num_children.html
 
         Examples
@@ -277,7 +277,7 @@ class ChildInterface(
 
         References
         ----------
-        - get_child_at interface document
+        - get_child_at interface
             - https://simon-ritchie.github.io/apysc/en/get_child_at.html
 
         Examples
@@ -344,7 +344,7 @@ class ChildInterface(
 
         References
         ----------
-        - remove_children interface document
+        - remove_children interface
             - https://simon-ritchie.github.io/apysc/en/remove_children.html
         """
         self._initialize_children_if_not_initialized()

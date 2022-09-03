@@ -66,7 +66,7 @@ class SkewXInterface(
 
         References
         ----------
-        - GraphicsBase skew_x and skew_y interfaces document
+        - GraphicsBase skew_x and skew_y interfaces
             - https://simon-ritchie.github.io/apysc/en/graphics_base_skew.html
 
         Examples
@@ -101,7 +101,7 @@ class SkewXInterface(
 
         References
         ----------
-        - GraphicsBase skew_x and skew_y interfaces document
+        - GraphicsBase skew_x and skew_y interfaces
             - https://simon-ritchie.github.io/apysc/en/graphics_base_skew.html
         """
         import apysc as ap

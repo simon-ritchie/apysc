@@ -49,9 +49,9 @@ class Polygon(
 
     References
     ----------
-    - Polygon class document
+    - Polygon class
         - https://simon-ritchie.github.io/apysc/en/polygon.html
-    - Graphics draw_polygon interface document
+    - Graphics draw_polygon interface
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html  # noqa
 
     Examples
@@ -164,7 +164,7 @@ class Polygon(
 
         References
         ----------
-        - Polygon class document
+        - Polygon class
             - https://simon-ritchie.github.io/apysc/en/polygon.html
 
         Examples

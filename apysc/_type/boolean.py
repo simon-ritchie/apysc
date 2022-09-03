@@ -37,7 +37,7 @@ class Boolean(
 
     References
     ----------
-    - Boolean document
+    - Boolean
         - https://simon-ritchie.github.io/apysc/en/boolean.html
 
     Examples
@@ -90,7 +90,7 @@ class Boolean(
 
         References
         ----------
-        - Boolean document
+        - Boolean
             - https://simon-ritchie.github.io/apysc/en/boolean.html
 
         Examples

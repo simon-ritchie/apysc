@@ -31,11 +31,11 @@ class String(
 
     References
     ----------
-    - String document
+    - String
         - https://simon-ritchie.github.io/apysc/en/string.html
-    - String class comparison operations document
+    - String class comparison operations
         - https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html  # noqa
-    - String class addition and multiplication operations document
+    - String class addition and multiplication operations
         - https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html  # noqa
 
     Examples
@@ -88,11 +88,11 @@ class String(
 
         References
         ----------
-        - String document
+        - String
             - https://simon-ritchie.github.io/apysc/en/string.html
-        - String class comparison operations document
+        - String class comparison operations
             - https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html  # noqa
-        - String class addition and multiplication operations document
+        - String class addition and multiplication operations
             - https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html  # noqa
 
         Examples

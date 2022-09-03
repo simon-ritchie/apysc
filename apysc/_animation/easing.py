@@ -10,7 +10,7 @@ class Easing(Enum):
 
     References
     ----------
-    - Easing enum document
+    - Easing enum
         - https://simon-ritchie.github.io/apysc/en/easing_enum.html
 
     Examples

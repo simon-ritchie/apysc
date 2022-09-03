@@ -208,9 +208,9 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
 
         References
         ----------
-        - AnimationBase class animation_complete interface document
+        - AnimationBase class animation_complete interface
             - https://simon-ritchie.github.io/apysc/en/animation_complete.html
-        - About the handler options' type document
+        - About the handler options' type
             - https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html  # noqa
 
         Examples
@@ -286,7 +286,7 @@ class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], AB
 
         References
         ----------
-        - AnimationBase class target property interface document
+        - AnimationBase class target property interface
             - https://simon-ritchie.github.io/apysc/en/animation_base_target.html  # noqa
 
         Examples

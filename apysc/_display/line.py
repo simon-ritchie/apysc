@@ -31,17 +31,17 @@ class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
 
     References
     ----------
-    - Line class document
+    - Line class
         - https://simon-ritchie.github.io/apysc/en/line.html
-    - Graphics draw_line interface document
+    - Graphics draw_line interface
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html  # noqa
-    - Graphics draw_dotted_line interface document
+    - Graphics draw_dotted_line interface
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_dotted_line.html  # noqa
-    - Graphics draw_dashed_line interface document
+    - Graphics draw_dashed_line interface
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_dashed_line.html  # noqa
-    - Graphics draw_round_dotted_line interface document
+    - Graphics draw_round_dotted_line interface
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_round_dotted_line.html  # noqa
-    - Graphics draw_dash_dotted_line interface document
+    - Graphics draw_dash_dotted_line interface
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_dash_dotted_line.html # noqa
 
     Examples
@@ -144,7 +144,7 @@ class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
 
         References
         ----------
-        - Line class document
+        - Line class
             - https://simon-ritchie.github.io/apysc/en/line.html
 
         Examples

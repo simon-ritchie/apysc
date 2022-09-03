@@ -16,11 +16,11 @@ class Int(NumberValueInterface[int, "Int"]):
 
     References
     ----------
-    - Int and Number document
+    - Int and Number
         - https://simon-ritchie.github.io/apysc/en/int_and_number.html
-    - Int and Number common arithmetic operations document
+    - Int and Number common arithmetic operations
         - https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html  # noqa
-    - Int and Number common comparison operations document
+    - Int and Number common comparison operations
         - https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html  # noqa
 
     Examples
@@ -75,11 +75,11 @@ class Int(NumberValueInterface[int, "Int"]):
 
         References
         ----------
-        - Int and Number document
+        - Int and Number
             - https://simon-ritchie.github.io/apysc/en/int_and_number.html
-        - Int and Number common arithmetic operations document
+        - Int and Number common arithmetic operations
             - https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html  # noqa
-        - Int and Number common comparison operations document
+        - Int and Number common comparison operations
             - https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html  # noqa
 
         Examples

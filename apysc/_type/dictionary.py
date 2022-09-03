@@ -48,9 +48,9 @@ class Dictionary(
 
     References
     ----------
-    - Dictionary document
+    - Dictionary
         - https://simon-ritchie.github.io/apysc/en/dictionary.html
-    - Dictionary class generic type settings document
+    - Dictionary class generic type settings
         - https://simon-ritchie.github.io/apysc/en/dictionary_generic.html  # noqa
 
     Examples
@@ -104,9 +104,9 @@ class Dictionary(
 
         References
         ----------
-        - Dictionary document
+        - Dictionary
             - https://simon-ritchie.github.io/apysc/en/dictionary.html
-        - Dictionary class generic type settings document
+        - Dictionary class generic type settings
             - https://simon-ritchie.github.io/apysc/en/dictionary_generic.html  # noqa
 
         Examples
@@ -330,7 +330,7 @@ class Dictionary(
 
         References
         ----------
-        - Dictionary length interface document
+        - Dictionary length interface
             - https://simon-ritchie.github.io/apysc/en/dictionary_length.html
 
         Examples
@@ -680,8 +680,8 @@ class Dictionary(
 
         References
         ----------
-        - Dictionary get interface document
-            - https://simon-ritchie.github.io/apysc/en/dictionary_get.html  # noqa
+        - Dictionary get interface
+            - https://simon-ritchie.github.io/apysc/en/dictionary_get.html
 
         Examples
         --------

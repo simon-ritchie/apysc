@@ -44,9 +44,9 @@ class MouseMoveInterface(MouseEventInterfaceBase):
 
         References
         ----------
-        - Mousemove interface document
+        - Mousemove interface
             - https://simon-ritchie.github.io/apysc/en/mousemove.html
-        - About the handler options' type document
+        - About the handler options' type
             - https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html  # noqa
 
         Examples
@@ -112,7 +112,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
 
         References
         ----------
-        - Mousemove interface document
+        - Mousemove interface
             - https://simon-ritchie.github.io/apysc/en/mousemove.html
 
         Examples
@@ -150,7 +150,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
 
         References
         ----------
-        - Mousemove interface document
+        - Mousemove interface
             - https://simon-ritchie.github.io/apysc/en/mousemove.html
 
         Examples

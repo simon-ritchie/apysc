@@ -40,7 +40,7 @@ class FillColorInterface(
 
         References
         ----------
-        - GraphicsBase fill_color interface document
+        - GraphicsBase fill_color interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
 
         Examples
@@ -77,7 +77,7 @@ class FillColorInterface(
 
         References
         ----------
-        - GraphicsBase fill_color interface document
+        - GraphicsBase fill_color interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
         """
         self._update_fill_color_and_skip_appending_exp(value=value)

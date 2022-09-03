@@ -11,7 +11,7 @@ class Return:
 
     References
     ----------
-    - Return document
+    - Return
         - https://simon-ritchie.github.io/apysc/en/return.html
     """
 
@@ -26,7 +26,7 @@ class Return:
 
         References
         ----------
-        - Return document
+        - Return
             - https://simon-ritchie.github.io/apysc/en/return.html
 
         Examples

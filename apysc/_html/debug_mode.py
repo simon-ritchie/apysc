@@ -30,7 +30,7 @@ def set_debug_mode() -> None:
 
     References
     ----------
-    - set_debug_mode interface document
+    - set_debug_mode interface
         - https://simon-ritchie.github.io/apysc/en/set_debug_mode.html
 
     Examples
@@ -55,7 +55,7 @@ def unset_debug_mode() -> None:
 
     References
     ----------
-    - unset_debug_mode interface document
+    - unset_debug_mode interface
         - https://simon-ritchie.github.io/apysc/en/unset_debug_mode.html
 
     Examples

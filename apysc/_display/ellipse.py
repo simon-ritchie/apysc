@@ -48,9 +48,9 @@ class Ellipse(
 
     References
     ----------
-    - Ellipse class document
+    - Ellipse class
         - https://simon-ritchie.github.io/apysc/en/ellipse.html
-    - Graphics draw_ellipse interface document
+    - Graphics draw_ellipse interface
         - https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html  # noqa
 
     Examples
@@ -186,7 +186,7 @@ class Ellipse(
 
         References
         ----------
-        - Ellipse class document
+        - Ellipse class
             - https://simon-ritchie.github.io/apysc/en/ellipse.html
 
         Examples

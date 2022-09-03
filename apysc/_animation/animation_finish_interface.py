@@ -17,7 +17,7 @@ class AnimationFinishInterface(VariableNameInterface):
 
         References
         ----------
-        - animation_finish interface document
+        - animation_finish interface
             - https://simon-ritchie.github.io/apysc/en/animation_finish.html
 
         Examples

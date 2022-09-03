@@ -66,7 +66,7 @@ class FlipXInterface(
 
         References
         ----------
-        - GraphicsBase flip_x and flip_y interfaces document
+        - GraphicsBase flip_x and flip_y interfaces
             - https://simon-ritchie.github.io/apysc/en/graphics_base_flip_interfaces.html  # noqa
 
         Examples
@@ -106,7 +106,7 @@ class FlipXInterface(
 
         References
         ----------
-        - GraphicsBase flip_x and flip_y interfaces document
+        - GraphicsBase flip_x and flip_y interfaces
             - https://simon-ritchie.github.io/apysc/en/graphics_base_flip_interfaces.html  # noqa
         """
         import apysc as ap

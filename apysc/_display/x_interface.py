@@ -67,7 +67,7 @@ class XInterface(
 
         References
         ----------
-        - Display object x and y interfaces document
+        - Display object x and y interfaces
             - https://simon-ritchie.github.io/apysc/en/display_object_x_and_y.html  # noqa
 
         Examples
@@ -104,7 +104,7 @@ class XInterface(
 
         References
         ----------
-        - Display object x and y interfaces document
+        - Display object x and y interfaces
             - https://simon-ritchie.github.io/apysc/en/display_object_x_and_y.html  # noqa
         """
         self._initialize_x_if_not_initialized()

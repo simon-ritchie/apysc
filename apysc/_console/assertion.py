@@ -58,7 +58,7 @@ def assert_equal(left: Any, right: Any, *, msg: str = "") -> None:
 
     References
     ----------
-    - assert_equal and assert_not_equal interfaces document
+    - assert_equal and assert_not_equal interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_equal_and_not_equal.html  # noqa
 
     Examples
@@ -123,7 +123,7 @@ def assert_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
 
     References
     ----------
-    - assert_equal and assert_not_equal interfaces document
+    - assert_equal and assert_not_equal interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_equal_and_not_equal.html  # noqa
 
     Examples
@@ -181,7 +181,7 @@ def assert_true(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
 
     References
     ----------
-    - assert_true and assert_false interfaces document
+    - assert_true and assert_false interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_true_and_false.html
 
     Examples
@@ -230,7 +230,7 @@ def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None
 
     References
     ----------
-    - assert_true and assert_false interfaces document
+    - assert_true and assert_false interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_true_and_false.html
 
     Examples
@@ -289,7 +289,7 @@ def assert_arrays_equal(
 
     References
     ----------
-    - assert_arrays_equal and assert_arrays_not_equal interfaces document
+    - assert_arrays_equal and assert_arrays_not_equal interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_arrays_equal_and_arrays_not_equal.html  # noqa
 
     Examples
@@ -343,7 +343,7 @@ def assert_arrays_not_equal(
 
     References
     ----------
-    - assert_arrays_equal and assert_arrays_not_equal interfaces document
+    - assert_arrays_equal and assert_arrays_not_equal interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_arrays_equal_and_arrays_not_equal.html  # noqa
 
     Examples
@@ -398,7 +398,7 @@ def assert_dicts_equal(
 
     References
     ----------
-    - assert_dicts_equal and assert_dicts_not_equal interfaces document
+    - assert_dicts_equal and assert_dicts_not_equal interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_dicts_equal_and_dicts_not_equal.html  # noqa
 
     Examples
@@ -453,7 +453,7 @@ def assert_dicts_not_equal(
 
     References
     ----------
-    - assert_dicts_equal and assert_dicts_not_equal interfaces document
+    - assert_dicts_equal and assert_dicts_not_equal interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_dicts_equal_and_dicts_not_equal.html  # noqa
 
     Examples
@@ -493,7 +493,7 @@ def assert_defined(value: Any, *, msg: str = "") -> None:
 
     References
     ----------
-    - assert_defined and assert_undefined interfaces document
+    - assert_defined and assert_undefined interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_defined_and_undefined.html  # noqa
 
     Examples
@@ -532,7 +532,7 @@ def assert_undefined(value: Any, *, msg: str = "") -> None:
 
     References
     ----------
-    - assert_defined and assert_undefined interfaces document
+    - assert_defined and assert_undefined interfaces
         - https://simon-ritchie.github.io/apysc/en/assert_defined_and_undefined.html  # noqa
 
     Examples

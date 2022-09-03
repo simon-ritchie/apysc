@@ -66,7 +66,7 @@ class RotationAroundPointInterface(
 
         References
         ----------
-        - GraphicsBase rotate_around_point interfaces document
+        - GraphicsBase rotate_around_point interfaces
             - https://simon-ritchie.github.io/apysc/en/graphics_base_rotation_around_point.html  # noqa
 
         Examples
@@ -120,7 +120,7 @@ class RotationAroundPointInterface(
 
         References
         ----------
-        - GraphicsBase rotate_around_point interfaces document
+        - GraphicsBase rotate_around_point interfaces
             - https://simon-ritchie.github.io/apysc/en/graphics_base_rotation_around_point.html  # noqa
         """
         from apysc._display import rotation_interface_helper

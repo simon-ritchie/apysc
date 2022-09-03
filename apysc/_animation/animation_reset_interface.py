@@ -16,7 +16,7 @@ class AnimationResetInterface(VariableNameInterface):
 
         References
         ----------
-        - animation_reset interface document
+        - animation_reset interface
             - https://simon-ritchie.github.io/apysc/en/animation_reset.html
 
         Examples

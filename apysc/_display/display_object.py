@@ -35,7 +35,7 @@ class DisplayObject(
 
     References
     ----------
-    - DisplayObject document
+    - DisplayObject
         - https://simon-ritchie.github.io/apysc/en/display_object.html
     """
 
@@ -55,7 +55,7 @@ class DisplayObject(
 
         References
         ----------
-        - DisplayObject document
+        - DisplayObject
             - https://simon-ritchie.github.io/apysc/en/display_object.html
         """
         import apysc as ap

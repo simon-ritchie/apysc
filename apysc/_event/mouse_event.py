@@ -89,7 +89,7 @@ class MouseEvent(
 
         References
         ----------
-        - Common mouse event interfaces document
+        - Common mouse event interfaces
             - https://simon-ritchie.github.io/apysc/en/mouse_event_basic.html
 
         Examples
@@ -145,7 +145,7 @@ class MouseEvent(
 
         References
         ----------
-        - Common mouse event interfaces document
+        - Common mouse event interfaces
             - https://simon-ritchie.github.io/apysc/en/mouse_event_basic.html
 
         Examples
@@ -203,7 +203,7 @@ class MouseEvent(
 
         References
         ----------
-        - Common mouse event interfaces document
+        - Common mouse event interfaces
             - https://simon-ritchie.github.io/apysc/en/mouse_event_basic.html
 
         Examples
@@ -262,7 +262,7 @@ class MouseEvent(
 
         References
         ----------
-        - Common mouse event interfaces document
+        - Common mouse event interfaces
             - https://simon-ritchie.github.io/apysc/en/mouse_event_basic.html
 
         Examples

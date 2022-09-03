@@ -46,7 +46,7 @@ class FPS(Enum):
 
     References
     ----------
-    - FPS enum document
+    - FPS enum
         - https://simon-ritchie.github.io/apysc/en/fps.html
 
     Examples

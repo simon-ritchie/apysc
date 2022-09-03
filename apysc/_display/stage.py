@@ -41,7 +41,7 @@ class Stage(
 
     References
     ----------
-    - Stage document
+    - Stage
         - https://simon-ritchie.github.io/apysc/en/stage.html
 
     Examples
@@ -100,7 +100,7 @@ class Stage(
 
         References
         ----------
-        - Stage document
+        - Stage
             - https://simon-ritchie.github.io/apysc/en/stage.html
 
         Examples

@@ -50,9 +50,9 @@ class Polyline(
 
     References
     ----------
-    - Polyline class document
+    - Polyline class
         - https://simon-ritchie.github.io/apysc/en/polyline.html
-    - Graphics move_to and line_to interfaces document
+    - Graphics move_to and line_to interfaces
         - https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html  # noqa
 
     Examples
@@ -161,7 +161,7 @@ class Polyline(
 
         References
         ----------
-        - Polyline class document
+        - Polyline class
             - https://simon-ritchie.github.io/apysc/en/polyline.html
 
         Examples

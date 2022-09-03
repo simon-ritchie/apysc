@@ -51,7 +51,7 @@ class CssInterface(
 
         References
         ----------
-        - Display object get_css and set_css interfaces document
+        - Display object get_css and set_css interfaces
             - https://simon-ritchie.github.io/apysc/en/display_object_get_and_set_css.html  # noqa
 
         Examples
@@ -120,7 +120,7 @@ class CssInterface(
 
         References
         ----------
-        - Display object get_css and set_css interfaces document
+        - Display object get_css and set_css interfaces
             - https://simon-ritchie.github.io/apysc/en/display_object_get_and_set_css.html  # noqa
 
         Examples

@@ -73,7 +73,7 @@ class RotationAroundCenterInterface(
 
         References
         ----------
-        - GraphicsBase rotation_around_center interface document
+        - GraphicsBase rotation_around_center interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_rotation_around_center.html  # noqa
 
         Examples

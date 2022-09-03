@@ -24,6 +24,7 @@ from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import (
 )
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import apply_translation_to_doc
+from apysc._lint_and_doc import docstring_util
 
 logger: Logger = loggers.get_info_logger()
 
@@ -46,6 +47,12 @@ def _main() -> None:
     _delete_translation_mapping_hash(lang=lang, src_file_path=command_options["src"])
     _delete_translation_mapping_hash(
         lang=lang, src_file_path="docs_src/source/index.md"
+    )
+
+    logger.info("Replacing docstring path specifications...")
+    docstring_util.reset_replaced_docstring_section(md_file_path=command_options["src"])
+    docstring_util.replace_docstring_path_specification(
+        md_file_path=command_options["src"]
     )
 
     logger.info("Applying translation to a specified document...")

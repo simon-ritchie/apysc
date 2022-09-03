@@ -19,7 +19,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "`draw_round_rect` interface has `x`, `y`, `width`, and `height` arguments. `x` and `y` are rectangle coordinates setting, and `width` and `height` will determine rectangle size.": "`draw_round_rect`インターフェイスは`x`、`y`、`width`、`height`などの各引数を持っています。`x`と`y`引数は四角の座標を設定し、`width`と`height`は四角のサイズを決定します。",  # noqa
+    "`draw_round_rect` interface has `x`, `y`, `width`, and `height` arguments. `x` and `y` are rectangle coordinates settings, and `width` and `height` will determine rectangle size.": "`draw_round_rect`インターフェイスは`x`、`y`、`width`、`height`などの各引数を持っています。`x`と`y`引数は四角の座標を設定し、`width`と`height`は四角のサイズを決定します。",  # noqa
     ##################################################
     "This interface also has `ellipse_width` and `ellipse_height` arguments to set the round size to the rectangle corners.": "このインターフェイスはさらに角丸のサイズを設定するための`ellipse_width`と`ellipse_height`の引数を持っています。",  # noqa
     ##################################################

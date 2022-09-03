@@ -8,7 +8,7 @@ This page explains the `Graphics` class `draw_rect` method interface.
 
 ## Basic usage
 
-`draw_rect` interface has `x`, `y`, `width`, and `height` arguments. `x` and `y` are rectangle coordinates setting, and `width` and `height` will determine rectangle size.
+`draw_rect` interface has `x`, `y`, `width`, and `height` arguments. `x` and `y` are rectangle coordinates settings, and `width` and `height` will determine rectangle size.
 
 ```py
 # runnable
@@ -49,7 +49,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_rect_basic_usage_skipped_begin
 
 `draw_rect` interface will return `Rectangle` instance. You can update each setting or bind events.
 
-For instance, the following script sets the mouse event to `Rectangle` and updates x position in the handler (`on_click`).
+For instance, the following script sets the mouse event to `Rectangle` and updates the x position in the handler (`on_click`).
 
 ```py
 # runnable

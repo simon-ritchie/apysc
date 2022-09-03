@@ -29,4 +29,4 @@ Enum class for the easing setting.<hr>
 
 **[References]**
 
-- [Easing enum document](https://simon-ritchie.github.io/apysc/en/easing_enum.html)
+- [Easing enum](https://simon-ritchie.github.io/apysc/en/easing_enum.html)

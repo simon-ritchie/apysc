@@ -67,8 +67,8 @@ String('Hello World!')
 
 **[References]**
 
-- [String class comparison operations document](https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html)
-- [String class addition and multiplication operations document](https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html)
+- [String class comparison operations](https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html)
+- [String class addition and multiplication operations](https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html)
 
 ## value property API
 

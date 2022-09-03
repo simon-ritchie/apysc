@@ -33,8 +33,8 @@ String('#00aaff')
 
 **[References]**
 
-- [Circle class document](https://simon-ritchie.github.io/apysc/en/circle.html)
-- [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html)
+- [Circle class](https://simon-ritchie.github.io/apysc/en/circle.html)
+- [Graphics draw_circle interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html)
 
 ### `__init__` method docstring
 
@@ -114,7 +114,7 @@ Int(3)
 
 **[References]**
 
-- [Circle class document](https://simon-ritchie.github.io/apysc/en/circle.html)
+- [Circle class](https://simon-ritchie.github.io/apysc/en/circle.html)
 
 ### `__repr__` method docstring
 

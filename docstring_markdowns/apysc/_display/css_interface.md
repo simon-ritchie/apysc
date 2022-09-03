@@ -84,7 +84,7 @@ String('none')
 
 **[References]**
 
-- [Display object get_css and set_css interfaces document](https://simon-ritchie.github.io/apysc/en/display_object_get_and_set_css.html)
+- [Display object get_css and set_css interfaces](https://simon-ritchie.github.io/apysc/en/display_object_get_and_set_css.html)
 
 ### `set_css` method docstring
 
@@ -115,4 +115,4 @@ String('none')
 
 **[References]**
 
-- [Display object get_css and set_css interfaces document](https://simon-ritchie.github.io/apysc/en/display_object_get_and_set_css.html)
+- [Display object get_css and set_css interfaces](https://simon-ritchie.github.io/apysc/en/display_object_get_and_set_css.html)

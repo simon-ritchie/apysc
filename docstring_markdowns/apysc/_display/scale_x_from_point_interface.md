@@ -79,7 +79,7 @@ Number(1.5)
 
 **[References]**
 
-- [GraphicsBase scale_from_point interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_point.html)
+- [GraphicsBase scale_from_point interfaces](https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_point.html)
 
 ### `set_scale_x_from_point` method docstring
 
@@ -118,4 +118,4 @@ Number(1.5)
 
 **[References]**
 
-- [GraphicsBase scale_from_point interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_point.html)
+- [GraphicsBase scale_from_point interfaces](https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_point.html)

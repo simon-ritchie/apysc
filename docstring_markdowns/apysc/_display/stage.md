@@ -66,7 +66,7 @@ The Stage (overall view-area) class.<hr>
 
 **[References]**
 
-- [Stage document](https://simon-ritchie.github.io/apysc/en/stage.html)
+- [Stage](https://simon-ritchie.github.io/apysc/en/stage.html)
 
 ### `__init__` method docstring
 
@@ -105,7 +105,7 @@ Create Stage (overall viewport) instance.<hr>
 
 **[References]**
 
-- [Stage document](https://simon-ritchie.github.io/apysc/en/stage.html)
+- [Stage](https://simon-ritchie.github.io/apysc/en/stage.html)
 
 ### `__repr__` method docstring
 

@@ -107,7 +107,7 @@ Array([0, 1, 2])
 
 **[References]**
 
-- [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/en/array_comparison.html)
+- [Array class comparison interfaces](https://simon-ritchie.github.io/apysc/en/array_comparison.html)
 
 ## value property API
 

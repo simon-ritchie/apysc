@@ -19,12 +19,12 @@ sys.path.append("./")
 
 from apysc._console import loggers
 from apysc._lint_and_doc import docs_lang
+from apysc._lint_and_doc import docstring_util
 from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import (
     add_mapping_blank_data,
 )
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import apply_translation_to_doc
-from apysc._lint_and_doc import docstring_util
 
 logger: Logger = loggers.get_info_logger()
 

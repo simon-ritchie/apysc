@@ -30,8 +30,8 @@ String('#00aaff')
 
 **[References]**
 
-- [Polygon class document](https://simon-ritchie.github.io/apysc/en/polygon.html)
-- [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html)
+- [Polygon class](https://simon-ritchie.github.io/apysc/en/polygon.html)
+- [Graphics draw_polygon interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html)
 
 ### `__init__` method docstring
 
@@ -91,7 +91,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Polygon class document](https://simon-ritchie.github.io/apysc/en/polygon.html)
+- [Polygon class](https://simon-ritchie.github.io/apysc/en/polygon.html)
 
 ### `__repr__` method docstring
 

@@ -45,9 +45,9 @@ A class to append if (else if and else) branch instruction expression.<hr>
 
 **[References]**
 
-- [If document](https://simon-ritchie.github.io/apysc/en/if.html)
-- [Elif document](https://simon-ritchie.github.io/apysc/en/elif.html)
-- [Else document](https://simon-ritchie.github.io/apysc/en/else.html)
+- [If](https://simon-ritchie.github.io/apysc/en/if.html)
+- [Elif](https://simon-ritchie.github.io/apysc/en/elif.html)
+- [Else](https://simon-ritchie.github.io/apysc/en/else.html)
 - [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html)
 
 ### `_append_enter_expression` method docstring

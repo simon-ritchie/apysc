@@ -27,7 +27,7 @@ This class can be instantiated in the with loop statement, for example, after th
 
 **[References]**
 
-- [Continue document](https://simon-ritchie.github.io/apysc/en/continue.html)
+- [Continue](https://simon-ritchie.github.io/apysc/en/continue.html)
 
 ### `__init__` method docstring
 
@@ -52,4 +52,4 @@ This class can be instantiated in the with loop statement, for example, after th
 
 **[References]**
 
-- [Continue document](https://simon-ritchie.github.io/apysc/en/continue.html)
+- [Continue](https://simon-ritchie.github.io/apysc/en/continue.html)

@@ -38,9 +38,9 @@ Int(10)
 
 **[References]**
 
-- [Int and Number document](https://simon-ritchie.github.io/apysc/en/int_and_number.html)
-- [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)
-- [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)
+- [Int and Number](https://simon-ritchie.github.io/apysc/en/int_and_number.html)
+- [Int and Number common arithmetic operations](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)
+- [Int and Number common comparison operations](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)
 
 ### `__init__` method docstring
 
@@ -87,9 +87,9 @@ Int(10)
 
 **[References]**
 
-- [Int and Number document](https://simon-ritchie.github.io/apysc/en/int_and_number.html)
-- [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)
-- [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)
+- [Int and Number](https://simon-ritchie.github.io/apysc/en/int_and_number.html)
+- [Int and Number common arithmetic operations](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)
+- [Int and Number common comparison operations](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)
 
 ### `__repr__` method docstring
 

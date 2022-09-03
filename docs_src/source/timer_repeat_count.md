@@ -119,11 +119,11 @@ ap.save_overall_html(dest_dir_path="timer_repeat_count_basic_usage/")
 
 **[References]**
 
-- [Timer document](https://simon-ritchie.github.io/apysc/en/timer.html)
-- [TimerEvent class document](https://simon-ritchie.github.io/apysc/en/timer_event.html)
-- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/en/timer_delay.html)
-- [FPS enum document](https://simon-ritchie.github.io/apysc/en/fps.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [Timer](https://simon-ritchie.github.io/apysc/en/timer.html)
+- [TimerEvent class](https://simon-ritchie.github.io/apysc/en/timer_event.html)
+- [Timer class delay setting](https://simon-ritchie.github.io/apysc/en/timer_delay.html)
+- [FPS enum](https://simon-ritchie.github.io/apysc/en/fps.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ## repeat_count property API
 

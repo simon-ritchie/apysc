@@ -53,10 +53,10 @@ To start this animation, you need to call the `start` method of the returned ins
 
 **[References]**
 
-- [animation_y interface document](https://simon-ritchie.github.io/apysc/en/animation_y.html)
-- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/en/animation_duration.html)
-- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/en/animation_delay.html)
-- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/en/animation_return_value.html)
-- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/en/sequential_animation.html)
-- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/en/animation_parallel.html)
-- [Easing enum document](https://simon-ritchie.github.io/apysc/en/easing_enum.html)
+- [animation_y interface](https://simon-ritchie.github.io/apysc/en/animation_y.html)
+- [Animation interfaces duration setting](https://simon-ritchie.github.io/apysc/en/animation_duration.html)
+- [Animation interfaces delay setting](https://simon-ritchie.github.io/apysc/en/animation_delay.html)
+- [Each animation interface return value](https://simon-ritchie.github.io/apysc/en/animation_return_value.html)
+- [Sequential animation setting](https://simon-ritchie.github.io/apysc/en/sequential_animation.html)
+- [animation_parallel interface](https://simon-ritchie.github.io/apysc/en/animation_parallel.html)
+- [Easing enum](https://simon-ritchie.github.io/apysc/en/easing_enum.html)

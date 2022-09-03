@@ -38,8 +38,8 @@ String('#00aaff')
 
 **[References]**
 
-- [Rectangle class document](https://simon-ritchie.github.io/apysc/en/rectangle.html)
-- [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html)
+- [Rectangle class](https://simon-ritchie.github.io/apysc/en/rectangle.html)
+- [Graphics draw_rect interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html)
 
 ### `__init__` method docstring
 
@@ -116,7 +116,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Rectangle class document](https://simon-ritchie.github.io/apysc/en/rectangle.html)
+- [Rectangle class](https://simon-ritchie.github.io/apysc/en/rectangle.html)
 
 ### `__repr__` method docstring
 

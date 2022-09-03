@@ -190,7 +190,7 @@ ap.save_overall_html(dest_dir_path="click_unbind_all_the_click_event_handlers/")
 
 **[References]**
 
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ## unbind_click API
 

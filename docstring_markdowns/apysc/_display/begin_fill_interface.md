@@ -63,4 +63,4 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics begin_fill interface document](https://simon-ritchie.github.io/apysc/en/graphics_begin_fill.html)
+- [Graphics begin_fill interface](https://simon-ritchie.github.io/apysc/en/graphics_begin_fill.html)

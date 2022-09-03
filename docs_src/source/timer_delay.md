@@ -166,11 +166,11 @@ ap.save_overall_html(dest_dir_path="timer_delay_fps_enum/")
 
 **[References]**
 
-- [Timer document](https://simon-ritchie.github.io/apysc/en/timer.html)
-- [TimerEvent class document](https://simon-ritchie.github.io/apysc/en/timer_event.html)
-- [FPS enum document](https://simon-ritchie.github.io/apysc/en/fps.html)
+- [Timer](https://simon-ritchie.github.io/apysc/en/timer.html)
+- [TimerEvent class](https://simon-ritchie.github.io/apysc/en/timer_event.html)
+- [FPS enum](https://simon-ritchie.github.io/apysc/en/fps.html)
 - [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ## delay property API
 

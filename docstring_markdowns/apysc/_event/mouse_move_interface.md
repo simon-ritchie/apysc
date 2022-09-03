@@ -50,8 +50,8 @@ Add mouse move event listener setting.<hr>
 
 **[References]**
 
-- [Mousemove interface document](https://simon-ritchie.github.io/apysc/en/mousemove.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [Mousemove interface](https://simon-ritchie.github.io/apysc/en/mousemove.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ### `unbind_mousemove` method docstring
 
@@ -88,7 +88,7 @@ Unbind a specified handler's mouse move event.<hr>
 
 **[References]**
 
-- [Mousemove interface document](https://simon-ritchie.github.io/apysc/en/mousemove.html)
+- [Mousemove interface](https://simon-ritchie.github.io/apysc/en/mousemove.html)
 
 ### `unbind_mousemove_all` method docstring
 
@@ -118,4 +118,4 @@ Unbind all mouse move events.<hr>
 
 **[References]**
 
-- [Mousemove interface document](https://simon-ritchie.github.io/apysc/en/mousemove.html)
+- [Mousemove interface](https://simon-ritchie.github.io/apysc/en/mousemove.html)

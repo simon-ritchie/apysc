@@ -30,7 +30,7 @@ Save the overall HTML and display it on Google Colaboratory.<hr>
 
 **[References]**
 
-- [display_on_colaboratory interface document](https://simon-ritchie.github.io/apysc/en/display_on_colaboratory.html)
+- [display_on_colaboratory interface](https://simon-ritchie.github.io/apysc/en/display_on_colaboratory.html)
 
 ## `display_on_jupyter` function docstring
 
@@ -51,4 +51,4 @@ Currently, this interface does not support Jupyter on the VS Code. This interfac
 
 **[References]**
 
-- [display_on_jupyter interface document](https://simon-ritchie.github.io/apysc/en/display_on_jupyter.html)
+- [display_on_jupyter interface](https://simon-ritchie.github.io/apysc/en/display_on_jupyter.html)

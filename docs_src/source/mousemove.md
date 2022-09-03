@@ -159,7 +159,7 @@ There are also existing the `unbind_mousemove_all` interface. This interface unb
 
 **[References]**
 
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ## unbind_mousemove API
 

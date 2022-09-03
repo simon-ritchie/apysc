@@ -129,8 +129,8 @@ If you click the rectangle, the timer starts, and the Handler increases the rect
 
 **[References]**
 
-- [TimerEvent class document](https://simon-ritchie.github.io/apysc/en/timer_event.html)
-- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/en/timer_delay.html)
-- [FPS enum document](https://simon-ritchie.github.io/apysc/en/fps.html)
+- [TimerEvent class](https://simon-ritchie.github.io/apysc/en/timer_event.html)
+- [Timer class delay setting](https://simon-ritchie.github.io/apysc/en/timer_delay.html)
+- [FPS enum](https://simon-ritchie.github.io/apysc/en/fps.html)
 - [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)

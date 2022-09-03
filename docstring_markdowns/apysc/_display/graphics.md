@@ -30,7 +30,7 @@ Int(100)
 
 **[References]**
 
-- [Graphics document](https://simon-ritchie.github.io/apysc/en/graphics.html)
+- [Graphics](https://simon-ritchie.github.io/apysc/en/graphics.html)
 
 ### `__init__` method docstring
 
@@ -49,7 +49,7 @@ Create an object that has each vector graphics interface.<hr>
 
 **[References]**
 
-- [Graphics document](https://simon-ritchie.github.io/apysc/en/graphics.html)
+- [Graphics](https://simon-ritchie.github.io/apysc/en/graphics.html)
 
 ### `__repr__` method docstring
 
@@ -121,7 +121,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_circle interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html)
+- [Graphics draw_circle interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_circle.html)
 
 ### `draw_dash_dotted_line` method docstring
 
@@ -188,7 +188,7 @@ Int(3)
 
 **[References]**
 
-- [Graphics draw_dash_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dash_dotted_line.html)
+- [Graphics draw_dash_dotted_line interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_dash_dotted_line.html)
 
 ### `draw_dashed_line` method docstring
 
@@ -248,7 +248,7 @@ Int(2)
 
 **[References]**
 
-- [Graphics draw_dashed_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dashed_line.html)
+- [Graphics draw_dashed_line interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_dashed_line.html)
 
 ### `draw_dotted_line` method docstring
 
@@ -306,7 +306,7 @@ Int(5)
 
 **[References]**
 
-- [Graphics draw_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_dotted_line.html)
+- [Graphics draw_dotted_line interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_dotted_line.html)
 
 ### `draw_ellipse` method docstring
 
@@ -417,7 +417,7 @@ Int(5)
 
 **[References]**
 
-- [Graphics draw_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html)
+- [Graphics draw_line interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_line.html)
 
 ### `draw_path` method docstring
 
@@ -496,7 +496,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_polygon interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html)
+- [Graphics draw_polygon interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html)
 
 ### `draw_rect` method docstring
 
@@ -548,7 +548,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Graphics draw_rect interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html)
+- [Graphics draw_rect interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_rect.html)
 
 ### `draw_round_dotted_line` method docstring
 
@@ -608,7 +608,7 @@ Int(3)
 
 **[References]**
 
-- [Graphics draw_round_dotted_line interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_round_dotted_line.html)
+- [Graphics draw_round_dotted_line interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_round_dotted_line.html)
 
 ### `draw_round_rect` method docstring
 
@@ -661,7 +661,7 @@ Int(15)
 
 **[References]**
 
-- [Graphics draw_round_rect interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_round_rect.html)
+- [Graphics draw_round_rect interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_round_rect.html)
 
 ### `line_to` method docstring
 
@@ -709,7 +709,7 @@ Int(5)
 
 **[References]**
 
-- [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html)
+- [Graphics move_to and line_to interfaces](https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html)
 
 ### `move_to` method docstring
 
@@ -756,4 +756,4 @@ Int(5)
 
 **[References]**
 
-- [Graphics move_to and line_to interfaces document](https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html)
+- [Graphics move_to and line_to interfaces](https://simon-ritchie.github.io/apysc/en/graphics_move_to_and_line_to.html)

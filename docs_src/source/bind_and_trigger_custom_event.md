@@ -177,7 +177,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 
 **[References]**
 
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ## trigger_custom_event API
 

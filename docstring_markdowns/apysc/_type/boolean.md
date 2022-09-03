@@ -32,7 +32,7 @@ Boolean(False)
 
 **[References]**
 
-- [Boolean document](https://simon-ritchie.github.io/apysc/en/boolean.html)
+- [Boolean](https://simon-ritchie.github.io/apysc/en/boolean.html)
 
 ### `__bool__` method docstring
 
@@ -95,7 +95,7 @@ Boolean(True)
 
 **[References]**
 
-- [Boolean document](https://simon-ritchie.github.io/apysc/en/boolean.html)
+- [Boolean](https://simon-ritchie.github.io/apysc/en/boolean.html)
 
 ### `__ne__` method docstring
 

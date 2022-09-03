@@ -35,8 +35,8 @@ Int(2)
 
 **[References]**
 
-- [Dictionary document](https://simon-ritchie.github.io/apysc/en/dictionary.html)
-- [Dictionary class generic type settings document](https://simon-ritchie.github.io/apysc/en/dictionary_generic.html)
+- [Dictionary](https://simon-ritchie.github.io/apysc/en/dictionary.html)
+- [Dictionary class generic type settings](https://simon-ritchie.github.io/apysc/en/dictionary_generic.html)
 
 ### `__delitem__` method docstring
 
@@ -114,8 +114,8 @@ Dictionary({'a': 10})
 
 **[References]**
 
-- [Dictionary document](https://simon-ritchie.github.io/apysc/en/dictionary.html)
-- [Dictionary class generic type settings document](https://simon-ritchie.github.io/apysc/en/dictionary_generic.html)
+- [Dictionary](https://simon-ritchie.github.io/apysc/en/dictionary.html)
+- [Dictionary class generic type settings](https://simon-ritchie.github.io/apysc/en/dictionary_generic.html)
 
 ### `__len__` method docstring
 
@@ -371,4 +371,4 @@ None
 
 **[References]**
 
-- [Dictionary get interface document](https://simon-ritchie.github.io/apysc/en/dictionary_get.html)
+- [Dictionary get interface](https://simon-ritchie.github.io/apysc/en/dictionary_get.html)

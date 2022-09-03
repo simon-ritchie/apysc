@@ -22,7 +22,7 @@ A class to append for the (loop) expression.<hr>
 
 **[References]**
 
-- [For document](https://simon-ritchie.github.io/apysc/en/for.html)
+- [For](https://simon-ritchie.github.io/apysc/en/for.html)
 
 ### `__enter__` method docstring
 
@@ -66,7 +66,7 @@ A class to append for the (loop) expression.<hr>
 
 **[References]**
 
-- [For document](https://simon-ritchie.github.io/apysc/en/for.html)
+- [For](https://simon-ritchie.github.io/apysc/en/for.html)
 
 ### `_append_arr_enter_expression` method docstring
 

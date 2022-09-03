@@ -40,4 +40,4 @@ Stop all animations.<hr>
 
 **[References]**
 
-- [animation_pause and animation_play interfaces document](https://simon-ritchie.github.io/apysc/en/animation_pause_and_play.html)
+- [animation_pause and animation_play interfaces](https://simon-ritchie.github.io/apysc/en/animation_pause_and_play.html)

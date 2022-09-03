@@ -38,8 +38,8 @@ String('#00aaff')
 
 **[References]**
 
-- [Ellipse class document](https://simon-ritchie.github.io/apysc/en/ellipse.html)
-- [Graphics draw_ellipse interface document](https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html)
+- [Ellipse class](https://simon-ritchie.github.io/apysc/en/ellipse.html)
+- [Graphics draw_ellipse interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_ellipse.html)
 
 ### `__init__` method docstring
 
@@ -112,7 +112,7 @@ String('#00aaff')
 
 **[References]**
 
-- [Ellipse class document](https://simon-ritchie.github.io/apysc/en/ellipse.html)
+- [Ellipse class](https://simon-ritchie.github.io/apysc/en/ellipse.html)
 
 ### `__repr__` method docstring
 

@@ -50,9 +50,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="contains interface", val="contains インターフェイス"),
         Mapping(key="contains interface", val="contains インターフェイス"),
         Mapping(key="num_children interface", val="num_children （子の件数属性）のインターフェイス"),
-        Mapping(
-            key="num_children interface", val="num_children （子の件数属性）のインターフェイス"
-        ),
+        Mapping(key="num_children interface", val="num_children （子の件数属性）のインターフェイス"),
         Mapping(
             key="get_child_at interface", val="get_child_at （特定位置の子の取得処理）の" "インターフェイス"
         ),
@@ -66,9 +64,7 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="**[Notes]**", val="**[特記事項]**"),
         Mapping(key="**[Raises]**", val="**[エラー発生条件]**"),
-        Mapping(
-            key="About the handler options\\' type", val="ハンドラのoptions引数の型について"
-        ),
+        Mapping(key="About the handler options\\' type", val="ハンドラのoptions引数の型について"),
         Mapping(key="## Basic usage", val="## 基本的な使い方"),
         Mapping(key="## What setting is this?", val="## 設定概要"),
         Mapping(key="## What class is this?", val="## クラス概要"),
@@ -1358,9 +1354,7 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="String class", val="String クラス"),
         Mapping(key="String class comparison operations", val="String クラスの比較制御"),
-        Mapping(
-            key="String class comparison operations", val="String クラスの比較制御"
-        ),
+        Mapping(key="String class comparison operations", val="String クラスの比較制御"),
         Mapping(
             key="String class addition and multiplication operations",
             val="String クラスの加算と乗算の制御",

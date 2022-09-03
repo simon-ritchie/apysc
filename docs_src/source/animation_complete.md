@@ -206,4 +206,4 @@ This interface can only use before an animation starts<hr>
 
 **[References]**
 
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)

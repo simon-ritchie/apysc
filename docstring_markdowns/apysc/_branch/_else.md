@@ -29,7 +29,7 @@ A class to append else branch instruction expression.<hr>
 
 **[References]**
 
-- [Else document](https://simon-ritchie.github.io/apysc/en/else.html)
+- [Else](https://simon-ritchie.github.io/apysc/en/else.html)
 - [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html)
 
 ### `__init__` method docstring
@@ -66,7 +66,7 @@ A class to append else branch instruction expression.<hr>
 
 **[References]**
 
-- [Else document](https://simon-ritchie.github.io/apysc/en/else.html)
+- [Else](https://simon-ritchie.github.io/apysc/en/else.html)
 - [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html)
 
 ### `_append_enter_expression` method docstring

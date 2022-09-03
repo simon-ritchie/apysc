@@ -45,8 +45,8 @@ Array([1, 2, 3, 4, 5, 6])
 
 **[References]**
 
-- [Array document](https://simon-ritchie.github.io/apysc/en/array.html)
-- [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/en/array_comparison.html)
+- [Array](https://simon-ritchie.github.io/apysc/en/array.html)
+- [Array class comparison interfaces](https://simon-ritchie.github.io/apysc/en/array_comparison.html)
 
 ### `__bool__` method docstring
 
@@ -152,8 +152,8 @@ Array([0, 1, 2])
 
 **[References]**
 
-- [Array document](https://simon-ritchie.github.io/apysc/en/array.html)
-- [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/en/array_comparison.html)
+- [Array](https://simon-ritchie.github.io/apysc/en/array.html)
+- [Array class comparison interfaces](https://simon-ritchie.github.io/apysc/en/array_comparison.html)
 
 ### `__len__` method docstring
 
@@ -521,7 +521,7 @@ Array([1, 2, 3, 4])
 
 **[References]**
 
-- [Array class append and push interfaces document](https://simon-ritchie.github.io/apysc/en/array_append_and_push.html)
+- [Array class append and push interfaces](https://simon-ritchie.github.io/apysc/en/array_append_and_push.html)
 
 ### `clear` method docstring
 
@@ -529,7 +529,7 @@ Empty this array's value.<hr>
 
 **[References]**
 
-- [Array class clear interface document](https://simon-ritchie.github.io/apysc/en/array_clear.md)
+- [Array class clear interface](https://simon-ritchie.github.io/apysc/en/array_clear.md)
 
 ### `concat` method docstring
 
@@ -563,7 +563,7 @@ Array([1, 2, 3, 4, 5, 6])
 
 **[References]**
 
-- [Array class extend and concat interfaces document](https://simon-ritchie.github.io/apysc/en/array_extend_and_concat.html)
+- [Array class extend and concat interfaces](https://simon-ritchie.github.io/apysc/en/array_extend_and_concat.html)
 
 ### `extend` method docstring
 
@@ -590,7 +590,7 @@ Array([1, 2, 3, 4, 5, 6])
 
 **[References]**
 
-- [Array class extend and concat interfaces document](https://simon-ritchie.github.io/apysc/en/array_extend_and_concat.html)
+- [Array class extend and concat interfaces](https://simon-ritchie.github.io/apysc/en/array_extend_and_concat.html)
 
 ### `index_of` method docstring
 
@@ -623,7 +623,7 @@ Int(1)
 
 **[References]**
 
-- [Array class index_of interface document](https://simon-ritchie.github.io/apysc/en/array_index_of.html)
+- [Array class index_of interface](https://simon-ritchie.github.io/apysc/en/array_index_of.html)
 
 ### `insert` method docstring
 
@@ -652,7 +652,7 @@ Array([1, 2, 3])
 
 **[References]**
 
-- [Array class insert and insert_at interfaces document](https://simon-ritchie.github.io/apysc/en/array_insert_and_insert_at.html)
+- [Array class insert and insert_at interfaces](https://simon-ritchie.github.io/apysc/en/array_insert_and_insert_at.html)
 
 ### `insert_at` method docstring
 
@@ -681,7 +681,7 @@ Array([1, 2, 3])
 
 **[References]**
 
-- [Array class insert and insert_at interfaces document](https://simon-ritchie.github.io/apysc/en/array_insert_and_insert_at.html)
+- [Array class insert and insert_at interfaces](https://simon-ritchie.github.io/apysc/en/array_insert_and_insert_at.html)
 
 ### `join` method docstring
 
@@ -714,7 +714,7 @@ String('1, 2, 3')
 
 **[References]**
 
-- [Array class join interface document](https://simon-ritchie.github.io/apysc/en/array_join.html)
+- [Array class join interface](https://simon-ritchie.github.io/apysc/en/array_join.html)
 
 ### `pop` method docstring
 
@@ -744,7 +744,7 @@ Array([1, 2])
 
 **[References]**
 
-- [Array class pop interface document](https://simon-ritchie.github.io/apysc/en/array_pop.html)
+- [Array class pop interface](https://simon-ritchie.github.io/apysc/en/array_pop.html)
 
 ### `push` method docstring
 
@@ -771,7 +771,7 @@ Array([1, 2, 3, 4])
 
 **[References]**
 
-- [Array class append and push interfaces document](https://simon-ritchie.github.io/apysc/en/array_append_and_push.html)
+- [Array class append and push interfaces](https://simon-ritchie.github.io/apysc/en/array_append_and_push.html)
 
 ### `remove` method docstring
 
@@ -798,7 +798,7 @@ Array([1, 5])
 
 **[References]**
 
-- [Array class remove and remove_at interfaces document](https://simon-ritchie.github.io/apysc/en/array_remove_and_remove_at.html)
+- [Array class remove and remove_at interfaces](https://simon-ritchie.github.io/apysc/en/array_remove_and_remove_at.html)
 
 ### `remove_at` method docstring
 
@@ -825,7 +825,7 @@ Array([1, 3])
 
 **[References]**
 
-- [Array class remove and remove_at interfaces document](https://simon-ritchie.github.io/apysc/en/array_remove_and_remove_at.html)
+- [Array class remove and remove_at interfaces](https://simon-ritchie.github.io/apysc/en/array_remove_and_remove_at.html)
 
 ### `reverse` method docstring
 
@@ -845,7 +845,7 @@ Array([3, 2, 1])
 
 **[References]**
 
-- [Array class reverse interface document](https://simon-ritchie.github.io/apysc/en/array_reverse.html)
+- [Array class reverse interface](https://simon-ritchie.github.io/apysc/en/array_reverse.html)
 
 ### `slice` method docstring
 
@@ -886,7 +886,7 @@ Array([1, 2])
 
 **[References]**
 
-- [Array class slice interface document](https://simon-ritchie.github.io/apysc/en/array_slice.html)
+- [Array class slice interface](https://simon-ritchie.github.io/apysc/en/array_slice.html)
 
 ### `sort` method docstring
 
@@ -917,4 +917,4 @@ Array([5, 4, 3, 2, 1])
 
 **[References]**
 
-- [Array class sort interface document](https://simon-ritchie.github.io/apysc/en/array_sort.html)
+- [Array class sort interface](https://simon-ritchie.github.io/apysc/en/array_sort.html)

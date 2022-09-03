@@ -37,4 +37,4 @@ String('')
 
 **[References]**
 
-- [Graphics clear interface document](https://simon-ritchie.github.io/apysc/en/graphics_clear.html)
+- [Graphics clear interface](https://simon-ritchie.github.io/apysc/en/graphics_clear.html)

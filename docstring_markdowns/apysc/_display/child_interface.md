@@ -110,7 +110,7 @@ Add display object child to this instance.<hr>
 
 **[References]**
 
-- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html)
+- [add_child and remove_child interfaces](https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html)
 
 ### `contains` method docstring
 
@@ -152,7 +152,7 @@ Boolean(False)
 
 **[References]**
 
-- [contains interface document](https://simon-ritchie.github.io/apysc/en/contains.html)
+- [contains interface](https://simon-ritchie.github.io/apysc/en/contains.html)
 
 ### `get_child_at` method docstring
 
@@ -194,7 +194,7 @@ True
 
 **[References]**
 
-- [get_child_at interface document](https://simon-ritchie.github.io/apysc/en/get_child_at.html)
+- [get_child_at interface](https://simon-ritchie.github.io/apysc/en/get_child_at.html)
 
 ### `remove_child` method docstring
 
@@ -226,7 +226,7 @@ None
 
 **[References]**
 
-- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html)
+- [add_child and remove_child interfaces](https://simon-ritchie.github.io/apysc/en/add_child_and_remove_child.html)
 
 ### `remove_children` method docstring
 
@@ -234,4 +234,4 @@ Remove all children from this instance.<hr>
 
 **[References]**
 
-- [remove_children interface document](https://simon-ritchie.github.io/apysc/en/remove_children.html)
+- [remove_children interface](https://simon-ritchie.github.io/apysc/en/remove_children.html)

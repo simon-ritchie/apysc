@@ -123,7 +123,7 @@ Dictionary({'a': 10})
 
 **[References]**
 
-- [Dictionary class generic type settings document](https://simon-ritchie.github.io/apysc/en/dictionary_generic.html)
+- [Dictionary class generic type settings](https://simon-ritchie.github.io/apysc/en/dictionary_generic.html)
 
 ## value attribute API
 

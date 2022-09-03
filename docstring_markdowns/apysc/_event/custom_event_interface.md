@@ -128,8 +128,8 @@ Add a custom event listener setting.<hr>
 
 **[References]**
 
-- [Bind and trigger the custom event document](https://simon-ritchie.github.io/apysc/en/bind_and_trigger_custom_event.html)
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [Bind and trigger the custom event](https://simon-ritchie.github.io/apysc/en/bind_and_trigger_custom_event.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ### `trigger_custom_event` method docstring
 
@@ -167,7 +167,7 @@ Add a custom event trigger setting.<hr>
 
 **[References]**
 
-- [Bind and trigger the custom event document](https://simon-ritchie.github.io/apysc/en/bind_and_trigger_custom_event.html)
+- [Bind and trigger the custom event](https://simon-ritchie.github.io/apysc/en/bind_and_trigger_custom_event.html)
 
 ### `unbind_custom_event` method docstring
 

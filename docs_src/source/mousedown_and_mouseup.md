@@ -178,7 +178,7 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 
 **[References]**
 
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ## unbind_mousedown API
 
@@ -287,7 +287,7 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 
 **[References]**
 
-- [About the handler options' type document](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
+- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)
 
 ## unbind_mouseup API
 

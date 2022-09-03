@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>PathBezier3D クラス &#8212; apysc  documentation</title>
+    <title>PathBezier3DContinual クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -20,8 +20,8 @@
     <script src="static/add_navigation_to_footer.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="PathBezier3DContinual クラス" href="jp_path_bezier_3d_continual.html" />
-    <link rel="prev" title="PathBezier2DContinual クラス" href="jp_path_bezier_2d_continual.html" /> 
+    <link rel="next" title="ハンドラのoptions引数の型について" href="jp_about_handler_options_type.html" />
+    <link rel="prev" title="PathBezier3D クラス" href="jp_path_bezier_3d.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -30,13 +30,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="jp_path_bezier_3d_continual.html" title="PathBezier3DContinual クラス"
+          <a href="jp_about_handler_options_type.html" title="ハンドラのoptions引数の型について"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="jp_path_bezier_2d_continual.html" title="PathBezier2DContinual クラス"
+          <a href="jp_path_bezier_3d.html" title="PathBezier3D クラス"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">PathBezier3D クラス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">PathBezier3DContinual クラス</a></li> 
       </ul>
     </div>  
 
@@ -45,27 +45,29 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html">英語の原文</a>の確認をお願いします。</span></p>
-<section id="pathbezier3d">
-<h1>PathBezier3D クラス<a class="headerlink" href="#pathbezier3d" title="Permalink to this headline">¶</a></h1>
-<p>このページでは<code class="docutils literal notranslate"><span class="pre">PathBezier3D</span></code>クラスについて説明します。</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="pathbezier3dcontinual">
+<h1>PathBezier3DContinual クラス<a class="headerlink" href="#pathbezier3dcontinual" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスについて説明しるます。</p>
 <section id="id1">
 <h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">PathBezier3D</span></code>クラスはパス上に3次のベジェ曲線を設定するためのクラスです。</p>
-<p>このクラスは2つの制御点を持ちます（比較対象として、2次のベジェ曲線では1つの制御点のみを持ちます）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスはパス上に連続した3次ベジェ曲線を設定するためのクラスです。</p>
+<p>この設定は制御点に線対称位置を使用することで滑らかな曲線を描画します。</p>
 <p>主にこの設定は<code class="docutils literal notranslate"><span class="pre">Path</span></code>クラスのコンストラクタと<code class="docutils literal notranslate"><span class="pre">draw_path</span></code>メソッドのインターフェイスで使用されます。</p>
 </section>
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">PathBezier3D</span></code>クラスのコンストラクタでは<code class="docutils literal notranslate"><span class="pre">control_x1</span></code>、<code class="docutils literal notranslate"><span class="pre">control_y1</span></code>、<code class="docutils literal notranslate"><span class="pre">control_x2</span></code>、<code class="docutils literal notranslate"><span class="pre">control_y2</span></code>、<code class="docutils literal notranslate"><span class="pre">dest_x</span></code>、<code class="docutils literal notranslate"><span class="pre">dest_y</span></code>の各引数の指定が必要です。</p>
-<p><code class="docutils literal notranslate"><span class="pre">control_x1</span></code>と<code class="docutils literal notranslate"><span class="pre">control_y1</span></code>はベジェ曲線の最初の制御点の位置を決定するための座標指定です。</p>
-<p>同様に、<code class="docutils literal notranslate"><span class="pre">control_x2</span></code>と<code class="docutils literal notranslate"><span class="pre">control_y2</span></code>はベジェ曲線の2番目の制御点の位置を決定するための座標指定です。</p>
-<p><code class="docutils literal notranslate"><span class="pre">dest_x</span></code>と<code class="docutils literal notranslate"><span class="pre">dest_y</span></code>はベジェ曲線の終点座標の指定となります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスのコンストラクタでは<code class="docutils literal notranslate"><span class="pre">control_x</span></code>、<code class="docutils literal notranslate"><span class="pre">control_y</span></code>、<code class="docutils literal notranslate"><span class="pre">dest_x</span></code>、<code class="docutils literal notranslate"><span class="pre">dest_y</span></code>の各引数の指定が必要になります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">control_x</span></code>と<code class="docutils literal notranslate"><span class="pre">control_y</span></code>はベジェ曲線の2つ目の制御点の位置となります。</p>
+<p>ベジェ曲線の2つ目の制御点の線対称の位置は<code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスの1つ目の制御点の位置として設定されます。</p>
+<p>そのため<code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスのコンストラクタには1つ目の制御点の位置の指定の引数は存在しません。</p>
+<p><code class="docutils literal notranslate"><span class="pre">dest_x</span></code>と<code class="docutils literal notranslate"><span class="pre">dest_y</span></code>引数はベジェ曲線の終点位置の指定となります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスには<code class="docutils literal notranslate"><span class="pre">PathBezier3D</span></code>や<code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスの直後でのみ使用できるという制限が存在します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">420</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
 <span class="p">)</span>
 
 <span class="n">path</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span>
@@ -79,40 +81,48 @@
             <span class="n">dest_x</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
             <span class="n">dest_y</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
         <span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">PathBezier3DContinual</span><span class="p">(</span>
+            <span class="n">control_x</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+            <span class="n">control_y</span><span class="o">=</span><span class="mi">375</span><span class="p">,</span>
+            <span class="n">dest_x</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+            <span class="n">dest_y</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+        <span class="p">),</span>
     <span class="p">],</span>
     <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
     <span class="n">line_thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;path_bezier_3d_basic_usage_1/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;path_bezier_3d_continual_basic_usage_1/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/path_bezier_3d_basic_usage_1/index.html" width="250" height="270"></iframe>
-<p>以下のコード例では、シアン色の円はベジェ曲線の最初の制御点を示しています。</p>
-<p>マゼンタの円ではベジェ曲線の2つ目の制御点を示しています。</p>
-<p>また、黄色の円ではベジェ曲線の終点座標を示しています。</p>
+<iframe src="static/path_bezier_3d_continual_basic_usage_1/index.html" width="400" height="420"></iframe>
+<p>以下のコード例ではシアンの円は制御点（<code class="docutils literal notranslate"><span class="pre">control_x</span></code>と<code class="docutils literal notranslate"><span class="pre">control_y</span></code>）の位置を示し、マゼンタの円では終点の位置（<code class="docutils literal notranslate"><span class="pre">dest_x</span></code>と<code class="docutils literal notranslate"><span class="pre">dest_y</span></code>）を示します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">420</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
 <span class="p">)</span>
 
-<span class="n">CONTROL_X1</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">CONTROL_Y1</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">CONTROL_X2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">CONTROL_Y2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">DEST_X</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">CONTROL_X</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">350</span>
+<span class="n">CONTROL_Y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">375</span>
+<span class="n">DEST_X</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">350</span>
 <span class="n">DEST_Y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
 
 <span class="n">path</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span>
     <span class="n">path_data_list</span><span class="o">=</span><span class="p">[</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">PathMoveTo</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span><span class="p">),</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">PathBezier3D</span><span class="p">(</span>
-            <span class="n">control_x1</span><span class="o">=</span><span class="n">CONTROL_X1</span><span class="p">,</span>
-            <span class="n">control_y1</span><span class="o">=</span><span class="n">CONTROL_Y1</span><span class="p">,</span>
-            <span class="n">control_x2</span><span class="o">=</span><span class="n">CONTROL_X2</span><span class="p">,</span>
-            <span class="n">control_y2</span><span class="o">=</span><span class="n">CONTROL_Y2</span><span class="p">,</span>
+            <span class="n">control_x1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+            <span class="n">control_y1</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+            <span class="n">control_x2</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+            <span class="n">control_y2</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+            <span class="n">dest_x</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+            <span class="n">dest_y</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">PathBezier3DContinual</span><span class="p">(</span>
+            <span class="n">control_x</span><span class="o">=</span><span class="n">CONTROL_X</span><span class="p">,</span>
+            <span class="n">control_y</span><span class="o">=</span><span class="n">CONTROL_Y</span><span class="p">,</span>
             <span class="n">dest_x</span><span class="o">=</span><span class="n">DEST_X</span><span class="p">,</span>
             <span class="n">dest_y</span><span class="o">=</span><span class="n">DEST_Y</span><span class="p">,</span>
         <span class="p">),</span>
@@ -122,54 +132,53 @@
 <span class="p">)</span>
 
 <span class="n">RADIUS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+
 <span class="n">cyan_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">CONTROL_X1</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">CONTROL_Y1</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">CONTROL_X</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">CONTROL_Y</span><span class="p">,</span>
     <span class="n">radius</span><span class="o">=</span><span class="n">RADIUS</span><span class="p">,</span>
     <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">magenta_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">CONTROL_X2</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">CONTROL_Y2</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">DEST_X</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">DEST_Y</span><span class="p">,</span>
     <span class="n">radius</span><span class="o">=</span><span class="n">RADIUS</span><span class="p">,</span>
     <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#f0a&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">yellow_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">DEST_X</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">DEST_Y</span><span class="p">,</span>
-    <span class="n">radius</span><span class="o">=</span><span class="n">RADIUS</span><span class="p">,</span>
-    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#ff0&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;path_bezier_3d_basic_usage_2/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;path_bezier_3d_continual_basic_usage_2/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/path_bezier_3d_basic_usage_2/index.html" width="250" height="270"></iframe>
+<iframe src="static/path_bezier_3d_continual_basic_usage_2/index.html" width="400" height="420"></iframe>
 </section>
 <section id="id3">
 <h2>相対座標設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>コンストラクタの<code class="docutils literal notranslate"><span class="pre">relative</span></code>のオプション引数はその挙動を変更します。</p>
 <p>例として、もしその引数にTrueを指定した場合座標は相対座標として設定されます。</p>
 <p>デフォルト値はFalseとなっており、この設定では絶対座標として扱われます。</p>
-<p>基準点は開始位置の座標となります。最初の制御点や2つ目の制御点ではありません。</p>
-<p>以下のコード例ではrelativeの設定をしてベジェ曲線を描画しています。</p>
+<p>基準となる位置は制御点などではなく始点の位置となります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">420</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
 <span class="p">)</span>
 
 <span class="n">path</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span>
     <span class="n">path_data_list</span><span class="o">=</span><span class="p">[</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">PathMoveTo</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span><span class="p">),</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">PathBezier3D</span><span class="p">(</span>
-            <span class="n">control_x1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-            <span class="n">control_y1</span><span class="o">=-</span><span class="mi">175</span><span class="p">,</span>
-            <span class="n">control_x2</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
-            <span class="n">control_y2</span><span class="o">=-</span><span class="mi">175</span><span class="p">,</span>
+            <span class="n">control_x1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+            <span class="n">control_y1</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+            <span class="n">control_x2</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+            <span class="n">control_y2</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+            <span class="n">dest_x</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+            <span class="n">dest_y</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">PathBezier3DContinual</span><span class="p">(</span>
+            <span class="n">control_x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+            <span class="n">control_y</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span>
             <span class="n">dest_x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
             <span class="n">dest_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">relative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -179,36 +188,26 @@
     <span class="n">line_thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;path_bezier_3d_relative/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;path_bezier_3d_continual_relative/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/path_bezier_3d_relative/index.html" width="250" height="270"></iframe>
+<iframe src="static/path_bezier_3d_continual_relative/index.html" width="400" height="420"></iframe>
 </section>
-<section id="pathbezier3d-api">
-<h2>PathBezier3D クラスのコンストラクタのAPI<a class="headerlink" href="#pathbezier3d-api" title="Permalink to this headline">¶</a></h2>
+<section id="pathbezier3dcontinual-api">
+<h2>PathBezier3DContinual クラスのコンストラクタのAPI<a class="headerlink" href="#pathbezier3dcontinual-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">control_x1:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">control_y1:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">control_x2:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">control_y2:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">dest_x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">dest_y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">relative:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[インターフェイス概要]</strong> SVGの3次のベジェ曲線（C）のパスデータのためのクラスです。<hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">control_x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">control_y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">dest_x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">dest_y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">relative:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong> SVGの連続した3次ベジェ曲線のデータ設定用のクラスです。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">control_x1</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">control_x</span></code>: Int or int</p>
 <ul>
-<li><p>ベジェ曲線の最初の制御点のX座標。</p></li>
+<li><p>ベジェ曲線の制御点のX座標。</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">control_y1</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">control_y</span></code>: Int or int</p>
 <ul>
-<li><p>ベジェ曲線の最初の制御点のY座標。</p></li>
-</ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">control_x2</span></code>: Int or int</p>
-<ul>
-<li><p>ベジェ曲線の2つ目の制御点のX座標。</p></li>
-</ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">control_y2</span></code>: Int or int</p>
-<ul>
-<li><p>ベジェ曲線の2つ目の制御点のY座標。</p></li>
+<li><p>ベジェ曲線の制御点のY座標。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dest_x</span></code>: Int or int</p>
@@ -271,21 +270,21 @@
             </a></p>
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">PathBezier3D クラス</a><ul>
+<li><a class="reference internal" href="#">PathBezier3DContinual クラス</a><ul>
 <li><a class="reference internal" href="#id1">クラス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
 <li><a class="reference internal" href="#id3">相対座標設定</a></li>
-<li><a class="reference internal" href="#pathbezier3d-api">PathBezier3D クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#pathbezier3dcontinual-api">PathBezier3DContinual クラスのコンストラクタのAPI</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_path_bezier_2d_continual.html"
-                        title="previous chapter">PathBezier2DContinual クラス</a></p>
+  <p class="topless"><a href="jp_path_bezier_3d.html"
+                        title="previous chapter">PathBezier3D クラス</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="jp_path_bezier_3d_continual.html"
-                        title="next chapter">PathBezier3DContinual クラス</a></p>
+  <p class="topless"><a href="jp_about_handler_options_type.html"
+                        title="next chapter">ハンドラのoptions引数の型について</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -307,13 +306,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="jp_path_bezier_3d_continual.html" title="PathBezier3DContinual クラス"
+          <a href="jp_about_handler_options_type.html" title="ハンドラのoptions引数の型について"
              >next</a> |</li>
         <li class="right" >
-          <a href="jp_path_bezier_2d_continual.html" title="PathBezier2DContinual クラス"
+          <a href="jp_path_bezier_3d.html" title="PathBezier3D クラス"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">PathBezier3D クラス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">PathBezier3DContinual クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -170,6 +170,7 @@ path_close
 path_bezier_2d
 path_bezier_2d_continual
 path_bezier_3d
+path_bezier_3d_continual
 ```
 
 ## Common event interfaces

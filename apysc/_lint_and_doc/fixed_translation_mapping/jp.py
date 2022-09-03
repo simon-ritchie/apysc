@@ -2602,5 +2602,57 @@ MAPPINGS: Mappings = Mappings(
             key="## PathBezier3D class constructor API",
             val="## PathBezier3D クラスのコンストラクタのAPI",
         ),
+        Mapping(
+            key="Path class",
+            val="Path クラス",
+        ),
+        Mapping(
+            key="PathMoveTo class",
+            val="PathMoveTo クラス",
+        ),
+        Mapping(
+            key="PathLineTo class",
+            val="PathLineTo クラス",
+        ),
+        Mapping(
+            key="PathHorizontal class",
+            val="PathHorizontal クラス",
+        ),
+        Mapping(
+            key="PathVertical class",
+            val="PathVertical クラス",
+        ),
+        Mapping(
+            key="PathClose class",
+            val="PathClose クラス",
+        ),
+        Mapping(
+            key="PathBezier2D class",
+            val="PathBezier2D クラス",
+        ),
+        Mapping(
+            key="PathBezier2DContinual class",
+            val="PathBezier2DContinual クラス",
+        ),
+        Mapping(
+            key="PathBezier3DContinual class",
+            val="PathBezier3DContinual クラス",
+        ),
+        Mapping(
+            key="## draw_path API",
+            val="## draw_path API",
+        ),
+        Mapping(
+            key="**[Interface summary]** Draw a path vector graphics.<hr>",
+            val="**[インターフェイス概要]** パスのベクターグラフィックスを描画します。<hr>",
+        ),
+        Mapping(
+            key="  - Target path data settings, such as the ap.PathData.MoveTo.",
+            val="  - ap.PathData.MoveToなどの対象のパスデータの設定のリスト。",
+        ),
+        Mapping(
+            key="  - Created path graphics instance.",
+            val="  - 作成されたパスのグラフィックスのインスタンス。",
+        ),
     ]
 )

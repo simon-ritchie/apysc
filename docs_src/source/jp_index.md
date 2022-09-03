@@ -157,6 +157,7 @@ jp_graphics_draw_dashed_line
 jp_graphics_draw_round_dotted_line
 jp_graphics_draw_dash_dotted_line
 jp_graphics_draw_polygon
+jp_graphics_draw_path
 jp_graphics_clear
 ```
 

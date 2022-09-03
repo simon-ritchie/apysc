@@ -154,6 +154,7 @@ graphics_draw_dashed_line
 graphics_draw_round_dotted_line
 graphics_draw_dash_dotted_line
 graphics_draw_polygon
+graphics_draw_path
 graphics_clear
 ```
 

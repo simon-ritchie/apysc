@@ -33,6 +33,17 @@ class PathBezier3D(
     """
     Path data class for the SVG's `3D bezier curve` (C).
 
+    References
+    ----------
+    - Path class
+        - https://simon-ritchie.github.io/apysc/en/path.html
+    - Graphics draw_path interface
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+    - PathBezier3D class
+        - https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html
+    - PathBezier3DContinual class
+        - https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -102,6 +113,17 @@ class PathBezier3D(
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+
+        References
+        ----------
+        - Path class
+            - https://simon-ritchie.github.io/apysc/en/path.html
+        - Graphics draw_path interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+        - PathBezier3D class
+            - https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html
+        - PathBezier3DContinual class
+            - https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html
 
         Examples
         --------

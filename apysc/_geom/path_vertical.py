@@ -70,13 +70,13 @@ class PathVertical(PathDataBase, PathYInterface):
             This setting is sometimes useful for JavaScript's debugging.
 
         References
-    ----------
-    - Path class
-        - https://simon-ritchie.github.io/apysc/en/path.html
-    - Graphics draw_path interface
-        - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
-    - PathVertical class
-        - https://simon-ritchie.github.io/apysc/en/path_vertical.html
+        ----------
+        - Path class
+            - https://simon-ritchie.github.io/apysc/en/path.html
+        - Graphics draw_path interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+        - PathVertical class
+            - https://simon-ritchie.github.io/apysc/en/path_vertical.html
 
         Examples
         --------

@@ -13,6 +13,15 @@ class PathClose(PathDataBase):
     """
     Path data class for the SVG's `close path` (Z).
 
+    References
+    ----------
+    - Path class
+        - https://simon-ritchie.github.io/apysc/en/path.html
+    - Graphics draw_path interface
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+    - PathClose class
+        - https://simon-ritchie.github.io/apysc/en/path_close.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -34,6 +43,15 @@ class PathClose(PathDataBase):
     def __init__(self) -> None:
         """
         Path data class for the SVG's `close path` (Z).
+
+        References
+        ----------
+        - Path class
+            - https://simon-ritchie.github.io/apysc/en/path.html
+        - Graphics draw_path interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+        - PathClose class
+            - https://simon-ritchie.github.io/apysc/en/path_close.html
 
         Examples
         --------

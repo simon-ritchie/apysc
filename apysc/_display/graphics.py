@@ -1160,6 +1160,29 @@ class Graphics(
         path : Path
             Created path graphics instance.
 
+        References
+        ----------
+        - Path class
+            - https://simon-ritchie.github.io/apysc/en/path.html
+        - Graphics draw_path interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+        - PathLineTo class
+            - https://simon-ritchie.github.io/apysc/en/path_line_to.html
+        - PathHorizontal class
+            - https://simon-ritchie.github.io/apysc/en/path_horizontal.html
+        - PathVertical class
+            - https://simon-ritchie.github.io/apysc/en/path_vertical.html
+        - PathClose class
+            - https://simon-ritchie.github.io/apysc/en/path_close.html
+        - PathBezier2D class
+            - https://simon-ritchie.github.io/apysc/en/path_bezier_2d.html
+        - PathBezier2DContinual class
+            - https://simon-ritchie.github.io/apysc/en/path_bezier_2d_continual.html
+        - PathBezier3D class
+            - https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html
+        - PathBezier3DContinual class
+            - https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html
+
         Examples
         --------
         >>> import apysc as ap

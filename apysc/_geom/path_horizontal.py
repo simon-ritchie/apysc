@@ -20,6 +20,15 @@ class PathHorizontal(PathDataBase, PathXInterface):
     """
     Path data class for the SVG's `horizontal line` (H).
 
+    References
+    ----------
+    - Path class
+        - https://simon-ritchie.github.io/apysc/en/path.html
+    - Graphics draw_path interface
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+    - PathHorizontal class
+        - https://simon-ritchie.github.io/apysc/en/path_horizontal.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -59,6 +68,15 @@ class PathHorizontal(PathDataBase, PathXInterface):
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+
+        References
+        ----------
+        - Path class
+            - https://simon-ritchie.github.io/apysc/en/path.html
+        - Graphics draw_path interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+        - PathHorizontal class
+            - https://simon-ritchie.github.io/apysc/en/path_horizontal.html
 
         Examples
         --------

@@ -20,6 +20,15 @@ class PathVertical(PathDataBase, PathYInterface):
     """
     Path data class for the SVG `vertical line` (V).
 
+    References
+    ----------
+    - Path class
+        - https://simon-ritchie.github.io/apysc/en/path.html
+    - Graphics draw_path interface
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+    - PathVertical class
+        - https://simon-ritchie.github.io/apysc/en/path_vertical.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -59,6 +68,15 @@ class PathVertical(PathDataBase, PathYInterface):
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+
+        References
+    ----------
+    - Path class
+        - https://simon-ritchie.github.io/apysc/en/path.html
+    - Graphics draw_path interface
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+    - PathVertical class
+        - https://simon-ritchie.github.io/apysc/en/path_vertical.html
 
         Examples
         --------

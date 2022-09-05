@@ -21,6 +21,15 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
     """
     Path data class for the SVG `move to` (M).
 
+    References
+    ----------
+    - Path class
+        - https://simon-ritchie.github.io/apysc/en/path.html
+    - Graphics draw_path interface
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+    - PathMoveTo class
+        - https://simon-ritchie.github.io/apysc/en/path_move_to.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -64,6 +73,15 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+
+        References
+        ----------
+        - Path class
+            - https://simon-ritchie.github.io/apysc/en/path.html
+        - Graphics draw_path interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+        - PathMoveTo class
+            - https://simon-ritchie.github.io/apysc/en/path_move_to.html
 
         Examples
         --------

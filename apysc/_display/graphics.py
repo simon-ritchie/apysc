@@ -1166,6 +1166,8 @@ class Graphics(
             - https://simon-ritchie.github.io/apysc/en/path.html
         - Graphics draw_path interface
             - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+        - PathMoveTo class
+            - https://simon-ritchie.github.io/apysc/en/path_move_to.html
         - PathLineTo class
             - https://simon-ritchie.github.io/apysc/en/path_line_to.html
         - PathHorizontal class

@@ -20,6 +20,17 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
     """
     Path data class for the SVG `continual 2D bezier curve` (T).
 
+    References
+    ----------
+    - Path class
+        - https://simon-ritchie.github.io/apysc/en/path.html
+    - Graphics draw_path interface
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+    - PathBezier2D class
+        - https://simon-ritchie.github.io/apysc/en/path_bezier_2d.html
+    - PathBezier2DContinual class
+        - https://simon-ritchie.github.io/apysc/en/path_bezier_2d_continual.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -64,6 +75,17 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+
+        References
+        ----------
+        - Path class
+            - https://simon-ritchie.github.io/apysc/en/path.html
+        - Graphics draw_path interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+        - PathBezier2D class
+            - https://simon-ritchie.github.io/apysc/en/path_bezier_2d.html
+        - PathBezier2DContinual class
+            - https://simon-ritchie.github.io/apysc/en/path_bezier_2d_continual.html
 
         Examples
         --------

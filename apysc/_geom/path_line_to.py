@@ -21,6 +21,15 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
     """
     Path data class for the SVG `line to` (L).
 
+    References
+    ----------
+    - Path class
+        - https://simon-ritchie.github.io/apysc/en/path.html
+    - Graphics draw_path interface
+        - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+    - PathLineTo class
+        - https://simon-ritchie.github.io/apysc/en/path_line_to.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -64,6 +73,15 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+
+        References
+        ----------
+        - Path class
+            - https://simon-ritchie.github.io/apysc/en/path.html
+        - Graphics draw_path interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html
+        - PathLineTo class
+            - https://simon-ritchie.github.io/apysc/en/path_line_to.html
 
         Examples
         --------

@@ -9,10 +9,15 @@ from retrying import retry
 from apysc._file import file_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.fixed_translation_mapping import data_model
+from apysc._lint_and_doc.fixed_translation_mapping.data_model import (
+    _UnsupportedLanguageException
+)
 from apysc._lint_and_doc.fixed_translation_mapping import jp
 from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mapping
 from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mappings
-from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_attrs, assert_raises
+from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
 
 class TestMapping:
@@ -121,3 +126,20 @@ def test_check_mapping_keys_not_duplicated() -> None:
                     f"\nTarget key: {mapping.key}"
                 )
             keys.append(mapping.key)
+
+
+@retry(stop_max_attempt_number=1, wait_fixed=randint(10, 3000))
+def test__get_fixed_mapping_hash_type() -> None:
+    hash_type: HashType = data_model._get_fixed_mapping_hash_type(lang=Lang.JP)
+    assert hash_type == HashType.TRANSLATION_FIXED_MAPPING_JP
+
+    assert_raises(
+        expected_error_class=_UnsupportedLanguageException,
+        callable_=data_model._get_fixed_mapping_hash_type,
+        lang=Lang.EN,
+    )
+
+    for lang in Lang:
+        if lang == Lang.EN:
+            continue
+        _ = data_model._get_fixed_mapping_hash_type(lang=Lang.JP)

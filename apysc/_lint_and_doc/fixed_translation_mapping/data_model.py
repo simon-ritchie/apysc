@@ -13,6 +13,8 @@ from typing import Tuple
 from typing_extensions import final
 
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
 
 class Mapping:
@@ -158,6 +160,51 @@ def _get_mappings_module_path_from_lang(*, lang: Lang) -> str:
         of a specified language.
     """
     module_path: str = (
-        "./apysc/_lint_and_doc/fixed_translation_mapping/" f"{lang.value}.py"
+        f"./apysc/_lint_and_doc/fixed_translation_mapping/{lang.value}.py"
     )
     return module_path
+
+
+def is_fixed_mapping_updated(*, lang: Lang) -> bool:
+    """
+    Get a boolean indicates whether the fixed mapping's settings module
+    have been updated.
+
+    Parameters
+    ----------
+    lang : Lang
+        Target language setting.
+
+    Returns
+    -------
+    result : bool
+        This interface returns True if the settings have been updated.
+    """
+    module_path: str = _get_mappings_module_path_from_lang(lang=lang)
+    hash_type: HashType = _get_fixed_mapping_hash_type(lang=lang)
+    pass
+
+
+class _UnsupportedLanguageException(Exception):
+    pass
+
+
+def _get_fixed_mapping_hash_type(*, lang: Lang) -> HashType:
+    """
+    Get a hash type for a specified language.
+
+    Parameters
+    ----------
+    lang : Lang
+        Target language setting.
+
+    Returns
+    -------
+    hash_type : HashType
+        A target hash type.
+    """
+    if lang == Lang.JP:
+        return HashType.TRANSLATION_FIXED_MAPPING_JP
+    raise _UnsupportedLanguageException(
+        f"A specified language is not supported: {lang}"
+    )

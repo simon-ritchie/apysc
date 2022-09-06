@@ -211,3 +211,20 @@ def _get_fixed_mapping_hash_type(*, lang: Lang) -> HashType:
     raise _UnsupportedLanguageException(
         f"A specified language is not supported: {lang}"
     )
+
+
+def save_fixed_mapping_hash(*, lang: Lang) -> None:
+    """
+    Save a fixed mapping module's hash file.
+
+    Parameters
+    ----------
+    lang : Lang
+        Target language setting.
+    """
+    module_path: str = _get_mappings_module_path_from_lang(lang=lang)
+    hash_type: HashType = _get_fixed_mapping_hash_type(lang=lang)
+    lint_and_doc_hash_util.save_target_file_hash(
+        file_path=module_path,
+        hash_type=hash_type,
+    )

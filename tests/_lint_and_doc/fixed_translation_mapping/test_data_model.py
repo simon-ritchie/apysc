@@ -111,7 +111,7 @@ def test_get_fixed_translation_str_if_exists() -> None:
     assert translation_str == "**[引数]**"
 
 
-@retry(stop_max_attempt_number=1, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_check_mapping_keys_not_duplicated() -> None:
     for lang in Lang:
         mappings: Optional[Mappings] = data_model._read_mappings(lang=lang)
@@ -128,7 +128,7 @@ def test_check_mapping_keys_not_duplicated() -> None:
             keys.append(mapping.key)
 
 
-@retry(stop_max_attempt_number=1, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_fixed_mapping_hash_type() -> None:
     hash_type: HashType = data_model._get_fixed_mapping_hash_type(lang=Lang.JP)
     assert hash_type == HashType.TRANSLATION_FIXED_MAPPING_JP
@@ -145,7 +145,7 @@ def test__get_fixed_mapping_hash_type() -> None:
         _ = data_model._get_fixed_mapping_hash_type(lang=Lang.JP)
 
 
-@retry(stop_max_attempt_number=1, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_fixed_mapping_updated() -> None:
     module_path: str = data_model._get_mappings_module_path_from_lang(lang=Lang.JP)
     os.system(f"git checkout {module_path}")
@@ -162,5 +162,19 @@ def test_is_fixed_mapping_updated() -> None:
     )
     result = data_model.is_fixed_mapping_updated(lang=Lang.JP)
     assert not result
+
+    os.system(f"git checkout {module_path}")
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_save_fixed_mapping_hash() -> None:
+    module_path: str = data_model._get_mappings_module_path_from_lang(lang=Lang.JP)
+    os.system(f"git checkout {module_path}")
+
+    lint_and_doc_hash_util.delete_target_file_hash(
+        file_path=module_path, hash_type=HashType.TRANSLATION_FIXED_MAPPING_JP
+    )
+    data_model.save_fixed_mapping_hash(lang=Lang.JP)
+    assert not data_model.is_fixed_mapping_updated(lang=Lang.JP)
 
     os.system(f"git checkout {module_path}")

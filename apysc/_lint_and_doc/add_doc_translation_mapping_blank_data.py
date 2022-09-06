@@ -57,12 +57,15 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
         A target translation language.
     """
     from apysc._file import file_util
+    from apysc._lint_and_doc.fixed_translation_mapping import data_model
+    is_fixed_mapping_updated: bool = data_model.is_fixed_mapping_updated(lang=lang)
 
     src_docs_file_paths: List[str] = _get_src_docs_file_paths()
     hash_type: HashType = get_hash_type_from_lang(lang=lang)
-    src_docs_file_paths = lint_and_doc_hash_util.remove_not_updated_file_paths(
-        file_paths=src_docs_file_paths, hash_type=hash_type
-    )
+    if not is_fixed_mapping_updated:
+        src_docs_file_paths = lint_and_doc_hash_util.remove_not_updated_file_paths(
+            file_paths=src_docs_file_paths, hash_type=hash_type
+        )
     for src_doc_file_path in src_docs_file_paths:
         markdown_txt: str = file_util.read_txt(file_path=src_doc_file_path)
         splitted_values: _SplittedVals = (
@@ -82,6 +85,7 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
     lint_and_doc_hash_util.save_target_files_hash(
         file_paths=src_docs_file_paths, hash_type=hash_type
     )
+    data_model.save_fixed_mapping_hash(lang=lang)
 
 
 def _save_mapping_data(

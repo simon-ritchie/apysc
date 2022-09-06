@@ -233,3 +233,19 @@ def test_save_target_files_hash() -> None:
     file_util.remove_file_if_exists(file_path=hash_path_1)
     file_util.remove_file_if_exists(file_path=module_path_2)
     file_util.remove_file_if_exists(file_path=hash_path_2)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_delete_target_file_hash() -> None:
+    file_path: str = './apysc/_display/circle.py'
+    hash_file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
+        file_path=file_path,
+        hash_type=HashType.ISORT,
+    )
+    lint_and_doc_hash_util.delete_target_file_hash(
+        file_path=file_path,
+        hash_type=HashType.ISORT,
+    )
+    assert not os.path.exists(hash_file_path)
+
+    os.system(f"git checkout {hash_file_path}")

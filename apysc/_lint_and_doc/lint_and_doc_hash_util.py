@@ -19,6 +19,8 @@ Mainly following interfaces are defined:
     - Get a boolean value whether a specified file has been updated.
 - remove_not_updated_file_paths
     - Remove not updated files from specified file paths.
+- delete_target_file_hash
+    - Delete a target file's hash file.
 """
 
 import hashlib
@@ -39,6 +41,7 @@ class HashType(Enum):
     DOCSTRING_SRC = "docstring_src"
     DOCSTRING_TO_MARKDOWN = "docstring_to_markdown"
     TRANSLATION_MAPPING_JP = "translation_mapping_jp"
+    TRANSLATION_FIXED_MAPPING_JP = "translation_fixed_mapping_jp"
     APPLYING_TRANSLATION_MAPPING = "applying_translation_mapping"
     DOCUMENT = "document"
 
@@ -317,3 +320,22 @@ def remove_not_updated_file_paths(
             continue
         sliced_file_paths.append(file_paths[i])
     return sliced_file_paths
+
+
+def delete_target_file_hash(*, file_path: str, hash_type: HashType) -> None:
+    """
+    Delete a target file's hash file.
+
+    Parameters
+    ----------
+    file_path : str
+        A target file path.
+    hash_type : HashType
+        A Target hash type.
+    """
+    from apysc._file import file_util
+    hash_file_path: str = get_target_file_hash_file_path(
+        file_path=file_path,
+        hash_type=hash_type,
+    )
+    file_util.delete_file_if_exists(file_path=hash_file_path)

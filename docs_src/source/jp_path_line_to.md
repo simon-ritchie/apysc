@@ -81,10 +81,10 @@ ap.save_overall_html(dest_dir_path="path_line_to_relative/")
 **[引数]**
 
 - `x`: Int or int
-  - 描画先と終点となるX座標。
+  - 終点のX座標。
 
 - `y`: Int or int
-  - 描画先との終点となるY座標。
+  - 終点のY座標。
 
 - `relative`: bool or Boolean, default False
   - パスの座標が相対座標として扱うかもしくは絶対座標として扱うかどうかの真偽値。
@@ -108,3 +108,10 @@ ap.save_overall_html(dest_dir_path="path_line_to_relative/")
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [Path クラス](https://simon-ritchie.github.io/apysc/en/jp_path.html)
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)

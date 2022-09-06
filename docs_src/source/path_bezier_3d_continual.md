@@ -214,3 +214,11 @@ ap.save_overall_html(dest_dir_path="path_bezier_3d_continual_relative/")
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathBezier3D class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html)

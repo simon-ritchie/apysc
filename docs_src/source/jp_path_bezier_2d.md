@@ -6,7 +6,7 @@
 
 ## クラス概要
 
-`PathBezier2D`クラスはパスへ2次元のベジェ曲線を設定するためのクラスです。
+`PathBezier2D`クラスはパスへ2次のベジェ曲線を設定するためのクラスです。
 
 主にこの設定は`Path`クラスのコンストラクタと`draw_path`メソッドのインターフェイスで使用されます。
 
@@ -175,3 +175,12 @@ ap.save_overall_html(dest_dir_path="path_bezier_2d_relative/")
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [Path クラス](https://simon-ritchie.github.io/apysc/en/jp_path.html)
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)
+
+- [PathBezier2DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d_continual.html)

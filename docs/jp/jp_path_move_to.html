@@ -58,7 +58,7 @@
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">PathMoveTo</span></code>クラスのコンストラクタは<code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>の引数指定を必要とします。</p>
-<p><code class="docutils literal notranslate"><span class="pre">Path</span></code>クラスのコンストラクタと<code class="docutils literal notranslate"><span class="pre">draw_path</span></code>メソッドのインターフェイスの<code class="docutils literal notranslate"><span class="pre">path_data_list</span></code>引数でこのインスタンスの指定が必要になります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Path</span></code>クラスのコンストラクタもしくは<code class="docutils literal notranslate"><span class="pre">draw_path</span></code>メソッドのインターフェイスの<code class="docutils literal notranslate"><span class="pre">path_data_list</span></code>引数でそのインスタンスが必要とされます。</p>
 <p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">PathMoveTo</span></code>のインスタンスを使ってx=50, y=50の座標位置を設定した後にx=150, y=50の位置へ線を描画しています:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -117,12 +117,12 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
 <ul>
-<li><p>移動先のX座標。</p></li>
+<li><p>終点のX座標。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
 <ul>
-<li><p>移動先のY座標。</p></li>
+<li><p>終点のY座標。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">relative</span></code>: bool or Boolean, default False</p>
@@ -150,6 +150,12 @@
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>
+<hr>
+<p><strong>[関連資料]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_path.html">Path クラス</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html">Graphics クラスの draw_path インターフェイス</a></p></li>
+</ul>
 </section>
 </section>
 

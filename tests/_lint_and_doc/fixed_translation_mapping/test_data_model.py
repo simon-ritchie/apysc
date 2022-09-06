@@ -7,17 +7,18 @@ from typing import Optional
 from retrying import retry
 
 from apysc._file import file_util
+from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.fixed_translation_mapping import data_model
-from apysc._lint_and_doc.fixed_translation_mapping.data_model import (
-    _UnsupportedLanguageException
-)
 from apysc._lint_and_doc.fixed_translation_mapping import jp
 from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mapping
 from apysc._lint_and_doc.fixed_translation_mapping.data_model import Mappings
-from apysc._testing.testing_helper import assert_attrs, assert_raises
-from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._lint_and_doc.fixed_translation_mapping.data_model import (
+    _UnsupportedLanguageException,
+)
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestMapping:

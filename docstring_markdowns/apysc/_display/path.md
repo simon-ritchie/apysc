@@ -23,6 +23,22 @@ The path vector graphics class.<hr>
 ... )
 ```
 
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathMoveTo class](https://simon-ritchie.github.io/apysc/en/path_move_to.html)
+- [PathLineTo class](https://simon-ritchie.github.io/apysc/en/path_line_to.html)
+- [PathHorizontal class](https://simon-ritchie.github.io/apysc/en/path_horizontal.html)
+- [PathVertical class](https://simon-ritchie.github.io/apysc/en/path_vertical.html)
+- [PathClose class](https://simon-ritchie.github.io/apysc/en/path_close.html)
+- [PathBezier2D class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d.html)
+- [PathBezier2DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d_continual.html)
+- [PathBezier3D class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html)
+- [PathBezier3DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html)
+
 ### `__init__` method docstring
 
 Create a path vector graphic.<hr>
@@ -79,6 +95,22 @@ String('#ffffff')
 >>> path.line_thickness
 Int(3)
 ```
+
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathMoveTo class](https://simon-ritchie.github.io/apysc/en/path_move_to.html)
+- [PathLineTo class](https://simon-ritchie.github.io/apysc/en/path_line_to.html)
+- [PathHorizontal class](https://simon-ritchie.github.io/apysc/en/path_horizontal.html)
+- [PathVertical class](https://simon-ritchie.github.io/apysc/en/path_vertical.html)
+- [PathClose class](https://simon-ritchie.github.io/apysc/en/path_close.html)
+- [PathBezier2D class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d.html)
+- [PathBezier2DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d_continual.html)
+- [PathBezier3D class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html)
+- [PathBezier3DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html)
 
 ### `__repr__` method docstring
 

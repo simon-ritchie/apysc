@@ -334,6 +334,7 @@ def delete_target_file_hash(*, file_path: str, hash_type: HashType) -> None:
         A Target hash type.
     """
     from apysc._file import file_util
+
     hash_file_path: str = get_target_file_hash_file_path(
         file_path=file_path,
         hash_type=hash_type,

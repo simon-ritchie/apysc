@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The utilities module for each lint and doc's hash file (used to check whether the files are updated or not). Mainly following interfaces are defined: <br>・get_hash_dir_path <br> ・Get a specified type's hash directory path. <br>・get_target_file_hash_file_path <br> ・Get a specified file's hash file path. <br>・read_target_file_hash <br> ・Read a specified file's hashed string. <br>・read_saved_hash <br> ・Read an already-saved file's hashed string. <br>・save_target_file_hash <br> ・Save a target file's current hash. <br>・save_target_files_hash <br> ・Save target files' current hash. <br>・is_file_updated <br> ・Get a boolean value whether a specified file has been updated. <br>・remove_not_updated_file_paths <br> ・Remove not updated files from specified file paths.
+The utilities module for each lint and doc's hash file (used to check whether the files are updated or not). Mainly following interfaces are defined: <br>・get_hash_dir_path <br> ・Get a specified type's hash directory path. <br>・get_target_file_hash_file_path <br> ・Get a specified file's hash file path. <br>・read_target_file_hash <br> ・Read a specified file's hashed string. <br>・read_saved_hash <br> ・Read an already-saved file's hashed string. <br>・save_target_file_hash <br> ・Save a target file's current hash. <br>・save_target_files_hash <br> ・Save target files' current hash. <br>・is_file_updated <br> ・Get a boolean value whether a specified file has been updated. <br>・remove_not_updated_file_paths <br> ・Remove not updated files from specified file paths. <br>・delete_target_file_hash <br> ・Delete a target file's hash file.
 
 ## `_create_args_list_for_multiprocessing` function docstring
 
@@ -37,6 +37,17 @@ Wrapper function of the `is_file_updated` function for the multiprocessing.<hr>
 
 - `result`: bool
   - If there is an updated file, this interface returns True.
+
+## `delete_target_file_hash` function docstring
+
+Delete a target file's hash file.<hr>
+
+**[Parameters]**
+
+- `file_path`: str
+  - A target file path.
+- `hash_type`: HashType
+  - A Target hash type.
 
 ## `get_hash_dir_path` function docstring
 

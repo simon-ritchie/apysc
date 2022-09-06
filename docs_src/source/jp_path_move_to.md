@@ -16,7 +16,7 @@
 
 `PathMoveTo`クラスのコンストラクタは`x`と`y`の引数指定を必要とします。
 
-`Path`クラスのコンストラクタと`draw_path`メソッドのインターフェイスの`path_data_list`引数でこのインスタンスの指定が必要になります。
+`Path`クラスのコンストラクタもしくは`draw_path`メソッドのインターフェイスの`path_data_list`引数でそのインスタンスが必要とされます。
 
 以下のコード例では`PathMoveTo`のインスタンスを使ってx=50, y=50の座標位置を設定した後にx=150, y=50の位置へ線を描画しています:
 
@@ -85,10 +85,10 @@ ap.save_overall_html(dest_dir_path="path_move_to_relative/")
 **[引数]**
 
 - `x`: Int or int
-  - 移動先のX座標。
+  - 終点のX座標。
 
 - `y`: Int or int
-  - 移動先のY座標。
+  - 終点のY座標。
 
 - `relative`: bool or Boolean, default False
   - パスの座標が相対座標として扱うかもしくは絶対座標として扱うかどうかの真偽値。
@@ -112,3 +112,10 @@ ap.save_overall_html(dest_dir_path="path_move_to_relative/")
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [Path クラス](https://simon-ritchie.github.io/apysc/en/jp_path.html)
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)

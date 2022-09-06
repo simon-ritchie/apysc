@@ -33,6 +33,15 @@ Path data class for SVG's `continual 3D bezier curve` (S).<hr>
 ... )
 ```
 
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathBezier3D class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html)
+- [PathBezier3DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html)
+
 ### `__eq__` method docstring
 
 Equal comparison method.<hr>
@@ -94,6 +103,15 @@ Path data class for SVG's `continual 3D bezier curve` (S).<hr>
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathBezier3D class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html)
+- [PathBezier3DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html)
 
 ### `__ne__` method docstring
 

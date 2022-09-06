@@ -25,6 +25,14 @@ Path data class for the SVG's `close path` (Z).<hr>
 ... )
 ```
 
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathClose class](https://simon-ritchie.github.io/apysc/en/path_close.html)
+
 ### `__init__` method docstring
 
 Path data class for the SVG's `close path` (Z).<hr>
@@ -45,6 +53,14 @@ Path data class for the SVG's `close path` (Z).<hr>
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathClose class](https://simon-ritchie.github.io/apysc/en/path_close.html)
 
 ### `_get_svg_str` method docstring
 

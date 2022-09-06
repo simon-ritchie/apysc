@@ -237,7 +237,7 @@ def test_save_target_files_hash() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_delete_target_file_hash() -> None:
-    file_path: str = './apysc/_display/circle.py'
+    file_path: str = "./apysc/_display/circle.py"
     hash_file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
         file_path=file_path,
         hash_type=HashType.ISORT,

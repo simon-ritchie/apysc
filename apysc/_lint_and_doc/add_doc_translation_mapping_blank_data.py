@@ -58,6 +58,7 @@ def add_mapping_blank_data(*, lang: Lang) -> None:
     """
     from apysc._file import file_util
     from apysc._lint_and_doc.fixed_translation_mapping import data_model
+
     is_fixed_mapping_updated: bool = data_model.is_fixed_mapping_updated(lang=lang)
 
     src_docs_file_paths: List[str] = _get_src_docs_file_paths()

@@ -23,6 +23,14 @@ Path data class for the SVG `line to` (L).<hr>
 ... )
 ```
 
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathLineTo class](https://simon-ritchie.github.io/apysc/en/path_line_to.html)
+
 ### `__eq__` method docstring
 
 Equal comparison method.<hr>
@@ -70,6 +78,14 @@ Path data class for the SVG `line to` (L).<hr>
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathLineTo class](https://simon-ritchie.github.io/apysc/en/path_line_to.html)
 
 ### `__ne__` method docstring
 

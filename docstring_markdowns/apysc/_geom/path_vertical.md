@@ -23,6 +23,14 @@ Path data class for the SVG `vertical line` (V).<hr>
 ... )
 ```
 
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathVertical class](https://simon-ritchie.github.io/apysc/en/path_vertical.html)
+
 ### `__eq__` method docstring
 
 Equal comparison method.<hr>
@@ -68,6 +76,14 @@ Path data class for the SVG `vertical line' (V).<hr>
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathVertical class](https://simon-ritchie.github.io/apysc/en/path_vertical.html)
 
 ### `__ne__` method docstring
 

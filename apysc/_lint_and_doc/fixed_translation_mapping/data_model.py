@@ -12,8 +12,8 @@ from typing import Tuple
 
 from typing_extensions import final
 
-from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 
 
@@ -167,8 +167,8 @@ def _get_mappings_module_path_from_lang(*, lang: Lang) -> str:
 
 def is_fixed_mapping_updated(*, lang: Lang) -> bool:
     """
-    Get a boolean indicates whether the fixed mapping's settings module
-    have been updated.
+    Get a boolean that indicates whether the fixed mapping's settings module
+    has been updated.
 
     Parameters
     ----------
@@ -183,7 +183,8 @@ def is_fixed_mapping_updated(*, lang: Lang) -> bool:
     module_path: str = _get_mappings_module_path_from_lang(lang=lang)
     hash_type: HashType = _get_fixed_mapping_hash_type(lang=lang)
     if lint_and_doc_hash_util.is_file_updated(
-            file_path=module_path, hash_type=hash_type):
+        file_path=module_path, hash_type=hash_type
+    ):
         return True
     return False
 

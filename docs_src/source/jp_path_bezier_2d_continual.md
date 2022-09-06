@@ -139,3 +139,12 @@ ap.save_overall_html(dest_dir_path="path_bezier_2d_continual_relative/")
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [Path クラス](https://simon-ritchie.github.io/apysc/en/jp_path.html)
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)
+
+- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d.html)

@@ -2573,5 +2573,13 @@ MAPPINGS: Mappings = Mappings(
             key="  - Created path graphics instance.",
             val="  - 作成されたパスのグラフィックスのインスタンス。",
         ),
+        Mapping(
+            key="PathBezier3D class",
+            val="PathBezier3D クラス",
+        ),
+        Mapping(
+            key="Graphics draw_path interface",
+            val="Graphics クラスの draw_path インターフェイス",
+        ),
     ]
 )

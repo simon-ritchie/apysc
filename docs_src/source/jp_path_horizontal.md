@@ -107,3 +107,10 @@ ap.save_overall_html(dest_dir_path="path_horizontal_relative/")
 ...     ]
 ... )
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [Path クラス](https://simon-ritchie.github.io/apysc/en/jp_path.html)
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)

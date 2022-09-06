@@ -454,6 +454,22 @@ Draw a path vector graphics.<hr>
 ... )
 ```
 
+<hr>
+
+**[References]**
+
+- [Path class](https://simon-ritchie.github.io/apysc/en/path.html)
+- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)
+- [PathMoveTo class](https://simon-ritchie.github.io/apysc/en/path_move_to.html)
+- [PathLineTo class](https://simon-ritchie.github.io/apysc/en/path_line_to.html)
+- [PathHorizontal class](https://simon-ritchie.github.io/apysc/en/path_horizontal.html)
+- [PathVertical class](https://simon-ritchie.github.io/apysc/en/path_vertical.html)
+- [PathClose class](https://simon-ritchie.github.io/apysc/en/path_close.html)
+- [PathBezier2D class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d.html)
+- [PathBezier2DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d_continual.html)
+- [PathBezier3D class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html)
+- [PathBezier3DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html)
+
 ### `draw_polygon` method docstring
 
 Draw a polygon vector graphic. This interface is similar to the Polyline class (created by `move_to` or `line_to`). But unlike that, this interface connects the last point and the start point.<hr>

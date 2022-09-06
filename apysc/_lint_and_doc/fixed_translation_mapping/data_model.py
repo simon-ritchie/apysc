@@ -182,7 +182,10 @@ def is_fixed_mapping_updated(*, lang: Lang) -> bool:
     """
     module_path: str = _get_mappings_module_path_from_lang(lang=lang)
     hash_type: HashType = _get_fixed_mapping_hash_type(lang=lang)
-    pass
+    if lint_and_doc_hash_util.is_file_updated(
+            file_path=module_path, hash_type=hash_type):
+        return True
+    return False
 
 
 class _UnsupportedLanguageException(Exception):

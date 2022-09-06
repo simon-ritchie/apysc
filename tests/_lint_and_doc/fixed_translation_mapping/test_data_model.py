@@ -143,3 +143,24 @@ def test__get_fixed_mapping_hash_type() -> None:
         if lang == Lang.EN:
             continue
         _ = data_model._get_fixed_mapping_hash_type(lang=Lang.JP)
+
+
+@retry(stop_max_attempt_number=1, wait_fixed=randint(10, 3000))
+def test_is_fixed_mapping_updated() -> None:
+    module_path: str = data_model._get_mappings_module_path_from_lang(lang=Lang.JP)
+    os.system(f"git checkout {module_path}")
+
+    lint_and_doc_hash_util.delete_target_file_hash(
+        file_path=module_path, hash_type=HashType.TRANSLATION_FIXED_MAPPING_JP
+    )
+    result: bool = data_model.is_fixed_mapping_updated(lang=Lang.JP)
+    assert result
+
+    lint_and_doc_hash_util.save_target_file_hash(
+        file_path=module_path,
+        hash_type=HashType.TRANSLATION_FIXED_MAPPING_JP,
+    )
+    result = data_model.is_fixed_mapping_updated(lang=Lang.JP)
+    assert not result
+
+    os.system(f"git checkout {module_path}")

@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What class is this?": "## クラス概要",
     ##################################################
-    "The `PathBezier2DContinual` class is the class to set a continual 2D bezier curve on a path.": "`PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線を設定するためのクラスです。",  # noqa
+    "The `PathBezier2DContinual` class is the class to set a continual 2D bezier curve on a path.": "PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線を設定するためのクラスです。",  # noqa
     ##################################################
     "This setting draws a smooth curve by using a line-symmetric control point.": "この設定は線対称な位置の制御点を使うことで滑らかな曲線を描画します。",  # noqa
     ##################################################

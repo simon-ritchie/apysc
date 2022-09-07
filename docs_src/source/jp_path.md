@@ -10,7 +10,9 @@
 
 ## 基本的な使い方
 
-`Path`
+`Path`クラスのコンストラクタは`path_data_list`引数を必要とします。
+
+`path_data_list`引数は`PathLineTo`や`PathBezier2D`などの各パス設定を格納したリストです。
 
 コンストラクタは`fill_color`や`line_color`などのスタイル設定用の引数も受け付けます。
 
@@ -34,3 +36,184 @@ ap.save_overall_html(dest_dir_path="path_basic_usage/")
 ```
 
 <iframe src="static/path_basic_usage/index.html" width="200" height="100"></iframe>
+
+## PathMoveTo クラス設定
+
+`PathMoveTo`クラスはパスに新しい座標設定を追加するためのクラスです。
+
+<iframe src="static/path_move_to_basic_usage/index.html" width="200" height="100"></iframe>
+
+詳細は以下をご確認ください:
+
+- [PathMoveTo クラス](jp_path_move_to.md)
+
+## PathLineTo クラス設定
+
+`PathLineTo`クラスは現在設定されている座標位置から新たな線のパスを描画します。
+
+詳細は以下をご確認ください:
+
+- [PathLineTo クラス](jp_path_line_to.md)
+
+## PathHorizontal クラス設定
+
+`PathHorizontal`クラスはパス上に水平方向の直線の描画設定を追加するためのクラスです。
+
+<iframe src="static/path_horizontal_basic_usage/index.html" width="200" height="100"></iframe>
+
+詳細は以下をご確認ください:
+
+- [PathHorizontal クラス](jp_path_horizontal.md)
+
+## PathVertical クラス設定
+
+`PathVertical`クラスはパス上に新しい垂直の直線の設定を追加するためのクラスです。
+
+<iframe src="static/path_vertical_basic_usage/index.html" width="100" height="200"></iframe>
+
+詳細は以下をご確認ください:
+
+- [PathVertical クラス](jp_path_vertical.md)
+
+## PathClose クラス設定
+
+`PathVertical`クラスはパス上に新しい垂直の直線の設定を追加するためのクラスです。
+
+<iframe src="static/path_close_basic_usage/index.html" width="250" height="150"></iframe>
+
+詳細は以下をご確認ください:
+
+- [PathClose クラス](jp_path_close.md)
+
+## PathBezier2D クラス設定
+
+`PathBezier2D`クラスはパスへ2次のベジェ曲線を設定するためのクラスです。
+
+<iframe src="static/path_bezier_2d_basic_usage_1/index.html" width="200" height="150"></iframe>
+
+詳細は以下をご確認ください:
+
+- [PathBezier2D クラス](jp_path_bezier_2d.md)
+
+## PathBezier2DContinual クラス設定
+
+PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線を設定するためのクラスです。
+
+<iframe src="static/path_bezier_2d_continual_basic_usage/index.html" width="400" height="200"></iframe>
+
+詳細は以下をご確認ください:
+
+- [PathBezier2DContinual クラス](jp_path_bezier_2d_continual.md)
+
+## PathBezier3D クラス設定
+
+`PathBezier3D`クラスはパス上に3次のベジェ曲線を設定するためのクラスです。
+
+<iframe src="static/path_bezier_3d_basic_usage_1/index.html" width="250" height="270"></iframe>
+
+詳細は以下をご確認ください:
+
+- [PathBezier3D クラス](jp_path_bezier_3d.md)
+
+## PathBezier3DContinual クラス設定
+
+`PathBezier3DContinual`クラスはパス上に連続した3次ベジェ曲線を設定するためのクラスです。
+
+<iframe src="static/path_bezier_3d_continual_basic_usage_1/index.html" width="400" height="420"></iframe>
+
+詳細は以下をご確認ください:
+
+- [PathBezier3DContinual クラス](jp_path_bezier_3d_continual.md)
+
+## Path クラスのコンストラクタのAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `__init__(self, *, path_data_list: List[apysc._geom.path_data_base.PathDataBase], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_interface.ChildInterface, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+
+**[インターフェイス概要]** パスのベクターグラフィックスを生成します。<hr>
+
+**[引数]**
+
+- `path_data_list`: list of PathDataBase
+  - ap.PathData.MoveToなどの対象のパスデータの設定のリスト。
+
+- `fill_color`: str or String, default ''
+  - 設定する塗りの色。
+
+- `fill_alpha`: float or Number, default 1.0
+  - 設定する塗りの透明度。
+
+- `line_color`: str or String, default ''
+  - 設定する線の色。
+
+- `line_alpha`: float or Number, default 1.0
+  - 設定する線の透明度。
+
+- `line_thickness`: int or Int, default 1
+  - 設定の線幅。
+
+- `line_cap`: String or LineCaps or None, default None
+  - 設定する線の端のスタイル設定。
+
+- `line_joints`: String or LineJoints or None, default None
+  - 設定する線の連結部分のスタイル設定。
+
+- `line_dot_setting`: LineDotSetting or None, default None
+  - 設定する点線のスタイル設定。
+
+- `line_dash_setting`: LineDashSetting or None, default None
+  - 設定する破線のスタイル設定。
+
+- `line_round_dot_setting`: LineRoundDotSetting or None, default None
+  - 設定する丸ドットのスタイル設定。
+
+- `line_dash_dot_setting`: LineDashDotSetting or None, default None
+  - 設定する一点鎖線のスタイル設定。
+
+- `parent`: ChildInterface or None, default None
+  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。
+
+- `variable_name_suffix`: str, default ''
+  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> path: ap.Path = ap.Path(
+...     path_data_list=[
+...         ap.PathMoveTo(x=0, y=50),
+...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),
+...     ],
+...     line_color="#ffffff",
+...     line_thickness=3,
+... )
+>>> path.line_color
+String('#ffffff')
+
+>>> path.line_thickness
+Int(3)
+```
+
+<hr>
+
+**[関連資料]**
+
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)
+- [PathMoveTo クラス](https://simon-ritchie.github.io/apysc/en/jp_path_move_to.html)
+
+- [PathLineTo クラス](https://simon-ritchie.github.io/apysc/en/jp_path_line_to.html)
+- [PathHorizontal クラス](https://simon-ritchie.github.io/apysc/en/jp_path_horizontal.html)
+
+- [PathVertical クラス](https://simon-ritchie.github.io/apysc/en/jp_path_vertical.html)
+- [PathClose クラス](https://simon-ritchie.github.io/apysc/en/jp_path_close.html)
+
+- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d.html)
+- [PathBezier2DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d_continual.html)
+
+- [PathBezier3D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_3d.html)
+- [PathBezier3DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_3d_continual.html)

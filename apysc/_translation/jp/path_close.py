@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What class is this?": "## クラス概要",
     ##################################################
-    "The `PathClose` class is the class to close a path.": "`PathClose`クラスはパスを閉じる設定のためのクラスです。",  # noqa
+    "The `PathClose` class is the class to close a path.": "`PathVertical`クラスはパス上に新しい垂直の直線の設定を追加するためのクラスです。",  # noqa
     ##################################################
     "If a path\'s start and end points are not connecting, this setting connects these points.": "もしもパスの始点と終点が繋がっていない場合、この設定はこれらの座標を接続します。",  # noqa
     ##################################################

@@ -2581,5 +2581,105 @@ MAPPINGS: Mappings = Mappings(
             key="Graphics draw_path interface",
             val="Graphics クラスの draw_path インターフェイス",
         ),
+        Mapping(
+            key="The `PathMoveTo` class is the class to set a new position on a path.",
+            val="`PathMoveTo`クラスはパスに新しい座標設定を追加するためのクラスです。",
+        ),
+        Mapping(
+            key="The `PathLineTo` class is the class to set a new line from the current position on a path.",  # noqa
+            val="`PathLineTo`クラスは現在設定されている座標位置から新たな線のパスを描画します。",
+        ),
+        Mapping(
+            key="The `PathHorizontal` class is the class to set a new horizontal line on a path.",  # noqa
+            val="`PathHorizontal`クラスはパス上に水平方向の直線の描画設定を追加するためのクラスです。",
+        ),
+        Mapping(
+            key="The `PathVertical` class is the class to set a new vertical line on a path.",  # noqa
+            val="`PathVertical`クラスはパス上に新しい垂直の直線の設定を追加するためのクラスです。",
+        ),
+        Mapping(
+            key="The `PathClose` class is the class to close a path.",
+            val="`PathVertical`クラスはパス上に新しい垂直の直線の設定を追加するためのクラスです。",
+        ),
+        Mapping(
+            key="The `PathBezier2D` class is the class to set a 2D bezier curve on a path.",  # noqa
+            val="`PathBezier2D`クラスはパスへ2次のベジェ曲線を設定するためのクラスです。",
+        ),
+        Mapping(
+            key="The `PathBezier2D` class is the class to set a 2D bezier curve on a path.",  # noqa
+            val="`PathBezier2D`クラスはパスへ2次のベジェ曲線を設定するためのクラスです。",
+        ),
+        Mapping(
+            key="The `PathBezier2DContinual` class is the class to set a continual 2D bezier curve on a path.",  # noqa
+            val="PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線を設定するためのクラスです。",
+        ),
+        Mapping(
+            key="The `PathBezier3D` class is the class to set a 3D bezier curve on a path.",  # noqa
+            val="`PathBezier3D`クラスはパス上に3次のベジェ曲線を設定するためのクラスです。",
+        ),
+        Mapping(
+            key="The `PathBezier3D` class is the class to set a 3D bezier curve on a path.",  # noqa
+            val="`PathBezier3D`クラスはパス上に3次のベジェ曲線を設定するためのクラスです。",
+        ),
+        Mapping(
+            key="The `path_data_list` argument is a list of each path setting, such as the `PathLineTo` or `PathBezier2D`.",  # noqa
+            val="`path_data_list`引数は`PathLineTo`や`PathBezier2D`などの各パス設定を格納したリストです。",
+        ),
+        Mapping(
+            key="The `Path` class constructor requires the `path_data_list` argument.",  # noqa
+            val="`Path`クラスのコンストラクタは`path_data_list`引数を必要とします。",
+        ),
+        Mapping(
+            key="## PathLineTo class setting",  # noqa
+            val="## PathLineTo クラス設定",  # noqa
+        ),
+        Mapping(
+            key="## PathLineTo class setting",  # noqa
+            val="## PathLineTo クラス設定",  # noqa
+        ),
+        Mapping(
+            key="## PathHorizontal class setting",  # noqa
+            val="## PathHorizontal クラス設定",  # noqa
+        ),
+        Mapping(
+            key="## PathVertical class setting",  # noqa
+            val="## PathVertical クラス設定",  # noqa
+        ),
+        Mapping(
+            key="## PathClose class setting",  # noqa
+            val="## PathClose クラス設定",  # noqa
+        ),
+        Mapping(
+            key="## PathBezier2D class setting",  # noqa
+            val="## PathBezier2D クラス設定",  # noqa
+        ),
+        Mapping(
+            key="## PathBezier2DContinual class setting",  # noqa
+            val="## PathBezier2DContinual クラス設定",  # noqa
+        ),
+        Mapping(
+            key="## PathBezier3D class setting",  # noqa
+            val="## PathBezier3D クラス設定",  # noqa
+        ),
+        Mapping(
+            key="## PathBezier3DContinual class setting",  # noqa
+            val="## PathBezier3DContinual クラス設定",  # noqa
+        ),
+        Mapping(
+            key="## Path class constructor API",  # noqa
+            val="## Path クラスのコンストラクタのAPI",  # noqa
+        ),
+        Mapping(
+            key="**[Interface summary]** Create a path vector graphic.<hr>",  # noqa
+            val="**[インターフェイス概要]** パスのベクターグラフィックスを生成します。<hr>",  # noqa
+        ),
+        Mapping(
+            key="## PathMoveTo class setting",  # noqa
+            val="## PathMoveTo クラス設定",  # noqa
+        ),
+        Mapping(
+            key="The `PathBezier3DContinual` class is the class to set a continual 3D bezier curve on a path.",  # noqa
+            val="`PathBezier3DContinual`クラスはパス上に連続した3次ベジェ曲線を設定するためのクラスです。",  # noqa
+        ),
     ]
 )

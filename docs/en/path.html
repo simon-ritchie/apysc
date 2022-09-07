@@ -56,6 +56,7 @@
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Path</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">path_data_list</span></code> argument.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">path_data_list</span></code> argument is a list of each path setting, such as the <code class="docutils literal notranslate"><span class="pre">PathLineTo</span></code> or <code class="docutils literal notranslate"><span class="pre">PathBezier2D</span></code>.</p>
 <p>The constructor also accepts each style’s argument, such as the <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> and <code class="docutils literal notranslate"><span class="pre">line_color</span></code>.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -75,7 +76,201 @@
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;path_basic_usage/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/path_basic_usage/index.html" width="200" height="100"></iframe></section>
+<iframe src="static/path_basic_usage/index.html" width="200" height="100"></iframe>
+</section>
+<section id="pathmoveto-class-setting">
+<h2>PathMoveTo class setting<a class="headerlink" href="#pathmoveto-class-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PathMoveTo</span></code> class is the class to set a new position on a path.</p>
+<iframe src="static/path_move_to_basic_usage/index.html" width="200" height="100"></iframe>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="path_move_to.html"><span class="doc std std-doc">PathMoveTo class</span></a></p></li>
+</ul>
+</section>
+<section id="pathlineto-class-setting">
+<h2>PathLineTo class setting<a class="headerlink" href="#pathlineto-class-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PathLineTo</span></code> class is the class to set a new line from the current position on a path.</p>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="path_line_to.html"><span class="doc std std-doc">PathLineTo class</span></a></p></li>
+</ul>
+</section>
+<section id="pathhorizontal-class-setting">
+<h2>PathHorizontal class setting<a class="headerlink" href="#pathhorizontal-class-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PathHorizontal</span></code> class is the class to set a new horizontal line on a path.</p>
+<iframe src="static/path_horizontal_basic_usage/index.html" width="200" height="100"></iframe>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="path_horizontal.html"><span class="doc std std-doc">PathHorizontal class</span></a></p></li>
+</ul>
+</section>
+<section id="pathvertical-class-setting">
+<h2>PathVertical class setting<a class="headerlink" href="#pathvertical-class-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PathVertical</span></code> class is the class to set a new vertical line on a path.</p>
+<iframe src="static/path_vertical_basic_usage/index.html" width="100" height="200"></iframe>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="path_vertical.html"><span class="doc std std-doc">PathVertical class</span></a></p></li>
+</ul>
+</section>
+<section id="pathclose-class-setting">
+<h2>PathClose class setting<a class="headerlink" href="#pathclose-class-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PathClose</span></code> class is the class to close a path.</p>
+<iframe src="static/path_close_basic_usage/index.html" width="250" height="150"></iframe>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="path_close.html"><span class="doc std std-doc">PathClose class</span></a></p></li>
+</ul>
+</section>
+<section id="pathbezier2d-class-setting">
+<h2>PathBezier2D class setting<a class="headerlink" href="#pathbezier2d-class-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PathBezier2D</span></code> class is the class to set a 2D bezier curve on a path.</p>
+<iframe src="static/path_bezier_2d_basic_usage_1/index.html" width="200" height="150"></iframe>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="path_bezier_2d.html"><span class="doc std std-doc">PathBezier2D class</span></a></p></li>
+</ul>
+</section>
+<section id="pathbezier2dcontinual-class-setting">
+<h2>PathBezier2DContinual class setting<a class="headerlink" href="#pathbezier2dcontinual-class-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PathBezier2DContinual</span></code> class is the class to set a continual 2D bezier curve on a path.</p>
+<iframe src="static/path_bezier_2d_continual_basic_usage/index.html" width="400" height="200"></iframe>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="path_bezier_2d_continual.html"><span class="doc std std-doc">PathBezier2DContinual class</span></a></p></li>
+</ul>
+</section>
+<section id="pathbezier3d-class-setting">
+<h2>PathBezier3D class setting<a class="headerlink" href="#pathbezier3d-class-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PathBezier3D</span></code> class is the class to set a 3D bezier curve on a path.</p>
+<iframe src="static/path_bezier_3d_basic_usage_1/index.html" width="250" height="270"></iframe>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="path_bezier_3d.html"><span class="doc std std-doc">PathBezier3D class</span></a></p></li>
+</ul>
+</section>
+<section id="pathbezier3dcontinual-class-setting">
+<h2>PathBezier3DContinual class setting<a class="headerlink" href="#pathbezier3dcontinual-class-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code> class is the class to set a continual 3D bezier curve on a path.</p>
+<iframe src="static/path_bezier_3d_continual_basic_usage_1/index.html" width="400" height="420"></iframe>
+<p>For more information, please see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="path_bezier_3d_continual.html"><span class="doc std std-doc">PathBezier3DContinual class</span></a></p></li>
+</ul>
+</section>
+<section id="path-class-constructor-api">
+<h2>Path class constructor API<a class="headerlink" href="#path-class-constructor-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.path.Path.__init__ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">path_data_list:</span> <span class="pre">List[apysc._geom.path_data_base.PathDataBase],</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">line_cap:</span> <span class="pre">Union[apysc._type.string.String,</span> <span class="pre">apysc._display.line_caps.LineCaps,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_joints:</span> <span class="pre">Union[apysc._type.string.String,</span> <span class="pre">apysc._display.line_joints.LineJoints,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dot_setting:</span> <span class="pre">Union[apysc._display.line_dot_setting.LineDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_setting:</span> <span class="pre">Union[apysc._display.line_dash_setting.LineDashSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_round_dot_setting:</span> <span class="pre">Union[apysc._display.line_round_dot_setting.LineRoundDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_dot_setting:</span> <span class="pre">Union[apysc._display.line_dash_dot_setting.LineDashDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_interface.ChildInterface,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Create a path vector graphic.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">path_data_list</span></code>: list of PathDataBase</p>
+<ul>
+<li><p>Target path data settings, such as the ap.PathData.MoveTo.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>: str or String, default ‘’</p>
+<ul>
+<li><p>A fill-color to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>: float or Number, default 1.0</p>
+<ul>
+<li><p>A fill-alpha to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>: str or String, default ‘’</p>
+<ul>
+<li><p>A line-color to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>: float or Number, default 1.0</p>
+<ul>
+<li><p>A line-alpha to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>: int or Int, default 1</p>
+<ul>
+<li><p>A line-thickness (line-width) to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_cap</span></code>: String or LineCaps or None, default None</p>
+<ul>
+<li><p>A line-cap setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_joints</span></code>: String or LineJoints or None, default None</p>
+<ul>
+<li><p>A line-joints setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code>: LineDotSetting or None, default None</p>
+<ul>
+<li><p>A dot setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code>: LineDashSetting or None, default None</p>
+<ul>
+<li><p>A dash setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code>: LineRoundDotSetting or None, default None</p>
+<ul>
+<li><p>A round-dot setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dash_dot_setting</span></code>: LineDashDotSetting or None, default None</p>
+<ul>
+<li><p>A dash dot (1-dot chain) setting to set.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent</span></code>: ChildInterface or None, default None</p>
+<ul>
+<li><p>A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default ‘’</p>
+<ul>
+<li><p>A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript’s debugging.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">path_data_list</span><span class="o">=</span><span class="p">[</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">PathMoveTo</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">PathBezier2D</span><span class="p">(</span><span class="n">control_x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">control_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dest_x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dest_y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">line_color</span>
+<span class="go">String(&#39;#ffffff&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">line_thickness</span>
+<span class="go">Int(3)</span>
+</pre></div>
+</div>
+<hr>
+<p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html">Graphics draw_path interface</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_move_to.html">PathMoveTo class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_line_to.html">PathLineTo class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_horizontal.html">PathHorizontal class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_vertical.html">PathVertical class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_close.html">PathClose class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_bezier_2d.html">PathBezier2D class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_bezier_2d_continual.html">PathBezier2DContinual class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html">PathBezier3D class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html">PathBezier3DContinual class</a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -93,6 +288,16 @@
 <li><a class="reference internal" href="#">Path class</a><ul>
 <li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#pathmoveto-class-setting">PathMoveTo class setting</a></li>
+<li><a class="reference internal" href="#pathlineto-class-setting">PathLineTo class setting</a></li>
+<li><a class="reference internal" href="#pathhorizontal-class-setting">PathHorizontal class setting</a></li>
+<li><a class="reference internal" href="#pathvertical-class-setting">PathVertical class setting</a></li>
+<li><a class="reference internal" href="#pathclose-class-setting">PathClose class setting</a></li>
+<li><a class="reference internal" href="#pathbezier2d-class-setting">PathBezier2D class setting</a></li>
+<li><a class="reference internal" href="#pathbezier2dcontinual-class-setting">PathBezier2DContinual class setting</a></li>
+<li><a class="reference internal" href="#pathbezier3d-class-setting">PathBezier3D class setting</a></li>
+<li><a class="reference internal" href="#pathbezier3dcontinual-class-setting">PathBezier3DContinual class setting</a></li>
+<li><a class="reference internal" href="#path-class-constructor-api">Path class constructor API</a></li>
 </ul>
 </li>
 </ul>

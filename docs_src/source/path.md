@@ -49,6 +49,8 @@ For more information, please see:
 
 The `PathLineTo` class is the class to set a new line from the current position on a path.
 
+<iframe src="static/path_line_to_basic_usage/index.html" width="200" height="100"></iframe>
+
 For more information, please see:
 
 - [PathLineTo class](path_line_to.md)

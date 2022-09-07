@@ -51,6 +51,8 @@ ap.save_overall_html(dest_dir_path="path_basic_usage/")
 
 `PathLineTo`クラスは現在設定されている座標位置から新たな線のパスを描画します。
 
+<iframe src="static/path_line_to_basic_usage/index.html" width="200" height="100"></iframe>
+
 詳細は以下をご確認ください:
 
 - [PathLineTo クラス](jp_path_line_to.md)

@@ -1138,7 +1138,7 @@ class Graphics(
         return polygon
 
     @final
-    @arg_validation_decos.is_path_data_list(arg_position_index=1)
+    @arg_validation_decos.is_valid_path_data_list(arg_position_index=1)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_path(

@@ -455,8 +455,8 @@ def test_is_point_2ds() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_is_path_data_list() -> None:
-    @arg_validation_decos.is_path_data_list(arg_position_index=0)
+def test_is_valid_path_data_list() -> None:
+    @arg_validation_decos.is_valid_path_data_list(arg_position_index=0)
     def _test_func(*, a: List[ap.PathDataBase]) -> None:
         ...
 

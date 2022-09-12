@@ -77,7 +77,7 @@ Mainly the following decorators exist.
 - is_point_2ds
     - Set the validation to check a specified argument's type
         is the list of `ap.Point2D`.
-- is_path_data_list
+- is_valid_path_data_list
     - Set the validation to check a specified argument's type
         is the list of `ap.PathDataBase`.
 - is_line_cap
@@ -1416,10 +1416,11 @@ def is_point_2ds(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_path_data_list(*, arg_position_index: int) -> _F:
+def is_valid_path_data_list(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's type
-    is the list of `ap.PathDataBase`.
+    is the list of `ap.PathDataBase` and a first value is an instance of
+    the `PathMoveTo`.
 
     Parameters
     ----------

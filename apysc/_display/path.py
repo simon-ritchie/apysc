@@ -84,7 +84,7 @@ class Path(
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # path_data_list
-    @arg_validation_decos.is_path_data_list(arg_position_index=1)
+    @arg_validation_decos.is_valid_path_data_list(arg_position_index=1)
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=2)
     # fill_alpha

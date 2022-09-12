@@ -932,7 +932,7 @@ def on_timer(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60).start()
-ap.save_overall_html(dest_dir_path="tmp/path_skew_y/")
+ap.save_overall_html(dest_dir_path="path_skew_y/")
 ```
 
 <iframe src="static/path_skew_y/index.html" width="150" height="150"></iframe>

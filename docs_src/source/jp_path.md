@@ -127,6 +127,818 @@ PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線
 
 - [PathBezier3DContinual クラス](jp_path_bezier_3d_continual.md)
 
+## x属性のインターフェイス例
+
+`x`属性ではX座標の値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=100, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=0, y=0),
+        ap.PathLineTo(x=0, y=50),
+        ap.PathLineTo(x=50, y=50),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=5,
+)
+path.x = ap.Int(50)
+
+ap.save_overall_html(dest_dir_path="path_x/")
+```
+
+<iframe src="static/path_x/index.html" width="150" height="100"></iframe>
+
+## y属性のインターフェイス例
+
+`y`属性ではY座標の値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=100, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=0, y=0),
+        ap.PathLineTo(x=0, y=50),
+        ap.PathLineTo(x=50, y=50),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=5,
+)
+path.y = ap.Int(50)
+
+ap.save_overall_html(dest_dir_path="path_y/")
+```
+
+<iframe src="static/path_y/index.html" width="100" height="150"></iframe>
+
+## fill_color属性のインターフェイス例
+
+`fill_color`属性は塗りの色の値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+)
+path.fill_color = ap.String("#0af")
+
+ap.save_overall_html(dest_dir_path="path_fill_color/")
+```
+
+<iframe src="static/path_fill_color/index.html" width="150" height="150"></iframe>
+
+## fill_alpha属性のインターフェイス例
+
+`fill_alpha`属性は塗りの透明度の値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    fill_color="#0af",
+)
+path.fill_alpha = ap.Number(0.5)
+
+ap.save_overall_html(dest_dir_path="path_fill_alpha/")
+```
+
+<iframe src="static/path_fill_alpha/index.html" width="150" height="150"></iframe>
+
+## line_color属性のインターフェイス例
+
+`line_color`属性では線の色の値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_thickness=5,
+)
+path.line_color = ap.String("#0af")
+
+ap.save_overall_html(dest_dir_path="path_line_color/")
+```
+
+<iframe src="static/path_line_color/index.html" width="150" height="150"></iframe>
+
+## line_alpha属性のインターフェイス例
+
+`line_alpha`属性では線の透明度の値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=5,
+)
+path.line_alpha = ap.Number(0.5)
+
+ap.save_overall_html(dest_dir_path="path_line_alpha/")
+```
+
+<iframe src="static/path_line_alpha/index.html" width="150" height="150"></iframe>
+
+## line_thickness属性のインターフェイス例
+
+`line_thickness`属性では線の幅の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+)
+path.line_thickness = ap.Int(10)
+
+ap.save_overall_html(dest_dir_path="path_line_thickness/")
+```
+
+<iframe src="static/path_line_thickness/index.html" width="150" height="150"></iframe>
+
+## line_dot_setting属性のインターフェイス例
+
+`line_dot_setting`属性では点線のスタイル設定の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+path.line_dot_setting = ap.LineDotSetting(dot_size=3)
+
+ap.save_overall_html(dest_dir_path="path_line_dot_setting/")
+```
+
+<iframe src="static/path_line_dot_setting/index.html" width="150" height="150"></iframe>
+
+## line_dash_setting属性のインターフェイス例
+
+`line_dash_setting`属性では破線のスタイル設定の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+path.line_dash_setting = ap.LineDashSetting(dash_size=7, space_size=2)
+
+ap.save_overall_html(dest_dir_path="path_line_dash_setting/")
+```
+
+<iframe src="static/path_line_dash_setting/index.html" width="150" height="150"></iframe>
+
+## line_round_dot_setting属性のインターフェイス例
+
+`line_round_dot_setting`属性では丸ドット線のスタイル設定の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+)
+path.line_round_dot_setting = ap.LineRoundDotSetting(round_size=5, space_size=4)
+
+ap.save_overall_html(dest_dir_path="path_line_round_dot_setting/")
+```
+
+<iframe src="static/path_line_round_dot_setting/index.html" width="150" height="150"></iframe>
+
+## line_dash_dot_setting属性のインターフェイス例
+
+`line_dash_dot_setting`属性では一点鎖線のスタイル設定の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+path.line_dash_dot_setting = ap.LineDashDotSetting(
+    dot_size=3,
+    dash_size=6,
+    space_size=3,
+)
+
+ap.save_overall_html(dest_dir_path="path_line_dash_dot_setting/")
+```
+
+<iframe src="static/path_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
+
+## rotation_around_center属性のインターフェイス例
+
+`rotation_around_center`属性ではインスタンスの中央座標での回転量（0～359）の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    path.rotation_around_center += 1
+
+
+ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="path_rotation_around_center/")
+```
+
+<iframe src="static/path_rotation_around_center/index.html" width="150" height="150"></iframe>
+
+## set_rotation_around_pointとget_rotation_around_pointメソッドのインターフェイス例
+
+`set_rotation_around_point`メソッドは指定された座標からのインスタンスの回転量（0～359）を更新します。
+
+同様に、`get_rotation_around_point`メソッドでは指定された座標のインスタンスの回転量（0～359）を取得します:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+X: ap.Int = ap.Int(100)
+Y: ap.Int = ap.Int(100)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rotation: ap.Int = path.get_rotation_around_point(x=X, y=Y) + 1
+    path.set_rotation_around_point(rotation=rotation, x=X, y=Y)
+
+
+ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="path_rotation_around_point/")
+```
+
+<iframe src="static/path_rotation_around_point/index.html" width="150" height="150"></iframe>
+
+## scale_x_from_center属性のインターフェイス例
+
+`scale_x_from_center`属性ではインスタンスの中央座標でのX軸の拡縮値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+direction: ap.Int = ap.Int(1)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = path.scale_x_from_center
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2):
+        direction.value = -1
+    path.scale_x_from_center += direction * 0.01
+
+
+ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="path_scale_x_from_center/")
+```
+
+<iframe src="static/path_scale_x_from_center/index.html" width="150" height="150"></iframe>
+
+## scale_y_from_center属性のインターフェイス例
+
+`scale_y_from_center`属性ではインスタンスの中央座標でのX軸の拡縮値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+direction: ap.Int = ap.Int(1)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = path.scale_y_from_center
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2):
+        direction.value = -1
+    path.scale_y_from_center += direction * 0.01
+
+
+ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="path_scale_y_from_center/")
+```
+
+<iframe src="static/path_scale_y_from_center/index.html" width="150" height="150"></iframe>
+
+## set_scale_x_from_pointとget_scale_x_from_pointメソッドのインターフェイス例
+
+`set_scale_x_from_point`メソッドは指定されたX座標を基準としてX軸の拡縮値を更新します。
+
+同様に、`get_scale_x_from_point`メソッドでは指定されたX座標を基準としたX軸の拡縮値を取得します:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+direction: ap.Int = ap.Int(1)
+X: ap.Int = ap.Int(100)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = path.get_scale_x_from_point(x=X)
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2):
+        direction.value = -1
+    scale += direction * 0.005
+    path.set_scale_x_from_point(scale_x=scale, x=X)
+
+
+ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="path_scale_x_from_point/")
+```
+
+<iframe src="static/path_scale_x_from_point/index.html" width="150" height="150"></iframe>
+
+## set_scale_y_from_pointとget_scale_y_from_pointメソッドのインターフェイス例
+
+`set_scale_y_from_point`メソッドは指定されたY座標を基準としてY軸の拡縮値を更新します。
+
+同様に、`get_scale_y_from_point`メソッドでは指定されたY座標を基準としたY軸の拡縮値を取得します。
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+direction: ap.Int = ap.Int(1)
+Y: ap.Int = ap.Int(100)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = path.get_scale_y_from_point(y=Y)
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2):
+        direction.value = -1
+    scale += direction * 0.005
+    path.set_scale_y_from_point(scale_y=scale, y=Y)
+
+
+ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="path_scale_y_from_point/")
+```
+
+<iframe src="static/path_scale_y_from_point/index.html" width="150" height="150"></iframe>
+
+## flip_x属性のインターフェイス例
+
+`flip_x`属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    path.flip_x = path.flip_x.not_
+
+
+ap.Timer(handler=on_timer, delay=1000).start()
+ap.save_overall_html(dest_dir_path="path_flip_x/")
+```
+
+<iframe src="static/path_flip_x/index.html" width="150" height="150"></iframe>
+
+## flip_y属性のインターフェイス例
+
+`flip_y`属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    path.flip_y = path.flip_y.not_
+
+
+ap.Timer(handler=on_timer, delay=1000).start()
+ap.save_overall_html(dest_dir_path="path_flip_y/")
+```
+
+<iframe src="static/path_flip_y/index.html" width="150" height="150"></iframe>
+
+## skew_x属性のインターフェイス例
+
+`skew_x`属性ではインスタンスのX軸の歪みの値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    path.skew_x += 1
+
+
+ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="path_skew_x/")
+```
+
+<iframe src="static/path_skew_x/index.html" width="150" height="150"></iframe>
+
+## skew_y属性のインターフェイス例
+
+`skew_y`属性ではインスタンスのY軸の歪みの値の更新もしくは取得を行えます:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+sprite: ap.Sprite = ap.Sprite()
+
+path: ap.Path = ap.Path(
+    path_data_list=[
+        ap.PathMoveTo(x=50, y=50),
+        ap.PathLineTo(x=50, y=100),
+        ap.PathLineTo(x=100, y=100),
+        ap.PathClose(),
+    ],
+    line_color="#0af",
+    line_thickness=3,
+)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    path.skew_y += 1
+
+
+ap.Timer(handler=on_timer, delay=ap.FPS.FPS_60).start()
+ap.save_overall_html(dest_dir_path="path_skew_y/")
+```
+
+<iframe src="static/path_skew_y/index.html" width="150" height="150"></iframe>
+
 ## Path クラスのコンストラクタのAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>

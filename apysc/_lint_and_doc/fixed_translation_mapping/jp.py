@@ -2606,16 +2606,8 @@ MAPPINGS: Mappings = Mappings(
             val="`PathBezier2D`クラスはパスへ2次のベジェ曲線を設定するためのクラスです。",
         ),
         Mapping(
-            key="The `PathBezier2D` class is the class to set a 2D bezier curve on a path.",  # noqa
-            val="`PathBezier2D`クラスはパスへ2次のベジェ曲線を設定するためのクラスです。",
-        ),
-        Mapping(
             key="The `PathBezier2DContinual` class is the class to set a continual 2D bezier curve on a path.",  # noqa
             val="PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線を設定するためのクラスです。",
-        ),
-        Mapping(
-            key="The `PathBezier3D` class is the class to set a 3D bezier curve on a path.",  # noqa
-            val="`PathBezier3D`クラスはパス上に3次のベジェ曲線を設定するためのクラスです。",
         ),
         Mapping(
             key="The `PathBezier3D` class is the class to set a 3D bezier curve on a path.",  # noqa
@@ -2628,10 +2620,6 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="The `Path` class constructor requires the `path_data_list` argument.",  # noqa
             val="`Path`クラスのコンストラクタは`path_data_list`引数を必要とします。",
-        ),
-        Mapping(
-            key="## PathLineTo class setting",  # noqa
-            val="## PathLineTo クラス設定",  # noqa
         ),
         Mapping(
             key="## PathLineTo class setting",  # noqa

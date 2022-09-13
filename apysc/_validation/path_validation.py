@@ -8,6 +8,7 @@ from apysc._geom.path_bezier_2d_continual import PathBezier2DContinual
 from apysc._geom.path_bezier_3d import PathBezier3D
 from apysc._geom.path_bezier_3d_continual import PathBezier3DContinual
 from apysc._geom.path_data_base import PathDataBase
+from apysc._geom.path_move_to import PathMoveTo
 
 
 def validate_path_data_list(*, path_data_list: List[PathDataBase]) -> None:
@@ -23,6 +24,7 @@ def validate_path_data_list(*, path_data_list: List[PathDataBase]) -> None:
     ------
     ValueError
         - If a specified path data list is empty.
+        - If a first path data is not a `PathMoveTo` class instance.
         - If a preceding data of `PathBezier2DContinual` instance is
             not a `PathBezier2D` or `PathBezier2DContinual` one.
         - If a preceding data of `PathBezier3DContinual` instance is
@@ -30,6 +32,11 @@ def validate_path_data_list(*, path_data_list: List[PathDataBase]) -> None:
     """
     if not path_data_list:
         raise ValueError("`path_data_list` argument can not be empty.")
+    if not isinstance(path_data_list[0], PathMoveTo):
+        raise ValueError(
+            "`path_data_list` argument's first value can only accept a "
+            f"`PathMoveTo` instance. Actual: {type(path_data_list[0])}"
+        )
     _validate_bezier_2d_continual_pre_data(path_data_list=path_data_list)
     _validate_bezier_3d_continual_pre_data(path_data_list=path_data_list)
 

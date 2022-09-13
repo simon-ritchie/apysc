@@ -104,12 +104,18 @@ def test_validate_path_data_list() -> None:
     assert_raises(
         expected_error_class=ValueError,
         callable_=path_validation.validate_path_data_list,
+        match="can only accept a `PathMoveTo` instance",
         path_data_list=[bezier_2d_continual],
     )
     assert_raises(
         expected_error_class=ValueError,
         callable_=path_validation.validate_path_data_list,
-        path_data_list=[bezier_3d_continual],
+        path_data_list=[move_to, bezier_2d_continual],
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=path_validation.validate_path_data_list,
+        path_data_list=[move_to, bezier_3d_continual],
     )
 
     path_validation.validate_path_data_list(path_data_list=[move_to])

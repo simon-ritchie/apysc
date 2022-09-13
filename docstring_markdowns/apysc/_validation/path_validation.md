@@ -47,4 +47,4 @@ Validate a specified path data list.<hr>
 
 **[Raises]**
 
-- ValueError: <br> ・If a specified path data list is empty. <br> ・If a preceding data of `PathBezier2DContinual` instance is not a `PathBezier2D` or `PathBezier2DContinual` one. <br> ・If a preceding data of `PathBezier3DContinual` instance is not a `PathBezier3D` or `PathBezier3DContinual` one.
+- ValueError: <br> ・If a specified path data list is empty. <br> ・If a first path data is not a `PathMoveTo` class instance. <br> ・If a preceding data of `PathBezier2DContinual` instance is not a `PathBezier2D` or `PathBezier2DContinual` one. <br> ・If a preceding data of `PathBezier3DContinual` instance is not a `PathBezier3D` or `PathBezier3DContinual` one.

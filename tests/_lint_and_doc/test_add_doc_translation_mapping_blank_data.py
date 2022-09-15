@@ -327,3 +327,20 @@ def test__set_translated_file_names_to_toc_code_block() -> None:
     value = "```{toctree}" "\\nlorem_ipsum" "\njp_dolor_sit_amet_2" "\n```"
     value = mod._set_translated_file_names_to_toc_code_block(lang=Lang.JP, value=value)
     assert value == ("```{toctree}" "\njp_lorem_ipsum" "\njp_dolor_sit_amet_2" "\n```")
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__replace_link_en_dir_with_target_lang() -> None:
+    value: str = (
+        "- [test document 1](https://test_apysc.com/en/jp_graphics_draw_path.html)"
+        "\n- [test document 1](https://test_apysc.com/en/jp_path_horizontal.html)"
+    )
+    value = mod._replace_link_en_dir_with_target_lang(
+        value=value,
+        lang=Lang.JP,
+    )
+    expected_value: str = (
+        "- [test document 1](https://test_apysc.com/jp/jp_graphics_draw_path.html)"
+        "\n- [test document 1](https://test_apysc.com/jp/jp_path_horizontal.html)"
+    )
+    assert value == expected_value

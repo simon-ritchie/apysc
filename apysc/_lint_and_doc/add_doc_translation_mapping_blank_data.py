@@ -341,7 +341,32 @@ def _convert_link_list_by_lang(*, key: str, value: str, lang: Lang) -> str:
         key = _LINK_PATTERN.sub(repl=r"\g<after_txt>", string=key, count=1)
         match = _LINK_PATTERN.search(string=key)
     value = _replace_link_text_by_fixed_mapping(value=value, lang=lang)
+    value = _replace_link_en_dir_with_target_lang(value=value, lang=lang)
     value = escape_key_or_value(key_or_val=value)
+    return value
+
+
+def _replace_link_en_dir_with_target_lang(*, value: str, lang: Lang) -> str:
+    """
+    Replace a link's `/en/` directory path with a specified language directory path.
+
+    Parameters
+    ----------
+    value : str
+        A target markdown string value to replace.
+    lang : Lang
+        A target translation language.
+
+    Returns
+    -------
+    value : str
+        Replaced markdown string.
+    """
+    value = re.sub(
+        pattern=r"\/en\/",
+        repl=rf"/{lang.value}/",
+        string=value,
+    )
     return value
 
 

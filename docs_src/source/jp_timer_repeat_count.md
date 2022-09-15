@@ -121,13 +121,13 @@ ap.save_overall_html(dest_dir_path="timer_repeat_count_basic_usage/")
 
 **[関連資料]**
 
-- [Timer クラス](https://simon-ritchie.github.io/apysc/en/jp_timer.html)
-- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/en/jp_timer_event.html)
+- [Timer クラス](https://simon-ritchie.github.io/apysc/jp/jp_timer.html)
+- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/jp/jp_timer_event.html)
 
-- [Timer クラスの delay 設定](https://simon-ritchie.github.io/apysc/en/jp_timer_delay.html)
-- [FPS の enum](https://simon-ritchie.github.io/apysc/en/jp_fps.html)
+- [Timer クラスの delay 設定](https://simon-ritchie.github.io/apysc/jp/jp_timer_delay.html)
+- [FPS の enum](https://simon-ritchie.github.io/apysc/jp/jp_fps.html)
 
-- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)
+- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp/jp_about_handler_options_type.html)
 
 ## repeat_count 属性のAPI
 

@@ -222,7 +222,7 @@ ap.save_overall_html(dest_dir_path="path_bezier_3d_relative/")
 
 **[関連資料]**
 
-- [Path クラス](https://simon-ritchie.github.io/apysc/en/jp_path.html)
-- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)
+- [Path クラス](https://simon-ritchie.github.io/apysc/jp/jp_path.html)
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_graphics_draw_path.html)
 
-- [PathBezier3DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_3d_continual.html)
+- [PathBezier3DContinual クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_3d_continual.html)

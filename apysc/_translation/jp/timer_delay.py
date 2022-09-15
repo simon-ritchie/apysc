@@ -71,15 +71,15 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################
-    "- [Timer](https://simon-ritchie.github.io/apysc/en/timer.html)": "- [Timer クラス](https://simon-ritchie.github.io/apysc/en/jp_timer.html)",  # noqa
+    "- [Timer](https://simon-ritchie.github.io/apysc/en/timer.html)": "- [Timer クラス](https://simon-ritchie.github.io/apysc/jp/jp_timer.html)",  # noqa
     ##################################################
-    "- [TimerEvent class](https://simon-ritchie.github.io/apysc/en/timer_event.html)": "- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/en/jp_timer_event.html)",  # noqa
+    "- [TimerEvent class](https://simon-ritchie.github.io/apysc/en/timer_event.html)": "- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/jp/jp_timer_event.html)",  # noqa
     ##################################################
-    "- [FPS enum](https://simon-ritchie.github.io/apysc/en/fps.html)": "- [FPS の enum](https://simon-ritchie.github.io/apysc/en/jp_fps.html)",  # noqa
+    "- [FPS enum](https://simon-ritchie.github.io/apysc/en/fps.html)": "- [FPS の enum](https://simon-ritchie.github.io/apysc/jp/jp_fps.html)",  # noqa
     ##################################################
-    "- [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html)": "- [Timer クラスの repeat_count 設定](https://simon-ritchie.github.io/apysc/en/jp_timer_repeat_count.html)",  # noqa
+    "- [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html)": "- [Timer クラスの repeat_count 設定](https://simon-ritchie.github.io/apysc/jp/jp_timer_repeat_count.html)",  # noqa
     ##################################################
-    "- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)": "- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)",  # noqa
+    "- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)": "- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp/jp_about_handler_options_type.html)",  # noqa
     ##################################################
     "## delay property API": "## delay 属性のAPI",
     ##################################################

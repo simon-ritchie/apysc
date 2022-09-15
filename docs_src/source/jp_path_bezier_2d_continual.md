@@ -6,7 +6,7 @@
 
 ## クラス概要
 
-`PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線を設定するためのクラスです。
+PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線を設定するためのクラスです。
 
 この設定は線対称な位置の制御点を使うことで滑らかな曲線を描画します。
 
@@ -144,7 +144,7 @@ ap.save_overall_html(dest_dir_path="path_bezier_2d_continual_relative/")
 
 **[関連資料]**
 
-- [Path クラス](https://simon-ritchie.github.io/apysc/en/jp_path.html)
-- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)
+- [Path クラス](https://simon-ritchie.github.io/apysc/jp/jp_path.html)
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_graphics_draw_path.html)
 
-- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d.html)
+- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_2d.html)

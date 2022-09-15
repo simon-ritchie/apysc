@@ -102,17 +102,17 @@ ap.save_overall_html(dest_dir_path="graphics_draw_path_basic_usage/")
 
 **[関連資料]**
 
-- [Path クラス](https://simon-ritchie.github.io/apysc/en/jp_path.html)
-- [PathMoveTo クラス](https://simon-ritchie.github.io/apysc/en/jp_path_move_to.html)
+- [Path クラス](https://simon-ritchie.github.io/apysc/jp/jp_path.html)
+- [PathMoveTo クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_move_to.html)
 
-- [PathLineTo クラス](https://simon-ritchie.github.io/apysc/en/jp_path_line_to.html)
-- [PathHorizontal クラス](https://simon-ritchie.github.io/apysc/en/jp_path_horizontal.html)
+- [PathLineTo クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_line_to.html)
+- [PathHorizontal クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_horizontal.html)
 
-- [PathVertical クラス](https://simon-ritchie.github.io/apysc/en/jp_path_vertical.html)
-- [PathClose クラス](https://simon-ritchie.github.io/apysc/en/jp_path_close.html)
+- [PathVertical クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_vertical.html)
+- [PathClose クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_close.html)
 
-- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d.html)
-- [PathBezier2DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d_continual.html)
+- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_2d.html)
+- [PathBezier2DContinual クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_2d_continual.html)
 
-- [PathBezier3D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_3d.html)
-- [PathBezier3DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_3d_continual.html)
+- [PathBezier3D クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_3d.html)
+- [PathBezier3DContinual クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_3d_continual.html)

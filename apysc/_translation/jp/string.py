@@ -61,9 +61,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################
-    "- [String class comparison operations](https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html)": "- [String クラスの比較制御](https://simon-ritchie.github.io/apysc/en/jp_string_comparison_operations.html)",  # noqa
+    "- [String class comparison operations](https://simon-ritchie.github.io/apysc/en/string_comparison_operations.html)": "- [String クラスの比較制御](https://simon-ritchie.github.io/apysc/jp/jp_string_comparison_operations.html)",  # noqa
     ##################################################
-    "- [String class addition and multiplication operations](https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html)": "- [String クラスの加算と乗算の制御](https://simon-ritchie.github.io/apysc/en/jp_string_addition_and_multiplication.html)",  # noqa
+    "- [String class addition and multiplication operations](https://simon-ritchie.github.io/apysc/en/string_addition_and_multiplication.html)": "- [String クラスの加算と乗算の制御](https://simon-ritchie.github.io/apysc/jp/jp_string_addition_and_multiplication.html)",  # noqa
     ##################################################
     "## value property API": "## value 属性のAPI",
     ##################################################
@@ -87,5 +87,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################
-    "- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)": "- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_fundamental_data_classes_value_interface.html)",  # noqa
+    "- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)": "- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_fundamental_data_classes_value_interface.html)",  # noqa
 }

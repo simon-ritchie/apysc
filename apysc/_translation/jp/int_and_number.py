@@ -83,9 +83,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################
-    "- [Int and Number common arithmetic operations](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)": "- [Int と Number クラスの共通の各計算制御](https://simon-ritchie.github.io/apysc/en/jp_int_and_number_arithmetic_operations.html)",  # noqa
+    "- [Int and Number common arithmetic operations](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)": "- [Int と Number クラスの共通の各計算制御](https://simon-ritchie.github.io/apysc/jp/jp_int_and_number_arithmetic_operations.html)",  # noqa
     ##################################################
-    "- [Int and Number common comparison operations](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)": "- [Int と Number クラスの共通の各比較制御](https://simon-ritchie.github.io/apysc/en/jp_int_and_number_comparison_operations.html)",  # noqa
+    "- [Int and Number common comparison operations](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)": "- [Int と Number クラスの共通の各比較制御](https://simon-ritchie.github.io/apysc/jp/jp_int_and_number_comparison_operations.html)",  # noqa
     ##################################################
     "## Number class constructor API": "## Number クラスのコンストラクタのAPI",
     ##################################################
@@ -121,9 +121,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################
-    "- [Int and Number common arithmetic operations](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)": "- [Int と Number クラスの共通の各計算制御](https://simon-ritchie.github.io/apysc/en/jp_int_and_number_arithmetic_operations.html)",  # noqa
+    "- [Int and Number common arithmetic operations](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)": "- [Int と Number クラスの共通の各計算制御](https://simon-ritchie.github.io/apysc/jp/jp_int_and_number_arithmetic_operations.html)",  # noqa
     ##################################################
-    "- [Int and Number common comparison operations](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)": "- [Int と Number クラスの共通の各比較制御](https://simon-ritchie.github.io/apysc/en/jp_int_and_number_comparison_operations.html)",  # noqa
+    "- [Int and Number common comparison operations](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)": "- [Int と Number クラスの共通の各比較制御](https://simon-ritchie.github.io/apysc/jp/jp_int_and_number_comparison_operations.html)",  # noqa
     ##################################################
     "## value property API": "## value 属性のAPI",
     ##################################################
@@ -147,5 +147,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################
-    "- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)": "- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_fundamental_data_classes_value_interface.html)",  # noqa
+    "- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)": "- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_fundamental_data_classes_value_interface.html)",  # noqa
 }

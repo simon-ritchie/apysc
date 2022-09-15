@@ -101,6 +101,24 @@ Remove skipping pattern matching keys from a specified list.<hr>
 - `result_keys`: list of str
   - An after removing key's list.
 
+## `_replace_link_en_dir_with_target_lang` function docstring
+
+Replace a link's `/en/` directory path with a specified language directory path.<hr>
+
+**[Parameters]**
+
+- `value`: str
+  - A target markdown string value to replace.
+- `lang`: Lang
+  - A target translation language.
+
+<hr>
+
+**[Returns]**
+
+- `value`: str
+  - Replaced markdown string.
+
 ## `_replace_link_text_by_fixed_mapping` function docstring
 
 Replace each link text if there are fixed translation-mapping settings.<hr>

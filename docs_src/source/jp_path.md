@@ -1017,17 +1017,17 @@ Int(3)
 
 **[関連資料]**
 
-- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)
-- [PathMoveTo クラス](https://simon-ritchie.github.io/apysc/en/jp_path_move_to.html)
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_graphics_draw_path.html)
+- [PathMoveTo クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_move_to.html)
 
-- [PathLineTo クラス](https://simon-ritchie.github.io/apysc/en/jp_path_line_to.html)
-- [PathHorizontal クラス](https://simon-ritchie.github.io/apysc/en/jp_path_horizontal.html)
+- [PathLineTo クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_line_to.html)
+- [PathHorizontal クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_horizontal.html)
 
-- [PathVertical クラス](https://simon-ritchie.github.io/apysc/en/jp_path_vertical.html)
-- [PathClose クラス](https://simon-ritchie.github.io/apysc/en/jp_path_close.html)
+- [PathVertical クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_vertical.html)
+- [PathClose クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_close.html)
 
-- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d.html)
-- [PathBezier2DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d_continual.html)
+- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_2d.html)
+- [PathBezier2DContinual クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_2d_continual.html)
 
-- [PathBezier3D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_3d.html)
-- [PathBezier3DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_3d_continual.html)
+- [PathBezier3D クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_3d.html)
+- [PathBezier3DContinual クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_3d_continual.html)

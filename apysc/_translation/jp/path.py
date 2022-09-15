@@ -305,23 +305,23 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################
-    "- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)": "- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)",  # noqa
+    "- [Graphics draw_path interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html)": "- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_graphics_draw_path.html)",  # noqa
     ##################################################
-    "- [PathMoveTo class](https://simon-ritchie.github.io/apysc/en/path_move_to.html)": "- [PathMoveTo クラス](https://simon-ritchie.github.io/apysc/en/jp_path_move_to.html)",  # noqa
+    "- [PathMoveTo class](https://simon-ritchie.github.io/apysc/en/path_move_to.html)": "- [PathMoveTo クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_move_to.html)",  # noqa
     ##################################################
-    "- [PathLineTo class](https://simon-ritchie.github.io/apysc/en/path_line_to.html)": "- [PathLineTo クラス](https://simon-ritchie.github.io/apysc/en/jp_path_line_to.html)",  # noqa
+    "- [PathLineTo class](https://simon-ritchie.github.io/apysc/en/path_line_to.html)": "- [PathLineTo クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_line_to.html)",  # noqa
     ##################################################
-    "- [PathHorizontal class](https://simon-ritchie.github.io/apysc/en/path_horizontal.html)": "- [PathHorizontal クラス](https://simon-ritchie.github.io/apysc/en/jp_path_horizontal.html)",  # noqa
+    "- [PathHorizontal class](https://simon-ritchie.github.io/apysc/en/path_horizontal.html)": "- [PathHorizontal クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_horizontal.html)",  # noqa
     ##################################################
-    "- [PathVertical class](https://simon-ritchie.github.io/apysc/en/path_vertical.html)": "- [PathVertical クラス](https://simon-ritchie.github.io/apysc/en/jp_path_vertical.html)",  # noqa
+    "- [PathVertical class](https://simon-ritchie.github.io/apysc/en/path_vertical.html)": "- [PathVertical クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_vertical.html)",  # noqa
     ##################################################
-    "- [PathClose class](https://simon-ritchie.github.io/apysc/en/path_close.html)": "- [PathClose クラス](https://simon-ritchie.github.io/apysc/en/jp_path_close.html)",  # noqa
+    "- [PathClose class](https://simon-ritchie.github.io/apysc/en/path_close.html)": "- [PathClose クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_close.html)",  # noqa
     ##################################################
-    "- [PathBezier2D class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d.html)": "- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d.html)",  # noqa
+    "- [PathBezier2D class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d.html)": "- [PathBezier2D クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_2d.html)",  # noqa
     ##################################################
-    "- [PathBezier2DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d_continual.html)": "- [PathBezier2DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_2d_continual.html)",  # noqa
+    "- [PathBezier2DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_2d_continual.html)": "- [PathBezier2DContinual クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_2d_continual.html)",  # noqa
     ##################################################
-    "- [PathBezier3D class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html)": "- [PathBezier3D クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_3d.html)",  # noqa
+    "- [PathBezier3D class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d.html)": "- [PathBezier3D クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_3d.html)",  # noqa
     ##################################################
-    "- [PathBezier3DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html)": "- [PathBezier3DContinual クラス](https://simon-ritchie.github.io/apysc/en/jp_path_bezier_3d_continual.html)",  # noqa
+    "- [PathBezier3DContinual class](https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html)": "- [PathBezier3DContinual クラス](https://simon-ritchie.github.io/apysc/jp/jp_path_bezier_3d_continual.html)",  # noqa
 }

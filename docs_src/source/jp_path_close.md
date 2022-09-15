@@ -6,7 +6,7 @@
 
 ## クラス概要
 
-`PathClose`クラスはパスを閉じる設定のためのクラスです。
+`PathVertical`クラスはパス上に新しい垂直の直線の設定を追加するためのクラスです。
 
 もしもパスの始点と終点が繋がっていない場合、この設定はこれらの座標を接続します。
 
@@ -84,5 +84,5 @@ ap.save_overall_html(dest_dir_path="path_close_basic_usage/")
 
 **[関連資料]**
 
-- [Path クラス](https://simon-ritchie.github.io/apysc/en/jp_path.html)
-- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_graphics_draw_path.html)
+- [Path クラス](https://simon-ritchie.github.io/apysc/jp/jp_path.html)
+- [Graphics クラスの draw_path インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_graphics_draw_path.html)

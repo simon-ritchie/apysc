@@ -187,7 +187,7 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 **[関連資料]**
 
-- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)
+- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp/jp_about_handler_options_type.html)
 
 ## unbind_mouseover API
 
@@ -291,7 +291,7 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 **[関連資料]**
 
-- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)
+- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp/jp_about_handler_options_type.html)
 
 ## unbind_mouseout API
 

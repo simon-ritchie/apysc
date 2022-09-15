@@ -34,7 +34,7 @@ ap.save_overall_html(dest_dir_path="sequential_animation_example_1/")
 
 Also, you can use the `animation_complete` interface to register a handler for the sequence animation. For the details, please see:
 
-- [animation_complete interface document](animation_complete.md)
+- [animation_complete interface](animation_complete.md)
 
 ## See also
 

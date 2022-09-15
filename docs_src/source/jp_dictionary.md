@@ -124,7 +124,7 @@ Dictionary({'a': 10})
 
 **[関連資料]**
 
-- [Dictionary クラスのジェネリックの型設定](https://simon-ritchie.github.io/apysc/en/jp_dictionary_generic.html)
+- [Dictionary クラスのジェネリックの型設定](https://simon-ritchie.github.io/apysc/jp/jp_dictionary_generic.html)
 
 ## value 属性のAPI
 
@@ -153,4 +153,4 @@ Dictionary({'a': 10})
 
 **[関連資料]**
 
-- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_fundamental_data_classes_value_interface.html)
+- [apyscの基本的なデータクラスの value インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_fundamental_data_classes_value_interface.html)

@@ -172,7 +172,7 @@ stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="line_chart_1"
 
 **[関連資料]**
 
-- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](https://simon-ritchie.github.io/apysc/en/jp_add_child_and_remove_child.html)
+- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_add_child_and_remove_child.html)
 
 ## remove_child API
 
@@ -208,7 +208,7 @@ None
 
 **[関連資料]**
 
-- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](https://simon-ritchie.github.io/apysc/en/jp_add_child_and_remove_child.html)
+- [add_child （子の追加）と remove_child （子の削除）のインターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_add_child_and_remove_child.html)
 
 ## contains API
 
@@ -254,7 +254,7 @@ Boolean(False)
 
 **[関連資料]**
 
-- [contains インターフェイス](https://simon-ritchie.github.io/apysc/en/jp_contains.html)
+- [contains インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_contains.html)
 
 ## num_children property API
 
@@ -290,7 +290,7 @@ Int(2)
 
 **[関連資料]**
 
-- [num_children （子の件数属性）のインターフェイス](https://simon-ritchie.github.io/apysc/en/jp_num_children.html)
+- [num_children （子の件数属性）のインターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_num_children.html)
 
 ## get_child_at API
 
@@ -336,4 +336,4 @@ True
 
 **[関連資料]**
 
-- [get_child_at （特定位置の子の取得処理）のインターフェイス](https://simon-ritchie.github.io/apysc/en/jp_get_child_at.html)
+- [get_child_at （特定位置の子の取得処理）のインターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_get_child_at.html)

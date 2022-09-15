@@ -77,13 +77,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################
-    "- [TimerEvent class](https://simon-ritchie.github.io/apysc/en/timer_event.html)": "- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/en/jp_timer_event.html)",  # noqa
+    "- [TimerEvent class](https://simon-ritchie.github.io/apysc/en/timer_event.html)": "- [TimerEvent クラス](https://simon-ritchie.github.io/apysc/jp/jp_timer_event.html)",  # noqa
     ##################################################
-    "- [Timer class delay setting](https://simon-ritchie.github.io/apysc/en/timer_delay.html)": "- [Timer クラスの delay 設定](https://simon-ritchie.github.io/apysc/en/jp_timer_delay.html)",  # noqa
+    "- [Timer class delay setting](https://simon-ritchie.github.io/apysc/en/timer_delay.html)": "- [Timer クラスの delay 設定](https://simon-ritchie.github.io/apysc/jp/jp_timer_delay.html)",  # noqa
     ##################################################
-    "- [FPS enum](https://simon-ritchie.github.io/apysc/en/fps.html)": "- [FPS の enum](https://simon-ritchie.github.io/apysc/en/jp_fps.html)",  # noqa
+    "- [FPS enum](https://simon-ritchie.github.io/apysc/en/fps.html)": "- [FPS の enum](https://simon-ritchie.github.io/apysc/jp/jp_fps.html)",  # noqa
     ##################################################
-    "- [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html)": "- [Timer クラスの repeat_count 設定](https://simon-ritchie.github.io/apysc/en/jp_timer_repeat_count.html)",  # noqa
+    "- [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/en/timer_repeat_count.html)": "- [Timer クラスの repeat_count 設定](https://simon-ritchie.github.io/apysc/jp/jp_timer_repeat_count.html)",  # noqa
     ##################################################
-    "- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)": "- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/en/jp_about_handler_options_type.html)",  # noqa
+    "- [About the handler options' type](https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html)": "- [ハンドラのoptions引数の型について](https://simon-ritchie.github.io/apysc/jp/jp_about_handler_options_type.html)",  # noqa
 }

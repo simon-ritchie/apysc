@@ -1034,7 +1034,8 @@ def test__convert_docstring_to_markdown() -> None:
         "",
         "**[Interface signature]** " "`test_func() -> None`<hr>",
         "",
-        "**[Interface summary]** "
+        "**[Interface summary]**",
+        "",
         "Lorem ipsum dolor sit amet, consectetur "
         "adipiscing elit, sed do eiusmod tempor incididunt "
         "ut labore et dolore magna aliqua.<hr>",

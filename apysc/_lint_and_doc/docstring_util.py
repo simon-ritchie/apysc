@@ -436,7 +436,7 @@ def _convert_docstring_to_markdown(
     if signature is not None:
         markdown += f"\n\n**[Interface signature]** `{callable_name}{signature}`<hr>"
     markdown = append_summary_to_markdown(
-        markdown=markdown, summary=summary, heading_label="**[Interface summary]** "
+        markdown=markdown, summary=summary, heading_label="**[Interface summary]**\n\n"
     )
     markdown = append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=parameters

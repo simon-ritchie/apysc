@@ -159,24 +159,24 @@ MAPPINGS: Mappings = Mappings(
             val="このインターフェイスは`Rectangle`や`Circle`クラスなどの`GraphicsBase`のサブクラスで存在します。",
         ),
         Mapping(
-            key="**[Interface summary]** Set the line alpha animation setting.<hr>",
-            val="**[インターフェイス概要]** 線の透明度のアニメーションを設定します。<hr>",
+            key="Set the line alpha animation setting.<hr>",
+            val="線の透明度のアニメーションを設定します。<hr>",
         ),
         Mapping(
             key="  - The final line alpha of the animation.",
             val="  - 線の透明度のアニメーションの最終値。",
         ),
         Mapping(
-            key="**[Interface summary]** Set the line color animation setting.<hr>",
-            val="**[インターフェイス概要]** 線の色のアニメーションを設定します。<hr>",
+            key="Set the line color animation setting.<hr>",
+            val="線の色のアニメーションを設定します。<hr>",
         ),
         Mapping(
             key="  - The final line color (hex color code) of the animation.",
             val="  - 16進数の線の色のアニメーションの最終値。",
         ),
         Mapping(
-            key="**[Interface summary]** Set the line thickness animation setting.<hr>",
-            val="**[インターフェイス概要]** 線幅のアニメーションを設定します。<hr>",
+            key="Set the line thickness animation setting.<hr>",
+            val="線幅のアニメーションを設定します。<hr>",
         ),
         Mapping(
             key="  - The final line thickness of the animation.",
@@ -187,8 +187,8 @@ MAPPINGS: Mappings = Mappings(
             val="このインターフェイスは`Sprite`や`Rectangle`などの`DisplayObject`の各サブクラスに存在します。",
         ),
         Mapping(
-            key="**[Interface summary]** Set the x and y coordinates animation settings.<hr>",
-            val="**[インターフェイス概要]** XとY座標に対するアニメーションを設定します。<hr>",
+            key="Set the x and y coordinates animation settings.<hr>",
+            val="XとY座標に対するアニメーションを設定します。<hr>",
         ),
         Mapping(key="  - Destination of the x-coordinate.", val="  - 最終的なX座標。"),
         Mapping(key="  - Destination of the y-coordinate.", val="  - 最終的なY座標。"),
@@ -210,34 +210,34 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## Interface Notes", val="## インターフェイスの特記事項"),
         Mapping(
-            key="**[Interface summary]** Reverse all running animations.<hr>",
-            val="**[インターフェイス概要]** 動いている全てのアニメーションを反転（逆再生）します。<hr>",
+            key="Reverse all running animations.<hr>",
+            val="動いている全てのアニメーションを反転（逆再生）します。<hr>",
         ),
         Mapping(
-            key="**[Interface summary]** Set the rotation around the center animation setting.<hr>",
-            val="**[インターフェイス概要]** 中央座標を使用した回転のアニメーションの設定を行います。<hr>",
+            key="Set the rotation around the center animation setting.<hr>",
+            val="中央座標を使用した回転のアニメーションの設定を行います。<hr>",
         ),
         Mapping(
             key="  - The final rotation of the animation.",
             val="  - 回転のアニメーションの回転量の最終値。",
         ),
         Mapping(
-            key="**[Interface summary]** Set the rotation around the given point animation setting.<hr>",
-            val="**[インターフェイス概要]** 指定された座標を基準とした回転のアニメーションを設定します。<hr>",
+            key="Set the rotation around the given point animation setting.<hr>",
+            val="指定された座標を基準とした回転のアニメーションを設定します。<hr>",
         ),
         Mapping(key="  - X-coordinate.", val="  - X座標。"),
         Mapping(key="  - Y-coordinate.", val="  - Y座標。"),
         Mapping(key="## What interfaces are these?", val="## 各インターフェイスの概要"),
         Mapping(
-            key="**[Interface summary]** Set the scale-x from the center point animation setting.<hr>",
-            val="**[インターフェイス概要]** 中央座標を基準としたX軸の拡縮アニメーションを設定します。<hr>",
+            key="Set the scale-x from the center point animation setting.<hr>",
+            val="中央座標を基準としたX軸の拡縮アニメーションを設定します。<hr>",
         ),
         Mapping(
             key="  - The final scale-x of the animation.", val="  - X軸の拡縮のアニメーションの最終値。"
         ),
         Mapping(
-            key="**[Interface summary]** Set the scale-y from the center point animation setting.<hr>",
-            val="**[インターフェイス概要]** 中央座標を基準としたY軸の拡縮アニメーションを設定します。<hr>",
+            key="Set the scale-y from the center point animation setting.<hr>",
+            val="中央座標を基準としたY軸の拡縮アニメーションを設定します。<hr>",
         ),
         Mapping(
             key="  - The final scale-y of the animation.", val="  - Y軸の拡縮のアニメーションの最終値。"
@@ -247,15 +247,15 @@ MAPPINGS: Mappings = Mappings(
             val="このインターフェイスは`Rectangle`などの`GraphicsBase`の各サブクラス上に存在します。",
         ),
         Mapping(
-            key="**[Interface summary]** Set the skew-x animation setting.<hr>",
-            val="**[インターフェイス概要]** X軸の傾きのアニメーションを設定します。<hr>",
+            key="Set the skew-x animation setting.<hr>",
+            val="X軸の傾きのアニメーションを設定します。<hr>",
         ),
         Mapping(
             key="  - The final skew-x of the animation.", val="  - X軸の傾きのアニメーションの最終値。"
         ),
         Mapping(
-            key="**[Interface summary]** Get an animation elapsed millisecond.<hr>",
-            val="**[インターフェイス概要]** アニメーションの経過時間のミリ秒を取得します。<hr>",
+            key="Get an animation elapsed millisecond.<hr>",
+            val="アニメーションの経過時間のミリ秒を取得します。<hr>",
         ),
         Mapping(
             key="  - An animation elapsed millisecond.", val="  - アニメーションの経過時間のミリ秒。"
@@ -268,12 +268,12 @@ MAPPINGS: Mappings = Mappings(
             key="## Notes for the Ellipse instance", val="## Ellipse のインスタンスにおける特記事項"
         ),
         Mapping(
-            key="**[Interface summary]** Set the width animation setting.<hr>",
-            val="**[インターフェイス概要]** 幅のアニメーションを設定します。<hr>",
+            key="Set the width animation setting.<hr>",
+            val="幅のアニメーションを設定します。<hr>",
         ),
         Mapping(
-            key="**[Interface summary]** Set the height animation setting.<hr>",
-            val="**[インターフェイス概要]** 高さのアニメーションを設定します。<hr>",
+            key="Set the height animation setting.<hr>",
+            val="高さのアニメーションを設定します。<hr>",
         ),
         Mapping(key="  - The final width of the animation.", val="  - 幅のアニメーションの最終値。"),
         Mapping(
@@ -284,12 +284,12 @@ MAPPINGS: Mappings = Mappings(
             val="## Circle と Ellipse の各クラスの特記事項",
         ),
         Mapping(
-            key="**[Interface summary]** Set the x-coordinate animation setting.<hr>",
-            val="**[インターフェイス概要]** X座標のアニメーションを設定します。<hr>",
+            key="Set the x-coordinate animation setting.<hr>",
+            val="X座標のアニメーションを設定します。<hr>",
         ),
         Mapping(
-            key="**[Interface summary]** Set the y-coordinate animation setting.<hr>",
-            val="**[インターフェイス概要]** Y座標のアニメーションを設定します。<hr>",
+            key="Set the y-coordinate animation setting.<hr>",
+            val="Y座標のアニメーションを設定します。<hr>",
         ),
         Mapping(key="  - Any value to append.", val="  - 追加対象の任意の値。"),
         Mapping(
@@ -495,13 +495,13 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Augmented assignment", val="## 累算代入演算"),
         Mapping(key="## x property API", val="## x属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get an x-coordinate.<hr>",
-            val="**[インターフェイス概要]** X座標を取得します。<hr>",
+            key="Get an x-coordinate.<hr>",
+            val="X座標を取得します。<hr>",
         ),
         Mapping(key="## y property API", val="## y属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get a y-coordinate.<hr>",
-            val="**[インターフェイス概要]** Y座標を取得します。<hr>",
+            key="Get a y-coordinate.<hr>",
+            val="Y座標を取得します。<hr>",
         ),
         Mapping(
             key="DisplayObject class mouse event binding interfaces",
@@ -622,8 +622,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="  - Target index child instance.", val="  - 対象の子のインスタンス。"),
         Mapping(
-            key="**[Interface summary]** Get a rotation value around the center of this instance.<hr>",
-            val="**[インターフェイス概要]** インスタンスの中央座標を基準とした回転量を取得します。<hr>",
+            key="Get a rotation value around the center of this instance.<hr>",
+            val="インスタンスの中央座標を基準とした回転量を取得します。<hr>",
         ),
         Mapping(
             key="  - Rotation value around the center of this instance.",
@@ -643,16 +643,16 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="  - Rotation value to set.", val="  - 設定する回転量。"),
         Mapping(
-            key="**[Interface summary]** Update a rotation value around the given coordinates.<hr>",
-            val="**[インターフェイス概要]** 指定された座標基準の回転量を更新します。<hr>",
+            key="Update a rotation value around the given coordinates.<hr>",
+            val="指定された座標基準の回転量を更新します。<hr>",
         ),
         Mapping(
             key="## scale_x_from_center property API",
             val="## scale_x_from_center 属性のAPI",
         ),
         Mapping(
-            key="**[Interface summary]** Get a scale-x value from the center of this instance.<hr>",
-            val="**[インターフェイス概要]** インスタンスの中央座標を基準とした水平方向の拡縮の値を取得します。<hr>",
+            key="Get a scale-x value from the center of this instance.<hr>",
+            val="インスタンスの中央座標を基準とした水平方向の拡縮の値を取得します。<hr>",
         ),
         Mapping(
             key="  - Scale-x value from the center of this instance.",
@@ -663,8 +663,8 @@ MAPPINGS: Mappings = Mappings(
             val="## scale_y_from_center 属性のAPI",
         ),
         Mapping(
-            key="**[Interface summary]** Get a scale-y value from the center of this instance.<hr>",
-            val="**[インターフェイス概要]** インスタンスの中央座標を基準とした垂直方向の拡縮の値を取得します。<hr>",
+            key="Get a scale-y value from the center of this instance.<hr>",
+            val="インスタンスの中央座標を基準とした垂直方向の拡縮の値を取得します。<hr>",
         ),
         Mapping(
             key="  - Scale-y value from the center of this instance.",
@@ -674,8 +674,8 @@ MAPPINGS: Mappings = Mappings(
             key="## get_scale_x_from_point API", val="## get_scale_x_from_point API"
         ),
         Mapping(
-            key="**[Interface summary]** Get a scale-x value from the given x-coordinate.<hr>",
-            val="**[インターフェイス概要]** 指定されたX座標を基準として水平方向の拡縮の値を取得します。<hr>",
+            key="Get a scale-x value from the given x-coordinate.<hr>",
+            val="指定されたX座標を基準として水平方向の拡縮の値を取得します。<hr>",
         ),
         Mapping(
             key="  - Scale-x value from the given x-coordinate.",
@@ -685,15 +685,15 @@ MAPPINGS: Mappings = Mappings(
             key="## set_scale_x_from_point API", val="## set_scale_x_from_point API"
         ),
         Mapping(
-            key="**[Interface summary]** Update a scale-x value from the given x-coordinate.<hr>",
-            val="**[インターフェイス概要]** 指定されたX座病を基準とした水平方向の拡縮値を更新します。<hr>",
+            key="Update a scale-x value from the given x-coordinate.<hr>",
+            val="指定されたX座病を基準とした水平方向の拡縮値を更新します。<hr>",
         ),
         Mapping(
             key="## get_scale_y_from_point API", val="## get_scale_y_from_point API"
         ),
         Mapping(
-            key="**[Interface summary]** Get a scale-y value from the given y-coordinate.<hr>",
-            val="**[インターフェイス概要]** 指定されたY座標を基準とした垂直方向の拡縮の値を取得します。<hr>",
+            key="Get a scale-y value from the given y-coordinate.<hr>",
+            val="指定されたY座標を基準とした垂直方向の拡縮の値を取得します。<hr>",
         ),
         Mapping(
             key="  - Scale-y value from the given y-coordinate.",
@@ -703,15 +703,15 @@ MAPPINGS: Mappings = Mappings(
             key="## set_scale_y_from_point API", val="## set_scale_y_from_point API"
         ),
         Mapping(
-            key="**[Interface summary]** Update a scale-y value from the given y-coordinate.<hr>",
-            val="**[インターフェイス概要]** 指定されたY座標を基準とした垂直方向の拡縮値を更新します。<hr>",
+            key="Update a scale-y value from the given y-coordinate.<hr>",
+            val="指定されたY座標を基準とした垂直方向の拡縮値を更新します。<hr>",
         ),
         Mapping(key="  - Scale-y value to set.", val="  - 設定すの垂直方向の拡縮値。"),
         Mapping(key="  - Scale-x value to set.", val="  - 設定する水平方向の拡縮値。"),
         Mapping(key="## skew_x property API", val="## skew_x property API"),
         Mapping(
-            key="**[Interface summary]** Get a current skew x value of the instance.<hr>",
-            val="**[インターフェイス概要]** インスタンスの現在のX軸の歪みの値を取得します。<hr>",
+            key="Get a current skew x value of the instance.<hr>",
+            val="インスタンスの現在のX軸の歪みの値を取得します。<hr>",
         ),
         Mapping(
             key="  - Current skew x value of this instance.",
@@ -719,8 +719,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## skew_y property API", val="## skew_y property API"),
         Mapping(
-            key="**[Interface summary]** Get a current skew y value of the instance.<hr>",
-            val="**[インターフェイス概要]** インスタンスの現在のY軸の歪みの値を取得します。<hr>",
+            key="Get a current skew y value of the instance.<hr>",
+            val="インスタンスの現在のY軸の歪みの値を取得します。<hr>",
         ),
         Mapping(
             key="  - Current skew y value of the instance.",
@@ -730,8 +730,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Fill color alpha (opacity) setting", val="## 塗りの色の透明度の設定"),
         Mapping(key="## begin_fill API", val="## begin_fill API"),
         Mapping(
-            key="**[Interface summary]** Set single color value for fill.<hr>",
-            val="**[インターフェイス概要]** 塗りのための単一の色の設定を行います。<hr>",
+            key="Set single color value for fill.<hr>",
+            val="塗りのための単一の色の設定を行います。<hr>",
         ),
         Mapping(
             key="  - Hexadecimal color string. e.g., '#00aaff'",
@@ -740,8 +740,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="  - Color opacity (0.0 to 1.0).", val="  - 塗りの透明度（0.0～1.0）。"),
         Mapping(key="## fill_color property API", val="## fill_color 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get current fill color.<hr>",
-            val="**[インターフェイス概要]** 現在の塗りの色を取得します。<hr>",
+            key="Get current fill color.<hr>",
+            val="現在の塗りの色を取得します。<hr>",
         ),
         Mapping(
             key="  - Current fill color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.",
@@ -749,8 +749,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## fill_alpha property API", val="## fill_alpha 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get current fill color opacity.<hr>",
-            val="**[インターフェイス概要]** 現在の塗りの透明度を取得します。<hr>",
+            key="Get current fill color opacity.<hr>",
+            val="現在の塗りの透明度を取得します。<hr>",
         ),
         Mapping(
             key="  - Current fill color opacity (0.0 to 1.0). If not be set, 1.0 will be returned.",
@@ -759,8 +759,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Return value", val="## 返却値"),
         Mapping(key="## draw_circle API", val="## draw_circle API"),
         Mapping(
-            key="**[Interface summary]** Draw a circle vector graphics.<hr>",
-            val="**[インターフェイス概要]** 円のベクターグラフィックスを描画します。<hr>",
+            key="Draw a circle vector graphics.<hr>",
+            val="円のベクターグラフィックスを描画します。<hr>",
         ),
         Mapping(key="  - X-coordinate of the circle center.", val="  - 円の中心のX座標。"),
         Mapping(key="  - Y-coordinate of the circle center.", val="  - 円の中心のY座標。"),
@@ -771,8 +771,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## draw_dash_dotted_line API", val="## draw_dash_dotted_line API"),
         Mapping(
-            key="**[Interface summary]** Draw a dash-dotted (1-dot chain) line vector graphics.<hr>",
-            val="**[インターフェイス概要]** 一点鎖線のベクターグラフィックスの線を描画します。<hr>",
+            key="Draw a dash-dotted (1-dot chain) line vector graphics.<hr>",
+            val="一点鎖線のベクターグラフィックスの線を描画します。<hr>",
         ),
         Mapping(key="  - Line start x-coordinate.", val="  - 線の開始位置のX座標。"),
         Mapping(key="  - Line start y-coordinate.", val="  - 線の開始位置のY座標。"),
@@ -789,8 +789,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## draw_dashed_line API", val="## draw_dashed_line API"),
         Mapping(
-            key="**[Interface summary]** Draw a dashed line vector graphics.<hr>",
-            val="**[インターフェイス概要]** 破線のベクターグラフィックスを描画します。<hr>",
+            key="Draw a dashed line vector graphics.<hr>",
+            val="破線のベクターグラフィックスを描画します。<hr>",
         ),
         Mapping(key="  - Blank space size between dashes.", val="  - 破線間の空白スペースのサイズ。"),
         Mapping(
@@ -799,8 +799,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## draw_dotted_line API", val="## draw_dotted_line API"),
         Mapping(
-            key="**[Interface summary]** Draw a dotted line vector graphics.<hr>",
-            val="**[インターフェイス概要]** 点線のベクターグラフィックスを描画します。<hr>",
+            key="Draw a dotted line vector graphics.<hr>",
+            val="点線のベクターグラフィックスを描画します。<hr>",
         ),
         Mapping(
             key=" ・This interface ignores line settings, like the `LineDashSetting`, except `LineDotSetting`.<hr>",
@@ -808,8 +808,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## draw_ellipse API", val="## draw_ellipse API"),
         Mapping(
-            key="**[Interface summary]** Draw an ellipse vector graphic.<hr>",
-            val="**[インターフェイス概要]** 楕円のベクターグラフィックスを描画します。<hr>",
+            key="Draw an ellipse vector graphic.<hr>",
+            val="楕円のベクターグラフィックスを描画します。<hr>",
         ),
         Mapping(key="  - X-coordinate of the ellipse center.", val="  - 楕円の中央のX座標。"),
         Mapping(key="  - Y-coordinate of the ellipse center.", val="  - 楕円の中央のY座標。"),
@@ -823,8 +823,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Line class instance", val="## Line クラスのインスタンス"),
         Mapping(key="## draw_line API", val="## draw_line API"),
         Mapping(
-            key="**[Interface summary]** Draw a normal line vector graphic.<hr>",
-            val="**[インターフェイス概要]** 通常の直線のベクターグラフィックスを描画します。<hr>",
+            key="Draw a normal line vector graphic.<hr>",
+            val="通常の直線のベクターグラフィックスを描画します。<hr>",
         ),
         Mapping(
             key=" ・This interface ignores line settings, like the `LineDotSetting`, `LineDashSetting`.<hr>",
@@ -832,8 +832,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## draw_polygon API", val="## draw_polygon API"),
         Mapping(
-            key="**[Interface summary]** Draw a polygon vector graphic. This interface is similar to the Polyline class (created by `move_to` or `line_to`). But unlike that, this interface connects the last point and the start point.<hr>",
-            val="**[インターフェイス概要]** 多角形のベクターグラフィックスを描画します。このインターフェイスはPolylineクラス（`move_to`や`line_to`のインターフェイスで作成されます）に似ていますが、このインターフェイスは始点と終点が連結されるという違いがあります。<hr>",
+            key="Draw a polygon vector graphic. This interface is similar to the Polyline class (created by `move_to` or `line_to`). But unlike that, this interface connects the last point and the start point.<hr>",
+            val="多角形のベクターグラフィックスを描画します。このインターフェイスはPolylineクラス（`move_to`や`line_to`のインターフェイスで作成されます）に似ていますが、このインターフェイスは始点と終点が連結されるという違いがあります。<hr>",
         ),
         Mapping(key="  - Polygon vertex points.", val="  - 多角形の頂点の各座標。"),
         Mapping(
@@ -842,8 +842,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## draw_rect API", val="## draw_rect API"),
         Mapping(
-            key="**[Interface summary]** Draw a rectangle vector graphics.<hr>",
-            val="**[インターフェイス概要]** ベクターグラフィックスの四角を描画します。<hr>",
+            key="Draw a rectangle vector graphics.<hr>",
+            val="ベクターグラフィックスの四角を描画します。<hr>",
         ),
         Mapping(key="  - X position to start drawing.", val="  - 描画を開始する位置のX座標。"),
         Mapping(key="  - Y position to start drawing.", val="  - 描画を開始する位置のY座標。"),
@@ -854,8 +854,8 @@ MAPPINGS: Mappings = Mappings(
             key="## draw_round_dotted_line API", val="## draw_round_dotted_line API"
         ),
         Mapping(
-            key="**[Interface summary]** Draw a round-dotted line vector graphics.<hr>",
-            val="**[インターフェイス概要]** 丸ドットの直線のベクターグラフィックスを描画します。<hr>",
+            key="Draw a round-dotted line vector graphics.<hr>",
+            val="丸ドットの直線のベクターグラフィックスを描画します。<hr>",
         ),
         Mapping(key="  - Dot round size.", val="  - 丸ドットのサイズ。"),
         Mapping(key="  - Blank space size between dots.", val="  - ドット間の空白のスペースのサイズ。"),
@@ -865,23 +865,23 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## draw_round_rect API", val="## draw_round_rect API"),
         Mapping(
-            key="**[Interface summary]** Draw a rounded rectangle vector graphics.<hr>",
-            val="**[インターフェイス概要]** 角丸四角のベクターグラフィックスを描画します。<hr>",
+            key="Draw a rounded rectangle vector graphics.<hr>",
+            val="角丸四角のベクターグラフィックスを描画します。<hr>",
         ),
         Mapping(key="  - X-coordinate to start drawing.", val="  - 描画を開始するX座標。"),
         Mapping(key="  - Y-coordinate to start drawing.", val="  - 描画を開始するY座標。"),
         Mapping(key="  - Ellipse width of the rectangle corner.", val="  - 四角の角丸の幅。"),
         Mapping(key="  - Ellipse height of the rectangle corner.", val="  - 四角の角丸の高さ。"),
         Mapping(
-            key="**[Interface summary]** Get this instance's fill opacity.<hr>",
-            val="**[インターフェイス概要]** このインスタンスの塗りの透明度を取得します。<hr>",
+            key="Get this instance's fill opacity.<hr>",
+            val="このインスタンスの塗りの透明度を取得します。<hr>",
         ),
         Mapping(
             key="  - Current fill opacity (0.0 to 1.0).", val="  - 現在の塗りの透明度（0.0～1.0）。"
         ),
         Mapping(
-            key="**[Interface summary]** Get this instance's fill color.<hr>",
-            val="**[インターフェイス概要]** インスタンスの塗りの色を取得します。<hr>",
+            key="Get this instance's fill color.<hr>",
+            val="インスタンスの塗りの色を取得します。<hr>",
         ),
         Mapping(
             key="The getter or setter interface value becomes (or requires) the `Number` value (0.0 to 1.0).",
@@ -889,8 +889,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## line_alpha property API", val="## line_alpha 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get this instance's line alpha (opacity).<hr>",
-            val="**[インターフェイス概要]** インスタンスの線の透明度を取得します。<hr>",
+            key="Get this instance's line alpha (opacity).<hr>",
+            val="インスタンスの線の透明度を取得します。<hr>",
         ),
         Mapping(
             key="  - Current line alpha (opacity. 0.0 to 1.0).",
@@ -902,16 +902,16 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## line_color property API", val="## line_color 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get this instance's line color.<hr>",
-            val="**[インターフェイス概要]** インスタンスの線の色を取得します。<hr>",
+            key="Get this instance's line color.<hr>",
+            val="インスタンスの線の色を取得します。<hr>",
         ),
         Mapping(
             key="  - Current line color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.",
             val="  - '#00aaff'などの16進数の線の色。もし設定されていない場合はこの空文字となります。",
         ),
         Mapping(
-            key="**[Interface summary]** Get current dash dot (1-dot chain) setting.<hr>",
-            val="**[インターフェイス概要]** 現在の一点鎖線のスタイル設定を取得します。<hr>",
+            key="Get current dash dot (1-dot chain) setting.<hr>",
+            val="現在の一点鎖線のスタイル設定を取得します。<hr>",
         ),
         Mapping(key="## line_dash_dot_setting API", val="## line_dash_dot_setting API"),
         Mapping(key="  - Dash dot (1-dot chain) setting.", val="  - 一点鎖線の設定。"),
@@ -919,8 +919,8 @@ MAPPINGS: Mappings = Mappings(
             key="## line_dash_setting property API", val="## line_dash_setting 属性のAPI"
         ),
         Mapping(
-            key="**[Interface summary]** Get current line dash setting.<hr>",
-            val="**[インターフェイス概要]** 現在の線の破線のスタイル設定を取得します。<hr>",
+            key="Get current line dash setting.<hr>",
+            val="現在の線の破線のスタイル設定を取得します。<hr>",
         ),
         Mapping(key="  - Line dash setting.", val="  - 線の破線のスタイル設定。"),
         Mapping(
@@ -931,8 +931,8 @@ MAPPINGS: Mappings = Mappings(
             key="## line_dot_setting property API", val="## line_dot_setting 属性のAPI"
         ),
         Mapping(
-            key="**[Interface summary]** Get this instance's line dot setting.<hr>",
-            val="**[インターフェイス概要]** このインスタンスの線の点線のスタイル設定を取得します。<hr>",
+            key="Get this instance's line dot setting.<hr>",
+            val="このインスタンスの線の点線のスタイル設定を取得します。<hr>",
         ),
         Mapping(key="  - Lien dot setting.", val="  - 線の点線のスタイル設定。"),
         Mapping(
@@ -945,7 +945,7 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="  - Line round dot setting.", val="  - 線の丸ドットのスタイル設定。"),
         Mapping(
-            key="**[Interface summary]** Get this instance's line round dot setting.<hr>",
+            key="Get this instance's line round dot setting.<hr>",
             val="**[インターフェイス]** インスタンスの線の丸ドットのスタイル設定を取得します。<hr>",
         ),
         Mapping(key="## Line-color setting", val="## 線の色の設定"),
@@ -1018,8 +1018,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Line dash-dot setting", val="## 線の一点鎖線の設定"),
         Mapping(key="## line_style API", val="## line_style API"),
         Mapping(
-            key="**[Interface summary]** Set line style values.<hr>",
-            val="**[インターフェイス概要]** 線のスタイルを設定します。<hr>",
+            key="Set line style values.<hr>",
+            val="線のスタイルを設定します。<hr>",
         ),
         Mapping(
             key="  - Line thickness (minimum value is 1).", val="  - 線の幅（1以上の値を受け付けます）。"
@@ -1049,48 +1049,48 @@ MAPPINGS: Mappings = Mappings(
             val="  - 一点鎖線のスタイル設定。もしこの引数が指定された場合、線の一点鎖線になります。",
         ),
         Mapping(
-            key="**[Interface summary]** Get current line color.<hr>",
-            val="**[インターフェイス概要]** 現在の線の色を取得します。<hr>",
+            key="Get current line color.<hr>",
+            val="現在の線の色を取得します。<hr>",
         ),
         Mapping(key="## line_thickness property API", val="## line_thickness 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get current line thickness.<hr>",
-            val="**[インターフェイス概要]** 現在の線の線幅を取得します。<hr>",
+            key="Get current line thickness.<hr>",
+            val="現在の線の線幅を取得します。<hr>",
         ),
         Mapping(key="  - Current line thickness.", val="  - 現在の線幅。"),
         Mapping(
-            key="**[Interface summary]** Get current line color opacity.<hr>",
-            val="**[インターフェイス概要]** 現在の線の透明度を取得します。<hr>",
+            key="Get current line color opacity.<hr>",
+            val="現在の線の透明度を取得します。<hr>",
         ),
         Mapping(
             key="  - Current line opacity (0.0 to 1.0).", val="  - 現在の線の透明度（0.0～1.0）。"
         ),
         Mapping(key="## line_cap property API", val="## line_cap 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get current line cap (edge) style setting.<hr>",
-            val="**[インターフェイス概要]** 現在の線の端のスタイル設定。<hr>",
+            key="Get current line cap (edge) style setting.<hr>",
+            val="現在の線の端のスタイル設定。<hr>",
         ),
         Mapping(
             key="  - Current line cap (edge) style setting.", val="  - 現在の線の端のスタイル設定。"
         ),
         Mapping(key="## line_joints property API", val="## line_joints 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get current line joints (vertices) style setting.<hr>",
-            val="**[インターフェイス概要]** 現在の線の接合部（頂点）のスタイル設定を取得します。<hr>",
+            key="Get current line joints (vertices) style setting.<hr>",
+            val="現在の線の接合部（頂点）のスタイル設定を取得します。<hr>",
         ),
         Mapping(
             key="  - Current line joints (vertices) style setting.",
             val="  - 現在の線の接合部（頂点）のスタイル設定。",
         ),
         Mapping(
-            key="**[Interface summary]** Get current line dot setting.<hr>",
-            val="**[インターフェイス概要]** 現在の線の点線設定を取得します。<hr>",
+            key="Get current line dot setting.<hr>",
+            val="現在の線の点線設定を取得します。<hr>",
         ),
         Mapping(key="  - Current line dot setting.", val="  - 現在の点線設定。"),
         Mapping(key="  - Current line dash setting.", val="  - 現在の破線設定。"),
         Mapping(
-            key="**[Interface summary]** Get current line round dot setting.<hr>",
-            val="**[インターフェイス概要]** 現在の線の丸ドットのスタイル設定を取得します。<hr>",
+            key="Get current line round dot setting.<hr>",
+            val="現在の線の丸ドットのスタイル設定を取得します。<hr>",
         ),
         Mapping(key="  - Current line round dot setting.", val="  - 現在の線の丸ドットのスタイル設定。"),
         Mapping(
@@ -1098,8 +1098,8 @@ MAPPINGS: Mappings = Mappings(
             val="## line_dash_dot_setting 属性のAPI",
         ),
         Mapping(
-            key="**[Interface summary]** Get current line dash dot setting.<hr>",
-            val="**[インターフェイス概要]** 現在の線の一点鎖線のスタイル設定を取得します。<hr>",
+            key="Get current line dash dot setting.<hr>",
+            val="現在の線の一点鎖線のスタイル設定を取得します。<hr>",
         ),
         Mapping(key="  - Line color opacity (0.0 to 1.0).", val="  - 線色の透明度（0.0～1.0）。"),
         Mapping(key="  - Current line dash dot setting.", val="  - 現在の一点鎖線のスタイル設定。"),
@@ -1108,8 +1108,8 @@ MAPPINGS: Mappings = Mappings(
             val="getterもしくはsetterの各インターフェイスの値は`Int`型の値になります。",
         ),
         Mapping(
-            key="**[Interface summary]** Get this instance's line thickness.<hr>",
-            val="**[インターフェイス概要]** このインスタンスの線幅を取得します。<hr>",
+            key="Get this instance's line thickness.<hr>",
+            val="このインスタンスの線幅を取得します。<hr>",
         ),
         Mapping(key="## What interfaces are they?", val="## 各インターフェイスの概要"),
         Mapping(
@@ -1118,16 +1118,16 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## move_to API", val="## move_to API"),
         Mapping(
-            key="**[Interface summary]** Move a line position to a specified point.<hr>",
-            val="**[インターフェイス概要]** 指定された座標に線の描画位置を移動させます。<hr>",
+            key="Move a line position to a specified point.<hr>",
+            val="指定された座標に線の描画位置を移動させます。<hr>",
         ),
         Mapping(key="  - X destination point to move.", val="  - 移動先となるX座標。"),
         Mapping(key="  - Y destination point to move.", val="  - 移動先となるY座標。"),
         Mapping(key="  - Line graphics instance.", val="  - 線のグラフィックスのインスタンス。"),
         Mapping(key="## line_to API", val="## line_to API"),
         Mapping(
-            key="**[Interface summary]** Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr>",
-            val="**[インターフェイス概要]** 直前の位置の座標から指定された座標に向けて線を描画します（初期位置はx=0, y=0になります）。<hr>",
+            key="Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr>",
+            val="直前の位置の座標から指定された座標に向けて線を描画します（初期位置はx=0, y=0になります）。<hr>",
         ),
         Mapping(
             key="  - X destination point to draw a line.", val="  - 線の描画先となる終点のX座標。"
@@ -1138,8 +1138,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Return values", val="## 各返却値について"),
         Mapping(key="## If constructor API", val="## If クラスのコンストラクタのAPI"),
         Mapping(
-            key="**[Interface summary]** A class to append if branch instruction expression.<hr>",
-            val="**[インターフェイス概要]** if文の分岐制御の表現を追加するためのクラス。<hr>",
+            key="A class to append if branch instruction expression.<hr>",
+            val="if文の分岐制御の表現を追加するためのクラス。<hr>",
         ),
         Mapping(
             key="  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of an `If` scope. This setting is useful when you don't want to update each variable by implementing the `If` scope.",
@@ -1381,8 +1381,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## Int class constructor API", val="## Int クラスのコンストラクタのAPI"),
         Mapping(
-            key="**[Interface summary]** Integer class for apysc library.<hr>",
-            val="**[インターフェイス概要]** apyscライブラリ上の整数のためのクラスです。<hr>",
+            key="Integer class for apysc library.<hr>",
+            val="apyscライブラリ上の整数のためのクラスです。<hr>",
         ),
         Mapping(
             key="  - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.",
@@ -1406,13 +1406,13 @@ MAPPINGS: Mappings = Mappings(
             val="`Float`クラスはNumberクラスのエイリアスであり、このエイリアスはNumberクラスと同様に動作します。<hr>",
         ),
         Mapping(
-            key="**[Interface summary]** Get a current number value.<hr>",
-            val="**[インターフェイス概要]** 現在の数値を取得します。<hr>",
+            key="Get a current number value.<hr>",
+            val="現在の数値を取得します。<hr>",
         ),
         Mapping(key="  - Current number value.", val="  - 現在の数値。"),
         Mapping(
-            key="**[Interface summary]** Floating point number class for apysc library.<hr>",
-            val="**[インターフェイス概要]** apyscライブラリ用の浮動小数点数のクラスです。<hr>",
+            key="Floating point number class for apysc library.<hr>",
+            val="apyscライブラリ用の浮動小数点数のクラスです。<hr>",
         ),
         Mapping(key="### Table of contents", val="### Table of contents"),
         Mapping(
@@ -1421,25 +1421,25 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## stage_x property API", val="## stage_x 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get the x-coordinate of the stage reference.<hr>",
-            val="**[インターフェイス概要]** ステージ基準のX座標を取得します。<hr>",
+            key="Get the x-coordinate of the stage reference.<hr>",
+            val="ステージ基準のX座標を取得します。<hr>",
         ),
         Mapping(key="## stage_y property API", val="## stage_y 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get the y-coordinate of the stage reference.<hr>",
-            val="**[インターフェイス概要]** ステージ基準のY座標を取得します。<hr>",
+            key="Get the y-coordinate of the stage reference.<hr>",
+            val="ステージ基準のY座標を取得します。<hr>",
         ),
         Mapping(key="  - x-coordinate.", val="  - X座標。"),
         Mapping(key="  - y-coordinate.", val="  - Y座標。"),
         Mapping(key="## local_x property API", val="## local_x 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get a local x-coordinate event listening instance. For example, this value becomes x-coordinate from Sprite's left-end position by clicking a Sprite instance.<hr>",
-            val="**[インターフェイス概要]** イベントが設定されているインスタンス内の相対座標のX座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr>",
+            key="Get a local x-coordinate event listening instance. For example, this value becomes x-coordinate from Sprite's left-end position by clicking a Sprite instance.<hr>",
+            val="イベントが設定されているインスタンス内の相対座標のX座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr>",
         ),
         Mapping(key="## local_y property API", val="## local_y 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get the local y-coordinate of the event listening instance. For example, this value becomes y-coordinate from Sprite's top-end position by clicking a Sprite instance.<hr>",
-            val="**[インターフェイス概要]** イベントが設定されているインスタンスないの相対座標のY座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr>",
+            key="Get the local y-coordinate of the event listening instance. For example, this value becomes y-coordinate from Sprite's top-end position by clicking a Sprite instance.<hr>",
+            val="イベントが設定されているインスタンスないの相対座標のY座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr>",
         ),
         Mapping(key="## this property API", val="## this 属性のAPI"),
         Mapping(
@@ -1447,8 +1447,8 @@ MAPPINGS: Mappings = Mappings(
             val="  - このイベントが設定されているインスタンス。",
         ),
         Mapping(
-            key="**[Interface summary]** Get an instance of listening to this event.<hr>",
-            val="**[インターフェイス概要]** このイベントが設定されているインスタンスを取得します。<hr>",
+            key="Get an instance of listening to this event.<hr>",
+            val="このイベントが設定されているインスタンスを取得します。<hr>",
         ),
         Mapping(
             key="The following page describes the basic mouse event interfaces:",
@@ -1457,8 +1457,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Unbind interfaces", val="## 解除用のインターフェイス"),
         Mapping(key="## mousedown API", val="## mousedown API"),
         Mapping(
-            key="**[Interface summary]** Add mouse down event listener setting.<hr>",
-            val="**[インターフェイス概要]** マウスのボタンを押した時のイベント設定を追加します。<hr>",
+            key="Add mouse down event listener setting.<hr>",
+            val="マウスのボタンを押した時のイベント設定を追加します。<hr>",
         ),
         Mapping(
             key="  - Callable that would be called when mouse down on this instance.",
@@ -1466,18 +1466,18 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## unbind_mousedown API", val="## unbind_mousedown API"),
         Mapping(
-            key="**[Interface summary]** Unbind a specified handler's mouse down event.<hr>",
-            val="**[インターフェイス概要]** マウスのボタンを押した際のイベントの指定されたハンドラ設定を解除します。<hr>",
+            key="Unbind a specified handler's mouse down event.<hr>",
+            val="マウスのボタンを押した際のイベントの指定されたハンドラ設定を解除します。<hr>",
         ),
         Mapping(key="## unbind_mousedown_all API", val="## unbind_mousedown_all API"),
         Mapping(
-            key="**[Interface summary]** Unbind all mouse down events.<hr>",
-            val="**[インターフェイス概要]** マウスのボタンを押した時のイベントの全てのハンドラ設定を解除します。<hr>",
+            key="Unbind all mouse down events.<hr>",
+            val="マウスのボタンを押した時のイベントの全てのハンドラ設定を解除します。<hr>",
         ),
         Mapping(key="## mouseup API", val="## mouseup API"),
         Mapping(
-            key="**[Interface summary]** Add mouse up event listener setting.<hr>",
-            val="**[インターフェイス概要]** マウスのボタンを離した時のイベント設定を追加します。<hr>",
+            key="Add mouse up event listener setting.<hr>",
+            val="マウスのボタンを離した時のイベント設定を追加します。<hr>",
         ),
         Mapping(
             key="  - Callable that would be called when mouse-up on this instance.",
@@ -1485,18 +1485,18 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## unbind_mouseup API", val="## unbind_mouseup API"),
         Mapping(
-            key="**[Interface summary]** Unbind a specified handler's mouse-up event.<hr>",
-            val="**[インターフェイス概要]** マウスのボタンを離した際のイベントの指定されたハンドラ設定を解除します。<hr>",
+            key="Unbind a specified handler's mouse-up event.<hr>",
+            val="マウスのボタンを離した際のイベントの指定されたハンドラ設定を解除します。<hr>",
         ),
         Mapping(key="## unbind_mouseup_all API", val="## unbind_mouseup_all API"),
         Mapping(
-            key="**[Interface summary]** Unbind all mouse up events.<hr>",
-            val="**[インターフェイス概要]** マウスのボタンを離したとぎのイベントの全てのハンドラ設定を解除します。<hr>",
+            key="Unbind all mouse up events.<hr>",
+            val="マウスのボタンを離したとぎのイベントの全てのハンドラ設定を解除します。<hr>",
         ),
         Mapping(key="## mousemove API", val="## mousemove API"),
         Mapping(
-            key="**[Interface summary]** Add mouse move event listener setting.<hr>",
-            val="**[インターフェイス概要]** マウスを動かした時のイベント設定を追加します。<hr>",
+            key="Add mouse move event listener setting.<hr>",
+            val="マウスを動かした時のイベント設定を追加します。<hr>",
         ),
         Mapping(
             key="  - Callable that would be called when mousemove on this instance.",
@@ -1504,18 +1504,18 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## unbind_mousemove API", val="## unbind_mousemove API"),
         Mapping(
-            key="**[Interface summary]** Unbind a specified handler's mouse move event.<hr>",
-            val="**[インターフェイス概要]** マウスカーソルを動かした際のイベントで指定されたハンドラの設定を解除します。<hr>",
+            key="Unbind a specified handler's mouse move event.<hr>",
+            val="マウスカーソルを動かした際のイベントで指定されたハンドラの設定を解除します。<hr>",
         ),
         Mapping(key="## unbind_mousemove_all API", val="## unbind_mousemove_all API"),
         Mapping(
-            key="**[Interface summary]** Unbind all mouse move events.<hr>",
-            val="**[インターフェイス概要]** マウスカーソルを動かしたときのイベントの全てのハンドラ設定を解除します。<hr>",
+            key="Unbind all mouse move events.<hr>",
+            val="マウスカーソルを動かしたときのイベントの全てのハンドラ設定を解除します。<hr>",
         ),
         Mapping(key="## mouseover API", val="## mouseover API"),
         Mapping(
-            key="**[Interface summary]** Add mouse over event listener setting.<hr>",
-            val="**[インターフェイス概要]** マウスカーソルが乗った時のイベントのハンドラ設定を追加します。<hr>",
+            key="Add mouse over event listener setting.<hr>",
+            val="マウスカーソルが乗った時のイベントのハンドラ設定を追加します。<hr>",
         ),
         Mapping(
             key="  - Callable that would be called when mouse over on this instance.",
@@ -1523,18 +1523,18 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## unbind_mouseover API", val="## unbind_mouseover API"),
         Mapping(
-            key="**[Interface summary]** Unbind a specified handler's mouseover event.<hr>",
-            val="**[インターフェイス概要]** マウスカーソルが乗った際のイベントの指定されたハンドラ設定を解除します。<hr>",
+            key="Unbind a specified handler's mouseover event.<hr>",
+            val="マウスカーソルが乗った際のイベントの指定されたハンドラ設定を解除します。<hr>",
         ),
         Mapping(key="## unbind_mouseover_all API", val="## unbind_mouseover_all API"),
         Mapping(
-            key="**[Interface summary]** Unbind all mouseover events.<hr>",
-            val="**[インターフェイス概要]** マウスカーソルが乗った際のイベントの全てのハンドラ設定を解除します。<hr>",
+            key="Unbind all mouseover events.<hr>",
+            val="マウスカーソルが乗った際のイベントの全てのハンドラ設定を解除します。<hr>",
         ),
         Mapping(key="## mouseout API", val="## mouseout API"),
         Mapping(
-            key="**[Interface summary]** Add mouse out event listener setting.<hr>",
-            val="**[インターフェイス概要]** マウスカーソルがインスタンス上から離れた際のイベントのハンドラを設定します。<hr>",
+            key="Add mouse out event listener setting.<hr>",
+            val="マウスカーソルがインスタンス上から離れた際のイベントのハンドラを設定します。<hr>",
         ),
         Mapping(
             key="  - Callable that would be called when mouse out on this instance.",
@@ -1542,39 +1542,39 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## unbind_mouseout API", val="## unbind_mouseout API"),
         Mapping(
-            key="**[Interface summary]** Unbind a specified handler's mouse-out event.<hr>",
-            val="**[インターフェイス概要]** インスタンス上からマウスカーソルが離れた際のイベントの対象のハンドラ設定を解除します。<hr>",
+            key="Unbind a specified handler's mouse-out event.<hr>",
+            val="インスタンス上からマウスカーソルが離れた際のイベントの対象のハンドラ設定を解除します。<hr>",
         ),
         Mapping(key="## unbind_mouseout_all API", val="## unbind_mouseout_all API"),
         Mapping(
-            key="**[Interface summary]** Unbind all mouse out events.<hr>",
-            val="**[インターフェイス概要]** インスタンス上からマウスカーソルが離れた際のイベントのハンドラ設定を全て解除します。<hr>",
+            key="Unbind all mouse out events.<hr>",
+            val="インスタンス上からマウスカーソルが離れた際のイベントのハンドラ設定を全て解除します。<hr>",
         ),
         Mapping(key="## num_children API", val="## num_children API"),
         Mapping(
-            key="**[Interface summary]** Get a current children's number.<hr>",
-            val="**[インターフェイス概要]** 現在の子の数を取得します。<hr>",
+            key="Get a current children's number.<hr>",
+            val="現在の子の数を取得します。<hr>",
         ),
         Mapping(key="  - Current children number.", val="  - 現在の子の数。"),
         Mapping(
             key="## Point2D class constructor API", val="## Point2D クラスのコンストラクタのAPI"
         ),
         Mapping(
-            key="**[Interface summary]** 2-dimensional geometry point.<hr>",
-            val="**[インターフェイス概要]** 2次元の座標値を扱うクラスです。<hr>",
+            key="2-dimensional geometry point.<hr>",
+            val="2次元の座標値を扱うクラスです。<hr>",
         ),
         Mapping(
-            key="**[Interface summary]** X-coordinate property.<hr>",
-            val="**[インターフェイス概要]** X座標の属性のインターフェイスです。<hr>",
+            key="X-coordinate property.<hr>",
+            val="X座標の属性のインターフェイスです。<hr>",
         ),
         Mapping(
-            key="**[Interface summary]** Y-coordinate property.<hr>",
-            val="**[インターフェイス概要]** Y座標の属性のインターフェイスです。<hr>",
+            key="Y-coordinate property.<hr>",
+            val="Y座標の属性のインターフェイスです。<hr>",
         ),
         Mapping(key="## Return API", val="## Return API"),
         Mapping(
-            key="**[Interface summary]** Class for the return expression.<hr>",
-            val="**[インターフェイス概要]** return のコード表現のためのクラスです。<hr>",
+            key="Class for the return expression.<hr>",
+            val="return のコード表現のためのクラスです。<hr>",
         ),
         Mapping(
             key="This class can be instantiated only in an event handler scope.<hr>",
@@ -1582,8 +1582,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## save_overall_html API", val="## save_overall_html API"),
         Mapping(
-            key="**[Interface summary]** Save the overall HTML and js files under the specified directory path.<hr>",
-            val="**[インターフェイス概要]** 指定されたディレクトリパス以下にHTMLとJavaScriptのファイル全体を出力します。<hr>",
+            key="Save the overall HTML and js files under the specified directory path.<hr>",
+            val="指定されたディレクトリパス以下にHTMLとJavaScriptのファイル全体を出力します。<hr>",
         ),
         Mapping(
             key="  - Destination directory path to save each HTML and js file.",
@@ -1619,8 +1619,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## set_debug_mode API", val="## set_debug_mode API"),
         Mapping(
-            key="**[Interface summary]** Set the debug mode for the HTML and JavaScript debugging. If calling this function, this interface applies the following setting: ",
-            val="**[インターフェイス概要]** HTMLとJavaScriptのデバッグ用にデバッグモードの設定を行います。もしこの関数を呼び出した場合、のインターフェイスは以下の設定を追加します: ",
+            key="Set the debug mode for the HTML and JavaScript debugging. If calling this function, this interface applies the following setting: ",
+            val="HTMLとJavaScriptのデバッグ用にデバッグモードの設定を行います。もしこの関数を呼び出した場合、のインターフェイスは以下の設定を追加します: ",
         ),
         Mapping(
             key="<br> ・Disabling HTML minify setting. ",
@@ -1632,8 +1632,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## Stage class constructor API", val="## Stage クラスのコンストラクタのAPI"),
         Mapping(
-            key="**[Interface summary]** Create Stage (overall viewport) instance.<hr>",
-            val="**[インターフェイス概要]** ステージ（描画領域全体）のインスタンスを生成します。<hr>",
+            key="Create Stage (overall viewport) instance.<hr>",
+            val="ステージ（描画領域全体）のインスタンスを生成します。<hr>",
         ),
         Mapping(key="  - Stage width.", val="  - ステージの幅。"),
         Mapping(key="  - Stage height", val="  - ステージの高さ。"),
@@ -1650,8 +1650,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## stage_elem_id property API", val="## stage_elem_id 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get stage's html element id.<hr>",
-            val="**[インターフェイス概要]** ステージのHTML要素のIDを取得します。<hr>",
+            key="Get stage's html element id.<hr>",
+            val="ステージのHTML要素のIDを取得します。<hr>",
         ),
         Mapping(
             key="  - Stage's html element id (not including class or id symbol). e.g., 'line-graph'",
@@ -1659,20 +1659,20 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## add_child API", val="## add_child API"),
         Mapping(
-            key="**[Interface summary]** Add display object child to this instance.<hr>",
-            val="**[インターフェイス概要]** 表示オブジェクトの子をこのインスタンスへと追加します。<hr>",
+            key="Add display object child to this instance.<hr>",
+            val="表示オブジェクトの子をこのインスタンスへと追加します。<hr>",
         ),
         Mapping(key="  - Child instance to add.", val="  - 追加する子のインスタンス。"),
         Mapping(key="## remove_child API", val="## remove_child API"),
         Mapping(
-            key="**[Interface summary]** Remove display object child from this instance.<hr>",
-            val="**[インターフェイス概要]** このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr>",
+            key="Remove display object child from this instance.<hr>",
+            val="このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr>",
         ),
         Mapping(key="  - Child instance to remove.", val="  - 取り除く対象の子のインスタンス。"),
         Mapping(key="## contains API", val="## contains API"),
         Mapping(
-            key="**[Interface summary]** Get a boolean whether this instance contains a specified child.<hr>",
-            val="**[インターフェイス概要]** 指定された子のインスタンスを持っているかどうかの真偽値を取得します。<hr>",
+            key="Get a boolean whether this instance contains a specified child.<hr>",
+            val="指定された子のインスタンスを持っているかどうかの真偽値を取得します。<hr>",
         ),
         Mapping(
             key="  - If this instance contains a specified child, this method returns True.",
@@ -1681,8 +1681,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## get_child_at API", val="## get_child_at API"),
         Mapping(key="## num_children property API", val="## num_children property API"),
         Mapping(
-            key="**[Interface summary]** Get child at a specified index.<hr>",
-            val="**[インターフェイス概要]** 指定されたインデックス位置の子を取得します。<hr>",
+            key="Get child at a specified index.<hr>",
+            val="指定されたインデックス位置の子を取得します。<hr>",
         ),
         Mapping(
             key="## Acceptable comparison right-side value types",
@@ -1693,19 +1693,19 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## Less than or greater than comparison", val="## 未満もしくは超過条件の比較"),
         Mapping(key="## String class constructor API", val="## String クラスのコンストラクタのAPI"),
         Mapping(
-            key="**[Interface summary]** String class for apysc library.<hr>",
-            val="**[インターフェイス概要]** apyscライブラリにおける文字列用のクラスです。<hr>",
+            key="String class for apysc library.<hr>",
+            val="apyscライブラリにおける文字列用のクラスです。<hr>",
         ),
         Mapping(key="  - Initial string value.", val="  - 文字列の値の初期値。"),
         Mapping(
-            key="**[Interface summary]** Get a current string value.<hr>",
-            val="**[インターフェイス概要]** 現在の文字列の値を取得します。<hr>",
+            key="Get a current string value.<hr>",
+            val="現在の文字列の値を取得します。<hr>",
         ),
         Mapping(key="  - Current string value.", val="  - 現在の文字列の値。"),
         Mapping(key="## timer_complete API", val="## timer_complete API"),
         Mapping(
-            key="**[Interface summary]** Add a timer complete event listener setting.<hr>",
-            val="**[インターフェイス概要]** タイマー終了時のイベントハンドラの設定を追加します。<hr>",
+            key="Add a timer complete event listener setting.<hr>",
+            val="タイマー終了時のイベントハンドラの設定を追加します。<hr>",
         ),
         Mapping(
             key="  - A callable that a timer calls when complete.",
@@ -1714,8 +1714,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="## What argument is this?", val="## 引数の概要"),
         Mapping(key="## Timer constructor API", val="## Timer クラスのコンストラクタのAPI"),
         Mapping(
-            key="**[Interface summary]** Timer class to handle function calling at regular intervals.<hr>",
-            val="**[インターフェイス概要]** 一定間隔ごとにハンドラの関数を実行するためのタイマーのクラスです。<hr>",
+            key="Timer class to handle function calling at regular intervals.<hr>",
+            val="一定間隔ごとにハンドラの関数を実行するためのタイマーのクラスです。<hr>",
         ),
         Mapping(
             key="  - A delay between each `Handler` calling in a millisecond or FPS value. If an `FPS` value is specified, this value becomes a millisecond calculated with that FPS value (e.g., if the `FPS_60` value is specified, then `delay` becomes 16.6666667).",
@@ -1732,8 +1732,8 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="Timer", val="Timer クラス"),
         Mapping(key="## delay property API", val="## delay 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get a delay value.<hr>",
-            val="**[インターフェイス概要]** 遅延（間隔）値を取得します。<hr>",
+            key="Get a delay value.<hr>",
+            val="遅延（間隔）値を取得します。<hr>",
         ),
         Mapping(
             key="  - A delay value of each `Handler` calling in milliseconds.",
@@ -1748,14 +1748,14 @@ MAPPINGS: Mappings = Mappings(
             key="## TimerEvent constructor API", val="## TimerEvent クラスのコンストラクタのAPI"
         ),
         Mapping(
-            key="**[Interface summary]** Timer event class.<hr>",
-            val="**[インターフェイス概要]** タイマー関係のイベントのクラスです。<hr>",
+            key="Timer event class.<hr>",
+            val="タイマー関係のイベントのクラスです。<hr>",
         ),
         Mapping(key="  - Target timer instance.", val="  - 対象のタイマーのインスタンス。"),
         Mapping(key="## this attribute API", val="## this 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get a timer instance of listening to this event.<hr>",
-            val="**[インターフェイス概要]** このイベントのハンドラが設定されている対象のタイマーのインスタンス。<hr>",
+            key="Get a timer instance of listening to this event.<hr>",
+            val="このイベントのハンドラが設定されている対象のタイマーのインスタンス。<hr>",
         ),
         Mapping(
             key="  - Instance of listening to this event.",
@@ -1763,8 +1763,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## repeat_count property API", val="## repeat_count 属性のAPI"),
         Mapping(
-            key="**[Interface summary]** Get a max count value of a handler's calling.<hr>",
-            val="**[インターフェイス概要]** ハンドラが呼ばれる最大数を取得します。<hr>",
+            key="Get a max count value of a handler's calling.<hr>",
+            val="ハンドラが呼ばれる最大数を取得します。<hr>",
         ),
         Mapping(
             key="  - Max count of a handler's calling. If this value is 0, then a timer loop forever.",
@@ -1772,23 +1772,23 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## reset API", val="## reset API"),
         Mapping(
-            key="**[Interface summary]** Reset the timer count and stop this timer.<hr>",
-            val="**[インターフェイス概要]** タイマーのカウントをリセットし、そしてタイマーの停止を行います。<hr>",
+            key="Reset the timer count and stop this timer.<hr>",
+            val="タイマーのカウントをリセットし、そしてタイマーの停止を行います。<hr>",
         ),
         Mapping(key="## start API", val="## start API"),
         Mapping(
-            key="**[Interface summary]** Start this timer.<hr>",
-            val="**[インターフェイス概要]** タイマーを開始します。<hr>",
+            key="Start this timer.<hr>",
+            val="タイマーを開始します。<hr>",
         ),
         Mapping(key="## stop API", val="## stop API"),
         Mapping(
-            key="**[Interface summary]** Stop this timer.<hr>",
-            val="**[インターフェイス概要]** タイマーを停止します。<hr>",
+            key="Stop this timer.<hr>",
+            val="タイマーを停止します。<hr>",
         ),
         Mapping(key="## trace API", val="## trace API"),
         Mapping(
-            key="**[Interface summary]** Display arguments information to console. This function saves a JavaScript `console.log` expression.<hr>",
-            val="**[インターフェイス概要]** 引数に指定された値の情報をコンソールへ表示します。この関数はJavaScriptの`console.log`に該当するコードを保存します。<hr>",
+            key="Display arguments information to console. This function saves a JavaScript `console.log` expression.<hr>",
+            val="引数に指定された値の情報をコンソールへ表示します。この関数はJavaScriptの`console.log`に該当するコードを保存します。<hr>",
         ),
         Mapping(
             key="  - Any arguments to display to console.",
@@ -1796,8 +1796,8 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## unset_debug_mode API", val="## unset_debug_mode API"),
         Mapping(
-            key="**[Interface summary]** Unset the debug mode for the HTML and JavaScript debugging.<hr>",
-            val="**[インターフェイス概要]** HTMLとJavaScriptのデバッグ用のデバッグモードの設定を解除します。<hr>",
+            key="Unset the debug mode for the HTML and JavaScript debugging.<hr>",
+            val="HTMLとJavaScriptのデバッグ用のデバッグモードの設定を解除します。<hr>",
         ),
         Mapping(key="See also:", val="参考資料:"),
         Mapping(
@@ -1967,8 +1967,8 @@ MAPPINGS: Mappings = Mappings(
             key="## Rectangle class constructor API", val="## Rectangle クラスのコンストラクタのAPI"
         ),
         Mapping(
-            key="**[Interface summary]** Create a rectangle vector graphic.<hr>",
-            val="**[インターフェイス概要]** 四角のベクターグラフィックスを作成します。<hr>",
+            key="Create a rectangle vector graphic.<hr>",
+            val="四角のベクターグラフィックスを作成します。<hr>",
         ),
         Mapping(key="  - A fill-color to set.", val="  - 設定する塗りの色。"),
         Mapping(key="  - A fill-alpha to set.", val="  - 設定する塗りの透明度。"),
@@ -1990,20 +1990,20 @@ MAPPINGS: Mappings = Mappings(
         ),
         Mapping(key="## Circle class constructor API", val="## Circle クラスのコンストラクタのAPI"),
         Mapping(
-            key="**[Interface summary]** Create a circle vector graphic.<hr>",
-            val="**[インターフェイス概要]** 円のベクターグラフィックスを生成します。<hr>",
+            key="Create a circle vector graphic.<hr>",
+            val="円のベクターグラフィックスを生成します。<hr>",
         ),
         Mapping(
             key="## Ellipse class constructor API", val="## Ellipse クラスのコンストラクタのAPI"
         ),
         Mapping(
-            key="**[Interface summary]** Create an ellipse vector graphic.<hr>",
-            val="**[インターフェイス概要]** 楕円のベクターグラフィックスを生成します。<hr>",
+            key="Create an ellipse vector graphic.<hr>",
+            val="楕円のベクターグラフィックスを生成します。<hr>",
         ),
         Mapping(key="## Line class constructor API", val="## Line クラスのコンストラクタのAPI"),
         Mapping(
-            key="**[Interface summary]** Create a line vector graphic.<hr>",
-            val="**[インターフェイス概要]** 線のベクターグラフィックスを生成します。<hr>",
+            key="Create a line vector graphic.<hr>",
+            val="線のベクターグラフィックスを生成します。<hr>",
         ),
         Mapping(key="  - Line start point.", val="  - 線の開始座標。"),
         Mapping(key="  - Line end point.", val="  - 線の終了座標。"),
@@ -2011,16 +2011,16 @@ MAPPINGS: Mappings = Mappings(
             key="## Polygon class constructor API", val="## Polygon クラスのコンストラクタのAPI"
         ),
         Mapping(
-            key="**[Interface summary]** Create a polygon vector graphic. This class is similar to the Polyline class, but unlike that, this class connects an end-point and start-point.<hr>",
-            val="**[インターフェイス概要]** 多角形のベクターグラフィックスを生成します。このクラスはPolylineクラスと似ていますが、Polylineクラスとは異なりこのクラスでは座標の終点と始点が接続される点が異なります。<hr>",
+            key="Create a polygon vector graphic. This class is similar to the Polyline class, but unlike that, this class connects an end-point and start-point.<hr>",
+            val="多角形のベクターグラフィックスを生成します。このクラスはPolylineクラスと似ていますが、Polylineクラスとは異なりこのクラスでは座標の終点と始点が接続される点が異なります。<hr>",
         ),
         Mapping(key="  - List of polygon vertex points.", val="  - 多角形の各頂点の座標のリスト。"),
         Mapping(
             key="## Polyline class constructor API", val="## Polyline クラスのコンストラクタのAPI"
         ),
         Mapping(
-            key="**[Interface summary]** Create a polyline vector graphic.<hr>",
-            val="**[インターフェイス概要]** 折れ線のベクターグラフィックスを生成します。<hr>",
+            key="Create a polyline vector graphic.<hr>",
+            val="折れ線のベクターグラフィックスを生成します。<hr>",
         ),
         Mapping(key="  - List of line points.", val="  - 線の座標のリスト。"),
         Mapping(
@@ -2172,8 +2172,8 @@ MAPPINGS: Mappings = Mappings(
             val="## PathLineTo クラスのコンストラクタのAPI",
         ),
         Mapping(
-            key="**[Interface summary]** Path data class for the SVG's `2D bezier curve` (Q).<hr>",
-            val="**[インターフェイス概要]** SVGの2次のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>",
+            key="Path data class for the SVG's `2D bezier curve` (Q).<hr>",
+            val="SVGの2次のベジェ曲線（Q）のデータを設定するためのクラスです。<hr>",
         ),
         Mapping(
             key="  - X-coordinate of the bezier's control point.",
@@ -2192,12 +2192,12 @@ MAPPINGS: Mappings = Mappings(
             val="  - 終点のY座標。",
         ),
         Mapping(
-            key="**[Interface summary]** Path data class for the SVG `continual 2D bezier curve` (T).<hr>",
-            val="**[インターフェイス概要]** SVGの連続した2次元のベジェ曲線のデータ設定用のクラスです。<hr>",
+            key="Path data class for the SVG `continual 2D bezier curve` (T).<hr>",
+            val="SVGの連続した2次元のベジェ曲線のデータ設定用のクラスです。<hr>",
         ),
         Mapping(
-            key="**[Interface summary]** Path data class for the SVG's `3D bezier curve` (C).<hr>",
-            val="**[インターフェイス概要]** SVGの3次のベジェ曲線（C）のパスデータのためのクラスです。<hr>",
+            key="Path data class for the SVG's `3D bezier curve` (C).<hr>",
+            val="SVGの3次のベジェ曲線（C）のパスデータのためのクラスです。<hr>",
         ),
         Mapping(
             key="  - X-coordinate of the bezier's first control point.",
@@ -2260,8 +2260,8 @@ MAPPINGS: Mappings = Mappings(
             val="## draw_path API",
         ),
         Mapping(
-            key="**[Interface summary]** Draw a path vector graphics.<hr>",
-            val="**[インターフェイス概要]** パスのベクターグラフィックスを描画します。<hr>",
+            key="Draw a path vector graphics.<hr>",
+            val="パスのベクターグラフィックスを描画します。<hr>",
         ),
         Mapping(
             key="  - Target path data settings, such as the ap.PathData.MoveTo.",
@@ -2356,8 +2356,8 @@ MAPPINGS: Mappings = Mappings(
             val="## Path クラスのコンストラクタのAPI",
         ),
         Mapping(
-            key="**[Interface summary]** Create a path vector graphic.<hr>",
-            val="**[インターフェイス概要]** パスのベクターグラフィックスを生成します。<hr>",
+            key="Create a path vector graphic.<hr>",
+            val="パスのベクターグラフィックスを生成します。<hr>",
         ),
         Mapping(
             key="## PathMoveTo class setting",
@@ -2366,6 +2366,10 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="The `PathBezier3DContinual` class is the class to set a continual 3D bezier curve on a path.",
             val="`PathBezier3DContinual`クラスはパス上に連続した3次ベジェ曲線を設定するためのクラスです。",
+        ),
+        Mapping(
+            key="**[Interface summary]**",
+            val="**[インターフェイス概要]**",
         ),
     ]
 )

@@ -2444,15 +2444,15 @@ MAPPINGS: Mappings = Mappings(
             val="任意の値をこの配列の末尾に加えます。このメソッドは`append`メソッドと同様に動作します。<hr>",
         ),
         Mapping(
-            key="Concatenate argument array to this one. This interface positions the argument array\'s values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>",
+            key="Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>",
             val="引数に指定された配列をこの配列へ連結します。このインターフェイスは引数の配列の値をこの配列の後に配置します。このメソッドはconcatメソッドと似た挙動をしますが、配列の値を直接更新するか（extend）もしくは別の値として返却するか（concat）の違いがあります。<hr>",
         ),
         Mapping(
-            key="Concatenate argument array to this one. This interface positions the argument array\'s values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>",
+            key="Concatenate argument array to this one. This interface positions the argument array's values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>",
             val="引数に指定された配列をこの配列へ連結します。このインターフェイスは引数の配列の値をこの配列の後に配置します。このメソッドはextendメソッドと似た挙動をしますが、配列の値を直接更新するか（extend）もしくは別の値として返却するか（concat）の違いがあります。<hr>",
         ),
         Mapping(
-            key="Search specified value\'s index and return it.<hr>",
+            key="Search specified value's index and return it.<hr>",
             val="指定された値のインデックス位置を検索しその値を返却します。<hr>",
         ),
         Mapping(
@@ -2472,7 +2472,7 @@ MAPPINGS: Mappings = Mappings(
             val="この配列の長さ（値の数）を取得します。<hr>",
         ),
         Mapping(
-            key="Remove this array\'s last value and return it.<hr>",
+            key="Remove this array's last value and return it.<hr>",
             val="この配列の末尾の値を取り除き、その値を返却します。<hr>",
         ),
         Mapping(
@@ -2560,7 +2560,7 @@ MAPPINGS: Mappings = Mappings(
             val="クリックイベントのリスナー設定を追加します。<hr>",
         ),
         Mapping(
-            key="Unbind specified handler\'s click event.<hr>",
+            key="Unbind specified handler's click event.<hr>",
             val="指定されたクリックイベントのハンドラー設定を取り除きます。<hr>",
         ),
         Mapping(
@@ -2576,7 +2576,7 @@ MAPPINGS: Mappings = Mappings(
             val="ダブルクリックイベントのリスナー設定を追加します。<hr>",
         ),
         Mapping(
-            key="Unbind a specified handler\'s double click event.<hr>",
+            key="Unbind a specified handler's double click event.<hr>",
             val="指定されたダブルクリックイベントのハンドラー設定を取り除きます。<hr>",
         ),
         Mapping(
@@ -2592,7 +2592,7 @@ MAPPINGS: Mappings = Mappings(
             val="現在の辞書の値を取得します。<hr>",
         ),
         Mapping(
-            key="Get a specified key dictionary value. If this dictionary hasn\'t a specified key, this interface returns a default value.<hr>",
+            key="Get a specified key dictionary value. If this dictionary hasn't a specified key, this interface returns a default value.<hr>",
             val="指定されたキーの辞書内の値を取得します。もし指定されたキーが辞書に存在しない場合、このインターフェイスはデフォルト値を返却します。<hr>",
         ),
         Mapping(
@@ -2636,7 +2636,7 @@ MAPPINGS: Mappings = Mappings(
             val="elseの分岐条件の表現を追加するためのクラスです。<hr>",
         ),
         Mapping(
-            key="Prevent event\'s default behavior.<hr>",
+            key="Prevent event's default behavior.<hr>",
             val="イベントのデフォルトの挙動を無効化します。<hr>",
         ),
         Mapping(
@@ -2664,15 +2664,15 @@ MAPPINGS: Mappings = Mappings(
             val="指定された座標を基準とした回転量を取得します。<hr>",
         ),
         Mapping(
-            key="Path data class for SVG\'s `continual 3D bezier curve` (S).<hr>",
+            key="Path data class for SVG's `continual 3D bezier curve` (S).<hr>",
             val="SVGの連続した3次ベジェ曲線（S）のためのパスデータのクラスです。<hr>",
         ),
         Mapping(
-            key="Path data class for the SVG\'s `close path` (Z).<hr>",
+            key="Path data class for the SVG's `close path` (Z).<hr>",
             val="SVGのパスを閉じる指定（Z）のためのパスデータのクラスです。<hr>",
         ),
         Mapping(
-            key="Path data class for the SVG\'s `horizontal line` (H).<hr>",
+            key="Path data class for the SVG's `horizontal line` (H).<hr>",
             val="SVGの水平方向への線（H）の描画のためのパスデータのクラスです。<hr>",
         ),
         Mapping(
@@ -2684,7 +2684,7 @@ MAPPINGS: Mappings = Mappings(
             val="SVGの特定座標への移動（M）のためのパスデータのクラスです。<hr>",
         ),
         Mapping(
-            key="Path data class for the SVG `vertical line\' (V).<hr>",
+            key="Path data class for the SVG `vertical line' (V).<hr>",
             val="SVGの垂直方向への線（V）の描画のためのパスデータのクラスです。<hr>",
         ),
         Mapping(

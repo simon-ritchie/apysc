@@ -43,7 +43,9 @@ assert arr == [5, 3, 1]
 
 **[Interface signature]** `sort(self, *, ascending: bool = True) -> None`<hr>
 
-**[Interface summary]** Sort this array in place.<hr>
+**[Interface summary]**
+
+Sort this array in place.<hr>
 
 **[Parameters]**
 

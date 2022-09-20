@@ -106,7 +106,9 @@ ap.save_overall_html(minify=False, dest_dir_path="unset_debug_mode_basic_usage/"
 
 **[インターフェイスの構造]** `unset_debug_mode() -> None`<hr>
 
-**[インターフェイス概要]** HTMLとJavaScriptのデバッグ用のデバッグモードの設定を解除します。<hr>
+**[インターフェイス概要]**
+
+HTMLとJavaScriptのデバッグ用のデバッグモードの設定を解除します。<hr>
 
 **[コードサンプル]**
 

@@ -326,7 +326,9 @@ Please check on Chrome DevTools (press F12) and move the mouse cursor on the fol
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get the x-coordinate of the stage reference.<hr>
+**[Interface summary]**
+
+Get the x-coordinate of the stage reference.<hr>
 
 **[Returns]**
 
@@ -357,7 +359,9 @@ Please check on Chrome DevTools (press F12) and move the mouse cursor on the fol
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get the y-coordinate of the stage reference.<hr>
+**[Interface summary]**
+
+Get the y-coordinate of the stage reference.<hr>
 
 **[Returns]**
 
@@ -388,7 +392,9 @@ Please check on Chrome DevTools (press F12) and move the mouse cursor on the fol
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a local x-coordinate event listening instance. For example, this value becomes x-coordinate from Sprite's left-end position by clicking a Sprite instance.<hr>
+**[Interface summary]**
+
+Get a local x-coordinate event listening instance. For example, this value becomes x-coordinate from Sprite's left-end position by clicking a Sprite instance.<hr>
 
 **[Returns]**
 
@@ -419,7 +425,9 @@ Please check on Chrome DevTools (press F12) and move the mouse cursor on the fol
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get the local y-coordinate of the event listening instance. For example, this value becomes y-coordinate from Sprite's top-end position by clicking a Sprite instance.<hr>
+**[Interface summary]**
+
+Get the local y-coordinate of the event listening instance. For example, this value becomes y-coordinate from Sprite's top-end position by clicking a Sprite instance.<hr>
 
 **[Returns]**
 
@@ -450,7 +458,9 @@ Please check on Chrome DevTools (press F12) and move the mouse cursor on the fol
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get an instance of listening to this event.<hr>
+**[Interface summary]**
+
+Get an instance of listening to this event.<hr>
 
 **[Returns]**
 

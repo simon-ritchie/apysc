@@ -57,7 +57,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Integer class for apysc library.<hr>": "**[インターフェイス概要]** apyscライブラリ上の整数のためのクラスです。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Integer class for apysc library.<hr>": "apyscライブラリ上の整数のためのクラスです。<hr>",
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -91,7 +93,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Floating point number class for apysc library.<hr>": "**[インターフェイス概要]** apyscライブラリ用の浮動小数点数のクラスです。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Floating point number class for apysc library.<hr>": "apyscライブラリ用の浮動小数点数のクラスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -129,7 +133,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get a current number value.<hr>": "**[インターフェイス概要]** 現在の数値を取得します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get a current number value.<hr>": "現在の数値を取得します。<hr>",
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################

@@ -68,7 +68,9 @@ ap.save_overall_html(dest_dir_path="sprite_contains_basic_usage/")
 
 **[Interface signature]** `contains(self, child: apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`<hr>
 
-**[Interface summary]** Get a boolean whether this instance contains a specified child.<hr>
+**[Interface summary]**
+
+Get a boolean whether this instance contains a specified child.<hr>
 
 **[Parameters]**
 

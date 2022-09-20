@@ -38,7 +38,9 @@ assert isinstance(second_child, ap.Rectangle)
 
 **[Interface signature]** `get_child_at(self, index: Union[int, apysc._type.int.Int]) -> apysc._display.display_object.DisplayObject`<hr>
 
-**[Interface summary]** Get a child at a specified index.<hr>
+**[Interface summary]**
+
+Get a child at a specified index.<hr>
 
 **[Parameters]**
 

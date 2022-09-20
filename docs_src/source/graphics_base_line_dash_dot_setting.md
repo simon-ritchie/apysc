@@ -39,7 +39,9 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_dash_dot_setting_basic_
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current dash dot (1-dot chain) setting.<hr>
+**[Interface summary]**
+
+Get current dash dot (1-dot chain) setting.<hr>
 
 **[Returns]**
 

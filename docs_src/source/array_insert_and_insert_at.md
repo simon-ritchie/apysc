@@ -32,7 +32,9 @@ assert arr == [1, 2, 3, 4]
 
 **[Interface signature]** `insert(self, index: Union[int, apysc._type.int.Int], value: ~T) -> None`<hr>
 
-**[Interface summary]** Insert value to this array at a specified index. This interface behaves in the same `insert_at` method.<hr>
+**[Interface summary]**
+
+Insert value to this array at a specified index. This interface behaves in the same `insert_at` method.<hr>
 
 **[Parameters]**
 
@@ -61,7 +63,9 @@ Array([1, 2, 3])
 
 **[Interface signature]** `insert_at(self, *, index: Union[int, apysc._type.int.Int], value: ~T) -> None`<hr>
 
-**[Interface summary]** Insert value to this array at a specified index. This interface behaves in the same `insert` method.<hr>
+**[Interface summary]**
+
+Insert value to this array at a specified index. This interface behaves in the same `insert` method.<hr>
 
 **[Parameters]**
 

@@ -37,7 +37,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Draw a circle vector graphics.<hr>": "**[インターフェイス概要]** 円のベクターグラフィックスを描画します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Draw a circle vector graphics.<hr>": "円のベクターグラフィックスを描画します。<hr>",
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

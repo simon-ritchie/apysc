@@ -76,7 +76,9 @@ This option is useful when using the apysc project multiple times (for an easily
 
 **[Interface signature]** `__init__(self, *, stage_width: int = 300, stage_height: int = 185, background_color: str = '#ffffff', add_to: str = 'body', stage_elem_id: Union[str, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
-**[Interface summary]** Create Stage (overall viewport) instance.<hr>
+**[Interface summary]**
+
+Create Stage (overall viewport) instance.<hr>
 
 **[Parameters]**
 
@@ -113,7 +115,9 @@ This option is useful when using the apysc project multiple times (for an easily
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get stage's html element id.<hr>
+**[Interface summary]**
+
+Get stage's html element id.<hr>
 
 **[Returns]**
 
@@ -144,7 +148,9 @@ This option is useful when using the apysc project multiple times (for an easily
 
 **[Interface signature]** `add_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[Interface summary]** Add display object child to this instance.<hr>
+**[Interface summary]**
+
+Add display object child to this instance.<hr>
 
 **[Parameters]**
 
@@ -181,7 +187,9 @@ This option is useful when using the apysc project multiple times (for an easily
 
 **[Interface signature]** `remove_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[Interface summary]** Remove display object child from this instance.<hr>
+**[Interface summary]**
+
+Remove display object child from this instance.<hr>
 
 **[Parameters]**
 
@@ -219,7 +227,9 @@ None
 
 **[Interface signature]** `contains(self, child: apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`<hr>
 
-**[Interface summary]** Get a boolean whether this instance contains a specified child.<hr>
+**[Interface summary]**
+
+Get a boolean whether this instance contains a specified child.<hr>
 
 **[Parameters]**
 
@@ -265,7 +275,9 @@ Boolean(False)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a current children's number.<hr>
+**[Interface summary]**
+
+Get a current children's number.<hr>
 
 **[Returns]**
 
@@ -305,7 +317,9 @@ Int(2)
 
 **[Interface signature]** `get_child_at(self, index: Union[int, apysc._type.int.Int]) -> apysc._display.display_object.DisplayObject`<hr>
 
-**[Interface summary]** Get a child at a specified index.<hr>
+**[Interface summary]**
+
+Get a child at a specified index.<hr>
 
 **[Parameters]**
 

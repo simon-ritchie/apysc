@@ -95,7 +95,9 @@ The subsequent pages explain the other interfaces, such as the `add_child` inter
 
 **[Interface signature]** `__init__(self, *, variable_name: str = '', variable_name_suffix: str = '') -> None`<hr>
 
-**[Interface summary]** Create a basic display object that can be a parent.<hr>
+**[Interface summary]**
+
+Create a basic display object that can be a parent.<hr>
 
 **[Parameters]**
 

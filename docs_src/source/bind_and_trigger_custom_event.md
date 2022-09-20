@@ -128,7 +128,9 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 
 **[Interface signature]** `bind_custom_event(self, *, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str], handler: Callable[[Any, Any], NoneType], e: apysc._event.event.Event, options: Union[Any, NoneType] = None, in_handler_head_expression: str = '') -> str`<hr>
 
-**[Interface summary]** Add a custom event listener setting.<hr>
+**[Interface summary]**
+
+Add a custom event listener setting.<hr>
 
 **[Parameters]**
 
@@ -187,7 +189,9 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 
 **[Interface signature]** `trigger_custom_event(self, *, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str]) -> None`<hr>
 
-**[Interface summary]** Add a custom event trigger setting.<hr>
+**[Interface summary]**
+
+Add a custom event trigger setting.<hr>
 
 **[Parameters]**
 

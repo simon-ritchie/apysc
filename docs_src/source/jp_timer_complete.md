@@ -109,7 +109,9 @@ ap.save_overall_html(dest_dir_path="timer_complete_basic_usage/")
 
 **[インターフェイスの構造]** `timer_complete(self, handler: Callable[[ForwardRef('timer_event.TimerEvent'), ~_O2], NoneType], *, options: Union[~_O2, NoneType] = None) -> str`<hr>
 
-**[インターフェイス概要]** タイマー終了時のイベントハンドラの設定を追加します。<hr>
+**[インターフェイス概要]**
+
+タイマー終了時のイベントハンドラの設定を追加します。<hr>
 
 **[引数]**
 

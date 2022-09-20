@@ -29,7 +29,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get a CSS value string.<hr>": "**[インターフェイス概要]** Get a CSS value string.<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get a CSS value string.<hr>": "CSSの設定値の文字列を取得します。<hr>",
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -55,7 +57,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Set a specified value string to the CSS.<hr>": "**[インターフェイス概要]** 特定のCSSの値を設定します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Set a specified value string to the CSS.<hr>": "CSSに指定された文字列の値を設定します。<hr>",
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

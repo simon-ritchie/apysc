@@ -148,7 +148,9 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 **[インターフェイスの構造]** `mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[インターフェイス概要]** マウスカーソルが乗った時のイベントのハンドラ設定を追加します。<hr>
+**[インターフェイス概要]**
+
+マウスカーソルが乗った時のイベントのハンドラ設定を追加します。<hr>
 
 **[引数]**
 
@@ -195,7 +197,9 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 **[インターフェイスの構造]** `unbind_mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[インターフェイス概要]** マウスカーソルが乗った際のイベントの指定されたハンドラ設定を解除します。<hr>
+**[インターフェイス概要]**
+
+マウスカーソルが乗った際のイベントの指定されたハンドラ設定を解除します。<hr>
 
 **[引数]**
 
@@ -227,7 +231,9 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 **[インターフェイスの構造]** `unbind_mouseover_all(self) -> None`<hr>
 
-**[インターフェイス概要]** マウスカーソルが乗った際のイベントの全てのハンドラ設定を解除します。<hr>
+**[インターフェイス概要]**
+
+マウスカーソルが乗った際のイベントの全てのハンドラ設定を解除します。<hr>
 
 **[コードサンプル]**
 
@@ -252,7 +258,9 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 **[インターフェイスの構造]** `mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[インターフェイス概要]** マウスカーソルがインスタンス上から離れた際のイベントのハンドラを設定します。<hr>
+**[インターフェイス概要]**
+
+マウスカーソルがインスタンス上から離れた際のイベントのハンドラを設定します。<hr>
 
 **[引数]**
 
@@ -299,7 +307,9 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 **[インターフェイスの構造]** `unbind_mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[インターフェイス概要]** インスタンス上からマウスカーソルが離れた際のイベントの対象のハンドラ設定を解除します。<hr>
+**[インターフェイス概要]**
+
+インスタンス上からマウスカーソルが離れた際のイベントの対象のハンドラ設定を解除します。<hr>
 
 **[引数]**
 
@@ -331,7 +341,9 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 **[インターフェイスの構造]** `unbind_mouseout_all(self) -> None`<hr>
 
-**[インターフェイス概要]** インスタンス上からマウスカーソルが離れた際のイベントのハンドラ設定を全て解除します。<hr>
+**[インターフェイス概要]**
+
+インスタンス上からマウスカーソルが離れた際のイベントのハンドラ設定を全て解除します。<hr>
 
 **[コードサンプル]**
 

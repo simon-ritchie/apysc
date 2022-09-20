@@ -118,7 +118,8 @@
 <h2>Timer クラスのコンストラクタのAPI<a class="headerlink" href="#timer-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[ForwardRef('timer_event.TimerEvent'),</span> <span class="pre">~_O1],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">delay:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_interface.NumberValueInterface,</span> <span class="pre">apysc._time.fps.FPS],</span> <span class="pre">repeat_count:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">options:</span> <span class="pre">Union[~_O1,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[インターフェイス概要]</strong> 一定間隔ごとにハンドラの関数を実行するためのタイマーのクラスです。<hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>一定間隔ごとにハンドラの関数を実行するためのタイマーのクラスです。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
@@ -175,7 +176,8 @@
 <section id="repeat-count-api">
 <h2>repeat_count 属性のAPI<a class="headerlink" href="#repeat-count-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイス概要]</strong> ハンドラが呼ばれる最大数を取得します。<hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>ハンドラが呼ばれる最大数を取得します。<hr></p>
 <p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">repeat_count</span></code>: Int</p>

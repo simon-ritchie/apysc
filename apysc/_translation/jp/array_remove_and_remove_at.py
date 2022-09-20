@@ -31,7 +31,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Remove a specified value from this array.<hr>": "**[インターフェイス概要]** 指定された値をこの配列から取り除きます。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Remove a specified value from this array.<hr>": "指定された値をこの配列から取り除きます。<hr>",
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -49,7 +51,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Remove a specified index value from this array.<hr>": "**[インターフェイス概要]** 指定されたインデックスの位置の値を配列から取り除きます。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Remove a specified index value from this array.<hr>": "指定されたインデックスの値をこの配列から取り除きます。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

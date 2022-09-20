@@ -35,7 +35,9 @@ assert got_val_3 is None
 
 **[Interface signature]** `get(self, key: Union[~_K, apysc._type.expression_string.ExpressionString], *, default: ~DefaultType = None) -> ~DefaultType`<hr>
 
-**[Interface summary]** Get a specified key dictionary value. If this dictionary hasn't a specified key, this interface returns a default value.<hr>
+**[Interface summary]**
+
+Get a specified key dictionary value. If this dictionary hasn't a specified key, this interface returns a default value.<hr>
 
 **[Parameters]**
 

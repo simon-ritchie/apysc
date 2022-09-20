@@ -27,7 +27,9 @@ assert joined == "1,2,3"
 
 **[インターフェイスの構造]** `join(self, sep: Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
 
-**[インターフェイス概要]** 指定された区切り文字を使ってこの配列の値を連結した文字列を生成します。<hr>
+**[インターフェイス概要]**
+
+指定された区切り用の文字列を使って配列の値を連結します。<hr>
 
 **[引数]**
 

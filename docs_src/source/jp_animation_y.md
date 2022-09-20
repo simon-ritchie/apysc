@@ -102,7 +102,9 @@ animation_cy: ap.AnimationCy = circle.animation_y(
 
 **[インターフェイスの構造]** `animation_y(self, *, y: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_y.AnimationY`<hr>
 
-**[インターフェイス概要]** Y座標のアニメーションを設定します。<hr>
+**[インターフェイス概要]**
+
+Y座標のアニメーションを設定します。<hr>
 
 **[引数]**
 

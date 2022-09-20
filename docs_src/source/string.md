@@ -37,7 +37,9 @@ For more details about the `String` class each interface, please see the followi
 
 **[Interface signature]** `__init__(self, value: Union[str, ForwardRef('String')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[Interface summary]** String class for apysc library.<hr>
+**[Interface summary]**
+
+String class for apysc library.<hr>
 
 **[Parameters]**
 
@@ -76,7 +78,9 @@ String('Hello World!')
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a current string value.<hr>
+**[Interface summary]**
+
+Get a current string value.<hr>
 
 **[Returns]**
 

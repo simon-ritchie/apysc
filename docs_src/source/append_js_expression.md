@@ -54,7 +54,9 @@ If you click the following rectangle, the handler displays the `The rectangle is
 
 **[Interface signature]** `append_js_expression(expression: str) -> None`<hr>
 
-**[Interface summary]** Append js expression.<hr>
+**[Interface summary]**
+
+Append js expression.<hr>
 
 **[Parameters]**
 

@@ -182,7 +182,8 @@
 <h2>click API<a class="headerlink" href="#click-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">click(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_O,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
-<p><strong>[インターフェイス概要]</strong> クリックイベント用の設定を追加します。<hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>クリックイベントのリスナー設定を追加します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
@@ -230,7 +231,8 @@
 <h2>unbind_click API<a class="headerlink" href="#unbind-click-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_click(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[インターフェイス概要]</strong> 指定されたクリックイベントのハンドラの設定を取り除きます。<hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>指定されたクリックイベントのハンドラー設定を取り除きます。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
@@ -260,7 +262,8 @@
 <h2>unbind_click_all API<a class="headerlink" href="#unbind-click-all-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_click_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[インターフェイス概要]</strong> 全てのクリックイベントの設定を解除します。<hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>全てのクリックイベント設定を取り除きます。<hr></p>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

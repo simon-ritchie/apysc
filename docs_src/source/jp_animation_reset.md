@@ -75,7 +75,9 @@ ap.save_overall_html(dest_dir_path="./animation_reset_basic_usage/")
 
 **[インターフェイスの構造]** `animation_reset(self) -> None`<hr>
 
-**[インターフェイス概要]** 全てのアニメーションのリセットと停止を行います。<hr>
+**[インターフェイス概要]**
+
+全てのアニメーションを停止しアニメーション内容をリセットします。<hr>
 
 **[コードサンプル]**
 

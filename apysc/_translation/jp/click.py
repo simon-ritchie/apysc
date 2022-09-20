@@ -55,7 +55,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Add a click event listener setting.<hr>": "**[インターフェイス概要]** クリックイベント用の設定を追加します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Add a click event listener setting.<hr>": "クリックイベントのリスナー設定を追加します。<hr>",
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -91,7 +93,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Unbind specified handler\'s click event.<hr>": "**[インターフェイス概要]** 指定されたクリックイベントのハンドラの設定を取り除きます。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Unbind specified handler\'s click event.<hr>": "指定されたクリックイベントのハンドラー設定を取り除きます。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -109,7 +113,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Unbind all click events.<hr>": "**[インターフェイス概要]** 全てのクリックイベントの設定を解除します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Unbind all click events.<hr>": "全てのクリックイベント設定を取り除きます。<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################

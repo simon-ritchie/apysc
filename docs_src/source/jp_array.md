@@ -72,7 +72,9 @@ assert isinstance(int_val, int)
 
 **[インターフェイスの構造]** `__init__(self, value: Union[List[~T], tuple, range, ForwardRef('Array')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[インターフェイス概要]** apyscライブラリの配列のクラスです。<hr>
+**[インターフェイス概要]**
+
+apyscライブラリの配列を扱うためのクラスです。<hr>
 
 **[引数]**
 
@@ -120,7 +122,9 @@ Array([0, 1, 2])
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の配列の値を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の配列の値を取得します。<hr>
 
 **[返却値]**
 

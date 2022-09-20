@@ -35,7 +35,9 @@ assert got_val_3 is None
 
 **[インターフェイスの構造]** `get(self, key: Union[~_K, apysc._type.expression_string.ExpressionString], *, default: ~DefaultType = None) -> ~DefaultType`<hr>
 
-**[インターフェイス概要]** 指定されたキーの辞書の値を取得します。もし辞書が指定されたキーを持っていない場合はデフォルト値を返却します。<hr>
+**[インターフェイス概要]**
+
+指定されたキーの辞書内の値を取得します。もし指定されたキーが辞書に存在しない場合、このインターフェイスはデフォルト値を返却します。<hr>
 
 **[引数]**
 

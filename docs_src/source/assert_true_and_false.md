@@ -151,7 +151,9 @@ Left value: false right value: false
 
 **[Interface signature]** `assert_true(value: Any, *, type_strict: bool = True, msg: str = '') -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for true condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for true condition.<hr>
 
 **[Parameters]**
 
@@ -181,7 +183,9 @@ Left value: false right value: false
 
 **[Interface signature]** `assert_false(value: Any, *, type_strict: bool = True, msg: str = '') -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for false condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for false condition.<hr>
 
 **[Parameters]**
 

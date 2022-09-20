@@ -79,7 +79,9 @@ ap.save_overall_html(dest_dir_path="./animation_line_color_basic_usage/")
 
 **[インターフェイスの構造]** `animation_line_color(self, *, line_color: ~StrOrString, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_line_color.AnimationLineColor`<hr>
 
-**[インターフェイス概要]** 線の色のアニメーションを設定します。<hr>
+**[インターフェイス概要]**
+
+線の色のアニメーションを設定します。<hr>
 
 **[引数]**
 

@@ -151,7 +151,9 @@ ap.save_overall_html(dest_dir_path="./animation_scale_x_and_y_from_center_basic_
 
 **[Interface signature]** `animation_scale_x_from_center(self, *, scale_x_from_center: Union[float, apysc._type.number.Number], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_scale_x_from_center.AnimationScaleXFromCenter`<hr>
 
-**[Interface summary]** Set the scale-x from the center point animation setting.<hr>
+**[Interface summary]**
+
+Set the scale-x from the center point animation setting.<hr>
 
 **[Parameters]**
 
@@ -213,7 +215,9 @@ To start this animation, you need to call the `start` method of the returned ins
 
 **[Interface signature]** `animation_scale_y_from_center(self, *, scale_y_from_center: Union[float, apysc._type.number.Number], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_scale_y_from_center.AnimationScaleYFromCenter`<hr>
 
-**[Interface summary]** Set the scale-y from the center point animation setting.<hr>
+**[Interface summary]**
+
+Set the scale-y from the center point animation setting.<hr>
 
 **[Parameters]**
 

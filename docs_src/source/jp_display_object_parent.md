@@ -58,7 +58,9 @@ ap.save_overall_html(dest_dir_path="display_object_remove_from_parent_basic_usag
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** `add_child`や`remove_child`などのインターフェイスを持っている親のインスタンスを取得します。<hr>
+**[インターフェイス概要]**
+
+add_childやremove_childなどのインターフェイスを持った親のインスタンスを取得します。<hr>
 
 **[返却値]**
 
@@ -89,7 +91,9 @@ True
 
 **[インターフェイスの構造]** `remove_from_parent(self) -> None`<hr>
 
-**[インターフェイス概要]** このインスタンスを親のインスタンスから取り除きます。.<hr>
+**[インターフェイス概要]**
+
+親のインスタンスからこのインスタンスを取り除きます。<hr>
 
 **[エラー発生条件]**
 

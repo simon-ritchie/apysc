@@ -78,7 +78,9 @@ ap.save_overall_html(dest_dir_path="display_object_x_and_y_augmented_assignment/
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get an x-coordinate.<hr>
+**[Interface summary]**
+
+Get an x-coordinate.<hr>
 
 **[Returns]**
 
@@ -108,7 +110,9 @@ Int(100)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a y-coordinate.<hr>
+**[Interface summary]**
+
+Get a y-coordinate.<hr>
 
 **[Returns]**
 

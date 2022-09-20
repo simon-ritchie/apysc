@@ -89,7 +89,9 @@ If you click the rectangle, the timer starts, and the Handler increases the rect
 
 **[Interface signature]** `__init__(self, handler: Callable[[ForwardRef('timer_event.TimerEvent'), ~_O1], NoneType], *, delay: Union[int, float, apysc._type.number_value_interface.NumberValueInterface, apysc._time.fps.FPS], repeat_count: Union[int, apysc._type.int.Int] = 0, options: Union[~_O1, NoneType] = None) -> None`<hr>
 
-**[Interface summary]** Timer class to handle function calling at regular intervals.<hr>
+**[Interface summary]**
+
+Timer class to handle function calling at regular intervals.<hr>
 
 **[Parameters]**
 

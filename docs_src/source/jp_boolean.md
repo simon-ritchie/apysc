@@ -103,7 +103,9 @@ assert bool_3
 
 **[インターフェイスの構造]** `__init__(self, value: Union[bool, int, apysc._type.int.Int, ForwardRef('Boolean')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[インターフェイス概要]** apyscライブラリ用の真偽値のクラスです。<hr>
+**[インターフェイス概要]**
+
+apyscライブラリのための真偽値のクラスです。<hr>
 
 **[引数]**
 
@@ -139,7 +141,9 @@ Boolean(True)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の真偽値の値を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の真偽値の値を取得します。<hr>
 
 **[返却値]**
 
@@ -172,7 +176,9 @@ True
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 反転（否定）させたBoolean型の真偽値を取得します。<hr>
+**[インターフェイス概要]**
+
+否定条件を加えた真偽値の値を取得します。<hr>
 
 **[返却値]**
 

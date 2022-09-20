@@ -79,7 +79,9 @@ ap.save_overall_html(dest_dir_path="graphics_base_rotation_around_point_basic_us
 
 **[Interface signature]** `get_rotation_around_point(self, *, x: apysc._type.int.Int, y: apysc._type.int.Int) -> apysc._type.int.Int`<hr>
 
-**[Interface summary]** Get a rotation value around the given coordinates.<hr>
+**[Interface summary]**
+
+Get a rotation value around the given coordinates.<hr>
 
 **[Parameters]**
 
@@ -122,7 +124,9 @@ Int(45)
 
 **[Interface signature]** `set_rotation_around_point(self, *, rotation: apysc._type.int.Int, x: apysc._type.int.Int, y: apysc._type.int.Int) -> None`<hr>
 
-**[Interface summary]** Update a rotation value around the given coordinates.<hr>
+**[Interface summary]**
+
+Update a rotation value around the given coordinates.<hr>
 
 **[Parameters]**
 

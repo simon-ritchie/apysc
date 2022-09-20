@@ -108,7 +108,9 @@ ap.save_overall_html(dest_dir_path="timer_reset_basic_usage/")
 
 **[Interface signature]** `reset(self) -> None`<hr>
 
-**[Interface summary]** Reset the timer count and stop this timer.<hr>
+**[Interface summary]**
+
+Reset the timer count and stop this timer.<hr>
 
 **[Examples]**
 

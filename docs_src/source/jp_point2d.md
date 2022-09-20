@@ -84,7 +84,9 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 
 **[インターフェイスの構造]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, variable_name_suffix: str = '') -> None`<hr>
 
-**[インターフェイス概要]** 2次元の座標値を扱うクラスです。<hr>
+**[インターフェイス概要]**
+
+2次元の座標値を扱うクラスです。<hr>
 
 **[引数]**
 
@@ -119,7 +121,9 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** X座標の属性のインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+X座標の属性のインターフェイスです。<hr>
 
 **[返却値]**
 
@@ -142,7 +146,9 @@ Int(150)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** Y座標の属性のインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+Y座標の属性のインターフェイスです。<hr>
 
 **[返却値]**
 

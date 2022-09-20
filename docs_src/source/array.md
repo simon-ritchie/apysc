@@ -67,7 +67,9 @@ assert isinstance(int_val, int)
 
 **[Interface signature]** `__init__(self, value: Union[List[~T], tuple, range, ForwardRef('Array')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[Interface summary]** Array class for the apysc library.<hr>
+**[Interface summary]**
+
+Array class for the apysc library.<hr>
 
 **[Parameters]**
 
@@ -115,7 +117,9 @@ Array([0, 1, 2])
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a current array value.<hr>
+**[Interface summary]**
+
+Get a current array value.<hr>
 
 **[Returns]**
 

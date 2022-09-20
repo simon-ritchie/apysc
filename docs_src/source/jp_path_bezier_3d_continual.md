@@ -171,7 +171,9 @@ ap.save_overall_html(dest_dir_path="path_bezier_3d_continual_relative/")
 
 **[インターフェイスの構造]** `__init__(self, control_x: Union[int, apysc._type.int.Int], control_y: Union[int, apysc._type.int.Int], dest_x: Union[int, apysc._type.int.Int], dest_y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
-**[インターフェイス概要]** SVGの連続した3次ベジェ曲線のデータ設定用のクラスです。<hr>
+**[インターフェイス概要]**
+
+SVGの連続した3次ベジェ曲線（S）のためのパスデータのクラスです。<hr>
 
 **[引数]**
 

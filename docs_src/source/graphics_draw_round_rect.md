@@ -83,7 +83,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_round_rect_return_value/")
 
 **[Interface signature]** `draw_round_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int], ellipse_height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
 
-**[Interface summary]** Draw a rounded rectangle vector graphics.<hr>
+**[Interface summary]**
+
+Draw a rounded rectangle vector graphics.<hr>
 
 **[Parameters]**
 

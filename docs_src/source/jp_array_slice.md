@@ -32,7 +32,9 @@ assert arr == [1, 2, 3, 4]
 
 **[インターフェイスの構造]** `slice(self, *, start: Union[int, apysc._type.int.Int, NoneType] = None, end: Union[int, apysc._type.int.Int, NoneType] = None) -> 'Array'`<hr>
 
-**[インターフェイス概要]** 与えられた開始と終了のインデックスに応じて配列をスライスします。<hr>
+**[インターフェイス概要]**
+
+指定された開始と終了のインデックス範囲でこの配列をスライスします。<hr>
 
 **[引数]**
 

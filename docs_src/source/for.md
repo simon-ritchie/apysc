@@ -80,7 +80,9 @@ ap.save_overall_html(dest_dir_path="for_basic_usage_with_dict/")
 
 **[Interface signature]** `__init__(self, arr_or_dict: Union[apysc._type.array.Array, apysc._type.dictionary.Dictionary], *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None) -> None`<hr>
 
-**[Interface summary]** A class to append for the (loop) expression.<hr>
+**[Interface summary]**
+
+A class to append for the (loop) expression.<hr>
 
 **[Parameters]**
 

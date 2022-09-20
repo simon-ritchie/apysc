@@ -160,7 +160,9 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y
 
 **[Interface signature]** `get_scale_x_from_point(self, *, x: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
 
-**[Interface summary]** Get a scale-x value from the given x-coordinate.<hr>
+**[Interface summary]**
+
+Get a scale-x value from the given x-coordinate.<hr>
 
 **[Parameters]**
 
@@ -204,7 +206,9 @@ Number(1.5)
 
 **[Interface signature]** `set_scale_x_from_point(self, *, scale_x: apysc._type.number.Number, x: apysc._type.int.Int) -> None`<hr>
 
-**[Interface summary]** Update a scale-x value from the given x-coordinate.<hr>
+**[Interface summary]**
+
+Update a scale-x value from the given x-coordinate.<hr>
 
 **[Parameters]**
 
@@ -243,7 +247,9 @@ Number(1.5)
 
 **[Interface signature]** `get_scale_y_from_point(self, *, y: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
 
-**[Interface summary]** Get a scale-y value from the given y-coordinate.<hr>
+**[Interface summary]**
+
+Get a scale-y value from the given y-coordinate.<hr>
 
 **[Parameters]**
 
@@ -283,7 +289,9 @@ Number(1.5)
 
 **[Interface signature]** `set_scale_y_from_point(self, *, scale_y: apysc._type.number.Number, y: apysc._type.int.Int) -> None`<hr>
 
-**[Interface summary]** Update a scale-y value from the given y-coordinate.<hr>
+**[Interface summary]**
+
+Update a scale-y value from the given y-coordinate.<hr>
 
 **[Parameters]**
 

@@ -86,7 +86,9 @@ ap.save_overall_html(dest_dir_path="animation_finish_basic_usage/")
 
 **[インターフェイスの構造]** `animation_finish(self) -> None`<hr>
 
-**[インターフェイス概要]** 全てのアニメーションを終了し各属性にアニメーションの最終値の値を設定します。<hr>
+**[インターフェイス概要]**
+
+全てのアニメーションを終了します（各属性にアニメーション終了時の値を設定します）。<hr>
 
 **[コードサンプル]**
 

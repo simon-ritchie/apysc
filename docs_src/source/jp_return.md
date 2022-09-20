@@ -66,7 +66,9 @@ ap.save_overall_html(dest_dir_path="return_basic_usage/")
 
 **[インターフェイスの構造]** `__init__(self) -> None`<hr>
 
-**[インターフェイス概要]** return のコード表現のためのクラスです。<hr>
+**[インターフェイス概要]**
+
+return のコード表現のためのクラスです。<hr>
 
 **[特記事項]**
 

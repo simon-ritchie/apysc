@@ -57,7 +57,9 @@ ap.save_overall_html(dest_dir_path="./animation_base_start_basic_usage_2/")
 
 **[インターフェイスの構造]** `start(self) -> 'AnimationBase'`<hr>
 
-**[インターフェイス概要]** 現在の設定値でアニメーションを開始します。<hr>
+**[インターフェイス概要]**
+
+現在の設定を使ってアニメーションを開始します。<hr>
 
 **[返却値]**
 

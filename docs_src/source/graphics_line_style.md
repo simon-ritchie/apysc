@@ -447,7 +447,9 @@ Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_da
 
 **[Interface signature]** `line_style(self, *, color: ~StrOrString, thickness: Union[int, apysc._type.int.Int] = 1, alpha: Union[float, apysc._type.number.Number] = 1.0, cap: Union[apysc._display.line_caps.LineCaps, NoneType] = None, joints: Union[apysc._display.line_joints.LineJoints, NoneType] = None, dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None) -> None`<hr>
 
-**[Interface summary]** Set line style values.<hr>
+**[Interface summary]**
+
+Set line style values.<hr>
 
 **[Parameters]**
 
@@ -503,7 +505,9 @@ String('round')
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line color.<hr>
+**[Interface summary]**
+
+Get current line color.<hr>
 
 **[Returns]**
 
@@ -531,7 +535,9 @@ String('#ffffff')
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line thickness.<hr>
+**[Interface summary]**
+
+Get current line thickness.<hr>
 
 **[Returns]**
 
@@ -557,7 +563,9 @@ Int(5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line color opacity.<hr>
+**[Interface summary]**
+
+Get current line color opacity.<hr>
 
 **[Returns]**
 
@@ -585,7 +593,9 @@ Number(0.5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line cap (edge) style setting.<hr>
+**[Interface summary]**
+
+Get current line cap (edge) style setting.<hr>
 
 **[Returns]**
 
@@ -613,7 +623,9 @@ String('round')
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line joints (vertices) style setting.<hr>
+**[Interface summary]**
+
+Get current line joints (vertices) style setting.<hr>
 
 **[Returns]**
 
@@ -641,7 +653,9 @@ String('round')
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line dot setting.<hr>
+**[Interface summary]**
+
+Get current line dot setting.<hr>
 
 **[Returns]**
 
@@ -669,7 +683,9 @@ Int(5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line dash setting.<hr>
+**[Interface summary]**
+
+Get current line dash setting.<hr>
 
 **[Returns]**
 
@@ -702,7 +718,9 @@ Int(5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line round dot setting.<hr>
+**[Interface summary]**
+
+Get current line round dot setting.<hr>
 
 **[Returns]**
 
@@ -735,7 +753,9 @@ Int(3)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line dash dot setting.<hr>
+**[Interface summary]**
+
+Get current line dash dot setting.<hr>
 
 **[Returns]**
 

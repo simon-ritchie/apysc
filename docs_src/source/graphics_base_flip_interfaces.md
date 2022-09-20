@@ -73,7 +73,9 @@ The `flip_y` interface behaves the same as the `flip_x` interface, except the ax
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a boolean value whether the x-axis is flipping or not.<hr>
+**[Interface summary]**
+
+Get a boolean value whether the x-axis is flipping or not.<hr>
 
 **[Returns]**
 
@@ -107,7 +109,9 @@ Boolean(True)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a boolean value whether the y-axis is flipping or not.<hr>
+**[Interface summary]**
+
+Get a boolean value whether the y-axis is flipping or not.<hr>
 
 **[Returns]**
 

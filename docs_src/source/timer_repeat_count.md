@@ -79,7 +79,9 @@ ap.save_overall_html(dest_dir_path="timer_repeat_count_basic_usage/")
 
 **[Interface signature]** `__init__(self, handler: Callable[[ForwardRef('timer_event.TimerEvent'), ~_O1], NoneType], *, delay: Union[int, float, apysc._type.number_value_interface.NumberValueInterface, apysc._time.fps.FPS], repeat_count: Union[int, apysc._type.int.Int] = 0, options: Union[~_O1, NoneType] = None) -> None`<hr>
 
-**[Interface summary]** Timer class to handle function calling at regular intervals.<hr>
+**[Interface summary]**
+
+Timer class to handle function calling at regular intervals.<hr>
 
 **[Parameters]**
 
@@ -131,7 +133,9 @@ ap.save_overall_html(dest_dir_path="timer_repeat_count_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a max count value of a handler's calling.<hr>
+**[Interface summary]**
+
+Get a max count value of a handler's calling.<hr>
 
 **[Returns]**
 

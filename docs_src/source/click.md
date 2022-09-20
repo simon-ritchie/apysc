@@ -152,7 +152,9 @@ ap.save_overall_html(dest_dir_path="click_unbind_all_the_click_event_handlers/")
 
 **[Interface signature]** `click(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[Interface summary]** Add a click event listener setting.<hr>
+**[Interface summary]**
+
+Add a click event listener setting.<hr>
 
 **[Parameters]**
 
@@ -200,7 +202,9 @@ ap.save_overall_html(dest_dir_path="click_unbind_all_the_click_event_handlers/")
 
 **[Interface signature]** `unbind_click(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[Interface summary]** Unbind specified handler's click event.<hr>
+**[Interface summary]**
+
+Unbind specified handler's click event.<hr>
 
 **[Parameters]**
 
@@ -234,7 +238,9 @@ ap.save_overall_html(dest_dir_path="click_unbind_all_the_click_event_handlers/")
 
 **[Interface signature]** `unbind_click_all(self) -> None`<hr>
 
-**[Interface summary]** Unbind all click events.<hr>
+**[Interface summary]**
+
+Unbind all click events.<hr>
 
 **[Examples]**
 

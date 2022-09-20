@@ -40,7 +40,9 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_dot_setting_basic_usage
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** このインスタンスの線の点線のスタイル設定を取得します。<hr>
+**[インターフェイス概要]**
+
+このインスタンスの線の点線のスタイル設定を取得します。<hr>
 
 **[返却値]**
 

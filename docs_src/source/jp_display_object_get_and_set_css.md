@@ -66,7 +66,9 @@ ap.save_overall_html(dest_dir_path="display_object_get_and_set_css_basic_usage/"
 
 **[インターフェイスの構造]** `get_css(self, *, name: Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
 
-**[インターフェイス概要]** Get a CSS value string.<hr>
+**[インターフェイス概要]**
+
+CSSの設定値の文字列を取得します。<hr>
 
 **[引数]**
 
@@ -100,7 +102,9 @@ String('none')
 
 **[インターフェイスの構造]** `set_css(self, *, name: Union[str, apysc._type.string.String], value: Union[str, apysc._type.string.String]) -> None`<hr>
 
-**[インターフェイス概要]** 特定のCSSの値を設定します。<hr>
+**[インターフェイス概要]**
+
+CSSに指定された文字列の値を設定します。<hr>
 
 **[引数]**
 

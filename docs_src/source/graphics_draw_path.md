@@ -60,7 +60,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_path_basic_usage/")
 
 **[Interface signature]** `draw_path(self, *, path_data_list: List[apysc._geom.path_data_base.PathDataBase], variable_name_suffix: str = '') -> '_path.Path'`<hr>
 
-**[Interface summary]** Draw a path vector graphics.<hr>
+**[Interface summary]**
+
+Draw a path vector graphics.<hr>
 
 **[Parameters]**
 

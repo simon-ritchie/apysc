@@ -80,7 +80,9 @@ ap.save_overall_html(dest_dir_path="./animation_line_thickness_basic_usage/")
 
 **[Interface signature]** `animation_line_thickness(self, *, thickness: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_line_thickness.AnimationLineThickness`<hr>
 
-**[Interface summary]** Set the line thickness animation setting.<hr>
+**[Interface summary]**
+
+Set the line thickness animation setting.<hr>
 
 **[Parameters]**
 

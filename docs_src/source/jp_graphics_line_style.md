@@ -450,7 +450,9 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_dash_dot_setting/")
 
 **[インターフェイスの構造]** `line_style(self, *, color: ~StrOrString, thickness: Union[int, apysc._type.int.Int] = 1, alpha: Union[float, apysc._type.number.Number] = 1.0, cap: Union[apysc._display.line_caps.LineCaps, NoneType] = None, joints: Union[apysc._display.line_joints.LineJoints, NoneType] = None, dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None) -> None`<hr>
 
-**[インターフェイス概要]** 線のスタイルを設定します。<hr>
+**[インターフェイス概要]**
+
+線のスタイルを設定します。<hr>
 
 **[引数]**
 
@@ -512,7 +514,9 @@ String('round')
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の線の色を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の線の色を取得します。<hr>
 
 **[返却値]**
 
@@ -538,7 +542,9 @@ String('#ffffff')
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の線の線幅を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の線の線幅を取得します。<hr>
 
 **[返却値]**
 
@@ -562,7 +568,9 @@ Int(5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の線の透明度を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の線の透明度を取得します。<hr>
 
 **[返却値]**
 
@@ -588,7 +596,9 @@ Number(0.5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の線の端のスタイル設定。<hr>
+**[インターフェイス概要]**
+
+現在の線の端のスタイル設定。<hr>
 
 **[返却値]**
 
@@ -614,7 +624,9 @@ String('round')
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の線の接合部（頂点）のスタイル設定を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の線の接合部（頂点）のスタイル設定を取得します。<hr>
 
 **[返却値]**
 
@@ -640,7 +652,9 @@ String('round')
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の線の点線設定を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の線の点線設定を取得します。<hr>
 
 **[返却値]**
 
@@ -666,7 +680,9 @@ Int(5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の線の破線のスタイル設定を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の線の破線のスタイル設定を取得します。<hr>
 
 **[返却値]**
 
@@ -697,7 +713,9 @@ Int(5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の線の丸ドットのスタイル設定を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の線の丸ドットのスタイル設定を取得します。<hr>
 
 **[返却値]**
 
@@ -728,7 +746,9 @@ Int(3)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の線の一点鎖線のスタイル設定を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の線の一点鎖線のスタイル設定を取得します。<hr>
 
 **[返却値]**
 

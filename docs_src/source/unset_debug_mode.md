@@ -107,7 +107,9 @@ The exported HTML includes the debug information at the first integer position. 
 
 **[Interface signature]** `unset_debug_mode() -> None`<hr>
 
-**[Interface summary]** Unset the debug mode for the HTML and JavaScript debugging.<hr>
+**[Interface summary]**
+
+Unset the debug mode for the HTML and JavaScript debugging.<hr>
 
 **[Examples]**
 

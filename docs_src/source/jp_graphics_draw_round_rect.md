@@ -82,7 +82,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_round_rect_return_value/")
 
 **[インターフェイスの構造]** `draw_round_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int], ellipse_height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
 
-**[インターフェイス概要]** 角丸四角のベクターグラフィックスを描画します。<hr>
+**[インターフェイス概要]**
+
+角丸四角のベクターグラフィックスを描画します。<hr>
 
 **[引数]**
 

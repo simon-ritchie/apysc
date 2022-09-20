@@ -99,7 +99,9 @@ ap.save_overall_html(dest_dir_path="./unbind_dblclick_basic_usage/")
 
 **[インターフェイスの構造]** `dblclick(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[インターフェイス概要]** ダブルクリック時のイベント設定を追加します。<hr>
+**[インターフェイス概要]**
+
+ダブルクリックイベントのリスナー設定を追加します。<hr>
 
 **[引数]**
 
@@ -146,7 +148,9 @@ ap.save_overall_html(dest_dir_path="./unbind_dblclick_basic_usage/")
 
 **[インターフェイスの構造]** `unbind_dblclick(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[インターフェイス概要]** 指定されたハンドラのダブルクリック時のイベント設定を取り除きます。<hr>
+**[インターフェイス概要]**
+
+指定されたダブルクリックイベントのハンドラー設定を取り除きます。<hr>
 
 **[引数]**
 
@@ -178,7 +182,9 @@ ap.save_overall_html(dest_dir_path="./unbind_dblclick_basic_usage/")
 
 **[インターフェイスの構造]** `unbind_dblclick_all(self) -> None`<hr>
 
-**[インターフェイス概要]** 全てのダブルクリック時のイベント設定を取り除きます。<hr>
+**[インターフェイス概要]**
+
+全てのダブルクリックイベント設定を取り除きます。<hr>
 
 **[コードサンプル]**
 

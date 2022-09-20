@@ -64,7 +64,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_path_basic_usage/")
 
 **[インターフェイスの構造]** `draw_path(self, *, path_data_list: List[apysc._geom.path_data_base.PathDataBase], variable_name_suffix: str = '') -> '_path.Path'`<hr>
 
-**[インターフェイス概要]** パスのベクターグラフィックスを描画します。<hr>
+**[インターフェイス概要]**
+
+パスのベクターグラフィックスを描画します。<hr>
 
 **[引数]**
 

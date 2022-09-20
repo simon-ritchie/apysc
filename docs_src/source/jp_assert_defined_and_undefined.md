@@ -98,7 +98,9 @@ Left value: undefined right value: undefined
 
 **[インターフェイスの構造]** `assert_defined(value: Any, *, msg: str = '') -> None`<hr>
 
-**[Interface summary]** JavaScriptでの値が定義済みかどうかのチェックを行うインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+定義済みの値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 
@@ -124,7 +126,9 @@ Left value: undefined right value: undefined
 
 **[インターフェイスの構造]** `assert_undefined(value: Any, *, msg: str = '') -> None`<hr>
 
-**[インターフェイス概要]** JavaScriptでの値が未定義かどうかのチェックを行うインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+未定義の値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 

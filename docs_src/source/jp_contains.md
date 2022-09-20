@@ -68,7 +68,9 @@ ap.save_overall_html(dest_dir_path="sprite_contains_basic_usage/")
 
 **[インターフェイスの構造]** `contains(self, child: apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`<hr>
 
-**[インターフェイス概要]** 指定された子のインスタンスを持っているかどうかの真偽値を取得します。<hr>
+**[インターフェイス概要]**
+
+指定された子のインスタンスを持っているかどうかの真偽値を取得します。<hr>
 
 **[引数]**
 

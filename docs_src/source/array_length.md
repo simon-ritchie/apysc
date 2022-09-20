@@ -41,7 +41,9 @@ Exception: Array instance can't apply len function. Please use length property i
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get length of this array.<hr>
+**[Interface summary]**
+
+Get length of this array.<hr>
 
 **[Returns]**
 

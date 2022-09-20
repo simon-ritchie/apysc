@@ -825,7 +825,9 @@ ap.save_overall_html(dest_dir_path="polyline_skew_y/")
 
 **[Interface signature]** `__init__(self, *, points: Union[apysc._type.array.Array[apysc._geom.point2d.Point2D], List[apysc._geom.point2d.Point2D]], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_interface.ChildInterface, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
-**[Interface summary]** Create a polyline vector graphic.<hr>
+**[Interface summary]**
+
+Create a polyline vector graphic.<hr>
 
 **[Parameters]**
 

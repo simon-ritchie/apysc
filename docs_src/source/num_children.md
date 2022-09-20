@@ -67,7 +67,9 @@ ap.save_overall_html(dest_dir_path="num_children_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a current children's number.<hr>
+**[Interface summary]**
+
+Get a current children's number.<hr>
 
 **[Returns]**
 

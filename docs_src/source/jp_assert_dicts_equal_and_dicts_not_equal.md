@@ -122,7 +122,9 @@ Left value: {a: 30} right value: dct_1
 
 **[インターフェイスの構造]** `assert_dicts_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
-**[インターフェイス概要]** JavaScript上での辞書の等値条件のチェックを行うインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+辞書の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 
@@ -159,7 +161,9 @@ Left value: {a: 30} right value: dct_1
 
 **[インターフェイスの構造]** `assert_dicts_not_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
-**[インターフェイス概要]** JavaScript上での辞書の非等値のチェックを行うインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+辞書の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 

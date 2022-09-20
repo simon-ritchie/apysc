@@ -140,7 +140,9 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 
 **[Interface signature]** `mousedown(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[Interface summary]** Add mouse down event listener setting.<hr>
+**[Interface summary]**
+
+Add mouse down event listener setting.<hr>
 
 **[Parameters]**
 
@@ -188,7 +190,9 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 
 **[Interface signature]** `unbind_mousedown(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[Interface summary]** Unbind a specified handler's mouse down event.<hr>
+**[Interface summary]**
+
+Unbind a specified handler's mouse down event.<hr>
 
 **[Parameters]**
 
@@ -222,7 +226,9 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 
 **[Interface signature]** `unbind_mousedown_all(self) -> None`<hr>
 
-**[Interface summary]** Unbind all mouse down events.<hr>
+**[Interface summary]**
+
+Unbind all mouse down events.<hr>
 
 **[Examples]**
 
@@ -249,7 +255,9 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 
 **[Interface signature]** `mouseup(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[Interface summary]** Add mouse up event listener setting.<hr>
+**[Interface summary]**
+
+Add mouse up event listener setting.<hr>
 
 **[Parameters]**
 
@@ -297,7 +305,9 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 
 **[Interface signature]** `unbind_mouseup(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[Interface summary]** Unbind a specified handler's mouse-up event.<hr>
+**[Interface summary]**
+
+Unbind a specified handler's mouse-up event.<hr>
 
 **[Parameters]**
 
@@ -331,7 +341,9 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 
 **[Interface signature]** `unbind_mouseup_all(self) -> None`<hr>
 
-**[Interface summary]** Unbind all mouse up events.<hr>
+**[Interface summary]**
+
+Unbind all mouse up events.<hr>
 
 **[Examples]**
 

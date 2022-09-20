@@ -106,7 +106,9 @@ ap.save_overall_html(dest_dir_path="event_stop_propagation_basic_usage/")
 
 **[インターフェイスの構造]** `prevent_default(self) -> None`<hr>
 
-**[インターフェイス概要]** イベントのデフォルトの挙動を無効化します。<hr>
+**[インターフェイス概要]**
+
+イベントのデフォルトの挙動を無効化します。<hr>
 
 **[コードサンプル]**
 
@@ -132,7 +134,9 @@ ap.save_overall_html(dest_dir_path="event_stop_propagation_basic_usage/")
 
 **[インターフェイスの構造]** `stop_propagation(self) -> None`<hr>
 
-**[インターフェイス概要]** イベントの伝搬を停止するように設定します。<hr>
+**[インターフェイス概要]**
+
+イベントの伝搬を停止させます。<hr>
 
 **[コードサンプル]**
 

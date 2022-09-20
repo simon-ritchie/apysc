@@ -200,7 +200,8 @@
 <h2>draw_polygon API<a class="headerlink" href="#draw-polygon-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">draw_polygon(self,</span> <span class="pre">*,</span> <span class="pre">points:</span> <span class="pre">Union[List[apysc._geom.point2d.Point2D],</span> <span class="pre">apysc._type.array.Array[apysc._geom.point2d.Point2D]],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_polyg.Polygon'</span></code><hr></p>
-<p><strong>[インターフェイス概要]</strong> 多角形のベクターグラフィックスを描画します。このインターフェイスはPolylineクラス（<code class="docutils literal notranslate"><span class="pre">move_to</span></code>や<code class="docutils literal notranslate"><span class="pre">line_to</span></code>のインターフェイスで作成されます）に似ていますが、このインターフェイスは始点と終点が連結されるという違いがあります。<hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>多角形のベクターグラフィックスを描画します。このインターフェイスはPolylineクラス（<code class="docutils literal notranslate"><span class="pre">move_to</span></code>や<code class="docutils literal notranslate"><span class="pre">line_to</span></code>のインターフェイスで作成されます）に似ていますが、このインターフェイスは始点と終点が連結されるという違いがあります。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">points</span></code>: list of Point2D or Array.</p>

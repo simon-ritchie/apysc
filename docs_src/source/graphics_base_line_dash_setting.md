@@ -37,7 +37,9 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_dash_setting_basic_usag
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current line dash setting.<hr>
+**[Interface summary]**
+
+Get current line dash setting.<hr>
 
 **[Returns]**
 

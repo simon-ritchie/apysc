@@ -61,7 +61,9 @@ Exception: The `Continue` class can be instantiated in the with loop statement, 
 
 **[Interface signature]** `__init__(self) -> None`<hr>
 
-**[Interface summary]** The loop continue expression class.<hr>
+**[Interface summary]**
+
+The loop continue expression class.<hr>
 
 **[Notes]**
 

@@ -78,7 +78,9 @@ ap.save_overall_html(dest_dir_path="./animation_pause_basic_usage/")
 
 **[インターフェイスの構造]** `animation_pause(self) -> None`<hr>
 
-**[インターフェイス概要]** 全アニメーションを停止します。<hr>
+**[インターフェイス概要]**
+
+全てのアニメーションを停止します。<hr>
 
 **[コードサンプル]**
 
@@ -112,7 +114,9 @@ ap.save_overall_html(dest_dir_path="./animation_pause_basic_usage/")
 
 **[インターフェイスの構造]** `animation_play(self) -> None`<hr>
 
-**[Interface summary]** 停止している全てのアニメーションを再開します。<hr>
+**[インターフェイス概要]**
+
+停止している全てのアニメーションを再開します。<hr>
 
 **[コードサンプル]**
 

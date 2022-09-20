@@ -96,7 +96,9 @@ If you click rectangle, the handler changes the x position to 100.
 
 **[Interface signature]** `draw_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
 
-**[Interface summary]** Draw a rectangle vector graphics.<hr>
+**[Interface summary]**
+
+Draw a rectangle vector graphics.<hr>
 
 **[Parameters]**
 

@@ -133,7 +133,9 @@ ap.save_overall_html(dest_dir_path="sprite_basic_usage_of_add_child/")
 
 **[Interface signature]** `add_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[Interface summary]** Add display object child to this instance.<hr>
+**[Interface summary]**
+
+Add display object child to this instance.<hr>
 
 **[Parameters]**
 
@@ -164,7 +166,9 @@ ap.save_overall_html(dest_dir_path="sprite_basic_usage_of_add_child/")
 
 **[Interface signature]** `remove_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[Interface summary]** Remove display object child from this instance.<hr>
+**[Interface summary]**
+
+Remove display object child from this instance.<hr>
 
 **[Parameters]**
 

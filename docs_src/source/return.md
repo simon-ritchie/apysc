@@ -67,7 +67,9 @@ ap.save_overall_html(dest_dir_path="return_basic_usage/")
 
 **[Interface signature]** `__init__(self) -> None`<hr>
 
-**[Interface summary]** Class for the return expression.<hr>
+**[Interface summary]**
+
+Class for the return expression.<hr>
 
 **[Notes]**
 

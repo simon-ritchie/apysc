@@ -33,7 +33,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get a boolean value whether the x-axis is flipping or not.<hr>": "**[インターフェイス概要]** 横方向に反転しているかどうかのBooleanの真偽値を取得します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get a boolean value whether the x-axis is flipping or not.<hr>": "横軸に対して反転しているかどうかの真偽値を取得します。<hr>",  # noqa
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
@@ -51,7 +53,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get a boolean value whether the y-axis is flipping or not.<hr>": "**[インターフェイス概要]** 縦方向に反転しているかどうかのBooleanの真偽値を取得します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get a boolean value whether the y-axis is flipping or not.<hr>": "縦軸に対して反転しているかどうかの真偽値を取得します。<hr>",  # noqa
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################

@@ -122,7 +122,9 @@ ap.save_overall_html(dest_dir_path="timer_event_this_attribute/")
 
 **[インターフェイスの構造]** `__init__(self, *, this: 'timer.Timer') -> None`<hr>
 
-**[インターフェイス概要]** タイマー関係のイベントのクラスです。<hr>
+**[インターフェイス概要]**
+
+タイマー関係のイベントのクラスです。<hr>
 
 **[引数]**
 
@@ -160,7 +162,9 @@ ap.save_overall_html(dest_dir_path="timer_event_this_attribute/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** このイベントのハンドラが設定されている対象のタイマーのインスタンス。<hr>
+**[インターフェイス概要]**
+
+このイベントのハンドラが設定されている対象のタイマーのインスタンス。<hr>
 
 **[返却値]**
 

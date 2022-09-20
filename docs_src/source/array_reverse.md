@@ -32,7 +32,9 @@ assert arr == [5, 3, 1]
 
 **[Interface signature]** `reverse(self) -> None`<hr>
 
-**[Interface summary]** Reverse this array in place.<hr>
+**[Interface summary]**
+
+Reverse this array in place.<hr>
 
 **[Examples]**
 

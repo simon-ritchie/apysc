@@ -151,7 +151,9 @@ animation_move.start()
 
 **[Interface signature]** `animation_complete(self, handler: Callable[[ForwardRef('animation_event.AnimationEvent'), ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> 'AnimationBase'`<hr>
 
-**[Interface summary]** Add an animation complete event listener setting.<hr>
+**[Interface summary]**
+
+Add an animation complete event listener setting.<hr>
 
 **[Parameters]**
 

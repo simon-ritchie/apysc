@@ -28,7 +28,9 @@ assert joined == "1,2,3"
 
 **[Interface signature]** `join(self, sep: Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
 
-**[Interface summary]** Join this array value with a specified separator string.<hr>
+**[Interface summary]**
+
+Join this array value with a specified separator string.<hr>
 
 **[Parameters]**
 

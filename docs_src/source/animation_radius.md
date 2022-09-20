@@ -83,7 +83,9 @@ ap.save_overall_html(dest_dir_path="./animation_radius_basic_usage/")
 
 **[Interface signature]** `animation_radius(self, *, radius: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_radius.AnimationRadius`<hr>
 
-**[Interface summary]** Set the radius animation setting.<hr>
+**[Interface summary]**
+
+Set the radius animation setting.<hr>
 
 **[Parameters]**
 

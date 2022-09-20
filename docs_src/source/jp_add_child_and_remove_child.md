@@ -133,7 +133,9 @@ ap.save_overall_html(dest_dir_path="sprite_basic_usage_of_add_child/")
 
 **[インターフェイスの構造]** `add_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[インターフェイス概要]** 表示オブジェクトの子をこのインスタンスへと追加します。<hr>
+**[インターフェイス概要]**
+
+表示オブジェクトの子をこのインスタンスへと追加します。<hr>
 
 **[引数]**
 
@@ -162,7 +164,9 @@ ap.save_overall_html(dest_dir_path="sprite_basic_usage_of_add_child/")
 
 **[インターフェイスの構造]** `remove_child(self, child: apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[インターフェイス概要]** このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr>
+**[インターフェイス概要]**
+
+このインスタンスから指定された表示オブジェクトの子を取り除きます。<hr>
 
 **[引数]**
 

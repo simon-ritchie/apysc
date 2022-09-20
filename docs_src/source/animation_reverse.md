@@ -126,7 +126,9 @@ ap.save_overall_html(dest_dir_path="animation_reverse_notes/")
 
 **[Interface signature]** `animation_reverse(self) -> None`<hr>
 
-**[Interface summary]** Reverse all running animations.<hr>
+**[Interface summary]**
+
+Reverse all running animations.<hr>
 
 **[Notes]**
 

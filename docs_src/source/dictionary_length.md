@@ -41,7 +41,9 @@ Exception: Dictionary instance can't apply len function. Please use length prope
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get length of this dictionary values.<hr>
+**[Interface summary]**
+
+Get length of this dictionary values.<hr>
 
 **[Returns]**
 

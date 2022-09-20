@@ -39,7 +39,9 @@ assert index == -1
 
 **[Interface signature]** `index_of(self, value: ~T) -> apysc._type.int.Int`<hr>
 
-**[Interface summary]** Search specified value's index and return it.<hr>
+**[Interface summary]**
+
+Search specified value's index and return it.<hr>
 
 **[Parameters]**
 

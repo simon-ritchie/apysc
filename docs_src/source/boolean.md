@@ -104,7 +104,9 @@ assert bool_3
 
 **[Interface signature]** `__init__(self, value: Union[bool, int, apysc._type.int.Int, ForwardRef('Boolean')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[Interface summary]** Boolean class for apysc library.<hr>
+**[Interface summary]**
+
+Boolean class for apysc library.<hr>
 
 **[Parameters]**
 
@@ -140,7 +142,9 @@ Boolean(True)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a current boolean value.<hr>
+**[Interface summary]**
+
+Get a current boolean value.<hr>
 
 **[Returns]**
 
@@ -175,7 +179,9 @@ True
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a not condition Boolean value.<hr>
+**[Interface summary]**
+
+Get a not condition Boolean value.<hr>
 
 **[Returns]**
 

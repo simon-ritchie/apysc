@@ -42,7 +42,9 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_alpha_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get this instance's line alpha (opacity).<hr>
+**[Interface summary]**
+
+Get this instance's line alpha (opacity).<hr>
 
 **[Returns]**
 

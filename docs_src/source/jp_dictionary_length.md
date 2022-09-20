@@ -40,7 +40,9 @@ Exception: Dictionary instance can't apply len function. Please use length prope
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 辞書の値の長さを取得します。<hr>
+**[インターフェイス概要]**
+
+辞書の値の長さ（件数）を取得します。<hr>
 
 **[返却値]**
 

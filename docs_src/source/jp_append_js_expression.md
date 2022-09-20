@@ -54,7 +54,9 @@ ap.save_overall_html(dest_dir_path="append_js_expression_basic_usage/")
 
 **[インターフェイスの構造]** `append_js_expression(expression: str) -> None`<hr>
 
-**[インターフェイス概要]** JavaScriptのコード表現の記述を結果のHTMLへ追加します。<hr>
+**[インターフェイス概要]**
+
+JavaScriptのコードの追加を行います。<hr>
 
 **[引数]**
 

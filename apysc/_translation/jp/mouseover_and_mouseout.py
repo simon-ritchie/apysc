@@ -45,7 +45,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Add mouse over event listener setting.<hr>": "**[インターフェイス概要]** マウスカーソルが乗った時のイベントのハンドラ設定を追加します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Add mouse over event listener setting.<hr>": "マウスカーソルが乗った時のイベントのハンドラ設定を追加します。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -81,7 +83,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Unbind a specified handler\'s mouseover event.<hr>": "**[インターフェイス概要]** マウスカーソルが乗った際のイベントの指定されたハンドラ設定を解除します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Unbind a specified handler\'s mouseover event.<hr>": "マウスカーソルが乗った際のイベントの指定されたハンドラ設定を解除します。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -99,7 +103,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Unbind all mouseover events.<hr>": "**[インターフェイス概要]** マウスカーソルが乗った際のイベントの全てのハンドラ設定を解除します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Unbind all mouseover events.<hr>": "マウスカーソルが乗った際のイベントの全てのハンドラ設定を解除します。<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
@@ -109,7 +115,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Add mouse out event listener setting.<hr>": "**[インターフェイス概要]** マウスカーソルがインスタンス上から離れた際のイベントのハンドラを設定します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Add mouse out event listener setting.<hr>": "マウスカーソルがインスタンス上から離れた際のイベントのハンドラを設定します。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -145,7 +153,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Unbind a specified handler\'s mouse-out event.<hr>": "**[インターフェイス概要]** インスタンス上からマウスカーソルが離れた際のイベントの対象のハンドラ設定を解除します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Unbind a specified handler\'s mouse-out event.<hr>": "インスタンス上からマウスカーソルが離れた際のイベントの対象のハンドラ設定を解除します。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -163,7 +173,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Unbind all mouse out events.<hr>": "**[インターフェイス概要]** インスタンス上からマウスカーソルが離れた際のイベントのハンドラ設定を全て解除します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Unbind all mouse out events.<hr>": "インスタンス上からマウスカーソルが離れた際のイベントのハンドラ設定を全て解除します。<hr>",  # noqa
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################

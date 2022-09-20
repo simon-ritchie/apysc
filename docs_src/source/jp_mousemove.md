@@ -120,7 +120,9 @@ ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 
 **[インターフェイスの構造]** `mousemove(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[インターフェイス概要]** マウスを動かした時のイベント設定を追加します。<hr>
+**[インターフェイス概要]**
+
+マウスを動かした時のイベント設定を追加します。<hr>
 
 **[引数]**
 
@@ -167,7 +169,9 @@ ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 
 **[インターフェイスの構造]** `unbind_mousemove(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[インターフェイス概要]** マウスカーソルを動かした際のイベントで指定されたハンドラの設定を解除します。<hr>
+**[インターフェイス概要]**
+
+マウスカーソルを動かした際のイベントで指定されたハンドラの設定を解除します。<hr>
 
 **[引数]**
 
@@ -202,7 +206,9 @@ ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 
 **[インターフェイスの構造]** `unbind_mousemove_all(self) -> None`<hr>
 
-**[インターフェイス概要]** マウスカーソルを動かしたときのイベントの全てのハンドラ設定を解除します。<hr>
+**[インターフェイス概要]**
+
+マウスカーソルを動かしたときのイベントの全てのハンドラ設定を解除します。<hr>
 
 **[コードサンプル]**
 

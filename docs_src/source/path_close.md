@@ -61,7 +61,9 @@ ap.save_overall_html(dest_dir_path="path_close_basic_usage/")
 
 **[Interface signature]** `__init__(self) -> None`<hr>
 
-**[Interface summary]** Path data class for the SVG's `close path` (Z).<hr>
+**[Interface summary]**
+
+Path data class for the SVG's `close path` (Z).<hr>
 
 **[Examples]**
 

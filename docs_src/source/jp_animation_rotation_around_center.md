@@ -82,7 +82,9 @@ ap.save_overall_html(dest_dir_path="./animation_rotation_around_center_basic_usa
 
 **[インターフェイスの構造]** `animation_rotation_around_center(self, *, rotation_around_center: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_rotation_around_center.AnimationRotationAroundCenter`<hr>
 
-**[インターフェイス概要]** 中央座標を使用した回転のアニメーションの設定を行います。<hr>
+**[インターフェイス概要]**
+
+中央座標を使用した回転のアニメーションの設定を行います。<hr>
 
 **[引数]**
 

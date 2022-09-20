@@ -39,7 +39,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Prevent event\'s default behavior.<hr>": "**[インターフェイス概要]** イベントのデフォルトの挙動を無効化します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Prevent event\'s default behavior.<hr>": "イベントのデフォルトの挙動を無効化します。<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
@@ -49,7 +51,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Stop event propagation.<hr>": "**[インターフェイス概要]** イベントの伝搬を停止するように設定します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Stop event propagation.<hr>": "イベントの伝搬を停止させます。<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################

@@ -100,7 +100,9 @@ ap.save_overall_html(dest_dir_path="./unbind_dblclick_basic_usage/")
 
 **[Interface signature]** `dblclick(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[Interface summary]** Add a double-click event listener setting.<hr>
+**[Interface summary]**
+
+Add a double-click event listener setting.<hr>
 
 **[Parameters]**
 
@@ -148,7 +150,9 @@ ap.save_overall_html(dest_dir_path="./unbind_dblclick_basic_usage/")
 
 **[Interface signature]** `unbind_dblclick(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[Interface summary]** Unbind a specified handler's double click event.<hr>
+**[Interface summary]**
+
+Unbind a specified handler's double click event.<hr>
 
 **[Parameters]**
 
@@ -182,7 +186,9 @@ ap.save_overall_html(dest_dir_path="./unbind_dblclick_basic_usage/")
 
 **[Interface signature]** `unbind_dblclick_all(self) -> None`<hr>
 
-**[Interface summary]** Unbind all double click events.<hr>
+**[Interface summary]**
+
+Unbind all double click events.<hr>
 
 **[Examples]**
 

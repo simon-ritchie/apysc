@@ -79,7 +79,9 @@ ap.save_overall_html(dest_dir_path="./animation_fill_alpha_basic_usage/")
 
 **[インターフェイスの構造]** `animation_fill_alpha(self, *, alpha: Union[float, apysc._type.number.Number], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_fill_alpha.AnimationFillAlpha`<hr>
 
-**[インターフェイス概要]** 塗りの透明度のアニメーションの設定を行います。<hr>
+**[インターフェイス概要]**
+
+塗りの透明度のアニメーション設定を行います。<hr>
 
 **[引数]**
 

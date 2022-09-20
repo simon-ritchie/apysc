@@ -100,7 +100,9 @@ ap.save_overall_html(dest_dir_path="set_debug_mode_basic_usage/")
 
 **[インターフェイスの構造]** `set_debug_mode() -> None`<hr>
 
-**[インターフェイス概要]** HTMLとJavaScriptのデバッグ用にデバッグモードの設定を行います。もしこの関数を呼び出した場合、のインターフェイスは以下の設定を追加します: <br> ・HTMLの最小化（minify）設定を無効化します。 <br> ・各インターフェイスごとのJavaScript上での区切りのための文字列を追加します。<hr>
+**[インターフェイス概要]**
+
+HTMLとJavaScriptのデバッグ用にデバッグモードの設定を行います。もしこの関数を呼び出した場合、のインターフェイスは以下の設定を追加します: <br> ・HTMLの最小化（minify）設定を無効化します。 <br> ・各インターフェイスごとのJavaScript上での区切りのための文字列を追加します。<hr>
 
 **[コードサンプル]**
 

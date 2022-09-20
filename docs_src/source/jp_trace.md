@@ -54,7 +54,9 @@ ap.save_overall_html(dest_dir_path="trace_basic_usage/")
 
 **[インターフェイスの構造]** `trace(*args: Any) -> None`<hr>
 
-**[インターフェイス概要]** 引数に指定された値の情報をコンソールへ表示します。この関数はJavaScriptの`console.log`に該当するコードを保存します。<hr>
+**[インターフェイス概要]**
+
+引数に指定された値の情報をコンソールへ表示します。この関数はJavaScriptの`console.log`に該当するコードを保存します。<hr>
 
 **[引数]**
 

@@ -61,7 +61,9 @@ ap.save_overall_html(dest_dir_path="animation_time_basic_usage/")
 
 **[インターフェイスの構造]** `animation_time(self) -> apysc._type.number.Number`<hr>
 
-**[インターフェイス概要]** アニメーションの経過時間のミリ秒を取得します。<hr>
+**[インターフェイス概要]**
+
+アニメーションの経過時間のミリ秒を取得します。<hr>
 
 **[返却値]**
 

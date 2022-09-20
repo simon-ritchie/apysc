@@ -76,7 +76,9 @@ ap.save_overall_html(dest_dir_path="./animation_reset_basic_usage/")
 
 **[Interface signature]** `animation_reset(self) -> None`<hr>
 
-**[Interface summary]** Stop all animations and reset.<hr>
+**[Interface summary]**
+
+Stop all animations and reset.<hr>
 
 **[Examples]**
 

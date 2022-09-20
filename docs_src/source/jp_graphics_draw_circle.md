@@ -77,7 +77,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")
 
 **[インターフェイスの構造]** `draw_circle(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], radius: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_circle.Circle'`<hr>
 
-**[インターフェイス概要]** 円のベクターグラフィックスを描画します。<hr>
+**[インターフェイス概要]**
+
+円のベクターグラフィックスを描画します。<hr>
 
 **[引数]**
 

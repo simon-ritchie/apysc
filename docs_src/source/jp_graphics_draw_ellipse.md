@@ -88,7 +88,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 
 **[インターフェイスの構造]** `draw_ellipse(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_ellipse.Ellipse'`<hr>
 
-**[インターフェイス概要]** 楕円のベクターグラフィックスを描画します。<hr>
+**[インターフェイス概要]**
+
+楕円のベクターグラフィックスを描画します。<hr>
 
 **[引数]**
 

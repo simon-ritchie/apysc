@@ -789,7 +789,9 @@ ap.save_overall_html(dest_dir_path="polygon_skew_y/")
 
 **[インターフェイスの構造]** `__init__(self, *, points: Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_interface.ChildInterface, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
-**[インターフェイス概要]** 多角形のベクターグラフィックスを生成します。このクラスはPolylineクラスと似ていますが、Polylineクラスとは異なりこのクラスでは座標の終点と始点が接続される点が異なります。<hr>
+**[インターフェイス概要]**
+
+多角形のベクターグラフィックスを生成します。このクラスはPolylineクラスと似ていますが、Polylineクラスとは異なりこのクラスでは座標の終点と始点が接続される点が異なります。<hr>
 
 **[引数]**
 

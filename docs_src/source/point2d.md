@@ -85,7 +85,9 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 
 **[Interface signature]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, variable_name_suffix: str = '') -> None`<hr>
 
-**[Interface summary]** 2-dimensional geometry point.<hr>
+**[Interface summary]**
+
+2-dimensional geometry point.<hr>
 
 **[Parameters]**
 
@@ -120,7 +122,9 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** X-coordinate property.<hr>
+**[Interface summary]**
+
+X-coordinate property.<hr>
 
 **[Returns]**
 
@@ -145,7 +149,9 @@ Int(150)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Y-coordinate property.<hr>
+**[Interface summary]**
+
+Y-coordinate property.<hr>
 
 **[Returns]**
 

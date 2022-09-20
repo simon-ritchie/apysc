@@ -90,7 +90,9 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 **[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[Interface summary]** Integer class for apysc library.<hr>
+**[Interface summary]**
+
+Integer class for apysc library.<hr>
 
 **[Parameters]**
 
@@ -144,7 +146,9 @@ Int(10)
 
 **[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[Interface summary]** Floating point number class for apysc library.<hr>
+**[Interface summary]**
+
+Floating point number class for apysc library.<hr>
 
 **[Parameters]**
 
@@ -196,7 +200,9 @@ Number(20.8)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a current number value.<hr>
+**[Interface summary]**
+
+Get a current number value.<hr>
 
 **[Returns]**
 

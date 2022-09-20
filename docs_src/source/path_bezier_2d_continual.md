@@ -106,7 +106,9 @@ ap.save_overall_html(dest_dir_path="path_bezier_2d_continual_relative/")
 
 **[Interface signature]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
-**[Interface summary]** Path data class for the SVG `continual 2D bezier curve` (T).<hr>
+**[Interface summary]**
+
+Path data class for the SVG `continual 2D bezier curve` (T).<hr>
 
 **[Parameters]**
 

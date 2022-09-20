@@ -2371,5 +2371,325 @@ MAPPINGS: Mappings = Mappings(
             key="**[Interface summary]**",
             val="**[インターフェイス概要]**",
         ),
+        Mapping(
+            key="Start an animation with current settings.<hr>",
+            val="現在の設定を使ってアニメーションを開始します。<hr>",
+        ),
+        Mapping(
+            key="Get an animation target instance.<hr>",
+            val="アニメーション対象のインスタンスを取得します。<hr>",
+        ),
+        Mapping(
+            key="Add an animation complete event listener setting.<hr>",
+            val="アニメーション終了時のイベントリスナーの設定を追加します。<hr>",
+        ),
+        Mapping(
+            key="Animation event class.<hr>",
+            val="アニメーションイベント用のクラスです。<hr>",
+        ),
+        Mapping(
+            key="Get an animation setting instance of listening to this event.<hr>",
+            val="このイベントのリスナーとしてのアニメーション設定のインスタンスを取得します。<hr>",
+        ),
+        Mapping(
+            key="Set the fill alpha (opacity) animation setting.<hr>",
+            val="塗りの透明度のアニメーション設定を行います。<hr>",
+        ),
+        Mapping(
+            key="Set the fill color animation setting.<hr>",
+            val="塗りの色のアニメーション設定を行います。<hr>",
+        ),
+        Mapping(
+            key="Finish all animations (set the animation last value to each attribute).<hr>",
+            val="全てのアニメーションを終了します（各属性にアニメーション終了時の値を設定します）。<hr>",
+        ),
+        Mapping(
+            key="Set the parallel animation setting.<hr>",
+            val="並列実行されるアニメーション設定を行います。<hr>",
+        ),
+        Mapping(
+            key="Stop all animations.<hr>",
+            val="全てのアニメーションを停止します。<hr>",
+        ),
+        Mapping(
+            key="Restart all paused animations.<hr>",
+            val="停止している全てのアニメーションを再開します。<hr>",
+        ),
+        Mapping(
+            key="Set the radius animation setting.<hr>",
+            val="半径のアニメーション設定を行います。<hr>",
+        ),
+        Mapping(
+            key="Stop all animations and reset.<hr>",
+            val="全てのアニメーションを停止しアニメーション内容をリセットします。<hr>",
+        ),
+        Mapping(
+            key="Append js expression.<hr>",
+            val="JavaScriptのコードの追加を行います。<hr>",
+        ),
+        Mapping(
+            key="Array class for the apysc library.<hr>",
+            val="apyscライブラリの配列を扱うためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Get a current array value.<hr>",
+            val="現在の配列の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="Add any value to the end of this array. This method behaves the same `push` method.<hr>",
+            val="任意の値をこの配列の末尾に加えます。このメソッドは`push`メソッドと同様に動作します。<hr>",
+        ),
+        Mapping(
+            key="Add any value to the end of this array. This interface behaves the same as the `append` method.<hr>",
+            val="任意の値をこの配列の末尾に加えます。このメソッドは`append`メソッドと同様に動作します。<hr>",
+        ),
+        Mapping(
+            key="Concatenate argument array to this one. This interface positions the argument array\'s values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>",
+            val="引数に指定された配列をこの配列へ連結します。このインターフェイスは引数の配列の値をこの配列の後に配置します。このメソッドはconcatメソッドと似た挙動をしますが、配列の値を直接更新するか（extend）もしくは別の値として返却するか（concat）の違いがあります。<hr>",
+        ),
+        Mapping(
+            key="Concatenate argument array to this one. This interface positions the argument array\'s values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returning as a different variable (concat).<hr>",
+            val="引数に指定された配列をこの配列へ連結します。このインターフェイスは引数の配列の値をこの配列の後に配置します。このメソッドはextendメソッドと似た挙動をしますが、配列の値を直接更新するか（extend）もしくは別の値として返却するか（concat）の違いがあります。<hr>",
+        ),
+        Mapping(
+            key="Search specified value\'s index and return it.<hr>",
+            val="指定された値のインデックス位置を検索しその値を返却します。<hr>",
+        ),
+        Mapping(
+            key="Insert value to this array at a specified index. This interface behaves in the same `insert_at` method.<hr>",
+            val="この配列の指定されたインデックスの位置へ値を挿入します。このインターフェイスは`insert_at`メソッドと同じ挙動をします。<hr>",
+        ),
+        Mapping(
+            key="Insert value to this array at a specified index. This interface behaves in the same `insert` method.<hr>",
+            val="この配列の指定されたインデックスの位置へ値を挿入します。このインターフェイスは`insert`メソッドと同じ挙動をします。<hr>",
+        ),
+        Mapping(
+            key="Join this array value with a specified separator string.<hr>",
+            val="指定された区切り用の文字列を使って配列の値を連結します。<hr>",
+        ),
+        Mapping(
+            key="Get length of this array.<hr>",
+            val="この配列の長さ（値の数）を取得します。<hr>",
+        ),
+        Mapping(
+            key="Remove this array\'s last value and return it.<hr>",
+            val="この配列の末尾の値を取り除き、その値を返却します。<hr>",
+        ),
+        Mapping(
+            key="Remove a specified value from this array.<hr>",
+            val="指定された値をこの配列から取り除きます。<hr>",
+        ),
+        Mapping(
+            key="Remove a specified index value from this array.<hr>",
+            val="指定されたインデックスの値をこの配列から取り除きます。<hr>",
+        ),
+        Mapping(
+            key="Reverse this array in place.<hr>",
+            val="この配列の値を直接逆順にします。<hr>",
+        ),
+        Mapping(
+            key="Slice this array by specified start and end indexes.<hr>",
+            val="指定された開始と終了のインデックス範囲でこの配列をスライスします。<hr>",
+        ),
+        Mapping(
+            key="Sort this array in place.<hr>",
+            val="この配列の値を直接ソートします。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for Array values equal condition.<hr>",
+            val="配列の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for Array values not equal condition.<hr>",
+            val="配列の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for defined (not undefined) value condition.<hr>",
+            val="定義済みの値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for undefined value condition.<hr>",
+            val="未定義の値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for Dictionary values equal condition.<hr>",
+            val="辞書の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for Dictionary values not equal condition.<hr>",
+            val="辞書の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for equal condition.<hr>",
+            val="等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for not equal condition.<hr>",
+            val="非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for true condition.<hr>",
+            val="真偽値の真の値のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for false condition.<hr>",
+            val="真偽値の偽の値のためのJavaScript上のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="Add a custom event listener setting.<hr>",
+            val="カスタムイベントのリスナー設定を追加します。<hr>",
+        ),
+        Mapping(
+            key="Add a custom event trigger setting.<hr>",
+            val="カスタムイベントのトリガー設定を追加します。<hr>",
+        ),
+        Mapping(
+            key="Boolean class for apysc library.<hr>",
+            val="apyscライブラリのための真偽値のクラスです。<hr>",
+        ),
+        Mapping(
+            key="Get a current boolean value.<hr>",
+            val="現在の真偽値の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="Get a not condition Boolean value.<hr>",
+            val="否定条件を加えた真偽値の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="Add a click event listener setting.<hr>",
+            val="クリックイベントのリスナー設定を追加します。<hr>",
+        ),
+        Mapping(
+            key="Unbind specified handler\'s click event.<hr>",
+            val="指定されたクリックイベントのハンドラー設定を取り除きます。<hr>",
+        ),
+        Mapping(
+            key="Unbind all click events.<hr>",
+            val="全てのクリックイベント設定を取り除きます。<hr>",
+        ),
+        Mapping(
+            key="The loop continue expression class.<hr>",
+            val="ループのcontinueの表現を扱うためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Add a double-click event listener setting.<hr>",
+            val="ダブルクリックイベントのリスナー設定を追加します。<hr>",
+        ),
+        Mapping(
+            key="Unbind a specified handler\'s double click event.<hr>",
+            val="指定されたダブルクリックイベントのハンドラー設定を取り除きます。<hr>",
+        ),
+        Mapping(
+            key="Unbind all double click events.<hr>",
+            val="全てのダブルクリックイベント設定を取り除きます。<hr>",
+        ),
+        Mapping(
+            key="Dictionary class for the apysc library.<hr>",
+            val="apyscライブラリのための辞書のクラスです。<hr>",
+        ),
+        Mapping(
+            key="Get a current dict value.<hr>",
+            val="現在の辞書の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="Get a specified key dictionary value. If this dictionary hasn\'t a specified key, this interface returns a default value.<hr>",
+            val="指定されたキーの辞書内の値を取得します。もし指定されたキーが辞書に存在しない場合、このインターフェイスはデフォルト値を返却します。<hr>",
+        ),
+        Mapping(
+            key="Get length of this dictionary values.<hr>",
+            val="辞書の値の長さ（件数）を取得します。<hr>",
+        ),
+        Mapping(
+            key="Get a CSS value string.<hr>",
+            val="CSSの設定値の文字列を取得します。<hr>",
+        ),
+        Mapping(
+            key="Set a specified value string to the CSS.<hr>",
+            val="CSSに指定された文字列の値を設定します。<hr>",
+        ),
+        Mapping(
+            key="Get a parent instance that has an add_child and remove_child interfaces.<hr>",
+            val="add_childやremove_childなどのインターフェイスを持った親のインスタンスを取得します。<hr>",
+        ),
+        Mapping(
+            key="Remove this instance from a parent.<hr>",
+            val="親のインスタンスからこのインスタンスを取り除きます。<hr>",
+        ),
+        Mapping(
+            key="Get a visibility value of this instance.<hr>",
+            val="このインスタンスの可視状態かどうかの値を取得します。<hr>",
+        ),
+        Mapping(
+            key="Save the overall HTML and display it on Google Colaboratory.<hr>",
+            val="HTML全体を保存し結果をGoogle Colaboratory上で表示します。<hr>",
+        ),
+        Mapping(
+            key="Save the overall HTML and display it on the Jupyter.<hr>",
+            val="HTML全体を保存し結果をJupyter上で表示します。<hr>",
+        ),
+        Mapping(
+            key="A class to append the `else if` branch instruction expression.<hr>",
+            val="`else if`の分岐条件の表現を追加するためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="A class to append else branch instruction expression.<hr>",
+            val="elseの分岐条件の表現を追加するためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Prevent event\'s default behavior.<hr>",
+            val="イベントのデフォルトの挙動を無効化します。<hr>",
+        ),
+        Mapping(
+            key="Stop event propagation.<hr>",
+            val="イベントの伝搬を停止させます。<hr>",
+        ),
+        Mapping(
+            key="A class to append for the (loop) expression.<hr>",
+            val="ループのfor文の表現を追加するためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Get a child at a specified index.<hr>",
+            val="指定されたインデックスの子を取得します。<hr>",
+        ),
+        Mapping(
+            key="Get a boolean value whether the x-axis is flipping or not.<hr>",
+            val="横軸に対して反転しているかどうかの真偽値を取得します。<hr>",
+        ),
+        Mapping(
+            key="Get a boolean value whether the y-axis is flipping or not.<hr>",
+            val="縦軸に対して反転しているかどうかの真偽値を取得します。<hr>",
+        ),
+        Mapping(
+            key="Get a rotation value around the given coordinates.<hr>",
+            val="指定された座標を基準とした回転量を取得します。<hr>",
+        ),
+        Mapping(
+            key="Path data class for SVG\'s `continual 3D bezier curve` (S).<hr>",
+            val="SVGの連続した3次ベジェ曲線（S）のためのパスデータのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Path data class for the SVG\'s `close path` (Z).<hr>",
+            val="SVGのパスを閉じる指定（Z）のためのパスデータのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Path data class for the SVG\'s `horizontal line` (H).<hr>",
+            val="SVGの水平方向への線（H）の描画のためのパスデータのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Path data class for the SVG `line to` (L).<hr>",
+            val="SVGの特定座標に対する線（L）の描画のためのパスデータのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Path data class for the SVG `move to` (M).<hr>",
+            val="SVGの特定座標への移動（M）のためのパスデータのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Path data class for the SVG `vertical line\' (V).<hr>",
+            val="SVGの垂直方向への線（V）の描画のためのパスデータのクラスです。<hr>",
+        ),
+        Mapping(
+            key="Create a basic display object that can be a parent.<hr>",
+            val="親になることの出来る基本的な表示用のオブジェクトを作成します。<hr>",
+        ),
     ]
 )

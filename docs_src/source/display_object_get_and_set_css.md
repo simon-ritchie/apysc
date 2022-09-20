@@ -67,7 +67,9 @@ ap.save_overall_html(dest_dir_path="display_object_get_and_set_css_basic_usage/"
 
 **[Interface signature]** `get_css(self, *, name: Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
 
-**[Interface summary]** Get a CSS value string.<hr>
+**[Interface summary]**
+
+Get a CSS value string.<hr>
 
 **[Parameters]**
 
@@ -103,7 +105,9 @@ String('none')
 
 **[Interface signature]** `set_css(self, *, name: Union[str, apysc._type.string.String], value: Union[str, apysc._type.string.String]) -> None`<hr>
 
-**[Interface summary]** Set a specified value string to the CSS.<hr>
+**[Interface summary]**
+
+Set a specified value string to the CSS.<hr>
 
 **[Parameters]**
 

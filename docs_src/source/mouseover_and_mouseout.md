@@ -149,7 +149,9 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 **[Interface signature]** `mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[Interface summary]** Add mouse over event listener setting.<hr>
+**[Interface summary]**
+
+Add mouse over event listener setting.<hr>
 
 **[Parameters]**
 
@@ -197,7 +199,9 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 **[Interface signature]** `unbind_mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[Interface summary]** Unbind a specified handler's mouseover event.<hr>
+**[Interface summary]**
+
+Unbind a specified handler's mouseover event.<hr>
 
 **[Parameters]**
 
@@ -231,7 +235,9 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 **[Interface signature]** `unbind_mouseover_all(self) -> None`<hr>
 
-**[Interface summary]** Unbind all mouseover events.<hr>
+**[Interface summary]**
+
+Unbind all mouseover events.<hr>
 
 **[Examples]**
 
@@ -258,7 +264,9 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 **[Interface signature]** `mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[Interface summary]** Add mouse out event listener setting.<hr>
+**[Interface summary]**
+
+Add mouse out event listener setting.<hr>
 
 **[Parameters]**
 
@@ -306,7 +314,9 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 **[Interface signature]** `unbind_mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[Interface summary]** Unbind a specified handler's mouse-out event.<hr>
+**[Interface summary]**
+
+Unbind a specified handler's mouse-out event.<hr>
 
 **[Parameters]**
 
@@ -340,7 +350,9 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 **[Interface signature]** `unbind_mouseout_all(self) -> None`<hr>
 
-**[Interface summary]** Unbind all mouse out events.<hr>
+**[Interface summary]**
+
+Unbind all mouse out events.<hr>
 
 **[Examples]**
 

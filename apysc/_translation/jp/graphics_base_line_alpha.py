@@ -29,7 +29,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get this instance\'s line alpha (opacity).<hr>": "**[インターフェイス概要]** インスタンスの線の透明度を取得します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get this instance\'s line alpha (opacity).<hr>": "インスタンスの線の透明度を取得します。<hr>",
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################

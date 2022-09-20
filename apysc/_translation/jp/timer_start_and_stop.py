@@ -27,7 +27,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Start this timer.<hr>": "**[インターフェイス概要]** タイマーを開始します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Start this timer.<hr>": "タイマーを開始します。<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
@@ -37,7 +39,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Stop this timer.<hr>": "**[インターフェイス概要]** タイマーを停止します。<hr>",
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Stop this timer.<hr>": "タイマーを停止します。<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################

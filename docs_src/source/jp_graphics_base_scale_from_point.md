@@ -159,7 +159,9 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y
 
 **[インターフェイスの構造]** `get_scale_x_from_point(self, *, x: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
 
-**[インターフェイス概要]** 指定されたX座標を基準として水平方向の拡縮の値を取得します。<hr>
+**[インターフェイス概要]**
+
+指定されたX座標を基準として水平方向の拡縮の値を取得します。<hr>
 
 **[引数]**
 
@@ -201,7 +203,9 @@ Number(1.5)
 
 **[インターフェイスの構造]** `set_scale_x_from_point(self, *, scale_x: apysc._type.number.Number, x: apysc._type.int.Int) -> None`<hr>
 
-**[インターフェイス概要]** 指定されたX座病を基準とした水平方向の拡縮値を更新します。<hr>
+**[インターフェイス概要]**
+
+指定されたX座病を基準とした水平方向の拡縮値を更新します。<hr>
 
 **[引数]**
 
@@ -239,7 +243,9 @@ Number(1.5)
 
 **[インターフェイスの構造]** `get_scale_y_from_point(self, *, y: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
 
-**[インターフェイス概要]** 指定されたY座標を基準とした垂直方向の拡縮の値を取得します。<hr>
+**[インターフェイス概要]**
+
+指定されたY座標を基準とした垂直方向の拡縮の値を取得します。<hr>
 
 **[引数]**
 
@@ -277,7 +283,9 @@ Number(1.5)
 
 **[インターフェイスの構造]** `set_scale_y_from_point(self, *, scale_y: apysc._type.number.Number, y: apysc._type.int.Int) -> None`<hr>
 
-**[インターフェイス概要]** 指定されたY座標を基準とした垂直方向の拡縮値を更新します。<hr>
+**[インターフェイス概要]**
+
+指定されたY座標を基準とした垂直方向の拡縮値を更新します。<hr>
 
 **[引数]**
 

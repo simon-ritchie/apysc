@@ -116,7 +116,9 @@ Left value: [1, 2, 3, 4, 5] right value: arr_2
 
 **[Interface signature]** `assert_arrays_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for Array values equal condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for Array values equal condition.<hr>
 
 **[Parameters]**
 
@@ -152,7 +154,9 @@ This interface is used instead of assert_equal for Array class comparison (JavaS
 
 **[Interface signature]** `assert_arrays_not_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for Array values not equal condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for Array values not equal condition.<hr>
 
 **[Parameters]**
 

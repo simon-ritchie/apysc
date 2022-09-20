@@ -35,7 +35,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get a parent instance that has an add_child and remove_child interfaces.<hr>": "**[インターフェイス概要]** `add_child`や`remove_child`などのインターフェイスを持っている親のインスタンスを取得します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get a parent instance that has an add_child and remove_child interfaces.<hr>": "add_childやremove_childなどのインターフェイスを持った親のインスタンスを取得します。<hr>",  # noqa
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
@@ -53,7 +55,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Remove this instance from a parent.<hr>": "**[インターフェイス概要]** このインスタンスを親のインスタンスから取り除きます。.<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Remove this instance from a parent.<hr>": "親のインスタンスからこのインスタンスを取り除きます。<hr>",
     ##################################################
     "**[Raises]**": "**[エラー発生条件]**",
     ##################################################

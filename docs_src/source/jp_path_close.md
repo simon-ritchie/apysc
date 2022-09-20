@@ -61,7 +61,9 @@ ap.save_overall_html(dest_dir_path="path_close_basic_usage/")
 
 **[インターフェイスの構造]** `__init__(self) -> None`<hr>
 
-**[インターフェイス概要]** SVGのパスを閉じる指定（Z）のためのデータのクラスです。<hr>
+**[インターフェイス概要]**
+
+SVGのパスを閉じる指定（Z）のためのパスデータのクラスです。<hr>
 
 **[コードサンプル]**
 

@@ -87,7 +87,9 @@ ap.save_overall_html(dest_dir_path="animation_finish_basic_usage/")
 
 **[Interface signature]** `animation_finish(self) -> None`<hr>
 
-**[Interface summary]** Finish all animations (set the animation last value to each attribute).<hr>
+**[Interface summary]**
+
+Finish all animations (set the animation last value to each attribute).<hr>
 
 **[Examples]**
 

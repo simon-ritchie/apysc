@@ -62,7 +62,9 @@ ap.save_overall_html(dest_dir_path="animation_time_basic_usage/")
 
 **[Interface signature]** `animation_time(self) -> apysc._type.number.Number`<hr>
 
-**[Interface summary]** Get an animation elapsed millisecond.<hr>
+**[Interface summary]**
+
+Get an animation elapsed millisecond.<hr>
 
 **[Returns]**
 

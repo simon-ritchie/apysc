@@ -47,7 +47,9 @@ ap.save_overall_html(dest_dir_path="graphics_base_rotation_around_center_basic_u
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** インスタンスの中央座標を基準とした回転量を取得します。<hr>
+**[インターフェイス概要]**
+
+インスタンスの中央座標を基準とした回転量を取得します。<hr>
 
 **[返却値]**
 

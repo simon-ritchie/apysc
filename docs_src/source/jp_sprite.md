@@ -98,7 +98,9 @@ ap.save_overall_html(dest_dir_path="sprite_move_instances_simultaneously/")
 
 **[インターフェイスの構造]** `__init__(self, *, variable_name: str = '', variable_name_suffix: str = '') -> None`<hr>
 
-**[インターフェイス概要]** 子を持つことのできる基本的な表示要素用のオブジェクトを生成します。<hr>
+**[インターフェイス概要]**
+
+親になることの出来る基本的な表示用のオブジェクトを作成します。<hr>
 
 **[引数]**
 

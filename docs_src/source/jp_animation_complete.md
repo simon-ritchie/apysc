@@ -150,7 +150,9 @@ animation_move.start()
 
 **[インターフェイスの構造]** `animation_complete(self, handler: Callable[[ForwardRef('animation_event.AnimationEvent'), ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> 'AnimationBase'`<hr>
 
-**[インターフェイス概要]** アニメーション終了時のイベントリスナーの設定を追加します。<hr>
+**[インターフェイス概要]**
+
+アニメーション終了時のイベントリスナーの設定を追加します。<hr>
 
 **[引数]**
 

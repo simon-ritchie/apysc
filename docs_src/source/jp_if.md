@@ -40,7 +40,9 @@ with ap.If(condition):
 
 **[インターフェイスの構造]** `__init__(self, condition: Union[apysc._type.boolean.Boolean, NoneType], *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None) -> None`<hr>
 
-**[インターフェイス概要]** if文の分岐制御の表現を追加するためのクラス。<hr>
+**[インターフェイス概要]**
+
+if文の分岐制御の表現を追加するためのクラス。<hr>
 
 **[引数]**
 

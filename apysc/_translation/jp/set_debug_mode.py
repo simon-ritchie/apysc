@@ -41,7 +41,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Set the debug mode for the HTML and JavaScript debugging. If calling this function, this interface applies the following setting: ": "**[インターフェイス概要]** HTMLとJavaScriptのデバッグ用にデバッグモードの設定を行います。もしこの関数を呼び出した場合、のインターフェイスは以下の設定を追加します: ",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Set the debug mode for the HTML and JavaScript debugging. If calling this function, this interface applies the following setting: ": "HTMLとJavaScriptのデバッグ用にデバッグモードの設定を行います。もしこの関数を呼び出した場合、のインターフェイスは以下の設定を追加します: ",  # noqa
     ##################################################
     "<br> ・Disabling HTML minify setting. ": "<br> ・HTMLの最小化（minify）設定を無効化します。 ",
     ##################################################

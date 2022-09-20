@@ -74,7 +74,9 @@ Assertion failed: Values are equal!
 
 **[インターフェイスの構造]** `assert_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
 
-**[インターフェイス概要]** JavaScript上の等値条件のチェック用のインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 
@@ -108,7 +110,9 @@ Assertion failed: Values are equal!
 
 **[インターフェイスの構造]** `assert_not_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
 
-**[インターフェイス概要]** JavaScript上の非等値条件のチェック用のインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 

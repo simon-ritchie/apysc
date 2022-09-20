@@ -79,7 +79,9 @@ ap.save_overall_html(dest_dir_path="for_basic_usage_with_dict/")
 
 **[インターフェイスの構造]** `__init__(self, arr_or_dict: Union[apysc._type.array.Array, apysc._type.dictionary.Dictionary], *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None) -> None`<hr>
 
-**[インターフェイス概要]** forのループのコード表現を追加するためのクラスです。<hr>
+**[インターフェイス概要]**
+
+ループのfor文の表現を追加するためのクラスです。<hr>
 
 **[引数]**
 

@@ -27,7 +27,9 @@ assert last_value == 3
 
 **[Interface signature]** `pop(self) -> ~T`<hr>
 
-**[Interface summary]** Remove this array's last value and return it.<hr>
+**[Interface summary]**
+
+Remove this array's last value and return it.<hr>
 
 **[Returns]**
 

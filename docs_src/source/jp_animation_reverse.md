@@ -125,7 +125,9 @@ ap.save_overall_html(dest_dir_path="animation_reverse_notes/")
 
 **[インターフェイスの構造]** `animation_reverse(self) -> None`<hr>
 
-**[インターフェイス概要]** 動いている全てのアニメーションを反転（逆再生）します。<hr>
+**[インターフェイス概要]**
+
+動いている全てのアニメーションを反転（逆再生）します。<hr>
 
 **[特記事項]**
 

@@ -76,7 +76,9 @@ ap.save_overall_html(dest_dir_path="path_line_to_relative/")
 
 **[インターフェイスの構造]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
-**[インターフェイス概要]** SVGの`line to` (L)に該当する、指定位置への直線の描画設定のためのデータのクラスです。<hr>
+**[インターフェイス概要]**
+
+SVGの特定座標に対する線（L）の描画のためのパスデータのクラスです。<hr>
 
 **[引数]**
 

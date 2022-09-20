@@ -78,7 +78,9 @@ ap.save_overall_html(dest_dir_path="./animation_move_basic_usage/")
 
 **[Interface signature]** `animation_move(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_move.AnimationMove`<hr>
 
-**[Interface summary]** Set the x and y coordinates animation settings.<hr>
+**[Interface summary]**
+
+Set the x and y coordinates animation settings.<hr>
 
 **[Parameters]**
 

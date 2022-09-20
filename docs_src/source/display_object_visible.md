@@ -87,7 +87,9 @@ ap.save_overall_html(dest_dir_path="display_object_visible_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a visibility value of this instance.<hr>
+**[Interface summary]**
+
+Get a visibility value of this instance.<hr>
 
 **[Returns]**
 

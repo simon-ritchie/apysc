@@ -171,7 +171,9 @@ animation_width.start()
 
 **[Interface signature]** `animation_width(self, *, width: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_width.AnimationWidth`<hr>
 
-**[Interface summary]** Set the width animation setting.<hr>
+**[Interface summary]**
+
+Set the width animation setting.<hr>
 
 **[Parameters]**
 
@@ -233,7 +235,9 @@ To start this animation, you need to call the `start` method of the returned ins
 
 **[Interface signature]** `animation_height(self, *, height: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_height.AnimationHeight`<hr>
 
-**[Interface summary]** Set the height animation setting.<hr>
+**[Interface summary]**
+
+Set the height animation setting.<hr>
 
 **[Parameters]**
 

@@ -165,7 +165,8 @@
 <h2>bind_custom_event API<a class="headerlink" href="#bind-custom-event-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">bind_custom_event(self,</span> <span class="pre">*,</span> <span class="pre">custom_event_type:</span> <span class="pre">Union[apysc._event.custom_event_type.CustomEventType,</span> <span class="pre">str],</span> <span class="pre">handler:</span> <span class="pre">Callable[[Any,</span> <span class="pre">Any],</span> <span class="pre">NoneType],</span> <span class="pre">e:</span> <span class="pre">apysc._event.event.Event,</span> <span class="pre">options:</span> <span class="pre">Union[Any,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">in_handler_head_expression:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
-<p><strong>[インターフェイス概要]</strong> 独自のイベント設定を追加します。<hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>カスタムイベントのリスナー設定を追加します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">custom_event_type</span></code>: CustomEventType or str</p>
@@ -233,7 +234,8 @@
 <h2>trigger_custom_event API<a class="headerlink" href="#trigger-custom-event-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">trigger_custom_event(self,</span> <span class="pre">*,</span> <span class="pre">custom_event_type:</span> <span class="pre">Union[apysc._event.custom_event_type.CustomEventType,</span> <span class="pre">str])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[インターフェイス概要]</strong> 独自のイベントの発生（発火）制御の設定を追加します。<hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>カスタムイベントのトリガー設定を追加します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">custom_event_type</span></code>: CustomEventType or str</p>

@@ -36,7 +36,9 @@ assert string_2 == "Hello"
 
 **[インターフェイスの構造]** `__init__(self, value: Union[str, ForwardRef('String')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[インターフェイス概要]** apyscライブラリにおける文字列用のクラスです。<hr>
+**[インターフェイス概要]**
+
+apyscライブラリにおける文字列用のクラスです。<hr>
 
 **[引数]**
 
@@ -75,7 +77,9 @@ String('Hello World!')
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の文字列の値を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の文字列の値を取得します。<hr>
 
 **[返却値]**
 

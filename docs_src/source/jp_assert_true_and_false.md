@@ -150,7 +150,9 @@ Left value: false right value: false
 
 **[インターフェイスの構造]** `assert_true(value: Any, *, type_strict: bool = True, msg: str = '') -> None`<hr>
 
-**[インターフェイス概要]** JavaScript上の真（true）条件のチェックを行うインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+真偽値の真の値のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 
@@ -180,7 +182,9 @@ Left value: false right value: false
 
 **[インターフェイスの構造]** `assert_false(value: Any, *, type_strict: bool = True, msg: str = '') -> None`<hr>
 
-**[インターフェイス概要]** JavaScript上の偽（false）条件のチェックを行うインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+真偽値の偽の値のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 

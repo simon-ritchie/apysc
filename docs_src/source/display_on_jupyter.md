@@ -55,7 +55,9 @@ Also, this interface can use on the JupyterLab:
 
 **[Interface signature]** `display_on_jupyter(html_file_name: str, *, minify: bool = True) -> None`<hr>
 
-**[Interface summary]** Save the overall HTML and display it on the Jupyter.<hr>
+**[Interface summary]**
+
+Save the overall HTML and display it on the Jupyter.<hr>
 
 **[Parameters]**
 

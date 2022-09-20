@@ -75,7 +75,9 @@ Assertion failed: Values are equal!
 
 **[Interface signature]** `assert_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for equal condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for equal condition.<hr>
 
 **[Parameters]**
 
@@ -109,7 +111,9 @@ Assertion failed: Values are equal!
 
 **[Interface signature]** `assert_not_equal(left: Any, right: Any, *, msg: str = '') -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for not equal condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for not equal condition.<hr>
 
 **[Parameters]**
 

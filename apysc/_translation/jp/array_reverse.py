@@ -31,7 +31,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Reverse this array in place.<hr>": "**[インターフェイス概要]** 配列の値を直接更新する形ではぽ列の値の順番を逆順にします。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Reverse this array in place.<hr>": "この配列の値を直接逆順にします。<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################

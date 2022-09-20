@@ -149,7 +149,9 @@ ap.save_overall_html(dest_dir_path="click_unbind_all_the_click_event_handlers/")
 
 **[インターフェイスの構造]** `click(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[インターフェイス概要]** クリックイベント用の設定を追加します。<hr>
+**[インターフェイス概要]**
+
+クリックイベントのリスナー設定を追加します。<hr>
 
 **[引数]**
 
@@ -196,7 +198,9 @@ ap.save_overall_html(dest_dir_path="click_unbind_all_the_click_event_handlers/")
 
 **[インターフェイスの構造]** `unbind_click(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[インターフェイス概要]** 指定されたクリックイベントのハンドラの設定を取り除きます。<hr>
+**[インターフェイス概要]**
+
+指定されたクリックイベントのハンドラー設定を取り除きます。<hr>
 
 **[引数]**
 
@@ -228,7 +232,9 @@ ap.save_overall_html(dest_dir_path="click_unbind_all_the_click_event_handlers/")
 
 **[インターフェイスの構造]** `unbind_click_all(self) -> None`<hr>
 
-**[インターフェイス概要]** 全てのクリックイベントの設定を解除します。<hr>
+**[インターフェイス概要]**
+
+全てのクリックイベント設定を取り除きます。<hr>
 
 **[コードサンプル]**
 

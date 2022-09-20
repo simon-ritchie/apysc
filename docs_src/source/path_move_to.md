@@ -80,7 +80,9 @@ ap.save_overall_html(dest_dir_path="path_move_to_relative/")
 
 **[Interface signature]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
-**[Interface summary]** Path data class for the SVG `move to` (M).<hr>
+**[Interface summary]**
+
+Path data class for the SVG `move to` (M).<hr>
 
 **[Parameters]**
 

@@ -44,7 +44,9 @@ ap.display_on_colaboratory(html_file_name="jupyter_test_1.html")
 
 **[インターフェイスの構造]** `display_on_colaboratory(html_file_name: str, *, minify: bool = True) -> None`<hr>
 
-**[インターフェイス概要]** HTML全体を保存しGoogle Colaboratory上で表示します。<hr>
+**[インターフェイス概要]**
+
+HTML全体を保存し結果をGoogle Colaboratory上で表示します。<hr>
 
 **[引数]**
 

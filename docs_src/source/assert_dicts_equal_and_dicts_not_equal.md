@@ -123,7 +123,9 @@ Left value: {a: 30} right value: dct_1
 
 **[Interface signature]** `assert_dicts_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for Dictionary values equal condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for Dictionary values equal condition.<hr>
 
 **[Parameters]**
 
@@ -159,7 +161,9 @@ This interface is used instead of assert_equal for Dictionary class comparison (
 
 **[Interface signature]** `assert_dicts_not_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for Dictionary values not equal condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for Dictionary values not equal condition.<hr>
 
 **[Parameters]**
 

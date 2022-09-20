@@ -91,7 +91,9 @@ with Elif(condition, ...):
 
 **[インターフェイスの構造]** `__init__(self, condition: Union[apysc._type.boolean.Boolean, NoneType], *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None) -> None`<hr>
 
-**[インターフェイス概要]** A class to append the `else if` branch instruction expression.<hr>
+**[インターフェイス概要]**
+
+`else if`の分岐条件の表現を追加するためのクラスです。<hr>
 
 **[引数]**
 

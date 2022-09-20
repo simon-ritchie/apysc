@@ -78,7 +78,9 @@ ap.save_overall_html(dest_dir_path="graphics_base_rotation_around_point_basic_us
 
 **[インターフェイスの構造]** `get_rotation_around_point(self, *, x: apysc._type.int.Int, y: apysc._type.int.Int) -> apysc._type.int.Int`<hr>
 
-**[インターフェイス概要]** Get a rotation value around the given coordinates.<hr>
+**[インターフェイス概要]**
+
+指定された座標を基準とした回転量を取得します。<hr>
 
 **[引数]**
 
@@ -120,7 +122,9 @@ Int(45)
 
 **[インターフェイスの構造]** `set_rotation_around_point(self, *, rotation: apysc._type.int.Int, x: apysc._type.int.Int, y: apysc._type.int.Int) -> None`<hr>
 
-**[インターフェイス概要]** 指定された座標基準の回転量を更新します。<hr>
+**[インターフェイス概要]**
+
+指定された座標基準の回転量を更新します。<hr>
 
 **[引数]**
 

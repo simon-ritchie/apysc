@@ -107,7 +107,9 @@ If you click the following rectangle, the only message of `The rectangle is clic
 
 **[Interface signature]** `prevent_default(self) -> None`<hr>
 
-**[Interface summary]** Prevent event's default behavior.<hr>
+**[Interface summary]**
+
+Prevent event's default behavior.<hr>
 
 **[Examples]**
 
@@ -135,7 +137,9 @@ If you click the following rectangle, the only message of `The rectangle is clic
 
 **[Interface signature]** `stop_propagation(self) -> None`<hr>
 
-**[Interface summary]** Stop event propagation.<hr>
+**[Interface summary]**
+
+Stop event propagation.<hr>
 
 **[Examples]**
 

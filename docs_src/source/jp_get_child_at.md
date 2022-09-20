@@ -38,7 +38,9 @@ assert isinstance(second_child, ap.Rectangle)
 
 **[インターフェイスの構造]** `get_child_at(self, index: Union[int, apysc._type.int.Int]) -> apysc._display.display_object.DisplayObject`<hr>
 
-**[インターフェイス概要]** 指定されたインデックス位置の子を取得します。<hr>
+**[インターフェイス概要]**
+
+指定されたインデックスの子を取得します。<hr>
 
 **[引数]**
 

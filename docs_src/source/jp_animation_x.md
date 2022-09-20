@@ -102,7 +102,9 @@ animation_cx: ap.AnimationCx = circle.animation_x(
 
 **[インターフェイスの構造]** `animation_x(self, *, x: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_x.AnimationX`<hr>
 
-**[インターフェイス概要]** X座標のアニメーションを設定します。<hr>
+**[インターフェイス概要]**
+
+X座標のアニメーションを設定します。<hr>
 
 **[引数]**
 

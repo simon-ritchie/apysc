@@ -91,7 +91,9 @@ assert ap.Number(10.5) == ap.Float(10.5)
 
 **[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[インターフェイス概要]** apyscライブラリ上の整数のためのクラスです。<hr>
+**[インターフェイス概要]**
+
+apyscライブラリ上の整数のためのクラスです。<hr>
 
 **[引数]**
 
@@ -145,7 +147,9 @@ Int(10)
 
 **[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[インターフェイス概要]** apyscライブラリ用の浮動小数点数のクラスです。<hr>
+**[インターフェイス概要]**
+
+apyscライブラリ用の浮動小数点数のクラスです。<hr>
 
 **[引数]**
 
@@ -197,7 +201,9 @@ Number(20.8)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイス概要]** 現在の数値を取得します。<hr>
+**[インターフェイス概要]**
+
+現在の数値を取得します。<hr>
 
 **[返却値]**
 

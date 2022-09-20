@@ -99,7 +99,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get the x-coordinate of the stage reference.<hr>": "**[インターフェイス概要]** ステージ基準のX座標を取得します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get the x-coordinate of the stage reference.<hr>": "ステージ基準のX座標を取得します。<hr>",
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
@@ -117,7 +119,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get the y-coordinate of the stage reference.<hr>": "**[インターフェイス概要]** ステージ基準のY座標を取得します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get the y-coordinate of the stage reference.<hr>": "ステージ基準のY座標を取得します。<hr>",
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
@@ -135,7 +139,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get a local x-coordinate event listening instance. For example, this value becomes x-coordinate from Sprite\'s left-end position by clicking a Sprite instance.<hr>": "**[インターフェイス概要]** イベントが設定されているインスタンス内の相対座標のX座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get a local x-coordinate event listening instance. For example, this value becomes x-coordinate from Sprite\'s left-end position by clicking a Sprite instance.<hr>": "イベントが設定されているインスタンス内の相対座標のX座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr>",  # noqa
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
@@ -153,7 +159,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get the local y-coordinate of the event listening instance. For example, this value becomes y-coordinate from Sprite\'s top-end position by clicking a Sprite instance.<hr>": "**[インターフェイス概要]** イベントが設定されているインスタンスないの相対座標のY座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get the local y-coordinate of the event listening instance. For example, this value becomes y-coordinate from Sprite\'s top-end position by clicking a Sprite instance.<hr>": "イベントが設定されているインスタンスないの相対座標のY座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr>",  # noqa
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
@@ -171,7 +179,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Get an instance of listening to this event.<hr>": "**[インターフェイス概要]** このイベントが設定されているインスタンスを取得します。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get an instance of listening to this event.<hr>": "このイベントが設定されているインスタンスを取得します。<hr>",  # noqa
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################

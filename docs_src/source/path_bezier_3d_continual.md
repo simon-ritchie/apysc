@@ -171,7 +171,9 @@ ap.save_overall_html(dest_dir_path="path_bezier_3d_continual_relative/")
 
 **[Interface signature]** `__init__(self, control_x: Union[int, apysc._type.int.Int], control_y: Union[int, apysc._type.int.Int], dest_x: Union[int, apysc._type.int.Int], dest_y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
-**[Interface summary]** Path data class for SVG's `continual 3D bezier curve` (S).<hr>
+**[Interface summary]**
+
+Path data class for SVG's `continual 3D bezier curve` (S).<hr>
 
 **[Parameters]**
 

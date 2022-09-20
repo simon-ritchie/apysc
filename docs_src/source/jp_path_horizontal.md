@@ -78,7 +78,9 @@ ap.save_overall_html(dest_dir_path="path_horizontal_relative/")
 
 **[インターフェイスの構造]** `__init__(self, x: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
-**[インターフェイス害よヴ]** SVGの水平方向の直線設定(H)に該当するパスデータの設定を扱うクラスです。<hr>
+**[インターフェイス概要]**
+
+SVGの水平方向への線（H）の描画のためのパスデータのクラスです。<hr>
 
 **[引数]**
 

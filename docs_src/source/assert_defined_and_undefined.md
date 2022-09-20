@@ -99,7 +99,9 @@ Left value: undefined right value: undefined
 
 **[Interface signature]** `assert_defined(value: Any, *, msg: str = '') -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for defined (not undefined) value condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for defined (not undefined) value condition.<hr>
 
 **[Parameters]**
 
@@ -126,7 +128,9 @@ Left value: undefined right value: undefined
 
 **[Interface signature]** `assert_undefined(value: Any, *, msg: str = '') -> None`<hr>
 
-**[Interface summary]** JavaScript assertion interface for undefined value condition.<hr>
+**[Interface summary]**
+
+JavaScript assertion interface for undefined value condition.<hr>
 
 **[Parameters]**
 

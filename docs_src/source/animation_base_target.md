@@ -82,7 +82,9 @@ animation_x.animation_complete(on_animation_complete)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get an animation target instance.<hr>
+**[Interface summary]**
+
+Get an animation target instance.<hr>
 
 **[Returns]**
 

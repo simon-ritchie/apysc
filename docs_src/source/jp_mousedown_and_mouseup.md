@@ -139,7 +139,9 @@ ap.save_overall_html(dest_dir_path="mousedown_and_mouseup_unbind_interfaces/")
 
 **[インターフェイスの構造]** `mousedown(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[インターフェイス概要]** マウスのボタンを押した時のイベント設定を追加します。<hr>
+**[インターフェイス概要]**
+
+マウスのボタンを押した時のイベント設定を追加します。<hr>
 
 **[引数]**
 
@@ -186,7 +188,9 @@ ap.save_overall_html(dest_dir_path="mousedown_and_mouseup_unbind_interfaces/")
 
 **[インターフェイスの構造]** `unbind_mousedown(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[インターフェイス概要]** マウスのボタンを押した際のイベントの指定されたハンドラ設定を解除します。<hr>
+**[インターフェイス概要]**
+
+マウスのボタンを押した際のイベントの指定されたハンドラ設定を解除します。<hr>
 
 **[引数]**
 
@@ -218,7 +222,9 @@ ap.save_overall_html(dest_dir_path="mousedown_and_mouseup_unbind_interfaces/")
 
 **[インターフェイスの構造]** `unbind_mousedown_all(self) -> None`<hr>
 
-**[インターフェイス概要]** マウスのボタンを押した時のイベントの全てのハンドラ設定を解除します。<hr>
+**[インターフェイス概要]**
+
+マウスのボタンを押した時のイベントの全てのハンドラ設定を解除します。<hr>
 
 **[コードサンプル]**
 
@@ -243,7 +249,9 @@ ap.save_overall_html(dest_dir_path="mousedown_and_mouseup_unbind_interfaces/")
 
 **[インターフェイスの構造]** `mouseup(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
 
-**[インターフェイス概要]** マウスのボタンを離した時のイベント設定を追加します。<hr>
+**[インターフェイス概要]**
+
+マウスのボタンを離した時のイベント設定を追加します。<hr>
 
 **[引数]**
 
@@ -290,7 +298,9 @@ ap.save_overall_html(dest_dir_path="mousedown_and_mouseup_unbind_interfaces/")
 
 **[インターフェイスの構造]** `unbind_mouseup(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
 
-**[インターフェイス概要]** マウスのボタンを離した際のイベントの指定されたハンドラ設定を解除します。<hr>
+**[インターフェイス概要]**
+
+マウスのボタンを離した際のイベントの指定されたハンドラ設定を解除します。<hr>
 
 **[引数]**
 
@@ -322,7 +332,9 @@ ap.save_overall_html(dest_dir_path="mousedown_and_mouseup_unbind_interfaces/")
 
 **[インターフェイスの構造]** `unbind_mouseup_all(self) -> None`<hr>
 
-**[インターフェイス概要]** マウスのボタンを離したとぎのイベントの全てのハンドラ設定を解除します。<hr>
+**[インターフェイス概要]**
+
+マウスのボタンを離したとぎのイベントの全てのハンドラ設定を解除します。<hr>
 
 **[コードサンプル]**
 

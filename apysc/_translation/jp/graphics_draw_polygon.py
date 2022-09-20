@@ -47,7 +47,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Draw a polygon vector graphic. This interface is similar to the Polyline class (created by `move_to` or `line_to`). But unlike that, this interface connects the last point and the start point.<hr>": "**[インターフェイス概要]** 多角形のベクターグラフィックスを描画します。このインターフェイスはPolylineクラス（`move_to`や`line_to`のインターフェイスで作成されます）に似ていますが、このインターフェイスは始点と終点が連結されるという違いがあります。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Draw a polygon vector graphic. This interface is similar to the Polyline class (created by `move_to` or `line_to`). But unlike that, this interface connects the last point and the start point.<hr>": "多角形のベクターグラフィックスを描画します。このインターフェイスはPolylineクラス（`move_to`や`line_to`のインターフェイスで作成されます）に似ていますが、このインターフェイスは始点と終点が連結されるという違いがあります。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

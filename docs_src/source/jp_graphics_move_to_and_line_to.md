@@ -158,7 +158,9 @@ ap.save_overall_html(dest_dir_path="graphics_move_to_and_line_to_polyline/")
 
 **[インターフェイスの構造]** `move_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
-**[インターフェイス概要]** 指定された座標に線の描画位置を移動させます。<hr>
+**[インターフェイス概要]**
+
+指定された座標に線の描画位置を移動させます。<hr>
 
 **[引数]**
 
@@ -205,7 +207,9 @@ Int(5)
 
 **[インターフェイスの構造]** `line_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
-**[インターフェイス概要]** 直前の位置の座標から指定された座標に向けて線を描画します（初期位置はx=0, y=0になります）。<hr>
+**[インターフェイス概要]**
+
+直前の位置の座標から指定された座標に向けて線を描画します（初期位置はx=0, y=0になります）。<hr>
 
 **[引数]**
 

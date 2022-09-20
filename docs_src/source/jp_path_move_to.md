@@ -80,7 +80,9 @@ ap.save_overall_html(dest_dir_path="path_move_to_relative/")
 
 **[インターフェイスの構造]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
-**[インターフェイス概要]** SVGの`move to` (M)に該当するパスデータ設定用のクラスです。<hr>
+**[インターフェイス概要]**
+
+SVGの特定座標への移動（M）のためのパスデータのクラスです。<hr>
 
 **[引数]**
 

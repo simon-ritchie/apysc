@@ -173,7 +173,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
-    "**[Interface summary]** Create a polygon vector graphic. This class is similar to the Polyline class, but unlike that, this class connects an end-point and start-point.<hr>": "**[インターフェイス概要]** 多角形のベクターグラフィックスを生成します。このクラスはPolylineクラスと似ていますが、Polylineクラスとは異なりこのクラスでは座標の終点と始点が接続される点が異なります。<hr>",  # noqa
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Create a polygon vector graphic. This class is similar to the Polyline class, but unlike that, this class connects an end-point and start-point.<hr>": "多角形のベクターグラフィックスを生成します。このクラスはPolylineクラスと似ていますが、Polylineクラスとは異なりこのクラスでは座標の終点と始点が接続される点が異なります。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

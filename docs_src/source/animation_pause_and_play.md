@@ -79,7 +79,9 @@ ap.save_overall_html(dest_dir_path="./animation_pause_basic_usage/")
 
 **[Interface signature]** `animation_pause(self) -> None`<hr>
 
-**[Interface summary]** Stop all animations.<hr>
+**[Interface summary]**
+
+Stop all animations.<hr>
 
 **[Examples]**
 
@@ -115,7 +117,9 @@ ap.save_overall_html(dest_dir_path="./animation_pause_basic_usage/")
 
 **[Interface signature]** `animation_play(self) -> None`<hr>
 
-**[Interface summary]** Restart all paused animations.<hr>
+**[Interface summary]**
+
+Restart all paused animations.<hr>
 
 **[Examples]**
 

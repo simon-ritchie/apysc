@@ -122,7 +122,9 @@ animation_x.start()
 
 **[Interface signature]** `__init__(self, *, this: 'animation_base.AnimationBase[_T]') -> None`<hr>
 
-**[Interface summary]** Animation event class.<hr>
+**[Interface summary]**
+
+Animation event class.<hr>
 
 **[Parameters]**
 
@@ -154,7 +156,9 @@ animation_x.start()
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get an animation setting instance of listening to this event.<hr>
+**[Interface summary]**
+
+Get an animation setting instance of listening to this event.<hr>
 
 **[Returns]**
 

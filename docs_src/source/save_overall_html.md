@@ -113,7 +113,9 @@ ap.save_overall_html(dest_dir_path="dest_dir/", verbose=0)
 
 **[Interface signature]** `save_overall_html(*, dest_dir_path: str, html_file_name: str = 'index.html', minify: bool = True, js_lib_dir_path: str = './', skip_js_lib_exporting: bool = False, embed_js_libs: bool = False, verbose: int = 1) -> None`<hr>
 
-**[Interface summary]** Save the overall HTML and js files under the specified directory path.<hr>
+**[Interface summary]**
+
+Save the overall HTML and js files under the specified directory path.<hr>
 
 **[Parameters]**
 

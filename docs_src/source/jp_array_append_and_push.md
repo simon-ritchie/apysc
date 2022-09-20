@@ -30,7 +30,9 @@ assert arr == [1, 2, 3, 4]
 
 **[インターフェイスの構造]** `append(self, value: ~T) -> None`<hr>
 
-**[インターフェイス概要]** 任意の値を配列の最後に追加します。このメソッドは`push`メソッドと同じように動作します。<hr>
+**[インターフェイス概要]**
+
+任意の値をこの配列の末尾に加えます。このメソッドは`push`メソッドと同様に動作します。<hr>
 
 **[引数]**
 
@@ -55,7 +57,9 @@ Array([1, 2, 3, 4])
 
 **[インターフェイスの構造]** `push(self, value: ~T) -> None`<hr>
 
-**[Interface summary]** Add any value to the end of this array. This interface behaves the same as the `append` method.<hr>
+**[インターフェイス概要]**
+
+任意の値をこの配列の末尾に加えます。このメソッドは`append`メソッドと同様に動作します。<hr>
 
 **[引数]**
 

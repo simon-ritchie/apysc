@@ -59,7 +59,9 @@ ap.save_overall_html(dest_dir_path="display_object_remove_from_parent_basic_usag
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a parent instance that has an add_child and remove_child interfaces.<hr>
+**[Interface summary]**
+
+Get a parent instance that has an add_child and remove_child interfaces.<hr>
 
 **[Returns]**
 
@@ -92,7 +94,9 @@ True
 
 **[Interface signature]** `remove_from_parent(self) -> None`<hr>
 
-**[Interface summary]** Remove this instance from a parent.<hr>
+**[Interface summary]**
+
+Remove this instance from a parent.<hr>
 
 **[Raises]**
 

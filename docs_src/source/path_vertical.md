@@ -78,7 +78,9 @@ ap.save_overall_html(dest_dir_path="path_vertical_relative/")
 
 **[Interface signature]** `__init__(self, y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
-**[Interface summary]** Path data class for the SVG `vertical line' (V).<hr>
+**[Interface summary]**
+
+Path data class for the SVG `vertical line' (V).<hr>
 
 **[Parameters]**
 

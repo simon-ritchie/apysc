@@ -78,7 +78,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")
 
 **[Interface signature]** `draw_circle(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], radius: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_circle.Circle'`<hr>
 
-**[Interface summary]** Draw a circle vector graphics.<hr>
+**[Interface summary]**
+
+Draw a circle vector graphics.<hr>
 
 **[Parameters]**
 

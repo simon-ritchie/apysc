@@ -127,7 +127,9 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 
 **[インターフェイスの構造]** `bind_custom_event(self, *, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str], handler: Callable[[Any, Any], NoneType], e: apysc._event.event.Event, options: Union[Any, NoneType] = None, in_handler_head_expression: str = '') -> str`<hr>
 
-**[インターフェイス概要]** 独自のイベント設定を追加します。<hr>
+**[インターフェイス概要]**
+
+カスタムイベントのリスナー設定を追加します。<hr>
 
 **[引数]**
 
@@ -188,7 +190,9 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 
 **[インターフェイスの構造]** `trigger_custom_event(self, *, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str]) -> None`<hr>
 
-**[インターフェイス概要]** 独自のイベントの発生（発火）制御の設定を追加します。<hr>
+**[インターフェイス概要]**
+
+カスタムイベントのトリガー設定を追加します。<hr>
 
 **[引数]**
 

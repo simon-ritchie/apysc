@@ -65,7 +65,9 @@ ValueError: Else interface can only use right after If or Elif interfaces.
 
 **[Interface signature]** `__init__(self, *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None) -> None`<hr>
 
-**[Interface summary]** A class to append else branch instruction expression.<hr>
+**[Interface summary]**
+
+A class to append else branch instruction expression.<hr>
 
 **[Parameters]**
 

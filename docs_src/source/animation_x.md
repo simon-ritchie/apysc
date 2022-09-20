@@ -103,7 +103,9 @@ animation_cx: ap.AnimationCx = circle.animation_x(
 
 **[Interface signature]** `animation_x(self, *, x: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_x.AnimationX`<hr>
 
-**[Interface summary]** Set the x-coordinate animation setting.<hr>
+**[Interface summary]**
+
+Set the x-coordinate animation setting.<hr>
 
 **[Parameters]**
 

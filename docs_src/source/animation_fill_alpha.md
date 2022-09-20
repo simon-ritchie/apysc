@@ -80,7 +80,9 @@ ap.save_overall_html(dest_dir_path="./animation_fill_alpha_basic_usage/")
 
 **[Interface signature]** `animation_fill_alpha(self, *, alpha: Union[float, apysc._type.number.Number], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_fill_alpha.AnimationFillAlpha`<hr>
 
-**[Interface summary]** Set the fill alpha (opacity) animation setting.<hr>
+**[Interface summary]**
+
+Set the fill alpha (opacity) animation setting.<hr>
 
 **[Parameters]**
 

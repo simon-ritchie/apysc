@@ -123,7 +123,9 @@ ap.save_overall_html(dest_dir_path="timer_event_this_attribute/")
 
 **[Interface signature]** `__init__(self, *, this: 'timer.Timer') -> None`<hr>
 
-**[Interface summary]** Timer event class.<hr>
+**[Interface summary]**
+
+Timer event class.<hr>
 
 **[Parameters]**
 
@@ -163,7 +165,9 @@ ap.save_overall_html(dest_dir_path="timer_event_this_attribute/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a timer instance of listening to this event.<hr>
+**[Interface summary]**
+
+Get a timer instance of listening to this event.<hr>
 
 **[Returns]**
 

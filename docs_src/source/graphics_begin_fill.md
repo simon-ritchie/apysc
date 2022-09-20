@@ -155,7 +155,9 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_alpha_setting/")
 
 **[Interface signature]** `begin_fill(self, *, color: ~StrOrString, alpha: Union[float, apysc._type.number.Number] = 1.0) -> None`<hr>
 
-**[Interface summary]** Set single color value for fill.<hr>
+**[Interface summary]**
+
+Set single color value for fill.<hr>
 
 **[Parameters]**
 
@@ -186,7 +188,9 @@ String('#00aaff')
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current fill color.<hr>
+**[Interface summary]**
+
+Get current fill color.<hr>
 
 **[Returns]**
 
@@ -215,7 +219,9 @@ String('#00aaff')
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get current fill color opacity.<hr>
+**[Interface summary]**
+
+Get current fill color opacity.<hr>
 
 **[Returns]**
 

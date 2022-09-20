@@ -90,7 +90,9 @@ assert dict_1 == {}
 
 **[Interface signature]** `__init__(self, value: Union[Dict[~_K, ~_V], ForwardRef('Dictionary')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
-**[Interface summary]** Dictionary class for the apysc library.<hr>
+**[Interface summary]**
+
+Dictionary class for the apysc library.<hr>
 
 **[Parameters]**
 
@@ -131,7 +133,9 @@ Dictionary({'a': 10})
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a current dict value.<hr>
+**[Interface summary]**
+
+Get a current dict value.<hr>
 
 **[Returns]**
 

@@ -58,7 +58,9 @@ ap.save_overall_html(dest_dir_path="./animation_base_start_basic_usage_2/")
 
 **[Interface signature]** `start(self) -> 'AnimationBase'`<hr>
 
-**[Interface summary]** Start an animation with current settings.<hr>
+**[Interface summary]**
+
+Start an animation with current settings.<hr>
 
 **[Returns]**
 

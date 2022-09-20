@@ -55,7 +55,9 @@ ap.save_overall_html(dest_dir_path="trace_basic_usage/")
 
 **[Interface signature]** `trace(*args: Any) -> None`<hr>
 
-**[Interface summary]** Display arguments information to console. This function saves a JavaScript `console.log` expression.<hr>
+**[Interface summary]**
+
+Display arguments information to console. This function saves a JavaScript `console.log` expression.<hr>
 
 **[Parameters]**
 

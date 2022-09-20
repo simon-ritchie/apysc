@@ -89,7 +89,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 
 **[Interface signature]** `draw_ellipse(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_ellipse.Ellipse'`<hr>
 
-**[Interface summary]** Draw an ellipse vector graphic.<hr>
+**[Interface summary]**
+
+Draw an ellipse vector graphic.<hr>
 
 **[Parameters]**
 

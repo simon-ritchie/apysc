@@ -55,7 +55,9 @@ ap.display_on_jupyter(html_file_name="jupyter_sample_1.html")
 
 **[インターフェイスの構造]** `display_on_jupyter(html_file_name: str, *, minify: bool = True) -> None`<hr>
 
-**[インターフェイス概要]** Save the overall HTML and display it on the Jupyter.<hr>
+**[インターフェイス概要]**
+
+HTML全体を保存し結果をJupyter上で表示します。<hr>
 
 **[引数]**
 

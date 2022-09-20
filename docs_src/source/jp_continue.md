@@ -60,7 +60,9 @@ Exception: The `Continue` class can be instantiated in the with loop statement, 
 
 **[インターフェイスの構造]** `__init__(self) -> None`<hr>
 
-**[インターフェイス概要]** ループ上のcontinue表現のためのクラスです。<hr>
+**[インターフェイス概要]**
+
+ループのcontinueの表現を扱うためのクラスです。<hr>
 
 **[特記事項]**
 

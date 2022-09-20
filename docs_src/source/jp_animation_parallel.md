@@ -74,7 +74,9 @@ Target animation type: <class 'apysc._animation.animation_x.AnimationX'>
 
 **[インターフェイスの構造]** `animation_parallel(self, *, animations: List[apysc._animation.animation_base.AnimationBase], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_parallel.AnimationParallel`<hr>
 
-**[インターフェイス概要]** アニメーションの並列実行設定を行います。<hr>
+**[インターフェイス概要]**
+
+並列実行されるアニメーション設定を行います。<hr>
 
 **[引数]**
 

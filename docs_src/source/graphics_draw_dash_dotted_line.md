@@ -46,7 +46,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_dash_dotted_line_basic_usage/"
 
 **[Interface signature]** `draw_dash_dotted_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], dot_size: Union[int, apysc._type.int.Int], dash_size: Union[int, apysc._type.int.Int], space_size: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_line.Line'`<hr>
 
-**[Interface summary]** Draw a dash-dotted (1-dot chain) line vector graphics.<hr>
+**[Interface summary]**
+
+Draw a dash-dotted (1-dot chain) line vector graphics.<hr>
 
 **[Parameters]**
 

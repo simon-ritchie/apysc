@@ -79,7 +79,9 @@ ap.save_overall_html(dest_dir_path="./animation_fill_color_basic_usage/")
 
 **[インターフェイスの構造]** `animation_fill_color(self, *, fill_color: ~StrOrString, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_fill_color.AnimationFillColor`<hr>
 
-**[インターフェイス概要]** 塗りの色のアニメーションの設定を行います。.<hr>
+**[インターフェイス概要]**
+
+塗りの色のアニメーション設定を行います。<hr>
 
 **[引数]**
 

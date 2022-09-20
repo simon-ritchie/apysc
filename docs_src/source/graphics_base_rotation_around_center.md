@@ -48,7 +48,9 @@ This interface supports only the graphics instances currently. The container ins
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a rotation value around the center of this instance.<hr>
+**[Interface summary]**
+
+Get a rotation value around the center of this instance.<hr>
 
 **[Returns]**
 

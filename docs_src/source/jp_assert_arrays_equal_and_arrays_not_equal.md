@@ -115,7 +115,9 @@ Left value: [1, 2, 3, 4, 5] right value: arr_2
 
 **[インターフェイスの構造]** `assert_arrays_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
-**[インターフェイス概要]** JavaScript上での配列の等値条件のチェックを行うインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+配列の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 
@@ -152,7 +154,9 @@ Left value: [1, 2, 3, 4, 5] right value: arr_2
 
 **[インターフェイスの構造]** `assert_arrays_not_equal(left: Any, right: Any, *, msg: str = '', outer_frames_index_adjustment: int = 0) -> None`<hr>
 
-**[インターフェイス概要]** JavaScript上での配列の非等値条件のチェックを行うインターフェイスです。<hr>
+**[インターフェイス概要]**
+
+配列の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>
 
 **[引数]**
 

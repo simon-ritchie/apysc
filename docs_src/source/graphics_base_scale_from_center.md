@@ -141,7 +141,9 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_center_basic_usage_
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a scale-x value from the center of this instance.<hr>
+**[Interface summary]**
+
+Get a scale-x value from the center of this instance.<hr>
 
 **[Returns]**
 
@@ -175,7 +177,9 @@ Number(1.5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a scale-y value from the center of this instance.<hr>
+**[Interface summary]**
+
+Get a scale-y value from the center of this instance.<hr>
 
 **[Returns]**
 

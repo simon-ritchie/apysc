@@ -81,7 +81,9 @@ ap.save_overall_html(dest_dir_path="timer_start_and_stop_basic_usage/")
 
 **[Interface signature]** `start(self) -> None`<hr>
 
-**[Interface summary]** Start this timer.<hr>
+**[Interface summary]**
+
+Start this timer.<hr>
 
 **[Examples]**
 
@@ -100,7 +102,9 @@ ap.save_overall_html(dest_dir_path="timer_start_and_stop_basic_usage/")
 
 **[Interface signature]** `stop(self) -> None`<hr>
 
-**[Interface summary]** Stop this timer.<hr>
+**[Interface summary]**
+
+Stop this timer.<hr>
 
 **[Examples]**
 

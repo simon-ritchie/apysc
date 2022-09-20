@@ -80,7 +80,9 @@ ap.save_overall_html(dest_dir_path="timer_start_and_stop_basic_usage/")
 
 **[インターフェイスの構造]** `start(self) -> None`<hr>
 
-**[インターフェイス概要]** タイマーを開始します。<hr>
+**[インターフェイス概要]**
+
+タイマーを開始します。<hr>
 
 **[コードサンプル]**
 
@@ -97,7 +99,9 @@ ap.save_overall_html(dest_dir_path="timer_start_and_stop_basic_usage/")
 
 **[インターフェイスの構造]** `stop(self) -> None`<hr>
 
-**[インターフェイス概要]** タイマーを停止します。<hr>
+**[インターフェイス概要]**
+
+タイマーを停止します。<hr>
 
 **[コードサンプル]**
 

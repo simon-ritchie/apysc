@@ -83,7 +83,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_line_line_instance/")
 
 **[インターフェイスの構造]** `draw_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_line.Line'`<hr>
 
-**[インターフェイス概要]** 通常の直線のベクターグラフィックスを描画します。<hr>
+**[インターフェイス概要]**
+
+通常の直線のベクターグラフィックスを描画します。<hr>
 
 **[引数]**
 

@@ -44,7 +44,6 @@ class HashType(Enum):
     TRANSLATION_FIXED_MAPPING_JP = "translation_fixed_mapping_jp"
     APPLYING_TRANSLATION_MAPPING = "applying_translation_mapping"
     DOCUMENT = "document"
-    SYNC_DOCS_KEYWORD_LINK_MAPPING = 'sync_docs_keyword_link_mapping'
 
 
 _HASH_PACKAGE_ROOT_PATH: str = "./.lint_and_doc_hash"

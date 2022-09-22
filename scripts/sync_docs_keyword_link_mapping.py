@@ -3,39 +3,33 @@
 
 import sys
 from typing import Dict, List
+import json
 
 sys.path.append("./")
 
 from apysc._lint_and_doc.docs_lang import Lang
-from apysc._lint_and_doc import lint_and_doc_hash_util
-from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.docs_keyword_link_mapping import MAPPINGS
 
-_HASH_TARGET_FILE_PATHS: List[str] = [
-    "./scripts/sync_docs_keyword_link_mapping.py",
-    "./apysc/_lint_and_doc",
-]
-
 _MAPPING_SCRIPT_FORMAT: str = """
-$(document).ready(function() {
+$(document).ready(function() {{
     const KEYWORD_LINK_MAPPINGS = {keyword_link_mappings};
-    for (let keyword in KEYWORD_LINK_MAPPINGS) {
+    for (let keyword in KEYWORD_LINK_MAPPINGS) {{
         let link = KEYWORD_LINK_MAPPINGS[keyword];
-                $("span:contains(" + keyword + ")").each(function() {
+        $("span:contains(" + keyword + ")").each(function() {{
             let elemText = $(this).text();
             elemText = sanitise(elemText);
-            if (elemText !== keyword) {
+            if (elemText !== keyword) {{
                 return;
-            }
+            }}
             let className = $(this).attr("class");
             className = sanitise(className);
-            if (className !== "pre") {
+            if (className !== "pre") {{
                 return;
-            }
+            }}
             $(this).html("<a href='" + link + "'>" + $(this).html() + "</a>");
-        });
-    }
-});
+        }});
+    }}
+}});
 """
 
 _Keyword = str
@@ -51,10 +45,16 @@ def sync(*, lang: Lang) -> None:
     lang : Lang
         A target language to synchronize.
     """
+    from apysc._file import file_util
     keyword_link_mappings: Dict[_Keyword, _Link] = _create_keyword_link_mappings(
         lang=lang
     )
-    pass
+    keyword_link_mappings_json: str = json.dumps(keyword_link_mappings)
+    mapping_script: str = _MAPPING_SCRIPT_FORMAT.format(
+        keyword_link_mappings=keyword_link_mappings_json,
+    )
+    script_file_path: str = f"./docs/{lang.value}/static/keyword_link_mapping.js"
+    file_util.save_plain_txt(txt=mapping_script, file_path=script_file_path)
 
 
 def _create_keyword_link_mappings(*, lang: Lang) -> Dict[_Keyword, _Link]:

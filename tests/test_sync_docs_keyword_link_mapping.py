@@ -1,10 +1,14 @@
+import os
 from random import randint
-from typing import Dict
+from typing import Dict, List
 
 from retrying import retry
 
 from scripts import sync_docs_keyword_link_mapping
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from apysc._file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -32,3 +36,22 @@ def test__create_keyword_link_mappings() -> None:
     assert keyword_link_mappings["Sprite"] == (
         "https://simon-ritchie.github.io/apysc/jp/jp_sprite.html"
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_sync() -> None:
+    expected_en_script_path: str = "./docs/en/static/keyword_link_mapping.js"
+    file_util.remove_file_if_exists(file_path=expected_en_script_path)
+    sync_docs_keyword_link_mapping.sync(lang=Lang.EN)
+    assert os.path.exists(expected_en_script_path)
+    script_txt: str = file_util.read_txt(file_path=expected_en_script_path)
+    assert 'const KEYWORD_LINK_MAPPINGS = {"' in script_txt
+    assert "Sprite" in script_txt
+    assert "function() {\n" in script_txt
+
+    expected_jp_script_path: str = "./docs/jp/static/keyword_link_mapping.js"
+    file_util.remove_file_if_exists(file_path=expected_jp_script_path)
+    sync_docs_keyword_link_mapping.sync(lang=Lang.JP)
+    assert os.path.exists(expected_jp_script_path)
+    script_txt = file_util.read_txt(file_path=expected_jp_script_path)
+    assert "jp_sprite" in script_txt

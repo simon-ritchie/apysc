@@ -39,6 +39,7 @@ from apysc._lint_and_doc.add_doc_translation_mapping_blank_data import (
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_translation_converter import apply_translation_to_doc
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from scripts import sync_docs_keyword_link_mapping
 
 logger: Logger = loggers.get_info_logger()
 
@@ -88,6 +89,10 @@ def _main() -> None:
         print(stdout)
 
     _move_and_adjust_updated_files()
+
+    logger.info(msg="Synchronizing keyword link mapping scripts...")
+    for lang in Lang:
+        sync_docs_keyword_link_mapping.sync(lang=lang)
 
     logger.info(msg="Build completed!")
 

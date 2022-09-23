@@ -24,7 +24,8 @@ class _MockSphinx(Sphinx):
             A priority for the file ordering.
         """
         assert filename.endswith(".js")
-        assert os.path.exists(f"./docs_src/source/_static/{filename}")
+        if filename != "keyword_link_mapping.js":
+            assert os.path.exists(f"./docs_src/source/_static/{filename}")
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

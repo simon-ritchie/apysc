@@ -3,7 +3,6 @@
 
 from typing import Dict
 
-
 _Keyword = str
 _DocFileName = str
 
@@ -110,4 +109,12 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "mousemove": "mousemove",
     "unbind_mousemove": "mousemove",
     "unbind_mousemove_all": "mousemove",
+    "If": "if",
+    "Elif": "elif",
+    "Else": "else",
+    "Return": "return",
+    "For": "for",
+    "Continue": "continue",
+    "Timer": "timer",
+    "TimerEvent": "timer_event",
 }

@@ -1,22 +1,20 @@
 import os
 from random import randint
-from typing import Dict, List
+from typing import Dict
 
 from retrying import retry
 
-from scripts import sync_docs_keyword_link_mapping
-from apysc._lint_and_doc.docs_lang import Lang
-from apysc._lint_and_doc import lint_and_doc_hash_util
-from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._file import file_util
+from apysc._lint_and_doc.docs_lang import Lang
+from scripts import sync_docs_keyword_link_mapping
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__create_keyword_link_mappings() -> None:
-    keyword_link_mappings: Dict[str, str] = (
-        sync_docs_keyword_link_mapping._create_keyword_link_mappings(
-            lang=Lang.EN,
-        )
+    keyword_link_mappings: Dict[
+        str, str
+    ] = sync_docs_keyword_link_mapping._create_keyword_link_mappings(
+        lang=Lang.EN,
     )
     assert keyword_link_mappings["Stage"] == (
         "https://simon-ritchie.github.io/apysc/en/stage.html"
@@ -25,7 +23,7 @@ def test__create_keyword_link_mappings() -> None:
         "https://simon-ritchie.github.io/apysc/en/sprite.html"
     )
 
-    keyword_link_mappings: Dict[str, str] = (
+    keyword_link_mappings = (
         sync_docs_keyword_link_mapping._create_keyword_link_mappings(
             lang=Lang.JP,
         )

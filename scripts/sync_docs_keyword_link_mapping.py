@@ -1,14 +1,14 @@
 """The module to synchronize documents keyword link mappings.
 """
 
-import sys
-from typing import Dict, List
 import json
+import sys
+from typing import Dict
 
 sys.path.append("./")
 
-from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.docs_keyword_link_mapping import MAPPINGS
+from apysc._lint_and_doc.docs_lang import Lang
 
 _MAPPING_SCRIPT_FORMAT: str = """
 $(document).ready(function() {{
@@ -46,6 +46,7 @@ def sync(*, lang: Lang) -> None:
         A target language to synchronize.
     """
     from apysc._file import file_util
+
     keyword_link_mappings: Dict[_Keyword, _Link] = _create_keyword_link_mappings(
         lang=lang
     )

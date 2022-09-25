@@ -11,3 +11,10 @@ def test_check_mappings_are_not_duplicated() -> None:
     keys: List[str] = list(MAPPINGS.keys())
     for key in keys:
         assert keys.count(key) == 1, key
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_check_keys_not_contain_spaces() -> None:
+    keys: List[str] = list(MAPPINGS.keys())
+    for key in keys:
+        assert key == key.strip()

@@ -54,7 +54,7 @@ class MouseEvent(
         Parameters
         ----------
         this : VariableNameInterface
-            Instance that listening event (e.g., Sprite).
+            An instance which a listening event (e.g., Sprite).
 
         References
         ----------

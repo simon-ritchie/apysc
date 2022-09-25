@@ -24,6 +24,4 @@ def test_check_keys_not_contain_spaces() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_check_doc_files_exist() -> None:
     for doc_file_name in MAPPINGS.values():
-        assert os.path.exists(
-            f"./docs_src/source/{doc_file_name}.md"
-        ), doc_file_name
+        assert os.path.exists(f"./docs_src/source/{doc_file_name}.md"), doc_file_name

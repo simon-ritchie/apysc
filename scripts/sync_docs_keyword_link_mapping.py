@@ -13,8 +13,15 @@ from apysc._lint_and_doc.docs_lang import Lang
 _MAPPING_SCRIPT_FORMAT: str = """
 $(document).ready(function() {{
     const KEYWORD_LINK_MAPPINGS = {keyword_link_mappings};
+    const CURRENT_PAGE_FILE_NAME = location.pathname.substring(
+        location.pathname.lastIndexOf('/') + 1
+    );
     for (let keyword in KEYWORD_LINK_MAPPINGS) {{
         let link = KEYWORD_LINK_MAPPINGS[keyword];
+        let link_file_name = link.substring(link.lastIndexOf('/') + 1);
+        if (link_file_name === CURRENT_PAGE_FILE_NAME) {
+            continue;
+        }
         $("span:contains(" + keyword + ")").each(function() {{
             let elemText = $(this).text();
             elemText = sanitise(elemText);

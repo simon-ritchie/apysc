@@ -1,0 +1,14 @@
+# Development environment launch command examples:
+# $ docker-compose up -d
+# $ docker container exec -it apysc bash
+
+version: "3.1"
+
+services:
+  apysc:
+    build: "./"
+    volumes:
+      - "./:/mnt/apysc"
+    image: "apysc"
+    container_name: "apysc"
+    command: /bin/sh -c "while true; do sleep 10; done"

@@ -39,7 +39,7 @@ def _get_merged_branch_names() -> List[str]:
     merged_branch_names : List[str]
         Merged Git branch names.
     """
-    stdout: str = command_util.run_command(command="git branch -a --merged")
+    stdout: str = command_util.run_command(command="git branch -a")
     lines: List[str] = stdout.splitlines()
     merged_branch_names: List[str] = []
     for line in lines:

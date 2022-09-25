@@ -61,7 +61,7 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "Path": "path",
     "Graphics": "graphics",
     "begin_fill": "graphics_begin_fill",
-    "line_style": "line_style",
+    "line_style": "graphics_line_style",
     "draw_rect": "graphics_draw_rect",
     "draw_round_rect": "graphics_draw_round_rect",
     "draw_circle": "graphics_draw_circle",

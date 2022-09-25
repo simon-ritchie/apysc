@@ -21,7 +21,13 @@ def _main() -> None:
     Run the script to delete merged Git branches.
     """
     merged_branch_names: List[str] = _get_merged_branch_names()
-    pass
+    for merged_branch_name in merged_branch_names:
+        logger.info(f"Deleting the {merged_branch_name} branch...")
+        stdout: str = command_util.run_command(
+            command=f"git push --delete origin \\{merged_branch_name} -f"
+        )
+        print(stdout)
+        break
 
 
 def _get_merged_branch_names() -> List[str]:
@@ -38,8 +44,6 @@ def _get_merged_branch_names() -> List[str]:
     merged_branch_names: List[str] = []
     for line in lines:
         line = line.strip()
-        if line == "":
-            continue
         if not line.startswith("#"):
             continue
         merged_branch_names.append(line)

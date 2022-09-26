@@ -754,3 +754,19 @@ def test_is_acceptable_boolean_value() -> None:
     _test_func(a=False)
     _test_func(a=ap.Boolean(True))
     _test_func(a=ap.Boolean(False))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_fps() -> None:
+    @arg_validation_decos.is_fps(arg_position_index=0)
+    def _test_func(*, fps: ap.FPS) -> int:
+        return 10
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        fps=10,
+    )
+
+    result: int = _test_func(fps=ap.FPS.FPS_60)
+    assert result == 10

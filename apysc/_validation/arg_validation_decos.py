@@ -113,6 +113,9 @@ Mainly the following decorators exist.
 - is_acceptable_boolean_value
     - Set the validation to check a specified argument's type
         is an acceptable boolean value type.
+- is_fps
+    - Set the validation to check a specified argument's value
+        is the FPS enum.
 """
 
 import functools
@@ -1974,6 +1977,47 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _F:
                 raise TypeError(
                     "A specified value's type is not an acceptable boolean value type: "
                     f"{type(value)}\nAcceptable types: {acceptable_types}"
+                )
+
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_fps(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's value
+    is the FPS enum.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            value: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+
+            if not isinstance(value, ap.FPS):
+                raise TypeError(
+                    f"A specified value is not an FPS enum value: {type(value)}"
                 )
 
             result: Any = callable_(*args, **kwargs)

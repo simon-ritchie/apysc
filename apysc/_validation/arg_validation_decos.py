@@ -110,6 +110,9 @@ Mainly the following decorators exist.
 - is_acceptable_dictionary_value
     - Set the validation to check a specified argument's type
         is an acceptable dictionary value type.
+- is_builtin_dict
+    - Set the validation to check a specified argument's type
+        is the Python's `dict` type.
 - is_acceptable_boolean_value
     - Set the validation to check a specified argument's type
         is an acceptable boolean value type.
@@ -1886,9 +1889,13 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _F:
 
             acceptable_types: Tuple = (list, tuple, range, ap.Array)
             if not isinstance(value, acceptable_types):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
                 raise TypeError(
                     "A specified value's type is not an acceptable array value: "
                     f"{type(value)}\nAcceptable types: {acceptable_types}"
+                    f"\n{callable_and_arg_names_msg}"
                 )
 
             result: Any = callable_(*args, **kwargs)
@@ -1928,11 +1935,57 @@ def is_acceptable_dictionary_value(*, arg_position_index: int) -> _F:
             )
             acceptable_types: Tuple = (dict, ap.Dictionary)
             if not isinstance(value, acceptable_types):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
                 raise TypeError(
                     "A specified value's type is not an acceptable dictionary value "
                     f"type: {type(value)}\nAcceptable types: {acceptable_types}"
+                    f"\n{callable_and_arg_names_msg}"
                 )
 
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_builtin_dict(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's type
+    is the Python's `dict` type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            value: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(value, dict):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "A specified value's type is not the Python's `dict`: "
+                    f"{type(value)}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
             result: Any = callable_(*args, **kwargs)
             return result
 
@@ -1974,9 +2027,13 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _F:
 
             acceptable_types: Tuple = (bool, int, ap.Int, ap.Boolean)
             if not isinstance(value, acceptable_types):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
                 raise TypeError(
                     "A specified value's type is not an acceptable boolean value type: "
                     f"{type(value)}\nAcceptable types: {acceptable_types}"
+                    f"\n{callable_and_arg_names_msg}"
                 )
 
             result: Any = callable_(*args, **kwargs)
@@ -2016,8 +2073,12 @@ def is_fps(*, arg_position_index: int) -> _F:
             )
 
             if not isinstance(value, ap.FPS):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
                 raise TypeError(
                     f"A specified value is not an FPS enum value: {type(value)}"
+                    f"\n{callable_and_arg_names_msg}"
                 )
 
             result: Any = callable_(*args, **kwargs)

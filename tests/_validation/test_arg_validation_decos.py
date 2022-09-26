@@ -770,3 +770,19 @@ def test_is_fps() -> None:
 
     result: int = _test_func(fps=ap.FPS.FPS_60)
     assert result == 10
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_builtin_dict() -> None:
+    @arg_validation_decos.is_builtin_dict(arg_position_index=0)
+    def _test_func(*, dict_val: Dict[Any, Any]) -> int:
+        return 20
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        dict_val=10,
+    )
+
+    result: int = _test_func(dict_val={"value": 30})
+    assert result == 20

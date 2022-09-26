@@ -91,7 +91,7 @@ class ClickInterface(MouseEventInterfaceBase):
     @final
     def _initialize_click_handlers_if_not_initialized(self) -> None:
         """
-        Initialize _click_handlers attribute if it hasn't been
+        Initialize the _click_handlers attribute if it hasn't been
         initialized yet.
         """
         if hasattr(self, "_click_handlers"):

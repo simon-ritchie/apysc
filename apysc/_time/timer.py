@@ -8,6 +8,7 @@ from typing import TypeVar
 from typing import Union
 
 from typing_extensions import final
+from typing import TYPE_CHECKING
 
 from apysc._event import timer_event
 from apysc._event.custom_event_interface import CustomEventInterface
@@ -20,10 +21,13 @@ from apysc._type.number import Number
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
+from apysc._event.timer_event import TimerEvent
 
 _O1 = TypeVar("_O1")
 _O2 = TypeVar("_O2")
 _Handler = Callable[["timer_event.TimerEvent", _O1], None]
+
+
 
 
 class Timer(VariableNameInterface, CustomEventInterface):
@@ -72,7 +76,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
     _delay: Number
     _repeat_count: Int
     _current_count: Int
-    _handler_data: HandlerData
+    _handler_data: HandlerData[TimerEvent]
     _handler_name: str
     _running: Boolean
 

@@ -23,7 +23,9 @@ _Handler = Callable[[Any, Any], None]
 
 class CustomEventInterface(BlankObjectInterface):
 
-    _custom_event_handlers: Dict[_CustomEventType, Dict[_HandlerName, HandlerData]]
+    _custom_event_handlers: Dict[
+        _CustomEventType, Dict[_HandlerName, HandlerData[Event]]
+    ]
 
     @final
     def _initialize_custom_event_handlers_if_not_initialized(
@@ -198,7 +200,9 @@ class CustomEventInterface(BlankObjectInterface):
         self._append_custom_event_binding_expression(
             custom_event_type_str=custom_event_type_str, name=name
         )
-        handler_data: HandlerData = self._custom_event_handlers[custom_event_type_str][
+        handler_data: HandlerData[Event] = self._custom_event_handlers[
+            custom_event_type_str
+        ][
             name
         ]
         append_handler_expression(

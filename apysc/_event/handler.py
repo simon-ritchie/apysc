@@ -3,7 +3,7 @@
 
 from typing import Any
 from typing import Callable
-from typing import List
+from typing import List, Generic, TypeVar, Type
 
 from typing_extensions import TypedDict
 
@@ -14,10 +14,11 @@ from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
 
 _Handler = Callable[[Any, Any], None]
+_EventType = TypeVar('_EventType', bound=Event)
 
 
-class HandlerData(TypedDict):
-    handler: Callable[[Event, Any], None]
+class HandlerData(TypedDict, Generic[_EventType]):
+    handler: Callable[[_EventType, Any], None]
     options: Any
 
 

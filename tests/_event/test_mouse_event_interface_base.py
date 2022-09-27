@@ -44,17 +44,6 @@ class TestMouseEventInterfaceBase:
         """
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__set_mouse_event_handler_data(self) -> None:
-        handlers_dict: Dict[str, HandlerData[ap.MouseEvent]] = {}
-        interface_1: _TestClickInterface = _TestClickInterface()
-        interface_1._set_mouse_event_handler_data(
-            handler=self.on_click_1, handlers_dict=handlers_dict, options=None
-        )
-        name: str = get_handler_name(handler=self.on_click_1, instance=interface_1)
-        assert handlers_dict[name].handler == self.on_click_1
-        assert handlers_dict[name].options == {}
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__unbind_mouse_event(self) -> None:
         expression_data_util.empty_expression()
         interface_1: _TestClickInterface = _TestClickInterface()

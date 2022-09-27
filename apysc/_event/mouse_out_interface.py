@@ -76,7 +76,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
         )
         self._initialize_mouse_out_handlers_if_not_initialized()
         name: str = get_handler_name(handler=handler, instance=self)
-        self._set_mouse_event_handler_data(
+        self._set_handler_data(
             handler=handler, handlers_dict=self._mouse_out_handlers, options=options
         )
         self._append_mouse_event_binding_expression(

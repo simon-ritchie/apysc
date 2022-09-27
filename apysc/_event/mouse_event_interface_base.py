@@ -3,7 +3,6 @@
 
 from typing import Callable
 from typing import Dict
-from typing import Optional
 from typing import TypeVar
 
 from typing_extensions import final
@@ -13,46 +12,13 @@ from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._validation import arg_validation_decos
+from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 
 _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
 
 
-class MouseEventInterfaceBase:
-    @final
-    @arg_validation_decos.handler_args_num(arg_position_index=1)
-    @arg_validation_decos.handler_options_type(arg_position_index=3)
-    def _set_mouse_event_handler_data(
-        self,
-        *,
-        handler: _Handler[_O],
-        handlers_dict: Dict[str, HandlerData[MouseEvent]],
-        options: Optional[_O],
-    ) -> None:
-        """
-        Set a handler's data to the given dictionary.
-
-        Parameters
-        ----------
-        handler : _Handler
-            Callable that this instance calls when dispatching.
-        handlers_dict : dict
-            Dictionary that this instance sets a handler's data.
-        options : dict or None
-            Optional arguments dictionary that this instance passes
-            to a handler.
-        """
-        from apysc._event.handler import get_handler_name
-
-        name: str = get_handler_name(handler=handler, instance=self)
-        if options is None:
-            options = {}  # type: ignore
-        handlers_dict[name] = {  # type: ignore
-            "handler": handler,  # type: ignore
-            "options": options,
-        }
-
+class MouseEventInterfaceBase(SetHandlerDataInterface[MouseEvent]):
     @final
     @add_debug_info_setting(module_name=__name__)
     def _unbind_mouse_event(

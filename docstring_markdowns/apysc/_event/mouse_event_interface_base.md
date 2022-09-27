@@ -17,19 +17,6 @@ Append a mouse event binding expression.<hr>
 - `mouse_event_type`: MouseEventType
   - Event type to bind.
 
-### `_set_mouse_event_handler_data` method docstring
-
-Set a handler's data to the given dictionary.<hr>
-
-**[Parameters]**
-
-- `handler`: _Handler
-  - Callable that this instance calls when dispatching.
-- `handlers_dict`: dict
-  - Dictionary that this instance sets a handler's data.
-- `options`: dict or None
-  - Optional arguments dictionary that this instance passes to a handler.
-
 ### `_unbind_all_mouse_events` method docstring
 
 Unbind specified all mouse event type's events.<hr>

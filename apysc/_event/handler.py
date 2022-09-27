@@ -4,6 +4,7 @@
 from typing import Any
 from typing import Callable
 from typing import List, Generic, TypeVar, Type
+from dataclasses import dataclass
 
 from typing_extensions import TypedDict
 
@@ -17,7 +18,8 @@ _Handler = Callable[[Any, Any], None]
 _EventType = TypeVar('_EventType', bound=Event)
 
 
-class HandlerData(TypedDict, Generic[_EventType]):
+@dataclass
+class HandlerData(Generic[_EventType]):
     handler: Callable[[_EventType, Any], None]
     options: Any
 
@@ -94,7 +96,7 @@ def append_handler_expression(
         validate_variable_name_interface_type,
     )
 
-    variables: List[Any] = [*handler_data["options"].values()]
+    variables: List[Any] = [*handler_data.options.values()]
     snapshot_name: str = revert_interface.make_variables_snapshots(variables=variables)
     instance: VariableNameInterface = validate_variable_name_interface_type(
         instance=e.this
@@ -111,7 +113,7 @@ def append_handler_expression(
                 _append_in_handler_head_expression(
                     in_handler_head_expression=in_handler_head_expression
                 )
-                handler_data["handler"](e, handler_data["options"])
+                handler_data["handler"](e, handler_data["options"])  # type: ignore
             ap.append_js_expression(expression="}")
 
     revert_interface.revert_variables(snapshot_name=snapshot_name, variables=variables)

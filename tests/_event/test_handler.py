@@ -64,12 +64,12 @@ def test_append_handler_expression() -> None:
     expression_data_util.empty_expression()
     test_instance: _TestClass1 = _TestClass1()
     int_1: ap.Int = ap.Int(10)
-    handler_data: HandlerData = {
-        "handler": test_instance.on_click_2,
-        "options": {"int_1": int_1},
-    }
+    handler_data: HandlerData[ap.Event] = HandlerData(
+        handler=test_instance.on_click_2,
+        options={"int_1": int_1},
+    )
     handler_name: str = handler.get_handler_name(
-        handler=handler_data["handler"], instance=test_instance
+        handler=handler_data.handler, instance=test_instance
     )
     e: ap.Event = ap.Event(this=test_instance)
     handler.append_handler_expression(

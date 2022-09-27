@@ -52,8 +52,8 @@ class TestTimer:
             any_obj=timer,
         )
         assert callable(timer._handler)
-        assert callable(timer._handler_data["handler"])
-        assert timer._handler_data["options"] == {}
+        assert callable(timer._handler_data.handler)
+        assert timer._handler_data.options == {}
         assert timer.variable_name.startswith(f"{var_names.TIMER}_")
         assert "on_timer" in timer._handler_name
         assert isinstance(timer._delay, ap.Number)

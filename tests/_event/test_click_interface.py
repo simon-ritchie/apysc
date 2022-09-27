@@ -51,17 +51,16 @@ class TestClickInterface:
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(handler=self.on_click_1)
         assert (
-            interface_1._click_handlers[name]["handler"]  # type: ignore
-            == self.on_click_1
+            interface_1._click_handlers[name].handler == self.on_click_1
         )
-        assert interface_1._click_handlers[name]["options"] == {}
+        assert interface_1._click_handlers[name].options == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{interface_1.variable_name}.click({name});"
         assert expected in expression
 
         interface_2: _TestClickInterface = _TestClickInterface()
         name = interface_2.click(handler=self.on_click_1, options={"a": 10})
-        assert interface_2._click_handlers[name]["options"] == {"a": 10}
+        assert interface_2._click_handlers[name].options == {"a": 10}
 
         interface_3: ClickInterface = ClickInterface()
         testing_helper.assert_raises(

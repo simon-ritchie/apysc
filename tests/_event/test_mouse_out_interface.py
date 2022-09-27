@@ -58,7 +58,7 @@ class TestMouseOutInterface:
             handler=self.on_mouse_out_1, options={"msg": "Hello!"}
         )
         assert name in interface_1._mouse_out_handlers
-        assert interface_1._mouse_out_handlers[name]["options"] == {"msg": "Hello!"}
+        assert interface_1._mouse_out_handlers[name].options == {"msg": "Hello!"}
         expression: str = (
             expression_data_util.get_current_event_handler_scope_expression()
         )

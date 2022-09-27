@@ -20,7 +20,7 @@ _Handler = Callable[[MouseEvent, _O], None]
 
 class MouseMoveInterface(MouseEventInterfaceBase):
 
-    _mouse_move_handlers: Dict[str, HandlerData]
+    _mouse_move_handlers: Dict[str, HandlerData[MouseEvent]]
 
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)

@@ -24,7 +24,7 @@ _Handler = Callable[[Any, Any], None]
 class CustomEventInterface(BlankObjectInterface):
 
     _custom_event_handlers: Dict[
-        _CustomEventType, Dict[_HandlerName, HandlerData]
+        _CustomEventType, Dict[_HandlerName, HandlerData[Event]]
     ]
 
     @final

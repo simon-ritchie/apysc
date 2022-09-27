@@ -56,12 +56,8 @@ class TestDoubleClickInterface:
         expression_data_util.empty_expression()
         interface_1: _TestDoubleClick = _TestDoubleClick()
         name: str = interface_1.dblclick(handler=self.on_double_click_1)
-        assert interface_1._dblclick_handlers == {
-            name: {
-                "handler": self.on_double_click_1,
-                "options": {},
-            },
-        }
+        assert interface_1._dblclick_handlers[name].handler == self.on_double_click_1
+        assert interface_1._dblclick_handlers[name].options == {}
 
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{interface_1.variable_name}.dblclick({name});"

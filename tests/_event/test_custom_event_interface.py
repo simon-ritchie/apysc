@@ -61,11 +61,10 @@ class TestCustomEventInterface:
         name: str = interface.bind_custom_event(
             custom_event_type="test_custom_event", handler=self.on_custom_event, e=e
         )
-        expected: Dict[str, Any] = {
-            "handler": self.on_custom_event,
-            "options": {},
-        }
-        assert interface._custom_event_handlers["test_custom_event"][name] == expected
+        assert interface._custom_event_handlers["test_custom_event"][name].handler == (
+            self.on_custom_event
+        )
+        assert interface._custom_event_handlers["test_custom_event"][name].options == {}
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_custom_event_binding_expression(self) -> None:

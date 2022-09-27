@@ -20,7 +20,7 @@ _Options = TypeVar("_Options")
 
 class EnterFrameInterface:
 
-    _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
+    _enter_frame_handlers: Dict[str, HandlerData]
 
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)

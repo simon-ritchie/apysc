@@ -55,7 +55,7 @@ def bind_wheel_event_to_document(
 
     if options is None:
         options = {}  # type: ignore
-    handler_data: HandlerData[WheelEvent] = {
+    handler_data: HandlerData = {
         "handler": handler,
         "options": options,
     }

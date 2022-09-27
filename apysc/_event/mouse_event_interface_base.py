@@ -27,7 +27,7 @@ class MouseEventInterfaceBase:
         self,
         *,
         handler: _Handler[_O],
-        handlers_dict: Dict[str, HandlerData[MouseEvent]],
+        handlers_dict: Dict[str, HandlerData],
         options: Optional[_O],
     ) -> None:
         """
@@ -60,7 +60,7 @@ class MouseEventInterfaceBase:
         *,
         handler: _Handler[_O],
         mouse_event_type: MouseEventType,
-        handlers_dict: Dict[str, HandlerData[MouseEvent]],
+        handlers_dict: Dict[str, HandlerData],
     ) -> None:
         """
         Unbind a specified handler's mouse event.
@@ -96,7 +96,7 @@ class MouseEventInterfaceBase:
         self,
         *,
         mouse_event_type: MouseEventType,
-        handlers_dict: Dict[str, HandlerData[MouseEvent]]
+        handlers_dict: Dict[str, HandlerData]
     ) -> None:
         """
         Unbind specified all mouse event type's events.

@@ -35,11 +35,11 @@ _V = TypeVar("_V")
 
 
 class Dictionary(
+    CustomEventInterface,
     Generic[_K, _V],
     CopyInterface,
     RevertInterface,
     DictionaryStructure,
-    CustomEventInterface,
     VariableNameSuffixInterface,
     InitialSubstitutionExpInterface,
 ):

@@ -174,10 +174,10 @@ class Timer(VariableNameInterface, CustomEventInterface):
             self._current_count = ap.Int(0)
             if options is None:
                 options = {}  # type: ignore
-            self._handler_data = {  # type: ignore
-                "handler": self._handler,  # type: ignore
-                "options": options,
-            }
+            self._handler_data = HandlerData(
+                handler=self._handler,
+                options=options,
+            )
             ap.append_js_expression(expression=f"var {self.variable_name};")
 
     @final

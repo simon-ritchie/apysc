@@ -5,7 +5,7 @@ from typing import Any
 from typing import Callable
 from typing import Dict
 from typing import Optional
-from typing import Union
+from typing import Union, Generic, TypeVar
 
 from typing_extensions import final
 
@@ -15,16 +15,22 @@ from apysc._event.handler import HandlerData
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.blank_object_interface import BlankObjectInterface
 from apysc._validation import arg_validation_decos
+from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 
 _CustomEventType = str
 _HandlerName = str
 _Handler = Callable[[Any, Any], None]
+_EventType = TypeVar("_EventType", bound=Event)
 
 
-class CustomEventInterface(BlankObjectInterface):
+class CustomEventInterface(
+    BlankObjectInterface,
+    SetHandlerDataInterface[_EventType],
+    Generic[_EventType],
+):
 
     _custom_event_handlers: Dict[
-        _CustomEventType, Dict[_HandlerName, HandlerData[Event]]
+        _CustomEventType, Dict[_HandlerName, HandlerData[_EventType]]
     ]
 
     @final
@@ -66,33 +72,6 @@ class CustomEventInterface(BlankObjectInterface):
             return custom_event_type
         custom_event_type_str: str = custom_event_type.value
         return custom_event_type_str
-
-    @final
-    def _set_custom_event_handler_data(
-        self, *, handler: _Handler, custom_event_type_str: str, options: Optional[Any]
-    ) -> None:
-        """
-        Set a handler's data to the dictionary.
-
-        Parameters
-        ----------
-        handler : _Handler
-            Callable that this instance calls when its event's
-            dispatching.
-        custom_event_type_str : str
-            A target custom event type's string.
-        options : dict or None
-            Optional arguments dictionary to be passed to a handler.
-        """
-        from apysc._event.handler import get_handler_name
-
-        name: str = get_handler_name(handler=handler, instance=self)
-        if options is None:
-            options = {}
-        self._custom_event_handlers[custom_event_type_str][name] = {  # type: ignore
-            "handler": handler,
-            "options": options,
-        }
 
     @final
     def _unset_custom_event_handler_data(
@@ -191,9 +170,9 @@ class CustomEventInterface(BlankObjectInterface):
         self._initialize_custom_event_handlers_if_not_initialized(
             custom_event_type_str=custom_event_type_str
         )
-        self._set_custom_event_handler_data(
+        self._set_handler_data(
             handler=handler,
-            custom_event_type_str=custom_event_type_str,
+            handlers_dict=self._custom_event_handlers[custom_event_type_str],
             options=options,
         )
         name: str = get_handler_name(handler=handler, instance=self)

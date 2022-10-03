@@ -55,18 +55,6 @@ class TestCustomEventInterface:
         assert "test_custom_event" in interface._custom_event_handlers
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__set_custom_event_handler_data(self) -> None:
-        interface: _TestObject = _TestObject()
-        e: ap.Event = ap.Event(this=interface)
-        name: str = interface.bind_custom_event(
-            custom_event_type="test_custom_event", handler=self.on_custom_event, e=e
-        )
-        assert interface._custom_event_handlers["test_custom_event"][name].handler == (
-            self.on_custom_event
-        )
-        assert interface._custom_event_handlers["test_custom_event"][name].options == {}
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_custom_event_binding_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: _TestObject = _TestObject()
@@ -129,9 +117,9 @@ class TestCustomEventInterface:
         )
         assert interface._custom_event_handlers == {"test_event": {}}
 
-        interface._set_custom_event_handler_data(
+        interface._set_handler_data(
             handler=self.on_custom_event,
-            custom_event_type_str="test_event",
+            handlers_dict=interface._custom_event_handlers["test_event"],
             options=None,
         )
         interface._unset_custom_event_handler_data(

@@ -113,7 +113,7 @@ def append_handler_expression(
                 _append_in_handler_head_expression(
                     in_handler_head_expression=in_handler_head_expression
                 )
-                handler_data["handler"](e, handler_data["options"])  # type: ignore
+                handler_data.handler(e, handler_data.options)
             ap.append_js_expression(expression="}")
 
     revert_interface.revert_variables(snapshot_name=snapshot_name, variables=variables)

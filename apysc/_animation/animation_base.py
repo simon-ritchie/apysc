@@ -25,7 +25,12 @@ _O = TypeVar("_O")
 _Handler = Callable[["animation_event.AnimationEvent", _O], None]
 
 
-class AnimationBase(VariableNameInterface, CustomEventInterface, Generic[_T], ABC):
+class AnimationBase(
+    VariableNameInterface,
+    CustomEventInterface["animation_event.AnimationEvent"],
+    Generic[_T],
+    ABC,
+):
 
     _target: _T
     _duration: Int

@@ -27,10 +27,10 @@ if TYPE_CHECKING:
 
 _O1 = TypeVar("_O1")
 _O2 = TypeVar("_O2")
-_Handler = Callable[["timer_event.TimerEvent", _O1], None]
+_Handler = Callable[["TimerEvent", _O1], None]
 
 
-class Timer(VariableNameInterface, CustomEventInterface):
+class Timer(VariableNameInterface, CustomEventInterface["TimerEvent"]):
     """
     Timer class to handle function calling at regular intervals.
 

@@ -28,8 +28,33 @@ class DateTime:
         second: Optional[Union[int, Int]] = None,
         millisecond: Optional[Union[int, Int]] = None,
     ) -> None:
+        """
+        The class for datetime-related interfaces.
+
+        Parameters
+        ----------
+        year : Union[int, Int]
+            Four-digit year.
+        month : Union[int, Int]
+            Two-digit month (0 to 23).
+        day : Union[int, Int]
+            Two-digit day (0 to 31).
+        hour : Optional[Union[int, Int]], optional
+            Two-digit hour (0 to 23). This value becomes 0 if this value is None.
+        minute : Optional[Union[int, Int]], optional
+            Two-digit minute (0 to 59). This value becomes 0 if this value is None.
+        second : Optional[Union[int, Int]], optional
+            Two-digit second (0 to 59). This value becomes 0 if this value is None.
+        millisecond : Optional[Union[int, Int]], optional
+            Millisecond (0 to 999). This value becomes 0 if this value is None.
+        """
         self._year = _convert_to_apysc_int(value=year)
-        pass
+        self._month = _convert_to_apysc_int(value=month)
+        self._day = _convert_to_apysc_int(value=day)
+        self._hour = _convert_to_apysc_int(value=hour)
+        self._minute = _convert_to_apysc_int(value=minute)
+        self._second = _convert_to_apysc_int(value=second)
+        self._millisecond = _convert_to_apysc_int(value=millisecond)
 
     @classmethod
     def now(cls) -> "DateTime":

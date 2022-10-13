@@ -122,6 +122,9 @@ Mainly the following decorators exist.
 - is_four_digit_year
     - Set the validation to check a specified argument's value
         is a four-digit year (full-year).
+- is_month_int
+    - Set the validation to check a specified argument's value
+        is a valid month integer (1-12).
 """
 
 import functools
@@ -2133,10 +2136,10 @@ def is_four_digit_year(*, arg_position_index: int) -> _F:
                 is_length_check_target = True
             if is_length_check_target:
                 year_str: str = str(year)
-                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
-                    callable_=callable_, arg_position_index=arg_position_index
-                )
                 if len(year_str) != 4:
+                    callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                        callable_=callable_, arg_position_index=arg_position_index
+                    )
                     raise ValueError(
                         f"A specified four-digit year is not a valid length: {year_str}"
                         f"\n{callable_and_arg_names_msg}"
@@ -2147,3 +2150,56 @@ def is_four_digit_year(*, arg_position_index: int) -> _F:
         return inner_wrapped  # type: ignore
 
     return wrapped  # type: ignore
+
+
+def is_month_int(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's value
+    is a valid month integer (1-12).
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+            from apysc._validation.number_validation import validate_integer
+
+            month: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            is_checking_target: bool = False
+            if isinstance(month, int):
+                is_checking_target = True
+            if isinstance(month, ap.Int) and month._value != 0:
+                is_checking_target = True
+            if isinstance(month, ap.Int):
+                month = month._value
+            if is_checking_target:
+                if month < 1 or 12 < month:
+                    callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                        callable_=callable_, arg_position_index=arg_position_index
+                    )
+                    raise ValueError(
+                        "A specified month integer is not a valid value (1-12): "
+                        f"{month}\n{callable_and_arg_names_msg}"
+                    )
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+

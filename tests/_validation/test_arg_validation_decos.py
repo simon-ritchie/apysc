@@ -811,3 +811,42 @@ def test_is_four_digit_year() -> None:
     assert result == 30
     result = _test_func(year=ap.Int(0))
     assert result == 30
+
+
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_month_int() -> None:
+    @arg_validation_decos.is_month_int(arg_position_index=0)
+    def _test_func(*, month: Union[int, ap.Int]) -> int:
+        return 40
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        month=0,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        month=13,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        month=ap.Int(-1),
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        month=ap.Int(13),
+    )
+
+    result: int = _test_func(month=1)
+    assert result == 40
+    result = _test_func(month=12)
+    assert result == 40
+    result: int = _test_func(month=ap.Int(0))
+    assert result == 40
+    result: int = _test_func(month=ap.Int(1))
+    assert result == 40
+    result: int = _test_func(month=ap.Int(12))
+    assert result == 40

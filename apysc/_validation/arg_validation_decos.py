@@ -131,6 +131,9 @@ Mainly the following decorators exist.
 - is_hour_int
     - Set the validation to check a specified argument's value
         is a valid hour integer (0-23).
+- is_minute_int
+    - Set the validation to check a specified argument's value
+        is a valid minute integer (0-59).
 """
 
 import functools
@@ -2287,7 +2290,6 @@ def is_hour_int(*, arg_position_index: int, optional: bool) -> _F:
     def wrapped(callable_: _F) -> _F:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
             from apysc._validation.number_validation import validate_integer
 
             hour: Any = _extract_arg_value(
@@ -2305,17 +2307,61 @@ def is_hour_int(*, arg_position_index: int, optional: bool) -> _F:
                 integer=hour,
                 additional_err_msg=callable_and_arg_names_msg,
             )
-            is_checking_target: bool = False
-            if isinstance(hour, int):
-                is_checking_target = True
-            if isinstance(hour, ap.Int) and hour._value != 0:
-                is_checking_target = True
-            if is_checking_target:
-                if hour < 0 or 23 < hour:
-                    raise ValueError(
-                        f"A specified hour is out of range (0-23): {hour}"
-                        f"\n{callable_and_arg_names_msg}"
-                    )
+            if hour < 0 or 23 < hour:
+                raise ValueError(
+                    f"A specified hour is out of range (0-23): {hour}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_minute_int(*, arg_position_index: int, optional: bool) -> _F:
+    """
+    Set the validation to check a specified argument's value
+    is a valid minute integer (0-59).
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    optional : bool
+        A boolean indicating whether a specified argument can be
+        the `None`.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._validation.number_validation import validate_integer
+
+            minute: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            if optional and minute is None:
+                return callable_(*args, **kwargs)
+            validate_integer(
+                integer=minute,
+                additional_err_msg=callable_and_arg_names_msg,
+            )
+            if minute < 0 or 59 < minute:
+                raise ValueError(
+                    f"A specified minute is out of range (0-59): {minute}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
             return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore

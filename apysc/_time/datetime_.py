@@ -22,6 +22,7 @@ class DateTime:
     @arg_validation_decos.is_month_int(arg_position_index=2)
     @arg_validation_decos.is_day_int(arg_position_index=3)
     @arg_validation_decos.is_hour_int(arg_position_index=4, optional=True)
+    @arg_validation_decos.is_minute_int(arg_position_index=5, optional=True)
     def __init__(
         self,
         year: Union[int, Int],

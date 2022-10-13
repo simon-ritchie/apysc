@@ -119,6 +119,9 @@ Mainly the following decorators exist.
 - is_fps
     - Set the validation to check a specified argument's value
         is the FPS enum.
+- is_four_digit_year
+    - Set the validation to check a specified argument's value
+        is a four-digit year (full-year).
 """
 
 import functools
@@ -2081,6 +2084,58 @@ def is_fps(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_four_digit_year(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's value
+    is a four-digit year (full-year).
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+            from apysc._validation.number_validation import validate_integer
+
+            year: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            validate_integer(
+                integer=year, additional_err_msg=callable_and_arg_names_msg
+            )
+            if not isinstance(year, ap.Int):
+                year_str: str = str(year)
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                if len(year_str) != 4:
+                    raise ValueError(
+                        f"A specified four-digit year is not a valid length: {year_str}"
+                        f"\n{callable_and_arg_names_msg}"
+                    )
             result: Any = callable_(*args, **kwargs)
             return result
 

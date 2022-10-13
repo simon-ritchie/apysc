@@ -791,7 +791,7 @@ def test_is_builtin_dict() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_four_digit_year() -> None:
     @arg_validation_decos.is_four_digit_year(arg_position_index=0)
-    def _test_func(*, year: int) -> int:
+    def _test_func(*, year: Union[int, ap.Int]) -> int:
         return 30
 
     assert_raises(
@@ -799,6 +799,15 @@ def test_is_four_digit_year() -> None:
         callable_=_test_func,
         year=22,
     )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        year=ap.Int(22),
+    )
 
     result: int = _test_func(year=2022)
+    assert result == 30
+    result = _test_func(year=ap.Int(2022))
+    assert result == 30
+    result = _test_func(year=ap.Int(0))
     assert result == 30

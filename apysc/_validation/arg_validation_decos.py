@@ -2126,7 +2126,12 @@ def is_four_digit_year(*, arg_position_index: int) -> _F:
             validate_integer(
                 integer=year, additional_err_msg=callable_and_arg_names_msg
             )
-            if not isinstance(year, ap.Int):
+            is_length_check_target: bool = False
+            if isinstance(year, int):
+                is_length_check_target = True
+            if isinstance(year, ap.Int) and year._value != 0:
+                is_length_check_target = True
+            if is_length_check_target:
                 year_str: str = str(year)
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index

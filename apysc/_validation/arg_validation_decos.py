@@ -125,6 +125,9 @@ Mainly the following decorators exist.
 - is_month_int
     - Set the validation to check a specified argument's value
         is a valid month integer (1-12).
+- is_day_int
+    - Set the validation to check a specified argument's value
+        is a valid day integer (1-31).
 """
 
 import functools
@@ -2137,9 +2140,6 @@ def is_four_digit_year(*, arg_position_index: int) -> _F:
             if is_length_check_target:
                 year_str: str = str(year)
                 if len(year_str) != 4:
-                    callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
-                        callable_=callable_, arg_position_index=arg_position_index
-                    )
                     raise ValueError(
                         f"A specified four-digit year is not a valid length: {year_str}"
                         f"\n{callable_and_arg_names_msg}"
@@ -2180,6 +2180,12 @@ def is_month_int(*, arg_position_index: int) -> _F:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            validate_integer(
+                integer=month, additional_err_msg=callable_and_arg_names_msg
+            )
             is_checking_target: bool = False
             if isinstance(month, int):
                 is_checking_target = True
@@ -2189,9 +2195,6 @@ def is_month_int(*, arg_position_index: int) -> _F:
                 month = month._value
             if is_checking_target:
                 if month < 1 or 12 < month:
-                    callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
-                        callable_=callable_, arg_position_index=arg_position_index
-                    )
                     raise ValueError(
                         "A specified month integer is not a valid value (1-12): "
                         f"{month}\n{callable_and_arg_names_msg}"
@@ -2203,3 +2206,58 @@ def is_month_int(*, arg_position_index: int) -> _F:
 
     return wrapped  # type: ignore
 
+
+def is_day_int(*, arg_position_index: int) -> _F:
+    """
+    Set the validation to check a specified argument's value
+    is a valid day integer (1-31).
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+            from apysc._validation.number_validation import validate_integer
+
+            day: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            validate_integer(
+                integer=day,
+                additional_err_msg=callable_and_arg_names_msg,
+            )
+            is_checking_target: bool = False
+            if isinstance(day, int):
+                is_checking_target = True
+            if isinstance(day, ap.Int) and day._value != 0:
+                is_checking_target = True
+            if isinstance(day, ap.Int):
+                day = day._value
+            if is_checking_target:
+                if day < 1 or 31 < day:
+                    raise ValueError(
+                        f"A specified day is out of range (1-31): {day}"
+                        f"\n{callable_and_arg_names_msg}"
+                    )
+            result: Any = callable_(*args, **kwargs)
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore

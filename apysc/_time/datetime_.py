@@ -21,6 +21,7 @@ class DateTime:
     @arg_validation_decos.is_four_digit_year(arg_position_index=1)
     @arg_validation_decos.is_month_int(arg_position_index=2)
     @arg_validation_decos.is_day_int(arg_position_index=3)
+    @arg_validation_decos.is_hour_int(arg_position_index=4, optional=True)
     def __init__(
         self,
         year: Union[int, Int],

@@ -128,6 +128,9 @@ Mainly the following decorators exist.
 - is_day_int
     - Set the validation to check a specified argument's value
         is a valid day integer (1-31).
+- is_hour_int
+    - Set the validation to check a specified argument's value
+        is a valid hour integer (0-23).
 """
 
 import functools
@@ -2257,6 +2260,63 @@ def is_day_int(*, arg_position_index: int) -> _F:
                     )
             result: Any = callable_(*args, **kwargs)
             return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_hour_int(*, arg_position_index: int, optional: bool) -> _F:
+    """
+    Set the validation to check a specified argument's value
+    is a valid hour integer (0-23).
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    optional : bool
+        A boolean indicating whether a specified argument can be
+        the `None`.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+            from apysc._validation.number_validation import validate_integer
+
+            hour: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            if optional and hour is None:
+                return callable_(*args, **kwargs)
+            validate_integer(
+                integer=hour,
+                additional_err_msg=callable_and_arg_names_msg,
+            )
+            is_checking_target: bool = False
+            if isinstance(hour, int):
+                is_checking_target = True
+            if isinstance(hour, ap.Int) and hour._value != 0:
+                is_checking_target = True
+            if is_checking_target:
+                if hour < 0 or 23 < hour:
+                    raise ValueError(
+                        f"A specified hour is out of range (0-23): {hour}"
+                        f"\n{callable_and_arg_names_msg}"
+                    )
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 

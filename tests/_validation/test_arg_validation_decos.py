@@ -891,3 +891,48 @@ def test_is_day_int() -> None:
     assert result == 50
     result = _test_func(day=ap.Int(31))
     assert result == 50
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_hour_int() -> None:
+    @arg_validation_decos.is_hour_int(arg_position_index=0, optional=True)
+    def _test_func_1(*, hour: Optional[Union[int, ap.Int]]) -> int:
+        return 60
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        hour=-1,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        hour=24,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        hour=ap.Int(-1),
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        hour=ap.Int(24),
+    )
+
+    result: int = _test_func_1(hour=None)
+    assert result == 60
+    result = _test_func_1(hour=0)
+    assert result == 60
+    result = _test_func_1(hour=23)
+    assert result == 60
+
+    @arg_validation_decos.is_hour_int(arg_position_index=0, optional=False)
+    def _test_func_2(*, hour: Union[int, ap.Int]) -> int:
+        return 70
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_2,
+        hour=None,
+    )

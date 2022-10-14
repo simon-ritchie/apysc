@@ -137,6 +137,9 @@ Mainly the following decorators exist.
 - is_second_int
     - Set the validation to check a specified argument's value
         is a valid second integer (0-59).
+- is_millisecond_int
+    - Set the validation to check a specified argument's value
+        is a valid millisecond integer (0-999).
 """
 
 import functools
@@ -2413,6 +2416,57 @@ def is_second_int(*, arg_position_index: int, optional: bool) -> _F:
             if second < 0 or 59 < second:
                 raise ValueError(
                     f"A specified second is out of range (0-59): {second}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
+
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_millisecond_int(*, arg_position_index: int, optional: bool) -> _F:
+    """
+    Set the validation to check a specified argument's value
+    is a valid millisecond integer (0-999).
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    optional : bool
+        A boolean indicating whether a specified argument can be
+        the `None`.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._validation.number_validation import validate_integer
+
+            millisecond: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            if optional and millisecond is None:
+                return callable_(*args, **kwargs)
+            validate_integer(
+                integer=millisecond,
+                additional_err_msg=callable_and_arg_names_msg,
+            )
+            if millisecond < 0 or 999 < millisecond:
+                raise ValueError(
+                    f"A specified millisecond is out of range (0-999): {millisecond}"
                     f"\n{callable_and_arg_names_msg}"
                 )
 

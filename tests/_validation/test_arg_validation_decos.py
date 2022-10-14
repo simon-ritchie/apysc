@@ -1027,10 +1027,59 @@ def test_is_second_int() -> None:
 
     @arg_validation_decos.is_second_int(arg_position_index=0, optional=False)
     def _test_func_2(*, second: Union[int, ap.Int]) -> int:
-        return 100
+        return 110
 
     assert_raises(
         expected_error_class=ValueError,
         callable_=_test_func_2,
         second=None,
+    )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_millisecond_int() -> None:
+    @arg_validation_decos.is_millisecond_int(arg_position_index=0, optional=True)
+    def _test_func_1(*, millisecond: Optional[Union[int, ap.Int]]) -> int:
+        return 120
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        millisecond=-1,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        millisecond=1000,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        millisecond=ap.Int(-1),
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        millisecond=ap.Int(1000),
+    )
+
+    result: int = _test_func_1(millisecond=None)
+    assert result == 120
+    result = _test_func_1(millisecond=0)
+    assert result == 120
+    result = _test_func_1(millisecond=999)
+    assert result == 120
+    result = _test_func_1(millisecond=ap.Int(0))
+    assert result == 120
+    result = _test_func_1(millisecond=ap.Int(999))
+    assert result == 120
+
+    @arg_validation_decos.is_millisecond_int(arg_position_index=0, optional=False)
+    def _test_func_2(*, millisecond: Union[int, ap.Int]) -> int:
+        return 130
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_2,
+        millisecond=None,
     )

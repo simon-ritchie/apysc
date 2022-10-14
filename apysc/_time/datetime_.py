@@ -24,6 +24,7 @@ class DateTime:
     @arg_validation_decos.is_hour_int(arg_position_index=4, optional=True)
     @arg_validation_decos.is_minute_int(arg_position_index=5, optional=True)
     @arg_validation_decos.is_second_int(arg_position_index=6, optional=True)
+    @arg_validation_decos.is_millisecond_int(arg_position_index=7, optional=True)
     def __init__(
         self,
         year: Union[int, Int],

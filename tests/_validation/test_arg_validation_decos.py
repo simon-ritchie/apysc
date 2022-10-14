@@ -985,3 +985,52 @@ def test_is_minute_int() -> None:
         callable_=_test_func_2,
         minute=None,
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_second_int() -> None:
+    @arg_validation_decos.is_second_int(arg_position_index=0, optional=True)
+    def _test_func_1(*, second: Optional[Union[int, ap.Int]]) -> int:
+        return 100
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        second=-1,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        second=60,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        second=ap.Int(-1),
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        second=ap.Int(60),
+    )
+
+    result: int = _test_func_1(second=0)
+    assert result == 100
+    result = _test_func_1(second=59)
+    assert result == 100
+    result = _test_func_1(second=ap.Int(0))
+    assert result == 100
+    result = _test_func_1(second=ap.Int(59))
+    assert result == 100
+    result = _test_func_1(second=None)
+    assert result == 100
+
+    @arg_validation_decos.is_second_int(arg_position_index=0, optional=False)
+    def _test_func_2(*, second: Union[int, ap.Int]) -> int:
+        return 100
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_2,
+        second=None,
+    )

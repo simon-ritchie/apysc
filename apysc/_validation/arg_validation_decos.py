@@ -2234,7 +2234,7 @@ def is_day_int(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_hour_int(*, arg_position_index: int, optional: bool) -> _F:
+def is_hour_int(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's value
     is a valid hour integer (0-23).
@@ -2243,9 +2243,6 @@ def is_hour_int(*, arg_position_index: int, optional: bool) -> _F:
     ----------
     arg_position_index : int
         A target argument position index.
-    optional : bool
-        A boolean indicating whether a specified argument can be
-        the `None`.
 
     Returns
     -------
@@ -2266,8 +2263,6 @@ def is_hour_int(*, arg_position_index: int, optional: bool) -> _F:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if optional and hour is None:
-                return callable_(*args, **kwargs)
             validate_integer(
                 integer=hour,
                 additional_err_msg=callable_and_arg_names_msg,
@@ -2284,7 +2279,7 @@ def is_hour_int(*, arg_position_index: int, optional: bool) -> _F:
     return wrapped  # type: ignore
 
 
-def is_minute_int(*, arg_position_index: int, optional: bool) -> _F:
+def is_minute_int(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's value
     is a valid minute integer (0-59).
@@ -2293,9 +2288,6 @@ def is_minute_int(*, arg_position_index: int, optional: bool) -> _F:
     ----------
     arg_position_index : int
         A target argument position index.
-    optional : bool
-        A boolean indicating whether a specified argument can be
-        the `None`.
 
     Returns
     -------
@@ -2316,8 +2308,6 @@ def is_minute_int(*, arg_position_index: int, optional: bool) -> _F:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if optional and minute is None:
-                return callable_(*args, **kwargs)
             validate_integer(
                 integer=minute,
                 additional_err_msg=callable_and_arg_names_msg,
@@ -2334,7 +2324,7 @@ def is_minute_int(*, arg_position_index: int, optional: bool) -> _F:
     return wrapped  # type: ignore
 
 
-def is_second_int(*, arg_position_index: int, optional: bool) -> _F:
+def is_second_int(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's value
     is a valid second integer (0-59).
@@ -2343,9 +2333,6 @@ def is_second_int(*, arg_position_index: int, optional: bool) -> _F:
     ----------
     arg_position_index : int
         A target argument position index.
-    optional : bool
-        A boolean indicating whether a specified argument can be
-        the `None`.
 
     Returns
     -------
@@ -2366,8 +2353,6 @@ def is_second_int(*, arg_position_index: int, optional: bool) -> _F:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if optional and second is None:
-                return callable_(*args, **kwargs)
             validate_integer(
                 integer=second,
                 additional_err_msg=callable_and_arg_names_msg,
@@ -2385,7 +2370,7 @@ def is_second_int(*, arg_position_index: int, optional: bool) -> _F:
     return wrapped  # type: ignore
 
 
-def is_millisecond_int(*, arg_position_index: int, optional: bool) -> _F:
+def is_millisecond_int(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's value
     is a valid millisecond integer (0-999).
@@ -2394,9 +2379,6 @@ def is_millisecond_int(*, arg_position_index: int, optional: bool) -> _F:
     ----------
     arg_position_index : int
         A target argument position index.
-    optional : bool
-        A boolean indicating whether a specified argument can be
-        the `None`.
 
     Returns
     -------
@@ -2417,8 +2399,6 @@ def is_millisecond_int(*, arg_position_index: int, optional: bool) -> _F:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if optional and millisecond is None:
-                return callable_(*args, **kwargs)
             validate_integer(
                 integer=millisecond,
                 additional_err_msg=callable_and_arg_names_msg,

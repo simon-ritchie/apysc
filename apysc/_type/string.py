@@ -129,7 +129,7 @@ class String(
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression.
+        Append a constructor expression.
         """
         import apysc as ap
 

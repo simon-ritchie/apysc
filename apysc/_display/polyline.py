@@ -23,7 +23,7 @@ from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.set_x_and_y_with_minimum_point_interface_base import (
     SetXAndYWithMinimumPointInterfaceBase,
 )
-from apysc._display.x_interface import XInterface
+from apysc._display.x_mixin import XMixIn
 from apysc._display.y_interface import YInterface
 from apysc._geom.point2d import Point2D
 from apysc._html.debug_mode import add_debug_info_setting
@@ -36,7 +36,7 @@ from apysc._validation import arg_validation_decos
 
 
 class Polyline(
-    XInterface,
+    XMixIn,
     YInterface,
     GraphicsBase,
     AppendLinePointInterface,

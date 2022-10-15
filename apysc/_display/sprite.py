@@ -6,7 +6,7 @@ from typing_extensions import final
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
-from apysc._display.x_interface import XInterface
+from apysc._display.x_mixin import XMixIn
 from apysc._display.y_interface import YInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
@@ -17,7 +17,7 @@ _Graphics = graphics.Graphics
 
 
 class Sprite(
-    XInterface,
+    XMixIn,
     YInterface,
     DisplayObject,
     ChildInterface,

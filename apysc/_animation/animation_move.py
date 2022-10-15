@@ -131,11 +131,11 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.x_interface import XInterface
+        from apysc._display.x_mixin import XMixIn
         from apysc._display.y_interface import YInterface
 
         expression: str = ""
-        if isinstance(self._target, XInterface):
+        if isinstance(self._target, XMixIn):
             self._target._initialize_x_if_not_initialized()
             expression += (
                 f"{self._target._x.variable_name} = " f"{self._x.variable_name};"

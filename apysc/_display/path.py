@@ -18,7 +18,7 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.x_interface import XInterface
+from apysc._display.x_mixin import XMixIn
 from apysc._display.y_interface import YInterface
 from apysc._geom.path_data_base import PathDataBase
 from apysc._html.debug_mode import add_debug_info_setting
@@ -30,7 +30,7 @@ from apysc._validation import arg_validation_decos
 
 
 class Path(
-    XInterface,
+    XMixIn,
     YInterface,
     GraphicsBase,
     FillColorInterface,

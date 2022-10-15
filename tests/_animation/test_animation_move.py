@@ -3,12 +3,12 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.x_interface import XInterface
+from apysc._display.x_mixin import XMixIn
 from apysc._display.y_interface import YInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class _TestInterface(XInterface, YInterface):
+class _TestInterface(XMixIn, YInterface):
     pass
 
 

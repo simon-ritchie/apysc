@@ -9,7 +9,7 @@ import pytest
 from retrying import retry
 
 import apysc as ap
-from apysc._display.x_interface import XInterface
+from apysc._display.x_mixin import XMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing import testing_helper
@@ -356,25 +356,25 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-    def _make_x_interface_instance(self) -> Tuple[XInterface, str]:
+    def _make_x_mixin_instance(self) -> Tuple[XMixIn, str]:
         """
         Make the x interface instance and it's x value variable name.
 
         Returns
         -------
-        x_interface : XInterface
+        x_mixin : XMixIn
             Created x interface instance.
         x_variable_name : str
-            Variable name of the x_interface x attribute.
+            Variable name of the x_mixin x attribute.
         """
-        x_interface: XInterface = XInterface()
-        x_interface.variable_name = "test_x_interface"
-        x_interface.x = ap.Int(10)
-        x_variable_name: str = x_interface._x.variable_name
-        return x_interface, x_variable_name
+        x_mixin: XMixIn = XMixIn()
+        x_mixin.variable_name = "test_x_mixin"
+        x_mixin.x = ap.Int(10)
+        x_variable_name: str = x_mixin._x.variable_name
+        return x_mixin, x_variable_name
 
     def _assert_substitution_expression_to_prev_var_exists(
-        self, x_interface: XInterface, previous_x_variable_name: str
+        self, x_mixin: XMixIn, previous_x_variable_name: str
     ) -> None:
         """
         Assert the substitution expression to the previous x
@@ -382,7 +382,7 @@ class TestNumberValueInterface:
 
         Parameters
         ----------
-        x_interface : XInterface
+        x_mixin : XMixIn
             Targe x interface instance.
         previous_x_variable_name : str
             Variable name before a calculation.
@@ -393,11 +393,11 @@ class TestNumberValueInterface:
             If the substitution expression does not exist.
         """
         expression = expression_data_util.get_current_expression()
-        expected: str = f"{previous_x_variable_name} = {x_interface._x.variable_name};"
+        expected: str = f"{previous_x_variable_name} = {x_mixin._x.variable_name};"
         assert expected in expression
 
     def _assert_substitution_expression_to_prev_var_not_exist(
-        self, x_interface: XInterface, previous_x_variable_name: str
+        self, x_mixin: XMixIn, previous_x_variable_name: str
     ) -> None:
         """
         Assert the substitution expression to the previous x
@@ -405,7 +405,7 @@ class TestNumberValueInterface:
 
         Parameters
         ----------
-        x_interface : XInterface
+        x_mixin : XMixIn
             Targe x interface instance.
         previous_x_variable_name : str
             Variable name before a calculation.
@@ -416,7 +416,7 @@ class TestNumberValueInterface:
             If the substitution expression exists.
         """
         expression = expression_data_util.get_current_expression()
-        expected: str = f"{previous_x_variable_name} = {x_interface._x.variable_name};"
+        expected: str = f"{previous_x_variable_name} = {x_mixin._x.variable_name};"
         assert expected not in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -444,18 +444,18 @@ class TestNumberValueInterface:
         assert match is not None
 
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = self._make_x_interface_instance()
-        x_interface.x += 20
+        x_mixin, previous_variable_name = self._make_x_mixin_instance()
+        x_mixin.x += 20
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+            x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
         )
 
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = self._make_x_interface_instance()
-        x: ap.Int = x_interface.x
+        x_mixin, previous_variable_name = self._make_x_mixin_instance()
+        x: ap.Int = x_mixin.x
         x += 20
         self._assert_substitution_expression_to_prev_var_not_exist(
-            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+            x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -481,18 +481,18 @@ class TestNumberValueInterface:
         assert match is not None
 
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = self._make_x_interface_instance()
-        x_interface.x -= 5
+        x_mixin, previous_variable_name = self._make_x_mixin_instance()
+        x_mixin.x -= 5
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+            x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
         )
 
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = self._make_x_interface_instance()
-        x: ap.Int = x_interface.x
+        x_mixin, previous_variable_name = self._make_x_mixin_instance()
+        x: ap.Int = x_mixin.x
         x -= 20
         self._assert_substitution_expression_to_prev_var_not_exist(
-            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+            x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -518,18 +518,18 @@ class TestNumberValueInterface:
         assert match is not None
 
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = self._make_x_interface_instance()
-        x_interface.x *= 2
+        x_mixin, previous_variable_name = self._make_x_mixin_instance()
+        x_mixin.x *= 2
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+            x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
         )
 
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = self._make_x_interface_instance()
-        x: ap.Int = x_interface.x
+        x_mixin, previous_variable_name = self._make_x_mixin_instance()
+        x: ap.Int = x_mixin.x
         x *= 2
         self._assert_substitution_expression_to_prev_var_not_exist(
-            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+            x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -555,18 +555,18 @@ class TestNumberValueInterface:
         assert match is not None
 
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = self._make_x_interface_instance()
-        x_interface.x /= 2
+        x_mixin, previous_variable_name = self._make_x_mixin_instance()
+        x_mixin.x /= 2
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+            x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
         )
 
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = self._make_x_interface_instance()
-        x: ap.Int = x_interface.x
+        x_mixin, previous_variable_name = self._make_x_mixin_instance()
+        x: ap.Int = x_mixin.x
         x /= 2
         self._assert_substitution_expression_to_prev_var_not_exist(
-            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+            x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -988,12 +988,12 @@ class TestNumberValueInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_incremental_calc_substitution_expression(self) -> None:
         expression_data_util.empty_expression()
-        x_interface, previous_variable_name = self._make_x_interface_instance()
-        x_interface.x += 10
+        x_mixin, previous_variable_name = self._make_x_mixin_instance()
+        x_mixin.x += 10
         self._assert_substitution_expression_to_prev_var_exists(
-            x_interface=x_interface, previous_x_variable_name=previous_variable_name
+            x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
         )
-        assert x_interface._x._incremental_calc_prev_name == ""
+        assert x_mixin._x._incremental_calc_prev_name == ""
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_modulo_expression(self) -> None:

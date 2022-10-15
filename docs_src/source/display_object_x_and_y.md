@@ -74,7 +74,7 @@ ap.save_overall_html(dest_dir_path="display_object_x_and_y_augmented_assignment/
 
 ## x property API
 
-<!-- Docstring: apysc._display.x_interface.XInterface.x -->
+<!-- Docstring: apysc._display.x_mixin.XMixIn.x -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

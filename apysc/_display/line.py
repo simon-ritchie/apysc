@@ -14,7 +14,7 @@ from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.x_interface import XInterface
+from apysc._display.x_mixin import XMixIn
 from apysc._display.y_interface import YInterface
 from apysc._geom import point2d
 from apysc._html.debug_mode import add_debug_info_setting
@@ -25,7 +25,7 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._validation import arg_validation_decos
 
 
-class Line(XInterface, YInterface, GraphicsBase, VariableNameSuffixInterface):
+class Line(XMixIn, YInterface, GraphicsBase, VariableNameSuffixInterface):
     """
     The line vector graphics class.
 

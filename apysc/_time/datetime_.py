@@ -14,6 +14,7 @@ from apysc._type.initial_substitution_exp_interface import (
     InitialSubstitutionExpInterface,
 )
 from apysc._type.revert_interface import RevertInterface
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class DateTime(
@@ -22,6 +23,14 @@ class DateTime(
     VariableNameSuffixInterface,
     InitialSubstitutionExpInterface
 ):
+
+    _initial_year: Union[int, Int]
+    _initial_month: Union[int, Int]
+    _initial_day: Union[int, Int]
+    _initial_hour: Union[int, Int]
+    _initial_minute: Union[int, Int]
+    _initial_second: Union[int, Int]
+    _initial_millisecond: Union[int, Int]
 
     _year: Int
     _month: Int
@@ -34,20 +43,21 @@ class DateTime(
     @arg_validation_decos.is_four_digit_year(arg_position_index=1)
     @arg_validation_decos.is_month_int(arg_position_index=2)
     @arg_validation_decos.is_day_int(arg_position_index=3)
-    @arg_validation_decos.is_hour_int(arg_position_index=4, optional=True)
-    @arg_validation_decos.is_minute_int(arg_position_index=5, optional=True)
-    @arg_validation_decos.is_second_int(arg_position_index=6, optional=True)
-    @arg_validation_decos.is_millisecond_int(arg_position_index=7, optional=True)
+    @arg_validation_decos.is_hour_int(arg_position_index=4)
+    @arg_validation_decos.is_minute_int(arg_position_index=5)
+    @arg_validation_decos.is_second_int(arg_position_index=6)
+    @arg_validation_decos.is_millisecond_int(arg_position_index=7)
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
         year: Union[int, Int],
         month: Union[int, Int],
         day: Union[int, Int],
         *,
-        hour: Optional[Union[int, Int]] = None,
-        minute: Optional[Union[int, Int]] = None,
-        second: Optional[Union[int, Int]] = None,
-        millisecond: Optional[Union[int, Int]] = None,
+        hour: Union[int, Int] = 0,
+        minute: Union[int, Int] = 0,
+        second: Union[int, Int] = 0,
+        millisecond: Union[int, Int] = 0,
         variable_name_suffix: str = "",
         skip_init_substitution_expression_appending: bool = False,
     ) -> None:
@@ -63,13 +73,13 @@ class DateTime(
         day : Union[int, Int]
             Two-digit day (1 to 31).
         hour : Optional[Union[int, Int]], optional
-            Two-digit hour (0 to 23). This value becomes 0 if this value is None.
+            Two-digit hour (0 to 23).
         minute : Optional[Union[int, Int]], optional
-            Two-digit minute (0 to 59). This value becomes 0 if this value is None.
+            Two-digit minute (0 to 59).
         second : Optional[Union[int, Int]], optional
-            Two-digit second (0 to 59). This value becomes 0 if this value is None.
+            Two-digit second (0 to 59).
         millisecond : Optional[Union[int, Int]], optional
-            Millisecond (0 to 999). This value becomes 0 if this value is None.
+            Millisecond (0 to 999).
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
@@ -85,6 +95,14 @@ class DateTime(
             self.variable_name = expression_variables_util.get_next_variable_name(
                 type_name=var_names.DATETIME
             )
+
+            self._initial_year = year
+            self._initial_month = month
+            self._initial_day = day
+            self._initial_hour = hour
+            self._initial_minute = minute
+            self._initial_second = second
+            self._initial_millisecond = millisecond
 
             self._year = _convert_to_apysc_int(
                 value=year, variable_name_suffix=variable_name_suffix
@@ -107,13 +125,27 @@ class DateTime(
             self._millisecond = _convert_to_apysc_int(
                 value=millisecond, variable_name_suffix=variable_name_suffix
             )
+            self._append_constructor_expression()
 
         self._append_initial_substitution_expression_if_in_handler_scope(
             skip_appending=skip_init_substitution_expression_appending,
         )
 
     @final
+    @add_debug_info_setting(module_name=__name__)
+    def _append_constructor_expression(self) -> None:
+        """
+        Append a constructor expression.
+        """
+        import apysc as ap
+
+        expression: str = self._create_initial_substitution_expression()
+        expression = f"var {expression}"
+        ap.append_js_expression(expression=expression)
+
+    @final
     @classmethod
+    @add_debug_info_setting(module_name=__name__)
     def now(cls) -> "DateTime":
         """
         Get a `DateTime` instance of current time.
@@ -134,6 +166,9 @@ class DateTime(
         expression : str
             Created expression string.
         """
+        # expression: str = (
+        #     f"{self.variable_name} = new Date({self._year.variable_name}, {self._month.variable_name} - 1, {self._day.variable_name}, {self._hour.variable_name}, )"
+        # )
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -171,14 +206,14 @@ class DateTime(
 
 
 def _convert_to_apysc_int(
-        *, value: Optional[Union[int, Int]], variable_name_suffix: str,
+        *, value: Union[int, Int], variable_name_suffix: str,
     ) -> Int:
     """
     Convert a datetime-related value to an apysc integer.
 
     Parameters
     ----------
-    value : Optional[Union[int, Int]]
+    value : Union[int, Int]
         A value to convert.
     variable_name_suffix : str
         A JavaScript variable name suffix string.
@@ -189,8 +224,6 @@ def _convert_to_apysc_int(
     value : Int
         A converted value.
     """
-    if value is None:
-        return Int(0, variable_name_suffix=variable_name_suffix)
     if isinstance(value, int):
         return Int(value, variable_name_suffix=variable_name_suffix)
     return value._copy()

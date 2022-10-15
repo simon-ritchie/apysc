@@ -10,14 +10,7 @@ from apysc._expression import var_names
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__convert_to_apysc_int() -> None:
-    value: ap.Int = datetime_._convert_to_apysc_int(
-        value=None, variable_name_suffix="test"
-    )
-    assert isinstance(value, ap.Int)
-    assert value == 0
-    assert value._variable_name_suffix == "test"
-
-    value = datetime_._convert_to_apysc_int(value=10, variable_name_suffix="")
+    value: ap.Int = datetime_._convert_to_apysc_int(value=10, variable_name_suffix="")
     assert isinstance(value, ap.Int)
     assert value == 10
 
@@ -34,6 +27,9 @@ class TestDateTime:
         datetime: ap.DateTime = ap.DateTime(year=2022, month=3, day=5)
         assert_attrs(
             expected_attrs={
+                "_initial_year": 2022,
+                "_initial_month": 3,
+                "_initial_day": 5,
                 "_year": ap.Int(2022),
                 "_month": ap.Int(3),
                 "_day": ap.Int(5),

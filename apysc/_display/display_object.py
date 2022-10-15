@@ -10,7 +10,7 @@ from apysc._display.css_interface import CssInterface
 from apysc._display.parent_interface import ParentInterface
 from apysc._display.visible_interface import VisibleInterface
 from apysc._display.x_mixin_base import XMixInBase
-from apysc._display.y_interface_base import YInterfaceBase
+from apysc._display.y_mixin_base import YMixInBase
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._html.debug_mode import add_debug_info_setting
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 
 class DisplayObject(
     XMixInBase,
-    YInterfaceBase,
+    YMixInBase,
     ParentInterface,
     MouseEventInterfaces,
     VisibleInterface,

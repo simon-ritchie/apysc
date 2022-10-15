@@ -7,7 +7,7 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._animation.animation_cy_interface import AnimationCyInterface
-from apysc._display.y_interface_base import YInterfaceBase
+from apysc._display.y_mixin_base import YMixInBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
@@ -19,7 +19,7 @@ from apysc._validation import arg_validation_decos
 
 
 class CyInterface(
-    YInterfaceBase,
+    YMixInBase,
     VariableNameSuffixAttrInterface,
     AnimationCyInterface,
     RevertInterface,
@@ -28,7 +28,7 @@ class CyInterface(
     @final
     def _initialize_y_if_not_initialized(self) -> None:
         """
-        Initialize _y attribute if this interface does not
+        Initialize _y attribute if this instance does not
         initialize it yet.
         """
         if hasattr(self, "_y"):

@@ -29,7 +29,7 @@ def _main() -> None:
 
     logger.info("testing command started.")
     stdout: str = command_util.run_command(
-        command=("pytest tests/ -v -s --workers auto")
+        command=("pytest tests/ -v -s")
     )
     tail_stdout: str = string_util.get_tails_lines_str(string=stdout, n=10)
     if " failed, " in tail_stdout:

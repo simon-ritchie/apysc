@@ -6,9 +6,10 @@ from datetime import datetime
 
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class DateTime:
+class DateTime(VariableNameInterface):
 
     _year: Int
     _month: Int
@@ -56,13 +57,21 @@ class DateTime:
         millisecond : Optional[Union[int, Int]], optional
             Millisecond (0 to 999). This value becomes 0 if this value is None.
         """
-        self._year = _convert_to_apysc_int(value=year)
-        self._month = _convert_to_apysc_int(value=month)
-        self._day = _convert_to_apysc_int(value=day)
-        self._hour = _convert_to_apysc_int(value=hour)
-        self._minute = _convert_to_apysc_int(value=minute)
-        self._second = _convert_to_apysc_int(value=second)
-        self._millisecond = _convert_to_apysc_int(value=millisecond)
+        from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
+        from apysc._expression import var_names
+        from apysc._expression import expression_variables_util
+        with TemporaryNotHandlerScope():
+            self.variable_name = expression_variables_util.get_next_variable_name(
+                type_name=var_names.DATETIME
+            )
+
+            self._year = _convert_to_apysc_int(value=year)
+            self._month = _convert_to_apysc_int(value=month)
+            self._day = _convert_to_apysc_int(value=day)
+            self._hour = _convert_to_apysc_int(value=hour)
+            self._minute = _convert_to_apysc_int(value=minute)
+            self._second = _convert_to_apysc_int(value=second)
+            self._millisecond = _convert_to_apysc_int(value=millisecond)
 
     @classmethod
     def now(cls) -> "DateTime":

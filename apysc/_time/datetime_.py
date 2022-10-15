@@ -1,8 +1,10 @@
 """Class implementations for datetime-related interfaces.
 """
 
-from typing import Optional, Union
+from typing import Dict, Optional, Union
 from datetime import datetime
+
+from typing_extensions import final
 
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
@@ -11,10 +13,14 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._type.initial_substitution_exp_interface import (
     InitialSubstitutionExpInterface,
 )
+from apysc._type.revert_interface import RevertInterface
 
 
 class DateTime(
-    VariableNameInterface, VariableNameSuffixInterface, InitialSubstitutionExpInterface
+    VariableNameInterface,
+    RevertInterface,
+    VariableNameSuffixInterface,
+    InitialSubstitutionExpInterface
 ):
 
     _year: Int
@@ -53,9 +59,9 @@ class DateTime(
         year : Union[int, Int]
             Four-digit year.
         month : Union[int, Int]
-            Two-digit month (0 to 23).
+            Two-digit month (1 to 12).
         day : Union[int, Int]
-            Two-digit day (0 to 31).
+            Two-digit day (1 to 31).
         hour : Optional[Union[int, Int]], optional
             Two-digit hour (0 to 23). This value becomes 0 if this value is None.
         minute : Optional[Union[int, Int]], optional
@@ -106,6 +112,7 @@ class DateTime(
             skip_appending=skip_init_substitution_expression_appending,
         )
 
+    @final
     @classmethod
     def now(cls) -> "DateTime":
         """
@@ -116,6 +123,51 @@ class DateTime(
         now : DateTime
             A `DateTime` instance of current time.
         """
+
+    @final
+    def _create_initial_substitution_expression(self) -> str:
+        """
+        Create an initial value's substitution expression string.
+
+        Returns
+        -------
+        expression : str
+            Created expression string.
+        """
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make a value snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._year._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._month._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._day._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._hour._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._minute._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._second._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._millisecond._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert a value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._year._run_all_revert_methods(snapshot_name=snapshot_name)
+        self._month._run_all_revert_methods(snapshot_name=snapshot_name)
+        self._day._run_all_revert_methods(snapshot_name=snapshot_name)
+        self._hour._run_all_revert_methods(snapshot_name=snapshot_name)
+        self._minute._run_all_revert_methods(snapshot_name=snapshot_name)
+        self._second._run_all_revert_methods(snapshot_name=snapshot_name)
+        self._millisecond._run_all_revert_methods(snapshot_name=snapshot_name)
 
 
 def _convert_to_apysc_int(

@@ -69,3 +69,38 @@ class TestDateTime:
             },
             any_obj=datetime,
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot_and__revert(self) -> None:
+        datetime: ap.DateTime = ap.DateTime(
+            year=2022,
+            month=3,
+            day=5,
+            hour=10,
+            minute=30,
+            second=50,
+            millisecond=500,
+        )
+        snapshot_name: str = datetime._get_next_snapshot_name()
+        datetime._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        datetime._year._value = 2023
+        datetime._month._value = 5
+        datetime._day._value = 6
+        datetime._hour._value = 11
+        datetime._minute._value = 31
+        datetime._second._value = 51
+        datetime._millisecond._value = 501
+        datetime._run_all_revert_methods(snapshot_name=snapshot_name)
+
+        assert_attrs(
+            expected_attrs={
+                "_year": ap.Int(2022),
+                "_month": ap.Int(3),
+                "_day": ap.Int(5),
+                "_hour": ap.Int(10),
+                "_minute": ap.Int(30),
+                "_second": ap.Int(50),
+                "_millisecond": ap.Int(500),
+            },
+            any_obj=datetime,
+        )

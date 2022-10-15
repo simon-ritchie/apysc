@@ -321,8 +321,7 @@ def not_empty_string(*, arg_position_index: int) -> _F:
                 ),
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -364,8 +363,7 @@ def handler_args_num(*, arg_position_index: int) -> _F:
                 handler=handler, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -407,8 +405,7 @@ def handler_options_type(*, arg_position_index: int) -> _F:
                 options=options, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -448,8 +445,7 @@ def is_event(*, arg_position_index: int) -> _F:
             )
             validate_event(e=event, additional_err_msg=callable_and_arg_names_msg)
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -489,8 +485,7 @@ def is_num(*, arg_position_index: int) -> _F:
             )
             validate_num(num=num, additional_err_msg=callable_and_arg_names_msg)
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -535,8 +530,7 @@ def is_apysc_num(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -578,8 +572,7 @@ def is_integer(*, arg_position_index: int) -> _F:
                 integer=integer, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -621,8 +614,7 @@ def is_builtin_integer(*, arg_position_index: int) -> _F:
                 integer=integer, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -667,8 +659,7 @@ def is_apysc_integer(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -710,8 +701,7 @@ def num_is_gt_zero(*, arg_position_index: int) -> _F:
                 num=num, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -753,8 +743,7 @@ def num_is_gte_zero(*, arg_position_index: int) -> _F:
                 num=num, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -796,8 +785,7 @@ def num_is_0_to_1_range(*, arg_position_index: int) -> _F:
                 num=num, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -837,8 +825,7 @@ def is_boolean(*, arg_position_index: int) -> _F:
             )
             validate_bool(value=boolean, additional_err_msg=callable_and_arg_names_msg)
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -880,8 +867,7 @@ def is_builtin_boolean(*, arg_position_index: int) -> _F:
                 value=boolean, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -926,8 +912,7 @@ def is_apysc_boolean(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -972,8 +957,7 @@ def is_easing(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1015,8 +999,7 @@ def is_string(*, arg_position_index: int) -> _F:
                 string=string, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1066,8 +1049,7 @@ def is_builtin_string(*, arg_position_index: int, optional: bool) -> _F:
                     string=string, additional_err_msg=callable_and_arg_names_msg
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1116,8 +1098,7 @@ def is_hex_color_code_format(*, arg_position_index: int) -> _F:
                 additional_err_msg=callable_and_arg_names_msg,
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1172,8 +1153,7 @@ def is_animations(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1238,8 +1218,7 @@ def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _F:
                         f"\n{callable_and_arg_names_msg}"
                     )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1282,8 +1261,7 @@ def is_display_object(*, arg_position_index: int) -> _F:
                 additional_err_msg=callable_and_arg_names_msg,
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1337,8 +1315,7 @@ def is_display_object_container(*, arg_position_index: int, optional: bool) -> _
                     additional_err_msg=callable_and_arg_names_msg,
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1379,8 +1356,7 @@ def is_point_2d(*, arg_position_index: int) -> _F:
                 point=point, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1435,8 +1411,7 @@ def is_point_2ds(*, arg_position_index: int) -> _F:
                     point=point, additional_err_msg=callable_and_arg_names_msg
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1494,8 +1469,7 @@ def is_valid_path_data_list(*, arg_position_index: int) -> _F:
                 )
             validate_path_data_list(path_data_list=path_data_list)
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1545,8 +1519,7 @@ def is_line_cap(*, arg_position_index: int, optional: bool) -> _F:
                     cap=cap, additional_err_msg=callable_and_arg_names_msg
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1596,8 +1569,7 @@ def is_line_joints(*, arg_position_index: int, optional: bool) -> _F:
                     joints=joints, additional_err_msg=callable_and_arg_names_msg
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1688,8 +1660,7 @@ def is_line_dot_setting(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1734,8 +1705,7 @@ def is_line_dash_setting(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1781,8 +1751,7 @@ def is_line_dash_dot_setting(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1827,8 +1796,7 @@ def is_line_round_dot_setting(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1872,8 +1840,7 @@ def is_variable_name_interface_type(*, arg_position_index: int) -> _F:
                 instance=instance, additional_err_msg=callable_and_arg_names_msg
             )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1919,8 +1886,7 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -1965,8 +1931,7 @@ def is_acceptable_dictionary_value(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -2007,8 +1972,7 @@ def is_builtin_dict(*, arg_position_index: int) -> _F:
                     f"{type(value)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -2057,8 +2021,7 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -2102,8 +2065,7 @@ def is_fps(*, arg_position_index: int) -> _F:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -2156,8 +2118,7 @@ def is_four_digit_year(*, arg_position_index: int) -> _F:
                         f"A specified four-digit year is not a valid length: {year_str}"
                         f"\n{callable_and_arg_names_msg}"
                     )
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -2211,8 +2172,7 @@ def is_month_int(*, arg_position_index: int) -> _F:
                         "A specified month integer is not a valid value (1-12): "
                         f"{month}\n{callable_and_arg_names_msg}"
                     )
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 
@@ -2267,8 +2227,7 @@ def is_day_int(*, arg_position_index: int) -> _F:
                         f"A specified day is out of range (1-31): {day}"
                         f"\n{callable_and_arg_names_msg}"
                     )
-            result: Any = callable_(*args, **kwargs)
-            return result
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 

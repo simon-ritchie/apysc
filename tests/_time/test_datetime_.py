@@ -142,3 +142,19 @@ class TestDateTime:
             string=expression,
         )
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_constructor_expression(self) -> None:
+        expression_data_util.empty_expression()
+        datetime: ap.DateTime = ap.DateTime(
+            year=2022,
+            month=3,
+            day=5,
+            hour=10,
+            minute=30,
+            second=50,
+            millisecond=500,
+        )
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f"var {datetime.variable_name} = new Date("
+        assert expected in expression

@@ -1,17 +1,17 @@
 """Class implementation for the `_set_handler_data` interface.
 """
 
-from typing import TypeVar
 from typing import Callable
 from typing import Dict
-from typing import Optional
 from typing import Generic
+from typing import Optional
+from typing import TypeVar
 
 from typing_extensions import final
 
+from apysc._event.event import Event
 from apysc._event.handler import HandlerData
 from apysc._validation import arg_validation_decos
-from apysc._event.event import Event
 
 _Options = TypeVar("_Options")
 _EventClass = TypeVar("_EventClass", bound=Event)

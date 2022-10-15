@@ -1,14 +1,15 @@
-from random import randint
-from typing import Optional, Match
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc._time import datetime_
 import apysc as ap
-from apysc._testing.testing_helper import assert_attrs
-from apysc._expression import var_names
 from apysc._expression import expression_data_util
+from apysc._expression import var_names
+from apysc._testing.testing_helper import assert_attrs
+from apysc._time import datetime_
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -45,7 +46,7 @@ class TestDateTime:
         )
         assert datetime.variable_name.startswith(var_names.DATETIME)
 
-        datetime: ap.DateTime = ap.DateTime(
+        datetime = ap.DateTime(
             year=2022,
             month=3,
             day=5,

@@ -8,7 +8,7 @@ Class implementation for click interface.
 
 ### `_initialize_click_handlers_if_not_initialized` method docstring
 
-Initialize _click_handlers attribute if it hasn't been initialized yet.
+Initialize the _click_handlers attribute if it hasn't been initialized yet.
 
 ### `click` method docstring
 

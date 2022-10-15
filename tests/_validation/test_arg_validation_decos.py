@@ -844,11 +844,11 @@ def test_is_month_int() -> None:
     assert result == 40
     result = _test_func(month=12)
     assert result == 40
-    result: int = _test_func(month=ap.Int(0))
+    result = _test_func(month=ap.Int(0))
     assert result == 40
-    result: int = _test_func(month=ap.Int(1))
+    result = _test_func(month=ap.Int(1))
     assert result == 40
-    result: int = _test_func(month=ap.Int(12))
+    result = _test_func(month=ap.Int(12))
     assert result == 40
 
 

@@ -4,18 +4,20 @@
 from typing import Any
 from typing import Callable
 from typing import Dict
+from typing import Generic
 from typing import Optional
-from typing import Union, Generic, TypeVar
+from typing import TypeVar
+from typing import Union
 
 from typing_extensions import final
 
 from apysc._event.custom_event_type import CustomEventType
 from apysc._event.event import Event
 from apysc._event.handler import HandlerData
+from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.blank_object_interface import BlankObjectInterface
 from apysc._validation import arg_validation_decos
-from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 
 _CustomEventType = str
 _HandlerName = str
@@ -179,9 +181,7 @@ class CustomEventInterface(
         self._append_custom_event_binding_expression(
             custom_event_type_str=custom_event_type_str, name=name
         )
-        handler_data: HandlerData = self._custom_event_handlers[
-            custom_event_type_str
-        ][
+        handler_data: HandlerData = self._custom_event_handlers[custom_event_type_str][
             name
         ]
         append_handler_expression(

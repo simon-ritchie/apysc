@@ -6,8 +6,6 @@ from retrying import retry
 
 import apysc as ap
 from apysc._event.click_interface import ClickInterface
-from apysc._event.handler import HandlerData
-from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
 

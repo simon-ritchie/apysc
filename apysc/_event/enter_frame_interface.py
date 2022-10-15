@@ -6,18 +6,18 @@ from typing import Dict
 from typing import Optional
 from typing import TypeVar
 
-from typing_extensions import final, TypedDict
+from typing_extensions import TypedDict
+from typing_extensions import final
 
-from apysc._html.debug_mode import add_debug_info_setting
-from apysc._event.handler import HandlerData
-from apysc._validation import arg_validation_decos
 from apysc._event.enter_frame_event import EnterFrameEvent
-from apysc._time.fps import FPS
+from apysc._event.handler import HandlerData
 from apysc._event.set_handler_data_interface import SetHandlerDataInterface
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._time.fps import FPS
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
-
+from apysc._validation import arg_validation_decos
 
 _Options = TypeVar("_Options")
 _Handlername = str
@@ -41,12 +41,12 @@ class EnterFrameInterface(SetHandlerDataInterface[EnterFrameEvent]):
     @arg_validation_decos.handler_options_type(arg_position_index=3)
     @add_debug_info_setting(module_name=__name__)
     def enter_frame(
-            self,
-            handler: Callable[[EnterFrameEvent, _Options], None],
-            *,
-            fps: FPS = FPS.FPS_60,
-            options: Optional[_Options] = None,
-        ) -> None:
+        self,
+        handler: Callable[[EnterFrameEvent, _Options], None],
+        *,
+        fps: FPS = FPS.FPS_60,
+        options: Optional[_Options] = None,
+    ) -> None:
         """
         Add an enter frame event listener setting.
 
@@ -59,8 +59,6 @@ class EnterFrameInterface(SetHandlerDataInterface[EnterFrameEvent]):
         options : Optional[_Options], optional
             Optional arguments to pass to a handler function.
         """
-        import apysc as ap
-        from apysc._event.handler import get_handler_name
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._set_handler_data(
@@ -68,40 +66,6 @@ class EnterFrameInterface(SetHandlerDataInterface[EnterFrameEvent]):
             handlers_dict=self._enter_frame_handlers,
             options=options,
         )
-        # is_stopped: Boolean = Boolean(False)
-        # handler_name: str = get_handler_name(handler=handler, instance=self)
-        # enter_frame_expression: str = self._create_enter_frame_expression(
-        #     handler_name=handler_name,
-        #     fps=fps,
-        #     is_stopped=is_stopped,
-        # )
-        pass
-
-    # def _create_enter_frame_expression(
-    #     self,
-    #     *,
-    #     handler_name: str,
-    #     fps: FPS,
-    #     is_stopped: Boolean,
-    # ) -> str:
-    #     """
-    #     Create an enter frame expression string.
-
-    #     Parameters
-    #     ----------
-    #     handler_name : str
-    #         Target handler's name.
-    #     fps : FPS
-    #         Frame per second to set.
-    #     is_stopped : Boolean
-    #         A boolean to control an animation loop.
-
-    #     Returns
-    #     -------
-    #     enter_frame_expression str
-    #         A created enter frame expression string.
-    #     """
-    #     pass
 
     def _initialize_enter_frame_handlers_if_not_initialized(self) -> None:
         """

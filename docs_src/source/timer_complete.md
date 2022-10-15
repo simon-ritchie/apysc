@@ -108,7 +108,7 @@ ap.save_overall_html(dest_dir_path="timer_complete_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `timer_complete(self, handler: Callable[[ForwardRef('timer_event.TimerEvent'), ~_O2], NoneType], *, options: Union[~_O2, NoneType] = None) -> str`<hr>
+**[Interface signature]** `timer_complete(self, handler: Callable[[ForwardRef('TimerEvent'), ~_O2], NoneType], *, options: Union[~_O2, NoneType] = None) -> str`<hr>
 
 **[Interface summary]**
 

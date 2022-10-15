@@ -10,9 +10,9 @@ from typing_extensions import final
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_type import MouseEventType
+from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 
 _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
@@ -62,7 +62,7 @@ class MouseEventInterfaceBase(SetHandlerDataInterface[MouseEvent]):
         self,
         *,
         mouse_event_type: MouseEventType,
-        handlers_dict: Dict[str, HandlerData[MouseEvent]]
+        handlers_dict: Dict[str, HandlerData[MouseEvent]],
     ) -> None:
         """
         Unbind specified all mouse event type's events.

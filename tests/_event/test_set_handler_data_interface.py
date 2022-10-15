@@ -1,12 +1,9 @@
-from random import randint
 from typing import Dict
 
-from retrying import retry
-
-from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 import apysc as ap
 from apysc._event.handler import HandlerData
 from apysc._event.handler import get_handler_name
+from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
@@ -19,7 +16,6 @@ class _TestInterface1(VariableNameInterface, SetHandlerDataInterface[ap.MouseEve
 
 
 class TestSetHandlerDataInterface:
-
     def on_click(self, e: ap.MouseEvent, options: dict) -> None:
         """
         The test hadnler method.
@@ -45,5 +41,3 @@ class TestSetHandlerDataInterface:
             handler=self.on_click, options={"msg": "Hello!"}
         )
         assert handlers_dict[name] == handler_data
-
-

@@ -1,12 +1,12 @@
 """Class implementation for a handler.
 """
 
+from dataclasses import dataclass
 from typing import Any
 from typing import Callable
-from typing import List, Generic, TypeVar, Type
-from dataclasses import dataclass
-
-from typing_extensions import TypedDict
+from typing import Generic
+from typing import List
+from typing import TypeVar
 
 from apysc._event.event import Event
 from apysc._event.mouse_event_type import MouseEventType
@@ -15,7 +15,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
 
 _Handler = Callable[[Any, Any], None]
-_EventType = TypeVar('_EventType', bound=Event)
+_EventType = TypeVar("_EventType", bound=Event)
 
 
 @dataclass

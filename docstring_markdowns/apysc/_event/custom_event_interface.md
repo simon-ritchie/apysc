@@ -53,19 +53,6 @@ Initialize the _custom_event_handlers data if this instance does not initialize 
 - `custom_event_type_str`: str
   - Target custom event type string.
 
-### `_set_custom_event_handler_data` method docstring
-
-Set a handler's data to the dictionary.<hr>
-
-**[Parameters]**
-
-- `handler`: _Handler
-  - Callable that this instance calls when its event's dispatching.
-- `custom_event_type_str`: str
-  - A target custom event type's string.
-- `options`: dict or None
-  - Optional arguments dictionary to be passed to a handler.
-
 ### `_unset_custom_event_handler_data` method docstring
 
 Unset a handler's data from the dictionary.<hr>

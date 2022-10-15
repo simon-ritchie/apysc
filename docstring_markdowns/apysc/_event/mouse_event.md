@@ -38,7 +38,7 @@ Mouse event class.<hr>
 **[Parameters]**
 
 - `this`: VariableNameInterface
-  - Instance that listening event (e.g., Sprite).
+  - An instance of a listening event (e.g., Sprite).
 
 <hr>
 

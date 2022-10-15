@@ -1,23 +1,22 @@
 """Class implementations for datetime-related interfaces.
 """
 
-from typing import Dict, Optional, Union
-from datetime import datetime
+from typing import Union
 
 from typing_extensions import final
 
-from apysc._type.int import Int
-from apysc._validation import arg_validation_decos
-from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.initial_substitution_exp_interface import (
     InitialSubstitutionExpInterface,
 )
+from apysc._type.int import Int
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
-from apysc._type.revert_interface import RevertInterface
-from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._validation import arg_validation_decos
 
 
 class DateTime(
@@ -25,7 +24,7 @@ class DateTime(
     VariableNameSuffixAttrInterface,
     RevertInterface,
     VariableNameSuffixInterface,
-    InitialSubstitutionExpInterface
+    InitialSubstitutionExpInterface,
 ):
 
     _initial_year: Union[int, Int]
@@ -91,9 +90,10 @@ class DateTime(
             A boolean indicates whether to skip an initial substitution
             expression or not. This class uses this option internally.
         """
-        from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
-        from apysc._expression import var_names
         from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
+
         with TemporaryNotHandlerScope():
             self._variable_name_suffix = variable_name_suffix
             self.variable_name = expression_variables_util.get_next_variable_name(
@@ -109,21 +109,15 @@ class DateTime(
             self._initial_millisecond = millisecond
 
             suffix: str = self._get_attr_variable_name_suffix(attr_identifier="year")
-            self._year = _convert_to_apysc_int(
-                value=year, variable_name_suffix=suffix
-            )
+            self._year = _convert_to_apysc_int(value=year, variable_name_suffix=suffix)
             suffix = self._get_attr_variable_name_suffix(attr_identifier="month")
             self._month = _convert_to_apysc_int(
                 value=month, variable_name_suffix=suffix
             )
             suffix = self._get_attr_variable_name_suffix(attr_identifier="day")
-            self._day = _convert_to_apysc_int(
-                value=day, variable_name_suffix=suffix
-            )
+            self._day = _convert_to_apysc_int(value=day, variable_name_suffix=suffix)
             suffix = self._get_attr_variable_name_suffix(attr_identifier="hour")
-            self._hour = _convert_to_apysc_int(
-                value=hour, variable_name_suffix=suffix
-            )
+            self._hour = _convert_to_apysc_int(value=hour, variable_name_suffix=suffix)
             suffix = self._get_attr_variable_name_suffix(attr_identifier="minute")
             self._minute = _convert_to_apysc_int(
                 value=minute, variable_name_suffix=suffix
@@ -153,19 +147,6 @@ class DateTime(
         expression: str = self._create_initial_substitution_expression()
         expression = f"var {expression}"
         ap.append_js_expression(expression=expression)
-
-    # @final
-    # @classmethod
-    # @add_debug_info_setting(module_name=__name__)
-    # def now(cls) -> "DateTime":
-    #     """
-    #     Get a `DateTime` instance of current time.
-
-    #     Returns
-    #     -------
-    #     now : DateTime
-    #         A `DateTime` instance of current time.
-    #     """
 
     @final
     def _create_initial_substitution_expression(self) -> str:
@@ -245,8 +226,10 @@ class DateTime(
 
 
 def _convert_to_apysc_int(
-        *, value: Union[int, Int], variable_name_suffix: str,
-    ) -> Int:
+    *,
+    value: Union[int, Int],
+    variable_name_suffix: str,
+) -> Int:
     """
     Convert a datetime-related value to an apysc integer.
 

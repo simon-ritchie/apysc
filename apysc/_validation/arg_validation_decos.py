@@ -2249,6 +2249,7 @@ def is_hour_int(*, arg_position_index: int) -> _F:
     wrapped : Callable
         Wrapped callable object.
     """
+
     def wrapped(callable_: _F) -> _F:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
@@ -2294,6 +2295,7 @@ def is_minute_int(*, arg_position_index: int) -> _F:
     wrapped : Callable
         Wrapped callable object.
     """
+
     def wrapped(callable_: _F) -> _F:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
@@ -2339,6 +2341,7 @@ def is_second_int(*, arg_position_index: int) -> _F:
     wrapped : Callable
         Wrapped callable object.
     """
+
     def wrapped(callable_: _F) -> _F:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
@@ -2385,6 +2388,7 @@ def is_millisecond_int(*, arg_position_index: int) -> _F:
     wrapped : Callable
         Wrapped callable object.
     """
+
     def wrapped(callable_: _F) -> _F:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:

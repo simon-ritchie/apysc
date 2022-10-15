@@ -50,9 +50,7 @@ class TestClickInterface:
         expression_data_util.empty_expression()
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(handler=self.on_click_1)
-        assert (
-            interface_1._click_handlers[name].handler == self.on_click_1
-        )
+        assert interface_1._click_handlers[name].handler == self.on_click_1
         assert interface_1._click_handlers[name].options == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{interface_1.variable_name}.click({name});"

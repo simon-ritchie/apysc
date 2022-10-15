@@ -71,3 +71,5 @@ Get a handler name.<hr>
   - Handler name (method path + class name (if handler is method) + function or method name) + instance's variable name.
 
 ## `HandlerData` class docstring
+
+HandlerData(*args, **kwds)

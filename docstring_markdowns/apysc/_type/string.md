@@ -283,7 +283,7 @@ Append addition (string concatenation) expression.<hr>
 
 ### `_append_constructor_expression` method docstring
 
-Append constructor expression.
+Append a constructor expression.
 
 ### `_append_eq_expression` method docstring
 

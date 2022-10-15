@@ -1,6 +1,7 @@
 """Class implementation for the timer.
 """
 
+from typing import TYPE_CHECKING
 from typing import Any
 from typing import Callable
 from typing import Optional
@@ -8,9 +9,7 @@ from typing import TypeVar
 from typing import Union
 
 from typing_extensions import final
-from typing import TYPE_CHECKING
 
-from apysc._event import timer_event
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.handler import HandlerData
 from apysc._html.debug_mode import add_debug_info_setting

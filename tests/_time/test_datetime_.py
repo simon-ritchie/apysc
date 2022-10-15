@@ -1,4 +1,6 @@
 from random import randint
+from typing import Optional, Match
+import re
 
 from retrying import retry
 
@@ -6,6 +8,7 @@ from apysc._time import datetime_
 import apysc as ap
 from apysc._testing.testing_helper import assert_attrs
 from apysc._expression import var_names
+from apysc._expression import expression_data_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -100,3 +103,42 @@ class TestDateTime:
             },
             any_obj=datetime,
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_initial_substitution_expression(self) -> None:
+        datetime: ap.DateTime = ap.DateTime(
+            year=2022,
+            month=3,
+            day=5,
+            hour=10,
+            minute=30,
+            second=50,
+            millisecond=500,
+        )
+        expression: str = datetime._create_initial_substitution_expression()
+        expected: str = (
+            f"{datetime.variable_name} = new Date(2022, 3, 5, 10, 30, 50, 500);"
+        )
+        assert expression == expected
+
+        datetime = ap.DateTime(
+            year=ap.Int(2022, variable_name_suffix="year"),
+            month=ap.Int(3, variable_name_suffix="month"),
+            day=ap.Int(5, variable_name_suffix="day"),
+            hour=ap.Int(10, variable_name_suffix="hour"),
+            minute=ap.Int(30, variable_name_suffix="minute"),
+            second=ap.Int(50, variable_name_suffix="second"),
+            millisecond=ap.Int(500, variable_name_suffix="millisecond"),
+            variable_name_suffix="test_datetime",
+        )
+        expression = datetime._create_initial_substitution_expression()
+        print(expression)
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf"{datetime.variable_name} = new Date\(.*?year.*?, .*?month.*?, "
+                r".*?day.*?, .*?hour.*?, .*?minute.*?, .*?second.*, "
+                r".*?millisecond.*\);"
+            ),
+            string=expression,
+        )
+        assert match is not None

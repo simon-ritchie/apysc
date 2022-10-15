@@ -13,12 +13,16 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._type.initial_substitution_exp_interface import (
     InitialSubstitutionExpInterface,
 )
+from apysc._type.variable_name_suffix_attr_interface import (
+    VariableNameSuffixAttrInterface,
+)
 from apysc._type.revert_interface import RevertInterface
 from apysc._html.debug_mode import add_debug_info_setting
 
 
 class DateTime(
     VariableNameInterface,
+    VariableNameSuffixAttrInterface,
     RevertInterface,
     VariableNameSuffixInterface,
     InitialSubstitutionExpInterface
@@ -104,26 +108,33 @@ class DateTime(
             self._initial_second = second
             self._initial_millisecond = millisecond
 
+            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="year")
             self._year = _convert_to_apysc_int(
-                value=year, variable_name_suffix=variable_name_suffix
+                value=year, variable_name_suffix=suffix
             )
+            suffix = self._get_attr_variable_name_suffix(attr_identifier="month")
             self._month = _convert_to_apysc_int(
-                value=month, variable_name_suffix=variable_name_suffix
+                value=month, variable_name_suffix=suffix
             )
+            suffix = self._get_attr_variable_name_suffix(attr_identifier="day")
             self._day = _convert_to_apysc_int(
-                value=day, variable_name_suffix=variable_name_suffix
+                value=day, variable_name_suffix=suffix
             )
+            suffix = self._get_attr_variable_name_suffix(attr_identifier="hour")
             self._hour = _convert_to_apysc_int(
-                value=hour, variable_name_suffix=variable_name_suffix
+                value=hour, variable_name_suffix=suffix
             )
+            suffix = self._get_attr_variable_name_suffix(attr_identifier="minute")
             self._minute = _convert_to_apysc_int(
-                value=minute, variable_name_suffix=variable_name_suffix
+                value=minute, variable_name_suffix=suffix
             )
+            suffix = self._get_attr_variable_name_suffix(attr_identifier="second")
             self._second = _convert_to_apysc_int(
-                value=second, variable_name_suffix=variable_name_suffix
+                value=second, variable_name_suffix=suffix
             )
+            suffix = self._get_attr_variable_name_suffix(attr_identifier="millisecond")
             self._millisecond = _convert_to_apysc_int(
-                value=millisecond, variable_name_suffix=variable_name_suffix
+                value=millisecond, variable_name_suffix=suffix
             )
             self._append_constructor_expression()
 
@@ -166,9 +177,37 @@ class DateTime(
         expression : str
             Created expression string.
         """
-        # expression: str = (
-        #     f"{self.variable_name} = new Date({self._year.variable_name}, {self._month.variable_name} - 1, {self._day.variable_name}, {self._hour.variable_name}, )"
-        # )
+        expression: str = f"{self.variable_name} = new Date("
+        if isinstance(self._initial_year, Int):
+            expression += f"{self._initial_year.variable_name}"
+        else:
+            expression += f"{self._year._value}"
+        if isinstance(self._initial_month, Int):
+            expression += f", {self._initial_month.variable_name}"
+        else:
+            expression += f", {self._month._value}"
+        if isinstance(self._initial_day, Int):
+            expression += f", {self._initial_day.variable_name}"
+        else:
+            expression += f", {self._day._value}"
+        if isinstance(self._initial_hour, Int):
+            expression += f", {self._initial_hour.variable_name}"
+        else:
+            expression += f", {self._hour._value}"
+        if isinstance(self._initial_minute, Int):
+            expression += f", {self._initial_minute.variable_name}"
+        else:
+            expression += f", {self._minute._value}"
+        if isinstance(self._initial_second, Int):
+            expression += f", {self._initial_second.variable_name}"
+        else:
+            expression += f", {self._second._value}"
+        if isinstance(self._initial_millisecond, Int):
+            expression += f", {self._initial_millisecond.variable_name}"
+        else:
+            expression += f", {self._millisecond._value}"
+        expression += ");"
+        return expression
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

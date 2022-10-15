@@ -1,5 +1,5 @@
 """This module is for the base class of the x-coordinate
-interfaces.
+mix-in.
 """
 
 from abc import ABC
@@ -9,7 +9,7 @@ from typing import Union
 from apysc._type.int import Int
 
 
-class XInterfaceBase(ABC):
+class XMixInBase(ABC):
 
     _x: Int
 

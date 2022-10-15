@@ -9,7 +9,7 @@ from apysc._animation.animation_parallel_interface import AnimationParallelInter
 from apysc._display.css_interface import CssInterface
 from apysc._display.parent_interface import ParentInterface
 from apysc._display.visible_interface import VisibleInterface
-from apysc._display.x_interface_base import XInterfaceBase
+from apysc._display.x_mixin_base import XMixInBase
 from apysc._display.y_interface_base import YInterfaceBase
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 
 
 class DisplayObject(
-    XInterfaceBase,
+    XMixInBase,
     YInterfaceBase,
     ParentInterface,
     MouseEventInterfaces,

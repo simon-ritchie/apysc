@@ -5,20 +5,24 @@ from retrying import retry
 from apysc._time import datetime_
 import apysc as ap
 from apysc._testing.testing_helper import assert_attrs
+from apysc._expression import var_names
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__convert_to_apysc_int() -> None:
-    value: ap.Int = datetime_._convert_to_apysc_int(value=None)
+    value: ap.Int = datetime_._convert_to_apysc_int(
+        value=None, variable_name_suffix="test"
+    )
     assert isinstance(value, ap.Int)
     assert value == 0
+    assert value._variable_name_suffix == "test"
 
-    value = datetime_._convert_to_apysc_int(value=10)
+    value = datetime_._convert_to_apysc_int(value=10, variable_name_suffix="")
     assert isinstance(value, ap.Int)
     assert value == 10
 
     prev_value: ap.Int = ap.Int(20)
-    value = datetime_._convert_to_apysc_int(value=prev_value)
+    value = datetime_._convert_to_apysc_int(value=prev_value, variable_name_suffix="")
     assert isinstance(value, ap.Int)
     assert value == 20
     assert value.variable_name != prev_value.variable_name
@@ -40,6 +44,7 @@ class TestDateTime:
             },
             any_obj=datetime,
         )
+        assert datetime.variable_name.startswith(var_names.DATETIME)
 
         datetime: ap.DateTime = ap.DateTime(
             year=2022,
@@ -49,6 +54,7 @@ class TestDateTime:
             minute=30,
             second=50,
             millisecond=500,
+            variable_name_suffix="test",
         )
         assert_attrs(
             expected_attrs={
@@ -59,6 +65,7 @@ class TestDateTime:
                 "_minute": ap.Int(30),
                 "_second": ap.Int(50),
                 "_millisecond": ap.Int(500),
+                "_variable_name_suffix": "test",
             },
             any_obj=datetime,
         )

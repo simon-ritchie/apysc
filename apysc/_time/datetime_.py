@@ -8,9 +8,14 @@ from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.initial_substitution_exp_interface import (
+    InitialSubstitutionExpInterface,
+)
 
 
-class DateTime(VariableNameInterface, VariableNameSuffixInterface):
+class DateTime(
+    VariableNameInterface, VariableNameSuffixInterface, InitialSubstitutionExpInterface
+):
 
     _year: Int
     _month: Int
@@ -38,6 +43,7 @@ class DateTime(VariableNameInterface, VariableNameSuffixInterface):
         second: Optional[Union[int, Int]] = None,
         millisecond: Optional[Union[int, Int]] = None,
         variable_name_suffix: str = "",
+        skip_init_substitution_expression_appending: bool = False,
     ) -> None:
         """
         The class for datetime-related interfaces.
@@ -61,6 +67,9 @@ class DateTime(VariableNameInterface, VariableNameSuffixInterface):
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript's debugging.
+        skip_init_substitution_expression_appending : bool, default False
+            A boolean indicates whether to skip an initial substitution
+            expression or not. This class uses this option internally.
         """
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
         from apysc._expression import var_names
@@ -92,6 +101,10 @@ class DateTime(VariableNameInterface, VariableNameSuffixInterface):
             self._millisecond = _convert_to_apysc_int(
                 value=millisecond, variable_name_suffix=variable_name_suffix
             )
+
+        self._append_initial_substitution_expression_if_in_handler_scope(
+            skip_appending=skip_init_substitution_expression_appending,
+        )
 
     @classmethod
     def now(cls) -> "DateTime":

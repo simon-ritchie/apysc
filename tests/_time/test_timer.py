@@ -13,6 +13,7 @@ from apysc._event.custom_event_type import CustomEventType
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._event.handler import HandlerData
 
 
 class TestTimer:
@@ -235,7 +236,7 @@ class TestTimer:
         name: str = timer.timer_complete(handler=self.on_timer_complete)
         assert isinstance(
             timer._custom_event_handlers[CustomEventType.TIMER_COMPLETE.value][name],
-            dict,
+            HandlerData,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

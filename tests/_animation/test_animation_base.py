@@ -150,9 +150,7 @@ class TestAnimationBase:
         )
         event_type: str = CustomEventType.ANIMATION_COMPLETE.value
         assert (
-            animation._custom_event_handlers[event_type][handler_name][  # type: ignore
-                "handler"
-            ]
+            animation._custom_event_handlers[event_type][handler_name].handler
             == self.on_animation_complete_1
         )
         assert animation._custom_event_handlers[event_type][handler_name].options == {

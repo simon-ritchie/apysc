@@ -77,31 +77,31 @@ class EnterFrameInterface(SetHandlerDataInterface[EnterFrameEvent]):
         # )
         pass
 
-    def _create_enter_frame_expression(
-        self,
-        *,
-        handler_name: str,
-        fps: FPS,
-        is_stopped: Boolean,
-    ) -> str:
-        """
-        Create an enter frame expression string.
+    # def _create_enter_frame_expression(
+    #     self,
+    #     *,
+    #     handler_name: str,
+    #     fps: FPS,
+    #     is_stopped: Boolean,
+    # ) -> str:
+    #     """
+    #     Create an enter frame expression string.
 
-        Parameters
-        ----------
-        handler_name : str
-            Target handler's name.
-        fps : FPS
-            Frame per second to set.
-        is_stopped : Boolean
-            A boolean to control an animation loop.
+    #     Parameters
+    #     ----------
+    #     handler_name : str
+    #         Target handler's name.
+    #     fps : FPS
+    #         Frame per second to set.
+    #     is_stopped : Boolean
+    #         A boolean to control an animation loop.
 
-        Returns
-        -------
-        enter_frame_expression str
-            A created enter frame expression string.
-        """
-        pass
+    #     Returns
+    #     -------
+    #     enter_frame_expression str
+    #         A created enter frame expression string.
+    #     """
+    #     pass
 
     def _initialize_enter_frame_handlers_if_not_initialized(self) -> None:
         """

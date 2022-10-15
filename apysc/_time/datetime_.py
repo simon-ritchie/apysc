@@ -154,18 +154,18 @@ class DateTime(
         expression = f"var {expression}"
         ap.append_js_expression(expression=expression)
 
-    @final
-    @classmethod
-    @add_debug_info_setting(module_name=__name__)
-    def now(cls) -> "DateTime":
-        """
-        Get a `DateTime` instance of current time.
+    # @final
+    # @classmethod
+    # @add_debug_info_setting(module_name=__name__)
+    # def now(cls) -> "DateTime":
+    #     """
+    #     Get a `DateTime` instance of current time.
 
-        Returns
-        -------
-        now : DateTime
-            A `DateTime` instance of current time.
-        """
+    #     Returns
+    #     -------
+    #     now : DateTime
+    #         A `DateTime` instance of current time.
+    #     """
 
     @final
     def _create_initial_substitution_expression(self) -> str:

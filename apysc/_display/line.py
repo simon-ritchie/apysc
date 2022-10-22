@@ -1,13 +1,13 @@
 """Implementations of the Line class.
 """
 
-from typing import Optional as Op
+from typing import Optional
 from typing import Union
 
 from typing_extensions import final
 
 from apysc._display import graphics
-from apysc._display.child_interface import ChildInterface
+from apysc._display.child_mixin import ChildMixIn
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
@@ -101,12 +101,12 @@ class Line(XMixIn, YMixIn, GraphicsBase, VariableNameSuffixInterface):
         line_color: Union[str, String] = "",
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
-        line_cap: Op[Union[String, LineCaps]] = None,
-        line_dot_setting: Op[LineDotSetting] = None,
-        line_dash_setting: Op[LineDashSetting] = None,
-        line_round_dot_setting: Op[LineRoundDotSetting] = None,
-        line_dash_dot_setting: Op[LineDashDotSetting] = None,
-        parent: Op[ChildInterface] = None,
+        line_cap: Optional[Union[String, LineCaps]] = None,
+        line_dot_setting: Optional[LineDotSetting] = None,
+        line_dash_setting: Optional[LineDashSetting] = None,
+        line_round_dot_setting: Optional[LineRoundDotSetting] = None,
+        line_dash_dot_setting: Optional[LineDashDotSetting] = None,
+        parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -134,7 +134,7 @@ class Line(XMixIn, YMixIn, GraphicsBase, VariableNameSuffixInterface):
             A round-dot setting to set.
         line_dash_dot_setting : LineDashDotSetting or None, default None
             A dash dot (1-dot chain) setting to set.
-        parent : ChildInterface or None, default None
+        parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.

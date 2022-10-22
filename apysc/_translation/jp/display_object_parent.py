@@ -41,7 +41,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `parent`: any parent instance (ChildInterface) or None": "- `parent`: any parent instance (ChildInterface) or None",  # noqa
+    "- `parent`: any parent instance (ChildMixIn) or None": "- `parent`: any parent instance (ChildMixIn) or None",  # noqa
     ##################################################
     "  - Parent instance with `add_child` and `remove_child` interfaces. If this instance does not have a parent instance (not added child), this interface returns None.": "  - `add_child`や`remove_child`などのインターフェイスを持っている親のインスタンス。もしこのインスタンスが親を持っていない（画面に追加されていない）場合、このインターフェイスはNoneを返却します。",  # noqa
     ##################################################

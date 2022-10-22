@@ -15,7 +15,7 @@ from apysc._display import polygon as _polyg
 from apysc._display import polyline as _polyline
 from apysc._display import sprite
 from apysc._display.begin_fill_interface import BeginFillInterface
-from apysc._display.child_interface import ChildInterface
+from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.graphics_clear_interface import GraphicsClearInterface
 from apysc._display.line_style_interface import LineStyleInterface
@@ -37,7 +37,7 @@ class Graphics(
     BeginFillInterface,
     LineStyleInterface,
     GraphicsClearInterface,
-    ChildInterface,
+    ChildMixIn,
 ):
     """
     Create an object that has each vector graphics interface.

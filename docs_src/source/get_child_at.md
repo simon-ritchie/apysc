@@ -32,7 +32,7 @@ assert isinstance(second_child, ap.Rectangle)
 
 ## get_child_at API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.get_child_at -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.get_child_at -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

@@ -63,7 +63,7 @@ ap.save_overall_html(dest_dir_path="num_children_basic_usage/")
 
 ## num_children API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.num_children -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.num_children -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

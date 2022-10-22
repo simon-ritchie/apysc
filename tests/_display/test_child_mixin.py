@@ -6,16 +6,16 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._display.child_interface import ChildInterface
+from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 
 
-class TestChildInterface:
+class TestChildMixIn:
     """Because of `VariableNameInterface` inheritance,
     each test will be executed with Stage and Sprite
-    (ChildInterface subclasses).
+    (ChildMixIn subclasses).
     """
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -138,7 +138,7 @@ class TestChildInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_children_if_not_initialized(self) -> None:
-        child_interface: ChildInterface = ChildInterface()
+        child_interface: ChildMixIn = ChildMixIn()
         child_interface._initialize_children_if_not_initialized()
         assert child_interface._children == []
 

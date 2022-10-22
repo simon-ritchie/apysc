@@ -142,7 +142,7 @@ Get stage's html element id.<hr>
 
 ## add_child API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.add_child -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -181,7 +181,7 @@ Add display object child to this instance.<hr>
 
 ## remove_child API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.remove_child -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -221,7 +221,7 @@ None
 
 ## contains API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.contains -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.contains -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -271,7 +271,7 @@ Boolean(False)
 
 ## num_children property API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.num_children -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.num_children -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -311,7 +311,7 @@ Int(2)
 
 ## get_child_at API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.get_child_at -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.get_child_at -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

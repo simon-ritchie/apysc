@@ -1,4 +1,4 @@
-"""Class implementation for the child-related interface.
+"""Class implementation for the child-related mix-in.
 """
 
 from typing import TYPE_CHECKING
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     from apysc._display.stage import Stage
 
 
-class ChildInterface(
+class ChildMixIn(
     VariableNameSuffixAttrInterface,
     VariableNameInterface,
     RevertInterface,

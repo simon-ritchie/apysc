@@ -62,7 +62,7 @@ ap.save_overall_html(dest_dir_path="sprite_contains_basic_usage/")
 
 ## contains API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.contains -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.contains -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

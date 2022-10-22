@@ -1,7 +1,7 @@
-"""Test project for ChildInterface class.
+"""Test project for ChildMixIn class.
 
 Command examples:
-$ python test_projects/ChildInterface/main.py
+$ python test_projects/ChildMixIn/main.py
 """
 
 import sys

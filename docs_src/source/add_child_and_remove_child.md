@@ -127,7 +127,7 @@ ap.save_overall_html(dest_dir_path="sprite_basic_usage_of_add_child/")
 
 ## add_child API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.add_child -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -160,7 +160,7 @@ Add display object child to this instance.<hr>
 
 ## remove_child API
 
-<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child -->
+<!-- Docstring: apysc._display.child_mixin.ChildMixIn.remove_child -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

@@ -14,7 +14,7 @@ from typing_extensions import TypedDict
 sys.path.append("./")
 
 import apysc as ap
-from apysc._display.child_interface import ChildInterface
+from apysc._display.child_mixin import ChildMixIn
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -44,7 +44,7 @@ def _main() -> None:
         x=50, y=50, width=50, height=50
     )
     sprite_1.graphics.draw_rect(x=150, y=50, width=50, height=50)
-    parent: Optional[ChildInterface] = rectangle_1.parent
+    parent: Optional[ChildMixIn] = rectangle_1.parent
     if parent is not None:
         parent.remove_children()
 
@@ -71,7 +71,7 @@ def on_click(e: ap.MouseEvent, options: _RectOptions) -> None:
     options : _RectOptions
         Optional arguments dictionary.
     """
-    parent: Optional[ChildInterface] = options["rectangle"].parent
+    parent: Optional[ChildMixIn] = options["rectangle"].parent
     if parent is not None:
         parent.remove_children()
 

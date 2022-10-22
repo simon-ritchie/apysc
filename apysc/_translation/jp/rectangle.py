@@ -271,7 +271,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - A dash dot (1-dot chain) setting to set.": "  - 設定する一点鎖線のスタイル設定。",
     ##################################################
-    "- `parent`: ChildInterface or None, default None": "- `parent`: ChildInterface or None, default None",  # noqa
+    "- `parent`: ChildMixIn or None, default None": "- `parent`: ChildMixIn or None, default None",  # noqa
     ##################################################
     "  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.": "  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。",  # noqa
     ##################################################

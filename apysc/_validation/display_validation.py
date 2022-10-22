@@ -100,9 +100,9 @@ def validate_display_object_container(
     ValueError
         If a specified instance is not a container type instance.
     """
-    from apysc._display.child_interface import ChildInterface
+    from apysc._display.child_mixin import ChildMixIn
 
-    if isinstance(container_object, ChildInterface):
+    if isinstance(container_object, ChildMixIn):
         return
     if additional_err_msg != "":
         additional_err_msg = f"\n{additional_err_msg}"

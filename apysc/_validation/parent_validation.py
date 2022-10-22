@@ -11,7 +11,7 @@ def validate_parent_contains_child(*, parent: Optional[Any], child: Any) -> None
 
     Parameters
     ----------
-    parent : ChildInterface or None
+    parent : ChildMixIn or None
         Parent instance.
     child : DisplayObject
         Child instance.
@@ -22,10 +22,10 @@ def validate_parent_contains_child(*, parent: Optional[Any], child: Any) -> None
         If a parent does not contain a specified child.
         If a parent is None, this interface skips the checking.
     """
-    from apysc._display.child_interface import ChildInterface
+    from apysc._display.child_mixin import ChildMixIn
     from apysc._display.display_object import DisplayObject
 
-    parent_: Optional[ChildInterface] = parent
+    parent_: Optional[ChildMixIn] = parent
     child_: DisplayObject = child
     if parent_ is None:
         return

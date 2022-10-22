@@ -8,7 +8,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._display.child_interface import ChildInterface
+from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.fill_alpha_interface import FillAlphaInterface
 from apysc._display.fill_color_interface import FillColorInterface
@@ -74,13 +74,13 @@ class GraphicsBase(
     )
     @arg_validation_decos.not_empty_string(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, *, parent: Optional[ChildInterface], variable_name: str) -> None:
+    def __init__(self, *, parent: Optional[ChildMixIn], variable_name: str) -> None:
         """
         Vector graphic base class.
 
         Parameters
         ----------
-        parent : ChildInterface or None
+        parent : ChildMixIn or None
             Parent instance. If a specified value is None,
             this interface uses a stage instance.
         variable_name : str

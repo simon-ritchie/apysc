@@ -12,22 +12,22 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
-    from apysc._display.child_interface import ChildInterface
+    from apysc._display.child_mixin import ChildMixIn
 
 
 class ParentInterface(RevertInterface):
 
-    _parent: Optional["ChildInterface"] = None
+    _parent: Optional["ChildMixIn"] = None
 
     @property
-    def parent(self) -> Optional["ChildInterface"]:
+    def parent(self) -> Optional["ChildMixIn"]:
         """
         Get a parent instance that has an add_child and remove_child
         interfaces.
 
         Returns
         -------
-        parent : any parent instance (ChildInterface) or None
+        parent : any parent instance (ChildMixIn) or None
             Parent instance with `add_child` and `remove_child`
             interfaces. If this instance does not have a parent
             instance (not added child), this interface returns None.
@@ -57,7 +57,7 @@ class ParentInterface(RevertInterface):
     @arg_validation_decos.is_display_object_container(
         arg_position_index=1, optional=True
     )
-    def parent(self, value: Optional["ChildInterface"]) -> None:
+    def parent(self, value: Optional["ChildMixIn"]) -> None:
         """
         Set parent instance.
 
@@ -74,7 +74,7 @@ class ParentInterface(RevertInterface):
         Raises
         ------
         ValueError
-            If specified instance is not None and hasn't `ChildInterface`
+            If specified instance is not None and hasn't `ChildMixIn`
             interfaces.
 
         References
@@ -98,18 +98,18 @@ class ParentInterface(RevertInterface):
         ValueError
             If a parent is None (there is no parent).
         """
-        from apysc._display.child_interface import ChildInterface
-        from apysc._display.child_interface import append_expression_of_remove_child
+        from apysc._display.child_mixin import ChildMixIn
+        from apysc._display.child_mixin import append_expression_of_remove_child
         from apysc._display.display_object import DisplayObject
 
-        parent: Optional[ChildInterface] = self._parent
+        parent: Optional[ChildMixIn] = self._parent
         child: DisplayObject = self  # type: ignore
         if parent is not None:
             parent.remove_child(child=child)
         else:
             append_expression_of_remove_child(child=child)
 
-    _parent_snapshots: Dict[str, Optional["ChildInterface"]]
+    _parent_snapshots: Dict[str, Optional["ChildMixIn"]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

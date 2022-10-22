@@ -4,7 +4,7 @@
 from typing_extensions import final
 
 from apysc._display import graphics
-from apysc._display.child_interface import ChildInterface
+from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
@@ -20,7 +20,7 @@ class Sprite(
     XMixIn,
     YMixIn,
     DisplayObject,
-    ChildInterface,
+    ChildMixIn,
     RevertInterface,
     VariableNameSuffixInterface,
 ):

@@ -122,10 +122,10 @@ class AnimationCy(AnimationBase[_T], Generic[_T]):
             An expression to insert into the heading of a complete
             event handler.
         """
-        from apysc._display.cy_interface import CyInterface
+        from apysc._display.cy_mixin import CyMixIn
 
         expression: str = ""
-        if isinstance(self._target, CyInterface):
+        if isinstance(self._target, CyMixIn):
             self._target._initialize_y_if_not_initialized()
             expression = (
                 f"{self._target._y.variable_name} = " f"{self._cy.variable_name};"

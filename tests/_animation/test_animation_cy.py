@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.cy_interface import CyInterface
+from apysc._display.cy_mixin import CyMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -43,7 +43,7 @@ class TestAnimationCy:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: CyInterface = CyInterface()
+        target: CyMixIn = CyMixIn()
         target.variable_name = "test_animation_cy"
         animation_cy: ap.AnimationCy = ap.AnimationCy(target=target, y=100)
         expression: str = animation_cy._get_complete_event_in_handler_head_expression()

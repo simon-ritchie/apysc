@@ -146,7 +146,7 @@ ap.save_overall_html(dest_dir_path="click_unbind_all_the_click_event_handlers/")
 
 ## click API
 
-<!-- Docstring: apysc._event.click_interface.ClickInterface.click -->
+<!-- Docstring: apysc._event.click_mixin.ClickMixIn.click -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -196,7 +196,7 @@ Add a click event listener setting.<hr>
 
 ## unbind_click API
 
-<!-- Docstring: apysc._event.click_interface.ClickInterface.unbind_click -->
+<!-- Docstring: apysc._event.click_mixin.ClickMixIn.unbind_click -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -232,7 +232,7 @@ Unbind specified handler's click event.<hr>
 
 ## unbind_click_all API
 
-<!-- Docstring: apysc._event.click_interface.ClickInterface.unbind_click_all -->
+<!-- Docstring: apysc._event.click_mixin.ClickMixIn.unbind_click_all -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

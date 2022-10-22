@@ -24,7 +24,7 @@ def test__get_target_test_project_main_module_paths() -> None:
         assert expected_path in main_module_paths
 
     unexpected_paths: List[str] = [
-        "./test_projects/ClickInterface/main.py",
+        "./test_projects/ClickMixIn/main.py",
     ]
     for unexpected_path in unexpected_paths:
         assert unexpected_path not in main_module_paths

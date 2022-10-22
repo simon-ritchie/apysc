@@ -1,7 +1,7 @@
-"""Test project for ClickInterface class.
+"""Test project for ClickMixIn class.
 
 Command examples:
-$ python test_projects/ClickInterface/main.py
+$ python test_projects/ClickMixIn/main.py
 """
 
 import sys

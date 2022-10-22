@@ -1,4 +1,4 @@
-"""Class implementation for click interface.
+"""Class implementation for click mix-in.
 """
 
 from typing import Callable
@@ -18,7 +18,7 @@ _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
 
 
-class ClickInterface(MouseEventInterfaceBase):
+class ClickMixIn(MouseEventInterfaceBase):
 
     _click_handlers: Dict[str, HandlerData[MouseEvent]]
 

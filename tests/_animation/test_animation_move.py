@@ -4,11 +4,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.x_mixin import XMixIn
-from apysc._display.y_interface import YInterface
+from apysc._display.y_mixin import YMixIn
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class _TestInterface(XMixIn, YInterface):
+class _TestInterface(XMixIn, YMixIn):
     pass
 
 

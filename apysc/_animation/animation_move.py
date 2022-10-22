@@ -132,7 +132,7 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display.x_mixin import XMixIn
-        from apysc._display.y_interface import YInterface
+        from apysc._display.y_mixin import YMixIn
 
         expression: str = ""
         if isinstance(self._target, XMixIn):
@@ -140,7 +140,7 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
             expression += (
                 f"{self._target._x.variable_name} = " f"{self._x.variable_name};"
             )
-        if isinstance(self._target, YInterface):
+        if isinstance(self._target, YMixIn):
             self._target._initialize_y_if_not_initialized()
             expression += (
                 f"\n{self._target._y.variable_name} = " f"{self._y.variable_name};"

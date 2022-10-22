@@ -124,10 +124,10 @@ class AnimationY(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.y_interface import YInterface
+        from apysc._display.y_mixin import YMixIn
 
         expression: str = ""
-        if isinstance(self._target, YInterface):
+        if isinstance(self._target, YMixIn):
             self._target._initialize_y_if_not_initialized()
             expression = (
                 f"{self._target._y.variable_name} = " f"{self._y.variable_name};"

@@ -7,7 +7,7 @@ from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
 from apysc._display.x_mixin import XMixIn
-from apysc._display.y_interface import YInterface
+from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
@@ -18,7 +18,7 @@ _Graphics = graphics.Graphics
 
 class Sprite(
     XMixIn,
-    YInterface,
+    YMixIn,
     DisplayObject,
     ChildInterface,
     RevertInterface,

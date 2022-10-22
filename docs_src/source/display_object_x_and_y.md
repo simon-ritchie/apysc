@@ -106,7 +106,7 @@ Int(100)
 
 ## y property API
 
-<!-- Docstring: apysc._display.y_interface.YInterface.y -->
+<!-- Docstring: apysc._display.y_mixin.YMixIn.y -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

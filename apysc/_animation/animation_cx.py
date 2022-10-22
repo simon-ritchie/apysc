@@ -122,10 +122,10 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.cx_interface import CxInterface
+        from apysc._display.cx_mixin import CxMixIn
 
         expression: str = ""
-        if isinstance(self._target, CxInterface):
+        if isinstance(self._target, CxMixIn):
             self._target._initialize_x_if_not_initialized()
             expression = (
                 f"{self._target._x.variable_name} = " f"{self._cx.variable_name};"

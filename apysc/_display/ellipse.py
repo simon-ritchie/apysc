@@ -8,7 +8,7 @@ from typing_extensions import final
 
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
-from apysc._display.cx_interface import CxInterface
+from apysc._display.cx_mixin import CxMixIn
 from apysc._display.cy_interface import CyInterface
 from apysc._display.fill_alpha_interface import FillAlphaInterface
 from apysc._display.fill_color_interface import FillColorInterface
@@ -34,7 +34,7 @@ from apysc._validation import arg_validation_decos
 
 
 class Ellipse(
-    CxInterface,
+    CxMixIn,
     CyInterface,
     GraphicsBase,
     WidthAndHeightInterfacesForEllipse,

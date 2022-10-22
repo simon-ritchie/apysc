@@ -16,7 +16,7 @@ Append y position updating expression.
 
 ### `_initialize_y_if_not_initialized` method docstring
 
-Initialize _y attribute if this interface does not initialize it yet.
+Initialize _y attribute if this instance does not initialize it yet.
 
 ### `_make_snapshot` method docstring
 

@@ -28,9 +28,7 @@ def _main() -> None:
     from apysc._string import string_util
 
     logger.info("testing command started.")
-    stdout: str = command_util.run_command(
-        command=("pytest tests/ -v -s")
-    )
+    stdout: str = command_util.run_command(command=("pytest tests/ -v -s"))
     tail_stdout: str = string_util.get_tails_lines_str(string=stdout, n=10)
     if " failed, " in tail_stdout:
         raise Exception("There are failed tests.")

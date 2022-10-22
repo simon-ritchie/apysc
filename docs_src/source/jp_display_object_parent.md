@@ -64,7 +64,7 @@ add_childやremove_childなどのインターフェイスを持った親のイ�
 
 **[返却値]**
 
-- `parent`: any parent instance (ChildInterface) or None
+- `parent`: any parent instance (ChildMixIn) or None
   - `add_child`や`remove_child`などのインターフェイスを持っている親のインスタンス。もしこのインスタンスが親を持っていない（画面に追加されていない）場合、このインターフェイスはNoneを返却します。
 
 <hr>

@@ -12,7 +12,7 @@ Vector graphic base class.<hr>
 
 **[Parameters]**
 
-- `parent`: ChildInterface or None
+- `parent`: ChildMixIn or None
   - Parent instance. If a specified value is None, this interface uses a stage instance.
 - `variable_name`: str
   - Variable name of this instance. This will be used to js expression.

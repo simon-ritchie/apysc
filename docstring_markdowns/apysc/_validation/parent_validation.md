@@ -10,7 +10,7 @@ Validate whether a parent contains a specified child.<hr>
 
 **[Parameters]**
 
-- `parent`: ChildInterface or None
+- `parent`: ChildMixIn or None
   - Parent instance.
 - `child`: DisplayObject
   - Child instance.

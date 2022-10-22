@@ -89,9 +89,7 @@ class TestClickMixIn:
         mixin_2.click(handler=self.on_click_1)
         mixin_2.unbind_click(handler=self.on_click_1)
         assert not mixin_2._click_handlers
-        handler_name: str = get_handler_name(
-            handler=self.on_click_1, instance=mixin_2
-        )
+        handler_name: str = get_handler_name(handler=self.on_click_1, instance=mixin_2)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f"{mixin_2.variable_name}.off("

@@ -65,7 +65,7 @@ Get a parent instance that has an add_child and remove_child interfaces.<hr>
 
 **[Returns]**
 
-- `parent`: any parent instance (ChildInterface) or None
+- `parent`: any parent instance (ChildMixIn) or None
   - Parent instance with `add_child` and `remove_child` interfaces. If this instance does not have a parent instance (not added child), this interface returns None.
 
 <hr>

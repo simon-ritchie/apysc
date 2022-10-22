@@ -14,7 +14,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
@@ -25,7 +25,7 @@ class ScaleXFromPointInterface(
     VariableNameSuffixAttrInterface,
     AnimationScaleXFromPointInterface,
     SetLowerScaleLimitInterface,
-    RevertInterface,
+    RevertMixIn,
 ):
 
     _scale_x_from_point: Dictionary[str, Number]

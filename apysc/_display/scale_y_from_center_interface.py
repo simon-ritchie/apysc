@@ -12,7 +12,7 @@ from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInt
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number import Number
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
@@ -23,7 +23,7 @@ class ScaleYFromCenterInterface(
     VariableNameSuffixAttrInterface,
     AnimationScaleYFromCenterInterface,
     SetLowerScaleLimitInterface,
-    RevertInterface,
+    RevertMixIn,
     AttrLinkingInterface,
 ):
 

@@ -10,14 +10,14 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.copy_interface import CopyInterface
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
 class AnyValue(
-    CopyInterface, RevertInterface, CustomEventInterface, VariableNameSuffixInterface
+    CopyInterface, RevertMixIn, CustomEventInterface, VariableNameSuffixInterface
 ):
     """
     Class implementation of any value (a value that can't

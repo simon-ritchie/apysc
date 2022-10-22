@@ -6,15 +6,15 @@ from typing import List
 from retrying import retry
 
 import apysc as ap
-from apysc._type import revert_interface
-from apysc._type.revert_interface import RevertInterface
+from apysc._type import revert_mixin
+from apysc._type.revert_mixin import RevertMixIn
 
 
 class NotRevertableValue:
     ...
 
 
-class RevertableValue1(RevertInterface):
+class RevertableValue1(RevertMixIn):
 
     _value1: int = 10
     _snapshots1: Dict[str, int]
@@ -44,7 +44,7 @@ class RevertableValue1(RevertInterface):
         self._value1 = self._snapshots1[snapshot_name]
 
 
-class RevertableValue2(RevertInterface):
+class RevertableValue2(RevertMixIn):
 
     _value2: int = 20
     _snapshots2: Dict[str, int]
@@ -104,7 +104,7 @@ class RevertableValue3(NotRevertableValue, RevertableValue1, RevertableValue2):
         self._value3 = self._snapshots3[snapshot_name]
 
 
-class TestRevertInterface:
+class TestRevertMixIn:
     def test__is_snapshot_exists(self) -> None:
         revertable_value = RevertableValue1()
         revertable_value._set_snapshot_exists_val(snapshot_name="snapshot_1")
@@ -228,7 +228,7 @@ def test_make_snapshots_of_each_scope_vars() -> None:
         "value_4": int_1,
         "value_5": int_3,
     }
-    snapshot_name: str = revert_interface.make_snapshots_of_each_scope_vars(
+    snapshot_name: str = revert_mixin.make_snapshots_of_each_scope_vars(
         locals_=locals_, globals_=globals_
     )
     assert int_1._value_snapshots[snapshot_name] == 10
@@ -249,13 +249,13 @@ def test_revert_each_scope_vars() -> None:
         "value_4": int_1,
         "value_5": int_3,
     }
-    snapshot_name: str = revert_interface.make_snapshots_of_each_scope_vars(
+    snapshot_name: str = revert_mixin.make_snapshots_of_each_scope_vars(
         locals_=locals_, globals_=globals_
     )
     int_1.value = 100
     int_2.value = 200
     int_3.value = 400
-    revert_interface.revert_each_scope_vars(
+    revert_mixin.revert_each_scope_vars(
         snapshot_name=snapshot_name, locals_=locals_, globals_=globals_
     )
     assert int_1._value == 10
@@ -267,7 +267,7 @@ def test_make_variables_snapshots() -> None:
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     variables: List[Any] = [int_1, int_2, int_1, 100]
-    snapshot_name: str = revert_interface.make_variables_snapshots(variables=variables)
+    snapshot_name: str = revert_mixin.make_variables_snapshots(variables=variables)
     assert int_1._snapshot_exists(snapshot_name=snapshot_name)
     assert int_2._snapshot_exists(snapshot_name=snapshot_name)
 
@@ -276,9 +276,9 @@ def test_revert_variables() -> None:
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     variables: List[Any] = [int_1, int_2, int_1, 100]
-    snapshot_name: str = revert_interface.make_variables_snapshots(variables=variables)
+    snapshot_name: str = revert_mixin.make_variables_snapshots(variables=variables)
     int_1.value = 30
     int_2.value = 40
-    revert_interface.revert_variables(snapshot_name=snapshot_name, variables=variables)
+    revert_mixin.revert_variables(snapshot_name=snapshot_name, variables=variables)
     assert int_1._value == 10
     assert int_2._value == 20

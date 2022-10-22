@@ -8,14 +8,14 @@ from typing import Optional
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
     from apysc._display.child_mixin import ChildMixIn
 
 
-class ParentInterface(RevertInterface):
+class ParentInterface(RevertMixIn):
 
     _parent: Optional["ChildMixIn"] = None
 

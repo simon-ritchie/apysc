@@ -5,10 +5,10 @@ from typing import Dict
 
 from typing_extensions import final
 
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 
 
-class ExpressionString(RevertInterface):
+class ExpressionString(RevertMixIn):
     """
     This class is for the JavaScript expression string.
     """

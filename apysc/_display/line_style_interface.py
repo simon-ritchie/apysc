@@ -21,7 +21,7 @@ from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_attr_interface import (
@@ -36,7 +36,7 @@ StrOrString = TypeVar("StrOrString", str, String)
 class LineStyleInterface(
     VariableNameSuffixAttrInterface,
     VariableNameInterface,
-    RevertInterface,
+    RevertMixIn,
     VariableNameSuffixInterface,
 ):
 

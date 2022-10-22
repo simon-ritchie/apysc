@@ -11,7 +11,7 @@ from typing import Tuple
 
 from typing_extensions import final
 
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 
 _EXCLUDING_TARGET_METHOD_NAMES: List[str] = [
     "_make_snapshot",
@@ -35,7 +35,7 @@ class _DisabledObjectError(Exception):
     pass
 
 
-class DeletedObjectInterface(RevertInterface):
+class DeletedObjectInterface(RevertMixIn):
 
     __is_deleted_object: bool = False
 

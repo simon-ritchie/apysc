@@ -8,7 +8,7 @@ from typing_extensions import final
 
 from apysc._display.line_caps import LineCaps
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_attr_interface import (
@@ -18,7 +18,7 @@ from apysc._validation import arg_validation_decos
 
 
 class LineCapInterface(
-    VariableNameSuffixAttrInterface, VariableNameInterface, RevertInterface
+    VariableNameSuffixAttrInterface, VariableNameInterface, RevertMixIn
 ):
 
     _line_cap: String

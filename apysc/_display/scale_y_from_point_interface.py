@@ -15,7 +15,7 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.expression_string import ExpressionString
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
@@ -26,7 +26,7 @@ class ScaleYFromPointInterface(
     VariableNameSuffixAttrInterface,
     AnimationScaleYFromPointInterface,
     SetLowerScaleLimitInterface,
-    RevertInterface,
+    RevertMixIn,
 ):
 
     _scale_y_from_point: Dictionary[str, Number]

@@ -21,7 +21,7 @@ from apysc._type.initial_substitution_exp_interface import (
 )
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
@@ -38,7 +38,7 @@ class Dictionary(
     CustomEventInterface,
     Generic[_K, _V],
     CopyInterface,
-    RevertInterface,
+    RevertMixIn,
     DictionaryStructure,
     VariableNameSuffixInterface,
     InitialSubstitutionExpInterface,

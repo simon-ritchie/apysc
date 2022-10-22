@@ -12,7 +12,7 @@ from typing import Type
 from typing_extensions import final
 
 
-class RevertInterface(ABC):
+class RevertMixIn(ABC):
 
     _snapshot_exists_: Dict[str, bool]
 
@@ -52,7 +52,7 @@ class RevertInterface(ABC):
         """
         Run all _make_snapshot methods. If an instance has
         multiple inheritances, and each class inherits
-        RevertInterface, each class calls the _make_snapshot
+        RevertMixIn, each class calls the _make_snapshot
         methods.
 
         Parameters
@@ -82,7 +82,7 @@ class RevertInterface(ABC):
         """
         base_classes: Tuple[Type, ...] = class_.__bases__
         for base_class in base_classes:
-            if not issubclass(base_class, RevertInterface):
+            if not issubclass(base_class, RevertMixIn):
                 continue
             base_class._make_snapshot(self, snapshot_name=snapshot_name)
             self._run_base_cls_make_snapshot_methods_recursively(
@@ -94,7 +94,7 @@ class RevertInterface(ABC):
     def _run_all_revert_methods(self, *, snapshot_name: str) -> None:
         """
         Run all _revert methods. If an instance has multiple
-        inheritances, and each class inherits RevertInterface,
+        inheritances, and each class inherits RevertMixIn,
         each class calls the _revert methods.
 
         Parameters
@@ -124,7 +124,7 @@ class RevertInterface(ABC):
         """
         base_classes: Tuple[Type, ...] = class_.__bases__
         for base_class in base_classes:
-            if not issubclass(base_class, RevertInterface):
+            if not issubclass(base_class, RevertMixIn):
                 continue
             base_class._revert(self, snapshot_name=snapshot_name)
             self._run_base_cls_revert_methods_recursively(
@@ -265,7 +265,7 @@ def make_variables_snapshots(*, variables: List[Any]) -> str:
     ended: Dict[int, bool] = {}
     snapshot_name: str = ""
     for variable in variables:
-        if not isinstance(variable, RevertInterface):
+        if not isinstance(variable, RevertMixIn):
             continue
         var_id: int = id(variable)
         if var_id in ended:
@@ -309,7 +309,7 @@ def revert_variables(*, snapshot_name: str, variables: List[Any]) -> None:
     """
     ended: Dict[int, bool] = {}
     for variable in variables:
-        if not isinstance(variable, RevertInterface):
+        if not isinstance(variable, RevertMixIn):
             continue
         var_id: int = id(variable)
         if var_id in ended:

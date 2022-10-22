@@ -91,13 +91,13 @@ def append_handler_expression(
     from apysc._event.handler_circular_calling_util import is_handler_circular_calling
     from apysc._expression.event_handler_scope import HandlerScope
     from apysc._expression.indent_num import Indent
-    from apysc._type import revert_interface
+    from apysc._type import revert_mixin
     from apysc._validation.variable_name_validation import (
         validate_variable_name_interface_type,
     )
 
     variables: List[Any] = [*handler_data.options.values()]
-    snapshot_name: str = revert_interface.make_variables_snapshots(variables=variables)
+    snapshot_name: str = revert_mixin.make_variables_snapshots(variables=variables)
     instance: VariableNameInterface = validate_variable_name_interface_type(
         instance=e.this
     )
@@ -116,7 +116,7 @@ def append_handler_expression(
                 handler_data.handler(e, handler_data.options)
             ap.append_js_expression(expression="}")
 
-    revert_interface.revert_variables(snapshot_name=snapshot_name, variables=variables)
+    revert_mixin.revert_variables(snapshot_name=snapshot_name, variables=variables)
 
 
 @add_debug_info_setting(module_name=__name__)

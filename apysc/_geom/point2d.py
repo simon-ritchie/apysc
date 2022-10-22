@@ -14,7 +14,7 @@ from apysc._type.attr_to_apysc_val_from_builtin_interface import (
 )
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.int import Int
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
@@ -28,7 +28,7 @@ _Int = Union[int, Int]
 class Point2D(
     VariableNameSuffixAttrInterface,
     VariableNameInterface,
-    RevertInterface,
+    RevertMixIn,
     DictionaryStructure,
     CustomEventInterface,
     VariableNameSuffixInterface,

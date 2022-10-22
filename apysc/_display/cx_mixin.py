@@ -11,7 +11,7 @@ from apysc._display.x_mixin_base import XMixInBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
@@ -22,7 +22,7 @@ class CxMixIn(
     XMixInBase,
     VariableNameSuffixAttrInterface,
     AnimationCxInterface,
-    RevertInterface,
+    RevertMixIn,
     AttrLinkingInterface,
 ):
     @final

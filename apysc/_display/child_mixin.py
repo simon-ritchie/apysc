@@ -14,7 +14,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
 class ChildMixIn(
     VariableNameSuffixAttrInterface,
     VariableNameInterface,
-    RevertInterface,
+    RevertMixIn,
     VariableNameSuffixInterface,
 ):
 
@@ -385,7 +385,7 @@ class ChildMixIn(
             return
 
         for child in self._children.value:  # type: ignore
-            if not isinstance(child, RevertInterface):
+            if not isinstance(child, RevertMixIn):
                 continue
             child._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
 
@@ -409,7 +409,7 @@ class ChildMixIn(
         self._children._value = [*self._children_snapshots[snapshot_name]]
 
         for child in self._children.value:  # type: ignore
-            if not isinstance(child, RevertInterface):
+            if not isinstance(child, RevertMixIn):
                 continue
             child._run_all_revert_methods(snapshot_name=snapshot_name)
 

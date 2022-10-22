@@ -19,7 +19,7 @@ from apysc._type.initial_substitution_exp_interface import (
     InitialSubstitutionExpInterface,
 )
 from apysc._type.int import Int
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
@@ -30,7 +30,7 @@ T = TypeVar("T")
 
 class Array(
     CopyInterface,
-    RevertInterface,
+    RevertMixIn,
     CustomEventInterface,
     VariableNameSuffixInterface,
     InitialSubstitutionExpInterface,

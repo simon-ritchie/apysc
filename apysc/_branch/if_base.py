@@ -81,9 +81,9 @@ class IfBase(ABC):
         self : IfBase
             This instance.
         """
-        from apysc._type import revert_interface
+        from apysc._type import revert_mixin
 
-        self._snapshot_name = revert_interface.make_snapshots_of_each_scope_vars(
+        self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
             locals_=self._locals, globals_=self._globals
         )
         self._append_enter_expression()
@@ -110,9 +110,9 @@ class IfBase(ABC):
         traceback : *
             Traceback value.
         """
-        from apysc._type import revert_interface
+        from apysc._type import revert_mixin
 
-        revert_interface.revert_each_scope_vars(
+        revert_mixin.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
             locals_=self._locals,
             globals_=self._globals,

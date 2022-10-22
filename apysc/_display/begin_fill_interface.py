@@ -14,7 +14,7 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
@@ -24,7 +24,7 @@ from apysc._validation import arg_validation_decos
 StrOrString = TypeVar("StrOrString", str, String)
 
 
-class BeginFillInterface(VariableNameSuffixAttrInterface, RevertInterface):
+class BeginFillInterface(VariableNameSuffixAttrInterface, RevertMixIn):
 
     _fill_color: String
     _fill_alpha: Number

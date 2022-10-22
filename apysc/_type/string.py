@@ -13,7 +13,7 @@ from apysc._type.copy_interface import CopyInterface
 from apysc._type.initial_substitution_exp_interface import (
     InitialSubstitutionExpInterface,
 )
-from apysc._type.revert_interface import RevertInterface
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
@@ -21,7 +21,7 @@ from apysc._validation import arg_validation_decos
 
 class String(
     CopyInterface,
-    RevertInterface,
+    RevertMixIn,
     CustomEventInterface,
     VariableNameSuffixInterface,
     InitialSubstitutionExpInterface,

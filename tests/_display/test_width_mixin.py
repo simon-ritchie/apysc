@@ -6,22 +6,22 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._display.width_interface import WidthInterface
+from apysc._display.width_mixin import WidthMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 
 
-class TestWidthInterface:
+class TestWidthMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_width(self) -> None:
-        width_interface: WidthInterface = WidthInterface()
+        width_interface: WidthMixIn = WidthMixIn()
         width_interface.variable_name = "test_width_interface"
         width_interface.width = ap.Int(100)
         assert width_interface.width == 100
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_width_update_expression(self) -> None:
-        width_interface: WidthInterface = WidthInterface()
+        width_interface: WidthMixIn = WidthMixIn()
         width_interface.variable_name = "test_width_interface"
         expression_data_util.empty_expression()
         width_interface.width = ap.Int(200)
@@ -35,7 +35,7 @@ class TestWidthInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_width_and_skip_appending_exp(self) -> None:
-        width_interface: WidthInterface = WidthInterface()
+        width_interface: WidthMixIn = WidthMixIn()
         width_interface.variable_name = "test_width_interface"
         expression_data_util.empty_expression()
         width_interface._update_width_and_skip_appending_exp(value=ap.Int(300))
@@ -53,7 +53,7 @@ class TestWidthInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_width_if_not_initialized(self) -> None:
-        width_interface: WidthInterface = WidthInterface()
+        width_interface: WidthMixIn = WidthMixIn()
         width_interface.variable_name = "test_width_interface"
         width_interface._initialize_width_if_not_initialized()
         assert width_interface.width == 0
@@ -64,7 +64,7 @@ class TestWidthInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        width_interface: WidthInterface = WidthInterface()
+        width_interface: WidthMixIn = WidthMixIn()
         width_interface.variable_name = "test_width_interface"
         width_interface.width = ap.Int(10)
         snapshot_name: str = "snapshot_1"
@@ -77,7 +77,7 @@ class TestWidthInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        width_interface: WidthInterface = WidthInterface()
+        width_interface: WidthMixIn = WidthMixIn()
         width_interface.variable_name = "test_width_interface"
         width_interface.width = ap.Int(10)
         snapshot_name: str = "snapshot_1"
@@ -92,7 +92,7 @@ class TestWidthInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_width_attr_linking_setting(self) -> None:
-        interface: WidthInterface = WidthInterface()
+        interface: WidthMixIn = WidthMixIn()
         interface.variable_name = "test_width_interface"
         interface._initialize_width_if_not_initialized()
         assert interface._attr_linking_stack["width"] == [ap.Int(0)]

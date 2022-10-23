@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.width_interface import WidthInterface
+from apysc._display.width_mixin import WidthMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -43,7 +43,7 @@ class TestAnimationWidth:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: WidthInterface = WidthInterface()
+        target: WidthMixIn = WidthMixIn()
         target.variable_name = "test_width_interface"
         animation_width: ap.AnimationWidth = ap.AnimationWidth(target=target, width=100)
         expression: str = (

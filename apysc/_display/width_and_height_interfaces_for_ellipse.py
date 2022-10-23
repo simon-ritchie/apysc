@@ -3,8 +3,8 @@ for the ellipse.
 
 Notes
 -----
-A Subclass that inherits the normal WidthInterface and
-HeightInterface can't use this interface.
+A Subclass that inherits the normal WidthMixIn and
+HeightMixIn can't use this interface.
 """
 
 from typing import Dict

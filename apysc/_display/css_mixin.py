@@ -1,4 +1,4 @@
-"""Class implementation for the CSS interface.
+"""Class implementation for the CSS mix-in.
 """
 
 from typing import Dict

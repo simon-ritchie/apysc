@@ -6,7 +6,7 @@ Class implementation of the width and height Interfaces for the ellipse.<hr>
 
 **[Notes]**
 
-A Subclass that inherits the normal WidthInterface and HeightInterface can't use this interface.
+A Subclass that inherits the normal WidthMixIn and HeightMixIn can't use this interface.
 
 ## `WidthAndHeightInterfacesForEllipse` class docstring
 

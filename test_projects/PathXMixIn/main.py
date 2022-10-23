@@ -1,7 +1,7 @@
-"""The test project for the PathXInterface class.
+"""The test project for the PathXMixIn class.
 
 Command examples:
-$ python test_projects/PathXInterface/main.py
+$ python test_projects/PathXMixIn/main.py
 """
 
 import sys
@@ -15,7 +15,7 @@ from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
-from apysc._geom.path_x_interface import PathXInterface
+from apysc._geom.path_x_mixin import PathXMixIn
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -25,7 +25,7 @@ _DEST_DIR_PATH: str = os.path.join(
 
 
 class _InterfaceOptions(TypedDict):
-    interface: PathXInterface
+    interface: PathXMixIn
 
 
 def main() -> None:
@@ -38,7 +38,7 @@ def main() -> None:
         stage_height=500,
         stage_elem_id="stage",
     )
-    interface: PathXInterface = PathXInterface()
+    interface: PathXMixIn = PathXMixIn()
     interface.x = ap.Int(10)
     options: _InterfaceOptions = {"interface": interface}
     ap.Timer(on_timer_1, delay=1000, repeat_count=1, options=options).start()

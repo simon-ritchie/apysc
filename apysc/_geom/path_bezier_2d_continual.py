@@ -7,7 +7,7 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._geom.path_data_base import PathDataBase
-from apysc._geom.path_x_interface import PathXInterface
+from apysc._geom.path_x_mixin import PathXMixIn
 from apysc._geom.path_y_interface import PathYInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
@@ -16,7 +16,7 @@ from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 
-class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
+class PathBezier2DContinual(PathDataBase, PathXMixIn, PathYInterface):
     """
     Path data class for the SVG `continual 2D bezier curve` (T).
 

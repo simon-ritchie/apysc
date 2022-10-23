@@ -61,7 +61,7 @@ ap.save_overall_html(dest_dir_path="display_object_get_and_set_css_basic_usage/"
 
 ## get_css API
 
-<!-- Docstring: apysc._display.css_interface.CssInterface.get_css -->
+<!-- Docstring: apysc._display.css_mixin.CssMixIn.get_css -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -99,7 +99,7 @@ String('none')
 
 ## set_css API
 
-<!-- Docstring: apysc._display.css_interface.CssInterface.set_css -->
+<!-- Docstring: apysc._display.css_mixin.CssMixIn.set_css -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

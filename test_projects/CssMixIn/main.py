@@ -1,7 +1,7 @@
-"""The test project for the CssInterface class.
+"""The test project for the CssMixIn class.
 
 Command examples:
-$ python test_projects/CssInterface/main.py
+$ python test_projects/CssMixIn/main.py
 """
 
 import sys

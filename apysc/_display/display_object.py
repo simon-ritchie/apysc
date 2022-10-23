@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 from typing_extensions import final
 
 from apysc._animation.animation_parallel_interface import AnimationParallelInterface
-from apysc._display.css_interface import CssInterface
+from apysc._display.css_mixin import CssMixIn
 from apysc._display.parent_interface import ParentInterface
 from apysc._display.visible_interface import VisibleInterface
 from apysc._display.x_mixin_base import XMixInBase
@@ -27,7 +27,7 @@ class DisplayObject(
     MouseEventInterfaces,
     VisibleInterface,
     CustomEventInterface,
-    CssInterface,
+    CssMixIn,
     AnimationParallelInterface,
 ):
     """

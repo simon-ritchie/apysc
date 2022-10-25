@@ -126,10 +126,10 @@ class AnimationHeight(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.height_interface import HeightInterface
+        from apysc._display.height_mixin import HeightMixIn
 
         expression: str = ""
-        if isinstance(self._target, HeightInterface):
+        if isinstance(self._target, HeightMixIn):
             self._target._initialize_height_if_not_initialized()
             expression = (
                 f"{self._target._height.variable_name} = "

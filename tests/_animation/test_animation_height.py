@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.height_interface import HeightInterface
+from apysc._display.height_mixin import HeightMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -47,7 +47,7 @@ class TestAnimationHeight:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: HeightInterface = HeightInterface()
+        target: HeightMixIn = HeightMixIn()
         target.variable_name = "test_animation_height"
         animation_height: ap.AnimationHeight = ap.AnimationHeight(
             target=target, height=100

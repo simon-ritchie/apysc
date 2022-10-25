@@ -15,7 +15,7 @@ from typing import Tuple
 from typing_extensions import final
 
 from apysc._display.child_mixin import ChildMixIn
-from apysc._display.height_interface import HeightInterface
+from apysc._display.height_mixin import HeightMixIn
 from apysc._display.width_mixin import WidthMixIn
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
@@ -30,7 +30,7 @@ _current_stage: "Stage"
 class Stage(
     ChildMixIn,
     WidthMixIn,
-    HeightInterface,
+    HeightMixIn,
     VariableNameInterface,
     MouseEventInterfaces,
     CustomEventInterface,

@@ -13,7 +13,7 @@ from apysc._display.ellipse_width_interface import EllipseWidthInterface
 from apysc._display.fill_alpha_interface import FillAlphaInterface
 from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.graphics_base import GraphicsBase
-from apysc._display.height_interface import HeightInterface
+from apysc._display.height_mixin import HeightMixIn
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
@@ -36,7 +36,7 @@ class Rectangle(
     YMixIn,
     GraphicsBase,
     WidthMixIn,
-    HeightInterface,
+    HeightMixIn,
     EllipseWidthInterface,
     EllipseHeightInterface,
     FillColorInterface,

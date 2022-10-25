@@ -19,7 +19,7 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.radius_interface import RadiusInterface
+from apysc._display.radius_mixin import RadiusMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_to_apysc_val_from_builtin_interface import (
     AttrToApyscValFromBuiltinInterface,
@@ -35,7 +35,7 @@ class Circle(
     CxMixIn,
     CyMixIn,
     GraphicsBase,
-    RadiusInterface,
+    RadiusMixIn,
     FillColorInterface,
     FillAlphaInterface,
     VariableNameSuffixInterface,

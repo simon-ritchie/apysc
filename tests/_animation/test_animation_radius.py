@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.radius_interface import RadiusInterface
+from apysc._display.radius_mixin import RadiusMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 
@@ -11,7 +11,7 @@ from apysc._testing.testing_helper import assert_attrs
 class TestAnimationRadius:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: RadiusInterface = RadiusInterface()
+        target: RadiusMixIn = RadiusMixIn()
         target.variable_name = "test_radius_interface"
         animation_radius: ap.AnimationRadius = ap.AnimationRadius(
             target=target,
@@ -36,7 +36,7 @@ class TestAnimationRadius:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: RadiusInterface = RadiusInterface()
+        target: RadiusMixIn = RadiusMixIn()
         target.variable_name = "test_radius_interface"
         animation_radius: ap.AnimationRadius = ap.AnimationRadius(
             target=target, radius=100
@@ -48,7 +48,7 @@ class TestAnimationRadius:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: RadiusInterface = RadiusInterface()
+        target: RadiusMixIn = RadiusMixIn()
         target.variable_name = "test_radius_interface"
         animation_radius: ap.AnimationRadius = ap.AnimationRadius(
             target=target, radius=100

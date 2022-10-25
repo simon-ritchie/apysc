@@ -1,7 +1,7 @@
-"""The test project for the SkewXInterface class.
+"""The test project for the SkewXMixIn class.
 
 Command examples:
-$ python test_projects/SkewXInterface/main.py
+$ python test_projects/SkewXMixIn/main.py
 """
 
 import sys

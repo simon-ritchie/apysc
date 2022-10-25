@@ -45,7 +45,7 @@ The animation class for a rotation around the center point.<hr>
 
 **[Parameters]**
 
-- `target`: SkewXInterface
+- `target`: SkewXMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `rotation_around_center`: Int or int
   - The final rotation around the center point of the animation.

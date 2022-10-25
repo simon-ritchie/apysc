@@ -3,19 +3,19 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.skew_x_interface import SkewXInterface
+from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._expression import expression_data_util
 
 
-class _TestInterface(SkewXInterface):
+class _TestInterface(SkewXMixIn):
     def __init__(self) -> None:
         """
-        The class for the testing of the SkewXInterface.
+        The class for the testing of the SkewXMixIn.
         """
         self.variable_name = "test_skew_x_interface"
 
 
-class TestSkewXInterface:
+class TestSkewXMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_skew_x_if_not_initialized(self) -> None:
         interface: _TestInterface = _TestInterface()

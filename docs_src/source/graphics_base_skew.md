@@ -80,7 +80,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_skew_y_incremental_basic_usage
 
 ## skew_x property API
 
-<!-- Docstring: apysc._display.skew_x_interface.SkewXInterface.skew_x -->
+<!-- Docstring: apysc._display.skew_x_mixin.SkewXMixIn.skew_x -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

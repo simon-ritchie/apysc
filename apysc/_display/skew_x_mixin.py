@@ -1,4 +1,4 @@
-"""Class implementation for the skew x interface.
+"""Class implementation for the skew x mix-in.
 """
 
 from typing import Dict
@@ -16,7 +16,7 @@ from apysc._type.variable_name_suffix_attr_interface import (
 from apysc._validation import arg_validation_decos
 
 
-class SkewXInterface(
+class SkewXMixIn(
     VariableNameSuffixAttrInterface,
     VariableNameInterface,
     RevertMixIn,

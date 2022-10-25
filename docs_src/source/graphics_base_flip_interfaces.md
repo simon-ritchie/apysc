@@ -105,7 +105,7 @@ Boolean(True)
 
 ## flip_y property API
 
-<!-- Docstring: apysc._display.flip_y_interface.FlipYInterface.flip_y -->
+<!-- Docstring: apysc._display.flip_y_mixin.FlipYMixIn.flip_y -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

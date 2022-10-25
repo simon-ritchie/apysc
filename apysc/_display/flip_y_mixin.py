@@ -1,4 +1,4 @@
-"""Class implementation for the flip_y interface.
+"""Class implementation for the flip_y mix-in.
 """
 
 from typing import Dict
@@ -16,7 +16,7 @@ from apysc._type.variable_name_suffix_attr_interface import (
 from apysc._validation import arg_validation_decos
 
 
-class FlipYInterface(
+class FlipYMixIn(
     VariableNameSuffixAttrInterface,
     VariableNameInterface,
     RevertMixIn,

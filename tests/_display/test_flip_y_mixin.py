@@ -3,19 +3,19 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.flip_y_interface import FlipYInterface
+from apysc._display.flip_y_mixin import FlipYMixIn
 from apysc._expression import expression_data_util
 
 
-class _TestInterface(FlipYInterface):
+class _TestInterface(FlipYMixIn):
     def __init__(self) -> None:
         """
-        The class for the testing of the FlipYInterface.
+        The class for the testing of the FlipYMixIn.
         """
         self.variable_name = "test_flip_y_interface"
 
 
-class TestFlipYInterface:
+class TestFlipYMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_flip_y_if_not_initialized(self) -> None:
         interface: _TestInterface = _TestInterface()

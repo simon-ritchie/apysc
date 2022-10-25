@@ -55,7 +55,7 @@ ap.save_overall_html(dest_dir_path="display_object_remove_from_parent_basic_usag
 
 ## parent API
 
-<!-- Docstring: apysc._display.parent_interface.ParentInterface.parent -->
+<!-- Docstring: apysc._display.parent_mixin.ParentMixIn.parent -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -88,7 +88,7 @@ True
 
 ## remove_from_parent API
 
-<!-- Docstring: apysc._display.parent_interface.ParentInterface.remove_from_parent -->
+<!-- Docstring: apysc._display.parent_mixin.ParentMixIn.remove_from_parent -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

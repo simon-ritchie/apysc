@@ -7,7 +7,7 @@ import apysc as ap
 from apysc._expression import expression_data_util
 
 
-class TestParentInterface:
+class TestParentMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_parent(self) -> None:
         stage: ap.Stage = ap.Stage()

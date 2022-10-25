@@ -1,4 +1,4 @@
-"""Class implementation for the parent-related interfaces.
+"""Class implementation for the parent-related mix-in.
 """
 
 from typing import TYPE_CHECKING
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from apysc._display.child_mixin import ChildMixIn
 
 
-class ParentInterface(RevertMixIn):
+class ParentMixIn(RevertMixIn):
 
     _parent: Optional["ChildMixIn"] = None
 

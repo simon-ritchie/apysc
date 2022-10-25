@@ -15,7 +15,7 @@ Append a delete expression.<hr>
 
 ## `_remove_from_parent` function docstring
 
-Remove a specified value from a parent if it is the `ParentInterface` instance.<hr>
+Remove a specified value from a parent if it is the `ParentMixIn` instance.<hr>
 
 **[Parameters]**
 

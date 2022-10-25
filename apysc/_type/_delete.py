@@ -23,7 +23,7 @@ def delete(value: VariableNameInterface) -> None:
 
 def _remove_from_parent(*, value: VariableNameInterface) -> None:
     """
-    Remove a specified value from a parent if it is the `ParentInterface`
+    Remove a specified value from a parent if it is the `ParentMixIn`
     instance.
 
     Parameters
@@ -31,9 +31,9 @@ def _remove_from_parent(*, value: VariableNameInterface) -> None:
     value : VariableNameInterface
         _description_
     """
-    from apysc._display.parent_interface import ParentInterface
+    from apysc._display.parent_mixin import ParentMixIn
 
-    if not isinstance(value, ParentInterface):
+    if not isinstance(value, ParentMixIn):
         return
     value.remove_from_parent()
 

@@ -12,7 +12,7 @@ from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.fill_alpha_interface import FillAlphaInterface
 from apysc._display.fill_color_interface import FillColorInterface
-from apysc._display.flip_x_interface import FlipXInterface
+from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_interface import FlipYInterface
 from apysc._display.line_alpha_interface import LineAlphaInterface
 from apysc._display.line_caps import LineCaps
@@ -53,7 +53,7 @@ class GraphicsBase(
     ScaleYFromCenterInterface,
     ScaleXFromPointInterface,
     ScaleYFromPointInterface,
-    FlipXInterface,
+    FlipXMixIn,
     FlipYInterface,
     SkewXInterface,
     SkewYInterface,

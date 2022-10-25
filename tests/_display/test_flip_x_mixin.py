@@ -3,22 +3,22 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.flip_x_interface import FlipXInterface
+from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._expression import expression_data_util
 
 
-class _TestInterface(FlipXInterface):
+class _TestMixIn(FlipXMixIn):
     def __init__(self) -> None:
         """
-        The class for the testing of the FlipXInterface class.
+        The class for the testing of the FlipXMixIn class.
         """
         self.variable_name = "test_flip_x_interface"
 
 
-class TestFlipXInterface:
+class TestFlipXMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_flip_x_if_not_initialized(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface._initialize_flip_x_if_not_initialized()
         assert not interface._flip_x
 
@@ -28,7 +28,7 @@ class TestFlipXInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_flip_x(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         assert not interface.flip_x
 
         interface.flip_x = ap.Boolean(True)
@@ -37,7 +37,7 @@ class TestFlipXInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_flip_x_update_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         flip_x_1: ap.Boolean = ap.Boolean(True)
         flip_x_2: ap.Boolean = ap.Boolean(False)
         interface.flip_x = flip_x_1
@@ -56,7 +56,7 @@ class TestFlipXInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface.flip_x = ap.Boolean(True)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -68,7 +68,7 @@ class TestFlipXInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface.flip_x = ap.Boolean(True)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -82,6 +82,6 @@ class TestFlipXInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_flip_x_attr_linking_setting(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface._initialize_flip_x_if_not_initialized()
         assert interface._attr_linking_stack["flip_x"] == [ap.Boolean(False)]

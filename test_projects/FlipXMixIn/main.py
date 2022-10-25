@@ -1,7 +1,7 @@
-"""The test project for the `FlipXInterface` class.
+"""The test project for the `FlipXMixIn` class.
 
 Command examples:
-$ python test_projects/FlipXInterface/main.py
+$ python test_projects/FlipXMixIn/main.py
 """
 
 import sys

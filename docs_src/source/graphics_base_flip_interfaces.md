@@ -69,7 +69,7 @@ The `flip_y` interface behaves the same as the `flip_x` interface, except the ax
 
 ## flip_x property API
 
-<!-- Docstring: apysc._display.flip_x_interface.FlipXInterface.flip_x -->
+<!-- Docstring: apysc._display.flip_x_mixin.FlipXMixIn.flip_x -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

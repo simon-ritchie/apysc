@@ -10,7 +10,7 @@ from typing_extensions import final
 from apysc._branch._else import Else
 from apysc._branch._if import If
 from apysc._geom.path_label import PathLabel
-from apysc._geom.relative_interface import RelativeInterface
+from apysc._geom.relative_mixin import RelativeMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_to_apysc_val_from_builtin_interface import (
     AttrToApyscValFromBuiltinInterface,
@@ -20,7 +20,7 @@ from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 
-class PathDataBase(RelativeInterface, AttrToApyscValFromBuiltinInterface, ABC):
+class PathDataBase(RelativeMixIn, AttrToApyscValFromBuiltinInterface, ABC):
     """
     Base class for the path data.
     """

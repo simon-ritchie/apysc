@@ -1,4 +1,4 @@
-"""Interface class implementation for the relative value.
+"""Mix-in class implementation for the relative value.
 """
 
 from typing import Dict
@@ -14,7 +14,7 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._validation import arg_validation_decos
 
 
-class RelativeInterface(
+class RelativeMixIn(
     VariableNameSuffixAttrInterface, RevertMixIn, VariableNameSuffixInterface
 ):
 

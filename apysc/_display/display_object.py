@@ -8,7 +8,7 @@ from typing_extensions import final
 from apysc._animation.animation_parallel_interface import AnimationParallelInterface
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.parent_mixin import ParentMixIn
-from apysc._display.visible_interface import VisibleInterface
+from apysc._display.visible_mixin import VisibleMixIn
 from apysc._display.x_mixin_base import XMixInBase
 from apysc._display.y_mixin_base import YMixInBase
 from apysc._event.custom_event_interface import CustomEventInterface
@@ -25,7 +25,7 @@ class DisplayObject(
     YMixInBase,
     ParentMixIn,
     MouseEventInterfaces,
-    VisibleInterface,
+    VisibleMixIn,
     CustomEventInterface,
     CssMixIn,
     AnimationParallelInterface,

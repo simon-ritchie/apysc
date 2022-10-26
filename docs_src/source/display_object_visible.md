@@ -83,7 +83,7 @@ ap.save_overall_html(dest_dir_path="display_object_visible_basic_usage/")
 
 ## visible property API
 
-<!-- Docstring: apysc._display.visible_interface.VisibleInterface.visible -->
+<!-- Docstring: apysc._display.visible_mixin.VisibleMixIn.visible -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

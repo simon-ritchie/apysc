@@ -1,7 +1,7 @@
-"""Test project for VisibleInterface class.
+"""Test project for VisibleMixIn class.
 
 Command examples:
-$ python test_projects/VisibleInterface/main.py
+$ python test_projects/VisibleMixIn/main.py
 """
 
 import sys

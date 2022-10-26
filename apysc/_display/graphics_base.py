@@ -36,7 +36,7 @@ from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
 from apysc._display.scale_y_from_center_interface import ScaleYFromCenterInterface
 from apysc._display.scale_y_from_point_interface import ScaleYFromPointInterface
 from apysc._display.skew_x_mixin import SkewXMixIn
-from apysc._display.skew_y_interface import SkewYInterface
+from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._display.stage import get_stage
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
@@ -56,7 +56,7 @@ class GraphicsBase(
     FlipXMixIn,
     FlipYMixIn,
     SkewXMixIn,
-    SkewYInterface,
+    SkewYMixIn,
     LineColorInterface,
     LineAlphaInterface,
     LineJointsInterface,

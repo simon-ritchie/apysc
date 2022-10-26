@@ -76,7 +76,7 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
 
         Parameters
         ----------
-        target : SkewYInterface
+        target : SkewYMixIn
             A target instance of the animation target
             (e.g., `Rectangle` instance).
         scale_y_from_center : float or Number

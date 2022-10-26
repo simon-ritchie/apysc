@@ -112,7 +112,7 @@ Int(50)
 
 ## skew_y property API
 
-<!-- Docstring: apysc._display.skew_y_interface.SkewYInterface.skew_y -->
+<!-- Docstring: apysc._display.skew_y_mixin.SkewYMixIn.skew_y -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

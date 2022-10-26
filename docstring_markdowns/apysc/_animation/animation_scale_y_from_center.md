@@ -45,7 +45,7 @@ The animation class for a scale-y.<hr>
 
 **[Parameters]**
 
-- `target`: SkewYInterface
+- `target`: SkewYMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `scale_y_from_center`: float or Number
   - The final scale-y of the animation.

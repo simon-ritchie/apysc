@@ -1,7 +1,7 @@
-"""The test project for the SkewYInterface class.
+"""The test project for the SkewYMixIn class.
 
 Command examples:
-$ python test_projects/SkewYInterface/main.py
+$ python test_projects/SkewYMixIn/main.py
 """
 
 import sys

@@ -3,22 +3,22 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.skew_y_interface import SkewYInterface
+from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._expression import expression_data_util
 
 
-class _TestInterface(SkewYInterface):
+class _TestMixIn(SkewYMixIn):
     def __init__(self) -> None:
         """
-        The class for the testing of the SkewYInterface class.
+        The class for the testing of the SkewYMixIn class.
         """
         self.variable_name = "test_skew_y_interface"
 
 
-class TestSkewYInterface:
+class TestSkewYMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_skew_y_if_not_initialized(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface._initialize_skew_y_if_not_initialized()
         assert interface._skew_y == 0
 
@@ -28,7 +28,7 @@ class TestSkewYInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_skew_y(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         assert interface.skew_y == 0
 
         interface.skew_y = ap.Int(10)
@@ -37,7 +37,7 @@ class TestSkewYInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_skew_y_update_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         before_value: ap.Int = ap.Int(10)
         interface.skew_y = before_value
         after_value: ap.Int = ap.Int(20)
@@ -53,7 +53,7 @@ class TestSkewYInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface.skew_y = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -65,7 +65,7 @@ class TestSkewYInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface.skew_y = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -79,6 +79,6 @@ class TestSkewYInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_skew_y_attr_linking_setting(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface._initialize_skew_y_if_not_initialized()
         assert interface._attr_linking_stack["skew_y"] == [ap.Int(0)]

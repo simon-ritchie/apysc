@@ -16,9 +16,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
 
 
-class CssMixIn(
-    VariableNameInterface, RevertMixIn, AttrToApyscValFromBuiltinInterface
-):
+class CssMixIn(VariableNameInterface, RevertMixIn, AttrToApyscValFromBuiltinInterface):
 
     _css: Dict[str, String]
 

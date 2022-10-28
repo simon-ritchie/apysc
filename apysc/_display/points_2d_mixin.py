@@ -1,4 +1,4 @@
-"""Class implementation for 2-dimensional points interface.
+"""Class implementation for 2-dimensional points mix-in.
 """
 
 from typing import Dict
@@ -17,7 +17,7 @@ from apysc._type.variable_name_suffix_attr_interface import (
 from apysc._validation import arg_validation_decos
 
 
-class Points2DInterface(
+class Points2DMixIn(
     VariableNameSuffixAttrInterface, VariableNameInterface, RevertMixIn
 ):
 
@@ -26,7 +26,7 @@ class Points2DInterface(
     @final
     def _initialize_points_if_not_initialized(self) -> None:
         """
-        Initialize _points attribute if this interface does not
+        Initialize _points attribute ifa this interface does not
         initialize it yet.
         """
         if hasattr(self, "_points"):

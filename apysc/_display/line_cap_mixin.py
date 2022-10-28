@@ -1,4 +1,4 @@
-"""Class implementation for line cap interface.
+"""Class implementation for line cap mix-in.
 """
 
 from typing import Dict

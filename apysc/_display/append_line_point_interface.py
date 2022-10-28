@@ -5,7 +5,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._display.points_2d_interface import Points2DInterface
+from apysc._display.points_2d_mixin import Points2DMixIn
 from apysc._display.set_x_and_y_with_minimum_point_interface_base import (
     SetXAndYWithMinimumPointInterfaceBase,
 )
@@ -15,7 +15,7 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._validation import arg_validation_decos
 
 
-class AppendLinePointInterface(Points2DInterface, VariableNameSuffixInterface):
+class AppendLinePointInterface(Points2DMixIn, VariableNameSuffixInterface):
 
     _points_var_name: str
 

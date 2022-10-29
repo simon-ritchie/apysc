@@ -14,7 +14,7 @@ from apysc._display import path as _path
 from apysc._display import polygon as _polyg
 from apysc._display import polyline as _polyline
 from apysc._display import sprite
-from apysc._display.begin_fill_interface import BeginFillInterface
+from apysc._display.begin_fill_mixin import BeginFillMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.graphics_clear_interface import GraphicsClearInterface
@@ -34,7 +34,7 @@ class Graphics(
     XMixIn,
     YMixIn,
     DisplayObject,
-    BeginFillInterface,
+    BeginFillMixIn,
     LineStyleInterface,
     GraphicsClearInterface,
     ChildMixIn,

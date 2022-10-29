@@ -1,8 +1,4 @@
-"""Class implementation for begin_fill method-related interface.
-
-See Also
---------
-- graphics_clear_interface
+"""Class implementation for begin_fill method-related mix-in.
 """
 
 
@@ -24,7 +20,7 @@ from apysc._validation import arg_validation_decos
 StrOrString = TypeVar("StrOrString", str, String)
 
 
-class BeginFillInterface(VariableNameSuffixAttrInterface, RevertMixIn):
+class BeginFillMixIn(VariableNameSuffixAttrInterface, RevertMixIn):
 
     _fill_color: String
     _fill_alpha: Number

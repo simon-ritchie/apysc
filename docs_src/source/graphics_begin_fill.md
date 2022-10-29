@@ -149,7 +149,7 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_alpha_setting/")
 
 ## begin_fill API
 
-<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.begin_fill -->
+<!-- Docstring: apysc._display.begin_fill_mixin.BeginFillMixIn.begin_fill -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -184,7 +184,7 @@ String('#00aaff')
 
 ## fill_color property API
 
-<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.fill_color -->
+<!-- Docstring: apysc._display.begin_fill_mixin.BeginFillMixIn.fill_color -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -215,7 +215,7 @@ String('#00aaff')
 
 ## fill_alpha property API
 
-<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.fill_alpha -->
+<!-- Docstring: apysc._display.begin_fill_mixin.BeginFillMixIn.fill_alpha -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

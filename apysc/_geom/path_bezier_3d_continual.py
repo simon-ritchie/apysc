@@ -10,7 +10,7 @@ from typing_extensions import final
 from apysc._geom.path_control_x_interface import PathControlXInterface
 from apysc._geom.path_control_y_interface import PathControlYInterface
 from apysc._geom.path_data_base import PathDataBase
-from apysc._geom.path_dest_x_interface import PathDestXInterface
+from apysc._geom.path_dest_x_mixin import PathDestXMixIn
 from apysc._geom.path_dest_y_interface import PathDestYInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
@@ -23,7 +23,7 @@ class PathBezier3DContinual(
     PathDataBase,
     PathControlXInterface,
     PathControlYInterface,
-    PathDestXInterface,
+    PathDestXMixIn,
     PathDestYInterface,
 ):
     """

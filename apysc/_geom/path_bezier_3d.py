@@ -12,7 +12,7 @@ from apysc._geom.path_control_x2_interface import PathControlX2Interface
 from apysc._geom.path_control_y1_interface import PathControlY1Interface
 from apysc._geom.path_control_y2_interface import PathControlY2Interface
 from apysc._geom.path_data_base import PathDataBase
-from apysc._geom.path_dest_x_interface import PathDestXInterface
+from apysc._geom.path_dest_x_mixin import PathDestXMixIn
 from apysc._geom.path_dest_y_interface import PathDestYInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
@@ -23,7 +23,7 @@ from apysc._validation import arg_validation_decos
 
 class PathBezier3D(
     PathDataBase,
-    PathDestXInterface,
+    PathDestXMixIn,
     PathDestYInterface,
     PathControlX1Interface,
     PathControlY1Interface,

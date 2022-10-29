@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.line_color_interface import LineColorInterface
+from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 
@@ -11,7 +11,7 @@ from apysc._testing.testing_helper import assert_attrs
 class TestAnimationLineColor:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: LineColorInterface = LineColorInterface()
+        target: LineColorMixIn = LineColorMixIn()
         target.variable_name = "test_animation_line_color"
         animation: ap.AnimationLineColor = ap.AnimationLineColor(
             target=target,
@@ -34,7 +34,7 @@ class TestAnimationLineColor:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: LineColorInterface = LineColorInterface()
+        target: LineColorMixIn = LineColorMixIn()
         target.variable_name = "test_animation_line_color"
         animation: ap.AnimationLineColor = ap.AnimationLineColor(
             target=target,
@@ -45,7 +45,7 @@ class TestAnimationLineColor:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: LineColorInterface = LineColorInterface()
+        target: LineColorMixIn = LineColorMixIn()
         target.variable_name = "test_animation_line_color"
         animation: ap.AnimationLineColor = ap.AnimationLineColor(
             target=target,

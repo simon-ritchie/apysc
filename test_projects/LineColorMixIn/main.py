@@ -1,7 +1,7 @@
-"""Test project for LineColorInterface class.
+"""Test project for LineColorMixIn class.
 
 Command examples:
-$ python test_projects/LineColorInterface/main.py
+$ python test_projects/LineColorMixIn/main.py
 """
 
 import sys

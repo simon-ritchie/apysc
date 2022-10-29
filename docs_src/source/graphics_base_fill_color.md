@@ -52,7 +52,7 @@ ap.save_overall_html(dest_dir_path="./graphics_base_fill_color_basic_usage/")
 
 ## fill_color property API
 
-<!-- Docstring: apysc._display.fill_color_interface.FillColorInterface.fill_color -->
+<!-- Docstring: apysc._display.fill_color_mixin.FillColorMixIn.fill_color -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

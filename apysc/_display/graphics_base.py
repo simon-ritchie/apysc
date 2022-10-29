@@ -11,7 +11,7 @@ from typing_extensions import final
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
-from apysc._display.fill_color_interface import FillColorInterface
+from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
 from apysc._display.line_alpha_interface import LineAlphaInterface
@@ -127,7 +127,7 @@ class GraphicsBase(
         line_joints : String or LineJoints or None
             A line-joints value to set.
         """
-        if isinstance(self, FillColorInterface):
+        if isinstance(self, FillColorMixIn):
             self._set_initial_fill_color_if_not_blank(fill_color=fill_color)
         if isinstance(self, FillAlphaMixIn):
             self._update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
@@ -147,7 +147,7 @@ class GraphicsBase(
                 attr=self._fill_alpha, attr_name="fill_alpha"
             )
 
-        if isinstance(self, FillColorInterface):
+        if isinstance(self, FillColorMixIn):
             self._append_applying_new_attr_val_exp(
                 new_attr=self._fill_color, attr_name="fill_color"
             )
@@ -233,7 +233,7 @@ class GraphicsBase(
         """
         from apysc._display import graphics_expression
 
-        if isinstance(self, FillColorInterface):
+        if isinstance(self, FillColorMixIn):
             self._initialize_fill_color_if_not_initialized()
             expression = graphics_expression.append_fill_expression(
                 fill_color=self._fill_color,

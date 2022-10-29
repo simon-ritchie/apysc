@@ -1,4 +1,4 @@
-"""Class implementation for fill color interface.
+"""Class implementation for fill color mix-in.
 """
 
 from typing import Dict
@@ -17,7 +17,7 @@ from apysc._type.variable_name_suffix_attr_interface import (
 from apysc._validation import arg_validation_decos
 
 
-class FillColorInterface(
+class FillColorMixIn(
     VariableNameSuffixAttrInterface,
     AnimationFillColorInterface,
     RevertMixIn,

@@ -12,7 +12,7 @@ from apysc._display import graphics
 from apysc._display.append_line_point_interface import AppendLinePointInterface
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
-from apysc._display.fill_color_interface import FillColorInterface
+from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
@@ -41,7 +41,7 @@ class Polyline(
     GraphicsBase,
     AppendLinePointInterface,
     SetXAndYWithMinimumPointInterfaceBase,
-    FillColorInterface,
+    FillColorMixIn,
     FillAlphaMixIn,
     VariableNameSuffixInterface,
 ):

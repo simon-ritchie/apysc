@@ -5,7 +5,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
-from apysc._display.fill_color_interface import FillColorInterface
+from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.graphics_base import GraphicsBase
 from apysc._testing import testing_helper
 from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
@@ -29,7 +29,7 @@ from tests._display.test_graphics_expression import assert_x_attr_expression_exi
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
 
 
-class _TestGraphic(GraphicsBase, FillColorInterface, FillAlphaMixIn):
+class _TestGraphic(GraphicsBase, FillColorMixIn, FillAlphaMixIn):
     def __repr__(self) -> str:
         """
         Get a string representation of this instance (for the sake of

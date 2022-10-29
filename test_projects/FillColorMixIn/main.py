@@ -1,7 +1,7 @@
-"""Test project for FillColorInterface class.
+"""Test project for FillColorMixIn class.
 
 Command examples:
-$ python test_projects/FillColorInterface/main.py
+$ python test_projects/FillColorMixIn/main.py
 """
 
 import sys

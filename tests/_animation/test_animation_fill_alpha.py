@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.fill_alpha_interface import FillAlphaInterface
+from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -50,7 +50,7 @@ class TestAnimationFillAlpha:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: FillAlphaInterface = FillAlphaInterface()
+        target: FillAlphaMixIn = FillAlphaMixIn()
         target.variable_name = "test_animation_fill_alpha"
         animation_fill_alpha: ap.AnimationFillAlpha = ap.AnimationFillAlpha(
             target=target, alpha=0.5

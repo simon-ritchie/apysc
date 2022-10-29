@@ -127,10 +127,10 @@ class AnimationFillAlpha(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.fill_alpha_interface import FillAlphaInterface
+        from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 
         expression: str = ""
-        if isinstance(self._target, FillAlphaInterface):
+        if isinstance(self._target, FillAlphaMixIn):
             self._target._initialize_fill_alpha_if_not_initialized()
             expression = (
                 f"{self._target._fill_alpha.variable_name} = "

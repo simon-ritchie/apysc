@@ -10,7 +10,7 @@ from typing_extensions import final
 
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
-from apysc._display.fill_alpha_interface import FillAlphaInterface
+from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
@@ -129,7 +129,7 @@ class GraphicsBase(
         """
         if isinstance(self, FillColorInterface):
             self._set_initial_fill_color_if_not_blank(fill_color=fill_color)
-        if isinstance(self, FillAlphaInterface):
+        if isinstance(self, FillAlphaMixIn):
             self._update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         self._set_initial_line_color_if_not_blank(line_color=line_color)
         self._update_line_thickness_and_skip_appending_exp(value=line_thickness)
@@ -139,7 +139,7 @@ class GraphicsBase(
         if line_joints is not None:
             self._update_line_joints_and_skip_appending_exp(value=line_joints)
 
-        if isinstance(self, FillAlphaInterface):
+        if isinstance(self, FillAlphaMixIn):
             self._append_applying_new_attr_val_exp(
                 new_attr=self._fill_alpha, attr_name="fill_alpha"
             )
@@ -241,7 +241,7 @@ class GraphicsBase(
                 indent_num=indent_num,
             )
 
-        if isinstance(self, FillAlphaInterface):
+        if isinstance(self, FillAlphaMixIn):
             self._initialize_fill_alpha_if_not_initialized()
             expression = graphics_expression.append_fill_opacity_expression(
                 fill_alpha=self._fill_alpha,

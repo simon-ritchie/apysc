@@ -10,7 +10,7 @@ from apysc._display import graphics
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
 from apysc._display.ellipse_width_interface import EllipseWidthInterface
-from apysc._display.fill_alpha_interface import FillAlphaInterface
+from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.height_mixin import HeightMixIn
@@ -40,7 +40,7 @@ class Rectangle(
     EllipseWidthInterface,
     EllipseHeightInterface,
     FillColorInterface,
-    FillAlphaInterface,
+    FillAlphaMixIn,
     VariableNameSuffixInterface,
 ):
     """

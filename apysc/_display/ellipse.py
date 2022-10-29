@@ -10,7 +10,7 @@ from apysc._display import graphics
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.cx_mixin import CxMixIn
 from apysc._display.cy_mixin import CyMixIn
-from apysc._display.fill_alpha_interface import FillAlphaInterface
+from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_caps import LineCaps
@@ -39,7 +39,7 @@ class Ellipse(
     GraphicsBase,
     WidthAndHeightInterfacesForEllipse,
     FillColorInterface,
-    FillAlphaInterface,
+    FillAlphaMixIn,
     VariableNameSuffixInterface,
     AttrToApyscValFromBuiltinInterface,
 ):

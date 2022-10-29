@@ -69,7 +69,7 @@ class GraphicsClearInterface:
         from apysc._display.child_mixin import ChildMixIn
         from apysc._display.fill_alpha_mixin import FillAlphaMixIn
         from apysc._display.fill_color_mixin import FillColorMixIn
-        from apysc._display.line_alpha_interface import LineAlphaInterface
+        from apysc._display.line_alpha_mixin import LineAlphaMixIn
         from apysc._display.line_color_interface import LineColorInterface
         from apysc._display.line_style_interface import LineStyleInterface
         from apysc._display.line_thickness_interface import LineThicknessInterface
@@ -86,7 +86,7 @@ class GraphicsClearInterface:
         if isinstance(self, (LineThicknessInterface, LineStyleInterface)):
             self._initialize_line_thickness_if_not_initialized()
         self._line_thickness.value = 1
-        if isinstance(self, (LineAlphaInterface, LineStyleInterface)):
+        if isinstance(self, (LineAlphaMixIn, LineStyleInterface)):
             self._initialize_line_alpha_if_not_initialized()
         self._line_alpha.value = 1.0
         if isinstance(self, ChildMixIn):

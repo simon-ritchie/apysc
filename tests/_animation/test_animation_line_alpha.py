@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.line_alpha_interface import LineAlphaInterface
+from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 
@@ -11,7 +11,7 @@ from apysc._testing.testing_helper import assert_attrs
 class TestAnimationLineAlpha:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: LineAlphaInterface = LineAlphaInterface()
+        target: LineAlphaMixIn = LineAlphaMixIn()
         target.variable_name = "test_line_alpha_interface"
         animation_line_alpha: ap.AnimationLineAlpha = ap.AnimationLineAlpha(
             target=target,
@@ -36,7 +36,7 @@ class TestAnimationLineAlpha:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: LineAlphaInterface = LineAlphaInterface()
+        target: LineAlphaMixIn = LineAlphaMixIn()
         target.variable_name = "test_line_alpha_interface"
         animation_line_alpha: ap.AnimationLineAlpha = ap.AnimationLineAlpha(
             target=target, alpha=0.5
@@ -49,7 +49,7 @@ class TestAnimationLineAlpha:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: LineAlphaInterface = LineAlphaInterface()
+        target: LineAlphaMixIn = LineAlphaMixIn()
         target.variable_name = "test_line_alpha_interface"
         animation_line_alpha: ap.AnimationLineAlpha = ap.AnimationLineAlpha(
             target=target, alpha=0.5

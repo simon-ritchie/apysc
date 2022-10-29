@@ -38,7 +38,7 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_alpha_basic_usage/")
 
 ## line_alpha property API
 
-<!-- Docstring: apysc._display.line_alpha_interface.LineAlphaInterface.line_alpha -->
+<!-- Docstring: apysc._display.line_alpha_mixin.LineAlphaMixIn.line_alpha -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

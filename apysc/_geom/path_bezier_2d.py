@@ -10,7 +10,7 @@ from apysc._geom.path_control_x_interface import PathControlXInterface
 from apysc._geom.path_control_y_interface import PathControlYInterface
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_dest_x_mixin import PathDestXMixIn
-from apysc._geom.path_dest_y_interface import PathDestYInterface
+from apysc._geom.path_dest_y_mixin import PathDestYMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
@@ -23,7 +23,7 @@ class PathBezier2D(
     PathControlXInterface,
     PathControlYInterface,
     PathDestXMixIn,
-    PathDestYInterface,
+    PathDestYMixIn,
 ):
     """
     Path data class for the SVG's `2D bezier curve` (Q).

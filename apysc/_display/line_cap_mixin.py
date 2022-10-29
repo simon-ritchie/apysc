@@ -17,9 +17,7 @@ from apysc._type.variable_name_suffix_attr_interface import (
 from apysc._validation import arg_validation_decos
 
 
-class LineCapMixIn(
-    VariableNameSuffixAttrInterface, VariableNameInterface, RevertMixIn
-):
+class LineCapMixIn(VariableNameSuffixAttrInterface, VariableNameInterface, RevertMixIn):
 
     _line_cap: String
 

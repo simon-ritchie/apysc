@@ -73,9 +73,7 @@ class TestLineStyleMixIn:
         assert line_style_mixin.line_color == "#333333"
 
         line_color_1: ap.String = line_style_mixin.line_color
-        assert (
-            line_color_1.variable_name != line_style_mixin.line_color.variable_name
-        )
+        assert line_color_1.variable_name != line_style_mixin.line_color.variable_name
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_thickness(self) -> None:
@@ -441,9 +439,7 @@ class TestLineStyleMixIn:
         assert thickness == 10
         assert isinstance(thickness, ap.Int)
 
-        thickness = line_style_mixin._convert_line_thickness_to_apysc_int(
-            thickness=5
-        )
+        thickness = line_style_mixin._convert_line_thickness_to_apysc_int(thickness=5)
         assert thickness == 5
         assert isinstance(thickness, ap.Int)
         assert thickness._variable_name_suffix == "test_suffix__line_thickness"

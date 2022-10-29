@@ -441,7 +441,7 @@ Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_da
 
 ## line_style API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_style -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_style -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -501,7 +501,7 @@ String('round')
 
 ## line_color property API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_color -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_color -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -531,7 +531,7 @@ String('#ffffff')
 
 ## line_thickness property API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_thickness -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_thickness -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -559,7 +559,7 @@ Int(5)
 
 ## line_alpha property API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_alpha -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_alpha -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -589,7 +589,7 @@ Number(0.5)
 
 ## line_cap property API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_cap -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_cap -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -619,7 +619,7 @@ String('round')
 
 ## line_joints property API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_joints -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_joints -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -649,7 +649,7 @@ String('round')
 
 ## line_dot_setting property API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_dot_setting -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_dot_setting -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -679,7 +679,7 @@ Int(5)
 
 ## line_dash_setting property API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_dash_setting -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_dash_setting -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -714,7 +714,7 @@ Int(5)
 
 ## line_round_dot_setting property API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_round_dot_setting -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_round_dot_setting -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -749,7 +749,7 @@ Int(3)
 
 ## line_dash_dot_setting property API
 
-<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_dash_dot_setting -->
+<!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_dash_dot_setting -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

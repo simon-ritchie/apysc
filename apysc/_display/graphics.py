@@ -18,7 +18,7 @@ from apysc._display.begin_fill_mixin import BeginFillMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.graphics_clear_interface import GraphicsClearInterface
-from apysc._display.line_style_interface import LineStyleInterface
+from apysc._display.line_style_mixin import LineStyleMixIn
 from apysc._display.rectangle import Rectangle
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
@@ -35,7 +35,7 @@ class Graphics(
     YMixIn,
     DisplayObject,
     BeginFillMixIn,
-    LineStyleInterface,
+    LineStyleMixIn,
     GraphicsClearInterface,
     ChildMixIn,
 ):

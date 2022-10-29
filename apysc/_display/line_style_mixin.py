@@ -1,8 +1,4 @@
-"""Class implementation for line style-related interface.
-
-See Also
---------
-- graphics_clear_interface
+"""Class implementation for line style-related mix-in.
 """
 
 from typing import Dict
@@ -33,7 +29,7 @@ from apysc._validation import arg_validation_decos
 StrOrString = TypeVar("StrOrString", str, String)
 
 
-class LineStyleInterface(
+class LineStyleMixIn(
     VariableNameSuffixAttrInterface,
     VariableNameInterface,
     RevertMixIn,

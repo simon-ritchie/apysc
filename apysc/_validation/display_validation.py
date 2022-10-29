@@ -259,28 +259,28 @@ def validate_multiple_line_settings_are_not_set(
     from apysc._display.line_round_dot_setting_interface import (
         LineRoundDotSettingInterface,
     )
-    from apysc._display.line_style_interface import LineStyleInterface
+    from apysc._display.line_style_mixin import LineStyleMixIn
 
     valid_setting_names: List[str] = []
-    if isinstance(any_instance, (LineStyleInterface, LineDotSettingInterface)):
+    if isinstance(any_instance, (LineStyleMixIn, LineDotSettingInterface)):
         if (
             hasattr(any_instance, "_line_dot_setting")
             and any_instance._line_dot_setting is not None
         ):
             valid_setting_names.append("LineDotSetting")
-    if isinstance(any_instance, (LineStyleInterface, LineDashSettingInterface)):
+    if isinstance(any_instance, (LineStyleMixIn, LineDashSettingInterface)):
         if (
             hasattr(any_instance, "_line_dash_setting")
             and any_instance._line_dash_setting is not None
         ):
             valid_setting_names.append("LineDashSetting")
-    if isinstance(any_instance, (LineStyleInterface, LineRoundDotSettingInterface)):
+    if isinstance(any_instance, (LineStyleMixIn, LineRoundDotSettingInterface)):
         if (
             hasattr(any_instance, "_line_round_dot_setting")
             and any_instance._line_round_dot_setting is not None
         ):
             valid_setting_names.append("LineRoundDotSetting")
-    if isinstance(any_instance, (LineStyleInterface, LineDashDotSettingInterface)):
+    if isinstance(any_instance, (LineStyleMixIn, LineDashDotSettingInterface)):
         if (
             hasattr(any_instance, "_line_dash_dot_setting")
             and any_instance._line_dash_dot_setting is not None

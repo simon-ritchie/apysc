@@ -8,7 +8,7 @@ from typing_extensions import final
 
 from apysc._display import graphics
 from apysc._display.child_mixin import ChildMixIn
-from apysc._display.ellipse_height_interface import EllipseHeightInterface
+from apysc._display.ellipse_height_mixin import EllipseHeightMixIn
 from apysc._display.ellipse_width_mixin import EllipseWidthMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
@@ -38,7 +38,7 @@ class Rectangle(
     WidthMixIn,
     HeightMixIn,
     EllipseWidthMixIn,
-    EllipseHeightInterface,
+    EllipseHeightMixIn,
     FillColorMixIn,
     FillAlphaMixIn,
     VariableNameSuffixInterface,

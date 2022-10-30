@@ -1,4 +1,4 @@
-"""Class implementation for the ellipse height interface.
+"""Class implementation for the ellipse height mix-in.
 """
 
 from typing import Dict
@@ -16,7 +16,7 @@ from apysc._type.variable_name_suffix_attr_interface import (
 from apysc._validation import arg_validation_decos
 
 
-class EllipseHeightInterface(
+class EllipseHeightMixIn(
     VariableNameSuffixAttrInterface,
     VariableNameInterface,
     RevertMixIn,

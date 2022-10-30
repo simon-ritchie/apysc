@@ -55,7 +55,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `locals_`: dict or None, default None": "- `locals_`: dict or None, default None",  # noqa
     ##################################################
-    "  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of an `Else` scope. This setting is useful when you don't want to update each variable by implementing the `Else` scope.": "  - 現在のスコープの各ローカル変数の値。利用する場合にはlocals()関数をこの引数へ指定してください。もし設定された場合には`Else`のスコープの最後にVariableNameInterfaceクラスを継承したクラスの各変数（例 : Spriteなど）の設定は復元されます。この設定は`Else`クラスのスコープ内で変数を更新したくない場合などに便利なことがあります。",  # noqa
+    "  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of an `Else` scope. This setting is useful when you don't want to update each variable by implementing the `Else` scope.": "  - 現在のスコープの各ローカル変数の値。利用する場合にはlocals()関数をこの引数へ指定してください。もし設定された場合には`Else`のスコープの最後にVariableNameMixInクラスを継承したクラスの各変数（例 : Spriteなど）の設定は復元されます。この設定は`Else`クラスのスコープ内で変数を更新したくない場合などに便利なことがあります。",  # noqa
     ##################################################
     "- `globals_`: dict or None, default None": "- `globals_`: dict or None, default None",  # noqa
     ##################################################

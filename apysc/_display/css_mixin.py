@@ -12,11 +12,11 @@ from apysc._type.attr_to_apysc_val_from_builtin_interface import (
 )
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
 
-class CssMixIn(VariableNameInterface, RevertMixIn, AttrToApyscValFromBuiltinInterface):
+class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinInterface):
 
     _css: Dict[str, String]
 

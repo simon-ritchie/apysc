@@ -18,7 +18,7 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.number_value_mixin import NumberValueMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
@@ -29,7 +29,7 @@ _O2 = TypeVar("_O2")
 _Handler = Callable[["TimerEvent", _O1], None]
 
 
-class Timer(VariableNameInterface, CustomEventInterface["TimerEvent"]):
+class Timer(VariableNameMixIn, CustomEventInterface["TimerEvent"]):
     """
     Timer class to handle function calling at regular intervals.
 
@@ -203,7 +203,7 @@ class Timer(VariableNameInterface, CustomEventInterface["TimerEvent"]):
 
         if isinstance(delay, FPS):
             fps_definition: FPSDefinition = delay.value
-            delay = fps_definition.milisecond_intervals
+            delay = fps_definition.milisecond_intervals  # type: ignore
         if not isinstance(delay, ap.Number):
             delay_: ap.Number = ap.Number(delay)
         else:

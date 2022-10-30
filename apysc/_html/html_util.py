@@ -27,7 +27,7 @@ from typing import TypeVar
 from typing_extensions import final
 
 from apysc._type.string import String
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 StrOrString = TypeVar("StrOrString", str, String)
 
@@ -72,7 +72,7 @@ def remove_first_selector_symbol_char(*, str_val: StrOrString) -> StrOrString:
 
 
 def _append_remove_first_selector_symbol_char_expression(
-    *, str_val: VariableNameInterface
+    *, str_val: VariableNameMixIn
 ) -> None:
     """
     Append remove_first_selector_symbol_char function's

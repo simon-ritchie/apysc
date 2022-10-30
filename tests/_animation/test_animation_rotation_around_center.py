@@ -9,7 +9,7 @@ from apysc._display.rotation_around_center_interface import (
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnimationRotationAroundCenter:
@@ -42,7 +42,7 @@ class TestAnimationRotationAroundCenter:
             any_obj=animation_rotation_around_center,
         )
 
-        target_2: VariableNameInterface = VariableNameInterface()
+        target_2: VariableNameMixIn = VariableNameMixIn()
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationRotationAroundCenter,

@@ -8,13 +8,13 @@ from typing import TypeVar
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
-T = TypeVar("T", bound=VariableNameInterface)
+T = TypeVar("T", bound=VariableNameMixIn)
 
 
-class Event(Generic[T], VariableNameInterface):
+class Event(Generic[T], VariableNameMixIn):
     """
     Basic event class.
 
@@ -49,7 +49,7 @@ class Event(Generic[T], VariableNameInterface):
 
         Parameters
         ----------
-        this : VariableNameInterface
+        this : VariableNameMixIn
             Instance that listening event (e.g., Sprite).
         type_name : str or None, default None
             Type name to set. Only specify when inheriting
@@ -125,7 +125,7 @@ class Event(Generic[T], VariableNameInterface):
 
         Returns
         -------
-        this : VariableNameInterface
+        this : VariableNameMixIn
             Instance that listening this event.
 
         Examples

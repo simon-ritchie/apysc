@@ -9,10 +9,10 @@ from apysc._event.click_mixin import ClickMixIn
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestClickMixIn(ClickMixIn, VariableNameInterface):
+class _TestClickMixIn(ClickMixIn, VariableNameMixIn):
     def __init__(self) -> None:
         """
         Test class for ClickMixIn.

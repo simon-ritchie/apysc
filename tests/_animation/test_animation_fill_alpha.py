@@ -6,13 +6,13 @@ import apysc as ap
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnimationFillAlpha:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_fill_alpha"
         animation_fill_alpha: ap.AnimationFillAlpha = ap.AnimationFillAlpha(
             target=target,
@@ -37,7 +37,7 @@ class TestAnimationFillAlpha:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_fill_alpha"
         animation_fill_alpha: ap.AnimationFillAlpha = ap.AnimationFillAlpha(
             target=target, alpha=0.5

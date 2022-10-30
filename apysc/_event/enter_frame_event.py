@@ -8,10 +8,10 @@ from typing_extensions import final
 
 from apysc._event.event import Event
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
-Target = TypeVar("Target", bound=VariableNameInterface)
+Target = TypeVar("Target", bound=VariableNameMixIn)
 
 
 class EnterFrameEvent(Event[Target], Generic[Target]):
@@ -28,7 +28,7 @@ class EnterFrameEvent(Event[Target], Generic[Target]):
 
         Parameters
         ----------
-        this : VariableNameInterface
+        this : VariableNameMixIn
             An instance which a listening event.
         """
         from apysc._expression import var_names

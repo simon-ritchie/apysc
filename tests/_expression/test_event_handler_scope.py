@@ -8,7 +8,7 @@ from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -75,7 +75,7 @@ def test__decrement_scope_count() -> None:
 class TestHandlerScope:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        instance: VariableNameInterface = VariableNameInterface()
+        instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
         handler_scope: HandlerScope = HandlerScope(
             handler_name="test_handler_1", instance=instance
@@ -86,7 +86,7 @@ class TestHandlerScope:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         expression_data_util.empty_expression()
-        instance: VariableNameInterface = VariableNameInterface()
+        instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
 
         with HandlerScope(handler_name="test_handler_1", instance=instance):
@@ -104,7 +104,7 @@ class TestHandlerScope:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         expression_data_util.empty_expression()
-        instance: VariableNameInterface = VariableNameInterface()
+        instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
 
         with HandlerScope(handler_name="test_handler_1", instance=instance):
@@ -152,7 +152,7 @@ class TestTemporaryNotHandlerScope:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__save_handler_calling_stack() -> None:
     expression_data_util.empty_expression()
-    instance: VariableNameInterface = VariableNameInterface()
+    instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
         query: str = (
@@ -170,7 +170,7 @@ def test__save_handler_calling_stack() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__delete_handler_calling_stack() -> None:
     expression_data_util.empty_expression()
-    instance: VariableNameInterface = VariableNameInterface()
+    instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
         pass
@@ -197,7 +197,7 @@ def test_current_scope_is_in_event_handler() -> None:
     result: bool = event_handler_scope.current_scope_is_in_event_handler()
     assert not result
 
-    instance: VariableNameInterface = VariableNameInterface()
+    instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
         result = event_handler_scope.current_scope_is_in_event_handler()

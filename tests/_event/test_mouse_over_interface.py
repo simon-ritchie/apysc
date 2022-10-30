@@ -7,10 +7,10 @@ from retrying import retry
 import apysc as ap
 from apysc._event.mouse_over_interface import MouseOverInterface
 from apysc._expression import expression_data_util
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestMouseOver(MouseOverInterface, VariableNameInterface):
+class _TestMouseOver(MouseOverInterface, VariableNameMixIn):
     def __init__(self) -> None:
         """Test class for MouseOverInterface."""
         self.variable_name = "test_mouse_over"

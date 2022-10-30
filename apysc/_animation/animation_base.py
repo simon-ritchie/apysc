@@ -17,16 +17,16 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
-_T = TypeVar("_T", bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameMixIn)
 _O = TypeVar("_O")
 _Handler = Callable[["animation_event.AnimationEvent", _O], None]
 
 
 class AnimationBase(
-    VariableNameInterface,
+    VariableNameMixIn,
     CustomEventInterface["animation_event.AnimationEvent"],
     Generic[_T],
     ABC,
@@ -73,7 +73,7 @@ class AnimationBase(
 
         Parameters
         ----------
-        target : VariableNameInterface
+        target : VariableNameMixIn
             A target instance of the animation target
             (e.g., `DisplayObject` instance).
         duration : int or Int, default 3000
@@ -286,7 +286,7 @@ class AnimationBase(
 
         Returns
         -------
-        target : VariableNameInterface
+        target : VariableNameMixIn
             An animation target instance.
 
         References

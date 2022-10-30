@@ -7,10 +7,10 @@ from retrying import retry
 import apysc as ap
 from apysc._event.click_mixin import ClickMixIn
 from apysc._expression import expression_data_util
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestClickMixIn(ClickMixIn, VariableNameInterface):
+class _TestClickMixIn(ClickMixIn, VariableNameMixIn):
     def __init__(self) -> None:
         """MixIn for testing."""
         self.variable_name = "test_click_interface"

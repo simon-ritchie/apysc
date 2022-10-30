@@ -4,13 +4,13 @@ from retrying import retry
 
 import apysc as ap
 from apysc._expression import var_names
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnimationEvent:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_event"
         animation_move: ap.AnimationMove = ap.AnimationMove(
             target=target, x=50, y=100, duration=1000
@@ -21,7 +21,7 @@ class TestAnimationEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_this(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_event"
         animation_move: ap.AnimationMove = ap.AnimationMove(
             target=target, x=50, y=100, duration=1000

@@ -94,7 +94,7 @@ class Elif(IfBase):
         locals_ : dict or None, default None
             Current scope's local variables. Set locals()
             value to this argument. If specified, this interface
-            reverts all local scope VariableNameInterface
+            reverts all local scope VariableNameMixIn
             variables (like Int, Sprite) at the end of an `Elif`
             scope. This setting is useful when you don't want to
             update each variable by implementing the `Elif` scope.

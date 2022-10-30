@@ -7,10 +7,10 @@ from retrying import retry
 import apysc as ap
 from apysc._event.mouse_out_interface import MouseOutInterface
 from apysc._expression import expression_data_util
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestMouseOut(MouseOutInterface, VariableNameInterface):
+class _TestMouseOut(MouseOutInterface, VariableNameMixIn):
     def __init__(self) -> None:
         """Test class for MouseOutInterface."""
         self.variable_name = "test_mouse_out"

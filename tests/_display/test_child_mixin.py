@@ -13,7 +13,7 @@ from apysc._expression import var_names
 
 
 class TestChildMixIn:
-    """Because of `VariableNameInterface` inheritance,
+    """Because of `VariableNameMixIn` inheritance,
     each test will be executed with Stage and Sprite
     (ChildMixIn subclasses).
     """

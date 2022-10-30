@@ -12,9 +12,9 @@ from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameMixIn)
 
 
 class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
@@ -104,7 +104,7 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ANIMATION_ROTATION_AROUND_CENTER
         )
-        target_: VariableNameInterface = target
+        target_: VariableNameMixIn = target
         if isinstance(target_, RotationAroundCenterInterface):
             target_._initialize_rotation_around_center_if_not_initialized()
             self._before_rotation_around_center = target_._rotation_around_center

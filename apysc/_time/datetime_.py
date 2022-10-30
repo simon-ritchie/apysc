@@ -11,7 +11,7 @@ from apysc._type.initial_substitution_exp_interface import (
 )
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
@@ -20,7 +20,7 @@ from apysc._validation import arg_validation_decos
 
 
 class DateTime(
-    VariableNameInterface,
+    VariableNameMixIn,
     VariableNameSuffixAttrInterface,
     RevertMixIn,
     VariableNameSuffixInterface,

@@ -23,7 +23,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
@@ -446,7 +446,7 @@ class Dictionary(
         import apysc as ap
         from apysc._type import value_util
 
-        if not isinstance(value, VariableNameInterface):
+        if not isinstance(value, VariableNameMixIn):
             value = ap.AnyValue(None)
         key_str: str = value_util.get_value_str_for_expression(value=key)
         expression: str = (
@@ -579,14 +579,14 @@ class Dictionary(
             result = ap.Boolean(self._value == other)
             if isinstance(other, dict):
                 other = Dictionary(other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_eq_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
-        self, *, result: Boolean, other: VariableNameInterface
+        self, *, result: Boolean, other: VariableNameMixIn
     ) -> None:
         """
         Append an __eq__ expression.
@@ -629,14 +629,14 @@ class Dictionary(
             other = Dictionary(other)
         result: ap.Boolean = self == other
         result = result.not_
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_ne_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
-        self, *, result: Boolean, other: VariableNameInterface
+        self, *, result: Boolean, other: VariableNameMixIn
     ) -> None:
         """
         Append a __ne__ expression.
@@ -730,7 +730,7 @@ class Dictionary(
         from apysc._type import value_util
 
         key_str: str = value_util.get_value_str_for_expression(value=key)
-        if not isinstance(result_value, VariableNameInterface):
+        if not isinstance(result_value, VariableNameMixIn):
             result_value = AnyValue(value=None)
         result_value_str: str = value_util.get_value_str_for_expression(
             value=result_value

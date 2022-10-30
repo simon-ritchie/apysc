@@ -7,10 +7,10 @@ from retrying import retry
 import apysc as ap
 from apysc._event.mouse_down_interface import MouseDownInterface
 from apysc._expression import expression_data_util
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestMouseDown(MouseDownInterface, VariableNameInterface):
+class _TestMouseDown(MouseDownInterface, VariableNameMixIn):
     def __init__(self) -> None:
         """Test class for mouse down testing."""
         self.variable_name = "test_mouse_down"

@@ -19,7 +19,7 @@ from apysc._display.height_mixin import HeightMixIn
 from apysc._display.width_mixin import WidthMixIn
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
@@ -31,7 +31,7 @@ class Stage(
     ChildMixIn,
     WidthMixIn,
     HeightMixIn,
-    VariableNameInterface,
+    VariableNameMixIn,
     MouseEventInterfaces,
     CustomEventInterface,
     VariableNameSuffixInterface,

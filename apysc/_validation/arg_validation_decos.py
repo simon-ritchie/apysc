@@ -103,7 +103,7 @@ Mainly the following decorators exist.
         is the `ap.LineRoundDotSetting`.
 - is_variable_name_interface_type
     - Set the validation to check a specified argument's type
-        is the `ap.VariableNameInterface` or its subclass type.
+        is the `ap.VariableNameMixIn` or its subclass type.
 - is_acceptable_array_value
     - Set the validation to check a specified argument's type
         is an acceptable array value type.
@@ -1806,7 +1806,7 @@ def is_line_round_dot_setting(*, arg_position_index: int) -> _F:
 def is_variable_name_interface_type(*, arg_position_index: int) -> _F:
     """
     Set the validation to check a specified argument's type
-    is the `ap.VariableNameInterface` or its subclass type.
+    is the `ap.VariableNameMixIn` or its subclass type.
 
     Parameters
     ----------

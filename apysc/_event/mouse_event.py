@@ -11,10 +11,10 @@ from apysc._event.prevent_default_interface import PreventDefaultInterface
 from apysc._event.stop_propagation_interface import StopPropagationInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
-T = TypeVar("T", bound=VariableNameInterface)
+T = TypeVar("T", bound=VariableNameMixIn)
 
 
 class MouseEvent(
@@ -53,7 +53,7 @@ class MouseEvent(
 
         Parameters
         ----------
-        this : VariableNameInterface
+        this : VariableNameMixIn
             An instance of a listening event (e.g., Sprite).
 
         References

@@ -4,10 +4,10 @@ import apysc as ap
 from apysc._event.handler import HandlerData
 from apysc._event.handler import get_handler_name
 from apysc._event.set_handler_data_interface import SetHandlerDataInterface
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestInterface1(VariableNameInterface, SetHandlerDataInterface[ap.MouseEvent]):
+class _TestInterface1(VariableNameMixIn, SetHandlerDataInterface[ap.MouseEvent]):
     def __init__(self) -> None:
         """
         The interface for testing.

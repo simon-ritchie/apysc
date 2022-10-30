@@ -1,4 +1,4 @@
-"""Implementation of VariableNameInterface class.
+"""Implementation of the VariableNameMixIn class.
 """
 
 from typing import List
@@ -10,7 +10,7 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._validation import arg_validation_decos
 
 
-class VariableNameInterface(DeletedObjectInterface):
+class VariableNameMixIn(DeletedObjectInterface):
 
     _variable_name: str
     _variable_name_history: List[str]

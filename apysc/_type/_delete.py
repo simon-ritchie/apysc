@@ -2,18 +2,18 @@
 implementation.
 """
 
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
 
 @arg_validation_decos.is_variable_name_interface_type(arg_position_index=0)
-def delete(value: VariableNameInterface) -> None:
+def delete(value: VariableNameMixIn) -> None:
     """
     Delete a specified value and make it undefined.
 
     Parameters
     ----------
-    value : VariableNameInterface
+    value : VariableNameMixIn
         A target value to delete.
     """
     _remove_from_parent(value=value)
@@ -21,14 +21,14 @@ def delete(value: VariableNameInterface) -> None:
     _append_delete_expression(value=value)
 
 
-def _remove_from_parent(*, value: VariableNameInterface) -> None:
+def _remove_from_parent(*, value: VariableNameMixIn) -> None:
     """
     Remove a specified value from a parent if it is the `ParentMixIn`
     instance.
 
     Parameters
     ----------
-    value : VariableNameInterface
+    value : VariableNameMixIn
         _description_
     """
     from apysc._display.parent_mixin import ParentMixIn
@@ -38,13 +38,13 @@ def _remove_from_parent(*, value: VariableNameInterface) -> None:
     value.remove_from_parent()
 
 
-def _append_delete_expression(*, value: VariableNameInterface) -> None:
+def _append_delete_expression(*, value: VariableNameMixIn) -> None:
     """
     Append a delete expression.
 
     Parameters
     ----------
-    value : VariableNameInterface
+    value : VariableNameMixIn
         A target value to delete.
     """
     import apysc as ap

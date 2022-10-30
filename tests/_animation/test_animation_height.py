@@ -6,13 +6,13 @@ import apysc as ap
 from apysc._display.height_mixin import HeightMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnimationHeight:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_height"
         animation_height: ap.AnimationHeight = ap.AnimationHeight(
             target=target,
@@ -37,7 +37,7 @@ class TestAnimationHeight:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_height"
         animation_height: ap.AnimationHeight = ap.AnimationHeight(
             target=target, height=100

@@ -11,7 +11,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
@@ -82,7 +82,7 @@ class AnyValue(
         from apysc._type import value_util
 
         expression: str = f"var {self.variable_name} = "
-        if isinstance(self._value, VariableNameInterface):
+        if isinstance(self._value, VariableNameMixIn):
             expression += f"{self._value.variable_name};"
         else:
             value_str: str = value_util.get_value_str_for_expression(value=self._value)
@@ -140,7 +140,7 @@ class AnyValue(
         import apysc as ap
 
         expression: str = f"{self.variable_name} = "
-        if isinstance(value, VariableNameInterface):
+        if isinstance(value, VariableNameMixIn):
             expression += f"{value.variable_name};"
         else:
             expression += f"{value};"
@@ -150,7 +150,7 @@ class AnyValue(
     @add_debug_info_setting(module_name=__name__)
     def _append_arithmetic_operation_expression(
         self, *, other: Any, operator: str
-    ) -> VariableNameInterface:
+    ) -> VariableNameMixIn:
         """
         Append arithmetic operation (e.g., addition) expression.
 
@@ -193,7 +193,7 @@ class AnyValue(
         result : AnyValue
             Addition result value.
         """
-        result: VariableNameInterface = self._append_arithmetic_operation_expression(
+        result: VariableNameMixIn = self._append_arithmetic_operation_expression(
             other=other, operator="+"
         )
         return result
@@ -214,7 +214,7 @@ class AnyValue(
         result : AnyValue
             Subtraction result value.
         """
-        result: VariableNameInterface = self._append_arithmetic_operation_expression(
+        result: VariableNameMixIn = self._append_arithmetic_operation_expression(
             other=other, operator="-"
         )
         return result
@@ -235,7 +235,7 @@ class AnyValue(
         result : AnyValue
             Subtraction result value.
         """
-        result: VariableNameInterface = self._append_arithmetic_operation_expression(
+        result: VariableNameMixIn = self._append_arithmetic_operation_expression(
             other=other, operator="*"
         )
         return result
@@ -256,7 +256,7 @@ class AnyValue(
         result : AnyValue
             True division result value.
         """
-        result: VariableNameInterface = self._append_arithmetic_operation_expression(
+        result: VariableNameMixIn = self._append_arithmetic_operation_expression(
             other=other, operator="/"
         )
         return result

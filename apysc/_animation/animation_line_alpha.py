@@ -12,9 +12,9 @@ from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameMixIn)
 
 
 class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
@@ -74,7 +74,7 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
 
         Parameters
         ----------
-        target : VariableNameInterface
+        target : VariableNameMixIn
             A target instance of the animation target
             (e.g., `Rectangle` instance).
         alpha : float or Number

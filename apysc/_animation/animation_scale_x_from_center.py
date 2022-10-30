@@ -12,9 +12,9 @@ from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameMixIn)
 
 
 class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
@@ -105,7 +105,7 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ANIMATION_SCALE_X_FROM_CENTER
         )
-        target_: VariableNameInterface = target
+        target_: VariableNameMixIn = target
         if isinstance(target_, ScaleXFromCenterInterface):
             target_._initialize_scale_x_from_center_if_not_initialized()
             self._before_scale_x_from_center = target_._scale_x_from_center

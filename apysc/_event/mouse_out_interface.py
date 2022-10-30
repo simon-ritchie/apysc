@@ -66,12 +66,12 @@ class MouseOutInterface(MouseEventInterfaceBase):
         import apysc as ap
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
-        from apysc._type.variable_name_interface import VariableNameInterface
+        from apysc._type.variable_name_mixin import VariableNameMixIn
         from apysc._validation.variable_name_validation import (
             validate_variable_name_interface_type,
         )
 
-        self_instance: VariableNameInterface = validate_variable_name_interface_type(
+        self_instance: VariableNameMixIn = validate_variable_name_interface_type(
             instance=self
         )
         self._initialize_mouse_out_handlers_if_not_initialized()

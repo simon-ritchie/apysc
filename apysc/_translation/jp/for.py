@@ -55,7 +55,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `locals_`: dict or None, default None": "- `locals_`: dict or None, default None",  # noqa
     ##################################################
-    "  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of a `For` scope. This setting is useful when you don't want to update each variable by implementing the `For` scope.": "  - 現在のスコープのローカル変数。設定する場合にはlocals()関数の値をこの引数に指定してください。もし設定された場合にはこのいんたーふぇいろは`For`クラスによるスコープの終わりにVariableNameInterfaceを継承した各変数（IntやSpriteなど）の値を元の状態に復元します。この設定はもしも変数の値を`For`のスコープ内で更新したくない場合などに便利な時があります。",  # noqa
+    "  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of a `For` scope. This setting is useful when you don't want to update each variable by implementing the `For` scope.": "  - 現在のスコープのローカル変数。設定する場合にはlocals()関数の値をこの引数に指定してください。もし設定された場合にはこのいんたーふぇいろは`For`クラスによるスコープの終わりにVariableNameMixInを継承した各変数（IntやSpriteなど）の値を元の状態に復元します。この設定はもしも変数の値を`For`のスコープ内で更新したくない場合などに便利な時があります。",  # noqa
     ##################################################
     "- `globals_`: dict or None, default None": "- `globals_`: dict or None, default None",  # noqa
     ##################################################

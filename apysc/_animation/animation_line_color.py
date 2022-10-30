@@ -13,9 +13,9 @@ from apysc._color import color_util
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.string import String
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameMixIn)
 StrOrString = TypeVar("StrOrString", str, String)
 
 
@@ -76,7 +76,7 @@ class AnimationLineColor(AnimationBase[_T], Generic[_T]):
 
         Parameters
         ----------
-        target : VariableNameInterface
+        target : VariableNameMixIn
             A target instance of the animation target
             (e.g., `Rectangle` instance).
         line_color : str or String

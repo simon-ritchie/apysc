@@ -18,7 +18,7 @@ from apysc._type.initial_substitution_exp_interface import (
     InitialSubstitutionExpInterface,
 )
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
@@ -213,7 +213,7 @@ class NumberValueMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_addition_expression(
-        self, *, result: VariableNameInterface, other: _NumType
+        self, *, result: VariableNameMixIn, other: _NumType
     ) -> None:
         """
         Append addition expression.
@@ -263,7 +263,7 @@ class NumberValueMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_subtraction_expression(
-        self, *, result: VariableNameInterface, other: _NumType
+        self, *, result: VariableNameMixIn, other: _NumType
     ) -> None:
         """
         Append subtraction expression.
@@ -313,7 +313,7 @@ class NumberValueMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_multiplication_expression(
-        self, *, result: VariableNameInterface, other: _NumType
+        self, *, result: VariableNameMixIn, other: _NumType
     ) -> None:
         """
         Append multiplication expression.
@@ -365,7 +365,7 @@ class NumberValueMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_true_division_expression(
-        self, *, result: VariableNameInterface, other: _NumType
+        self, *, result: VariableNameMixIn, other: _NumType
     ) -> None:
         """
         Append true division expression.
@@ -417,7 +417,7 @@ class NumberValueMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_floor_division_expression(
-        self, *, result: VariableNameInterface, other: _NumType
+        self, *, result: VariableNameMixIn, other: _NumType
     ) -> None:
         """
         Append floor division expression.
@@ -594,7 +594,7 @@ class NumberValueMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_modulo_expression(
-        self, *, result: VariableNameInterface, other: _NumType
+        self, *, result: VariableNameMixIn, other: _NumType
     ) -> None:
         """
         Append a module expression.
@@ -682,7 +682,7 @@ class NumberValueMixIn(
                 self._value == other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_eq_expression(result=result, other=other)
         return result
 
@@ -719,7 +719,7 @@ class NumberValueMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __eq__ method expression.
@@ -728,7 +728,7 @@ class NumberValueMixIn(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             The other value to compare.
         """
         import apysc as ap
@@ -769,14 +769,14 @@ class NumberValueMixIn(
                 self._value != other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_ne_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __ne__ method expression.
@@ -785,7 +785,7 @@ class NumberValueMixIn(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             The other value to compare.
         """
         import apysc as ap
@@ -826,14 +826,14 @@ class NumberValueMixIn(
                 self._value < other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_lt_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_lt_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __lt__ method expression.
@@ -842,7 +842,7 @@ class NumberValueMixIn(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             The other value to compare.
         """
         import apysc as ap
@@ -883,14 +883,14 @@ class NumberValueMixIn(
                 self._value <= other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_le_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_le_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __le__ method expression.
@@ -899,7 +899,7 @@ class NumberValueMixIn(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             The other value to compare.
         """
         import apysc as ap
@@ -947,7 +947,7 @@ class NumberValueMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_gt_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __gt__ expression.
@@ -956,7 +956,7 @@ class NumberValueMixIn(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             The other value to compare.
         """
         import apysc as ap
@@ -997,14 +997,14 @@ class NumberValueMixIn(
                 self._value >= other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_ge_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ge_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __ge__ expression.
@@ -1013,7 +1013,7 @@ class NumberValueMixIn(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             The other value to compare.
         """
         import apysc as ap

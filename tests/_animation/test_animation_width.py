@@ -6,13 +6,13 @@ import apysc as ap
 from apysc._display.width_mixin import WidthMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnimationWidth:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_width"
         animation_width: ap.AnimationWidth = ap.AnimationWidth(
             target=target,
@@ -35,7 +35,7 @@ class TestAnimationWidth:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_width"
         animation_width: ap.AnimationWidth = ap.AnimationWidth(target=target, width=100)
         expression: str = animation_width._get_animation_func_expression()

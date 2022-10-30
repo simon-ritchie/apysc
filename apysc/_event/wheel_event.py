@@ -6,7 +6,7 @@ from typing_extensions import final
 from apysc._event.event import Event
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class WheelEvent(Event):
@@ -16,13 +16,13 @@ class WheelEvent(Event):
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, *, this: VariableNameInterface) -> None:
+    def __init__(self, *, this: VariableNameMixIn) -> None:
         """
         Mouse wheel event class.
 
         Parameters
         ----------
-        this : VariableNameInterface
+        this : VariableNameMixIn
             Instance will be binded this event.
 
         Notes

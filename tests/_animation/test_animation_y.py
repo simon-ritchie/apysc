@@ -5,13 +5,13 @@ from retrying import retry
 import apysc as ap
 from apysc._display.y_mixin import YMixIn
 from apysc._testing.testing_helper import assert_attrs
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnimationY:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_y"
         animation_y: ap.AnimationY = ap.AnimationY(
             target=target,
@@ -33,7 +33,7 @@ class TestAnimationY:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_y"
         animation_y: ap.AnimationY = ap.AnimationY(target=target, y=100)
         expression: str = animation_y._get_animation_func_expression()

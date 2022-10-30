@@ -11,7 +11,7 @@ Mainly following interfaces are defined:
 from typing import Optional
 from typing import Tuple
 
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 def get_next_variable_name(*, type_name: str) -> str:
@@ -117,16 +117,16 @@ def _get_next_variable_num(*, type_name: str) -> int:
 
 
 def append_substitution_expression(
-    *, left_value: VariableNameInterface, right_value: VariableNameInterface
+    *, left_value: VariableNameMixIn, right_value: VariableNameMixIn
 ) -> None:
     """
     Append a substitution expression between two variables.
 
     Parameters
     ----------
-    left_value : VariableNameInterface
+    left_value : VariableNameMixIn
         Any left value.
-    right_value : VariableNameInterface
+    right_value : VariableNameMixIn
         Any right value.
     """
     import apysc as ap

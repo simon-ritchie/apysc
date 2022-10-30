@@ -8,7 +8,7 @@ from apysc._display.rotation_around_point_interface import RotationAroundPointIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnimationRotationAroundPoint:
@@ -43,7 +43,7 @@ class TestAnimationRotationAroundPoint:
             any_obj=animation,
         )
 
-        target_2: VariableNameInterface = VariableNameInterface()
+        target_2: VariableNameMixIn = VariableNameMixIn()
         target_2.variable_name = "test_animation_rotation_around_point"
         assert_raises(
             expected_error_class=TypeError,

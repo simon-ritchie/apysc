@@ -6,7 +6,7 @@ from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
 from apysc._expression import indent_num
 from apysc._expression.indent_num import Indent
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -64,7 +64,7 @@ def test__get_indent_num_table_name() -> None:
     table_name: str = indent_num._get_indent_num_table_name()
     assert table_name == expression_data_util.TableName.INDENT_NUM_NORMAL.value
 
-    instance: VariableNameInterface = VariableNameInterface()
+    instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with event_handler_scope.HandlerScope(
         handler_name="test_handler_1", instance=instance

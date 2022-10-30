@@ -26,9 +26,9 @@ def get_coordinate_key_for_expression(
     key_exp_str : ExpressionString
         Key expression string.
     """
-    from apysc._type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_mixin import VariableNameMixIn
 
-    if isinstance(coordinate, VariableNameInterface):
+    if isinstance(coordinate, VariableNameMixIn):
         coordinate_str: str = coordinate.variable_name
     else:
         coordinate_str = str(coordinate)

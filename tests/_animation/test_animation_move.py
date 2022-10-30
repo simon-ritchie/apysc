@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class _TestInterface(XMixIn, YMixIn):
@@ -15,7 +15,7 @@ class _TestInterface(XMixIn, YMixIn):
 class TestAnimationMove:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_move_interface"
         animation_move: ap.AnimationMove = ap.AnimationMove(
             target=target,
@@ -32,7 +32,7 @@ class TestAnimationMove:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
+        target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_move_interface"
         animation_move: ap.AnimationMove = ap.AnimationMove(
             target=target, x=100, y=200, duration=1000

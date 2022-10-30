@@ -8,10 +8,10 @@ import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.custom_event_type import CustomEventType
 from apysc._expression import expression_data_util
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestObject(CustomEventInterface, VariableNameInterface):
+class _TestObject(CustomEventInterface, VariableNameMixIn):
     def __init__(self) -> None:
         """
         Test object class.

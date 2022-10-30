@@ -13,9 +13,9 @@ from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameMixIn)
 
 
 class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
@@ -110,7 +110,7 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
             type_name=var_names.ANIMATION_SCALE_X_FROM_POINT
         )
         self._x = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=x)
-        target_: VariableNameInterface = target
+        target_: VariableNameMixIn = target
         if isinstance(target_, ScaleXFromPointInterface):
             target_._initialize_scale_x_from_point_if_not_initialized()
             self._before_scale_x_from_point = target_.get_scale_x_from_point(x=self._x)

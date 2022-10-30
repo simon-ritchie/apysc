@@ -7,10 +7,10 @@ from apysc._expression.event_handler_scope import HandlerScope
 from apysc._type.initial_substitution_exp_interface import (
     InitialSubstitutionExpInterface,
 )
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestClass(InitialSubstitutionExpInterface, VariableNameInterface):
+class _TestClass(InitialSubstitutionExpInterface, VariableNameMixIn):
     def _create_initial_substitution_expression(self) -> str:
         """
         Create an initial value's substitution expression string.

@@ -2,15 +2,15 @@ from random import randint
 
 from retrying import retry
 
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 
 
-class _TestInterface(VariableNameInterface, VariableNameSuffixInterface):
+class _TestInterface(VariableNameMixIn, VariableNameSuffixInterface):
     pass
 
 
-class TestVariableNameInterface:
+class TestVariableNameMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_variable_name(self) -> None:
         interface: _TestInterface = _TestInterface()
@@ -31,7 +31,7 @@ class TestVariableNameInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_previous_variable_name(self) -> None:
-        interface: VariableNameInterface = VariableNameInterface()
+        interface: VariableNameMixIn = VariableNameMixIn()
         previous_variable_name: str = interface._get_previous_variable_name()
         assert previous_variable_name == ""
 

@@ -12,9 +12,9 @@ from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameMixIn)
 
 
 class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
@@ -116,7 +116,7 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
         )
         self._x = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=x)
         self._y = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=y)
-        target_: VariableNameInterface = target
+        target_: VariableNameMixIn = target
         if isinstance(target_, RotationAroundPointInterface):
             target_._initialize_rotation_around_point_if_not_initialized()
             self._before_rotation_around_point = target_.get_rotation_around_point(

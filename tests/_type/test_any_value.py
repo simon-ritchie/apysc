@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnyValue:
@@ -67,8 +67,8 @@ class TestAnyValue:
     def _assert_arithmetic_operation_dunder_method_expression(
         self,
         any_value: ap.AnyValue,
-        result: VariableNameInterface,
-        other: VariableNameInterface,
+        result: VariableNameMixIn,
+        other: VariableNameMixIn,
         expected_operator: str,
     ) -> None:
         """
@@ -79,9 +79,9 @@ class TestAnyValue:
         ----------
         any_value : AnyValue
             AnyValue instance.
-        result : VariableNameInterface
+        result : VariableNameMixIn
             Result value instance.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             Other value instance.
         expected_operator : str
             Expected arithmetic operator string, e.g., '+'.
@@ -104,7 +104,7 @@ class TestAnyValue:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
-        result: VariableNameInterface = any_value + int_1
+        result: VariableNameMixIn = any_value + int_1
         assert isinstance(result, ap.AnyValue)
         self._assert_arithmetic_operation_dunder_method_expression(
             any_value=any_value, result=result, other=int_1, expected_operator="+"
@@ -115,7 +115,7 @@ class TestAnyValue:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
-        result: VariableNameInterface = any_value - int_1
+        result: VariableNameMixIn = any_value - int_1
         assert isinstance(result, ap.AnyValue)
         self._assert_arithmetic_operation_dunder_method_expression(
             any_value=any_value, result=result, other=int_1, expected_operator="-"
@@ -126,7 +126,7 @@ class TestAnyValue:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
-        result: VariableNameInterface = (
+        result: VariableNameMixIn = (
             any_value._append_arithmetic_operation_expression(other=int_1, operator="/")
         )
         expression: str = expression_data_util.get_current_expression()
@@ -141,7 +141,7 @@ class TestAnyValue:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
-        result: VariableNameInterface = any_value * int_1
+        result: VariableNameMixIn = any_value * int_1
         assert isinstance(result, ap.AnyValue)
         self._assert_arithmetic_operation_dunder_method_expression(
             any_value=any_value, result=result, other=int_1, expected_operator="*"
@@ -152,7 +152,7 @@ class TestAnyValue:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
-        result: VariableNameInterface = any_value / int_1
+        result: VariableNameMixIn = any_value / int_1
         assert isinstance(result, ap.AnyValue)
         self._assert_arithmetic_operation_dunder_method_expression(
             any_value=any_value, result=result, other=int_1, expected_operator="/"
@@ -163,7 +163,7 @@ class TestAnyValue:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
-        result: VariableNameInterface = any_value // int_1
+        result: VariableNameMixIn = any_value // int_1
         assert isinstance(result, ap.AnyValue)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
@@ -188,7 +188,7 @@ class TestAnyValue:
         self,
         any_value: ap.AnyValue,
         before_var_name: str,
-        other_value: VariableNameInterface,
+        other_value: VariableNameMixIn,
         expected_operator: str,
     ) -> None:
         """
@@ -201,7 +201,7 @@ class TestAnyValue:
             Target AnyValue instance.
         before_var_name : str
             Variable name before incremental arithmetic operation.
-        other_value : VariableNameInterface
+        other_value : VariableNameMixIn
             Other value instance.
         expected_operator : str
             Expected incremental arithmetic operator, like '+=', '*=',
@@ -275,7 +275,7 @@ class TestAnyValue:
         self,
         any_value: ap.AnyValue,
         result: ap.Boolean,
-        other: VariableNameInterface,
+        other: VariableNameMixIn,
         expected_comparison_operator: str,
     ) -> None:
         """
@@ -288,7 +288,7 @@ class TestAnyValue:
             Target AnyValue instance.
         result : Boolean
             Comparison result value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             Other value to compare.
         expected_comparison_operator : str
             Expected comparison operator string, like '!==', '>=',

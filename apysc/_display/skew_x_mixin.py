@@ -9,7 +9,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
@@ -18,7 +18,7 @@ from apysc._validation import arg_validation_decos
 
 class SkewXMixIn(
     VariableNameSuffixAttrInterface,
-    VariableNameInterface,
+    VariableNameMixIn,
     RevertMixIn,
     AttrLinkingInterface,
 ):

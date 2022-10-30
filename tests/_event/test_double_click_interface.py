@@ -7,10 +7,10 @@ from retrying import retry
 import apysc as ap
 from apysc._event.double_click_interface import DoubleClickInterface
 from apysc._expression import expression_data_util
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestDoubleClick(DoubleClickInterface, VariableNameInterface):
+class _TestDoubleClick(DoubleClickInterface, VariableNameMixIn):
     def __init__(self) -> None:
         """
         Class for double click interface's testing.

@@ -15,7 +15,7 @@ from apysc._expression.event_handler_scope import HandlerScope
 from apysc._file import file_util
 from apysc._html import exporter
 from apysc._jslib import jslib_util
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
@@ -262,7 +262,7 @@ def test__minify_html() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_event_handler_expressions() -> None:
     expression_data_util.empty_expression()
-    instance: VariableNameInterface = VariableNameInterface()
+    instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
 
     with HandlerScope(handler_name="test_handler_1", instance=instance):

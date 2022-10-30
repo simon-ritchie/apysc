@@ -65,7 +65,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `locals_`: dict or None, default None": "- `locals_`: dict or None, default None",  # noqa
     ##################################################
-    "  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of an `Elif` scope. This setting is useful when you don't want to update each variable by implementing the `Elif` scope.": "  - 現在のスコープの各ローカル変数。locals()関数の値を引数に指定してください。もしも指定された場合には`Elif`のスコープの終了字にこのインターフェイスはVariableNameInterfaceクラスを継承した各変数（例 : `Sprite`クラスなど）の値をスコープ前の状態に復元します。この設定は`Elif`スコープ内のコードで各変数を更新したくない場合に役立ちます。",  # noqa
+    "  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of an `Elif` scope. This setting is useful when you don't want to update each variable by implementing the `Elif` scope.": "  - 現在のスコープの各ローカル変数。locals()関数の値を引数に指定してください。もしも指定された場合には`Elif`のスコープの終了字にこのインターフェイスはVariableNameMixInクラスを継承した各変数（例 : `Sprite`クラスなど）の値をスコープ前の状態に復元します。この設定は`Elif`スコープ内のコードで各変数を更新したくない場合に役立ちます。",  # noqa
     ##################################################
     "- `globals_`: dict or None, default None": "- `globals_`: dict or None, default None",  # noqa
     ##################################################

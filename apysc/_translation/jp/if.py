@@ -53,7 +53,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `locals_`: dict or None, default None": "- `locals_`: dict or None, default None",  # noqa
     ##################################################
-    "  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of an `If` scope. This setting is useful when you don't want to update each variable by implementing the `If` scope.": "  - 現在のスコープの各ローカル変数。指定する場合にはlocals()関数の値をごの引数に指定してください。もし指定された場合、このインターフェイスは`If`のスコープの終了時に対象のVariableNameInterfaceクラスの各ローカル変数のインスタンスの値をスコープの開始前の時点に復元します。この設定は`If`のスコープ内の処理でPython上の各ローカル変数の値を更新したくない場合などに便利なことがあります。",  # noqa
+    "  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of an `If` scope. This setting is useful when you don't want to update each variable by implementing the `If` scope.": "  - 現在のスコープの各ローカル変数。指定する場合にはlocals()関数の値をごの引数に指定してください。もし指定された場合、このインターフェイスは`If`のスコープの終了時に対象のVariableNameMixInクラスの各ローカル変数のインスタンスの値をスコープの開始前の時点に復元します。この設定は`If`のスコープ内の処理でPython上の各ローカル変数の値を更新したくない場合などに便利なことがあります。",  # noqa
     ##################################################
     "- `globals_`: dict or None, default None": "- `globals_`: dict or None, default None",  # noqa
     ##################################################

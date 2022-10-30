@@ -14,7 +14,7 @@ from apysc._type.initial_substitution_exp_interface import (
     InitialSubstitutionExpInterface,
 )
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
@@ -268,7 +268,7 @@ class String(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_addition_expression(
-        self, *, result: VariableNameInterface, other: Union[str, "String"]
+        self, *, result: VariableNameMixIn, other: Union[str, "String"]
     ) -> None:
         """
         Append addition (string concatenation) expression.
@@ -320,7 +320,7 @@ class String(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_multiplication_expression(
-        self, *, result: VariableNameInterface, other: Union[int, Any]
+        self, *, result: VariableNameMixIn, other: Union[int, Any]
     ) -> None:
         """
         Append multiplication (string repetition) expression.
@@ -441,7 +441,7 @@ class String(
         else:
             result = ap.Boolean(False)
         other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_eq_expression(result=result, other=other)
         return result
 
@@ -471,7 +471,7 @@ class String(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __eq__ method expression.
@@ -480,7 +480,7 @@ class String(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             Other value to compare.
         """
         import apysc as ap
@@ -523,14 +523,14 @@ class String(
         else:
             result = ap.Boolean(True, variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_ne_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __ne__ method expression.
@@ -539,7 +539,7 @@ class String(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             Other value to compare.
         """
         import apysc as ap
@@ -574,14 +574,14 @@ class String(
             self._value < value, variable_name_suffix=self._variable_name_suffix
         )
         other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_lt_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_lt_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __lt__ method expression.
@@ -590,7 +590,7 @@ class String(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             Other value to compare.
         """
         import apysc as ap
@@ -625,14 +625,14 @@ class String(
             self._value <= value, variable_name_suffix=self._variable_name_suffix
         )
         other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_le_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_le_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __le__ method expression.
@@ -641,7 +641,7 @@ class String(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             Other value to compare.
         """
         import apysc as ap
@@ -676,14 +676,14 @@ class String(
             self._value > value, variable_name_suffix=self._variable_name_suffix
         )
         other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_gt_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_gt_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __gt__ method expression.
@@ -692,7 +692,7 @@ class String(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             Other value to compare.
         """
         import apysc as ap
@@ -727,14 +727,14 @@ class String(
             self._value >= value, variable_name_suffix=self._variable_name_suffix
         )
         other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_ge_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ge_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __ge__ method expression.
@@ -743,7 +743,7 @@ class String(
         ----------
         result : Boolean
             Result boolean value.
-        other : VariableNameInterface
+        other : VariableNameMixIn
             Other value to compare.
         """
         import apysc as ap

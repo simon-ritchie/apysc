@@ -3,10 +3,10 @@
 
 from typing_extensions import final
 
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class Document(VariableNameInterface):
+class Document(VariableNameMixIn):
     """
     Document (overall HTML document) class.
     """

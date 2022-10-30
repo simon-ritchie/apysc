@@ -11,7 +11,7 @@ from typing import TypeVar
 from apysc._event.event import Event
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
 _Handler = Callable[[Any, Any], None]
@@ -32,7 +32,7 @@ def get_handler_name(*, handler: _Handler, instance: Any) -> str:
     ----------
     handler : _Handler
         Target handler.
-    instance : VariableNameInterface
+    instance : VariableNameMixIn
         Instance to bind target handler.
 
     Returns
@@ -54,7 +54,7 @@ def get_handler_name(*, handler: _Handler, instance: Any) -> str:
         f"{handler.__module__}{class_name}{handler.__name__}"  # type: ignore
     )
     handler_name = handler_name.replace(".", "_")
-    instance_: VariableNameInterface = validate_variable_name_interface_type(
+    instance_: VariableNameMixIn = validate_variable_name_interface_type(
         instance=instance
     )
     handler_name += f"_{instance_.variable_name}"
@@ -98,7 +98,7 @@ def append_handler_expression(
 
     variables: List[Any] = [*handler_data.options.values()]
     snapshot_name: str = revert_mixin.make_variables_snapshots(variables=variables)
-    instance: VariableNameInterface = validate_variable_name_interface_type(
+    instance: VariableNameMixIn = validate_variable_name_interface_type(
         instance=e.this
     )
 
@@ -139,14 +139,14 @@ def _append_in_handler_head_expression(*, in_handler_head_expression: str) -> No
 
 @add_debug_info_setting(module_name=__name__)
 def append_unbinding_expression(
-    *, this: VariableNameInterface, handler_name: str, mouse_event_type: MouseEventType
+    *, this: VariableNameMixIn, handler_name: str, mouse_event_type: MouseEventType
 ) -> None:
     """
     Append event unbinding expression.
 
     Parameters
     ----------
-    this : VariableNameInterface
+    this : VariableNameMixIn
         Instance that event is binded.
     handler_name : str
         Target handler's name.
@@ -165,14 +165,14 @@ def append_unbinding_expression(
 
 @add_debug_info_setting(module_name=__name__)
 def append_unbinding_all_expression(
-    *, this: VariableNameInterface, mouse_event_type: MouseEventType
+    *, this: VariableNameMixIn, mouse_event_type: MouseEventType
 ) -> None:
     """
     Append all events unbinding expression.
 
     Parameters
     ----------
-    this : VariableNameInterface
+    this : VariableNameMixIn
         Instance that events are binded.
     mouse_event_type : MouseEventType
         Event type to unbind.

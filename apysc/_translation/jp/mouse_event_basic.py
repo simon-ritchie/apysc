@@ -185,7 +185,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `this`: VariableNameInterface": "- `this`: VariableNameInterface",
+    "- `this`: VariableNameMixIn": "- `this`: VariableNameMixIn",
     ##################################################
     "  - Instance that listening this event.": "  - このイベントが設定されているインスタンス。",
     ##################################################

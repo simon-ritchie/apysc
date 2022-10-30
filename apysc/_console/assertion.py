@@ -772,12 +772,12 @@ def _trace_info(
         This function uses this argument to adjust the caller's information.
     """
     import apysc as ap
-    from apysc._type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_mixin import VariableNameMixIn
 
     info: str = f"[{interface_label}]"
-    if isinstance(left, VariableNameInterface):
+    if isinstance(left, VariableNameMixIn):
         info += f"\nLeft-side variable name: {left.variable_name}"
-    if isinstance(right, VariableNameInterface):
+    if isinstance(right, VariableNameMixIn):
         info += f"\nRight-side variable name: {right.variable_name}"
     outer_frames_index_adjustment = (
         DEFAULT_OUTER_FRAMES_INDEX + outer_frames_index_adjustment

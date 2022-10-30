@@ -12,7 +12,7 @@ from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
@@ -46,7 +46,7 @@ class MouseEventInterfaceBase(SetHandlerDataInterface[MouseEvent]):
             validate_variable_name_interface_type,
         )
 
-        self_instance: VariableNameInterface = validate_variable_name_interface_type(
+        self_instance: VariableNameMixIn = validate_variable_name_interface_type(
             instance=self
         )
         name: str = get_handler_name(handler=handler, instance=self)
@@ -79,7 +79,7 @@ class MouseEventInterfaceBase(SetHandlerDataInterface[MouseEvent]):
             validate_variable_name_interface_type,
         )
 
-        self_instance: VariableNameInterface = validate_variable_name_interface_type(
+        self_instance: VariableNameMixIn = validate_variable_name_interface_type(
             instance=self
         )
         handlers_dict.clear()
@@ -103,12 +103,12 @@ class MouseEventInterfaceBase(SetHandlerDataInterface[MouseEvent]):
             Event type to bind.
         """
         import apysc as ap
-        from apysc._type.variable_name_interface import VariableNameInterface
+        from apysc._type.variable_name_mixin import VariableNameMixIn
         from apysc._validation.variable_name_validation import (
             validate_variable_name_interface_type,
         )
 
-        self_instance: VariableNameInterface = validate_variable_name_interface_type(
+        self_instance: VariableNameMixIn = validate_variable_name_interface_type(
             instance=self
         )
         expression: str = (

@@ -7,7 +7,7 @@ from apysc._display.scale_x_from_center_interface import ScaleXFromCenterInterfa
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnimationScaleXFromCenter:
@@ -38,7 +38,7 @@ class TestAnimationScaleXFromCenter:
             any_obj=animation,
         )
 
-        target_2: VariableNameInterface = VariableNameInterface()
+        target_2: VariableNameMixIn = VariableNameMixIn()
         target_2.variable_name = "test_animation_scale_x_from_center"
         assert_raises(
             expected_error_class=TypeError,

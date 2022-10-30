@@ -21,7 +21,7 @@ from apysc._type.initial_substitution_exp_interface import (
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
@@ -474,7 +474,7 @@ class Array(
     def _append_concat_expression(
         self,
         *,
-        concatenated: VariableNameInterface,
+        concatenated: VariableNameMixIn,
         other_arr: Union[List[T], tuple, "Array"],
     ) -> None:
         """
@@ -634,7 +634,7 @@ class Array(
         import apysc as ap
 
         expression: str = f"{self.variable_name}.pop();"
-        if isinstance(value, VariableNameInterface):
+        if isinstance(value, VariableNameMixIn):
             expression = f"{value.variable_name} = {expression}"
         ap.append_js_expression(expression=expression)
 
@@ -886,7 +886,7 @@ class Array(
     def _append_slice_expression(
         self,
         *,
-        sliced_arr: VariableNameInterface,
+        sliced_arr: VariableNameMixIn,
         start: Optional[Union[int, Int]],
         end: Optional[Union[int, Int]],
     ) -> None:
@@ -1010,8 +1010,8 @@ class Array(
         import apysc as ap
         from apysc._type import value_util
 
-        value_: VariableNameInterface
-        if not isinstance(value, VariableNameInterface):
+        value_: VariableNameMixIn
+        if not isinstance(value, VariableNameMixIn):
             value_ = ap.AnyValue(None)
         else:
             value_ = value
@@ -1326,7 +1326,7 @@ class Array(
         else:
             result = ap.Boolean(self._value == other)
             other = self._convert_other_val_to_array(other=other)
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_eq_expression(result=result, other=other)
         return result
 
@@ -1356,7 +1356,7 @@ class Array(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
-        self, *, result: Boolean, other: VariableNameInterface
+        self, *, result: Boolean, other: VariableNameMixIn
     ) -> None:
         """
         Append an __eq__ expression.
@@ -1398,14 +1398,14 @@ class Array(
         other = self._convert_other_val_to_array(other=other)
         result: ap.Boolean = self == other
         result = result.not_
-        if isinstance(other, VariableNameInterface):
+        if isinstance(other, VariableNameMixIn):
             self._append_ne_expression(result=result, other=other)
         return result
 
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
-        self, *, result: Boolean, other: VariableNameInterface
+        self, *, result: Boolean, other: VariableNameMixIn
     ) -> None:
         """
         Append a __ne__ expression.

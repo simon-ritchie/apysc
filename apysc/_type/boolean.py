@@ -15,7 +15,7 @@ from apysc._type.initial_substitution_exp_interface import (
 )
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
@@ -179,7 +179,7 @@ class Boolean(
             Created expression string.
         """
         expression: str = f"{self.variable_name} = "
-        if isinstance(self._initial_value, VariableNameInterface):
+        if isinstance(self._initial_value, VariableNameMixIn):
             expression += f"Boolean({self._initial_value.variable_name});"
         elif self._value:
             expression += "true;"
@@ -234,10 +234,10 @@ class Boolean(
         - apysc fundamental data classes value interface
             - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
         """
-        from apysc._type.variable_name_interface import VariableNameInterface
+        from apysc._type.variable_name_mixin import VariableNameMixIn
 
         self._set_value_and_skip_expression_appending(value=value)
-        if isinstance(value, VariableNameInterface):
+        if isinstance(value, VariableNameMixIn):
             self._append_value_setter_expression(value=value)
         else:
             self._append_value_setter_expression(value=self._value)
@@ -252,14 +252,14 @@ class Boolean(
 
         Parameters
         ----------
-        value : bool or VariableNameInterface
+        value : bool or VariableNameMixIn
             Any value to set.
         """
         import apysc as ap
-        from apysc._type.variable_name_interface import VariableNameInterface
+        from apysc._type.variable_name_mixin import VariableNameMixIn
 
         expression: str = f"{self.variable_name} = "
-        if isinstance(value, VariableNameInterface):
+        if isinstance(value, VariableNameMixIn):
             expression += f"Boolean({value.variable_name});"
         elif value:
             expression += "true;"
@@ -408,7 +408,7 @@ class Boolean(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_eq_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __eq__ method expression.
@@ -457,7 +457,7 @@ class Boolean(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_ne_expression(
-        self, *, result: VariableNameInterface, other: VariableNameInterface
+        self, *, result: VariableNameMixIn, other: VariableNameMixIn
     ) -> None:
         """
         Append __ne__ method expression.
@@ -509,7 +509,7 @@ class Boolean(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_not_prop_expression(self, *, result: VariableNameInterface) -> None:
+    def _append_not_prop_expression(self, *, result: VariableNameMixIn) -> None:
         """
         Append not_ property expression.
 

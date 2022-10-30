@@ -8,10 +8,10 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.type_name_interface import TypeNameInterface
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class CopyMixIn(TypeNameInterface, VariableNameInterface):
+class CopyMixIn(TypeNameInterface, VariableNameMixIn):
     @final
     @add_debug_info_setting(module_name=__name__)
     def _copy(self) -> Any:

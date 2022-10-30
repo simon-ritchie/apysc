@@ -25,13 +25,13 @@ def get_coordinates_key_for_expression(
     key_exp_str : ExpressionString
         Key expression string.
     """
-    from apysc._type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_mixin import VariableNameMixIn
 
-    if isinstance(x, VariableNameInterface):
+    if isinstance(x, VariableNameMixIn):
         x_str: str = x.variable_name
     else:
         x_str = str(x)
-    if isinstance(y, VariableNameInterface):
+    if isinstance(y, VariableNameMixIn):
         y_str: str = y.variable_name
     else:
         y_str = str(y)

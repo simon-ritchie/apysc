@@ -9,7 +9,7 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._type.copy_mixin import CopyMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestCopyMixIn:
@@ -41,7 +41,7 @@ class TestCopyMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_updating_cpy_exp_to_handler_scope(self) -> None:
         expression_data_util.empty_expression()
-        instance: VariableNameInterface = VariableNameInterface()
+        instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
         int_1: ap.Int = ap.Int(10)
         with HandlerScope(handler_name="test_handler_1", instance=instance):

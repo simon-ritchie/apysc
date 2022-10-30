@@ -37,12 +37,12 @@ def trace(*args: Any) -> None:
     """
     import apysc as ap
     from apysc._string import string_util
-    from apysc._type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_mixin import VariableNameMixIn
 
     expression: str = "console.log("
     arg_strs: List[str] = []
     for arg in args:
-        if isinstance(arg, VariableNameInterface):
+        if isinstance(arg, VariableNameMixIn):
             arg_strs.append(f"{arg.variable_name}")
             continue
         arg = string_util.escape_str(string=str(arg))

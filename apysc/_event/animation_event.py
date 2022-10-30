@@ -9,9 +9,9 @@ from typing_extensions import final
 from apysc._animation import animation_base
 from apysc._event.event import Event
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameInterface)
+_T = TypeVar("_T", bound=VariableNameMixIn)
 
 
 class AnimationEvent(Event, Generic[_T]):

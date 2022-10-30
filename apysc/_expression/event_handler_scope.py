@@ -9,7 +9,7 @@ from typing import Tuple
 
 from typing_extensions import final
 
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class HandlerScope:
@@ -19,10 +19,10 @@ class HandlerScope:
     """
 
     _handler_name: str
-    _instance: VariableNameInterface
+    _instance: VariableNameMixIn
 
     @final
-    def __init__(self, *, handler_name: str, instance: VariableNameInterface) -> None:
+    def __init__(self, *, handler_name: str, instance: VariableNameMixIn) -> None:
         """
         Class for a handler scope. The apysc uses this class at
         a with-statement.
@@ -31,7 +31,7 @@ class HandlerScope:
         ----------
         handler_name : str
             Target handler's name.
-        instance : VariableNameInterface
+        instance : VariableNameMixIn
             Instance will be binded the target handler.
         """
         self._handler_name = handler_name
@@ -62,7 +62,7 @@ class HandlerScope:
 
 
 def _save_handler_calling_stack(
-    *, handler_name: str, instance: VariableNameInterface
+    *, handler_name: str, instance: VariableNameMixIn
 ) -> None:
     """
     Save the handler calling stack data to the SQLite.
@@ -71,7 +71,7 @@ def _save_handler_calling_stack(
     ----------
     handler_name : str
         Target handler's name.
-    instance : VariableNameInterface
+    instance : VariableNameMixIn
         Instance will be binded the target handler.
     """
     from apysc._expression import expression_data_util

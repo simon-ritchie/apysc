@@ -32,7 +32,7 @@ def get_value_str_for_expression(*, value: Any) -> str:
     -------
     value_str : str
         String for expression. If a value is an instance of
-        VariableNameInterface, this interface returns
+        VariableNameMixIn, this interface returns
         a variable's name. Otherwise, this interface returns
         a string-casted value. A bool value becomes lowercase
         (true or false), and this interface quotes a string
@@ -42,11 +42,11 @@ def get_value_str_for_expression(*, value: Any) -> str:
         None becomes NaN.
     """
     from apysc._type.expression_string import ExpressionString
-    from apysc._type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_mixin import VariableNameMixIn
 
     if isinstance(value, ExpressionString):
         return value.value
-    if isinstance(value, VariableNameInterface):
+    if isinstance(value, VariableNameMixIn):
         return value.variable_name
     if isinstance(value, bool):
         return str(value).lower()
@@ -120,7 +120,7 @@ def _get_value_str_from_iterable(*, value: Union[list, tuple, Array]) -> str:
     value_str : str
         Converted string, e.g., '[10, "Hello!", true, any_variable]'.
     """
-    from apysc._type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_mixin import VariableNameMixIn
 
     if isinstance(value, Array):
         value_: List[Any] = value.value  # type: ignore
@@ -130,7 +130,7 @@ def _get_value_str_from_iterable(*, value: Union[list, tuple, Array]) -> str:
     for unit_value in value_:
         if value_str != "[":
             value_str += ", "
-        if isinstance(unit_value, VariableNameInterface):
+        if isinstance(unit_value, VariableNameMixIn):
             value_str += f"{unit_value.variable_name}"
             continue
         value_str += get_value_str_for_expression(value=unit_value)

@@ -45,7 +45,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `target`: VariableNameInterface": "- `target`: VariableNameInterface",
+    "- `target`: VariableNameMixIn": "- `target`: VariableNameMixIn",
     ##################################################
     "  - An animation target instance.": "  - アニメーション対象のインスタンス。",
     ##################################################

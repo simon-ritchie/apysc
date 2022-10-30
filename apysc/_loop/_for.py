@@ -64,7 +64,7 @@ class For(Generic[T]):
         locals_ : dict or None, default None
             Current scope's local variables. Set locals()
             value to this argument. If specified, this interface
-            reverts all local scope VariableNameInterface
+            reverts all local scope VariableNameMixIn
             variables (like Int, Sprite) at the end of a `For`
             scope. This setting is useful when you don't want to
             update each variable by implementing the `For` scope.

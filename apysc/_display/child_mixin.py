@@ -15,7 +15,7 @@ from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
 
 class ChildMixIn(
     VariableNameSuffixAttrInterface,
-    VariableNameInterface,
+    VariableNameMixIn,
     RevertMixIn,
     VariableNameSuffixInterface,
 ):

@@ -6,13 +6,13 @@ import apysc as ap
 from apysc._display.x_mixin import XMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class TestAnimationX:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        interface: VariableNameInterface = VariableNameInterface()
+        interface: VariableNameMixIn = VariableNameMixIn()
         interface.variable_name = "test_animation_x"
         animation_x: ap.AnimationX = ap.AnimationX(
             target=interface,
@@ -34,7 +34,7 @@ class TestAnimationX:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        interface: VariableNameInterface = VariableNameInterface()
+        interface: VariableNameMixIn = VariableNameMixIn()
         interface.variable_name = "test_animation_x"
         animation_x: ap.AnimationX = ap.AnimationX(
             target=interface,

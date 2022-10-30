@@ -8,7 +8,7 @@ from apysc._event.mouse_down_interface import MouseDownInterface
 from apysc._event.mouse_move_interface import MouseMoveInterface
 from apysc._event.mouse_out_interface import MouseOutInterface
 from apysc._event.mouse_over_interface import MouseOverInterface
-from apysc._event.mouse_up_interface import MouseUpInterface
+from apysc._event.mouse_up_mixin import MouseUpInterface
 
 
 class MouseEventInterfaces(

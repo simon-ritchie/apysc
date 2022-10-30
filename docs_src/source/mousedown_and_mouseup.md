@@ -249,7 +249,7 @@ Unbind all mouse down events.<hr>
 
 ## mouseup API
 
-<!-- Docstring: apysc._event.mouse_up_interface.MouseUpInterface.mouseup -->
+<!-- Docstring: apysc._event.mouse_up_mixin.MouseUpMixIn.mouseup -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -299,7 +299,7 @@ Add mouse up event listener setting.<hr>
 
 ## unbind_mouseup API
 
-<!-- Docstring: apysc._event.mouse_up_interface.MouseUpInterface.unbind_mouseup -->
+<!-- Docstring: apysc._event.mouse_up_mixin.MouseUpMixIn.unbind_mouseup -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -335,7 +335,7 @@ Unbind a specified handler's mouse-up event.<hr>
 
 ## unbind_mouseup_all API
 
-<!-- Docstring: apysc._event.mouse_up_interface.MouseUpInterface.unbind_mouseup_all -->
+<!-- Docstring: apysc._event.mouse_up_mixin.MouseUpMixIn.unbind_mouseup_all -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

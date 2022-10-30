@@ -6,4 +6,4 @@ Class implementation for the inheritance of each mouse event interface.
 
 ## `MouseEventInterfaces` class docstring
 
-Class implementation for the inheritance of each mouse event interface.
+Class implementation for the inheritance of each mouse event mix-ins.

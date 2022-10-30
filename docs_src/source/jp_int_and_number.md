@@ -89,7 +89,7 @@ assert ap.Number(10.5) == ap.Float(10.5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_mixin.NumberValueMixIn], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -145,7 +145,7 @@ Int(10)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, value: Union[int, float, apysc._type.number_value_mixin.NumberValueMixIn], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
 **[インターフェイス概要]**
 

@@ -88,7 +88,7 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_mixin.NumberValueMixIn], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
 **[Interface summary]**
 
@@ -144,7 +144,7 @@ Int(10)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_interface.NumberValueInterface], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[int, float, apysc._type.number_value_mixin.NumberValueMixIn], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
 **[Interface summary]**
 

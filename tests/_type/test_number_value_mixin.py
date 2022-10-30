@@ -65,9 +65,7 @@ class _TestNumberClass(NumberValueMixIn):
 class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=100, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=100, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         testing_helper.assert_attrs(
             expected_attrs={
@@ -100,9 +98,7 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
         expression_data_util.empty_expression()
-        mixin: _TestNumberClass = _TestNumberClass(
-            value=100, type_name="test_mixin"
-        )
+        mixin: _TestNumberClass = _TestNumberClass(value=100, type_name="test_mixin")
         mixin.variable_name = "test_number_value_mixin"
         mixin.value = 200
         assert mixin.value == 200
@@ -113,9 +109,7 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=100, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=100, type_name="test_mixin")
         mixin_1.variable_name = "test_number_value_mixin_1"
         mixin_1._append_constructor_expression()
         expression: str = expression_data_util.get_current_expression()
@@ -128,26 +122,20 @@ class TestNumberValueMixIn:
         mixin_2.variable_name = "test_number_value_mixin_2"
         mixin_2._append_constructor_expression()
         expression = expression_data_util.get_current_expression()
-        expected = (
-            "var test_number_value_mixin_2 = " "test_number_value_mixin_1"
-        )
+        expected = "var test_number_value_mixin_2 = " "test_number_value_mixin_1"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=100, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=100, type_name="test_mixin")
         mixin_1.variable_name = "test_number_value_mixin_1"
         mixin_1.value = 200
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{mixin_1.variable_name} = 200;"
         assert expected in expression
 
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=100, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=100, type_name="test_mixin")
         mixin_2.variable_name = "test_number_value_mixin_2"
         mixin_2.value = mixin_1
         expression = expression_data_util.get_current_expression()
@@ -156,16 +144,12 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_type_name(self) -> None:
-        mixin: _TestNumberClass = _TestNumberClass(
-            value=100, type_name="test_mixin"
-        )
+        mixin: _TestNumberClass = _TestNumberClass(value=100, type_name="test_mixin")
         assert mixin.type_name == "test_mixin"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___add__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: NumberValueMixIn = mixin_1 + 20
         assert mixin_2.value == 30
@@ -177,9 +161,7 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__copy(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1._copy()
         assert mixin_1.value == mixin_2.value
@@ -189,9 +171,7 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_addition_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 + 10
         expression: str = expression_data_util.get_current_expression()
@@ -210,9 +190,7 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___sub__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=20, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=20, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 - 15
         assert mixin_2.value == 5
@@ -223,15 +201,11 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_subtraction_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=20, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=20, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 - 15
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{mixin_2.variable_name} = {mixin_1.variable_name} - 15;"
-        )
+        expected: str = f"{mixin_2.variable_name} = {mixin_1.variable_name} - 15;"
         assert expected in expression
 
         mixin_3: NumberValueMixIn = mixin_1 - mixin_2
@@ -244,9 +218,7 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___mul__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=20, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=20, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 * 3
         assert mixin_2.value == 60
@@ -257,15 +229,11 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_multiplication_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=20, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=20, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 * 3
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{mixin_2.variable_name} = {mixin_1.variable_name} * 3;"
-        )
+        expected: str = f"{mixin_2.variable_name} = {mixin_1.variable_name} * 3;"
         assert expected in expression
 
         mixin_3: NumberValueMixIn = mixin_1 * mixin_2
@@ -278,9 +246,7 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___truediv__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 / 4
         assert mixin_2.value == 2.5
@@ -292,9 +258,7 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_true_division_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 / 4
         expression: str = expression_data_util.get_current_expression()
@@ -316,17 +280,13 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___floordiv__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 // 4
         assert mixin_2.value == 2
         assert isinstance(mixin_2, ap.Int)
 
-        mixin_3: _TestNumberClass = _TestNumberClass(
-            value=6, type_name="test_mixin"
-        )
+        mixin_3: _TestNumberClass = _TestNumberClass(value=6, type_name="test_mixin")
         mixin_3.variable_name = "test_mixin_2"
         mixin_4: NumberValueMixIn = mixin_1 // mixin_3
         assert mixin_4.value == 1
@@ -334,15 +294,12 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_floor_division_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 // 4
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"{mixin_2.variable_name} = "
-            f"Math.trunc({mixin_1.variable_name} / 4);"
+            f"{mixin_2.variable_name} = " f"Math.trunc({mixin_1.variable_name} / 4);"
         )
         assert expected in expression
 
@@ -422,9 +379,7 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         int_1: ap.Int = ap.Int(5)
         mixin_1 += int_1
@@ -461,9 +416,7 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___isub__(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_1 -= 3
         assert mixin_1.value == 7
@@ -498,9 +451,7 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___imul__(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_1 *= 3
         assert mixin_1.value == 30
@@ -535,9 +486,7 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___itruediv__(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_1 /= 4
         assert mixin_1.value == 2.5
@@ -545,10 +494,7 @@ class TestNumberValueMixIn:
 
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
-            pattern=(
-                r"var n_[0-9]+ = test_mixin_0;"
-                r"\nn_[0-9]+ = test_mixin_0 / 4;"
-            ),
+            pattern=(r"var n_[0-9]+ = test_mixin_0;" r"\nn_[0-9]+ = test_mixin_0 / 4;"),
             string=expression,
             flags=re.MULTILINE | re.DOTALL,
         )
@@ -571,9 +517,7 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___str__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         assert str(mixin_1) == "10"
 
         del mixin_1._value
@@ -581,17 +525,11 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_1"
-        mixin_3: _TestNumberClass = _TestNumberClass(
-            value=11, type_name="test_mixin"
-        )
+        mixin_3: _TestNumberClass = _TestNumberClass(value=11, type_name="test_mixin")
         mixin_3.variable_name = "test_mixin_3"
 
         assert mixin_1 == 10
@@ -604,13 +542,9 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ne__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=11, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=11, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
         assert mixin_1 != 11
         assert mixin_1 != mixin_2
@@ -620,17 +554,11 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___lt__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=11, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=11, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
-        mixin_3: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_3: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_3.variable_name = "test_mixin_3"
 
         assert mixin_1 < 11
@@ -642,21 +570,13 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___le__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
-        mixin_3: _TestNumberClass = _TestNumberClass(
-            value=11, type_name="test_mixin"
-        )
+        mixin_3: _TestNumberClass = _TestNumberClass(value=11, type_name="test_mixin")
         mixin_3.variable_name = "test_mixin_3"
-        mixin_4: _TestNumberClass = _TestNumberClass(
-            value=9, type_name="test_mixin"
-        )
+        mixin_4: _TestNumberClass = _TestNumberClass(value=9, type_name="test_mixin")
         mixin_4.variable_name = "test_mixin_4"
 
         assert mixin_1 <= 10
@@ -671,17 +591,11 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___gt__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=9, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=9, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
-        mixin_3: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_3: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_3.variable_name = "test_mixin_3"
 
         assert mixin_1 > 9
@@ -694,21 +608,13 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ge__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
-        mixin_3: _TestNumberClass = _TestNumberClass(
-            value=9, type_name="test_mixin"
-        )
+        mixin_3: _TestNumberClass = _TestNumberClass(value=9, type_name="test_mixin")
         mixin_3.variable_name = "test_mixin_3"
-        mixin_4: _TestNumberClass = _TestNumberClass(
-            value=11, type_name="test_mixin"
-        )
+        mixin_4: _TestNumberClass = _TestNumberClass(value=11, type_name="test_mixin")
         mixin_4.variable_name = "test_mixin_4"
 
         assert mixin_1 >= 10
@@ -723,9 +629,7 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___int__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         integer: int = int(mixin_1)
         assert mixin_1 == 10
@@ -733,18 +637,14 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___float__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10.5, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10.5, type_name="test_mixin")
         float_val: float = float(mixin_1)
         assert float_val == 10.5
         assert isinstance(float_val, float)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10.5, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10.5, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         snapshot_name: str = "snapshot_1"
         mixin_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -756,9 +656,7 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10.5, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10.5, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         snapshot_name: str = "snapshot_1"
         mixin_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -773,13 +671,9 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_eq_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
         result: ap.Boolean = mixin_1 == mixin_2
         expression: str = expression_data_util.get_current_expression()
@@ -806,13 +700,9 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
         result: ap.Boolean = mixin_1 != mixin_2
         expression: str = expression_data_util.get_current_expression()
@@ -840,13 +730,9 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_lt_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
         result: ap.Boolean = mixin_1 < mixin_2
         expression: str = expression_data_util.get_current_expression()
@@ -873,13 +759,9 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_le_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
         result: ap.Boolean = mixin_1 <= mixin_2
         expression: str = expression_data_util.get_current_expression()
@@ -906,13 +788,9 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_gt_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
         result: ap.Boolean = mixin_1 > mixin_2
         expression: str = expression_data_util.get_current_expression()
@@ -939,13 +817,9 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ge_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_2.variable_name = "test_mixin_2"
         result: ap.Boolean = mixin_1 >= mixin_2
         expression: str = expression_data_util.get_current_expression()
@@ -971,9 +845,7 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__convert_other_val_to_int_or_number(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         converted_val: Any = mixin_1._convert_other_val_to_int_or_number(other=10)
         assert isinstance(converted_val, ap.Int)
         assert converted_val == 10
@@ -998,22 +870,16 @@ class TestNumberValueMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_modulo_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: NumberValueMixIn = mixin_1 % 10
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{mixin_2.variable_name} = " f"{mixin_1.variable_name} % 10;"
-        )
+        expected: str = f"{mixin_2.variable_name} = " f"{mixin_1.variable_name} % 10;"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___mod__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: NumberValueMixIn = mixin_1 % 3
         assert mixin_2 == 1
@@ -1025,9 +891,7 @@ class TestNumberValueMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__create_substitution_expression(self) -> None:
-        mixin: _TestNumberClass = _TestNumberClass(
-            value=10, type_name="test_mixin"
-        )
+        mixin: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         expression: str = mixin._create_initial_substitution_expression()
         assert expression == f"{mixin.variable_name} = 10;"
 

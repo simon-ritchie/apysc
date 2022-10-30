@@ -44,7 +44,7 @@ The animation class for the ellipse-width.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Ellipse` instance).
 - `width`: Int or int
   - The final ellipse-width of the animation.

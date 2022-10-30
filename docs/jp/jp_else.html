@@ -113,7 +113,7 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: dict or None, default None</p>
 <ul>
-<li><p>現在のスコープの各ローカル変数の値。利用する場合にはlocals()関数をこの引数へ指定してください。もし設定された場合には<code class="docutils literal notranslate"><span class="pre">Else</span></code>のスコープの最後にVariableNameInterfaceクラスを継承したクラスの各変数（例 : Spriteなど）の設定は復元されます。この設定は<code class="docutils literal notranslate"><span class="pre">Else</span></code>クラスのスコープ内で変数を更新したくない場合などに便利なことがあります。</p></li>
+<li><p>現在のスコープの各ローカル変数の値。利用する場合にはlocals()関数をこの引数へ指定してください。もし設定された場合には<code class="docutils literal notranslate"><span class="pre">Else</span></code>のスコープの最後にVariableNameMixInクラスを継承したクラスの各変数（例 : Spriteなど）の設定は復元されます。この設定は<code class="docutils literal notranslate"><span class="pre">Else</span></code>クラスのスコープ内で変数を更新したくない場合などに便利なことがあります。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">globals_</span></code>: dict or None, default None</p>

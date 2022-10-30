@@ -325,7 +325,7 @@ Append __eq__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - The other value to compare.
 
 ### `_append_floor_division_expression` method docstring
@@ -347,7 +347,7 @@ Append __ge__ expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - The other value to compare.
 
 ### `_append_gt_expression` method docstring
@@ -358,7 +358,7 @@ Append __gt__ expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - The other value to compare.
 
 ### `_append_incremental_calc_substitution_expression` method docstring
@@ -373,7 +373,7 @@ Append __le__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - The other value to compare.
 
 ### `_append_lt_expression` method docstring
@@ -384,7 +384,7 @@ Append __lt__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - The other value to compare.
 
 ### `_append_modulo_expression` method docstring
@@ -417,7 +417,7 @@ Append __ne__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - The other value to compare.
 
 ### `_append_subtraction_expression` method docstring

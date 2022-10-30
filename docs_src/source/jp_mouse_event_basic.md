@@ -456,7 +456,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 
 **[返却値]**
 
-- `this`: VariableNameInterface
+- `this`: VariableNameMixIn
   - このイベントが設定されているインスタンス。
 
 <hr>

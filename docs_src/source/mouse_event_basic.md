@@ -464,7 +464,7 @@ Get an instance of listening to this event.<hr>
 
 **[Returns]**
 
-- `this`: VariableNameInterface
+- `this`: VariableNameMixIn
   - Instance that listening this event.
 
 <hr>

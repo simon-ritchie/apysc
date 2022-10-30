@@ -88,7 +88,7 @@ Get an animation target instance.<hr>
 
 **[Returns]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - An animation target instance.
 
 <hr>

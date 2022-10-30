@@ -35,7 +35,7 @@ Basic event class.<hr>
 
 **[Parameters]**
 
-- `this`: VariableNameInterface
+- `this`: VariableNameMixIn
   - Instance that listening event (e.g., Sprite).
 - `type_name`: str or None, default None
   - Type name to set. Only specify when inheriting this class.

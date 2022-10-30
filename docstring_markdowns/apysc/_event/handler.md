@@ -34,7 +34,7 @@ Append all events unbinding expression.<hr>
 
 **[Parameters]**
 
-- `this`: VariableNameInterface
+- `this`: VariableNameMixIn
   - Instance that events are binded.
 - `mouse_event_type`: MouseEventType
   - Event type to unbind.
@@ -45,7 +45,7 @@ Append event unbinding expression.<hr>
 
 **[Parameters]**
 
-- `this`: VariableNameInterface
+- `this`: VariableNameMixIn
   - Instance that event is binded.
 - `handler_name`: str
   - Target handler's name.
@@ -60,7 +60,7 @@ Get a handler name.<hr>
 
 - `handler`: _Handler
   - Target handler.
-- `instance`: VariableNameInterface
+- `instance`: VariableNameMixIn
   - Instance to bind target handler.
 
 <hr>

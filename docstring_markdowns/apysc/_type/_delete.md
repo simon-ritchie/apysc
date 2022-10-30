@@ -10,7 +10,7 @@ Append a delete expression.<hr>
 
 **[Parameters]**
 
-- `value`: VariableNameInterface
+- `value`: VariableNameMixIn
   - A target value to delete.
 
 ## `_remove_from_parent` function docstring
@@ -19,7 +19,7 @@ Remove a specified value from a parent if it is the `ParentMixIn` instance.<hr>
 
 **[Parameters]**
 
-- `value`: VariableNameInterface
+- `value`: VariableNameMixIn
   - _description_
 
 ## `delete` function docstring
@@ -28,5 +28,5 @@ Delete a specified value and make it undefined.<hr>
 
 **[Parameters]**
 
-- `value`: VariableNameInterface
+- `value`: VariableNameMixIn
   - A target value to delete.

@@ -44,7 +44,7 @@ The animation class for a height.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `height`: Int or int
   - The final height of the animation.

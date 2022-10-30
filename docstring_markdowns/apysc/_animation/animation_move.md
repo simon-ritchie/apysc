@@ -45,7 +45,7 @@ The animation class for moving x and y coordinates.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `DisplayObject` instance).
 - `x`: int or Int
   - Destination of the x-coordinate.

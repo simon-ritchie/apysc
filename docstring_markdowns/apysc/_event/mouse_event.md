@@ -37,7 +37,7 @@ Mouse event class.<hr>
 
 **[Parameters]**
 
-- `this`: VariableNameInterface
+- `this`: VariableNameMixIn
   - An instance of a listening event (e.g., Sprite).
 
 <hr>

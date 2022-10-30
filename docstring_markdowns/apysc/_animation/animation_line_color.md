@@ -45,7 +45,7 @@ The animation class for the line color.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `line_color`: str or String
   - The final color (hex color code) of the animation.

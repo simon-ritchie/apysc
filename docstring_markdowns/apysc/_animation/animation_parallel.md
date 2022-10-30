@@ -47,7 +47,7 @@ The parallel animation setting class.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `DisplayObject` instance).
 - `animations`: list of AnimationBase
   - Target animations (e.g., `AnimationX`, `AnimationFillColor`).

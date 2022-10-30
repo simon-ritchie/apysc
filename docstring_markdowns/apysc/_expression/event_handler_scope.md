@@ -38,7 +38,7 @@ Save the handler calling stack data to the SQLite.<hr>
 
 - `handler_name`: str
   - Target handler's name.
-- `instance`: VariableNameInterface
+- `instance`: VariableNameMixIn
   - Instance will be binded the target handler.
 
 ## `current_scope_is_in_event_handler` function docstring
@@ -100,7 +100,7 @@ Class for a handler scope. The apysc uses this class at a with-statement.<hr>
 
 - `handler_name`: str
   - Target handler's name.
-- `instance`: VariableNameInterface
+- `instance`: VariableNameMixIn
   - Instance will be binded the target handler.
 
 ## `TemporaryNotHandlerScope` class docstring

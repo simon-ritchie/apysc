@@ -94,7 +94,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: dict or None, default None</p>
 <ul>
-<li><p>現在のスコープの各ローカル変数。指定する場合にはlocals()関数の値をごの引数に指定してください。もし指定された場合、このインターフェイスは<code class="docutils literal notranslate"><span class="pre">If</span></code>のスコープの終了時に対象のVariableNameInterfaceクラスの各ローカル変数のインスタンスの値をスコープの開始前の時点に復元します。この設定は<code class="docutils literal notranslate"><span class="pre">If</span></code>のスコープ内の処理でPython上の各ローカル変数の値を更新したくない場合などに便利なことがあります。</p></li>
+<li><p>現在のスコープの各ローカル変数。指定する場合にはlocals()関数の値をごの引数に指定してください。もし指定された場合、このインターフェイスは<code class="docutils literal notranslate"><span class="pre">If</span></code>のスコープの終了時に対象のVariableNameMixInクラスの各ローカル変数のインスタンスの値をスコープの開始前の時点に復元します。この設定は<code class="docutils literal notranslate"><span class="pre">If</span></code>のスコープ内の処理でPython上の各ローカル変数の値を更新したくない場合などに便利なことがあります。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">globals_</span></code>: dict or None, default None</p>

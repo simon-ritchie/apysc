@@ -141,7 +141,7 @@ with Elif(condition, ...):
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: dict or None, default None</p>
 <ul>
-<li><p>現在のスコープの各ローカル変数。locals()関数の値を引数に指定してください。もしも指定された場合には<code class="docutils literal notranslate"><span class="pre">Elif</span></code>のスコープの終了字にこのインターフェイスはVariableNameInterfaceクラスを継承した各変数（例 : <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>クラスなど）の値をスコープ前の状態に復元します。この設定は<code class="docutils literal notranslate"><span class="pre">Elif</span></code>スコープ内のコードで各変数を更新したくない場合に役立ちます。</p></li>
+<li><p>現在のスコープの各ローカル変数。locals()関数の値を引数に指定してください。もしも指定された場合には<code class="docutils literal notranslate"><span class="pre">Elif</span></code>のスコープの終了時にこのインターフェイスはVariableNameMixInクラスを継承した各変数（例 : <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>クラスなど）の値をスコープ前の状態に復元します。この設定は<code class="docutils literal notranslate"><span class="pre">Elif</span></code>スコープ内のコードで各変数を更新したくない場合に役立ちます。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">globals_</span></code>: dict or None, default None</p>

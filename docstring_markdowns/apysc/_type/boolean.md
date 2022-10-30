@@ -163,7 +163,7 @@ Append value's setter expression.<hr>
 
 **[Parameters]**
 
-- `value`: bool or VariableNameInterface
+- `value`: bool or VariableNameMixIn
   - Any value to set.
 
 ### `_create_initial_substitution_expression` method docstring

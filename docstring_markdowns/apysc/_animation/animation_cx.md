@@ -42,7 +42,7 @@ The animation class for a center-x coordinate.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Circle` instance).
 - `x`: Int or int
   - Destination of the center x-coordinate.

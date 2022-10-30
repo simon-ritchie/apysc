@@ -6,7 +6,7 @@ Variable name-related Validation interfaces.
 
 ## `validate_variable_name_interface_type` function docstring
 
-Validate specified instance type is VariableNameInterface.<hr>
+Validate specified instance type is VariableNameMixIn.<hr>
 
 **[Parameters]**
 
@@ -19,11 +19,11 @@ Validate specified instance type is VariableNameInterface.<hr>
 
 **[Returns]**
 
-- `instance`: VariableNameInterface
+- `instance`: VariableNameMixIn
   - Checked instance.
 
 <hr>
 
 **[Raises]**
 
-- TypeError: If specified instance type isn't VariableNameInterface.
+- TypeError: If specified instance type isn't VariableNameMixIn.

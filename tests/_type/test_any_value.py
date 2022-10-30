@@ -126,8 +126,8 @@ class TestAnyValue:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
-        result: VariableNameMixIn = (
-            any_value._append_arithmetic_operation_expression(other=int_1, operator="/")
+        result: VariableNameMixIn = any_value._append_arithmetic_operation_expression(
+            other=int_1, operator="/"
         )
         expression: str = expression_data_util.get_current_expression()
         expected: str = (

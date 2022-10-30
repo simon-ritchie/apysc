@@ -37,7 +37,7 @@ A class to append if (else if and else) branch instruction expression.<hr>
 - `condition`: Boolean or None
   - Boolean value to be used for judgment.
 - `locals_`: dict or None, default None
-  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of the `If` or the other branch scope. This setting is useful when you don't want to update each variable by implementing the `If` or the other scope.
+  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of the `If` or the other branch scope. This setting is useful when you don't want to update each variable by implementing the `If` or the other scope.
 - `globals_`: dict or None, default None
   - Current scope's global variables. Set the globals() value to this argument. This setting works the same way as the `locals_` argument.
 

@@ -14,7 +14,7 @@ Mouse wheel event class.<hr>
 
 **[Parameters]**
 
-- `this`: VariableNameInterface
+- `this`: VariableNameMixIn
   - Instance will be binded this event.
 
 <hr>

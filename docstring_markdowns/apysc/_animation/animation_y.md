@@ -44,7 +44,7 @@ The animation class for a y-coordinate.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `DisplayObject` instance).
 - `y`: int or Int
   - Destination of the y-coordinate.

@@ -53,7 +53,7 @@ Set the basic animation settings.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `DisplayObject` instance).
 - `duration`: int or Int, default 3000
   - Milliseconds before an animation ends.

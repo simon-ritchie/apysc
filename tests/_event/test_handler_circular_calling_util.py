@@ -54,7 +54,7 @@ def _is_circular_calling(handler_name: str) -> bool:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_handler_circular_calling() -> None:
     expression_data_util.empty_expression()
-    instance: VariableNameMixIn = VaVariableNameMixInriableNameInterface()
+    instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
         result: bool = _is_circular_calling("test_handler_a_1")

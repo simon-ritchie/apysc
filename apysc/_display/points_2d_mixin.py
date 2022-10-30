@@ -17,9 +17,7 @@ from apysc._type.variable_name_suffix_attr_interface import (
 from apysc._validation import arg_validation_decos
 
 
-class Points2DMixIn(
-    VariableNameSuffixAttrInterface, VariableNameMixIn, RevertMixIn
-):
+class Points2DMixIn(VariableNameSuffixAttrInterface, VariableNameMixIn, RevertMixIn):
 
     _points: Array[Point2D]
 

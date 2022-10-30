@@ -44,7 +44,7 @@ The animation class for a width.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `width`: Int or int
   - The final width of the animation.

@@ -98,9 +98,7 @@ def append_handler_expression(
 
     variables: List[Any] = [*handler_data.options.values()]
     snapshot_name: str = revert_mixin.make_variables_snapshots(variables=variables)
-    instance: VariableNameMixIn = validate_variable_name_interface_type(
-        instance=e.this
-    )
+    instance: VariableNameMixIn = validate_variable_name_interface_type(instance=e.this)
 
     with HandlerScope(handler_name=handler_name, instance=instance):
         is_handler_circular_calling_: bool = is_handler_circular_calling(

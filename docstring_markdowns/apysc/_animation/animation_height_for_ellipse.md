@@ -44,7 +44,7 @@ The animation class for the ellipse-height.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Ellipse` instance).
 - `height`: Int or int
   - The final ellipse-height of the animation.

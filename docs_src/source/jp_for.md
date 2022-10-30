@@ -89,7 +89,7 @@ ap.save_overall_html(dest_dir_path="for_basic_usage_with_dict/")
   - ループで使用するためのArray もしくは Dictionary クラスのインスタンス。
 
 - `locals_`: dict or None, default None
-  - 現在のスコープのローカル変数。設定する場合にはlocals()関数の値をこの引数に指定してください。もし設定された場合にはこのいんたーふぇいろは`For`クラスによるスコープの終わりにVariableNameInterfaceを継承した各変数（IntやSpriteなど）の値を元の状態に復元します。この設定はもしも変数の値を`For`のスコープ内で更新したくない場合などに便利な時があります。
+  - 現在のスコープのローカル変数。設定する場合にはlocals()関数の値をこの引数に指定してください。もし設定された場合にはこのいんたーふぇいろは`For`クラスによるスコープの終わりにVariableNameMixInを継承した各変数（IntやSpriteなど）の値を元の状態に復元します。この設定はもしも変数の値を`For`のスコープ内で更新したくない場合などに便利な時があります。
 
 - `globals_`: dict or None, default None
   - 現在のスコープの各グローバル変数。設定する場合にはglobal()関数の値をこの引数に指定してください。この設定はlocals_引数と同じように動作します。

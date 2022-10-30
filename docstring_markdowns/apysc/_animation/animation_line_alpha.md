@@ -45,7 +45,7 @@ The animation class for the line alpha.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `alpha`: float or Number
   - The final line alpha of the animation.

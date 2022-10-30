@@ -42,7 +42,7 @@ The animation class for a radius.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Circle` instance).
 - `radius`: Int or int
   - The final radius of the animation.

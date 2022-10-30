@@ -81,4 +81,4 @@ Get a value string for expression.<hr>
 **[Returns]**
 
 - `value_str`: str
-  - String for expression. If a value is an instance of VariableNameInterface, this interface returns a variable's name. Otherwise, this interface returns a string-casted value. A bool value becomes lowercase (true or false), and this interface quotes a string value by double quotation. This interface converts a List or tuple value to a JavaScript Array expression, e.g., '[10, "Hello!", true, any_variable]'. None becomes NaN.
+  - String for expression. If a value is an instance of VariableNameMixIn, this interface returns a variable's name. Otherwise, this interface returns a string-casted value. A bool value becomes lowercase (true or false), and this interface quotes a string value by double quotation. This interface converts a List or tuple value to a JavaScript Array expression, e.g., '[10, "Hello!", true, any_variable]'. None becomes NaN.

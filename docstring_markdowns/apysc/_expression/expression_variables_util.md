@@ -53,9 +53,9 @@ Append a substitution expression between two variables.<hr>
 
 **[Parameters]**
 
-- `left_value`: VariableNameInterface
+- `left_value`: VariableNameMixIn
   - Any left value.
-- `right_value`: VariableNameInterface
+- `right_value`: VariableNameMixIn
   - Any right value.
 
 ## `append_substitution_expression_with_names` function docstring

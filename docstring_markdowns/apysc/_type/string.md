@@ -293,7 +293,7 @@ Append __eq__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - Other value to compare.
 
 ### `_append_ge_expression` method docstring
@@ -304,7 +304,7 @@ Append __ge__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - Other value to compare.
 
 ### `_append_gt_expression` method docstring
@@ -315,7 +315,7 @@ Append __gt__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - Other value to compare.
 
 ### `_append_le_expression` method docstring
@@ -326,7 +326,7 @@ Append __le__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - Other value to compare.
 
 ### `_append_lt_expression` method docstring
@@ -337,7 +337,7 @@ Append __lt__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - Other value to compare.
 
 ### `_append_multiplication_expression` method docstring
@@ -359,7 +359,7 @@ Append __ne__ method expression.<hr>
 
 - `result`: Boolean
   - Result boolean value.
-- `other`: VariableNameInterface
+- `other`: VariableNameMixIn
   - Other value to compare.
 
 ### `_append_value_setter_expression` method docstring

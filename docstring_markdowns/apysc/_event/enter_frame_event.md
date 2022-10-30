@@ -14,5 +14,5 @@ Enter frame event class.<hr>
 
 **[Parameters]**
 
-- `this`: VariableNameInterface
+- `this`: VariableNameMixIn
   - An instance which a listening event.

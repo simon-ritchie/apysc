@@ -88,7 +88,7 @@ animation_x.animation_complete(on_animation_complete)
 
 **[返却値]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - アニメーション対象のインスタンス。
 
 <hr>

@@ -46,7 +46,7 @@ The animation class for a line thickness.<hr>
 
 **[Parameters]**
 
-- `target`: VariableNameInterface
+- `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `thickness`: Int or int
   - The final line thickness of the animation.

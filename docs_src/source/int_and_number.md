@@ -196,7 +196,7 @@ Number(20.8)
 
 ## value property API
 
-<!-- Docstring: apysc._type.number_value_interface.NumberValueInterface.value -->
+<!-- Docstring: apysc._type.number_value_mixin.NumberValueMixIn.value -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

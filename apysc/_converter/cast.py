@@ -16,11 +16,11 @@ from typing import Union
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.number_value_interface import NumberValueInterface
+from apysc._type.number_value_mixin import NumberValueMixIn
 
 
 @add_debug_info_setting(module_name=__name__)
-def to_int_from_float(*, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
+def to_int_from_float(*, int_or_float: Union[int, float, NumberValueMixIn]) -> Any:
     """
     Convert float value to int.
 
@@ -45,7 +45,7 @@ def to_int_from_float(*, int_or_float: Union[int, float, NumberValueInterface]) 
 
 
 @add_debug_info_setting(module_name=__name__)
-def to_float_from_int(*, int_or_float: Union[int, float, NumberValueInterface]) -> Any:
+def to_float_from_int(*, int_or_float: Union[int, float, NumberValueMixIn]) -> Any:
     """
     Convert int value to float.
 

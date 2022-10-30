@@ -7,11 +7,11 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.number_value_interface import NumberValueInterface
+from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._validation import arg_validation_decos
 
 
-class Number(NumberValueInterface[float, "Number"]):
+class Number(NumberValueMixIn[float, "Number"]):
     """
     Floating point number class for the apysc library.
 
@@ -55,7 +55,7 @@ class Number(NumberValueInterface[float, "Number"]):
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        value: Union[int, float, NumberValueInterface],
+        value: Union[int, float, NumberValueMixIn],
         *,
         variable_name_suffix: str = "",
         skip_init_substitution_expression_appending: bool = False,
@@ -148,7 +148,7 @@ class Number(NumberValueInterface[float, "Number"]):
         """
         from apysc._converter import cast
 
-        if isinstance(value, NumberValueInterface):
+        if isinstance(value, NumberValueMixIn):
             value._value = cast.to_float_from_int(int_or_float=value._value)
             value_ = value._value
         else:

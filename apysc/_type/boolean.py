@@ -144,10 +144,10 @@ class Boolean(
             Converted boolean value.
         """
         from apysc._converter import cast
-        from apysc._type.number_value_interface import NumberValueInterface
+        from apysc._type.number_value_mixin import NumberValueMixIn
         from apysc._validation import bool_validation
 
-        if isinstance(value, (int, float, NumberValueInterface)):
+        if isinstance(value, (int, float, NumberValueMixIn)):
             result: bool = cast.to_bool_from_int(integer=value)  # type: ignore
         elif isinstance(value, Boolean):
             result = value._value

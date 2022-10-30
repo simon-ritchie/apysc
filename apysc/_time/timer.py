@@ -17,7 +17,7 @@ from apysc._time.fps import FPS
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.number_value_interface import NumberValueInterface
+from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._validation import arg_validation_decos
 
@@ -89,7 +89,7 @@ class Timer(VariableNameInterface, CustomEventInterface["TimerEvent"]):
         self,
         handler: _Handler[_O1],
         *,
-        delay: Union[int, float, NumberValueInterface, FPS],
+        delay: Union[int, float, NumberValueMixIn, FPS],
         repeat_count: Union[int, Int] = 0,
         options: Optional[_O1] = None,
     ) -> None:
@@ -182,7 +182,7 @@ class Timer(VariableNameInterface, CustomEventInterface["TimerEvent"]):
     @final
     @add_debug_info_setting(module_name=__name__)
     def _convert_delay_to_number(
-        self, *, delay: Union[int, float, NumberValueInterface, FPS]
+        self, *, delay: Union[int, float, NumberValueMixIn, FPS]
     ) -> Number:
         """
         Convert each type of delay value to a `Number` value.

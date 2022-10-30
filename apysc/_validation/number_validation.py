@@ -23,7 +23,7 @@ from typing import Union
 
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.number_value_interface import NumberValueInterface
+from apysc._type.number_value_mixin import NumberValueMixIn
 
 
 def validate_num(
@@ -44,7 +44,7 @@ def validate_num(
     ValueError
         If a specified value is not an integer and float value.
     """
-    if isinstance(num, (int, float, NumberValueInterface)):
+    if isinstance(num, (int, float, NumberValueMixIn)):
         return
     if additional_err_msg != "":
         additional_err_msg = f"\n{additional_err_msg}"
@@ -155,7 +155,7 @@ def validate_num_is_gt_zero(
     ValueError
         If a specified value is less than or equal to zero.
     """
-    if isinstance(num, NumberValueInterface):
+    if isinstance(num, NumberValueMixIn):
         if num._value > 0:
             return
     elif num > 0:
@@ -185,7 +185,7 @@ def validate_num_is_gte_zero(
     ValueError
         If a specified value is less than zero.
     """
-    if isinstance(num, NumberValueInterface):
+    if isinstance(num, NumberValueMixIn):
         if num._value >= 0:
             return
     elif num >= 0:
@@ -196,7 +196,7 @@ def validate_num_is_gte_zero(
 
 
 def validate_num_is_0_to_1_range(
-    *, num: Union[float, NumberValueInterface], additional_err_msg: str = ""
+    *, num: Union[float, NumberValueMixIn], additional_err_msg: str = ""
 ) -> None:
     """
     Validate whether a specified number is from 0.0 to 1.0.
@@ -217,7 +217,7 @@ def validate_num_is_0_to_1_range(
     gt_err_msg: str = "Can't specify number value greater than 1.0: "
     if additional_err_msg != "":
         additional_err_msg = f"\n{additional_err_msg}"
-    if isinstance(num, NumberValueInterface):
+    if isinstance(num, NumberValueMixIn):
         if num._value < 0.0:
             raise ValueError(f"{lt_err_msg}{num}{additional_err_msg}")
         if num._value > 1.0:

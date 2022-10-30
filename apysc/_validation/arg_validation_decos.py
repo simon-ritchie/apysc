@@ -511,7 +511,7 @@ def is_apysc_num(*, arg_position_index: int) -> _F:
     def wrapped(callable_: _F) -> _F:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._type.number_value_interface import NumberValueInterface
+            from apysc._type.number_value_mixin import NumberValueMixIn
 
             num: Any = _extract_arg_value(
                 args=args,
@@ -523,7 +523,7 @@ def is_apysc_num(*, arg_position_index: int) -> _F:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(num, NumberValueInterface):
+            if not isinstance(num, NumberValueMixIn):
                 raise TypeError(
                     "A specified argument value is not the `ap.Int` or "
                     f"`ap.Number` type: {type(num)}"

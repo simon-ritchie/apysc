@@ -59,15 +59,15 @@ ap.save_overall_html(minify=False, dest_dir_path="unset_debug_mode_basic_usage/"
   //    self = 0()
     //////////////////////////////////////////////////////////////////////
     // [__init__ 14] started.
-    // module name: apysc._type.number_value_interface
-    // class: NumberValueInterface
+    // module name: apysc._type.number_value_mixin
+    // class: NumberValueMixIn
     // arguments and variables:
     //    type_name = 'i'
     //    value = 10
     //    self = 0(i_16)
     // [__init__ 14] ended.
-    // module name: apysc._type.number_value_interface
-    // class: NumberValueInterface
+    // module name: apysc._type.number_value_mixin
+    // class: NumberValueMixIn
     //////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////
     // [to_int_from_float 14] started.
@@ -79,14 +79,14 @@ ap.save_overall_html(minify=False, dest_dir_path="unset_debug_mode_basic_usage/"
     //////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////
     // [append_constructor_expression 14] started.
-    // module name: apysc._type.number_value_interface
-    // class: NumberValueInterface
+    // module name: apysc._type.number_value_mixin
+    // class: NumberValueMixIn
     // arguments and variables:
     //    self = 10(i_16)
       var i_16 = 10;
     // [append_constructor_expression 14] ended.
-    // module name: apysc._type.number_value_interface
-    // class: NumberValueInterface
+    // module name: apysc._type.number_value_mixin
+    // class: NumberValueMixIn
     //////////////////////////////////////////////////////////////////////
 ...
   var i_18 = 20;

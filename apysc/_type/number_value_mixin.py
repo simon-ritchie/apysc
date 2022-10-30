@@ -1,4 +1,4 @@
-"""Class implementation for number value interface.
+"""Class implementation for number value mix-in.
 """
 
 from abc import ABC
@@ -22,12 +22,12 @@ from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
-_NumType = Union[int, float, "NumberValueInterface"]
+_NumType = Union[int, float, "NumberValueMixIn"]
 _V = TypeVar("_V", int, float)
-_T = TypeVar("_T", bound="NumberValueInterface")
+_T = TypeVar("_T", bound="NumberValueMixIn")
 
 
-class NumberValueInterface(
+class NumberValueMixIn(
     CopyInterface,
     RevertMixIn,
     CustomEventInterface,
@@ -50,7 +50,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        value : NumberValueInterface or int or float
+        value : NumberValueMixIn or int or float
             Initial number value.
         type_name : str
             This instance expression's type name (e.g., int, number).
@@ -60,7 +60,7 @@ class NumberValueInterface(
         """
         self._variable_name_suffix = variable_name_suffix
         self._initial_value = value
-        if isinstance(value, NumberValueInterface):
+        if isinstance(value, NumberValueMixIn):
             value_: _V = value._value
         else:
             value_ = value  # type: ignore
@@ -90,7 +90,7 @@ class NumberValueInterface(
         expression : str
             Created expression string.
         """
-        if isinstance(self._initial_value, NumberValueInterface):
+        if isinstance(self._initial_value, NumberValueMixIn):
             value_: Union[int, float, str] = self._initial_value.variable_name
         else:
             value_ = self._value
@@ -139,7 +139,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        value : NumberValueInterface or int or float
+        value : NumberValueMixIn or int or float
             Any number value to set.
 
         References
@@ -148,7 +148,7 @@ class NumberValueInterface(
             - https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html  # noqa
         """
         self._set_value_and_skip_expression_appending(value=value)
-        if isinstance(value, NumberValueInterface):
+        if isinstance(value, NumberValueMixIn):
             self._append_value_setter_expression(value=value)
         else:
             self._append_value_setter_expression(value=self._value)
@@ -160,7 +160,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        value : NumberValueInterface or int or float
+        value : NumberValueMixIn or int or float
             Any number value to set.
         """
 
@@ -172,12 +172,12 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        value : NumberValueInterface or int or float
+        value : NumberValueMixIn or int or float
             Any number value to set.
         """
         import apysc as ap
 
-        if isinstance(value, NumberValueInterface):
+        if isinstance(value, NumberValueMixIn):
             right_value: Union[str, int, float] = value.variable_name
         else:
             right_value = value  # type: ignore
@@ -193,19 +193,19 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value to add.
 
         Returns
         -------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Addition result value.
         """
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             value: _NumType = self._value + other._value
         else:
             value = self._value + other  # type: ignore
-        result: NumberValueInterface = self._copy()
+        result: NumberValueMixIn = self._copy()
         result._set_value_and_skip_expression_appending(value=value)
         self._append_addition_expression(result=result, other=other)
         return result
@@ -220,9 +220,9 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Addition result value.
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value to add.
         """
         import apysc as ap
@@ -243,19 +243,19 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             The other value to subtract.
 
         Returns
         -------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Subtraction result value.
         """
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             value: _NumType = self._value - other._value
         else:
             value = self._value - other  # type: ignore
-        result: NumberValueInterface = self._copy()
+        result: NumberValueMixIn = self._copy()
         result._set_value_and_skip_expression_appending(value=value)
         self._append_subtraction_expression(result=result, other=other)
         return result
@@ -270,9 +270,9 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Subtraction result value.
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value to subtract.
         """
         import apysc as ap
@@ -293,15 +293,15 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value to multiply.
 
         Returns
         -------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Multiplication result value.
         """
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             value: _NumType = self._value * other._value
         else:
             value = self._value * other  # type: ignore
@@ -320,9 +320,9 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Multiplication result value.
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value to multiply.
         """
         import apysc as ap
@@ -343,7 +343,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value for true-division.
 
         Returns
@@ -354,7 +354,7 @@ class NumberValueInterface(
         import apysc as ap
 
         result: ap.Number = ap.Number(value=self)
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             value: _NumType = result._value / other._value
         else:
             value = result._value / other  # type: ignore
@@ -372,9 +372,9 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             True division result value.
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value for true division.
         """
         import apysc as ap
@@ -395,7 +395,7 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value for floor division.
 
         Returns
@@ -406,7 +406,7 @@ class NumberValueInterface(
         import apysc as ap
 
         result: ap.Int = ap.Int(value=self)
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             value: _NumType = self._value // other._value
         else:
             value = self._value // other  # type: ignore
@@ -424,9 +424,9 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Floor division result value.
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value for floor division.
         """
         import apysc as ap
@@ -465,12 +465,12 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value for` incremental addition.
 
         Returns
         -------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Incremental addition result value.
         """
         from apysc._expression import expression_variables_util
@@ -492,18 +492,18 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value for incremental subtraction.
 
         Returns
         -------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Incremental subtraction result value.
         """
         from apysc._expression import expression_variables_util
 
         self._incremental_calc_prev_name = self._get_previous_variable_name()
-        result: NumberValueInterface = self - other
+        result: NumberValueMixIn = self - other
         expression_variables_util.append_substitution_expression(
             left_value=self, right_value=result
         )
@@ -519,12 +519,12 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value for incremental multiplication.
 
         Returns
         -------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Incremental multiplication result value.
         """
         from apysc._expression import expression_variables_util
@@ -546,18 +546,18 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             Other value for incremental true division.
 
         Returns
         -------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             The other value for incremental-true division.
         """
         from apysc._expression import expression_variables_util
 
         self._incremental_calc_prev_name = self._get_previous_variable_name()
-        result: NumberValueInterface = self / other
+        result: NumberValueMixIn = self / other
         result._incremental_calc_prev_name = self._incremental_calc_prev_name
         expression_variables_util.append_substitution_expression(
             left_value=self, right_value=result
@@ -574,15 +574,15 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             The other value to use in the modulo operation.
 
         Returns
         -------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Modulo operation result value.
         """
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             value: Union[int, float] = self._value % other._value
         else:
             value = self._value % other  # type: ignore
@@ -601,9 +601,9 @@ class NumberValueInterface(
 
         Parameters
         ----------
-        result : NumberValueInterface
+        result : NumberValueMixIn
             Modulo operation result value.
-        other : NumberValueInterface or int or float
+        other : NumberValueMixIn or int or float
             The other value to use in the modulo operation.
         """
         import apysc as ap
@@ -672,7 +672,7 @@ class NumberValueInterface(
         """
         import apysc as ap
 
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             result: ap.Boolean = ap.Boolean(
                 self._value == other._value,
                 variable_name_suffix=self._variable_name_suffix,
@@ -759,7 +759,7 @@ class NumberValueInterface(
         """
         import apysc as ap
 
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             result: ap.Boolean = ap.Boolean(
                 self._value != other._value,
                 variable_name_suffix=self._variable_name_suffix,
@@ -816,7 +816,7 @@ class NumberValueInterface(
         """
         import apysc as ap
 
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             result: ap.Boolean = ap.Boolean(
                 self._value < other._value,
                 variable_name_suffix=self._variable_name_suffix,
@@ -873,7 +873,7 @@ class NumberValueInterface(
         """
         import apysc as ap
 
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             result: ap.Boolean = ap.Boolean(
                 self._value <= other._value,
                 variable_name_suffix=self._variable_name_suffix,
@@ -930,7 +930,7 @@ class NumberValueInterface(
         """
         import apysc as ap
 
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             result: ap.Boolean = ap.Boolean(
                 self._value > other._value,
                 variable_name_suffix=self._variable_name_suffix,
@@ -940,7 +940,7 @@ class NumberValueInterface(
                 self._value > other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             self._append_gt_expression(result=result, other=other)
         return result
 
@@ -987,7 +987,7 @@ class NumberValueInterface(
         """
         import apysc as ap
 
-        if isinstance(other, NumberValueInterface):
+        if isinstance(other, NumberValueMixIn):
             result: ap.Boolean = ap.Boolean(
                 self._value >= other._value,
                 variable_name_suffix=self._variable_name_suffix,

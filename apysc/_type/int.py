@@ -6,11 +6,11 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.number_value_interface import NumberValueInterface
+from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._validation import arg_validation_decos
 
 
-class Int(NumberValueInterface[int, "Int"]):
+class Int(NumberValueMixIn[int, "Int"]):
     """
     Integer class for the apysc library.
 
@@ -53,7 +53,7 @@ class Int(NumberValueInterface[int, "Int"]):
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        value: Union[int, float, NumberValueInterface],
+        value: Union[int, float, NumberValueMixIn],
         *,
         variable_name_suffix: str = "",
         skip_init_substitution_expression_appending: bool = False,
@@ -154,7 +154,7 @@ class Int(NumberValueInterface[int, "Int"]):
 
     @final
     def _set_value_and_skip_expression_appending(
-        self, *, value: Union[int, float, NumberValueInterface]
+        self, *, value: Union[int, float, NumberValueMixIn]
     ) -> None:
         """
         Update value attribute and skip expression appending.
@@ -167,9 +167,9 @@ class Int(NumberValueInterface[int, "Int"]):
         """
         from apysc._converter import cast
 
-        if isinstance(value, NumberValueInterface):
+        if isinstance(value, NumberValueMixIn):
             value._value = cast.to_int_from_float(int_or_float=value._value)
-            value_: Union[int, float, NumberValueInterface] = value._value
+            value_: Union[int, float, NumberValueMixIn] = value._value
         else:
             value = cast.to_int_from_float(int_or_float=value)
             value_ = value

@@ -8,7 +8,7 @@ import apysc as ap
 from apysc._testing import testing_helper
 
 
-class TestGraphicsClearInterface:
+class TestGraphicsClearMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_clear(self) -> None:
         ap.Stage()

@@ -1,4 +1,4 @@
-"""Class implementation for graphics clear method related interface.
+"""Class implementation for the graphics clear method-related mix-in.
 """
 
 
@@ -17,7 +17,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 
 
-class GraphicsClearInterface:
+class GraphicsClearMixIn:
 
     _fill_color: String
     _fill_alpha: Number

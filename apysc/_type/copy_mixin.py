@@ -11,7 +11,7 @@ from apysc._type.type_name_interface import TypeNameInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class CopyInterface(TypeNameInterface, VariableNameInterface):
+class CopyMixIn(TypeNameInterface, VariableNameInterface):
     @final
     @add_debug_info_setting(module_name=__name__)
     def _copy(self) -> Any:
@@ -27,7 +27,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
 
         with TemporaryNotHandlerScope():
-            result: CopyInterface = deepcopy(self)
+            result: CopyMixIn = deepcopy(self)
             result.variable_name = expression_variables_util.get_next_variable_name(
                 type_name=self.type_name
             )

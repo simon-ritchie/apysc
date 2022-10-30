@@ -8,19 +8,19 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
-from apysc._type.copy_interface import CopyInterface
+from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class TestCopyInterface:
+class TestCopyMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__copy(self) -> None:
-        interface: CopyInterface = CopyInterface()
-        interface.variable_name = "test_copy_interface"
-        interface._type_name = "test_copy_interface"
-        result: CopyInterface = interface._copy()
-        assert result.variable_name.startswith("test_copy_interface_")
-        assert result.variable_name != interface.variable_name
+        mixin: CopyMixIn = CopyMixIn()
+        mixin.variable_name = "test_copy_mixin"
+        mixin._type_name = "test_copy_mixin"
+        result: CopyMixIn = mixin._copy()
+        assert result.variable_name.startswith("test_copy_mixin_")
+        assert result.variable_name != mixin.variable_name
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_copy_expression(self) -> None:

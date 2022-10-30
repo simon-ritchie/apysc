@@ -6,7 +6,7 @@ Mainly following interfaces are defined:
     - Get a value string for expression.
 - get_copy
     - Get a copy of a specified instance if it is an instance
-    of CopyInterface.
+    of CopyMixIn.
 """
 
 from typing import Any
@@ -145,7 +145,7 @@ T = TypeVar("T")
 def get_copy(*, value: T) -> T:
     """
     Get a copy of a specified instance if it is an instance
-    of CopyInterface.
+    of CopyMixIn.
 
     Parameters
     ----------
@@ -156,11 +156,11 @@ def get_copy(*, value: T) -> T:
     -------
     copied : *
         Copied value. If a value is not an instance of
-        CopyInterface, this interface returns an argument
+        CopyMixIn, this interface returns an argument
         value directly.
     """
-    from apysc._type.copy_interface import CopyInterface
+    from apysc._type.copy_mixin import CopyMixIn
 
-    if not isinstance(value, CopyInterface):
+    if not isinstance(value, CopyMixIn):
         return value
     return value._copy()

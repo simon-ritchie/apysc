@@ -1,8 +1,8 @@
-"""Class implementation for type name interface.
+"""Class implementation for type name mix-in.
 """
 
 
-class TypeNameInterface:
+class TypeNameMixIn:
 
     _type_name: str
 

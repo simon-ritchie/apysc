@@ -134,7 +134,7 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 
 ## mousedown API
 
-<!-- Docstring: apysc._event.mouse_down_interface.MouseDownInterface.mousedown -->
+<!-- Docstring: apysc._event.mouse_down_mixin.MouseDownMixIn.mousedown -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -184,7 +184,7 @@ Add mouse down event listener setting.<hr>
 
 ## unbind_mousedown API
 
-<!-- Docstring: apysc._event.mouse_down_interface.MouseDownInterface.unbind_mousedown -->
+<!-- Docstring: apysc._event.mouse_down_mixin.MouseDownMixIn.unbind_mousedown -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -220,7 +220,7 @@ Unbind a specified handler's mouse down event.<hr>
 
 ## unbind_mousedown_all API
 
-<!-- Docstring: apysc._event.mouse_down_interface.MouseDownInterface.unbind_mousedown_all -->
+<!-- Docstring: apysc._event.mouse_down_mixin.MouseDownMixIn.unbind_mousedown_all -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

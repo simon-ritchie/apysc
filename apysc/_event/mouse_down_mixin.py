@@ -18,7 +18,7 @@ _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
 
 
-class MouseDownInterface(MouseEventInterfaceBase):
+class MouseDownMixIn(MouseEventInterfaceBase):
 
     _mouse_down_handlers: Dict[str, HandlerData[MouseEvent]]
 

@@ -1,7 +1,7 @@
-"""Test project for MouseDownInterface class.
+"""Test project for MouseDownMixIn class.
 
 Command examples:
-$ python test_projects/MouseDownInterface/main.py
+$ python test_projects/MouseDownMixIn/main.py
 """
 
 import sys

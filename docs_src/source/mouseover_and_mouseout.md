@@ -258,7 +258,7 @@ Unbind all mouseover events.<hr>
 
 ## mouseout API
 
-<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.mouseout -->
+<!-- Docstring: apysc._event.mouse_out_mixin.MouseOutMixIn.mouseout -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -308,7 +308,7 @@ Add mouse out event listener setting.<hr>
 
 ## unbind_mouseout API
 
-<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.unbind_mouseout -->
+<!-- Docstring: apysc._event.mouse_out_mixin.MouseOutMixIn.unbind_mouseout -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -344,7 +344,7 @@ Unbind a specified handler's mouse-out event.<hr>
 
 ## unbind_mouseout_all API
 
-<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.unbind_mouseout_all -->
+<!-- Docstring: apysc._event.mouse_out_mixin.MouseOutMixIn.unbind_mouseout_all -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

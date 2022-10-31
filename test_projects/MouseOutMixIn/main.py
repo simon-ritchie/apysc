@@ -1,7 +1,7 @@
-"""Test project for MouseOutInterface class.
+"""Test project for MouseOutMixIn class.
 
 Command examples:
-$ python test_projects/MouseOutInterface/main.py
+$ python test_projects/MouseOutMixIn/main.py
 """
 
 import sys

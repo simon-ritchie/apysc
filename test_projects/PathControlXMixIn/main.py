@@ -1,7 +1,7 @@
-"""The test project for the PathControlXInterface class.
+"""The test project for the PathControlXMixIn class.
 
 Command examples:
-$ python test_projects/PathControlXInterface/main.py
+$ python test_projects/PathControlXMixIn/main.py
 """
 
 import sys
@@ -15,7 +15,7 @@ from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
-from apysc._geom.path_control_x_interface import PathControlXInterface
+from apysc._geom.path_control_x_mixin import PathControlXMixIn
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -25,7 +25,7 @@ _DEST_DIR_PATH: str = os.path.join(
 
 
 class _InterfaceOptions(TypedDict):
-    interface: PathControlXInterface
+    mixin: PathControlXMixIn
 
 
 def main() -> None:
@@ -38,9 +38,9 @@ def main() -> None:
         stage_height=500,
         stage_elem_id="stage",
     )
-    interface: PathControlXInterface = PathControlXInterface()
-    interface.control_x = ap.Int(10)
-    options: _InterfaceOptions = {"interface": interface}
+    mixin: PathControlXMixIn = PathControlXMixIn()
+    mixin.control_x = ap.Int(10)
+    options: _InterfaceOptions = {"mixin": mixin}
     ap.Timer(on_timer_1, delay=1000, repeat_count=1, options=options).start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
@@ -57,8 +57,8 @@ def on_timer_1(e: ap.TimerEvent, options: _InterfaceOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ap.assert_equal(10, options["interface"].control_x)
-    options["interface"].control_x = ap.Int(20)
+    ap.assert_equal(10, options["mixin"].control_x)
+    options["mixin"].control_x = ap.Int(20)
     ap.Timer(on_timer_2, delay=1000, repeat_count=1, options=options).start()
 
 
@@ -73,8 +73,8 @@ def on_timer_2(e: ap.TimerEvent, options: _InterfaceOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    ap.assert_equal(20, options["interface"].control_x)
-    options["interface"].control_x = ap.Int(10)
+    ap.assert_equal(20, options["mixin"].control_x)
+    options["mixin"].control_x = ap.Int(10)
     ap.Timer(on_timer_1, delay=1000, repeat_count=1, options=options).start()
 
 

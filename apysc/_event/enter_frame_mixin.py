@@ -1,4 +1,4 @@
-"""Class implementation for the enter frame interface.
+"""Class implementation for the enter frame mix-in.
 """
 
 from typing import Callable
@@ -30,7 +30,7 @@ class _HandlerSettings(TypedDict):
     fps_interval: Number
 
 
-class EnterFrameInterface(SetHandlerDataInterface[EnterFrameEvent]):
+class EnterFrameMixIn(SetHandlerDataInterface[EnterFrameEvent]):
 
     _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
     _enter_frame_handler_settings: Dict[_Handlername, _HandlerSettings]

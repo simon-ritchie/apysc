@@ -94,7 +94,7 @@ ap.save_overall_html(dest_dir_path="./unbind_dblclick_basic_usage/")
 
 ## dblclick API
 
-<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.dblclick -->
+<!-- Docstring: apysc._event.double_click_mixin.DoubleClickMixIn.dblclick -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -144,7 +144,7 @@ Add a double-click event listener setting.<hr>
 
 ## unbind_dblclick API
 
-<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.unbind_dblclick -->
+<!-- Docstring: apysc._event.double_click_mixin.DoubleClickMixIn.unbind_dblclick -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -180,7 +180,7 @@ Unbind a specified handler's double click event.<hr>
 
 ## unbind_dblclick_all API
 
-<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.unbind_dblclick_all -->
+<!-- Docstring: apysc._event.double_click_mixin.DoubleClickMixIn.unbind_dblclick_all -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

@@ -5,20 +5,20 @@ from typing import Dict
 from retrying import retry
 
 import apysc as ap
-from apysc._event.double_click_interface import DoubleClickInterface
+from apysc._event.double_click_mixin import DoubleClickMixIn
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestDoubleClick(DoubleClickInterface, VariableNameMixIn):
+class _TestDoubleClick(DoubleClickMixIn, VariableNameMixIn):
     def __init__(self) -> None:
         """
-        Class for double click interface's testing.
+        Class for double click mixin's testing.
         """
         self.variable_name = "test_double_click"
 
 
-class TestDoubleClickInterface:
+class TestDoubleClickMixIn:
     def on_double_click_1(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler for double click event.
@@ -45,22 +45,22 @@ class TestDoubleClickInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_dblclick_handlers_if_not_initialized(self) -> None:
-        interface_1: DoubleClickInterface = DoubleClickInterface()
-        interface_1._initialize_dblclick_handlers_if_not_initialized()
-        assert interface_1._dblclick_handlers == {}
+        mixin_1: DoubleClickMixIn = DoubleClickMixIn()
+        mixin_1._initialize_dblclick_handlers_if_not_initialized()
+        assert mixin_1._dblclick_handlers == {}
 
-        interface_1._initialize_dblclick_handlers_if_not_initialized()
+        mixin_1._initialize_dblclick_handlers_if_not_initialized()
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_dblclick(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: _TestDoubleClick = _TestDoubleClick()
-        name: str = interface_1.dblclick(handler=self.on_double_click_1)
-        assert interface_1._dblclick_handlers[name].handler == self.on_double_click_1
-        assert interface_1._dblclick_handlers[name].options == {}
+        mixin_1: _TestDoubleClick = _TestDoubleClick()
+        name: str = mixin_1.dblclick(handler=self.on_double_click_1)
+        assert mixin_1._dblclick_handlers[name].handler == self.on_double_click_1
+        assert mixin_1._dblclick_handlers[name].options == {}
 
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"{interface_1.variable_name}.dblclick({name});"
+        expected: str = f"{mixin_1.variable_name}.dblclick({name});"
         assert expected in expression
         expression = expression_data_util.get_current_event_handler_scope_expression()
         expected = f"function {name}"
@@ -69,23 +69,23 @@ class TestDoubleClickInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_dblclick(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: _TestDoubleClick = _TestDoubleClick()
-        interface_1.dblclick(handler=self.on_double_click_1)
-        interface_1.unbind_dblclick(handler=self.on_double_click_1)
-        assert interface_1._dblclick_handlers == {}
+        mixin_1: _TestDoubleClick = _TestDoubleClick()
+        mixin_1.dblclick(handler=self.on_double_click_1)
+        mixin_1.unbind_dblclick(handler=self.on_double_click_1)
+        assert mixin_1._dblclick_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         assert "off(" in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_dblclick_all(self) -> None:
         expression_data_util.empty_expression()
-        interface_1: _TestDoubleClick = _TestDoubleClick()
-        interface_1.dblclick(handler=self.on_double_click_1)
-        interface_1.unbind_dblclick_all()
-        assert interface_1._dblclick_handlers == {}
+        mixin_1: _TestDoubleClick = _TestDoubleClick()
+        mixin_1.dblclick(handler=self.on_double_click_1)
+        mixin_1.unbind_dblclick_all()
+        assert mixin_1._dblclick_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"{interface_1.variable_name}.off("
+            f"{mixin_1.variable_name}.off("
             f'"{ap.MouseEventType.DBLCLICK.value}");'
         )
         assert expected in expression

@@ -1,7 +1,7 @@
-"""Test project for DoubleClickInterface class.
+"""Test project for DoubleClickMixIn class.
 
 Command examples:
-$ python test_projects/DoubleClickInterface/main.py
+$ python test_projects/DoubleClickMixIn/main.py
 """
 
 import sys

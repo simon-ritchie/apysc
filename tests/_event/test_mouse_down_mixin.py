@@ -92,7 +92,6 @@ class TestMouseDownMixIn:
         assert mixin_1._mouse_down_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"{mixin_1.variable_name}.off("
-            f'"{ap.MouseEventType.MOUSEDOWN.value}");'
+            f"{mixin_1.variable_name}.off(" f'"{ap.MouseEventType.MOUSEDOWN.value}");'
         )
         assert expected in expression

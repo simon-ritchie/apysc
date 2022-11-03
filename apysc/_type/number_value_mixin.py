@@ -11,7 +11,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.initial_substitution_exp_interface import (
@@ -30,7 +30,7 @@ _T = TypeVar("_T", bound="NumberValueMixIn")
 class NumberValueMixIn(
     CopyMixIn,
     RevertMixIn,
-    CustomEventInterface,
+    CustomEventMixIn,
     VariableNameSuffixInterface,
     InitialSubstitutionExpInterface,
     Generic[_V, _T],

@@ -11,7 +11,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.copy_mixin import CopyMixIn
@@ -31,7 +31,7 @@ T = TypeVar("T")
 class Array(
     CopyMixIn,
     RevertMixIn,
-    CustomEventInterface,
+    CustomEventMixIn,
     VariableNameSuffixInterface,
     InitialSubstitutionExpInterface,
     Generic[T],

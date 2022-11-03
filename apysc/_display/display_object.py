@@ -11,7 +11,7 @@ from apysc._display.parent_mixin import ParentMixIn
 from apysc._display.visible_mixin import VisibleMixIn
 from apysc._display.x_mixin_base import XMixInBase
 from apysc._display.y_mixin_base import YMixInBase
-from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
@@ -26,7 +26,7 @@ class DisplayObject(
     ParentMixIn,
     MouseEventInterfaces,
     VisibleMixIn,
-    CustomEventInterface,
+    CustomEventMixIn,
     CssMixIn,
     AnimationParallelInterface,
 ):

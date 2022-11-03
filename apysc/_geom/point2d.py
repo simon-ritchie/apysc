@@ -7,7 +7,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_to_apysc_val_from_builtin_interface import (
     AttrToApyscValFromBuiltinInterface,
@@ -30,7 +30,7 @@ class Point2D(
     VariableNameMixIn,
     RevertMixIn,
     DictionaryStructure,
-    CustomEventInterface,
+    CustomEventMixIn,
     VariableNameSuffixInterface,
     AttrToApyscValFromBuiltinInterface,
 ):

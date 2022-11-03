@@ -17,7 +17,7 @@ from typing_extensions import final
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.height_mixin import HeightMixIn
 from apysc._display.width_mixin import WidthMixIn
-from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
@@ -33,7 +33,7 @@ class Stage(
     HeightMixIn,
     VariableNameMixIn,
     MouseEventInterfaces,
-    CustomEventInterface,
+    CustomEventMixIn,
     VariableNameSuffixInterface,
 ):
     """

@@ -1,4 +1,4 @@
-"""Class implementation for the custom event interface.
+"""Class implementation for the custom event mix-in.
 """
 
 from typing import Any
@@ -25,7 +25,7 @@ _Handler = Callable[[Any, Any], None]
 _EventType = TypeVar("_EventType", bound=Event)
 
 
-class CustomEventInterface(
+class CustomEventMixIn(
     BlankObjectMixIn,
     SetHandlerDataInterface[_EventType],
     Generic[_EventType],

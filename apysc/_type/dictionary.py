@@ -9,7 +9,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.any_value import AnyValue
 from apysc._type.boolean import Boolean
@@ -35,7 +35,7 @@ _V = TypeVar("_V")
 
 
 class Dictionary(
-    CustomEventInterface,
+    CustomEventMixIn,
     Generic[_K, _V],
     CopyMixIn,
     RevertMixIn,

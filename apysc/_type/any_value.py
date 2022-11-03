@@ -6,7 +6,7 @@ from typing import Dict
 
 from typing_extensions import final
 
-from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.copy_mixin import CopyMixIn
@@ -17,7 +17,7 @@ from apysc._validation import arg_validation_decos
 
 
 class AnyValue(
-    CopyMixIn, RevertMixIn, CustomEventInterface, VariableNameSuffixInterface
+    CopyMixIn, RevertMixIn, CustomEventMixIn, VariableNameSuffixInterface
 ):
     """
     Class implementation of any value (a value that can't

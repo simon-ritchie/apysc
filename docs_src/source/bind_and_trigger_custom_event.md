@@ -122,7 +122,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 
 ## bind_custom_event API
 
-<!-- Docstring: apysc._event.custom_event_interface.CustomEventInterface.bind_custom_event -->
+<!-- Docstring: apysc._event.custom_event_mixin.CustomEventMixIn.bind_custom_event -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -183,7 +183,7 @@ Add a custom event listener setting.<hr>
 
 ## trigger_custom_event API
 
-<!-- Docstring: apysc._event.custom_event_interface.CustomEventInterface.trigger_custom_event -->
+<!-- Docstring: apysc._event.custom_event_mixin.CustomEventMixIn.trigger_custom_event -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

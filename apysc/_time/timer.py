@@ -10,7 +10,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._event.handler import HandlerData
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._time.fps import FPS
@@ -29,7 +29,7 @@ _O2 = TypeVar("_O2")
 _Handler = Callable[["TimerEvent", _O1], None]
 
 
-class Timer(VariableNameMixIn, CustomEventInterface["TimerEvent"]):
+class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
     """
     Timer class to handle function calling at regular intervals.
 

@@ -13,7 +13,7 @@ from typing_extensions import final
 
 from apysc._animation.easing import Easing
 from apysc._event import animation_event
-from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
@@ -27,7 +27,7 @@ _Handler = Callable[["animation_event.AnimationEvent", _O], None]
 
 class AnimationBase(
     VariableNameMixIn,
-    CustomEventInterface["animation_event.AnimationEvent"],
+    CustomEventMixIn["animation_event.AnimationEvent"],
     Generic[_T],
     ABC,
 ):

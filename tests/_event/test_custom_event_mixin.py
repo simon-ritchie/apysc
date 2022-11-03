@@ -155,8 +155,7 @@ class TestCustomEventMixIn:
         assert mixin._custom_event_handlers == {"test_event": {}}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"$({mixin.blank_object_variable_name})"
-            f'.off("test_event", {name_2});'
+            f"$({mixin.blank_object_variable_name})" f'.off("test_event", {name_2});'
         )
         assert expected in expression
 

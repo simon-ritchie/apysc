@@ -56,6 +56,4 @@ def test__get_index_file_path() -> None:
     index_file_path: str = run_test_projects_e2e_testing._get_index_file_path(
         main_module_path="./test_projects/AnimationXMixIn/" "main.py"
     )
-    assert (
-        index_file_path == "./test_projects/AnimationXMixIn/test_output/index.html"
-    )
+    assert index_file_path == "./test_projects/AnimationXMixIn/test_output/index.html"

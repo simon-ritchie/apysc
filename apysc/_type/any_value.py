@@ -16,9 +16,7 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._validation import arg_validation_decos
 
 
-class AnyValue(
-    CopyMixIn, RevertMixIn, CustomEventMixIn, VariableNameSuffixInterface
-):
+class AnyValue(CopyMixIn, RevertMixIn, CustomEventMixIn, VariableNameSuffixInterface):
     """
     Class implementation of any value (a value that can't
     determine type).

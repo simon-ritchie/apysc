@@ -85,7 +85,6 @@ class TestDoubleClickMixIn:
         assert mixin_1._dblclick_handlers == {}
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"{mixin_1.variable_name}.off("
-            f'"{ap.MouseEventType.DBLCLICK.value}");'
+            f"{mixin_1.variable_name}.off(" f'"{ap.MouseEventType.DBLCLICK.value}");'
         )
         assert expected in expression

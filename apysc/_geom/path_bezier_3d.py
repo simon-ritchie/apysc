@@ -7,7 +7,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._geom.path_control_x1_interface import PathControlX1Interface
+from apysc._geom.path_control_x1_mixin import PathControlX1MixIn
 from apysc._geom.path_control_x2_interface import PathControlX2Interface
 from apysc._geom.path_control_y1_interface import PathControlY1Interface
 from apysc._geom.path_control_y2_interface import PathControlY2Interface
@@ -25,7 +25,7 @@ class PathBezier3D(
     PathDataBase,
     PathDestXMixIn,
     PathDestYMixIn,
-    PathControlX1Interface,
+    PathControlX1MixIn,
     PathControlY1Interface,
     PathControlX2Interface,
     PathControlY2Interface,

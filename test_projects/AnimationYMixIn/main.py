@@ -1,7 +1,7 @@
-"""The test project for the AnimationYInterface class.
+"""The test project for the AnimationYMixIn class.
 
 Command examples:
-$ python test_projects/AnimationYInterface/main.py
+$ python test_projects/AnimationYMixIn/main.py
 """
 
 import sys

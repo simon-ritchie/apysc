@@ -3,16 +3,16 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._animation.animation_y_interface import AnimationYInterface
+from apysc._animation.animation_y_mixin import AnimationYMixIn
 from apysc._testing.testing_helper import assert_attrs
 
 
-class TestAnimationYInterface:
+class TestAnimationYMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_y(self) -> None:
-        interface: AnimationYInterface = AnimationYInterface()
-        interface.variable_name = "test_animation_y_interface"
-        animation_y: ap.AnimationY = interface.animation_y(
+        mixin: AnimationYMixIn = AnimationYMixIn()
+        mixin.variable_name = "test_animation_y_mixin"
+        animation_y: ap.AnimationY = mixin.animation_y(
             y=100, duration=2000, delay=1000, easing=ap.Easing.EASE_OUT_QUINT
         )
         assert_attrs(

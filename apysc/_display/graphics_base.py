@@ -24,7 +24,7 @@ from apysc._display.line_dash_setting_interface import LineDashSettingInterface
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_dot_setting_interface import LineDotSettingInterface
 from apysc._display.line_joints import LineJoints
-from apysc._display.line_joints_interface import LineJointsInterface
+from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.line_round_dot_setting_interface import LineRoundDotSettingInterface
 from apysc._display.rotation_around_center_interface import (
@@ -59,7 +59,7 @@ class GraphicsBase(
     SkewYMixIn,
     LineColorMixIn,
     LineAlphaMixIn,
-    LineJointsInterface,
+    LineJointsMixIn,
     LineDotSettingInterface,
     LineDashSettingInterface,
     LineRoundDotSettingInterface,

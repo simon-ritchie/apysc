@@ -97,7 +97,7 @@ animation_cx: ap.AnimationCx = circle.animation_x(
 
 ## animation_x API
 
-<!-- Docstring: apysc._animation.animation_x_interface.AnimationXInterface.animation_x -->
+<!-- Docstring: apysc._animation.animation_x_mixin.AnimationXMixIn.animation_x -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

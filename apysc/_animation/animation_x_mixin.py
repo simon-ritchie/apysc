@@ -1,4 +1,4 @@
-"""Class implementation for the animation_x interface.
+"""Class implementation for the animation_x mix-in.
 """
 
 from typing import Union
@@ -12,7 +12,7 @@ from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
-class AnimationXInterface(AnimationInterfaceBase):
+class AnimationXMixIn(AnimationInterfaceBase):
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

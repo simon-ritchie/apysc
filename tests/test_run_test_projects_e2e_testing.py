@@ -17,7 +17,7 @@ def test__get_target_test_project_main_module_paths() -> None:
         alphabets_group=["a", "b"]
     )
     expected_paths: List[str] = [
-        "./test_projects/AnimationXInterface/main.py",
+        "./test_projects/AnimationXMixIn/main.py",
         "./test_projects/Boolean/main.py",
     ]
     for expected_path in expected_paths:
@@ -33,7 +33,7 @@ def test__get_target_test_project_main_module_paths() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__run_test_project_command() -> None:
     run_test_projects_e2e_testing._run_test_project_command(
-        main_module_path="./test_projects/AnimationXInterface/main.py"
+        main_module_path="./test_projects/AnimationXMixIn/main.py"
     )
 
     os.makedirs("./tmp/", exist_ok=True)
@@ -54,8 +54,8 @@ def test__run_test_project_command() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_index_file_path() -> None:
     index_file_path: str = run_test_projects_e2e_testing._get_index_file_path(
-        main_module_path="./test_projects/AnimationXInterface/" "main.py"
+        main_module_path="./test_projects/AnimationXMixIn/" "main.py"
     )
     assert (
-        index_file_path == "./test_projects/AnimationXInterface/test_output/index.html"
+        index_file_path == "./test_projects/AnimationXMixIn/test_output/index.html"
     )

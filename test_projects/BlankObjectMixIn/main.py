@@ -1,7 +1,7 @@
-"""Test project for the `BlankObjectInterface` class.
+"""Test project for the `BlankObjectMixIn` class.
 
 Command examples:
-$ python test_projects/BlankObjectInterface/main.py
+$ python test_projects/BlankObjectMixIn/main.py
 """
 
 import sys
@@ -14,7 +14,7 @@ from types import ModuleType
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._file import file_util
-from apysc._type.blank_object_interface import BlankObjectInterface
+from apysc._type.blank_object_mixin import BlankObjectMixIn
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -29,8 +29,8 @@ def main() -> None:
     """
     _: ap.Stage = ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
 
-    interface: BlankObjectInterface = BlankObjectInterface()
-    variable_name = interface.blank_object_variable_name
+    mixin: BlankObjectMixIn = BlankObjectMixIn()
+    variable_name = mixin.blank_object_variable_name
     expression: str = f"console.assert(_.isEqual({variable_name}, {{}}));"
     expression_data_util.append_js_expression(expression=expression)
 

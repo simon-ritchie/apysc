@@ -4,25 +4,25 @@ from retrying import retry
 
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from apysc._type.blank_object_interface import BlankObjectInterface
+from apysc._type.blank_object_mixin import BlankObjectMixIn
 
 
-class TestBlankObjectInterface:
+class TestBlankObjectMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_blank_object_if_not_initialized(self) -> None:
         expression_data_util.empty_expression()
-        interface: BlankObjectInterface = BlankObjectInterface()
-        interface._initialize_blank_object_if_not_initialized()
-        assert interface._initialize_blank_object_if_not_initialized
-        assert interface._blank_object_variable_name.startswith(
+        mixin: BlankObjectMixIn = BlankObjectMixIn()
+        mixin._initialize_blank_object_if_not_initialized()
+        assert mixin._initialize_blank_object_if_not_initialized
+        assert mixin._blank_object_variable_name.startswith(
             f"{var_names.BLANK_OBJECT}_"
         )
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"var {interface._blank_object_variable_name} = {{}};"
+        expected: str = f"var {mixin._blank_object_variable_name} = {{}};"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_blank_object_variable_name(self) -> None:
-        interface: BlankObjectInterface = BlankObjectInterface()
-        blank_object_variable_name: str = interface.blank_object_variable_name
+        mixin: BlankObjectMixIn = BlankObjectMixIn()
+        blank_object_variable_name: str = mixin.blank_object_variable_name
         assert blank_object_variable_name.startswith(f"{var_names.BLANK_OBJECT}_")

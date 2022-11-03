@@ -16,7 +16,7 @@ from apysc._event.event import Event
 from apysc._event.handler import HandlerData
 from apysc._event.set_handler_data_interface import SetHandlerDataInterface
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.blank_object_interface import BlankObjectInterface
+from apysc._type.blank_object_mixin import BlankObjectMixIn
 from apysc._validation import arg_validation_decos
 
 _CustomEventType = str
@@ -26,7 +26,7 @@ _EventType = TypeVar("_EventType", bound=Event)
 
 
 class CustomEventInterface(
-    BlankObjectInterface,
+    BlankObjectMixIn,
     SetHandlerDataInterface[_EventType],
     Generic[_EventType],
 ):

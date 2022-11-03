@@ -8,7 +8,7 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 
 
-class BlankObjectInterface:
+class BlankObjectMixIn:
 
     _is_blank_object_initialized: bool = False
     _blank_object_variable_name: str

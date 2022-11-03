@@ -143,7 +143,7 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseout_all` int
 
 ## mouseover API
 
-<!-- Docstring: apysc._event.mouse_over_interface.MouseOverInterface.mouseover -->
+<!-- Docstring: apysc._event.mouse_over_mixin.MouseOverMixIn.mouseover -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -193,7 +193,7 @@ Add mouse over event listener setting.<hr>
 
 ## unbind_mouseover API
 
-<!-- Docstring: apysc._event.mouse_over_interface.MouseOverInterface.unbind_mouseover -->
+<!-- Docstring: apysc._event.mouse_over_mixin.MouseOverMixIn.unbind_mouseover -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -229,7 +229,7 @@ Unbind a specified handler's mouseover event.<hr>
 
 ## unbind_mouseover_all API
 
-<!-- Docstring: apysc._event.mouse_over_interface.MouseOverInterface.unbind_mouseover_all -->
+<!-- Docstring: apysc._event.mouse_over_mixin.MouseOverMixIn.unbind_mouseover_all -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

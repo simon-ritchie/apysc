@@ -1,6 +1,6 @@
-"""Class implementation for the attribute linking interface.
+"""Class implementation for the attribute linking mix-in.
 
-This interface updates an old property value to achieve
+This mix-in updates an old property value to achieve
 consistency in the handler functions.
 """
 
@@ -19,7 +19,7 @@ _AttrName = str
 _Attr = Union[Int, Number, String, Boolean]
 
 
-class AttrLinkingInterface:
+class AttrLinkingMixIn:
 
     _attr_linking_stack: Dict[_AttrName, List[_Attr]]
 

@@ -8,7 +8,7 @@ from typing_extensions import final
 
 from apysc._animation.animation_fill_alpha_interface import AnimationFillAlphaInterface
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_linking_interface import AttrLinkingInterface
+from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
@@ -21,7 +21,7 @@ class FillAlphaMixIn(
     VariableNameSuffixAttrInterface,
     AnimationFillAlphaInterface,
     RevertMixIn,
-    AttrLinkingInterface,
+    AttrLinkingMixIn,
 ):
 
     _fill_alpha: Number

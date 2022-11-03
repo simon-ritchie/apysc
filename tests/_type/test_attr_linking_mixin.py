@@ -4,13 +4,13 @@ from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._type.attr_linking_interface import AttrLinkingInterface
+from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 
 
-class TestAttrLinkingInterface:
+class TestAttrLinkingMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_attr_linking_stack(self) -> None:
-        interface: AttrLinkingInterface = AttrLinkingInterface()
+        interface: AttrLinkingMixIn = AttrLinkingMixIn()
         interface._initialize_attr_linking_stack(attr_name="x")
         assert interface._attr_linking_stack == {"x": []}
         interface._attr_linking_stack["x"].append(ap.Int(10))
@@ -19,7 +19,7 @@ class TestAttrLinkingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_attr_to_linking_stack(self) -> None:
-        interface: AttrLinkingInterface = AttrLinkingInterface()
+        interface: AttrLinkingMixIn = AttrLinkingMixIn()
         attr: ap.Int = ap.Int(10)
         interface._append_attr_to_linking_stack(attr=attr, attr_name="x")
         assert interface._attr_linking_stack == {"x": [ap.Int(10)]}
@@ -30,7 +30,7 @@ class TestAttrLinkingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_applying_new_attr_val_exp(self) -> None:
         expression_data_util.empty_expression()
-        interface: AttrLinkingInterface = AttrLinkingInterface()
+        interface: AttrLinkingMixIn = AttrLinkingMixIn()
         attr_1: ap.Int = ap.Int(10)
         attr_2: ap.Int = ap.Int(20)
         new_attr: ap.Int = ap.Int(30)
@@ -45,7 +45,7 @@ class TestAttrLinkingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__is_target_attr_already_linked(self) -> None:
-        interface: AttrLinkingInterface = AttrLinkingInterface()
+        interface: AttrLinkingMixIn = AttrLinkingMixIn()
         attr: ap.Int = ap.Int(10)
         assert not interface._is_target_attr_already_linked(attr=attr, attr_name="x")
 

@@ -6,7 +6,7 @@ from typing import Dict
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_linking_interface import AttrLinkingInterface
+from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.boolean import Boolean
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
@@ -20,7 +20,7 @@ class VisibleMixIn(
     VariableNameSuffixAttrInterface,
     VariableNameMixIn,
     RevertMixIn,
-    AttrLinkingInterface,
+    AttrLinkingMixIn,
 ):
 
     _visible: Boolean

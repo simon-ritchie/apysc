@@ -1,4 +1,4 @@
-"""Class implementation for mouse move interface.
+"""Class implementation for mouse move mix-in.
 """
 
 from typing import Callable
@@ -18,7 +18,7 @@ _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
 
 
-class MouseMoveInterface(MouseEventInterfaceBase):
+class MouseMoveMixIn(MouseEventInterfaceBase):
 
     _mouse_move_handlers: Dict[str, HandlerData[MouseEvent]]
 

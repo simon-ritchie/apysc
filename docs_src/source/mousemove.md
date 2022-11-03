@@ -115,7 +115,7 @@ There are also existing the `unbind_mousemove_all` interface. This interface unb
 
 ## mousemove API
 
-<!-- Docstring: apysc._event.mouse_move_interface.MouseMoveInterface.mousemove -->
+<!-- Docstring: apysc._event.mouse_move_mixin.MouseMoveMixIn.mousemove -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -165,7 +165,7 @@ Add mouse move event listener setting.<hr>
 
 ## unbind_mousemove API
 
-<!-- Docstring: apysc._event.mouse_move_interface.MouseMoveInterface.unbind_mousemove -->
+<!-- Docstring: apysc._event.mouse_move_mixin.MouseMoveMixIn.unbind_mousemove -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -204,7 +204,7 @@ Unbind a specified handler's mouse move event.<hr>
 
 ## unbind_mousemove_all API
 
-<!-- Docstring: apysc._event.mouse_move_interface.MouseMoveInterface.unbind_mousemove_all -->
+<!-- Docstring: apysc._event.mouse_move_mixin.MouseMoveMixIn.unbind_mousemove_all -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

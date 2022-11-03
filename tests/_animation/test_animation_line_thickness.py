@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.line_thickness_interface import LineThicknessInterface
+from apysc._display.line_thickness_mixin import LineThicknessMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 
@@ -11,7 +11,7 @@ from apysc._testing.testing_helper import assert_attrs
 class TestAnimationLineThickness:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: LineThicknessInterface = LineThicknessInterface()
+        target: LineThicknessMixIn = LineThicknessMixIn()
         target.variable_name = "test_line_thickness_interface"
         animation_line_thickness: ap.AnimationLineThickness = ap.AnimationLineThickness(
             target=target,
@@ -36,7 +36,7 @@ class TestAnimationLineThickness:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: LineThicknessInterface = LineThicknessInterface()
+        target: LineThicknessMixIn = LineThicknessMixIn()
         target.variable_name = "test_line_thickness_interface"
         animation_line_thickness: ap.AnimationLineThickness = ap.AnimationLineThickness(
             target=target, thickness=3
@@ -49,7 +49,7 @@ class TestAnimationLineThickness:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: LineThicknessInterface = LineThicknessInterface()
+        target: LineThicknessMixIn = LineThicknessMixIn()
         target.variable_name = "test_line_thickness_interface"
         animation_line_thickness: ap.AnimationLineThickness = ap.AnimationLineThickness(
             target=target, thickness=3

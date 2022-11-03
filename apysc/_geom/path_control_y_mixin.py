@@ -1,4 +1,4 @@
-"""Interface class implementation for the control y path data.
+"""Mix-in class implementation for the control y path data.
 """
 
 from typing import Dict
@@ -16,7 +16,7 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._validation import arg_validation_decos
 
 
-class PathControlYInterface(
+class PathControlMixIn(
     VariableNameSuffixAttrInterface,
     RevertMixIn,
     AttrLinkingMixIn,

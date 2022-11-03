@@ -1,7 +1,7 @@
-"""The test project for the PathControlYInterface class.
+"""The test project for the PathControlMixIn class.
 
 Command examples:
-$ python test_projects/PathControlYInterface/main.py
+$ python test_projects/PathControlMixIn/main.py
 """
 
 import sys
@@ -15,7 +15,7 @@ from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
-from apysc._geom.path_control_y_interface import PathControlYInterface
+from apysc._geom.path_control_y_mixin import PathControlMixIn
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -25,7 +25,7 @@ _DEST_DIR_PATH: str = os.path.join(
 
 
 class _InterfaceOptions(TypedDict):
-    interface: PathControlYInterface
+    interface: PathControlMixIn
 
 
 def main() -> None:
@@ -38,7 +38,7 @@ def main() -> None:
         stage_height=500,
         stage_elem_id="stage",
     )
-    interface: PathControlYInterface = PathControlYInterface()
+    interface: PathControlMixIn = PathControlMixIn()
     interface.control_y = ap.Int(10)
     options: _InterfaceOptions = {"interface": interface}
     ap.Timer(on_timer_1, delay=1000, repeat_count=1, options=options).start()

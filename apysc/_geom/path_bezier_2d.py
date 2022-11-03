@@ -7,7 +7,7 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._geom.path_control_x_mixin import PathControlXMixIn
-from apysc._geom.path_control_y_interface import PathControlYInterface
+from apysc._geom.path_control_y_mixin import PathControlMixIn
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_dest_x_mixin import PathDestXMixIn
 from apysc._geom.path_dest_y_mixin import PathDestYMixIn
@@ -21,7 +21,7 @@ from apysc._validation import arg_validation_decos
 class PathBezier2D(
     PathDataBase,
     PathControlXMixIn,
-    PathControlYInterface,
+    PathControlMixIn,
     PathDestXMixIn,
     PathDestYMixIn,
 ):

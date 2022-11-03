@@ -68,15 +68,11 @@ class TestLineThicknessMixIn:
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
         line_thickness_mixin.line_thickness = ap.Int(3)
         snapshot_name: str = "snapshot_1"
-        line_thickness_mixin._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name
-        )
+        line_thickness_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert line_thickness_mixin._line_thickness_snapshots[snapshot_name] == 3
 
         line_thickness_mixin.line_thickness = ap.Int(2)
-        line_thickness_mixin._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name
-        )
+        line_thickness_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert line_thickness_mixin._line_thickness_snapshots[snapshot_name] == 3
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -85,9 +81,7 @@ class TestLineThicknessMixIn:
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
         line_thickness_mixin.line_thickness = ap.Int(3)
         snapshot_name: str = "snapshot_1"
-        line_thickness_mixin._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name
-        )
+        line_thickness_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         line_thickness_mixin.line_thickness = ap.Int(2)
         line_thickness_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert line_thickness_mixin.line_thickness == 3

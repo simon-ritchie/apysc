@@ -16,7 +16,7 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._validation import arg_validation_decos
 
 
-class PathControlY2Interface(
+class PathControlY2MixIn(
     VariableNameSuffixAttrInterface,
     RevertMixIn,
     AttrLinkingMixIn,

@@ -10,7 +10,7 @@ from typing_extensions import final
 from apysc._geom.path_control_x1_mixin import PathControlX1MixIn
 from apysc._geom.path_control_x2_mixin import PathControlX2MixIn
 from apysc._geom.path_control_y1_mixin import PathControlY1MixIn
-from apysc._geom.path_control_y2_interface import PathControlY2Interface
+from apysc._geom.path_control_y2_mixin import PathControlY2MixIn
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_dest_x_mixin import PathDestXMixIn
 from apysc._geom.path_dest_y_mixin import PathDestYMixIn
@@ -28,7 +28,7 @@ class PathBezier3D(
     PathControlX1MixIn,
     PathControlY1MixIn,
     PathControlX2MixIn,
-    PathControlY2Interface,
+    PathControlY2MixIn,
 ):
     """
     Path data class for the SVG's `3D bezier curve` (C).

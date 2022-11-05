@@ -12,13 +12,11 @@ class TestAnimationScaleXFromCenterInterface:
     def test_animation_scale_x_from_center(self) -> None:
         mixin: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()
         mixin.variable_name = "test_animation_scale_x_from_center"
-        animation: ap.AnimationScaleXFromCenter = (
-            mixin.animation_scale_x_from_center(
-                scale_x_from_center=2.0,
-                duration=1000,
-                delay=500,
-                easing=ap.Easing.EASE_OUT_QUINT,
-            )
+        animation: ap.AnimationScaleXFromCenter = mixin.animation_scale_x_from_center(
+            scale_x_from_center=2.0,
+            duration=1000,
+            delay=500,
+            easing=ap.Easing.EASE_OUT_QUINT,
         )
         assert_attrs(
             expected_attrs={

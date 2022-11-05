@@ -96,9 +96,7 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
         """
         import apysc as ap
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._display.scale_x_from_center_mixin import (
-            ScaleXFromCenterMixIn,
-        )
+        from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
 
@@ -157,9 +155,7 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.scale_x_from_center_mixin import (
-            ScaleXFromCenterMixIn,
-        )
+        from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 
         expression: str = ""
         if isinstance(self._target, ScaleXFromCenterMixIn):

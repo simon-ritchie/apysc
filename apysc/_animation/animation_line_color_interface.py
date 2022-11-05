@@ -6,8 +6,8 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.animation_line_color import AnimationLineColor
+from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.string import String

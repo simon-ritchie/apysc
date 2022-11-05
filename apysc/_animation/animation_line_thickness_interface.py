@@ -5,8 +5,8 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.animation_line_thickness import AnimationLineThickness
+from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos

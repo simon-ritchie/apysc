@@ -1,4 +1,4 @@
-"""Class implementation for the animation_time interface.
+"""Class implementation for the animation_time mix-in.
 """
 
 from typing_extensions import final
@@ -8,7 +8,7 @@ from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class AnimationTimeInterface(VariableNameMixIn):
+class AnimationTimeMixIn(VariableNameMixIn):
     @final
     @add_debug_info_setting(module_name=__name__)
     def animation_time(self) -> Number:

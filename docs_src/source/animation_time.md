@@ -56,7 +56,7 @@ ap.save_overall_html(dest_dir_path="animation_time_basic_usage/")
 
 ## animation_time API
 
-<!-- Docstring: apysc._animation.animation_time_interface.AnimationTimeInterface.animation_time -->
+<!-- Docstring: apysc._animation.animation_time_mixin.AnimationTimeMixIn.animation_time -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

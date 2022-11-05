@@ -1,7 +1,7 @@
-"""The test project for the AnimationTimeInterface class.
+"""The test project for the AnimationTimeMixIn class.
 
 Command examples:
-$ python test_projects/AnimationTimeInterface/main.py
+$ python test_projects/AnimationTimeMixIn/main.py
 """
 
 import sys

@@ -1,7 +1,7 @@
-"""The test project for the AnimationHeightInterface class.
+"""The test project for the AnimationHeightMixIn class.
 
 Command examples:
-$ python test_projects/AnimationHeightInterface/main.py
+$ python test_projects/AnimationHeightMixIn/main.py
 """
 
 import sys

@@ -6,7 +6,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._animation.animation_height_interface import AnimationHeightInterface
+from apysc._animation.animation_height_mixin import AnimationHeightMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
@@ -19,7 +19,7 @@ from apysc._validation import arg_validation_decos
 
 class HeightMixIn(
     VariableNameSuffixAttrInterface,
-    AnimationHeightInterface,
+    AnimationHeightMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
 ):

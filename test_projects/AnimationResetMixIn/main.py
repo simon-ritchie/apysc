@@ -1,7 +1,7 @@
-"""The test project for the AnimationResetInterface class.
+"""The test project for the AnimationResetMixIn class.
 
 Command examples:
-$ python test_projects/AnimationResetInterface/main.py
+$ python test_projects/AnimationResetMixIn/main.py
 """
 
 import sys

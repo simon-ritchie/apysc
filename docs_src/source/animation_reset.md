@@ -70,7 +70,7 @@ ap.save_overall_html(dest_dir_path="./animation_reset_basic_usage/")
 
 ## animation_reset API
 
-<!-- Docstring: apysc._animation.animation_reset_interface.AnimationResetInterface.animation_reset -->
+<!-- Docstring: apysc._animation.animation_reset_mixin.AnimationResetMixIn.animation_reset -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

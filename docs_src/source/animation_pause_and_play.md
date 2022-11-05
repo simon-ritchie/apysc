@@ -111,7 +111,7 @@ Stop all animations.<hr>
 
 ## animation_play API
 
-<!-- Docstring: apysc._animation.animation_play_interface.AnimationPlayInterface.animation_play -->
+<!-- Docstring: apysc._animation.animation_play_interface.AnimationPlayMixIn.animation_play -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

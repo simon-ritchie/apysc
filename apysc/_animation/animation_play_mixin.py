@@ -1,4 +1,4 @@
-"""Class implementation for the animation_play interface.
+"""Class implementation for the animation_play mix-in.
 """
 
 from typing_extensions import final
@@ -7,7 +7,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class AnimationPlayInterface(VariableNameMixIn):
+class AnimationPlayMixIn(VariableNameMixIn):
     @final
     @add_debug_info_setting(module_name=__name__)
     def animation_play(self) -> None:

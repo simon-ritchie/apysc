@@ -7,13 +7,13 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._animation.animation_cy import AnimationCy
-from apysc._animation.animation_interface_base import AnimationInterfaceBase
+from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
-class AnimationCyMixIn(AnimationInterfaceBase):
+class AnimationCyMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

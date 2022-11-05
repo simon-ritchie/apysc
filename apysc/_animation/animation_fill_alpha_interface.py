@@ -6,14 +6,14 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._animation.animation_fill_alpha import AnimationFillAlpha
-from apysc._animation.animation_interface_base import AnimationInterfaceBase
+from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
-class AnimationFillAlphaInterface(AnimationInterfaceBase):
+class AnimationFillAlphaInterface(AnimationMixIns):
     @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)

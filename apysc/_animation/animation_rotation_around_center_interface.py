@@ -6,7 +6,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._animation.animation_interface_base import AnimationInterfaceBase
+from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.animation_rotation_around_center import (
     AnimationRotationAroundCenter,
 )
@@ -15,7 +15,7 @@ from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
-class AnimationRotationAroundCenterInterface(AnimationInterfaceBase):
+class AnimationRotationAroundCenterInterface(AnimationMixIns):
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

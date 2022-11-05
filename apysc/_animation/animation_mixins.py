@@ -1,4 +1,4 @@
-"""Base class for each animation interface.
+"""Base class for each animation mix-in.
 """
 
 from apysc._animation.animation_finish_interface import AnimationFinishInterface
@@ -9,7 +9,7 @@ from apysc._animation.animation_reverse_interface import AnimationReverseInterfa
 from apysc._animation.animation_time_interface import AnimationTimeInterface
 
 
-class AnimationInterfaceBase(
+class AnimationMixIns(
     AnimationPauseInterface,
     AnimationPlayInterface,
     AnimationResetInterface,
@@ -17,4 +17,4 @@ class AnimationInterfaceBase(
     AnimationReverseInterface,
     AnimationTimeInterface,
 ):
-    """Base class for each animation interface."""
+    """Base class for each animation mix-in."""

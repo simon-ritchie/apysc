@@ -6,12 +6,12 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._animation.animation_height_for_ellipse import AnimationHeightForEllipse
-from apysc._animation.animation_interface_base import AnimationInterfaceBase
+from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
 
 
-class AnimationHeightForEllipseInterface(AnimationInterfaceBase):
+class AnimationHeightForEllipseInterface(AnimationMixIns):
     @final
     def animation_height(
         self,

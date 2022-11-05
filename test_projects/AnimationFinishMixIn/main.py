@@ -1,7 +1,7 @@
-"""The test project for the AnimationFinishInterface class.
+"""The test project for the AnimationFinishMixIn class.
 
 Command examples:
-$ python test_projects/AnimationFinishInterface/main.py
+$ python test_projects/AnimationFinishMixIn/main.py
 """
 
 import sys

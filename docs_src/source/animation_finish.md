@@ -81,7 +81,7 @@ ap.save_overall_html(dest_dir_path="animation_finish_basic_usage/")
 
 ## animation_finish API
 
-<!-- Docstring: apysc._animation.animation_finish_interface.AnimationFinishInterface.animation_finish -->
+<!-- Docstring: apysc._animation.animation_finish_mixin.AnimationFinishMixIn.animation_finish -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

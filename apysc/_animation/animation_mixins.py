@@ -1,7 +1,7 @@
 """Base class for each animation mix-in.
 """
 
-from apysc._animation.animation_finish_interface import AnimationFinishInterface
+from apysc._animation.animation_finish_mixin import AnimationFinishMixIn
 from apysc._animation.animation_pause_mixin import AnimationPauseMixIn
 from apysc._animation.animation_play_mixin import AnimationPlayMixIn
 from apysc._animation.animation_reset_mixin import AnimationResetMixIn
@@ -13,7 +13,7 @@ class AnimationMixIns(
     AnimationPauseMixIn,
     AnimationPlayMixIn,
     AnimationResetMixIn,
-    AnimationFinishInterface,
+    AnimationFinishMixIn,
     AnimationReverseInterface,
     AnimationTimeMixIn,
 ):

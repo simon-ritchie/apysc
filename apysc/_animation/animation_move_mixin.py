@@ -1,4 +1,4 @@
-"""Class implementations for the animation_move interface.
+"""Class implementations for the animation_move mix-in.
 """
 
 from typing import Union
@@ -12,7 +12,7 @@ from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
-class AnimationMoveInterface(AnimationMixIns):
+class AnimationMoveMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

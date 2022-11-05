@@ -6,7 +6,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._animation.animation_move_interface import AnimationMoveInterface
+from apysc._animation.animation_move_mixin import AnimationMoveMixIn
 from apysc._animation.animation_y_mixin import AnimationYMixIn
 from apysc._display.y_mixin_base import YMixInBase
 from apysc._html.debug_mode import add_debug_info_setting
@@ -23,7 +23,7 @@ class YMixIn(
     YMixInBase,
     VariableNameSuffixAttrInterface,
     AnimationYMixIn,
-    AnimationMoveInterface,
+    AnimationMoveMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
 ):

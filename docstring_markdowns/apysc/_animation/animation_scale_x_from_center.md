@@ -60,7 +60,7 @@ The animation class for a scale-x.<hr>
 
 **[Raises]**
 
-- TypeError: If a specified target is not a ScaleXFromCenterInterface instance.
+- TypeError: If a specified target is not a ScaleXFromCenterMixIn instance.
 
 ### `_get_animation_func_expression` method docstring
 

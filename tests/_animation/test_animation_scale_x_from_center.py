@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.scale_x_from_center_interface import ScaleXFromCenterInterface
+from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
@@ -13,7 +13,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 class TestAnimationScaleXFromCenter:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target_1: ScaleXFromCenterInterface = ScaleXFromCenterInterface()
+        target_1: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()
         target_1.variable_name = "test_animation_scale_x_from_center"
         animation: ap.AnimationScaleXFromCenter = ap.AnimationScaleXFromCenter(
             target=target_1,
@@ -43,14 +43,14 @@ class TestAnimationScaleXFromCenter:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationScaleXFromCenter,
-            match="Specified `target` argument is not a " "ScaleXFromCenterInterface",
+            match="Specified `target` argument is not a ScaleXFromCenterMixIn",
             target=target_2,
             scale_x_from_center=2.0,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: ScaleXFromCenterInterface = ScaleXFromCenterInterface()
+        target: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()
         target.variable_name = "test_animation_scale_x_from_center"
         animation: ap.AnimationScaleXFromCenter = ap.AnimationScaleXFromCenter(
             target=target, scale_x_from_center=2.0
@@ -61,7 +61,7 @@ class TestAnimationScaleXFromCenter:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: ScaleXFromCenterInterface = ScaleXFromCenterInterface()
+        target: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()
         target.variable_name = "test_animation_scale_x_from_center"
         animation: ap.AnimationScaleXFromCenter = ap.AnimationScaleXFromCenter(
             target=target, scale_x_from_center=2.0

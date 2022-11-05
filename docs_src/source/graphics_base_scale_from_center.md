@@ -137,7 +137,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_center_basic_usage_
 
 ## scale_x_from_center property API
 
-<!-- Docstring: apysc._display.scale_x_from_center_interface.ScaleXFromCenterInterface.scale_x_from_center -->
+<!-- Docstring: apysc._display.scale_x_from_center_mixin.ScaleXFromCenterMixIn.scale_x_from_center -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

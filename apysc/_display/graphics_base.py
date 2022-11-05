@@ -31,7 +31,7 @@ from apysc._display.rotation_around_center_interface import (
     RotationAroundCenterInterface,
 )
 from apysc._display.rotation_around_point_interface import RotationAroundPointInterface
-from apysc._display.scale_x_from_center_interface import ScaleXFromCenterInterface
+from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
 from apysc._display.scale_y_from_center_interface import ScaleYFromCenterInterface
 from apysc._display.scale_y_from_point_interface import ScaleYFromPointInterface
@@ -49,7 +49,7 @@ class GraphicsBase(
     DisplayObject,
     RotationAroundCenterInterface,
     RotationAroundPointInterface,
-    ScaleXFromCenterInterface,
+    ScaleXFromCenterMixIn,
     ScaleYFromCenterInterface,
     ScaleXFromPointInterface,
     ScaleYFromPointInterface,

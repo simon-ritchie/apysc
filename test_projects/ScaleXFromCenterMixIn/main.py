@@ -1,7 +1,7 @@
-"""The test project for the ScaleXFromCenterInterface class.
+"""The test project for the ScaleXFromCenterMixIn class.
 
 Command examples:
-$ python test_projects/ScaleXFromCenterInterface/main.py
+$ python test_projects/ScaleXFromCenterMixIn/main.py
 """
 
 import sys

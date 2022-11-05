@@ -3,17 +3,17 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.scale_x_from_center_interface import ScaleXFromCenterInterface
+from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationScaleXFromCenterInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_scale_x_from_center(self) -> None:
-        interface: ScaleXFromCenterInterface = ScaleXFromCenterInterface()
-        interface.variable_name = "test_animation_scale_x_from_center"
+        mixin: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()
+        mixin.variable_name = "test_animation_scale_x_from_center"
         animation: ap.AnimationScaleXFromCenter = (
-            interface.animation_scale_x_from_center(
+            mixin.animation_scale_x_from_center(
                 scale_x_from_center=2.0,
                 duration=1000,
                 delay=500,
@@ -22,7 +22,7 @@ class TestAnimationScaleXFromCenterInterface:
         )
         assert_attrs(
             expected_attrs={
-                "_target": interface,
+                "_target": mixin,
                 "_scale_x_from_center": 2.0,
                 "_duration": 1000,
                 "_delay": 500,

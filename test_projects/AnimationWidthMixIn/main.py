@@ -1,7 +1,7 @@
-"""The test project for the AnimationWidthInterface class.
+"""The test project for the AnimationWidthMixIn class.
 
 Command examples:
-$ python test_projects/AnimationWidthInterface/main.py
+$ python test_projects/AnimationWidthMixIn/main.py
 """
 
 import sys

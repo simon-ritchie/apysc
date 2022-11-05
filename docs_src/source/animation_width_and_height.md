@@ -165,7 +165,7 @@ animation_width.start()
 
 ## animation_width API
 
-<!-- Docstring: apysc._animation.animation_width_interface.AnimationWidthInterface.animation_width -->
+<!-- Docstring: apysc._animation.animation_width_mixin.AnimationWidthMixIn.animation_width -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

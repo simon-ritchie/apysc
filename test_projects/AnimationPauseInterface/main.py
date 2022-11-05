@@ -1,7 +1,7 @@
-"""The test project for the AnimationPauseInterface class.
+"""The test project for the AnimationPauseMixIn class.
 
 Command examples:
-$ python test_projects/AnimationPauseInterface/main.py
+$ python test_projects/AnimationPauseMixIn/main.py
 """
 
 import sys

@@ -73,7 +73,7 @@ ap.save_overall_html(dest_dir_path="./animation_pause_basic_usage/")
 
 ## animation_pause API
 
-<!-- Docstring: apysc._animation.animation_pause_interface.AnimationPauseInterface.animation_pause -->
+<!-- Docstring: apysc._animation.animation_pause_mixin.AnimationPauseMixIn.animation_pause -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

@@ -1,5 +1,5 @@
 """This module is for the class implementation of
-the `DeletedObjectInterface`.
+the `DeletedObjectMixIn`.
 """
 
 import inspect
@@ -35,7 +35,7 @@ class _DisabledObjectError(Exception):
     pass
 
 
-class DeletedObjectInterface(RevertMixIn):
+class DeletedObjectMixIn(RevertMixIn):
 
     __is_deleted_object: bool = False
 

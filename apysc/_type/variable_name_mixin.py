@@ -5,12 +5,12 @@ from typing import List
 
 from typing_extensions import final
 
-from apysc._type.deleted_object_interface import DeletedObjectInterface
+from apysc._type.deleted_object_mixin import DeletedObjectMixIn
 from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
 from apysc._validation import arg_validation_decos
 
 
-class VariableNameMixIn(DeletedObjectInterface):
+class VariableNameMixIn(DeletedObjectMixIn):
 
     _variable_name: str
     _variable_name_history: List[str]

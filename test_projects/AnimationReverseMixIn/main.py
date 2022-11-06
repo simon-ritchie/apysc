@@ -1,7 +1,7 @@
-"""The test project for the AnimationReverseInterface class.
+"""The test project for the AnimationReverseMixIn class.
 
 Command examples:
-$ python test_projects/AnimationReverseInterface/main.py
+$ python test_projects/AnimationReverseMixIn/main.py
 """
 
 import sys

@@ -120,7 +120,7 @@ ap.save_overall_html(dest_dir_path="animation_reverse_notes/")
 
 ## animation_reverse API
 
-<!-- Docstring: apysc._animation.animation_reverse_interface.AnimationReverseInterface.animation_reverse -->
+<!-- Docstring: apysc._animation.animation_reverse_mixin.AnimationReverseMixIn.animation_reverse -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

@@ -74,7 +74,7 @@ ap.save_overall_html(dest_dir_path="./animation_fill_color_basic_usage/")
 
 ## animation_fill_color API
 
-<!-- Docstring: apysc._animation.animation_fill_color_interface.AnimationFillColorInterface.animation_fill_color -->
+<!-- Docstring: apysc._animation.animation_fill_color_mixin.AnimationFillColorMixIn.animation_fill_color -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

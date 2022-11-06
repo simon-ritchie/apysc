@@ -1,4 +1,4 @@
-"""Class implementation for the animation_fill_color interface.
+"""Class implementation for the animation_fill_color mix-in.
 """
 
 from typing import TypeVar
@@ -16,7 +16,7 @@ from apysc._validation import arg_validation_decos
 StrOrString = TypeVar("StrOrString", str, String)
 
 
-class AnimationFillColorInterface(AnimationMixIns):
+class AnimationFillColorMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

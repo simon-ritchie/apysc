@@ -14,8 +14,8 @@ from typing_extensions import final
 from apysc._animation.animation_height_for_ellipse_interface import (
     AnimationHeightForEllipseInterface,
 )
-from apysc._animation.animation_width_for_ellipse_interface import (
-    AnimationWidthForEllipseInterface,
+from apysc._animation.animation_width_for_ellipse_mixin import (
+    AnimationWidthForEllipseMixIn,
 )
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
@@ -29,7 +29,7 @@ from apysc._validation import arg_validation_decos
 
 class WidthAndHeightInterfacesForEllipse(
     VariableNameSuffixAttrInterface,
-    AnimationWidthForEllipseInterface,
+    AnimationWidthForEllipseMixIn,
     AnimationHeightForEllipseInterface,
     RevertMixIn,
     AttrLinkingMixIn,

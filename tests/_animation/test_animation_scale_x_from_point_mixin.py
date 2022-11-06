@@ -7,7 +7,7 @@ from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
 from apysc._testing.testing_helper import assert_attrs
 
 
-class TestAnimationScaleXFromPointInterface:
+class TestAnimationScaleXFromPointMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_scale_x_from_point(self) -> None:
         interface: ScaleXFromPointInterface = ScaleXFromPointInterface()

@@ -11,7 +11,7 @@ from apysc._animation.easing import Easing
 from apysc._type.int import Int
 
 
-class AnimationHeightForEllipseInterface(AnimationMixIns):
+class AnimationHeightForEllipseMixIn(AnimationMixIns):
     @final
     def animation_height(
         self,

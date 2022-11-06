@@ -1,8 +1,8 @@
-"""The test project for the AnimationScaleXFromPointInterface
+"""The test project for the AnimationScaleXFromPointMixIn
 class.
 
 Command examples:
-$ python test_projects/AnimationScaleXFromPointInterface/main.py
+$ python test_projects/AnimationScaleXFromPointMixIn/main.py
 """
 
 import sys

@@ -6,8 +6,8 @@ from typing import Dict
 
 from typing_extensions import final
 
-from apysc._animation.animation_scale_x_from_point_interface import (
-    AnimationScaleXFromPointInterface,
+from apysc._animation.animation_scale_x_from_point_mixin import (
+    AnimationScaleXFromPointMixIn,
 )
 from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
 from apysc._html.debug_mode import add_debug_info_setting
@@ -23,7 +23,7 @@ from apysc._validation import arg_validation_decos
 
 class ScaleXFromPointInterface(
     VariableNameSuffixAttrInterface,
-    AnimationScaleXFromPointInterface,
+    AnimationScaleXFromPointMixIn,
     SetLowerScaleLimitInterface,
     RevertMixIn,
 ):

@@ -1,7 +1,7 @@
-"""The test project for the AnimationHeightForEllipseInterface class.
+"""The test project for the AnimationHeightForEllipseMixIn class.
 
 Command examples:
-$ python test_projects/AnimationHeightForEllipseInterface/main.py
+$ python test_projects/AnimationHeightForEllipseMixIn/main.py
 """
 
 import sys

@@ -13,7 +13,7 @@ from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
-class AnimationFillAlphaInterface(AnimationMixIns):
+class AnimationFillAlphaMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)

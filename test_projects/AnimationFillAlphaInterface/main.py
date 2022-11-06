@@ -1,7 +1,7 @@
-"""The test project for the AnimationFillAlphaInterface class.
+"""The test project for the AnimationFillAlphaMixIn class.
 
 Command examples:
-$ python test_projects/AnimationFillAlphaInterface/main.py
+$ python test_projects/AnimationFillAlphaMixIn/main.py
 """
 
 import sys

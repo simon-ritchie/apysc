@@ -1,7 +1,7 @@
-"""The test project for the AnimationRadiusInterface class.
+"""The test project for the AnimationRadiusMixIn class.
 
 Command examples:
-$ python test_projects/AnimationRadiusInterface/main.py
+$ python test_projects/AnimationRadiusMixIn/main.py
 """
 
 import sys

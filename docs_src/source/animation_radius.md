@@ -77,7 +77,7 @@ ap.save_overall_html(dest_dir_path="./animation_radius_basic_usage/")
 
 ## animation_radius API
 
-<!-- Docstring: apysc._animation.animation_radius_interface.AnimationRadiusInterface.animation_radius -->
+<!-- Docstring: apysc._animation.animation_radius_mixin.AnimationRadiusMixIn.animation_radius -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

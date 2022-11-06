@@ -6,7 +6,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._animation.animation_radius_interface import AnimationRadiusInterface
+from apysc._animation.animation_radius_mixin import AnimationRadiusMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
@@ -19,7 +19,7 @@ from apysc._validation import arg_validation_decos
 
 class RadiusMixIn(
     VariableNameSuffixAttrInterface,
-    AnimationRadiusInterface,
+    AnimationRadiusMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
 ):

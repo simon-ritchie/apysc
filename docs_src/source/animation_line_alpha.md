@@ -74,7 +74,7 @@ ap.save_overall_html(dest_dir_path="./animation_line_alpha_basic_usage/")
 
 ## animation_line_alpha API
 
-<!-- Docstring: apysc._animation.animation_line_alpha_interface.AnimationLineAlphaInterface.animation_line_alpha -->
+<!-- Docstring: apysc._animation.animation_line_alpha_mixin.AnimationLineAlphaMixIn.animation_line_alpha -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

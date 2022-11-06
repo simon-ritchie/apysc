@@ -1,4 +1,4 @@
-"""Class implementation for the animation_line_alpha interface.
+"""Class implementation for the animation_line_alpha mix-in.
 """
 
 from typing import Union
@@ -13,7 +13,7 @@ from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
-class AnimationLineAlphaInterface(AnimationMixIns):
+class AnimationLineAlphaMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1)

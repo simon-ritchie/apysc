@@ -6,7 +6,7 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._animation.animation_line_color_interface import AnimationLineColorInterface
+from apysc._animation.animation_line_color_mixin import AnimationLineColorMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.revert_mixin import RevertMixIn
@@ -19,7 +19,7 @@ from apysc._validation import arg_validation_decos
 
 class LineColorMixIn(
     VariableNameSuffixAttrInterface,
-    AnimationLineColorInterface,
+    AnimationLineColorMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
 ):

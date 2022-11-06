@@ -1,7 +1,7 @@
-"""The test project for the AnimationLineColorInterface class.
+"""The test project for the AnimationLineColorMixIn class.
 
 Command examples:
-$ python test_projects/AnimationLineColorInterface/main.py
+$ python test_projects/AnimationLineColorMixIn/main.py
 """
 
 import sys

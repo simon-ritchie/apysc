@@ -74,7 +74,7 @@ ap.save_overall_html(dest_dir_path="./animation_line_color_basic_usage/")
 
 ## animation_line_color API
 
-<!-- Docstring: apysc._animation.animation_line_color_interface.AnimationLineColorInterface.animation_line_color -->
+<!-- Docstring: apysc._animation.animation_line_color_mixin.AnimationLineColorMixIn.animation_line_color -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

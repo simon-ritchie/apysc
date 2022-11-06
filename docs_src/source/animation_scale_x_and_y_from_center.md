@@ -145,7 +145,7 @@ ap.save_overall_html(dest_dir_path="./animation_scale_x_and_y_from_center_basic_
 
 ## animation_scale_x_from_center API
 
-<!-- Docstring: apysc._animation.animation_scale_x_from_center_interface.AnimationScaleXFromCenterInterface.animation_scale_x_from_center -->
+<!-- Docstring: apysc._animation.animation_scale_x_from_center_mixin.AnimationScaleXFromCenterMixIn.animation_scale_x_from_center -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

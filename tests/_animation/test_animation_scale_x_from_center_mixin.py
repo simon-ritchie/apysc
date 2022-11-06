@@ -7,7 +7,7 @@ from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._testing.testing_helper import assert_attrs
 
 
-class TestAnimationScaleXFromCenterInterface:
+class TestAnimationScaleXFromCenterMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_scale_x_from_center(self) -> None:
         mixin: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()

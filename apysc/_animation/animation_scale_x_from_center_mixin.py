@@ -14,7 +14,7 @@ from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
-class AnimationScaleXFromCenterInterface(AnimationMixIns):
+class AnimationScaleXFromCenterMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

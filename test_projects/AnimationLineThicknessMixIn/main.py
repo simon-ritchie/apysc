@@ -1,7 +1,7 @@
-"""The test project for the AnimationLineThicknessInterface class.
+"""The test project for the AnimationLineThicknessMixIn class.
 
 Command examples:
-$ python test_projects/AnimationLineThicknessInterface/main.py
+$ python test_projects/AnimationLineThicknessMixIn/main.py
 """
 
 import sys

@@ -6,8 +6,8 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._animation.animation_line_thickness_interface import (
-    AnimationLineThicknessInterface,
+from apysc._animation.animation_line_thickness_mixin import (
+    AnimationLineThicknessMixIn,
 )
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
@@ -21,7 +21,7 @@ from apysc._validation import arg_validation_decos
 
 class LineThicknessMixIn(
     VariableNameSuffixAttrInterface,
-    AnimationLineThicknessInterface,
+    AnimationLineThicknessMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
 ):

@@ -74,7 +74,7 @@ ap.save_overall_html(dest_dir_path="./animation_line_thickness_basic_usage/")
 
 ## animation_line_thickness API
 
-<!-- Docstring: apysc._animation.animation_line_thickness_interface.AnimationLineThicknessInterface.animation_line_thickness -->
+<!-- Docstring: apysc._animation.animation_line_thickness_mixin.AnimationLineThicknessMixIn.animation_line_thickness -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

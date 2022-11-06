@@ -68,7 +68,7 @@ Target animation type: <class 'apysc._animation.animation_x.AnimationX'>
 
 ## animation_parallel API
 
-<!-- Docstring: apysc._animation.animation_parallel_interface.AnimationParallelInterface.animation_parallel -->
+<!-- Docstring: apysc._animation.animation_parallel_mixin.AnimationParallelMixIn.animation_parallel -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

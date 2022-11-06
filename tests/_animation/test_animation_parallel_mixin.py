@@ -7,7 +7,7 @@ import apysc as ap
 from apysc._testing.testing_helper import assert_attrs
 
 
-class TestAnimationParallelInterface:
+class TestAnimationParallelMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_parallel(self) -> None:
         ap.Stage()

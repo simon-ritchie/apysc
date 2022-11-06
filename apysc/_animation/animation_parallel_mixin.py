@@ -1,4 +1,4 @@
-"""Class implementation for the parallel animation interface.
+"""Class implementation for the parallel animation mix-in.
 """
 
 from typing import List
@@ -14,7 +14,7 @@ from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
-class AnimationParallelInterface(AnimationMixIns):
+class AnimationParallelMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_animations(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

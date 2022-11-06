@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 
 from typing_extensions import final
 
-from apysc._animation.animation_parallel_interface import AnimationParallelInterface
+from apysc._animation.animation_parallel_mixin import AnimationParallelMixIn
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.parent_mixin import ParentMixIn
 from apysc._display.visible_mixin import VisibleMixIn
@@ -28,7 +28,7 @@ class DisplayObject(
     VisibleMixIn,
     CustomEventMixIn,
     CssMixIn,
-    AnimationParallelInterface,
+    AnimationParallelMixIn,
 ):
     """
     Display object (base) class for the common interfaces.

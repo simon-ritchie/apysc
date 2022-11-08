@@ -7,7 +7,7 @@ from apysc._display.scale_y_from_center_interface import ScaleYFromCenterInterfa
 from apysc._testing.testing_helper import assert_attrs
 
 
-class TestAnimationScaleYFromCenterInterface:
+class TestAnimationScaleYFromCenterMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_scale_y_from_center(self) -> None:
         interface: ScaleYFromCenterInterface = ScaleYFromCenterInterface()

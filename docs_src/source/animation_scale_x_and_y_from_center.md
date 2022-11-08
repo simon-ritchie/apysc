@@ -209,7 +209,7 @@ To start this animation, you need to call the `start` method of the returned ins
 
 ## animation_scale_y_from_center API
 
-<!-- Docstring: apysc._animation.animation_scale_y_from_center_interface.AnimationScaleYFromCenterInterface.animation_scale_y_from_center -->
+<!-- Docstring: apysc._animation.animation_scale_y_from_center_mixin.AnimationScaleYFromCenterMixIn.animation_scale_y_from_center -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

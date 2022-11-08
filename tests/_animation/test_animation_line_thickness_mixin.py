@@ -3,9 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._animation.animation_line_thickness_mixin import (
-    AnimationLineThicknessMixIn,
-)
+from apysc._animation.animation_line_thickness_mixin import AnimationLineThicknessMixIn
 from apysc._testing.testing_helper import assert_attrs
 
 

@@ -12,9 +12,7 @@ from apysc._testing.testing_helper import assert_attrs
 class TestAnimationWidthForEllipseMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_width(self) -> None:
-        interface: AnimationWidthForEllipseMixIn = (
-            AnimationWidthForEllipseMixIn()
-        )
+        interface: AnimationWidthForEllipseMixIn = AnimationWidthForEllipseMixIn()
         interface.variable_name = "test_animation_width_for_ellipse_interface"
         animation_width_for_ellipse: ap.AnimationWidthForEllipse = (
             interface.animation_width(

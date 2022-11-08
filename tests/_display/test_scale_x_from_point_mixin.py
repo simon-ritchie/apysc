@@ -8,25 +8,25 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display import scale_interface_helper
-from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
+from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.expression_string import ExpressionString
 
 
-class _TestInterface(ScaleXFromPointInterface):
+class _TestMixIn(ScaleXFromPointMixIn):
     def __init__(self) -> None:
         """
-        The class for the testing for the `ScaleXFromPointInterface`
+        The class for the testing for the `ScaleXFromPointMixIn`
         class.
         """
         self.variable_name = "scale_x_from_point_interface"
 
 
-class TestScaleXFromPointInterface:
+class TestScaleXFromPointMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_scale_x_from_point_if_not_initialized(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface._initialize_scale_x_from_point_if_not_initialized()
         assert interface._scale_x_from_point == {}
         interface._scale_x_from_point["a"] = ap.Number(10)
@@ -36,7 +36,7 @@ class TestScaleXFromPointInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_get_scale_x_from_point(self) -> None:
         x: ap.Int = ap.Int(100)
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         scale_x: ap.Number = interface.get_scale_x_from_point(x=x)
         assert scale_x == 1.0
         assert isinstance(scale_x, ap.Number)
@@ -53,7 +53,7 @@ class TestScaleXFromPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_set_scale_x_from_point(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         x: ap.Int = ap.Int(100)
         interface.set_scale_x_from_point(scale_x=ap.Number(0.5), x=x)
         scale_x: ap.Number = interface.get_scale_x_from_point(x=x)
@@ -65,7 +65,7 @@ class TestScaleXFromPointInterface:
         x: ap.Int = ap.Int(100)
         scale_x_1: ap.Number = ap.Number(0.5)
         scale_x_2: ap.Number = ap.Number(0.3)
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface.set_scale_x_from_point(scale_x=scale_x_1, x=x)
         interface.set_scale_x_from_point(scale_x=scale_x_2, x=x)
         expression: str = expression_data_util.get_current_expression()
@@ -97,7 +97,7 @@ class TestScaleXFromPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         x: ap.Int = ap.Int(100)
         interface.set_scale_x_from_point(scale_x=ap.Number(0.5), x=x)
         snapshot_name: str = interface._get_next_snapshot_name()
@@ -119,7 +119,7 @@ class TestScaleXFromPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         x: ap.Int = ap.Int(100)
         interface.set_scale_x_from_point(scale_x=ap.Number(0.5), x=x)
         snapshot_name: str = interface._get_next_snapshot_name()

@@ -154,7 +154,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y
 
 ## get_scale_x_from_point API
 
-<!-- Docstring: apysc._display.scale_x_from_point_interface.ScaleXFromPointInterface.get_scale_x_from_point -->
+<!-- Docstring: apysc._display.scale_x_from_point_mixin.ScaleXFromPointMixIn.get_scale_x_from_point -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -200,7 +200,7 @@ Number(1.5)
 
 ## set_scale_x_from_point API
 
-<!-- Docstring: apysc._display.scale_x_from_point_interface.ScaleXFromPointInterface.set_scale_x_from_point -->
+<!-- Docstring: apysc._display.scale_x_from_point_mixin.ScaleXFromPointMixIn.set_scale_x_from_point -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

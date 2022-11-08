@@ -3,14 +3,14 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
+from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationScaleXFromPointMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_scale_x_from_point(self) -> None:
-        interface: ScaleXFromPointInterface = ScaleXFromPointInterface()
+        interface: ScaleXFromPointMixIn = ScaleXFromPointMixIn()
         animation: ap.AnimationScaleXFromPoint = interface.animation_scale_x_from_point(
             scale_x_from_point=2.0,
             x=50,

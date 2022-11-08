@@ -80,7 +80,7 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
 
         Parameters
         ----------
-        target : ScaleXFromPointInterface
+        target : ScaleXFromPointMixIn
             A target instance of the animation target
             (e.g., `Rectangle` instance).
         scale_x_from_point : float or Number
@@ -97,12 +97,12 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
         Raises
         ------
         TypeError
-            If a specified target is not a ScaleXFromPointInterface
+            If a specified target is not a ScaleXFromPointMixIn
             instance.
         """
         import apysc as ap
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
+        from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
 
@@ -111,13 +111,13 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
         )
         self._x = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=x)
         target_: VariableNameMixIn = target
-        if isinstance(target_, ScaleXFromPointInterface):
+        if isinstance(target_, ScaleXFromPointMixIn):
             target_._initialize_scale_x_from_point_if_not_initialized()
             self._before_scale_x_from_point = target_.get_scale_x_from_point(x=self._x)
         else:
             raise TypeError(
                 "Specified `target` argument is not a "
-                f"ScaleXFromPointInterface: {type(target_)}"
+                f"ScaleXFromPointMixIn: {type(target_)}"
             )
         self._scale_x_from_point = (
             to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
@@ -164,11 +164,11 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display import scale_interface_helper
-        from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
+        from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
         from apysc._type import value_util
 
         expression: str = ""
-        if isinstance(self._target, ScaleXFromPointInterface):
+        if isinstance(self._target, ScaleXFromPointMixIn):
             self._target._initialize_scale_x_from_point_if_not_initialized()
             key_exp_str: str = scale_interface_helper.get_coordinate_key_for_expression(
                 coordinate=self._x

@@ -1,7 +1,7 @@
-"""The test project for the ScaleXFromPointInterface class.
+"""The test project for the ScaleXFromPointMixIn class.
 
 Command examples:
-$ python test_projects/ScaleXFromPointInterface/main.py
+$ python test_projects/ScaleXFromPointMixIn/main.py
 """
 
 import sys

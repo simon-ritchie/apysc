@@ -97,7 +97,7 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
         Raises
         ------
         TypeError
-            If a specified target is not a ScaleXFromPointInterface
+            If a specified target is not a ScaleXFromPointMixIn
             instance.
         """
         import apysc as ap

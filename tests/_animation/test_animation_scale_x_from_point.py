@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display import scale_interface_helper
-from apysc._display.scale_x_from_point_interface import ScaleXFromPointInterface
+from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
@@ -14,7 +14,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 class TestAnimationScaleXFromPoint:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target_1: ScaleXFromPointInterface = ScaleXFromPointInterface()
+        target_1: ScaleXFromPointMixIn = ScaleXFromPointMixIn()
         target_1.variable_name = "test_animation_scale_x_from_point"
         animation: ap.AnimationScaleXFromPoint = ap.AnimationScaleXFromPoint(
             target=target_1,
@@ -45,7 +45,7 @@ class TestAnimationScaleXFromPoint:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationScaleXFromPoint,
-            match="Specified `target` argument is not a " "ScaleXFromPointInterface",
+            match="Specified `target` argument is not a ScaleXFromPointMixIn",
             target=target_2,
             scale_x_from_point=2.0,
             x=50,
@@ -53,7 +53,7 @@ class TestAnimationScaleXFromPoint:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: ScaleXFromPointInterface = ScaleXFromPointInterface()
+        target: ScaleXFromPointMixIn = ScaleXFromPointMixIn()
         target.variable_name = "test_animation_scale_x_from_point"
         animation: ap.AnimationScaleXFromPoint = ap.AnimationScaleXFromPoint(
             target=target,
@@ -69,7 +69,7 @@ class TestAnimationScaleXFromPoint:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: ScaleXFromPointInterface = ScaleXFromPointInterface()
+        target: ScaleXFromPointMixIn = ScaleXFromPointMixIn()
         target.variable_name = "test_animation_scale_x_from_point"
         animation: ap.AnimationScaleXFromPoint = ap.AnimationScaleXFromPoint(
             target=target,

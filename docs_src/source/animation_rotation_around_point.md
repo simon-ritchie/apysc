@@ -85,7 +85,7 @@ ap.save_overall_html(dest_dir_path="./animation_rotation_around_point_basic_usag
 
 ## animation_rotation_around_point API
 
-<!-- Docstring: apysc._animation.animation_rotation_around_point_interface.AnimationRotationAroundPointInterface.animation_rotation_around_point -->
+<!-- Docstring: apysc._animation.animation_rotation_around_point_mixin.AnimationRotationAroundPointMixIn.animation_rotation_around_point -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

@@ -7,7 +7,7 @@ from apysc._display.rotation_around_point_interface import RotationAroundPointIn
 from apysc._testing.testing_helper import assert_attrs
 
 
-class TestAnimationRotationAroundPointInterface:
+class TestAnimationRotationAroundPointMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_rotation_around_point(self) -> None:
         interface: RotationAroundPointInterface = RotationAroundPointInterface()

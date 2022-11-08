@@ -1,8 +1,8 @@
-"""The test project for the AnimationRotationAroundPointInterface
+"""The test project for the AnimationRotationAroundPointMixIn
 class.
 
 Command examples:
-$ python test_projects/AnimationRotationAroundPointInterface/main.py
+$ python test_projects/AnimationRotationAroundPointMixIn/main.py
 """
 
 import sys

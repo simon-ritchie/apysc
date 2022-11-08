@@ -6,8 +6,8 @@ from typing import Dict
 
 from typing_extensions import final
 
-from apysc._animation.animation_rotation_around_point_interface import (
-    AnimationRotationAroundPointInterface,
+from apysc._animation.animation_rotation_around_point_mixin import (
+    AnimationRotationAroundPointMixIn,
 )
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
@@ -21,7 +21,7 @@ from apysc._validation import arg_validation_decos
 
 class RotationAroundPointInterface(
     VariableNameSuffixAttrInterface,
-    AnimationRotationAroundPointInterface,
+    AnimationRotationAroundPointMixIn,
     RevertMixIn,
 ):
 

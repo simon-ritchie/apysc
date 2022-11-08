@@ -9,7 +9,7 @@ from apysc._display.rotation_around_center_interface import (
 from apysc._testing.testing_helper import assert_attrs
 
 
-class TestAnimationRotationAroundCenterInterface:
+class TestAnimationRotationAroundCenterMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_rotation_around_center(self) -> None:
         interface: RotationAroundCenterInterface = RotationAroundCenterInterface()

@@ -1,5 +1,5 @@
-"""Class implementation for the animation_rotation_aroound_center
-interface.
+"""Class implementation for the animation_rotation_around_center
+mix-in.
 """
 
 from typing import Union
@@ -15,7 +15,7 @@ from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
-class AnimationRotationAroundCenterInterface(AnimationMixIns):
+class AnimationRotationAroundCenterMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)

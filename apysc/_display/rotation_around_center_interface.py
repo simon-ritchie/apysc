@@ -6,8 +6,8 @@ from typing import Dict
 
 from typing_extensions import final
 
-from apysc._animation.animation_rotation_around_center_interface import (
-    AnimationRotationAroundCenterInterface,
+from apysc._animation.animation_rotation_around_center_mixin import (
+    AnimationRotationAroundCenterMixIn,
 )
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
@@ -21,7 +21,7 @@ from apysc._validation import arg_validation_decos
 
 class RotationAroundCenterInterface(
     VariableNameSuffixAttrInterface,
-    AnimationRotationAroundCenterInterface,
+    AnimationRotationAroundCenterMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
 ):

@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display import rotation_interface_helper
-from apysc._display.rotation_around_point_interface import RotationAroundPointInterface
+from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
@@ -14,7 +14,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 class TestAnimationRotationAroundPoint:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target_1: RotationAroundPointInterface = RotationAroundPointInterface()
+        target_1: RotationAroundPointMixIn = RotationAroundPointMixIn()
         target_1.variable_name = "test_animation_rotation_around_point"
         animation: ap.AnimationRotationAroundPoint = ap.AnimationRotationAroundPoint(
             target=target_1,
@@ -49,7 +49,7 @@ class TestAnimationRotationAroundPoint:
             expected_error_class=TypeError,
             callable_=ap.AnimationRotationAroundPoint,
             match="Specified `target` argument is not a "
-            "RotationAroundPointInterface",
+            "RotationAroundPointMixIn",
             target=target_2,
             rotation_around_point=100,
             x=200,
@@ -58,7 +58,7 @@ class TestAnimationRotationAroundPoint:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: RotationAroundPointInterface = RotationAroundPointInterface()
+        target: RotationAroundPointMixIn = RotationAroundPointMixIn()
         target.variable_name = "test_animation_rotation_around_point"
         animation: ap.AnimationRotationAroundPoint = ap.AnimationRotationAroundPoint(
             target=target, rotation_around_point=100, x=200, y=300
@@ -73,7 +73,7 @@ class TestAnimationRotationAroundPoint:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: RotationAroundPointInterface = RotationAroundPointInterface()
+        target: RotationAroundPointMixIn = RotationAroundPointMixIn()
         target.variable_name = "test_animation_rotation_around_point"
         animation: ap.AnimationRotationAroundPoint = ap.AnimationRotationAroundPoint(
             target=target, rotation_around_point=100, x=200, y=300

@@ -1,4 +1,4 @@
-"""Class implementation for the rotation_around_point interface.
+"""Class implementation for the rotation_around_point mix-in.
 """
 
 from typing import Any
@@ -19,7 +19,7 @@ from apysc._type.variable_name_suffix_attr_interface import (
 from apysc._validation import arg_validation_decos
 
 
-class RotationAroundPointInterface(
+class RotationAroundPointMixIn(
     VariableNameSuffixAttrInterface,
     AnimationRotationAroundPointMixIn,
     RevertMixIn,

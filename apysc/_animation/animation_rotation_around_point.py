@@ -82,7 +82,7 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
 
         Parameters
         ----------
-        target : RotationAroundPointInterface
+        target : RotationAroundPointMixIn
             A target instance of the animation target
             (e.g., `Rectangle` instance).
         rotation_around_point : int or Int
@@ -101,12 +101,12 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
         Raises
         ------
         TypeError
-            If a specified target is not a RotationAroundPointInterface
+            If a specified target is not a RotationAroundPointMixIn
             instance.
         """
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._display.rotation_around_point_interface import (
-            RotationAroundPointInterface,
+        from apysc._display.rotation_around_point_mixin import (
+            RotationAroundPointMixIn,
         )
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -117,7 +117,7 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
         self._x = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=x)
         self._y = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=y)
         target_: VariableNameMixIn = target
-        if isinstance(target_, RotationAroundPointInterface):
+        if isinstance(target_, RotationAroundPointMixIn):
             target_._initialize_rotation_around_point_if_not_initialized()
             self._before_rotation_around_point = target_.get_rotation_around_point(
                 x=self._x, y=self._y
@@ -125,7 +125,7 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
         else:
             raise TypeError(
                 "Specified `target` argument is not a "
-                f"RotationAroundPointInterface instance: {type(target_)}"
+                f"RotationAroundPointMixIn instance: {type(target_)}"
             )
         self._rotation_around_point = (
             to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
@@ -172,13 +172,13 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display import rotation_interface_helper
-        from apysc._display.rotation_around_point_interface import (
-            RotationAroundPointInterface,
+        from apysc._display.rotation_around_point_mixin import (
+            RotationAroundPointMixIn,
         )
         from apysc._type import value_util
 
         expression: str = ""
-        if isinstance(self._target, RotationAroundPointInterface):
+        if isinstance(self._target, RotationAroundPointMixIn):
             self._target._initialize_rotation_around_point_if_not_initialized()
             key_exp_str: str = (
                 rotation_interface_helper.get_coordinates_key_for_expression(

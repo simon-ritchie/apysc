@@ -73,7 +73,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_rotation_around_point_basic_us
 
 ## get_rotation_around_point API
 
-<!-- Docstring: apysc._display.rotation_around_point_interface.RotationAroundPointInterface.get_rotation_around_point -->
+<!-- Docstring: apysc._display.rotation_around_point_mixin.RotationAroundPointMixIn.get_rotation_around_point -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -118,7 +118,7 @@ Int(45)
 
 ## set_rotation_around_point API
 
-<!-- Docstring: apysc._display.rotation_around_point_interface.RotationAroundPointInterface.set_rotation_around_point -->
+<!-- Docstring: apysc._display.rotation_around_point_mixin.RotationAroundPointMixIn.set_rotation_around_point -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

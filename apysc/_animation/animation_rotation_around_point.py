@@ -105,9 +105,7 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
             instance.
         """
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._display.rotation_around_point_mixin import (
-            RotationAroundPointMixIn,
-        )
+        from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
 
@@ -172,9 +170,7 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display import rotation_interface_helper
-        from apysc._display.rotation_around_point_mixin import (
-            RotationAroundPointMixIn,
-        )
+        from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
         from apysc._type import value_util
 
         expression: str = ""

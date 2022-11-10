@@ -47,7 +47,7 @@ The animation class for a rotation around the given point.<hr>
 
 **[Parameters]**
 
-- `target`: RotationAroundPointInterface
+- `target`: RotationAroundPointMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `rotation_around_point`: int or Int
   - The final rotation around the given point of the animation.
@@ -66,7 +66,7 @@ The animation class for a rotation around the given point.<hr>
 
 **[Raises]**
 
-- TypeError: If a specified target is not a RotationAroundPointInterface instance.
+- TypeError: If a specified target is not a RotationAroundPointMixIn instance.
 
 ### `_get_animation_func_expression` method docstring
 

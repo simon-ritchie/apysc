@@ -48,8 +48,7 @@ class TestAnimationRotationAroundPoint:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationRotationAroundPoint,
-            match="Specified `target` argument is not a "
-            "RotationAroundPointMixIn",
+            match="Specified `target` argument is not a " "RotationAroundPointMixIn",
             target=target_2,
             rotation_around_point=100,
             x=200,

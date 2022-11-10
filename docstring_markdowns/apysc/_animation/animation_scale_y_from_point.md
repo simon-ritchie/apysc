@@ -46,7 +46,7 @@ The animation class for a scale-y from the given point.<hr>
 
 **[Parameters]**
 
-- `target`: ScaleYFromPointInterface
+- `target`: ScaleYFromPointMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `scale_y_from_point`: float or Number
   - The final scale-y from the given point of the animation.
@@ -63,7 +63,7 @@ The animation class for a scale-y from the given point.<hr>
 
 **[Raises]**
 
-- TypeError: If a specified target is not a ScaleXFromPointInterface instance.
+- TypeError: If a specified target is not a ScaleXFromPointMixIn instance.
 
 ### `_get_animation_func_expression` method docstring
 

@@ -1,10 +1,10 @@
-# `apysc._display.line_round_dot_setting_interface` docstrings
+# `apysc._display.line_round_dot_setting_mixin` docstrings
 
 ## Module summary
 
 Class implementation for the line round-dot setting interface.
 
-## `LineRoundDotSettingInterface` class docstring
+## `LineRoundDotSettingMixIn` class docstring
 
 ### `_append_line_round_dot_setting_update_expression` method docstring
 

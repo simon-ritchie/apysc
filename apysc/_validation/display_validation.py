@@ -256,9 +256,7 @@ def validate_multiple_line_settings_are_not_set(
     )
     from apysc._display.line_dash_setting_interface import LineDashSettingInterface
     from apysc._display.line_dot_setting_interface import LineDotSettingInterface
-    from apysc._display.line_round_dot_setting_mixin import (
-        LineRoundDotSettingMixIn,
-    )
+    from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
     from apysc._display.line_style_mixin import LineStyleMixIn
 
     valid_setting_names: List[str] = []

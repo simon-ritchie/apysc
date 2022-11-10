@@ -9,23 +9,23 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display import scale_interface_helper
-from apysc._display.scale_y_from_point_interface import ScaleYFromPointInterface
+from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._expression import expression_data_util
 from apysc._type.expression_string import ExpressionString
 
 
-class _TestInterface(ScaleYFromPointInterface):
+class _TestMixIn(ScaleYFromPointMixIn):
     def __init__(self) -> None:
         """
-        Class for the testing of the `ScaleYFromPointInterface` class.
+        Class for the testing of the `ScaleYFromPointMixIn` class.
         """
         self.variable_name = "test_scale_y_from_point_interface"
 
 
-class TestScaleYFromPointInterface:
+class TestScaleYFromPointMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_scale_y_from_point_if_not_initialized(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface._initialize_scale_y_from_point_if_not_initialized()
         assert interface._scale_y_from_point == {}
 
@@ -35,7 +35,7 @@ class TestScaleYFromPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_get_scale_y_from_point(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         scale_y: ap.Number = interface.get_scale_y_from_point(y=ap.Int(10))
         assert scale_y == 1.0
 
@@ -48,7 +48,7 @@ class TestScaleYFromPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_set_scale_y_from_point(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface.set_scale_y_from_point(scale_y=ap.Number(0.5), y=ap.Int(100))
         scale_y: ap.Number = interface.get_scale_y_from_point(y=ap.Int(100))
         assert scale_y == 0.5
@@ -56,7 +56,7 @@ class TestScaleYFromPointInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_scale_y_from_point_update_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         scale_y: ap.Number = ap.Number(0.5)
         y: ap.Int = ap.Int(100)
         interface.set_scale_y_from_point(scale_y=scale_y, y=y)
@@ -75,7 +75,7 @@ class TestScaleYFromPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface.set_scale_y_from_point(scale_y=ap.Number(0.5), y=ap.Int(100))
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -86,7 +86,7 @@ class TestScaleYFromPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        interface: _TestInterface = _TestInterface()
+        interface: _TestMixIn = _TestMixIn()
         interface.set_scale_y_from_point(scale_y=ap.Number(0.5), y=ap.Int(100))
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)

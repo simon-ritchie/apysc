@@ -241,7 +241,7 @@ Number(1.5)
 
 ## get_scale_y_from_point API
 
-<!-- Docstring: apysc._display.scale_y_from_point_interface.ScaleYFromPointInterface.get_scale_y_from_point -->
+<!-- Docstring: apysc._display.scale_y_from_point_mixin.ScaleYFromPointMixIn.get_scale_y_from_point -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -283,7 +283,7 @@ Number(1.5)
 
 ## set_scale_y_from_point API
 
-<!-- Docstring: apysc._display.scale_y_from_point_interface.ScaleYFromPointInterface.set_scale_y_from_point -->
+<!-- Docstring: apysc._display.scale_y_from_point_mixin.ScaleYFromPointMixIn.set_scale_y_from_point -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

@@ -80,7 +80,7 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
 
         Parameters
         ----------
-        target : ScaleYFromPointInterface
+        target : ScaleYFromPointMixIn
             A target instance of the animation target
             (e.g., `Rectangle` instance).
         scale_y_from_point : float or Number
@@ -102,7 +102,7 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
         """
         import apysc as ap
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._display.scale_y_from_point_interface import ScaleYFromPointInterface
+        from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
 
@@ -111,13 +111,13 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
         )
         self._y = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=y)
         target_: VariableNameMixIn = target
-        if isinstance(target_, ScaleYFromPointInterface):
+        if isinstance(target_, ScaleYFromPointMixIn):
             target_._initialize_scale_y_from_point_if_not_initialized()
             self._before_scale_y_from_point = target_.get_scale_y_from_point(y=self._y)
         else:
             raise TypeError(
                 "Specified `target` argument is not a "
-                f"ScaleYFromPointInterface: {type(target_)}"
+                f"ScaleYFromPointMixIn: {type(target_)}"
             )
         self._scale_y_from_point = (
             to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
@@ -164,11 +164,11 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
             event handler.
         """
         from apysc._display import scale_interface_helper
-        from apysc._display.scale_y_from_point_interface import ScaleYFromPointInterface
+        from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
         from apysc._type import value_util
 
         expression: str = ""
-        if isinstance(self._target, ScaleYFromPointInterface):
+        if isinstance(self._target, ScaleYFromPointMixIn):
             self._target._initialize_scale_y_from_point_if_not_initialized()
             key_exp_str: str = scale_interface_helper.get_coordinate_key_for_expression(
                 coordinate=self._y

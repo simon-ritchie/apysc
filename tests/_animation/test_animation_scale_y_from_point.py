@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display import scale_interface_helper
-from apysc._display.scale_y_from_point_interface import ScaleYFromPointInterface
+from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
@@ -14,7 +14,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 class TestAnimationScaleYFromPoint:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target_1: ScaleYFromPointInterface = ScaleYFromPointInterface()
+        target_1: ScaleYFromPointMixIn = ScaleYFromPointMixIn()
         target_1.variable_name = "test_animation_scale_y_from_point"
         animation: ap.AnimationScaleYFromPoint = ap.AnimationScaleYFromPoint(
             target=target_1,
@@ -46,7 +46,7 @@ class TestAnimationScaleYFromPoint:
         assert_raises(
             expected_error_class=TypeError,
             callable_=ap.AnimationScaleYFromPoint,
-            match="Specified `target` argument is not a " "ScaleYFromPointInterface",
+            match="Specified `target` argument is not a ScaleYFromPointMixIn",
             target=target_2,
             scale_y_from_point=2.0,
             y=100,
@@ -54,7 +54,7 @@ class TestAnimationScaleYFromPoint:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: ScaleYFromPointInterface = ScaleYFromPointInterface()
+        target: ScaleYFromPointMixIn = ScaleYFromPointMixIn()
         target.variable_name = "test_animation_scale_y_from_point"
         animation: ap.AnimationScaleYFromPoint = ap.AnimationScaleYFromPoint(
             target=target, scale_y_from_point=2.0, y=100
@@ -68,7 +68,7 @@ class TestAnimationScaleYFromPoint:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: ScaleYFromPointInterface = ScaleYFromPointInterface()
+        target: ScaleYFromPointMixIn = ScaleYFromPointMixIn()
         target.variable_name = "test_animation_scale_y_from_point"
         animation: ap.AnimationScaleYFromPoint = ap.AnimationScaleYFromPoint(
             target=target, scale_y_from_point=2.0, y=100

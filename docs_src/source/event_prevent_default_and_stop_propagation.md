@@ -131,7 +131,7 @@ Prevent event's default behavior.<hr>
 
 ## stop_propagation API
 
-<!-- Docstring: apysc._event.stop_propagation_interface.StopPropagationInterface.stop_propagation -->
+<!-- Docstring: apysc._event.stop_propagation_mixin.StopPropagationMixIn.stop_propagation -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

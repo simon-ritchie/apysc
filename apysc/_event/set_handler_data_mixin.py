@@ -1,4 +1,4 @@
-"""Class implementation for the `_set_handler_data` interface.
+"""Class implementation for the `_set_handler_data` mix-in.
 """
 
 from typing import Callable
@@ -17,7 +17,7 @@ _Options = TypeVar("_Options")
 _EventClass = TypeVar("_EventClass", bound=Event)
 
 
-class SetHandlerDataInterface(Generic[_EventClass]):
+class SetHandlerDataMixIn(Generic[_EventClass]):
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.is_builtin_dict(arg_position_index=2)

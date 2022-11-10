@@ -11,7 +11,7 @@ from typing_extensions import final
 
 from apysc._event.enter_frame_event import EnterFrameEvent
 from apysc._event.handler import HandlerData
-from apysc._event.set_handler_data_interface import SetHandlerDataInterface
+from apysc._event.set_handler_data_mixin import SetHandlerDataMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._time.fps import FPS
 from apysc._type.boolean import Boolean
@@ -30,7 +30,7 @@ class _HandlerSettings(TypedDict):
     fps_interval: Number
 
 
-class EnterFrameMixIn(SetHandlerDataInterface[EnterFrameEvent]):
+class EnterFrameMixIn(SetHandlerDataMixIn[EnterFrameEvent]):
 
     _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
     _enter_frame_handler_settings: Dict[_Handlername, _HandlerSettings]

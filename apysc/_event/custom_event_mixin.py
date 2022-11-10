@@ -14,7 +14,7 @@ from typing_extensions import final
 from apysc._event.custom_event_type import CustomEventType
 from apysc._event.event import Event
 from apysc._event.handler import HandlerData
-from apysc._event.set_handler_data_interface import SetHandlerDataInterface
+from apysc._event.set_handler_data_mixin import SetHandlerDataMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.blank_object_mixin import BlankObjectMixIn
 from apysc._validation import arg_validation_decos
@@ -27,7 +27,7 @@ _EventType = TypeVar("_EventType", bound=Event)
 
 class CustomEventMixIn(
     BlankObjectMixIn,
-    SetHandlerDataInterface[_EventType],
+    SetHandlerDataMixIn[_EventType],
     Generic[_EventType],
 ):
 

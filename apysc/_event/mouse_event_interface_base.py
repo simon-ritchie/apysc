@@ -10,7 +10,7 @@ from typing_extensions import final
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_type import MouseEventType
-from apysc._event.set_handler_data_interface import SetHandlerDataInterface
+from apysc._event.set_handler_data_mixin import SetHandlerDataMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
@@ -18,7 +18,7 @@ _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
 
 
-class MouseEventInterfaceBase(SetHandlerDataInterface[MouseEvent]):
+class MouseEventInterfaceBase(SetHandlerDataMixIn[MouseEvent]):
     @final
     @add_debug_info_setting(module_name=__name__)
     def _unbind_mouse_event(

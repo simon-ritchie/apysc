@@ -8,7 +8,7 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._display import graphics
-from apysc._display.append_line_point_interface import AppendLinePointInterface
+from apysc._display.append_line_point_mixin import AppendLinePointMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
@@ -38,7 +38,7 @@ class Polygon(
     XMixIn,
     YMixIn,
     GraphicsBase,
-    AppendLinePointInterface,
+    AppendLinePointMixIn,
     SetXAndYWithMinimumPointInterfaceBase,
     FillColorMixIn,
     FillAlphaMixIn,

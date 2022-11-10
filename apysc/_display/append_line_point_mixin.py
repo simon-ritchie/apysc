@@ -1,4 +1,4 @@
-"""Class implementation for append line point interface.
+"""Class implementation for append line point mix-in.
 """
 
 from typing import Union
@@ -15,7 +15,7 @@ from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterfa
 from apysc._validation import arg_validation_decos
 
 
-class AppendLinePointInterface(Points2DMixIn, VariableNameSuffixInterface):
+class AppendLinePointMixIn(Points2DMixIn, VariableNameSuffixInterface):
 
     _points_var_name: str
 

@@ -1,4 +1,4 @@
-"""Class implementation for the prevent_default interface.
+"""Class implementation for the prevent_default mix-in.
 """
 
 from typing_extensions import final
@@ -7,7 +7,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class PreventDefaultInterface(VariableNameMixIn):
+class PreventDefaultMixIn(VariableNameMixIn):
     @final
     @add_debug_info_setting(module_name=__name__)
     def prevent_default(self) -> None:

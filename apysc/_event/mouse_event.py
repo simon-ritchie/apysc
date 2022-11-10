@@ -7,7 +7,7 @@ from typing import TypeVar
 from typing_extensions import final
 
 from apysc._event.event import Event
-from apysc._event.prevent_default_interface import PreventDefaultInterface
+from apysc._event.prevent_default_mixin import PreventDefaultMixIn
 from apysc._event.stop_propagation_interface import StopPropagationInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
@@ -18,7 +18,7 @@ T = TypeVar("T", bound=VariableNameMixIn)
 
 
 class MouseEvent(
-    Event[T], Generic[T], StopPropagationInterface, PreventDefaultInterface
+    Event[T], Generic[T], StopPropagationInterface, PreventDefaultMixIn
 ):
     """
     Mouse event class.

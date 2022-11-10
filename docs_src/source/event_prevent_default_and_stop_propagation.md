@@ -101,7 +101,7 @@ If you click the following rectangle, the only message of `The rectangle is clic
 
 ## prevent_default API
 
-<!-- Docstring: apysc._event.prevent_default_interface.PreventDefaultInterface.prevent_default -->
+<!-- Docstring: apysc._event.prevent_default_mixin.PreventDefaultMixIn.prevent_default -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

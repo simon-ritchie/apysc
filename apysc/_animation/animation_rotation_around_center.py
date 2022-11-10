@@ -95,7 +95,7 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
             instance.
         """
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._display.rotation_around_center_interface import (
+        from apysc._display.rotation_around_center_mixin import (
             RotationAroundCenterInterface,
         )
         from apysc._expression import expression_variables_util
@@ -156,7 +156,7 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.rotation_around_center_interface import (
+        from apysc._display.rotation_around_center_mixin import (
             RotationAroundCenterInterface,
         )
 

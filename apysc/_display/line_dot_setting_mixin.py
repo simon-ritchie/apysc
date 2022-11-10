@@ -1,4 +1,4 @@
-"""Class implementation for line dot setting interface.
+"""Class implementation for line dot setting mix-in.
 """
 
 from typing import Dict
@@ -13,7 +13,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
 
-class LineDotSettingInterface(VariableNameMixIn, RevertMixIn):
+class LineDotSettingMixIn(VariableNameMixIn, RevertMixIn):
 
     _line_dot_setting: Optional[LineDotSetting]
 

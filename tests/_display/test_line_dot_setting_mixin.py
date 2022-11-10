@@ -6,16 +6,16 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._display.line_dot_setting_interface import LineDotSettingInterface
+from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_raises
 
 
-class TestLineDotSettingInterface:
+class TestLineDotSettingMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_line_dot_setting_if_not_initialized(self) -> None:
-        interface: LineDotSettingInterface = LineDotSettingInterface()
+        interface: LineDotSettingMixIn = LineDotSettingMixIn()
         interface._initialize_line_dot_setting_if_not_initialized()
         assert interface._line_dot_setting is None
 
@@ -25,7 +25,7 @@ class TestLineDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_dot_setting(self) -> None:
-        interface: LineDotSettingInterface = LineDotSettingInterface()
+        interface: LineDotSettingMixIn = LineDotSettingMixIn()
         interface.variable_name = "test_line_dot_setting_interface"
         line_dot_setting: Optional[ap.LineDotSetting] = interface.line_dot_setting
         assert line_dot_setting is None
@@ -45,7 +45,7 @@ class TestLineDotSettingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_dot_setting_update_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface: LineDotSettingInterface = LineDotSettingInterface()
+        interface: LineDotSettingMixIn = LineDotSettingMixIn()
         interface.variable_name = "test_line_dot_setting_interface"
         interface._initialize_line_dot_setting_if_not_initialized()
         interface._append_line_dot_setting_update_expression()
@@ -70,7 +70,7 @@ class TestLineDotSettingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_dot_setting_and_skip_appending_exp(self) -> None:
         expression_data_util.empty_expression()
-        interface: LineDotSettingInterface = LineDotSettingInterface()
+        interface: LineDotSettingMixIn = LineDotSettingMixIn()
         interface._update_line_dot_setting_and_skip_appending_exp(value=None)
         line_dot_setting: Optional[ap.LineDotSetting] = interface.line_dot_setting
         assert line_dot_setting is None
@@ -92,7 +92,7 @@ class TestLineDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        interface: LineDotSettingInterface = LineDotSettingInterface()
+        interface: LineDotSettingMixIn = LineDotSettingMixIn()
         interface.variable_name = "test_line_dot_setting_interface"
         interface.line_dot_setting = ap.LineDotSetting(dot_size=10)
         snapshot_name: str = interface._get_next_snapshot_name()
@@ -109,7 +109,7 @@ class TestLineDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        interface: LineDotSettingInterface = LineDotSettingInterface()
+        interface: LineDotSettingMixIn = LineDotSettingMixIn()
         interface.variable_name = "test_line_dot_setting_interface"
         interface.line_dot_setting = ap.LineDotSetting(dot_size=10)
         snapshot_name: str = interface._get_next_snapshot_name()

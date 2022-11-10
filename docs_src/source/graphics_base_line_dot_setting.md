@@ -37,7 +37,7 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_dot_setting_basic_usage
 
 ## line_dot_setting property API
 
-<!-- Docstring: apysc._display.line_dot_setting_interface.LineDotSettingInterface.line_dot_setting -->
+<!-- Docstring: apysc._display.line_dot_setting_mixin.LineDotSettingMixIn.line_dot_setting -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

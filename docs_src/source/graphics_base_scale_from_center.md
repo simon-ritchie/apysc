@@ -173,7 +173,7 @@ Number(1.5)
 
 ## scale_y_from_center property API
 
-<!-- Docstring: apysc._display.scale_y_from_center_interface.ScaleYFromCenterInterface.scale_y_from_center -->
+<!-- Docstring: apysc._display.scale_y_from_center_mixin.ScaleYFromCenterMixIn.scale_y_from_center -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

@@ -91,13 +91,13 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
         Raises
         ------
         TypeError
-            If a specified target is not a ScaleYFromCenterInterface
+            If a specified target is not a ScaleYFromCenterMixIn
             instance.
         """
         import apysc as ap
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._display.scale_y_from_center_interface import (
-            ScaleYFromCenterInterface,
+        from apysc._display.scale_y_from_center_mixin import (
+            ScaleYFromCenterMixIn,
         )
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -106,13 +106,13 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
             type_name=var_names.ANIMATION_SCALE_Y_FROM_CENTER
         )
         target_: VariableNameMixIn = target
-        if isinstance(target_, ScaleYFromCenterInterface):
+        if isinstance(target_, ScaleYFromCenterMixIn):
             target_._initialize_scale_y_from_center_if_not_initialized()
             self._before_scale_y_from_center = target_._scale_y_from_center
         else:
             raise TypeError(
                 "Specified `target` argument is not a "
-                f"ScaleYFromCenterInterface instance: {type(target_)}"
+                f"ScaleYFromCenterMixIn instance: {type(target_)}"
             )
         self._scale_y_from_center = (
             to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
@@ -157,12 +157,12 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.scale_y_from_center_interface import (
-            ScaleYFromCenterInterface,
+        from apysc._display.scale_y_from_center_mixin import (
+            ScaleYFromCenterMixIn,
         )
 
         expression: str = ""
-        if isinstance(self._target, ScaleYFromCenterInterface):
+        if isinstance(self._target, ScaleYFromCenterMixIn):
             self._target._initialize_scale_y_from_center_if_not_initialized()
             expression = (
                 f"{self._target._scale_y_from_center.variable_name} = "

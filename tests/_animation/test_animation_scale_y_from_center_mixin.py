@@ -3,14 +3,14 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.scale_y_from_center_interface import ScaleYFromCenterInterface
+from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationScaleYFromCenterMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_scale_y_from_center(self) -> None:
-        interface: ScaleYFromCenterInterface = ScaleYFromCenterInterface()
+        interface: ScaleYFromCenterMixIn = ScaleYFromCenterMixIn()
         interface.variable_name = "test_animation_scale_y_from_center_interface"
         animation: ap.AnimationScaleYFromCenter = (
             interface.animation_scale_y_from_center(

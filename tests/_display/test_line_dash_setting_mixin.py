@@ -6,15 +6,15 @@ from typing import Optional
 from retrying import retry
 
 from apysc._display.line_dash_setting import LineDashSetting
-from apysc._display.line_dash_setting_interface import LineDashSettingInterface
+from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_raises
 
 
-class TestLineDashSettingInterface:
+class TestLineDashSettingMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_line_dash_setting_if_not_initialized(self) -> None:
-        interface: LineDashSettingInterface = LineDashSettingInterface()
+        interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface._initialize_line_dash_setting_if_not_initialized()
         assert interface._line_dash_setting is None
 
@@ -24,7 +24,7 @@ class TestLineDashSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_dash_setting(self) -> None:
-        interface: LineDashSettingInterface = LineDashSettingInterface()
+        interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface.variable_name = "test_line_dash_setting_interface"
         line_dash_setting: Optional[LineDashSetting] = interface.line_dash_setting
         assert line_dash_setting is None
@@ -40,7 +40,7 @@ class TestLineDashSettingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_dash_setting_and_skip_appending_exp(self) -> None:
         expression_data_util.empty_expression()
-        interface: LineDashSettingInterface = LineDashSettingInterface()
+        interface: LineDashSettingMixIn = LineDashSettingMixIn()
         assert_raises(
             expected_error_class=TypeError,
             callable_=interface._update_line_dash_setting_and_skip_appending_exp,
@@ -63,7 +63,7 @@ class TestLineDashSettingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_dash_setting_update_expression(self) -> None:
         expression_data_util.empty_expression()
-        interface: LineDashSettingInterface = LineDashSettingInterface()
+        interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface._initialize_line_dash_setting_if_not_initialized()
         interface.variable_name = "test_line_dash_interface"
         interface._append_line_dash_setting_update_expression()
@@ -91,7 +91,7 @@ class TestLineDashSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        interface: LineDashSettingInterface = LineDashSettingInterface()
+        interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface.variable_name = "test_line_dash_setting_interface"
         interface.line_dash_setting = LineDashSetting(dash_size=10, space_size=5)
         snapshot_name: str = interface._get_next_snapshot_name()
@@ -108,7 +108,7 @@ class TestLineDashSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        interface: LineDashSettingInterface = LineDashSettingInterface()
+        interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface.variable_name = "test_line_dash_setting_interface"
         interface.line_dash_setting = LineDashSetting(dash_size=10, space_size=5)
         snapshot_name: str = interface._get_next_snapshot_name()

@@ -33,7 +33,7 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_dash_setting_basic_usag
 
 ## line_dash_setting property API
 
-<!-- Docstring: apysc._display.line_dash_setting_interface.LineDashSettingInterface.line_dash_setting -->
+<!-- Docstring: apysc._display.line_dash_setting_mixin.LineDashSettingMixIn.line_dash_setting -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

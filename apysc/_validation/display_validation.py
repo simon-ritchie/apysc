@@ -256,8 +256,8 @@ def validate_multiple_line_settings_are_not_set(
     )
     from apysc._display.line_dash_setting_interface import LineDashSettingInterface
     from apysc._display.line_dot_setting_interface import LineDotSettingInterface
-    from apysc._display.line_round_dot_setting_interface import (
-        LineRoundDotSettingInterface,
+    from apysc._display.line_round_dot_setting_mixin import (
+        LineRoundDotSettingMixIn,
     )
     from apysc._display.line_style_mixin import LineStyleMixIn
 
@@ -274,7 +274,7 @@ def validate_multiple_line_settings_are_not_set(
             and any_instance._line_dash_setting is not None
         ):
             valid_setting_names.append("LineDashSetting")
-    if isinstance(any_instance, (LineStyleMixIn, LineRoundDotSettingInterface)):
+    if isinstance(any_instance, (LineStyleMixIn, LineRoundDotSettingMixIn)):
         if (
             hasattr(any_instance, "_line_round_dot_setting")
             and any_instance._line_round_dot_setting is not None

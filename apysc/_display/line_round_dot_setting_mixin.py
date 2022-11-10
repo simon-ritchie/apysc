@@ -14,7 +14,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
 
-class LineRoundDotSettingInterface(LineCapMixIn, LineThicknessMixIn):
+class LineRoundDotSettingMixIn(LineCapMixIn, LineThicknessMixIn):
 
     _line_round_dot_setting: Optional[LineRoundDotSetting]
 

@@ -29,9 +29,7 @@ class VariableNameSuffixAttrInterface:
                 instance.
             - If a suffix is a blank string.
         """
-        from apysc._type.variable_name_suffix_mixin import (
-            VariableNameSuffixMixIn,
-        )
+        from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
         if not isinstance(self, VariableNameSuffixMixIn):
             return ""

@@ -20,4 +20,4 @@ Get an attribute's variable name suffix if its value is not blank.<hr>
 **[Returns]**
 
 - `attr_variable_name_suffix`: str
-  - An attribute's variable name suffix. In the following cases, this value becomes a blank string. - If this instance is not the `VariableNameSuffixInterface` instance. - If a suffix is a blank string.
+  - An attribute's variable name suffix. In the following cases, this value becomes a blank string. - If this instance is not the `VariableNameSuffixMixIn` instance. - If a suffix is a blank string.

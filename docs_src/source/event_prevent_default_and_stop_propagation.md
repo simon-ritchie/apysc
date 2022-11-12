@@ -139,7 +139,7 @@ Prevent event's default behavior.<hr>
 
 **[Interface summary]**
 
-Stop event propagation.<hr>
+Stop an event propagation.<hr>
 
 **[Examples]**
 

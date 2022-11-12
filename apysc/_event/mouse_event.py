@@ -17,9 +17,7 @@ from apysc._validation import arg_validation_decos
 T = TypeVar("T", bound=VariableNameMixIn)
 
 
-class MouseEvent(
-    Event[T], Generic[T], StopPropagationMixIn, PreventDefaultMixIn
-):
+class MouseEvent(Event[T], Generic[T], StopPropagationMixIn, PreventDefaultMixIn):
     """
     Mouse event class.
 

@@ -91,12 +91,12 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
         Raises
         ------
         TypeError
-            If a specified target is not a RotationAroundCenterInterface
+            If a specified target is not a RotationAroundCenterMixIn
             instance.
         """
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._display.rotation_around_center_mixin import (
-            RotationAroundCenterInterface,
+            RotationAroundCenterMixIn,
         )
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -105,13 +105,13 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
             type_name=var_names.ANIMATION_ROTATION_AROUND_CENTER
         )
         target_: VariableNameMixIn = target
-        if isinstance(target_, RotationAroundCenterInterface):
+        if isinstance(target_, RotationAroundCenterMixIn):
             target_._initialize_rotation_around_center_if_not_initialized()
             self._before_rotation_around_center = target_._rotation_around_center
         else:
             raise TypeError(
                 "Specified `target` argument is not a "
-                "RotationAroundCenterInterface instance: "
+                "RotationAroundCenterMixIn instance: "
                 f"{type(target_)}"
             )
         self._rotation_around_center = (
@@ -157,11 +157,11 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display.rotation_around_center_mixin import (
-            RotationAroundCenterInterface,
+            RotationAroundCenterMixIn,
         )
 
         expression: str = ""
-        if isinstance(self._target, RotationAroundCenterInterface):
+        if isinstance(self._target, RotationAroundCenterMixIn):
             self._target._initialize_rotation_around_center_if_not_initialized()
             expression = (
                 f"{self._target._rotation_around_center.variable_name} = "

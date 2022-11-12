@@ -44,7 +44,7 @@ This interface supports only the graphics instances currently. The container ins
 
 ## rotation_around_center property API
 
-<!-- Docstring: apysc._display.rotation_around_center_interface.RotationAroundCenterInterface.rotation_around_center -->
+<!-- Docstring: apysc._display.rotation_around_center_mixin.RotationAroundCenterMixIn.rotation_around_center -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

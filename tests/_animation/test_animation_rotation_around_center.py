@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.rotation_around_center_mixin import (
-    RotationAroundCenterInterface,
+    RotationAroundCenterMixIn,
 )
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
@@ -15,7 +15,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 class TestAnimationRotationAroundCenter:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target_1: RotationAroundCenterInterface = RotationAroundCenterInterface()
+        target_1: RotationAroundCenterMixIn = RotationAroundCenterMixIn()
         target_1.variable_name = "test_animation_rotation_around_center"
         animation_rotation_around_center: ap.AnimationRotationAroundCenter = (
             ap.AnimationRotationAroundCenter(
@@ -47,14 +47,14 @@ class TestAnimationRotationAroundCenter:
             expected_error_class=TypeError,
             callable_=ap.AnimationRotationAroundCenter,
             match="Specified `target` argument is not a "
-            "RotationAroundCenterInterface",
+            "RotationAroundCenterMixIn",
             target=target_2,
             rotation_around_center=50,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        target: RotationAroundCenterInterface = RotationAroundCenterInterface()
+        target: RotationAroundCenterMixIn = RotationAroundCenterMixIn()
         target.variable_name = "test_animation_rotation_around_center"
         animation_rotation_around_center: ap.AnimationRotationAroundCenter = (
             ap.AnimationRotationAroundCenter(target=target, rotation_around_center=50)
@@ -69,7 +69,7 @@ class TestAnimationRotationAroundCenter:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: RotationAroundCenterInterface = RotationAroundCenterInterface()
+        target: RotationAroundCenterMixIn = RotationAroundCenterMixIn()
         target.variable_name = "test_animation_rotation_around_center"
         animation_rotation_around_center: ap.AnimationRotationAroundCenter = (
             ap.AnimationRotationAroundCenter(target=target, rotation_around_center=50)

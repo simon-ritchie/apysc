@@ -28,7 +28,7 @@ from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
 from apysc._display.rotation_around_center_mixin import (
-    RotationAroundCenterInterface,
+    RotationAroundCenterMixIn,
 )
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
@@ -47,7 +47,7 @@ from apysc._validation import arg_validation_decos
 
 class GraphicsBase(
     DisplayObject,
-    RotationAroundCenterInterface,
+    RotationAroundCenterMixIn,
     RotationAroundPointMixIn,
     ScaleXFromCenterMixIn,
     ScaleYFromCenterMixIn,

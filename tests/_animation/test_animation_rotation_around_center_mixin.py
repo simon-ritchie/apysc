@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.rotation_around_center_mixin import (
-    RotationAroundCenterInterface,
+    RotationAroundCenterMixIn,
 )
 from apysc._testing.testing_helper import assert_attrs
 
@@ -12,9 +12,9 @@ from apysc._testing.testing_helper import assert_attrs
 class TestAnimationRotationAroundCenterMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_rotation_around_center(self) -> None:
-        interface: RotationAroundCenterInterface = RotationAroundCenterInterface()
+        mixin: RotationAroundCenterMixIn = RotationAroundCenterMixIn()
         animation_rotation_around_center: ap.AnimationRotationAroundCenter = (
-            interface.animation_rotation_around_center(
+            mixin.animation_rotation_around_center(
                 rotation_around_center=50,
                 duration=1000,
                 delay=500,
@@ -23,7 +23,7 @@ class TestAnimationRotationAroundCenterMixIn:
         )
         assert_attrs(
             expected_attrs={
-                "_target": interface,
+                "_target": mixin,
                 "_rotation_around_center": 50,
                 "_duration": 1000,
                 "_delay": 500,

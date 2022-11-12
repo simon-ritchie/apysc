@@ -1,7 +1,7 @@
-"""The test project for the RotationAroundCenterInterface.
+"""The test project for the RotationAroundCenterMixIn.
 
 Command examples:
-$ python test_projects/RotationAroundCenterInterface/main.py
+$ python test_projects/RotationAroundCenterMixIn/main.py
 """
 
 import sys

@@ -10,8 +10,8 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_attr_interface import (
-    VariableNameSuffixAttrInterface,
+from apysc._type.variable_name_suffix_attr_mixin import (
+    VariableNameSuffixAttrMixIn,
 )
 
 
@@ -163,9 +163,9 @@ def _get_variable_name_suffix(
     suffix : str
         A target instance's variable name suffix.
         This value becomes a blank string if a specified
-        instance type is not the `VariableNameSuffixAttrInterface`.
+        instance type is not the `VariableNameSuffixAttrMixIn`.
     """
-    if isinstance(instance, VariableNameSuffixAttrInterface):
+    if isinstance(instance, VariableNameSuffixAttrMixIn):
         suffix: str = instance._get_attr_variable_name_suffix(
             attr_identifier=attr_identifier
         )

@@ -1,5 +1,5 @@
 """This module is for the attribute's variable name suffix-related
-interface class.
+mix-in class.
 """
 
 from typing_extensions import final
@@ -7,7 +7,7 @@ from typing_extensions import final
 from apysc._validation import arg_validation_decos
 
 
-class VariableNameSuffixAttrInterface:
+class VariableNameSuffixAttrMixIn:
     @final
     @arg_validation_decos.not_empty_string(arg_position_index=1)
     def _get_attr_variable_name_suffix(self, *, attr_identifier: str) -> str:

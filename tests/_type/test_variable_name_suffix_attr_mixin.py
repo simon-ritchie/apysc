@@ -2,21 +2,21 @@ from random import randint
 
 from retrying import retry
 
-from apysc._type.variable_name_suffix_attr_interface import (
-    VariableNameSuffixAttrInterface,
+from apysc._type.variable_name_suffix_attr_mixin import (
+    VariableNameSuffixAttrMixIn,
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
-class _TestClass1(VariableNameSuffixAttrInterface):
+class _TestClass1(VariableNameSuffixAttrMixIn):
     pass
 
 
-class _TestClass2(VariableNameSuffixMixIn, VariableNameSuffixAttrInterface):
+class _TestClass2(VariableNameSuffixMixIn, VariableNameSuffixAttrMixIn):
     pass
 
 
-class TestVariableNameSuffixAttrInterface:
+class TestVariableNameSuffixAttrMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_attr_variable_name_suffix(self) -> None:
         instance_1: _TestClass1 = _TestClass1()

@@ -12,15 +12,15 @@ from apysc._type.attr_to_apysc_val_from_builtin_interface import (
 )
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
-from apysc._type.variable_name_suffix_attr_interface import (
-    VariableNameSuffixAttrInterface,
+from apysc._type.variable_name_suffix_attr_mixin import (
+    VariableNameSuffixAttrMixIn,
 )
 from apysc._validation import arg_validation_decos
 
 
 class LineRoundDotSetting(
     Dictionary[str, Int],
-    VariableNameSuffixAttrInterface,
+    VariableNameSuffixAttrMixIn,
     AttrToApyscValFromBuiltinInterface,
 ):
     """

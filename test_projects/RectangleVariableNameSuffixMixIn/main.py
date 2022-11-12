@@ -1,7 +1,7 @@
-"""The test project for the Rectangle class's VariableNameSuffixInterface.
+"""The test project for the Rectangle class's VariableNameSuffixMixIn.
 
 Command examples:
-$ python test_projects/RectangleVariableNameSuffixInterface/main.py
+$ python test_projects/RectangleVariableNameSuffixMixIn/main.py
 """
 
 import sys

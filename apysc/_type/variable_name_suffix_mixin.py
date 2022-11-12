@@ -1,9 +1,9 @@
-"""This module is for the variable name's suffix setting interface
+"""This module is for the variable name's suffix setting mix-in
 class.
 """
 
 
-class VariableNameSuffixInterface:
+class VariableNameSuffixMixIn:
 
     __variable_name_suffix: str = ""
 

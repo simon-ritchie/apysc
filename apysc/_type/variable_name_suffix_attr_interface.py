@@ -25,15 +25,15 @@ class VariableNameSuffixAttrInterface:
         attr_variable_name_suffix : str
             An attribute's variable name suffix.
             In the following cases, this value becomes a blank string.
-            - If this instance is not the `VariableNameSuffixInterface`
+            - If this instance is not the `VariableNameSuffixMixIn`
                 instance.
             - If a suffix is a blank string.
         """
-        from apysc._type.variable_name_suffix_interface import (
-            VariableNameSuffixInterface,
+        from apysc._type.variable_name_suffix_mixin import (
+            VariableNameSuffixMixIn,
         )
 
-        if not isinstance(self, VariableNameSuffixInterface):
+        if not isinstance(self, VariableNameSuffixMixIn):
             return ""
         if self._variable_name_suffix == "":
             return ""

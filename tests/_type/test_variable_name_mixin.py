@@ -3,10 +3,10 @@ from random import randint
 from retrying import retry
 
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
-class _TestInterface(VariableNameMixIn, VariableNameSuffixInterface):
+class _TestInterface(VariableNameMixIn, VariableNameSuffixMixIn):
     pass
 
 

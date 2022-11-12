@@ -1,7 +1,7 @@
-"""The test project for the Circle class's VariableNameSuffixInterface.
+"""The test project for the Polyline class's VariableNameSuffixMixIn.
 
 Command examples:
-$ python test_projects/CircleVariableNameSuffixInterface/main.py
+$ python test_projects/PolylineVariableNameSuffixMixIn/main.py
 """
 
 import sys
@@ -33,16 +33,22 @@ def main() -> None:
         variable_name_suffix="stage",
     )
 
-    ap.Circle(
-        x=100, y=100, radius=50, fill_color="#0af", variable_name_suffix="circle_1"
+    ap.Polyline(
+        points=[
+            ap.Point2D(50, 50, variable_name_suffix="polyline_1_point_1"),
+            ap.Point2D(50, 100, variable_name_suffix="polyline_1_point_2"),
+            ap.Point2D(100, 100, variable_name_suffix="polyline_1_point_3"),
+        ],
+        line_color="#0af",
+        line_thickness=3,
+        variable_name_suffix="polyline_1",
     )
 
     sprite: ap.Sprite = ap.Sprite(variable_name_suffix="sprite_1")
-    sprite.graphics.begin_fill(color="#f0a", alpha=0.5)
     sprite.graphics.line_style(color="#fff", thickness=3, alpha=0.7)
-    sprite.graphics.draw_circle(
-        x=300, y=100, radius=75, variable_name_suffix="circle_2"
-    )
+    sprite.graphics.move_to(x=50, y=150, variable_name_suffix="polyline_2")
+    sprite.graphics.line_to(x=50, y=200, variable_name_suffix="polyline_2")
+    sprite.graphics.line_to(x=100, y=200, variable_name_suffix="polyline_2")
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

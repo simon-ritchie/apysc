@@ -19,7 +19,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 _Int = Union[int, Int]
@@ -31,7 +31,7 @@ class Point2D(
     RevertMixIn,
     DictionaryStructure,
     CustomEventMixIn,
-    VariableNameSuffixInterface,
+    VariableNameSuffixMixIn,
     AttrToApyscValFromBuiltinInterface,
 ):
     """

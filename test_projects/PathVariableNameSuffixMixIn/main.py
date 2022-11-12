@@ -1,7 +1,7 @@
-"""The test project for the Path class's VariableNameSuffixInterface.
+"""The test project for the Path class's VariableNameSuffixMixIn.
 
 Command examples:
-$ python test_projects/PathVariableNameSuffixInterface/main.py
+$ python test_projects/PathVariableNameSuffixMixIn/main.py
 """
 
 import sys

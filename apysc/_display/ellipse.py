@@ -29,7 +29,7 @@ from apysc._type.attr_to_apysc_val_from_builtin_interface import (
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
@@ -40,7 +40,7 @@ class Ellipse(
     WidthAndHeightInterfacesForEllipse,
     FillColorMixIn,
     FillAlphaMixIn,
-    VariableNameSuffixInterface,
+    VariableNameSuffixMixIn,
     AttrToApyscValFromBuiltinInterface,
 ):
     """

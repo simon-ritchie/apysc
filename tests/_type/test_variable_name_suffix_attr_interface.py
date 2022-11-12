@@ -5,14 +5,14 @@ from retrying import retry
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class _TestClass1(VariableNameSuffixAttrInterface):
     pass
 
 
-class _TestClass2(VariableNameSuffixInterface, VariableNameSuffixAttrInterface):
+class _TestClass2(VariableNameSuffixMixIn, VariableNameSuffixAttrInterface):
     pass
 
 

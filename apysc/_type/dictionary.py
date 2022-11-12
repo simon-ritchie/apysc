@@ -24,7 +24,7 @@ from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 DefaultType = TypeVar("DefaultType")
@@ -40,7 +40,7 @@ class Dictionary(
     CopyMixIn,
     RevertMixIn,
     DictionaryStructure,
-    VariableNameSuffixInterface,
+    VariableNameSuffixMixIn,
     InitialSubstitutionExpInterface,
 ):
     """

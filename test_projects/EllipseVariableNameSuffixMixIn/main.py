@@ -1,7 +1,7 @@
-"""The test project for the VariableNameSuffixInterface class.
+"""The test project for the Ellipse class's VariableNameSuffixMixIn.
 
 Command examples:
-$ python test_projects/VariableNameSuffixInterface/main.py
+$ python test_projects/EllipseVariableNameSuffixMixIn/main.py
 """
 
 import sys
@@ -30,16 +30,24 @@ def main() -> None:
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
+        variable_name_suffix="stage",
     )
 
-    int_1: ap.Int = ap.Int(10, variable_name_suffix="test_int_1")
-    int_1 += 10
-    ap.trace(int_1)
-
-    circle: ap.Circle = ap.Circle(
-        x=100, y=100, radius=50, fill_color="#0af", variable_name_suffix="test_circle"
+    ap.Ellipse(
+        x=100,
+        y=100,
+        width=150,
+        height=100,
+        fill_color="#0af",
+        variable_name_suffix="ellipse_1",
     )
-    circle.x = ap.Int(150)
+
+    sprite: ap.Sprite = ap.Sprite(variable_name_suffix="sprite_1")
+    sprite.graphics.begin_fill(color="#f0a", alpha=0.5)
+    sprite.graphics.line_style(color="#fff", thickness=3, alpha=0.7)
+    sprite.graphics.draw_ellipse(
+        x=300, y=100, width=150, height=100, variable_name_suffix="ellipse_2"
+    )
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

@@ -10,12 +10,12 @@ from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
 class RelativeMixIn(
-    VariableNameSuffixAttrInterface, RevertMixIn, VariableNameSuffixInterface
+    VariableNameSuffixAttrInterface, RevertMixIn, VariableNameSuffixMixIn
 ):
 
     _relative: Boolean

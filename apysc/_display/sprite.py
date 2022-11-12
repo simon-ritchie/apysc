@@ -10,7 +10,7 @@ from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 _Graphics = graphics.Graphics
@@ -22,7 +22,7 @@ class Sprite(
     DisplayObject,
     ChildMixIn,
     RevertMixIn,
-    VariableNameSuffixInterface,
+    VariableNameSuffixMixIn,
 ):
     """
     This class is for the basic display object that

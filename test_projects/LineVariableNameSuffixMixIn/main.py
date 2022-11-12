@@ -1,7 +1,7 @@
-"""The test project for the Line class's VariableNameSuffixInterface.
+"""The test project for the Line class's VariableNameSuffixMixIn.
 
 Command examples:
-$ python test_projects/LineVariableNameSuffixInterface/main.py
+$ python test_projects/LineVariableNameSuffixMixIn/main.py
 """
 
 import sys

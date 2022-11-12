@@ -10,7 +10,7 @@ from apysc._type.attr_to_apysc_val_from_builtin_interface import (
 from apysc._type.variable_name_suffix_attr_interface import (
     VariableNameSuffixAttrInterface,
 )
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class _TestClass1(AttrToApyscValFromBuiltinInterface):
@@ -20,7 +20,7 @@ class _TestClass1(AttrToApyscValFromBuiltinInterface):
 class _TestClass2(
     AttrToApyscValFromBuiltinInterface,
     VariableNameSuffixAttrInterface,
-    VariableNameSuffixInterface,
+    VariableNameSuffixMixIn,
 ):
     pass
 

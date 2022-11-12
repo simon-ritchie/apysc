@@ -20,7 +20,7 @@ from apysc._display.width_mixin import WidthMixIn
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 # This is used only for avoiding gabage collection.
@@ -34,7 +34,7 @@ class Stage(
     VariableNameMixIn,
     MouseEventInterfaces,
     CustomEventMixIn,
-    VariableNameSuffixInterface,
+    VariableNameSuffixMixIn,
 ):
     """
     The Stage (overall view-area) class.

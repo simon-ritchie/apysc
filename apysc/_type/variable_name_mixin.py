@@ -6,7 +6,7 @@ from typing import List
 from typing_extensions import final
 
 from apysc._type.deleted_object_mixin import DeletedObjectMixIn
-from apysc._type.variable_name_suffix_interface import VariableNameSuffixInterface
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
@@ -28,7 +28,7 @@ class VariableNameMixIn(DeletedObjectMixIn):
         if not hasattr(self, "_variable_name"):
             return ""
         variable_name: str = self._variable_name
-        if isinstance(self, VariableNameSuffixInterface):
+        if isinstance(self, VariableNameSuffixMixIn):
             suffix: str = self._variable_name_suffix
             if suffix != "" and not variable_name.endswith(f"__{suffix}"):
                 variable_name += f"__{suffix}"

@@ -1,7 +1,7 @@
-"""The test project for the Polygon class's VariableNameSuffixInterface.
+"""The test project for the Polygon class's VariableNameSuffixMixIn.
 
 Command examples:
-$ python test_projects/PolygonVariableNameSuffixInterface/main.py
+$ python test_projects/PolygonVariableNameSuffixMixIn/main.py
 """
 
 import sys

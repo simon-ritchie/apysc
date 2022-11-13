@@ -18,7 +18,7 @@ from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
-from apysc._display.line_dash_dot_setting_interface import LineDashDotSettingInterface
+from apysc._display.line_dash_dot_setting_mixin import LineDashDotSettingMixIn
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
 from apysc._display.line_dot_setting import LineDotSetting
@@ -61,7 +61,7 @@ class GraphicsBase(
     LineDotSettingMixIn,
     LineDashSettingMixIn,
     LineRoundDotSettingMixIn,
-    LineDashDotSettingInterface,
+    LineDashDotSettingMixIn,
     ABC,
 ):
 

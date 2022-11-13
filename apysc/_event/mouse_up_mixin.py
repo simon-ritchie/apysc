@@ -13,12 +13,15 @@ from apysc._event.mouse_event import MouseEvent
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
+from apysc._event.mouse_event_binding_expression_mixin import (
+    MouseEventBindingExpressionMixin
+)
 
 _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
 
 
-class MouseUpMixIn(MouseEventInterfaceBase):
+class MouseUpMixIn(MouseEventInterfaceBase, MouseEventBindingExpressionMixin):
 
     _mouse_up_handlers: Dict[str, HandlerData[MouseEvent]]
 

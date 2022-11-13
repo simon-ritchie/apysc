@@ -13,7 +13,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 class _TestClickMixIn(ClickMixIn, VariableNameMixIn):
     def __init__(self) -> None:
         """MixIn for testing."""
-        self.variable_name = "test_click_interface"
+        self.variable_name = "test_click_mixin"
 
 
 class TestMouseEventInterfaceBase:
@@ -74,17 +74,3 @@ class TestMouseEventInterfaceBase:
         )
         assert expected in expression
         assert mixin_1._click_handlers == {}
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_mouse_event_binding_expression(self) -> None:
-        expression_data_util.empty_expression()
-        mixin_1: _TestClickMixIn = _TestClickMixIn()
-        name: str = mixin_1.click(handler=self.on_click_1)
-        mixin_1._append_mouse_event_binding_expression(
-            name=name, mouse_event_type=ap.MouseEventType.CLICK
-        )
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{mixin_1.variable_name}." f"{ap.MouseEventType.CLICK.value}({name});"
-        )
-        assert expected in expression

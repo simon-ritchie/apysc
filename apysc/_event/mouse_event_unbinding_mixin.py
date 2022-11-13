@@ -1,4 +1,4 @@
-"""Class implementation for each mouse event interface's base class.
+"""Class implementation for mouse event unbingins-related mix-in.
 """
 
 from typing import Callable
@@ -18,7 +18,7 @@ _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]
 
 
-class MouseEventInterfaceBase(SetHandlerDataMixIn[MouseEvent]):
+class MouseEventUnbindingMixIn(SetHandlerDataMixIn[MouseEvent]):
     @final
     @add_debug_info_setting(module_name=__name__)
     def _unbind_mouse_event(

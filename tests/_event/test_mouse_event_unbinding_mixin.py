@@ -16,7 +16,7 @@ class _TestClickMixIn(ClickMixIn, VariableNameMixIn):
         self.variable_name = "test_click_mixin"
 
 
-class TestMouseEventInterfaceBase:
+class TestMouseEventUnbindingMixIn:
     def on_click_1(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler method.

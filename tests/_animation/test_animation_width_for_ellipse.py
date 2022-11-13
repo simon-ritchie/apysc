@@ -54,9 +54,7 @@ class TestAnimationWidthForEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: WidthAndHeightMixInForEllipse = (
-            WidthAndHeightMixInForEllipse()
-        )
+        target: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
         target.variable_name = "test_animation_width_for_ellipse"
         animation_width_for_ellipse: ap.AnimationWidthForEllipse = (
             ap.AnimationWidthForEllipse(target=target, width=100)

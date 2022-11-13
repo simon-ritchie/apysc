@@ -4,9 +4,7 @@ from retrying import retry
 
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
-from apysc._type.initial_substitution_exp_mixin import (
-    InitialSubstitutionExpMixIn,
-)
+from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 

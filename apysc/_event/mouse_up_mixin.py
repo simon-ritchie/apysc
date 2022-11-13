@@ -10,12 +10,12 @@ from typing_extensions import final
 
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event import MouseEvent
+from apysc._event.mouse_event_binding_expression_mixin import (
+    MouseEventBindingExpressionMixin,
+)
 from apysc._event.mouse_event_unbinding_mixin import MouseEventUnbindingMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
-from apysc._event.mouse_event_binding_expression_mixin import (
-    MouseEventBindingExpressionMixin
-)
 
 _O = TypeVar("_O")
 _Handler = Callable[[MouseEvent, _O], None]

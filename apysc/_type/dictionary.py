@@ -16,9 +16,7 @@ from apysc._type.boolean import Boolean
 from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.expression_string import ExpressionString
-from apysc._type.initial_substitution_exp_mixin import (
-    InitialSubstitutionExpMixIn,
-)
+from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn

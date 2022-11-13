@@ -4,10 +4,10 @@ from typing import Dict
 
 from retrying import retry
 
+import apysc as ap
 from apysc._event.click_mixin import ClickMixIn
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_mixin import VariableNameMixIn
-import apysc as ap
 
 
 class _TestClickMixIn(ClickMixIn, VariableNameMixIn):

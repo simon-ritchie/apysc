@@ -9,8 +9,8 @@ from typing_extensions import final
 
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import (
-    AttrToApyscValFromBuiltinInterface,
+from apysc._type.attr_to_apysc_val_from_builtin_mixin import (
+    AttrToApyscValFromBuiltinMixIn,
 )
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.int import Int
@@ -32,7 +32,7 @@ class Point2D(
     DictionaryStructure,
     CustomEventMixIn,
     VariableNameSuffixMixIn,
-    AttrToApyscValFromBuiltinInterface,
+    AttrToApyscValFromBuiltinMixIn,
 ):
     """
     2-dimensional geometry point class.

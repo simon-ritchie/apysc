@@ -23,8 +23,8 @@ from apysc._display.width_and_height_interfaces_for_ellipse import (
     WidthAndHeightInterfacesForEllipse,
 )
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import (
-    AttrToApyscValFromBuiltinInterface,
+from apysc._type.attr_to_apysc_val_from_builtin_mixin import (
+    AttrToApyscValFromBuiltinMixIn,
 )
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -41,7 +41,7 @@ class Ellipse(
     FillColorMixIn,
     FillAlphaMixIn,
     VariableNameSuffixMixIn,
-    AttrToApyscValFromBuiltinInterface,
+    AttrToApyscValFromBuiltinMixIn,
 ):
     """
     The ellipse vector graphics class.

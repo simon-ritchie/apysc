@@ -15,7 +15,7 @@ from apysc._type.variable_name_suffix_attr_mixin import (
 )
 
 
-class AttrToApyscValFromBuiltinInterface:
+class AttrToApyscValFromBuiltinMixIn:
     @final
     def _get_copied_int_from_builtin_val(
         self, *, integer: Union[int, Int], attr_identifier: str
@@ -146,14 +146,14 @@ class AttrToApyscValFromBuiltinInterface:
 
 
 def _get_variable_name_suffix(
-    *, instance: AttrToApyscValFromBuiltinInterface, attr_identifier: str
+    *, instance: AttrToApyscValFromBuiltinMixIn, attr_identifier: str
 ) -> str:
     """
     Get a target instance's variable name suffix.
 
     Parameters
     ----------
-    instance : AttrToApyscValFromBuiltinInterface
+    instance : AttrToApyscValFromBuiltinMixIn
         A target instance.
     attr_identifier : str
         Attribute identifier string (e.g., `x`).

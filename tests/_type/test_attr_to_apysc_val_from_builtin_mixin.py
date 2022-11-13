@@ -3,9 +3,9 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._type import attr_to_apysc_val_from_builtin_interface
-from apysc._type.attr_to_apysc_val_from_builtin_interface import (
-    AttrToApyscValFromBuiltinInterface,
+from apysc._type import attr_to_apysc_val_from_builtin_mixin
+from apysc._type.attr_to_apysc_val_from_builtin_mixin import (
+    AttrToApyscValFromBuiltinMixIn,
 )
 from apysc._type.variable_name_suffix_attr_mixin import (
     VariableNameSuffixAttrMixIn,
@@ -13,19 +13,19 @@ from apysc._type.variable_name_suffix_attr_mixin import (
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
-class _TestClass1(AttrToApyscValFromBuiltinInterface):
+class _TestClass1(AttrToApyscValFromBuiltinMixIn):
     pass
 
 
 class _TestClass2(
-    AttrToApyscValFromBuiltinInterface,
+    AttrToApyscValFromBuiltinMixIn,
     VariableNameSuffixAttrMixIn,
     VariableNameSuffixMixIn,
 ):
     pass
 
 
-class TestAttrToApyscValFromBuiltinInterface:
+class TestAttrToApyscValFromBuiltinMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_copied_int_from_builtin_val(self) -> None:
         instance_1: _TestClass1 = _TestClass1()
@@ -80,14 +80,14 @@ class TestAttrToApyscValFromBuiltinInterface:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_variable_name_suffix() -> None:
     instance_1: _TestClass1 = _TestClass1()
-    suffix: str = attr_to_apysc_val_from_builtin_interface._get_variable_name_suffix(
+    suffix: str = attr_to_apysc_val_from_builtin_mixin._get_variable_name_suffix(
         instance=instance_1, attr_identifier="x"
     )
     assert suffix == ""
 
     instance_2: _TestClass2 = _TestClass2()
     instance_2._variable_name_suffix = "test_instance"
-    suffix = attr_to_apysc_val_from_builtin_interface._get_variable_name_suffix(
+    suffix = attr_to_apysc_val_from_builtin_mixin._get_variable_name_suffix(
         instance=instance_2, attr_identifier="x"
     )
     assert suffix == "test_instance__x"

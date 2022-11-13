@@ -7,8 +7,8 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.attr_to_apysc_val_from_builtin_interface import (
-    AttrToApyscValFromBuiltinInterface,
+from apysc._type.attr_to_apysc_val_from_builtin_mixin import (
+    AttrToApyscValFromBuiltinMixIn,
 )
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
@@ -21,7 +21,7 @@ from apysc._validation import arg_validation_decos
 class LineRoundDotSetting(
     Dictionary[str, Int],
     VariableNameSuffixAttrMixIn,
-    AttrToApyscValFromBuiltinInterface,
+    AttrToApyscValFromBuiltinMixIn,
 ):
     """
     Round dot setting class for a line.

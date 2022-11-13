@@ -19,8 +19,8 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.width_and_height_interfaces_for_ellipse import (
-    WidthAndHeightInterfacesForEllipse,
+from apysc._display.width_and_height_mixin_for_ellipse import (
+    WidthAndHeightMixInForEllipse,
 )
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_to_apysc_val_from_builtin_mixin import (
@@ -37,7 +37,7 @@ class Ellipse(
     CxMixIn,
     CyMixIn,
     GraphicsBase,
-    WidthAndHeightInterfacesForEllipse,
+    WidthAndHeightMixInForEllipse,
     FillColorMixIn,
     FillAlphaMixIn,
     VariableNameSuffixMixIn,

@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.width_and_height_interfaces_for_ellipse import (
-    WidthAndHeightInterfacesForEllipse,
+from apysc._display.width_and_height_mixin_for_ellipse import (
+    WidthAndHeightMixInForEllipse,
 )
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
@@ -54,8 +54,8 @@ class TestAnimationWidthForEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target: WidthAndHeightInterfacesForEllipse = (
-            WidthAndHeightInterfacesForEllipse()
+        target: WidthAndHeightMixInForEllipse = (
+            WidthAndHeightMixInForEllipse()
         )
         target.variable_name = "test_animation_width_for_ellipse"
         animation_width_for_ellipse: ap.AnimationWidthForEllipse = (

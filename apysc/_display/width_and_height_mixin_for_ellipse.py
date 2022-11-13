@@ -1,4 +1,4 @@
-"""Class implementation of the width and height Interfaces
+"""Class implementation of the width and height mix-in
 for the ellipse.
 
 Notes
@@ -25,7 +25,7 @@ from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMi
 from apysc._validation import arg_validation_decos
 
 
-class WidthAndHeightInterfacesForEllipse(
+class WidthAndHeightMixInForEllipse(
     VariableNameSuffixAttrMixIn,
     AnimationWidthForEllipseMixIn,
     AnimationHeightForEllipseMixIn,

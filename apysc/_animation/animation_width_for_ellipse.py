@@ -126,12 +126,12 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
             An expression to insert into the complete event
             handler's head.
         """
-        from apysc._display.width_and_height_interfaces_for_ellipse import (
-            WidthAndHeightInterfacesForEllipse,
+        from apysc._display.width_and_height_mixin_for_ellipse import (
+            WidthAndHeightMixInForEllipse,
         )
 
         expression: str = ""
-        if isinstance(self._target, WidthAndHeightInterfacesForEllipse):
+        if isinstance(self._target, WidthAndHeightMixInForEllipse):
             self._target._initialize_width_and_height_if_not_initialized()
             expression = (
                 f"{self._target._width.variable_name} = "

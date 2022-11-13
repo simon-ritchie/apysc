@@ -1,7 +1,7 @@
-"""The test project for the SetLowerScaleLimitInterface class.
+"""The test project for the SetLowerScaleLimitMixIn class.
 
 Command examples:
-$ python test_projects/SetLowerScaleLimitInterface/main.py
+$ python test_projects/SetLowerScaleLimitMixIn/main.py
 """
 
 import sys
@@ -14,7 +14,7 @@ from types import ModuleType
 from typing_extensions import TypedDict
 
 import apysc as ap
-from apysc._display.set_lower_scale_limit_interface import MIN_SCALE
+from apysc._display.set_lower_scale_limit_mixin import MIN_SCALE
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]

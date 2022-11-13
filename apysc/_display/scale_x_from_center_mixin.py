@@ -8,7 +8,7 @@ from typing_extensions import final
 from apysc._animation.animation_scale_x_from_center_mixin import (
     AnimationScaleXFromCenterMixIn,
 )
-from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
+from apysc._display.set_lower_scale_limit_mixin import SetLowerScaleLimitMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.number import Number
@@ -20,7 +20,7 @@ from apysc._validation import arg_validation_decos
 class ScaleXFromCenterMixIn(
     VariableNameSuffixAttrMixIn,
     AnimationScaleXFromCenterMixIn,
-    SetLowerScaleLimitInterface,
+    SetLowerScaleLimitMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
 ):

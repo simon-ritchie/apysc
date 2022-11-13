@@ -9,7 +9,7 @@ from apysc._type.number import Number
 MIN_SCALE: float = 0.00000001
 
 
-class SetLowerScaleLimitInterface:
+class SetLowerScaleLimitMixIn:
     @final
     def _set_lower_scale_limit(self, *, value: Number) -> None:
         """

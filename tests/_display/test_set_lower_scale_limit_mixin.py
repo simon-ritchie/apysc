@@ -7,17 +7,17 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._display.set_lower_scale_limit_interface import SetLowerScaleLimitInterface
+from apysc._display.set_lower_scale_limit_mixin import SetLowerScaleLimitMixIn
 
 
-class TestSetLowerScaleLimitInterface:
+class TestSetLowerScaleLimitMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_lower_scale_limit(self) -> None:
         from apysc._expression import expression_data_util
 
         expression_data_util.empty_expression()
         value: ap.Number = ap.Number(-1.5)
-        interface: SetLowerScaleLimitInterface = SetLowerScaleLimitInterface()
+        interface: SetLowerScaleLimitMixIn = SetLowerScaleLimitMixIn()
         interface._set_lower_scale_limit(value=value)
         expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [

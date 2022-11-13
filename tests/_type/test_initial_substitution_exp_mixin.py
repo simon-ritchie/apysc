@@ -4,13 +4,13 @@ from retrying import retry
 
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
-from apysc._type.initial_substitution_exp_interface import (
-    InitialSubstitutionExpInterface,
+from apysc._type.initial_substitution_exp_mixin import (
+    InitialSubstitutionExpMixIn,
 )
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class _TestClass(InitialSubstitutionExpInterface, VariableNameMixIn):
+class _TestClass(InitialSubstitutionExpMixIn, VariableNameMixIn):
     def _create_initial_substitution_expression(self) -> str:
         """
         Create an initial value's substitution expression string.
@@ -23,7 +23,7 @@ class _TestClass(InitialSubstitutionExpInterface, VariableNameMixIn):
         return "var test_value = true;"
 
 
-class TestInitialSubstitutionExpInterface:
+class TestInitialSubstitutionExpMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_initial_substitution_expression_if_in_handler_scope(self) -> None:
         instance: _TestClass = _TestClass()

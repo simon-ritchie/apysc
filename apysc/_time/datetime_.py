@@ -6,8 +6,8 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.initial_substitution_exp_interface import (
-    InitialSubstitutionExpInterface,
+from apysc._type.initial_substitution_exp_mixin import (
+    InitialSubstitutionExpMixIn,
 )
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
@@ -22,7 +22,7 @@ class DateTime(
     VariableNameSuffixAttrMixIn,
     RevertMixIn,
     VariableNameSuffixMixIn,
-    InitialSubstitutionExpInterface,
+    InitialSubstitutionExpMixIn,
 ):
 
     _initial_year: Union[int, Int]

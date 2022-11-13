@@ -1,5 +1,5 @@
 """The class implementations for the initial substitution expression
-interfaces.
+mix-in.
 """
 
 from abc import ABC
@@ -10,7 +10,7 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 
 
-class InitialSubstitutionExpInterface(ABC):
+class InitialSubstitutionExpMixIn(ABC):
     @abstractmethod
     def _create_initial_substitution_expression(self) -> str:
         """

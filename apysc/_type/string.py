@@ -10,8 +10,8 @@ from typing_extensions import final
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_mixin import CopyMixIn
-from apysc._type.initial_substitution_exp_interface import (
-    InitialSubstitutionExpInterface,
+from apysc._type.initial_substitution_exp_mixin import (
+    InitialSubstitutionExpMixIn,
 )
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
@@ -24,7 +24,7 @@ class String(
     RevertMixIn,
     CustomEventMixIn,
     VariableNameSuffixMixIn,
-    InitialSubstitutionExpInterface,
+    InitialSubstitutionExpMixIn,
 ):
     """
     String class for apysc library.

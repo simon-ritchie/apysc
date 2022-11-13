@@ -1,5 +1,5 @@
 """Class implementation for the inheritance of each mouse
-event interface.
+event mix-ins.
 """
 
 from apysc._event.click_mixin import ClickMixIn
@@ -11,7 +11,7 @@ from apysc._event.mouse_over_mixin import MouseOverMixIn
 from apysc._event.mouse_up_mixin import MouseUpMixIn
 
 
-class MouseEventInterfaces(
+class MouseEventMixIns(
     ClickMixIn,
     DoubleClickMixIn,
     MouseDownMixIn,

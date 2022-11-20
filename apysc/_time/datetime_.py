@@ -10,6 +10,7 @@ from apysc._time.month_mixin import MonthMixIn
 from apysc._time.year_mixin import YearMixIn
 from apysc._time.day_mixin import DayMixIn
 from apysc._time.hour_mixin import HourMixIn
+from apysc._time.minute_mixin import MinuteMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
@@ -27,13 +28,12 @@ class DateTime(
     MonthMixIn,
     DayMixIn,
     HourMixIn,
+    MinuteMixIn,
 ):
 
-    _initial_minute: Union[int, Int]
     _initial_second: Union[int, Int]
     _initial_millisecond: Union[int, Int]
 
-    _minute: Int
     _second: Int
     _millisecond: Int
 
@@ -98,15 +98,11 @@ class DateTime(
             self._set_init_month_value(month=month)
             self._set_init_day_value(day=day)
             self._set_init_hour_value(hour=hour)
+            self._set_init_minute_value(minute=minute)
 
-            self._initial_minute = minute
             self._initial_second = second
             self._initial_millisecond = millisecond
 
-            suffix = self._get_attr_variable_name_suffix(attr_identifier="minute")
-            self._minute = _convert_to_apysc_int(
-                value=minute, variable_name_suffix=suffix
-            )
             suffix = self._get_attr_variable_name_suffix(attr_identifier="second")
             self._second = _convert_to_apysc_int(
                 value=second, variable_name_suffix=suffix

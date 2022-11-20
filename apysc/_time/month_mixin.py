@@ -5,9 +5,9 @@ from typing import Union
 
 from typing_extensions import final
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
-from apysc._html.debug_mode import add_debug_info_setting
 
 
 class MonthMixIn(VariableNameSuffixAttrMixIn):
@@ -27,8 +27,9 @@ class MonthMixIn(VariableNameSuffixAttrMixIn):
             A month value to set.
         """
         from apysc._converter.to_apysc_val_from_builtin import (
-            get_copied_int_from_builtin_val
+            get_copied_int_from_builtin_val,
         )
+
         self._initial_month = month
         suffix: str = self._get_attr_variable_name_suffix(attr_identifier="month")
         self._month = get_copied_int_from_builtin_val(

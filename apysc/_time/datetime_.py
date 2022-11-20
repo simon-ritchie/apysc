@@ -6,14 +6,14 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._time.month_mixin import MonthMixIn
+from apysc._time.year_mixin import YearMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._time.year_mixin import YearMixIn
-from apysc._time.month_mixin import MonthMixIn
 
 
 class DateTime(

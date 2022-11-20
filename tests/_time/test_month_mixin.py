@@ -7,7 +7,6 @@ from apysc._time.month_mixin import MonthMixIn
 
 
 class TestMonthMixIn:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_init_month_value(self) -> None:
         mixin: MonthMixIn = MonthMixIn()

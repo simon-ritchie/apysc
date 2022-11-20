@@ -7,7 +7,6 @@ from apysc._time.year_mixin import YearMixIn
 
 
 class TestYearMixIn:
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_init_year_value(self) -> None:
         mixin: YearMixIn = YearMixIn()

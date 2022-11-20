@@ -150,10 +150,7 @@ class DateTime(
         """
         expression: str = f"{self.variable_name} = new Date("
         expression += self._get_init_year_argument_expression()
-        if isinstance(self._initial_month, Int):
-            expression += f", {self._initial_month.variable_name}"
-        else:
-            expression += f", {self._month._value}"
+        expression += self._get_init_month_argument_expression()
         if isinstance(self._initial_day, Int):
             expression += f", {self._initial_day.variable_name}"
         else:

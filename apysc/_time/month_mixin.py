@@ -34,3 +34,19 @@ class MonthMixIn(VariableNameSuffixAttrMixIn):
         self._month = get_copied_int_from_builtin_val(
             integer=month, variable_name_suffix=suffix
         )
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _get_init_month_argument_expression(self) -> str:
+        """
+        Get an initial month's argument expression string.
+
+        Returns
+        -------
+        expression : str
+            A created expression string.
+        """
+        if isinstance(self._initial_month, Int):
+            return f", {self._initial_month.variable_name}"
+
+        return f", {self._month._value}"

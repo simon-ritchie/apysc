@@ -1,0 +1,25 @@
+# `apysc._time.day_mixin` docstrings
+
+## Module summary
+
+Class implementations for the day-related mix-in.
+
+## `DayMixIn` class docstring
+
+### `_get_init_day_argument_expression` method docstring
+
+Get an initial day's argument expression string.<hr>
+
+**[Returns]**
+
+- `expression`: str
+  - A created expression string.
+
+### `_set_init_day_value` method docstring
+
+Set an initial day value.<hr>
+
+**[Parameters]**
+
+- `day`: Union[int, Int]
+  - A day value to set.

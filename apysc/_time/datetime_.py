@@ -6,12 +6,12 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._time.month_mixin import MonthMixIn
-from apysc._time.year_mixin import YearMixIn
 from apysc._time.day_mixin import DayMixIn
 from apysc._time.hour_mixin import HourMixIn
 from apysc._time.minute_mixin import MinuteMixIn
+from apysc._time.month_mixin import MonthMixIn
 from apysc._time.second_mixin import SecondMixIn
+from apysc._time.year_mixin import YearMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn

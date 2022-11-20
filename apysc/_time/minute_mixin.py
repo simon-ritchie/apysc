@@ -37,3 +37,18 @@ class MinuteMixIn(VariableNameSuffixAttrMixIn):
         self._minute = get_copied_int_from_builtin_val(
             integer=minute, variable_name_suffix=suffix
         )
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _get_init_minute_argument_expression(self) -> str:
+        """
+        Get an initial minute's argument expression string.
+
+        Returns
+        -------
+        expression : str
+            A created expression string.
+        """
+        if isinstance(self._initial_minute, Int):
+            return f", {self._initial_minute.variable_name}"
+        return f", {self._minute._value}"

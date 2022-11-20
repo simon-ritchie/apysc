@@ -140,10 +140,7 @@ class DateTime(
         expression += self._get_init_day_argument_expression()
         expression += self._get_init_hour_argument_expression()
         expression += self._get_init_minute_argument_expression()
-        if isinstance(self._initial_second, Int):
-            expression += f", {self._initial_second.variable_name}"
-        else:
-            expression += f", {self._second._value}"
+        expression += self._get_init_second_argument_expression()
         if isinstance(self._initial_millisecond, Int):
             expression += f", {self._initial_millisecond.variable_name}"
         else:

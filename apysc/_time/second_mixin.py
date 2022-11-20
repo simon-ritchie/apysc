@@ -37,3 +37,18 @@ class SecondMixIn(VariableNameSuffixAttrMixIn):
         self._second = get_copied_int_from_builtin_val(
             integer=second, variable_name_suffix=suffix
         )
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _get_init_second_argument_expression(self) -> str:
+        """
+        Get an initial second's argument expression string.
+
+        Returns
+        -------
+        expression : str
+            A created expression string.
+        """
+        if isinstance(self._initial_second, Int):
+            return f", {self._initial_second.variable_name}"
+        return f", {self._second._value}"

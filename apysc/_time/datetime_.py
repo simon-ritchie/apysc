@@ -8,6 +8,7 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._time.month_mixin import MonthMixIn
 from apysc._time.year_mixin import YearMixIn
+from apysc._time.day_mixin import DayMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
@@ -23,16 +24,14 @@ class DateTime(
     InitialSubstitutionExpMixIn,
     YearMixIn,
     MonthMixIn,
+    DayMixIn,
 ):
 
-    _initial_day: Union[int, Int]
     _initial_hour: Union[int, Int]
     _initial_minute: Union[int, Int]
     _initial_second: Union[int, Int]
     _initial_millisecond: Union[int, Int]
 
-    _month: Int
-    _day: Int
     _hour: Int
     _minute: Int
     _second: Int
@@ -97,15 +96,14 @@ class DateTime(
 
             self._set_init_year_value(year=year)
             self._set_init_month_value(month=month)
+            self._set_init_day_value(day=day)
 
-            self._initial_day = day
             self._initial_hour = hour
             self._initial_minute = minute
             self._initial_second = second
             self._initial_millisecond = millisecond
 
             suffix = self._get_attr_variable_name_suffix(attr_identifier="day")
-            self._day = _convert_to_apysc_int(value=day, variable_name_suffix=suffix)
             suffix = self._get_attr_variable_name_suffix(attr_identifier="hour")
             self._hour = _convert_to_apysc_int(value=hour, variable_name_suffix=suffix)
             suffix = self._get_attr_variable_name_suffix(attr_identifier="minute")

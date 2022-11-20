@@ -35,3 +35,18 @@ class DayMixIn(VariableNameSuffixAttrMixIn):
         self._day = get_copied_int_from_builtin_val(
             integer=day, variable_name_suffix=suffix
         )
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _get_init_day_argument_expression(self) -> str:
+        """
+        Get an initial day's argument expression string.
+
+        Returns
+        -------
+        expression : str
+            A created expression string.
+        """
+        if isinstance(self._initial_day, Int):
+            return f", {self._initial_day.variable_name}"
+        return f", {self._day._value}"

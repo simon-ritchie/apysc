@@ -42,7 +42,7 @@ class SecondMixIn(VariableNameSuffixAttrMixIn):
     @add_debug_info_setting(module_name=__name__)
     def _get_init_second_argument_expression(self) -> str:
         """
-        Get an initial second's argument expression string.
+        Get an initial second argument expression string.
 
         Returns
         -------

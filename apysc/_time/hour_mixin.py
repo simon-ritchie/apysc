@@ -37,3 +37,18 @@ class HourMixIn(VariableNameSuffixAttrMixIn):
         self._hour = get_copied_int_from_builtin_val(
             integer=hour, variable_name_suffix=suffix
         )
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _get_init_hour_argument_expression(self) -> str:
+        """
+        Get an initial hour's argument expression string.
+
+        Returns
+        -------
+        expression : str
+            A created expression string.
+        """
+        if isinstance(self._initial_hour, Int):
+            return f", {self._initial_hour.variable_name}"
+        return f", {self._hour._value}"

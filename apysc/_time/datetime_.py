@@ -13,6 +13,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 from apysc._time.year_mixin import YearMixIn
+from apysc._time.month_mixin import MonthMixIn
 
 
 class DateTime(
@@ -21,9 +22,9 @@ class DateTime(
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     YearMixIn,
+    MonthMixIn,
 ):
 
-    _initial_month: Union[int, Int]
     _initial_day: Union[int, Int]
     _initial_hour: Union[int, Int]
     _initial_minute: Union[int, Int]
@@ -95,18 +96,14 @@ class DateTime(
             )
 
             self._set_init_year_value(year=year)
+            self._set_init_month_value(month=month)
 
-            self._initial_month = month
             self._initial_day = day
             self._initial_hour = hour
             self._initial_minute = minute
             self._initial_second = second
             self._initial_millisecond = millisecond
 
-            suffix = self._get_attr_variable_name_suffix(attr_identifier="month")
-            self._month = _convert_to_apysc_int(
-                value=month, variable_name_suffix=suffix
-            )
             suffix = self._get_attr_variable_name_suffix(attr_identifier="day")
             self._day = _convert_to_apysc_int(value=day, variable_name_suffix=suffix)
             suffix = self._get_attr_variable_name_suffix(attr_identifier="hour")

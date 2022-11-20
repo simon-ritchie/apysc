@@ -24,7 +24,7 @@ class YearMixIn(VariableNameSuffixAttrMixIn):
         Parameters
         ----------
         year : Union[int, Int]
-            An year's value to set.
+            An year value to set.
         """
         from apysc._converter.to_apysc_val_from_builtin import (
             get_copied_int_from_builtin_val

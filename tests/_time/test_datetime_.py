@@ -118,7 +118,7 @@ class TestDateTime:
         )
         expression: str = datetime._create_initial_substitution_expression()
         expected: str = (
-            f"{datetime.variable_name} = new Date(2022, 3, 5, 10, 30, 50, 500);"
+            f"{datetime.variable_name} = new Date(2022, 2, 5, 10, 30, 50, 500);"
         )
         assert expression == expected
 

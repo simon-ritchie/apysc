@@ -21,9 +21,9 @@ class TestMonthMixIn:
         mixin: MonthMixIn = MonthMixIn()
         mixin._set_init_month_value(month=5)
         expression: str = mixin._get_init_month_argument_expression()
-        assert expression == ", 5"
+        assert expression == ", 4"
 
         int_val: ap.Int = ap.Int(5)
         mixin._set_init_month_value(month=int_val)
         expression = mixin._get_init_month_argument_expression()
-        assert expression == f", {int_val.variable_name}"
+        assert expression == f", {int_val.variable_name} - 1"

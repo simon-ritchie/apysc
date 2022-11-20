@@ -50,6 +50,6 @@ class MonthMixIn(VariableNameSuffixAttrMixIn):
             A created expression string.
         """
         if isinstance(self._initial_month, Int):
-            return f", {self._initial_month.variable_name}"
+            return f", {self._initial_month.variable_name} - 1"
 
-        return f", {self._month._value}"
+        return f", {self._month._value - 1}"

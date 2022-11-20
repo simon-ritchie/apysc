@@ -8,6 +8,7 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
+from apysc._validation import arg_validation_decos
 
 
 class DayMixIn(VariableNameSuffixAttrMixIn):
@@ -17,6 +18,7 @@ class DayMixIn(VariableNameSuffixAttrMixIn):
 
     @final
     @add_debug_info_setting(module_name=__name__)
+    @arg_validation_decos.is_day_int(arg_position_index=1)
     def _set_init_day_value(self, *, day: Union[int, Int]) -> None:
         """
         Set an initial day value.

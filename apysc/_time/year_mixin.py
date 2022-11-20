@@ -7,6 +7,7 @@ from typing_extensions import final
 
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class YearMixIn(VariableNameSuffixAttrMixIn):
@@ -14,6 +15,8 @@ class YearMixIn(VariableNameSuffixAttrMixIn):
     _initial_year: Union[int, Int]
     _year: Int
 
+    @final
+    @add_debug_info_setting(module_name=__name__)
     def _set_init_year_value(self, *, year: Union[int, Int]) -> None:
         """
         Set an initial year value.
@@ -32,6 +35,8 @@ class YearMixIn(VariableNameSuffixAttrMixIn):
             integer=year, variable_name_suffix=suffix
         )
 
+    @final
+    @add_debug_info_setting(module_name=__name__)
     def _get_init_year_argument_expression(self) -> str:
         """
         Get an initial year's argument expression string.

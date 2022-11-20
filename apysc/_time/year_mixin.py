@@ -31,3 +31,16 @@ class YearMixIn(VariableNameSuffixAttrMixIn):
         self._year = get_copied_int_from_builtin_val(
             integer=year, variable_name_suffix=suffix
         )
+
+    def _get_init_year_argument_expression(self) -> str:
+        """
+        Get an initial year's argument expression string.
+
+        Returns
+        -------
+        expression : str
+            A created expression string.
+        """
+        if isinstance(self._initial_year, Int):
+            return f"{self._initial_year.variable_name}"
+        return f"{self._year._value}"

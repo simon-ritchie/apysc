@@ -172,29 +172,3 @@ class DateTime(
         self._minute._run_all_revert_methods(snapshot_name=snapshot_name)
         self._second._run_all_revert_methods(snapshot_name=snapshot_name)
         self._millisecond._run_all_revert_methods(snapshot_name=snapshot_name)
-
-
-def _convert_to_apysc_int(
-    *,
-    value: Union[int, Int],
-    variable_name_suffix: str,
-) -> Int:
-    """
-    Convert a datetime-related value to an apysc integer.
-
-    Parameters
-    ----------
-    value : Union[int, Int]
-        A value to convert.
-    variable_name_suffix : str
-        A JavaScript variable name suffix string.
-        This setting is sometimes useful for JavaScript's debugging.
-
-    Returns
-    -------
-    value : Int
-        A converted value.
-    """
-    if isinstance(value, int):
-        return Int(value, variable_name_suffix=variable_name_suffix)
-    return value._copy()

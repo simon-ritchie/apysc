@@ -9,20 +9,6 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
-from apysc._time import datetime_
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__convert_to_apysc_int() -> None:
-    value: ap.Int = datetime_._convert_to_apysc_int(value=10, variable_name_suffix="")
-    assert isinstance(value, ap.Int)
-    assert value == 10
-
-    prev_value: ap.Int = ap.Int(20)
-    value = datetime_._convert_to_apysc_int(value=prev_value, variable_name_suffix="")
-    assert isinstance(value, ap.Int)
-    assert value == 20
-    assert value.variable_name != prev_value.variable_name
 
 
 class TestDateTime:

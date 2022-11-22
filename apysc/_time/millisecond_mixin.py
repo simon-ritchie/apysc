@@ -39,3 +39,18 @@ class MillisecondMixIn(VariableNameSuffixAttrMixIn):
         self._millisecond = get_copied_int_from_builtin_val(
             integer=millisecond, variable_name_suffix=suffix,
         )
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _get_init_millisecond_argument_expression(self) -> str:
+        """
+        Get an initial millisecond argument expression string.
+
+        Returns
+        -------
+        expression : str
+            A created expression string.
+        """
+        if isinstance(self._initial_millisecond, Int):
+            return f", {self._initial_millisecond.variable_name}"
+        return f", {self._millisecond._value}"

@@ -31,9 +31,14 @@ def main() -> None:
         stage_height=500,
         stage_elem_id="stage",
     )
-    datetime: ap.DateTime = ap.DateTime(year=2022, month=11, day=23)
-    year: ap.Int = datetime.year
+    datetime_: ap.DateTime = ap.DateTime(year=2022, month=11, day=23)
+    year: ap.Int = datetime_.year
     ap.assert_equal(year, 2022)
+
+    year.value = 2023
+    datetime_.year = year
+    ap.assert_equal(datetime_.year, 2023)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

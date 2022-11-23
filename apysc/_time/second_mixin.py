@@ -7,10 +7,10 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
-from apysc._validation import arg_validation_decos
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
+from apysc._validation import arg_validation_decos
 
 
 class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):

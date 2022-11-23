@@ -15,6 +15,24 @@ Get an initial hour's argument expression string.<hr>
 - `expression`: str
   - A created expression string.
 
+### `_make_snapshot` method docstring
+
+Make a value snapshot.<hr>
+
+**[Parameters]**
+
+- `snapshot_name`: str
+  - Target snapshot name.
+
+### `_revert` method docstring
+
+Revert a value if a snapshot exists.<hr>
+
+**[Parameters]**
+
+- `snapshot_name`: str
+  - Target snapshot name.
+
 ### `_set_init_hour_value` method docstring
 
 Set an initial hour value.<hr>

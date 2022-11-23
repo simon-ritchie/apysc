@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._time.year_mixin import YearMixIn
 from apysc._expression import expression_data_util
+from apysc._time.year_mixin import YearMixIn
 
 
 class TestYearMixIn:
@@ -62,7 +62,5 @@ class TestYearMixIn:
         assert year == 2022
         assert isinstance(year, ap.Int)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{year.variable_name} = {mixin.variable_name}.getFullYear();"
-        )
+        expected: str = f"{year.variable_name} = {mixin.variable_name}.getFullYear();"
         assert expected in expression

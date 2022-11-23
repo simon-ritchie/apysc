@@ -7,10 +7,10 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
-from apysc._validation import arg_validation_decos
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
+from apysc._validation import arg_validation_decos
 
 
 class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
@@ -74,7 +74,7 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def _append_year_getter_expression(self, *, year_val: Int) -> None:
         """
-        Append a year getter's expression string.
+        Append a year's getter expression string.
 
         Parameters
         ----------
@@ -82,6 +82,7 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
             A year value to use in an expression.
         """
         import apysc as ap
+
         expression: str = (
             f"{year_val.variable_name} = {self.variable_name}.getFullYear();"
         )

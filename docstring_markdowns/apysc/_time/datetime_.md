@@ -4,24 +4,6 @@
 
 Class implementations for datetime-related interfaces.
 
-## `_convert_to_apysc_int` function docstring
-
-Convert a datetime-related value to an apysc integer.<hr>
-
-**[Parameters]**
-
-- `value`: Union[int, Int]
-  - A value to convert.
-- `variable_name_suffix`: str
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
-
-<hr>
-
-**[Returns]**
-
-- `value`: Int
-  - A converted value.
-
 ## `DateTime` class docstring
 
 ### `__init__` method docstring
@@ -61,21 +43,3 @@ Create an initial value's substitution expression string.<hr>
 
 - `expression`: str
   - Created expression string.
-
-### `_make_snapshot` method docstring
-
-Make a value snapshot.<hr>
-
-**[Parameters]**
-
-- `snapshot_name`: str
-  - Target snapshot name.
-
-### `_revert` method docstring
-
-Revert a value if a snapshot exists.<hr>
-
-**[Parameters]**
-
-- `snapshot_name`: str
-  - Target snapshot name.

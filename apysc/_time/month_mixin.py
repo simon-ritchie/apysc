@@ -71,6 +71,20 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         self._append_month_getter_expression(month_val=copied_month_val)
         return copied_month_val
 
+    @month.setter
+    @arg_validation_decos.is_month_int(arg_position_index=1)
+    def month(self, value: Int) -> None:
+        """
+        Set a month value.
+
+        Parameters
+        ----------
+        value : Int
+            A month value to set.
+        """
+        self._month = value._copy()
+        self._append_month_setter_expression(month_val=value)
+
     @final
     @arg_validation_decos.is_month_int(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -87,6 +101,24 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
 
         expression: str = (
             f"{month_val.variable_name} = {self.variable_name}.getMonth() + 1;"
+        )
+        ap.append_js_expression(expression=expression)
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _append_month_setter_expression(self, *, month_val: Int) -> None:
+        """
+        Append a month's setter expression string.
+
+        Parameters
+        ----------
+        month_val : Int
+            A month value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{self.variable_name}.setMonth({month_val.variable_name} - 1);"
         )
         ap.append_js_expression(expression=expression)
 

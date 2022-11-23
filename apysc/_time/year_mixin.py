@@ -103,6 +103,9 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         )
         ap.append_js_expression(expression=expression)
 
+    @final
+    @arg_validation_decos.is_four_digit_year(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
     def _append_year_setter_expression(self, *, year_val: Int) -> None:
         """
         Append a year's setter expression string.

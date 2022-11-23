@@ -43,6 +43,7 @@ class TestMonthMixIn:
     def test__append_month_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: MonthMixIn = MonthMixIn()
+        mixin.variable_name = "test_month_mixin"
         mixin._set_init_month_value(month=5)
         month_val: ap.Int = ap.Int(7)
         mixin._append_month_getter_expression(month_val=month_val)
@@ -56,6 +57,7 @@ class TestMonthMixIn:
     def test_month(self) -> None:
         expression_data_util.empty_expression()
         mixin: MonthMixIn = MonthMixIn()
+        mixin.variable_name = "test_month_mixin"
         mixin._set_init_month_value(month=5)
         month: ap.Int = mixin.month
         assert month == 5
@@ -63,5 +65,19 @@ class TestMonthMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f"{month.variable_name} = {mixin.variable_name}.getMonth() + 1;"
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_month_setter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: MonthMixIn = MonthMixIn()
+        mixin.variable_name = "test_month_mixin"
+        mixin._set_init_month_value(month=5)
+        month_val: ap.Int = ap.Int(7)
+        mixin._append_month_setter_expression(month_val=month_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{mixin.variable_name}.setMonth({month_val.variable_name} - 1);"
         )
         assert expected in expression

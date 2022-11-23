@@ -35,6 +35,9 @@ def main() -> None:
     month: ap.Int = datetime_.month
     ap.assert_equal(month, 11)
 
+    datetime_.month = ap.Int(12)
+    ap.assert_equal(datetime_.month, 12)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

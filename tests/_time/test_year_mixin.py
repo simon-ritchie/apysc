@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._time.year_mixin import YearMixIn
+from apysc._expression import expression_data_util
 
 
 class TestYearMixIn:
@@ -37,3 +38,31 @@ class TestYearMixIn:
         mixin._year._value = 2021
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._year == 2022
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_year_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: YearMixIn = YearMixIn()
+        mixin.variable_name = "test_year_mixin"
+        year_val: ap.Int = ap.Int(2022)
+        mixin._append_year_getter_expression(year_val=year_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{year_val.variable_name} = {mixin.variable_name}.getFullYear();"
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_year(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: YearMixIn = YearMixIn()
+        mixin.variable_name = "test_year_mixin"
+        mixin._set_init_year_value(year=2022)
+        year: ap.Int = mixin.year
+        assert year == 2022
+        assert isinstance(year, ap.Int)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{year.variable_name} = {mixin.variable_name}.getFullYear();"
+        )
+        assert expected in expression

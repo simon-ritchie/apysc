@@ -55,6 +55,38 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
             return f"{self._initial_year.variable_name}"
         return f"{self._year._value}"
 
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def year(self) -> Int:
+        """
+        Get a current year value.
+
+        Returns
+        -------
+        year : Int
+            A current year value.
+        """
+        copied_year_val: Int = self._year._copy()
+        self._append_year_getter_expression(year_val=copied_year_val)
+        return copied_year_val
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _append_year_getter_expression(self, *, year_val: Int) -> None:
+        """
+        Append a year getter's expression string.
+
+        Parameters
+        ----------
+        year_val : Int
+            A year value to use in an expression.
+        """
+        import apysc as ap
+        expression: str = (
+            f"{year_val.variable_name} = {self.variable_name}.getFullYear();"
+        )
+        ap.append_js_expression(expression=expression)
+
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value snapshot.

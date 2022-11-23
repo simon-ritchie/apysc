@@ -56,6 +56,40 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
 
         return f", {self._month._value - 1}"
 
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def month(self) -> Int:
+        """
+        Get a current month value.
+
+        Returns
+        -------
+        month : Int
+            A current month value.
+        """
+        copied_month_val: Int = self._month._copy()
+        self._append_month_getter_expression(month_val=copied_month_val)
+        return copied_month_val
+
+    @final
+    @arg_validation_decos.is_month_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def _append_month_getter_expression(self, *, month_val: Int) -> None:
+        """
+        Append a month's getter expression string.
+
+        Parameters
+        ----------
+        month_val : Int
+            A month value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{month_val.variable_name} = {self.variable_name}.getMonth() + 1;"
+        )
+        ap.append_js_expression(expression=expression)
+
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value snapshot.

@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._time.month_mixin import MonthMixIn
+from apysc._expression import expression_data_util
 
 
 class TestMonthMixIn:
@@ -37,3 +38,30 @@ class TestMonthMixIn:
         mixin._month._value = 6
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._month == 5
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_month_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: MonthMixIn = MonthMixIn()
+        mixin._set_init_month_value(month=5)
+        month_val: ap.Int = ap.Int(7)
+        mixin._append_month_getter_expression(month_val=month_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{month_val.variable_name} = {mixin.variable_name}.getMonth() + 1;"
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_month(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: MonthMixIn = MonthMixIn()
+        mixin._set_init_month_value(month=5)
+        month: ap.Int = mixin.month
+        assert month == 5
+        assert isinstance(month, ap.Int)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{month.variable_name} = {mixin.variable_name}.getMonth() + 1;"
+        )
+        assert expected in expression

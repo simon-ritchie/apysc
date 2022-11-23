@@ -15,7 +15,6 @@ from apysc._time.year_mixin import YearMixIn
 from apysc._time.millisecond_mixin import MillisecondMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
-from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
@@ -23,7 +22,6 @@ from apysc._validation import arg_validation_decos
 
 class DateTime(
     VariableNameMixIn,
-    RevertMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     YearMixIn,
@@ -138,37 +136,3 @@ class DateTime(
         expression += self._get_init_millisecond_argument_expression()
         expression += ");"
         return expression
-
-    def _make_snapshot(self, *, snapshot_name: str) -> None:
-        """
-        Make a value snapshot.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        self._year._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        self._month._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        self._day._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        self._hour._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        self._minute._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        self._second._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        self._millisecond._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-
-    def _revert(self, *, snapshot_name: str) -> None:
-        """
-        Revert a value if a snapshot exists.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        self._year._run_all_revert_methods(snapshot_name=snapshot_name)
-        self._month._run_all_revert_methods(snapshot_name=snapshot_name)
-        self._day._run_all_revert_methods(snapshot_name=snapshot_name)
-        self._hour._run_all_revert_methods(snapshot_name=snapshot_name)
-        self._minute._run_all_revert_methods(snapshot_name=snapshot_name)
-        self._second._run_all_revert_methods(snapshot_name=snapshot_name)
-        self._millisecond._run_all_revert_methods(snapshot_name=snapshot_name)

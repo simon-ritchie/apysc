@@ -27,3 +27,13 @@ class TestMonthMixIn:
         mixin._set_init_month_value(month=int_val)
         expression = mixin._get_init_month_argument_expression()
         assert expression == f", {int_val.variable_name} - 1"
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot_and_revert(self) -> None:
+        mixin: MonthMixIn = MonthMixIn()
+        mixin._set_init_month_value(month=5)
+        snapshot_name: str = mixin._get_next_snapshot_name()
+        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        mixin._month._value = 6
+        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert mixin._month == 5

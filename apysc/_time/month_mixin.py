@@ -9,9 +9,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.revert_mixin import RevertMixIn
 
 
-class MonthMixIn(VariableNameSuffixAttrMixIn):
+class MonthMixIn(VariableNameSuffixAttrMixIn, RevertMixIn):
 
     _initial_month: Union[int, Int]
     _month: Int
@@ -53,3 +54,25 @@ class MonthMixIn(VariableNameSuffixAttrMixIn):
             return f", {self._initial_month.variable_name} - 1"
 
         return f", {self._month._value - 1}"
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make a value snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._month._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert a value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._month._run_all_revert_methods(snapshot_name=snapshot_name)

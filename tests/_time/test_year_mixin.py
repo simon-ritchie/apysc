@@ -27,3 +27,13 @@ class TestYearMixIn:
         mixin._set_init_year_value(year=int_val)
         expression = mixin._get_init_year_argument_expression()
         assert expression == int_val.variable_name
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot_and_revert(self) -> None:
+        mixin: YearMixIn = YearMixIn()
+        mixin._set_init_year_value(year=2022)
+        snapshot_name: str = mixin._get_next_snapshot_name()
+        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        mixin._year._value = 2021
+        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert mixin._year == 2022

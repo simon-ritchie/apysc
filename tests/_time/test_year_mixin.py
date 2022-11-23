@@ -64,3 +64,23 @@ class TestYearMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{year.variable_name} = {mixin.variable_name}.getFullYear();"
         assert expected in expression
+
+        year = ap.Int(2023)
+        mixin.year = year
+        assert mixin.year == 2023
+        assert isinstance(year, ap.Int)
+        expression = expression_data_util.get_current_expression()
+        expected = f"{mixin.variable_name}.setFullYear({year.variable_name});"
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_year_setter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: YearMixIn = YearMixIn()
+        mixin.variable_name = "test_year_mixin"
+        mixin._set_init_year_value(year=2022)
+        year_val: ap.Int = ap.Int(2023)
+        mixin._append_year_setter_expression(year_val=year_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f"{mixin.variable_name}.setFullYear({year_val.variable_name});"
+        assert expected in expression

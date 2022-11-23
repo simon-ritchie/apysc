@@ -70,7 +70,22 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         self._append_year_getter_expression(year_val=copied_year_val)
         return copied_year_val
 
+    @year.setter
+    @arg_validation_decos.is_four_digit_year(arg_position_index=1)
+    def year(self, value: Int) -> None:
+        """
+        Set a year value.
+
+        Parameters
+        ----------
+        value : Int
+            A year value to set.
+        """
+        self._year = value._copy()
+        self._append_year_setter_expression(year_val=value)
+
     @final
+    @arg_validation_decos.is_four_digit_year(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def _append_year_getter_expression(self, *, year_val: Int) -> None:
         """
@@ -85,6 +100,22 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
 
         expression: str = (
             f"{year_val.variable_name} = {self.variable_name}.getFullYear();"
+        )
+        ap.append_js_expression(expression=expression)
+
+    def _append_year_setter_expression(self, *, year_val: Int) -> None:
+        """
+        Append a year's setter expression string.
+
+        Parameters
+        ----------
+        year_val : Int
+            A year value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{self.variable_name}.setFullYear({year_val.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 

@@ -15,13 +15,11 @@ from apysc._time.year_mixin import YearMixIn
 from apysc._time.millisecond_mixin import MillisecondMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
-from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
 class DateTime(
-    VariableNameMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     YearMixIn,

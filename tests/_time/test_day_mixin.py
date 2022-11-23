@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._time.day_mixin import DayMixIn
+from apysc._expression import expression_data_util
 
 
 class TestDayMixIn:
@@ -37,3 +38,32 @@ class TestDayMixIn:
         mixin._day._value = 16
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._day == 15
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_day_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: DayMixIn = DayMixIn()
+        mixin.variable_name = "test_day_mixin"
+        mixin._set_init_day_value(day=15)
+        day_val: ap.Int = ap.Int(17)
+        mixin._append_day_getter_expression(day_val=day_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{day_val.variable_name} = {mixin.variable_name}.getDate();"
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_day(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: DayMixIn = DayMixIn()
+        mixin.variable_name = "test_day_mixin"
+        mixin._set_init_day_value(day=15)
+        day: ap.Int = mixin.day
+        assert day == 15
+        assert isinstance(day, ap.Int)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{day.variable_name} = {mixin.variable_name}.getDate();"
+        )
+        assert expected in expression

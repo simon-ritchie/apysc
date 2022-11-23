@@ -55,6 +55,40 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
             return f", {self._initial_day.variable_name}"
         return f", {self._day._value}"
 
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def day(self) -> Int:
+        """
+        Get a current day value.
+
+        Returns
+        -------
+        day : Int
+            A current day value.
+        """
+        copied_day_val: Int = self._day._copy()
+        self._append_day_getter_expression(day_val=copied_day_val)
+        return copied_day_val
+
+    @final
+    @arg_validation_decos.is_day_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def _append_day_getter_expression(self, *, day_val: Int) -> None:
+        """
+        Append a day's getter expression string.
+
+        Parameters
+        ----------
+        day_val : Int
+            A day value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{day_val.variable_name} = {self.variable_name}.getDate();"
+        )
+        ap.append_js_expression(expression=expression)
+
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value snapshot.

@@ -68,6 +68,15 @@ class TestMonthMixIn:
         )
         assert expected in expression
 
+        month.value = 7
+        mixin.month = month
+        assert mixin.month == 7
+        assert isinstance(mixin.month, ap.Int)
+        expression = expression_data_util.get_current_expression()
+        expected = (
+            f"{mixin.variable_name}.setMonth({month.variable_name} - 1);"
+        )
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_month_setter_expression(self) -> None:
         expression_data_util.empty_expression()

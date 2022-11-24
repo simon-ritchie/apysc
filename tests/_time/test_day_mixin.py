@@ -67,3 +67,22 @@ class TestDayMixIn:
             f"{day.variable_name} = {mixin.variable_name}.getDate();"
         )
         assert expected in expression
+
+        day.value = 17
+        mixin.day = day
+        assert mixin.day == 17
+        expression = expression_data_util.get_current_expression()
+        expected = (
+            f"{mixin.variable_name}.setDate({day.variable_name});"
+        )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_day_setter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: DayMixIn = DayMixIn()
+        mixin.variable_name = "test_day_mixin"
+        day_val: ap.Int = ap.Int(15)
+        mixin._append_day_setter_expression(day_val=day_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f"{mixin.variable_name}.setDate({day_val.variable_name});"
+        assert expected in expression

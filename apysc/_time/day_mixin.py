@@ -70,6 +70,20 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         self._append_day_getter_expression(day_val=copied_day_val)
         return copied_day_val
 
+    @day.setter
+    @arg_validation_decos.is_day_int(arg_position_index=1)
+    def day(self, value: Int) -> None:
+        """
+        Set a day value.
+
+        Parameters
+        ----------
+        value : Int
+            A day value to set.
+        """
+        self._day = value._copy()
+        self._append_day_setter_expression(day_val=value)
+
     @final
     @arg_validation_decos.is_day_int(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -86,6 +100,22 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
 
         expression: str = (
             f"{day_val.variable_name} = {self.variable_name}.getDate();"
+        )
+        ap.append_js_expression(expression=expression)
+
+    def _append_day_setter_expression(self, *, day_val: Int) -> None:
+        """
+        Append a day's setter expression string.
+
+        Parameters
+        ----------
+        day_val : Int
+            A day value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{self.variable_name}.setDate({day_val.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 

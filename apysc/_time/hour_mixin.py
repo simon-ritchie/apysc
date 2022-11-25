@@ -70,22 +70,56 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         self._append_hour_getter_expression(hour_val=copied_hour_val)
         return copied_hour_val
 
+    @hour.setter
+    @arg_validation_decos.is_hour_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def hour(self, value: Int) -> None:
+        """
+        Set an hour value.
+
+        Parameters
+        ----------
+        value : Int
+            A hour value to set.
+        """
+        self._hour = value._copy()
+        self._append_hour_setter_expression(hour_val=value)
+
     @final
     @arg_validation_decos.is_hour_int(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def _append_hour_getter_expression(self, *, hour_val: Int) -> None:
         """
-        Append a hour's getter expression string.
+        Append an hour's getter expression string.
 
         Parameters
         ----------
         hour_val : Int
-            A hour value to use in an expression.
+            An hour value to use in an expression.
         """
         import apysc as ap
 
         expression: str = (
             f"{hour_val.variable_name} = {self.variable_name}.getHours();"
+        )
+        ap.append_js_expression(expression=expression)
+
+    @final
+    @arg_validation_decos.is_hour_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def _append_hour_setter_expression(self, *, hour_val: Int) -> None:
+        """
+        Append an hour's setter expression string.
+
+        Parameters
+        ----------
+        hour_val : Int
+            An hour value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{self.variable_name}.setHours({hour_val.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 

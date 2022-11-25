@@ -62,3 +62,22 @@ class TestHourMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{hour.variable_name} = {mixin.variable_name}.getHours();"
         assert expected in expression
+
+        hour.value = 12
+        mixin.hour = hour
+        assert mixin.hour == 12
+        assert isinstance(hour, ap.Int)
+        expression = expression_data_util.get_current_expression()
+        expected = f"{mixin.variable_name}.setHours({hour.variable_name});"
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_hour_setter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: HourMixIn = HourMixIn()
+        mixin.variable_name = "test_hour_mixin"
+        hour_val: ap.Int = ap.Int(12)
+        mixin._append_hour_setter_expression(hour_val=hour_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f"{mixin.variable_name}.setHours({hour_val.variable_name});"
+        assert expected in expression

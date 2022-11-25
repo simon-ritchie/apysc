@@ -35,6 +35,10 @@ def main() -> None:
     hour: ap.Int = datetime_.hour
     ap.assert_equal(hour, 5)
 
+    hour.value = 10
+    datetime_.hour = hour
+    ap.assert_equal(hour, 10)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

@@ -55,6 +55,40 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
             return f", {self._initial_hour.variable_name}"
         return f", {self._hour._value}"
 
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def hour(self) -> Int:
+        """
+        Get a current hour value.
+
+        Returns
+        -------
+        hour : Int
+            A current hour value.
+        """
+        copied_hour_val: Int = self._hour._copy()
+        self._append_hour_getter_expression(hour_val=copied_hour_val)
+        return copied_hour_val
+
+    @final
+    @arg_validation_decos.is_hour_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def _append_hour_getter_expression(self, *, hour_val: Int) -> None:
+        """
+        Append a hour's getter expression string.
+
+        Parameters
+        ----------
+        hour_val : Int
+            A hour value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{hour_val.variable_name} = {self.variable_name}.getHours();"
+        )
+        ap.append_js_expression(expression=expression)
+
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value snapshot.

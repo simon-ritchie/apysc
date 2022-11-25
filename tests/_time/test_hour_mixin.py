@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._time.hour_mixin import HourMixIn
+from apysc._expression import expression_data_util
 
 
 class TestHourMixIn:
@@ -37,3 +38,27 @@ class TestHourMixIn:
         mixin._hour._value = 11
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._hour == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_hour_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: HourMixIn = HourMixIn()
+        mixin.variable_name = "test_hour_mixin"
+        hour_val: ap.Int = ap.Int(12)
+        mixin._append_hour_getter_expression(hour_val=hour_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f"{hour_val.variable_name} = {mixin.variable_name}.getHours();"
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_hour(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: HourMixIn = HourMixIn()
+        mixin.variable_name = "test_hour_mixin"
+        mixin._set_init_hour_value(hour=10)
+        hour: ap.Int = mixin.hour
+        assert hour == 10
+        assert isinstance(hour, ap.Int)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f"{hour.variable_name} = {mixin.variable_name}.getHours();"
+        assert expected in expression

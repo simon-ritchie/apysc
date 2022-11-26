@@ -37,6 +37,10 @@ def main() -> None:
     minute: ap.Int = datetime_.minute
     ap.assert_equal(minute, 30)
 
+    minute.value = 50
+    datetime_.minute = minute
+    ap.assert_equal(datetime_.minute, 50)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

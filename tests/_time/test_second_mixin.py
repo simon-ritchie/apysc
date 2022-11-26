@@ -66,3 +66,24 @@ class TestSecondMixIn:
             f"{second.variable_name} = {mixin.variable_name}.getSeconds();"
         )
         assert expected in expression
+
+        second.value = ap.Int(55)
+        mixin.second = second
+        expression = expression_data_util.get_current_expression()
+        expectd = (
+            f"{mixin.variable_name}.setSeconds({second.variable_name});"
+        )
+        assert expectd in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_second_setter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: SecondMixIn = SecondMixIn()
+        mixin.variable_name = "test_second_mixin"
+        second_val: ap.Int = ap.Int(50)
+        mixin._append_second_setter_expression(second_val=second_val)
+        expression: str = expression_data_util.get_current_expression()
+        expectd: str = (
+            f"{mixin.variable_name}.setSeconds({second_val.variable_name});"
+        )
+        assert expectd in expression

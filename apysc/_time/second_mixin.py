@@ -70,6 +70,21 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         self._append_second_getter_expression(second_val=copied_second_val)
         return copied_second_val
 
+    @second.setter
+    @arg_validation_decos.is_second_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def second(self, value: Int) -> None:
+        """
+        Set a second value.
+
+        Parameters
+        ----------
+        value : Int
+            A second value to set.
+        """
+        self._second = value._copy()
+        self._append_second_setter_expression(second_val=value)
+
     @final
     @arg_validation_decos.is_second_int(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -86,6 +101,25 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
 
         expression: str = (
             f"{second_val.variable_name} = {self.variable_name}.getSeconds();"
+        )
+        ap.append_js_expression(expression=expression)
+
+    @final
+    @arg_validation_decos.is_second_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def _append_second_setter_expression(self, *, second_val: Int) -> None:
+        """
+        Append a second's setter expression string.
+
+        Parameters
+        ----------
+        second_val : Int
+            A second value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{self.variable_name}.setSeconds({second_val.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 

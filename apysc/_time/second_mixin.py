@@ -55,6 +55,40 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
             return f", {self._initial_second.variable_name}"
         return f", {self._second._value}"
 
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def second(self) -> Int:
+        """
+        Get a current second value.
+
+        Returns
+        -------
+        second : Int
+            A current second value.
+        """
+        copied_second_val: Int = self._second._copy()
+        self._append_second_getter_expression(second_val=copied_second_val)
+        return copied_second_val
+
+    @final
+    @arg_validation_decos.is_second_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def _append_second_getter_expression(self, *, second_val: Int) -> None:
+        """
+        Append a second's getter expression string.
+
+        Parameters
+        ----------
+        second_val : Int
+            A second value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{second_val.variable_name} = {self.variable_name}.getSeconds();"
+        )
+        ap.append_js_expression(expression=expression)
+
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value snapshot.

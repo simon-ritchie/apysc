@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._time.second_mixin import SecondMixIn
+from apysc._expression import expression_data_util
 
 
 class TestSecondMixIn:
@@ -37,3 +38,31 @@ class TestSecondMixIn:
         mixin._second._value = 55
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._second == 50
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_second_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: SecondMixIn = SecondMixIn()
+        mixin.variable_name = "test_second_mixin"
+        second_val: ap.Int = ap.Int(50)
+        mixin._append_second_getter_expression(second_val=second_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{second_val.variable_name} = {mixin.variable_name}.getSeconds();"
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_second(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: SecondMixIn = SecondMixIn()
+        mixin.variable_name = "test_second_mixin"
+        mixin._set_init_second_value(second=50)
+        second: ap.Int = mixin.second
+        assert second == 50
+        assert isinstance(second, ap.Int)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{second.variable_name} = {mixin.variable_name}.getSeconds();"
+        )
+        assert expected in expression

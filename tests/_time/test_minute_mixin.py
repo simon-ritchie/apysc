@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._time.minute_mixin import MinuteMixIn
+from apysc._expression import expression_data_util
 
 
 class TestMinuteMixIn:
@@ -37,3 +38,31 @@ class TestMinuteMixIn:
         mixin._minute._value = 35
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._minute == 30
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_minute_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: MinuteMixIn = MinuteMixIn()
+        mixin.variable_name = "test_minute_mixin"
+        minute_val: ap.Int = ap.Int(30)
+        mixin._append_minute_getter_expression(minute_val=minute_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{minute_val.variable_name} = {mixin.variable_name}.getMinutes();"
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_minute(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: MinuteMixIn = MinuteMixIn()
+        mixin.variable_name = "test_minute_mixin"
+        mixin._set_init_minute_value(minute=30)
+        minute: ap.Int = mixin.minute
+        assert minute == 30
+        assert isinstance(minute, ap.Int)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{minute.variable_name} = {mixin.variable_name}.getMinutes();"
+        )
+        assert expected in expression

@@ -55,6 +55,40 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
             return f", {self._initial_minute.variable_name}"
         return f", {self._minute._value}"
 
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def minute(self) -> Int:
+        """
+        Get a current minute value.
+
+        Returns
+        -------
+        minute : Int
+            A current minute value.
+        """
+        copied_minute_val: Int = self._minute._copy()
+        self._append_minute_getter_expression(minute_val=copied_minute_val)
+        return copied_minute_val
+
+    @final
+    @arg_validation_decos.is_minute_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def _append_minute_getter_expression(self, *, minute_val: Int) -> None:
+        """
+        Append a minute's getter expression string.
+
+        Parameters
+        ----------
+        minute_val : Int
+            A month value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{minute_val.variable_name} = {self.variable_name}.getMinutes();"
+        )
+        ap.append_js_expression(expression=expression)
+
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value snapshot.

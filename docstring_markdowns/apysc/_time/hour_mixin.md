@@ -6,6 +6,24 @@ Class implementations for the hour-related mix-in.
 
 ## `HourMixIn` class docstring
 
+### `_append_hour_getter_expression` method docstring
+
+Append an hour's getter expression string.<hr>
+
+**[Parameters]**
+
+- `hour_val`: Int
+  - An hour value to use in an expression.
+
+### `_append_hour_setter_expression` method docstring
+
+Append an hour's setter expression string.<hr>
+
+**[Parameters]**
+
+- `hour_val`: Int
+  - An hour value to use in an expression.
+
 ### `_get_init_hour_argument_expression` method docstring
 
 Get an initial hour's argument expression string.<hr>

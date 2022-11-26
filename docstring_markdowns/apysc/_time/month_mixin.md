@@ -6,6 +6,24 @@ Class implementations for the month-related mix-in.
 
 ## `MonthMixIn` class docstring
 
+### `_append_month_getter_expression` method docstring
+
+Append a month's getter expression string.<hr>
+
+**[Parameters]**
+
+- `month_val`: Int
+  - A month value to use in an expression.
+
+### `_append_month_setter_expression` method docstring
+
+Append a month's setter expression string.<hr>
+
+**[Parameters]**
+
+- `month_val`: Int
+  - A month value to use in an expression.
+
 ### `_get_init_month_argument_expression` method docstring
 
 Get an initial month's argument expression string.<hr>

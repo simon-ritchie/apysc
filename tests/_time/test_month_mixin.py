@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._time.month_mixin import MonthMixIn
 from apysc._expression import expression_data_util
+from apysc._time.month_mixin import MonthMixIn
 
 
 class TestMonthMixIn:
@@ -63,9 +63,7 @@ class TestMonthMixIn:
         assert month == 5
         assert isinstance(month, ap.Int)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{month.variable_name} = {mixin.variable_name}.getMonth() + 1;"
-        )
+        expected: str = f"{month.variable_name} = {mixin.variable_name}.getMonth() + 1;"
         assert expected in expression
 
         month.value = 7
@@ -73,9 +71,7 @@ class TestMonthMixIn:
         assert mixin.month == 7
         assert isinstance(mixin.month, ap.Int)
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f"{mixin.variable_name}.setMonth({month.variable_name} - 1);"
-        )
+        expected = f"{mixin.variable_name}.setMonth({month.variable_name} - 1);"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_month_setter_expression(self) -> None:

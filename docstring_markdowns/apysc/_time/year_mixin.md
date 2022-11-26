@@ -8,7 +8,16 @@ Class implementations for the year-related mix-in.
 
 ### `_append_year_getter_expression` method docstring
 
-Append a year-getter's expression string.<hr>
+Append a year's getter expression string.<hr>
+
+**[Parameters]**
+
+- `year_val`: Int
+  - A year value to use in an expression.
+
+### `_append_year_setter_expression` method docstring
+
+Append a year's setter expression string.<hr>
 
 **[Parameters]**
 

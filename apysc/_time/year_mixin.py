@@ -118,9 +118,7 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         """
         import apysc as ap
 
-        expression: str = (
-            f"{self.variable_name}.setFullYear({year_val.variable_name});"
-        )
+        expression: str = f"{self.variable_name}.setFullYear({year_val.variable_name});"
         ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:

@@ -99,9 +99,7 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         """
         import apysc as ap
 
-        expression: str = (
-            f"{hour_val.variable_name} = {self.variable_name}.getHours();"
-        )
+        expression: str = f"{hour_val.variable_name} = {self.variable_name}.getHours();"
         ap.append_js_expression(expression=expression)
 
     @final
@@ -118,9 +116,7 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         """
         import apysc as ap
 
-        expression: str = (
-            f"{self.variable_name}.setHours({hour_val.variable_name});"
-        )
+        expression: str = f"{self.variable_name}.setHours({hour_val.variable_name});"
         ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:

@@ -6,6 +6,24 @@ Class implementations for the day-related mix-in.
 
 ## `DayMixIn` class docstring
 
+### `_append_day_getter_expression` method docstring
+
+Append a day's getter expression string.<hr>
+
+**[Parameters]**
+
+- `day_val`: Int
+  - A day value to use in an expression.
+
+### `_append_day_setter_expression` method docstring
+
+Append a day's setter expression string.<hr>
+
+**[Parameters]**
+
+- `day_val`: Int
+  - A day value to use in an expression.
+
 ### `_get_init_day_argument_expression` method docstring
 
 Get an initial day's argument expression string.<hr>

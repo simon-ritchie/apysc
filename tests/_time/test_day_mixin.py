@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._time.day_mixin import DayMixIn
 from apysc._expression import expression_data_util
+from apysc._time.day_mixin import DayMixIn
 
 
 class TestDayMixIn:
@@ -48,9 +48,7 @@ class TestDayMixIn:
         day_val: ap.Int = ap.Int(17)
         mixin._append_day_getter_expression(day_val=day_val)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{day_val.variable_name} = {mixin.variable_name}.getDate();"
-        )
+        expected: str = f"{day_val.variable_name} = {mixin.variable_name}.getDate();"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -63,18 +61,14 @@ class TestDayMixIn:
         assert day == 15
         assert isinstance(day, ap.Int)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{day.variable_name} = {mixin.variable_name}.getDate();"
-        )
+        expected: str = f"{day.variable_name} = {mixin.variable_name}.getDate();"
         assert expected in expression
 
         day.value = 17
         mixin.day = day
         assert mixin.day == 17
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f"{mixin.variable_name}.setDate({day.variable_name});"
-        )
+        expected = f"{mixin.variable_name}.setDate({day.variable_name});"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_day_setter_expression(self) -> None:

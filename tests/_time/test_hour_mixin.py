@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._time.hour_mixin import HourMixIn
 from apysc._expression import expression_data_util
+from apysc._time.hour_mixin import HourMixIn
 
 
 class TestHourMixIn:

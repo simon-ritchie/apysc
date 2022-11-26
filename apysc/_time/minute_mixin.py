@@ -108,6 +108,14 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
     @arg_validation_decos.is_minute_int(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def _append_minute_setter_expression(self, *, minute_val: Int) -> None:
+        """
+        Append a minute's setter expression string.
+
+        Parameters
+        ----------
+        minute_val : Int
+            A minute value to use in an expression.
+        """
         import apysc as ap
 
         expression: str = (

@@ -66,3 +66,25 @@ class TestMinuteMixIn:
             f"{minute.variable_name} = {mixin.variable_name}.getMinutes();"
         )
         assert expected in expression
+
+        minute.value = 35
+        mixin.minute = minute
+        assert mixin.minute == 35
+        expression = expression_data_util.get_current_expression()
+        expected = (
+            f"{mixin.variable_name}.setMinutes({minute.variable_name});"
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_minute_setter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: MinuteMixIn = MinuteMixIn()
+        mixin.variable_name = "test_minute_mixin"
+        minute_val: ap.Int = ap.Int(30)
+        mixin._append_minute_setter_expression(minute_val=minute_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{mixin.variable_name}.setMinutes({minute_val.variable_name});"
+        )
+        assert expected in expression

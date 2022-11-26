@@ -70,6 +70,21 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         self._append_minute_getter_expression(minute_val=copied_minute_val)
         return copied_minute_val
 
+    @minute.setter
+    @arg_validation_decos.is_minute_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def minute(self, value: Int) -> None:
+        """
+        Set a minute value.
+
+        Parameters
+        ----------
+        value : Int
+            A minute value to set.
+        """
+        self._minute = value._copy()
+        self._append_minute_setter_expression(minute_val=value)
+
     @final
     @arg_validation_decos.is_minute_int(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -86,6 +101,17 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
 
         expression: str = (
             f"{minute_val.variable_name} = {self.variable_name}.getMinutes();"
+        )
+        ap.append_js_expression(expression=expression)
+
+    @final
+    @arg_validation_decos.is_minute_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def _append_minute_setter_expression(self, *, minute_val: Int) -> None:
+        import apysc as ap
+
+        expression: str = (
+            f"{self.variable_name}.setMinutes({minute_val.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 

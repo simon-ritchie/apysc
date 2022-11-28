@@ -67,3 +67,25 @@ class TestMillisecondMixIn:
             f"{millisecond.variable_name} = {mixin.variable_name}.getMilliseconds();"
         )
         assert expected in expression
+
+        millisecond.value = 550
+        mixin.millisecond = millisecond
+        assert millisecond == 550
+        assert isinstance(millisecond, ap.Int)
+        expression = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{mixin.variable_name}.setMilliseconds({millisecond.variable_name});"
+        )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_millisecond_setter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: MillisecondMixIn = MillisecondMixIn()
+        mixin.variable_name = "test_millisecond_mixin"
+        millisecond_val: ap.Int = ap.Int(500)
+        mixin._append_millisecond_setter_expression(millisecond_val=millisecond_val)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{mixin.variable_name}.setMilliseconds({millisecond_val.variable_name});"
+        )
+        assert expected in expression

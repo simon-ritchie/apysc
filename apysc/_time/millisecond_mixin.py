@@ -73,6 +73,21 @@ class MillisecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMix
         )
         return copied_millisecond_val
 
+    @millisecond.setter
+    @arg_validation_decos.is_millisecond_int(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def millisecond(self, value: Int) -> None:
+        """
+        Set a millisecond value.
+
+        Parameters
+        ----------
+        value : Int
+            A millisecond value to set.
+        """
+        self._millisecond = value._copy()
+        self._append_millisecond_setter_expression(millisecond_val=value)
+
     @final
     @arg_validation_decos.is_millisecond_int(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -91,6 +106,22 @@ class MillisecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMix
             f"{millisecond_val.variable_name} = {self.variable_name}.getMilliseconds();"
         )
         ap.append_js_expression(expression)
+
+    def _append_millisecond_setter_expression(self, *, millisecond_val: Int) -> None:
+        """
+        Append a millisecond's setter expression string.
+
+        Parameters
+        ----------
+        millisecond_val : Int
+            A millisecond value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{self.variable_name}.setMilliseconds({millisecond_val.variable_name});"
+        )
+        ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

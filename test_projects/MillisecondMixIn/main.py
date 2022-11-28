@@ -35,6 +35,9 @@ def main() -> None:
     millisecond: ap.Int = datetime_.millisecond
     ap.assert_equal(millisecond, 500)
 
+    datetime_.millisecond = ap.Int(550)
+    ap.assert_equal(datetime_.millisecond, 550)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._time.second_mixin import SecondMixIn
 from apysc._expression import expression_data_util
+from apysc._time.second_mixin import SecondMixIn
 
 
 class TestSecondMixIn:
@@ -62,17 +62,13 @@ class TestSecondMixIn:
         assert second == 50
         assert isinstance(second, ap.Int)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{second.variable_name} = {mixin.variable_name}.getSeconds();"
-        )
+        expected: str = f"{second.variable_name} = {mixin.variable_name}.getSeconds();"
         assert expected in expression
 
         second.value = ap.Int(55)
         mixin.second = second
         expression = expression_data_util.get_current_expression()
-        expectd = (
-            f"{mixin.variable_name}.setSeconds({second.variable_name});"
-        )
+        expectd = f"{mixin.variable_name}.setSeconds({second.variable_name});"
         assert expectd in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -83,7 +79,5 @@ class TestSecondMixIn:
         second_val: ap.Int = ap.Int(50)
         mixin._append_second_setter_expression(second_val=second_val)
         expression: str = expression_data_util.get_current_expression()
-        expectd: str = (
-            f"{mixin.variable_name}.setSeconds({second_val.variable_name});"
-        )
+        expectd: str = f"{mixin.variable_name}.setSeconds({second_val.variable_name});"
         assert expectd in expression

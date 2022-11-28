@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._time.millisecond_mixin import MillisecondMixIn
 from apysc._expression import expression_data_util
+from apysc._time.millisecond_mixin import MillisecondMixIn
 
 
 class TestMillisecondMixIn:
@@ -73,7 +73,7 @@ class TestMillisecondMixIn:
         assert millisecond == 550
         assert isinstance(millisecond, ap.Int)
         expression = expression_data_util.get_current_expression()
-        expected: str = (
+        expected = (
             f"{mixin.variable_name}.setMilliseconds({millisecond.variable_name});"
         )
 

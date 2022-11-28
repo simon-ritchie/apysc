@@ -6,6 +6,24 @@ Class implementations for the second-related mix-in.
 
 ## `SecondMixIn` class docstring
 
+### `_append_second_getter_expression` method docstring
+
+Append a second's getter expression string.<hr>
+
+**[Parameters]**
+
+- `second_val`: Int
+  - A second value to use in an expression.
+
+### `_append_second_setter_expression` method docstring
+
+Append a second's setter expression string.<hr>
+
+**[Parameters]**
+
+- `second_val`: Int
+  - A second value to use in an expression.
+
 ### `_get_init_second_argument_expression` method docstring
 
 Get an initial second argument expression string.<hr>

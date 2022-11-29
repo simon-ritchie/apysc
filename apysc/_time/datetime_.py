@@ -13,6 +13,7 @@ from apysc._time.minute_mixin import MinuteMixIn
 from apysc._time.month_mixin import MonthMixIn
 from apysc._time.second_mixin import SecondMixIn
 from apysc._time.year_mixin import YearMixIn
+from apysc._time.weekday_mixin import WeekdayMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
@@ -29,6 +30,7 @@ class DateTime(
     MinuteMixIn,
     SecondMixIn,
     MillisecondMixIn,
+    WeekdayMixIn,
 ):
     @arg_validation_decos.is_four_digit_year(arg_position_index=1)
     @arg_validation_decos.is_month_int(arg_position_index=2)

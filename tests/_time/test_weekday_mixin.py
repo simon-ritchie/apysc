@@ -63,3 +63,29 @@ class TestWeekdayMixIn:
             f"{weekday.variable_name} = {mixin.variable_name}.getDay();"
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_weekday_py_val_with_attrs(self) -> None:
+        mixin: WeekdayMixIn = WeekdayMixIn()
+        weekday_py_val: int = mixin._get_weekday_py_val_with_attrs()
+        assert weekday_py_val == 0
+
+        mixin._year = ap.Int(2022)
+        weekday_py_val = mixin._get_weekday_py_val_with_attrs()
+        assert weekday_py_val == 0
+
+        mixin._month = ap.Int(11)
+        weekday_py_val = mixin._get_weekday_py_val_with_attrs()
+        assert weekday_py_val == 0
+
+        mixin._day = ap.Int(21)
+        weekday_py_val = mixin._get_weekday_py_val_with_attrs()
+        assert weekday_py_val == 0
+
+        mixin._day = ap.Int(22)
+        weekday_py_val = mixin._get_weekday_py_val_with_attrs()
+        assert weekday_py_val == 1
+
+        mixin._day = ap.Int(27)
+        weekday_py_val = mixin._get_weekday_py_val_with_attrs()
+        assert weekday_py_val == 6

@@ -84,3 +84,48 @@ class WeekdayMixIn(VariableNameMixIn):
         if weekday_js_val == 7:
             weekday_js_val = 0
         return weekday_js_val
+
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def weekday_py(self) -> Int:
+        """
+        get a current weekday value. This interface sets the weekday based on the
+        Python value as follows:
+
+        - 0 -> Monday
+        - 1 -> Thursday
+        - 2 -> Wednesday
+        - 3 -> Thursday
+        - 4 -> Friday
+        - 5 -> Saturday
+        - 6 -> Sunday
+
+        Returns
+        -------
+        weekday : Int
+            A current weekday value.
+        """
+        weekday: Int = Int(0)
+        weekday_py_val: int = self._get_weekday_py_val_with_attrs()
+        pass
+
+    @final
+    def _get_weekday_py_val_with_attrs(self) -> int:
+        """
+        Append a Python weekday's getter expression string.
+
+        Returns
+        -------
+        weekday_py_val : int
+            A current Python weekday's integer value.
+        """
+        if (
+            not hasattr(self, "_year")
+            or not hasattr(self, "_month")
+            or not hasattr(self, "_day")
+        ):
+            return 0
+        datetime_: datetime = datetime(
+            self._year._value, self._month._value, self._day._value
+        )
+        return datetime_.weekday()

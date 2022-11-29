@@ -11,7 +11,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
 
 
-class WeekdayMixin(VariableNameMixIn, VariableNameSuffixAttrMixIn):
+class WeekdayMixIn(VariableNameMixIn):
 
     _year: Int
     _month: Int

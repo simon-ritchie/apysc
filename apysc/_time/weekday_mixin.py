@@ -107,7 +107,29 @@ class WeekdayMixIn(VariableNameMixIn):
         """
         weekday: Int = Int(0)
         weekday_py_val: int = self._get_weekday_py_val_with_attrs()
-        pass
+        weekday._value = weekday_py_val
+        self._append_weekday_py_getter_expression(weekday_val=weekday)
+        return weekday
+
+    @final
+    def _append_weekday_py_getter_expression(self, *, weekday_val: Int) -> None:
+        """
+        Append a Python weekday's getter expression string.
+
+        Parameters
+        ----------
+        weekday_val : Int
+            A weekday value to use in an expression.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{weekday_val.variable_name} = {self.variable_name}.getDay() - 1;"
+            f"\nif ({weekday_val.variable_name} === 7) {{"
+            f"\n  {weekday_val.variable_name} = 0;"
+            "\n}"
+        )
+        ap.append_js_expression(expression=expression)
 
     @final
     def _get_weekday_py_val_with_attrs(self) -> int:

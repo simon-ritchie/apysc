@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._time.weekday_mixin import WeekdayMixIn
 from apysc._expression import expression_data_util
+from apysc._time.weekday_mixin import WeekdayMixIn
 
 
 class TestWeekdayMixIn:
@@ -42,9 +42,7 @@ class TestWeekdayMixIn:
         weekday_val: ap.Int = ap.Int(3)
         mixin._append_weekday_js_getter_expression(weekday_val=weekday_val)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{weekday_val.variable_name} = {mixin.variable_name}.getDay();"
-        )
+        expected: str = f"{weekday_val.variable_name} = {mixin.variable_name}.getDay();"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -59,9 +57,7 @@ class TestWeekdayMixIn:
         assert weekday == 2
         assert isinstance(weekday, ap.Int)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{weekday.variable_name} = {mixin.variable_name}.getDay();"
-        )
+        expected: str = f"{weekday.variable_name} = {mixin.variable_name}.getDay();"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

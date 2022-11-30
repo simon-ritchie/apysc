@@ -43,6 +43,18 @@ def main() -> None:
     weekday_js = datetime_.weekday_js
     ap.assert_equal(weekday_js, 6)
 
+    datetime_ = ap.DateTime(year=2022, month=11, day=21)
+    weekday_py: ap.Int = datetime_.weekday_py
+    ap.assert_equal(weekday_py, 0)
+
+    datetime_ = ap.DateTime(year=2022, month=11, day=22)
+    weekday_py = datetime_.weekday_py
+    ap.assert_equal(weekday_py, 1)
+
+    datetime_ = ap.DateTime(year=2022, month=11, day=27)
+    weekday_py = datetime_.weekday_py
+    ap.assert_equal(weekday_py, 6)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

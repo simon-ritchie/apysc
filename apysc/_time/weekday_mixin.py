@@ -125,8 +125,8 @@ class WeekdayMixIn(VariableNameMixIn):
 
         expression: str = (
             f"{weekday_val.variable_name} = {self.variable_name}.getDay() - 1;"
-            f"\nif ({weekday_val.variable_name} === 7) {{"
-            f"\n  {weekday_val.variable_name} = 0;"
+            f"\nif ({weekday_val.variable_name} === -1) {{"
+            f"\n  {weekday_val.variable_name} = 6;"
             "\n}"
         )
         ap.append_js_expression(expression=expression)

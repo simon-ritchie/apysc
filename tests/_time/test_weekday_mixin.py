@@ -99,8 +99,8 @@ class TestWeekdayMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f"{weekday_val.variable_name} = {mixin.variable_name}.getDay() - 1;"
-            f"\nif ({weekday_val.variable_name} === 7) {{"
-            f"\n  {weekday_val.variable_name} = 0;"
+            f"\nif ({weekday_val.variable_name} === -1) {{"
+            f"\n  {weekday_val.variable_name} = 6;"
             "\n}"
         )
         assert expected in expression
@@ -118,8 +118,8 @@ class TestWeekdayMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f"{weekday.variable_name} = {mixin.variable_name}.getDay() - 1;"
-            f"\nif ({weekday.variable_name} === 7) {{"
-            f"\n  {weekday.variable_name} = 0;"
+            f"\nif ({weekday.variable_name} === -1) {{"
+            f"\n  {weekday.variable_name} = 6;"
             "\n}"
         )
         assert expected in expression
@@ -127,3 +127,7 @@ class TestWeekdayMixIn:
         mixin._day = ap.Int(22)
         weekday = mixin.weekday_py
         assert weekday == 1
+
+        mixin._day = ap.Int(27)
+        weekday = mixin.weekday_py
+        assert weekday == 6

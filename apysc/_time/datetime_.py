@@ -39,6 +39,9 @@ class DateTime(
     @arg_validation_decos.is_minute_int(arg_position_index=5)
     @arg_validation_decos.is_second_int(arg_position_index=6)
     @arg_validation_decos.is_millisecond_int(arg_position_index=7)
+    @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
+    @arg_validation_decos.is_builtin_boolean(arg_position_index=9)
+    @arg_validation_decos.is_builtin_boolean(arg_position_index=10)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -77,7 +80,7 @@ class DateTime(
             This setting is sometimes useful for JavaScript's debugging.
         skip_init_substitution_expression_appending : bool, default False
             A boolean indicates whether to skip an initial substitution
-            expression or not. This class uses this option internally.
+            expression or not. The `DateTime` class uses this option internally.
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

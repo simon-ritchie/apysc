@@ -81,6 +81,35 @@ class DateTime(
         skip_init_substitution_expression_appending : bool, default False
             A boolean indicates whether to skip an initial substitution
             expression or not. The `DateTime` class uses this option internally.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(
+        ...     year=2022,
+        ...     month=12,
+        ...     day=5,
+        ...     hour=10,
+        ...     minute=30,
+        ...     second=50,
+        ...     millisecond=500,
+        ... )
+        >>> datetime_.year
+        Int(2022)
+        >>> datetime_.month
+        Int(12)
+        >>> datetime_.day
+        Int(5)
+        >>> datetime_.hour
+        Int(10)
+        >>> datetime_.minute
+        Int(30)
+        >>> datetime_.millisecond
+        Int(500)
+        >>> datetime_.weekday_py
+        Int(0)
+        >>> datetime_.weekday_js
+        Int(1)
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

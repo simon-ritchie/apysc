@@ -65,6 +65,16 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         -------
         minute : Int
             A current minute value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, minute=30)
+        >>> datetime_.minute
+        Int(30)
+        >>> datetime_.minute = ap.Int(50)
+        >>> datetime_.minute
+        Int(50)
         """
         copied_minute_val: Int = self._minute._copy()
         self._append_minute_getter_expression(minute_val=copied_minute_val)
@@ -81,6 +91,16 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A minute value to set.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, minute=30)
+        >>> datetime_.minute
+        Int(30)
+        >>> datetime_.minute = ap.Int(50)
+        >>> datetime_.minute
+        Int(50)
         """
         self._minute = value._copy()
         self._append_minute_setter_expression(minute_val=value)

@@ -66,6 +66,16 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         -------
         month : Int
             A current month value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
+        >>> datetime_.month
+        Int(12)
+        >>> datetime_.month = ap.Int(1)
+        >>> datetime_.month
+        Int(1)
         """
         copied_month_val: Int = self._month._copy()
         self._append_month_getter_expression(month_val=copied_month_val)
@@ -81,6 +91,16 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A month value to set.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
+        >>> datetime_.month
+        Int(12)
+        >>> datetime_.month = ap.Int(1)
+        >>> datetime_.month
+        Int(1)
         """
         self._month = value._copy()
         self._append_month_setter_expression(month_val=value)

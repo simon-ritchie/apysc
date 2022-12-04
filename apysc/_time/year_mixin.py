@@ -65,6 +65,16 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         -------
         year : Int
             A current year value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
+        >>> datetime_.year
+        Int(2022)
+        >>> datetime_.year = ap.Int(2023)
+        >>> datetime_.year
+        Int(2023)
         """
         copied_year_val: Int = self._year._copy()
         self._append_year_getter_expression(year_val=copied_year_val)
@@ -81,6 +91,16 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A year value to set.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
+        >>> datetime_.year
+        Int(2022)
+        >>> datetime_.year = ap.Int(2023)
+        >>> datetime_.year
+        Int(2023)
         """
         self._year = value._copy()
         self._append_year_setter_expression(year_val=value)

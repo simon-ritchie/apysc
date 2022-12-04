@@ -8,6 +8,10 @@ The `trace` function interface displays any message on the browser console. This
 
 Also, this interface displays Python's file name, caller information, and line number.
 
+## Note for the print alias
+
+The `ap.print` function is the alias of the `trace` function. Therefore, It behaves the same as the `trace` function.
+
 ## Basic usage
 
 The `trace` function can accept any number of arguments and various value types.
@@ -65,6 +69,10 @@ Display arguments information to console. This function saves a JavaScript `cons
   - Any arguments to display to console.
 
 <hr>
+
+**[Notes]**
+
+The `ap.print` function is the alias of the `trace` function.<hr>
 
 **[Examples]**
 

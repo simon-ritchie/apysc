@@ -19,6 +19,10 @@ def trace(*args: Any) -> None:
     Display arguments information to console.
     This function saves a JavaScript `console.log` expression.
 
+    Notes
+    -----
+    The `ap.print` function is the alias of the `trace` function.
+
     Parameters
     ----------
     *args : list

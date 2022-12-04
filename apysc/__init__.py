@@ -52,6 +52,7 @@ from apysc._event.animation_event import AnimationEvent  # isort:skip # noqa
 from apysc._event.enter_frame_event import EnterFrameEvent  # isort:skip # noqa
 from apysc._event.mouse_event_type import MouseEventType  # isort:skip # noqa
 from apysc._console._trace import trace  # isort:skip # noqa
+from apysc._console._trace import trace as print  # isort:skip # noqa
 from apysc._console.assertion import assert_equal  # isort:skip # noqa
 from apysc._console.assertion import assert_not_equal  # isort:skip # noqa
 from apysc._console.assertion import assert_true  # isort:skip # noqa

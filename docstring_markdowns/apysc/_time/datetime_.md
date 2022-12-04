@@ -29,11 +29,20 @@ The class for datetime-related interfaces.<hr>
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 - `skip_init_substitution_expression_appending`: bool, default False
-  - A boolean indicates whether to skip an initial substitution expression or not. This class uses this option internally.
+  - A boolean indicates whether to skip an initial substitution expression or not. The `DateTime` class uses this option internally.
 
 ### `_append_constructor_expression` method docstring
 
 Append a constructor expression.
+
+### `_append_now_expression` method docstring
+
+Append a `now` interface expression string.<hr>
+
+**[Parameters]**
+
+- `dt`: DateTime
+  - A target `DateTime` instance.
 
 ### `_create_initial_substitution_expression` method docstring
 
@@ -43,3 +52,12 @@ Create an initial value's substitution expression string.<hr>
 
 - `expression`: str
   - Created expression string.
+
+### `now` method docstring
+
+Get a `DateTime` instance of current time.<hr>
+
+**[Returns]**
+
+- `dt`: DateTime
+  - A created `DateTime` instance.

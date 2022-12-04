@@ -143,7 +143,7 @@ class DateTime(
     @final
     def now(cls) -> "DateTime":
         """
-        Get a `DateTime` instance of current time.
+        Get a `DateTime` instance of the current time.
 
         Returns
         -------

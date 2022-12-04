@@ -1,8 +1,8 @@
 import re
+from datetime import datetime
 from random import randint
 from typing import Match
 from typing import Optional
-from datetime import datetime
 
 from retrying import retry
 

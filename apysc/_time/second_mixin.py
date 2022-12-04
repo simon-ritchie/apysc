@@ -65,6 +65,16 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         -------
         second : Int
             A current second value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, second=30)
+        >>> datetime_.second
+        Int(30)
+        >>> datetime_.second = ap.Int(50)
+        >>> datetime_.second
+        Int(50)
         """
         copied_second_val: Int = self._second._copy()
         self._append_second_getter_expression(second_val=copied_second_val)
@@ -81,6 +91,16 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A second value to set.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, second=30)
+        >>> datetime_.second
+        Int(30)
+        >>> datetime_.second = ap.Int(50)
+        >>> datetime_.second
+        Int(50)
         """
         self._second = value._copy()
         self._append_second_setter_expression(second_val=value)

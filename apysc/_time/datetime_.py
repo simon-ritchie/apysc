@@ -56,6 +56,35 @@ class DateTime(
         A current JavaScript's weekday value (Sunday is 0).
     weekday_py : int
         A current Python's weekday value (Monday is 0).
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> datetime_: ap.DateTime = ap.DateTime(
+    ...     year=2022,
+    ...     month=12,
+    ...     day=5,
+    ...     hour=10,
+    ...     minute=30,
+    ...     second=50,
+    ...     millisecond=500,
+    ... )
+    >>> datetime_.year
+    Int(2022)
+    >>> datetime_.month
+    Int(12)
+    >>> datetime_.day
+    Int(5)
+    >>> datetime_.hour
+    Int(10)
+    >>> datetime_.minute
+    Int(30)
+    >>> datetime_.millisecond
+    Int(500)
+    >>> datetime_.weekday_py
+    Int(0)
+    >>> datetime_.weekday_js
+    Int(1)
     """
     @arg_validation_decos.is_four_digit_year(arg_position_index=1)
     @arg_validation_decos.is_month_int(arg_position_index=2)

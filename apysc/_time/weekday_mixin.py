@@ -113,6 +113,16 @@ class WeekdayMixIn(VariableNameMixIn):
         -------
         weekday : Int
             A current weekday value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
+        >>> datetime_.weekday_py  # Monday
+        Int(0)
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)
+        >>> datetime_.weekday_py  # Sunday
+        Int(6)
         """
         weekday: Int = Int(0)
         weekday_py_val: int = self._get_weekday_py_val_with_attrs()

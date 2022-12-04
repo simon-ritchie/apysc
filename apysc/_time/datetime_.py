@@ -1,6 +1,7 @@
 """Class implementations for datetime-related interfaces.
 """
 
+from datetime import datetime
 from typing import Union
 
 from typing_extensions import final
@@ -41,7 +42,6 @@ class DateTime(
     @arg_validation_decos.is_millisecond_int(arg_position_index=7)
     @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
     @arg_validation_decos.is_builtin_boolean(arg_position_index=9)
-    @arg_validation_decos.is_builtin_boolean(arg_position_index=10)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -138,3 +138,39 @@ class DateTime(
         expression += self._get_init_millisecond_argument_expression()
         expression += ");"
         return expression
+
+    @classmethod
+    @final
+    def now(cls) -> "DateTime":
+        """
+        Get a `DateTime` instance of current time.
+
+        Returns
+        -------
+        dt : DateTime
+            A created `DateTime` instance.
+        """
+        now_: datetime = datetime.now()
+        dt: DateTime = DateTime(year=1970, month=1, day=1)
+        dt._year._value = now_.year
+        dt._month._value = now_.month
+        dt._day._value = now_.day
+        dt._hour._value = now_.hour
+        dt._minute._value = now_.minute
+        dt._second._value = now_.second
+        dt._append_now_expression(dt=dt)
+        return dt
+
+    def _append_now_expression(self, *, dt: "DateTime") -> None:
+        """
+        Append a `now` interface expression string.
+
+        Parameters
+        ----------
+        dt : DateTime
+            A target `DateTime` instance.
+        """
+        import apysc as ap
+
+        expression: str = f"{dt.variable_name} = new Date();"
+        ap.append_js_expression(expression=expression)

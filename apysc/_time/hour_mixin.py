@@ -65,6 +65,16 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         -------
         hour : Int
             A current hour value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, hour=5)
+        >>> datetime_.hour
+        Int(5)
+        >>> datetime_.hour = ap.Int(10)
+        >>> datetime_.hour
+        Int(10)
         """
         copied_hour_val: Int = self._hour._copy()
         self._append_hour_getter_expression(hour_val=copied_hour_val)
@@ -81,6 +91,16 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A hour value to set.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, hour=5)
+        >>> datetime_.hour
+        Int(5)
+        >>> datetime_.hour = ap.Int(10)
+        >>> datetime_.hour
+        Int(10)
         """
         self._hour = value._copy()
         self._append_hour_setter_expression(hour_val=value)

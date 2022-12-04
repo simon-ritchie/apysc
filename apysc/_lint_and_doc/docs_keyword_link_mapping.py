@@ -166,4 +166,6 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "assert_dicts_not_equal": "assert_dicts_equal_and_dicts_not_equal",
     "assert_defined": "assert_defined_and_undefined",
     "assert_undefined": "assert_defined_and_undefined",
+    "print": "trace",
+    "ap.trace": "trace",
 }

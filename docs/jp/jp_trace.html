@@ -55,6 +55,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">trace</span></code>関数のインターフェイスは任意のメッセージをブラウザのコンソール上に表示します。このインターフェイスはJavaScriptの<code class="docutils literal notranslate"><span class="pre">console.log</span></code>の関数と同じような挙動をします。</p>
 <p>また、このインターフェイスはPythonのファイル名、呼び出し元の情報、行番号などの情報も表示します。</p>
 </section>
+<section id="print">
+<h2>print関数のエイリアスに対する特記事項<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ap.print</span></code>関数は<code class="docutils literal notranslate"><span class="pre">trace</span></code>関数のエイリアスとなります。そのため、その関数は<code class="docutils literal notranslate"><span class="pre">trace</span></code>関数と同じように動作します。</p>
+</section>
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">trace</span></code>関数は任意の数の引数を受け付け、そして様々な型の値を指定することができます。</p>
@@ -105,6 +109,8 @@
 </li>
 </ul>
 <hr>
+<p><strong>[特記事項]</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">ap.print</span></code>関数は<code class="docutils literal notranslate"><span class="pre">trace</span></code>関数のエイリアスとなります。<hr></p>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -128,6 +134,7 @@
   <ul>
 <li><a class="reference internal" href="#">trace インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#print">print関数のエイリアスに対する特記事項</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
 <li><a class="reference internal" href="#trace-api">trace API</a></li>
 </ul>

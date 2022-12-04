@@ -55,6 +55,10 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">trace</span></code> function interface displays any message on the browser console. This interface behaves like the JavaScript <code class="docutils literal notranslate"><span class="pre">console.log</span></code> function.</p>
 <p>Also, this interface displays Python’s file name, caller information, and line number.</p>
 </section>
+<section id="note-for-the-print-alias">
+<h2>Note for the print alias<a class="headerlink" href="#note-for-the-print-alias" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ap.print</span></code> function is the alias of the <code class="docutils literal notranslate"><span class="pre">trace</span></code> function. Therefore, It behaves the same as the <code class="docutils literal notranslate"><span class="pre">trace</span></code> function.</p>
+</section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">trace</span></code> function can accept any number of arguments and various value types.</p>
@@ -106,6 +110,8 @@
 </li>
 </ul>
 <hr>
+<p><strong>[Notes]</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ap.print</span></code> function is the alias of the <code class="docutils literal notranslate"><span class="pre">trace</span></code> function.<hr></p>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -129,6 +135,7 @@
   <ul>
 <li><a class="reference internal" href="#">trace interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#note-for-the-print-alias">Note for the print alias</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#trace-api">trace API</a></li>
 </ul>

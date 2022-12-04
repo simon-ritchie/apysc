@@ -65,6 +65,16 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         -------
         day : Int
             A current day value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
+        >>> datetime_.day
+        Int(1)
+        >>> datetime_.day = ap.Int(2)
+        >>> datetime_.day
+        Int(2)
         """
         copied_day_val: Int = self._day._copy()
         self._append_day_getter_expression(day_val=copied_day_val)
@@ -80,6 +90,16 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A day value to set.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
+        >>> datetime_.day
+        Int(1)
+        >>> datetime_.day = ap.Int(2)
+        >>> datetime_.day
+        Int(2)
         """
         self._day = value._copy()
         self._append_day_setter_expression(day_val=value)

@@ -33,6 +33,30 @@ class DateTime(
     MillisecondMixIn,
     WeekdayMixIn,
 ):
+    """
+    The class for datetime-related interfaces.
+
+    Attributes
+    ----------
+    year : Int
+        A current year value.
+    month : Int
+        A current month value.
+    day : Int
+        A current day value.
+    hour : Int
+        A current hour value.
+    minute : Int
+        A current minute value.
+    second : Int
+        A current second value.
+    millisecond : Int
+        A current millisecond value.
+    weekday_js : Int
+        A current JavaScript's weekday value (Sunday is 0).
+    weekday_py : int
+        A current Python's weekday value (Monday is 0).
+    """
     @arg_validation_decos.is_four_digit_year(arg_position_index=1)
     @arg_validation_decos.is_month_int(arg_position_index=2)
     @arg_validation_decos.is_day_int(arg_position_index=3)

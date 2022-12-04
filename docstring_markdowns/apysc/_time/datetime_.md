@@ -6,6 +6,46 @@ Class implementations for datetime-related interfaces.
 
 ## `DateTime` class docstring
 
+The class for datetime-related interfaces.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> datetime_: ap.DateTime = ap.DateTime(
+...     year=2022,
+...     month=12,
+...     day=5,
+...     hour=10,
+...     minute=30,
+...     second=50,
+...     millisecond=500,
+... )
+>>> datetime_.year
+Int(2022)
+
+>>> datetime_.month
+Int(12)
+
+>>> datetime_.day
+Int(5)
+
+>>> datetime_.hour
+Int(10)
+
+>>> datetime_.minute
+Int(30)
+
+>>> datetime_.millisecond
+Int(500)
+
+>>> datetime_.weekday_py
+Int(0)
+
+>>> datetime_.weekday_js
+Int(1)
+```
+
 ### `__init__` method docstring
 
 The class for datetime-related interfaces.<hr>
@@ -30,6 +70,46 @@ The class for datetime-related interfaces.<hr>
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
 - `skip_init_substitution_expression_appending`: bool, default False
   - A boolean indicates whether to skip an initial substitution expression or not. The `DateTime` class uses this option internally.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> datetime_: ap.DateTime = ap.DateTime(
+...     year=2022,
+...     month=12,
+...     day=5,
+...     hour=10,
+...     minute=30,
+...     second=50,
+...     millisecond=500,
+... )
+>>> datetime_.year
+Int(2022)
+
+>>> datetime_.month
+Int(12)
+
+>>> datetime_.day
+Int(5)
+
+>>> datetime_.hour
+Int(10)
+
+>>> datetime_.minute
+Int(30)
+
+>>> datetime_.millisecond
+Int(500)
+
+>>> datetime_.weekday_py
+Int(0)
+
+>>> datetime_.weekday_js
+Int(1)
+```
 
 ### `_append_constructor_expression` method docstring
 
@@ -61,3 +141,22 @@ Get a `DateTime` instance of the current time.<hr>
 
 - `dt`: DateTime
   - A created `DateTime` instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> from datetime import datetime
+>>> import apysc as ap
+>>> py_now: datetime = datetime.now()
+>>> ap_now: ap.DateTime = ap.DateTime.now()
+>>> ap_now.year == py_now.year
+Boolean(True)
+
+>>> ap_now.month == py_now.month
+Boolean(True)
+
+>>> ap_now.day == py_now.day
+Boolean(True)
+```

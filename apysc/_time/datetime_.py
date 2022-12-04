@@ -86,6 +86,7 @@ class DateTime(
     >>> datetime_.weekday_js
     Int(1)
     """
+
     @arg_validation_decos.is_four_digit_year(arg_position_index=1)
     @arg_validation_decos.is_month_int(arg_position_index=2)
     @arg_validation_decos.is_day_int(arg_position_index=3)

@@ -231,6 +231,19 @@ class DateTime(
         -------
         dt : DateTime
             A created `DateTime` instance.
+
+        Examples
+        --------
+        >>> from datetime import datetime
+        >>> import apysc as ap
+        >>> py_now: datetime = datetime.now()
+        >>> ap_now: ap.DateTime = ap.DateTime.now()
+        >>> ap_now.year == py_now.year
+        Boolean(True)
+        >>> ap_now.month == py_now.month
+        Boolean(True)
+        >>> ap_now.day == py_now.day
+        Boolean(True)
         """
         now_: datetime = datetime.now()
         dt: DateTime = DateTime(year=1970, month=1, day=1)

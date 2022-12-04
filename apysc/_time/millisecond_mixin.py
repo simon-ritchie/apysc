@@ -66,6 +66,18 @@ class MillisecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMix
         -------
         millisecond : Int
             A current millisecond value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(
+        ...     year=2022, month=12, day=1, millisecond=500
+        ... )
+        >>> datetime_.millisecond
+        Int(500)
+        >>> datetime_.millisecond = ap.Int(300)
+        >>> datetime_.millisecond
+        Int(300)
         """
         copied_millisecond_val: Int = self._millisecond._copy()
         self._append_millisecond_getter_expression(
@@ -84,6 +96,18 @@ class MillisecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMix
         ----------
         value : Int
             A millisecond value to set.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(
+        ...     year=2022, month=12, day=1, millisecond=500
+        ... )
+        >>> datetime_.millisecond
+        Int(500)
+        >>> datetime_.millisecond = ap.Int(300)
+        >>> datetime_.millisecond
+        Int(300)
         """
         self._millisecond = value._copy()
         self._append_millisecond_setter_expression(millisecond_val=value)

@@ -55,7 +55,7 @@ Create an initial value's substitution expression string.<hr>
 
 ### `now` method docstring
 
-Get a `DateTime` instance of current time.<hr>
+Get a `DateTime` instance of the current time.<hr>
 
 **[Returns]**
 

@@ -33,6 +33,10 @@ Display arguments information to console. This function saves a JavaScript `cons
 
 <hr>
 
+**[Notes]**
+
+The `ap.print` function is the alias of the `trace` function.<hr>
+
 **[Examples]**
 
 ```py

@@ -42,7 +42,7 @@ class WeekdayMixIn(VariableNameMixIn):
         >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)
         >>> datetime_.weekday_js  # Sunday
         Int(0)
-        >>> datetime_ = ap.DateTime(year=2022, month=12, day=9)
+        >>> datetime_ = ap.DateTime(year=2022, month=12, day=10)
         >>> datetime_.weekday_js  # Saturday
         Int(6)
         """

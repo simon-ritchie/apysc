@@ -15,13 +15,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Before reading on, maybe it is helpful to read the following page:": "事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:",  # noqa
     ##################################################
-    "- [Why the apysc library doesn't use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)": "- [なぜapyscではPythonのビルトインのデータの型を使用していないのか](jp_why_apysc_doesnt_use_python_builtin_data_type.md)",  # noqa
+    "- [Why the apysc library doesn\'t use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)": "- [なぜapyscではPythonのビルトインのデータの型を使用していないのか](jp_why_apysc_doesnt_use_python_builtin_data_type.md)",  # noqa
     ##################################################
     "## What is the String class?": "## String クラスの概要",
     ##################################################
     "The `String` class is the apysc string class. It can accept `str` or `String` values at the constructor, as follows:": "`String`クラスはapyscの文字列用のクラスです。このクラスは以下のコード例のようにコンストラクタの引数に`str`もしくは`String`型の値を受け付けます:",  # noqa
     ##################################################
-    '```py\n# runnable\nimport apysc as ap\n\nstring_1: ap.String = ap.String("Hello")\nassert string_1 == "Hello"\n\nstring_2: ap.String = ap.String(string_1)\nassert string_2 == "Hello"\n```': '```py\n# runnable\nimport apysc as ap\n\nstring_1: ap.String = ap.String("Hello")\nassert string_1 == "Hello"\n\nstring_2: ap.String = ap.String(string_1)\nassert string_2 == "Hello"\n```',  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nstring_1: ap.String = ap.String(\"Hello\")\nassert string_1 == \"Hello\"\n\nstring_2: ap.String = ap.String(string_1)\nassert string_2 == \"Hello\"\n```": "```py\n# runnable\nimport apysc as ap\n\nstring_1: ap.String = ap.String(\"Hello\")\nassert string_1 == \"Hello\"\n\nstring_2: ap.String = ap.String(string_1)\nassert string_2 == \"Hello\"\n```",  # noqa
     ##################################################
     "## String class interfaces": "## String クラスの各インターフェイス",
     ##################################################
@@ -33,7 +33,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## String class constructor API": "## String クラスのコンストラクタのAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -45,9 +45,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Initial string value.": "  - 文字列の値の初期値。",
     ##################################################
-    "- `variable_name_suffix`: str, default ''": "- `variable_name_suffix`: str, default ''",  # noqa
+    "- `variable_name_suffix`: str, default \'\'": "- `variable_name_suffix`: str, default \'\'",  # noqa
     ##################################################
-    "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
+    "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript\'s debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
     "- `skip_init_substitution_expression_appending`: bool, default False": "- `skip_init_substitution_expression_appending`: bool, default False",  # noqa
     ##################################################
@@ -57,7 +57,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString('Hello')\n\n>>> string += \" World!\"\n>>> string\nString('Hello World!')\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString('Hello')\n\n>>> string += \" World!\"\n>>> string\nString('Hello World!')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString(\'Hello\')\n\n>>> string += \" World!\"\n>>> string\nString(\'Hello World!\')\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString(\'Hello\')\n\n>>> string += \" World!\"\n>>> string\nString(\'Hello World!\')\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -69,7 +69,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## value property API": "## value 属性のAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -85,7 +85,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    '```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String("Hello")\n>>> string.value = "World!"\n>>> string.value\n\'World!\'\n```': '```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String("Hello")\n>>> string.value = "World!"\n>>> string.value\n\'World!\'\n```',  # noqa
+    "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string.value = \"World!\"\n>>> string.value\n\'World!\'\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string.value = \"World!\"\n>>> string.value\n\'World!\'\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

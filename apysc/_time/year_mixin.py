@@ -59,7 +59,7 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def year(self) -> Int:
         """
-        Get a current year value.
+        Get a current year's value.
 
         Returns
         -------

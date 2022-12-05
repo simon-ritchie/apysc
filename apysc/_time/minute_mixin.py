@@ -59,7 +59,7 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def minute(self) -> Int:
         """
-        Get a current minute value.
+        Get a current minute's value.
 
         Returns
         -------

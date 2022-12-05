@@ -59,7 +59,7 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def day(self) -> Int:
         """
-        Get a current day value.
+        Get a current day's value.
 
         Returns
         -------

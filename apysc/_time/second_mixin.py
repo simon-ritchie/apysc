@@ -59,7 +59,7 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def second(self) -> Int:
         """
-        Get a current second value.
+        Get a current second's value.
 
         Returns
         -------

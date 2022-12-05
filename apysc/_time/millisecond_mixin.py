@@ -60,7 +60,7 @@ class MillisecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMix
     @add_debug_info_setting(module_name=__name__)
     def millisecond(self) -> Int:
         """
-        Get a current millisecond value.
+        Get a current millisecond's value.
 
         Returns
         -------

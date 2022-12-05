@@ -2691,5 +2691,21 @@ MAPPINGS: Mappings = Mappings(
             key="Create a basic display object that can be a parent.<hr>",
             val="親になることの出来る基本的な表示用のオブジェクトを作成します。<hr>",
         ),
+        Mapping(
+            key="## year property API",
+            val="## year 属性のAPI",
+        ),
+        Mapping(
+            key="Get a current year\'s value.<hr>",
+            val="現在の年の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A current year value.",
+            val="  - 現在の年の値。",
+        ),
+        Mapping(
+            key="## DateTime",
+            val="## DateTime",
+        ),
     ]
 )

@@ -60,7 +60,7 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def month(self) -> Int:
         """
-        Get a current month value.
+        Get a current month's value.
 
         Returns
         -------

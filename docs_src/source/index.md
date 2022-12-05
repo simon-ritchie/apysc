@@ -233,6 +233,13 @@ timer_complete
 timer_reset
 ```
 
+## DateTime
+
+```{toctree}
+:maxdepth: 1
+datetime_year
+```
+
 ## Animation
 
 <br><iframe src="static/animation_interfaces_abstract_rotation_around_center/index.html" width="150" height="150"></iframe>

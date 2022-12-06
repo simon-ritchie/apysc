@@ -91,7 +91,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## DateTime": "## DateTime",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\ndatetime_year\n```": "```{toctree}\n:maxdepth: 1\njp_datetime_year\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\ndatetime_year\ndatetime_month\n```": "```{toctree}\n:maxdepth: 1\njp_datetime_year\njp_datetime_month\n```",  # noqa
     ##################################################
     "## Animation": "## アニメーション",
     ##################################################

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DateTime クラスの year 属性 &#8212; apysc  documentation</title>
+    <title>DateTime クラスの month 属性 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -21,8 +21,8 @@
     <script src="static/keyword_link_mapping.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="DateTime クラスの month 属性" href="jp_datetime_month.html" />
-    <link rel="prev" title="Timer クラスの reset インターフェイス" href="jp_timer_reset.html" /> 
+    <link rel="next" title="各アニメーションインターフェイス概要" href="jp_animation_interfaces_abstract.html" />
+    <link rel="prev" title="DateTime クラスの year 属性" href="jp_datetime_year.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,13 +31,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="jp_datetime_month.html" title="DateTime クラスの month 属性"
+          <a href="jp_animation_interfaces_abstract.html" title="各アニメーションインターフェイス概要"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="jp_timer_reset.html" title="Timer クラスの reset インターフェイス"
+          <a href="jp_datetime_year.html" title="DateTime クラスの year 属性"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DateTime クラスの year 属性</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DateTime クラスの month 属性</a></li> 
       </ul>
     </div>  
 
@@ -46,46 +46,45 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/datetime_year.html">英語の原文</a>の確認をお願いします。</span></p>
-<section id="datetime-year">
-<h1>DateTime クラスの year 属性<a class="headerlink" href="#datetime-year" title="Permalink to this headline">¶</a></h1>
-<p>このページでは<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">year</span></code>属性について説明します。</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/datetime_month.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="datetime-month">
+<h1>DateTime クラスの month 属性<a class="headerlink" href="#datetime-month" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">month</span></code>属性のインターフェイスについて説明します。</p>
 <section id="id1">
 <h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">year</span></code>属性は年の値の取得もしくは設定を行うことができます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">month</span></code>属性では月の値の取得もしくは設定を行うことができます。</p>
 </section>
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスのインスタンスは<code class="docutils literal notranslate"><span class="pre">year</span></code>属性のインターフェイスを持っています。</p>
-<p>そのgetterインターフェイスは<code class="docutils literal notranslate"><span class="pre">Int</span></code>型の年の値を返却します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスのインスタンスがその属性のインターフェイスを持っています。</p>
+<p>そのgetterのインターフェイスは<code class="docutils literal notranslate"><span class="pre">Int</span></code>型の月の値を返却します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">datetime_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">year</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">datetime_</span><span class="o">.</span><span class="n">year</span>
-<span class="k">assert</span> <span class="n">year</span> <span class="o">==</span> <span class="mi">2022</span>
+<span class="k">assert</span> <span class="n">datetime_</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">12</span>
 </pre></div>
 </div>
-<p>また、<code class="docutils literal notranslate"><span class="pre">year</span></code>属性のsetterインターフェイスも同様に<code class="docutils literal notranslate"><span class="pre">Int</span></code>型の年の値を受け付けます。</p>
+<p>また、setter側のインターフェイスでは同様に<code class="docutils literal notranslate"><span class="pre">Int</span></code>型の月の値を受け付けます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">datetime_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">datetime_</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">2023</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">datetime_</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2023</span>
+<span class="n">datetime_</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">datetime_</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </section>
-<section id="year-api">
-<h2>year 属性のAPI<a class="headerlink" href="#year-api" title="Permalink to this headline">¶</a></h2>
+<section id="month-api">
+<h2>month 属性のAPI<a class="headerlink" href="#month-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
-<p>現在の年の値を取得します。<hr></p>
+<p>現在の月の値を取得します。<hr></p>
 <p><strong>[返却値]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">month</span></code>: Int</p>
 <ul>
-<li><p>現在の年の値。</p></li>
+<li><p>現在の月の値。</p></li>
 </ul>
 </li>
 </ul>
@@ -93,12 +92,12 @@
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="o">.</span><span class="n">year</span>
-<span class="go">Int(2022)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="o">.</span><span class="n">month</span>
+<span class="go">Int(12)</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">2023</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="o">.</span><span class="n">year</span>
-<span class="go">Int(2023)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="o">.</span><span class="n">month</span>
+<span class="go">Int(1)</span>
 </pre></div>
 </div>
 </section>
@@ -116,20 +115,20 @@
             </a></p>
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">DateTime クラスの year 属性</a><ul>
+<li><a class="reference internal" href="#">DateTime クラスの month 属性</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
-<li><a class="reference internal" href="#year-api">year 属性のAPI</a></li>
+<li><a class="reference internal" href="#month-api">month 属性のAPI</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_timer_reset.html"
-                        title="previous chapter">Timer クラスの reset インターフェイス</a></p>
+  <p class="topless"><a href="jp_datetime_year.html"
+                        title="previous chapter">DateTime クラスの year 属性</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="jp_datetime_month.html"
-                        title="next chapter">DateTime クラスの month 属性</a></p>
+  <p class="topless"><a href="jp_animation_interfaces_abstract.html"
+                        title="next chapter">各アニメーションインターフェイス概要</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -151,13 +150,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="jp_datetime_month.html" title="DateTime クラスの month 属性"
+          <a href="jp_animation_interfaces_abstract.html" title="各アニメーションインターフェイス概要"
              >next</a> |</li>
         <li class="right" >
-          <a href="jp_timer_reset.html" title="Timer クラスの reset インターフェイス"
+          <a href="jp_datetime_year.html" title="DateTime クラスの year 属性"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">DateTime クラスの year 属性</a></li> 
+        <li class="nav-item nav-item-this"><a href="">DateTime クラスの month 属性</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

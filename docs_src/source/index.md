@@ -238,6 +238,7 @@ timer_reset
 ```{toctree}
 :maxdepth: 1
 datetime_year
+datetime_month
 ```
 
 ## Animation

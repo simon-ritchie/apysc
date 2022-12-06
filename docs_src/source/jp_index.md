@@ -241,6 +241,7 @@ jp_timer_reset
 ```{toctree}
 :maxdepth: 1
 jp_datetime_year
+jp_datetime_month
 ```
 
 ## アニメーション

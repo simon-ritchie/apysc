@@ -2707,5 +2707,21 @@ MAPPINGS: Mappings = Mappings(
             key="## DateTime",
             val="## DateTime",
         ),
+        Mapping(
+            key="A `DateTime` instance has its property interface.",
+            val="`DateTime`クラスのインスタンスがその属性のインターフェイスを持っています。",
+        ),
+        Mapping(
+            key="## month property API",
+            val="## month 属性のAPI",
+        ),
+        Mapping(
+            key="Get a current month\'s value.<hr>",
+            val="現在の月の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A current month value.",
+            val="  - 現在の月の値。",
+        ),
     ]
 )

@@ -239,6 +239,7 @@ timer_reset
 :maxdepth: 1
 datetime_year
 datetime_month
+datetime_day
 ```
 
 ## Animation

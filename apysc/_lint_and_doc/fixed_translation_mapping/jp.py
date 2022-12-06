@@ -2723,5 +2723,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A current month value.",
             val="  - 現在の月の値。",
         ),
+        Mapping(
+            key="## day property API",
+            val="## day 属性のAPI",
+        ),
+        Mapping(
+            key="Get a current day\'s value.<hr>",
+            val="現在の日の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A current-day value.",
+            val="  - 現在の日の値。",
+        ),
     ]
 )

@@ -64,7 +64,7 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         Returns
         -------
         day : Int
-            A current day value.
+            A current-day value.
 
         Examples
         --------

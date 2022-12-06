@@ -242,6 +242,7 @@ jp_timer_reset
 :maxdepth: 1
 jp_datetime_year
 jp_datetime_month
+jp_datetime_day
 ```
 
 ## アニメーション

@@ -91,7 +91,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## DateTime": "## DateTime",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\ndatetime_year\ndatetime_month\ndatetime_day\ndatetime_hour\ndatetime_minute\n```": "```{toctree}\n:maxdepth: 1\njp_datetime_year\njp_datetime_month\njp_datetime_day\njp_datetime_hour\njp_datetime_minute\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\ndatetime_year\ndatetime_month\ndatetime_day\ndatetime_hour\ndatetime_minute\ndatetime_second\n```": "```{toctree}\n:maxdepth: 1\njp_datetime_year\njp_datetime_month\njp_datetime_day\njp_datetime_hour\njp_datetime_minute\njp_datetime_second\n```",  # noqa
     ##################################################
     "## Animation": "## アニメーション",
     ##################################################

@@ -2759,5 +2759,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A current minute value.",
             val="  - 現在の分の値。",
         ),
+        Mapping(
+            key="## second property API",
+            val="## second 属性のAPI",
+        ),
+        Mapping(
+            key="Get a current second\'s value.<hr>",
+            val="現在の秒の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A current second value.",
+            val="  - 現在の秒の値。",
+        ),
     ]
 )

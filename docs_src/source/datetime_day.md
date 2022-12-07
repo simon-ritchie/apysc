@@ -23,6 +23,8 @@ assert day == 5
 
 Also, its setter interface accepts a day's `Int` value.
 
+1-31 integer is acceptable.
+
 ```py
 # runnable
 import apysc as ap

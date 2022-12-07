@@ -27,6 +27,8 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Also, its setter interface accepts an hour\'s `Int` value.": "また、setterのインターフェイスでは同様に`Int`型の値を受け付けます。",  # noqa
     ##################################################
+    "0-23 integer is acceptable.": "0～23の整数を受け付けることができます。",
+    ##################################################
     "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\ndatetime_.hour = ap.Int(15)\nassert datetime_.hour == 15\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\ndatetime_.hour = ap.Int(15)\nassert datetime_.hour == 15\n```",  # noqa
     ##################################################
     "## hour property API": "## hour 属性のAPI",

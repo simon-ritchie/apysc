@@ -23,6 +23,8 @@ assert second == 30
 
 Also, its setter interface accepts a second's `Int` value.
 
+0-59 integer is acceptable.
+
 ```py
 # runnable
 import apysc as ap

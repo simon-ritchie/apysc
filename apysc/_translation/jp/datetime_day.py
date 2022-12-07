@@ -27,6 +27,8 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Also, its setter interface accepts a day\'s `Int` value.": "また、setterのインターフェイスでは同様に`Int`型の値を受け付けます。",  # noqa
     ##################################################
+    "1-31 integer is acceptable.": "1～31の整数を受け付けることができます。",
+    ##################################################
     "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\ndatetime_.day = ap.Int(10)\nassert datetime_.day == 10\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\ndatetime_.day = ap.Int(10)\nassert datetime_.day == 10\n```",  # noqa
     ##################################################
     "## day property API": "## day 属性のAPI",

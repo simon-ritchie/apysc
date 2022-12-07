@@ -27,6 +27,8 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Also, its setter interface accepts a second\'s `Int` value.": "また、setterのインターフェイスでは同様に`Int`型の秒の値を受け付けます。",  # noqa
     ##################################################
+    "0-59 integer is acceptable.": "0～59の整数を受け付けることができます。",
+    ##################################################
     "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\ndatetime_.second = ap.Int(50)\nassert datetime_.second == 50\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\ndatetime_.second = ap.Int(50)\nassert datetime_.second == 50\n```",  # noqa
     ##################################################
     "## second property API": "## second 属性のAPI",

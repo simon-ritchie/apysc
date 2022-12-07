@@ -23,6 +23,8 @@ assert hour == 10
 
 Also, its setter interface accepts an hour's `Int` value.
 
+0-23 integer is acceptable.
+
 ```py
 # runnable
 import apysc as ap

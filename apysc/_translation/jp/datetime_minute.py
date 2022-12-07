@@ -27,6 +27,8 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Also, its setter interface accepts a minute\'s `Int` value.": "また、setter側のインターフェイスでは同様に`Int`型の分の値を受け付けます。",  # noqa
     ##################################################
+    "0-59 integer is acceptable.": "0～59の整数を受け付けることができます。",
+    ##################################################
     "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, minute=30)\ndatetime_.minute = ap.Int(50)\nassert datetime_.minute == 50\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, minute=30)\ndatetime_.minute = ap.Int(50)\nassert datetime_.minute == 50\n```",  # noqa
     ##################################################
     "## minute property API": "## minute 属性のAPI",

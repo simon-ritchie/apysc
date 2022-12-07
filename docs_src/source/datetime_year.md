@@ -23,6 +23,8 @@ assert year == 2022
 
 Also, its setter interface accepts a year's `Int` value.
 
+A for-digits number is acceptable (e.g., 2023).
+
 ```py
 # runnable
 import apysc as ap

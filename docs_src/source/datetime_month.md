@@ -22,6 +22,8 @@ assert datetime_.month == 12
 
 Also, its setter interface accepts a month's `Int` value.
 
+1-12 integer is acceptable.
+
 ```py
 # runnable
 import apysc as ap

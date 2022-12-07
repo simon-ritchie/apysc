@@ -27,6 +27,8 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Also, its setter interface accepts a month\'s `Int` value.": "また、setter側のインターフェイスでは同様に`Int`型の月の値を受け付けます。",  # noqa
     ##################################################
+    "1-12 integer is acceptable.": "1～12の範囲の整数を受け付けることができます。",
+    ##################################################
     "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.month = ap.Int(1)\nassert datetime_.month == 1\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.month = ap.Int(1)\nassert datetime_.month == 1\n```",  # noqa
     ##################################################
     "## month property API": "## month 属性のAPI",

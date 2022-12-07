@@ -243,6 +243,7 @@ jp_timer_reset
 jp_datetime_year
 jp_datetime_month
 jp_datetime_day
+jp_datetime_hour
 ```
 
 ## アニメーション

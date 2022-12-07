@@ -2771,5 +2771,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A current second value.",
             val="  - 現在の秒の値。",
         ),
+        Mapping(
+            key="## millisecond property API",
+            val="## millisecond 属性のAPI",
+        ),
+        Mapping(
+            key="Get a current millisecond value.<hr>",
+            val="現在のミリ秒の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A current millisecond value.",
+            val="  - 現在のミリ秒の値。",
+        ),
     ]
 )

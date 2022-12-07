@@ -2747,5 +2747,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A current hour value.",
             val="  - 現在の時間の値。",
         ),
+        Mapping(
+            key="## minute property API",
+            val="## minute 属性のAPI",
+        ),
+        Mapping(
+            key="Get a current minute\'s value.<hr>",
+            val="現在の分の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A current minute value.",
+            val="  - 現在の分の値。",
+        ),
     ]
 )

@@ -241,6 +241,7 @@ datetime_year
 datetime_month
 datetime_day
 datetime_hour
+datetime_minute
 ```
 
 ## Animation

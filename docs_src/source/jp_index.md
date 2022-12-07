@@ -244,6 +244,7 @@ jp_datetime_year
 jp_datetime_month
 jp_datetime_day
 jp_datetime_hour
+jp_datetime_minute
 ```
 
 ## アニメーション

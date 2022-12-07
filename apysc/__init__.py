@@ -108,4 +108,4 @@ from apysc._animation.animation_scale_x_from_point import AnimationScaleXFromPoi
 from apysc._animation.animation_scale_y_from_point import AnimationScaleYFromPoint
 from apysc._animation.animation_parallel import AnimationParallel
 
-__version__: str = "2.5.56"
+__version__: str = "2.5.57"

@@ -2696,7 +2696,7 @@ MAPPINGS: Mappings = Mappings(
             val="## year 属性のAPI",
         ),
         Mapping(
-            key="Get a current year\'s value.<hr>",
+            key="Get a current year's value.<hr>",
             val="現在の年の値を取得します。<hr>",
         ),
         Mapping(
@@ -2716,7 +2716,7 @@ MAPPINGS: Mappings = Mappings(
             val="## month 属性のAPI",
         ),
         Mapping(
-            key="Get a current month\'s value.<hr>",
+            key="Get a current month's value.<hr>",
             val="現在の月の値を取得します。<hr>",
         ),
         Mapping(
@@ -2728,7 +2728,7 @@ MAPPINGS: Mappings = Mappings(
             val="## day 属性のAPI",
         ),
         Mapping(
-            key="Get a current day\'s value.<hr>",
+            key="Get a current day's value.<hr>",
             val="現在の日の値を取得します。<hr>",
         ),
         Mapping(
@@ -2740,7 +2740,7 @@ MAPPINGS: Mappings = Mappings(
             val="## hour 属性のAPI",
         ),
         Mapping(
-            key="Get a current hour\'s value.<hr>",
+            key="Get a current hour's value.<hr>",
             val="現在の時間の値を取得します。<hr>",
         ),
         Mapping(
@@ -2752,7 +2752,7 @@ MAPPINGS: Mappings = Mappings(
             val="## minute 属性のAPI",
         ),
         Mapping(
-            key="Get a current minute\'s value.<hr>",
+            key="Get a current minute's value.<hr>",
             val="現在の分の値を取得します。<hr>",
         ),
         Mapping(
@@ -2764,7 +2764,7 @@ MAPPINGS: Mappings = Mappings(
             val="## second 属性のAPI",
         ),
         Mapping(
-            key="Get a current second\'s value.<hr>",
+            key="Get a current second's value.<hr>",
             val="現在の秒の値を取得します。<hr>",
         ),
         Mapping(

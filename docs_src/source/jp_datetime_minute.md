@@ -25,6 +25,8 @@ assert minute == 30
 
 また、setter側のインターフェイスでは同様に`Int`型の分の値を受け付けます。
 
+0～59の整数を受け付けることができます。
+
 ```py
 # runnable
 import apysc as ap

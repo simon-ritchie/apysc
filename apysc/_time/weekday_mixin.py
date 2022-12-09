@@ -98,7 +98,7 @@ class WeekdayMixIn(VariableNameMixIn):
     @add_debug_info_setting(module_name=__name__)
     def weekday_py(self) -> Int:
         """
-        get a current weekday value. This interface sets the weekday based on the
+        Get a current weekday value. This interface sets the weekday based on the
         Python value as follows:
 
         - 0 -> Monday

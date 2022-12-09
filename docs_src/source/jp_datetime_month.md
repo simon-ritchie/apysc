@@ -24,6 +24,8 @@ assert datetime_.month == 12
 
 また、setter側のインターフェイスでは同様に`Int`型の月の値を受け付けます。
 
+1～12の範囲の整数を受け付けることができます。
+
 ```py
 # runnable
 import apysc as ap

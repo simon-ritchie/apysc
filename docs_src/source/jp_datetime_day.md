@@ -25,6 +25,8 @@ assert day == 5
 
 また、setterのインターフェイスでは同様に`Int`型の値を受け付けます。
 
+1～31の整数を受け付けることができます。
+
 ```py
 # runnable
 import apysc as ap

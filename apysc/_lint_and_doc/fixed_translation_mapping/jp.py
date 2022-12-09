@@ -2783,5 +2783,93 @@ MAPPINGS: Mappings = Mappings(
             key="  - A current millisecond value.",
             val="  - 現在のミリ秒の値。",
         ),
+        Mapping(
+            key="A `DateTime` instance has these properties interfaces.",
+            val="`DateTime`クラスのインスタンスがこれらの各属性のインターフェイスを持っています。",
+        ),
+        Mapping(
+            key="## weekday_js property API",
+            val="## weekday_js 属性のAPI",
+        ),
+        Mapping(
+            key="Get a current weekday value. This interface sets the weekday "
+            "based on the JavaScript value as follows: ",
+            val="現在の曜日の値を取得します。このインターフェイスは以下のようにJavaScriptの曜日の値を"
+            "ベースとした値を設定します。",
+        ),
+        Mapping(
+            key="<br> ・0 -> Sunday ",
+            val="<br> ・0 -> 日曜 ",
+        ),
+        Mapping(
+            key="<br> ・1 -> Monday ",
+            val="<br> ・1 -> 月曜 ",
+        ),
+        Mapping(
+            key="<br> ・2 -> Tuesday ",
+            val="<br> ・2 -> 火曜 ",
+        ),
+        Mapping(
+            key="<br> ・3 -> Wednesday ",
+            val="<br> ・3 -> 水曜 ",
+        ),
+        Mapping(
+            key="<br> ・4 -> Thursday ",
+            val="<br> ・4 -> 木曜 ",
+        ),
+        Mapping(
+            key="<br> ・5 -> Friday ",
+            val="<br> ・5 -> 金曜 ",
+        ),
+        Mapping(
+            key="<br> ・6 -> Saturday<hr>",
+            val="<br> ・6 -> 土曜<hr>",
+        ),
+        Mapping(
+            key="<br> ・6 -> Saturday<hr>",
+            val="<br> ・6 -> 土曜<hr>",
+        ),
+        Mapping(
+            key="  - A current weekday value.",
+            val="  - 現在の曜日の値。",
+        ),
+        Mapping(
+            key="## weekday_py property API",
+            val="## weekday_py 属性のAPI",
+        ),
+        Mapping(
+            key="<br> ・0 -> Monday ",
+            val="<br> ・0 -> 月曜 ",
+        ),
+        Mapping(
+            key="<br> ・1 -> Thursday ",
+            val="<br> ・1 -> 火曜 ",
+        ),
+        Mapping(
+            key="<br> ・2 -> Wednesday ",
+            val="<br> ・2 -> 水曜 ",
+        ),
+        Mapping(
+            key="<br> ・3 -> Thursday ",
+            val="<br> ・3 -> 木曜 ",
+        ),
+        Mapping(
+            key="<br> ・4 -> Friday ",
+            val="<br> ・4 -> 金曜 ",
+        ),
+        Mapping(
+            key="<br> ・5 -> Saturday ",
+            val="<br> ・5 -> 土曜 ",
+        ),
+        Mapping(
+            key="<br> ・6 -> Sunday<hr>",
+            val="<br> ・6 -> 日曜<hr>",
+        ),
+        Mapping(
+            key="Get a current weekday value. This interface sets the weekday based on "
+            "the Python value as follows: ",
+            val="現在の曜日の値を取得します。このインターフェイスは以下のようにPythonの曜日の値を"
+            "ベースとした値を設定します。",
+        ),
     ]
 )

@@ -25,6 +25,8 @@ assert second == 30
 
 また、setterのインターフェイスでは同様に`Int`型の秒の値を受け付けます。
 
+0～59の整数を受け付けることができます。
+
 ```py
 # runnable
 import apysc as ap

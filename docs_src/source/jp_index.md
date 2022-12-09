@@ -248,6 +248,7 @@ jp_datetime_minute
 jp_datetime_second
 jp_datetime_millisecond
 jp_datetime_weekday_js_and_weekday_py
+jp_datetime_now
 ```
 
 ## アニメーション

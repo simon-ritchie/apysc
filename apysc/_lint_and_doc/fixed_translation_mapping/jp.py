@@ -2871,5 +2871,17 @@ MAPPINGS: Mappings = Mappings(
             val="現在の曜日の値を取得します。このインターフェイスは以下のようにPythonの曜日の値を"
             "ベースとした値を設定します。",
         ),
+        Mapping(
+            key="## now class method API",
+            val="## now のクラスメソッドのAPI",
+        ),
+        Mapping(
+            key="Get a `DateTime` instance of the current time.<hr>",
+            val="現在時刻が設定された`DateTime`クラスのインスタンスを取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A created `DateTime` instance.",
+            val="  - 生成された`DateTime`クラスのインスタンス。",
+        ),
     ]
 )

@@ -110,4 +110,26 @@ MAPPING: Dict[str, str] = {
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
     "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(\n...     year=2022,\n...     month=12,\n...     day=5,\n...     hour=10,\n...     minute=30,\n...     second=50,\n...     millisecond=500,\n... )\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.day\nInt(5)\n\n>>> datetime_.hour\nInt(10)\n\n>>> datetime_.minute\nInt(30)\n\n>>> datetime_.millisecond\nInt(500)\n\n>>> datetime_.weekday_py\nInt(0)\n\n>>> datetime_.weekday_js\nInt(1)\n```": "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(\n...     year=2022,\n...     month=12,\n...     day=5,\n...     hour=10,\n...     minute=30,\n...     second=50,\n...     millisecond=500,\n... )\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.day\nInt(5)\n\n>>> datetime_.hour\nInt(10)\n\n>>> datetime_.minute\nInt(30)\n\n>>> datetime_.millisecond\nInt(500)\n\n>>> datetime_.weekday_py\nInt(0)\n\n>>> datetime_.weekday_js\nInt(1)\n```",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[References]**": "**[関連資料]**",
+    ##################################################
+    "- [DateTime class year property](https://simon-ritchie.github.io/apysc/en/datetime_year.html)": "- [DateTime クラスの year 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_year.html)",  # noqa
+    ##################################################
+    "- [DateTime class month property](https://simon-ritchie.github.io/apysc/en/datetime_month.html)": "- [DateTime クラスの month 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_month.html)",  # noqa
+    ##################################################
+    "- [DateTime class day property](https://simon-ritchie.github.io/apysc/en/datetime_day.html)": "- [DateTime クラスの day 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_day.html)",  # noqa
+    ##################################################
+    "- [DateTime class hour property](https://simon-ritchie.github.io/apysc/en/datetime_hour.html)": "- [DateTime クラスの hour 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_hour.html)",  # noqa
+    ##################################################
+    "- [DateTime class minute property](https://simon-ritchie.github.io/apysc/en/datetime_minute.html)": "- [DateTime クラスの minute 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_minute.html)",  # noqa
+    ##################################################
+    "- [DateTime class second property](https://simon-ritchie.github.io/apysc/en/datetime_second.html)": "- [DateTime クラスの second 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_second.html)",  # noqa
+    ##################################################
+    "- [DateTime class millisecond property](https://simon-ritchie.github.io/apysc/en/datetime_millisecond.html)": "- [DateTime クラスの millisecond 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_millisecond.html)",  # noqa
+    ##################################################
+    "- [DateTime class weekday_js and weekday_py properties](https://simon-ritchie.github.io/apysc/en/datetime_weekday_js_and_weekday_py.html)": "- [DateTime クラスの weekday_js と weekday_py 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_weekday_js_and_weekday_py.html)",  # noqa
+    ##################################################
+    "- [DateTime class now interface](https://simon-ritchie.github.io/apysc/en/datetime_now.html)": "- [DateTime クラスの now インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_datetime_now.html)",  # noqa
 }

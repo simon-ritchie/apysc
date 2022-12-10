@@ -144,3 +144,21 @@ Int(0)
 >>> datetime_.weekday_js
 Int(1)
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [DateTime クラスの year 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_year.html)
+- [DateTime クラスの month 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_month.html)
+
+- [DateTime クラスの day 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_day.html)
+- [DateTime クラスの hour 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_hour.html)
+
+- [DateTime クラスの minute 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_minute.html)
+- [DateTime クラスの second 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_second.html)
+
+- [DateTime クラスの millisecond 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_millisecond.html)
+- [DateTime クラスの weekday_js と weekday_py 属性](https://simon-ritchie.github.io/apysc/jp/jp_datetime_weekday_js_and_weekday_py.html)
+
+- [DateTime クラスの now インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_datetime_now.html)

@@ -46,6 +46,21 @@ Int(0)
 Int(1)
 ```
 
+<hr>
+
+**[References]**
+
+- [DateTime class](https://simon-ritchie.github.io/apysc/en/datetime.html)
+- [DateTime class year property](https://simon-ritchie.github.io/apysc/en/datetime_year.html)
+- [DateTime class month property](https://simon-ritchie.github.io/apysc/en/datetime_month.html)
+- [DateTime class day property](https://simon-ritchie.github.io/apysc/en/datetime_day.html)
+- [DateTime class hour property](https://simon-ritchie.github.io/apysc/en/datetime_hour.html)
+- [DateTime class minute property](https://simon-ritchie.github.io/apysc/en/datetime_minute.html)
+- [DateTime class second property](https://simon-ritchie.github.io/apysc/en/datetime_second.html)
+- [DateTime class millisecond property](https://simon-ritchie.github.io/apysc/en/datetime_millisecond.html)
+- [DateTime class weekday_js and weekday_py properties](https://simon-ritchie.github.io/apysc/en/datetime_weekday_js_and_weekday_py.html)
+- [DateTime class now interface](https://simon-ritchie.github.io/apysc/en/datetime_now.html)
+
 ### `__init__` method docstring
 
 The class for datetime-related interfaces.<hr>
@@ -111,6 +126,21 @@ Int(0)
 Int(1)
 ```
 
+<hr>
+
+**[References]**
+
+- [DateTime class](https://simon-ritchie.github.io/apysc/en/datetime.html)
+- [DateTime class year property](https://simon-ritchie.github.io/apysc/en/datetime_year.html)
+- [DateTime class month property](https://simon-ritchie.github.io/apysc/en/datetime_month.html)
+- [DateTime class day property](https://simon-ritchie.github.io/apysc/en/datetime_day.html)
+- [DateTime class hour property](https://simon-ritchie.github.io/apysc/en/datetime_hour.html)
+- [DateTime class minute property](https://simon-ritchie.github.io/apysc/en/datetime_minute.html)
+- [DateTime class second property](https://simon-ritchie.github.io/apysc/en/datetime_second.html)
+- [DateTime class millisecond property](https://simon-ritchie.github.io/apysc/en/datetime_millisecond.html)
+- [DateTime class weekday_js and weekday_py properties](https://simon-ritchie.github.io/apysc/en/datetime_weekday_js_and_weekday_py.html)
+- [DateTime class now interface](https://simon-ritchie.github.io/apysc/en/datetime_now.html)
+
 ### `_append_constructor_expression` method docstring
 
 Append a constructor expression.
@@ -160,3 +190,9 @@ Boolean(True)
 >>> ap_now.day == py_now.day
 Boolean(True)
 ```
+
+<hr>
+
+**[References]**
+
+- [DateTime class now interface](https://simon-ritchie.github.io/apysc/en/datetime_now.html)

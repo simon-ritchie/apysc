@@ -2794,8 +2794,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="Get a current weekday value. This interface sets the weekday "
             "based on the JavaScript value as follows: ",
-            val="現在の曜日の値を取得します。このインターフェイスは以下のようにJavaScriptの曜日の値を"
-            "ベースとした値を設定します。",
+            val="現在の曜日の値を取得します。このインターフェイスは以下のようにJavaScriptの曜日の値を" "ベースとした値を設定します。",
         ),
         Mapping(
             key="<br> ・0 -> Sunday ",
@@ -2868,8 +2867,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="Get a current weekday value. This interface sets the weekday based on "
             "the Python value as follows: ",
-            val="現在の曜日の値を取得します。このインターフェイスは以下のようにPythonの曜日の値を"
-            "ベースとした値を設定します。",
+            val="現在の曜日の値を取得します。このインターフェイスは以下のようにPythonの曜日の値を" "ベースとした値を設定します。",
         ),
         Mapping(
             key="## now class method API",

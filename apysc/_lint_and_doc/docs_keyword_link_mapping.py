@@ -168,4 +168,5 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "assert_undefined": "assert_defined_and_undefined",
     "print": "trace",
     "ap.trace": "trace",
+    "DateTime": "datetime",
 }

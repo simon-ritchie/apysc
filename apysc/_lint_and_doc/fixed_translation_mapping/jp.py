@@ -2883,5 +2883,83 @@ MAPPINGS: Mappings = Mappings(
             key="  - A created `DateTime` instance.",
             val="  - 生成された`DateTime`クラスのインスタンス。",
         ),
+        Mapping(
+            key="DateTime class year property",
+            val="DateTime クラスの year 属性",
+        ),
+        Mapping(
+            key="DateTime class month property",
+            val="DateTime クラスの month 属性",
+        ),
+        Mapping(
+            key="DateTime class day property",
+            val="DateTime クラスの day 属性",
+        ),
+        Mapping(
+            key="DateTime class hour property",
+            val="DateTime クラスの hour 属性",
+        ),
+        Mapping(
+            key="DateTime class minute property",
+            val="DateTime クラスの minute 属性",
+        ),
+        Mapping(
+            key="DateTime class second property",
+            val="DateTime クラスの second 属性",
+        ),
+        Mapping(
+            key="DateTime class millisecond property",
+            val="DateTime クラスの millisecond 属性",
+        ),
+        Mapping(
+            key="DateTime class weekday_js and weekday_py properties",
+            val="DateTime クラスの weekday_js と weekday_py 属性",
+        ),
+        Mapping(
+            key="DateTime class now interface",
+            val="DateTime クラスの now インターフェイス",
+        ),
+        Mapping(
+            key="## DateTime class constructor API",
+            val="## DateTime クラスのコンストラクタのAPI",
+        ),
+        Mapping(
+            key="The class for datetime-related interfaces.<hr>",
+            val="日時に絡んだインターフェイスのためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="  - Four-digit year.",
+            val="  - 4桁の数字の年。",
+        ),
+        Mapping(
+            key="  - Two-digit month (1 to 12).",
+            val="  - 2桁の月（1～12）。",
+        ),
+        Mapping(
+            key="  - Two-digit day (1 to 31).",
+            val="  - 2桁の日（1～31）。",
+        ),
+        Mapping(
+            key="  - Two-digit hour (0 to 23).",
+            val="  - 2桁の時（0～23）。",
+        ),
+        Mapping(
+            key="  - Two-digit minute (0 to 59).",
+            val="  - 2桁の分（0～59）。",
+        ),
+        Mapping(
+            key="  - Two-digit second (0 to 59).",
+            val="  - 2桁の秒（0～59）。",
+        ),
+        Mapping(
+            key="  - Millisecond (0 to 999).",
+            val="  - ミリ秒（0～999）",
+        ),
+        Mapping(
+            key="  - A boolean indicates whether to skip an initial "
+            "substitution expression or not. The `DateTime` class uses "
+            "this option internally.",
+            val="  - 初期値の代入表現の追加をスキップするかどうかの真偽値。`DateTime`クラスでは内部でのみこのオプションを使用します。",
+        ),
     ]
 )

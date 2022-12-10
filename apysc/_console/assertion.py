@@ -10,6 +10,8 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for the true condition.
 - assert_false
     JavaScript assertion interface for the false condition.
+- assert_greater
+    JavaScript assertion interface for the greater than condition.
 - assert_arrays_equal
     JavaScript assertion interface for the Array values equal condition.
 - assert_arrays_not_equal
@@ -26,12 +28,14 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for the undefined value condition.
 """
 
-from typing import Any
+from typing import Any, Union
 from typing import Tuple
 
 from apysc._console._trace import DEFAULT_OUTER_FRAMES_INDEX
 from apysc._console._trace import TemporaryOuterFramesIndexAdjustment
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.int import Int
+from apysc._type.number import Number
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -257,6 +261,40 @@ def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None
         expression=expression, type_strict=type_strict
     )
     expression += f' false, "{msg}");'
+    ap.append_js_expression(expression=expression)
+
+
+def assert_greater(
+    left: Union[int, float, Int, Number],
+    right: Union[int, float, Int, Number],
+    *,
+    msg: str = "",
+) -> None:
+    """
+    JavaScript assertion interface for the greater than condition.
+
+    Parameters
+    ----------
+    left : Union[int, float, Int, Number]
+        Left-side (greater) value to compare.
+    right : Union[int, float, Int, Number]
+        Right-side (less) value to compare.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    import apysc as ap
+    from apysc._string import string_util
+    _trace_info(
+        interface_label=assert_greater.__name__,
+        left=left,
+        right=right,
+        outer_frames_index_adjustment=4,
+    )
+    left_str: str
+    right_str: str
+    left_str, right_str = _get_left_and_right_strs(left=left, right=right)
+    msg = string_util.escape_str(string=msg)
+    expression: str = f'console.assert({left_str} > {right_str}, "{msg}");'
     ap.append_js_expression(expression=expression)
 
 

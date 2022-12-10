@@ -2825,10 +2825,6 @@ MAPPINGS: Mappings = Mappings(
             val="<br> ・6 -> 土曜<hr>",
         ),
         Mapping(
-            key="<br> ・6 -> Saturday<hr>",
-            val="<br> ・6 -> 土曜<hr>",
-        ),
-        Mapping(
             key="  - A current weekday value.",
             val="  - 現在の曜日の値。",
         ),

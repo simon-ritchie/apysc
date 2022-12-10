@@ -3,27 +3,27 @@
 Mainly following interfaces are defined:
 
 - assert_equal
-    JavaScript assertion interface for equal condition.
+    JavaScript assertion interface for the equal condition.
 - assert_not_equal
-    JavaScript assertion interface for not equal condition.
+    JavaScript assertion interface for the not equal condition.
 - assert_true
-    JavaScript assertion interface for true condition.
+    JavaScript assertion interface for the true condition.
 - assert_false
-    JavaScript assertion interface for false condition.
+    JavaScript assertion interface for the false condition.
 - assert_arrays_equal
-    JavaScript assertion interface for Array values equal condition.
+    JavaScript assertion interface for the Array values equal condition.
 - assert_arrays_not_equal
-    JavaScript assertion interface for Array values not equal condition.
+    JavaScript assertion interface for the Array values not equal condition.
 - assert_dicts_equal
-    JavaScript assertion interface for Dictionary values equal condition.
+    JavaScript assertion interface for the Dictionary values equal condition.
 - assert_dicts_not_equal
-    JavaScript assertion interface for Dictionary values not equal
+    JavaScript assertion interface for the Dictionary values not equal
     condition.
 - assert_defined
-    JavaScript assertion interface for defined (not undefined)
+    JavaScript assertion interface for the defined (not undefined)
     value condition.
 - assert_undefined
-    JavaScript assertion interface for undefined value condition.
+    JavaScript assertion interface for the undefined value condition.
 """
 
 from typing import Any
@@ -37,7 +37,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 @add_debug_info_setting(module_name=__name__)
 def assert_equal(left: Any, right: Any, *, msg: str = "") -> None:
     """
-    JavaScript assertion interface for equal condition.
+    JavaScript assertion interface for the equal condition.
 
     Notes
     -----
@@ -101,7 +101,7 @@ def assert_equal(left: Any, right: Any, *, msg: str = "") -> None:
 @add_debug_info_setting(module_name=__name__)
 def assert_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
     """
-    JavaScript assertion interface for not equal condition.
+    JavaScript assertion interface for the not equal condition.
 
     Notes
     -----
@@ -165,7 +165,7 @@ def assert_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
 @add_debug_info_setting(module_name=__name__)
 def assert_true(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
     """
-    JavaScript assertion interface for true condition.
+    JavaScript assertion interface for the true condition.
 
     Parameters
     ----------
@@ -214,7 +214,7 @@ def assert_true(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
 @add_debug_info_setting(module_name=__name__)
 def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
     """
-    JavaScript assertion interface for false condition.
+    JavaScript assertion interface for the false condition.
 
     Parameters
     ----------
@@ -265,7 +265,7 @@ def assert_arrays_equal(
     left: Any, right: Any, *, msg: str = "", outer_frames_index_adjustment: int = 0
 ) -> None:
     """
-    JavaScript assertion interface for Array values equal condition.
+    JavaScript assertion interface for the Array values equal condition.
 
     Notes
     -----
@@ -319,7 +319,7 @@ def assert_arrays_not_equal(
     left: Any, right: Any, *, msg: str = "", outer_frames_index_adjustment: int = 0
 ) -> None:
     """
-    JavaScript assertion interface for Array values not equal condition.
+    JavaScript assertion interface for the Array values not equal condition.
 
     Notes
     -----
@@ -373,7 +373,7 @@ def assert_dicts_equal(
     left: Any, right: Any, *, msg: str = "", outer_frames_index_adjustment: int = 0
 ) -> None:
     """
-    JavaScript assertion interface for Dictionary values equal
+    JavaScript assertion interface for the Dictionary values equal
     condition.
 
     Notes
@@ -428,7 +428,7 @@ def assert_dicts_not_equal(
     left: Any, right: Any, *, msg: str = "", outer_frames_index_adjustment: int = 0
 ) -> None:
     """
-    JavaScript assertion interface for Dictionary values not equal
+    JavaScript assertion interface for the Dictionary values not equal
     condition.
 
     Notes
@@ -481,7 +481,7 @@ def assert_dicts_not_equal(
 @add_debug_info_setting(module_name=__name__)
 def assert_defined(value: Any, *, msg: str = "") -> None:
     """
-    JavaScript assertion interface for defined (not undefined)
+    JavaScript assertion interface for the defined (not undefined)
     value condition.
 
     Parameters
@@ -521,7 +521,7 @@ def assert_defined(value: Any, *, msg: str = "") -> None:
 @add_debug_info_setting(module_name=__name__)
 def assert_undefined(value: Any, *, msg: str = "") -> None:
     """
-    JavaScript assertion interface for undefined value condition.
+    JavaScript assertion interface for the undefined value condition.
 
     Parameters
     ----------

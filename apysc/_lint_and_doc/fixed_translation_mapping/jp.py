@@ -2496,43 +2496,43 @@ MAPPINGS: Mappings = Mappings(
             val="この配列の値を直接ソートします。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for Array values equal condition.<hr>",
+            key="JavaScript assertion interface for the Array values equal condition.<hr>",
             val="配列の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for Array values not equal condition.<hr>",
+            key="JavaScript assertion interface for the Array values not equal condition.<hr>",
             val="配列の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for defined (not undefined) value condition.<hr>",
+            key="JavaScript assertion interface for the defined (not undefined) value condition.<hr>",
             val="定義済みの値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for undefined value condition.<hr>",
+            key="JavaScript assertion interface for the undefined value condition.<hr>",
             val="未定義の値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for Dictionary values equal condition.<hr>",
+            key="JavaScript assertion interface for the Dictionary values equal condition.<hr>",
             val="辞書の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for Dictionary values not equal condition.<hr>",
+            key="JavaScript assertion interface for the Dictionary values not equal condition.<hr>",
             val="辞書の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for equal condition.<hr>",
+            key="JavaScript assertion interface for the equal condition.<hr>",
             val="等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for not equal condition.<hr>",
+            key="JavaScript assertion interface for the not equal condition.<hr>",
             val="非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for true condition.<hr>",
+            key="JavaScript assertion interface for the true condition.<hr>",
             val="真偽値の真の値のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(
-            key="JavaScript assertion interface for false condition.<hr>",
+            key="JavaScript assertion interface for the false condition.<hr>",
             val="真偽値の偽の値のためのJavaScript上のアサーションのインターフェイスです。<hr>",
         ),
         Mapping(

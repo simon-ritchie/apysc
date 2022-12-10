@@ -66,6 +66,11 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         hour : Int
             A current hour value.
 
+        References
+        ----------
+        - DateTime class hour property
+            - https://simon-ritchie.github.io/apysc/en/datetime_hour.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -91,6 +96,11 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A hour value to set.
+
+        References
+        ----------
+        - DateTime class hour property
+            - https://simon-ritchie.github.io/apysc/en/datetime_hour.html
 
         Examples
         --------

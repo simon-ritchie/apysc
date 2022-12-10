@@ -36,6 +36,11 @@ class WeekdayMixIn(VariableNameMixIn):
         weekday : Int
             A current weekday value.
 
+        References
+        ----------
+        - DateTime class weekday_js and weekday_py properties
+            - https://simon-ritchie.github.io/apysc/en/datetime_weekday_js_and_weekday_py.html  # noqa
+
         Examples
         --------
         >>> import apysc as ap
@@ -113,6 +118,11 @@ class WeekdayMixIn(VariableNameMixIn):
         -------
         weekday : Int
             A current weekday value.
+
+        References
+        ----------
+        - DateTime class weekday_js and weekday_py properties
+            - https://simon-ritchie.github.io/apysc/en/datetime_weekday_js_and_weekday_py.html  # noqa
 
         Examples
         --------

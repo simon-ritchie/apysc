@@ -57,6 +57,29 @@ class DateTime(
     weekday_py : int
         A current Python's weekday value (Monday is 0).
 
+    References
+    ----------
+    - DateTime class
+        - https://simon-ritchie.github.io/apysc/en/datetime.html
+    - DateTime class year property
+        - https://simon-ritchie.github.io/apysc/en/datetime_year.html
+    - DateTime class month property
+        - https://simon-ritchie.github.io/apysc/en/datetime_month.html
+    - DateTime class day property
+        - https://simon-ritchie.github.io/apysc/en/datetime_day.html
+    - DateTime class hour property
+        - https://simon-ritchie.github.io/apysc/en/datetime_hour.html
+    - DateTime class minute property
+        - https://simon-ritchie.github.io/apysc/en/datetime_minute.html
+    - DateTime class second property
+        - https://simon-ritchie.github.io/apysc/en/datetime_second.html
+    - DateTime class millisecond property
+        - https://simon-ritchie.github.io/apysc/en/datetime_millisecond.html
+    - DateTime class weekday_js and weekday_py properties
+        - https://simon-ritchie.github.io/apysc/en/datetime_weekday_js_and_weekday_py.html  # noqa
+    - DateTime class now interface
+        - https://simon-ritchie.github.io/apysc/en/datetime_now.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -135,6 +158,29 @@ class DateTime(
         skip_init_substitution_expression_appending : bool, default False
             A boolean indicates whether to skip an initial substitution
             expression or not. The `DateTime` class uses this option internally.
+
+        References
+        ----------
+        - DateTime class
+            - https://simon-ritchie.github.io/apysc/en/datetime.html
+        - DateTime class year property
+            - https://simon-ritchie.github.io/apysc/en/datetime_year.html
+        - DateTime class month property
+            - https://simon-ritchie.github.io/apysc/en/datetime_month.html
+        - DateTime class day property
+            - https://simon-ritchie.github.io/apysc/en/datetime_day.html
+        - DateTime class hour property
+            - https://simon-ritchie.github.io/apysc/en/datetime_hour.html
+        - DateTime class minute property
+            - https://simon-ritchie.github.io/apysc/en/datetime_minute.html
+        - DateTime class second property
+            - https://simon-ritchie.github.io/apysc/en/datetime_second.html
+        - DateTime class millisecond property
+            - https://simon-ritchie.github.io/apysc/en/datetime_millisecond.html
+        - DateTime class weekday_js and weekday_py properties
+            - https://simon-ritchie.github.io/apysc/en/datetime_weekday_js_and_weekday_py.html  # noqa
+        - DateTime class now interface
+            - https://simon-ritchie.github.io/apysc/en/datetime_now.html
 
         Examples
         --------
@@ -232,6 +278,11 @@ class DateTime(
         -------
         dt : DateTime
             A created `DateTime` instance.
+
+        References
+        ----------
+        - DateTime class now interface
+            - https://simon-ritchie.github.io/apysc/en/datetime_now.html
 
         Examples
         --------

@@ -66,6 +66,11 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         day : Int
             A current-day value.
 
+        References
+        ----------
+        - DateTime class day property
+            - https://simon-ritchie.github.io/apysc/en/datetime_day.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -90,6 +95,11 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A day value to set.
+
+        References
+        ----------
+        - DateTime class day property
+            - https://simon-ritchie.github.io/apysc/en/datetime_day.html
 
         Examples
         --------

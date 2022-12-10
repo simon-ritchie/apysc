@@ -66,6 +66,11 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         year : Int
             A current year value.
 
+        References
+        ----------
+        - DateTime class year property
+            - https://simon-ritchie.github.io/apysc/en/datetime_year.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -91,6 +96,11 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A year value to set.
+
+        References
+        ----------
+        - DateTime class year property
+            - https://simon-ritchie.github.io/apysc/en/datetime_year.html
 
         Examples
         --------

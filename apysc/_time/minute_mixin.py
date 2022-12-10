@@ -66,6 +66,11 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         minute : Int
             A current minute value.
 
+        References
+        ----------
+        - DateTime class minute property
+            - https://simon-ritchie.github.io/apysc/en/datetime_minute.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -91,6 +96,11 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A minute value to set.
+
+        References
+        ----------
+        - DateTime class minute property
+            - https://simon-ritchie.github.io/apysc/en/datetime_minute.html
 
         Examples
         --------

@@ -66,6 +66,11 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         second : Int
             A current second value.
 
+        References
+        ----------
+        - DateTime class second property
+            - https://simon-ritchie.github.io/apysc/en/datetime_second.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -91,6 +96,11 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A second value to set.
+
+        References
+        ----------
+        - DateTime class second property
+            - https://simon-ritchie.github.io/apysc/en/datetime_second.html
 
         Examples
         --------

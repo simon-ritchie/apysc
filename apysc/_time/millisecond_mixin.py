@@ -67,6 +67,11 @@ class MillisecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMix
         millisecond : Int
             A current millisecond value.
 
+        References
+        ----------
+        - DateTime class millisecond property
+            - https://simon-ritchie.github.io/apysc/en/datetime_millisecond.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -96,6 +101,11 @@ class MillisecondMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMix
         ----------
         value : Int
             A millisecond value to set.
+
+        References
+        ----------
+        - DateTime class millisecond property
+            - https://simon-ritchie.github.io/apysc/en/datetime_millisecond.html
 
         Examples
         --------

@@ -67,6 +67,11 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         month : Int
             A current month value.
 
+        References
+        ----------
+        - DateTime class month property
+            - https://simon-ritchie.github.io/apysc/en/datetime_month.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -91,6 +96,11 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn, RevertMixIn):
         ----------
         value : Int
             A month value to set.
+
+        References
+        ----------
+        - DateTime class month property
+            - https://simon-ritchie.github.io/apysc/en/datetime_month.html
 
         Examples
         --------

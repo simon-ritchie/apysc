@@ -95,7 +95,7 @@ def assert_equal(left: Any, right: Any, *, msg: str = "") -> None:
             return
 
     _trace_info(
-        interface_label="assert_equal",
+        interface_label=assert_equal.__name__,
         left=left,
         right=right,
         outer_frames_index_adjustment=4,
@@ -162,7 +162,7 @@ def assert_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
             return
 
     _trace_info(
-        interface_label="assert_not_equal",
+        interface_label=assert_not_equal.__name__,
         left=left,
         right=right,
         outer_frames_index_adjustment=4,
@@ -209,7 +209,7 @@ def assert_true(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
     from apysc._string import string_util
 
     _trace_info(
-        interface_label="assert_true",
+        interface_label=assert_true.__name__,
         left="true",
         right=value,
         outer_frames_index_adjustment=4,
@@ -258,7 +258,7 @@ def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None
     from apysc._string import string_util
 
     _trace_info(
-        interface_label="assert_false",
+        interface_label=assert_false.__name__,
         left="false",
         right=value,
         outer_frames_index_adjustment=4,
@@ -456,7 +456,7 @@ def assert_arrays_equal(
     import apysc as ap
 
     _trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_arrays_equal",
+        interface_label=assert_arrays_equal.__name__,
         left=left,
         right=right,
         outer_frames_index_adjustment=outer_frames_index_adjustment + 5,
@@ -510,7 +510,7 @@ def assert_arrays_not_equal(
     import apysc as ap
 
     _trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_arrays_not_equal",
+        interface_label=assert_arrays_not_equal.__name__,
         left=left,
         right=right,
         outer_frames_index_adjustment=outer_frames_index_adjustment + 5,
@@ -565,7 +565,7 @@ def assert_dicts_equal(
     import apysc as ap
 
     _trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_dicts_equal",
+        interface_label=assert_dicts_equal.__name__,
         left=left,
         right=right,
         outer_frames_index_adjustment=outer_frames_index_adjustment + 5,
@@ -620,7 +620,7 @@ def assert_dicts_not_equal(
     import apysc as ap
 
     _trace_arrays_or_dicts_assertion_info(
-        interface_label="assert_dicts_not_equal",
+        interface_label=assert_dicts_not_equal.__name__,
         left=left,
         right=right,
         outer_frames_index_adjustment=outer_frames_index_adjustment + 5,
@@ -660,7 +660,7 @@ def assert_defined(value: Any, *, msg: str = "") -> None:
     from apysc._string import string_util
 
     _trace_info(
-        interface_label="assert_defined",
+        interface_label=assert_defined.__name__,
         left="other than undefined",
         right=value,
         outer_frames_index_adjustment=4,
@@ -700,7 +700,7 @@ def assert_undefined(value: Any, *, msg: str = "") -> None:
     from apysc._string import string_util
 
     _trace_info(
-        interface_label="assert_undefined",
+        interface_label=assert_undefined.__name__,
         left="undefined",
         right=value,
         outer_frames_index_adjustment=4,

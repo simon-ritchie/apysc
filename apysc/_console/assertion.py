@@ -14,6 +14,8 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for the greater than condition.
 - assert_greater_equal
     JavaScript assertion interface for the greater than or equal to condition.
+- assert_less
+    JavaScript assertion interface for the less than condition.
 - assert_arrays_equal
     JavaScript assertion interface for the Array values equal condition.
 - assert_arrays_not_equal
@@ -266,6 +268,7 @@ def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None
     ap.append_js_expression(expression=expression)
 
 
+@add_debug_info_setting(module_name=__name__)
 def assert_greater(
     left: Union[int, float, Int, Number],
     right: Union[int, float, Int, Number],
@@ -300,6 +303,7 @@ def assert_greater(
     ap.append_js_expression(expression=expression)
 
 
+@add_debug_info_setting(module_name=__name__)
 def assert_greater_equal(
     left: Union[int, float, Int, Number],
     right: Union[int, float, Int, Number],

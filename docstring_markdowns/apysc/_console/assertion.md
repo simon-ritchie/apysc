@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Each js assertion (console.assert) interface implementations. Mainly following interfaces are defined: <br>・assert_equal JavaScript assertion interface for equal condition. <br>・assert_not_equal JavaScript assertion interface for not equal condition. <br>・assert_true JavaScript assertion interface for true condition. <br>・assert_false JavaScript assertion interface for false condition. <br>・assert_arrays_equal JavaScript assertion interface for Array values equal condition. <br>・assert_arrays_not_equal JavaScript assertion interface for Array values not equal condition. <br>・assert_dicts_equal JavaScript assertion interface for Dictionary values equal condition. <br>・assert_dicts_not_equal JavaScript assertion interface for Dictionary values not equal condition. <br>・assert_defined JavaScript assertion interface for defined (not undefined) value condition. <br>・assert_undefined JavaScript assertion interface for undefined value condition.
+Each js assertion (console.assert) interface implementations. Mainly following interfaces are defined: <br>・assert_equal JavaScript assertion interface for the equal condition. <br>・assert_not_equal JavaScript assertion interface for the not equal condition. <br>・assert_true JavaScript assertion interface for the true condition. <br>・assert_false JavaScript assertion interface for the false condition. <br>・assert_greater JavaScript assertion interface for the greater than condition. <br>・assert_greater_equal JavaScript assertion interface for the greater than or equal to condition. <br>・assert_less JavaScript assertion interface for the less than condition. <br>・assert_less_equal JavaScript assertion interface for the less than or equal to condition. <br>・assert_arrays_equal JavaScript assertion interface for the Array values equal condition. <br>・assert_arrays_not_equal JavaScript assertion interface for the Array values not equal condition. <br>・assert_dicts_equal JavaScript assertion interface for the Dictionary values equal condition. <br>・assert_dicts_not_equal JavaScript assertion interface for the Dictionary values not equal condition. <br>・assert_defined JavaScript assertion interface for the defined (not undefined) value condition. <br>・assert_undefined JavaScript assertion interface for the undefined value condition.
 
 ## `_add_equal_if_type_strict_setting_is_true` function docstring
 
@@ -128,7 +128,7 @@ Get a boolean value whether the specified value is Dictionary type or not.<hr>
 
 ## `assert_arrays_equal` function docstring
 
-JavaScript assertion interface for Array values equal condition.<hr>
+JavaScript assertion interface for the Array values equal condition.<hr>
 
 **[Parameters]**
 
@@ -164,7 +164,7 @@ This interface is used instead of assert_equal for Array class comparison (JavaS
 
 ## `assert_arrays_not_equal` function docstring
 
-JavaScript assertion interface for Array values not equal condition.<hr>
+JavaScript assertion interface for the Array values not equal condition.<hr>
 
 **[Parameters]**
 
@@ -200,7 +200,7 @@ This interface is used instead of assert_not_equal for Array class comparison (J
 
 ## `assert_defined` function docstring
 
-JavaScript assertion interface for defined (not undefined) value condition.<hr>
+JavaScript assertion interface for the defined (not undefined) value condition.<hr>
 
 **[Parameters]**
 
@@ -227,7 +227,7 @@ JavaScript assertion interface for defined (not undefined) value condition.<hr>
 
 ## `assert_dicts_equal` function docstring
 
-JavaScript assertion interface for Dictionary values equal condition.<hr>
+JavaScript assertion interface for the Dictionary values equal condition.<hr>
 
 **[Parameters]**
 
@@ -263,7 +263,7 @@ This interface is used instead of assert_equal for Dictionary class comparison (
 
 ## `assert_dicts_not_equal` function docstring
 
-JavaScript assertion interface for Dictionary values not equal condition.<hr>
+JavaScript assertion interface for the Dictionary values not equal condition.<hr>
 
 **[Parameters]**
 
@@ -299,7 +299,7 @@ This interface is used instead of assert_not_equal for Dictionary class comparis
 
 ## `assert_equal` function docstring
 
-JavaScript assertion interface for equal condition.<hr>
+JavaScript assertion interface for the equal condition.<hr>
 
 **[Parameters]**
 
@@ -333,7 +333,7 @@ JavaScript assertion interface for equal condition.<hr>
 
 ## `assert_false` function docstring
 
-JavaScript assertion interface for false condition.<hr>
+JavaScript assertion interface for the false condition.<hr>
 
 **[Parameters]**
 
@@ -361,9 +361,61 @@ JavaScript assertion interface for false condition.<hr>
 
 - [assert_true and assert_false interfaces](https://simon-ritchie.github.io/apysc/en/assert_true_and_false.html)
 
+## `assert_greater` function docstring
+
+JavaScript assertion interface for the greater than condition.<hr>
+
+**[Parameters]**
+
+- `left`: Union[int, float, Int, Number]
+  - Left-side (greater) value to compare.
+- `right`: Union[int, float, Int, Number]
+  - Right-side (less) value to compare.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+## `assert_greater_equal` function docstring
+
+JavaScript assertion interface for the greater than or equal to condition.<hr>
+
+**[Parameters]**
+
+- `left`: Union[int, float, Int, Number]
+  - Left-side (greater) value to compare.
+- `right`: Union[int, float, Int, Number]
+  - Right-side (less) value to compare.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+## `assert_less` function docstring
+
+JavaScript assertion interface for the less than condition.<hr>
+
+**[Parameters]**
+
+- `left`: Union[int, float, Int, Number]
+  - Left-side (less) value to compare.
+- `right`: Union[int, float, Int, Number]
+  - Right-side (greater) value to compare.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+## `assert_less_equal` function docstring
+
+JavaScript assertion interface for the less than or equal to condition.<hr>
+
+**[Parameters]**
+
+- `left`: Union[int, float, Int, Number]
+  - Left-side (less) value to compare.
+- `right`: Union[int, float, Int, Number]
+  - Right-side (greater) value to compare.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
 ## `assert_not_equal` function docstring
 
-JavaScript assertion interface for not equal condition.<hr>
+JavaScript assertion interface for the not equal condition.<hr>
 
 **[Parameters]**
 
@@ -397,7 +449,7 @@ JavaScript assertion interface for not equal condition.<hr>
 
 ## `assert_true` function docstring
 
-JavaScript assertion interface for true condition.<hr>
+JavaScript assertion interface for the true condition.<hr>
 
 **[Parameters]**
 
@@ -427,7 +479,7 @@ JavaScript assertion interface for true condition.<hr>
 
 ## `assert_undefined` function docstring
 
-JavaScript assertion interface for undefined value condition.<hr>
+JavaScript assertion interface for the undefined value condition.<hr>
 
 **[Parameters]**
 

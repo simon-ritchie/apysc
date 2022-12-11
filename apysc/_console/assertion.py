@@ -34,8 +34,9 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for the undefined value condition.
 """
 
-from typing import Any, Union
+from typing import Any
 from typing import Tuple
+from typing import Union
 
 from apysc._console._trace import DEFAULT_OUTER_FRAMES_INDEX
 from apysc._console._trace import TemporaryOuterFramesIndexAdjustment
@@ -295,6 +296,7 @@ def assert_greater(
     """
     import apysc as ap
     from apysc._string import string_util
+
     _trace_info(
         interface_label=assert_greater.__name__,
         left=left,
@@ -330,6 +332,7 @@ def assert_greater_equal(
     """
     import apysc as ap
     from apysc._string import string_util
+
     _trace_info(
         interface_label=assert_greater_equal.__name__,
         left=left,
@@ -365,6 +368,7 @@ def assert_less(
     """
     import apysc as ap
     from apysc._string import string_util
+
     _trace_info(
         interface_label=assert_less.__name__,
         left=left,
@@ -400,6 +404,7 @@ def assert_less_equal(
     """
     import apysc as ap
     from apysc._string import string_util
+
     _trace_info(
         interface_label=assert_less_equal.__name__,
         left=left,

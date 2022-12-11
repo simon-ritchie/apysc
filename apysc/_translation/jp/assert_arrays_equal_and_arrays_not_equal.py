@@ -57,7 +57,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
-    "JavaScript assertion interface for Array values equal condition.<hr>": "配列の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
+    "JavaScript assertion interface for the Array values equal condition.<hr>": "配列の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -93,7 +93,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
-    "JavaScript assertion interface for Array values not equal condition.<hr>": "配列の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
+    "JavaScript assertion interface for the Array values not equal condition.<hr>": "配列の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

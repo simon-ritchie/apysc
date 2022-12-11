@@ -118,7 +118,7 @@ Left value: [1, 2, 3, 4, 5] right value: arr_2
 
 **[Interface summary]**
 
-JavaScript assertion interface for Array values equal condition.<hr>
+JavaScript assertion interface for the Array values equal condition.<hr>
 
 **[Parameters]**
 
@@ -156,7 +156,7 @@ This interface is used instead of assert_equal for Array class comparison (JavaS
 
 **[Interface summary]**
 
-JavaScript assertion interface for Array values not equal condition.<hr>
+JavaScript assertion interface for the Array values not equal condition.<hr>
 
 **[Parameters]**
 

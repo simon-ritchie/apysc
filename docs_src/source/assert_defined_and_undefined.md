@@ -101,7 +101,7 @@ Left value: undefined right value: undefined
 
 **[Interface summary]**
 
-JavaScript assertion interface for defined (not undefined) value condition.<hr>
+JavaScript assertion interface for the defined (not undefined) value condition.<hr>
 
 **[Parameters]**
 
@@ -130,7 +130,7 @@ JavaScript assertion interface for defined (not undefined) value condition.<hr>
 
 **[Interface summary]**
 
-JavaScript assertion interface for undefined value condition.<hr>
+JavaScript assertion interface for the undefined value condition.<hr>
 
 **[Parameters]**
 

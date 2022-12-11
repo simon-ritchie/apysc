@@ -153,7 +153,7 @@ Left value: false right value: false
 
 **[Interface summary]**
 
-JavaScript assertion interface for true condition.<hr>
+JavaScript assertion interface for the true condition.<hr>
 
 **[Parameters]**
 
@@ -185,7 +185,7 @@ JavaScript assertion interface for true condition.<hr>
 
 **[Interface summary]**
 
-JavaScript assertion interface for false condition.<hr>
+JavaScript assertion interface for the false condition.<hr>
 
 **[Parameters]**
 

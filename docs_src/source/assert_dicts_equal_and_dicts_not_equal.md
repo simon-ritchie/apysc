@@ -125,7 +125,7 @@ Left value: {a: 30} right value: dct_1
 
 **[Interface summary]**
 
-JavaScript assertion interface for Dictionary values equal condition.<hr>
+JavaScript assertion interface for the Dictionary values equal condition.<hr>
 
 **[Parameters]**
 
@@ -163,7 +163,7 @@ This interface is used instead of assert_equal for Dictionary class comparison (
 
 **[Interface summary]**
 
-JavaScript assertion interface for Dictionary values not equal condition.<hr>
+JavaScript assertion interface for the Dictionary values not equal condition.<hr>
 
 **[Parameters]**
 

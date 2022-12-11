@@ -49,7 +49,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
-    "JavaScript assertion interface for defined (not undefined) value condition.<hr>": "定義済みの値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
+    "JavaScript assertion interface for the defined (not undefined) value condition.<hr>": "定義済みの値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -73,7 +73,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
-    "JavaScript assertion interface for undefined value condition.<hr>": "未定義の値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
+    "JavaScript assertion interface for the undefined value condition.<hr>": "未定義の値かどうかの条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

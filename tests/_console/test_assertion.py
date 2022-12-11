@@ -378,7 +378,7 @@ def test_assert_greater() -> None:
     )
     expression = expression_data_util.get_current_expression()
     expected = (
-        f'console.assert({left_val.variable_name} > {right_val.variable_name}, '
+        f"console.assert({left_val.variable_name} > {right_val.variable_name}, "
         '"Value is not greater than 10.");'
     )
     assert expected in expression
@@ -408,7 +408,7 @@ def test_assert_greater_equal() -> None:
     )
     expression = expression_data_util.get_current_expression()
     expected = (
-        f'console.assert({left_val.variable_name} >= {right_val.variable_name}, '
+        f"console.assert({left_val.variable_name} >= {right_val.variable_name}, "
         '"Value is not greater than or equal to 10.");'
     )
     assert expected in expression
@@ -419,9 +419,7 @@ def test_assert_less() -> None:
     expression_data_util.empty_expression()
     assertion.assert_less(left=10, right=11, msg="Value is not less than 11.")
     expression: str = expression_data_util.get_current_expression()
-    expected: str = (
-        'console.assert(10 < 11, "Value is not less than 11.");'
-    )
+    expected: str = 'console.assert(10 < 11, "Value is not less than 11.");'
     assert expected in expression
 
     expression_data_util.empty_expression()
@@ -434,7 +432,7 @@ def test_assert_less() -> None:
     )
     expression = expression_data_util.get_current_expression()
     expected = (
-        f'console.assert({left_val.variable_name} < {right_val.variable_name}, '
+        f"console.assert({left_val.variable_name} < {right_val.variable_name}, "
         '"Value is not less than 11.");'
     )
     assert expected in expression
@@ -464,7 +462,7 @@ def test_assert_less_equal() -> None:
     )
     expression = expression_data_util.get_current_expression()
     expected = (
-        f'console.assert({left_val.variable_name} <= {right_val.variable_name}, '
+        f"console.assert({left_val.variable_name} <= {right_val.variable_name}, "
         '"Value is not less than or equal to 11.");'
     )
     assert expected in expression

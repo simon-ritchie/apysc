@@ -65,7 +65,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
-    "JavaScript assertion interface for true condition.<hr>": "真偽値の真の値のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
+    "JavaScript assertion interface for the true condition.<hr>": "真偽値の真の値のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -93,7 +93,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
-    "JavaScript assertion interface for false condition.<hr>": "真偽値の偽の値のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
+    "JavaScript assertion interface for the false condition.<hr>": "真偽値の偽の値のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

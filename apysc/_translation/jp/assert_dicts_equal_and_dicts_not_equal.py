@@ -59,7 +59,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
-    "JavaScript assertion interface for Dictionary values equal condition.<hr>": "辞書の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
+    "JavaScript assertion interface for the Dictionary values equal condition.<hr>": "辞書の値の等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
@@ -95,7 +95,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
-    "JavaScript assertion interface for Dictionary values not equal condition.<hr>": "辞書の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
+    "JavaScript assertion interface for the Dictionary values not equal condition.<hr>": "辞書の値の非等値条件のためのJavaScript上のアサーションのインターフェイスです。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################

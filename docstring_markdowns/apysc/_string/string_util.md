@@ -22,7 +22,7 @@ Escape double quotations.<hr>
 
 ## `escape_str` function docstring
 
-Escape special characters (e.g., line breaks of ` `).<hr>
+Escape special characters (e.g., line breaks of `\n`).<hr>
 
 **[Parameters]**
 

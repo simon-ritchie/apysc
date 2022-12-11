@@ -77,7 +77,7 @@ Assertion failed: Values are equal!
 
 **[Interface summary]**
 
-JavaScript assertion interface for equal condition.<hr>
+JavaScript assertion interface for the equal condition.<hr>
 
 **[Parameters]**
 
@@ -113,7 +113,7 @@ JavaScript assertion interface for equal condition.<hr>
 
 **[Interface summary]**
 
-JavaScript assertion interface for not equal condition.<hr>
+JavaScript assertion interface for the not equal condition.<hr>
 
 **[Parameters]**
 

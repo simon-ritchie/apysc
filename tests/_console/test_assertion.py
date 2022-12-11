@@ -382,3 +382,33 @@ def test_assert_greater() -> None:
         '"Value is not greater than 10.");'
     )
     assert expected in expression
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_assert_greater_equal() -> None:
+    expression_data_util.empty_expression()
+    assertion.assert_greater_equal(
+        left=20,
+        right=10,
+        msg="Value is not greater than or equal to 10.",
+    )
+    expression: str = expression_data_util.get_current_expression()
+    expected: str = (
+        'console.assert(20 >= 10, "Value is not greater than or equal to 10.");'
+    )
+    assert expected in expression
+
+    expression_data_util.empty_expression()
+    left_val: ap.Int = ap.Int(20)
+    right_val: ap.Int = ap.Int(10)
+    assertion.assert_greater_equal(
+        left=left_val,
+        right=right_val,
+        msg="Value is not greater than or equal to 10.",
+    )
+    expression = expression_data_util.get_current_expression()
+    expected = (
+        f'console.assert({left_val.variable_name} >= {right_val.variable_name}, '
+        '"Value is not greater than or equal to 10.");'
+    )
+    assert expected in expression

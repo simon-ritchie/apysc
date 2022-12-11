@@ -12,6 +12,8 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for the false condition.
 - assert_greater
     JavaScript assertion interface for the greater than condition.
+- assert_greater_equal
+    JavaScript assertion interface for the greater than or equal to condition.
 - assert_arrays_equal
     JavaScript assertion interface for the Array values equal condition.
 - assert_arrays_not_equal
@@ -295,6 +297,40 @@ def assert_greater(
     left_str, right_str = _get_left_and_right_strs(left=left, right=right)
     msg = string_util.escape_str(string=msg)
     expression: str = f'console.assert({left_str} > {right_str}, "{msg}");'
+    ap.append_js_expression(expression=expression)
+
+
+def assert_greater_equal(
+    left: Union[int, float, Int, Number],
+    right: Union[int, float, Int, Number],
+    *,
+    msg: str = "",
+) -> None:
+    """
+    JavaScript assertion interface for the greater than or equal to condition.
+
+    Parameters
+    ----------
+    left : Union[int, float, Int, Number]
+        Left-side (greater) value to compare.
+    right : Union[int, float, Int, Number]
+        Right-side (less) value to compare.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    import apysc as ap
+    from apysc._string import string_util
+    _trace_info(
+        interface_label=assert_greater_equal.__name__,
+        left=left,
+        right=right,
+        outer_frames_index_adjustment=4,
+    )
+    left_str: str
+    right_str: str
+    left_str, right_str = _get_left_and_right_strs(left=left, right=right)
+    msg = string_util.escape_str(string=msg)
+    expression: str = f'console.assert({left_str} >= {right_str}, "{msg}");'
     ap.append_js_expression(expression=expression)
 
 

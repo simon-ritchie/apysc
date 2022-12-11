@@ -63,6 +63,7 @@ from apysc._console.assertion import assert_true
 from apysc._console.assertion import assert_false
 from apysc._console.assertion import assert_greater
 from apysc._console.assertion import assert_greater_equal
+from apysc._console.assertion import assert_less
 from apysc._console.assertion import assert_arrays_equal
 from apysc._console.assertion import assert_arrays_not_equal
 from apysc._console.assertion import assert_dicts_equal

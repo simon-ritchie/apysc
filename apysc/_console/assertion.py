@@ -339,6 +339,41 @@ def assert_greater_equal(
 
 
 @add_debug_info_setting(module_name=__name__)
+def assert_less(
+    left: Union[int, float, Int, Number],
+    right: Union[int, float, Int, Number],
+    *,
+    msg: str = "",
+) -> None:
+    """
+    JavaScript assertion interface for the less than condition.
+
+    Parameters
+    ----------
+    left : Union[int, float, Int, Number]
+        Left-side (less) value to compare.
+    right : Union[int, float, Int, Number]
+        Right-side (greater) value to compare.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    import apysc as ap
+    from apysc._string import string_util
+    _trace_info(
+        interface_label=assert_less.__name__,
+        left=left,
+        right=right,
+        outer_frames_index_adjustment=4,
+    )
+    left_str: str
+    right_str: str
+    left_str, right_str = _get_left_and_right_strs(left=left, right=right)
+    msg = string_util.escape_str(string=msg)
+    expression: str = f'console.assert({left_str} < {right_str}, "{msg}");'
+    ap.append_js_expression(expression=expression)
+
+
+@add_debug_info_setting(module_name=__name__)
 def assert_arrays_equal(
     left: Any, right: Any, *, msg: str = "", outer_frames_index_adjustment: int = 0
 ) -> None:

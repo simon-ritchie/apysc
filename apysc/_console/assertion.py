@@ -101,6 +101,8 @@ def assert_equal(left: Any, right: Any, *, msg: str = "") -> None:
         outer_frames_index_adjustment=4,
     )
 
+    left_str: str
+    right_str: str
     left_str, right_str = _get_left_and_right_strs(left=left, right=right)
 
     msg = string_util.escape_str(string=msg)
@@ -165,6 +167,8 @@ def assert_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
         right=right,
         outer_frames_index_adjustment=4,
     )
+    left_str: str
+    right_str: str
     left_str, right_str = _get_left_and_right_strs(left=left, right=right)
 
     msg = string_util.escape_str(string=msg)

@@ -374,6 +374,17 @@ JavaScript assertion interface for the greater than condition.<hr>
 - `msg`: str, optional
   - Message to display when assertion failed.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val_1: ap.Int = ap.Int(10)
+>>> int_val_2: ap.Int = ap.Int(9)
+>>> ap.assert_greater(left=int_val_1, right=int_val_2)
+```
+
 ## `assert_greater_equal` function docstring
 
 JavaScript assertion interface for the greater than or equal to condition.<hr>
@@ -386,6 +397,19 @@ JavaScript assertion interface for the greater than or equal to condition.<hr>
   - Right-side (less) value to compare.
 - `msg`: str, optional
   - Message to display when assertion failed.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val_1: ap.Int = ap.Int(10)
+>>> int_val_2: ap.Int = ap.Int(9)
+>>> ap.assert_greater_equal(left=int_val_1, right=int_val_2)
+>>> int_val_3: ap.Int = ap.Int(10)
+>>> ap.assert_greater_equal(left=int_val_1, right=int_val_3)
+```
 
 ## `assert_less` function docstring
 
@@ -400,6 +424,17 @@ JavaScript assertion interface for the less than condition.<hr>
 - `msg`: str, optional
   - Message to display when assertion failed.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val_1: ap.Int = ap.Int(9)
+>>> int_val_2: ap.Int = ap.Int(10)
+>>> ap.assert_greater_equal(left=int_val_1, right=int_val_2)
+```
+
 ## `assert_less_equal` function docstring
 
 JavaScript assertion interface for the less than or equal to condition.<hr>
@@ -412,6 +447,19 @@ JavaScript assertion interface for the less than or equal to condition.<hr>
   - Right-side (greater) value to compare.
 - `msg`: str, optional
   - Message to display when assertion failed.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val_1: ap.Int = ap.Int(9)
+>>> int_val_2: ap.Int = ap.Int(10)
+>>> ap.assert_greater_equal(left=int_val_1, right=int_val_2)
+>>> int_val_3: ap.Int = ap.Int(9)
+>>> ap.assert_greater_equal(left=int_val_1, right=int_val_3)
+```
 
 ## `assert_not_equal` function docstring
 

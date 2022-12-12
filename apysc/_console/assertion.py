@@ -293,6 +293,13 @@ def assert_greater(
         Right-side (less) value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_val_1: ap.Int = ap.Int(10)
+    >>> int_val_2: ap.Int = ap.Int(9)
+    >>> ap.assert_greater(left=int_val_1, right=int_val_2)
     """
     import apysc as ap
     from apysc._string import string_util
@@ -329,6 +336,15 @@ def assert_greater_equal(
         Right-side (less) value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_val_1: ap.Int = ap.Int(10)
+    >>> int_val_2: ap.Int = ap.Int(9)
+    >>> ap.assert_greater_equal(left=int_val_1, right=int_val_2)
+    >>> int_val_3: ap.Int = ap.Int(10)
+    >>> ap.assert_greater_equal(left=int_val_1, right=int_val_3)
     """
     import apysc as ap
     from apysc._string import string_util
@@ -365,6 +381,13 @@ def assert_less(
         Right-side (greater) value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_val_1: ap.Int = ap.Int(9)
+    >>> int_val_2: ap.Int = ap.Int(10)
+    >>> ap.assert_greater_equal(left=int_val_1, right=int_val_2)
     """
     import apysc as ap
     from apysc._string import string_util
@@ -401,6 +424,15 @@ def assert_less_equal(
         Right-side (greater) value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_val_1: ap.Int = ap.Int(9)
+    >>> int_val_2: ap.Int = ap.Int(10)
+    >>> ap.assert_greater_equal(left=int_val_1, right=int_val_2)
+    >>> int_val_3: ap.Int = ap.Int(9)
+    >>> ap.assert_greater_equal(left=int_val_1, right=int_val_3)
     """
     import apysc as ap
     from apysc._string import string_util

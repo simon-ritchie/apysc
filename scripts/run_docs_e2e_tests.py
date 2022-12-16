@@ -34,6 +34,7 @@ _EXPECTED_ASSERTION_FAILED_MSGS: Dict[str, List[str]] = {
     "assert_arrays_equal_and_arrays_not_equal": ["Values are not equal!"],
     "assert_dicts_equal_and_dicts_not_equal": ["Values are not equal!"],
     "assert_defined_and_undefined": ["Value is not defined!"],
+    "assert_less_and_less_equal": ["Assertion failed"],
 }
 
 

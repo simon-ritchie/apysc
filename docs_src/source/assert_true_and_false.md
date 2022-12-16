@@ -12,7 +12,7 @@ The `assert_true` function interface asserts a specified `Boolean` value is true
 
 ## Basic usage
 
-The `assert_true` and `assert_false` interfaces requires `value` argument. The `type_strict` and `msg` arguments are optional (default value of the `type_strict` argument is `True`).
+The `assert_true` and `assert_false` interfaces require `value` argument. The `type_strict` and `msg` arguments are optional (default value of the `type_strict` argument is `True`).
 
 If the `type_strict` argument is `True`, the assertion will use the JavaScript strict comparison operator (`===`). For instance, if the `value` is `Int(1)` and the `type_strict` is `True`, an assertion will fail (because of the comparison between the `Boolean` and `Int`). Conversely, if the `type_strict` is `False`, `Int(1)` will pass the `assert_true` assertion.
 

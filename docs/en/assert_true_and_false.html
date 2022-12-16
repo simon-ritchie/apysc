@@ -22,7 +22,7 @@
     <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="assert_arrays_equal and assert_arrays_not_equal interfaces" href="assert_arrays_equal_and_arrays_not_equal.html" />
+    <link rel="next" title="assert_less and assert_less_equal interfaces" href="assert_less_and_less_equal.html" />
     <link rel="prev" title="assert_equal and assert_not_equal interfaces" href="assert_equal_and_not_equal.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -32,7 +32,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="assert_arrays_equal_and_arrays_not_equal.html" title="assert_arrays_equal and assert_arrays_not_equal interfaces"
+          <a href="assert_less_and_less_equal.html" title="assert_less and assert_less_equal interfaces"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="assert_equal_and_not_equal.html" title="assert_equal and assert_not_equal interfaces"
@@ -62,7 +62,7 @@
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> interfaces requires <code class="docutils literal notranslate"><span class="pre">value</span></code> argument. The <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> and <code class="docutils literal notranslate"><span class="pre">msg</span></code> arguments are optional (default value of the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> interfaces require <code class="docutils literal notranslate"><span class="pre">value</span></code> argument. The <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> and <code class="docutils literal notranslate"><span class="pre">msg</span></code> arguments are optional (default value of the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the assertion will use the JavaScript strict comparison operator (<code class="docutils literal notranslate"><span class="pre">===</span></code>). For instance, if the <code class="docutils literal notranslate"><span class="pre">value</span></code> is <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> and the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, an assertion will fail (because of the comparison between the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> and <code class="docutils literal notranslate"><span class="pre">Int</span></code>). Conversely, if the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> will pass the <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> assertion.</p>
 <p>These interfaces display an assertion result on the browser console.</p>
 <p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(True)</span></code>) passes:</p>
@@ -266,8 +266,8 @@ Assertion failed: Value is not Boolean(True)!
   <p class="topless"><a href="assert_equal_and_not_equal.html"
                         title="previous chapter">assert_equal and assert_not_equal interfaces</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="assert_arrays_equal_and_arrays_not_equal.html"
-                        title="next chapter">assert_arrays_equal and assert_arrays_not_equal interfaces</a></p>
+  <p class="topless"><a href="assert_less_and_less_equal.html"
+                        title="next chapter">assert_less and assert_less_equal interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -289,7 +289,7 @@ Assertion failed: Value is not Boolean(True)!
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="assert_arrays_equal_and_arrays_not_equal.html" title="assert_arrays_equal and assert_arrays_not_equal interfaces"
+          <a href="assert_less_and_less_equal.html" title="assert_less and assert_less_equal interfaces"
              >next</a> |</li>
         <li class="right" >
           <a href="assert_equal_and_not_equal.html" title="assert_equal and assert_not_equal interfaces"

@@ -2955,5 +2955,30 @@ MAPPINGS: Mappings = Mappings(
             "this option internally.",
             val="  - 初期値の代入表現の追加をスキップするかどうかの真偽値。`DateTime`クラスでは内部でのみこのオプションを使用します。",
         ),
+        Mapping(
+            key="## assert_less API",
+            val="## assert_less のAPI",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for the less than condition.<hr>",
+            val="JavaScriptの未満条件のアサーションのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="  - Left-side (less) value to compare.",
+            val="  - 比較用の左辺側の値（小さい側の値）。",
+        ),
+        Mapping(
+            key="  - Right-side (greater) value to compare.",
+            val="  - 比較用の右辺側の値（大きい側の値）。",
+        ),
+        Mapping(
+            key="## assert_less_equal API",
+            val="## assert_less_equal のAPI",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for the less than or equal "
+            "to condition.<hr>",
+            val="JavaScriptの以下条件のアサーションのインターフェイスです。<hr>",
+        ),
     ]
 )

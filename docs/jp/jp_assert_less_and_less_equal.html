@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>assert_less と assert_less_equal の各インターフェイス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="assert_arrays_equal と assert_arrays_not_equal インターフェイス" href="jp_assert_arrays_equal_and_arrays_not_equal.html" />
+    <link rel="prev" title="assert_true と assert_false インターフェイス" href="jp_assert_true_and_false.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_assert_arrays_equal_and_arrays_not_equal.html" title="assert_arrays_equal と assert_arrays_not_equal インターフェイス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_assert_true_and_false.html" title="assert_true と assert_false インターフェイス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">assert_less と assert_less_equal の各インターフェイス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/assert_less_and_less_equal.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="assert-less-assert-less-equal">
+<h1>assert_less と assert_less_equal の各インターフェイス<a class="headerlink" href="#assert-less-assert-less-equal" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">assert_less</span></code>と<code class="docutils literal notranslate"><span class="pre">assert_less_equal</span></code>関数の各インターフェイスについて説明します。</p>
+<section id="id1">
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">assert_less</span></code>関数のインターフェイスは1つ目に指定された値が2つ目の値よりも小さいことをチェックします。</p>
+<p>似たような形で、<code class="docutils literal notranslate"><span class="pre">assert_less_equal</span></code>関数では最初に指定された値が2つ目に指定された値よりも小さいかもしくは同値なことをチェックします。</p>
+</section>
+<section id="id2">
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_assertion_basic_behavior.html"><span class="doc std std-doc">JavaScriptの各アサーションのインターフェイスの基本的な挙動</span></a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">assert_less</span></code>と<code class="docutils literal notranslate"><span class="pre">assert_less_equal</span></code>のインターフェイスは<code class="docutils literal notranslate"><span class="pre">left</span></code>引数と<code class="docutils literal notranslate"><span class="pre">right</span></code>引数の指定を必要とします。</p>
+<p>これらの値はPythonビルトインの<code class="docutils literal notranslate"><span class="pre">int</span></code>や<code class="docutils literal notranslate"><span class="pre">float</span></code>、apyscの<code class="docutils literal notranslate"><span class="pre">Int</span></code>や<code class="docutils literal notranslate"><span class="pre">Number</span></code>などの数値の値のみを受け付けます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">msg</span></code>引数は省略可です。</p>
+<p>もしアサーションが失敗した場合には指定された<code class="docutils literal notranslate"><span class="pre">msg</span></code></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_less</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Assertion failed&quot;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_less_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Assertion failed&quot;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;assert_less_and_less_equal_basic_usage_1/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/assert_less_and_less_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
+<p>以下の例ではアサーションは失敗し、<code class="docutils literal notranslate"><span class="pre">Assertion</span> <span class="pre">failed</span></code>というメッセージがブラウザのコンソール上に表示されます:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_less</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Assertion failed&quot;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;assert_less_and_less_equal_basic_usage_2/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/assert_less_and_less_equal_basic_usage_2/index.html" width="0" height="0"></iframe>
+</section>
+<section id="assert-less-api">
+<h2>assert_less のAPI<a class="headerlink" href="#assert-less-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">assert_less(left:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">right:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>JavaScriptの未満条件のアサーションのインターフェイスです。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: Union[int, float, Int, Number]</p>
+<ul>
+<li><p>比較用の左辺側の値（小さい側の値）。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: Union[int, float, Int, Number]</p>
+<ul>
+<li><p>比較用の右辺側の値（大きい側の値）。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>チェックに失敗した際に表示するメッセージ。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_greater_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="assert-less-equal-api">
+<h2>assert_less_equal のAPI<a class="headerlink" href="#assert-less-equal-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">assert_less_equal(left:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">right:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>JavaScriptの以下条件のアサーションのインターフェイスです。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: Union[int, float, Int, Number]</p>
+<ul>
+<li><p>比較用の左辺側の値（小さい側の値）。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: Union[int, float, Int, Number]</p>
+<ul>
+<li><p>比較用の右辺側の値（大きい側の値）。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>チェックに失敗した際に表示するメッセージ。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_greater_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_greater_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_3</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">assert_less と assert_less_equal の各インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
+<li><a class="reference internal" href="#id2">関連資料</a></li>
+<li><a class="reference internal" href="#id3">基本的な使い方</a></li>
+<li><a class="reference internal" href="#assert-less-api">assert_less のAPI</a></li>
+<li><a class="reference internal" href="#assert-less-equal-api">assert_less_equal のAPI</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_assert_true_and_false.html"
+                        title="previous chapter">assert_true と assert_false インターフェイス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_assert_arrays_equal_and_arrays_not_equal.html"
+                        title="next chapter">assert_arrays_equal と assert_arrays_not_equal インターフェイス</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_assert_arrays_equal_and_arrays_not_equal.html" title="assert_arrays_equal と assert_arrays_not_equal インターフェイス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_assert_true_and_false.html" title="assert_true と assert_false インターフェイス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">assert_less と assert_less_equal の各インターフェイス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

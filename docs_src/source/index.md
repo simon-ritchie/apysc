@@ -313,6 +313,7 @@ variable_name_suffix
 assertion_basic_behavior
 assert_equal_and_not_equal
 assert_true_and_false
+assert_less_and_less_equal
 assert_arrays_equal_and_arrays_not_equal
 assert_dicts_equal_and_dicts_not_equal
 assert_defined_and_undefined

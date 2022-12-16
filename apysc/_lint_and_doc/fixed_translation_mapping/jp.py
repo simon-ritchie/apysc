@@ -2980,5 +2980,49 @@ MAPPINGS: Mappings = Mappings(
             "to condition.<hr>",
             val="JavaScriptの以下条件のアサーションのインターフェイスです。<hr>",
         ),
+        Mapping(
+            key="These arguments only accept numeric values, such as the Python "
+            "built-in `int`, `float`, apysc `Int`, or `Number` value.",
+            val="これらの引数はPythonビルトインの`int`や`float`、apyscの`Int`や`Number`などの数値の値のみ受け付けます。",
+        ),
+        Mapping(
+            key="The `msg` argument is optional.",
+            val="`msg`引数は省略可です。",
+        ),
+        Mapping(
+            key="This interface displays a specified `msg` (message) argument to "
+            "the browser console when an assertion fails.",
+            val="このインターフェイスはアサーションが失敗した際に`msg`（message）引数の値をブラウザのコンソール上に表示します。",
+        ),
+        Mapping(
+            key="The following example fails an assertion and displays the "
+            "`Assertion failed` message on the browser console:",
+            val="`以下の例ではアサーションが失敗し、`Assertion failed`というメッセージがブラウザ上のコンソールに表示されます:",
+        ),
+        Mapping(
+            key="## assert_greater API",
+            val="## assert_greater のAPI",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for the greater than condition.<hr>",
+            val="JavaScriptの超過条件のアサーションのためのインターフェイスです。<hr>",
+        ),
+        Mapping(
+            key="  - Left-side (greater) value to compare.",
+            val="  - 比較用の左辺の値（大きい側の値）。",
+        ),
+        Mapping(
+            key="  - Right-side (less) value to compare.",
+            val="  - 比較用の右辺の値（小さい側の値）。",
+        ),
+        Mapping(
+            key="## assert_greater_equal API",
+            val="## assert_greater_equal のAPI",
+        ),
+        Mapping(
+            key="JavaScript assertion interface for the greater than or equal to "
+            "condition.<hr>",
+            val="JavaScriptの以上の条件のアサーションのためのインターフェイスです。<hr>",
+        ),
     ]
 )

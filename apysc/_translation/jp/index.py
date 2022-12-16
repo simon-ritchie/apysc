@@ -107,5 +107,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Testing": "## テスト",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nassertion_basic_behavior\nassert_equal_and_not_equal\nassert_true_and_false\nassert_less_and_less_equal\nassert_arrays_equal_and_arrays_not_equal\nassert_dicts_equal_and_dicts_not_equal\nassert_defined_and_undefined\n```": "```{toctree}\n:maxdepth: 1\njp_assertion_basic_behavior\njp_assert_equal_and_not_equal\njp_assert_true_and_false\njp_assert_less_and_less_equal\njp_assert_arrays_equal_and_arrays_not_equal\njp_assert_dicts_equal_and_dicts_not_equal\njp_assert_defined_and_undefined\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nassertion_basic_behavior\nassert_equal_and_not_equal\nassert_true_and_false\nassert_greater_and_greater_equal\nassert_less_and_less_equal\nassert_arrays_equal_and_arrays_not_equal\nassert_dicts_equal_and_dicts_not_equal\nassert_defined_and_undefined\n```": "```{toctree}\n:maxdepth: 1\njp_assertion_basic_behavior\njp_assert_equal_and_not_equal\njp_assert_true_and_false\njp_assert_greater_and_greater_equal\njp_assert_less_and_less_equal\njp_assert_arrays_equal_and_arrays_not_equal\njp_assert_dicts_equal_and_dicts_not_equal\njp_assert_defined_and_undefined\n```",  # noqa
 }

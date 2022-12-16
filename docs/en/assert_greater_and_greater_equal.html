@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>assert_less and assert_less_equal interfaces &#8212; apysc  documentation</title>
+    <title>assert_greater and assert_greater_equal interfaces &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -22,8 +22,8 @@
     <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="assert_arrays_equal and assert_arrays_not_equal interfaces" href="assert_arrays_equal_and_arrays_not_equal.html" />
-    <link rel="prev" title="assert_greater and assert_greater_equal interfaces" href="assert_greater_and_greater_equal.html" /> 
+    <link rel="next" title="assert_less and assert_less_equal interfaces" href="assert_less_and_less_equal.html" />
+    <link rel="prev" title="assert_true and assert_false interfaces" href="assert_true_and_false.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -32,13 +32,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="assert_arrays_equal_and_arrays_not_equal.html" title="assert_arrays_equal and assert_arrays_not_equal interfaces"
+          <a href="assert_less_and_less_equal.html" title="assert_less and assert_less_equal interfaces"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="assert_greater_and_greater_equal.html" title="assert_greater and assert_greater_equal interfaces"
+          <a href="assert_true_and_false.html" title="assert_true and assert_false interfaces"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">assert_less and assert_less_equal interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">assert_greater and assert_greater_equal interfaces</a></li> 
       </ul>
     </div>  
 
@@ -47,13 +47,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="assert-less-and-assert-less-equal-interfaces">
-<h1>assert_less and assert_less_equal interfaces<a class="headerlink" href="#assert-less-and-assert-less-equal-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">assert_less</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_less_equal</span></code> function interfaces.</p>
+  <section id="assert-greater-and-assert-greater-equal-interfaces">
+<h1>assert_greater and assert_greater_equal interfaces<a class="headerlink" href="#assert-greater-and-assert-greater-equal-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">assert_greater</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_greater_equal</span></code> function interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">assert_less</span></code> function interface asserts a specified first value is less than a specified second value.</p>
-<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">assert_less_equal</span></code> function interface asserts a specified first value is less than or equal to a specified second value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert_greater</span></code> function interface asserts a specified first value is greater than a specified second value.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">assert_greater_equal</span></code> function interface asserts a specified first value is greater than or equal to a specified second value.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
@@ -63,7 +63,7 @@
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">assert_less</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_less_equal</span></code> interfaces require the <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> arguments.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert_greater</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_greater_equal</span></code> interfaces require the <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> arguments.</p>
 <p>These arguments only accept numeric values, such as the Python built-in <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, apysc <code class="docutils literal notranslate"><span class="pre">Int</span></code>, or <code class="docutils literal notranslate"><span class="pre">Number</span></code> value.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">msg</span></code> argument is optional.</p>
 <p>This interface displays a specified <code class="docutils literal notranslate"><span class="pre">msg</span></code> (message) argument to the browser console when an assertion fails.</p>
@@ -75,14 +75,15 @@
 <span class="p">)</span>
 <span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_less</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Assertion failed&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_greater</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Assertion failed&quot;</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_less_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Assertion failed&quot;</span><span class="p">)</span>
+<span class="n">int_val_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_greater_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_3</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Assertion failed&quot;</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;assert_less_and_less_equal_basic_usage_1/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;assert_greater_and_greater_equal_basic_usage_1/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/assert_less_and_less_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
+<iframe src="static/assert_greater_and_greater_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
 <p>The following example fails an assertion and displays the <code class="docutils literal notranslate"><span class="pre">Assertion</span> <span class="pre">failed</span></code> message on the browser console:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -91,31 +92,31 @@
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
 <span class="p">)</span>
 <span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_less</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Assertion failed&quot;</span><span class="p">)</span>
+<span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_greater</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Assertion failed&quot;</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;assert_less_and_less_equal_basic_usage_2/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;assert_greater_and_greater_equal_basic_usage_2/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/assert_less_and_less_equal_basic_usage_2/index.html" width="0" height="0"></iframe>
+<iframe src="static/assert_greater_and_greater_equal_basic_usage_2/index.html" width="0" height="0"></iframe>
 </section>
-<section id="assert-less-api">
-<h2>assert_less API<a class="headerlink" href="#assert-less-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._console.assertion.assert_less -->
+<section id="assert-greater-api">
+<h2>assert_greater API<a class="headerlink" href="#assert-greater-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_greater -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_less(left:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">right:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_greater(left:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">right:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
-<p>JavaScript assertion interface for the less than condition.<hr></p>
+<p>JavaScript assertion interface for the greater than condition.<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: Union[int, float, Int, Number]</p>
 <ul>
-<li><p>Left-side (less) value to compare.</p></li>
+<li><p>Left-side (greater) value to compare.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: Union[int, float, Int, Number]</p>
 <ul>
-<li><p>Right-side (greater) value to compare.</p></li>
+<li><p>Right-side (less) value to compare.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
@@ -127,29 +128,29 @@
 <hr>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_greater_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_greater</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="assert-less-equal-api">
-<h2>assert_less_equal API<a class="headerlink" href="#assert-less-equal-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._console.assertion.assert_less_equal -->
+<section id="assert-greater-equal-api">
+<h2>assert_greater_equal API<a class="headerlink" href="#assert-greater-equal-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_greater_equal -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_less_equal(left:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">right:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_greater_equal(left:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">right:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
-<p>JavaScript assertion interface for the less than or equal to condition.<hr></p>
+<p>JavaScript assertion interface for the greater than or equal to condition.<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: Union[int, float, Int, Number]</p>
 <ul>
-<li><p>Left-side (less) value to compare.</p></li>
+<li><p>Left-side (greater) value to compare.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: Union[int, float, Int, Number]</p>
 <ul>
-<li><p>Right-side (greater) value to compare.</p></li>
+<li><p>Right-side (less) value to compare.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
@@ -161,10 +162,10 @@
 <hr>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_greater_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_greater_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">int_val_1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_val_3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -183,22 +184,22 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">assert_less and assert_less_equal interfaces</a><ul>
+<li><a class="reference internal" href="#">assert_greater and assert_greater_equal interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#assert-less-api">assert_less API</a></li>
-<li><a class="reference internal" href="#assert-less-equal-api">assert_less_equal API</a></li>
+<li><a class="reference internal" href="#assert-greater-api">assert_greater API</a></li>
+<li><a class="reference internal" href="#assert-greater-equal-api">assert_greater_equal API</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="assert_greater_and_greater_equal.html"
-                        title="previous chapter">assert_greater and assert_greater_equal interfaces</a></p>
+  <p class="topless"><a href="assert_true_and_false.html"
+                        title="previous chapter">assert_true and assert_false interfaces</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="assert_arrays_equal_and_arrays_not_equal.html"
-                        title="next chapter">assert_arrays_equal and assert_arrays_not_equal interfaces</a></p>
+  <p class="topless"><a href="assert_less_and_less_equal.html"
+                        title="next chapter">assert_less and assert_less_equal interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -220,13 +221,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="assert_arrays_equal_and_arrays_not_equal.html" title="assert_arrays_equal and assert_arrays_not_equal interfaces"
+          <a href="assert_less_and_less_equal.html" title="assert_less and assert_less_equal interfaces"
              >next</a> |</li>
         <li class="right" >
-          <a href="assert_greater_and_greater_equal.html" title="assert_greater and assert_greater_equal interfaces"
+          <a href="assert_true_and_false.html" title="assert_true and assert_false interfaces"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">assert_less and assert_less_equal interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">assert_greater and assert_greater_equal interfaces</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

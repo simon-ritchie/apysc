@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `length` property interface returns a current array\'s values length.": "`length`属性のインターフェイスは配列の値の長さ（件数）を返却します。",  # noqa
+    "The `length` property interface returns a current array's values length.": "`length`属性のインターフェイスは配列の値の長さ（件数）を返却します。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
@@ -29,11 +29,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```py\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlen(arr)\n```": "```py\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlen(arr)\n```",  # noqa
     ##################################################
-    "```\nException: Array instance can\'t apply len function. Please use length property instead.\n```": "```\nException: Array instance can\'t apply len function. Please use length property instead.\n```",  # noqa
+    "```\nException: Array instance can't apply len function. Please use length property instead.\n```": "```\nException: Array instance can't apply len function. Please use length property instead.\n```",  # noqa
     ##################################################
     "## length property API": "## length属性のAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -43,7 +43,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `length`: Int": "- `length`: Int",
     ##################################################
-    "  - This array\'s length.": "  - この配列の長さ（値の件数）。",
+    "  - This array's length.": "  - この配列の長さ（値の件数）。",
     ##################################################
     "<hr>": "<hr>",
     ##################################################

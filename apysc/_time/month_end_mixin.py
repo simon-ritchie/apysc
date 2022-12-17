@@ -1,18 +1,13 @@
 """Class implementations for the month-end related mix-in.
 """
 
-from typing import Union
 import calendar
 
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
-from apysc._validation import arg_validation_decos
-from apysc._type.int import Int
 
 
 class MonthEndMixin(VariableNameMixIn):
@@ -24,7 +19,19 @@ class MonthEndMixin(VariableNameMixIn):
     @final
     @add_debug_info_setting(module_name=__name__)
     def set_month_end(self) -> None:
+        """
+        Set a month-end day.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
+        >>> datetime_.set_month_end()
+        >>> datetime_.day
+        Int(31)
+        """
         import apysc as ap
+
         variable_name: str = self.variable_name
         expression: str = (
             f"{variable_name}.setDate(1);"

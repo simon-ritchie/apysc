@@ -169,4 +169,8 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "print": "trace",
     "ap.trace": "trace",
     "DateTime": "datetime",
+    "assert_greater": "assert_greater_and_greater_equal",
+    "assert_greater_equal": "assert_greater_and_greater_equal",
+    "assert_less": "assert_less_and_less_equal",
+    "assert_less_equal": "assert_less_and_less_equal",
 }

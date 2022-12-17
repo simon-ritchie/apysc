@@ -1,4 +1,4 @@
-"""The test project for the AnimationRotationAroundCenterMixIn
+"""A test project for the AnimationRotationAroundCenterMixIn
 class.
 
 Command examples:

@@ -1,4 +1,4 @@
-"""The test project for the AnimationHeightForEllipseMixIn class.
+"""A test project for the AnimationHeightForEllipseMixIn class.
 
 Command examples:
 $ python test_projects/AnimationHeightForEllipseMixIn/main.py

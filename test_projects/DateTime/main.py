@@ -1,4 +1,4 @@
-"""The test project for the DateTime class.
+"""A test project for the DateTime class.
 
 Command examples:
 $ python test_projects/DateTime/main.py

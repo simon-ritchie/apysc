@@ -1,4 +1,4 @@
-"""The test project for the Rectangle class's VariableNameSuffixMixIn.
+"""A test project for the Rectangle class's VariableNameSuffixMixIn.
 
 Command examples:
 $ python test_projects/RectangleVariableNameSuffixMixIn/main.py

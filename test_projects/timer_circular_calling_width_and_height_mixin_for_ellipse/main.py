@@ -1,4 +1,4 @@
-"""The test project for the timer event circular calling and
+"""A test project for the timer event circular calling and
 updating width and height mix-in values for the ellipse class.
 
 Command examples:

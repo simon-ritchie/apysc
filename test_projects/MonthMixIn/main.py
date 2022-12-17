@@ -1,4 +1,4 @@
-"""The test project for the MonthMixIn class.
+"""A test project for the MonthMixIn class.
 
 Command examples:
 $ python test_projects/MonthMixIn/main.py

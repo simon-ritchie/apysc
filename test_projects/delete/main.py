@@ -1,4 +1,4 @@
-"""The test project for the delete interface.
+"""A test project for the delete interface.
 
 Command examples:
 $ python test_projects/delete/main.py

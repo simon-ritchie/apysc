@@ -1,4 +1,4 @@
-"""The test project for the timer event circular calling and
+"""A test project for the timer event circular calling and
 updating skew-x interface value.
 
 Command examples:

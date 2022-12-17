@@ -1,4 +1,4 @@
-"""The test project for the `Return` class.
+"""A test project for the `Return` class.
 
 Command examples:
 $ python test_projects/Return/main.py

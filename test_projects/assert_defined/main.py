@@ -1,4 +1,4 @@
-"""The test project for the `assert_defined` and `assert_undefined` interfaces.
+"""A test project for the `assert_defined` and `assert_undefined` interfaces.
 
 Command examples:
 $ python test_projects/assert_defined/main.py

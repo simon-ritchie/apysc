@@ -1,4 +1,4 @@
-"""The test project for the `Continue` class.
+"""A test project for the `Continue` class.
 
 Command examples:
 $ python test_projects/Continue/main.py

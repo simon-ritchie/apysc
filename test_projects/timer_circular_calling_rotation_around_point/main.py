@@ -1,4 +1,4 @@
-"""The test project for the timer event circular calling and
+"""A test project for the timer event circular calling and
 updating rotation around the specified point interface value.
 
 Command examples:

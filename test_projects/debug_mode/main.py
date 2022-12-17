@@ -1,4 +1,4 @@
-"""The test project for the debug mode setting.
+"""A test project for the debug mode setting.
 
 Command examples:
 $ python test_projects/debug_mode/main.py

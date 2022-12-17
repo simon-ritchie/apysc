@@ -1,4 +1,4 @@
-"""The test project for the draw_rect interface.
+"""A test project for the draw_rect interface.
 
 Command examples:
 $ python test_projects/draw_rect/main.py

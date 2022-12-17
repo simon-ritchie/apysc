@@ -1,4 +1,4 @@
-"""The test project for the `assert_dicts_equal` and `assert_dicts_not_equal`
+"""A test project for the `assert_dicts_equal` and `assert_dicts_not_equal`
 interfaces.
 
 Command examples:

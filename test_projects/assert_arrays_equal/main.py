@@ -1,4 +1,4 @@
-"""The test project for the `assert_arrays_equal` and `assert_arrays_not_equal`
+"""A test project for the `assert_arrays_equal` and `assert_arrays_not_equal`
 interfaces.
 
 Command examples:

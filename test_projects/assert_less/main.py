@@ -1,4 +1,4 @@
-"""The test project for the `assert_less` interface.
+"""A test project for the `assert_less` interface.
 
 Command examples:
 $ python test_projects/assert_less/main.py

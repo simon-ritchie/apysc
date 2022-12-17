@@ -1,4 +1,4 @@
-"""The test project for the remove_children interface.
+"""A test project for the remove_children interface.
 
 Command examples:
 $ python test_projects/remove_children/main.py

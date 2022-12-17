@@ -1,4 +1,4 @@
-"""The test project for the handlers circular calling.
+"""A test project for the handlers circular calling.
 
 Command examples:
 $ python test_projects/handler_circular_calling/main.py

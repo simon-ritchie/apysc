@@ -1,4 +1,4 @@
-"""The test project for the AnimationLineThicknessMixIn class.
+"""A test project for the AnimationLineThicknessMixIn class.
 
 Command examples:
 $ python test_projects/AnimationLineThicknessMixIn/main.py

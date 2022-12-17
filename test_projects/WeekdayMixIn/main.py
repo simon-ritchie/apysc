@@ -1,4 +1,4 @@
-"""The test project for the WeekdayMixIn class.
+"""A test project for the WeekdayMixIn class.
 
 Command examples:
 $ python test_projects/WeekdayMixIn/main.py

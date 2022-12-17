@@ -1,4 +1,4 @@
-"""The test project for the Ellipse class's VariableNameSuffixMixIn.
+"""A test project for the Ellipse class's VariableNameSuffixMixIn.
 
 Command examples:
 $ python test_projects/EllipseVariableNameSuffixMixIn/main.py

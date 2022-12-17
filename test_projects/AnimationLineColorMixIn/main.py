@@ -1,4 +1,4 @@
-"""The test project for the AnimationLineColorMixIn class.
+"""A test project for the AnimationLineColorMixIn class.
 
 Command examples:
 $ python test_projects/AnimationLineColorMixIn/main.py

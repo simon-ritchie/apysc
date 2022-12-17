@@ -1,4 +1,4 @@
-"""The test project for the Timer class.
+"""A test project for the Timer class.
 
 Command examples:
 $ python test_projects/Timer/main.py

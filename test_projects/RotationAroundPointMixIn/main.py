@@ -1,4 +1,4 @@
-"""The test project for the RotationAroundPointMixIn class.
+"""A test project for the RotationAroundPointMixIn class.
 
 Command examples:
 $ python test_projects/RotationAroundPointMixIn/main.py

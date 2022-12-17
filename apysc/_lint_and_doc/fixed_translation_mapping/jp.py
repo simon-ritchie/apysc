@@ -3024,5 +3024,13 @@ MAPPINGS: Mappings = Mappings(
             "condition.<hr>",
             val="JavaScriptの以上の条件のアサーションのためのインターフェイスです。<hr>",
         ),
+        Mapping(
+            key="## remove_children API",
+            val="## remove_children のAPI",
+        ),
+        Mapping(
+            key="Remove all children from this instance.<hr>",
+            val="このインスタンスから全ての子要素を取り除きます。<hr>",
+        ),
     ]
 )

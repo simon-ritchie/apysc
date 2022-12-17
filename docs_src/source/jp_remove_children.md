@@ -47,3 +47,31 @@ ap.save_overall_html(dest_dir_path="remove_children_basic_usage/")
 ```
 
 <iframe src="static/remove_children_basic_usage/index.html" width="250" height="150"></iframe>
+
+## remove_children のAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `remove_children(self) -> None`<hr>
+
+**[インターフェイス概要]**
+
+このインスタンスから全ての子要素を取り除きます。<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> rectangle_1: ap.Rectangle = ap.Rectangle(
+...     x=50, y=50, width=50, height=50, fill_color="#0af"
+... )
+>>> rectangle_2: ap.Rectangle = ap.Rectangle(
+...     x=150, y=50, width=50, height=50, fill_color="#0af"
+... )
+>>> sprite.add_child(child=rectangle_1)
+>>> sprite.add_child(child=rectangle_2)
+>>> sprite.remove_children()
+>>> sprite.num_children
+Int(0)
+```

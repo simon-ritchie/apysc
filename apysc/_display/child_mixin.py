@@ -344,6 +344,22 @@ class ChildMixIn(
         ----------
         - remove_children interface
             - https://simon-ritchie.github.io/apysc/en/remove_children.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> rectangle_1: ap.Rectangle = ap.Rectangle(
+        ...     x=50, y=50, width=50, height=50, fill_color="#0af"
+        ... )
+        >>> rectangle_2: ap.Rectangle = ap.Rectangle(
+        ...     x=150, y=50, width=50, height=50, fill_color="#0af"
+        ... )
+        >>> sprite.add_child(child=rectangle_1)
+        >>> sprite.add_child(child=rectangle_2)
+        >>> sprite.remove_children()
+        >>> sprite.num_children
+        Int(0)
         """
         self._initialize_children_if_not_initialized()
         self._children.clear()

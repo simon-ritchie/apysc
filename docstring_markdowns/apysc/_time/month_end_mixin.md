@@ -19,3 +19,9 @@ Set a month-end day.<hr>
 >>> datetime_.day
 Int(31)
 ```
+
+<hr>
+
+**[References]**
+
+- [DateTime class set_month_end interface](https://simon-ritchie.github.io/apysc/en/datetime_set_month_end.html)

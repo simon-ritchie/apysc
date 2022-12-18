@@ -29,6 +29,11 @@ class MonthEndMixin(VariableNameMixIn):
         >>> datetime_.set_month_end()
         >>> datetime_.day
         Int(31)
+
+        References
+        ----------
+        - DateTime class set_month_end interface
+            - https://simon-ritchie.github.io/apysc/en/datetime_set_month_end.html
         """
         import apysc as ap
 

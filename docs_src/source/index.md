@@ -247,6 +247,7 @@ datetime_second
 datetime_millisecond
 datetime_weekday_js_and_weekday_py
 datetime_now
+datetime_set_month_end
 ```
 
 ## Animation

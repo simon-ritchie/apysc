@@ -3032,5 +3032,9 @@ MAPPINGS: Mappings = Mappings(
             key="Remove all children from this instance.<hr>",
             val="このインスタンスから全ての子要素を取り除きます。<hr>",
         ),
+        Mapping(
+            key="This method interface requires no arguments.",
+            val="このメソッドでは引数を必要としません。",
+        ),
     ]
 )

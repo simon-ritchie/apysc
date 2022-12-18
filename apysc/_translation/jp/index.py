@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -91,7 +91,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## DateTime": "## DateTime",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\ndatetime\ndatetime_year\ndatetime_month\ndatetime_day\ndatetime_hour\ndatetime_minute\ndatetime_second\ndatetime_millisecond\ndatetime_weekday_js_and_weekday_py\ndatetime_now\n```": "```{toctree}\n:maxdepth: 1\njp_datetime\njp_datetime_year\njp_datetime_month\njp_datetime_day\njp_datetime_hour\njp_datetime_minute\njp_datetime_second\njp_datetime_millisecond\njp_datetime_weekday_js_and_weekday_py\njp_datetime_now\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\ndatetime\ndatetime_year\ndatetime_month\ndatetime_day\ndatetime_hour\ndatetime_minute\ndatetime_second\ndatetime_millisecond\ndatetime_weekday_js_and_weekday_py\ndatetime_now\ndatetime_set_month_end\n```": "```{toctree}\n:maxdepth: 1\njp_datetime\njp_datetime_year\njp_datetime_month\njp_datetime_day\njp_datetime_hour\njp_datetime_minute\njp_datetime_second\njp_datetime_millisecond\njp_datetime_weekday_js_and_weekday_py\njp_datetime_now\njp_datetime_set_month_end\n```",  # noqa
     ##################################################
     "## Animation": "## アニメーション",
     ##################################################

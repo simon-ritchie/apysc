@@ -1035,3 +1035,19 @@ def test_is_millisecond_int() -> None:
     assert result == 120
     result = _test_func(millisecond=ap.Int(999))
     assert result == 120
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_apysc_datetime() -> None:
+    @arg_validation_decos.is_apysc_datetime(arg_position_index=0)
+    def _test_func(*, datetime_: ap.DateTime) -> int:
+        return 130
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        datetime_=200,
+    )
+
+    result: int = _test_func(datetime_=ap.DateTime(year=2022, month=12, day=1))
+    assert result == 130

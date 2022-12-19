@@ -140,6 +140,9 @@ Mainly the following decorators exist.
 - is_millisecond_int
     - Set a validation to check a specified argument's value
         is a valid millisecond integer (0-999).
+- is_apysc_datetime
+    - Set a validation to check a specified argument's type
+        is an apysc's `DateTime` type.
 """
 
 import functools
@@ -2410,6 +2413,50 @@ def is_millisecond_int(*, arg_position_index: int) -> _F:
             if millisecond < 0 or 999 < millisecond:
                 raise ValueError(
                     f"A specified millisecond is out of range (0-999): {millisecond}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
+
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_apysc_datetime(*, arg_position_index: int) -> _F:
+    """
+    Set a validation to check a specified argument's type
+    is an apysc's `DateTime` type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _F) -> _F:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._time.datetime_ import DateTime
+
+            datetime_: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(datetime_, DateTime):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    f"A specified value of type `{type(datetime_)}` is not an "
+                    "apysc's DateTime instance."
                     f"\n{callable_and_arg_names_msg}"
                 )
 

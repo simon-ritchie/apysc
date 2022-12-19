@@ -3,142 +3,142 @@
 Mainly the following decorators exist.
 
 - not_empty_string
-    - Set the validation to check that a specified argument's string
+    - Set a validation to check that a specified argument's string
         is not empty.
 - handler_args_num
-    - Set the validation to check a specified handler argument's
+    - Set a validation to check a specified handler argument's
         number.
 - handler_options_type
-    - Set the validation to check a specified handler-options
+    - Set a validation to check a specified handler-options
         argument's type.
 - is_event
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.Event` or its subclass type.
 - is_num
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the number-related type.
 - is_apysc_num
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.Int` or `ap.Number` type.
 - is_integer
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `int` or `ap.Int`.
 - is_builtin_integer
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the built-in `int`.
 - is_apysc_integer
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.Int`.
 - num_is_gt_zero
-    - Set the validation to check that a specified argument's value
+    - Set a validation to check that a specified argument's value
         is greater than zero.
 - num_is_gte_zero
-    - Set the validation to check that a specified argument's value
+    - Set a validation to check that a specified argument's value
         is greater than or equal to zero.
 - num_is_0_to_1_range
-    - Set the validation to check that a specified argument's value
+    - Set a validation to check that a specified argument's value
         is 0.0 to 1.0 range.
 - is_boolean
-    - Set the validation to check that a specified argument's type
+    - Set a validation to check that a specified argument's type
         is the `bool` or `ap.Boolean`.
 - is_builtin_boolean
-    - Set the validation to check that a specified argument's type
+    - Set a validation to check that a specified argument's type
         is the built-in `bool`.
 - is_apysc_boolean
-    - Set the validation to check that a specified argument's type
+    - Set a validation to check that a specified argument's type
         is the `ap.Boolean`.
 - is_easing
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.Easing`.
 - is_string
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the str or `ap.String`.
 - is_builtin_string
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the Python built-in's `str`.
 - is_hex_color_code_format
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is a hexadecimal color code format.
 - is_animations
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the list of `ap.AnimationBase`.
 - is_vars_dict
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is a variables' dictionary.
 - is_display_object
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.DisplayObject` or its subclass type.
 - is_display_object_container
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is a container of a display object instance.
 - is_point_2d
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.Point2D`.
 - is_point_2ds
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the list of `ap.Point2D`.
 - is_valid_path_data_list
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the list of `ap.PathDataBase`.
 - is_line_cap
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is a line cap-related type.
 - is_line_joints
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is a line joints-related type.
 - multiple_line_settings_are_not_set
-    - Set the validation to check a specified argument's instance
+    - Set a validation to check a specified argument's instance
         does not have multiple line settings.
 - is_line_dot_setting
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.LineDotSetting`.
 - is_line_dash_setting
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.LineDashSetting`.
 - is_line_dash_dot_setting
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.LineDashDotSetting`.
 - is_line_round_dot_setting
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.LineRoundDotSetting`.
 - is_variable_name_interface_type
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the `ap.VariableNameMixIn` or its subclass type.
 - is_acceptable_array_value
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is an acceptable array value type.
 - is_acceptable_dictionary_value
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is an acceptable dictionary value type.
 - is_builtin_dict
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is the Python's `dict` type.
 - is_acceptable_boolean_value
-    - Set the validation to check a specified argument's type
+    - Set a validation to check a specified argument's type
         is an acceptable boolean value type.
 - is_fps
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is the FPS enum.
 - is_four_digit_year
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is a four-digit year (full-year).
 - is_month_int
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is a valid month integer (1-12).
 - is_day_int
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is a valid day integer (1-31).
 - is_hour_int
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is a valid hour integer (0-23).
 - is_minute_int
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is a valid minute integer (0-59).
 - is_second_int
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is a valid second integer (0-59).
 - is_millisecond_int
-    - Set the validation to check a specified argument's value
+    - Set a validation to check a specified argument's value
         is a valid millisecond integer (0-999).
 """
 
@@ -284,7 +284,7 @@ def _get_default_val_by_arg_name(*, callable_: Callable, arg_name: str) -> Any:
 
 def not_empty_string(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check that a specified argument's string
+    Set a validation to check that a specified argument's string
     is not empty.
 
     Parameters
@@ -330,7 +330,7 @@ def not_empty_string(*, arg_position_index: int) -> _F:
 
 def handler_args_num(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified handler argument's
+    Set a validation to check a specified handler argument's
     number.
 
     Parameters
@@ -372,7 +372,7 @@ def handler_args_num(*, arg_position_index: int) -> _F:
 
 def handler_options_type(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified handler-options
+    Set a validation to check a specified handler-options
     argument's type.
 
     Parameters
@@ -414,7 +414,7 @@ def handler_options_type(*, arg_position_index: int) -> _F:
 
 def is_event(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.Event` or its subclass type.
 
     Parameters
@@ -454,7 +454,7 @@ def is_event(*, arg_position_index: int) -> _F:
 
 def is_num(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the number-related type.
 
     Parameters
@@ -494,7 +494,7 @@ def is_num(*, arg_position_index: int) -> _F:
 
 def is_apysc_num(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.Int` or `ap.Number` type.
 
     Parameters
@@ -539,7 +539,7 @@ def is_apysc_num(*, arg_position_index: int) -> _F:
 
 def is_integer(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `int` or `ap.Int`.
 
     Parameters
@@ -581,7 +581,7 @@ def is_integer(*, arg_position_index: int) -> _F:
 
 def is_builtin_integer(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the built-in `int`.
 
     Parameters
@@ -623,7 +623,7 @@ def is_builtin_integer(*, arg_position_index: int) -> _F:
 
 def is_apysc_integer(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.Int`.
 
     Parameters
@@ -668,7 +668,7 @@ def is_apysc_integer(*, arg_position_index: int) -> _F:
 
 def num_is_gt_zero(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check that a specified argument's value
+    Set a validation to check that a specified argument's value
     is greater than zero.
 
     Parameters
@@ -710,7 +710,7 @@ def num_is_gt_zero(*, arg_position_index: int) -> _F:
 
 def num_is_gte_zero(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check that a specified argument's value
+    Set a validation to check that a specified argument's value
     is greater than or equal to zero.
 
     Parameters
@@ -752,7 +752,7 @@ def num_is_gte_zero(*, arg_position_index: int) -> _F:
 
 def num_is_0_to_1_range(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check that a specified argument's value
+    Set a validation to check that a specified argument's value
     is 0.0 to 1.0 range.
 
     Parameters
@@ -794,7 +794,7 @@ def num_is_0_to_1_range(*, arg_position_index: int) -> _F:
 
 def is_boolean(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check that a specified argument's type
+    Set a validation to check that a specified argument's type
     is the `bool` or `ap.Boolean`.
 
     Parameters
@@ -834,7 +834,7 @@ def is_boolean(*, arg_position_index: int) -> _F:
 
 def is_builtin_boolean(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check that a specified argument's type
+    Set a validation to check that a specified argument's type
     is the built-in `bool`.
 
     Parameters
@@ -876,7 +876,7 @@ def is_builtin_boolean(*, arg_position_index: int) -> _F:
 
 def is_apysc_boolean(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check that a specified argument's type
+    Set a validation to check that a specified argument's type
     is the `ap.Boolean`.
 
     Parameters
@@ -921,7 +921,7 @@ def is_apysc_boolean(*, arg_position_index: int) -> _F:
 
 def is_easing(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.Easing`.
 
     Parameters
@@ -966,7 +966,7 @@ def is_easing(*, arg_position_index: int) -> _F:
 
 def is_string(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the str or `ap.String`.
 
     Parameters
@@ -1008,7 +1008,7 @@ def is_string(*, arg_position_index: int) -> _F:
 
 def is_builtin_string(*, arg_position_index: int, optional: bool) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the Python built-in's `str`.
 
     Parameters
@@ -1058,7 +1058,7 @@ def is_builtin_string(*, arg_position_index: int, optional: bool) -> _F:
 
 def is_hex_color_code_format(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     in a hexadecimal color code format.
 
     Parameters
@@ -1107,7 +1107,7 @@ def is_hex_color_code_format(*, arg_position_index: int) -> _F:
 
 def is_animations(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the list of `ap.AnimationBase`.
 
     Parameters
@@ -1162,7 +1162,7 @@ def is_animations(*, arg_position_index: int) -> _F:
 
 def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     is a variables' dictionary.
 
     Parameters
@@ -1227,7 +1227,7 @@ def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _F:
 
 def is_display_object(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.DisplayObject` or its subclass type.
 
     Parameters
@@ -1270,7 +1270,7 @@ def is_display_object(*, arg_position_index: int) -> _F:
 
 def is_display_object_container(*, arg_position_index: int, optional: bool) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is a container of a display object instance.
 
     Parameters
@@ -1324,7 +1324,7 @@ def is_display_object_container(*, arg_position_index: int, optional: bool) -> _
 
 def is_point_2d(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.Point2D`.
 
     Parameters
@@ -1365,7 +1365,7 @@ def is_point_2d(*, arg_position_index: int) -> _F:
 
 def is_point_2ds(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the list of `ap.Point`.
 
     Parameters
@@ -1420,7 +1420,7 @@ def is_point_2ds(*, arg_position_index: int) -> _F:
 
 def is_valid_path_data_list(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the list of `ap.PathDataBase` and a first value is an instance of
     the `PathMoveTo`.
 
@@ -1478,7 +1478,7 @@ def is_valid_path_data_list(*, arg_position_index: int) -> _F:
 
 def is_line_cap(*, arg_position_index: int, optional: bool) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is a line cap-related type.
 
     Parameters
@@ -1528,7 +1528,7 @@ def is_line_cap(*, arg_position_index: int, optional: bool) -> _F:
 
 def is_line_joints(*, arg_position_index: int, optional: bool) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is a line joints-related type.
 
     Parameters
@@ -1578,7 +1578,7 @@ def is_line_joints(*, arg_position_index: int, optional: bool) -> _F:
 
 def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's instance
+    Set a validation to check a specified argument's instance
     does not have multiple line settings.
 
     Parameters
@@ -1624,7 +1624,7 @@ def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _F:
 
 def is_line_dot_setting(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.LineDotSetting`.
 
     Parameters
@@ -1669,7 +1669,7 @@ def is_line_dot_setting(*, arg_position_index: int) -> _F:
 
 def is_line_dash_setting(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.LineDashSetting`.
 
     Parameters
@@ -1714,7 +1714,7 @@ def is_line_dash_setting(*, arg_position_index: int) -> _F:
 
 def is_line_dash_dot_setting(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.LineDashDotSetting`.
 
     Parameters
@@ -1760,7 +1760,7 @@ def is_line_dash_dot_setting(*, arg_position_index: int) -> _F:
 
 def is_line_round_dot_setting(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.LineRoundDotSetting`.
 
     Parameters
@@ -1805,7 +1805,7 @@ def is_line_round_dot_setting(*, arg_position_index: int) -> _F:
 
 def is_variable_name_interface_type(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the `ap.VariableNameMixIn` or its subclass type.
 
     Parameters
@@ -1849,7 +1849,7 @@ def is_variable_name_interface_type(*, arg_position_index: int) -> _F:
 
 def is_acceptable_array_value(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is an acceptable array value type.
 
     Parameters
@@ -1895,7 +1895,7 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _F:
 
 def is_acceptable_dictionary_value(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is an acceptable dictionary value type.
 
     Parameters
@@ -1940,7 +1940,7 @@ def is_acceptable_dictionary_value(*, arg_position_index: int) -> _F:
 
 def is_builtin_dict(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is the Python's `dict` type.
 
     Parameters
@@ -1981,7 +1981,7 @@ def is_builtin_dict(*, arg_position_index: int) -> _F:
 
 def is_acceptable_boolean_value(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's type
+    Set a validation to check a specified argument's type
     is an acceptable boolean value type.
 
     Parameters
@@ -2030,7 +2030,7 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _F:
 
 def is_fps(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     is the FPS enum.
 
     Parameters
@@ -2074,7 +2074,7 @@ def is_fps(*, arg_position_index: int) -> _F:
 
 def is_four_digit_year(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     is a four-digit year (full-year).
 
     Parameters
@@ -2127,7 +2127,7 @@ def is_four_digit_year(*, arg_position_index: int) -> _F:
 
 def is_month_int(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     is a valid month integer (1-12).
 
     Parameters
@@ -2181,7 +2181,7 @@ def is_month_int(*, arg_position_index: int) -> _F:
 
 def is_day_int(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     is a valid day integer (1-31).
 
     Parameters
@@ -2236,7 +2236,7 @@ def is_day_int(*, arg_position_index: int) -> _F:
 
 def is_hour_int(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     is a valid hour integer (0-23).
 
     Parameters
@@ -2282,7 +2282,7 @@ def is_hour_int(*, arg_position_index: int) -> _F:
 
 def is_minute_int(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     is a valid minute integer (0-59).
 
     Parameters
@@ -2328,7 +2328,7 @@ def is_minute_int(*, arg_position_index: int) -> _F:
 
 def is_second_int(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     is a valid second integer (0-59).
 
     Parameters
@@ -2375,7 +2375,7 @@ def is_second_int(*, arg_position_index: int) -> _F:
 
 def is_millisecond_int(*, arg_position_index: int) -> _F:
     """
-    Set the validation to check a specified argument's value
+    Set a validation to check a specified argument's value
     is a valid millisecond integer (0-999).
 
     Parameters

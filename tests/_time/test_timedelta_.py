@@ -5,6 +5,7 @@ from retrying import retry
 from apysc._time.timedelta_ import TimeDelta
 from apysc._time import timedelta_
 import apysc as ap
+from apysc._expression import expression_data_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -52,6 +53,22 @@ class TestTimeDelta:
         expression: str = timedelta__._create_initial_substitution_expression()
         expected: str = (
             f"{timedelta__.variable_name} = {left_datetime.variable_name}.getTime()"
+            f" - {right_datetime.variable_name}.getTime();"
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_constructor_expression(self) -> None:
+        expression_data_util.empty_expression()
+        left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
+        right_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=3)
+        timedelta__: TimeDelta = TimeDelta(
+            left_datetime=left_datetime,
+            right_datetime=right_datetime,
+        )
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"var {timedelta__.variable_name} = {left_datetime.variable_name}.getTime()"
             f" - {right_datetime.variable_name}.getTime();"
         )
         assert expected in expression

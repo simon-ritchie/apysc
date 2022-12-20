@@ -81,7 +81,8 @@ class TimeDelta(
         import apysc as ap
 
         expression: str = self._create_initial_substitution_expression()
-        pass
+        expression = f"var {expression}"
+        ap.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)

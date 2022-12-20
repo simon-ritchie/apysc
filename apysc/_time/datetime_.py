@@ -250,6 +250,7 @@ class DateTime(
         ap.append_js_expression(expression=expression)
 
     @final
+    @add_debug_info_setting(module_name=__name__)
     def _create_initial_substitution_expression(self) -> str:
         """
         Create an initial value's substitution expression string.

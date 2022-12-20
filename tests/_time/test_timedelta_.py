@@ -38,3 +38,20 @@ def test__get_variable_name_suffix_from_datetimes() -> None:
         right_datetime=right_datetime,
     )
     assert variable_name_suffix == "left_datetime_right_datetime"
+
+
+class TestTimeDelta:
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_initial_substitution_expression(self) -> None:
+        left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
+        right_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=3)
+        timedelta__: TimeDelta = TimeDelta(
+            left_datetime=left_datetime,
+            right_datetime=right_datetime,
+        )
+        expression: str = timedelta__._create_initial_substitution_expression()
+        expected: str = (
+            f"{timedelta__.variable_name} = {left_datetime.variable_name}.getTime()"
+            f" - {right_datetime.variable_name}.getTime();"
+        )
+        assert expected in expression

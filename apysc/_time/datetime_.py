@@ -20,6 +20,7 @@ from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMix
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._time.timedelta_ import TimeDelta
 
 
 class DateTime(
@@ -327,3 +328,30 @@ class DateTime(
 
         expression: str = f"{dt.variable_name} = new Date();"
         ap.append_js_expression(expression=expression)
+
+    def __sub__(self, other: "DateTime") -> TimeDelta:
+        """
+        Method for subtraction.
+
+        Parameters
+        ----------
+        other : DateTime
+            The other value to subtract.
+
+        Returns
+        -------
+        result : TimeDelta
+            A duration between two `Datetime` instances.
+
+        Raises
+        ------
+        TypeError
+            If the other value type is not the `DateTime`.
+        """
+        if not isinstance(other, DateTime):
+            raise TypeError(
+                "Cannot subtract a `DateTime` instane with a "
+                f"`{type(other).__name__}` instance."
+            )
+        result: TimeDelta = TimeDelta(left_datetime=self, right_datetime=other)
+        return result

@@ -173,3 +173,17 @@ class TestDateTime:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{now.variable_name} = new Date();"
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___sub__(self) -> None:
+        expression_data_util.empty_expression()
+        left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=2)
+        right_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
+        timedelta_: ap.TimeDelta = left_datetime - right_datetime
+        assert timedelta_.total_seconds() == 60 * 60 * 24
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{timedelta_.variable_name} = {left_datetime.variable_name}.getTime()"
+            f" - {right_datetime.variable_name}.getTime();"
+        )
+        assert expected in expression

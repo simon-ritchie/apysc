@@ -2,11 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apysc._time.timedelta_ import TimeDelta
-from apysc._time import timedelta_
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._time import timedelta_
+from apysc._time.timedelta_ import TimeDelta
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

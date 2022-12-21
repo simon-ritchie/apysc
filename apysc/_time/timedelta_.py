@@ -1,15 +1,15 @@
-"""Class implementations for timedelta-related interfaces.
+"""Class implementations for time delta-related interfaces.
 """
 
 from typing import TYPE_CHECKING
 
 from typing_extensions import final
 
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._time.total_seconds_mixin import TotalSecondsMixIn
+from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
-from apysc._time.total_seconds_mixin import TotalSecondsMixIn
 
 if TYPE_CHECKING:
     from apysc._time.datetime_ import DateTime
@@ -21,7 +21,7 @@ class TimeDelta(
     TotalSecondsMixIn,
 ):
     """
-    Class implementations for timedelta-related interfaces.
+    Class implementations for time delta-related interfaces.
     """
 
     _left_datetime: "DateTime"
@@ -38,20 +38,20 @@ class TimeDelta(
         skip_init_substitution_expression_appending: bool = False,
     ) -> None:
         """
-        Class implementations for timedelta-related interfaces.
+        Class implementations for time delta-related interfaces.
 
         Parameters
         ----------
         left_datetime : DateTime
-            Left-side datetime to compare.
+            Left-side `DateTime` to compare.
         right_datetime : DateTime
-            Right-side datetime to compare.
+            Right-side `DateTime` to compare.
         skip_init_substitution_expression_appending : bool, default False
             A boolean indicates whether to skip an initial substitution
             expression or not. The `DateTime` class uses this option internally.
         """
-        from apysc._expression import var_names
         from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
 
         with TemporaryNotHandlerScope():
@@ -111,14 +111,14 @@ def _get_variable_name_suffix_from_datetimes(
     right_datetime: "DateTime",
 ) -> str:
     """
-    Get a variable name suffix from specified datetimes instances.
+    Get a variable name suffix from specified `DateTime`s instances.
 
     Parameters
     ----------
     left_datetime : DateTime
-        Left-side datetime to compare.
+        Left-side `DateTime` to compare.
     right_datetime : DateTime
-        Right-side datetime to compare.
+        Right-side `DateTime` to compare.
 
     Returns
     -------

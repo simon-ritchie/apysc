@@ -141,6 +141,28 @@ Int(1)
 - [DateTime class weekday_js and weekday_py properties](https://simon-ritchie.github.io/apysc/en/datetime_weekday_js_and_weekday_py.html)
 - [DateTime class now interface](https://simon-ritchie.github.io/apysc/en/datetime_now.html)
 
+### `__sub__` method docstring
+
+Method for subtraction.<hr>
+
+**[Parameters]**
+
+- `other`: DateTime
+  - The other value to subtract.
+
+<hr>
+
+**[Returns]**
+
+- `result`: TimeDelta
+  - The duration between two `Datetime` instances.
+
+<hr>
+
+**[Raises]**
+
+- TypeError: If the other value type is not the `DateTime`.
+
 ### `_append_constructor_expression` method docstring
 
 Append a constructor expression.

@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apysc._time.total_seconds_mixin import TotalSecondsMixIn
 import apysc as ap
 from apysc._expression import expression_data_util
+from apysc._time.total_seconds_mixin import TotalSecondsMixIn
 
 
 class TestTotalSecondsMixIn:
@@ -32,9 +32,7 @@ class TestTotalSecondsMixIn:
         mixin.variable_name = "test_mixin"
         mixin._append_total_seconds_expression(total_seconds=total_seconds)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{total_seconds.variable_name} = {mixin.variable_name} / 1000;"
-        )
+        expected: str = f"{total_seconds.variable_name} = {mixin.variable_name} / 1000;"
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -51,7 +49,5 @@ class TestTotalSecondsMixIn:
         total_seconds: ap.Number = mixin.total_seconds()
         assert total_seconds == 60 * 60 * 24
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{total_seconds.variable_name} = {mixin.variable_name} / 1000;"
-        )
+        expected: str = f"{total_seconds.variable_name} = {mixin.variable_name} / 1000;"
         assert expected in expression

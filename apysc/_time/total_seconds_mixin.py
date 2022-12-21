@@ -1,17 +1,17 @@
 """Class implementations for the total seconds-related mix-in.
 """
 
-from typing import Union
+from datetime import datetime
+from datetime import timedelta
 from typing import TYPE_CHECKING
-from datetime import datetime, timedelta
 
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._validation import arg_validation_decos
 from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
+from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
     from apysc._time.datetime_ import DateTime
@@ -66,7 +66,7 @@ class TotalSecondsMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn):
     @add_debug_info_setting(module_name=__name__)
     def total_seconds(self) -> Number:
         """
-        Get total seconds in the duration.
+        Get the total seconds in the duration.
 
         Returns
         -------
@@ -96,6 +96,7 @@ class TotalSecondsMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn):
             Total seconds value.
         """
         import apysc as ap
+
         expression: str = (
             f"{total_seconds.variable_name} = {self.variable_name} / 1000;"
         )

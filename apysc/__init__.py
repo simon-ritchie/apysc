@@ -81,6 +81,7 @@ from apysc._jupyter.jupyter_util import display_on_colaboratory
 from apysc._time.fps import FPS
 from apysc._time.timer import Timer
 from apysc._time.datetime_ import DateTime
+from apysc._time.timedelta_ import TimeDelta
 from apysc._html.debug_mode import set_debug_mode
 from apysc._html.debug_mode import unset_debug_mode
 from apysc._html.debug_mode import is_debug_mode

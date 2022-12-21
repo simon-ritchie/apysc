@@ -11,12 +11,13 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
 
 if TYPE_CHECKING:
     from apysc._time.datetime_ import DateTime
 
 
-class TotalSecondsMixIn(VariableNameMixIn):
+class TotalSecondsMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn):
 
     _total_seconds_value: float
 
@@ -60,3 +61,42 @@ class TotalSecondsMixIn(VariableNameMixIn):
         )
         timedelta_: timedelta = left_py_datetime - right_py_datetime
         self._total_seconds_value = timedelta_.total_seconds()
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def total_seconds(self) -> Number:
+        """
+        Get total seconds in the duration.
+
+        Returns
+        -------
+        total_seconds : Number
+            Total seconds in the duration.
+        """
+        suffix: str = self._get_attr_variable_name_suffix(
+            attr_identifier="total_seconds"
+        )
+        total_seconds: Number = Number(
+            0,
+            variable_name_suffix=suffix,
+        )
+        total_seconds._value = self._total_seconds_value
+        self._append_total_seconds_expression(total_seconds=total_seconds)
+        return total_seconds
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _append_total_seconds_expression(self, *, total_seconds: Number) -> None:
+        """
+        Append a total seconds' expression string.
+
+        Parameters
+        ----------
+        total_seconds : Number
+            Total seconds value.
+        """
+        import apysc as ap
+        expression: str = (
+            f"{total_seconds.variable_name} = {self.variable_name} / 1000;"
+        )
+        ap.append_js_expression(expression=expression)

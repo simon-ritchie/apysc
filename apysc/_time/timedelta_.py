@@ -1,25 +1,24 @@
 """Class implementations for timedelta-related interfaces.
 """
 
-from datetime import timedelta
 from typing import TYPE_CHECKING
 
 from typing_extensions import final
 
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
+from apysc._time.total_seconds_mixin import TotalSecondsMixIn
 
 if TYPE_CHECKING:
     from apysc._time.datetime_ import DateTime
 
 
 class TimeDelta(
-    VariableNameMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
+    TotalSecondsMixIn,
 ):
     """
     Class implementations for timedelta-related interfaces.
@@ -64,6 +63,10 @@ class TimeDelta(
             )
             self.variable_name = expression_variables_util.get_next_variable_name(
                 type_name=var_names.TIME_DELTA,
+            )
+            self._set_init_total_seconds_value_for_python(
+                left_datetime=self._left_datetime,
+                right_datetime=self._right_datetime,
             )
 
             self._append_constructor_expression()

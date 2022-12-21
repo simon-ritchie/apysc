@@ -273,6 +273,7 @@ class DateTime(
 
     @classmethod
     @final
+    @add_debug_info_setting(module_name=__name__)
     def now(cls) -> "DateTime":
         """
         Get a `DateTime` instance of the current time.
@@ -311,6 +312,8 @@ class DateTime(
         dt._append_now_expression(dt=dt)
         return dt
 
+    @final
+    @add_debug_info_setting(module_name=__name__)
     def _append_now_expression(self, *, dt: "DateTime") -> None:
         """
         Append a `now` interface expression string.

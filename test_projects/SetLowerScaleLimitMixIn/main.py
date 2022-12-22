@@ -1,4 +1,4 @@
-"""A test project for the SetLowerScaleLimitMixIn class.
+"""The test project for the SetLowerScaleLimitMixIn class.
 
 Command examples:
 $ python test_projects/SetLowerScaleLimitMixIn/main.py

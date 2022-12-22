@@ -1,4 +1,4 @@
-"""A test project for the CssMixIn class.
+"""The test project for the CssMixIn class.
 
 Command examples:
 $ python test_projects/CssMixIn/main.py

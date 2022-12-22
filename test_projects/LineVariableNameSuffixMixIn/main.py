@@ -1,4 +1,4 @@
-"""A test project for the Line class's VariableNameSuffixMixIn.
+"""The test project for the Line class's VariableNameSuffixMixIn.
 
 Command examples:
 $ python test_projects/LineVariableNameSuffixMixIn/main.py

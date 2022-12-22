@@ -1,4 +1,4 @@
-"""A test project for the AnimationParallel class.
+"""The test project for the AnimationParallel class.
 
 Command examples:
 $ python test_projects/AnimationParallel/main.py

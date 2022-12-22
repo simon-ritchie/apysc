@@ -1,4 +1,4 @@
-"""A test project for the `assert_greater` interface.
+"""The test project for the `assert_greater` interface.
 
 Command examples:
 $ python test_projects/assert_greater/main.py

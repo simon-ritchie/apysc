@@ -1,4 +1,4 @@
-"""A test project for the ScaleXFromCenterMixIn class.
+"""The test project for the ScaleXFromCenterMixIn class.
 
 Command examples:
 $ python test_projects/ScaleXFromCenterMixIn/main.py

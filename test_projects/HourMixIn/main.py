@@ -1,4 +1,4 @@
-"""A test project for the HourMixIn class.
+"""The test project for the HourMixIn class.
 
 Command examples:
 $ python test_projects/HourMixIn/main.py

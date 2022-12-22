@@ -1,4 +1,4 @@
-"""A test project for the AnimationScaleXFromCenterMixIn
+"""The test project for the AnimationScaleXFromCenterMixIn
 class.
 
 Command examples:

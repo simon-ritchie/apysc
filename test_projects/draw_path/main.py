@@ -1,4 +1,4 @@
-"""A test project for the draw_path interface.
+"""The test project for the draw_path interface.
 
 Command examples:
 $ python test_projects/draw_path/main.py

@@ -1,4 +1,4 @@
-"""A test project for the `FlipXMixIn` class.
+"""The test project for the `FlipXMixIn` class.
 
 Command examples:
 $ python test_projects/FlipXMixIn/main.py

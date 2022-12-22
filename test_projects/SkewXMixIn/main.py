@@ -1,4 +1,4 @@
-"""A test project for the SkewXMixIn class.
+"""The test project for the SkewXMixIn class.
 
 Command examples:
 $ python test_projects/SkewXMixIn/main.py

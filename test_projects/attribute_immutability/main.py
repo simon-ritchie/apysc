@@ -1,4 +1,4 @@
-"""A test project to test the immutability of the attribute.
+"""The test project to test the immutability of the attribute.
 
 Command examples:
 $ python test_projects/attribute_immutability/main.py

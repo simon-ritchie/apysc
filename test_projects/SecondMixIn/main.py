@@ -1,4 +1,4 @@
-"""A test project for the SecondMixIn class.
+"""The test project for the SecondMixIn class.
 
 Command examples:
 $ python test_projects/SecondMixIn/main.py

@@ -1,4 +1,4 @@
-"""A test project for the PathXMixIn class.
+"""The test project for the PathXMixIn class.
 
 Command examples:
 $ python test_projects/PathXMixIn/main.py

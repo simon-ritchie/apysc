@@ -1,4 +1,4 @@
-"""A test project for the Polyline class's VariableNameSuffixMixIn.
+"""The test project for the Polyline class's VariableNameSuffixMixIn.
 
 Command examples:
 $ python test_projects/PolylineVariableNameSuffixMixIn/main.py

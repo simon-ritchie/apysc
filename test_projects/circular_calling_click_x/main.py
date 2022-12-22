@@ -1,4 +1,4 @@
-"""A test project for the mouse event circular calling and
+"""The test project for the mouse event circular calling and
 updating x-coordinate interface value.
 
 Command examples:

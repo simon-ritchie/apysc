@@ -1,4 +1,4 @@
-"""A test project for the animation_move interface's circular calling.
+"""The test project for the animation_move interface's circular calling.
 
 Command examples:
 $ python test_projects/circular_calling_animation_move/main.py

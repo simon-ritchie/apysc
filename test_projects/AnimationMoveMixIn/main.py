@@ -1,4 +1,4 @@
-"""A test project for the AnimationMoveMixIn class.
+"""The test project for the AnimationMoveMixIn class.
 
 Command examples:
 $ python test_projects/AnimationMoveMixIn/main.py

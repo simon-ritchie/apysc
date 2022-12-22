@@ -1,4 +1,4 @@
-"""A test project for the Polygon class's VariableNameSuffixMixIn.
+"""The test project for the Polygon class's VariableNameSuffixMixIn.
 
 Command examples:
 $ python test_projects/PolygonVariableNameSuffixMixIn/main.py

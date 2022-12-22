@@ -1,4 +1,4 @@
-"""A test project for the Circle class's VariableNameSuffixMixIn.
+"""The test project for the Circle class's VariableNameSuffixMixIn.
 
 Command examples:
 $ python test_projects/CircleVariableNameSuffixMixIn/main.py

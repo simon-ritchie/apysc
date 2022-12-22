@@ -1,4 +1,4 @@
-"""A test project for the set_month_end method.
+"""The test project for the set_month_end method.
 
 Command examples:
 $ python test_projects/set_month_end/main.py

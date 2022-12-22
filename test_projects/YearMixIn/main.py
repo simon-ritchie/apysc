@@ -1,4 +1,4 @@
-"""A test project for the YearMixIn class.
+"""The test project for the YearMixIn class.
 
 Command examples:
 $ python test_projects/YearMixIn/main.py

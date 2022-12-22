@@ -1,4 +1,4 @@
-"""A test project to check the behavior of the binding
+"""The test project to check the behavior of the binding
 same handler multiple times.
 
 Command examples:

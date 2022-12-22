@@ -12,12 +12,17 @@ from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
 from apysc._validation import arg_validation_decos
+from apysc._time.left_and_right_datetimes_mixin import LeftAndRightDatetimesMixIn
 
 if TYPE_CHECKING:
     from apysc._time.datetime_ import DateTime
 
 
-class TotalSecondsMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn):
+class TotalSecondsMixIn(
+    VariableNameMixIn,
+    VariableNameSuffixAttrMixIn,
+    LeftAndRightDatetimesMixIn,
+):
 
     _total_seconds_value: float
 
@@ -41,23 +46,14 @@ class TotalSecondsMixIn(VariableNameMixIn, VariableNameSuffixAttrMixIn):
         right_datetime : DateTime
             A right-side `DateTime` instance to compare.
         """
-        left_py_datetime: datetime = datetime(
-            left_datetime._year._value,
-            left_datetime._month._value,
-            left_datetime._day._value,
-            left_datetime._hour._value,
-            left_datetime._minute._value,
-            left_datetime._second._value,
-            left_datetime._millisecond._value * 1000,
-        )
-        right_py_datetime: datetime = datetime(
-            right_datetime._year._value,
-            right_datetime._month._value,
-            right_datetime._day._value,
-            right_datetime._hour._value,
-            right_datetime._minute._value,
-            right_datetime._second._value,
-            right_datetime._millisecond._value * 1000,
+        left_py_datetime: datetime
+        right_py_datetime: datetime
+        (
+            left_py_datetime,
+            right_py_datetime,
+        ) = self._get_left_and_right_py_datetimes_from_apysc_datetime(
+            left_apysc_datetime=left_datetime,
+            right_apysc_datetime=right_datetime,
         )
         timedelta_: timedelta = left_py_datetime - right_py_datetime
         self._total_seconds_value = timedelta_.total_seconds()

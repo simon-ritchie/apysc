@@ -8,11 +8,11 @@ from typing import TYPE_CHECKING
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._time.left_and_right_datetimes_mixin import LeftAndRightDatetimesMixIn
 from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
 from apysc._validation import arg_validation_decos
-from apysc._time.left_and_right_datetimes_mixin import LeftAndRightDatetimesMixIn
 
 if TYPE_CHECKING:
     from apysc._time.datetime_ import DateTime

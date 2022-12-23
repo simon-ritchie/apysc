@@ -11,9 +11,9 @@ Get a variable name suffix from specified `DateTime`s instances.<hr>
 **[Parameters]**
 
 - `left_datetime`: DateTime
-  - Left-side datetime to compare.
+  - Left-side `DateTime` to compare.
 - `right_datetime`: DateTime
-  - Right-side datetime to compare.
+  - Right-side `DateTime` to compare.
 
 <hr>
 
@@ -24,18 +24,18 @@ Get a variable name suffix from specified `DateTime`s instances.<hr>
 
 ## `TimeDelta` class docstring
 
-Class implementations for timedelta-related interfaces.
+Class implementations for time delta-related interfaces.
 
 ### `__init__` method docstring
 
-Class implementations for timedelta-related interfaces.<hr>
+Class implementations for time delta-related interfaces.<hr>
 
 **[Parameters]**
 
 - `left_datetime`: DateTime
-  - Left-side datetime to compare.
+  - Left-side `DateTime` to compare.
 - `right_datetime`: DateTime
-  - Right-side datetime to compare.
+  - Right-side `DateTime` to compare.
 - `skip_init_substitution_expression_appending`: bool, default False
   - A boolean indicates whether to skip an initial substitution expression or not. The `DateTime` class uses this option internally.
 

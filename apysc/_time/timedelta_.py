@@ -6,11 +6,11 @@ from typing import TYPE_CHECKING
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._time.days_mixin import DaysMixIn
 from apysc._time.total_seconds_mixin import TotalSecondsMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._time.days_mixin import DaysMixIn
 
 if TYPE_CHECKING:
     from apysc._time.datetime_ import DateTime

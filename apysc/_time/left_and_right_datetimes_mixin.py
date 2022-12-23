@@ -2,7 +2,8 @@
 """
 
 from datetime import datetime
-from typing import TYPE_CHECKING, Tuple
+from typing import TYPE_CHECKING
+from typing import Tuple
 
 from typing_extensions import final
 
@@ -13,7 +14,6 @@ if TYPE_CHECKING:
 
 
 class LeftAndRightDatetimesMixIn:
-
     @add_debug_info_setting(module_name=__name__)
     @final
     def _get_left_and_right_py_datetimes_from_apysc_datetime(
@@ -23,7 +23,7 @@ class LeftAndRightDatetimesMixIn:
         right_apysc_datetime: "DateTime",
     ) -> Tuple[datetime, datetime]:
         """
-        get Python's left and right datetimes from specified apysc's
+        Get Python's left and right datetimes from specified apysc's
         `DateTime` instances.
 
         Parameters

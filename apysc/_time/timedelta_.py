@@ -10,6 +10,7 @@ from apysc._time.total_seconds_mixin import TotalSecondsMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._time.days_mixin import DaysMixIn
 
 if TYPE_CHECKING:
     from apysc._time.datetime_ import DateTime
@@ -19,6 +20,7 @@ class TimeDelta(
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     TotalSecondsMixIn,
+    DaysMixIn,
 ):
     """
     Class implementations for time delta-related interfaces.
@@ -65,6 +67,10 @@ class TimeDelta(
                 type_name=var_names.TIME_DELTA,
             )
             self._set_init_total_seconds_value_for_python(
+                left_datetime=self._left_datetime,
+                right_datetime=self._right_datetime,
+            )
+            self._set_init_days_value_for_python(
                 left_datetime=self._left_datetime,
                 right_datetime=self._right_datetime,
             )

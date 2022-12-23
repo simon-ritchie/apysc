@@ -12,13 +12,17 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
 from apysc._validation import arg_validation_decos
 from apysc._time.left_and_right_datetimes_mixin import LeftAndRightDatetimesMixIn
+from apysc._type.int import Int
 
 if TYPE_CHECKING:
     from apysc._time.datetime_ import DateTime
 
 
 class DaysMixIn(
-    VariableNameMixIn, VariableNameSuffixAttrMixIn, LeftAndRightDatetimesMixIn):
+    VariableNameMixIn,
+    VariableNameSuffixAttrMixIn,
+    LeftAndRightDatetimesMixIn,
+):
 
     _days_value: int
 
@@ -53,3 +57,39 @@ class DaysMixIn(
         )
         timedelta_: timedelta = left_py_datetime - right_py_datetime
         self._days_value = timedelta_.days
+
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def days(self) -> Int:
+        """
+        Get days in the duration.
+
+        Returns
+        -------
+        days : Int
+            Days value. This interface ignores a fraction.
+        """
+        days: Int = Int(0)
+        days._value = self._days_value
+        self._append_days_expression(days=days)
+        return days
+
+    @final
+    @arg_validation_decos.is_apysc_integer(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def _append_days_expression(self, *, days: Int) -> None:
+        """
+        Append a days expression string.
+
+        Parameters
+        ----------
+        days : Int
+            Target days value.
+        """
+        import apysc as ap
+
+        expression: str = (
+            f"{days.variable_name} = Math.trunc({self.variable_name} / "
+            "(1000 * 60 * 60 * 24));"
+        )
+        ap.append_js_expression(expression=expression)

@@ -3,6 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
+from apysc._expression import expression_data_util
 from apysc._time.days_mixin import DaysMixIn
 
 
@@ -26,3 +27,33 @@ class TestDaysMixIn:
             right_datetime=right_datetime,
         )
         assert mixin._days_value == 2
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_days_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: DaysMixIn = DaysMixIn()
+        days: ap.Int = ap.Int(5)
+        mixin.variable_name = "test_days_mixin"
+        mixin._append_days_expression(days=days)
+        expected: str = (
+            f"{days.variable_name} = Math.trunc({mixin.variable_name} / "
+            "(1000 * 60 * 60 * 24));"
+        )
+        expression: str = expression_data_util.get_current_expression()
+        assert expected in expression
+
+    # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_days(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: DaysMixIn = DaysMixIn()
+        mixin.variable_name = "test_days_mixin"
+        mixin._days_value = 3
+        days: ap.Int = mixin.days
+        assert days == 3
+        assert isinstance(days, ap.Int)
+        expected: str = (
+            f"{days.variable_name} = Math.trunc({mixin.variable_name} / "
+            "(1000 * 60 * 60 * 24));"
+        )
+        expression: str = expression_data_util.get_current_expression()
+        assert expected in expression

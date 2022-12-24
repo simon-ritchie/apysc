@@ -1,4 +1,4 @@
-"""Class implementations for datetime-related interfaces.
+"""Class implementations for datetime-related mix-in.
 """
 
 from datetime import datetime
@@ -21,6 +21,7 @@ from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMix
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._time.now_mixin import NowMixIn
 
 
 class DateTime(
@@ -35,6 +36,7 @@ class DateTime(
     MillisecondMixIn,
     WeekdayMixIn,
     MonthEndMixin,
+    NowMixIn,
 ):
     """
     The class for datetime-related interfaces.
@@ -271,63 +273,6 @@ class DateTime(
         expression += self._get_init_millisecond_argument_expression()
         expression += ");"
         return expression
-
-    @classmethod
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def now(cls) -> "DateTime":
-        """
-        Get a `DateTime` instance of the current time.
-
-        Returns
-        -------
-        dt : DateTime
-            A created `DateTime` instance.
-
-        References
-        ----------
-        - DateTime class now interface
-            - https://simon-ritchie.github.io/apysc/en/datetime_now.html
-
-        Examples
-        --------
-        >>> from datetime import datetime
-        >>> import apysc as ap
-        >>> py_now: datetime = datetime.now()
-        >>> ap_now: ap.DateTime = ap.DateTime.now()
-        >>> ap_now.year == py_now.year
-        Boolean(True)
-        >>> ap_now.month == py_now.month
-        Boolean(True)
-        >>> ap_now.day == py_now.day
-        Boolean(True)
-        """
-        now_: datetime = datetime.now()
-        dt: DateTime = DateTime(year=1970, month=1, day=1)
-        dt._year._value = now_.year
-        dt._month._value = now_.month
-        dt._day._value = now_.day
-        dt._hour._value = now_.hour
-        dt._minute._value = now_.minute
-        dt._second._value = now_.second
-        dt._append_now_expression(dt=dt)
-        return dt
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _append_now_expression(self, *, dt: "DateTime") -> None:
-        """
-        Append a `now` interface expression string.
-
-        Parameters
-        ----------
-        dt : DateTime
-            A target `DateTime` instance.
-        """
-        import apysc as ap
-
-        expression: str = f"{dt.variable_name} = new Date();"
-        ap.append_js_expression(expression=expression)
 
     def __sub__(self, other: "DateTime") -> TimeDelta:
         """

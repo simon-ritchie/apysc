@@ -9,7 +9,7 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
     ##################################################
-    "# TimeDelta class days property": "# TimeDelta クラスの days 属性",
+    "# TimeDelta class days interface": "# TimeDelta クラスの days インターフェイス",
     ##################################################
     "This page explains the `TimeDelta` class\'s `days` property interface.": "このページでは`TimeDelta`クラスの`days`属性のインターフェイスについて説明します。",  # noqa
     ##################################################

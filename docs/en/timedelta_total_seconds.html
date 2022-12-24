@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>TimeDelta class days interface &#8212; apysc  documentation</title>
+    <title>TimeDelta class total_seconds interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -22,8 +22,8 @@
     <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="TimeDelta class total_seconds interface" href="timedelta_total_seconds.html" />
-    <link rel="prev" title="TimeDelta class" href="timedelta.html" /> 
+    <link rel="next" title="Animation interfaces abstract" href="animation_interfaces_abstract.html" />
+    <link rel="prev" title="TimeDelta class days interface" href="timedelta_days.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -32,13 +32,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="timedelta_total_seconds.html" title="TimeDelta class total_seconds interface"
+          <a href="animation_interfaces_abstract.html" title="Animation interfaces abstract"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="timedelta.html" title="TimeDelta class"
+          <a href="timedelta_days.html" title="TimeDelta class days interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">TimeDelta class days interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">TimeDelta class total_seconds interface</a></li> 
       </ul>
     </div>  
 
@@ -47,44 +47,40 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="timedelta-class-days-interface">
-<h1>TimeDelta class days interface<a class="headerlink" href="#timedelta-class-days-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">days</span></code> property interface.</p>
+  <section id="timedelta-class-total-seconds-interface">
+<h1>TimeDelta class total_seconds interface<a class="headerlink" href="#timedelta-class-total-seconds-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code> class’s <code class="docutils literal notranslate"><span class="pre">total_seconds</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">days</span></code> property returns the number of days between two <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> instances.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">total_seconds</span></code> method returns the number of total seconds between two <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> instances.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">days</span></code>’ type is the apysc’s <code class="docutils literal notranslate"><span class="pre">Int</span></code> and truncates a fraction value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">total_seconds</span></code> method returns the apysc’s <code class="docutils literal notranslate"><span class="pre">Number</span></code> value.</p>
+<p>If any <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> instances have a <code class="docutils literal notranslate"><span class="pre">millisecond</span></code> value, this interface sets a fraction value.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">datetime_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">datetime_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">millisecond</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">datetime_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">timedelta_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimeDelta</span> <span class="o">=</span> <span class="n">datetime_1</span> <span class="o">-</span> <span class="n">datetime_2</span>
-<span class="n">days</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">timedelta_</span><span class="o">.</span><span class="n">days</span>
-<span class="k">assert</span> <span class="n">days</span> <span class="o">==</span> <span class="mi">2</span>
-
-<span class="n">datetime_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="n">datetime_4</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">timedelta_</span> <span class="o">=</span> <span class="n">datetime_3</span> <span class="o">-</span> <span class="n">datetime_4</span>
-<span class="n">days</span> <span class="o">=</span> <span class="n">timedelta_</span><span class="o">.</span><span class="n">days</span>
-<span class="k">assert</span> <span class="n">days</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="n">total_seconds</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">timedelta_</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">total_seconds</span> <span class="o">==</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span>
 </pre></div>
 </div>
 </section>
-<section id="days-property-api">
-<h2>days property API<a class="headerlink" href="#days-property-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._time.timedelta_.TimeDelta.days -->
+<section id="total-seconds-method-api">
+<h2>total_seconds method API<a class="headerlink" href="#total-seconds-method-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._time.timedelta_.TimeDelta.total_seconds -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">total_seconds(self)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.number.Number</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
-<p>Get days in the duration.<hr></p>
+<p>Get the total seconds in the duration.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">days</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_seconds</span></code>: Number</p>
 <ul>
-<li><p>Days value. This interface ignores a fraction.</p></li>
+<li><p>Total seconds in the duration.</p></li>
 </ul>
 </li>
 </ul>
@@ -92,10 +88,10 @@
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">timedelta_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimeDelta</span> <span class="o">=</span> <span class="n">datetime_1</span> <span class="o">-</span> <span class="n">datetime_2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">timedelta_</span><span class="o">.</span><span class="n">days</span>
-<span class="go">Int(2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">timedelta_</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+<span class="go">Number(86400.0)</span>
 </pre></div>
 </div>
 </section>
@@ -113,20 +109,20 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">TimeDelta class days interface</a><ul>
+<li><a class="reference internal" href="#">TimeDelta class total_seconds interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#days-property-api">days property API</a></li>
+<li><a class="reference internal" href="#total-seconds-method-api">total_seconds method API</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="timedelta.html"
-                        title="previous chapter">TimeDelta class</a></p>
+  <p class="topless"><a href="timedelta_days.html"
+                        title="previous chapter">TimeDelta class days interface</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="timedelta_total_seconds.html"
-                        title="next chapter">TimeDelta class total_seconds interface</a></p>
+  <p class="topless"><a href="animation_interfaces_abstract.html"
+                        title="next chapter">Animation interfaces abstract</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -148,13 +144,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="timedelta_total_seconds.html" title="TimeDelta class total_seconds interface"
+          <a href="animation_interfaces_abstract.html" title="Animation interfaces abstract"
              >next</a> |</li>
         <li class="right" >
-          <a href="timedelta.html" title="TimeDelta class"
+          <a href="timedelta_days.html" title="TimeDelta class days interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">TimeDelta class days interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">TimeDelta class total_seconds interface</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

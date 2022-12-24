@@ -3052,5 +3052,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - Days value. This interface ignores a fraction.",
             val="  - 日数値。小数点数の分は無視されます。",
         ),
+        Mapping(
+            key="## total_seconds method API",
+            val="## total_seconds メソッドのAPI",
+        ),
+        Mapping(
+            key="Get the total seconds in the duration.<hr>",
+            val="時間の間隔値の合計秒数を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - Total seconds in the duration.",
+            val="  - 時間の間隔値の合計秒数。",
+        ),
     ]
 )

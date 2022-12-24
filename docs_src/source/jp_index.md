@@ -259,6 +259,7 @@ jp_datetime_set_month_end
 :maxdepth: 1
 jp_timedelta
 jp_timedelta_days
+jp_timedelta_total_seconds
 ```
 
 ## アニメーション

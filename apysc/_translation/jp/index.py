@@ -95,7 +95,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## TimeDelta class": "## TimeDelta クラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\ntimedelta\ntimedelta_days\n```": "```{toctree}\n:maxdepth: 1\njp_timedelta\njp_timedelta_days\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\ntimedelta\ntimedelta_days\ntimedelta_total_seconds\n```": "```{toctree}\n:maxdepth: 1\njp_timedelta\njp_timedelta_days\njp_timedelta_total_seconds\n```",  # noqa
     ##################################################
     "## Animation": "## アニメーション",
     ##################################################

@@ -1,4 +1,4 @@
-# TimeDelta class days property
+# TimeDelta class days interface
 
 This page explains the `TimeDelta` class's `days` property interface.
 

@@ -256,6 +256,7 @@ datetime_set_month_end
 :maxdepth: 1
 timedelta
 timedelta_days
+timedelta_total_seconds
 ```
 
 ## Animation

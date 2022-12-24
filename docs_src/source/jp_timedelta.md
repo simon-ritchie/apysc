@@ -61,3 +61,31 @@ assert total_seconds == 60 * 60 * 24 * 2
 >>> timedelta_.days
 Int(2)
 ```
+
+## total_seconds メソッドのAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `total_seconds(self) -> apysc._type.number.Number`<hr>
+
+**[インターフェイス概要]**
+
+時間の間隔値の合計秒数を取得します。<hr>
+
+**[返却値]**
+
+- `total_seconds`: Number
+  - 時間の間隔値の合計秒数。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
+>>> datetime_2: ap.DateTime = ap.DateTime(2022, 12, 6)
+>>> timedelta_: ap.TimeDelta = datetime_1 - datetime_2
+>>> timedelta_.total_seconds()
+Number(86400.0)
+```

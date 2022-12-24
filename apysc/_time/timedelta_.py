@@ -36,6 +36,15 @@ class TimeDelta(
     Int(2)
     >>> timedelta_.total_seconds()
     Number(172800.0)
+
+    References
+    ----------
+    - TimeDelta class
+        - https://simon-ritchie.github.io/apysc/en/timedelta.html
+    - TimeDelta class days interface
+        - https://simon-ritchie.github.io/apysc/en/timedelta_days.html
+    - TimeDelta class total_seconds interface
+        - https://simon-ritchie.github.io/apysc/en/timedelta_total_seconds.html
     """
 
     _left_datetime: "DateTime"

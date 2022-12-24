@@ -77,6 +77,13 @@ class DaysMixIn(
         >>> timedelta_: ap.TimeDelta = datetime_1 - datetime_2
         >>> timedelta_.days
         Int(2)
+
+        References
+        ----------
+        - TimeDelta class
+            - https://simon-ritchie.github.io/apysc/en/timedelta.html
+        - TimeDelta class days interface
+            - https://simon-ritchie.github.io/apysc/en/timedelta_days.html
         """
         days: Int = Int(0)
         days._value = self._days_value

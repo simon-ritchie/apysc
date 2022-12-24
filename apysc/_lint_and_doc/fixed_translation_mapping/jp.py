@@ -2704,8 +2704,8 @@ MAPPINGS: Mappings = Mappings(
             val="  - 現在の年の値。",
         ),
         Mapping(
-            key="## DateTime",
-            val="## DateTime",
+            key="## DateTime class",
+            val="## DateTime クラス",
         ),
         Mapping(
             key="A `DateTime` instance has its property interface.",
@@ -3035,6 +3035,10 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="This method interface requires no arguments.",
             val="このメソッドでは引数を必要としません。",
+        ),
+        Mapping(
+            key="## TimeDelta class",
+            val="## TimeDelta クラス",
         ),
     ]
 )

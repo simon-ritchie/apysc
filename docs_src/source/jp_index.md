@@ -236,7 +236,7 @@ jp_timer_complete
 jp_timer_reset
 ```
 
-## DateTime
+## DateTime クラス
 
 ```{toctree}
 :maxdepth: 1
@@ -251,6 +251,13 @@ jp_datetime_millisecond
 jp_datetime_weekday_js_and_weekday_py
 jp_datetime_now
 jp_datetime_set_month_end
+```
+
+## TimeDelta クラス
+
+```{toctree}
+:maxdepth: 1
+jp_timedelta
 ```
 
 ## アニメーション

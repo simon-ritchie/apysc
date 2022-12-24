@@ -233,7 +233,7 @@ timer_complete
 timer_reset
 ```
 
-## DateTime
+## DateTime class
 
 ```{toctree}
 :maxdepth: 1
@@ -248,6 +248,13 @@ datetime_millisecond
 datetime_weekday_js_and_weekday_py
 datetime_now
 datetime_set_month_end
+```
+
+## TimeDelta class
+
+```{toctree}
+:maxdepth: 1
+timedelta
 ```
 
 ## Animation

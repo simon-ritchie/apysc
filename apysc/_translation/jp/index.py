@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -89,9 +89,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```{toctree}\n:maxdepth: 1\ntimer\ntimer_event\ntimer_delay\nfps\ntimer_repeat_count\ntimer_start_and_stop\ntimer_complete\ntimer_reset\n```": "```{toctree}\n:maxdepth: 1\njp_timer\njp_timer_event\njp_timer_delay\njp_fps\njp_timer_repeat_count\njp_timer_start_and_stop\njp_timer_complete\njp_timer_reset\n```",  # noqa
     ##################################################
-    "## DateTime": "## DateTime",
+    "## DateTime class": "## DateTime クラス",
     ##################################################
     "```{toctree}\n:maxdepth: 1\ndatetime\ndatetime_year\ndatetime_month\ndatetime_day\ndatetime_hour\ndatetime_minute\ndatetime_second\ndatetime_millisecond\ndatetime_weekday_js_and_weekday_py\ndatetime_now\ndatetime_set_month_end\n```": "```{toctree}\n:maxdepth: 1\njp_datetime\njp_datetime_year\njp_datetime_month\njp_datetime_day\njp_datetime_hour\njp_datetime_minute\njp_datetime_second\njp_datetime_millisecond\njp_datetime_weekday_js_and_weekday_py\njp_datetime_now\njp_datetime_set_month_end\n```",  # noqa
+    ##################################################
+    "## TimeDelta class": "## TimeDelta クラス",
+    ##################################################
+    "```{toctree}\n:maxdepth: 1\ntimedelta\n```": "```{toctree}\n:maxdepth: 1\njp_timedelta\n```",  # noqa
     ##################################################
     "## Animation": "## アニメーション",
     ##################################################

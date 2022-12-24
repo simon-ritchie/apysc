@@ -1,7 +1,7 @@
 """This module is for the translation mapping data of the
 following document:
 
-Document file: timedelta.md
+Document file: timedelta_days.md
 Language: jp
 """
 
@@ -9,23 +9,19 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
     ##################################################
-    "# TimeDelta class": "# TimeDelta クラス",
+    "# TimeDelta class days property": "# TimeDelta クラスの days 属性",
     ##################################################
-    "This page explains the `TimeDelta` class.": "このページでは`TimeDelta`クラスについて説明します。",
+    "This page explains the `TimeDelta` class\'s `days` property interface.": "このページでは`TimeDelta`クラスの`days`属性のインターフェイスについて説明します。",  # noqa
     ##################################################
-    "## What class is this?": "## クラス概要",
+    "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `TimeDelta` class treats a time delta between two `DateTime` instances.": "`TimeDelta`クラスは2つの`DateTime`クラスのインスタンス間の時間差を扱います。",  # noqa
+    "The `days` property returns the number of days between two `DateTime` instances.": "`days`属性は2つの`DateTime`クラスのインスタンス間の日数値を返却します。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "Subtraction between two `DateTime` instances returns this class\'s instance.": "2つの`DateTime`クラスのインスタンス間の減算はこのクラスのインスタンスを返却します。",  # noqa
+    "The `days`\' type is the apysc\'s `Int` and truncates a fraction value.": "`days`属性の値の型はapyscの`Int`型となり、且つその値の小数点数は切り捨てられます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)\ndatetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)\ntimedelta_: ap.TimeDelta = datetime_1 - datetime_2\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)\ndatetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)\ntimedelta_: ap.TimeDelta = datetime_1 - datetime_2\n```",  # noqa
-    ##################################################
-    "A `TimeDelta` instance has each interface, such as the `days`\' property or `total_seconds`\' method, as follows:": "`TimeDelta`クラスのインスタンスは以下のように`days`属性や`total_seconds`メソッドなどの各インターフェイスを持っています:",  # noqa
-    ##################################################
-    "```\n# runnable\nimport apysc as ap\n\ndatetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)\ndatetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)\ntimedelta_: ap.TimeDelta = datetime_1 - datetime_2\ndays: ap.Int = timedelta_.days\nassert days == 2\ntotal_seconds: ap.Number = timedelta_.total_seconds()\nassert total_seconds == 60 * 60 * 24 * 2\n```": "```\n# runnable\nimport apysc as ap\n\ndatetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)\ndatetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)\ntimedelta_: ap.TimeDelta = datetime_1 - datetime_2\ndays: ap.Int = timedelta_.days\nassert days == 2\ntotal_seconds: ap.Number = timedelta_.total_seconds()\nassert total_seconds == 60 * 60 * 24 * 2\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\ndatetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)\ndatetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)\ntimedelta_: ap.TimeDelta = datetime_1 - datetime_2\ndays: ap.Int = timedelta_.days\nassert days == 2\n\ndatetime_3: ap.DateTime = ap.DateTime(2022, 12, 7)\ndatetime_4: ap.DateTime = ap.DateTime(2022, 12, 5, hour=10)\ntimedelta_ = datetime_3 - datetime_4\ndays = timedelta_.days\nassert days == 1\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)\ndatetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)\ntimedelta_: ap.TimeDelta = datetime_1 - datetime_2\ndays: ap.Int = timedelta_.days\nassert days == 2\n\ndatetime_3: ap.DateTime = ap.DateTime(2022, 12, 7)\ndatetime_4: ap.DateTime = ap.DateTime(2022, 12, 5, hour=10)\ntimedelta_ = datetime_3 - datetime_4\ndays = timedelta_.days\nassert days == 1\n```",  # noqa
     ##################################################
     "## days property API": "## days 属性のAPI",
     ##################################################

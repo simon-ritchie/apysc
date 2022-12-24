@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>TimeDelta クラス &#8212; apysc  documentation</title>
+    <title>TimeDelta クラスの days 属性 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -21,8 +21,8 @@
     <script src="static/keyword_link_mapping.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="TimeDelta クラスの days 属性" href="jp_timedelta_days.html" />
-    <link rel="prev" title="DateTime クラスの set_month_end インターフェイス" href="jp_datetime_set_month_end.html" /> 
+    <link rel="next" title="各アニメーションインターフェイス概要" href="jp_animation_interfaces_abstract.html" />
+    <link rel="prev" title="TimeDelta クラス" href="jp_timedelta.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,13 +31,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="jp_timedelta_days.html" title="TimeDelta クラスの days 属性"
+          <a href="jp_animation_interfaces_abstract.html" title="各アニメーションインターフェイス概要"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="jp_datetime_set_month_end.html" title="DateTime クラスの set_month_end インターフェイス"
+          <a href="jp_timedelta.html" title="TimeDelta クラス"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">TimeDelta クラス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">TimeDelta クラスの days 属性</a></li> 
       </ul>
     </div>  
 
@@ -46,27 +46,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/timedelta.html">英語の原文</a>の確認をお願いします。</span></p>
-<section id="timedelta">
-<h1>TimeDelta クラス<a class="headerlink" href="#timedelta" title="Permalink to this headline">¶</a></h1>
-<p>このページでは<code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code>クラスについて説明します。</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/timedelta_days.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="timedelta-days">
+<h1>TimeDelta クラスの days 属性<a class="headerlink" href="#timedelta-days" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">days</span></code>属性のインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code>クラスは2つの<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスのインスタンス間の時間差を扱います。</p>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">days</span></code>属性は2つの<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスのインスタンス間の日数値を返却します。</p>
 </section>
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>2つの<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスのインスタンス間の減算はこのクラスのインスタンスを返却します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">days</span></code>属性の値の型はapyscの<code class="docutils literal notranslate"><span class="pre">Int</span></code>型となり、且つその値の小数点数は切り捨てられます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-
-<span class="n">datetime_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="n">datetime_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">timedelta_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimeDelta</span> <span class="o">=</span> <span class="n">datetime_1</span> <span class="o">-</span> <span class="n">datetime_2</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code>クラスのインスタンスは以下のように<code class="docutils literal notranslate"><span class="pre">days</span></code>属性や<code class="docutils literal notranslate"><span class="pre">total_seconds</span></code>メソッドなどの各インターフェイスを持っています:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">datetime_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
@@ -74,8 +65,12 @@
 <span class="n">timedelta_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimeDelta</span> <span class="o">=</span> <span class="n">datetime_1</span> <span class="o">-</span> <span class="n">datetime_2</span>
 <span class="n">days</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">timedelta_</span><span class="o">.</span><span class="n">days</span>
 <span class="k">assert</span> <span class="n">days</span> <span class="o">==</span> <span class="mi">2</span>
-<span class="n">total_seconds</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">timedelta_</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
-<span class="k">assert</span> <span class="n">total_seconds</span> <span class="o">==</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="n">datetime_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">datetime_4</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">timedelta_</span> <span class="o">=</span> <span class="n">datetime_3</span> <span class="o">-</span> <span class="n">datetime_4</span>
+<span class="n">days</span> <span class="o">=</span> <span class="n">timedelta_</span><span class="o">.</span><span class="n">days</span>
+<span class="k">assert</span> <span class="n">days</span> <span class="o">==</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </section>
@@ -117,8 +112,8 @@
             </a></p>
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">TimeDelta クラス</a><ul>
-<li><a class="reference internal" href="#id1">クラス概要</a></li>
+<li><a class="reference internal" href="#">TimeDelta クラスの days 属性</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
 <li><a class="reference internal" href="#days-api">days 属性のAPI</a></li>
 </ul>
@@ -126,11 +121,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_datetime_set_month_end.html"
-                        title="previous chapter">DateTime クラスの set_month_end インターフェイス</a></p>
+  <p class="topless"><a href="jp_timedelta.html"
+                        title="previous chapter">TimeDelta クラス</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="jp_timedelta_days.html"
-                        title="next chapter">TimeDelta クラスの days 属性</a></p>
+  <p class="topless"><a href="jp_animation_interfaces_abstract.html"
+                        title="next chapter">各アニメーションインターフェイス概要</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -152,13 +147,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="jp_timedelta_days.html" title="TimeDelta クラスの days 属性"
+          <a href="jp_animation_interfaces_abstract.html" title="各アニメーションインターフェイス概要"
              >next</a> |</li>
         <li class="right" >
-          <a href="jp_datetime_set_month_end.html" title="DateTime クラスの set_month_end インターフェイス"
+          <a href="jp_timedelta.html" title="TimeDelta クラス"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">TimeDelta クラス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">TimeDelta クラスの days 属性</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

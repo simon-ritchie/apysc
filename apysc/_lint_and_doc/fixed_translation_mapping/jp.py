@@ -3040,5 +3040,17 @@ MAPPINGS: Mappings = Mappings(
             key="## TimeDelta class",
             val="## TimeDelta クラス",
         ),
+        Mapping(
+            key="## days property API",
+            val="## days 属性のAPI",
+        ),
+        Mapping(
+            key="Get days in the duration.<hr>",
+            val="時間の間隔値の日数を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - Days value. This interface ignores a fraction.",
+            val="  - 日数値。小数点数の分は無視されます。",
+        ),
     ]
 )

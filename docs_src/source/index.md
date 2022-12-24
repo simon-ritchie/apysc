@@ -255,6 +255,7 @@ datetime_set_month_end
 ```{toctree}
 :maxdepth: 1
 timedelta
+timedelta_days
 ```
 
 ## Animation

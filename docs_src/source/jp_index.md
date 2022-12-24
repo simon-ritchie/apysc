@@ -258,6 +258,7 @@ jp_datetime_set_month_end
 ```{toctree}
 :maxdepth: 1
 jp_timedelta
+jp_timedelta_days
 ```
 
 ## アニメーション

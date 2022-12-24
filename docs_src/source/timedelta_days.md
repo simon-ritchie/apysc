@@ -54,3 +54,9 @@ Get days in the duration.<hr>
 >>> timedelta_.days
 Int(2)
 ```
+
+<hr>
+
+**[References]**
+
+- [TimeDelta class](https://simon-ritchie.github.io/apysc/en/timedelta.html)

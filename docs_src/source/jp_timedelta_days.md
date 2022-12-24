@@ -54,3 +54,9 @@ assert days == 1
 >>> timedelta_.days
 Int(2)
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [TimeDelta クラス](https://simon-ritchie.github.io/apysc/jp/jp_timedelta.html)

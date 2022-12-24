@@ -62,6 +62,12 @@ assert total_seconds == 60 * 60 * 24 * 2
 Int(2)
 ```
 
+<hr>
+
+**[関連資料]**
+
+- [TimeDelta クラスの days インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_timedelta_days.html)
+
 ## total_seconds メソッドのAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
@@ -89,3 +95,9 @@ Int(2)
 >>> timedelta_.total_seconds()
 Number(86400.0)
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [TimeDelta クラスの total_seconds インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_timedelta_total_seconds.html)

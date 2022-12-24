@@ -52,3 +52,9 @@ assert total_seconds == 60 * 60 * 24 * 2 + 0.1
 >>> timedelta_.total_seconds()
 Number(86400.0)
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [TimeDelta クラス](https://simon-ritchie.github.io/apysc/jp/jp_timedelta.html)

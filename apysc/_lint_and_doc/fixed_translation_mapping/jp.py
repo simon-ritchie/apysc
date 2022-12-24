@@ -3064,5 +3064,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - Total seconds in the duration.",
             val="  - 時間の間隔値の合計秒数。",
         ),
+        Mapping(
+            key="TimeDelta class days interface",
+            val="TimeDelta クラスの days インターフェイス",
+        ),
+        Mapping(
+            key="TimeDelta class",
+            val="TimeDelta クラス",
+        ),
+        Mapping(
+            key="TimeDelta class total_seconds interface",
+            val="TimeDelta クラスの total_seconds インターフェイス",
+        ),
     ]
 )

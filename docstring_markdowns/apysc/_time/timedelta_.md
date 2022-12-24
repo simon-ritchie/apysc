@@ -40,6 +40,14 @@ Int(2)
 Number(172800.0)
 ```
 
+<hr>
+
+**[References]**
+
+- [TimeDelta class](https://simon-ritchie.github.io/apysc/en/timedelta.html)
+- [TimeDelta class days interface](https://simon-ritchie.github.io/apysc/en/timedelta_days.html)
+- [TimeDelta class total_seconds interface](https://simon-ritchie.github.io/apysc/en/timedelta_total_seconds.html)
+
 ### `__init__` method docstring
 
 Class implementations for time delta-related interfaces.<hr>

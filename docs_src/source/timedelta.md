@@ -62,6 +62,12 @@ Get days in the duration.<hr>
 Int(2)
 ```
 
+<hr>
+
+**[References]**
+
+- [TimeDelta class days interface](https://simon-ritchie.github.io/apysc/en/timedelta_days.html)
+
 ## total_seconds method API
 
 <!-- Docstring: apysc._time.timedelta_.TimeDelta.total_seconds -->
@@ -91,3 +97,9 @@ Get the total seconds in the duration.<hr>
 >>> timedelta_.total_seconds()
 Number(86400.0)
 ```
+
+<hr>
+
+**[References]**
+
+- [TimeDelta class total_seconds interface](https://simon-ritchie.github.io/apysc/en/timedelta_total_seconds.html)

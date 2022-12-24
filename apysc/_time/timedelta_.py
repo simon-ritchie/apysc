@@ -35,7 +35,7 @@ class TimeDelta(
     >>> timedelta_.days
     Int(2)
     >>> timedelta_.total_seconds()
-    Number(172800)
+    Number(172800.0)
     """
 
     _left_datetime: "DateTime"

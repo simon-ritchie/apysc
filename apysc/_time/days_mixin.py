@@ -68,6 +68,15 @@ class DaysMixIn(
         -------
         days : Int
             Days value. This interface ignores a fraction.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
+        >>> datetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)
+        >>> timedelta_: ap.TimeDelta = datetime_1 - datetime_2
+        >>> timedelta_.days
+        Int(2)
         """
         days: Int = Int(0)
         days._value = self._days_value

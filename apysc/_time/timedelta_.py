@@ -24,6 +24,18 @@ class TimeDelta(
 ):
     """
     Class implementations for time delta-related interfaces.
+    Subtraction between two `DateTime` instances returns this class's instance.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
+    >>> datetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)
+    >>> timedelta_: ap.TimeDelta = datetime_1 - datetime_2
+    >>> timedelta_.days
+    Int(2)
+    >>> timedelta_.total_seconds()
+    Number(172800)
     """
 
     _left_datetime: "DateTime"

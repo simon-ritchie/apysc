@@ -68,6 +68,15 @@ class TotalSecondsMixIn(
         -------
         total_seconds : Number
             Total seconds in the duration.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
+        >>> datetime_2: ap.DateTime = ap.DateTime(2022, 12, 6)
+        >>> timedelta_: ap.TimeDelta = datetime_1 - datetime_2
+        >>> timedelta_.total_seconds()
+        Number(86400)
         """
         suffix: str = self._get_attr_variable_name_suffix(
             attr_identifier="total_seconds"

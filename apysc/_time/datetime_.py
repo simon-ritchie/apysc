@@ -1,7 +1,6 @@
 """Class implementations for datetime-related mix-in.
 """
 
-from datetime import datetime
 from typing import Union
 
 from typing_extensions import final
@@ -13,6 +12,7 @@ from apysc._time.millisecond_mixin import MillisecondMixIn
 from apysc._time.minute_mixin import MinuteMixIn
 from apysc._time.month_end_mixin import MonthEndMixin
 from apysc._time.month_mixin import MonthMixIn
+from apysc._time.now_mixin import NowMixIn
 from apysc._time.second_mixin import SecondMixIn
 from apysc._time.timedelta_ import TimeDelta
 from apysc._time.weekday_mixin import WeekdayMixIn
@@ -21,7 +21,6 @@ from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMix
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._time.now_mixin import NowMixIn
 
 
 class DateTime(

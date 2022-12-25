@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementations for datetime-related interfaces.
+Class implementations for datetime-related mix-in.
 
 ## `DateTime` class docstring
 
@@ -167,15 +167,6 @@ Method for subtraction.<hr>
 
 Append a constructor expression.
 
-### `_append_now_expression` method docstring
-
-Append a `now` interface expression string.<hr>
-
-**[Parameters]**
-
-- `dt`: DateTime
-  - A target `DateTime` instance.
-
 ### `_create_initial_substitution_expression` method docstring
 
 Create an initial value's substitution expression string.<hr>
@@ -184,37 +175,3 @@ Create an initial value's substitution expression string.<hr>
 
 - `expression`: str
   - Created expression string.
-
-### `now` method docstring
-
-Get a `DateTime` instance of the current time.<hr>
-
-**[Returns]**
-
-- `dt`: DateTime
-  - A created `DateTime` instance.
-
-<hr>
-
-**[Examples]**
-
-```py
->>> from datetime import datetime
->>> import apysc as ap
->>> py_now: datetime = datetime.now()
->>> ap_now: ap.DateTime = ap.DateTime.now()
->>> ap_now.year == py_now.year
-Boolean(True)
-
->>> ap_now.month == py_now.month
-Boolean(True)
-
->>> ap_now.day == py_now.day
-Boolean(True)
-```
-
-<hr>
-
-**[References]**
-
-- [DateTime class now interface](https://simon-ritchie.github.io/apysc/en/datetime_now.html)

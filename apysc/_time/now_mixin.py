@@ -1,13 +1,12 @@
 """Class implementations for now-related mix-in.
 """
 
-from typing import TYPE_CHECKING
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
@@ -46,6 +45,7 @@ class NowMixIn:
         Boolean(True)
         """
         from apysc._time.datetime_ import DateTime
+
         now_: datetime = datetime.now()
         dt: DateTime = DateTime(year=1970, month=1, day=1)
         dt._year._value = now_.year
@@ -56,6 +56,7 @@ class NowMixIn:
         dt._second._value = now_.second
         _append_now_expression(dt=dt)
         return dt
+
 
 @final
 @add_debug_info_setting(module_name=__name__)

@@ -12,13 +12,13 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 from apysc._validation import arg_validation_decos
 
 StrOrString = TypeVar("StrOrString", str, String)
 
 
-class BeginFillMixIn(VariableNameSuffixAttrMixIn, RevertMixIn):
+class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
 
     _fill_color: String
     _fill_alpha: Number

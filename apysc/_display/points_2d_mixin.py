@@ -11,11 +11,11 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 from apysc._validation import arg_validation_decos
 
 
-class Points2DMixIn(VariableNameSuffixAttrMixIn, VariableNameMixIn, RevertMixIn):
+class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMixIn):
 
     _points: Array[Point2D]
 

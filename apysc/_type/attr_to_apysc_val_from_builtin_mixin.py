@@ -10,7 +10,7 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class AttrToApyscValFromBuiltinMixIn:
@@ -161,9 +161,9 @@ def _get_variable_name_suffix(
     suffix : str
         A target instance's variable name suffix.
         This value becomes a blank string if a specified
-        instance type is not the `VariableNameSuffixAttrMixIn`.
+        instance type is not the `VariableNameSuffixAttrOrVarMixIn`.
     """
-    if isinstance(instance, VariableNameSuffixAttrMixIn):
+    if isinstance(instance, VariableNameSuffixAttrOrVarMixIn):
         suffix: str = instance._get_attr_variable_name_suffix(
             attr_identifier=attr_identifier
         )

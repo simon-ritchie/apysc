@@ -20,7 +20,7 @@ Get a target instance's variable name suffix.<hr>
 **[Returns]**
 
 - `suffix`: str
-  - A target instance's variable name suffix. This value becomes a blank string if a specified instance type is not the `VariableNameSuffixAttrMixIn`.
+  - A target instance's variable name suffix. This value becomes a blank string if a specified instance type is not the `VariableNameSuffixAttrOrVarMixIn`.
 
 ## `AttrToApyscValFromBuiltinMixIn` class docstring
 

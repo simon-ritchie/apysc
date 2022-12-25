@@ -42,7 +42,7 @@ class TruncMixIn:
         except Exception:
             pass
         expression: str = (
-            f"{result.variable_name} = Math.trunc({result.variable_name});"
+            f"{result.variable_name} = Math.trunc({value.variable_name});"
         )
         ap.append_js_expression(expression=expression)
         return result

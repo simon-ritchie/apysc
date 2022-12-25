@@ -11,12 +11,13 @@ class TestTruncMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_trunc(self) -> None:
         expression_data_util.empty_expression()
-        result: ap.Int = ap.Math.trunc(value=ap.Int(10))
+        value: ap.Int = ap.Int(10)
+        result: ap.Int = ap.Math.trunc(value=value)
         assert isinstance(result, ap.Int)
         assert result == 10
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"{result.variable_name} = Math.trunc({result.variable_name});"
+            f"{result.variable_name} = Math.trunc({value.variable_name});"
         )
         assert expected in expression
 

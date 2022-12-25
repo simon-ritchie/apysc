@@ -13,7 +13,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrMixIn
 from apysc._validation import arg_validation_decos
 
 

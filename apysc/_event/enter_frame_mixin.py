@@ -20,7 +20,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrMixIn
 
 _Options = TypeVar("_Options")
 _Handlername = str

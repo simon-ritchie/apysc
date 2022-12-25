@@ -7,7 +7,7 @@ from typing_extensions import final
 
 from apysc._type.boolean import Boolean
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 

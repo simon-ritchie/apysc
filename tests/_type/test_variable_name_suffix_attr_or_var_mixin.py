@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc._type.variable_name_suffix_attr_mixin import VariableNameSuffixAttrMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 

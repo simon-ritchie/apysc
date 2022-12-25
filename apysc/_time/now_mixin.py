@@ -17,9 +17,15 @@ class NowMixIn:
     @classmethod
     @final
     @add_debug_info_setting(module_name=__name__)
-    def now(cls) -> "DateTime":
+    def now(cls, *, variable_name_suffix: str = "") -> "DateTime":
         """
         Get a `DateTime` instance of the current time.
+
+        Parameters
+        ----------
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript's debugging.
 
         Returns
         -------
@@ -47,7 +53,12 @@ class NowMixIn:
         from apysc._time.datetime_ import DateTime
 
         now_: datetime = datetime.now()
-        dt: DateTime = DateTime(year=1970, month=1, day=1)
+        dt: DateTime = DateTime(
+            year=1970,
+            month=1,
+            day=1,
+            variable_name_suffix=variable_name_suffix,
+        )
         dt._year._value = now_.year
         dt._month._value = now_.month
         dt._day._value = now_.day

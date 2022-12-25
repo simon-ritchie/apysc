@@ -33,7 +33,7 @@ def main() -> None:
 
 
 def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
-    pass
+    ap.trace(ap.DateTime.now(), e.this)
 
 
 if __name__ == "__main__":

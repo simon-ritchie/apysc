@@ -65,7 +65,7 @@ def main() -> None:
     rectangle_4.click(on_rectangle_4_1_clicked)
     rectangle_4.click(on_rectangle_4_2_clicked)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 def on_stage_clicked(e: ap.MouseEvent, options: dict) -> None:

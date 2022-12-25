@@ -33,6 +33,6 @@ class MouseEventBindingExpressionMixin:
             instance=self
         )
         expression: str = (
-            f"{self_instance.variable_name}" f".{mouse_event_type.value}({name});"
+            f"{self_instance.variable_name}.{mouse_event_type.value}({name});"
         )
         ap.append_js_expression(expression=expression)

@@ -12,6 +12,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._event.enter_frame_mixin import EnterFrameMixIn
 
 _Graphics = graphics.Graphics
 
@@ -19,6 +20,7 @@ _Graphics = graphics.Graphics
 class Sprite(
     XMixIn,
     YMixIn,
+    EnterFrameMixIn,
     DisplayObject,
     ChildMixIn,
     RevertMixIn,

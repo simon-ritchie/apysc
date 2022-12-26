@@ -78,7 +78,12 @@ class EnterFrameMixIn(
             handlers_dict=self._enter_frame_handlers,
             options=options,
         )
-        is_stopped: Boolean = Boolean(False)
+        is_stopped: Boolean = Boolean(
+            False,
+            variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                value_identifier="is_stopped",
+            ),
+        )
         handler_name: str = get_handler_name(handler=handler, instance=self)
         event: ap.EnterFrameEvent = ap.EnterFrameEvent(this=self)
         self._append_enter_frame_expression(
@@ -120,12 +125,25 @@ class EnterFrameMixIn(
             type_name=var_names.LOOP
         )
         MILISECOND_INTERVALS: float = fps.value.milisecond_intervals
-        prev_time: ap.DateTime = ap.DateTime.now()
+        prev_time: ap.DateTime = ap.DateTime.now(
+            variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                value_identifier="prev_time",
+            ),
+        )
         expression: str = f"function {LOOP_FUNC_NAME}() {{"
         ap.append_js_expression(expression=expression)
         with Indent():
-            current_time: ap.DateTime = ap.DateTime.now()
-            count: Int = Int(0)
+            current_time: ap.DateTime = ap.DateTime.now(
+                variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                    value_identifier="current_time",
+                )
+            )
+            count: Int = Int(
+                0,
+                variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                    value_identifier="count",
+                ),
+            )
             timedelta_: ap.TimeDelta = current_time - prev_time
             total_milliseconds: Number = timedelta_.total_seconds() * 1000
             count.value = ap.Math.trunc(total_milliseconds / MILISECOND_INTERVALS)

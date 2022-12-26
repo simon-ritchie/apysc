@@ -125,12 +125,12 @@ class Sprite(
                 type_name=var_names.SPRITE
             )
 
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="children")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="children")
         self._children = ap.Array([], variable_name_suffix=suffix)
 
         super(Sprite, self).__init__(variable_name=variable_name)
         self._append_constructor_expression()
-        suffix = self._get_attr_variable_name_suffix(value_identifier="graphics")
+        suffix = self._get_attr_or_variable_name_suffix(value_identifier="graphics")
         self.graphics = graphics.Graphics(parent=self, variable_name_suffix=suffix)
         stage.add_child(child=self)
         self._set_overflow_visible_setting()

@@ -33,7 +33,7 @@ class RotationAroundPointMixIn(
         """
         if hasattr(self, "_rotation_around_point"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
+        suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="rotation_around_point"
         )
         self._rotation_around_point = Dictionary(

@@ -32,7 +32,7 @@ class FillAlphaMixIn(
         """
         if hasattr(self, "_fill_alpha"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="fill_alpha")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="fill_alpha")
         self._fill_alpha = Number(
             1.0,
             variable_name_suffix=suffix,
@@ -143,7 +143,7 @@ class FillAlphaMixIn(
 
         self._initialize_fill_alpha_if_not_initialized()
         if not isinstance(value, Number):
-            suffix: str = self._get_attr_variable_name_suffix(
+            suffix: str = self._get_attr_or_variable_name_suffix(
                 value_identifier="fill_alpha"
             )
             value = cast.to_float_from_int(int_or_float=value)

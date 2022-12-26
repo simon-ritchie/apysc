@@ -31,7 +31,9 @@ class PathControlXMixIn(
         """
         if hasattr(self, "_control_x"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="control_x")
+        suffix: str = self._get_attr_or_variable_name_suffix(
+            value_identifier="control_x"
+        )
         self._control_x = Int(
             0,
             variable_name_suffix=suffix,

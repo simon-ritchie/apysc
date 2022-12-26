@@ -31,7 +31,7 @@ class SkewXMixIn(
         """
         if hasattr(self, "_skew_x"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="skew_x")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="skew_x")
         self._skew_x = Int(
             0,
             variable_name_suffix=suffix,

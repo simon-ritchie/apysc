@@ -58,7 +58,7 @@ class AppendLinePointMixIn(Points2DMixIn, VariableNameSuffixMixIn):
                 "implementation to set that value when constructor "
                 "or else."
             )
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="points")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="points")
         point: ap.Point2D = ap.Point2D(x=x, y=y, variable_name_suffix=suffix)
         self.points.append(value=point)
         expression: str

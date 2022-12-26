@@ -113,7 +113,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         """
         if hasattr(self, "_fill_color"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="fill_color")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="fill_color")
         self._fill_color = String(
             "",
             variable_name_suffix=suffix,
@@ -159,7 +159,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         """
         if hasattr(self, "_fill_alpha"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="fill_alpha")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="fill_alpha")
         self._fill_alpha = Number(
             1.0,
             variable_name_suffix=suffix,

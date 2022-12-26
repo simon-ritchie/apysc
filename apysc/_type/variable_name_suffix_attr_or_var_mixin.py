@@ -10,7 +10,7 @@ from apysc._validation import arg_validation_decos
 class VariableNameSuffixAttrOrVarMixIn:
     @final
     @arg_validation_decos.not_empty_string(arg_position_index=1)
-    def _get_attr_variable_name_suffix(self, *, value_identifier: str) -> str:
+    def _get_attr_or_variable_name_suffix(self, *, value_identifier: str) -> str:
         """
         Get an attribute or variable name's suffix if its value
         is not blank.

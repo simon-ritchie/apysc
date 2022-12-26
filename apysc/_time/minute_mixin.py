@@ -35,7 +35,7 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         )
 
         self._initial_minute = minute
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="minute")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="minute")
         self._minute = get_copied_int_from_builtin_val(
             integer=minute, variable_name_suffix=suffix
         )

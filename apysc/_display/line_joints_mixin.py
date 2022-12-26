@@ -27,7 +27,9 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
         """
         if hasattr(self, "_line_joints"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_joints")
+        suffix: str = self._get_attr_or_variable_name_suffix(
+            value_identifier="line_joints"
+        )
         self._line_joints = String(
             LineJoints.MITER.value,
             variable_name_suffix=suffix,

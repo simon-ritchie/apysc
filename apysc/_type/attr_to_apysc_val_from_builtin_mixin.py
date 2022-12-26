@@ -164,7 +164,7 @@ def _get_variable_name_suffix(
         instance type is not the `VariableNameSuffixAttrOrVarMixIn`.
     """
     if isinstance(instance, VariableNameSuffixAttrOrVarMixIn):
-        suffix: str = instance._get_attr_variable_name_suffix(
+        suffix: str = instance._get_attr_or_variable_name_suffix(
             value_identifier=attr_identifier
         )
         return suffix

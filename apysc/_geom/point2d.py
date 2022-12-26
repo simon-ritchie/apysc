@@ -101,12 +101,12 @@ class Point2D(
         if isinstance(x, ap.Int):
             x_: ap.Int = x
         else:
-            suffix: str = self._get_attr_variable_name_suffix(value_identifier="x")
+            suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
             x_ = ap.Int(x, variable_name_suffix=suffix)
         if isinstance(y, ap.Int):
             y_: ap.Int = y
         else:
-            suffix = self._get_attr_variable_name_suffix(value_identifier="y")
+            suffix = self._get_attr_or_variable_name_suffix(value_identifier="y")
             y_ = ap.Int(y, variable_name_suffix=suffix)
         self._x = x_
         self._y = y_
@@ -151,7 +151,7 @@ class Point2D(
         """
         import apysc as ap
 
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="x")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
         x: ap.Int = ap.Int(self._x._value, variable_name_suffix=suffix)
         self._append_x_getter_expression(x=x)
         return x
@@ -171,7 +171,7 @@ class Point2D(
         import apysc as ap
 
         if not isinstance(value, ap.Int):
-            suffix: str = self._get_attr_variable_name_suffix(value_identifier="x")
+            suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
             value = ap.Int(value, variable_name_suffix=suffix)
         self._x = value
         self._x._append_incremental_calc_substitution_expression()
@@ -230,7 +230,7 @@ class Point2D(
         """
         import apysc as ap
 
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="y")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="y")
         y: ap.Int = ap.Int(self._y._value, variable_name_suffix=suffix)
         self._append_y_getter_expression(y=y)
         return y
@@ -250,7 +250,7 @@ class Point2D(
         import apysc as ap
 
         if not isinstance(value, ap.Int):
-            suffix: str = self._get_attr_variable_name_suffix(value_identifier="y")
+            suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="y")
             value = ap.Int(value, variable_name_suffix=suffix)
         self._y = value
         self._y._append_incremental_calc_substitution_expression()

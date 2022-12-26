@@ -38,7 +38,7 @@ class ScaleXFromCenterMixIn(
 
         if hasattr(self, "_scale_x_from_center"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(
+        suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="scale_x_from_center"
         )
         self._scale_x_from_center = ap.Number(

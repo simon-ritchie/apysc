@@ -32,7 +32,7 @@ class RadiusMixIn(
         """
         if hasattr(self, "_radius"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="radius")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="radius")
         self._radius = Int(
             0,
             variable_name_suffix=suffix,
@@ -116,7 +116,7 @@ class RadiusMixIn(
         import apysc as ap
 
         if not isinstance(radius, ap.Int):
-            suffix: str = self._get_attr_variable_name_suffix(value_identifier="radius")
+            suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="radius")
             return ap.Int(radius, variable_name_suffix=suffix)
         return radius
 

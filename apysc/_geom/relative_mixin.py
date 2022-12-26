@@ -24,7 +24,7 @@ class RelativeMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn, VariableNameS
         """
         if hasattr(self, "_relative"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="relative")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="relative")
         self._relative = Boolean(
             False,
             variable_name_suffix=suffix,

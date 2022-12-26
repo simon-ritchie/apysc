@@ -27,7 +27,7 @@ class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertM
         """
         if hasattr(self, "_points"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="points")
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="points")
         self._points = Array(
             [],
             variable_name_suffix=suffix,

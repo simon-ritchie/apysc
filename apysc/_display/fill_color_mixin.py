@@ -121,7 +121,7 @@ class FillColorMixIn(
         if isinstance(fill_color, ap.String):
             fill_color_: ap.String = fill_color
         else:
-            suffix: str = self._get_attr_variable_name_suffix(
+            suffix: str = self._get_attr_or_variable_name_suffix(
                 value_identifier="fill_color"
             )
             fill_color_ = String(fill_color, variable_name_suffix=suffix)
@@ -153,7 +153,9 @@ class FillColorMixIn(
         """
         if hasattr(self, "_fill_color"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(value_identifier="fill_color")
+        suffix: str = self._get_attr_or_variable_name_suffix(
+            value_identifier="fill_color"
+        )
         self._fill_color = String(
             "",
             variable_name_suffix=suffix,

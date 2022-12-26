@@ -22,8 +22,8 @@ class VariableNameSuffixAttrOrVarMixIn:
 
         Returns
         -------
-        attr_variable_name_suffix : str
-            An attribute's variable name suffix.
+        attr_or_variable_name_suffix : str
+            An attribute or variable's name suffix.
             In the following cases, this value becomes a blank string.
             - If this instance is not the `VariableNameSuffixMixIn`
                 instance.
@@ -36,7 +36,7 @@ class VariableNameSuffixAttrOrVarMixIn:
         if self._variable_name_suffix == "":
             return ""
 
-        attr_variable_name_suffix: str = (
+        attr_or_variable_name_suffix: str = (
             f"{self._variable_name_suffix}__{value_identifier}"
         )
-        return attr_variable_name_suffix
+        return attr_or_variable_name_suffix

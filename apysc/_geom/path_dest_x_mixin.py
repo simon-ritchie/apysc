@@ -31,7 +31,7 @@ class PathDestXMixIn(
         """
         if hasattr(self, "_dest_x"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="dest_x")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="dest_x")
         self._dest_x = Int(
             0,
             variable_name_suffix=suffix,

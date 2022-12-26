@@ -43,7 +43,7 @@ class WidthAndHeightMixInForEllipse(
         does not initialize these yet.
         """
         if not hasattr(self, "_width"):
-            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="width")
+            suffix: str = self._get_attr_variable_name_suffix(value_identifier="width")
             self._width = Int(
                 0,
                 variable_name_suffix=suffix,
@@ -51,7 +51,7 @@ class WidthAndHeightMixInForEllipse(
             )
             self._append_width_attr_linking_setting()
         if not hasattr(self, "_height"):
-            suffix = self._get_attr_variable_name_suffix(attr_identifier="height")
+            suffix = self._get_attr_variable_name_suffix(value_identifier="height")
             self._height = Int(
                 0,
                 variable_name_suffix=suffix,

@@ -113,19 +113,19 @@ class Graphics(
             )
         super(Graphics, self).__init__(variable_name=variable_name)
 
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="fill_color")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="fill_color")
         self._fill_color = ap.String("", variable_name_suffix=suffix)
 
-        suffix = self._get_attr_variable_name_suffix(attr_identifier="fill_alpha")
+        suffix = self._get_attr_variable_name_suffix(value_identifier="fill_alpha")
         self._fill_alpha = ap.Number(1.0, variable_name_suffix=suffix)
 
-        suffix = self._get_attr_variable_name_suffix(attr_identifier="line_color")
+        suffix = self._get_attr_variable_name_suffix(value_identifier="line_color")
         self._line_color = ap.String("", variable_name_suffix=suffix)
 
-        suffix = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
+        suffix = self._get_attr_variable_name_suffix(value_identifier="line_alpha")
         self._line_alpha = ap.Number(1.0, variable_name_suffix=suffix)
 
-        suffix = self._get_attr_variable_name_suffix(attr_identifier="line_thickness")
+        suffix = self._get_attr_variable_name_suffix(value_identifier="line_thickness")
         self._line_thickness = ap.Int(1.0, variable_name_suffix=suffix)
 
         self._initialize_line_cap_if_not_initialized()
@@ -135,7 +135,7 @@ class Graphics(
         self._initialize_line_round_dot_setting_if_not_initialized()
         self._initialize_line_dash_dot_setting_if_not_initialized()
 
-        suffix = self._get_attr_variable_name_suffix(attr_identifier="children")
+        suffix = self._get_attr_variable_name_suffix(value_identifier="children")
         self._children = ap.Array([], variable_name_suffix=suffix)
 
         self._append_constructor_expression()

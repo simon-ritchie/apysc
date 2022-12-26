@@ -35,7 +35,7 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         )
 
         self._initial_year = year
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="year")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="year")
         self._year = get_copied_int_from_builtin_val(
             integer=year, variable_name_suffix=suffix
         )

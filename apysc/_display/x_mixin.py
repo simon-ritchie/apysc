@@ -34,7 +34,7 @@ class XMixIn(
         """
         if hasattr(self, "_x"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="x")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="x")
         self._x = Int(
             0,
             variable_name_suffix=suffix,
@@ -139,7 +139,7 @@ class XMixIn(
         if isinstance(x, Int):
             x_: Int = x
         else:
-            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="x")
+            suffix: str = self._get_attr_variable_name_suffix(value_identifier="x")
             x_ = Int(x, variable_name_suffix=suffix)
         self._x = x_
 

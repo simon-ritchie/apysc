@@ -1,4 +1,4 @@
-"""This module is for the attribute's variable name suffix-related
+"""This module is for the attribute or variable name's suffix-related
 mix-in class.
 """
 
@@ -10,15 +10,15 @@ from apysc._validation import arg_validation_decos
 class VariableNameSuffixAttrOrVarMixIn:
     @final
     @arg_validation_decos.not_empty_string(arg_position_index=1)
-    def _get_attr_variable_name_suffix(self, *, attr_identifier: str) -> str:
+    def _get_attr_variable_name_suffix(self, *, value_identifier: str) -> str:
         """
-        Get an attribute's variable name suffix if its value
+        Get an attribute or variable name's suffix if its value
         is not blank.
 
         Parameters
         ----------
-        attr_identifier : str
-            Attribute identifier string (e.g., `x`).
+        value_identifier : str
+            Value identifier string (e.g., `x`).
 
         Returns
         -------
@@ -37,6 +37,6 @@ class VariableNameSuffixAttrOrVarMixIn:
             return ""
 
         attr_variable_name_suffix: str = (
-            f"{self._variable_name_suffix}__{attr_identifier}"
+            f"{self._variable_name_suffix}__{value_identifier}"
         )
         return attr_variable_name_suffix

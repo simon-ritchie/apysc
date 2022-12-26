@@ -32,7 +32,7 @@ class LineAlphaMixIn(
         """
         if hasattr(self, "_line_alpha"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_alpha")
         self._line_alpha = Number(
             1.0,
             variable_name_suffix=suffix,
@@ -146,7 +146,7 @@ class LineAlphaMixIn(
             value_: ap.Number = value
         else:
             suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier="line_alpha"
+                value_identifier="line_alpha"
             )
             value_ = Number(value, variable_name_suffix=suffix)
         self._line_alpha = value_

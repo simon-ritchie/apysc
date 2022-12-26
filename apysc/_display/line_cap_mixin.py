@@ -27,7 +27,7 @@ class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMi
         """
         if hasattr(self, "_line_cap"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_cap")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_cap")
         self._line_cap = String(
             LineCaps.BUTT.value,
             variable_name_suffix=suffix,

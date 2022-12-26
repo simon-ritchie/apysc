@@ -32,7 +32,7 @@ class HeightMixIn(
         """
         if hasattr(self, "_height"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="height")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="height")
         self._height = Int(
             0,
             variable_name_suffix=suffix,
@@ -133,7 +133,7 @@ class HeightMixIn(
         if isinstance(value, ap.Int):
             value_: ap.Int = value
         else:
-            suffix: str = self._get_attr_variable_name_suffix(attr_identifier="height")
+            suffix: str = self._get_attr_variable_name_suffix(value_identifier="height")
             value_ = Int(value, variable_name_suffix=suffix)
         self._height = value_
 

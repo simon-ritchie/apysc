@@ -35,7 +35,7 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixI
         )
 
         self._initial_month = month
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="month")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="month")
         self._month = get_copied_int_from_builtin_val(
             integer=month, variable_name_suffix=suffix
         )

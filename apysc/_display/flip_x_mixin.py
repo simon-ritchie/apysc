@@ -31,7 +31,7 @@ class FlipXMixIn(
         """
         if hasattr(self, "_flip_x"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="flip_x")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="flip_x")
         self._flip_x = Boolean(
             False,
             variable_name_suffix=suffix,

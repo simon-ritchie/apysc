@@ -32,7 +32,7 @@ class EllipseHeightMixIn(
         if hasattr(self, "_ellipse_height"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier="ellipse_height"
+            value_identifier="ellipse_height"
         )
         self._ellipse_height = Int(
             0,

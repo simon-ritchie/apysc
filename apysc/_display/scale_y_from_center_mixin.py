@@ -39,7 +39,7 @@ class ScaleYFromCenterMixIn(
         if hasattr(self, "_scale_y_from_center"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier="scale_y_from_center"
+            value_identifier="scale_y_from_center"
         )
         self._scale_y_from_center = ap.Number(
             1.0,

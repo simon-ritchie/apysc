@@ -181,7 +181,7 @@ class LineStyleMixIn(
             thickness_: ap.Int = thickness._copy()
         else:
             suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier="line_thickness"
+                value_identifier="line_thickness"
             )
             thickness_ = ap.Int(thickness, variable_name_suffix=suffix)
         return thickness_
@@ -207,7 +207,7 @@ class LineStyleMixIn(
         if isinstance(alpha, ap.Number):
             alpha_: ap.Number = alpha._copy()
         else:
-            suffix = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
+            suffix = self._get_attr_variable_name_suffix(value_identifier="line_alpha")
             alpha_ = ap.Number(alpha, variable_name_suffix=suffix)
         return alpha_
 
@@ -226,7 +226,7 @@ class LineStyleMixIn(
 
         if joints is None:
             joints = LineJoints.MITER
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_joints")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_joints")
         self._line_joints = ap.String(joints.value, variable_name_suffix=suffix)
 
     @final
@@ -244,7 +244,7 @@ class LineStyleMixIn(
 
         if cap is None:
             cap = LineCaps.BUTT
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_cap")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_cap")
         self._line_cap = ap.String(cap.value, variable_name_suffix=suffix)
 
     @final
@@ -255,7 +255,7 @@ class LineStyleMixIn(
         """
         if hasattr(self, "_line_color"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_color")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_color")
         self._line_color = String(
             "",
             variable_name_suffix=suffix,
@@ -271,7 +271,7 @@ class LineStyleMixIn(
         if hasattr(self, "_line_thickness"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier="line_thickness"
+            value_identifier="line_thickness"
         )
         self._line_thickness = Int(
             1,
@@ -287,7 +287,7 @@ class LineStyleMixIn(
         """
         if hasattr(self, "_line_alpha"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_alpha")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_alpha")
         self._line_alpha = Number(
             1.0,
             variable_name_suffix=suffix,
@@ -302,7 +302,7 @@ class LineStyleMixIn(
         """
         if hasattr(self, "_line_cap"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_cap")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_cap")
         self._line_cap = String(
             LineCaps.BUTT.value,
             variable_name_suffix=suffix,
@@ -317,7 +317,7 @@ class LineStyleMixIn(
         """
         if hasattr(self, "_line_joints"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_joints")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_joints")
         self._line_joints = String(
             LineJoints.MITER.value,
             variable_name_suffix=suffix,

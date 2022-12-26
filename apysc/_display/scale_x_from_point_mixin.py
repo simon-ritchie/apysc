@@ -37,7 +37,7 @@ class ScaleXFromPointMixIn(
         if hasattr(self, "_scale_x_from_point"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier="scale_x_from_point"
+            value_identifier="scale_x_from_point"
         )
         self._scale_x_from_point = Dictionary(
             {},

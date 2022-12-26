@@ -35,7 +35,7 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         )
 
         self._initial_second = second
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="second")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="second")
         self._second = get_copied_int_from_builtin_val(
             integer=second, variable_name_suffix=suffix
         )

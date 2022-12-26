@@ -120,7 +120,7 @@ class LineColorMixIn(
         import apysc as ap
 
         self._initialize_line_color_if_not_initialized()
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_color")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_color")
         if line_color == "":
             return
         if isinstance(line_color, ap.String):
@@ -154,7 +154,7 @@ class LineColorMixIn(
         """
         if hasattr(self, "_line_color"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="line_color")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="line_color")
         self._line_color = String(
             "",
             variable_name_suffix=suffix,

@@ -35,7 +35,7 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
         )
 
         self._initial_day = day
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="day")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="day")
         self._day = get_copied_int_from_builtin_val(
             integer=day, variable_name_suffix=suffix
         )

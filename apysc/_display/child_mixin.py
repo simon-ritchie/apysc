@@ -78,7 +78,7 @@ class ChildMixIn(
         """
         if hasattr(self, "_children"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="children")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="children")
         self._children = Array(
             [],
             variable_name_suffix=suffix,

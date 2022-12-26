@@ -33,7 +33,7 @@ class LineThicknessMixIn(
         if hasattr(self, "_line_thickness"):
             return
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier="line_thickness"
+            value_identifier="line_thickness"
         )
         self._line_thickness = Int(
             1,
@@ -147,7 +147,7 @@ class LineThicknessMixIn(
             value_: ap.Int = value
         else:
             suffix: str = self._get_attr_variable_name_suffix(
-                attr_identifier="line_thickness"
+                value_identifier="line_thickness"
             )
             value_ = Int(value, variable_name_suffix=suffix)
         self._line_thickness = value_

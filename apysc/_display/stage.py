@@ -143,7 +143,7 @@ class Stage(
         self._add_to = add_to
         self._append_constructor_expression()
 
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="children")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="children")
         self._children = ap.Array([], variable_name_suffix=suffix)
 
         _save_stage_id_to_db(stage=self)

@@ -31,7 +31,7 @@ class VisibleMixIn(
         """
         if hasattr(self, "_visible"):
             return
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="visible")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="visible")
         self._visible = Boolean(
             True,
             variable_name_suffix=suffix,

@@ -86,7 +86,7 @@ class TotalSecondsMixIn(
             - https://simon-ritchie.github.io/apysc/en/timedelta_total_seconds.html
         """
         suffix: str = self._get_attr_variable_name_suffix(
-            attr_identifier="total_seconds"
+            value_identifier="total_seconds"
         )
         total_seconds: Number = Number(
             0,

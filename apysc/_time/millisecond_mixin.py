@@ -35,7 +35,7 @@ class MillisecondMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, Reve
         )
 
         self._initial_millisecond = millisecond
-        suffix: str = self._get_attr_variable_name_suffix(attr_identifier="millisecond")
+        suffix: str = self._get_attr_variable_name_suffix(value_identifier="millisecond")
         self._millisecond = get_copied_int_from_builtin_val(
             integer=millisecond,
             variable_name_suffix=suffix,

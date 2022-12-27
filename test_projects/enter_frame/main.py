@@ -32,7 +32,7 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
+def on_enter_frame(e: ap.EnterFrameEvent[ap.Sprite], options: dict) -> None:
     ap.trace(ap.DateTime.now(), e.this)
 
 

@@ -23,7 +23,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 _Options = TypeVar("_Options")
-_Handlername = str
+_HandlerName = str
 _Target = TypeVar("_Target")
 
 
@@ -42,7 +42,7 @@ class EnterFrameMixIn(
 ):
 
     _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
-    _enter_frame_handler_settings: Dict[_Handlername, _HandlerSettings]
+    _enter_frame_handler_settings: Dict[_HandlerName, _HandlerSettings]
 
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)

@@ -29,3 +29,6 @@ class TestTruncMixIn:
 
         result = ap.Math.trunc(value=ap.String("a"))
         assert result._value == 0
+
+        result = ap.Math.trunc(value=ap.Number(10.5, variable_name_suffix="test_num"))
+        assert result._variable_name_suffix == "test_num"

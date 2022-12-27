@@ -9,6 +9,7 @@ from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._type.number import Number
 from apysc._type.boolean import Boolean
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class TruncMixIn:
@@ -34,7 +35,11 @@ class TruncMixIn:
         """
         import apysc as ap
 
-        result: Int = Int(0)
+        suffix: str = ""
+        if isinstance(value, VariableNameSuffixMixIn):
+            suffix = value._variable_name_suffix
+
+        result: Int = Int(0, variable_name_suffix=suffix)
         if isinstance(value, (Int, Number, Boolean)):
             result._value = int(value._value)
         try:

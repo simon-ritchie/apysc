@@ -43,6 +43,7 @@ class EnterFrameMixIn(
 
     _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
     _enter_frame_handler_settings: Dict[_HandlerName, _HandlerSettings]
+    _is_stopped_settings: Dict[_HandlerName, Boolean]
 
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
@@ -73,6 +74,7 @@ class EnterFrameMixIn(
         import apysc as ap
 
         self._initialize_enter_frame_handlers_if_not_initialized()
+        self._initialize_is_stopped_settings_if_not_initialized()
         self._set_handler_data(
             handler=handler,
             handlers_dict=self._enter_frame_handlers,
@@ -169,3 +171,12 @@ class EnterFrameMixIn(
         if hasattr(self, "_enter_frame_handlers"):
             return
         self._enter_frame_handlers = {}
+
+    def _initialize_is_stopped_settings_if_not_initialized(self) -> None:
+        """
+        Initialize the `_is_stopped_settings` attribute if this interface
+        has not initialized it yet.
+        """
+        if hasattr(self, "_is_stopped_settings"):
+            return
+        self._is_stopped_settings = {}

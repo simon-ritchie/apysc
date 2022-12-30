@@ -42,7 +42,6 @@ class EnterFrameMixIn(
 ):
 
     _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
-    _enter_frame_handler_settings: Dict[_HandlerName, _HandlerSettings]
     _is_stopped_settings: Dict[_HandlerName, Boolean]
 
     @final
@@ -75,6 +74,12 @@ class EnterFrameMixIn(
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
+
+        handler_name: str = get_handler_name(handler=handler, instance=self)
+        if handler_name in self._is_stopped_settings:
+            self._is_stopped_settings[handler_name].value = False
+            return
+
         self._set_handler_data(
             handler=handler,
             handlers_dict=self._enter_frame_handlers,
@@ -86,7 +91,6 @@ class EnterFrameMixIn(
                 value_identifier="is_stopped",
             ),
         )
-        handler_name: str = get_handler_name(handler=handler, instance=self)
         event: ap.EnterFrameEvent = ap.EnterFrameEvent(this=self)
         self._append_enter_frame_expression(
             handler_name=handler_name,
@@ -98,6 +102,7 @@ class EnterFrameMixIn(
             handler_name=handler_name,
             e=event,
         )
+        self._is_stopped_settings[handler_name] = is_stopped
 
     def _append_enter_frame_expression(
         self,
@@ -132,7 +137,12 @@ class EnterFrameMixIn(
                 value_identifier="prev_time",
             ),
         )
-        expression: str = f"function {LOOP_FUNC_NAME}() {{"
+        expression: str = (
+            f"function {LOOP_FUNC_NAME}() {{"
+            f"\nif ({is_stopped.variable_name}) {{"
+            "\n  return;"
+            "\n}"
+        )
         ap.append_js_expression(expression=expression)
         with Indent():
             current_time: ap.DateTime = ap.DateTime.now(

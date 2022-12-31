@@ -7,6 +7,7 @@ from retrying import retry
 from apysc._event.enter_frame_mixin import EnterFrameMixIn
 import apysc as ap
 from apysc._expression import expression_data_util, var_names
+from apysc._event.handler import get_handler_name
 
 
 class TestEnterFrameMixIn:
@@ -76,3 +77,35 @@ class TestEnterFrameMixIn:
             flags=re.MULTILINE,
         )
         assert match is not None
+
+    def on_enter_frame(self, e: ap.EnterFrameEvent, option: dict) -> None:
+        """
+        The handler for enter-frame event.
+        """
+        ap.trace(100)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_enter_frame(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: EnterFrameMixIn = EnterFrameMixIn()
+        mixin.variable_name = "test_mixin"
+        mixin.enter_frame(
+            handler=self.on_enter_frame,
+            fps=ap.FPS.FPS_30,
+        )
+        handler_name: str = get_handler_name(
+            handler=self.on_enter_frame,
+            instance=mixin,
+        )
+        assert handler_name in mixin._enter_frame_handlers
+        assert mixin._is_stopped_settings[handler_name] == False
+
+        expression: str = expression_data_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=rf"function {var_names.LOOP}_\d+?\(\) {{",
+            string=expression,
+        )
+        assert match is not None
+
+        expression = expression_data_util.get_current_event_handler_scope_expression()
+        assert f"function {handler_name}" in expression

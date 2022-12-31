@@ -96,9 +96,18 @@
 <section id="now-api">
 <h2>now のクラスメソッドのAPI<a class="headerlink" href="#now-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">now()</span> <span class="pre">-&gt;</span> <span class="pre">'DateTime'</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">now(*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'DateTime'</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在時刻が設定された<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスのインスタンスを取得します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default ‘’</p>
+<ul>
+<li><p>JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
 <p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dt</span></code>: DateTime</p>

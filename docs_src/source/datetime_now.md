@@ -55,11 +55,18 @@ ap.save_overall_html(dest_dir_path="datetime_now_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `now() -> 'DateTime'`<hr>
+**[Interface signature]** `now(*, variable_name_suffix: str = '') -> 'DateTime'`<hr>
 
 **[Interface summary]**
 
 Get a `DateTime` instance of the current time.<hr>
+
+**[Parameters]**
+
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+
+<hr>
 
 **[Returns]**
 

@@ -19,12 +19,12 @@ logger: Logger = loggers.get_info_logger()
 
 def _main() -> None:
     """
-    Run the flake8 command.
-
-    Raises
-    ------
-    Exception
-        If command standard out is not blank.
+        Run the flake8 command.
+    ru
+        Raises
+        ------
+        Exception
+            If command standard out is not blank.
     """
     logger.info("flake8 command started.")
     stdout: str = command_util.run_command(command=FLAKE8_COMMAND)

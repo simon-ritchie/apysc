@@ -31,7 +31,7 @@ class TestEnterFrameMixIn:
 
         mixin._is_stopped_settings["test"] = ap.Boolean(True)
         mixin._initialize_is_stopped_settings_if_not_initialized()
-        assert mixin._is_stopped_settings == {"test": True}
+        assert mixin._is_stopped_settings == {"test": ap.Boolean(True)}
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_enter_frame_expression(self) -> None:
@@ -80,7 +80,7 @@ class TestEnterFrameMixIn:
         )
         assert match is not None
 
-    def on_enter_frame(self, e: ap.EnterFrameEvent, option: dict) -> None:
+    def on_enter_frame(self, e: ap.EnterFrameEvent, options: dict) -> None:
         """
         The handler for enter-frame event.
 
@@ -107,7 +107,7 @@ class TestEnterFrameMixIn:
             instance=mixin,
         )
         assert handler_name in mixin._enter_frame_handlers
-        assert mixin._is_stopped_settings[handler_name] == False
+        assert not mixin._is_stopped_settings[handler_name]
 
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(

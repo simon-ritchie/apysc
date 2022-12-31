@@ -35,6 +35,14 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Get a `DateTime` instance of the current time.<hr>": "現在時刻が設定された`DateTime`クラスのインスタンスを取得します。<hr>",  # noqa
     ##################################################
+    "**[Parameters]**": "**[引数]**",
+    ##################################################
+    "- `variable_name_suffix`: str, default ''": "- `variable_name_suffix`: str, default ''",  # noqa
+    ##################################################
+    "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
     "- `dt`: DateTime": "- `dt`: DateTime",

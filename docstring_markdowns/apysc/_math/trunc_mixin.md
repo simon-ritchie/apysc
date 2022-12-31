@@ -20,4 +20,4 @@ Truncate a fraction value from a specified value.<hr>
 **[Returns]**
 
 - `result`: Int
-  - Truncated and converted `Int`'s value.
+  - Truncated and converted to `Int`'s value.

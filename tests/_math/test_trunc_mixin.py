@@ -6,7 +6,6 @@ import apysc as ap
 from apysc._expression import expression_data_util
 
 
-
 class TestTruncMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_trunc(self) -> None:
@@ -16,9 +15,7 @@ class TestTruncMixIn:
         assert isinstance(result, ap.Int)
         assert result == 10
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{result.variable_name} = Math.trunc({value.variable_name});"
-        )
+        expected: str = f"{result.variable_name} = Math.trunc({value.variable_name});"
         assert expected in expression
 
         result = ap.Math.trunc(value=ap.Number(10.5))

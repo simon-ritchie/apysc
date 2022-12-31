@@ -9,7 +9,9 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._validation import arg_validation_decos
 
 
@@ -35,9 +37,7 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         )
 
         self._initial_year = year
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="year"
-        )
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="year")
         self._year = get_copied_int_from_builtin_val(
             integer=year, variable_name_suffix=suffix
         )

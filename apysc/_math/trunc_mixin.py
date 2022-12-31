@@ -2,18 +2,18 @@
 """
 
 from typing import Union
+
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.int import Int
-from apysc._type.string import String
-from apysc._type.number import Number
 from apysc._type.boolean import Boolean
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class TruncMixIn:
-
     @classmethod
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -25,13 +25,13 @@ class TruncMixIn:
         ----------
         value : Union[Int, Number, String, Boolean]
             A value to truncate a fraction value.
-            If a specified value is the `Number`, `String`, or `Boolean` type,
-            the return value becomes `Int`.
+            If a specified value is the `Number`'s, `String`'s, or `Boolean`'s type,
+            the return value becomes an `Int`'s value.
 
         Returns
         -------
         result : Int
-            Truncated and casted `Int` value.
+            Truncated and converted to `Int`'s value.
         """
         import apysc as ap
 
@@ -46,8 +46,6 @@ class TruncMixIn:
             result._value = int(float(value._value))
         except Exception:
             pass
-        expression: str = (
-            f"{result.variable_name} = Math.trunc({value.variable_name});"
-        )
+        expression: str = f"{result.variable_name} = Math.trunc({value.variable_name});"
         ap.append_js_expression(expression=expression)
         return result

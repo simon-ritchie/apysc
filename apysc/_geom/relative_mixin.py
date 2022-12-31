@@ -7,12 +7,16 @@ from typing_extensions import final
 
 from apysc._type.boolean import Boolean
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
-class RelativeMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn, VariableNameSuffixMixIn):
+class RelativeMixIn(
+    VariableNameSuffixAttrOrVarMixIn, RevertMixIn, VariableNameSuffixMixIn
+):
 
     _relative: Boolean
 
@@ -24,7 +28,9 @@ class RelativeMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn, VariableNameS
         """
         if hasattr(self, "_relative"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="relative")
+        suffix: str = self._get_attr_or_variable_name_suffix(
+            value_identifier="relative"
+        )
         self._relative = Boolean(
             False,
             variable_name_suffix=suffix,

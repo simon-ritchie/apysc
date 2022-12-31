@@ -8,11 +8,11 @@ from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
+from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._event.enter_frame_mixin import EnterFrameMixIn
 
 _Graphics = graphics.Graphics
 
@@ -125,7 +125,9 @@ class Sprite(
                 type_name=var_names.SPRITE
             )
 
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="children")
+        suffix: str = self._get_attr_or_variable_name_suffix(
+            value_identifier="children"
+        )
         self._children = ap.Array([], variable_name_suffix=suffix)
 
         super(Sprite, self).__init__(variable_name=variable_name)

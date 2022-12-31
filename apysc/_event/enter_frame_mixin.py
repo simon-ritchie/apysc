@@ -3,9 +3,9 @@
 
 from typing import Callable
 from typing import Dict
+from typing import Generic
 from typing import Optional
 from typing import TypeVar
-from typing import Generic
 
 from typing_extensions import TypedDict
 from typing_extensions import final
@@ -18,9 +18,11 @@ from apysc._time.fps import FPS
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._validation import arg_validation_decos
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
+from apysc._validation import arg_validation_decos
 
 _Options = TypeVar("_Options")
 _HandlerName = str
@@ -62,15 +64,15 @@ class EnterFrameMixIn(
         Parameters
         ----------
         handler : Callable[[EnterFrameEvent, _Options], None]
-            An handler function to handle the enter frame event.
+            A handler function to handle the enter frame event.
         fps : FPS, default FPS.FPS_60
             Frame per second to set.
         options : Optional[_Options], optional
             Optional arguments to pass to a handler function.
         """
-        from apysc._event.handler import get_handler_name
-        from apysc._event.handler import append_handler_expression
         import apysc as ap
+        from apysc._event.handler import append_handler_expression
+        from apysc._event.handler import get_handler_name
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
@@ -124,8 +126,8 @@ class EnterFrameMixIn(
             A boolean to control an animation loop.
         """
         import apysc as ap
-        from apysc._expression import var_names
         from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         from apysc._expression.indent_num import Indent
 
         LOOP_FUNC_NAME: str = expression_variables_util.get_next_variable_name(
@@ -175,7 +177,7 @@ class EnterFrameMixIn(
 
     def _initialize_enter_frame_handlers_if_not_initialized(self) -> None:
         """
-        Initialize the `_enter_frame_handlers` attribute if this interface
+        Initialize the `_enter_frame_handlers`'s attribute if this interface
         has not initialized it yet.
         """
         if hasattr(self, "_enter_frame_handlers"):
@@ -184,7 +186,7 @@ class EnterFrameMixIn(
 
     def _initialize_is_stopped_settings_if_not_initialized(self) -> None:
         """
-        Initialize the `_is_stopped_settings` attribute if this interface
+        Initialize the `_is_stopped_settings`'s attribute if this interface
         has not initialized it yet.
         """
         if hasattr(self, "_is_stopped_settings"):

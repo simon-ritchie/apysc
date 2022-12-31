@@ -19,6 +19,13 @@ Append a `now` interface expression string.<hr>
 
 Get a `DateTime` instance of the current time.<hr>
 
+**[Parameters]**
+
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+
+<hr>
+
 **[Returns]**
 
 - `dt`: DateTime

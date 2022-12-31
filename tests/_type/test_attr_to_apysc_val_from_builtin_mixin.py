@@ -7,7 +7,9 @@ from apysc._type import attr_to_apysc_val_from_builtin_mixin
 from apysc._type.attr_to_apysc_val_from_builtin_mixin import (
     AttrToApyscValFromBuiltinMixIn,
 )
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 

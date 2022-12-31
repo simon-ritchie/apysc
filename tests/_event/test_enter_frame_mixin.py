@@ -1,13 +1,15 @@
-from random import randint
 import re
-from typing import Match, Optional, Pattern, List
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc._event.enter_frame_mixin import EnterFrameMixIn
 import apysc as ap
-from apysc._expression import expression_data_util, var_names
+from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._event.handler import get_handler_name
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
 
 
 class TestEnterFrameMixIn:

@@ -10,7 +10,9 @@ from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.boolean import Boolean
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._validation import arg_validation_decos
 
 
@@ -31,9 +33,7 @@ class FlipYMixIn(
         """
         if hasattr(self, "_flip_y"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="flip_y"
-        )
+        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="flip_y")
         self._flip_y = Boolean(
             False,
             variable_name_suffix=suffix,

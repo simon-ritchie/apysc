@@ -139,9 +139,9 @@ class EnterFrameMixIn(
         )
         expression: str = (
             f"function {LOOP_FUNC_NAME}() {{"
-            f"\nif ({is_stopped.variable_name}) {{"
-            "\n  return;"
-            "\n}"
+            f"\n  if ({is_stopped.variable_name}) {{"
+            "\n    return;"
+            "\n  }"
         )
         ap.append_js_expression(expression=expression)
         with Indent():

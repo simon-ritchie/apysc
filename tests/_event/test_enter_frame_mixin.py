@@ -81,6 +81,13 @@ class TestEnterFrameMixIn:
     def on_enter_frame(self, e: ap.EnterFrameEvent, option: dict) -> None:
         """
         The handler for enter-frame event.
+
+        Parameters
+        ----------
+        e : ap.EnterFrameEvent
+            Event instance.
+        options : dict
+            Optional arguments dictionary.
         """
         ap.trace(100)
 

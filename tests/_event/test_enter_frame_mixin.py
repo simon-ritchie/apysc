@@ -10,6 +10,8 @@ from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._event.enter_frame_mixin import _EnterFrameEventNotRegistered
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestEnterFrameMixIn:
@@ -128,3 +130,21 @@ class TestEnterFrameMixIn:
         assert mixin._is_stopped_settings[handler_name].value == False
         expression = expression_data_util.get_current_expression()
         assert "function" not in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_unbind_enter_frame(self) -> None:
+        mixin: EnterFrameMixIn = EnterFrameMixIn()
+        assert_raises(
+            expected_error_class=_EnterFrameEventNotRegistered,
+            callable_=mixin.unbind_enter_frame,
+            match="There is no unbinding target of a specified handler.",
+            handler=self.on_enter_frame,
+        )
+
+        mixin.enter_frame(handler=self.on_enter_frame)
+        mixin.unbind_enter_frame(handler=self.on_enter_frame)
+        handler_name: str = get_handler_name(
+            handler=self.on_enter_frame,
+            instance=mixin,
+        )
+        assert mixin._is_stopped_settings[handler_name].value

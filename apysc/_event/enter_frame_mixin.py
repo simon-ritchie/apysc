@@ -28,10 +28,14 @@ _HandlerName = str
 _Target = TypeVar("_Target")
 
 
+class _EnterFrameEventNotRegistered(Exception):
+    pass
+
+
 class EnterFrameMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     SetHandlerDataMixIn[EnterFrameEvent],
-    Generic[_Target],
+    Generic[_Target, _Options],
     VariableNameMixIn,
 ):
 
@@ -184,3 +188,31 @@ class EnterFrameMixIn(
         if hasattr(self, "_is_stopped_settings"):
             return
         self._is_stopped_settings = {}
+
+    def unbind_enter_frame(
+        self,
+        handler: Callable[[EnterFrameEvent, _Options], None],
+    ) -> None:
+        """
+        Unbind a specified handler's enter-frame event.
+
+        Parameters
+        ----------
+        handler : Callable[[EnterFrameEvent, _Options], None]
+            Unbinding target callable.
+
+        Raises
+        ------
+        _EnterFrameEventNotRegistered
+            If there is no unbinding target of a specified handler.
+        """
+        from apysc._event.handler import get_handler_name
+
+        self._initialize_is_stopped_settings_if_not_initialized()
+        handler_name: str = get_handler_name(handler=handler, instance=self)
+        if handler_name not in self._is_stopped_settings:
+            raise _EnterFrameEventNotRegistered(
+                "There is no unbinding target of a specified handler."
+                "\nPlease call `enter_frame` interframe before call this method."
+            )
+        self._is_stopped_settings[handler_name].value = True

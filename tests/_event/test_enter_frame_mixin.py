@@ -82,7 +82,7 @@ class TestEnterFrameMixIn:
         )
         assert match is not None
 
-    def on_enter_frame(self, e: ap.EnterFrameEvent, options: dict) -> None:
+    def on_enter_frame_1(self, e: ap.EnterFrameEvent, options: dict) -> None:
         """
         The handler for enter-frame event.
 
@@ -95,17 +95,30 @@ class TestEnterFrameMixIn:
         """
         ap.trace(100)
 
+    def on_enter_frame_2(self, e: ap.EnterFrameEvent, options: dict) -> None:
+        """
+        The handler for enter-frame event.
+
+        Parameters
+        ----------
+        e : ap.EnterFrameEvent
+            Event instance.
+        options : dict
+            Optional arguments dictionary.
+        """
+        ap.trace(200)
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_enter_frame(self) -> None:
         expression_data_util.empty_expression()
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin.variable_name = "test_mixin"
         mixin.enter_frame(
-            handler=self.on_enter_frame,
+            handler=self.on_enter_frame_1,
             fps=ap.FPS.FPS_30,
         )
         handler_name: str = get_handler_name(
-            handler=self.on_enter_frame,
+            handler=self.on_enter_frame_1,
             instance=mixin,
         )
         assert handler_name in mixin._enter_frame_handlers
@@ -124,7 +137,7 @@ class TestEnterFrameMixIn:
         expression_data_util.empty_expression()
         mixin._is_stopped_settings[handler_name].value = True
         mixin.enter_frame(
-            handler=self.on_enter_frame,
+            handler=self.on_enter_frame_1,
             fps=ap.FPS.FPS_30,
         )
         assert mixin._is_stopped_settings[handler_name].value == False
@@ -138,13 +151,30 @@ class TestEnterFrameMixIn:
             expected_error_class=_EnterFrameEventNotRegistered,
             callable_=mixin.unbind_enter_frame,
             match="There is no unbinding target of a specified handler.",
-            handler=self.on_enter_frame,
+            handler=self.on_enter_frame_1,
         )
 
-        mixin.enter_frame(handler=self.on_enter_frame)
-        mixin.unbind_enter_frame(handler=self.on_enter_frame)
+        mixin.enter_frame(handler=self.on_enter_frame_1)
+        mixin.unbind_enter_frame(handler=self.on_enter_frame_1)
         handler_name: str = get_handler_name(
-            handler=self.on_enter_frame,
+            handler=self.on_enter_frame_1,
+            instance=mixin,
+        )
+        assert mixin._is_stopped_settings[handler_name].value
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_unbind_enter_frame_all(self) -> None:
+        mixin: EnterFrameMixIn = EnterFrameMixIn()
+        mixin.enter_frame(handler=self.on_enter_frame_1)
+        mixin.enter_frame(handler=self.on_enter_frame_2)
+        mixin.unbind_enter_frame_all()
+        handler_name: str = get_handler_name(
+            handler=self.on_enter_frame_1,
+            instance=mixin,
+        )
+        assert mixin._is_stopped_settings[handler_name].value
+        handler_name = get_handler_name(
+            handler=self.on_enter_frame_2,
             instance=mixin,
         )
         assert mixin._is_stopped_settings[handler_name].value

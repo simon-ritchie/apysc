@@ -195,6 +195,9 @@ class EnterFrameMixIn(
             return
         self._is_stopped_settings = {}
 
+    @final
+    @arg_validation_decos.handler_args_num(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
     def unbind_enter_frame(
         self,
         handler: Callable[[EnterFrameEvent, _Options], None],
@@ -222,3 +225,13 @@ class EnterFrameMixIn(
                 "\nPlease call `enter_frame` interframe before call this method."
             )
         self._is_stopped_settings[handler_name].value = True
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def unbind_enter_frame_all(self) -> None:
+        """
+        Unbind all enter-frame events.
+        """
+        self._initialize_is_stopped_settings_if_not_initialized()
+        for is_stopped in self._is_stopped_settings.values():
+            is_stopped.value = True

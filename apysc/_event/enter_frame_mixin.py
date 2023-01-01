@@ -57,6 +57,12 @@ class EnterFrameMixIn(
         """
         Add an enter frame event listener setting.
 
+        Notes
+        -----
+        If this is the second call of this interface, this interface
+        ignores `options` argument (it changes the only running status
+        and `fps` setting).
+
         Parameters
         ----------
         handler : Callable[[EnterFrameEvent, _Options], None]

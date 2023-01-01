@@ -118,3 +118,13 @@ class TestEnterFrameMixIn:
 
         expression = expression_data_util.get_current_event_handler_scope_expression()
         assert f"function {handler_name}" in expression
+
+        expression_data_util.empty_expression()
+        mixin._is_stopped_settings[handler_name].value = True
+        mixin.enter_frame(
+            handler=self.on_enter_frame,
+            fps=ap.FPS.FPS_30,
+        )
+        assert mixin._is_stopped_settings[handler_name].value == False
+        expression = expression_data_util.get_current_expression()
+        assert "function" not in expression

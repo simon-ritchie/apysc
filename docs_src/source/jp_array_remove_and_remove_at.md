@@ -36,7 +36,7 @@ assert arr == [1, 3]
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `remove(self, value: ~T) -> None`<hr>
+**[インターフェイスの構造]** `remove(self, value: ~_ArrValue) -> None`<hr>
 
 **[インターフェイス概要]**
 

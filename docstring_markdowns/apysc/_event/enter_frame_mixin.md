@@ -39,5 +39,3 @@ Add an enter frame event listener setting.<hr>
   - Frame per second to set.
 - `options`: Optional[_Options], optional
   - Optional arguments to pass to a handler function.
-
-## `_HandlerSettings` class docstring

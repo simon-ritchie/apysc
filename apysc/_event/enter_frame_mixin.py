@@ -7,7 +7,6 @@ from typing import Generic
 from typing import Optional
 from typing import TypeVar
 
-from typing_extensions import TypedDict
 from typing_extensions import final
 
 from apysc._event.enter_frame_event import EnterFrameEvent

@@ -119,7 +119,7 @@ animation_x.start()
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, this: 'animation_base.AnimationBase[_T]') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, this: 'animation_base.AnimationBase[_Target]') -> None`<hr>
 
 **[インターフェイス概要]**
 

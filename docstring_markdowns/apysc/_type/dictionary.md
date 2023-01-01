@@ -44,7 +44,7 @@ Delete specified key's value from a dictionary.<hr>
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Dictionary key to delete.
 
 ### `__eq__` method docstring
@@ -69,7 +69,7 @@ Get a specified key's single value.<hr>
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Dictionary key.
 
 <hr>
@@ -152,7 +152,7 @@ Set value to a specified key position.<hr>
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Dictionary key to set value.
 - `value`: *
   - Any value to set.
@@ -176,7 +176,7 @@ Append __delitem__ method expression.<hr>
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Dictionary key to delete.
 
 ### `_append_eq_expression` method docstring
@@ -196,7 +196,7 @@ Append the `get` method expression.<hr>
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Target key.
 - `result_value`: Any
   - Extracted value or a default value.
@@ -209,7 +209,7 @@ Append __getitem__ expression.<hr>
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Dictionary key.
 - `value`: *
   - Specified key's value.
@@ -240,7 +240,7 @@ Append __setitem__ method expression.<hr>
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Dictionary key to check.
 - `value`: *
   - Any value to set.
@@ -269,7 +269,7 @@ Get a built-in type's key (str, int, or float) from a specified key.<hr>
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Target key value (including String, Int, and Number).
 
 <hr>
@@ -319,7 +319,7 @@ Validate whether a key's value type is acceptable (str or int or float) or not.<
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Dictionary key to check.
 
 <hr>
@@ -334,7 +334,7 @@ Get a specified key dictionary value. If this dictionary hasn't a specified key,
 
 **[Parameters]**
 
-- `key`: _K
+- `key`: _Key
   - Target key.
 - `default`: DefaultType or None, optional
   - Any default value.

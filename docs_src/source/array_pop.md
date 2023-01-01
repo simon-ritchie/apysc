@@ -25,7 +25,7 @@ assert last_value == 3
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `pop(self) -> ~T`<hr>
+**[Interface signature]** `pop(self) -> ~_ArrValue`<hr>
 
 **[Interface summary]**
 

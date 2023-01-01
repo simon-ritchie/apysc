@@ -146,7 +146,7 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
+**[インターフェイスの構造]** `mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_Options], NoneType], *, options: Union[~_Options, NoneType] = None) -> str`<hr>
 
 **[インターフェイス概要]**
 
@@ -195,7 +195,7 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `unbind_mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+**[インターフェイスの構造]** `unbind_mouseover(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_Options], NoneType]) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -256,7 +256,7 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
+**[インターフェイスの構造]** `mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_Options], NoneType], *, options: Union[~_Options, NoneType] = None) -> str`<hr>
 
 **[インターフェイス概要]**
 
@@ -305,7 +305,7 @@ ap.save_overall_html(dest_dir_path="mouseover_and_mouseout_unbind_interfaces/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `unbind_mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+**[インターフェイスの構造]** `unbind_mouseout(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_Options], NoneType]) -> None`<hr>
 
 **[インターフェイス概要]**
 

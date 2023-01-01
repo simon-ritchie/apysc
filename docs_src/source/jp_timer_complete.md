@@ -107,7 +107,7 @@ ap.save_overall_html(dest_dir_path="timer_complete_basic_usage/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `timer_complete(self, handler: Callable[[ForwardRef('TimerEvent'), ~_O2], NoneType], *, options: Union[~_O2, NoneType] = None) -> str`<hr>
+**[インターフェイスの構造]** `timer_complete(self, handler: Callable[[ForwardRef('TimerEvent'), ~_TimerCompleteOptions], NoneType], *, options: Union[~_TimerCompleteOptions, NoneType] = None) -> str`<hr>
 
 **[インターフェイス概要]**
 

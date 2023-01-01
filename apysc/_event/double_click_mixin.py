@@ -29,7 +29,9 @@ class DoubleClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixi
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
-    def dblclick(self, handler: _Handler[_Options], *, options: Optional[_Options] = None) -> str:
+    def dblclick(
+        self, handler: _Handler[_Options], *, options: Optional[_Options] = None
+    ) -> str:
         """
         Add a double-click event listener setting.
 

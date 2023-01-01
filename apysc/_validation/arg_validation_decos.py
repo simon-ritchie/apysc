@@ -1271,7 +1271,9 @@ def is_display_object(*, arg_position_index: int) -> _Callable:
     return wrapped  # type: ignore
 
 
-def is_display_object_container(*, arg_position_index: int, optional: bool) -> _Callable:
+def is_display_object_container(
+    *, arg_position_index: int, optional: bool
+) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is a container of a display object instance.

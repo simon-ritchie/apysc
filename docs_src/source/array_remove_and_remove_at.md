@@ -37,7 +37,7 @@ assert arr == [1, 3]
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `remove(self, value: ~T) -> None`<hr>
+**[Interface signature]** `remove(self, value: ~_ArrValue) -> None`<hr>
 
 **[Interface summary]**
 

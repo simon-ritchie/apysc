@@ -98,7 +98,7 @@ ap.save_overall_html(dest_dir_path="./unbind_dblclick_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `dblclick(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options: Union[~_O, NoneType] = None) -> str`<hr>
+**[Interface signature]** `dblclick(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_Options], NoneType], *, options: Union[~_Options, NoneType] = None) -> str`<hr>
 
 **[Interface summary]**
 
@@ -148,7 +148,7 @@ Add a double-click event listener setting.<hr>
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `unbind_dblclick(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+**[Interface signature]** `unbind_dblclick(self, handler: Callable[[apysc._event.mouse_event.MouseEvent, ~_Options], NoneType]) -> None`<hr>
 
 **[Interface summary]**
 

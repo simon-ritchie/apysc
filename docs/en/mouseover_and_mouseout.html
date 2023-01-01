@@ -186,7 +186,7 @@
 <h2>mouseover API<a class="headerlink" href="#mouseover-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_over_mixin.MouseOverMixIn.mouseover -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">mouseover(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_O,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">mouseover(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
 <p>Add mouse over event listener setting.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -236,7 +236,7 @@
 <h2>unbind_mouseover API<a class="headerlink" href="#unbind-mouseover-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_over_mixin.MouseOverMixIn.unbind_mouseover -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseover(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseover(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
 <p>Unbind a specified handler’s mouseover event.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -291,7 +291,7 @@
 <h2>mouseout API<a class="headerlink" href="#mouseout-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_out_mixin.MouseOutMixIn.mouseout -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">mouseout(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_O,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">mouseout(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
 <p>Add mouse out event listener setting.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -341,7 +341,7 @@
 <h2>unbind_mouseout API<a class="headerlink" href="#unbind-mouseout-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_out_mixin.MouseOutMixIn.unbind_mouseout -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseout(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseout(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
 <p>Unbind a specified handler’s mouse-out event.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -458,7 +458,7 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, apysc project.
+        &#169; Copyright 2023, apysc project.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>

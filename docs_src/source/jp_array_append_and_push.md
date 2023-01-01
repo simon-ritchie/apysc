@@ -28,7 +28,7 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `append(self, value: ~T) -> None`<hr>
+**[インターフェイスの構造]** `append(self, value: ~_ArrValue) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -55,7 +55,7 @@ Array([1, 2, 3, 4])
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `push(self, value: ~T) -> None`<hr>
+**[インターフェイスの構造]** `push(self, value: ~_ArrValue) -> None`<hr>
 
 **[インターフェイス概要]**
 

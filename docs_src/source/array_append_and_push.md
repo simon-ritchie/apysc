@@ -29,7 +29,7 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `append(self, value: ~T) -> None`<hr>
+**[Interface signature]** `append(self, value: ~_ArrValue) -> None`<hr>
 
 **[Interface summary]**
 
@@ -58,7 +58,7 @@ Array([1, 2, 3, 4])
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `push(self, value: ~T) -> None`<hr>
+**[Interface signature]** `push(self, value: ~_ArrValue) -> None`<hr>
 
 **[Interface summary]**
 

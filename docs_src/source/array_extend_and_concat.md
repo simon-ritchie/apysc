@@ -32,7 +32,7 @@ assert arr == [1, 2, 3, 4]
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `extend(self, other_arr: Union[List[~T], tuple, range, ForwardRef('Array')]) -> None`<hr>
+**[Interface signature]** `extend(self, other_arr: Union[List[~_ArrValue], tuple, range, ForwardRef('Array')]) -> None`<hr>
 
 **[Interface summary]**
 
@@ -61,7 +61,7 @@ Array([1, 2, 3, 4, 5, 6])
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `concat(self, other_arr: Union[List[~T], tuple, ForwardRef('Array')]) -> 'Array'`<hr>
+**[Interface signature]** `concat(self, other_arr: Union[List[~_ArrValue], tuple, ForwardRef('Array')]) -> 'Array'`<hr>
 
 **[Interface summary]**
 

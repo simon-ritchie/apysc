@@ -29,13 +29,6 @@ _HandlerName = str
 _Target = TypeVar("_Target")
 
 
-class _HandlerSettings(TypedDict):
-    handler_name: str
-    is_stopped: Boolean
-    fps: Int
-    fps_interval: Number
-
-
 class EnterFrameMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     SetHandlerDataMixIn[EnterFrameEvent],

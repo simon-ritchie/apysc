@@ -15,10 +15,10 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameMixIn)
+_Target = TypeVar("_Target", bound=VariableNameMixIn)
 
 
-class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
+class AnimationScaleXFromPoint(AnimationBase[_Target], Generic[_Target]):
     """
     The animation class for a scale-x from the given point.
 
@@ -68,7 +68,7 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
     def __init__(
         self,
         *,
-        target: _T,
+        target: _Target,
         scale_x_from_point: Union[float, Number],
         x: Union[int, Int],
         duration: Union[int, Int] = 3000,

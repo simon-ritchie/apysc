@@ -13,10 +13,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameMixIn)
+_Target = TypeVar("_Target", bound=VariableNameMixIn)
 
 
-class AnimationLineThickness(AnimationBase[_T], Generic[_T]):
+class AnimationLineThickness(AnimationBase[_Target], Generic[_Target]):
     """
     The animation class for a line thickness.
 
@@ -63,7 +63,7 @@ class AnimationLineThickness(AnimationBase[_T], Generic[_T]):
     def __init__(
         self,
         *,
-        target: _T,
+        target: _Target,
         thickness: Union[int, Int],
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,

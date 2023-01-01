@@ -11,10 +11,10 @@ from apysc._event.event import Event
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameMixIn)
+_Target = TypeVar("_Target", bound=VariableNameMixIn)
 
 
-class AnimationEvent(Event, Generic[_T]):
+class AnimationEvent(Event, Generic[_Target]):
     """
     Animation event class.
 
@@ -34,11 +34,11 @@ class AnimationEvent(Event, Generic[_T]):
     >>> _ = rectangle.animation_x(x=100).animation_complete(on_animation_complete)
     """
 
-    _this: "animation_base.AnimationBase[_T]"
+    _this: "animation_base.AnimationBase[_Target]"
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, *, this: "animation_base.AnimationBase[_T]") -> None:
+    def __init__(self, *, this: "animation_base.AnimationBase[_Target]") -> None:
         """
         Animation event class.
 
@@ -71,7 +71,7 @@ class AnimationEvent(Event, Generic[_T]):
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def this(self) -> "animation_base.AnimationBase[_T]":
+    def this(self) -> "animation_base.AnimationBase[_Target]":
         """
         Get an animation setting instance of listening to this event.
 

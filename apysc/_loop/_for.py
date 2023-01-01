@@ -18,10 +18,10 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 
-T = TypeVar("T", Int, String, Number)
+_Target = TypeVar("_Target", Int, String, Number)
 
 
-class For(Generic[T]):
+class For(Generic[_Target]):
     """
     A class to append for the (loop) expression.
 
@@ -122,7 +122,7 @@ class For(Generic[T]):
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def __enter__(self) -> T:
+    def __enter__(self) -> _Target:
         """
         This class calls this method at the with-statement.
 

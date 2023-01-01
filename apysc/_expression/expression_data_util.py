@@ -44,10 +44,10 @@ _SQLITE_IN_MEMORY_SETTING: str = "file::memory:?cache=shared"
 connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
 cursor = connection.cursor()
 
-_C = TypeVar("_C", bound=Callable)
+_Callable = TypeVar("_Callable", bound=Callable)
 
 
-def _check_connection(func: _C) -> _C:
+def _check_connection(func: _Callable) -> _Callable:
     """
     The decorator function checks an SQLite connection
     when a specified function calls. If failed, create

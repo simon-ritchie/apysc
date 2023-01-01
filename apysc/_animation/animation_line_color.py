@@ -15,11 +15,11 @@ from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameMixIn)
+_Target = TypeVar("_Target", bound=VariableNameMixIn)
 StrOrString = TypeVar("StrOrString", str, String)
 
 
-class AnimationLineColor(AnimationBase[_T], Generic[_T]):
+class AnimationLineColor(AnimationBase[_Target], Generic[_Target]):
     """
     The animation class for the line color.
 
@@ -65,7 +65,7 @@ class AnimationLineColor(AnimationBase[_T], Generic[_T]):
     def __init__(
         self,
         *,
-        target: _T,
+        target: _Target,
         line_color: StrOrString,
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,

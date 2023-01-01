@@ -156,7 +156,7 @@ from typing import Tuple
 from typing import TypeVar
 
 # pyright: reportInvalidTypeVarUse=false
-_F = TypeVar("_F", bound=Callable)
+_Callable = TypeVar("_Callable", bound=Callable)
 
 
 def _extract_arg_value(
@@ -285,7 +285,7 @@ def _get_default_val_by_arg_name(*, callable_: Callable, arg_name: str) -> Any:
     return default_val
 
 
-def not_empty_string(*, arg_position_index: int) -> _F:
+def not_empty_string(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check that a specified argument's string
     is not empty.
@@ -301,7 +301,7 @@ def not_empty_string(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.string_validation import validate_not_empty_string
@@ -331,7 +331,7 @@ def not_empty_string(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def handler_args_num(*, arg_position_index: int) -> _F:
+def handler_args_num(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified handler argument's
     number.
@@ -347,7 +347,7 @@ def handler_args_num(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.handler_validation import validate_handler_args_num
@@ -373,7 +373,7 @@ def handler_args_num(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def handler_options_type(*, arg_position_index: int) -> _F:
+def handler_options_type(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified handler-options
     argument's type.
@@ -389,7 +389,7 @@ def handler_options_type(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.handler_validation import validate_options_type
@@ -415,7 +415,7 @@ def handler_options_type(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_event(*, arg_position_index: int) -> _F:
+def is_event(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.Event` or its subclass type.
@@ -431,7 +431,7 @@ def is_event(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.event_validation import validate_event
@@ -455,7 +455,7 @@ def is_event(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_num(*, arg_position_index: int) -> _F:
+def is_num(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the number-related type.
@@ -471,7 +471,7 @@ def is_num(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_num
@@ -495,7 +495,7 @@ def is_num(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_apysc_num(*, arg_position_index: int) -> _F:
+def is_apysc_num(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.Int` or `ap.Number` type.
@@ -511,7 +511,7 @@ def is_apysc_num(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._type.number_value_mixin import NumberValueMixIn
@@ -540,7 +540,7 @@ def is_apysc_num(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_integer(*, arg_position_index: int) -> _F:
+def is_integer(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `int` or `ap.Int`.
@@ -556,7 +556,7 @@ def is_integer(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_integer
@@ -582,7 +582,7 @@ def is_integer(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_builtin_integer(*, arg_position_index: int) -> _F:
+def is_builtin_integer(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the built-in `int`.
@@ -598,7 +598,7 @@ def is_builtin_integer(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_builtin_integer
@@ -624,7 +624,7 @@ def is_builtin_integer(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_apysc_integer(*, arg_position_index: int) -> _F:
+def is_apysc_integer(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.Int`.
@@ -640,7 +640,7 @@ def is_apysc_integer(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -669,7 +669,7 @@ def is_apysc_integer(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def num_is_gt_zero(*, arg_position_index: int) -> _F:
+def num_is_gt_zero(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check that a specified argument's value
     is greater than zero.
@@ -685,7 +685,7 @@ def num_is_gt_zero(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_num_is_gt_zero
@@ -711,7 +711,7 @@ def num_is_gt_zero(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def num_is_gte_zero(*, arg_position_index: int) -> _F:
+def num_is_gte_zero(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check that a specified argument's value
     is greater than or equal to zero.
@@ -727,7 +727,7 @@ def num_is_gte_zero(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_num_is_gte_zero
@@ -753,7 +753,7 @@ def num_is_gte_zero(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def num_is_0_to_1_range(*, arg_position_index: int) -> _F:
+def num_is_0_to_1_range(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check that a specified argument's value
     is 0.0 to 1.0 range.
@@ -769,7 +769,7 @@ def num_is_0_to_1_range(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_num_is_0_to_1_range
@@ -795,7 +795,7 @@ def num_is_0_to_1_range(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_boolean(*, arg_position_index: int) -> _F:
+def is_boolean(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check that a specified argument's type
     is the `bool` or `ap.Boolean`.
@@ -811,7 +811,7 @@ def is_boolean(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.bool_validation import validate_bool
@@ -835,7 +835,7 @@ def is_boolean(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_builtin_boolean(*, arg_position_index: int) -> _F:
+def is_builtin_boolean(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check that a specified argument's type
     is the built-in `bool`.
@@ -851,7 +851,7 @@ def is_builtin_boolean(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.bool_validation import validate_builtin_bool
@@ -877,7 +877,7 @@ def is_builtin_boolean(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_apysc_boolean(*, arg_position_index: int) -> _F:
+def is_apysc_boolean(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check that a specified argument's type
     is the `ap.Boolean`.
@@ -893,7 +893,7 @@ def is_apysc_boolean(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -922,7 +922,7 @@ def is_apysc_boolean(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_easing(*, arg_position_index: int) -> _F:
+def is_easing(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.Easing`.
@@ -938,7 +938,7 @@ def is_easing(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -967,7 +967,7 @@ def is_easing(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_string(*, arg_position_index: int) -> _F:
+def is_string(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the str or `ap.String`.
@@ -983,7 +983,7 @@ def is_string(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.string_validation import validate_string_type
@@ -1009,7 +1009,7 @@ def is_string(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_builtin_string(*, arg_position_index: int, optional: bool) -> _F:
+def is_builtin_string(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the Python built-in's `str`.
@@ -1028,7 +1028,7 @@ def is_builtin_string(*, arg_position_index: int, optional: bool) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.string_validation import validate_builtin_string_type
@@ -1059,7 +1059,7 @@ def is_builtin_string(*, arg_position_index: int, optional: bool) -> _F:
     return wrapped  # type: ignore
 
 
-def is_hex_color_code_format(*, arg_position_index: int) -> _F:
+def is_hex_color_code_format(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's value
     in a hexadecimal color code format.
@@ -1075,7 +1075,7 @@ def is_hex_color_code_format(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._color import color_util
@@ -1108,7 +1108,7 @@ def is_hex_color_code_format(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_animations(*, arg_position_index: int) -> _F:
+def is_animations(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the list of `ap.AnimationBase`.
@@ -1124,7 +1124,7 @@ def is_animations(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -1163,7 +1163,7 @@ def is_animations(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _F:
+def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is a variables' dictionary.
@@ -1182,7 +1182,7 @@ def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             vars_dict: Any = _extract_arg_value(
@@ -1228,7 +1228,7 @@ def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _F:
     return wrapped  # type: ignore
 
 
-def is_display_object(*, arg_position_index: int) -> _F:
+def is_display_object(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.DisplayObject` or its subclass type.
@@ -1244,7 +1244,7 @@ def is_display_object(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.display_validation import validate_display_object
@@ -1271,7 +1271,7 @@ def is_display_object(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_display_object_container(*, arg_position_index: int, optional: bool) -> _F:
+def is_display_object_container(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is a container of a display object instance.
@@ -1290,7 +1290,7 @@ def is_display_object_container(*, arg_position_index: int, optional: bool) -> _
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.display_validation import (
@@ -1325,7 +1325,7 @@ def is_display_object_container(*, arg_position_index: int, optional: bool) -> _
     return wrapped  # type: ignore
 
 
-def is_point_2d(*, arg_position_index: int) -> _F:
+def is_point_2d(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.Point2D`.
@@ -1342,7 +1342,7 @@ def is_point_2d(*, arg_position_index: int) -> _F:
     """
     from apysc._validation.geom_validation import validate_point_2d_type
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             point: Any = _extract_arg_value(
@@ -1366,7 +1366,7 @@ def is_point_2d(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_point_2ds(*, arg_position_index: int) -> _F:
+def is_point_2ds(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the list of `ap.Point`.
@@ -1383,7 +1383,7 @@ def is_point_2ds(*, arg_position_index: int) -> _F:
     """
     from apysc._validation.geom_validation import validate_point_2d_type
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -1421,7 +1421,7 @@ def is_point_2ds(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_valid_path_data_list(*, arg_position_index: int) -> _F:
+def is_valid_path_data_list(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the list of `ap.PathDataBase` and a first value is an instance of
@@ -1438,7 +1438,7 @@ def is_valid_path_data_list(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -1479,7 +1479,7 @@ def is_valid_path_data_list(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_line_cap(*, arg_position_index: int, optional: bool) -> _F:
+def is_line_cap(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is a line cap-related type.
@@ -1498,7 +1498,7 @@ def is_line_cap(*, arg_position_index: int, optional: bool) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.display_validation import validate_line_cap
@@ -1529,7 +1529,7 @@ def is_line_cap(*, arg_position_index: int, optional: bool) -> _F:
     return wrapped  # type: ignore
 
 
-def is_line_joints(*, arg_position_index: int, optional: bool) -> _F:
+def is_line_joints(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is a line joints-related type.
@@ -1548,7 +1548,7 @@ def is_line_joints(*, arg_position_index: int, optional: bool) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.display_validation import validate_line_joints
@@ -1579,7 +1579,7 @@ def is_line_joints(*, arg_position_index: int, optional: bool) -> _F:
     return wrapped  # type: ignore
 
 
-def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _F:
+def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's instance
     does not have multiple line settings.
@@ -1595,7 +1595,7 @@ def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.display_validation import (
@@ -1625,7 +1625,7 @@ def multiple_line_settings_are_not_set(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_line_dot_setting(*, arg_position_index: int) -> _F:
+def is_line_dot_setting(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.LineDotSetting`.
@@ -1641,7 +1641,7 @@ def is_line_dot_setting(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -1670,7 +1670,7 @@ def is_line_dot_setting(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_line_dash_setting(*, arg_position_index: int) -> _F:
+def is_line_dash_setting(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.LineDashSetting`.
@@ -1686,7 +1686,7 @@ def is_line_dash_setting(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -1715,7 +1715,7 @@ def is_line_dash_setting(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_line_dash_dot_setting(*, arg_position_index: int) -> _F:
+def is_line_dash_dot_setting(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.LineDashDotSetting`.
@@ -1731,7 +1731,7 @@ def is_line_dash_dot_setting(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -1761,7 +1761,7 @@ def is_line_dash_dot_setting(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_line_round_dot_setting(*, arg_position_index: int) -> _F:
+def is_line_round_dot_setting(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.LineRoundDotSetting`.
@@ -1777,7 +1777,7 @@ def is_line_round_dot_setting(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -1806,7 +1806,7 @@ def is_line_round_dot_setting(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_variable_name_interface_type(*, arg_position_index: int) -> _F:
+def is_variable_name_interface_type(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `ap.VariableNameMixIn` or its subclass type.
@@ -1822,7 +1822,7 @@ def is_variable_name_interface_type(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.variable_name_validation import (
@@ -1850,7 +1850,7 @@ def is_variable_name_interface_type(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_acceptable_array_value(*, arg_position_index: int) -> _F:
+def is_acceptable_array_value(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is an acceptable array value type.
@@ -1866,7 +1866,7 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -1896,7 +1896,7 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_acceptable_dictionary_value(*, arg_position_index: int) -> _F:
+def is_acceptable_dictionary_value(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is an acceptable dictionary value type.
@@ -1912,7 +1912,7 @@ def is_acceptable_dictionary_value(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -1941,7 +1941,7 @@ def is_acceptable_dictionary_value(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_builtin_dict(*, arg_position_index: int) -> _F:
+def is_builtin_dict(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the Python's `dict` type.
@@ -1957,7 +1957,7 @@ def is_builtin_dict(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             value: Any = _extract_arg_value(
@@ -1982,7 +1982,7 @@ def is_builtin_dict(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_acceptable_boolean_value(*, arg_position_index: int) -> _F:
+def is_acceptable_boolean_value(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is an acceptable boolean value type.
@@ -1998,7 +1998,7 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -2031,7 +2031,7 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_fps(*, arg_position_index: int) -> _F:
+def is_fps(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is the FPS enum.
@@ -2047,7 +2047,7 @@ def is_fps(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -2075,7 +2075,7 @@ def is_fps(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_four_digit_year(*, arg_position_index: int) -> _F:
+def is_four_digit_year(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is a four-digit year (full-year).
@@ -2091,7 +2091,7 @@ def is_four_digit_year(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -2128,7 +2128,7 @@ def is_four_digit_year(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_month_int(*, arg_position_index: int) -> _F:
+def is_month_int(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is a valid month integer (1-12).
@@ -2144,7 +2144,7 @@ def is_month_int(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -2182,7 +2182,7 @@ def is_month_int(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_day_int(*, arg_position_index: int) -> _F:
+def is_day_int(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is a valid day integer (1-31).
@@ -2198,7 +2198,7 @@ def is_day_int(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
@@ -2237,7 +2237,7 @@ def is_day_int(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_hour_int(*, arg_position_index: int) -> _F:
+def is_hour_int(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is a valid hour integer (0-23).
@@ -2253,7 +2253,7 @@ def is_hour_int(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_integer
@@ -2283,7 +2283,7 @@ def is_hour_int(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_minute_int(*, arg_position_index: int) -> _F:
+def is_minute_int(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is a valid minute integer (0-59).
@@ -2299,7 +2299,7 @@ def is_minute_int(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_integer
@@ -2329,7 +2329,7 @@ def is_minute_int(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_second_int(*, arg_position_index: int) -> _F:
+def is_second_int(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is a valid second integer (0-59).
@@ -2345,7 +2345,7 @@ def is_second_int(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_integer
@@ -2376,7 +2376,7 @@ def is_second_int(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_millisecond_int(*, arg_position_index: int) -> _F:
+def is_millisecond_int(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is a valid millisecond integer (0-999).
@@ -2392,7 +2392,7 @@ def is_millisecond_int(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.number_validation import validate_integer
@@ -2423,7 +2423,7 @@ def is_millisecond_int(*, arg_position_index: int) -> _F:
     return wrapped  # type: ignore
 
 
-def is_apysc_datetime(*, arg_position_index: int) -> _F:
+def is_apysc_datetime(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is an apysc's `DateTime` type.
@@ -2439,7 +2439,7 @@ def is_apysc_datetime(*, arg_position_index: int) -> _F:
         Wrapped callable object.
     """
 
-    def wrapped(callable_: _F) -> _F:
+    def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._time.datetime_ import DateTime

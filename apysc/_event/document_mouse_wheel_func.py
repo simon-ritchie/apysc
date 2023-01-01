@@ -14,15 +14,15 @@ from apysc._event.wheel_event import WheelEvent
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
-_O = TypeVar("_O")
-_Handler = Callable[[WheelEvent, _O], None]
+_Options = TypeVar("_Options")
+_Handler = Callable[[WheelEvent, _Options], None]
 
 
 @arg_validation_decos.handler_args_num(arg_position_index=0)
 @arg_validation_decos.handler_options_type(arg_position_index=1)
 @add_debug_info_setting(module_name=__name__)
 def bind_wheel_event_to_document(
-    *, handler: _Handler[_O], options: Optional[_O] = None
+    *, handler: _Handler[_Options], options: Optional[_Options] = None
 ) -> str:
     """
     Bind wheel event to document (overall window).
@@ -65,7 +65,7 @@ def bind_wheel_event_to_document(
 
 @arg_validation_decos.handler_args_num(arg_position_index=0)
 @add_debug_info_setting(module_name=__name__)
-def unbind_wheel_event_from_document(*, handler: _Handler[_O]) -> None:
+def unbind_wheel_event_from_document(*, handler: _Handler[_Options]) -> None:
     """
     Unbind a specified handler's wheel event from a document
     (overall window).

@@ -28,13 +28,13 @@ from apysc._validation import arg_validation_decos
 DefaultType = TypeVar("DefaultType")
 
 _BuiltinKeys = Union[str, int, float]
-_K = TypeVar("_K")
-_V = TypeVar("_V")
+_Key = TypeVar("_Key")
+_Value = TypeVar("_Value")
 
 
 class Dictionary(
     CustomEventMixIn,
-    Generic[_K, _V],
+    Generic[_Key, _Value],
     CopyMixIn,
     RevertMixIn,
     DictionaryStructure,
@@ -73,15 +73,15 @@ class Dictionary(
     0
     """
 
-    _initial_value: Union[Dict[_K, _V], "Dictionary"]
-    _value: Dict[_K, _V]
+    _initial_value: Union[Dict[_Key, _Value], "Dictionary"]
+    _value: Dict[_Key, _Value]
 
     @arg_validation_decos.is_acceptable_dictionary_value(arg_position_index=1)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        value: Union[Dict[_K, _V], "Dictionary"],
+        value: Union[Dict[_Key, _Value], "Dictionary"],
         *,
         variable_name_suffix: str = "",
         skip_init_substitution_expression_appending: bool = False,
@@ -172,8 +172,8 @@ class Dictionary(
 
     @final
     def _get_dict_value(
-        self, *, value: Union[Dict[_K, _V], "Dictionary"]
-    ) -> Dict[_K, _V]:
+        self, *, value: Union[Dict[_Key, _Value], "Dictionary"]
+    ) -> Dict[_Key, _Value]:
         """
         Get a dict value from a specified value.
 
@@ -193,7 +193,7 @@ class Dictionary(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def value(self) -> Union[Dict[_K, _V], "Dictionary"]:
+    def value(self) -> Union[Dict[_Key, _Value], "Dictionary"]:
         """
         Get a current dict value.
 
@@ -220,7 +220,7 @@ class Dictionary(
     @value.setter
     @arg_validation_decos.is_acceptable_dictionary_value(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def value(self, value: Union[Dict[_K, _V], "Dictionary"]) -> None:
+    def value(self, value: Union[Dict[_Key, _Value], "Dictionary"]) -> None:
         """
         Set dictionary value.
 
@@ -240,7 +240,7 @@ class Dictionary(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(
-        self, *, value: Union[Dict[_K, _V], "Dictionary"]
+        self, *, value: Union[Dict[_Key, _Value], "Dictionary"]
     ) -> None:
         """
         Append value's setter expression.
@@ -257,7 +257,7 @@ class Dictionary(
         expression: str = f"{self.variable_name} = {value_str};"
         ap.append_js_expression(expression=expression)
 
-    _value_snapshot: Dict[str, Dict[_K, _V]]
+    _value_snapshot: Dict[str, Dict[_Key, _Value]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -375,13 +375,13 @@ class Dictionary(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def __getitem__(self, key: Union[_K, ExpressionString]) -> _V:
+    def __getitem__(self, key: Union[_Key, ExpressionString]) -> _Value:
         """
         Get a specified key's single value.
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Dictionary key.
 
         Returns
@@ -403,7 +403,7 @@ class Dictionary(
 
     @final
     def _get_builtin_type_key(
-        self, *, key: Union[_K, ExpressionString]
+        self, *, key: Union[_Key, ExpressionString]
     ) -> _BuiltinKeys:
         """
         Get a built-in type's key (str, int, or float) from
@@ -411,7 +411,7 @@ class Dictionary(
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Target key value (including String, Int, and Number).
 
         Returns
@@ -429,14 +429,14 @@ class Dictionary(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_getitem_expression(
-        self, *, key: Union[_K, ExpressionString], value: Any
+        self, *, key: Union[_Key, ExpressionString], value: Any
     ) -> None:
         """
         Append __getitem__ expression.
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Dictionary key.
         value : *
             Specified key's value.
@@ -454,7 +454,7 @@ class Dictionary(
 
     @final
     def _validate_key_type_is_str_or_numeric(
-        self, *, key: Union[_K, ExpressionString]
+        self, *, key: Union[_Key, ExpressionString]
     ) -> None:
         """
         Validate whether a key's value type is acceptable
@@ -462,7 +462,7 @@ class Dictionary(
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Dictionary key to check.
 
         Raises
@@ -480,13 +480,13 @@ class Dictionary(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def __setitem__(self, key: Union[_K, ExpressionString], value: _V) -> None:
+    def __setitem__(self, key: Union[_Key, ExpressionString], value: _Value) -> None:
         """
         Set value to a specified key position.
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Dictionary key to set value.
         value : *
             Any value to set.
@@ -498,14 +498,14 @@ class Dictionary(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_setitem_expression(
-        self, *, key: Union[_K, ExpressionString], value: _V
+        self, *, key: Union[_Key, ExpressionString], value: _Value
     ) -> None:
         """
         Append __setitem__ method expression.
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Dictionary key to check.
         value : *
             Any value to set.
@@ -520,13 +520,13 @@ class Dictionary(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def __delitem__(self, key: Union[_K, ExpressionString]) -> None:
+    def __delitem__(self, key: Union[_Key, ExpressionString]) -> None:
         """
         Delete specified key's value from a dictionary.
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Dictionary key to delete.
         """
         key_: _BuiltinKeys = self._get_builtin_type_key(key=key)
@@ -536,13 +536,13 @@ class Dictionary(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_delitem_expression(self, *, key: Union[_K, ExpressionString]) -> None:
+    def _append_delitem_expression(self, *, key: Union[_Key, ExpressionString]) -> None:
         """
         Append __delitem__ method expression.
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Dictionary key to delete.
         """
         import apysc as ap
@@ -657,7 +657,7 @@ class Dictionary(
     @final
     @add_debug_info_setting(module_name=__name__)
     def get(
-        self, key: Union[_K, ExpressionString], *, default: DefaultType = None
+        self, key: Union[_Key, ExpressionString], *, default: DefaultType = None
     ) -> DefaultType:
         """
         Get a specified key dictionary value. If this
@@ -666,7 +666,7 @@ class Dictionary(
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Target key.
         default : DefaultType or None, optional
             Any default value.
@@ -709,14 +709,14 @@ class Dictionary(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_get_expression(
-        self, *, key: Union[_K, ExpressionString], result_value: Any, default: Any
+        self, *, key: Union[_Key, ExpressionString], result_value: Any, default: Any
     ) -> None:
         """
         Append the `get` method expression.
 
         Parameters
         ----------
-        key : _K
+        key : _Key
             Target key.
         result_value : Any
             Extracted value or a default value.

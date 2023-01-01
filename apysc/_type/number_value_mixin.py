@@ -21,8 +21,8 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 _NumType = Union[int, float, "NumberValueMixIn"]
-_V = TypeVar("_V", int, float)
-_T = TypeVar("_T", bound="NumberValueMixIn")
+_ValueType = TypeVar("_ValueType", int, float)
+_InstanceType = TypeVar("_InstanceType", bound="NumberValueMixIn")
 
 
 class NumberValueMixIn(
@@ -31,12 +31,12 @@ class NumberValueMixIn(
     CustomEventMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
-    Generic[_V, _T],
+    Generic[_ValueType, _InstanceType],
     ABC,
 ):
 
     _initial_value: _NumType
-    _value: _V
+    _value: _ValueType
 
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
@@ -59,7 +59,7 @@ class NumberValueMixIn(
         self._variable_name_suffix = variable_name_suffix
         self._initial_value = value
         if isinstance(value, NumberValueMixIn):
-            value_: _V = value._value
+            value_: _ValueType = value._value
         else:
             value_ = value  # type: ignore
         self._value = value_
@@ -285,7 +285,7 @@ class NumberValueMixIn(
     @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def __mul__(self, other: _NumType) -> _T:
+    def __mul__(self, other: _NumType) -> _InstanceType:
         """
         Method for multiplication.
 
@@ -303,7 +303,7 @@ class NumberValueMixIn(
             value: _NumType = self._value * other._value
         else:
             value = self._value * other  # type: ignore
-        result: _T = self._copy()
+        result: _InstanceType = self._copy()
         result._set_value_and_skip_expression_appending(value=value)
         self._append_multiplication_expression(result=result, other=other)
         return result
@@ -457,7 +457,7 @@ class NumberValueMixIn(
     @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def __iadd__(self, other: _NumType) -> _T:
+    def __iadd__(self, other: _NumType) -> _InstanceType:
         """
         Method for incremental addition.
 
@@ -474,7 +474,7 @@ class NumberValueMixIn(
         from apysc._expression import expression_variables_util
 
         self._incremental_calc_prev_name = self._get_previous_variable_name()
-        result: _T = self + other
+        result: _InstanceType = self + other
         expression_variables_util.append_substitution_expression(
             left_value=self, right_value=result
         )
@@ -511,7 +511,7 @@ class NumberValueMixIn(
     @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def __imul__(self, other: _NumType) -> _T:
+    def __imul__(self, other: _NumType) -> _InstanceType:
         """
         Method for incremental multiplication.
 
@@ -528,7 +528,7 @@ class NumberValueMixIn(
         from apysc._expression import expression_variables_util
 
         self._incremental_calc_prev_name = self._get_previous_variable_name()
-        result: _T = self * other
+        result: _InstanceType = self * other
         expression_variables_util.append_substitution_expression(
             left_value=self, right_value=result
         )
@@ -566,7 +566,7 @@ class NumberValueMixIn(
     @final
     @arg_validation_decos.is_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def __mod__(self, other: _NumType) -> _T:
+    def __mod__(self, other: _NumType) -> _InstanceType:
         """
         Method for the modulo operation.
 
@@ -584,7 +584,7 @@ class NumberValueMixIn(
             value: Union[int, float] = self._value % other._value
         else:
             value = self._value % other  # type: ignore
-        result: _T = self._copy()
+        result: _InstanceType = self._copy()
         result._set_value_and_skip_expression_appending(value=value)
         self._append_modulo_expression(result=result, other=other)
         return result
@@ -1022,7 +1022,7 @@ class NumberValueMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _value_snapshots: Dict[str, _V]
+    _value_snapshots: Dict[str, _ValueType]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

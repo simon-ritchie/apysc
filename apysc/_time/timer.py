@@ -24,9 +24,9 @@ from apysc._validation import arg_validation_decos
 if TYPE_CHECKING:
     from apysc._event.timer_event import TimerEvent
 
-_O1 = TypeVar("_O1")
-_O2 = TypeVar("_O2")
-_Handler = Callable[["TimerEvent", _O1], None]
+_ConstructorOptions = TypeVar("_ConstructorOptions")
+_TimerCompleteOptions = TypeVar("_TimerCompleteOptions")
+_Handler = Callable[["TimerEvent", _ConstructorOptions], None]
 
 
 class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
@@ -87,11 +87,11 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        handler: _Handler[_O1],
+        handler: _Handler[_ConstructorOptions],
         *,
         delay: Union[int, float, NumberValueMixIn, FPS],
         repeat_count: Union[int, Int] = 0,
-        options: Optional[_O1] = None,
+        options: Optional[_ConstructorOptions] = None,
     ) -> None:
         """
         Timer class to handle function calling at regular intervals.
@@ -160,7 +160,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
             )
             self._handler_name = get_handler_name(handler=handler, instance=self)
             handler = self._wrap_handler(handler=handler)
-            self._handler: _Handler[_O1] = handler
+            self._handler: _Handler[_ConstructorOptions] = handler
             delay_: ap.Number = self._convert_delay_to_number(delay=delay)
             number_validation.validate_num_is_gte_zero(num=delay_)
             self._delay = delay_
@@ -375,7 +375,11 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         self._running.value = True
 
     @final
-    def _wrap_handler(self, *, handler: _Handler[_O1]) -> _Handler[_O1]:
+    def _wrap_handler(
+        self,
+        *,
+        handler: _Handler[_ConstructorOptions],
+    ) -> _Handler[_ConstructorOptions]:
         """
         Wrap a handler to update a current count value when
         it is called.
@@ -552,7 +556,10 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def timer_complete(
-        self, handler: _Handler[_O2], *, options: Optional[_O2] = None
+        self,
+        handler: _Handler[_TimerCompleteOptions],
+        *,
+        options: Optional[_TimerCompleteOptions] = None,
     ) -> str:
         """
         Add a timer complete event listener setting.

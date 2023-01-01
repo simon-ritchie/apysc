@@ -17,8 +17,8 @@ from apysc._event.mouse_event_unbinding_mixin import MouseEventUnbindingMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
-_O = TypeVar("_O")
-_Handler = Callable[[MouseEvent, _O], None]
+_Options = TypeVar("_Options")
+_Handler = Callable[[MouseEvent, _Options], None]
 
 
 class MouseUpMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin):
@@ -29,7 +29,12 @@ class MouseUpMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin):
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
-    def mouseup(self, handler: _Handler[_O], *, options: Optional[_O] = None) -> str:
+    def mouseup(
+        self,
+        handler: _Handler[_Options],
+        *,
+        options: Optional[_Options] = None,
+    ) -> str:
         """
         Add mouse up event listener setting.
 
@@ -104,7 +109,7 @@ class MouseUpMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin):
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def unbind_mouseup(self, handler: _Handler[_O]) -> None:
+    def unbind_mouseup(self, handler: _Handler[_Options]) -> None:
         """
         Unbind a specified handler's mouse-up event.
 

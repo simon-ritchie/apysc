@@ -386,10 +386,10 @@ class DebugInfo:
 
 
 # pyright: reportInvalidTypeVarUse=false
-_F = TypeVar("_F", bound=Callable)
+_Callable = TypeVar("_Callable", bound=Callable)
 
 
-def add_debug_info_setting(*, module_name: str) -> _F:
+def add_debug_info_setting(*, module_name: str) -> _Callable:
     """
     Set a debug information setting to a target
     callable object (decorator function).
@@ -419,7 +419,7 @@ def add_debug_info_setting(*, module_name: str) -> _F:
     ...     ...
     """
 
-    def wrapped(func: _F) -> _F:
+    def wrapped(func: _Callable) -> _Callable:
         """
         Wrapping function for a decorator setting.
 

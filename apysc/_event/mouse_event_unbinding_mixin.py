@@ -14,8 +14,8 @@ from apysc._event.set_handler_data_mixin import SetHandlerDataMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_O = TypeVar("_O")
-_Handler = Callable[[MouseEvent, _O], None]
+_Options = TypeVar("_Options")
+_Handler = Callable[[MouseEvent, _Options], None]
 
 
 class MouseEventUnbindingMixIn(SetHandlerDataMixIn[MouseEvent]):
@@ -24,7 +24,7 @@ class MouseEventUnbindingMixIn(SetHandlerDataMixIn[MouseEvent]):
     def _unbind_mouse_event(
         self,
         *,
-        handler: _Handler[_O],
+        handler: _Handler[_Options],
         mouse_event_type: MouseEventType,
         handlers_dict: Dict[str, HandlerData[MouseEvent]],
     ) -> None:

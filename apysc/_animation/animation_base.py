@@ -20,19 +20,19 @@ from apysc._type.int import Int
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
-_T = TypeVar("_T", bound=VariableNameMixIn)
-_O = TypeVar("_O")
-_Handler = Callable[["animation_event.AnimationEvent", _O], None]
+_Target = TypeVar("_Target", bound=VariableNameMixIn)
+_Options = TypeVar("_Options")
+_Handler = Callable[["animation_event.AnimationEvent", _Options], None]
 
 
 class AnimationBase(
     VariableNameMixIn,
     CustomEventMixIn["animation_event.AnimationEvent"],
-    Generic[_T],
+    Generic[_Target],
     ABC,
 ):
 
-    _target: _T
+    _target: _Target
     _duration: Int
     _delay: Int
     _easing: Easing
@@ -63,7 +63,7 @@ class AnimationBase(
     def _set_basic_animation_settings(
         self,
         *,
-        target: _T,
+        target: _Target,
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,
         easing: Easing = Easing.LINEAR,
@@ -184,7 +184,7 @@ class AnimationBase(
     @arg_validation_decos.handler_options_type(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def animation_complete(
-        self, handler: _Handler[_O], *, options: Optional[_O] = None
+        self, handler: _Handler[_Options], *, options: Optional[_Options] = None
     ) -> "AnimationBase":
         """
         Add an animation complete event listener setting.
@@ -243,7 +243,7 @@ class AnimationBase(
         from apysc._event.custom_event_type import CustomEventType
 
         self._validate_animation_not_started()
-        e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
+        e: ap.AnimationEvent[_Target] = ap.AnimationEvent(this=self)
         in_handler_head_expression: str = (
             self._get_complete_event_in_handler_head_expression()
         )
@@ -280,7 +280,7 @@ class AnimationBase(
         )
 
     @property
-    def target(self) -> _T:
+    def target(self) -> _Target:
         """
         Get an animation target instance.
 

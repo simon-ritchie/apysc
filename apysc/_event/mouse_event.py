@@ -14,10 +14,15 @@ from apysc._type.int import Int
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
-T = TypeVar("T", bound=VariableNameMixIn)
+_Target = TypeVar("_Target", bound=VariableNameMixIn)
 
 
-class MouseEvent(Event[T], Generic[T], StopPropagationMixIn, PreventDefaultMixIn):
+class MouseEvent(
+    Event[_Target],
+    Generic[_Target],
+    StopPropagationMixIn,
+    PreventDefaultMixIn,
+):
     """
     Mouse event class.
 
@@ -45,7 +50,7 @@ class MouseEvent(Event[T], Generic[T], StopPropagationMixIn, PreventDefaultMixIn
     @final
     @arg_validation_decos.is_variable_name_interface_type(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, *, this: T) -> None:
+    def __init__(self, *, this: _Target) -> None:
         """
         Mouse event class.
 
@@ -238,7 +243,7 @@ class MouseEvent(Event[T], Generic[T], StopPropagationMixIn, PreventDefaultMixIn
         import apysc as ap
 
         stage_x: ap.Int = self.stage_x
-        this: T = self.this
+        this: _Target = self.this
         expression: str = (
             f"{x.variable_name} = {stage_x.variable_name} - "
             f"get_total_x({this.variable_name});"
@@ -297,7 +302,7 @@ class MouseEvent(Event[T], Generic[T], StopPropagationMixIn, PreventDefaultMixIn
         import apysc as ap
 
         stage_y: ap.Int = self.stage_y
-        this: T = self.this
+        this: _Target = self.this
         expression: str = (
             f"{y.variable_name} = {stage_y.variable_name} - "
             f"get_total_y({this.variable_name});"

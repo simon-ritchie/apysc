@@ -23,7 +23,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
-T = TypeVar("T")
+_ArrValue = TypeVar("_ArrValue")
 
 
 class Array(
@@ -32,7 +32,7 @@ class Array(
     CustomEventMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
-    Generic[T],
+    Generic[_ArrValue],
 ):
     """
     Array class for the apysc library.
@@ -77,14 +77,14 @@ class Array(
     """
 
     _initial_value: Union[List[Any], tuple, "Array"]
-    _value: List[T]
+    _value: List[_ArrValue]
 
     @arg_validation_decos.is_acceptable_array_value(arg_position_index=1)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        value: Union[List[T], tuple, range, "Array"],
+        value: Union[List[_ArrValue], tuple, range, "Array"],
         *,
         variable_name_suffix: str = "",
         skip_init_substitution_expression_appending: bool = False,
@@ -299,7 +299,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def append(self, value: T) -> None:
+    def append(self, value: _ArrValue) -> None:
         """
         Add any value to the end of this array.
         This method behaves the same `push` method.
@@ -327,7 +327,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def push(self, value: T) -> None:
+    def push(self, value: _ArrValue) -> None:
         """
         Add any value to the end of this array. This
         interface behaves the same as the `append` method.
@@ -354,7 +354,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_push_and_append_expression(self, *, value: T) -> None:
+    def _append_push_and_append_expression(self, *, value: _ArrValue) -> None:
         """
         Append push and append method expression.
 
@@ -373,7 +373,7 @@ class Array(
     @final
     @arg_validation_decos.is_acceptable_array_value(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def extend(self, other_arr: Union[List[T], tuple, range, "Array"]) -> None:
+    def extend(self, other_arr: Union[List[_ArrValue], tuple, range, "Array"]) -> None:
         """
         Concatenate argument array to this one. This interface
         positions the argument array's values after this array
@@ -409,7 +409,7 @@ class Array(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_extend_expression(
-        self, *, other_arr: Union[List[T], tuple, "Array"]
+        self, *, other_arr: Union[List[_ArrValue], tuple, "Array"]
     ) -> None:
         """
         Append an `extend` method expression.
@@ -430,7 +430,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def concat(self, other_arr: Union[List[T], tuple, "Array"]) -> "Array":
+    def concat(self, other_arr: Union[List[_ArrValue], tuple, "Array"]) -> "Array":
         """
         Concatenate argument array to this one. This interface
         positions the argument array's values after this array
@@ -473,7 +473,7 @@ class Array(
         self,
         *,
         concatenated: VariableNameMixIn,
-        other_arr: Union[List[T], tuple, "Array"],
+        other_arr: Union[List[_ArrValue], tuple, "Array"],
     ) -> None:
         """
         Append the `concat` method expression.
@@ -498,7 +498,7 @@ class Array(
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def insert(self, index: Union[int, Int], value: T) -> None:
+    def insert(self, index: Union[int, Int], value: _ArrValue) -> None:
         """
         Insert value to this array at a specified index.
         This interface behaves in the same `insert_at` method.
@@ -539,7 +539,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def insert_at(self, *, index: Union[int, Int], value: T) -> None:
+    def insert_at(self, *, index: Union[int, Int], value: _ArrValue) -> None:
         """
         Insert value to this array at a specified index.
         This interface behaves in the same `insert` method.
@@ -568,7 +568,12 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_insert_expression(self, *, index: Union[int, Int], value: T) -> None:
+    def _append_insert_expression(
+        self,
+        *,
+        index: Union[int, Int],
+        value: _ArrValue,
+    ) -> None:
         """
         Append insert method expression.
 
@@ -589,7 +594,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def pop(self) -> T:
+    def pop(self) -> _ArrValue:
         """
         Remove this array's last value and return it.
 
@@ -614,13 +619,13 @@ class Array(
         >>> arr
         Array([1, 2])
         """
-        value: T = self._value.pop()
+        value: _ArrValue = self._value.pop()
         self._append_pop_expression(value=value)
         return value
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_pop_expression(self, *, value: T) -> None:
+    def _append_pop_expression(self, *, value: _ArrValue) -> None:
         """
         Append pop method expression.
 
@@ -638,7 +643,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def remove(self, value: T) -> None:
+    def remove(self, value: _ArrValue) -> None:
         """
         Remove a specified value from this array.
 
@@ -665,7 +670,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_remove_expression(self, *, value: T) -> None:
+    def _append_remove_expression(self, *, value: _ArrValue) -> None:
         """
         Append a `remove` method expression.
 
@@ -916,7 +921,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def __getitem__(self, index: Union[int, Int]) -> T:
+    def __getitem__(self, index: Union[int, Int]) -> _ArrValue:
         """
         Get a specified index single value.
 
@@ -994,7 +999,12 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_getitem_expression(self, *, index: Union[int, Int], value: T) -> None:
+    def _append_getitem_expression(
+        self,
+        *,
+        index: Union[int, Int],
+        value: _ArrValue,
+    ) -> None:
         """
         Append __getitem__ expression.
 
@@ -1021,7 +1031,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def __setitem__(self, index: Union[int, Int], value: T) -> None:
+    def __setitem__(self, index: Union[int, Int], value: _ArrValue) -> None:
         """
         Set value to a specified index.
 
@@ -1046,7 +1056,12 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_setitem_expression(self, *, index: Union[int, Int], value: T) -> None:
+    def _append_setitem_expression(
+        self,
+        *,
+        index: Union[int, Int],
+        value: _ArrValue,
+    ) -> None:
         """
         Append __setitem__ method expression.
 
@@ -1238,7 +1253,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def index_of(self, value: T) -> Int:
+    def index_of(self, value: _ArrValue) -> Int:
         """
         Search specified value's index and return it.
 
@@ -1278,7 +1293,7 @@ class Array(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_index_of_expression(self, *, index: Int, value: T) -> None:
+    def _append_index_of_expression(self, *, index: Int, value: _ArrValue) -> None:
         """
         Append index_of method expression.
 
@@ -1458,7 +1473,7 @@ class Array(
         expression: str = f"{self.variable_name}.splice(0);"
         ap.append_js_expression(expression=expression)
 
-    _value_snapshots: Dict[str, List[T]]
+    _value_snapshots: Dict[str, List[_ArrValue]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

@@ -59,10 +59,10 @@ def escape_double_quotation(*, string: str) -> str:
     return string
 
 
-T = TypeVar("T")
+_Value = TypeVar("_Value")
 
 
-def wrap_by_double_quotation_if_value_is_string(*, value: T) -> T:
+def wrap_by_double_quotation_if_value_is_string(*, value: _Value) -> _Value:
     """
     Wrap specified value by double quotation if a
     value is a string.

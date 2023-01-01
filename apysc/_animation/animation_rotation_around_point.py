@@ -14,10 +14,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
-_T = TypeVar("_T", bound=VariableNameMixIn)
+_Target = TypeVar("_Target", bound=VariableNameMixIn)
 
 
-class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
+class AnimationRotationAroundPoint(AnimationBase[_Target], Generic[_Target]):
     """
     The animation class for a rotation around the given point.
 
@@ -69,7 +69,7 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
     def __init__(
         self,
         *,
-        target: _T,
+        target: _Target,
         rotation_around_point: Union[int, Int],
         x: Union[int, Int],
         y: Union[int, Int],

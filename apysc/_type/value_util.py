@@ -78,11 +78,11 @@ def _get_value_str_from_dict(*, value: Dict[Any, Any]) -> str:
         Converted string, e.g., '{"any_key": 10, "other_key": any_variable}'
     """
     value_str: str = "{"
-    for key, value in value.items():
+    for key, value_ in value.items():
         if value_str != "{":
             value_str += ", "
         _validate_dict_key_type(key=key)
-        value_str += f'"{key}": {get_value_str_for_expression(value=value)}'
+        value_str += f'"{key}": {get_value_str_for_expression(value=value_)}'
     value_str += "}"
     return value_str
 
@@ -138,11 +138,11 @@ def _get_value_str_from_iterable(*, value: Union[list, tuple, Array]) -> str:
     return value_str
 
 
-T = TypeVar("T")
+_Type = TypeVar("_Type")
 
 
 @add_debug_info_setting(module_name=__name__)
-def get_copy(*, value: T) -> T:
+def get_copy(*, value: _Type) -> _Type:
     """
     Get a copy of a specified instance if it is an instance
     of CopyMixIn.

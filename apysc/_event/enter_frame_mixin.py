@@ -77,6 +77,8 @@ class EnterFrameMixIn(
         import apysc as ap
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
@@ -90,6 +92,9 @@ class EnterFrameMixIn(
                 # ap.append_js_expression(expression="")
             return
 
+        LOOP_FUNC_NAME: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.LOOP
+        )
         self._set_handler_data(
             handler=handler,
             handlers_dict=self._enter_frame_handlers,
@@ -106,6 +111,7 @@ class EnterFrameMixIn(
             handler_name=handler_name,
             fps=fps,
             is_stopped=is_stopped,
+            loop_func_name=LOOP_FUNC_NAME,
         )
         append_handler_expression(
             handler_data=self._enter_frame_handlers[handler_name],
@@ -138,6 +144,7 @@ class EnterFrameMixIn(
         handler_name: str,
         fps: FPS,
         is_stopped: Boolean,
+        loop_func_name: str,
     ) -> None:
         """
         Append an enter frame expression string.
@@ -150,15 +157,14 @@ class EnterFrameMixIn(
             Frame per second to set.
         is_stopped : Boolean
             A boolean to control an animation loop.
+        loop_func_name : str
+            A loop function name to set.
         """
         import apysc as ap
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._expression.indent_num import Indent
 
-        LOOP_FUNC_NAME: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.LOOP
-        )
         MILISECOND_INTERVALS: float = fps.value.milisecond_intervals
         prev_time: ap.DateTime = ap.DateTime.now(
             variable_name_suffix=self._get_attr_or_variable_name_suffix(
@@ -166,7 +172,7 @@ class EnterFrameMixIn(
             ),
         )
         expression: str = (
-            f"function {LOOP_FUNC_NAME}() {{"
+            f"function {loop_func_name}() {{"
             f"\n  if ({is_stopped.variable_name}) {{"
             "\n    return;"
             "\n  }"
@@ -195,11 +201,11 @@ class EnterFrameMixIn(
                 )
             )
             ap.append_js_expression(
-                expression=f"requestAnimationFrame({LOOP_FUNC_NAME});"
+                expression=f"requestAnimationFrame({loop_func_name});"
             )
             prev_time.millisecond += count * MILISECOND_INTERVALS
         ap.append_js_expression(expression="}")
-        ap.append_js_expression(expression=f"requestAnimationFrame({LOOP_FUNC_NAME});")
+        ap.append_js_expression(expression=f"requestAnimationFrame({loop_func_name});")
 
     def _initialize_enter_frame_handlers_if_not_initialized(self) -> None:
         """

@@ -45,13 +45,10 @@ class TestEnterFrameMixIn:
             handler_name="test_handler",
             fps=ap.FPS.FPS_60,
             is_stopped=is_stopped,
+            loop_func_name="test_loop_1",
         )
         expression: str = expression_data_util.get_current_expression()
-        match: Optional[Match] = re.search(
-            pattern=rf"function {var_names.LOOP}_\d+?\(\) {{",
-            string=expression,
-        )
-        assert match is not None
+        assert "function test_loop_1() {" in expression
 
         match = re.search(
             pattern=rf"\n  if \({is_stopped.variable_name}\) {{\n    return;\n  }}",
@@ -67,20 +64,8 @@ class TestEnterFrameMixIn:
             flags=re.MULTILINE,
         )
         assert match is not None
-
-        match = re.search(
-            pattern=rf"\n  requestAnimationFrame\({var_names.LOOP}_\d+?\);",
-            string=expression,
-            flags=re.MULTILINE,
-        )
-        assert match is not None
-
-        match = re.search(
-            pattern=rf"\nrequestAnimationFrame\({var_names.LOOP}_\d+?\);",
-            string=expression,
-            flags=re.MULTILINE,
-        )
-        assert match is not None
+        assert "\n  requestAnimationFrame(test_loop_1);" in expression
+        assert "\nrequestAnimationFrame(test_loop_1);" in expression
 
     def on_enter_frame_1(self, e: ap.EnterFrameEvent, options: dict) -> None:
         """

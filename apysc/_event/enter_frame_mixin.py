@@ -86,17 +86,20 @@ class EnterFrameMixIn(
         self._initialize_loop_func_name_settings()
 
         handler_name: str = get_handler_name(handler=handler, instance=self)
-        LOOP_FUNC_NAME: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.LOOP
-        )
         if handler_name in self._is_stopped_settings:
             with ap.If(self._is_stopped_settings[handler_name]):
                 self._is_stopped_settings[handler_name].value = False
                 ap.append_js_expression(
-                    expression=f"requestAnimationFrame({LOOP_FUNC_NAME});",
+                    expression=(
+                        "requestAnimationFrame("
+                        f"{self._loop_func_name_settings[handler_name]});"
+                    ),
                 )
             return
 
+        LOOP_FUNC_NAME: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.LOOP
+        )
         self._set_handler_data(
             handler=handler,
             handlers_dict=self._enter_frame_handlers,
@@ -164,8 +167,6 @@ class EnterFrameMixIn(
             A loop function name to set.
         """
         import apysc as ap
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
         from apysc._expression.indent_num import Indent
 
         MILISECOND_INTERVALS: float = fps.value.milisecond_intervals

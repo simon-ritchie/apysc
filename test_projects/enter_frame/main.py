@@ -31,6 +31,11 @@ class _SpriteOptions(TypedDict):
     sprite: ap.Sprite
 
 
+class _SpriteAndRectOptions(TypedDict):
+    sprite: ap.Sprite
+    rectangle: ap.Rectangle
+
+
 def main() -> None:
     """
     Entry point of this test project.
@@ -92,6 +97,17 @@ def main() -> None:
         delay=1000,
         repeat_count=1,
         options=options_,
+    ).start()
+
+    options__: _SpriteAndRectOptions = {
+        "sprite": sprite,
+        "rectangle": rectangle_1,
+    }
+    ap.Timer(
+        handler=on_timer_3,
+        delay=1500,
+        repeat_count=1,
+        options=options__,
     ).start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
@@ -171,6 +187,23 @@ def on_enter_frame_3(e: ap.EnterFrameEvent[ap.Sprite], options: _RectOptions) ->
         _description_
     """
     options["rectangle"].x += 1
+
+
+def on_timer_3(e: ap.TimerEvent, options: _SpriteAndRectOptions) -> None:
+    """
+    A handler for a timer event.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : _SpriteAndRectOptions
+        Optional argument dictionary.
+    """
+    options_: _RectOptions = {
+        "rectangle": options["rectangle"],
+    }
+    options["sprite"].enter_frame(handler=on_enter_frame_1, options=options_)
 
 
 if __name__ == "__main__":

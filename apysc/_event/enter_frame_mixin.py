@@ -86,6 +86,7 @@ class EnterFrameMixIn(
         self._initialize_is_stopped_settings_if_not_initialized()
         self._initialize_fps_milisecond_intervals_settings_if_not_initialized()
         self._initialize_loop_func_name_settings_if_not_initialized()
+        self._initialize_prev_time_settings_if_not_initialized()
 
         handler_name: str = get_handler_name(handler=handler, instance=self)
         if handler_name in self._is_stopped_settings:
@@ -127,6 +128,15 @@ class EnterFrameMixIn(
         )
         self._is_stopped_settings[handler_name] = is_stopped
         self._loop_func_name_settings[handler_name] = LOOP_FUNC_NAME
+
+    def _initialize_prev_time_settings_if_not_initialized(self) -> None:
+        """
+        Initialize the `_prev_time_settings`'s attribute
+        if this instance has not initialized it yet.
+        """
+        if hasattr(self, "_prev_time_settings"):
+            return
+        self._prev_time_settings = {}
 
     def _initialize_loop_func_name_settings_if_not_initialized(self) -> None:
         """

@@ -188,4 +188,18 @@ class TestEnterFrameMixIn:
         assert mixin._loop_func_name_settings == {}
 
         mixin._loop_func_name_settings["test_handler"] = "test_loop"
+        mixin._initialize_loop_func_name_settings_if_not_initialized()
         assert mixin._loop_func_name_settings == {"test_handler": "test_loop"}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__initialize_prev_time_settings_if_not_initialized(self) -> None:
+        mixin: EnterFrameMixIn = EnterFrameMixIn()
+        mixin._initialize_prev_time_settings_if_not_initialized()
+        assert mixin._prev_time_settings == {}
+
+        expected_prev_time: ap.DateTime = ap.DateTime(year=2023, month=1, day=2)
+        mixin._prev_time_settings["test_time"] = expected_prev_time
+        mixin._initialize_prev_time_settings_if_not_initialized()
+        assert mixin._prev_time_settings == {
+            "test_time": expected_prev_time,
+        }

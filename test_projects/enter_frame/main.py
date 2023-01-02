@@ -27,11 +27,15 @@ class _RectOptions(TypedDict):
     rectangle: ap.Rectangle
 
 
+class _SpriteOptions(TypedDict):
+    sprite: ap.Sprite
+
+
 def main() -> None:
     """
     Entry point of this test project.
     """
-    _: ap.Stage = ap.Stage(background_color="#333")
+    _: ap.Stage = ap.Stage(background_color="#333", stage_width=2000)
     sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.begin_fill(color="#0af")
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
@@ -65,12 +69,71 @@ def main() -> None:
         options=options,
     )
 
+    sprite.graphics.begin_fill(color="#0fa")
+    rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
+        x=250,
+        y=50,
+        width=50,
+        height=50,
+    )
+    options = {
+        "rectangle": rectangle_3,
+    }
+    sprite.enter_frame(
+        handler=on_enter_frame_3,
+        options=options,
+    )
+
+    options_: _SpriteOptions = {
+        "sprite": sprite,
+    }
+    ap.Timer(
+        handler=on_timer_1,
+        delay=1000,
+        repeat_count=1,
+        options=options_,
+    ).start()
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
+
+
+def on_timer_1(e: ap.TimerEvent, options: _SpriteOptions) -> None:
+    """
+    A handler for a timer event.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : _SpriteOptions
+        Optional argument dictionary.
+    """
+    options["sprite"].unbind_enter_frame(handler=on_enter_frame_1)
+    ap.Timer(
+        handler=on_timer_2,
+        delay=1000,
+        repeat_count=1,
+        options=options,
+    ).start()
+
+
+def on_timer_2(e: ap.TimerEvent, options: _SpriteOptions) -> None:
+    """
+    A handler for a timer event.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : _SpriteOptions
+        Optional argument dictionary.
+    """
+    options["sprite"].unbind_enter_frame_all()
 
 
 def on_enter_frame_1(e: ap.EnterFrameEvent[ap.Sprite], options: _RectOptions) -> None:
     """
-    The handler for an enter-frame event.
+    A handler for an enter-frame event.
 
     Parameters
     ----------
@@ -84,7 +147,7 @@ def on_enter_frame_1(e: ap.EnterFrameEvent[ap.Sprite], options: _RectOptions) ->
 
 def on_enter_frame_2(e: ap.EnterFrameEvent[ap.Sprite], options: _RectOptions) -> None:
     """
-    The handler for an enter-frame event.
+    A handler for an enter-frame event.
 
     Parameters
     ----------
@@ -92,6 +155,20 @@ def on_enter_frame_2(e: ap.EnterFrameEvent[ap.Sprite], options: _RectOptions) ->
         Event instance.
     options : _RectOptions
         Optional argument dictionary.
+    """
+    options["rectangle"].x += 1
+
+
+def on_enter_frame_3(e: ap.EnterFrameEvent[ap.Sprite], options: _RectOptions) -> None:
+    """
+    A handler for an enter-frame event.
+
+    Parameters
+    ----------
+    e : ap.EnterFrameEvent[ap.Sprite]
+        _description_
+    options : _RectOptions
+        _description_
     """
     options["rectangle"].x += 1
 

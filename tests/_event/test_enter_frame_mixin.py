@@ -192,3 +192,12 @@ class TestEnterFrameMixIn:
         assert mixin._fps_milisecond_intervals_settings == {
             "test": ap.Number(33.3),
         }
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__initialize_loop_func_name_settings(self) -> None:
+        mixin: EnterFrameMixIn = EnterFrameMixIn()
+        mixin._initialize_loop_func_name_settings()
+        assert mixin._loop_func_name_settings == {}
+
+        mixin._loop_func_name_settings["test_handler"] = "test_loop"
+        assert mixin._loop_func_name_settings == {"test_handler": "test_loop"}

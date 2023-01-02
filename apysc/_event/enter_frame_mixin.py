@@ -42,6 +42,7 @@ class EnterFrameMixIn(
     _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
     _is_stopped_settings: Dict[_HandlerName, Boolean]
     _fps_milisecond_intervals_settings: Dict[_HandlerName, Number]
+    _loop_func_name_settings: Dict[_HandlerName, str]
 
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
@@ -80,10 +81,13 @@ class EnterFrameMixIn(
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
         self._initialize_fps_milisecond_intervals_settings_if_not_initialized()
+        self._initialize_loop_func_name_settings()
 
         handler_name: str = get_handler_name(handler=handler, instance=self)
         if handler_name in self._is_stopped_settings:
-            self._is_stopped_settings[handler_name].value = False
+            with ap.If(self._is_stopped_settings[handler_name]):
+                self._is_stopped_settings[handler_name].value = False
+                # ap.append_js_expression(expression="")
             return
 
         self._set_handler_data(
@@ -109,6 +113,15 @@ class EnterFrameMixIn(
             e=event,
         )
         self._is_stopped_settings[handler_name] = is_stopped
+
+    def _initialize_loop_func_name_settings(self) -> None:
+        """
+        Initialize the `_loop_func_name_settings`'s attribute
+        if this instance has not initialized it yet.
+        """
+        if hasattr(self, "_loop_func_name_settings"):
+            return
+        self._loop_func_name_settings = {}
 
     def _initialize_fps_milisecond_intervals_settings_if_not_initialized(self) -> None:
         """

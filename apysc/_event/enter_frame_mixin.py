@@ -86,15 +86,15 @@ class EnterFrameMixIn(
         self._initialize_loop_func_name_settings()
 
         handler_name: str = get_handler_name(handler=handler, instance=self)
+        LOOP_FUNC_NAME: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.LOOP
+        )
         if handler_name in self._is_stopped_settings:
             with ap.If(self._is_stopped_settings[handler_name]):
                 self._is_stopped_settings[handler_name].value = False
                 # ap.append_js_expression(expression="")
             return
 
-        LOOP_FUNC_NAME: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.LOOP
-        )
         self._set_handler_data(
             handler=handler,
             handlers_dict=self._enter_frame_handlers,
@@ -119,6 +119,7 @@ class EnterFrameMixIn(
             e=event,
         )
         self._is_stopped_settings[handler_name] = is_stopped
+        self._loop_func_name_settings[handler_name] = LOOP_FUNC_NAME
 
     def _initialize_loop_func_name_settings(self) -> None:
         """

@@ -108,6 +108,8 @@ class TestEnterFrameMixIn:
         )
         assert handler_name in mixin._enter_frame_handlers
         assert not mixin._is_stopped_settings[handler_name]
+        assert handler_name in mixin._loop_func_name_settings
+        assert mixin._loop_func_name_settings[handler_name].startswith(var_names.LOOP)
 
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(

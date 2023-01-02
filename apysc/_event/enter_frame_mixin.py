@@ -92,7 +92,9 @@ class EnterFrameMixIn(
         if handler_name in self._is_stopped_settings:
             with ap.If(self._is_stopped_settings[handler_name]):
                 self._is_stopped_settings[handler_name].value = False
-                # ap.append_js_expression(expression="")
+                ap.append_js_expression(
+                    expression=f"requestAnimationFrame({LOOP_FUNC_NAME});",
+                )
             return
 
         self._set_handler_data(

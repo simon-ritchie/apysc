@@ -122,7 +122,7 @@ class TestEnterFrameMixIn:
         assert f"function {handler_name}" in expression
 
         expression_data_util.empty_expression()
-        mixin._is_stopped_settings[handler_name].value = True
+        mixin.unbind_enter_frame(handler=self.on_enter_frame_1)
         mixin.enter_frame(
             handler=self.on_enter_frame_1,
             fps=ap.FPS.FPS_30,
@@ -130,6 +130,7 @@ class TestEnterFrameMixIn:
         assert mixin._is_stopped_settings[handler_name].value == False
         expression = expression_data_util.get_current_expression()
         assert "function" not in expression
+        assert "requestAnimationFrame" in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_enter_frame(self) -> None:

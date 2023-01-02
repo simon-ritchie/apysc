@@ -41,6 +41,7 @@ class EnterFrameMixIn(
 
     _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
     _is_stopped_settings: Dict[_HandlerName, Boolean]
+    _fps_milisecond_intervals_settings: Dict[_HandlerName, Number]
 
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
@@ -78,6 +79,7 @@ class EnterFrameMixIn(
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
+        self._initialize_fps_milisecond_intervals_settings_if_not_initialized()
 
         handler_name: str = get_handler_name(handler=handler, instance=self)
         if handler_name in self._is_stopped_settings:
@@ -107,6 +109,15 @@ class EnterFrameMixIn(
             e=event,
         )
         self._is_stopped_settings[handler_name] = is_stopped
+
+    def _initialize_fps_milisecond_intervals_settings_if_not_initialized(self) -> None:
+        """
+        Initialize the `_fps_milisecond_intervals_settings`'s
+        attribute if this instance has not initialized it yet.
+        """
+        if hasattr(self, "_fps_milisecond_intervals_settings"):
+            return
+        self._fps_milisecond_intervals_settings = {}
 
     def _append_enter_frame_expression(
         self,
@@ -179,7 +190,7 @@ class EnterFrameMixIn(
 
     def _initialize_enter_frame_handlers_if_not_initialized(self) -> None:
         """
-        Initialize the `_enter_frame_handlers`'s attribute if this interface
+        Initialize the `_enter_frame_handlers`'s attribute if this instance
         has not initialized it yet.
         """
         if hasattr(self, "_enter_frame_handlers"):
@@ -188,7 +199,7 @@ class EnterFrameMixIn(
 
     def _initialize_is_stopped_settings_if_not_initialized(self) -> None:
         """
-        Initialize the `_is_stopped_settings`'s attribute if this interface
+        Initialize the `_is_stopped_settings`'s attribute if this instance
         has not initialized it yet.
         """
         if hasattr(self, "_is_stopped_settings"):

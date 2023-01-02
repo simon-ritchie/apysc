@@ -178,3 +178,17 @@ class TestEnterFrameMixIn:
             instance=mixin,
         )
         assert mixin._is_stopped_settings[handler_name].value
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__initialize_fps_milisecond_intervals_settings_if_not_initialized(
+        self
+    ) -> None:
+        mixin: EnterFrameMixIn = EnterFrameMixIn()
+        mixin._initialize_fps_milisecond_intervals_settings_if_not_initialized()
+        assert mixin._fps_milisecond_intervals_settings == {}
+
+        mixin._fps_milisecond_intervals_settings["test"] = ap.Number(33.3)
+        mixin._initialize_fps_milisecond_intervals_settings_if_not_initialized()
+        assert mixin._fps_milisecond_intervals_settings == {
+            "test": ap.Number(33.3),
+        }

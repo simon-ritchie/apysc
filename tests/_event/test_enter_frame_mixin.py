@@ -182,9 +182,9 @@ class TestEnterFrameMixIn:
         }
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__initialize_loop_func_name_settings(self) -> None:
+    def test__initialize_loop_func_name_settings_if_not_initialized(self) -> None:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
-        mixin._initialize_loop_func_name_settings()
+        mixin._initialize_loop_func_name_settings_if_not_initialized()
         assert mixin._loop_func_name_settings == {}
 
         mixin._loop_func_name_settings["test_handler"] = "test_loop"

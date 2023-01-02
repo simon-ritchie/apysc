@@ -22,6 +22,7 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._validation import arg_validation_decos
+from apysc._time.datetime_ import DateTime
 
 _Options = TypeVar("_Options")
 _HandlerName = str
@@ -43,6 +44,7 @@ class EnterFrameMixIn(
     _is_stopped_settings: Dict[_HandlerName, Boolean]
     _fps_milisecond_intervals_settings: Dict[_HandlerName, Number]
     _loop_func_name_settings: Dict[_HandlerName, str]
+    _prev_time_settings: Dict[_HandlerName, DateTime]
 
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=1)
@@ -83,7 +85,7 @@ class EnterFrameMixIn(
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
         self._initialize_fps_milisecond_intervals_settings_if_not_initialized()
-        self._initialize_loop_func_name_settings()
+        self._initialize_loop_func_name_settings_if_not_initialized()
 
         handler_name: str = get_handler_name(handler=handler, instance=self)
         if handler_name in self._is_stopped_settings:
@@ -126,7 +128,7 @@ class EnterFrameMixIn(
         self._is_stopped_settings[handler_name] = is_stopped
         self._loop_func_name_settings[handler_name] = LOOP_FUNC_NAME
 
-    def _initialize_loop_func_name_settings(self) -> None:
+    def _initialize_loop_func_name_settings_if_not_initialized(self) -> None:
         """
         Initialize the `_loop_func_name_settings`'s attribute
         if this instance has not initialized it yet.
@@ -170,7 +172,7 @@ class EnterFrameMixIn(
         from apysc._expression.indent_num import Indent
 
         MILISECOND_INTERVALS: float = fps.value.milisecond_intervals
-        prev_time: ap.DateTime = ap.DateTime.now(
+        prev_time: DateTime = DateTime.now(
             variable_name_suffix=self._get_attr_or_variable_name_suffix(
                 value_identifier="prev_time",
             ),
@@ -183,7 +185,7 @@ class EnterFrameMixIn(
         )
         ap.append_js_expression(expression=expression)
         with Indent():
-            current_time: ap.DateTime = ap.DateTime.now(
+            current_time: DateTime = DateTime.now(
                 variable_name_suffix=self._get_attr_or_variable_name_suffix(
                     value_identifier="current_time",
                 )

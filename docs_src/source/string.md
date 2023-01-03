@@ -52,6 +52,10 @@ String class for apysc library.<hr>
 
 <hr>
 
+**[Notes]**
+
+The `Str` class is the alias of `String`.<hr>
+
 **[Examples]**
 
 ```py

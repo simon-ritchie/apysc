@@ -3076,5 +3076,9 @@ MAPPINGS: Mappings = Mappings(
             key="TimeDelta class total_seconds interface",
             val="TimeDelta クラスの total_seconds インターフェイス",
         ),
+        Mapping(
+            key="The `Str` class is the alias of `String`.<hr>",
+            val="`Str`クラスは`String`クラスのエイリアスとなります。<hr>",
+        ),
     ]
 )

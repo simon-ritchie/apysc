@@ -8,6 +8,10 @@ Class implementation for the string class.
 
 String class for apysc library.<hr>
 
+**[Notes]**
+
+The `Str` class is the alias of `String`.<hr>
+
 **[Examples]**
 
 ```py
@@ -157,6 +161,10 @@ String class for apysc library.<hr>
   - A boolean indicates whether to skip an initial substitution expression or not. This class uses this option internally.
 
 <hr>
+
+**[Notes]**
+
+The `Str` class is the alias of `String`.<hr>
 
 **[Examples]**
 

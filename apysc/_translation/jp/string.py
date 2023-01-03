@@ -55,6 +55,10 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "<hr>": "<hr>",
     ##################################################
+    "**[Notes]**": "**[特記事項]**",
+    ##################################################
+    "The `Str` class is the alias of `String`.<hr>": "`Str`クラスは`String`クラスのエイリアスとなります。<hr>",  # noqa
+    ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
     "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString('Hello')\n\n>>> string += \" World!\"\n>>> string\nString('Hello World!')\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString('Hello')\n\n>>> string += \" World!\"\n>>> string\nString('Hello World!')\n```",  # noqa

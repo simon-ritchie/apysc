@@ -23,6 +23,7 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
 )
 from apysc._validation import arg_validation_decos
 from apysc._time.datetime_ import DateTime
+from apysc._time.fps import FPSDefinition
 
 _Options = TypeVar("_Options")
 _HandlerName = str
@@ -90,7 +91,10 @@ class EnterFrameMixIn(
 
         handler_name: str = get_handler_name(handler=handler, instance=self)
         if handler_name in self._is_stopped_settings:
-            self._append_enter_frame_rebinding_expression(handler_name=handler_name)
+            self._append_enter_frame_rebinding_expression(
+                handler_name=handler_name,
+                fps=fps,
+            )
             return
 
         LOOP_FUNC_NAME: str = expression_variables_util.get_next_variable_name(
@@ -113,7 +117,7 @@ class EnterFrameMixIn(
             ),
         )
         event: ap.EnterFrameEvent = ap.EnterFrameEvent(this=self)
-        millisecond_intervals: Number = Number(fps.value.millisecond_intervals)
+        millisecond_intervals: Number = _get_millisecond_intervals_from_fps(fps=fps)
         self._append_enter_frame_expression(
             handler_name=handler_name,
             millisecond_intervals=millisecond_intervals,
@@ -135,6 +139,7 @@ class EnterFrameMixIn(
         self,
         *,
         handler_name: str,
+        fps: FPS,
     ) -> None:
         """
         Append an enter-frame's rebinding expression string.
@@ -143,11 +148,16 @@ class EnterFrameMixIn(
         ----------
         handler_name : str
             Target handler's name.
+        fps : FPS, default FPS.FPS_60
+            Frame per second to set.
         """
         import apysc as ap
 
         with ap.If(self._is_stopped_settings[handler_name]):
             self._is_stopped_settings[handler_name].value = False
+            self._fps_millisecond_intervals_settings[
+                handler_name
+            ].value = _get_millisecond_intervals_from_fps(fps=fps)
             prev_time: DateTime = self._prev_time_settings[handler_name]
             now: DateTime = ap.DateTime.now()
             prev_time.year = now.year
@@ -313,3 +323,22 @@ class EnterFrameMixIn(
         self._initialize_is_stopped_settings_if_not_initialized()
         for is_stopped in self._is_stopped_settings.values():
             is_stopped.value = True
+
+
+def _get_millisecond_intervals_from_fps(*, fps: FPS) -> Number:
+    """
+    Get a millisecond intervals value from a specified FPS.
+
+    Parameters
+    ----------
+    fps : FPS
+        Frame per second.
+
+    Returns
+    -------
+    millisecond_intervals : Number
+        A created millisecond intervals value.
+    """
+    fps_val: FPSDefinition = fps.value
+    millisecond_intervals: Number = Number(fps_val.millisecond_intervals)
+    return millisecond_intervals

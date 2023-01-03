@@ -7,6 +7,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._event.enter_frame_mixin import EnterFrameMixIn
+from apysc._event import enter_frame_mixin
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
@@ -216,16 +217,25 @@ class TestEnterFrameMixIn:
     def test__append_enter_frame_rebinding_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: EnterFrameMixIn = EnterFrameMixIn()
-        mixin.enter_frame(handler=self.on_enter_frame_1)
+        mixin.enter_frame(
+            handler=self.on_enter_frame_1,
+            fps=ap.FPS.FPS_30,
+        )
         mixin.unbind_enter_frame(handler=self.on_enter_frame_1)
         handler_name: str = get_handler_name(
             handler=self.on_enter_frame_1,
             instance=mixin,
         )
         mixin._prev_time_settings[handler_name].year = ap.Int(2022)
-        mixin._append_enter_frame_rebinding_expression(handler_name=handler_name)
+        mixin._append_enter_frame_rebinding_expression(
+            handler_name=handler_name,
+            fps=ap.FPS.FPS_60,
+        )
         expression: str = expression_data_util.get_current_expression()
         assert mixin._prev_time_settings[handler_name].year >= ap.Int(2023)
+        assert mixin._fps_millisecond_intervals_settings[
+            handler_name
+        ] == enter_frame_mixin._get_millisecond_intervals_from_fps(fps=ap.FPS.FPS_60)
         assert not mixin._is_stopped_settings[handler_name]
         assert (
             f"if ({mixin._is_stopped_settings[handler_name].variable_name}) {{"
@@ -233,3 +243,11 @@ class TestEnterFrameMixIn:
         assert (
             f"requestAnimationFrame({mixin._loop_func_name_settings[handler_name]});"
         ) in expression
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_millisecond_intervals_from_fps() -> None:
+    millisecond_intervals: ap.Number = (
+        enter_frame_mixin._get_millisecond_intervals_from_fps(fps=ap.FPS.FPS_60)
+    )
+    assert millisecond_intervals == ap.Number(ap.FPS.FPS_60.value.millisecond_intervals)

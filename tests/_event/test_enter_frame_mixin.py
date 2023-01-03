@@ -205,3 +205,25 @@ class TestEnterFrameMixIn:
         assert mixin._prev_time_settings == {
             "test_time": expected_prev_time,
         }
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_enter_frame_rebinding_expression(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: EnterFrameMixIn = EnterFrameMixIn()
+        mixin.enter_frame(handler=self.on_enter_frame_1)
+        mixin.unbind_enter_frame(handler=self.on_enter_frame_1)
+        handler_name: str = get_handler_name(
+            handler=self.on_enter_frame_1,
+            instance=mixin,
+        )
+        mixin._prev_time_settings[handler_name].year = ap.Int(2022)
+        mixin._append_enter_frame_rebinding_expression(handler_name=handler_name)
+        expression: str = expression_data_util.get_current_expression()
+        assert mixin._prev_time_settings[handler_name].year >= ap.Int(2023)
+        assert not mixin._is_stopped_settings[handler_name]
+        assert (
+            f"if ({mixin._is_stopped_settings[handler_name].variable_name}) {{"
+        ) in expression
+        assert (
+            f"requestAnimationFrame({mixin._loop_func_name_settings[handler_name]});"
+        ) in expression

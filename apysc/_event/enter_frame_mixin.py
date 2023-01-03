@@ -90,14 +90,7 @@ class EnterFrameMixIn(
 
         handler_name: str = get_handler_name(handler=handler, instance=self)
         if handler_name in self._is_stopped_settings:
-            with ap.If(self._is_stopped_settings[handler_name]):
-                self._is_stopped_settings[handler_name].value = False
-                ap.append_js_expression(
-                    expression=(
-                        "requestAnimationFrame("
-                        f"{self._loop_func_name_settings[handler_name]});"
-                    ),
-                )
+            self._append_enter_frame_rebinding_expression(handler_name=handler_name)
             return
 
         LOOP_FUNC_NAME: str = expression_variables_util.get_next_variable_name(
@@ -134,6 +127,40 @@ class EnterFrameMixIn(
         )
         self._is_stopped_settings[handler_name] = is_stopped
         self._loop_func_name_settings[handler_name] = LOOP_FUNC_NAME
+        self._prev_time_settings[handler_name] = prev_time
+
+    def _append_enter_frame_rebinding_expression(
+        self,
+        *,
+        handler_name: str,
+    ) -> None:
+        """
+        Append an enter-frame's rebinding expression string.
+
+        Parameters
+        ----------
+        handler_name : str
+            Target handler's name.
+        """
+        import apysc as ap
+
+        with ap.If(self._is_stopped_settings[handler_name]):
+            self._is_stopped_settings[handler_name].value = False
+            prev_time: DateTime = self._prev_time_settings[handler_name]
+            now: DateTime = ap.DateTime.now()
+            prev_time.year = now.year
+            prev_time.month = now.month
+            prev_time.day = now.day
+            prev_time.hour = now.hour
+            prev_time.minute = now.minute
+            prev_time.second = now.second
+            prev_time.millisecond = now.millisecond
+            ap.append_js_expression(
+                expression=(
+                    "requestAnimationFrame("
+                    f"{self._loop_func_name_settings[handler_name]});"
+                ),
+            )
 
     def _initialize_prev_time_settings_if_not_initialized(self) -> None:
         """

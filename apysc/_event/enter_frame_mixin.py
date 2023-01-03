@@ -117,7 +117,7 @@ class EnterFrameMixIn(
             ),
         )
         event: ap.EnterFrameEvent = ap.EnterFrameEvent(this=self)
-        millisecond_interval: Number = _get_millisecond_intervals_from_fps(fps=fps)
+        millisecond_interval: Number = _get_millisecond_interval_from_fps(fps=fps)
         self._append_enter_frame_expression(
             handler_name=handler_name,
             millisecond_interval=millisecond_interval,
@@ -157,7 +157,7 @@ class EnterFrameMixIn(
             self._is_stopped_settings[handler_name].value = False
             self._fps_millisecond_intervals_settings[
                 handler_name
-            ].value = _get_millisecond_intervals_from_fps(fps=fps)
+            ].value = _get_millisecond_interval_from_fps(fps=fps)
             prev_time: DateTime = self._prev_time_settings[handler_name]
             now: DateTime = ap.DateTime.now()
             prev_time.year = now.year
@@ -325,7 +325,7 @@ class EnterFrameMixIn(
             is_stopped.value = True
 
 
-def _get_millisecond_intervals_from_fps(*, fps: FPS) -> Number:
+def _get_millisecond_interval_from_fps(*, fps: FPS) -> Number:
     """
     Get a millisecond interval value from a specified FPS.
 

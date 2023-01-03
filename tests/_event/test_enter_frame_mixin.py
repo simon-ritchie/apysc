@@ -235,7 +235,7 @@ class TestEnterFrameMixIn:
         assert mixin._prev_time_settings[handler_name].year >= ap.Int(2023)
         assert mixin._fps_millisecond_intervals_settings[
             handler_name
-        ] == enter_frame_mixin._get_millisecond_intervals_from_fps(fps=ap.FPS.FPS_60)
+        ] == enter_frame_mixin._get_millisecond_interval_from_fps(fps=ap.FPS.FPS_60)
         assert not mixin._is_stopped_settings[handler_name]
         assert (
             f"if ({mixin._is_stopped_settings[handler_name].variable_name}) {{"
@@ -248,6 +248,6 @@ class TestEnterFrameMixIn:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_millisecond_intervals_from_fps() -> None:
     millisecond_interval: ap.Number = (
-        enter_frame_mixin._get_millisecond_intervals_from_fps(fps=ap.FPS.FPS_60)
+        enter_frame_mixin._get_millisecond_interval_from_fps(fps=ap.FPS.FPS_60)
     )
     assert millisecond_interval == ap.Number(ap.FPS.FPS_60.value.millisecond_interval)

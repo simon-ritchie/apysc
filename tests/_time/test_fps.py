@@ -5,7 +5,7 @@ from apysc._time.fps import FPSDefinition
 
 class TestFPSDefinition:
     def test___init__(self) -> None:
-        definition: FPSDefinition = FPSDefinition(fps=30, millisecond_intervals=33.3333)
+        definition: FPSDefinition = FPSDefinition(fps=30, millisecond_interval=33.3333)
         assert_attrs(
             expected_attrs={
                 "_fps": 30,
@@ -15,13 +15,13 @@ class TestFPSDefinition:
         )
 
     def test_milisecond_interval(self) -> None:
-        definition: FPSDefinition = FPSDefinition(fps=30, millisecond_intervals=33.3333)
-        assert definition.millisecond_intervals == 33.3333
+        definition: FPSDefinition = FPSDefinition(fps=30, millisecond_interval=33.3333)
+        assert definition.millisecond_interval == 33.3333
 
 
 def test_FPS() -> None:
     for fps in ap.FPS:
         fps_definition: FPSDefinition = fps.value
-        one_second: float = fps_definition._fps * fps_definition._millisecond_intervals
+        one_second: float = fps_definition._fps * fps_definition._millisecond_interval
         assert one_second > 999.9
         assert one_second < 1000.1

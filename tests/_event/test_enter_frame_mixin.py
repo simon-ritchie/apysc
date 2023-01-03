@@ -44,11 +44,11 @@ class TestEnterFrameMixIn:
         is_stopped: ap.Boolean = ap.Boolean(False)
         prev_time: ap.DateTime = ap.DateTime.now()
         MILLISECOND_INTERVALS: ap.Number = ap.Number(
-            ap.FPS.FPS_60.value.millisecond_intervals,
+            ap.FPS.FPS_60.value.millisecond_interval,
         )
         mixin._append_enter_frame_expression(
             handler_name="test_handler",
-            millisecond_intervals=MILLISECOND_INTERVALS,
+            millisecond_interval=MILLISECOND_INTERVALS,
             is_stopped=is_stopped,
             loop_func_name="test_loop_1",
             prev_time=prev_time,
@@ -117,7 +117,7 @@ class TestEnterFrameMixIn:
         assert handler_name in mixin._loop_func_name_settings
         assert mixin._loop_func_name_settings[handler_name].startswith(var_names.LOOP)
         assert mixin._fps_millisecond_intervals_settings[handler_name] == ap.Number(
-            ap.FPS.FPS_30.value.millisecond_intervals
+            ap.FPS.FPS_30.value.millisecond_interval
         )
 
         expression: str = expression_data_util.get_current_expression()
@@ -247,7 +247,7 @@ class TestEnterFrameMixIn:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_millisecond_intervals_from_fps() -> None:
-    millisecond_intervals: ap.Number = (
+    millisecond_interval: ap.Number = (
         enter_frame_mixin._get_millisecond_intervals_from_fps(fps=ap.FPS.FPS_60)
     )
-    assert millisecond_intervals == ap.Number(ap.FPS.FPS_60.value.millisecond_intervals)
+    assert millisecond_interval == ap.Number(ap.FPS.FPS_60.value.millisecond_interval)

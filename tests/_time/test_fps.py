@@ -9,7 +9,7 @@ class TestFPSDefinition:
         assert_attrs(
             expected_attrs={
                 "_fps": 30,
-                "_millisecond_intervals": 33.3333,
+                "_millisecond_interval": 33.3333,
             },
             any_obj=definition,
         )

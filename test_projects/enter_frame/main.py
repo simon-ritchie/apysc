@@ -203,7 +203,11 @@ def on_timer_3(e: ap.TimerEvent, options: _SpriteAndRectOptions) -> None:
     options_: _RectOptions = {
         "rectangle": options["rectangle"],
     }
-    options["sprite"].enter_frame(handler=on_enter_frame_1, options=options_)
+    options["sprite"].enter_frame(
+        handler=on_enter_frame_1,
+        options=options_,
+        fps=ap.FPS.FPS_15,
+    )
 
 
 if __name__ == "__main__":

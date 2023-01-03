@@ -4,7 +4,7 @@
 
 Class implementation for the enter frame mix-in.
 
-## `_get_millisecond_intervals_from_fps` function docstring
+## `_get_millisecond_interval_from_fps` function docstring
 
 Get a millisecond interval value from a specified FPS.<hr>
 
@@ -17,7 +17,7 @@ Get a millisecond interval value from a specified FPS.<hr>
 
 **[Returns]**
 
-- `millisecond_intervals`: Number
+- `millisecond_interval`: Number
   - A created millisecond interval value.
 
 ## `EnterFrameMixIn` class docstring
@@ -30,8 +30,8 @@ Append an enter frame expression string.<hr>
 
 - `handler_name`: str
   - Target handler's name.
-- `millisecond_intervals`: Number
-  - Millisecond intervals. This value depends on an FPS setting.
+- `millisecond_interval`: Number
+  - Millisecond interval. This value depends on an FPS setting.
 - `is_stopped`: Boolean
   - A boolean to control an animation loop.
 - `loop_func_name`: str

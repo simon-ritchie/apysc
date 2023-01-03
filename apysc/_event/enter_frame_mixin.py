@@ -114,12 +114,18 @@ class EnterFrameMixIn(
                 value_identifier="is_stopped",
             ),
         )
+        prev_time: DateTime = DateTime.now(
+            variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                value_identifier="prev_time",
+            ),
+        )
         event: ap.EnterFrameEvent = ap.EnterFrameEvent(this=self)
         self._append_enter_frame_expression(
             handler_name=handler_name,
             fps=fps,
             is_stopped=is_stopped,
             loop_func_name=LOOP_FUNC_NAME,
+            prev_time=prev_time,
         )
         append_handler_expression(
             handler_data=self._enter_frame_handlers[handler_name],
@@ -163,6 +169,7 @@ class EnterFrameMixIn(
         fps: FPS,
         is_stopped: Boolean,
         loop_func_name: str,
+        prev_time: DateTime,
     ) -> None:
         """
         Append an enter frame expression string.
@@ -177,16 +184,13 @@ class EnterFrameMixIn(
             A boolean to control an animation loop.
         loop_func_name : str
             A loop function name to set.
+        prev_time : DateTime
+            Previous time to calculate the duration.
         """
         import apysc as ap
         from apysc._expression.indent_num import Indent
 
         MILISECOND_INTERVALS: float = fps.value.milisecond_intervals
-        prev_time: DateTime = DateTime.now(
-            variable_name_suffix=self._get_attr_or_variable_name_suffix(
-                value_identifier="prev_time",
-            ),
-        )
         expression: str = (
             f"function {loop_func_name}() {{"
             f"\n  if ({is_stopped.variable_name}) {{"

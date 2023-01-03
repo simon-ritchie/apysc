@@ -41,11 +41,13 @@ class TestEnterFrameMixIn:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin.variable_name = "test_mixin"
         is_stopped: ap.Boolean = ap.Boolean(False)
+        prev_time: ap.DateTime = ap.DateTime.now()
         mixin._append_enter_frame_expression(
             handler_name="test_handler",
             fps=ap.FPS.FPS_60,
             is_stopped=is_stopped,
             loop_func_name="test_loop_1",
+            prev_time=prev_time,
         )
         expression: str = expression_data_util.get_current_expression()
         assert "function test_loop_1() {" in expression

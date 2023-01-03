@@ -23,6 +23,7 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "Number": "int_and_number",
     "Float": "int_and_number",
     "String": "string",
+    "Str": "string",
     "Boolean": "boolean",
     "Bool": "boolean",
     "Array": "array",

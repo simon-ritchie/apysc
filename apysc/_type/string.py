@@ -27,6 +27,10 @@ class String(
     """
     String class for apysc library.
 
+    Notes
+    -----
+    The `Str` class is the alias of `String`.
+
     References
     ----------
     - String
@@ -83,6 +87,10 @@ class String(
         skip_init_substitution_expression_appending : bool, default False
             A boolean indicates whether to skip an initial substitution
             expression or not. This class uses this option internally.
+
+        Notes
+        -----
+        The `Str` class is the alias of `String`.
 
         References
         ----------

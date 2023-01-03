@@ -8,6 +8,7 @@ from apysc._type.number import Number as Float
 from apysc._type.boolean import Boolean
 from apysc._type.boolean import Boolean as Bool
 from apysc._type.string import String
+from apysc._type.string import String as Str
 from apysc._type.array import Array
 from apysc._type.dictionary import Dictionary
 from apysc._type.any_value import AnyValue

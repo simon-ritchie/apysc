@@ -6,12 +6,12 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._event import enter_frame_mixin
+from apysc._event.enter_frame_mixin import EnterFrameMixIn
+from apysc._event.enter_frame_mixin import _EnterFrameEventNotRegistered
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from apysc._event.enter_frame_mixin import _EnterFrameEventNotRegistered
 from apysc._testing.testing_helper import assert_raises
 
 
@@ -136,7 +136,7 @@ class TestEnterFrameMixIn:
             handler=self.on_enter_frame_1,
             fps=ap.FPS.FPS_30,
         )
-        assert mixin._is_stopped_settings[handler_name].value == False
+        assert not mixin._is_stopped_settings[handler_name].value
         expression = expression_data_util.get_current_expression()
         assert "function" not in expression
         assert "requestAnimationFrame" in expression
@@ -178,7 +178,7 @@ class TestEnterFrameMixIn:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_fps_millisecond_intervals_settings_if_not_initialized(
-        self
+        self,
     ) -> None:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin._initialize_fps_millisecond_intervals_settings_if_not_initialized()

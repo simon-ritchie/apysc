@@ -13,7 +13,9 @@ from apysc._event.enter_frame_event import EnterFrameEvent
 from apysc._event.handler import HandlerData
 from apysc._event.set_handler_data_mixin import SetHandlerDataMixIn
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._time.datetime_ import DateTime
 from apysc._time.fps import FPS
+from apysc._time.fps import FPSDefinition
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -22,8 +24,6 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._validation import arg_validation_decos
-from apysc._time.datetime_ import DateTime
-from apysc._time.fps import FPSDefinition
 
 _Options = TypeVar("_Options")
 _HandlerName = str
@@ -65,7 +65,7 @@ class EnterFrameMixIn(
         Notes
         -----
         If this is the second call of this interface, this interface
-        ignores `options` argument (it changes the only running status
+        ignores `options` argument (it changes only running status
         and `fps` setting).
 
         Parameters
@@ -218,7 +218,7 @@ class EnterFrameMixIn(
         handler_name : str
             Target handler's name.
         millisecond_intervals : Number
-            Millisecond intervals. This value depends on FPS setting.
+            Millisecond intervals. This value depends on an FPS setting.
         is_stopped : Boolean
             A boolean to control an animation loop.
         loop_func_name : str
@@ -327,7 +327,7 @@ class EnterFrameMixIn(
 
 def _get_millisecond_intervals_from_fps(*, fps: FPS) -> Number:
     """
-    Get a millisecond intervals value from a specified FPS.
+    Get a millisecond interval value from a specified FPS.
 
     Parameters
     ----------
@@ -337,7 +337,7 @@ def _get_millisecond_intervals_from_fps(*, fps: FPS) -> Number:
     Returns
     -------
     millisecond_intervals : Number
-        A created millisecond intervals value.
+        A created millisecond interval value.
     """
     fps_val: FPSDefinition = fps.value
     millisecond_intervals: Number = Number(fps_val.millisecond_intervals)

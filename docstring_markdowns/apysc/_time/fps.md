@@ -32,6 +32,6 @@ FPS definition class.<hr>
 **[Parameters]**
 
 - `fps`: int
-  - FPS value, such as 30, 60.
-- `milisecond_intervals`: int or float
-  - FPS value in milisecond intervals, such as 33.333...
+  - FPS values, such as 30 and 60.
+- `millisecond_intervals`: int or float
+  - FPS value in millisecond intervals, such as 33.333...

@@ -113,9 +113,10 @@ class EnterFrameMixIn(
             ),
         )
         event: ap.EnterFrameEvent = ap.EnterFrameEvent(this=self)
+        milisecond_intervals: Number = Number(fps.value.milisecond_intervals)
         self._append_enter_frame_expression(
             handler_name=handler_name,
-            fps=fps,
+            millisecond_intervals=milisecond_intervals,
             is_stopped=is_stopped,
             loop_func_name=LOOP_FUNC_NAME,
             prev_time=prev_time,
@@ -128,6 +129,7 @@ class EnterFrameMixIn(
         self._is_stopped_settings[handler_name] = is_stopped
         self._loop_func_name_settings[handler_name] = LOOP_FUNC_NAME
         self._prev_time_settings[handler_name] = prev_time
+        self._fps_milisecond_intervals_settings[handler_name] = milisecond_intervals
 
     def _append_enter_frame_rebinding_expression(
         self,
@@ -193,7 +195,7 @@ class EnterFrameMixIn(
         self,
         *,
         handler_name: str,
-        fps: FPS,
+        millisecond_intervals: Number,
         is_stopped: Boolean,
         loop_func_name: str,
         prev_time: DateTime,
@@ -205,8 +207,8 @@ class EnterFrameMixIn(
         ----------
         handler_name : str
             Target handler's name.
-        fps : FPS
-            Frame per second to set.
+        millisecond_intervals : Number
+            Millisecond intervals. This value depends on FPS setting.
         is_stopped : Boolean
             A boolean to control an animation loop.
         loop_func_name : str
@@ -217,7 +219,6 @@ class EnterFrameMixIn(
         import apysc as ap
         from apysc._expression.indent_num import Indent
 
-        MILISECOND_INTERVALS: float = fps.value.milisecond_intervals
         expression: str = (
             f"function {loop_func_name}() {{"
             f"\n  if ({is_stopped.variable_name}) {{"
@@ -239,7 +240,7 @@ class EnterFrameMixIn(
             )
             timedelta_: ap.TimeDelta = current_time - prev_time
             total_milliseconds: Number = timedelta_.total_seconds() * 1000
-            count.value = ap.Math.trunc(total_milliseconds / MILISECOND_INTERVALS)
+            count.value = ap.Math.trunc(total_milliseconds / millisecond_intervals)
             ap.append_js_expression(
                 expression=(
                     f"for (var i = 0; i < {count.variable_name}; i++) {{"
@@ -250,7 +251,7 @@ class EnterFrameMixIn(
             ap.append_js_expression(
                 expression=f"requestAnimationFrame({loop_func_name});"
             )
-            prev_time.millisecond += count * MILISECOND_INTERVALS
+            prev_time.millisecond += count * millisecond_intervals
         ap.append_js_expression(expression="}")
         ap.append_js_expression(expression=f"requestAnimationFrame({loop_func_name});")
 

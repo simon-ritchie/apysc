@@ -42,9 +42,12 @@ class TestEnterFrameMixIn:
         mixin.variable_name = "test_mixin"
         is_stopped: ap.Boolean = ap.Boolean(False)
         prev_time: ap.DateTime = ap.DateTime.now()
+        MILISECOND_INTERVALS: ap.Number = ap.Number(
+            ap.FPS.FPS_60.value.milisecond_intervals,
+        )
         mixin._append_enter_frame_expression(
             handler_name="test_handler",
-            fps=ap.FPS.FPS_60,
+            millisecond_intervals=MILISECOND_INTERVALS,
             is_stopped=is_stopped,
             loop_func_name="test_loop_1",
             prev_time=prev_time,
@@ -112,6 +115,9 @@ class TestEnterFrameMixIn:
         assert not mixin._is_stopped_settings[handler_name]
         assert handler_name in mixin._loop_func_name_settings
         assert mixin._loop_func_name_settings[handler_name].startswith(var_names.LOOP)
+        assert mixin._fps_milisecond_intervals_settings[handler_name] == ap.Number(
+            ap.FPS.FPS_30.value.milisecond_intervals
+        )
 
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(

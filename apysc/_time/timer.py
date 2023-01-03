@@ -203,7 +203,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
 
         if isinstance(delay, FPS):
             fps_definition: FPSDefinition = delay.value
-            delay = fps_definition.milisecond_intervals  # type: ignore
+            delay = fps_definition.millisecond_intervals  # type: ignore
         if not isinstance(delay, ap.Number):
             delay_: ap.Number = ap.Number(delay)
         else:

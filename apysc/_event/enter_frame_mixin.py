@@ -42,7 +42,7 @@ class EnterFrameMixIn(
 
     _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
     _is_stopped_settings: Dict[_HandlerName, Boolean]
-    _fps_milisecond_intervals_settings: Dict[_HandlerName, Number]
+    _fps_millisecond_intervals_settings: Dict[_HandlerName, Number]
     _loop_func_name_settings: Dict[_HandlerName, str]
     _prev_time_settings: Dict[_HandlerName, DateTime]
 
@@ -84,7 +84,7 @@ class EnterFrameMixIn(
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
-        self._initialize_fps_milisecond_intervals_settings_if_not_initialized()
+        self._initialize_fps_millisecond_intervals_settings_if_not_initialized()
         self._initialize_loop_func_name_settings_if_not_initialized()
         self._initialize_prev_time_settings_if_not_initialized()
 
@@ -113,10 +113,10 @@ class EnterFrameMixIn(
             ),
         )
         event: ap.EnterFrameEvent = ap.EnterFrameEvent(this=self)
-        milisecond_intervals: Number = Number(fps.value.milisecond_intervals)
+        millisecond_intervals: Number = Number(fps.value.millisecond_intervals)
         self._append_enter_frame_expression(
             handler_name=handler_name,
-            millisecond_intervals=milisecond_intervals,
+            millisecond_intervals=millisecond_intervals,
             is_stopped=is_stopped,
             loop_func_name=LOOP_FUNC_NAME,
             prev_time=prev_time,
@@ -129,7 +129,7 @@ class EnterFrameMixIn(
         self._is_stopped_settings[handler_name] = is_stopped
         self._loop_func_name_settings[handler_name] = LOOP_FUNC_NAME
         self._prev_time_settings[handler_name] = prev_time
-        self._fps_milisecond_intervals_settings[handler_name] = milisecond_intervals
+        self._fps_millisecond_intervals[handler_name] = millisecond_intervals
 
     def _append_enter_frame_rebinding_expression(
         self,
@@ -182,14 +182,14 @@ class EnterFrameMixIn(
             return
         self._loop_func_name_settings = {}
 
-    def _initialize_fps_milisecond_intervals_settings_if_not_initialized(self) -> None:
+    def _initialize_fps_millisecond_intervals_settings_if_not_initialized(self) -> None:
         """
-        Initialize the `_fps_milisecond_intervals_settings`'s
+        Initialize the `_fps_millisecond_intervals_settings`'s
         attribute if this instance has not initialized it yet.
         """
-        if hasattr(self, "_fps_milisecond_intervals_settings"):
+        if hasattr(self, "_fps_millisecond_intervals_settings"):
             return
-        self._fps_milisecond_intervals_settings = {}
+        self._fps_millisecond_intervals_settings = {}
 
     def _append_enter_frame_expression(
         self,

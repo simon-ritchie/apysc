@@ -42,12 +42,12 @@ class TestEnterFrameMixIn:
         mixin.variable_name = "test_mixin"
         is_stopped: ap.Boolean = ap.Boolean(False)
         prev_time: ap.DateTime = ap.DateTime.now()
-        MILISECOND_INTERVALS: ap.Number = ap.Number(
-            ap.FPS.FPS_60.value.milisecond_intervals,
+        MILLISECOND_INTERVALS: ap.Number = ap.Number(
+            ap.FPS.FPS_60.value.millisecond_intervals,
         )
         mixin._append_enter_frame_expression(
             handler_name="test_handler",
-            millisecond_intervals=MILISECOND_INTERVALS,
+            millisecond_intervals=MILLISECOND_INTERVALS,
             is_stopped=is_stopped,
             loop_func_name="test_loop_1",
             prev_time=prev_time,
@@ -115,8 +115,8 @@ class TestEnterFrameMixIn:
         assert not mixin._is_stopped_settings[handler_name]
         assert handler_name in mixin._loop_func_name_settings
         assert mixin._loop_func_name_settings[handler_name].startswith(var_names.LOOP)
-        assert mixin._fps_milisecond_intervals_settings[handler_name] == ap.Number(
-            ap.FPS.FPS_30.value.milisecond_intervals
+        assert mixin._fps_millisecond_intervals_settings[handler_name] == ap.Number(
+            ap.FPS.FPS_30.value.millisecond_intervals
         )
 
         expression: str = expression_data_util.get_current_expression()
@@ -176,16 +176,16 @@ class TestEnterFrameMixIn:
         assert mixin._is_stopped_settings[handler_name].value
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__initialize_fps_milisecond_intervals_settings_if_not_initialized(
+    def test__initialize_fps_millisecond_intervals_settings_if_not_initialized(
         self
     ) -> None:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
-        mixin._initialize_fps_milisecond_intervals_settings_if_not_initialized()
-        assert mixin._fps_milisecond_intervals_settings == {}
+        mixin._initialize_fps_millisecond_intervals_settings_if_not_initialized()
+        assert mixin._fps_millisecond_intervals_settings == {}
 
-        mixin._fps_milisecond_intervals_settings["test"] = ap.Number(33.3)
-        mixin._initialize_fps_milisecond_intervals_settings_if_not_initialized()
-        assert mixin._fps_milisecond_intervals_settings == {
+        mixin._fps_millisecond_intervals_settings["test"] = ap.Number(33.3)
+        mixin._initialize_fps_millisecond_intervals_settings_if_not_initialized()
+        assert mixin._fps_millisecond_intervals_settings == {
             "test": ap.Number(33.3),
         }
 

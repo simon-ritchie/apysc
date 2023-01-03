@@ -129,7 +129,7 @@ class EnterFrameMixIn(
         self._is_stopped_settings[handler_name] = is_stopped
         self._loop_func_name_settings[handler_name] = LOOP_FUNC_NAME
         self._prev_time_settings[handler_name] = prev_time
-        self._fps_millisecond_intervals[handler_name] = millisecond_intervals
+        self._fps_millisecond_intervals_settings[handler_name] = millisecond_intervals
 
     def _append_enter_frame_rebinding_expression(
         self,

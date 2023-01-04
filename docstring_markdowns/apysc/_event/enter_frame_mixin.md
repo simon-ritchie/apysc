@@ -87,7 +87,20 @@ Add an enter frame event listener setting.<hr>
 
 **[Notes]**
 
-If this is the second call of this interface, this interface ignores `options` argument (it changes only running status and `fps` setting).
+If this is the second call of this interface, this interface ignores `options` argument (it changes only the running status and `fps` setting).<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> rectangle: ap.Rectangle = ap.Rectangle(
+...     x=50, y=50, width=50, height=50, fill_color="#0af"
+... )
+>>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
+...     rectangle.x += 1
+>>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)
+```
 
 ### `unbind_enter_frame` method docstring
 
@@ -104,8 +117,40 @@ Unbind a specified handler's enter-frame event.<hr>
 
 - _EnterFrameEventNotRegistered: If there is no unbinding target of a specified handler.
 
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> rectangle: ap.Rectangle = ap.Rectangle(
+...     x=50, y=50, width=50, height=50, fill_color="#0af"
+... )
+>>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
+...     rectangle.x += 1
+>>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)
+>>> # Any implementations here...
+>>> stage.unbind_enter_frame(handler=on_enter_frame)
+```
+
 ### `unbind_enter_frame_all` method docstring
 
-Unbind all enter-frame events.
+Unbind all enter-frame events.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> rectangle: ap.Rectangle = ap.Rectangle(
+...     x=50, y=50, width=50, height=50, fill_color="#0af"
+... )
+>>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
+...     rectangle.x += 1
+>>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)
+>>> # Any implementations here...
+>>> stage.unbind_enter_frame_all()
+```
 
 ## `_EnterFrameEventNotRegistered` class docstring

@@ -65,7 +65,7 @@ class EnterFrameMixIn(
         Notes
         -----
         If this is the second call of this interface, this interface
-        ignores `options` argument (it changes only running status
+        ignores `options` argument (it changes only the running status
         and `fps` setting).
 
         Parameters

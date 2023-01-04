@@ -76,6 +76,21 @@ class EnterFrameMixIn(
             Frame per second to set.
         options : Optional[_Options], optional
             Optional arguments to pass to a handler function.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=50, y=50, width=50, height=50, fill_color="#0af"
+        >>> )
+
+
+        >>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
+        ...     rectangle.x += 1
+
+
+        >>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)
         """
         import apysc as ap
         from apysc._event.handler import append_handler_expression
@@ -302,6 +317,23 @@ class EnterFrameMixIn(
         ------
         _EnterFrameEventNotRegistered
             If there is no unbinding target of a specified handler.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=50, y=50, width=50, height=50, fill_color="#0af"
+        >>> )
+
+
+        >>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
+        ...     rectangle.x += 1
+
+
+        >>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)
+        >>> # Any implementations here...
+        >>> stage.unbind_enter_frame(handler=on_enter_frame)
         """
         from apysc._event.handler import get_handler_name
 
@@ -319,6 +351,23 @@ class EnterFrameMixIn(
     def unbind_enter_frame_all(self) -> None:
         """
         Unbind all enter-frame events.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=50, y=50, width=50, height=50, fill_color="#0af"
+        >>> )
+
+
+        >>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
+        ...     rectangle.x += 1
+
+
+        >>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)
+        >>> # Any implementations here...
+        >>> stage.unbind_enter_frame_all()
         """
         self._initialize_is_stopped_settings_if_not_initialized()
         for is_stopped in self._is_stopped_settings.values():

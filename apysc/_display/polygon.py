@@ -32,6 +32,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.polygon_append_constructor_expression_mixin import (
+    PolygonAppendConstructorExpressionMixIn
+)
 
 
 class Polygon(
@@ -42,6 +45,7 @@ class Polygon(
     SetXAndYWithMinimumPointInterfaceBase,
     FillColorMixIn,
     FillAlphaMixIn,
+    PolygonAppendConstructorExpressionMixIn,
     VariableNameSuffixMixIn,
 ):
     """
@@ -285,28 +289,3 @@ class Polygon(
         """
         repr_str: str = f"Polygon('{self.variable_name}')"
         return repr_str
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _append_constructor_expression(self) -> None:
-        """
-        Append constructor expression.
-        """
-        import apysc as ap
-
-        stage: ap.Stage = ap.get_stage()
-        points_var_name: str
-        points_expression: str
-        points_var_name, points_expression = self._make_2dim_points_expression()
-        expression: str = (
-            f"{points_expression}"
-            f"\nvar {self.variable_name} = {stage.variable_name}"
-            f"\n  .polygon({points_var_name})"
-            "\n  .attr({"
-        )
-        expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2
-        )
-        expression += "\n  });"
-        ap.append_js_expression(expression=expression)
-        self._points_var_name = points_var_name

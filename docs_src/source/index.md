@@ -232,6 +232,7 @@ timer_start_and_stop
 timer_complete
 timer_reset
 enter_frame
+unbind_enter_frame_and_unbind_enter_frame_all
 ```
 
 ## DateTime class

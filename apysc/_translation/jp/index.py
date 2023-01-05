@@ -87,7 +87,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Timer and enter frame": "## タイマーとenter frame",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\ntimer\ntimer_event\ntimer_delay\nfps\ntimer_repeat_count\ntimer_start_and_stop\ntimer_complete\ntimer_reset\nenter_frame\n```": "```{toctree}\n:maxdepth: 1\njp_timer\njp_timer_event\njp_timer_delay\njp_fps\njp_timer_repeat_count\njp_timer_start_and_stop\njp_timer_complete\njp_timer_reset\njp_enter_frame\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\ntimer\ntimer_event\ntimer_delay\nfps\ntimer_repeat_count\ntimer_start_and_stop\ntimer_complete\ntimer_reset\nenter_frame\nunbind_enter_frame_and_unbind_enter_frame_all\n```": "```{toctree}\n:maxdepth: 1\njp_timer\njp_timer_event\njp_timer_delay\njp_fps\njp_timer_repeat_count\njp_timer_start_and_stop\njp_timer_complete\njp_timer_reset\njp_enter_frame\njp_unbind_enter_frame_and_unbind_enter_frame_all\n```",  # noqa
     ##################################################
     "## DateTime class": "## DateTime クラス",
     ##################################################

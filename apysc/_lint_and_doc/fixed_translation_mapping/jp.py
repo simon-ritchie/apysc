@@ -3104,5 +3104,37 @@ MAPPINGS: Mappings = Mappings(
             key="If this is the second call of this interface and an argument is the same function, this interface ignores `options` argument (it changes only the running status and `fps` setting).<hr>",
             val="もしこのインターフェイスの呼び出しが2回目且つ指定されたハンドラの引数の値が同一の場合、このインターフェイスは`options`引数の指定を無視します（実行中かどうかのステータスと`fps`の設定のみ更新します）。<hr>",
         ),
+        Mapping(
+            key="## unbind_enter_frame API",
+            val="## unbind_enter_frame のAPI",
+        ),
+        Mapping(
+            key="Unbind a specified handler\'s enter-frame event.<hr>",
+            val="指定されたハンドラのenter-frameイベントの設定を解除します。<hr>",
+        ),
+        Mapping(
+            key="  - Unbinding target callable.",
+            val="  - 設定を取り除く対象のcallableオブジェクト。",
+        ),
+        Mapping(
+            key="  - Unbinding target callable.",
+            val="  - 設定を取り除く対象のcallableオブジェクト。",
+        ),
+        Mapping(
+            key="- _EnterFrameEventNotRegistered: If there is no unbinding target of a specified handler.",
+            val="- _EnterFrameEventNotRegistered: もし指定されたハンドラの設定削除対象が存在しない場合。",
+        ),
+        Mapping(
+            key="## unbind_enter_frame_all API",
+            val="## unbind_enter_frame_all のAPI",
+        ),
+        Mapping(
+            key="Unbind all enter-frame events.<hr>",
+            val="すべてのenter-frameイベントの設定を解除します。<hr>",
+        ),
+        Mapping(
+            key="enter_frame interface",
+            val="enter_frame インターフェイス",
+        ),
     ]
 )

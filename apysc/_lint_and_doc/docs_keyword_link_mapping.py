@@ -179,4 +179,6 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "total_seconds": "timedelta_total_seconds",
     "enter_frame": "enter_frame",
     "EnterFrame": "enter_frame",
+    "unbind_enter_frame": "unbind_enter_frame_and_unbind_enter_frame_all",
+    "unbind_enter_frame_all": "unbind_enter_frame_and_unbind_enter_frame_all",
 }

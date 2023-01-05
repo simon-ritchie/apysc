@@ -235,6 +235,7 @@ jp_timer_start_and_stop
 jp_timer_complete
 jp_timer_reset
 jp_enter_frame
+jp_unbind_enter_frame_and_unbind_enter_frame_all
 ```
 
 ## DateTime クラス

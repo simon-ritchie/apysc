@@ -13,11 +13,14 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.polygon_apply_current_points_mixin import PolygonApplyCurrentPointsMixIn
 
 
-class AppendLinePointMixIn(Points2DMixIn, VariableNameSuffixMixIn):
-
-    _points_var_name: str
+class AppendLinePointMixIn(
+    PolygonApplyCurrentPointsMixIn,
+    Points2DMixIn,
+    VariableNameSuffixMixIn,
+):
 
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
@@ -66,9 +69,9 @@ class AppendLinePointMixIn(Points2DMixIn, VariableNameSuffixMixIn):
         y_name: str = value_util.get_value_str_for_expression(value=y)
         expression = (
             f"{self._points_var_name}.push([{x_name}, {y_name}]);"
-            f"\n{self.variable_name}.plot({self._points_var_name});"
         )
         ap.append_js_expression(expression=expression)
+        self._apply_current_points()
 
         if isinstance(self, SetXAndYWithMinimumPointInterfaceBase):
             self._set_x_and_y_with_minimum_point()

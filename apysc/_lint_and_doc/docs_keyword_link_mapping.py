@@ -177,4 +177,6 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "assert_less_equal": "assert_less_and_less_equal",
     "TimeDelta": "timedelta",
     "total_seconds": "timedelta_total_seconds",
+    "enter_frame": "enter_frame",
+    "EnterFrame": "enter_frame",
 }

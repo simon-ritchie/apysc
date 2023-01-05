@@ -119,6 +119,7 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "Timer": "timer",
     "TimerEvent": "timer_event",
     "FPS": "fps",
+    "fps": "fps",
     "timer_complete": "timer_complete",
     "AnimationEvent": "animation_event",
     "animation_complete": "animation_complete",

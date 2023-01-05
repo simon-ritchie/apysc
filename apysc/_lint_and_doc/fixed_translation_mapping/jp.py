@@ -3080,5 +3080,29 @@ MAPPINGS: Mappings = Mappings(
             key="The `Str` class is the alias of `String`.<hr>",
             val="`Str`クラスは`String`クラスのエイリアスとなります。<hr>",
         ),
+        Mapping(
+            key="## enter_frame API",
+            val="## enter_frame のAPI",
+        ),
+        Mapping(
+            key="Add an enter frame event listener setting.<hr>",
+            val="enter frameのイベントのリスナー設定を追加します。<hr>",
+        ),
+        Mapping(
+            key="  - A handler function to handle the enter frame event.",
+            val="  - enter frameイベントを扱うためのハンドラの関数。",
+        ),
+        Mapping(
+            key="  - Frame per second to set.",
+            val="  - 設定する1秒辺りのフレーム数（frame per second）。",
+        ),
+        Mapping(
+            key="  - Optional arguments to pass to a handler function.",
+            val="  - ハンドラの関数へと渡される追加のパラメーターの引数値。",
+        ),
+        Mapping(
+            key="If this is the second call of this interface and an argument is the same function, this interface ignores `options` argument (it changes only the running status and `fps` setting).<hr>",
+            val="もしこのインターフェイスの呼び出しが2回目且つ指定されたハンドラの引数の値が同一の場合、このインターフェイスは`options`引数の指定を無視します（実行中かどうかのステータスと`fps`の設定のみ更新します）。<hr>",
+        ),
     ]
 )

@@ -4,7 +4,7 @@ This page explains the `Timer` class.
 
 ## What is the Timer?
 
-The `Timer` class handles the timer's tick. You can call a handler at any intervals by it.
+The `Timer` class handles the timer's tick. You can call a handler at any interval by it.
 
 ## Basic usage
 

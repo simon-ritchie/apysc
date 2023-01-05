@@ -220,7 +220,7 @@ jp_for
 jp_continue
 ```
 
-## タイマー
+## タイマーとenter frame
 
 <br><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe>
 
@@ -234,6 +234,7 @@ jp_timer_repeat_count
 jp_timer_start_and_stop
 jp_timer_complete
 jp_timer_reset
+jp_enter_frame
 ```
 
 ## DateTime クラス

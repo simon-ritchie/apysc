@@ -217,7 +217,7 @@ for
 continue
 ```
 
-## Timer
+## Timer and enter frame
 
 <br><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe>
 
@@ -231,6 +231,7 @@ timer_repeat_count
 timer_start_and_stop
 timer_complete
 timer_reset
+enter_frame
 ```
 
 ## DateTime class

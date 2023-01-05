@@ -8,7 +8,7 @@ The `FPS` enum class is the definition of each FPS (frames per second). The time
 
 ## Basic usage
 
-There is an enum definition of FPS in 5 intervals. The `Timer` class `delay` argument is acceptable `FPS` enum value. For example, specify the `FPS.FPS_60` value to that argument. A timer interval becomes approximately `16.6666667` milliseconds. Similarly, it becomes the `33.3333333` milliseconds when you specify the `FPS.FPS_30` value.
+There is an enum definition of FPS in 5 intervals. The `Timer` class `delay` argument is an acceptable `FPS` enum value. For example, specify the `FPS.FPS_60` value to that argument. A timer interval becomes approximately `16.6666667` milliseconds. Similarly, it becomes `33.3333333` milliseconds when you specify the `FPS.FPS_30` value.
 
 ```py
 # runnable

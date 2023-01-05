@@ -102,6 +102,12 @@ If this is the second call of this interface and an argument is the same functio
 >>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)
 ```
 
+<hr>
+
+**[References]**
+
+- [enter_frame interface](https://simon-ritchie.github.io/apysc/en/enter_frame.html)
+
 ### `unbind_enter_frame` method docstring
 
 Unbind a specified handler's enter-frame event.<hr>
@@ -134,6 +140,12 @@ Unbind a specified handler's enter-frame event.<hr>
 >>> stage.unbind_enter_frame(handler=on_enter_frame)
 ```
 
+<hr>
+
+**[References]**
+
+- [unbind_enter_frame and unbind_enter_frame_all interfaces](https://simon-ritchie.github.io/apysc/en/unbind_enter_frame_and_unbind_enter_frame_all.html)
+
 ### `unbind_enter_frame_all` method docstring
 
 Unbind all enter-frame events.<hr>
@@ -152,5 +164,11 @@ Unbind all enter-frame events.<hr>
 >>> # Any implementations here...
 >>> stage.unbind_enter_frame_all()
 ```
+
+<hr>
+
+**[References]**
+
+- [unbind_enter_frame and unbind_enter_frame_all interfaces](https://simon-ritchie.github.io/apysc/en/unbind_enter_frame_and_unbind_enter_frame_all.html)
 
 ## `_EnterFrameEventNotRegistered` class docstring

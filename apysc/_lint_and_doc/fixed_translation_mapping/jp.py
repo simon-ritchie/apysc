@@ -3109,7 +3109,7 @@ MAPPINGS: Mappings = Mappings(
             val="## unbind_enter_frame のAPI",
         ),
         Mapping(
-            key="Unbind a specified handler\'s enter-frame event.<hr>",
+            key="Unbind a specified handler's enter-frame event.<hr>",
             val="指定されたハンドラのenter-frameイベントの設定を解除します。<hr>",
         ),
         Mapping(

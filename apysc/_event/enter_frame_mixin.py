@@ -77,6 +77,11 @@ class EnterFrameMixIn(
         options : Optional[_Options], optional
             Optional arguments to pass to a handler function.
 
+        References
+        ----------
+        - enter_frame interface
+            - https://simon-ritchie.github.io/apysc/en/enter_frame.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -314,6 +319,11 @@ class EnterFrameMixIn(
         _EnterFrameEventNotRegistered
             If there is no unbinding target of a specified handler.
 
+        References
+        ----------
+        - unbind_enter_frame and unbind_enter_frame_all interfaces
+            - https://simon-ritchie.github.io/apysc/en/unbind_enter_frame_and_unbind_enter_frame_all.html  # noqa
+
         Examples
         --------
         >>> import apysc as ap
@@ -343,6 +353,11 @@ class EnterFrameMixIn(
     def unbind_enter_frame_all(self) -> None:
         """
         Unbind all enter-frame events.
+
+        References
+        ----------
+        - unbind_enter_frame and unbind_enter_frame_all interfaces
+            - https://simon-ritchie.github.io/apysc/en/unbind_enter_frame_and_unbind_enter_frame_all.html  # noqa
 
         Examples
         --------

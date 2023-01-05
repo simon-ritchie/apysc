@@ -556,6 +556,6 @@ def _is_translated_document(*, path: str) -> bool:
     """
     basename: str = os.path.basename(path)
     for lang in Lang:
-        if basename.startswith(lang.value):
+        if basename.startswith(f"{lang.value}_"):
             return True
     return False

@@ -33,6 +33,9 @@ def test__is_translated_document() -> None:
     result = mod._is_translated_document(path="./test/jp_path.md")
     assert result
 
+    result = mod._is_translated_document(path="./test/enter_frame.md")
+    assert not result
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_mappings_from_keys() -> None:

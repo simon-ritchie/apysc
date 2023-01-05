@@ -3117,10 +3117,6 @@ MAPPINGS: Mappings = Mappings(
             val="  - 設定を取り除く対象のcallableオブジェクト。",
         ),
         Mapping(
-            key="  - Unbinding target callable.",
-            val="  - 設定を取り除く対象のcallableオブジェクト。",
-        ),
-        Mapping(
             key="- _EnterFrameEventNotRegistered: If there is no unbinding target of a specified handler.",
             val="- _EnterFrameEventNotRegistered: もし指定されたハンドラの設定削除対象が存在しない場合。",
         ),

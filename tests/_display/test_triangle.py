@@ -39,3 +39,18 @@ class TestTriangle:
         )
         assert triangle.x == ap.Int(15)
         assert triangle.y == ap.Int(10)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        ap.Stage()
+        triangle: Triangle = Triangle(
+            x1=50,
+            y1=0,
+            x2=0,
+            y2=50,
+            x3=100,
+            y3=50,
+        )
+        repr_str: str = repr(triangle)
+        expected: str = f"Triangle('{triangle.variable_name}')"
+        assert repr_str == expected

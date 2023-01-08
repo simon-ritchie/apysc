@@ -229,4 +229,14 @@ class Triangle(
         self._y = Int(min_y, variable_name_suffix=suffix)
 
     def __repr__(self) -> str:
-        pass
+        """
+        Get a string representation of this instance (for the sake of debugging).
+
+        Returns
+        -------
+        repr_str : str
+            Type name and variable name will be set
+            (e.g., `Triangle('<variable_name>')`).
+        """
+        repr_str: str = f"Triangle('{self.variable_name}')"
+        return repr_str

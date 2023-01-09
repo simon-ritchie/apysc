@@ -27,11 +27,13 @@ from apysc._display.child_mixin import ChildMixIn
 from apysc._validation import arg_validation_decos
 from apysc._type.array import Array
 from apysc._geom.point2d import Point2D
+from apysc._display.polygon_x1_mixin import PolygonX1MixIn
 
 
 class Triangle(
     XMixIn,
     YMixIn,
+    PolygonX1MixIn,
     GraphicsBase,
     FillColorMixIn,
     FillAlphaMixIn,
@@ -42,7 +44,6 @@ class Triangle(
     The triangle vector graphics class.
     """
 
-    _x1: Int
     _y1: Int
     _x2: Int
     _y2: Int

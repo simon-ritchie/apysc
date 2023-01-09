@@ -23,6 +23,7 @@ from apysc._display.sprite import Sprite
 from apysc._display.graphics import Graphics
 from apysc._display.stage import Stage
 from apysc._display.stage import get_stage
+from apysc._display.triangle import Triangle
 from apysc._display.rectangle import Rectangle
 from apysc._display.circle import Circle
 from apysc._display.ellipse import Ellipse

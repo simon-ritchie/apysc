@@ -1,15 +1,12 @@
 """Class implementation for polygon-related classes' x1 mix-in.
 """
 
-from typing_extensions import final
-
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._display.points_2d_mixin import Points2DMixIn
 from apysc._display.polygon_apply_current_points_mixin import PolygonApplyCurrentPointsMixIn
 
 
-class PolygonX1MixIn(Points2DMixIn, PolygonApplyCurrentPointsMixIn):
+class PolygonX1MixIn(PolygonApplyCurrentPointsMixIn):
 
     _x1: Int
 
@@ -38,6 +35,10 @@ class PolygonX1MixIn(Points2DMixIn, PolygonApplyCurrentPointsMixIn):
         value : Int
             X-coordinate to set.
         """
+        import apysc as ap
+
         self._x1._value = value._value
-        self._points[0].x.value = value._copy()
+        new_point: ap.Point2D = self._points[0]
+        new_point.x = value
+        self._points[0] = new_point
         self._apply_current_points()

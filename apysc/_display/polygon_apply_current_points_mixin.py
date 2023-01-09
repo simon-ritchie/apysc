@@ -1,12 +1,10 @@
 """Class implementation for the `apply_current_points` mix-in.
 """
 
-from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._display.points_2d_mixin import Points2DMixIn
 
 
-class PolygonApplyCurrentPointsMixIn(VariableNameMixIn):
-
-    _points_var_name: str
+class PolygonApplyCurrentPointsMixIn(Points2DMixIn):
 
     def _apply_current_points(self) -> None:
         """
@@ -14,6 +12,9 @@ class PolygonApplyCurrentPointsMixIn(VariableNameMixIn):
         """
         import apysc as ap
 
-        ap.append_js_expression(
-            expression=f"{self.variable_name}.plot({self._points_var_name});"
-        )
+        points_var_name: str
+        points_expression: str
+        points_var_name, points_expression = self._make_2dim_points_expression()
+        ap.append_js_expression(expression=points_expression)
+        expression: str = f"{self.variable_name}.plot({points_var_name});"
+        ap.append_js_expression(expression=expression)

@@ -31,6 +31,7 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
+from apysc._expression import var_names
 
 
 class TestPolyline:
@@ -161,9 +162,14 @@ class TestPolyline:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f"{polyline._points_var_name}.push([50, 60]);"
-            f"\n{polyline.variable_name}.plot({polyline._points_var_name});"
         )
         assert expected in expression
+        match: Optional[Match] = re.search(
+            pattern=rf"{polyline.variable_name}\.plot\({var_names.ARRAY}_.+?\);",
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__create_with_graphics(self) -> None:

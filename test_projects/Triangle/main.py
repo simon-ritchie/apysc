@@ -30,6 +30,7 @@ def main() -> None:
         stage_width=1200,
         stage_height=900,
     )
+    ap.set_debug_mode()
 
     triangle_1: ap.Triangle = ap.Triangle(
         x1=75,
@@ -41,7 +42,8 @@ def main() -> None:
         fill_color="#0af",
         fill_alpha=0.5,
     )
-    triangle_1.click(handler=on_triangle_1_click)
+    triangle_1.click(handler=on_triangle_1_click_1)
+    triangle_1.click(handler=on_triangle_1_click_2)
 
     ap.Triangle(
         x1=175,
@@ -55,10 +57,10 @@ def main() -> None:
         line_alpha=0.5,
     )
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_triangle_1_click(e: ap.MouseEvent[ap.Triangle], options: dict) -> None:
+def on_triangle_1_click_1(e: ap.MouseEvent[ap.Triangle], options: dict) -> None:
     """
     The handler for the click event.
 
@@ -70,6 +72,21 @@ def on_triangle_1_click(e: ap.MouseEvent[ap.Triangle], options: dict) -> None:
         Optional argument dictionary.
     """
     e.this.fill_color = ap.String("#f0a")
+
+
+def on_triangle_1_click_2(e: ap.MouseEvent[ap.Triangle], options: dict) -> None:
+    """
+    The handler for the click event.
+
+    Parameters
+    ----------
+    e : ap.MouseEvent[ap.Triangle]
+        Event instance.
+    options : dict
+        Optional argument dictionary.
+    """
+    e.this.x1 += -1
+    ap.trace(e.this._points)
 
 
 if __name__ == "__main__":

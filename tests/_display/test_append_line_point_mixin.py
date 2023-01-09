@@ -1,4 +1,6 @@
 from random import randint
+import re
+from typing import Optional, Match
 
 from retrying import retry
 
@@ -6,6 +8,7 @@ import apysc as ap
 from apysc._display.append_line_point_mixin import AppendLinePointMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_raises
+from apysc._expression import var_names
 
 
 class TestAppendLinePointMixIn:
@@ -30,7 +33,12 @@ class TestAppendLinePointMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f"test_points.push([{x.variable_name}, {y.variable_name}]);"
-            f"\n{mixin.variable_name}.plot(test_points);"
         )
         assert expected in expression
         assert "test_mixin" in mixin.points[0]._variable_name_suffix
+        match: Optional[Match] = re.search(
+            pattern=rf"{mixin.variable_name}\.plot\({var_names.ARRAY}\_.+?\);",
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match is not None

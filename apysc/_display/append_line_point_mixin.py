@@ -14,12 +14,14 @@ from apysc._type.int import Int
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 from apysc._display.polygon_apply_current_points_mixin import PolygonApplyCurrentPointsMixIn
+from apysc._display.points_var_name_mixin import PointsVarNameMixIn
 
 
 class AppendLinePointMixIn(
     PolygonApplyCurrentPointsMixIn,
     Points2DMixIn,
     VariableNameSuffixMixIn,
+    PointsVarNameMixIn,
 ):
 
     @final

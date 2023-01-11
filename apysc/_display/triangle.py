@@ -30,6 +30,7 @@ from apysc._geom.point2d import Point2D
 from apysc._display.polygon_x1_mixin import PolygonX1MixIn
 from apysc._display.polygon_y1_mixin import PolygonY1MixIn
 from apysc._display.polygon_x2_mixin import PolygonX2MixIn
+from apysc._display.polygon_y2_mixin import PolygonY2MixIn
 
 
 class Triangle(
@@ -38,6 +39,7 @@ class Triangle(
     PolygonX1MixIn,
     PolygonY1MixIn,
     PolygonX2MixIn,
+    PolygonY2MixIn,
     GraphicsBase,
     FillColorMixIn,
     FillAlphaMixIn,

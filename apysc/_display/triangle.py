@@ -31,6 +31,7 @@ from apysc._display.polygon_x1_mixin import PolygonX1MixIn
 from apysc._display.polygon_y1_mixin import PolygonY1MixIn
 from apysc._display.polygon_x2_mixin import PolygonX2MixIn
 from apysc._display.polygon_y2_mixin import PolygonY2MixIn
+from apysc._display.polygon_x3_mixin import PolygonX3MixIn
 
 
 class Triangle(
@@ -40,6 +41,7 @@ class Triangle(
     PolygonY1MixIn,
     PolygonX2MixIn,
     PolygonY2MixIn,
+    PolygonX3MixIn,
     GraphicsBase,
     FillColorMixIn,
     FillAlphaMixIn,
@@ -50,7 +52,6 @@ class Triangle(
     The triangle vector graphics class.
     """
 
-    _y2: Int
     _x3: Int
     _y3: Int
 

@@ -54,7 +54,7 @@ class NumberValueMixIn(
             This instance expression's type name (e.g., int, number).
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
         """
         self._variable_name_suffix = variable_name_suffix
         self._initial_value = value

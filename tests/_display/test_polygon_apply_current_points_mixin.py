@@ -1,11 +1,12 @@
-from random import randint
 import re
-from typing import Match, Optional
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 from apysc._display.polygon_apply_current_points_mixin import (
-    PolygonApplyCurrentPointsMixIn
+    PolygonApplyCurrentPointsMixIn,
 )
 from apysc._expression import expression_data_util
 from apysc._expression import var_names

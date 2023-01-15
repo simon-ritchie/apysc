@@ -92,7 +92,7 @@ class Graphics(
             a subclass instantiation.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         References
         ----------
@@ -191,7 +191,7 @@ class Graphics(
             Rectangle height.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -274,7 +274,7 @@ class Graphics(
             Ellipse height of the rectangle corner.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -351,7 +351,7 @@ class Graphics(
             Circle radius.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -424,7 +424,7 @@ class Graphics(
             Ellipse height.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -490,7 +490,7 @@ class Graphics(
             Y destination point to draw a line.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -557,7 +557,7 @@ class Graphics(
             Y destination point to move.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -644,7 +644,7 @@ class Graphics(
             Line end y-coordinate.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -728,7 +728,7 @@ class Graphics(
             Dot size.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -825,7 +825,7 @@ class Graphics(
             Blank space size between dashes.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -924,7 +924,7 @@ class Graphics(
             Blank space size between dots.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -1023,7 +1023,7 @@ class Graphics(
             Blank space size between dots and dashes.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -1108,7 +1108,7 @@ class Graphics(
             Polygon vertex points.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -1157,7 +1157,7 @@ class Graphics(
             Target path data settings, such as the ap.PathData.MoveTo.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------

@@ -66,7 +66,7 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -102,10 +102,6 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Polygon('<variable_name>')`).
 
-### `_append_constructor_expression` method docstring
-
-Append constructor expression.
-
 ### `_create_with_graphics` method docstring
 
 Create a polygon instance with the instance of specified graphics.<hr>
@@ -117,7 +113,7 @@ Create a polygon instance with the instance of specified graphics.<hr>
 - `points`: Array[Point2D]
   - List of polygon vertex points.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

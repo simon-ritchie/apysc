@@ -84,7 +84,7 @@ Create a rectangle vector graphic.<hr>
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -148,7 +148,7 @@ Create a rectangle instance with the instance of specified graphics..<hr>
 - `height`: Int or int
   - Rectangle height.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

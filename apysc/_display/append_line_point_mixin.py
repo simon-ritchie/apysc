@@ -6,6 +6,10 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._display.points_2d_mixin import Points2DMixIn
+from apysc._display.points_var_name_mixin import PointsVarNameMixIn
+from apysc._display.polygon_apply_current_points_mixin import (
+    PolygonApplyCurrentPointsMixIn,
+)
 from apysc._display.set_x_and_y_with_minimum_point_interface_base import (
     SetXAndYWithMinimumPointInterfaceBase,
 )
@@ -13,8 +17,6 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.polygon_apply_current_points_mixin import PolygonApplyCurrentPointsMixIn
-from apysc._display.points_var_name_mixin import PointsVarNameMixIn
 
 
 class AppendLinePointMixIn(
@@ -23,7 +25,6 @@ class AppendLinePointMixIn(
     VariableNameSuffixMixIn,
     PointsVarNameMixIn,
 ):
-
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
@@ -69,9 +70,7 @@ class AppendLinePointMixIn(
         expression: str
         x_name: str = value_util.get_value_str_for_expression(value=x)
         y_name: str = value_util.get_value_str_for_expression(value=y)
-        expression = (
-            f"{self._points_var_name}.push([{x_name}, {y_name}]);"
-        )
+        expression = f"{self._points_var_name}.push([{x_name}, {y_name}]);"
         ap.append_js_expression(expression=expression)
         self._apply_current_points()
 

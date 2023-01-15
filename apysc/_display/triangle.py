@@ -1,38 +1,40 @@
 """Implementations of Triangle class.
 """
 
-from typing import Union, Optional
+from typing import Optional
+from typing import Union
+
 from typing_extensions import final
 
+from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
-from apysc._display.x_mixin import XMixIn
-from apysc._display.y_mixin import YMixIn
-from apysc._html.debug_mode import add_debug_info_setting
 from apysc._display.graphics_base import GraphicsBase
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._display.polygon_append_constructor_expression_mixin import (
-    PolygonAppendConstructorExpressionMixIn
-)
-from apysc._type.int import Int
-from apysc._type.string import String
-from apysc._type.number import Number
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.child_mixin import ChildMixIn
-from apysc._validation import arg_validation_decos
-from apysc._type.array import Array
-from apysc._geom.point2d import Point2D
+from apysc._display.polygon_append_constructor_expression_mixin import (
+    PolygonAppendConstructorExpressionMixIn,
+)
 from apysc._display.polygon_x1_mixin import PolygonX1MixIn
-from apysc._display.polygon_y1_mixin import PolygonY1MixIn
 from apysc._display.polygon_x2_mixin import PolygonX2MixIn
-from apysc._display.polygon_y2_mixin import PolygonY2MixIn
 from apysc._display.polygon_x3_mixin import PolygonX3MixIn
+from apysc._display.polygon_y1_mixin import PolygonY1MixIn
+from apysc._display.polygon_y2_mixin import PolygonY2MixIn
 from apysc._display.polygon_y3_mixin import PolygonY3MixIn
+from apysc._display.x_mixin import XMixIn
+from apysc._display.y_mixin import YMixIn
+from apysc._geom.point2d import Point2D
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.array import Array
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.string import String
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._validation import arg_validation_decos
 
 
 class Triangle(
@@ -166,13 +168,13 @@ class Triangle(
             a stage instance.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
         """
+        from apysc._converter.to_apysc_val_from_builtin import (
+            get_copied_int_from_builtin_val,
+        )
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._converter.to_apysc_val_from_builtin import (
-            get_copied_int_from_builtin_val
-        )
 
         self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.get_next_variable_name(
@@ -209,7 +211,7 @@ class Triangle(
     @add_debug_info_setting(module_name=__name__)
     def _set_points_with_each_coordinate(self) -> None:
         """
-        Set the `_points` attribute value with each coordinate.
+        Set the `_points`' attribute value with each coordinate.
         """
         self._points = Array(
             value=[

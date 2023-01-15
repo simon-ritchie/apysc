@@ -168,7 +168,7 @@ class Path(
             a stage instance.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         References
         ----------
@@ -260,7 +260,7 @@ class Path(
             Target path data settings, such as the ap.PathData.MoveTo.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------

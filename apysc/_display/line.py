@@ -140,7 +140,7 @@ class Line(XMixIn, YMixIn, GraphicsBase, VariableNameSuffixMixIn):
             a stage instance.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         References
         ----------
@@ -226,7 +226,7 @@ class Line(XMixIn, YMixIn, GraphicsBase, VariableNameSuffixMixIn):
             Line end point.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------

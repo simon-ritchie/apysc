@@ -25,7 +25,7 @@ class NowMixIn:
         ----------
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------

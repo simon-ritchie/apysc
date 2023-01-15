@@ -58,7 +58,7 @@ Path data class for the SVG's `horizontal line` (H).<hr>
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

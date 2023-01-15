@@ -43,7 +43,7 @@ Create an object that has each vector graphics interface.<hr>
 - `variable_name`: str or None, default None
   - Variable name to set. Specified only when a subclass instantiation.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -85,7 +85,7 @@ Draw a circle vector graphics.<hr>
 - `radius`: Int or int
   - Circle radius.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -144,7 +144,7 @@ Draw a dash-dotted (1-dot chain) line vector graphics.<hr>
 - `space_size`: Int or int
   - Blank space size between dots and dashes.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -209,7 +209,7 @@ Draw a dashed line vector graphics.<hr>
 - `space_size`: Int or int
   - Blank space size between dashes.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -267,7 +267,7 @@ Draw a dotted line vector graphics.<hr>
 - `dot_size`: Int or int
   - Dot size.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -323,7 +323,7 @@ Draw an ellipse vector graphic.<hr>
 - `height`: Int or int
   - Ellipse height.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -381,7 +381,7 @@ Draw a normal line vector graphic.<hr>
 - `y_end`: Int or int
   - Line end y-coordinate.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -428,7 +428,7 @@ Draw a path vector graphics.<hr>
 - `path_data_list`: list of PathDataBase
   - Target path data settings, such as the ap.PathData.MoveTo.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -479,7 +479,7 @@ Draw a polygon vector graphic. This interface is similar to the Polyline class (
 - `points`: list of Point2D or Array.
   - Polygon vertex points.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -529,7 +529,7 @@ Draw a rectangle vector graphics.<hr>
 - `height`: Int or int
   - Rectangle height.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -585,7 +585,7 @@ Draw a round-dotted line vector graphics.<hr>
 - `space_size`: Int or int
   - Blank space size between dots.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -645,7 +645,7 @@ Draw a rounded rectangle vector graphics.<hr>
 - `ellipse_height`: Int or int
   - Ellipse height of the rectangle corner.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -690,7 +690,7 @@ Draw a line from previous point to specified point (initial point is x = 0, y = 
 - `y`: Int or int
   - Y destination point to draw a line.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -738,7 +738,7 @@ Move a line position to a specified point.<hr>
 - `y`: Int or int
   - Y destination point to move.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

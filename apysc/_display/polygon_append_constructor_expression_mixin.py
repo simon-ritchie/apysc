@@ -5,12 +5,11 @@
 from typing_extensions import final
 
 from apysc._display.points_2d_mixin import Points2DMixIn
-from apysc._html.debug_mode import add_debug_info_setting
 from apysc._display.points_var_name_mixin import PointsVarNameMixIn
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn):
-
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:

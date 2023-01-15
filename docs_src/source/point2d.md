@@ -96,7 +96,7 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 - `y`: int or Int
   - Y-coordinate.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

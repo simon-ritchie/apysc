@@ -100,7 +100,7 @@ Draw a normal line vector graphic.<hr>
 - `y_end`: Int or int
   - Line end y-coordinate.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

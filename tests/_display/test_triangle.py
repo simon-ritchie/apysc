@@ -2,11 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apysc._display.triangle import Triangle
 import apysc as ap
-from apysc._testing.testing_helper import assert_attrs
-from apysc._expression import var_names
+from apysc._display.triangle import Triangle
 from apysc._expression import expression_data_util
+from apysc._expression import var_names
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestTriangle:
@@ -93,7 +93,7 @@ class TestTriangle:
         assert ".polygon(" in expression
 
         sprite: ap.Sprite = ap.Sprite()
-        triangle: Triangle = Triangle(
+        triangle = Triangle(
             x1=50,
             y1=0,
             x2=0,

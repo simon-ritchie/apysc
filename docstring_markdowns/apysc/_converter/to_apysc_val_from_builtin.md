@@ -13,7 +13,7 @@ Get a copied Boolean value from a Python built-in bool.<hr>
 - `bool_val`: bool or Boolean
   - Target bool value.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -31,7 +31,7 @@ Get a copied Int value from a Python built-in int.<hr>
 - `integer`: int or Int
   - Target integer value.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -49,7 +49,7 @@ Get a copied number value from a Python built-in float.<hr>
 - `float_or_num`: float or Number
   - Target float (or Number) value.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 
@@ -67,7 +67,7 @@ Get a copied String value from a Python built-in str.<hr>
 - `string`: str or String
   - Target string value.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

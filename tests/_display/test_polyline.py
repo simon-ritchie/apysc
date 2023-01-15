@@ -8,6 +8,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
+from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
 from tests._display.test_graphics_expression import (
@@ -31,7 +32,6 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
-from apysc._expression import var_names
 
 
 class TestPolyline:
@@ -160,9 +160,7 @@ class TestPolyline:
         polyline: ap.Polyline = ap.Polyline(parent=sprite.graphics, points=points)
         polyline.append_line_point(x=50, y=60)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{polyline._points_var_name}.push([50, 60]);"
-        )
+        expected: str = f"{polyline._points_var_name}.push([50, 60]);"
         assert expected in expression
         match: Optional[Match] = re.search(
             pattern=rf"{polyline.variable_name}\.plot\({var_names.ARRAY}_.+?\);",

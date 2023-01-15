@@ -37,7 +37,7 @@ class _TestNumberClass(NumberValueMixIn):
             This instance expression's type name (e.g., int, number).
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
         """
         super(_TestNumberClass, self).__init__(
             value=value, type_name=type_name, variable_name_suffix=variable_name_suffix

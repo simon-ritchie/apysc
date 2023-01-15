@@ -3,7 +3,6 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import expression_data_util
 
 
 class TestPolygonY1MixIn:
@@ -11,7 +10,12 @@ class TestPolygonY1MixIn:
     def test_y1(self) -> None:
         ap.Stage()
         triangle: ap.Triangle = ap.Triangle(
-            x1=100, y1=50, x2=50, y2=100, x3=150, y3=100,
+            x1=100,
+            y1=50,
+            x2=50,
+            y2=100,
+            x3=150,
+            y3=100,
         )
         y1: ap.Int = triangle.y1
         assert y1 == ap.Int(50)

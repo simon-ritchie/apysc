@@ -19,6 +19,9 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
+from apysc._display.polygon_append_constructor_expression_mixin import (
+    PolygonAppendConstructorExpressionMixIn,
+)
 from apysc._display.set_x_and_y_with_minimum_point_interface_base import (
     SetXAndYWithMinimumPointInterfaceBase,
 )
@@ -32,9 +35,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.polygon_append_constructor_expression_mixin import (
-    PolygonAppendConstructorExpressionMixIn
-)
 
 
 class Polygon(
@@ -164,7 +164,7 @@ class Polygon(
             a stage instance.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         References
         ----------
@@ -251,7 +251,7 @@ class Polygon(
             List of polygon vertex points.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript's debugging.
+            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------

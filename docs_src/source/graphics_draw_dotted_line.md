@@ -62,7 +62,7 @@ Draw a dotted line vector graphics.<hr>
 - `dot_size`: Int or int
   - Dot size.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

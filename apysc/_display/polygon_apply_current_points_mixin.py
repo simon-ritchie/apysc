@@ -5,7 +5,6 @@ from apysc._display.points_2d_mixin import Points2DMixIn
 
 
 class PolygonApplyCurrentPointsMixIn(Points2DMixIn):
-
     def _apply_current_points(self) -> None:
         """
         Apply current points settings and re-draw a polygon graphic.

@@ -38,7 +38,7 @@ Dot setting class for a line.<hr>
 - `dot_size`: int or Int
   - Dot size.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

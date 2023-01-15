@@ -178,7 +178,7 @@ Draw a polygon vector graphic. This interface is similar to the Polyline class (
 - `points`: list of Point2D or Array.
   - Polygon vertex points.
 - `variable_name_suffix`: str, default ''
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript's debugging.
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
 

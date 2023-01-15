@@ -13,6 +13,7 @@ from apysc._display import line as _line
 from apysc._display import path as _path
 from apysc._display import polygon as _polyg
 from apysc._display import polyline as _polyline
+from apysc._display import triangle as _triangle
 from apysc._display import sprite
 from apysc._display.begin_fill_mixin import BeginFillMixIn
 from apysc._display.child_mixin import ChildMixIn
@@ -1140,6 +1141,64 @@ class Graphics(
             graphics=self, points=points, variable_name_suffix=variable_name_suffix
         )
         return polygon
+
+    @final
+    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.is_builtin_string(arg_position_index=7, optional=False)
+    @add_debug_info_setting(module_name=__name__)
+    def draw_triangle(
+        self,
+        *,
+        x1: Union[int, Int],
+        y1: Union[int, Int],
+        x2: Union[int, Int],
+        y2: Union[int, Int],
+        x3: Union[int, Int],
+        y3: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> _triangle.Triangle:
+        """
+        Draw a triangle vector graphic.
+
+        Parameters
+        ----------
+        x1 : Union[int, Int]
+            First vertex's x coordinate.
+        y1 : Union[int, Int]
+            First vertex's y coordinate.
+        x2 : Union[int, Int]
+            Second vertex's x coordinate.
+        y2 : Union[int, Int]
+            Second vertex's y coordinate.
+        x3 : Union[int, Int]
+            Third vertex's x coordinate.
+        y3 : Union[int, Int]
+            Third vertex's y coordinate.
+        variable_name_suffix : str, optional
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript debugging.
+
+        Returns
+        -------
+        triangle : Triangle
+            Created triangle graphics instance.
+        """
+        triangle: _triangle.Triangle = _triangle.Triangle._create_with_graphics(
+            graphics=self,
+            x1=x1,
+            y1=y1,
+            x2=x2,
+            y2=y2,
+            x3=x3,
+            y3=y3,
+            variable_name_suffix=variable_name_suffix,
+        )
+        return triangle
 
     @final
     @arg_validation_decos.is_valid_path_data_list(arg_position_index=1)

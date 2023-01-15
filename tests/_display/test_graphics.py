@@ -407,3 +407,31 @@ class TestGraphics:
         assert isinstance(path, ap.Path)
         assert path._path_data_list == path_data_list
         assert path._variable_name_suffix == "test_path"
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_triangle(self) -> None:
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
+        sprite.graphics.begin_fill(color="#0af")
+        triangle: ap.Triangle = sprite.graphics.draw_triangle(
+            x1=50,
+            y1=50,
+            x2=25,
+            y2=50,
+            x3=75,
+            y3=50,
+            variable_name_suffix="test_triangle",
+        )
+        assert isinstance(triangle, ap.Triangle)
+        testing_helper.assert_attrs(
+            expected_attrs={
+                "_x1": 50,
+                "_y1": 50,
+                "_x2": 25,
+                "_y2": 50,
+                "_x3": 75,
+                "_y3": 50,
+            },
+            any_obj=triangle,
+        )
+        assert triangle._variable_name_suffix == "test_triangle"

@@ -6,7 +6,31 @@ Implementations of Triangle class.
 
 ## `Triangle` class docstring
 
-The triangle vector graphics class.
+The triangle vector graphics class.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> _ = ap.Stage()
+>>> triangle: ap.Triangle = ap.Triangle(
+...     x1=75,
+...     y1=50,
+...     x2=50,
+...     y2=100,
+...     x3=100,
+...     y3=100,
+...     fill_color="#0af",
+...     line_color="#fff",
+...     line_thickness=3,
+... )
+>>> triangle.x2
+Int(50)
+
+>>> triangle.y1 = ap.Int(30)
+>>> triangle.y1
+Int(30)
+```
 
 ### `__init__` method docstring
 
@@ -52,6 +76,32 @@ _summary_<hr>
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> _ = ap.Stage()
+>>> triangle: ap.Triangle = ap.Triangle(
+...     x1=75,
+...     y1=50,
+...     x2=50,
+...     y2=100,
+...     x3=100,
+...     y3=100,
+...     fill_color="#0af",
+...     line_color="#fff",
+...     line_thickness=3,
+... )
+>>> triangle.x2
+Int(50)
+
+>>> triangle.y1 = ap.Int(30)
+>>> triangle.y1
+Int(30)
+```
 
 ### `__repr__` method docstring
 

@@ -111,8 +111,8 @@ def display_on_colaboratory(html_file_name: str, *, minify: bool = True) -> None
     - display_on_colaboratory interface
         - https://simon-ritchie.github.io/apysc/en/display_on_colaboratory.html  # noqa
     """
-    from IPython.display import HTML
-    from IPython.display import display
+    from IPython.core.display import HTML
+    from IPython.core.display import display
 
     from apysc._file import file_util
 

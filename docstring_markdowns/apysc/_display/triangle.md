@@ -62,6 +62,36 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 - `repr_str`: str
   - Type name and variable name will be set (e.g., `Triangle('<variable_name>')`).
 
+### `_create_with_graphics` method docstring
+
+Create a triangle instance with the instance of specified graphics.<hr>
+
+**[Parameters]**
+
+- `graphics`: graphics.Graphics
+  - Graphics instance to link this instance.
+- `x1`: Union[int, Int]
+  - First vertex's y coordinate.
+- `y1`: Union[int, Int]
+  - First vertex's y coordinate.
+- `x2`: Union[int, Int]
+  - Second vertex's x coordinate.
+- `y2`: Union[int, Int]
+  - Second vertex's y coordinate.
+- `x3`: Union[int, Int]
+  - Third vertex's x coordinate.
+- `y3`: Union[int, Int]
+  - Third vertex's y coordinate.
+- `variable_name_suffix`: str, optional
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Returns]**
+
+- `triangle`: Triangle
+  - A created triangle instance.
+
 ### `_set_points_with_each_coordinate` method docstring
 
 Set the `_points`' attribute value with each coordinate.

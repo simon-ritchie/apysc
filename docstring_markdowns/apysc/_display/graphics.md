@@ -679,6 +679,34 @@ Int(15)
 
 - [Graphics draw_round_rect interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_round_rect.html)
 
+### `draw_triangle` method docstring
+
+Draw a triangle vector graphic.<hr>
+
+**[Parameters]**
+
+- `x1`: Union[int, Int]
+  - First vertex's x coordinate.
+- `y1`: Union[int, Int]
+  - First vertex's y coordinate.
+- `x2`: Union[int, Int]
+  - Second vertex's x coordinate.
+- `y2`: Union[int, Int]
+  - Second vertex's y coordinate.
+- `x3`: Union[int, Int]
+  - Third vertex's x coordinate.
+- `y3`: Union[int, Int]
+  - Third vertex's y coordinate.
+- `variable_name_suffix`: str, optional
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Returns]**
+
+- `triangle`: Triangle
+  - Created triangle graphics instance.
+
 ### `line_to` method docstring
 
 Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr>

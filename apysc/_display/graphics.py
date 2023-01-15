@@ -13,8 +13,8 @@ from apysc._display import line as _line
 from apysc._display import path as _path
 from apysc._display import polygon as _polyg
 from apysc._display import polyline as _polyline
-from apysc._display import triangle as _triangle
 from apysc._display import sprite
+from apysc._display import triangle as _triangle
 from apysc._display.begin_fill_mixin import BeginFillMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject

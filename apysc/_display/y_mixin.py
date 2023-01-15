@@ -8,7 +8,7 @@ from typing_extensions import final
 
 from apysc._animation.animation_move_mixin import AnimationMoveMixIn
 from apysc._animation.animation_y_mixin import AnimationYMixIn
-from apysc._display.y_interface import YMixInBase
+from apysc._display.y_interface import YInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
@@ -20,7 +20,7 @@ from apysc._validation import arg_validation_decos
 
 
 class YMixIn(
-    YMixInBase,
+    YInterface,
     VariableNameSuffixAttrOrVarMixIn,
     AnimationYMixIn,
     AnimationMoveMixIn,

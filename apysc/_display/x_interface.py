@@ -1,5 +1,4 @@
-"""This module is for the base class of the x-coordinate
-mix-in.
+"""The interface implementation for the x-coordinate.
 """
 
 from abc import ABC

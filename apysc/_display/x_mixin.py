@@ -8,7 +8,7 @@ from typing_extensions import final
 
 from apysc._animation.animation_move_mixin import AnimationMoveMixIn
 from apysc._animation.animation_x_mixin import AnimationXMixIn
-from apysc._display.x_mixin_base import XMixInBase
+from apysc._display.x_interface import XMixInBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int

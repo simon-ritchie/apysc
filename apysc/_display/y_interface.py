@@ -1,5 +1,4 @@
-"""This module is for the base class of the y-coordinate
-interfaces.
+"""The interface implementation for the y-coordinate.
 """
 
 from abc import ABC

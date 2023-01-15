@@ -43,9 +43,9 @@ def main() -> None:
     ap.assert_equal(polygon_2.x, 200)
     ap.assert_equal(polygon_2.y, 50)
     polygon_2.append_line_point(x=180, y=30)
-    polygon_2.append_line_point(x=200, y=0)
+    polygon_2.append_line_point(x=200, y=5)
     ap.assert_equal(polygon_2.x, 180)
-    ap.assert_equal(polygon_2.y, 30)
+    ap.assert_equal(polygon_2.y, 5)
     polygon_2.click(on_polygon_click)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)

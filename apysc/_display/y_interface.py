@@ -34,7 +34,7 @@ class YInterface(ABC):
     @abstractmethod
     def _update_y_and_skip_appending_exp(self, *, y: Union[int, Int]) -> None:
         """
-        Update y-coordinate and skip appending an expression.
+        Update a y-coordinate and skip appending an expression.
 
         Parameters
         ----------

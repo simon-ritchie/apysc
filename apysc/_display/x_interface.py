@@ -34,7 +34,7 @@ class XInterface(ABC):
     @abstractmethod
     def _update_x_and_skip_appending_exp(self, *, x: Union[int, Int]) -> None:
         """
-        Update x-coordinate and skip appending an expression.
+        Update an x-coordinate and skip appending an expression.
 
         Parameters
         ----------

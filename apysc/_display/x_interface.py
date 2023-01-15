@@ -8,7 +8,7 @@ from typing import Union
 from apysc._type.int import Int
 
 
-class XMixInBase(ABC):
+class XInterface(ABC):
 
     _x: Int
 

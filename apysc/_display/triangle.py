@@ -55,6 +55,27 @@ class Triangle(
 ):
     """
     The triangle vector graphics class.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> _ = ap.Stage()
+    >>> triangle: ap.Triangle = ap.Triangle(
+    ...     x1=75,
+    ...     y1=50,
+    ...     x2=50,
+    ...     y2=100,
+    ...     x3=100,
+    ...     y3=100,
+    ...     fill_color="#0af",
+    ...     line_color="#fff",
+    ...     line_thickness=3,
+    ... )
+    >>> triangle.x2
+    Int(50)
+    >>> triangle.y1 = ap.Int(30)
+    >>> triangle.y1
+    Int(30)
     """
 
     # self
@@ -170,6 +191,27 @@ class Triangle(
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> _ = ap.Stage()
+        >>> triangle: ap.Triangle = ap.Triangle(
+        ...     x1=75,
+        ...     y1=50,
+        ...     x2=50,
+        ...     y2=100,
+        ...     x3=100,
+        ...     y3=100,
+        ...     fill_color="#0af",
+        ...     line_color="#fff",
+        ...     line_thickness=3,
+        ... )
+        >>> triangle.x2
+        Int(50)
+        >>> triangle.y1 = ap.Int(30)
+        >>> triangle.y1
+        Int(30)
         """
         from apysc._converter.to_apysc_val_from_builtin import (
             get_copied_int_from_builtin_val,

@@ -1187,6 +1187,29 @@ class Graphics(
         -------
         triangle : Triangle
             Created triangle graphics instance.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> _ = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af', alpha=0.7)
+        >>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=0.5)
+        >>> triangle: ap.Triangle = sprite.graphics.draw_triangle(
+        ...     x1=75,
+        ...     y1=50,
+        ...     x2=25,
+        ...     y2=100,
+        ...     x3=100,
+        ...     y3=100,
+        ... )
+        >>> triangle.x1
+        Int(75)
+        >>> triangle.y1 = ap.Int(30)
+        >>> triangle.y1
+        Int(30)
+        >>> triangle.fill_color
+        String('#00aaff')
         """
         triangle: _triangle.Triangle = _triangle.Triangle._create_with_graphics(
             graphics=self,

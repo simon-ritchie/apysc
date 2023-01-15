@@ -1193,7 +1193,7 @@ class Graphics(
         >>> import apysc as ap
         >>> _ = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color='#0af', alpha=0.7)
+        >>> sprite.graphics.begin_fill(color="#0af", alpha=0.7)
         >>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=0.5)
         >>> triangle: ap.Triangle = sprite.graphics.draw_triangle(
         ...     x1=75,

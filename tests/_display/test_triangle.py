@@ -103,3 +103,43 @@ class TestTriangle:
             parent=sprite,
         )
         assert triangle.parent == sprite
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__create_with_graphics(self) -> None:
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
+        sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+        dot_setting: ap.LineDotSetting = ap.LineDotSetting(dot_size=10)
+        sprite.graphics.line_style(
+            color="#fff",
+            thickness=3,
+            alpha=0.3,
+            dot_setting=dot_setting,
+        )
+        triangle: Triangle = Triangle._create_with_graphics(
+            graphics=sprite.graphics,
+            x1=50,
+            y1=50,
+            x2=25,
+            y2=75,
+            x3=75,
+            y3=50,
+        )
+        assert_attrs(
+            expected_attrs={
+                "_x1": 50,
+                "_y1": 50,
+                "_x2": 25,
+                "_y2": 75,
+                "_x3": 75,
+                "_y3": 50,
+                "_parent": sprite.graphics,
+                "_fill_color": "#00aaff",
+                "_fill_alpha": 0.5,
+                "_line_color": "#ffffff",
+                "_line_thickness": 3,
+                "_line_alpha": 0.3,
+                "_line_dot_setting": dot_setting,
+            },
+            any_obj=triangle,
+        )

@@ -6,6 +6,7 @@ from typing import Union
 
 from typing_extensions import final
 
+from apysc._display import graphics
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
@@ -234,6 +235,72 @@ class Triangle(
 
         suffix = self._get_attr_or_variable_name_suffix(value_identifier="y")
         self._y = Int(min_y, variable_name_suffix=suffix)
+
+    @classmethod
+    @final
+    def _create_with_graphics(
+        cls,
+        *,
+        graphics: "graphics.Graphics",
+        x1: Union[int, Int],
+        y1: Union[int, Int],
+        x2: Union[int, Int],
+        y2: Union[int, Int],
+        x3: Union[int, Int],
+        y3: Union[int, Int],
+        variable_name_suffix: str = "",
+    ) -> "Triangle":
+        """
+        Create a triangle instance with the instance of
+        specified graphics.
+
+        Parameters
+        ----------
+        graphics : graphics.Graphics
+            Graphics instance to link this instance.
+        x1 : Union[int, Int]
+            First vertex's y coordinate.
+        y1 : Union[int, Int]
+            First vertex's y coordinate.
+        x2 : Union[int, Int]
+            Second vertex's x coordinate.
+        y2 : Union[int, Int]
+            Second vertex's y coordinate.
+        x3 : Union[int, Int]
+            Third vertex's x coordinate.
+        y3 : Union[int, Int]
+            Third vertex's y coordinate.
+        variable_name_suffix : str, optional
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript debugging.
+
+        Returns
+        -------
+        triangle : Triangle
+            A created triangle instance.
+        """
+        triangle: Triangle = Triangle(
+            x1=x1,
+            y1=y1,
+            x2=x2,
+            y2=y2,
+            x3=x3,
+            y3=y3,
+            fill_color=graphics._fill_color,
+            fill_alpha=graphics._fill_alpha,
+            line_color=graphics._line_color,
+            line_alpha=graphics._line_alpha,
+            line_thickness=graphics._line_thickness,
+            line_cap=graphics._line_cap,
+            line_joints=graphics._line_joints,
+            line_dot_setting=graphics._line_dot_setting,
+            line_dash_setting=graphics._line_dash_setting,
+            line_round_dot_setting=graphics._line_round_dot_setting,
+            line_dash_dot_setting=graphics._line_dash_dot_setting,
+            parent=graphics,
+            variable_name_suffix=variable_name_suffix,
+        )
+        return triangle
 
     def __repr__(self) -> str:
         """

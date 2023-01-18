@@ -283,7 +283,7 @@ ap.save_overall_html(dest_dir_path="polygon_line_dash_setting/")
 
 ## line_round_dot_setting property interface example
 
-The `line_round_dot_setting` property updates or gets the instance's line round dot-style setting:
+The `line_round_dot_setting` property updates or gets the instance's line-round dot-style setting:
 
 ```py
 # runnable

@@ -122,6 +122,7 @@ graphics_base_skew
 
 ```{toctree}
 :maxdepth: 1
+triangle
 rectangle
 circle
 ellipse

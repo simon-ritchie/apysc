@@ -1934,7 +1934,7 @@ MAPPINGS: Mappings = Mappings(
             val="## line_round_dot_setting属性のインターフェイス例",
         ),
         Mapping(
-            key="The `line_round_dot_setting` property updates or gets the instance's line round dot-style setting:",
+            key="The `line_round_dot_setting` property updates or gets the instance's line-round dot-style setting:",
             val="`line_round_dot_setting`属性では丸ドット線のスタイル設定の更新もしくは取得を行えます:",
         ),
         Mapping(

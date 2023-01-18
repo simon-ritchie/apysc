@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Triangle class &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <script src="static/add_en_to_ja_link.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Rectangle class" href="rectangle.html" />
+    <link rel="prev" title="GraphicsBase skew_x and skew_y interfaces" href="graphics_base_skew.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rectangle.html" title="Rectangle class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="graphics_base_skew.html" title="GraphicsBase skew_x and skew_y interfaces"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Triangle class</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="triangle-class">
+<h1>Triangle class<a class="headerlink" href="#triangle-class" title="Permalink to this headline">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Triangle</span></code> class.</p>
+<section id="what-class-is-this">
+<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Triangle</span></code> class creates a triangle vector graphics object.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Triangle</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">x1</span></code>, <code class="docutils literal notranslate"><span class="pre">y1</span></code>, <code class="docutils literal notranslate"><span class="pre">x2</span></code>, <code class="docutils literal notranslate"><span class="pre">y2</span></code>, <code class="docutils literal notranslate"><span class="pre">x3</span></code>, and <code class="docutils literal notranslate"><span class="pre">y3</span></code> arguments.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">y1</span></code> arguments are the first vertex’s coordinates.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">x2</span></code> and <code class="docutils literal notranslate"><span class="pre">y2</span></code> are the second vertex’s coordinates, and the <code class="docutils literal notranslate"><span class="pre">x3</span></code> and <code class="docutils literal notranslate"><span class="pre">y3</span></code> are the third.</p>
+<p>The constructor also accepts each style’s argument, such as the <code class="docutils literal notranslate"><span class="pre">fill_color</span></code>.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_basic_usage/index.html" width="150" height="150"></iframe>
+</section>
+<section id="x-property-interface-example">
+<h2>x property interface example<a class="headerlink" href="#x-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> property updates or gets the instance’s x-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_x/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_x/index.html" width="150" height="150"></iframe>
+</section>
+<section id="y-property-interface-example">
+<h2>y property interface example<a class="headerlink" href="#y-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">y</span></code> property updates or gets the instance’s y-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_y/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_y/index.html" width="150" height="150"></iframe>
+</section>
+<section id="x1-property-interface-example">
+<h2>x1 property interface example<a class="headerlink" href="#x1-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">x1</span></code> property updates or gets the instance’s first vertex x-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">x1</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_x1/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_x1/index.html" width="150" height="150"></iframe>
+</section>
+<section id="y1-property-interface-example">
+<h2>y1 property interface example<a class="headerlink" href="#y1-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">y1</span></code> property updates or gets the instance’s first vertex y-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">y1</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_y1/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_y1/index.html" width="150" height="150"></iframe>
+</section>
+<section id="x2-property-interface-example">
+<h2>x2 property interface example<a class="headerlink" href="#x2-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">x2</span></code> property updates or gets the instance’s second vertex x-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">x2</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_x2/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_x2/index.html" width="150" height="150"></iframe>
+</section>
+<section id="y2-property-interface-example">
+<h2>y2 property interface example<a class="headerlink" href="#y2-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">y2</span></code> property updates or gets the instance’s second vertex y-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">y2</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_y2/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_y2/index.html" width="150" height="150"></iframe>
+</section>
+<section id="x3-property-interface-example">
+<h2>x3 property interface example<a class="headerlink" href="#x3-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">x3</span></code> property updates or gets the instance’s third vertex x-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">x3</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_x3/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_x3/index.html" width="150" height="150"></iframe>
+</section>
+<section id="y3-property-interface-example">
+<h2>y3 property interface example<a class="headerlink" href="#y3-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">y3</span></code> property updates or gets the instance’s third vertex y-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">y3</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_y3/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_y3/index.html" width="150" height="150"></iframe>
+</section>
+<section id="fill-color-property-interface-example">
+<h2>fill_color property interface example<a class="headerlink" href="#fill-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> property updates or gets the instance’s fill color:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;#f0a&quot;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_fill_color/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_fill_color/index.html" width="150" height="150"></iframe>
+</section>
+<section id="fill-alpha-property-interface-example">
+<h2>fill_alpha property interface example<a class="headerlink" href="#fill-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code> property updates or gets the instance’s fill alpha (opacity):</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">fill_alpha</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_fill_alpha/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_fill_alpha/index.html" width="150" height="150"></iframe>
+</section>
+<section id="line-color-property-interface-example">
+<h2>line_color property interface example<a class="headerlink" href="#line-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_color</span></code> property updates or gets the instance’s line color:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;#fff&quot;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_line_color/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_line_color/index.html" width="150" height="150"></iframe>
+</section>
+<section id="line-alpha-property-interface-example">
+<h2>line_alpha property interface example<a class="headerlink" href="#line-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_alpha</span></code> property updates or gets the instance’s line alpha (opacity):</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">line_alpha</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_line_alpha/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_line_alpha/index.html" width="150" height="150"></iframe>
+</section>
+<section id="line-thickness-property-interface-example">
+<h2>line_thickness property interface example<a class="headerlink" href="#line-thickness-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_thickness</span></code> property updates or gets the instance’s line thickness (line width):</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">line_thickness</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_line_thickness/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_line_thickness/index.html" width="150" height="150"></iframe>
+</section>
+<section id="line-dot-setting-property-interface-example">
+<h2>line_dot_setting property interface example<a class="headerlink" href="#line-dot-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code> property updates or gets the instance’s line dot-style setting:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">line_dot_setting</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">LineDotSetting</span><span class="p">(</span><span class="n">dot_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_line_dot_setting/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_line_dot_setting/index.html" width="150" height="150"></iframe>
+</section>
+<section id="line-dash-setting-property-interface-example">
+<h2>line_dash_setting property interface example<a class="headerlink" href="#line-dash-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code> property updates or gets the instance’s line dash-style setting:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">line_dash_setting</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">LineDashSetting</span><span class="p">(</span><span class="n">dash_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_line_dash_setting/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_line_dash_setting/index.html" width="150" height="150"></iframe>
+</section>
+<section id="line-round-dot-setting-property-interface-example">
+<h2>line_round_dot_setting property interface example<a class="headerlink" href="#line-round-dot-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code> property updates or gets the instance’s line-round dot-style setting:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">line_round_dot_setting</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">LineRoundDotSetting</span><span class="p">(</span><span class="n">round_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_line_round_dot_setting/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_line_round_dot_setting/index.html" width="150" height="150"></iframe>
+</section>
+<section id="line-dash-dot-setting-property-interface-example">
+<h2>line_dash_dot_setting property interface example<a class="headerlink" href="#line-dash-dot-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_dash_dot_setting</span></code> property updates or gets the instance’s dash-dotted line style setting:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">line_dash_dot_setting</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">LineDashDotSetting</span><span class="p">(</span>
+    <span class="n">dot_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">dash_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_line_dash_dot_setting/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
+</section>
+<section id="rotation-around-center-property-interface-example">
+<h2>rotation_around_center property interface example<a class="headerlink" href="#rotation-around-center-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code> property updates or gets the instance’s rotation value (0 to 359) from the center point:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span>
+    <span class="n">x1</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">x3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_enter_frame</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">EnterFrameEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Triangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The enter-frame event handler.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.EnterFrameEvent[ap.Triangle]</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">triangle</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="n">stage</span><span class="o">.</span><span class="n">enter_frame</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_enter_frame</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;triangle_rotation_around_center/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/triangle_rotation_around_center/index.html" width="150" height="150"></iframe></section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Triangle class</a><ul>
+<li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#x-property-interface-example">x property interface example</a></li>
+<li><a class="reference internal" href="#y-property-interface-example">y property interface example</a></li>
+<li><a class="reference internal" href="#x1-property-interface-example">x1 property interface example</a></li>
+<li><a class="reference internal" href="#y1-property-interface-example">y1 property interface example</a></li>
+<li><a class="reference internal" href="#x2-property-interface-example">x2 property interface example</a></li>
+<li><a class="reference internal" href="#y2-property-interface-example">y2 property interface example</a></li>
+<li><a class="reference internal" href="#x3-property-interface-example">x3 property interface example</a></li>
+<li><a class="reference internal" href="#y3-property-interface-example">y3 property interface example</a></li>
+<li><a class="reference internal" href="#fill-color-property-interface-example">fill_color property interface example</a></li>
+<li><a class="reference internal" href="#fill-alpha-property-interface-example">fill_alpha property interface example</a></li>
+<li><a class="reference internal" href="#line-color-property-interface-example">line_color property interface example</a></li>
+<li><a class="reference internal" href="#line-alpha-property-interface-example">line_alpha property interface example</a></li>
+<li><a class="reference internal" href="#line-thickness-property-interface-example">line_thickness property interface example</a></li>
+<li><a class="reference internal" href="#line-dot-setting-property-interface-example">line_dot_setting property interface example</a></li>
+<li><a class="reference internal" href="#line-dash-setting-property-interface-example">line_dash_setting property interface example</a></li>
+<li><a class="reference internal" href="#line-round-dot-setting-property-interface-example">line_round_dot_setting property interface example</a></li>
+<li><a class="reference internal" href="#line-dash-dot-setting-property-interface-example">line_dash_dot_setting property interface example</a></li>
+<li><a class="reference internal" href="#rotation-around-center-property-interface-example">rotation_around_center property interface example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="graphics_base_skew.html"
+                        title="previous chapter">GraphicsBase skew_x and skew_y interfaces</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="rectangle.html"
+                        title="next chapter">Rectangle class</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="rectangle.html" title="Rectangle class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="graphics_base_skew.html" title="GraphicsBase skew_x and skew_y interfaces"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Triangle class</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

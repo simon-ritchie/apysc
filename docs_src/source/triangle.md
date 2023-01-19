@@ -692,3 +692,437 @@ ap.save_overall_html(dest_dir_path="triangle_scale_y_from_center/")
 
 ## set_scale_x_from_point and get_scale_x_from_point methods interfaces example
 
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+SCALE_COORDINATE_X: ap.Int = ap.Int(100)
+triangle: ap.Triangle = ap.Triangle(
+    x1=75,
+    y1=50,
+    x2=50,
+    y2=100,
+    x3=SCALE_COORDINATE_X,
+    y3=100,
+    fill_color="#0af",
+)
+direction: ap.Int = ap.Int(1)
+
+
+def on_enter_frame(e: ap.EnterFrameEvent[ap.Triangle], options: dict) -> None:
+    """
+    The enter-frame event handler.
+
+    Parameters
+    ----------
+    e : ap.EnterFrameEvent[ap.Triangle]
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = triangle.get_scale_x_from_point(x=SCALE_COORDINATE_X)
+    scale += direction * 0.005
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2.0):
+        direction.value = -1
+    triangle.set_scale_x_from_point(scale_x=scale, x=SCALE_COORDINATE_X)
+
+
+stage.enter_frame(handler=on_enter_frame)
+ap.save_overall_html(dest_dir_path="triangle_set_scale_x_from_point/")
+```
+
+<iframe src="static/triangle_set_scale_x_from_point/index.html" width="150" height="150"></iframe>
+
+## set_scale_y_from_point and get_scale_y_from_point methods interfaces example
+
+The `set_scale_y_from_point` method updates the instance's scale-y from a specified point.
+
+Similarly, the `get_scale_y_from_point` method gets the instance's scale-y from a specified point:
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+SCALE_COORDINATE_Y: ap.Int = ap.Int(100)
+triangle: ap.Triangle = ap.Triangle(
+    x1=75,
+    y1=50,
+    x2=50,
+    y2=100,
+    x3=100,
+    y3=SCALE_COORDINATE_Y,
+    fill_color="#0af",
+)
+direction: ap.Int = ap.Int(1)
+
+
+def on_enter_frame(e: ap.EnterFrameEvent[ap.Triangle], options: dict) -> None:
+    """
+    The enter-frame event handler.
+
+    Parameters
+    ----------
+    e : ap.EnterFrameEvent[ap.Triangle]
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    scale: ap.Number = triangle.get_scale_y_from_point(y=SCALE_COORDINATE_Y)
+    scale += direction * 0.005
+    with ap.If(scale <= 0.001):
+        direction.value = 1
+    with ap.If(scale >= 2.0):
+        direction.value = -1
+    triangle.set_scale_y_from_point(scale_y=scale, y=SCALE_COORDINATE_Y)
+
+
+stage.enter_frame(handler=on_enter_frame)
+ap.save_overall_html(dest_dir_path="triangle_set_scale_y_from_point/")
+```
+
+<iframe src="static/triangle_set_scale_y_from_point/index.html" width="150" height="150"></iframe>
+
+## flip_x property interface example
+
+The `flip_x` property updates or gets the instance's flip-x (reflecting state) boolean value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+triangle: ap.Triangle = ap.Triangle(
+    x1=50,
+    y1=50,
+    x2=50,
+    y2=100,
+    x3=100,
+    y3=100,
+    fill_color="#0af",
+)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    triangle.flip_x = triangle.flip_x.not_
+
+
+ap.Timer(handler=on_timer, delay=1000).start()
+ap.save_overall_html(dest_dir_path="triangle_flip_x/")
+```
+
+<iframe src="static/triangle_flip_x/index.html" width="150" height="150"></iframe>
+
+## flip_y property interface example
+
+The `flip_y` property updates or gets the instance's flip-y (reflecting state) boolean value:
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+triangle: ap.Triangle = ap.Triangle(
+    x1=75,
+    y1=50,
+    x2=50,
+    y2=100,
+    x3=100,
+    y3=100,
+    fill_color="#0af",
+)
+
+
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    """
+    The timer event handler.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    triangle.flip_y = triangle.flip_y.not_
+
+
+ap.Timer(handler=on_timer, delay=1000).start()
+ap.save_overall_html(dest_dir_path="triangle_flip_y/")
+```
+
+<iframe src="static/triangle_flip_y/index.html" width="150" height="150"></iframe>
+
+## skew_x property interface example
+
+The `skew_x` property updates or gets the instance's skew-x (distortion) value:
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+triangle: ap.Triangle = ap.Triangle(
+    x1=75,
+    y1=50,
+    x2=50,
+    y2=100,
+    x3=100,
+    y3=100,
+    fill_color="#0af",
+)
+
+
+def on_enter_frame(e: ap.EnterFrameEvent[ap.Triangle], options: dict) -> None:
+    """
+    The enter-frame event handler.
+
+    Parameters
+    ----------
+    e : ap.EnterFrameEvent[ap.Triangle]
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    triangle.skew_x += 1
+
+
+stage.enter_frame(handler=on_enter_frame)
+ap.save_overall_html(dest_dir_path="triangle_skew_x/")
+```
+
+<iframe src="static/triangle_skew_x/index.html" width="150" height="150"></iframe>
+
+## skew_y property interface example
+
+The `skew_y` property updates or gets the instance's skew-y (distortion) value:
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+triangle: ap.Triangle = ap.Triangle(
+    x1=75,
+    y1=50,
+    x2=50,
+    y2=100,
+    x3=100,
+    y3=100,
+    fill_color="#0af",
+)
+
+
+def on_enter_frame(e: ap.EnterFrameEvent[ap.Triangle], options: dict) -> None:
+    """
+    The enter-frame event handler.
+
+    Parameters
+    ----------
+    e : ap.EnterFrameEvent[ap.Triangle]
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    triangle.skew_y += 1
+
+
+stage.enter_frame(handler=on_enter_frame)
+ap.save_overall_html(dest_dir_path="triangle_skew_y/")
+```
+
+<iframe src="static/triangle_skew_y/index.html" width="150" height="150"></iframe>
+
+## Triangle class constructor API
+
+<!-- Docstring: apysc._display.triangle.Triangle.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, *, x1: Union[int, apysc._type.int.Int], y1: Union[int, apysc._type.int.Int], x2: Union[int, apysc._type.int.Int], y2: Union[int, apysc._type.int.Int], x3: Union[int, apysc._type.int.Int], y3: Union[int, apysc._type.int.Int], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+
+**[Interface summary]**
+
+_summary_<hr>
+
+**[Parameters]**
+
+- `x1`: Union[int, Int]
+  - First vertex's x coordinate.
+- `y1`: Union[int, Int]
+  - First vertex's y coordinate.
+- `x2`: Union[int, Int]
+  - Second vertex's x coordinate.
+- `y2`: Union[int, Int]
+  - Second vertex's y coordinate.
+- `x3`: Union[int, Int]
+  - Third vertex's x coordinate.
+- `y3`: Union[int, Int]
+  - Third vertex's y coordinate.
+- `fill_color`: str or String, default ''
+  - A fill-color to set.
+- `fill_alpha`: float or Number, default 1.0
+  - A fill-alpha to set.
+- `line_color`: str or String, default ''
+  - A line-color to set.
+- `line_alpha`: float or Number, default 1.0
+  - A line-alpha to set.
+- `line_thickness`: int or Int, default 1
+  - A line-thickness (line-width) to set.
+- `line_cap`: String or LineCaps or None, default None
+  - A line-cap setting to set.
+- `line_joints`: String or LineJoints or None, default None
+  - A line-joints setting to set.
+- `line_dot_setting`: LineDotSetting or None, default None
+  - A dot setting to set.
+- `line_dash_setting`: LineDashSetting or None, default None
+  - A dash setting to set.
+- `line_round_dot_setting`: LineRoundDotSetting or None, default None
+  - A round-dot setting to set.
+- `line_dash_dot_setting`: LineDashDotSetting or None, default None
+  - A dash dot (1-dot chain) setting to set.
+- `parent`: ChildMixIn or None, default None
+  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> _ = ap.Stage()
+>>> triangle: ap.Triangle = ap.Triangle(
+...     x1=75,
+...     y1=50,
+...     x2=50,
+...     y2=100,
+...     x3=100,
+...     y3=100,
+...     fill_color="#0af",
+...     line_color="#fff",
+...     line_thickness=3,
+... )
+>>> triangle.x2
+Int(50)
+
+>>> triangle.y1 = ap.Int(30)
+>>> triangle.y1
+Int(30)
+```
+
+## x1 property API
+
+<!-- Docstring: apysc._display.triangle.Triangle.x1 -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get a first x-coordinate.<hr>
+
+**[Returns]**
+
+- `x1`: Int
+  - A first x-coordinate.
+
+## y1 property API
+
+<!-- Docstring: apysc._display.triangle.Triangle.y1 -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get a first y-coordinate.<hr>
+
+**[Returns]**
+
+- `y1`: Int
+  - A first y-coordinate.
+
+## x2 property API
+
+<!-- Docstring: apysc._display.triangle.Triangle.x2 -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get a second x-coordinate.<hr>
+
+**[Returns]**
+
+- `x2`: Int
+  - A second x-coordinate.
+
+## y2 property API
+
+<!-- Docstring: apysc._display.triangle.Triangle.y2 -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get a second y-coordinate.<hr>
+
+**[Returns]**
+
+- `y2`: Int
+  - A second y-coordinate.
+
+## x3 property API
+
+<!-- Docstring: apysc._display.triangle.Triangle.x3 -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get a third x-coordinate.<hr>
+
+**[Returns]**
+
+- `x3`: Int
+  - A third x-coordinate.
+
+## y3 property API
+
+<!-- Docstring: apysc._display.triangle.Triangle.y3 -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get a third y-coordinate.<hr>
+
+**[Returns]**
+
+- `y3`: Int
+  - A third y-coordinate.

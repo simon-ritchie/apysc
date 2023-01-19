@@ -9,7 +9,7 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
     ##################################################
-    "# apysc fundamental data classes value interface": "# apysc の基本的なデータ型の value インターフェイス。",  # noqa
+    "# apysc fundamental data classes value interface": "# apysc の基本的なデータ型の value インターフェイス",  # noqa
     ##################################################
     "This page explains the apysc fundamental data classes (such as the `Int`\\, `Number`\\, `String`) `value` interface.": "このページではapyscの`Int`や`Number`、`String`などの基本的なデータクラスの`value`インターフェイスについて説明します。",  # noqa
     ##################################################

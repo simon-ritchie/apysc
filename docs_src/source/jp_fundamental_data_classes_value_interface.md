@@ -1,6 +1,6 @@
 <span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html)の確認をお願いします。</span>
 
-# apysc の基本的なデータ型の value インターフェイス。
+# apysc の基本的なデータ型の value インターフェイス
 
 このページではapyscの`Int`や`Number`、`String`などの基本的なデータクラスの`value`インターフェイスについて説明します。
 

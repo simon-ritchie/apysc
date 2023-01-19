@@ -56,6 +56,11 @@ class Triangle(
     """
     The triangle vector graphics class.
 
+    References
+    ----------
+    - Triangle class
+        - https://simon-ritchie.github.io/apysc/en/triangle.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -191,6 +196,11 @@ class Triangle(
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        References
+        ----------
+        - Triangle class
+            - https://simon-ritchie.github.io/apysc/en/triangle.html
 
         Examples
         --------

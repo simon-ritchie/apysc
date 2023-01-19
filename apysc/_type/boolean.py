@@ -6,6 +6,7 @@ from typing import Dict
 from typing import Union
 
 from typing_extensions import final
+from typing_extensions import Literal
 
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -53,7 +54,7 @@ class Boolean(
     Boolean(False)
     """
 
-    _initial_value: Union[bool, int, Int, "Boolean"]
+    _initial_value: Union[bool, Literal[0, 1], Int, "Boolean"]
     _value: bool
 
     @arg_validation_decos.is_acceptable_boolean_value(arg_position_index=1)
@@ -61,7 +62,7 @@ class Boolean(
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        value: Union[bool, int, Int, "Boolean"],
+        value: Union[bool, Literal[0, 1], Int, "Boolean"],
         *,
         variable_name_suffix: str = "",
         skip_init_substitution_expression_appending: bool = False,
@@ -125,7 +126,7 @@ class Boolean(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _get_bool_from_arg_value(
-        self, *, value: Union[bool, int, Int, "Boolean"]
+        self, *, value: Union[bool, Literal[0, 1], Int, "Boolean"]
     ) -> bool:
         """
         Get bool value from specified argument value.
@@ -187,7 +188,7 @@ class Boolean(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def value(self) -> Union[bool, int, Int, "Boolean"]:
+    def value(self) -> Union[bool, Literal[0, 1], Int, "Boolean"]:
         """
         Get a current boolean value.
 
@@ -218,7 +219,7 @@ class Boolean(
     @value.setter
     @arg_validation_decos.is_acceptable_boolean_value(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def value(self, value: Union[bool, int, Int, "Boolean"]) -> None:
+    def value(self, value: Union[bool, Literal[0, 1], Int, "Boolean"]) -> None:
         """
         Set boolean value.
 
@@ -243,7 +244,7 @@ class Boolean(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_value_setter_expression(
-        self, *, value: Union[bool, int, Int, "Boolean"]
+        self, *, value: Union[bool, Literal[0, 1], Int, "Boolean"]
     ) -> None:
         """
         Append value's setter expression.
@@ -267,7 +268,7 @@ class Boolean(
 
     @final
     def _set_value_and_skip_expression_appending(
-        self, *, value: Union[bool, int, Int, "Boolean"]
+        self, *, value: Union[bool, Literal[0, 1], Int, "Boolean"]
     ) -> None:
         """
         Update value attribute and skip expression appending.

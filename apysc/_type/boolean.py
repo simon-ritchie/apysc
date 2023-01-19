@@ -5,8 +5,8 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
-from typing_extensions import final
 from typing_extensions import Literal
+from typing_extensions import final
 
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting

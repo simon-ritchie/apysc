@@ -968,7 +968,7 @@ ap.save_overall_html(dest_dir_path="triangle_skew_y/")
 
 **[Interface summary]**
 
-_summary_<hr>
+Create a triangle vector graphics instance.<hr>
 
 **[Parameters]**
 
@@ -1039,7 +1039,7 @@ Int(30)
 
 ## x1 property API
 
-<!-- Docstring: apysc._display.triangle.Triangle.x1 -->
+<!-- Docstring: apysc._display.polygon_x1_mixin.PolygonX1MixIn.x1 -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -1054,7 +1054,7 @@ Get a first x-coordinate.<hr>
 
 ## y1 property API
 
-<!-- Docstring: apysc._display.triangle.Triangle.y1 -->
+<!-- Docstring: apysc._display.polygon_y1_mixin.PolygonY1MixIn.y1 -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -1069,7 +1069,7 @@ Get a first y-coordinate.<hr>
 
 ## x2 property API
 
-<!-- Docstring: apysc._display.triangle.Triangle.x2 -->
+<!-- Docstring: apysc._display.polygon_x2_mixin.PolygonX2MixIn.x2 -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -1084,7 +1084,7 @@ Get a second x-coordinate.<hr>
 
 ## y2 property API
 
-<!-- Docstring: apysc._display.triangle.Triangle.y2 -->
+<!-- Docstring: apysc._display.polygon_y2_mixin.PolygonY2MixIn.y2 -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -1099,7 +1099,7 @@ Get a second y-coordinate.<hr>
 
 ## x3 property API
 
-<!-- Docstring: apysc._display.triangle.Triangle.x3 -->
+<!-- Docstring: apysc._display.polygon_x3_mixin.PolygonX3MixIn.x3 -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
@@ -1114,7 +1114,7 @@ Get a third x-coordinate.<hr>
 
 ## y3 property API
 
-<!-- Docstring: apysc._display.triangle.Triangle.y3 -->
+<!-- Docstring: apysc._display.polygon_y3_mixin.PolygonY3MixIn.y3 -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

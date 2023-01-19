@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -57,7 +57,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Each graphic class": "## 各グラフィックのクラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nrectangle\ncircle\nellipse\nline\npolyline\npolygon\npath\n```": "```{toctree}\n:maxdepth: 1\njp_rectangle\njp_circle\njp_ellipse\njp_line\njp_polyline\njp_polygon\njp_path\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\ntriangle\nrectangle\ncircle\nellipse\nline\npolyline\npolygon\npath\n```": "```{toctree}\n:maxdepth: 1\njp_triangle\njp_rectangle\njp_circle\njp_ellipse\njp_line\njp_polyline\njp_polygon\njp_path\n```",  # noqa
     ##################################################
     "## Graphics class": "## Graphics クラス",
     ##################################################

@@ -125,6 +125,7 @@ jp_graphics_base_skew
 
 ```{toctree}
 :maxdepth: 1
+jp_triangle
 jp_rectangle
 jp_circle
 jp_ellipse

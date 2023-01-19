@@ -146,7 +146,7 @@ class Triangle(
         variable_name_suffix: str = "",
     ) -> None:
         """
-        _summary_
+        Create a triangle vector graphics instance.
 
         Parameters
         ----------

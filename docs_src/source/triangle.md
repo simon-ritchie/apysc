@@ -354,7 +354,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    line_color="#0af",
     line_thickness=3,
 )
 triangle.line_alpha = ap.Number(0.3)
@@ -382,7 +382,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    line_color="#0af",
     line_thickness=1,
 )
 triangle.line_thickness = ap.Int(5)
@@ -546,3 +546,149 @@ ap.save_overall_html(dest_dir_path="triangle_rotation_around_center/")
 ```
 
 <iframe src="static/triangle_rotation_around_center/index.html" width="150" height="150"></iframe>
+
+## set_rotation_around_point and get_rotation_around_point methods interfaces example
+
+The `set_rotation_around_point` method updates the instance's rotation value (0 to 359) from a specified point.
+
+Similarly, the `get_rotation_around_point` method gets the instance's rotation value (0 to 359) from a specified point:
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+ROTATION_X: ap.Int = ap.Int(100)
+ROTATION_Y: ap.Int = ap.Int(100)
+triangle: ap.Triangle = ap.Triangle(
+    x1=75,
+    y1=50,
+    x2=50,
+    y2=100,
+    x3=ROTATION_X,
+    y3=ROTATION_Y,
+    fill_color="#0af",
+)
+
+
+def on_enter_frame(e: ap.EnterFrameEvent[ap.Triangle], options: dict) -> None:
+    """
+    The enter-frame event handler.
+
+    Parameters
+    ----------
+    e : ap.EnterFrameEvent[ap.Triangle]
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rotation: ap.Int = triangle.get_rotation_around_point(x=ROTATION_X, y=ROTATION_Y)
+    triangle.set_rotation_around_point(
+        rotation=rotation + 1, x=ROTATION_X, y=ROTATION_Y
+    )
+
+
+stage.enter_frame(handler=on_enter_frame)
+ap.save_overall_html(dest_dir_path="triangle_set_rotation_around_point/")
+```
+
+<iframe src="static/triangle_set_rotation_around_point/index.html" width="150" height="150"></iframe>
+
+## scale_x_from_center property interface example
+
+The `scale_x_from_center` property updates or gets the instance's scale-x from the center point:
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+triangle: ap.Triangle = ap.Triangle(
+    x1=75,
+    y1=50,
+    x2=50,
+    y2=100,
+    x3=100,
+    y3=100,
+    fill_color="#0af",
+)
+direction: ap.Int = ap.Int(1)
+
+
+def on_enter_frame(e: ap.EnterFrameEvent[ap.Triangle], options: dict) -> None:
+    """
+    The enter-frame event handler.
+
+    Parameters
+    ----------
+    e : ap.EnterFrameEvent[ap.Triangle]
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    with ap.If(triangle.scale_x_from_center <= 0.001):
+        direction.value = 1
+    with ap.If(triangle.scale_x_from_center >= 2.0):
+        direction.value = -1
+    triangle.scale_x_from_center += direction * 0.005
+
+
+stage.enter_frame(handler=on_enter_frame)
+ap.save_overall_html(dest_dir_path="triangle_scale_x_from_center/")
+```
+
+<iframe src="static/triangle_scale_x_from_center/index.html" width="150" height="150"></iframe>
+
+## scale_y_from_center property interface example
+
+The `scale_y_from_center` property updates or gets the instance's scale-y from the center point:
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+)
+triangle: ap.Triangle = ap.Triangle(
+    x1=75,
+    y1=50,
+    x2=50,
+    y2=100,
+    x3=100,
+    y3=100,
+    fill_color="#0af",
+)
+direction: ap.Int = ap.Int(1)
+
+
+def on_enter_frame(e: ap.EnterFrameEvent[ap.Triangle], options: dict) -> None:
+    """
+    The enter-frame event handler.
+
+    Parameters
+    ----------
+    e : ap.EnterFrameEvent[ap.Triangle]
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    with ap.If(triangle.scale_y_from_center <= 0.001):
+        direction.value = 1
+    with ap.If(triangle.scale_y_from_center >= 2.0):
+        direction.value = -1
+    triangle.scale_y_from_center += direction * 0.005
+
+
+stage.enter_frame(handler=on_enter_frame)
+ap.save_overall_html(dest_dir_path="triangle_scale_y_from_center/")
+```
+
+<iframe src="static/triangle_scale_y_from_center/index.html" width="150" height="150"></iframe>
+
+## set_scale_x_from_point and get_scale_x_from_point methods interfaces example
+

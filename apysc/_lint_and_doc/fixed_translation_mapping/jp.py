@@ -3137,7 +3137,7 @@ MAPPINGS: Mappings = Mappings(
             val="## x1属性のインターフェイス例",
         ),
         Mapping(
-            key="The `x1` property updates or gets the instance\'s first vertex x-coordinate:",
+            key="The `x1` property updates or gets the instance's first vertex x-coordinate:",
             val="`x1`属性では1つ目の頂点のX座標の更新もしくは取得を行えます:",
         ),
         Mapping(
@@ -3145,7 +3145,7 @@ MAPPINGS: Mappings = Mappings(
             val="## y1属性のインターフェイス例",
         ),
         Mapping(
-            key="The `y1` property updates or gets the instance\'s first vertex y-coordinate:",
+            key="The `y1` property updates or gets the instance's first vertex y-coordinate:",
             val="`y1`属性では1つ目の頂点のY座標の更新もしくは取得を行えます:",
         ),
         Mapping(
@@ -3153,7 +3153,7 @@ MAPPINGS: Mappings = Mappings(
             val="## x2属性のインターフェイス例",
         ),
         Mapping(
-            key="The `x2` property updates or gets the instance\'s second vertex x-coordinate:",
+            key="The `x2` property updates or gets the instance's second vertex x-coordinate:",
             val="`x2`属性では2つ目の頂点のX座標の更新もしくは取得を行えます:",
         ),
         Mapping(
@@ -3161,7 +3161,7 @@ MAPPINGS: Mappings = Mappings(
             val="## y2属性のインターフェイス例",
         ),
         Mapping(
-            key="The `y2` property updates or gets the instance\'s second vertex y-coordinate:",
+            key="The `y2` property updates or gets the instance's second vertex y-coordinate:",
             val="`y2`属性では2つ目の頂点のY座標の更新もしくは取得を行えます:",
         ),
         Mapping(
@@ -3169,7 +3169,7 @@ MAPPINGS: Mappings = Mappings(
             val="## x3属性のインターフェイス例",
         ),
         Mapping(
-            key="The `x3` property updates or gets the instance\'s third vertex x-coordinate:",
+            key="The `x3` property updates or gets the instance's third vertex x-coordinate:",
             val="`x3`属性では3つ目のX座標の更新もしくは取得を行えます:",
         ),
         Mapping(
@@ -3177,7 +3177,7 @@ MAPPINGS: Mappings = Mappings(
             val="## y3属性のインターフェイス例",
         ),
         Mapping(
-            key="The `y3` property updates or gets the instance\'s third vertex y-coordinate:",
+            key="The `y3` property updates or gets the instance's third vertex y-coordinate:",
             val="`y3`属性では3つ目のY座標の更新もしくは取得を行えます:",
         ),
         Mapping(
@@ -3189,27 +3189,27 @@ MAPPINGS: Mappings = Mappings(
             val="三角形のベクターグラフィックスのインスタンスを生成します。<hr>",
         ),
         Mapping(
-            key="  - First vertex\'s x coordinate.",
+            key="  - First vertex's x coordinate.",
             val="  - 1つ目の頂点のX座標。",
         ),
         Mapping(
-            key="  - First vertex\'s y coordinate.",
+            key="  - First vertex's y coordinate.",
             val="  - 1つ目の頂点のY座標。",
         ),
         Mapping(
-            key="  - Second vertex\'s x coordinate.",
+            key="  - Second vertex's x coordinate.",
             val="  - 2つ目の頂点のX座標。",
         ),
         Mapping(
-            key="  - Second vertex\'s y coordinate.",
+            key="  - Second vertex's y coordinate.",
             val="  - 2つ目の頂点のY座標。",
         ),
         Mapping(
-            key="  - Third vertex\'s x coordinate.",
+            key="  - Third vertex's x coordinate.",
             val="  - 3つ目の頂点のX座標。",
         ),
         Mapping(
-            key="  - Third vertex\'s y coordinate.",
+            key="  - Third vertex's y coordinate.",
             val="  - 3つ目の頂点のY座標。",
         ),
         Mapping(

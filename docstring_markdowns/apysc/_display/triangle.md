@@ -32,9 +32,15 @@ Int(50)
 Int(30)
 ```
 
+<hr>
+
+**[References]**
+
+- [Triangle class](https://simon-ritchie.github.io/apysc/en/triangle.html)
+
 ### `__init__` method docstring
 
-_summary_<hr>
+Create a triangle vector graphics instance.<hr>
 
 **[Parameters]**
 
@@ -102,6 +108,12 @@ Int(50)
 >>> triangle.y1
 Int(30)
 ```
+
+<hr>
+
+**[References]**
+
+- [Triangle class](https://simon-ritchie.github.io/apysc/en/triangle.html)
 
 ### `__repr__` method docstring
 

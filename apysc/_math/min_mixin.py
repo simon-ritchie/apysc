@@ -40,7 +40,33 @@ class MinMixIn:
             min_value._value = min_int_value
         else:
             min_value = Number(0)
+            min_float_value: float = _get_min_float_value(values=values)
+            min_value._value = min_float_value
         pass
+
+
+def _get_min_float_value(*, values: Array[Union[Int, Number, int, float]]) -> float:
+    """
+    Get a minimum float value from a specified array.
+
+    Parameters
+    ----------
+    values : Array[Union[Int, Number, int, float]]
+        An array of numbers.
+
+    Returns
+    -------
+    min_value : float
+        A minimum float value.
+    """
+    values_: List[float] = []
+    for value in values._value:
+        if isinstance(value, (Int, Number)):
+            values_.append(float(value._value))
+            continue
+        values_.append(float(value))
+    min_value: float = min(values_)
+    return min_value
 
 
 def _get_min_int_value(*, values: Array[Union[Int, Number, int, float]]) -> int:

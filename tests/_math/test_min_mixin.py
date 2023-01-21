@@ -36,3 +36,11 @@ def test__get_min_int_value() -> None:
         values=ap.Array([10, 10.5, ap.Int(9), ap.Number(8.5)])
     )
     assert min_value == 8
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_min_float_value() -> None:
+    min_value: float = min_mixin._get_min_float_value(
+        values=ap.Array([10, 10.5, ap.Int(9), ap.Number(8.5)])
+    )
+    assert min_value == 8.5

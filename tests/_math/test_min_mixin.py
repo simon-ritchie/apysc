@@ -1,4 +1,5 @@
 from random import randint
+from typing import Union
 
 from retrying import retry
 
@@ -27,3 +28,11 @@ def test__all_values_are_int() -> None:
         values=ap.Array([10, ap.Number(20.5), 10.5, 30])
     )
     assert not result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_min_py_value() -> None:
+    min_value: Union[int, float] = min_mixin._get_min_py_value(
+        values=ap.Array([10, 10.5, ap.Int(9), ap.Number(9.5)]),
+    )
+    assert min_value == 9

@@ -34,7 +34,39 @@ class MinMixIn:
             Minimum number in an array.
         """
         all_values_are_int: bool = _all_values_are_int(values=values)
+        if all_values_are_int:
+            min_value: Union[Int, Number] = Int(0)
+        else:
+            min_value = Number(0)
+        min_py_value: Union[int, float] = _get_min_py_value(values=values)
         pass
+
+
+def _get_min_py_value(
+    *,
+    values: Array[Union[Int, Number, int, float]],
+) -> Union[int, float]:
+    """
+    Get a Python's minimum value from a specified array.
+
+    Parameters
+    ----------
+    values : Array[Union[Int, Number, int, float]]
+        An array of numbers.
+
+    Returns
+    -------
+    min_value : Union[int, float]
+        A Python's minimum value.
+    """
+    values_: List[Union[int, float]] = []
+    for value in values._value:
+        if isinstance(value, (Int, Number)):
+            values_.append(value._value)
+            continue
+        values_.append(value)
+    min_value: Union[int, float] = min(values_)
+    return min_value
 
 
 def _all_values_are_int(*, values: Array[Union[Int, Number, int, float]]) -> bool:

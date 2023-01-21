@@ -29,6 +29,6 @@ class TestMinMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f"{min_value.variable_name} = {values.variable_name}.reduce("
-            "function (a, b) {return Math.max(a, b)});"
+            "function (a, b) {return Math.min(a, b)});"
         )
         assert expected in expression

@@ -41,7 +41,7 @@ class MinMixIn:
         min_value._value = min_float_value
         expression: str = (
             f"{min_value.variable_name} = {values.variable_name}.reduce("
-            "function (a, b) {return Math.max(a, b)});"
+            "function (a, b) {return Math.min(a, b)});"
         )
         ap.append_js_expression(expression=expression)
         return min_value

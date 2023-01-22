@@ -60,7 +60,7 @@ def _get_max_float_value(*, values: Array[Union[Int, Number, int, float]]) -> fl
     Returns
     -------
     max_value : float
-        A maxiumu float value.
+        A maximum float value.
     """
     values_: List[float] = []
     for value in values._value:

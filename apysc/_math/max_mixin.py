@@ -1,4 +1,4 @@
-"""Class implementation for the min-related mix-in.
+"""Class implementation for the max-related mix-in.
 """
 
 from typing import List
@@ -13,17 +13,17 @@ from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
-class MinMixIn:
+class MaxMixIn:
     @classmethod
     @final
     @add_debug_info_setting(module_name=__name__)
     @arg_validation_decos.is_nums_array(arg_position_index=1)
-    def min(
+    def max(
         cls,
         values: Array,
     ) -> Number:
         """
-        Get a minimum number from a specified array's values.
+        Get a maximum number from a specified array's values.
 
         Parameters
         ----------
@@ -32,25 +32,19 @@ class MinMixIn:
 
         Returns
         -------
-        min_value : Number
-            Minimum number in an array.
+        max_value : Number
+            Maximum number in an array.
         """
         import apysc as ap
 
-        min_value: Number = Number(0)
-        min_float_value: float = _get_min_float_value(values=values)
-        min_value._value = min_float_value
-        expression: str = (
-            f"{min_value.variable_name} = {values.variable_name}.reduce("
-            "function (a, b) {return Math.min(a, b)});"
-        )
-        ap.append_js_expression(expression=expression)
-        return min_value
+        max_value: Number = Number(0)
+        max_float_value: float = _get_max_float_value(values=values)
+        pass
 
 
-def _get_min_float_value(*, values: Array[Union[Int, Number, int, float]]) -> float:
+def _get_max_float_value(*, values: Array[Union[Int, Number, int, float]]) -> float:
     """
-    Get a minimum float value from a specified array.
+    Get a maximum float value from a specified array.
 
     Parameters
     ----------
@@ -59,8 +53,8 @@ def _get_min_float_value(*, values: Array[Union[Int, Number, int, float]]) -> fl
 
     Returns
     -------
-    min_value : float
-        A minimum float value.
+    max_value : float
+        A maxiumu float value.
     """
     values_: List[float] = []
     for value in values._value:
@@ -68,5 +62,5 @@ def _get_min_float_value(*, values: Array[Union[Int, Number, int, float]]) -> fl
             values_.append(float(value._value))
             continue
         values_.append(float(value))
-    min_value: float = min(values_)
-    return min_value
+    max_value: float = max(values_)
+    return max_value

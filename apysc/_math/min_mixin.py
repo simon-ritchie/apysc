@@ -17,6 +17,7 @@ class MinMixIn:
     @classmethod
     @final
     @add_debug_info_setting(module_name=__name__)
+    @arg_validation_decos.is_nums_array(arg_position_index=1)
     def min(
         cls,
         values: Array,

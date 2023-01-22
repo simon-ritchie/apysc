@@ -1051,3 +1051,28 @@ def test_is_apysc_datetime() -> None:
 
     result: int = _test_func(datetime_=ap.DateTime(year=2022, month=12, day=1))
     assert result == 130
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_is_nums_array() -> None:
+    @arg_validation_decos.is_nums_array(arg_position_index=0)
+    def _test_func(*, arr: ap.Array) -> int:
+        return 140
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        match="A specified argument is not an `Array` instance: ",
+        arr=100,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func,
+        match="A specified array contains a non-number value: ",
+        arr=ap.Array([10, "test", 20.5, ap.Int(25)]),
+    )
+
+    result: int = _test_func(
+        arr=ap.Array([10, 20.5, ap.Int(25), ap.Number(10.5)]),
+    )
+    assert result == 140

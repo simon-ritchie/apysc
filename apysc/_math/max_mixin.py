@@ -39,7 +39,13 @@ class MaxMixIn:
 
         max_value: Number = Number(0)
         max_float_value: float = _get_max_float_value(values=values)
-        pass
+        max_value._value = max_float_value
+        expression: str = (
+            f"{max_value.variable_name} = {values.variable_name}.reduce("
+            "function (a, b) {return Math.max(a, b)});"
+        )
+        ap.append_js_expression(expression=expression)
+        return max_value
 
 
 def _get_max_float_value(*, values: Array[Union[Int, Number, int, float]]) -> float:

@@ -2493,7 +2493,6 @@ def is_nums_array(*, arg_position_index: int) -> _Callable:
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             import apysc as ap
 
-
             arr: Any = _extract_arg_value(
                 args=args,
                 kwargs=kwargs,

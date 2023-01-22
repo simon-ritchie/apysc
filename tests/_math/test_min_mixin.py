@@ -1,5 +1,4 @@
 from random import randint
-from typing import Union
 
 from retrying import retry
 

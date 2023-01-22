@@ -1,15 +1,15 @@
-"""Class implementtion for the min-related mix-in.
+"""Class implementation for the min-related mix-in.
 """
 
-from typing import List, Union, TypeVar
+from typing import List
+from typing import Union
 
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.array import Array
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 

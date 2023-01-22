@@ -22,6 +22,7 @@ from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.py_builtin_iter_disabling_mixin import PyBuiltInIterDisablingMixIn
 
 _ArrValue = TypeVar("_ArrValue")
 
@@ -32,6 +33,7 @@ class Array(
     CustomEventMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
+    PyBuiltInIterDisablingMixIn,
     Generic[_ArrValue],
 ):
     """

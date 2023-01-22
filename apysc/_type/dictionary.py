@@ -19,12 +19,12 @@ from apysc._type.expression_string import ExpressionString
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
 from apysc._type.number import Number
+from apysc._type.py_builtin_iter_disabling_mixin import PyBuiltInIterDisablingMixIn
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.py_builtin_iter_disabling_mixin import PyBuiltInIterDisablingMixIn
 
 DefaultType = TypeVar("DefaultType")
 

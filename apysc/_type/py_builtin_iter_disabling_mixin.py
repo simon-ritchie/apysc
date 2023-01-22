@@ -1,11 +1,11 @@
-"""Mix-in class implementation to disable the Python built-in's iteration.
+"""The mix-in class implementation to disable the Python built-in iteration.
 """
 
 
 class PyBuiltInIterDisablingMixIn:
     def __iter__(self) -> None:
         """
-        The method for the Python built-in's iteration.
+        The method for the Python built-in iteration.
 
         Raises
         ------

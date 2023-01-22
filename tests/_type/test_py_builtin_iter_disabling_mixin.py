@@ -13,5 +13,5 @@ class TestPyBuiltInIterDisablingMixIn:
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin.__iter__,
-            match="does not support Python's built-in iteration"
+            match="does not support Python's built-in iteration",
         )

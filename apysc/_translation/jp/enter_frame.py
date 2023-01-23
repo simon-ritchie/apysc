@@ -71,10 +71,6 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Optional arguments to pass to a handler function.": "  - ハンドラの関数へと渡される追加のパラメーターの引数値。",  # noqa
     ##################################################
-    "- `max_num_of_calls_at_one_time`: int, default 10": "- `max_num_of_calls_at_one_time`: int, default 10",  # noqa
-    ##################################################
-    "  - A maximum number of handler calls at one time. If this setting is too large, maybe a browser freezes when it returns from background.": "  - 一度に呼ばれるハンドラの最大数。もしこの設定が非常に大きな値になっている場合、ブラウザがバックグラウンドから復帰した際などにブラウザがフリーズしてしまうケースが発生する時があります。",  # noqa
-    ##################################################
     "<hr>": "<hr>",
     ##################################################
     "**[Notes]**": "**[特記事項]**",

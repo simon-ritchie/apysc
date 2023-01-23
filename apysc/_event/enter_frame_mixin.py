@@ -264,12 +264,24 @@ class EnterFrameMixIn(
                     value_identifier="count",
                 ),
             )
+            liimted_count: Int = Int(
+                0,
+                variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                    value_identifier="limited_count",
+                ),
+            )
             timedelta_: ap.TimeDelta = current_time - prev_time
             total_milliseconds: Number = timedelta_.total_seconds() * 1000
+            limited_total_milliseconds: Number = ap.Math.min(
+                ap.Array([total_milliseconds, 1000])
+            )
             count.value = ap.Math.trunc(total_milliseconds / millisecond_interval)
+            liimted_count.value = ap.Math.trunc(
+                limited_total_milliseconds / millisecond_interval
+            )
             ap.append_js_expression(
                 expression=(
-                    f"for (var i = 0; i < {count.variable_name}; i++) {{"
+                    f"for (var i = 0; i < {liimted_count.variable_name}; i++) {{"
                     f"\n  {handler_name}();"
                     "\n}"
                 )

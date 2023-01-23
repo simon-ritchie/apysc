@@ -55,6 +55,7 @@ class TestEnterFrameMixIn:
         )
         expression: str = expression_data_util.get_current_expression()
         assert "function test_loop_1() {" in expression
+        assert "Math.min(" in expression
 
         match = re.search(
             pattern=rf"\n  if \({is_stopped.variable_name}\) {{\n    return;\n  }}",

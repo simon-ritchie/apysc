@@ -76,7 +76,7 @@ ap.save_overall_html(dest_dir_path="enter_frame_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `enter_frame(self, handler: Callable[[apysc._event.enter_frame_event.EnterFrameEvent, ~_Options], NoneType], *, fps: apysc._time.fps.FPS = <FPS.FPS_60: <apysc._time.fps.FPSDefinition object at 0x7ff4031e3050>>, options: Union[~_Options, NoneType] = None, max_num_of_calls_at_one_time: int = 10) -> None`<hr>
+**[Interface signature]** `enter_frame(self, handler: Callable[[apysc._event.enter_frame_event.EnterFrameEvent, ~_Options], NoneType], *, fps: apysc._time.fps.FPS = <FPS.FPS_60: <apysc._time.fps.FPSDefinition object at 0x7ff91caa7e90>>, options: Union[~_Options, NoneType] = None, max_num_of_calls_at_one_time: int = 10) -> None`<hr>
 
 **[Interface summary]**
 

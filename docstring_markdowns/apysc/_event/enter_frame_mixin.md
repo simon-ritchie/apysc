@@ -38,8 +38,6 @@ Append an enter frame expression string.<hr>
   - A loop function name to set.
 - `prev_time`: DateTime
   - Previous time to calculate the duration.
-- `max_num_of_calls_at_one_time`: int, default 10
-  - A Maximum number of handler calls at one time.
 
 ### `_append_enter_frame_rebinding_expression` method docstring
 
@@ -84,8 +82,6 @@ Add an enter frame event listener setting.<hr>
   - Frame per second to set.
 - `options`: Optional[_Options], optional
   - Optional arguments to pass to a handler function.
-- `max_num_of_calls_at_one_time`: int, default 10
-  - A maximum number of handler calls at one time. If this setting is too large, maybe a browser freezes when it returns from background.
 
 <hr>
 

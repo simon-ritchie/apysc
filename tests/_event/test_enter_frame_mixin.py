@@ -52,6 +52,7 @@ class TestEnterFrameMixIn:
             is_stopped=is_stopped,
             loop_func_name="test_loop_1",
             prev_time=prev_time,
+            max_num_of_calls_at_one_time=10,
         )
         expression: str = expression_data_util.get_current_expression()
         assert "function test_loop_1() {" in expression
@@ -126,6 +127,7 @@ class TestEnterFrameMixIn:
             string=expression,
         )
         assert match is not None
+        assert "Math.min(" in expression
 
         expression = expression_data_util.get_current_event_handler_scope_expression()
         assert f"function {handler_name}" in expression

@@ -58,6 +58,7 @@ class EnterFrameMixIn(
         *,
         fps: FPS = FPS.FPS_60,
         options: Optional[_Options] = None,
+        max_num_of_calls_at_one_time: int = 10,
     ) -> None:
         """
         Add an enter frame event listener setting.
@@ -76,6 +77,10 @@ class EnterFrameMixIn(
             Frame per second to set.
         options : Optional[_Options], optional
             Optional arguments to pass to a handler function.
+        max_num_of_calls_at_one_time : int, default 10
+            Maximum number of handler calls at one time.
+            If this setting is too large, maybe a browser freezes
+            when it returns from background.
 
         References
         ----------
@@ -140,6 +145,7 @@ class EnterFrameMixIn(
             is_stopped=is_stopped,
             loop_func_name=LOOP_FUNC_NAME,
             prev_time=prev_time,
+            max_num_of_calls_at_one_time=max_num_of_calls_at_one_time,
         )
         append_handler_expression(
             handler_data=self._enter_frame_handlers[handler_name],
@@ -225,6 +231,7 @@ class EnterFrameMixIn(
         is_stopped: Boolean,
         loop_func_name: str,
         prev_time: DateTime,
+        max_num_of_calls_at_one_time: int,
     ) -> None:
         """
         Append an enter frame expression string.
@@ -241,6 +248,8 @@ class EnterFrameMixIn(
             A loop function name to set.
         prev_time : DateTime
             Previous time to calculate the duration.
+        max_num_of_calls_at_one_time : int, default 10
+            Maximum number of handler calls at one time.
         """
         import apysc as ap
         from apysc._expression.indent_num import Indent
@@ -267,6 +276,7 @@ class EnterFrameMixIn(
             timedelta_: ap.TimeDelta = current_time - prev_time
             total_milliseconds: Number = timedelta_.total_seconds() * 1000
             count.value = ap.Math.trunc(total_milliseconds / millisecond_interval)
+            count = ap.Int(ap.Math.min(ap.Array([count, max_num_of_calls_at_one_time])))
             ap.append_js_expression(
                 expression=(
                     f"for (var i = 0; i < {count.variable_name}; i++) {{"

@@ -3284,5 +3284,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - A third y-coordinate.",
             val="  - 3つ目のY座標。",
         ),
+        Mapping(
+            key="  - A maximum number of handler calls at one time. If this setting is too large, maybe a browser freezes when it returns from background.",
+            val="  - 一度に呼ばれるハンドラの最大数。もしこの設定が非常に大きな値になっている場合、ブラウザがバックグラウンドから復帰した際などにブラウザがフリーズしてしまうケースが発生する時があります。",
+        ),
     ]
 )

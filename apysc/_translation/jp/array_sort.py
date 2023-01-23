@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `sort` method interface sorts an array's values (default is ascending order).": "`sort`メソッドのインターフェイスは配列の値をソートします（デフォルトでは昇順となります）。",  # noqa
+    "The `sort` method interface sorts an array\'s values (default is ascending order).": "`sort`メソッドのインターフェイスは配列の値をソートします（デフォルトでは昇順となります）。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
@@ -33,7 +33,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## sort API": "## sort API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################

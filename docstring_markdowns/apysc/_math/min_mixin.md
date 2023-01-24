@@ -37,3 +37,15 @@ Get a minimum number from a specified array's values.<hr>
 
 - `min_value`: Number
   - Minimum number in an array.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array([10, 9.5, ap.Int(8), ap.Number(8.5)])
+>>> min_value: ap.Number = ap.Math.min(values=arr)
+>>> min_value
+Number(8.0)
+```

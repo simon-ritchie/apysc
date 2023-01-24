@@ -37,3 +37,15 @@ Get a maximum number from a specified array's values.<hr>
 
 - `max_value`: Number
   - Maximum number in an array.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array([10, 9.5, ap.Int(8), ap.Number(8.5)])
+>>> max_value: ap.Number = ap.Math.max(values=arr)
+>>> max_value
+Number(10.0)
+```

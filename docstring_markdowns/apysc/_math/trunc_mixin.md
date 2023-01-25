@@ -21,3 +21,9 @@ Truncate a fraction value from a specified value.<hr>
 
 - `result`: Int
   - Truncated and converted to `Int`'s value.
+
+<hr>
+
+**[References]**
+
+- [Math max interface](https://simon-ritchie.github.io/apysc/en/math_trunc.html)

@@ -3289,7 +3289,7 @@ MAPPINGS: Mappings = Mappings(
             val="## Math.min のAPI",
         ),
         Mapping(
-            key="Get a minimum number from a specified array\'s values.<hr>",
+            key="Get a minimum number from a specified array's values.<hr>",
             val="指定された配列の各値の中から最小値の数値を取得します。<hr>",
         ),
         Mapping(
@@ -3305,7 +3305,7 @@ MAPPINGS: Mappings = Mappings(
             val="## 数学",
         ),
         Mapping(
-            key="Notes: Regardless of the `Array` values\' type, this interface returns a `Number` type value.",
+            key="Notes: Regardless of the `Array` values' type, this interface returns a `Number` type value.",
             val="特記事項: `Array`内の各値の型に関わらず、このインターフェイスは`Number`型の値を返却します。",
         ),
         Mapping(
@@ -3313,7 +3313,7 @@ MAPPINGS: Mappings = Mappings(
             val="## Math.max のAPI",
         ),
         Mapping(
-            key="Get a maximum number from a specified array\'s values.<hr>",
+            key="Get a maximum number from a specified array's values.<hr>",
             val="指定された配列の値の中から最大値の数値を取得します。<hr>",
         ),
         Mapping(
@@ -3329,11 +3329,11 @@ MAPPINGS: Mappings = Mappings(
             val="指定された値から小数点以下の値を切り落とします。<hr>",
         ),
         Mapping(
-            key="  - A value to truncate a fraction value. If a specified value is the `Number`\'s, `String`\'s, or `Boolean`\'s type, the return value becomes an `Int`\'s value.",
+            key="  - A value to truncate a fraction value. If a specified value is the `Number`'s, `String`'s, or `Boolean`'s type, the return value becomes an `Int`'s value.",
             val="  - 小数点以下を切り捨てる対象の値。もし指定された値が`Number`、`String`、もしくは`Boolean`型の値の場合、変逆値は`Int`型の値となります。",
         ),
         Mapping(
-            key="  - Truncated and converted to `Int`\'s value.",
+            key="  - Truncated and converted to `Int`'s value.",
             val="  - 切り捨て処理と`Int`型への変換が反映された値。",
         ),
     ]

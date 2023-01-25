@@ -49,3 +49,9 @@ Get a maximum number from a specified array's values.<hr>
 >>> max_value
 Number(10.0)
 ```
+
+<hr>
+
+**[References]**
+
+- [Math max interface](https://simon-ritchie.github.io/apysc/en/math_max.html)

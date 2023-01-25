@@ -49,3 +49,9 @@ Get a minimum number from a specified array's values.<hr>
 >>> min_value
 Number(8.0)
 ```
+
+<hr>
+
+**[References]**
+
+- [Math min interface](https://simon-ritchie.github.io/apysc/en/math_min.html)

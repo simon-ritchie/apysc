@@ -32,6 +32,11 @@ class TruncMixIn:
         -------
         result : Int
             Truncated and converted to `Int`'s value.
+
+        References
+        ----------
+        - Math max interface
+            - https://simon-ritchie.github.io/apysc/en/math_trunc.html
         """
         import apysc as ap
 

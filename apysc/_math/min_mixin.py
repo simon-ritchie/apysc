@@ -35,6 +35,11 @@ class MinMixIn:
         min_value : Number
             Minimum number in an array.
 
+        References
+        ----------
+        - Math min interface
+            - https://simon-ritchie.github.io/apysc/en/math_min.html
+
         Examples
         --------
         >>> import apysc as ap

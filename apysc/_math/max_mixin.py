@@ -35,6 +35,11 @@ class MaxMixIn:
         max_value : Number
             Maximum number in an array.
 
+        References
+        ----------
+        - Math max interface
+            - https://simon-ritchie.github.io/apysc/en/math_max.html
+
         Examples
         --------
         >>> import apysc as ap

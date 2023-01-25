@@ -3320,5 +3320,21 @@ MAPPINGS: Mappings = Mappings(
             key="  - Maximum number in an array.",
             val="  - 配列の中の数値の最大値。",
         ),
+        Mapping(
+            key="## Math.trunc API",
+            val="## Math.trunc のAPI",
+        ),
+        Mapping(
+            key="Truncate a fraction value from a specified value.<hr>",
+            val="指定された値から小数点以下の値を切り落とします。<hr>",
+        ),
+        Mapping(
+            key="  - A value to truncate a fraction value. If a specified value is the `Number`\'s, `String`\'s, or `Boolean`\'s type, the return value becomes an `Int`\'s value.",
+            val="  - 小数点以下を切り捨てる対象の値。もし指定された値が`Number`、`String`、もしくは`Boolean`型の値の場合、変逆値は`Int`型の値となります。",
+        ),
+        Mapping(
+            key="  - Truncated and converted to `Int`\'s value.",
+            val="  - 切り捨て処理と`Int`型への変換が反映された値。",
+        ),
     ]
 )

@@ -310,6 +310,7 @@ jp_animation_scale_x_and_y_from_point
 :maxdepth: 1
 jp_math_min
 jp_math_max
+jp_math_trunc
 ```
 
 ## その他の操作関係の各インターフェイス

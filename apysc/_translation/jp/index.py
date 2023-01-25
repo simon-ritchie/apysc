@@ -103,7 +103,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Mathematics": "## 数学",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nmath_min\nmath_max\n```": "```{toctree}\n:maxdepth: 1\njp_math_min\njp_math_max\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nmath_min\nmath_max\nmath_trunc\n```": "```{toctree}\n:maxdepth: 1\njp_math_min\njp_math_max\njp_math_trunc\n```",  # noqa
     ##################################################
     "## Other manipulation interfaces": "## その他の操作関係の各インターフェイス",
     ##################################################

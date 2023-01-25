@@ -307,6 +307,7 @@ animation_scale_x_and_y_from_point
 :maxdepth: 1
 math_min
 math_max
+math_trunc
 ```
 
 ## Other manipulation interfaces

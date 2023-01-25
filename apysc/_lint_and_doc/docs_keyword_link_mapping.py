@@ -184,4 +184,7 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "unbind_enter_frame": "unbind_enter_frame_and_unbind_enter_frame_all",
     "unbind_enter_frame_all": "unbind_enter_frame_and_unbind_enter_frame_all",
     "Triangle": "triangle",
+    "Math.min": "math_min",
+    "Math.max": "math_max",
+    "Math.trunc": "math_trunc",
 }

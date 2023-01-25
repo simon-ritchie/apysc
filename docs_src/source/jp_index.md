@@ -309,6 +309,7 @@ jp_animation_scale_x_and_y_from_point
 ```{toctree}
 :maxdepth: 1
 jp_math_min
+jp_math_max
 ```
 
 ## その他の操作関係の各インターフェイス

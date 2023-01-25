@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Math クラスの min インターフェイス &#8212; apysc  documentation</title>
+    <title>Math クラスの max インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -21,8 +21,8 @@
     <script src="static/keyword_link_mapping.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Math クラスの max インターフェイス" href="jp_math_max.html" />
-    <link rel="prev" title="animation_scale_x_from_point と animation_scale_y_from_point のインターフェイス" href="jp_animation_scale_x_and_y_from_point.html" /> 
+    <link rel="next" title="delete インターフェイス" href="jp_delete.html" />
+    <link rel="prev" title="Math クラスの min インターフェイス" href="jp_math_min.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,13 +31,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="jp_math_max.html" title="Math クラスの max インターフェイス"
+          <a href="jp_delete.html" title="delete インターフェイス"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="jp_animation_scale_x_and_y_from_point.html" title="animation_scale_x_from_point と animation_scale_y_from_point のインターフェイス"
+          <a href="jp_math_min.html" title="Math クラスの min インターフェイス"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Math クラスの min インターフェイス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Math クラスの max インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -46,34 +46,34 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/math_min.html">英語の原文</a>の確認をお願いします。</span></p>
-<section id="math-min">
-<h1>Math クラスの min インターフェイス<a class="headerlink" href="#math-min" title="Permalink to this headline">¶</a></h1>
-<p>このページでは<code class="docutils literal notranslate"><span class="pre">Math</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">min</span></code>のクラスメソッドのインターフェイスについて説明します。</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/math_max.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="math-max">
+<h1>Math クラスの max インターフェイス<a class="headerlink" href="#math-max" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Math</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">max</span></code>クラスメソッドのインターフェイスについて説明します。</p>
 <section id="id1">
 <h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">min</span></code>のクラスメソッドのインターフェイスでは指定された数値の配列の中の最小値を返却します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">max</span></code>クラスメソッドのインターフェイスは指定された数値を格納した配列の中での最大値を返却します。</p>
 </section>
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">min</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Array</span></code>クラスの値の引数（<code class="docutils literal notranslate"><span class="pre">values</span></code>）を必要とします。</p>
+<p><code class="docutils literal notranslate"><span class="pre">max</span></code>インターフェイスでは<code class="docutils literal notranslate"><span class="pre">Array</span></code>型の値の引数（<code class="docutils literal notranslate"><span class="pre">values</span></code>）が必要になります。</p>
 <p>このインターフェイスは<code class="docutils literal notranslate"><span class="pre">Number</span></code>型の値を返却します。</p>
 <p>特記事項: <code class="docutils literal notranslate"><span class="pre">Array</span></code>内の各値の型に関わらず、このインターフェイスは<code class="docutils literal notranslate"><span class="pre">Number</span></code>型の値を返却します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">9.5</span><span class="p">),</span> <span class="mi">11</span><span class="p">])</span>
-<span class="n">min_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Math</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">min_value</span> <span class="o">==</span> <span class="mi">8</span>
+<span class="n">max_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Math</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">max_value</span> <span class="o">==</span> <span class="mi">11</span>
 </pre></div>
 </div>
 </section>
-<section id="math-min-api">
-<h2>Math.min のAPI<a class="headerlink" href="#math-min-api" title="Permalink to this headline">¶</a></h2>
+<section id="math-max-api">
+<h2>Math.max のAPI<a class="headerlink" href="#math-max-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">min(values:</span> <span class="pre">apysc._type.array.Array)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.number.Number</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">max(values:</span> <span class="pre">apysc._type.array.Array)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.number.Number</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
-<p>指定された配列の各値の中から最小値の数値を取得します。<hr></p>
+<p>指定された配列の値の中から最大値の数値を取得します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">values</span></code>: Array[Union[Int, Number, int, float]]</p>
@@ -85,9 +85,9 @@
 <hr>
 <p><strong>[返却値]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">min_value</span></code>: Number</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_value</span></code>: Number</p>
 <ul>
-<li><p>配列の中で最小の数値。</p></li>
+<li><p>配列の中の数値の最大値。</p></li>
 </ul>
 </li>
 </ul>
@@ -95,9 +95,9 @@
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">8.5</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">min_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Math</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">min_value</span>
-<span class="go">Number(8.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">max_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Math</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">max_value</span>
+<span class="go">Number(10.0)</span>
 </pre></div>
 </div>
 </section>
@@ -115,20 +115,20 @@
             </a></p>
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Math クラスの min インターフェイス</a><ul>
+<li><a class="reference internal" href="#">Math クラスの max インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
-<li><a class="reference internal" href="#math-min-api">Math.min のAPI</a></li>
+<li><a class="reference internal" href="#math-max-api">Math.max のAPI</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_animation_scale_x_and_y_from_point.html"
-                        title="previous chapter">animation_scale_x_from_point と animation_scale_y_from_point のインターフェイス</a></p>
+  <p class="topless"><a href="jp_math_min.html"
+                        title="previous chapter">Math クラスの min インターフェイス</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="jp_math_max.html"
-                        title="next chapter">Math クラスの max インターフェイス</a></p>
+  <p class="topless"><a href="jp_delete.html"
+                        title="next chapter">delete インターフェイス</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -150,13 +150,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="jp_math_max.html" title="Math クラスの max インターフェイス"
+          <a href="jp_delete.html" title="delete インターフェイス"
              >next</a> |</li>
         <li class="right" >
-          <a href="jp_animation_scale_x_and_y_from_point.html" title="animation_scale_x_from_point と animation_scale_y_from_point のインターフェイス"
+          <a href="jp_math_min.html" title="Math クラスの min インターフェイス"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Math クラスの min インターフェイス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Math クラスの max インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

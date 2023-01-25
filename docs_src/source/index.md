@@ -306,6 +306,7 @@ animation_scale_x_and_y_from_point
 ```{toctree}
 :maxdepth: 1
 math_min
+math_max
 ```
 
 ## Other manipulation interfaces

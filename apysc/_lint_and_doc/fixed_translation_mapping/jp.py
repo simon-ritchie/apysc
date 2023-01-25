@@ -3304,5 +3304,21 @@ MAPPINGS: Mappings = Mappings(
             key="## Mathematics",
             val="## 数学",
         ),
+        Mapping(
+            key="Notes: Regardless of the `Array` values\' type, this interface returns a `Number` type value.",
+            val="特記事項: `Array`内の各値の型に関わらず、このインターフェイスは`Number`型の値を返却します。",
+        ),
+        Mapping(
+            key="## Math.max API",
+            val="## Math.max のAPI",
+        ),
+        Mapping(
+            key="Get a maximum number from a specified array\'s values.<hr>",
+            val="指定された配列の値の中から最大値の数値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - Maximum number in an array.",
+            val="  - 配列の中の数値の最大値。",
+        ),
     ]
 )

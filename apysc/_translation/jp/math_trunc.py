@@ -48,4 +48,10 @@ MAPPING: Dict[str, str] = {
     "- `result`: Int": "- `result`: Int",
     ##################################################
     "  - Truncated and converted to `Int`\'s value.": "  - 切り捨て処理と`Int`型への変換が反映された値。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> result_int: ap.Int = ap.Math.trunc(value=ap.Int(10))\n>>> result_int\nInt(10)\n\n>>> result_int = ap.Math.trunc(value=ap.Number(8.5))\n>>> result_int\nInt(8)\n\n>>> result_int = ap.Math.trunc(value=ap.String(\"7.6\"))\n>>> result_int\nInt(7)\n\n>>> result_int = ap.Math.trunc(value=ap.Boolean(True))\n>>> result_int\nInt(1)\n\n>>> result_int = ap.Math.trunc(value=ap.Boolean(False))\n>>> result_int\nInt(0)\n```": "```py\n>>> import apysc as ap\n>>> result_int: ap.Int = ap.Math.trunc(value=ap.Int(10))\n>>> result_int\nInt(10)\n\n>>> result_int = ap.Math.trunc(value=ap.Number(8.5))\n>>> result_int\nInt(8)\n\n>>> result_int = ap.Math.trunc(value=ap.String(\"7.6\"))\n>>> result_int\nInt(7)\n\n>>> result_int = ap.Math.trunc(value=ap.Boolean(True))\n>>> result_int\nInt(1)\n\n>>> result_int = ap.Math.trunc(value=ap.Boolean(False))\n>>> result_int\nInt(0)\n```",  # noqa
 }

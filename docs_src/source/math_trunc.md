@@ -55,3 +55,30 @@ Truncate a fraction value from a specified value.<hr>
 
 - `result`: Int
   - Truncated and converted to `Int`'s value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> result_int: ap.Int = ap.Math.trunc(value=ap.Int(10))
+>>> result_int
+Int(10)
+
+>>> result_int = ap.Math.trunc(value=ap.Number(8.5))
+>>> result_int
+Int(8)
+
+>>> result_int = ap.Math.trunc(value=ap.String("7.6"))
+>>> result_int
+Int(7)
+
+>>> result_int = ap.Math.trunc(value=ap.Boolean(True))
+>>> result_int
+Int(1)
+
+>>> result_int = ap.Math.trunc(value=ap.Boolean(False))
+>>> result_int
+Int(0)
+```

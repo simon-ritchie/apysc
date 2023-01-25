@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -100,6 +100,10 @@ MAPPING: Dict[str, str] = {
     "## Animation": "## アニメーション",
     ##################################################
     "```{toctree}\n:maxdepth: 1\nanimation_interfaces_abstract\nanimation_event\nanimation_duration\nanimation_delay\nanimation_return_value\nanimation_base_start\nanimation_complete\nanimation_method_chaining\nanimation_base_target\nanimation_pause_and_play\nanimation_reset\nanimation_finish\nanimation_reverse\nanimation_time\neasing_enum\nsequential_animation\nanimation_parallel\nanimation_move\nanimation_x\nanimation_y\nanimation_width_and_height\nanimation_fill_color\nanimation_fill_alpha\nanimation_line_color\nanimation_line_alpha\nanimation_line_thickness\nanimation_radius\nanimation_rotation_around_center\nanimation_rotation_around_point\nanimation_scale_x_and_y_from_center\nanimation_scale_x_and_y_from_point\n```": "```{toctree}\n:maxdepth: 1\njp_animation_interfaces_abstract\njp_animation_event\njp_animation_duration\njp_animation_delay\njp_animation_return_value\njp_animation_base_start\njp_animation_complete\njp_animation_method_chaining\njp_animation_base_target\njp_animation_pause_and_play\njp_animation_reset\njp_animation_finish\njp_animation_reverse\njp_animation_time\njp_easing_enum\njp_sequential_animation\njp_animation_parallel\njp_animation_move\njp_animation_x\njp_animation_y\njp_animation_width_and_height\njp_animation_fill_color\njp_animation_fill_alpha\njp_animation_line_color\njp_animation_line_alpha\njp_animation_line_thickness\njp_animation_radius\njp_animation_rotation_around_center\njp_animation_rotation_around_point\njp_animation_scale_x_and_y_from_center\njp_animation_scale_x_and_y_from_point\n```",  # noqa
+    ##################################################
+    "## Mathematics": "## 数学",
+    ##################################################
+    "```{toctree}\n:maxdepth: 1\nmath_min\n```": "```{toctree}\n:maxdepth: 1\njp_math_min\n```",  # noqa
     ##################################################
     "## Other manipulation interfaces": "## その他の操作関係の各インターフェイス",
     ##################################################

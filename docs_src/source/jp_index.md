@@ -304,6 +304,13 @@ jp_animation_scale_x_and_y_from_center
 jp_animation_scale_x_and_y_from_point
 ```
 
+## 数学
+
+```{toctree}
+:maxdepth: 1
+jp_math_min
+```
+
 ## その他の操作関係の各インターフェイス
 
 ```{toctree}

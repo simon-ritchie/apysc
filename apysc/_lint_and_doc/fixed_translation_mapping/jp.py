@@ -3284,5 +3284,25 @@ MAPPINGS: Mappings = Mappings(
             key="  - A third y-coordinate.",
             val="  - 3つ目のY座標。",
         ),
+        Mapping(
+            key="## Math.min API",
+            val="## Math.min のAPI",
+        ),
+        Mapping(
+            key="Get a minimum number from a specified array\'s values.<hr>",
+            val="指定された配列の各値の中から最小値の数値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - An array of numbers.",
+            val="  - 数値を格納した配列。",
+        ),
+        Mapping(
+            key="  - Minimum number in an array.",
+            val="  - 配列の中で最小の数値。",
+        ),
+        Mapping(
+            key="## Mathematics",
+            val="## 数学",
+        ),
     ]
 )

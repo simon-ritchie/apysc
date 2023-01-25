@@ -301,6 +301,13 @@ animation_scale_x_and_y_from_center
 animation_scale_x_and_y_from_point
 ```
 
+## Mathematics
+
+```{toctree}
+:maxdepth: 1
+math_min
+```
+
 ## Other manipulation interfaces
 
 ```{toctree}

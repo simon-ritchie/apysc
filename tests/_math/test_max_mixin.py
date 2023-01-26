@@ -16,6 +16,21 @@ def test__get_max_float_value() -> None:
     assert max_value == 11.0
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_max_value_variable_name_suffix_from_arr() -> None:
+    suffix: str = max_mixin._get_max_value_variable_name_suffix_from_arr(
+        arr=ap.Array(
+            [
+                10,
+                9.5,
+                ap.Int(11, variable_name_suffix="test_int"),
+                ap.Number(10.5, variable_name_suffix="test_number"),
+            ]
+        ),
+    )
+    assert suffix == "test_int"
+
+
 class TestMaxMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_max(self) -> None:

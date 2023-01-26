@@ -1,7 +1,7 @@
 """Class implementation for the max-related mix-in.
 """
 
-from typing import List
+from typing import Any, List
 from typing import Union
 
 from typing_extensions import final
@@ -50,7 +50,12 @@ class MaxMixIn:
         """
         import apysc as ap
 
-        max_value: Number = Number(0)
+        max_value_variable_name_suffix: str = (
+            _get_max_value_variable_name_suffix_from_arr(arr=values)
+        )
+        max_value: Number = Number(
+            0, variable_name_suffix=max_value_variable_name_suffix
+        )
         max_float_value: float = _get_max_float_value(values=values)
         max_value._value = max_float_value
         expression: str = (
@@ -59,6 +64,31 @@ class MaxMixIn:
         )
         ap.append_js_expression(expression=expression)
         return max_value
+
+
+def _get_max_value_variable_name_suffix_from_arr(*, arr: Array) -> str:
+    """
+    Get a maximum value's variable name suffix from a specified array.
+
+    Parameters
+    ----------
+    arr : Array
+        An array of numbers.
+
+    Returns
+    -------
+    suffix : str
+        An extracted variable name suffix.
+    """
+    from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+
+    values: List[float] = [float(value) for value in arr._value]
+    max_value: float = max(values)
+    max_value_index: int = values.index(max_value)
+    max_value_: Any = arr._value[max_value_index]
+    if isinstance(max_value_, VariableNameSuffixMixIn):
+        return max_value_._variable_name_suffix
+    return ""
 
 
 def _get_max_float_value(*, values: Array[Union[Int, Number, int, float]]) -> float:

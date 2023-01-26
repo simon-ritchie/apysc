@@ -53,7 +53,10 @@ class MinMixIn:
         min_value_variable_name_suffix: str = (
             _get_min_value_variable_name_suffix_from_arr(arr=values)
         )
-        min_value: Number = Number(0)
+        min_value: Number = Number(
+            0,
+            variable_name_suffix=min_value_variable_name_suffix,
+        )
         min_float_value: float = _get_min_float_value(values=values)
         min_value._value = min_float_value
         expression: str = (

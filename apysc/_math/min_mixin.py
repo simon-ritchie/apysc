@@ -1,7 +1,7 @@
 """Class implementation for the min-related mix-in.
 """
 
-from typing import List
+from typing import Any, List
 from typing import Union
 
 from typing_extensions import final
@@ -50,6 +50,9 @@ class MinMixIn:
         """
         import apysc as ap
 
+        min_value_variable_name_suffix: str = (
+            _get_min_value_variable_name_suffix_from_arr(arr=values)
+        )
         min_value: Number = Number(0)
         min_float_value: float = _get_min_float_value(values=values)
         min_value._value = min_float_value
@@ -59,6 +62,31 @@ class MinMixIn:
         )
         ap.append_js_expression(expression=expression)
         return min_value
+
+
+def _get_min_value_variable_name_suffix_from_arr(*, arr: Array) -> str:
+    """
+    Get a minimum value's variable name suffix from a specified array.
+
+    Parameters
+    ----------
+    arr : Array
+        An array of numbers.
+
+    Returns
+    -------
+    suffix : str
+        An extracted variable name suffix.
+    """
+    from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+
+    values: List[float] = [float(value) for value in arr._value]
+    min_value: float = min(values)
+    min_value_index: int = values.index(min_value)
+    min_value_: Any = arr._value[min_value_index]
+    if isinstance(min_value_, VariableNameSuffixMixIn):
+        return min_value_._variable_name_suffix
+    return ""
 
 
 def _get_min_float_value(*, values: Array[Union[Int, Number, int, float]]) -> float:

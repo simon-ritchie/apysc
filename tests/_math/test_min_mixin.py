@@ -16,6 +16,33 @@ def test__get_min_float_value() -> None:
     assert min_value == 8.5
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_min_value_variable_name_suffix_from_arr() -> None:
+    suffix: str = min_mixin._get_min_value_variable_name_suffix_from_arr(
+        arr=ap.Array(
+            [
+                10,
+                ap.Int(9, variable_name_suffix="test_int_1"),
+                10.5,
+                ap.Number(9.5, variable_name_suffix="test_number_1"),
+            ]
+        )
+    )
+    assert suffix == "test_int_1"
+
+    suffix = min_mixin._get_min_value_variable_name_suffix_from_arr(
+        arr=ap.Array(
+            [
+                8.5,
+                ap.Int(9, variable_name_suffix="test_int_1"),
+                10,
+                ap.Number(9.5, variable_name_suffix="test_number_1"),
+            ]
+        )
+    )
+    assert suffix == ""
+
+
 class TestMinMixIn:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_min(self) -> None:

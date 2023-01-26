@@ -20,6 +20,22 @@ Get a minimum float value from a specified array.<hr>
 - `min_value`: float
   - A minimum float value.
 
+## `_get_min_value_variable_name_suffix_from_arr` function docstring
+
+Get a minimum value's variable name suffix from a specified array.<hr>
+
+**[Parameters]**
+
+- `arr`: Array
+  - An array of numbers.
+
+<hr>
+
+**[Returns]**
+
+- `suffix`: str
+  - An extracted variable name suffix.
+
 ## `MinMixIn` class docstring
 
 ### `min` method docstring

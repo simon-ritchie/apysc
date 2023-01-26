@@ -1,7 +1,8 @@
 """Class implementation for the max-related mix-in.
 """
 
-from typing import Any, List
+from typing import Any
+from typing import List
 from typing import Union
 
 from typing_extensions import final

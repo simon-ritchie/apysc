@@ -20,6 +20,22 @@ Get a maximum float value from a specified array.<hr>
 - `max_value`: float
   - A maximum float value.
 
+## `_get_max_value_variable_name_suffix_from_arr` function docstring
+
+Get a maximum value's variable name suffix from a specified array.<hr>
+
+**[Parameters]**
+
+- `arr`: Array
+  - An array of numbers.
+
+<hr>
+
+**[Returns]**
+
+- `suffix`: str
+  - An extracted variable name suffix.
+
 ## `MaxMixIn` class docstring
 
 ### `max` method docstring

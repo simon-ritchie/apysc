@@ -13,6 +13,7 @@ jobs:
       PYTHON_38_VERSION: 3.8.12
       PYTHON_39_VERSION: 3.9.12
       PYTHON_310_VERSION: 3.10.4
+      PYTHON_311_VERSION: 3.11.1
       CHECKING_BADGE_COLOR: FFAA00
       PASSING_BADGE_COLOR: 0088FF
       RUNNING_OR_FAILING_STATUS: running or failed
@@ -34,6 +35,7 @@ jobs:
           '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}',
         ]
     timeout-minutes: 20
     steps:
@@ -209,6 +211,7 @@ jobs:
           '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}',
         ]
     timeout-minutes: 20
     steps:
@@ -461,7 +464,7 @@ jobs:
         with:
           NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
           LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -475,6 +478,7 @@ jobs:
           '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}',
         ]
     timeout-minutes: 20
     steps:

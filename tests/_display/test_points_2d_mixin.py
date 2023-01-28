@@ -12,10 +12,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.points_2d_mixin import Points2DMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPoints2DMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_points_if_not_initialized(self) -> None:
         mixin: Points2DMixIn = Points2DMixIn()
         mixin._initialize_points_if_not_initialized()
@@ -24,7 +25,7 @@ class TestPoints2DMixIn:
         mixin._initialize_points_if_not_initialized()
         assert mixin._points == []
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_points(self) -> None:
         mixin: Points2DMixIn = Points2DMixIn()
         mixin.variable_name = "test_point_2d_mixin"
@@ -36,7 +37,7 @@ class TestPoints2DMixIn:
         with pytest.raises(ValueError):  # type: ignore
             mixin.points = ap.Array([10, 20])  # type: ignore
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_points_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: Points2DMixIn = Points2DMixIn()
@@ -49,7 +50,7 @@ class TestPoints2DMixIn:
         expected: str = f"{pre_var_name} = {arr_1.variable_name};"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: Points2DMixIn = Points2DMixIn()
         point_1: ap.Point2D = ap.Point2D(10, 20)
@@ -62,7 +63,7 @@ class TestPoints2DMixIn:
 
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: Points2DMixIn = Points2DMixIn()
         mixin.variable_name = "test_point_2d_mixin"
@@ -76,7 +77,7 @@ class TestPoints2DMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         mixin.points == [point_1]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_2dim_points_expression(self) -> None:
         mixin: Points2DMixIn = Points2DMixIn()
         mixin.variable_name = "test_point_2d_mixin"

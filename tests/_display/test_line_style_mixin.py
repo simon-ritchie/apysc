@@ -6,10 +6,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.line_style_mixin import LineStyleMixIn
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineStyleMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_style(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin.line_style(color="#333", thickness=3, alpha=0.5)
@@ -66,7 +67,7 @@ class TestLineStyleMixIn:
         line_style_mixin.line_style(color="")
         assert line_style_mixin.line_color == ""
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_color(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin.line_style(color="#333", thickness=3, alpha=0.5)
@@ -75,7 +76,7 @@ class TestLineStyleMixIn:
         line_color_1: ap.String = line_style_mixin.line_color
         assert line_color_1.variable_name != line_style_mixin.line_color.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_thickness(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin.line_style(color="#333", thickness=3, alpha=0.5)
@@ -87,7 +88,7 @@ class TestLineStyleMixIn:
             != line_style_mixin.line_thickness.variable_name
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_alpha(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin.line_style(color="#333", thickness=3, alpha=0.5)
@@ -96,7 +97,7 @@ class TestLineStyleMixIn:
         line_alpha: ap.Number = line_style_mixin.line_alpha
         assert line_alpha.variable_name != line_style_mixin.line_alpha.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_color_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_color_if_not_initialized()
@@ -106,7 +107,7 @@ class TestLineStyleMixIn:
         line_style_mixin._initialize_line_color_if_not_initialized()
         assert line_style_mixin.line_color == "#333333"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_thickness_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_thickness_if_not_initialized()
@@ -116,7 +117,7 @@ class TestLineStyleMixIn:
         line_style_mixin._initialize_line_thickness_if_not_initialized()
         assert line_style_mixin.line_thickness == 2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_alpha_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_alpha_if_not_initialized()
@@ -126,7 +127,7 @@ class TestLineStyleMixIn:
         line_style_mixin._initialize_line_alpha_if_not_initialized()
         assert line_style_mixin.line_alpha == 0.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_dot_setting: ap.LineDotSetting = ap.LineDotSetting(dot_size=10)
@@ -184,7 +185,7 @@ class TestLineStyleMixIn:
         line_style_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert line_style_mixin._line_color_snapshots[snapshot_name] == "#333333"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_dot_setting: ap.LineDotSetting = ap.LineDotSetting(dot_size=10)
@@ -236,7 +237,7 @@ class TestLineStyleMixIn:
         line_style_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert line_style_mixin.line_color == "#222222"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_line_cap(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin.line_style(color="#333")
@@ -253,7 +254,7 @@ class TestLineStyleMixIn:
             cap="round",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_cap(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_cap: ap.String = line_style_mixin.line_cap
@@ -263,7 +264,7 @@ class TestLineStyleMixIn:
         line_cap = line_style_mixin.line_cap
         assert line_cap == ap.LineCaps.ROUND.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_cap_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_cap_if_not_initialized()
@@ -273,7 +274,7 @@ class TestLineStyleMixIn:
         line_style_mixin._initialize_line_cap_if_not_initialized()
         assert line_style_mixin._line_cap == ap.LineCaps.ROUND.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_line_joints(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin.line_style(color="#333")
@@ -282,7 +283,7 @@ class TestLineStyleMixIn:
         line_style_mixin.line_style(color="#333", joints=ap.LineJoints.BEVEL)
         assert line_style_mixin._line_joints == ap.LineJoints.BEVEL.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_joints_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_joints_if_not_initialized()
@@ -292,13 +293,13 @@ class TestLineStyleMixIn:
         line_style_mixin._initialize_line_joints_if_not_initialized()
         assert line_style_mixin._line_joints == ap.LineJoints.BEVEL.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_joints(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin.line_style(color="#333", joints=ap.LineJoints.BEVEL)
         assert line_style_mixin.line_joints == ap.LineJoints.BEVEL.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_dot_setting(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_dot_setting: Optional[
@@ -313,7 +314,7 @@ class TestLineStyleMixIn:
         assert line_dot_setting.dot_size == 10  # type: ignore
         assert isinstance(line_dot_setting, ap.LineDotSetting)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_dot_setting_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_dot_setting_if_not_initialized()
@@ -329,7 +330,7 @@ class TestLineStyleMixIn:
         line_dot_setting = line_style_mixin.line_dot_setting
         assert line_dot_setting.dot_size == 10  # type: ignore
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_dash_setting_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_dash_setting_if_not_initialized()
@@ -341,7 +342,7 @@ class TestLineStyleMixIn:
         line_style_mixin._initialize_line_dash_setting_if_not_initialized()
         assert line_style_mixin._line_dash_setting is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_dash_setting(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_dash_setting: Optional[
@@ -355,7 +356,7 @@ class TestLineStyleMixIn:
         line_dash_setting = line_style_mixin.line_dash_setting
         assert line_dash_setting.dash_size == 10  # type: ignore
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_round_dot_setting_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_round_dot_setting_if_not_initialized()
@@ -369,7 +370,7 @@ class TestLineStyleMixIn:
             line_style_mixin._line_round_dot_setting, ap.LineRoundDotSetting
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_round_dot_setting(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_round_dot_setting: Optional[
@@ -384,7 +385,7 @@ class TestLineStyleMixIn:
         line_round_dot_setting = line_style_mixin.line_round_dot_setting
         assert isinstance(line_round_dot_setting, ap.LineRoundDotSetting)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_dash_dot_setting_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_dash_dot_setting_if_not_initialized()
@@ -398,7 +399,7 @@ class TestLineStyleMixIn:
             line_style_mixin._line_dash_dot_setting, ap.LineDashDotSetting
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_dash_dot_setting(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_dash_dot_setting: Optional[
@@ -412,7 +413,7 @@ class TestLineStyleMixIn:
         line_dash_dot_setting = line_style_mixin.line_dash_dot_setting
         assert isinstance(line_dash_dot_setting, ap.LineDashDotSetting)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__convert_line_alpha_to_number(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._variable_name_suffix = "test_suffix"
@@ -428,7 +429,7 @@ class TestLineStyleMixIn:
         assert isinstance(alpha, ap.Number)
         assert alpha._variable_name_suffix == "test_suffix__line_alpha"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__convert_line_thickness_to_apysc_int(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._variable_name_suffix = "test_suffix"

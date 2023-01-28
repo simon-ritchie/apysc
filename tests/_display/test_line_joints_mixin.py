@@ -9,10 +9,11 @@ import apysc as ap
 from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineJointsMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_joints_if_not_initialized(self) -> None:
         mixin: LineJointsMixIn = LineJointsMixIn()
         mixin._initialize_line_joints_if_not_initialized()
@@ -22,7 +23,7 @@ class TestLineJointsMixIn:
         mixin._initialize_line_joints_if_not_initialized()
         assert mixin._line_joints == ap.LineJoints.BEVEL.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_joints(self) -> None:
         mixin: LineJointsMixIn = LineJointsMixIn()
         mixin.variable_name = "test_line_joints_mixin"
@@ -32,7 +33,7 @@ class TestLineJointsMixIn:
         mixin.line_joints = ap.LineJoints.BEVEL
         assert mixin.line_joints == ap.LineJoints.BEVEL.value  # type: ignore # noqa
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_line_joints_and_skip_appending_exp(self) -> None:
         expression_data_util.empty_expression()
         mixin: LineJointsMixIn = LineJointsMixIn()
@@ -54,7 +55,7 @@ class TestLineJointsMixIn:
         mixin._update_line_joints_and_skip_appending_exp(value=ap.LineJoints.MITER)
         assert mixin.line_joints == ap.LineJoints.MITER.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_joints_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: LineJointsMixIn = LineJointsMixIn()
@@ -71,7 +72,7 @@ class TestLineJointsMixIn:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: LineJointsMixIn = LineJointsMixIn()
         mixin.variable_name = "test_line_joints_mixin"
@@ -87,7 +88,7 @@ class TestLineJointsMixIn:
             snapshot_name: ap.LineJoints.MITER.value
         }
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: LineJointsMixIn = LineJointsMixIn()
         mixin.variable_name = "test_line_joints_mixin"

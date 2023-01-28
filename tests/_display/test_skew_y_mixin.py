@@ -5,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestMixIn(SkewYMixIn):
@@ -16,7 +17,7 @@ class _TestMixIn(SkewYMixIn):
 
 
 class TestSkewYMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_skew_y_if_not_initialized(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface._initialize_skew_y_if_not_initialized()
@@ -26,7 +27,7 @@ class TestSkewYMixIn:
         interface._initialize_skew_y_if_not_initialized()
         assert interface._skew_y == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_skew_y(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         assert interface.skew_y == 0
@@ -34,7 +35,7 @@ class TestSkewYMixIn:
         interface.skew_y = ap.Int(10)
         assert interface.skew_y == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_skew_y_update_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: _TestMixIn = _TestMixIn()
@@ -51,7 +52,7 @@ class TestSkewYMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface.skew_y = ap.Int(10)
@@ -63,7 +64,7 @@ class TestSkewYMixIn:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._skew_y_snapshot[snapshot_name] == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface.skew_y = ap.Int(10)
@@ -77,7 +78,7 @@ class TestSkewYMixIn:
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.skew_y == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_skew_y_attr_linking_setting(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface._initialize_skew_y_if_not_initialized()

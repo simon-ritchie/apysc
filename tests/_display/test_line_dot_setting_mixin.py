@@ -10,10 +10,11 @@ from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineDotSettingMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_dot_setting_if_not_initialized(self) -> None:
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin._initialize_line_dot_setting_if_not_initialized()
@@ -23,7 +24,7 @@ class TestLineDotSettingMixIn:
         mixin._initialize_line_dot_setting_if_not_initialized()
         assert mixin._line_dot_setting.dot_size == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_dot_setting(self) -> None:
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin.variable_name = "test_line_dot_setting_mixin"
@@ -42,7 +43,7 @@ class TestLineDotSettingMixIn:
         line_dot_setting = mixin.line_dot_setting
         assert line_dot_setting.dot_size == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_dot_setting_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
@@ -67,7 +68,7 @@ class TestLineDotSettingMixIn:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_line_dot_setting_and_skip_appending_exp(self) -> None:
         expression_data_util.empty_expression()
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
@@ -90,7 +91,7 @@ class TestLineDotSettingMixIn:
             value=10,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin.variable_name = "test_line_dot_setting_mixin"
@@ -107,7 +108,7 @@ class TestLineDotSettingMixIn:
             mixin._line_dot_setting_snapshots[snapshot_name], ap.LineDotSetting
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin.variable_name = "test_line_dot_setting_mixin"

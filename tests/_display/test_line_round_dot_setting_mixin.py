@@ -9,10 +9,11 @@ import apysc as ap
 from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineRoundDotSettingMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_round_dot_setting_if_not_initialized(self) -> None:
         mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
         mixin._initialize_line_round_dot_setting_if_not_initialized()
@@ -24,7 +25,7 @@ class TestLineRoundDotSettingMixIn:
         mixin._initialize_line_round_dot_setting_if_not_initialized()
         assert isinstance(mixin._line_round_dot_setting, ap.LineRoundDotSetting)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_round_dot_setting(self) -> None:
         mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
         line_round_dot_setting: Optional[
@@ -48,7 +49,7 @@ class TestLineRoundDotSettingMixIn:
         mixin.line_round_dot_setting = None
         assert mixin.line_cap.value == ap.LineCaps.BUTT.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_line_round_dot_setting_and_skip_appending_exp(self) -> None:
         mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
         line_round_dot_setting: ap.LineRoundDotSetting = ap.LineRoundDotSetting(
@@ -69,7 +70,7 @@ class TestLineRoundDotSettingMixIn:
             value=10,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_round_dot_setting_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
@@ -95,7 +96,7 @@ class TestLineRoundDotSettingMixIn:
         expected: str = f"{mixin.variable_name}.css" f'("stroke-dasharray", "");'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
         mixin.variable_name = "test_line_round_dot_setting_mixin"
@@ -117,7 +118,7 @@ class TestLineRoundDotSettingMixIn:
             == line_round_dot_setting
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
         mixin.variable_name = "test_line_round_dot_setting_mixin"

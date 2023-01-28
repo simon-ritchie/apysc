@@ -11,6 +11,7 @@ from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._testing import testing_helper
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestClass1(VariableNameMixIn):
@@ -47,7 +48,7 @@ class _TestClass1(VariableNameMixIn):
         int_1.value = 20
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_handler_name() -> None:
     test_instance: _TestClass1 = _TestClass1()
     handler_name: str = handler.get_handler_name(
@@ -59,7 +60,7 @@ def test_get_handler_name() -> None:
     assert handler_name.endswith(f"_{test_instance.variable_name}")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_handler_expression() -> None:
     expression_data_util.empty_expression()
     test_instance: _TestClass1 = _TestClass1()
@@ -116,7 +117,7 @@ def test_append_handler_expression() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_unbinding_expression() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
@@ -130,7 +131,7 @@ def test_append_unbinding_expression() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_unbinding_all_expression() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
@@ -142,7 +143,7 @@ def test_append_unbinding_all_expression() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_in_handler_head_expression() -> None:
     expression_data_util.empty_expression()
     handler._append_in_handler_head_expression(in_handler_head_expression="")

@@ -10,6 +10,7 @@ from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestClickMixIn(ClickMixIn, VariableNameMixIn):
@@ -45,7 +46,7 @@ class TestClickMixIn:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_click(self) -> None:
         expression_data_util.empty_expression()
         mixin_1: _TestClickMixIn = _TestClickMixIn()
@@ -67,7 +68,7 @@ class TestClickMixIn:
             handler=self.on_click_1,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_click_handlers_if_not_initialized(self) -> None:
         mixin_1: ClickMixIn = ClickMixIn()
         mixin_1._initialize_click_handlers_if_not_initialized()
@@ -75,7 +76,7 @@ class TestClickMixIn:
         mixin_1._initialize_click_handlers_if_not_initialized()
         assert mixin_1._click_handlers == {}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_click(self) -> None:
         expression_data_util.empty_expression()
         mixin_1: ClickMixIn = ClickMixIn()
@@ -97,7 +98,7 @@ class TestClickMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_click_all(self) -> None:
         expression_data_util.empty_expression
         mixin_1: ClickMixIn = ClickMixIn()

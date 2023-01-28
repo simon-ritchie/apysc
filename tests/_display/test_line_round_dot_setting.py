@@ -3,10 +3,11 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineRoundDotSetting:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         setting: ap.LineRoundDotSetting = ap.LineRoundDotSetting(
             round_size=20, space_size=10, variable_name_suffix="test_setting"
@@ -27,7 +28,7 @@ class TestLineRoundDotSetting:
             "space_size": ap.Int(10),
         }
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_round_size(self) -> None:
         setting: ap.LineRoundDotSetting = ap.LineRoundDotSetting(
             round_size=20, space_size=10
@@ -36,7 +37,7 @@ class TestLineRoundDotSetting:
         assert round_size == 20
         assert isinstance(round_size, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_space_size(self) -> None:
         setting: ap.LineRoundDotSetting = ap.LineRoundDotSetting(
             round_size=20, space_size=10

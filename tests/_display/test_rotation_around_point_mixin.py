@@ -12,6 +12,7 @@ from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.expression_string import ExpressionString
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestMixIn(RotationAroundPointMixIn):
@@ -23,7 +24,7 @@ class _TestMixIn(RotationAroundPointMixIn):
 
 
 class TestRotationAroundPointMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_rotation_around_point_if_not_initialized(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         mixin._initialize_rotation_around_point_if_not_initialized()
@@ -33,7 +34,7 @@ class TestRotationAroundPointMixIn:
         mixin._initialize_rotation_around_point_if_not_initialized()
         assert mixin._rotation_around_point == {"a": ap.Int(10)}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_get_rotation_around_point(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         x: ap.Int = ap.Int(100)
@@ -48,7 +49,7 @@ class TestRotationAroundPointMixIn:
         rotation = mixin.get_rotation_around_point(x=x, y=y)
         assert rotation == 50
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_set_rotation_around_point(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         rotation: ap.Int = ap.Int(50)
@@ -58,7 +59,7 @@ class TestRotationAroundPointMixIn:
         rotation = mixin.get_rotation_around_point(x=x, y=y)
         assert rotation == 50
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_rotation_around_point_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestMixIn = _TestMixIn()
@@ -69,7 +70,7 @@ class TestRotationAroundPointMixIn:
         expression: str = expression_data_util.get_current_expression()
         assert ".rotate(" in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         x: ap.Int = ap.Int(50)
@@ -93,7 +94,7 @@ class TestRotationAroundPointMixIn:
             snapshot_name: {key_exp_str.value: rotation}
         }
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         x: ap.Int = ap.Int(50)
@@ -114,7 +115,7 @@ class TestRotationAroundPointMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._rotation_around_point[key_exp_str.value] == 120
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_rotation_around_point_updating_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestMixIn = _TestMixIn()

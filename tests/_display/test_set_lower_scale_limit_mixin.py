@@ -8,10 +8,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.set_lower_scale_limit_mixin import SetLowerScaleLimitMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestSetLowerScaleLimitMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_lower_scale_limit(self) -> None:
         from apysc._expression import expression_data_util
 

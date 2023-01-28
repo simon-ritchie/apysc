@@ -7,10 +7,11 @@ import apysc as ap
 from apysc._display.graphics import Graphics
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestSprite:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(variable_name_suffix="test_sprite")
@@ -29,7 +30,7 @@ class TestSprite:
         )
         assert sprite.graphics._variable_name_suffix == "test_sprite__graphics"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_add_child(self) -> None:
         ap.Stage()
         parent_sprite: ap.Sprite = ap.Sprite()
@@ -39,7 +40,7 @@ class TestSprite:
             [parent_sprite.graphics, child_sprite]
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -57,7 +58,7 @@ class TestSprite:
             ), f"{expected_str}\n-----------------\n{expression}"
         expression_data_util.empty_expression()
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -72,7 +73,7 @@ class TestSprite:
         assert sprite.graphics._fill_color_snapshots[snapshot_name] == "#333333"
         assert sprite.graphics._fill_alpha_snapshots[snapshot_name] == 0.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -88,7 +89,7 @@ class TestSprite:
         sprite._run_all_revert_methods(snapshot_name=snapshot_name)
         assert sprite.graphics.fill_alpha == 1.0
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

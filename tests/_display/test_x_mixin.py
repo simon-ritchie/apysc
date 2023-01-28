@@ -6,10 +6,11 @@ import apysc as ap
 from apysc._display.x_mixin import XMixIn
 from apysc._expression import expression_data_util
 from apysc._type import value_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestXMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_x(self) -> None:
         x_mixin = XMixIn()
         x_mixin.variable_name = "test_x_mixin"
@@ -20,7 +21,7 @@ class TestXMixIn:
         assert x == x_mixin._x
         assert x.variable_name != x_mixin._x.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_x_update_expression(self) -> None:
         x_mixin = XMixIn()
         x_mixin.variable_name = "test_x_mixin"
@@ -31,7 +32,7 @@ class TestXMixIn:
         expected: str = f"test_x_mixin.x({value_str});"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_x_if_not_initialized(self) -> None:
         x_mixin = XMixIn()
         x_mixin.variable_name = "test_x_mixin"
@@ -42,7 +43,7 @@ class TestXMixIn:
         x_mixin._initialize_x_if_not_initialized()
         assert x_mixin.x == 100
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         x_mixin = XMixIn()
         x_mixin.variable_name = "test_x_mixin"
@@ -55,7 +56,7 @@ class TestXMixIn:
         x_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert x_mixin._x_snapshots[snapshot_name] == 100
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         x_mixin = XMixIn()
         x_mixin.variable_name = "test_x_mixin"
@@ -70,14 +71,14 @@ class TestXMixIn:
         x_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert x_mixin.x == 150
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_x_attr_linking_setting(self) -> None:
         x_mixin = XMixIn()
         x_mixin.variable_name = "test_x_mixin"
         x_mixin._initialize_x_if_not_initialized()
         assert x_mixin._attr_linking_stack["x"] == [ap.Int(0)]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_x_and_skip_appending_exp(self) -> None:
         x_mixin = XMixIn()
         x_mixin._update_x_and_skip_appending_exp(x=100)

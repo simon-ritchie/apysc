@@ -9,17 +9,18 @@ import apysc as ap
 from apysc._display.stage import get_stage_elem_str
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestMouseEvent:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         int_1: ap.Int = ap.Int(10)
         mouse_event: ap.MouseEvent[ap.Int] = ap.MouseEvent(this=int_1)
         assert mouse_event.this == int_1
         assert mouse_event.variable_name.startswith(f"{var_names.MOUSE_EVENT}_")
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_stage_x(self) -> None:
         int_1: ap.Int = ap.Int(10)
         mouse_event: ap.MouseEvent[ap.Int] = ap.MouseEvent(this=int_1)
@@ -27,7 +28,7 @@ class TestMouseEvent:
         assert isinstance(stage_x, ap.Int)
         assert stage_x == 0
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_stage_x_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
@@ -41,7 +42,7 @@ class TestMouseEvent:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_stage_y(self) -> None:
         int_1: ap.Int = ap.Int(10)
         mouse_event: ap.MouseEvent[ap.Int] = ap.MouseEvent(this=int_1)
@@ -49,7 +50,7 @@ class TestMouseEvent:
         assert stage_y == 0
         assert isinstance(stage_y, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_stage_y_getter_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         mouse_event: ap.MouseEvent[ap.Stage] = ap.MouseEvent(this=stage)
@@ -62,7 +63,7 @@ class TestMouseEvent:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_local_x(self) -> None:
         int_1: ap.Int = ap.Int(10)
         mouse_event: ap.MouseEvent[ap.Int] = ap.MouseEvent(this=int_1)
@@ -70,7 +71,7 @@ class TestMouseEvent:
         assert local_x == 0
         assert isinstance(local_x, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_local_x_getter_expression(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -87,7 +88,7 @@ class TestMouseEvent:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_local_y(self) -> None:
         int_1: ap.Int = ap.Int(10)
         mouse_event: ap.MouseEvent[ap.Int] = ap.MouseEvent(this=int_1)
@@ -95,7 +96,7 @@ class TestMouseEvent:
         assert local_y == 0
         assert isinstance(local_y, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_local_y_getter_expression(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

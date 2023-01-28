@@ -12,10 +12,11 @@ from apysc._display.any_display_object import AnyDisplayObject
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestStage:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage(
             stage_width=500,
@@ -37,7 +38,7 @@ class TestStage:
         testing_helper.assert_attrs(expected_attrs=expected_attrs, any_obj=stage)
         assert stage._children._variable_name_suffix == "test_stage__children"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage(
             stage_width=100,
@@ -57,7 +58,7 @@ class TestStage:
         )
         assert expression == expected_str
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_stage_elem_id_if_none(self) -> None:
         stage: ap.Stage = ap.Stage()
         result_id: str = stage._create_stage_elem_id_if_none(stage_elem_id="line-graph")
@@ -69,7 +70,7 @@ class TestStage:
         result_id_2: str = stage._create_stage_elem_id_if_none(stage_elem_id=None)
         assert result_id_1 != result_id_2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_style_str(self) -> None:
         stage: ap.Stage = ap.Stage(
             stage_width=200, stage_height=300, background_color="#333"
@@ -78,7 +79,7 @@ class TestStage:
         expected_style: str = "width: 200px; height: 300px; background-color: #333333;"
         assert style == expected_style
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         expected_expression: str = stage._make_constructor_expression()
@@ -88,12 +89,12 @@ class TestStage:
         for expected_expression_line in expected_expression.splitlines():
             assert expected_expression_line in saved_expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_stage_elem_id(self) -> None:
         stage: ap.Stage = ap.Stage(stage_elem_id="#line-graph")
         assert stage.stage_elem_id == "line-graph"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_add_child(self) -> None:
         stage: ap.Stage = ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject(
@@ -102,20 +103,20 @@ class TestStage:
         stage.add_child(child=display_object)
         assert stage._children == ap.Array([display_object])
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__save_stage_elem_id(self) -> None:
         ap.Stage(stage_elem_id="line-graph")
         stage_elem_id: str = stage.get_stage_elem_id()
         assert stage_elem_id == "line-graph"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         stage_: ap.Stage = ap.Stage(stage_elem_id="stage_1")
         repr_str: str = repr(stage_)
         assert repr_str == "Stage('stage_1')"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_stage_elem_id() -> None:
     expression_data_util.empty_expression()
     stage_elem_id: str = stage.get_stage_elem_id()
@@ -126,7 +127,7 @@ def test_get_stage_elem_id() -> None:
     assert stage_elem_id == "line-graph"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_stage_elem_str() -> None:
     stage_: ap.Stage = ap.Stage()
     stage_elem_str: str = stage.get_stage_elem_str()
@@ -134,7 +135,7 @@ def test_get_stage_elem_str() -> None:
     assert stage_elem_str == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_stage() -> None:
     stage_: ap.Stage = ap.Stage()
     restored_stage: ap.Stage = stage.get_stage()
@@ -148,7 +149,7 @@ def test_get_stage() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__save_stage_id_to_db() -> None:
     stage_: ap.Stage = ap.Stage()
     table_name: str = expression_data_util.TableName.STAGE_ID.value

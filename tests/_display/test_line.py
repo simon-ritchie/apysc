@@ -10,10 +10,11 @@ from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from tests._display.test_graphics_expression import assert_stroke_attr_expression_exists
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLine:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         line: ap.Line = ap.Line(
@@ -76,7 +77,7 @@ class TestLine:
             dot_size=5, dash_size=10, space_size=3
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_points_expression(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -96,7 +97,7 @@ class TestLine:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -118,7 +119,7 @@ class TestLine:
         assert match is not None
         assert_stroke_attr_expression_exists(expression=expression)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -131,7 +132,7 @@ class TestLine:
         expected: str = f"Line('{line.variable_name}')"
         assert repr_str == expected
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -163,7 +164,7 @@ class TestLine:
             any_obj=line,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_initial_x_and_y_with_minimum_point(self) -> None:
         ap.Stage()
         line: ap.Line = ap.Line(

@@ -9,17 +9,18 @@ import apysc as ap
 from apysc._display.line_thickness_mixin import LineThicknessMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineThicknessMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_thickness(self) -> None:
         line_thickness_mixin: LineThicknessMixIn = LineThicknessMixIn()
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
         line_thickness_mixin.line_thickness = ap.Int(3)
         assert line_thickness_mixin.line_thickness == 3
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_thickness_update_expression(self) -> None:
         line_thickness_mixin: LineThicknessMixIn = LineThicknessMixIn()
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
@@ -36,7 +37,7 @@ class TestLineThicknessMixIn:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_line_thickness_and_skip_appending_exp(self) -> None:
         line_thickness_mixin: LineThicknessMixIn = LineThicknessMixIn()
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
@@ -51,7 +52,7 @@ class TestLineThicknessMixIn:
         line_thickness_mixin._update_line_thickness_and_skip_appending_exp(value=6)
         assert line_thickness_mixin.line_thickness == 6
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_thickness_if_not_initialized(self) -> None:
         line_thickness_mixin: LineThicknessMixIn = LineThicknessMixIn()
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
@@ -62,7 +63,7 @@ class TestLineThicknessMixIn:
         line_thickness_mixin._initialize_line_thickness_if_not_initialized()
         assert line_thickness_mixin.line_thickness == 2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         line_thickness_mixin: LineThicknessMixIn = LineThicknessMixIn()
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
@@ -75,7 +76,7 @@ class TestLineThicknessMixIn:
         line_thickness_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert line_thickness_mixin._line_thickness_snapshots[snapshot_name] == 3
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         line_thickness_mixin: LineThicknessMixIn = LineThicknessMixIn()
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
@@ -90,7 +91,7 @@ class TestLineThicknessMixIn:
         line_thickness_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert line_thickness_mixin.line_thickness == 2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_thickness_attr_linking_setting(self) -> None:
         mixin: LineThicknessMixIn = LineThicknessMixIn()
         mixin.variable_name = "test_line_thickness_mixin"

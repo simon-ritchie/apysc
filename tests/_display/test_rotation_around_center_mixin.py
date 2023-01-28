@@ -7,6 +7,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestMixIn(RotationAroundCenterMixIn):
@@ -18,7 +19,7 @@ class _TestMixIn(RotationAroundCenterMixIn):
 
 
 class TestRotationAroundCenterMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_rotation_around_center_if_not_initialized(self) -> None:
         mixin: RotationAroundCenterMixIn = RotationAroundCenterMixIn()
         mixin._initialize_rotation_around_center_if_not_initialized()
@@ -27,14 +28,14 @@ class TestRotationAroundCenterMixIn:
         mixin._initialize_rotation_around_center_if_not_initialized()
         assert mixin._rotation_around_center == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_rotation_around_center(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         assert mixin.rotation_around_center == 0
         mixin.rotation_around_center = ap.Int(10)
         assert mixin.rotation_around_center == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_rotation_around_center_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestMixIn = _TestMixIn()
@@ -50,7 +51,7 @@ class TestRotationAroundCenterMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         mixin.rotation_around_center = ap.Int(10)
@@ -62,7 +63,7 @@ class TestRotationAroundCenterMixIn:
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         mixin._rotation_around_center_snapshots[snapshot_name] == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         mixin.rotation_around_center = ap.Int(10)
@@ -76,7 +77,7 @@ class TestRotationAroundCenterMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin.rotation_around_center == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_rotation_around_center_attr_linking_setting(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         mixin._initialize_rotation_around_center_if_not_initialized()

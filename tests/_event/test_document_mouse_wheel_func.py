@@ -8,6 +8,7 @@ import apysc as ap
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 def on_mouse_wheel_1(e: ap.WheelEvent, options: Dict[str, Any]) -> None:
@@ -38,7 +39,7 @@ def on_mouse_wheel_2(e: ap.WheelEvent, options: Dict[str, Any]) -> None:
     assert options == {}
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_bind_wheel_event_to_document() -> None:
     expression_data_util.empty_expression()
     name: str = ap.bind_wheel_event_to_document(
@@ -55,7 +56,7 @@ def test_bind_wheel_event_to_document() -> None:
     _ = ap.bind_wheel_event_to_document(handler=on_mouse_wheel_2)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_unbind_wheel_event_from_document() -> None:
     expression_data_util.empty_expression()
     ap.unbind_wheel_event_from_document(handler=on_mouse_wheel_1)
@@ -65,7 +66,7 @@ def test_unbind_wheel_event_from_document() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_unbind_wheel_event_all_from_document() -> None:
     expression_data_util.empty_expression()
     ap.unbind_wheel_event_all_from_document()

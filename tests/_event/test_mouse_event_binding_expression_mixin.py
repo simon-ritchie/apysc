@@ -8,6 +8,7 @@ import apysc as ap
 from apysc._event.click_mixin import ClickMixIn
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestClickMixIn(ClickMixIn, VariableNameMixIn):
@@ -29,7 +30,7 @@ class TestMouseEventBindingExpressionMixin:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_mouse_event_binding_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin_1: _TestClickMixIn = _TestClickMixIn()

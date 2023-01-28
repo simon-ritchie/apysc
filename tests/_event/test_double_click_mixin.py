@@ -8,6 +8,7 @@ import apysc as ap
 from apysc._event.double_click_mixin import DoubleClickMixIn
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestDoubleClick(DoubleClickMixIn, VariableNameMixIn):
@@ -43,7 +44,7 @@ class TestDoubleClickMixIn:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_dblclick_handlers_if_not_initialized(self) -> None:
         mixin_1: DoubleClickMixIn = DoubleClickMixIn()
         mixin_1._initialize_dblclick_handlers_if_not_initialized()
@@ -51,7 +52,7 @@ class TestDoubleClickMixIn:
 
         mixin_1._initialize_dblclick_handlers_if_not_initialized()
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_dblclick(self) -> None:
         expression_data_util.empty_expression()
         mixin_1: _TestDoubleClick = _TestDoubleClick()
@@ -66,7 +67,7 @@ class TestDoubleClickMixIn:
         expected = f"function {name}"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_dblclick(self) -> None:
         expression_data_util.empty_expression()
         mixin_1: _TestDoubleClick = _TestDoubleClick()
@@ -76,7 +77,7 @@ class TestDoubleClickMixIn:
         expression: str = expression_data_util.get_current_expression()
         assert "off(" in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_dblclick_all(self) -> None:
         expression_data_util.empty_expression()
         mixin_1: _TestDoubleClick = _TestDoubleClick()

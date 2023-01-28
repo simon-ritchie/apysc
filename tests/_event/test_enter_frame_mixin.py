@@ -13,10 +13,11 @@ from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestEnterFrameMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_enter_frame_handlers_if_not_initialized(self) -> None:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin._initialize_enter_frame_handlers_if_not_initialized()
@@ -26,7 +27,7 @@ class TestEnterFrameMixIn:
         mixin._initialize_enter_frame_handlers_if_not_initialized()
         assert prev_id == id(mixin._enter_frame_handlers)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_is_stopped_settings_if_not_initialized(self) -> None:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin._initialize_is_stopped_settings_if_not_initialized()
@@ -36,7 +37,7 @@ class TestEnterFrameMixIn:
         mixin._initialize_is_stopped_settings_if_not_initialized()
         assert mixin._is_stopped_settings == {"test": ap.Boolean(True)}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_enter_frame_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: EnterFrameMixIn = EnterFrameMixIn()
@@ -100,7 +101,7 @@ class TestEnterFrameMixIn:
         """
         ap.trace(200)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_enter_frame(self) -> None:
         expression_data_util.empty_expression()
         mixin: EnterFrameMixIn = EnterFrameMixIn()
@@ -142,7 +143,7 @@ class TestEnterFrameMixIn:
         assert "function" not in expression
         assert "requestAnimationFrame" in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_enter_frame(self) -> None:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         assert_raises(
@@ -160,7 +161,7 @@ class TestEnterFrameMixIn:
         )
         assert mixin._is_stopped_settings[handler_name].value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_enter_frame_all(self) -> None:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin.enter_frame(handler=self.on_enter_frame_1)
@@ -177,7 +178,7 @@ class TestEnterFrameMixIn:
         )
         assert mixin._is_stopped_settings[handler_name].value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_fps_millisecond_intervals_settings_if_not_initialized(
         self,
     ) -> None:
@@ -191,7 +192,7 @@ class TestEnterFrameMixIn:
             "test": ap.Number(33.3),
         }
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_loop_func_name_settings_if_not_initialized(self) -> None:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin._initialize_loop_func_name_settings_if_not_initialized()
@@ -201,7 +202,7 @@ class TestEnterFrameMixIn:
         mixin._initialize_loop_func_name_settings_if_not_initialized()
         assert mixin._loop_func_name_settings == {"test_handler": "test_loop"}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_prev_time_settings_if_not_initialized(self) -> None:
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin._initialize_prev_time_settings_if_not_initialized()
@@ -214,7 +215,7 @@ class TestEnterFrameMixIn:
             "test_time": expected_prev_time,
         }
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_enter_frame_rebinding_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: EnterFrameMixIn = EnterFrameMixIn()
@@ -246,7 +247,7 @@ class TestEnterFrameMixIn:
         ) in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_millisecond_intervals_from_fps() -> None:
     millisecond_interval: ap.Number = (
         enter_frame_mixin._get_millisecond_interval_from_fps(fps=ap.FPS.FPS_60)

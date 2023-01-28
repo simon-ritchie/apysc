@@ -8,6 +8,7 @@ import apysc as ap
 from apysc._event.mouse_move_mixin import MouseMoveMixIn
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestMouseMove(MouseMoveMixIn, VariableNameMixIn):
@@ -41,7 +42,7 @@ class TestMouseMoveMixIn:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_mouse_move_handlers_if_not_initialized(self) -> None:
         mixin_1: MouseMoveMixIn = MouseMoveMixIn()
         mixin_1._initialize_mouse_move_handlers_if_not_initialized()
@@ -50,7 +51,7 @@ class TestMouseMoveMixIn:
         mixin_1._initialize_mouse_move_handlers_if_not_initialized()
         assert mixin_1._mouse_move_handlers == {}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_mousemove(self) -> None:
         expression_data_util.empty_expression()
         mixin_1: _TestMouseMove = _TestMouseMove()
@@ -70,7 +71,7 @@ class TestMouseMoveMixIn:
         expected = f"{mixin_1.variable_name}.mousemove({name});"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_mousemove(self) -> None:
         expression_data_util.empty_expression()
         mixin_1: _TestMouseMove = _TestMouseMove()
@@ -84,7 +85,7 @@ class TestMouseMoveMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_mousemove_all(self) -> None:
         expression_data_util.empty_expression()
         mixin_1: _TestMouseMove = _TestMouseMove()

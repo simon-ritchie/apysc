@@ -9,10 +9,11 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineDashSettingMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_dash_setting_if_not_initialized(self) -> None:
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface._initialize_line_dash_setting_if_not_initialized()
@@ -22,7 +23,7 @@ class TestLineDashSettingMixIn:
         interface._initialize_line_dash_setting_if_not_initialized()
         assert interface._line_dash_setting.dash_size == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_dash_setting(self) -> None:
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface.variable_name = "test_line_dash_setting_interface"
@@ -37,7 +38,7 @@ class TestLineDashSettingMixIn:
         line_dash_setting = interface.line_dash_setting
         assert line_dash_setting.dash_size == 5  # type: ignore
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_line_dash_setting_and_skip_appending_exp(self) -> None:
         expression_data_util.empty_expression()
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
@@ -60,7 +61,7 @@ class TestLineDashSettingMixIn:
         line_dash_setting = interface.line_dash_setting
         assert line_dash_setting is None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_dash_setting_update_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
@@ -89,7 +90,7 @@ class TestLineDashSettingMixIn:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface.variable_name = "test_line_dash_setting_interface"
@@ -106,7 +107,7 @@ class TestLineDashSettingMixIn:
             interface._line_dash_setting_snapshots[snapshot_name], LineDashSetting
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface.variable_name = "test_line_dash_setting_interface"

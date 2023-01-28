@@ -12,6 +12,7 @@ from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.expression_string import ExpressionString
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestMixIn(ScaleXFromPointMixIn):
@@ -24,7 +25,7 @@ class _TestMixIn(ScaleXFromPointMixIn):
 
 
 class TestScaleXFromPointMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_scale_x_from_point_if_not_initialized(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface._initialize_scale_x_from_point_if_not_initialized()
@@ -33,7 +34,7 @@ class TestScaleXFromPointMixIn:
         interface._initialize_scale_x_from_point_if_not_initialized()
         assert interface._scale_x_from_point == {"a": 10}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_get_scale_x_from_point(self) -> None:
         x: ap.Int = ap.Int(100)
         interface: _TestMixIn = _TestMixIn()
@@ -51,7 +52,7 @@ class TestScaleXFromPointMixIn:
         assert scale_x == 0.5
         assert isinstance(scale_x, ap.Number)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_set_scale_x_from_point(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         x: ap.Int = ap.Int(100)
@@ -59,7 +60,7 @@ class TestScaleXFromPointMixIn:
         scale_x: ap.Number = interface.get_scale_x_from_point(x=x)
         assert scale_x == 0.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_scale_x_from_point_update_expression(self) -> None:
         expression_data_util.empty_expression()
         x: ap.Int = ap.Int(100)
@@ -95,7 +96,7 @@ class TestScaleXFromPointMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         x: ap.Int = ap.Int(100)
@@ -117,7 +118,7 @@ class TestScaleXFromPointMixIn:
             key_exp_str.value: 0.5
         }
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         x: ap.Int = ap.Int(100)

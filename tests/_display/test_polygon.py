@@ -5,10 +5,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPolygon:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         points: List[ap.Point2D] = [
@@ -77,7 +78,7 @@ class TestPolygon:
             dot_size=5, dash_size=10, space_size=3
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -88,7 +89,7 @@ class TestPolygon:
         repr_str: str = repr(polygon)
         assert repr_str == f"Polygon('{polygon.variable_name}')"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -124,7 +125,7 @@ class TestPolygon:
             any_obj=polygon,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_x_and_y_with_minimum_point(self) -> None:
         ap.Stage()
         points: List[ap.Point2D] = [

@@ -4,10 +4,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestEnterFrameEvent:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         event: ap.EnterFrameEvent = ap.EnterFrameEvent(this=stage)

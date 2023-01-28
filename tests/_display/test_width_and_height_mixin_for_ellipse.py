@@ -7,10 +7,11 @@ from apysc._display.width_and_height_mixin_for_ellipse import (
     WidthAndHeightMixInForEllipse,
 )
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestWidthAndHeightMixInForEllipse:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_width_and_height_if_not_initialized(self) -> None:
         mixin: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
         mixin._initialize_width_and_height_if_not_initialized()
@@ -23,7 +24,7 @@ class TestWidthAndHeightMixInForEllipse:
         assert mixin._width == 10
         assert mixin._height == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_width(self) -> None:
         mixin: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
         mixin.variable_name = "test_width_and_height_mixins_for_ellipse"
@@ -32,7 +33,7 @@ class TestWidthAndHeightMixInForEllipse:
         mixin.width = ap.Int(10)
         assert mixin.width == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_height(self) -> None:
         mixin: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
         mixin.variable_name = "test_width_and_height_mixins_for_ellipse"
@@ -41,7 +42,7 @@ class TestWidthAndHeightMixInForEllipse:
         mixin.height = ap.Int(10)
         assert mixin.height == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_ellipse_width_and_height_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
@@ -58,7 +59,7 @@ class TestWidthAndHeightMixInForEllipse:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
         mixin.variable_name = "test_width_and_height_mixins_for_ellipse"
@@ -75,7 +76,7 @@ class TestWidthAndHeightMixInForEllipse:
         assert mixin._width_snapshots[snapshot_name] == 10
         assert mixin._height_snapshots[snapshot_name] == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
         mixin.variable_name = "test_width_and_height_mixins_for_ellipse"
@@ -95,14 +96,14 @@ class TestWidthAndHeightMixInForEllipse:
         assert mixin.width == 30
         assert mixin.height == 40
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_width_attr_linking_setting(self) -> None:
         mixin: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
         mixin.variable_name = "test_width_and_height_mixins_for_ellipse"
         mixin._initialize_width_and_height_if_not_initialized()
         assert mixin._attr_linking_stack["width"] == [ap.Int(0)]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_height_attr_linking_setting(self) -> None:
         mixin: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
         mixin.variable_name = "test_width_and_height_mixins_for_ellipse"

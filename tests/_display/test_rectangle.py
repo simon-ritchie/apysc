@@ -22,10 +22,11 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestRectangle:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         ap.Stage()
         rectangle: ap.Rectangle = ap.Rectangle(
@@ -101,7 +102,7 @@ class TestRectangle:
             dot_size=3, dash_size=10, space_size=5
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -111,7 +112,7 @@ class TestRectangle:
         repr_str: str = repr(rectangle_)
         assert repr_str == f"Rectangle('{rectangle_.variable_name}')"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -142,7 +143,7 @@ class TestRectangle:
         assert_stroke_opacity_attr_expression_exists(expression=expression)
         expression_data_util.empty_expression()
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -183,7 +184,7 @@ class TestRectangle:
             any_obj=rectangle,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_ellipse_settings_if_values_are_not_zero(self) -> None:
         ap.Stage()
         rectangle: ap.Rectangle = ap.Rectangle(x=0, y=0, width=50, height=50)

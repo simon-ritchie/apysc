@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.radius_mixin import RadiusMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestRadiusMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_radius_if_not_initialized(self) -> None:
         interface: RadiusMixIn = RadiusMixIn()
         interface._initialize_radius_if_not_initialized()
@@ -17,7 +18,7 @@ class TestRadiusMixIn:
         interface._radius = ap.Int(10)
         assert interface._radius == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_radius(self) -> None:
         interface: RadiusMixIn = RadiusMixIn()
         interface.variable_name = "test_radius_interface"
@@ -26,7 +27,7 @@ class TestRadiusMixIn:
         interface.radius = ap.Int(10)
         assert interface.radius == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_radius_update_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: RadiusMixIn = RadiusMixIn()
@@ -37,7 +38,7 @@ class TestRadiusMixIn:
         expected: str = f"{interface.variable_name}.radius({radius.variable_name});"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         interface: RadiusMixIn = RadiusMixIn()
         interface.variable_name = "test_radius_interface"
@@ -50,7 +51,7 @@ class TestRadiusMixIn:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._radius_snapshots[snapshot_name] == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         interface: RadiusMixIn = RadiusMixIn()
         interface.variable_name = "test_radius_interface"
@@ -65,7 +66,7 @@ class TestRadiusMixIn:
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.radius == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_converted_radius_int(self) -> None:
         interface: RadiusMixIn = RadiusMixIn()
         radius: ap.Int = interface._get_converted_radius_int(radius=10)
@@ -76,7 +77,7 @@ class TestRadiusMixIn:
         assert radius == 20
         assert isinstance(radius, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_raidus_attr_linking_setting(self) -> None:
         interface: RadiusMixIn = RadiusMixIn()
         interface.variable_name = "test_radius_interface"

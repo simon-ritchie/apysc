@@ -10,10 +10,11 @@ from apysc._display.polygon_apply_current_points_mixin import (
 )
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPolygonApplyCurrentPointsMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__apply_current_points(self) -> None:
         expression_data_util.empty_expression()
         mixin: PolygonApplyCurrentPointsMixIn = PolygonApplyCurrentPointsMixIn()

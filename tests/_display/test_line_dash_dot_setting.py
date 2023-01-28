@@ -3,10 +3,11 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineDashDotSetting:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         setting: ap.LineDashDotSetting = ap.LineDashDotSetting(
             dot_size=5, dash_size=20, space_size=7, variable_name_suffix="test_setting"
@@ -22,7 +23,7 @@ class TestLineDashDotSetting:
         assert setting["dash_size"]._variable_name_suffix == "test_setting__dash_size"
         assert setting["space_size"]._variable_name_suffix == "test_setting__space_size"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_dot_size(self) -> None:
         setting: ap.LineDashDotSetting = ap.LineDashDotSetting(
             dot_size=5, dash_size=20, space_size=7
@@ -31,7 +32,7 @@ class TestLineDashDotSetting:
         assert dot_size == 5
         assert isinstance(dot_size, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_dash_size(self) -> None:
         setting: ap.LineDashDotSetting = ap.LineDashDotSetting(
             dot_size=5, dash_size=20, space_size=7
@@ -40,7 +41,7 @@ class TestLineDashDotSetting:
         assert dash_size == 20
         assert isinstance(dash_size, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_space_size(self) -> None:
         setting: ap.LineDashDotSetting = ap.LineDashDotSetting(
             dot_size=5, dash_size=20, space_size=7

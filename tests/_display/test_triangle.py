@@ -7,10 +7,11 @@ from apysc._display.triangle import Triangle
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestTriangle:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_points_with_each_coordinate(self) -> None:
         ap.Stage()
         triangle: Triangle = Triangle(
@@ -29,7 +30,7 @@ class TestTriangle:
             ],
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_x_and_y_with_minimum_point(self) -> None:
         ap.Stage()
         triangle: Triangle = Triangle(
@@ -43,7 +44,7 @@ class TestTriangle:
         assert triangle.x == ap.Int(15)
         assert triangle.y == ap.Int(10)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         triangle: Triangle = Triangle(
@@ -58,7 +59,7 @@ class TestTriangle:
         expected: str = f"Triangle('{triangle.variable_name}')"
         assert repr_str == expected
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
@@ -104,7 +105,7 @@ class TestTriangle:
         )
         assert triangle.parent == sprite
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

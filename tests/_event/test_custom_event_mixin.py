@@ -9,6 +9,7 @@ from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._event.custom_event_type import CustomEventType
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestObject(CustomEventMixIn, VariableNameMixIn):
@@ -32,7 +33,7 @@ class TestCustomEventMixIn:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_custom_event_type_str(self) -> None:
         mixin: CustomEventMixIn = CustomEventMixIn()
         custom_event_type_str: str = mixin._get_custom_event_type_str(
@@ -46,7 +47,7 @@ class TestCustomEventMixIn:
         assert custom_event_type_str == CustomEventType.TIMER_COMPLETE.value
         assert isinstance(custom_event_type_str, str)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_custom_event_handlers_if_not_initialized(self) -> None:
         mixin: CustomEventMixIn = CustomEventMixIn()
         mixin._initialize_custom_event_handlers_if_not_initialized(
@@ -54,7 +55,7 @@ class TestCustomEventMixIn:
         )
         assert "test_custom_event" in mixin._custom_event_handlers
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_custom_event_binding_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestObject = _TestObject()
@@ -71,7 +72,7 @@ class TestCustomEventMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_bind_custom_event(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestObject = _TestObject()
@@ -89,7 +90,7 @@ class TestCustomEventMixIn:
         assert expected in expression
         assert 'console.log("hello");' in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_trigger_custom_event(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestObject = _TestObject()
@@ -100,7 +101,7 @@ class TestCustomEventMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__unset_custom_event_handler_data(self) -> None:
         mixin: _TestObject = _TestObject()
         mixin._custom_event_handlers = {}
@@ -127,7 +128,7 @@ class TestCustomEventMixIn:
         )
         assert mixin._custom_event_handlers == {"test_event": {}}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_custom_event_unbinding_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestObject = _TestObject()
@@ -140,7 +141,7 @@ class TestCustomEventMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_custom_event(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestObject = _TestObject()
@@ -159,7 +160,7 @@ class TestCustomEventMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_unbind_custom_event_all(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestObject = _TestObject()

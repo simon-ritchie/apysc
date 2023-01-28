@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestEvent:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         int_1: ap.Int = ap.Int(10)
         event: ap.Event = ap.Event(this=int_1)
@@ -20,14 +21,14 @@ class TestEvent:
         )
         assert event.variable_name.startswith(f"{var_names.EVENT}_")
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_this(self) -> None:
         stage: ap.Stage = ap.Stage()
         e: ap.Event[ap.Stage] = ap.Event(this=stage)
         this: ap.Stage = e.this
         assert this == stage
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_type_name_and_self_type(self) -> None:
         class AnyEvent(ap.Event):
             ...

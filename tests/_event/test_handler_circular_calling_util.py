@@ -10,9 +10,10 @@ from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__read_handler_names() -> None:
     expression_data_util.empty_expression()
     instance: VariableNameMixIn = VariableNameMixIn()
@@ -51,7 +52,7 @@ def _is_circular_calling(handler_name: str) -> bool:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_handler_circular_calling() -> None:
     expression_data_util.empty_expression()
     instance: VariableNameMixIn = VariableNameMixIn()
@@ -80,7 +81,7 @@ def test_is_handler_circular_calling() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_handler_name_to_last_of_list() -> None:
     handler_names: List[
         str
@@ -102,7 +103,7 @@ def test__append_handler_name_to_last_of_list() -> None:
     assert handler_names == ["test_handler_a", "test_handler_b", "test_handler_a"]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_same_name_prev_hadler_name() -> None:
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
@@ -117,7 +118,7 @@ def test__get_same_name_prev_hadler_name() -> None:
     assert same_name_prev_hadler_name == "test_handler_a_1"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__save_circular_calling_handler_name() -> None:
     instance_1: VariableNameMixIn = VariableNameMixIn()
     instance_1.variable_name = "test_instance_1"
@@ -140,7 +141,7 @@ def test__save_circular_calling_handler_name() -> None:
     assert result == ("test_handler_a_2", "test_handler_a_1", "test_instance_1")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__is_already_saved_circular_calling() -> None:
     expression_data_util.empty_expression()
     instance: VariableNameMixIn = VariableNameMixIn()
@@ -167,7 +168,7 @@ def test__is_already_saved_circular_calling() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_prev_handler_name() -> None:
     expression_data_util.empty_expression()
     instance: VariableNameMixIn = VariableNameMixIn()
@@ -196,7 +197,7 @@ def test_get_prev_handler_name() -> None:
     assert prev_handler_name == "test_handler_b_1"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_same_name_prev_data() -> None:
     instance_1: VariableNameMixIn = VariableNameMixIn()
     instance_1.variable_name = "test_instance_1"
@@ -226,7 +227,7 @@ def test__get_same_name_prev_data() -> None:
         )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_same_name_prev_variable_name() -> None:
     instance_1: VariableNameMixIn = VariableNameMixIn()
     instance_1.variable_name = "test_instance_1"
@@ -243,7 +244,7 @@ def test__get_same_name_prev_variable_name() -> None:
     assert prev_variable_name == "test_instance_1"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_prev_variable_name() -> None:
     expression_data_util.empty_expression()
     prev_variable_name: str = handler_circular_calling_util.get_prev_variable_name(

@@ -9,9 +9,10 @@ from retrying import retry
 import apysc as ap
 from apysc._display import scale_interface_helper
 from apysc._type.expression_string import ExpressionString
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_coordinate_key_for_expression() -> None:
     key_exp_str: ExpressionString = (
         scale_interface_helper.get_coordinate_key_for_expression(coordinate=10)
@@ -24,7 +25,7 @@ def test_get_coordinate_key_for_expression() -> None:
     assert key_exp_str.value == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_scale_updating_expression() -> None:
     coordinate: ap.Int = ap.Int(100)
     key_exp_str: ExpressionString = (

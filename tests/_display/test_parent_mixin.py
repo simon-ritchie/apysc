@@ -5,10 +5,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestParentMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_parent(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -18,7 +19,7 @@ class TestParentMixIn:
         with pytest.raises(ValueError):  # type: ignore
             sprite.parent = 100  # type: ignore
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_remove_from_parent(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -31,7 +32,7 @@ class TestParentMixIn:
         expression: str = expression_data_util.get_current_expression()
         assert f"removeElement({sprite.variable_name}" in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -44,7 +45,7 @@ class TestParentMixIn:
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert sprite._parent_snapshots[snapshot_name] == stage
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

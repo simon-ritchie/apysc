@@ -9,10 +9,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPath:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         path_data_list: List[ap.PathDataBase] = [
@@ -79,7 +80,7 @@ class TestPath:
             dot_size=5, dash_size=10, space_size=3
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -90,7 +91,7 @@ class TestPath:
         repr_str: str = repr(path)
         assert repr_str == f"Path('{path.variable_name}')"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -111,7 +112,7 @@ class TestPath:
             )
             assert match is not None, f"{expected}, \n\n{expression}\n\n"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

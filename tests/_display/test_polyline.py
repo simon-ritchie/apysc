@@ -32,10 +32,11 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPolyline:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         points: List[ap.Point2D] = [ap.Point2D(10, 20), ap.Point2D(30, 40)]
@@ -100,7 +101,7 @@ class TestPolyline:
             dot_size=5, dash_size=10, space_size=3
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -110,7 +111,7 @@ class TestPolyline:
         expected: str = f"Polyline('{polyline.variable_name}')"
         assert repr_str == expected
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
@@ -149,7 +150,7 @@ class TestPolyline:
         assert_stroke_linejoin_attr_expression_exists(expression=expression)
         assert_stroke_dasharray_css_expression_exists(expression=expression)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_append_line_point(self) -> None:
         expression_data_util.empty_expression()
         ap.Stage()
@@ -169,7 +170,7 @@ class TestPolyline:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -199,7 +200,7 @@ class TestPolyline:
             any_obj=polyline,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_x_and_y_with_minimum_point(self) -> None:
         ap.Stage()
         points: List[ap.Point2D] = [ap.Point2D(10, 20), ap.Point2D(30, 40)]

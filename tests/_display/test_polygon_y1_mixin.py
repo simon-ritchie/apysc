@@ -3,10 +3,11 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPolygonY1MixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_y1(self) -> None:
         ap.Stage()
         triangle: ap.Triangle = ap.Triangle(

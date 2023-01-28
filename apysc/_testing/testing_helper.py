@@ -6,6 +6,9 @@ from typing import Callable
 from typing import Dict
 from typing import Optional
 from typing import Type
+import functools
+from typing import TypeVar
+from random import randint
 
 import pytest
 
@@ -129,3 +132,53 @@ def assert_raises(
         _kwargs["match"] = match
     with pytest.raises(expected_error_class, **_kwargs):  # type: ignore
         callable_(**kwargs)
+
+
+# pyright: reportInvalidTypeVarUse=false
+_Callable = TypeVar("_Callable", bound=Callable)
+
+
+def apply_test_settings(
+    *,
+    retrying_max_attempts_num: int = 15,
+    retrying_sleep_time: Optional[int] = None,
+) -> _Callable:
+    """
+    Apply each test setting to a test function.
+    This function is a decorator function.
+
+    Parameters
+    ----------
+    retrying_max_attempts_num : int, optional
+        Maximum number of retrying attempts.
+    retrying_sleep_time : Optional[int], optional
+        A Sleep time of retrying.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    if retrying_sleep_time is None:
+        retrying_sleep_time = randint(10, 3000)
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+
+            result: Any = None
+            for i in range(retrying_max_attempts_num):
+
+                if i < retrying_max_attempts_num - 1:
+                    try:
+                        result = callable_(*args, **kwargs)
+                        break
+                    except Exception:
+                        continue
+                result = callable_(*args, **kwargs)
+                break
+            return result
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore

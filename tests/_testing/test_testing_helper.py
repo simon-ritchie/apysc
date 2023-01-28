@@ -100,3 +100,36 @@ def test_assert_attrs_type() -> None:
         expected_types={"a": int, "b": int},
         any_obj=test_instance,
     )
+
+
+_count: int = 0
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_apply_test_settings() -> None:
+    global _count
+    _count = 0
+
+    @testing_helper.apply_test_settings(
+        retrying_max_attempts_num=2,
+        retrying_sleep_time=1,
+    )
+    def test_func_1(*, value: int) -> None:
+        global _count
+        _count += 1
+
+        raise ValueError()
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=test_func_1,
+        value=10,
+    )
+    assert _count == 2
+
+    @testing_helper.apply_test_settings(retrying_max_attempts_num=2)
+    def test_func_2(*, value: int) -> int:
+        return value
+
+    result: int = test_func_2(value=10)
+    assert result == 10
